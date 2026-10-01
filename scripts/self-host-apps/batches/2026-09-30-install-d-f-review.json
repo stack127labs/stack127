@@ -1,0 +1,652 @@
+{
+  "report_date": "2026-09-30",
+  "project_id": "tulgfrqamtcshdtmhvpx",
+  "selection": "First 15 published self_hostable apps with an empty install-options array, slug beginning d, e, or f, ordered by slug.",
+  "production_write": false,
+  "apps": [
+    {
+      "slug": "dasher",
+      "id": "266ab3e0-efbd-4980-b748-abd871b7ab88",
+      "name": "dasher",
+      "existing": {
+        "website_url": null,
+        "source_code_url": "https://github.com/maddox/dasher",
+        "install_docs_url": "https://github.com/maddox/dasher#readme",
+        "publisher_url": "https://github.com/maddox",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": ["native"]
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Native installation",
+          "url": "https://github.com/maddox/dasher#setup",
+          "support_level": "official",
+          "source_url": "https://github.com/maddox/dasher",
+          "image": null,
+          "note": "The project README instructs users to install dependencies, clone the project, and run npm install. The project is sunsetted and relies on legacy Amazon Dash buttons."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/maddox/dasher",
+          "note": "Official README says the project is sunsetted and describes the host installation steps."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "An install option can be added for the documented native setup.",
+        "Keep the sunset status clear; verify the app remains useful before further enrichment."
+      ]
+    },
+    {
+      "slug": "datasette",
+      "id": "daf43658-5be0-4bb8-84ca-c8cb7cbb1b62",
+      "name": "Datasette",
+      "existing": {
+        "website_url": "https://github.com/simonw/datasette",
+        "source_code_url": "https://github.com/simonw/datasette",
+        "install_docs_url": "https://github.com/simonw/datasette#readme",
+        "publisher_url": "https://github.com/simonw",
+        "docker_url": "https://github.com/simonw/datasette/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": ["docker"]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/datasetteproject/datasette",
+          "support_level": "official",
+          "source_url": "https://docs.datasette.io/en/stable/installation.html",
+          "image": "datasetteproject/datasette",
+          "note": null
+        },
+        {
+          "method": "native",
+          "label": "Native installation",
+          "url": "https://docs.datasette.io/en/stable/installation.html",
+          "support_level": "official",
+          "source_url": "https://docs.datasette.io/en/stable/installation.html",
+          "image": null,
+          "note": "The official install guide documents pip and pipx installation."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.datasette.io/en/stable/installation.html",
+          "note": "Official guide documents the Docker Hub image and pip/pipx installation."
+        },
+        {
+          "url": "https://hub.docker.com/r/datasetteproject/datasette",
+          "note": "Docker Hub listing identifies datasetteproject/datasette and has a current latest tag."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace docker_url, which currently points to a Dockerfile, with the Docker Hub registry URL.",
+        "Set docker_image to datasetteproject/datasette and include native installation in deployment_methods."
+      ]
+    },
+    {
+      "slug": "dayglance",
+      "id": "dc4908cd-842c-433e-82f6-377946dab1f2",
+      "name": "dayGLANCE",
+      "existing": {
+        "website_url": "https://dayglance.app/",
+        "source_code_url": "https://github.com/krelltunez/dayGLANCE",
+        "install_docs_url": "https://github.com/krelltunez/dayGLANCE#readme",
+        "publisher_url": "https://github.com/krelltunez",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": ["native"]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://docs.dayglance.app/self-hosting",
+          "support_level": "official",
+          "source_url": "https://docs.dayglance.app/self-hosting",
+          "image": "ghcr.io/krelltunez/dayglance:latest",
+          "note": null
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://docs.dayglance.app/self-hosting",
+          "support_level": "official",
+          "source_url": "https://docs.dayglance.app/self-hosting",
+          "image": "ghcr.io/krelltunez/dayglance:latest",
+          "note": null
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.dayglance.app/self-hosting",
+          "note": "Official self-hosting guide provides a Docker Compose configuration and names the GHCR image."
+        },
+        {
+          "url": "https://docs.dayglance.app/getting-started",
+          "note": "Official getting-started page links self-hosted installation and provides a Compose quick start."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add docker_url, docker_image, compose_url, and docker/compose deployment methods from the official guide."
+      ]
+    },
+    {
+      "slug": "daytona",
+      "id": "2006066a-9d33-4467-9a57-d397f92fe8e5",
+      "name": "Daytona",
+      "existing": {
+        "website_url": null,
+        "source_code_url": "https://github.com/daytonaio/daytona",
+        "install_docs_url": "https://github.com/daytonaio/daytona/tree/v0.190.0",
+        "publisher_url": "https://github.com/daytonaio",
+        "docker_url": "https://github.com/daytonaio/daytona/tree/v0.190.0",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": ["docker", "compose"]
+      },
+      "verified_options": [],
+      "sources": [
+        {
+          "url": "https://github.com/daytonaio/daytona/blob/v0.190.0/README.md",
+          "note": "The README points to a full local Docker Compose stack and says this stack is still in development and is not safe to use in production."
+        },
+        {
+          "url": "https://github.com/daytonaio/daytona/tree/v0.190.0/docker",
+          "note": "The official Compose directory README calls this a local development setup; the linked production deployment guide returns 404."
+        },
+        {
+          "url": "https://www.daytona.io/docs/oss-deployment/",
+          "note": "The repository's official open-source deployment link currently returns 404."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Do not publish a Compose install option from the dev-only stack.",
+        "The current docker_url points to a repository tag rather than an install destination.",
+        "Verify a supported self-host deployment route with the publisher; current official deployment documentation is unavailable."
+      ]
+    },
+    {
+      "slug": "ddclient",
+      "id": "8020757b-c3bf-48ed-a11d-11a74107b258",
+      "name": "ddclient",
+      "existing": {
+        "website_url": "https://ddclient.net",
+        "source_code_url": "https://github.com/ddclient/ddclient",
+        "install_docs_url": "https://github.com/ddclient/ddclient#readme",
+        "publisher_url": "https://github.com/ddclient",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "System package",
+          "url": "https://github.com/ddclient/ddclient#installation",
+          "support_level": "official",
+          "source_url": "https://github.com/ddclient/ddclient",
+          "image": null,
+          "note": "The official README recommends installing a package offered by the operating system and documents manual installation as an alternative."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/ddclient/ddclient",
+          "note": "Official README describes OS package installation and links to project releases."
+        },
+        {
+          "url": "https://ddclient.net/",
+          "note": "Official site links to the project documentation."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add a package install option and set deployment_methods to include package.",
+        "No official Docker image was verified; do not use the LinuxServer community image as an official destination."
+      ]
+    },
+    {
+      "slug": "ddracenetwork",
+      "id": "1ad91fcc-57a0-4df3-bb2d-e73d6157d65f",
+      "name": "DDraceNetwork",
+      "existing": {
+        "website_url": "https://ddnet.org",
+        "source_code_url": "https://github.com/ddnet/ddnet",
+        "install_docs_url": "https://github.com/ddnet/ddnet#readme",
+        "publisher_url": "https://github.com/ddnet",
+        "docker_url": "https://github.com/ddnet/ddnet/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": ["docker"]
+      },
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "System package",
+          "url": "https://github.com/ddnet/ddnet#installation-from-repository",
+          "support_level": "official",
+          "source_url": "https://github.com/ddnet/ddnet",
+          "image": null,
+          "note": "The official README gives package-manager install commands. The official maps repository says the DDNet-Server binary is distributed with the DDNet client and can run an independent server."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/ddnet/ddnet",
+          "note": "Official README provides install commands for Debian/Ubuntu, Fedora, Arch, FreeBSD, macOS, and Windows."
+        },
+        {
+          "url": "https://github.com/ddnet/ddnet-maps",
+          "note": "Official maps README says users can run their own server with the DDNet-Server binary distributed with the DDNet client."
+        },
+        {
+          "url": "https://ddnet.org/downloads/",
+          "note": "Official downloads page lists DDNet builds and packages."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Remove the Dockerfile URL from docker_url; no official Docker image or Compose deployment was verified.",
+        "Replace the docker deployment method with package, and link to official server setup guidance if a dedicated server guide is added."
+      ]
+    },
+    {
+      "slug": "decypharr",
+      "id": "288e070e-6e32-4cbb-b343-305e05d7bc89",
+      "name": "Decypharr",
+      "existing": {
+        "website_url": "https://github.com/sirrobot01/decypharr",
+        "source_code_url": "https://github.com/sirrobot01/decypharr",
+        "install_docs_url": "https://github.com/sirrobot01/decypharr#readme",
+        "publisher_url": "https://github.com/sirrobot01",
+        "docker_url": "https://github.com/sirrobot01/decypharr/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": ["docker"]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/cy01/blackhole",
+          "support_level": "official",
+          "source_url": "https://decypharr.com/guides/installation/",
+          "image": "cy01/blackhole:latest",
+          "note": "The official installation guide and Docker Hub listing use this image."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://decypharr.com/guides/installation/",
+          "support_level": "official",
+          "source_url": "https://decypharr.com/guides/installation/",
+          "image": "cy01/blackhole:latest",
+          "note": "Official guide provides a Compose service and the cy01/blackhole image."
+        },
+        {
+          "method": "binary",
+          "label": "Binary release",
+          "url": "https://github.com/sirrobot01/decypharr/releases",
+          "support_level": "official",
+          "source_url": "https://decypharr.com/guides/installation/",
+          "image": null,
+          "note": "The official guide says to download the Linux binary from GitHub Releases."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://decypharr.com/guides/installation/",
+          "note": "Official guide documents Docker Compose, Docker Run, and Linux binary installation."
+        },
+        {
+          "url": "https://hub.docker.com/r/cy01/blackhole",
+          "note": "Docker Hub listing describes Decypharr and gives a Compose example using cy01/blackhole:latest."
+        },
+        {
+          "url": "https://github.com/sirrobot01/decypharr/releases",
+          "note": "Official guide identifies GitHub Releases as the binary download destination."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace docker_url with the Docker Hub registry URL and set docker_image to cy01/blackhole:latest.",
+        "Add the Compose and binary install options."
+      ]
+    },
+    {
+      "slug": "deltafin",
+      "id": "c1c593a8-6393-4ff8-893f-181d0a228e37",
+      "name": "deltafin",
+      "existing": {
+        "website_url": null,
+        "source_code_url": "https://github.com/gavamedia/deltafin",
+        "install_docs_url": "https://github.com/gavamedia/deltafin#readme",
+        "publisher_url": "https://github.com/gavamedia",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": ["native"]
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Native installation",
+          "url": "https://github.com/gavamedia/deltafin#new-installation",
+          "support_level": "official",
+          "source_url": "https://github.com/gavamedia/deltafin/blob/main/README.md",
+          "image": null,
+          "note": "Official instructions install the app in a Python virtual environment and build native libraries on the host."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/gavamedia/deltafin/blob/main/README.md",
+          "note": "Official README has a New installation procedure."
+        },
+        {
+          "url": "https://github.com/gavamedia/deltafin/blob/main/docs/REQUIREMENTS.md",
+          "note": "Official requirements document states supported host platforms and disk needs."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "An install option can be added for the official native setup."
+      ]
+    },
+    {
+      "slug": "depay",
+      "id": "4fcfb900-4741-40a3-88c4-74626f60f4f4",
+      "name": "DePay",
+      "existing": {
+        "website_url": "https://depay.com",
+        "source_code_url": "https://github.com/DePayFi/widgets",
+        "install_docs_url": "https://github.com/DePayFi/widgets#readme",
+        "publisher_url": "https://github.com/DePayFi",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [],
+      "sources": [
+        {
+          "url": "https://www.depay.com/docs/payments/integrate/widget/",
+          "note": "Official guide installs @depay/widgets as an npm/yarn dependency or loads it from a CDN for embedding in another application."
+        },
+        {
+          "url": "https://github.com/DePayFi/widgets",
+          "note": "The linked source project is a widget library, not an independently deployable server app."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "No independent self-hosted app installation was verified; the official install path is a JavaScript widget bundled into another app.",
+        "Review self_hosting_status and directory eligibility before adding an install option."
+      ]
+    },
+    {
+      "slug": "dietpi",
+      "id": "25a04386-d339-405a-ae67-d8e57c9ee2ac",
+      "name": "DietPi",
+      "existing": {
+        "website_url": "https://dietpi.com",
+        "source_code_url": "https://github.com/MichaIng/DietPi",
+        "install_docs_url": "https://github.com/MichaIng/DietPi#readme",
+        "publisher_url": "https://github.com/MichaIng",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": ["docker"]
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Native installation",
+          "url": "https://dietpi.com/docs/install/",
+          "support_level": "official",
+          "source_url": "https://dietpi.com/docs/install/",
+          "image": null,
+          "note": "DietPi is installed from official disk images on supported single-board computers or native PCs."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://dietpi.com/docs/install/",
+          "note": "Official guide explains downloading and flashing a DietPi image for supported hardware."
+        },
+        {
+          "url": "https://dietpi.com/",
+          "note": "Official homepage offers image downloads and identifies DietPi as a Debian-based operating system."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace deployment_methods docker with native; DietPi is an operating system distributed as disk images."
+      ]
+    },
+    {
+      "slug": "dify-ai",
+      "id": "875c051d-942e-4642-ba6e-096eee1358d0",
+      "name": "Dify.ai",
+      "existing": {
+        "website_url": "https://dify.ai",
+        "source_code_url": "https://github.com/langgenius/dify",
+        "install_docs_url": "https://github.com/langgenius/dify#readme",
+        "publisher_url": "https://github.com/langgenius",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": ["native"]
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://docs.dify.ai/en/self-host/deploy/quick-start/docker-compose",
+          "support_level": "official",
+          "source_url": "https://docs.dify.ai/en/self-host/deploy/quick-start/docker-compose",
+          "image": null,
+          "note": "The official self-host guide starts the full multi-service stack with Docker Compose."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.dify.ai/en/self-host/deploy/quick-start/docker-compose",
+          "note": "Official guide provides self-host installation steps and current Compose requirements."
+        },
+        {
+          "url": "https://github.com/langgenius/dify",
+          "note": "Official project README also directs self-hosters to Docker Compose."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace deployment_methods native with compose.",
+        "Do not create a single Docker image option: the official installation uses a multi-service Compose stack."
+      ]
+    },
+    {
+      "slug": "digger",
+      "id": "57937616-c0e8-4fde-82f8-9b2455926a53",
+      "name": "Digger",
+      "existing": {
+        "website_url": "https://digger.dev",
+        "source_code_url": "https://github.com/diggerhq/digger",
+        "install_docs_url": "https://github.com/diggerhq/digger/blob/develop/docs/ce/self-host/deploy-helm.mdx",
+        "publisher_url": "https://github.com/diggerhq",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": ["docker"]
+      },
+      "verified_options": [
+        {
+          "method": "helm",
+          "label": "Helm chart",
+          "url": "https://docs.opentaco.dev/ce/self-host/deploy-helm",
+          "support_level": "official",
+          "source_url": "https://docs.opentaco.dev/ce/self-host/deploy-helm",
+          "image": null,
+          "note": "The guide installs the digger-backend Helm chart from the publisher's OCI chart registry."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.opentaco.dev/ce/self-host/deploy-helm",
+          "note": "Official deployment instructions show a helm install command for digger-backend and its OCI chart."
+        },
+        {
+          "url": "https://docs.digger.dev/ce/self-host/deploy-helm",
+          "note": "The old official docs URL redirects to the OpenTaco documentation, which identifies a product rebrand."
+        },
+        {
+          "url": "https://github.com/diggerhq/digger/pkgs/container/digger_backend",
+          "note": "GitHub Packages lists the publisher's digger_backend container image."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Update install_docs_url to the current official guide; the stored GitHub MDX path is stale.",
+        "The official docs now say OpenTaco; review the directory name, product identity, and official website links.",
+        "Replace the docker deployment method with helm. The current source confirms a Helm route; it does not justify a bare Docker method."
+      ]
+    },
+    {
+      "slug": "discourse",
+      "id": "1f5a5afa-7dd1-4256-b9c2-faf626d0b980",
+      "name": "Discourse",
+      "existing": {
+        "website_url": "https://www.discourse.org",
+        "source_code_url": "https://github.com/discourse/discourse",
+        "install_docs_url": "https://github.com/discourse/discourse#readme",
+        "publisher_url": "https://github.com/discourse",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/discourse/discourse/blob/main/docs/INSTALL-cloud.md",
+          "support_level": "official",
+          "source_url": "https://github.com/discourse/discourse/blob/main/docs/INSTALL.md",
+          "image": null,
+          "note": "Official setup uses Docker and the Discourse installer builds the application container; the guide does not offer one pullable application image."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/discourse/discourse/blob/main/docs/INSTALL.md",
+          "note": "Official install overview says only Docker-based self-host installs are supported."
+        },
+        {
+          "url": "https://github.com/discourse/discourse/blob/main/docs/INSTALL-cloud.md",
+          "note": "Official install guide provides the current one-command Docker installer for a local or cloud Linux server."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official Docker installation option and set deployment_methods to docker.",
+        "Link to the installation guide, not a presumed Docker Hub app image; Discourse builds and manages its Docker image through its installer."
+      ]
+    },
+    {
+      "slug": "diun",
+      "id": "e9cc27bb-c2a5-45c0-95f5-80a800ecb234",
+      "name": "Diun",
+      "existing": {
+        "website_url": "https://crazymax.dev/diun",
+        "source_code_url": "https://github.com/crazy-max/diun",
+        "install_docs_url": "https://github.com/crazy-max/diun#readme",
+        "publisher_url": "https://github.com/crazy-max",
+        "docker_url": "https://github.com/crazy-max/diun/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": ["docker"]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/crazymax/diun",
+          "support_level": "official",
+          "source_url": "https://crazymax.dev/diun/install/docker/",
+          "image": "crazymax/diun:latest",
+          "note": null
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://crazymax.dev/diun/install/docker/",
+          "support_level": "official",
+          "source_url": "https://crazymax.dev/diun/install/docker/",
+          "image": "crazymax/diun:latest",
+          "note": "Official install guide provides a Compose example."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazymax.dev/diun/install/docker/",
+          "note": "Official guide documents the Docker Hub and GHCR images and supplies a Docker Compose example."
+        },
+        {
+          "url": "https://hub.docker.com/r/crazymax/diun",
+          "note": "Official image is available under the project publisher's Docker Hub namespace."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace docker_url, which currently points to a Dockerfile, with the registry URL.",
+        "Set docker_image to crazymax/diun:latest and add compose_url plus the compose deployment method."
+      ]
+    },
+    {
+      "slug": "diyhue",
+      "id": "0ec3b261-836d-45eb-b2ad-06e8b7dabf61",
+      "name": "diyHue",
+      "existing": {
+        "website_url": "https://diyhue.org/",
+        "source_code_url": "https://github.com/diyhue/diyHue",
+        "install_docs_url": "https://diyhue.readthedocs.io/",
+        "publisher_url": "https://diyhue.org/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": ["docker", "compose"]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/diyhue/core",
+          "support_level": "official",
+          "source_url": "https://diyhue.readthedocs.io/en/latest/getting_started.html",
+          "image": "diyhue/core:latest",
+          "note": null
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://diyhue.readthedocs.io/en/latest/getting_started.html",
+          "support_level": "official",
+          "source_url": "https://diyhue.readthedocs.io/en/latest/getting_started.html",
+          "image": "diyhue/core:latest",
+          "note": "Official getting-started guide points to its Compose installation method."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://diyhue.readthedocs.io/en/latest/getting_started.html",
+          "note": "Official docs recommend Docker for new setups and describe host and bridge networking plus Docker Compose."
+        },
+        {
+          "url": "https://hub.docker.com/r/diyhue/core",
+          "note": "Docker Hub image is published by diyhue and includes install instructions."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Set docker_url, docker_image, and compose_url from the official image and install guide."
+      ]
+    }
+  ]
+}

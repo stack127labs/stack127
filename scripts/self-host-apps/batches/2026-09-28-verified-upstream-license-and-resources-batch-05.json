@@ -1,0 +1,450 @@
+{
+  "reviewed_at": "2026-09-28",
+  "scope": "Verified project licenses, current install links, container support, and app-specific RAM/storage estimates for nine published apps.",
+  "apps": [
+    {
+      "slug": "archisteamfarm",
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "Apache-2.0",
+        "docker_support": "none",
+        "docker_url": null,
+        "compose_support": false
+      },
+      "changes": {
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "docs_url": "https://github.com/JustArchiNET/ArchiSteamFarm/wiki",
+        "install_docs_url": "https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker",
+        "docker_url": "https://hub.docker.com/r/justarchi/archisteamfarm",
+        "docker_image": "justarchi/archisteamfarm:latest",
+        "docker_support": "official",
+        "compose_url": "https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker",
+        "compose_support": true,
+        "deployment_methods": ["compose", "docker", "truenas_scale"]
+      },
+      "data_source_urls": [
+        "https://github.com/JustArchiNET/ArchiSteamFarm",
+        "https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License",
+        "https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker",
+        "https://hub.docker.com/r/justarchi/archisteamfarm"
+      ]
+    },
+    {
+      "slug": "buzz",
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "Apache-2.0",
+        "docker_support": "community",
+        "compose_support": false
+      },
+      "changes": {
+        "summary": "Runs a relay where people and AI agents can share a workspace on infrastructure they control.",
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "website_url": "https://github.com/block/buzz",
+        "docs_url": "https://github.com/block/buzz",
+        "install_docs_url": "https://github.com/block/buzz/blob/main/deploy/compose/README.md",
+        "docker_url": "https://github.com/block/buzz/pkgs/container/buzz",
+        "docker_image": "ghcr.io/block/buzz:main",
+        "docker_support": "official",
+        "compose_url": "https://github.com/block/buzz/blob/main/deploy/compose/README.md",
+        "compose_support": true,
+        "deployment_methods": ["compose", "docker", "unraid"],
+        "publisher_name": "Block, Inc.",
+        "publisher_type": "company",
+        "publisher_url": "https://block.xyz/"
+      },
+      "data_source_urls": [
+        "https://github.com/block/buzz",
+        "https://github.com/block/buzz/blob/main/LICENSE",
+        "https://github.com/block/buzz/blob/main/deploy/compose/README.md",
+        "https://github.com/block/buzz/pkgs/container/buzz",
+        "https://block.xyz/"
+      ]
+    },
+    {
+      "slug": "chatbot-ui",
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "MIT",
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "changes": {
+        "summary": "Web chat interface for AI models that can connect to hosted APIs or local Ollama models.",
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_spdx_id": "MIT",
+        "license_type": "permissive",
+        "website_url": "https://chatbotui.com/",
+        "docs_url": "https://github.com/mckaywrigley/chatbot-ui/blob/main/README.md",
+        "install_docs_url": "https://github.com/mckaywrigley/chatbot-ui/blob/main/README.md",
+        "docker_url": "https://github.com/mckaywrigley/chatbot-ui/pkgs/container/chatbot-ui",
+        "docker_image": "ghcr.io/mckaywrigley/chatbot-ui:main"
+      },
+      "data_source_urls": [
+        "https://github.com/mckaywrigley/chatbot-ui",
+        "https://github.com/mckaywrigley/chatbot-ui/blob/main/README.md",
+        "https://github.com/mckaywrigley/chatbot-ui/pkgs/container/chatbot-ui",
+        "https://github.com/getumbrel/umbrel-apps/tree/master/chatbot-ui",
+        "https://raw.githubusercontent.com/getumbrel/umbrel-apps/master/chatbot-ui/docker-compose.yml",
+        "https://chatbotui.com/"
+      ]
+    },
+    {
+      "slug": "grafanamimir",
+      "review_scope": "partial",
+      "expected": {
+        "name": "GrafanaMimir",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "AGPL-3.0",
+        "docker_support": "community",
+        "compose_support": false
+      },
+      "changes": {
+        "name": "Grafana Mimir",
+        "summary": "Stores and queries Prometheus and OpenTelemetry metrics for long-term retention.",
+        "source_model": "open_source",
+        "license": "GNU Affero General Public License v3.0 only",
+        "license_spdx_id": "AGPL-3.0-only",
+        "license_type": "copyleft",
+        "website_url": "https://grafana.com/oss/mimir/",
+        "docs_url": "https://grafana.com/docs/mimir/latest/",
+        "install_docs_url": "https://grafana.com/docs/mimir/latest/get-started/",
+        "docker_url": "https://hub.docker.com/r/grafana/mimir",
+        "docker_image": "grafana/mimir:latest",
+        "docker_support": "official",
+        "compose_url": "https://github.com/grafana/mimir/blob/main/docs/sources/mimir/get-started/play-with-grafana-mimir/docker-compose.yml",
+        "compose_support": true,
+        "deployment_methods": ["compose", "docker", "unraid"],
+        "publisher_name": "Grafana Labs",
+        "publisher_type": "company",
+        "publisher_url": "https://grafana.com/"
+      },
+      "data_source_urls": [
+        "https://github.com/grafana/mimir",
+        "https://github.com/grafana/mimir/blob/main/LICENSING.md",
+        "https://grafana.com/oss/mimir/",
+        "https://grafana.com/docs/mimir/latest/",
+        "https://grafana.com/docs/mimir/latest/get-started/",
+        "https://github.com/grafana/mimir/blob/main/docs/sources/mimir/get-started/play-with-grafana-mimir/docker-compose.yml",
+        "https://hub.docker.com/r/grafana/mimir"
+      ]
+    },
+    {
+      "slug": "hound",
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "MIT",
+        "docker_support": "community",
+        "docker_url": "https://registry.hub.docker.com/r/ghcr.io/hound-search/hound"
+      },
+      "changes": {
+        "summary": "Searches code in Git repositories through a web interface.",
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_spdx_id": "MIT",
+        "license_type": "permissive",
+        "docs_url": "https://github.com/hound-search/hound/blob/main/README.md",
+        "install_docs_url": "https://github.com/hound-search/hound/blob/main/README.md",
+        "docker_url": "https://github.com/hound-search/hound/pkgs/container/hound",
+        "docker_image": "ghcr.io/hound-search/hound:latest",
+        "docker_support": "official"
+      },
+      "data_source_urls": [
+        "https://github.com/hound-search/hound",
+        "https://github.com/hound-search/hound/blob/main/LICENSE",
+        "https://github.com/hound-search/hound/blob/main/README.md",
+        "https://github.com/hound-search/hound/pkgs/container/hound"
+      ]
+    },
+    {
+      "slug": "macos",
+      "review_scope": "partial",
+      "expected": {
+        "name": "MacOS",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "MIT",
+        "docker_support": "community",
+        "compose_support": false
+      },
+      "changes": {
+        "name": "macOS in Docker",
+        "summary": "Runs macOS as a virtual machine in Docker with a browser-based viewer.",
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_spdx_id": "MIT",
+        "license_type": "permissive",
+        "docs_url": "https://github.com/dockur/macos/blob/master/readme.md",
+        "install_docs_url": "https://github.com/dockur/macos/blob/master/readme.md",
+        "docker_url": "https://hub.docker.com/r/dockurr/macos",
+        "docker_image": "dockurr/macos",
+        "docker_support": "official",
+        "compose_url": "https://github.com/dockur/macos/blob/master/compose.yml",
+        "compose_support": true,
+        "deployment_methods": ["compose", "docker", "unraid"]
+      },
+      "data_source_urls": [
+        "https://github.com/dockur/macos",
+        "https://github.com/dockur/macos/blob/master/license.md",
+        "https://github.com/dockur/macos/blob/master/readme.md",
+        "https://github.com/dockur/macos/blob/master/compose.yml",
+        "https://hub.docker.com/r/dockurr/macos"
+      ]
+    },
+    {
+      "slug": "omniroute",
+      "review_scope": "partial",
+      "expected": {
+        "name": "omniroute",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "MIT",
+        "docker_support": "community",
+        "compose_support": false
+      },
+      "changes": {
+        "name": "OmniRoute",
+        "summary": "Routes AI requests to multiple model providers through one endpoint.",
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_spdx_id": "MIT",
+        "license_type": "permissive",
+        "docs_url": "https://github.com/diegosouzapw/omniroute",
+        "install_docs_url": "https://github.com/diegosouzapw/omniroute/blob/release/v3.8.51/docs/guides/DOCKER_GUIDE.md",
+        "docker_url": "https://hub.docker.com/r/diegosouzapw/omniroute",
+        "docker_image": "diegosouzapw/omniroute:latest",
+        "docker_support": "official",
+        "compose_url": "https://github.com/diegosouzapw/omniroute/blob/release/v3.8.51/docs/guides/DOCKER_GUIDE.md",
+        "compose_support": true,
+        "deployment_methods": ["compose", "docker", "unraid"],
+        "publisher_name": "Diego Souza",
+        "publisher_type": "individual",
+        "publisher_url": "https://github.com/diegosouzapw",
+        "pricing_model": "free"
+      },
+      "data_source_urls": [
+        "https://github.com/diegosouzapw/omniroute",
+        "https://github.com/diegosouzapw/omniroute/blob/release/v3.8.51/LICENSE",
+        "https://github.com/diegosouzapw/omniroute/blob/release/v3.8.51/docs/guides/DOCKER_GUIDE.md",
+        "https://hub.docker.com/r/diegosouzapw/omniroute"
+      ]
+    },
+    {
+      "slug": "shields",
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "Apache-2.0",
+        "docker_support": "none",
+        "docker_url": null
+      },
+      "changes": {
+        "summary": "Creates SVG and raster status badges for software projects and services.",
+        "source_model": "open_source",
+        "license": "MIT License or Apache License 2.0",
+        "license_spdx_id": "MIT OR Apache-2.0",
+        "license_type": "permissive",
+        "docs_url": "https://github.com/badges/shields/blob/master/doc/self-hosting.md",
+        "install_docs_url": "https://github.com/badges/shields/blob/master/doc/self-hosting.md",
+        "docker_url": "https://hub.docker.com/r/shieldsio/shields",
+        "docker_image": "shieldsio/shields:next",
+        "docker_support": "official",
+        "deployment_methods": ["docker", "yunohost"]
+      },
+      "data_source_urls": [
+        "https://github.com/badges/shields",
+        "https://github.com/badges/shields/blob/master/LICENSE-MIT",
+        "https://github.com/badges/shields/blob/master/LICENSE-APACHE",
+        "https://github.com/badges/shields/blob/master/doc/self-hosting.md",
+        "https://hub.docker.com/r/shieldsio/shields"
+      ]
+    },
+    {
+      "slug": "windowsindocker",
+      "review_scope": "partial",
+      "expected": {
+        "name": "WindowsinDocker",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "MIT",
+        "docker_support": "community",
+        "compose_support": false
+      },
+      "changes": {
+        "name": "Windows in Docker",
+        "summary": "Runs Windows as a virtual machine inside a Docker container.",
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_spdx_id": "MIT",
+        "license_type": "permissive",
+        "docs_url": "https://github.com/dockur/windows/blob/master/readme.md",
+        "install_docs_url": "https://github.com/dockur/windows/blob/master/readme.md",
+        "docker_url": "https://hub.docker.com/r/dockurr/windows",
+        "docker_image": "dockurr/windows",
+        "docker_support": "official",
+        "compose_url": "https://github.com/dockur/windows/blob/master/compose.yml",
+        "compose_support": true,
+        "deployment_methods": ["compose", "docker", "unraid"]
+      },
+      "data_source_urls": [
+        "https://github.com/dockur/windows",
+        "https://github.com/dockur/windows/blob/master/license.md",
+        "https://github.com/dockur/windows/blob/master/readme.md",
+        "https://github.com/dockur/windows/blob/master/compose.yml",
+        "https://hub.docker.com/r/dockurr/windows"
+      ]
+    }
+  ],
+  "resource_estimates": [
+    {
+      "slug": "archisteamfarm",
+      "ram": {
+        "min_mb": 512,
+        "max_mb": 2048,
+        "kind": "estimated",
+        "confidence": "medium",
+        "basis": "Runs the card-farming bot and stores account configuration; account count and plugins affect memory.",
+        "source_urls": ["https://github.com/JustArchiNET/ArchiSteamFarm", "https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker"]
+      },
+      "storage": {
+        "min_gb": 1,
+        "max_gb": 10,
+        "kind": "estimated",
+        "confidence": "medium",
+        "basis": "Stores bot configuration, plugins, and logs; it does not store the Steam games being farmed.",
+        "source_urls": ["https://github.com/JustArchiNET/ArchiSteamFarm", "https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker"]
+      }
+    },
+    {
+      "slug": "buzz",
+      "ram": {
+        "min_mb": 4096,
+        "max_mb": 16384,
+        "kind": "estimated",
+        "confidence": "medium",
+        "basis": "The official single-node stack includes the relay, PostgreSQL, Redis, and MinIO.",
+        "source_urls": ["https://github.com/block/buzz/blob/main/deploy/compose/README.md"]
+      },
+      "storage": {
+        "min_gb": 20,
+        "max_gb": 200,
+        "kind": "estimated",
+        "confidence": "low",
+        "basis": "Keeps database records, uploaded media, and Git data; retention and media use drive growth.",
+        "source_urls": ["https://github.com/block/buzz/blob/main/deploy/compose/README.md"]
+      }
+    },
+    {
+      "slug": "chatbot-ui",
+      "ram": {
+        "min_mb": 2048,
+        "max_mb": 8192,
+        "kind": "estimated",
+        "confidence": "medium",
+        "basis": "Runs the web app and Supabase backend; local model memory is separate when Ollama is used.",
+        "source_urls": ["https://github.com/mckaywrigley/chatbot-ui/blob/main/README.md"]
+      },
+      "storage": {
+        "min_gb": 5,
+        "max_gb": 50,
+        "kind": "estimated",
+        "confidence": "medium",
+        "basis": "Stores the database and user files; local model files belong to Ollama when used.",
+        "source_urls": ["https://github.com/mckaywrigley/chatbot-ui/blob/main/README.md"]
+      }
+    },
+    {
+      "slug": "grafanamimir",
+      "ram": {
+        "min_mb": 2048,
+        "max_mb": 8192,
+        "kind": "estimated",
+        "confidence": "low",
+        "basis": "A small monolithic deployment runs in one process; ingestion rate and query load drive memory use.",
+        "source_urls": ["https://grafana.com/docs/mimir/latest/get-started/", "https://grafana.com/docs/mimir/latest/get-started/about-grafana-mimir-architecture/"]
+      },
+      "storage": {
+        "min_gb": 5,
+        "max_gb": 100,
+        "kind": "estimated",
+        "confidence": "low",
+        "basis": "Stores retained metrics; ingestion rate and retention period drive storage use.",
+        "source_urls": ["https://grafana.com/docs/mimir/latest/get-started/", "https://grafana.com/docs/mimir/latest/introduction/"]
+      }
+    },
+    {
+      "slug": "macos",
+      "ram": {
+        "min_mb": 4096,
+        "max_mb": 8192,
+        "kind": "estimated",
+        "confidence": "high",
+        "basis": "The project requires 4 GB of RAM and defaults the VM to 4 GB; heavier macOS apps need more.",
+        "source_urls": ["https://github.com/dockur/macos/blob/master/readme.md"]
+      },
+      "storage": {
+        "min_gb": 32,
+        "max_gb": 64,
+        "kind": "estimated",
+        "confidence": "high",
+        "basis": "The project requires 32 GB of free disk and defaults the virtual disk to 64 GB.",
+        "source_urls": ["https://github.com/dockur/macos/blob/master/readme.md"]
+      }
+    },
+    {
+      "slug": "omniroute",
+      "ram": {
+        "min_mb": 512,
+        "max_mb": 2048,
+        "kind": "estimated",
+        "confidence": "medium",
+        "basis": "OmniRoute sends requests to connected model providers; model memory is separate unless a local model is also run.",
+        "source_urls": ["https://github.com/diegosouzapw/omniroute", "https://github.com/diegosouzapw/omniroute/blob/release/v3.8.51/docs/guides/DOCKER_GUIDE.md"]
+      },
+      "storage": {
+        "min_gb": 1,
+        "max_gb": 10,
+        "kind": "estimated",
+        "confidence": "medium",
+        "basis": "Stores gateway configuration and logs; model files stay with the connected model runtime.",
+        "source_urls": ["https://github.com/diegosouzapw/omniroute", "https://github.com/diegosouzapw/omniroute/blob/release/v3.8.51/docs/guides/DOCKER_GUIDE.md"]
+      }
+    },
+    {
+      "slug": "windowsindocker",
+      "ram": {
+        "min_mb": 2048,
+        "max_mb": 8192,
+        "kind": "estimated",
+        "confidence": "high",
+        "basis": "The project requires 2 GB of RAM and defaults the VM to 4 GB; heavier Windows apps need more.",
+        "source_urls": ["https://github.com/dockur/windows/blob/master/readme.md"]
+      },
+      "storage": {
+        "min_gb": 32,
+        "max_gb": 64,
+        "kind": "estimated",
+        "confidence": "high",
+        "basis": "The project requires 32 GB of free disk and defaults the virtual disk to 64 GB.",
+        "source_urls": ["https://github.com/dockur/windows/blob/master/readme.md"]
+      }
+    }
+  ]
+}

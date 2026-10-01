@@ -1,0 +1,11 @@
+[Unit]
+Description=Run stack127 ad network discovery weekly
+
+[Timer]
+OnCalendar=Tue *-*-* 04:17:00 UTC
+Persistent=true
+RandomizedDelaySec=20m
+Unit=stack127-ad-network-discovery.service
+
+[Install]
+WantedBy=timers.target

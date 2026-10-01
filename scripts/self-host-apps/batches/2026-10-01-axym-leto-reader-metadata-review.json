@@ -1,0 +1,115 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Correct Axym Reader identity and official product, documentation, and install links. Proposal only.",
+  "apps": [
+    {
+      "slug": "axym-reader",
+      "review_scope": "partial",
+      "name": "LetoReader",
+      "summary": "A speed reader for imported text with adjustable pacing, chunking and highlighting.",
+      "website_url": "https://leto.axym.org/",
+      "docs_url": "https://github.com/Axym-Labs/LetoReader/wiki",
+      "install_docs_url": "https://github.com/Axym-Labs/LetoReader#hosting",
+      "maintenance_status": "slow",
+      "publisher_name": "Davide Wiest",
+      "publisher_type": "individual",
+      "publisher_url": "https://leto.axym.org/impressum-privacy-policy",
+      "docker_support": "official",
+      "compose_support": true,
+      "compose_url": "https://github.com/Axym-Labs/LetoReader/blob/main/docker-compose.yml",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "unraid"
+      ],
+      "pricing_model": "free",
+      "categories": [
+        "ebooks-libraries"
+      ],
+      "expected": {
+        "name": "Axym-Reader",
+        "summary": "A free speed reading app, Highly customizable, Implements chunking, pacing and highlighting.",
+        "website_url": "https://axym.davidewiest.com/",
+        "docs_url": "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates",
+        "install_docs_url": "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates",
+        "maintenance_status": "active",
+        "publisher_name": "Axym-Reader",
+        "publisher_type": "unknown",
+        "publisher_url": "https://axym.davidewiest.com/",
+        "docker_support": "community",
+        "compose_support": false,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "pricing_model": "unknown",
+        "categories": [
+          "developer-tools"
+        ]
+      },
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/davidewiest/reader",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "davidewiest/reader",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/davidewiest/reader",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/axym_reader.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/axym_reader.xml",
+          "support_level": "community"
+        }
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose"
+      ],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/davidewiest/reader",
+          "image": "davidewiest/reader",
+          "support_level": "official",
+          "source_url": "https://github.com/Axym-Labs/LetoReader#hosting",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/Axym-Labs/LetoReader/blob/main/docker-compose.yml",
+          "image": "davidewiest/reader",
+          "support_level": "official",
+          "source_url": "https://github.com/Axym-Labs/LetoReader/blob/main/docker-compose.yml",
+          "note": null,
+          "sort_order": 20
+        }
+      ],
+      "data_source_urls": [
+        "https://leto.axym.org/",
+        "https://leto.axym.org/impressum-privacy-policy",
+        "https://github.com/Axym-Labs",
+        "https://github.com/Axym-Labs/Axym-Reader",
+        "https://github.com/Axym-Labs/LetoReader",
+        "https://github.com/Axym-Labs/LetoReader/wiki",
+        "https://github.com/Axym-Labs/LetoReader#hosting",
+        "https://github.com/Axym-Labs/LetoReader/blob/main/docker-compose.yml",
+        "https://hub.docker.com/r/davidewiest/reader"
+      ],
+      "confidence": "high",
+      "review_note": "The official project now uses the LetoReader name. Its site and repository confirm the purpose, self-hosting options, and current maintenance mode; the README links the official Docker image and Compose file."
+    }
+  ]
+}

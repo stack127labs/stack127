@@ -1,0 +1,20 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Add Mistborn's publisher-linked project page as its official website.",
+  "apps": [
+    {
+      "slug": "mistborn",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://stevenfoerster.com/projects/mistborn/",
+      "data_source_urls": [
+        "https://gitlab.com/cyber5k/mistborn",
+        "https://stevenfoerster.com/projects/mistborn/"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

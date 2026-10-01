@@ -1,0 +1,76 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards and must be refreshed before any apply.",
+  "scope": "Add verified official project websites for six published self-host apps. Proposal only.",
+  "apps": [
+    {
+      "slug": "private-gpt",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.zylon.ai/private-gpt",
+      "data_source_urls": [
+        "https://www.zylon.ai/private-gpt",
+        "https://github.com/zylon-ai/private-gpt"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "sillytavern",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://sillytavern.app/",
+      "data_source_urls": [
+        "https://sillytavern.app/",
+        "https://github.com/SillyTavern/SillyTavern"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "picoclaw",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://picoclaw.io/",
+      "data_source_urls": [
+        "https://picoclaw.io/",
+        "https://github.com/sipeed/picoclaw"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "sim-studio",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.sim.ai/",
+      "data_source_urls": [
+        "https://www.sim.ai/",
+        "https://docs.sim.ai/introduction",
+        "https://github.com/simstudioai/sim"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "livekit",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://livekit.com/",
+      "data_source_urls": [
+        "https://livekit.com/",
+        "https://docs.livekit.io/intro/about/",
+        "https://github.com/livekit/livekit"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "trigger-dev",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://trigger.dev/",
+      "data_source_urls": [
+        "https://trigger.dev/",
+        "https://trigger.dev/docs/self-hosting/overview",
+        "https://github.com/triggerdotdev/trigger.dev"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

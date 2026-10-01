@@ -5,6 +5,7 @@ import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { validateSummary } from "./lib/summary-rules.mjs";
 import { isManagedMediaUrl } from "../stack127/media/storage.mjs";
+import { hasCompleteResourceEstimate } from "./lib/resource-review.mjs";
 
 const dockerHighRiskPattern =
   /(^|\/)(\.github|\.ci|\.devcontainer|dev|vendor|test|tests|testing|ci|e2e(?:[-_][^/]*)?|fixtures?|examples?|docker-compose-examples|test-infrastructure|tests_integration)(\/|$)|devcontainer|dev-container|compose\.dev|docker-compose\.dev|docker-compose[-.]ci|compose[-.]ci|example|gitpod|\.ddev/i;
@@ -34,6 +35,9 @@ function rowBlockers(row) {
   const issues = [];
   issues.push(...iconBlockers(row));
   issues.push(...summaryBlockers(row));
+
+  if (!hasCompleteResourceEstimate(row, "ram")) issues.push("ram_estimate_missing");
+  if (!hasCompleteResourceEstimate(row, "storage")) issues.push("storage_estimate_missing");
 
   if (
     row.requires_database === false &&
@@ -100,8 +104,21 @@ async function main() {
           self_hosting_status,
           requires_database,
           database_types,
-          docker_support
+          docker_support,
+          resource.ram_estimate_min_mb,
+          resource.ram_estimate_max_mb,
+          resource.ram_estimate_kind,
+          resource.ram_estimate_confidence,
+          resource.ram_estimate_basis,
+          resource.ram_source_urls,
+          resource.storage_estimate_min_gb,
+          resource.storage_estimate_max_gb,
+          resource.storage_estimate_kind,
+          resource.storage_estimate_confidence,
+          resource.storage_estimate_basis,
+          resource.storage_source_urls
         from public.self_host_apps
+        left join public.self_host_app_resource_estimates resource on resource.app_id = self_host_apps.id
         where published = true
           and self_hosting_status = 'self_hostable'
         order by slug

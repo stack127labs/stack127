@@ -1,0 +1,154 @@
+{
+  "apps": [
+    {
+      "slug": "nginx-php-fpm",
+      "review_scope": "partial",
+      "expected": {
+        "name": "NGINX---PHP-FPM",
+        "source_code_url": "https://github.com/richarvey/nginx-php-fpm",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "source_available",
+        "docker_support": "community",
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "categories": ["developer-tools", "networking-dns"]
+      },
+      "name": "Nginx PHP-FPM",
+      "summary": "Runs Nginx and PHP-FPM in one Docker image to serve PHP sites, with optional Git-based code deployment.",
+      "website_url": "https://github.com/richarvey/nginx-php-fpm",
+      "docs_url": "https://github.com/richarvey/nginx-php-fpm/tree/main/docs",
+      "install_docs_url": "https://github.com/richarvey/nginx-php-fpm/blob/main/README.md",
+      "docker_url": "https://hub.docker.com/r/richarvey/nginx-php-fpm",
+      "compose_url": "https://github.com/richarvey/nginx-php-fpm/blob/main/docs/guides/docker_compose.md",
+      "license": "GNU General Public License v3.0 (GPL-3.0).",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_model": "open_source",
+      "docker_support": "official",
+      "docker_image": "richarvey/nginx-php-fpm:latest",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "persistent_storage": true,
+      "storage_profile": "depends",
+      "surfaces": ["web"],
+      "data_source_urls": [
+        "https://github.com/richarvey/nginx-php-fpm",
+        "https://github.com/richarvey/nginx-php-fpm/blob/main/LICENSE",
+        "https://github.com/richarvey/nginx-php-fpm/blob/main/README.md",
+        "https://github.com/richarvey/nginx-php-fpm/tree/main/docs",
+        "https://github.com/richarvey/nginx-php-fpm/blob/main/docs/guides/docker_compose.md",
+        "https://github.com/richarvey/nginx-php-fpm/blob/main/docs/guides/kubernetes.md",
+        "https://hub.docker.com/r/richarvey/nginx-php-fpm",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/nginx_php_fpm.xml"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "statping",
+      "review_scope": "partial",
+      "expected": {
+        "name": "statping",
+        "source_code_url": "https://github.com/hunterlong/statping",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "source_available",
+        "docker_support": "community",
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "categories": ["monitoring-status", "networking-dns"]
+      },
+      "name": "Statping",
+      "summary": "Monitors websites and services, then shows their status on a web page with an API and alert integrations.",
+      "website_url": "https://github.com/statping/statping",
+      "source_code_url": "https://github.com/statping/statping",
+      "docs_url": "https://github.com/statping/statping/wiki",
+      "install_docs_url": "https://github.com/statping/statping/wiki/Docker",
+      "docker_url": "https://hub.docker.com/r/statping/statping",
+      "compose_url": "https://github.com/statping/statping/blob/dev/docker-compose.yml",
+      "license": "GNU General Public License v3.0 (GPL-3.0).",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_model": "open_source",
+      "publisher_name": "Statping",
+      "publisher_type": "community",
+      "publisher_url": "https://github.com/statping",
+      "docker_support": "official",
+      "docker_image": "statping/statping:latest",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": ["sqlite", "mysql", "postgres"],
+      "persistent_storage": true,
+      "storage_profile": "depends",
+      "surfaces": ["web", "api"],
+      "data_source_urls": [
+        "https://github.com/statping/statping",
+        "https://github.com/statping/statping/blob/dev/LICENSE",
+        "https://github.com/statping/statping/blob/dev/README.md",
+        "https://github.com/statping/statping/wiki/Docker",
+        "https://github.com/statping/statping/wiki/API",
+        "https://github.com/statping/statping/blob/dev/docker-compose.yml",
+        "https://hub.docker.com/r/statping/statping",
+        "https://raw.githubusercontent.com/FoxxMD/unraid-docker-templates/master/foxxmd/statping.xml"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "resources": [
+    {
+      "slug": "nginx-php-fpm",
+      "expected": {
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary."
+      },
+      "ram_estimate_min_mb": 256,
+      "ram_estimate_max_mb": 2048,
+      "ram_estimate_kind": "estimated",
+      "ram_estimate_confidence": "low",
+      "ram_estimate_basis": "Small PHP sites can start within this range; PHP worker count, extensions, traffic, and the served application raise memory use.",
+      "ram_source_urls": ["https://github.com/richarvey/nginx-php-fpm/blob/main/README.md"],
+      "storage_estimate_min_gb": 1,
+      "storage_estimate_max_gb": 20,
+      "storage_estimate_kind": "estimated",
+      "storage_estimate_confidence": "low",
+      "storage_estimate_basis": "The container and a small PHP site need little space; site assets, logs, and mounted application files determine the total.",
+      "storage_source_urls": [
+        "https://github.com/richarvey/nginx-php-fpm/blob/main/README.md",
+        "https://github.com/richarvey/nginx-php-fpm/blob/main/docs/guides/docker_compose.md"
+      ]
+    },
+    {
+      "slug": "statping",
+      "expected": {
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 5,
+        "storage_estimate_max_gb": 100,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary."
+      },
+      "ram_estimate_min_mb": 256,
+      "ram_estimate_max_mb": 1024,
+      "ram_estimate_kind": "estimated",
+      "ram_estimate_confidence": "low",
+      "ram_estimate_basis": "The project describes a small status-page server; monitored service count, check frequency, and database choice change memory use.",
+      "ram_source_urls": ["https://github.com/statping/statping/blob/dev/README.md"],
+      "storage_estimate_min_gb": 1,
+      "storage_estimate_max_gb": 10,
+      "storage_estimate_kind": "estimated",
+      "storage_estimate_confidence": "low",
+      "storage_estimate_basis": "The /app directory keeps configuration, logs, assets, and the SQLite database; checks and retained history grow storage use.",
+      "storage_source_urls": [
+        "https://github.com/statping/statping/wiki/Docker",
+        "https://github.com/statping/statping/blob/dev/README.md"
+      ]
+    }
+  ]
+}

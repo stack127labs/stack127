@@ -1,0 +1,146 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Correct 4get source model, license, official links, and install support using the upstream project repository and installation guide.",
+  "apps": [
+    {
+      "slug": "4get",
+      "review_scope": "partial",
+      "expected": {
+        "slug": "4get",
+        "name": "4get",
+        "summary": "4get is a lightweight, proxy search engine designed to provide a private, ad-free search experience, It allows users to query popular search engines like.",
+        "website_url": "https://git.lolcat.ca/lolcat/4get",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://git.lolcat.ca/lolcat/4get/issues",
+        "install_docs_url": "https://git.lolcat.ca/lolcat/4get/issues",
+        "docker_url": "https://hub.docker.com/r/luuul/4get/",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_model": "closed_source",
+        "publisher_name": "4get",
+        "publisher_type": "unknown",
+        "publisher_url": "https://git.lolcat.ca/lolcat/4get",
+        "pricing_model": "unknown",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_image": "luuul/4get:latest",
+        "compose_support": false,
+        "compose_url": null,
+        "persistent_storage": null,
+        "data_source_urls": [
+          "https://git.lolcat.ca/lolcat/4get",
+          "https://git.lolcat.ca/lolcat/4get/issues",
+          "https://hub.docker.com/r/luuul/4get/",
+          "https://raw.githubusercontent.com/imTHAI/unraid-templates/main/4get/4get.xml",
+          "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/4get.xml",
+          "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/docker_icons/4get.png"
+        ],
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high"
+      },
+      "name": "4get",
+      "summary": "Self-hosted proxy search engine that fetches results from several search engines.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "website_url": "https://4get.ca/",
+      "source_code_url": "https://git.lolcat.ca/lolcat/4get",
+      "source_code_host": "other",
+      "docs_url": "https://git.lolcat.ca/lolcat/4get/src/branch/master/docs/",
+      "install_docs_url": "https://git.lolcat.ca/lolcat/4get/src/branch/master/docs/docker.md",
+      "docker_url": "https://hub.docker.com/r/luuul/4get",
+      "license": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_model": "open_source",
+      "publisher_name": "lolcat",
+      "publisher_type": "individual",
+      "publisher_url": "https://lolcat.ca/",
+      "docker_support": "community",
+      "docker_image": "luuul/4get:latest",
+      "compose_support": true,
+      "compose_url": "https://git.lolcat.ca/lolcat/4get/src/branch/master/docs/docker.md",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "unraid"
+      ],
+      "persistent_storage": true,
+      "data_source_urls": [
+        "https://4get.ca/",
+        "https://git.lolcat.ca/lolcat/4get",
+        "https://git.lolcat.ca/lolcat/4get/src/branch/master/docs/",
+        "https://git.lolcat.ca/lolcat/4get/src/branch/master/docs/docker.md",
+        "https://git.lolcat.ca/lolcat/4get/src/branch/master/license.txt",
+        "https://hub.docker.com/r/luuul/4get",
+        "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/4get.xml",
+        "https://4get.ca/about"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose",
+        "unraid"
+      ],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/luuul/4get",
+          "support_level": "community",
+          "source_url": "https://git.lolcat.ca/lolcat/4get/src/branch/master/docs/docker.md",
+          "image": "luuul/4get:latest",
+          "note": "The upstream Docker guide uses this community-published image.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://git.lolcat.ca/lolcat/4get/src/branch/master/docs/docker.md",
+          "support_level": "official",
+          "source_url": "https://git.lolcat.ca/lolcat/4get/src/branch/master/docs/docker.md",
+          "image": "luuul/4get:latest",
+          "note": "Upstream Docker guide includes a Compose example.",
+          "sort_order": 20
+        },
+        {
+          "method": "unraid",
+          "label": "Unraid catalog",
+          "url": "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/4get.xml",
+          "support_level": "community",
+          "source_url": "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/4get.xml",
+          "image": null,
+          "note": "Community Unraid template.",
+          "sort_order": 35
+        }
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/luuul/4get/",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "luuul/4get:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/luuul/4get/",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/4get.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/4get.xml",
+          "support_level": "community"
+        }
+      ],
+      "pricing_model": "free"
+    }
+  ]
+}

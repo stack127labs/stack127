@@ -1,0 +1,23 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Remove Your Next Store from the self-host apps directory: official docs describe a publisher-managed backend and a storefront that connects to it. Proposal only.",
+  "apps": [
+    {
+      "slug": "your-next-store-yns",
+      "review_scope": "partial",
+      "expected": {
+        "published": true,
+        "self_hosting_status": "self_hostable"
+      },
+      "published": false,
+      "self_hosting_status": "not_self_hostable",
+      "data_source_urls": [
+        "https://yournextstore.com/docs/getting-started/introduction",
+        "https://yournextstore.com/docs/getting-started/quick-start",
+        "https://github.com/yournextstore/yournextstore"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

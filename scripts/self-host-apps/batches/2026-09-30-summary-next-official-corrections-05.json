@@ -1,0 +1,51 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected summary values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Four concise summary corrections based on official project sources. Proposal only.",
+  "apps": [
+    {
+      "slug": "agenta",
+      "summary": "Manages LLM prompts, evaluates application outputs, and tracks changes across deployments.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://agenta.ai/docs/prompt-engineering/playground/using-the-playground"
+      ],
+      "expected": {
+        "summary": "The LLMOps app: prompt playground, prompt management, LLM evaluation, and LLM observability place."
+      }
+    },
+    {
+      "slug": "docker-volume-backup",
+      "summary": "Creates recurring Docker volume backups for local or remote storage.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/offen/docker-volume-backup"
+      ],
+      "expected": {
+        "summary": "Backup Docker volumes to compatible storage backends."
+      }
+    },
+    {
+      "slug": "musikcube",
+      "summary": "Music player, library manager, and streaming audio server for Windows, macOS, and Linux.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://musikcube.com/"
+      ],
+      "expected": {
+        "summary": "Streaming audio server with Linux/macOS/Windows/Android."
+      }
+    },
+    {
+      "slug": "scanopy",
+      "summary": "Finds network hosts and services, then maps topology across connected infrastructure.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://scanopy.net/docs/introduction/"
+      ],
+      "expected": {
+        "summary": "Automatically discover and document network infrastructure."
+      }
+    }
+  ]
+}

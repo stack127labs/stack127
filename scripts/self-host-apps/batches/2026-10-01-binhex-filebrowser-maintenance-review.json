@@ -1,0 +1,21 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Correct the maintenance status for the Binhex File Browser entry using the upstream project's archive notice. Proposal only.",
+  "apps": [
+    {
+      "slug": "binhex-filebrowser",
+      "review_scope": "partial",
+      "maintenance_status": "archived",
+      "expected": {
+        "maintenance_status": "active"
+      },
+      "data_source_urls": [
+        "https://github.com/filebrowser/filebrowser",
+        "https://github.com/binhex/arch-filebrowser"
+      ],
+      "confidence": "high",
+      "review_note": "The upstream File Browser repository is archived and says it will receive no further releases or fixes. The Binhex repository packages File Browser for Unraid."
+    }
+  ]
+}

@@ -1,0 +1,391 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values copied from its self-host-app records.",
+  "scope": "Verified missing app-license fields and source-model corrections for uncovered M-N records. Official product/source evidence only; proposals only.",
+  "apps": [
+    {
+      "slug": "machinebox-tagbox",
+      "review_scope": "partial",
+      "license": "Machine Box Terms of Service",
+      "license_type": "custom",
+      "expected": {
+        "license": null,
+        "license_type": "unknown"
+      },
+      "data_source_urls": [
+        "https://machinebox.io/terms",
+        "https://machinebox.io/docs/tagbox"
+      ]
+    },
+    {
+      "slug": "machinebox-videobox",
+      "review_scope": "partial",
+      "license": "Machine Box Terms of Service",
+      "license_type": "custom",
+      "expected": {
+        "license": null,
+        "license_type": "unknown"
+      },
+      "data_source_urls": [
+        "https://machinebox.io/terms",
+        "https://machinebox.io/docs/videobox"
+      ]
+    },
+    {
+      "slug": "magicmirror",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/MagicMirrorOrg/MagicMirror",
+      "source_code_host": "github",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/MagicMirrorOrg/MagicMirror",
+        "https://github.com/MagicMirrorOrg/MagicMirror/blob/master/LICENSE.md",
+        "https://docs.magicmirror.builders/"
+      ]
+    },
+    {
+      "slug": "make-a-wrapped",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://github.com/DevMatei/make-a-wrapped",
+      "source_code_host": "github",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/DevMatei/make-a-wrapped",
+        "https://wrapped.devmatei.com/"
+      ]
+    },
+    {
+      "slug": "masqueradarr-aio",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/TheBinaryNinja/masqueradarr",
+      "source_code_host": "github",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/TheBinaryNinja/masqueradarr",
+        "https://github.com/TheBinaryNinja/masqueradarr/blob/main/LICENSE",
+        "https://thebinaryninja.github.io/masqueradarr/"
+      ]
+    },
+    {
+      "slug": "matchexec",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "source_code_url": "https://github.com/slamanna212/MatchExec",
+      "source_code_host": "github",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://matchexec.com/",
+        "https://docs.matchexec.com/docs/getting-started/installation/",
+        "https://github.com/slamanna212/MatchExec"
+      ]
+    },
+    {
+      "slug": "mcsmanager-daemon",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/MCSManager/MCSManager",
+      "source_code_host": "github",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/MCSManager/MCSManager",
+        "https://github.com/MCSManager/MCSManager/blob/master/LICENSE",
+        "https://docs.mcsmanager.com/"
+      ]
+    },
+    {
+      "slug": "mealiev1",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://github.com/mealie-recipes/mealie",
+      "source_code_host": "github",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/mealie-recipes/mealie",
+        "https://github.com/mealie-recipes/mealie/blob/v1.0.0/LICENSE",
+        "https://docs.mealie.io/"
+      ]
+    },
+    {
+      "slug": "maybe-web",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://github.com/maybe-finance/maybe",
+      "source_code_host": "github",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/maybe-finance/maybe",
+        "https://github.com/maybe-finance/maybe/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "meshcore-mqtt-bridge",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "source_code_url": "https://github.com/ipnet-mesh/meshcore-mqtt",
+      "source_code_host": "github",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/ipnet-mesh/meshcore-mqtt",
+        "https://github.com/ipnet-mesh/meshcore-mqtt/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "meshtasticweb",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "source_code_url": "https://github.com/meshtastic/web",
+      "source_code_host": "github",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/meshtastic/web",
+        "https://github.com/meshtastic/web/blob/main/README.md",
+        "https://github.com/meshtastic/web/blob/main/LICENSE",
+        "https://meshtastic.org/"
+      ]
+    },
+    {
+      "slug": "mitmproxy",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/mitmproxy/mitmproxy",
+      "source_code_host": "github",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://mitmproxy.org/",
+        "https://github.com/mitmproxy/mitmproxy",
+        "https://github.com/mitmproxy/mitmproxy/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "mongodb",
+      "review_scope": "partial",
+      "source_model": "source_available",
+      "license": "Server Side Public License v1.0",
+      "license_type": "custom",
+      "license_spdx_id": "SSPL-1.0",
+      "source_code_url": "https://github.com/mongodb/mongo",
+      "source_code_host": "github",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://www.mongodb.com/legal/licensing/community-edition",
+        "https://github.com/mongodb/mongo",
+        "https://github.com/mongodb/mongo/blob/master/README.md"
+      ]
+    },
+    {
+      "slug": "mysql",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-only",
+      "source_code_url": "https://github.com/mysql/mysql-server",
+      "source_code_host": "github",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://www.mysql.com/products/community/",
+        "https://github.com/mysql/mysql-server",
+        "https://github.com/mysql/mysql-server/blob/trunk/LICENSE"
+      ]
+    },
+    {
+      "slug": "ncdu",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://code.blicky.net/yorhel/ncdu",
+      "source_code_host": "other",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://dev.yorhel.nl/ncdu",
+        "https://code.blicky.net/yorhel/ncdu"
+      ]
+    },
+    {
+      "slug": "nextdash",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/jordibrouwer/nextdash",
+      "source_code_host": "github",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/jordibrouwer/nextdash",
+        "https://github.com/jordibrouwer/nextdash/blob/main/LICENSE",
+        "https://nextdash.cc/"
+      ]
+    },
+    {
+      "slug": "nself-admin",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/nself-org/admin",
+      "source_code_host": "github",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/nself-org/admin",
+        "https://github.com/nself-org/admin/blob/main/LICENSE",
+        "https://hub.docker.com/u/nself"
+      ]
+    },
+    {
+      "slug": "nextpvr",
+      "review_scope": "partial",
+      "license": "NextPVR personal, non-commercial use; commercial use requires a license",
+      "license_type": "custom",
+      "expected": {
+        "license": null,
+        "license_type": "unknown"
+      },
+      "data_source_urls": [
+        "https://www.nextpvr.com/download.html",
+        "https://www.nextpvr.com/"
+      ]
+    }
+  ]
+}

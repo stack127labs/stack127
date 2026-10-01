@@ -1,0 +1,81 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08. Proposal only; refresh before applying.",
+  "scope": "App-specific Caddy estimates based on the official service and Docker guidance.",
+  "estimates": [
+    {
+      "slug": "caddy",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small reverse proxy estimate based on the official single-service Docker deployment.",
+      "source_urls": [
+        "https://caddyserver.com/docs/running",
+        "https://github.com/caddyserver/caddy-docker"
+      ],
+      "note": "Traffic, plugins, and hosted static files affect resource use.",
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:38.005+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://caddyserver.com/docs/running#docker-compose"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "caddy",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Config, certificates, and Caddy state use the persistent /data and /config volumes in the official Compose example.",
+      "source_urls": [
+        "https://caddyserver.com/docs/running",
+        "https://github.com/caddyserver/caddy-docker"
+      ],
+      "note": "Static site content stored separately is excluded.",
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:38.005+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://caddyserver.com/docs/running#docker-compose"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    }
+  ]
+}

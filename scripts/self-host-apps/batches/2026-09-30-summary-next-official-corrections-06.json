@@ -1,0 +1,29 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected summary values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Two concise summary corrections based on official project sources. Proposal only.",
+  "apps": [
+    {
+      "slug": "shelfmark",
+      "summary": "Searches multiple book and audiobook sources and sends selected downloads to your library.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/calibrain/shelfmark"
+      ],
+      "expected": {
+        "summary": "Interface for searching and requesting book downloads."
+      }
+    },
+    {
+      "slug": "speakr",
+      "summary": "Transcribes audio recordings and organizes them into searchable notes, summaries, and tasks.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/murtaza-nasir/speakr"
+      ],
+      "expected": {
+        "summary": "Intelligent note-taking for recordings and meetings."
+      }
+    }
+  ]
+}

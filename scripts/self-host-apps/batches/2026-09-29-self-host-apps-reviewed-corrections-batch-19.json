@@ -1,0 +1,298 @@
+{
+  "reviewed_at": "2026-09-29",
+  "scope": "Primary-source review of six published entries and one sidecar row. Corrects wrong product identities, source and license models, official install links, container and database facts, resource estimates, and unsupported directory entries.",
+  "apps": [
+    {
+      "slug": "commentario",
+      "expected": {
+        "source_code_url": "https://github.com/Stirling-Tools/Stirling-PDF",
+        "source_model": "open_source",
+        "license": "MIT License",
+        "publisher_name": "Stirling-Tools",
+        "docker_support": "none",
+        "requires_database": null,
+        "storage_profile": "unknown"
+      },
+      "changes": {
+        "summary": "Self-hosted comment engine for adding moderated discussion threads to websites.",
+        "website_url": "https://comentario.app/",
+        "source_code_url": "https://gitlab.com/comentario/comentario",
+        "source_code_host": "gitlab",
+        "source_full_name": "comentario/comentario",
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "publisher_name": "Comentario",
+        "publisher_type": "community",
+        "publisher_url": "https://gitlab.com/comentario",
+        "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/self-host-apps/icons/commentario-8052925fa51e221a.png",
+        "icon_source_url": "https://gitlab.com/uploads/-/system/project/avatar/42486427/icon-128px.png?v=1790604450",
+        "docs_url": "https://docs.comentario.app/en/about/",
+        "install_docs_url": "https://docs.comentario.app/en/installation/",
+        "docker_support": "official",
+        "docker_url": "https://docs.comentario.app/en/installation/docker-image/",
+        "docker_image": "registry.gitlab.com/comentario/comentario:v3.18.0",
+        "compose_support": false,
+        "compose_url": null,
+        "requires_database": true,
+        "database_types": ["sqlite", "postgres"],
+        "storage_profile": "depends",
+        "persistent_storage": true,
+        "deployment_methods": ["docker", "binary", "helm"],
+        "release_version": "v3.18.0",
+        "release_url": "https://gitlab.com/comentario/comentario/-/releases",
+        "categories": ["communication", "content-publishing"]
+      },
+      "sources": [
+        "https://comentario.app/",
+        "https://docs.comentario.app/en/about/",
+        "https://docs.comentario.app/en/about/source-code/",
+        "https://docs.comentario.app/en/legal/license/",
+        "https://docs.comentario.app/en/installation/",
+        "https://docs.comentario.app/en/installation/requirements/",
+        "https://docs.comentario.app/en/installation/docker-image/",
+        "https://docs.comentario.app/en/installation/binary-package/",
+        "https://docs.comentario.app/en/installation/helm-chart/",
+        "https://gitlab.com/comentario/comentario",
+        "https://gitlab.com/comentario/comentario/-/tags"
+      ]
+    },
+    {
+      "slug": "gitea",
+      "expected": {
+        "docker_url": "https://github.com/go-gitea/gitea/blob/HEAD/Dockerfile",
+        "docker_image": "gitea/gitea:1.27.2-rootless@sha256:c7953964c6e8fe532cf7fc3f3efdea1d0b161d7859c47e04f5e05489d494dea0",
+        "database_types": ["mysql", "mariadb"]
+      },
+      "changes": {
+        "docs_url": "https://docs.gitea.com/",
+        "install_docs_url": "https://docs.gitea.com/installation/install-with-docker/",
+        "docker_url": "https://docs.gitea.com/installation/install-with-docker/",
+        "docker_image": "docker.gitea.com/gitea:1.27.3",
+        "compose_support": true,
+        "compose_url": "https://docs.gitea.com/installation/install-with-docker/",
+        "database_types": ["sqlite", "mysql", "mariadb", "postgres"],
+        "deployment_methods": ["docker", "compose", "truenas_scale", "umbrel"],
+        "release_version": "v1.27.3",
+        "release_url": "https://github.com/go-gitea/gitea/releases/tag/v1.27.3",
+        "categories": ["developer-tools", "project-task-management"]
+      },
+      "sources": [
+        "https://docs.gitea.com/installation/install-with-docker/",
+        "https://docs.gitea.com/installation/install-with-docker-rootless/",
+        "https://hub.docker.com/r/gitea/gitea",
+        "https://apps.truenas.com/catalog/gitea_community/",
+        "https://raw.githubusercontent.com/getumbrel/umbrel-apps/master/gitea/docker-compose.yml",
+        "https://github.com/getumbrel/umbrel-apps/tree/master/gitea"
+      ]
+    },
+    {
+      "slug": "joplin",
+      "expected": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "license": "MIT",
+        "docker_url": "https://github.com/laurent22/joplin/blob/HEAD/docker-compose.db-dev.yml"
+      },
+      "changes": {
+        "summary": "Note-taking and to-do app that can run in a browser through a community Docker image and sync with Joplin Server or other storage targets.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "license": "AGPL-3.0-or-later",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-or-later",
+        "publisher_name": "Laurent Cozic",
+        "publisher_type": "individual",
+        "publisher_url": "https://joplinapp.org/",
+        "docs_url": "https://joplinapp.org/help/apps/web/",
+        "install_docs_url": "https://docs.linuxserver.io/images/docker-joplin/",
+        "docker_url": "https://docs.linuxserver.io/images/docker-joplin/",
+        "docker_image": "lscr.io/linuxserver/joplin:latest",
+        "docker_support": "community",
+        "compose_support": true,
+        "compose_url": "https://docs.linuxserver.io/images/docker-joplin/",
+        "requires_database": false,
+        "database_types": [],
+        "storage_profile": "depends",
+        "persistent_storage": true,
+        "deployment_methods": ["docker", "compose", "unraid"],
+        "release_version": "v3.7.21",
+        "release_url": "https://github.com/laurent22/joplin/releases/tag/v3.7.21"
+      },
+      "sources": [
+        "https://joplinapp.org/download/",
+        "https://joplinapp.org/help/apps/web/",
+        "https://github.com/laurent22/joplin",
+        "https://github.com/laurent22/joplin/blob/dev/LICENSE",
+        "https://joplinapp.org/help/apps/sync/",
+        "https://docs.linuxserver.io/images/docker-joplin/",
+        "https://github.com/linuxserver/docker-joplin",
+        "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/joplin.xml",
+        "https://github.com/laurent22/joplin/releases/tag/v3.7.21"
+      ]
+    },
+    {
+      "slug": "joplin-server",
+      "expected": {
+        "source_model": "open_source",
+        "license": "AGPL-3.0",
+        "docker_image": "joplin/server:amd64-3.7.1",
+        "compose_url": null
+      },
+      "changes": {
+        "source_model": "source_available",
+        "license": "Joplin Server Personal Use License",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "publisher_name": "JOPLIN",
+        "publisher_type": "company",
+        "publisher_url": "https://joplinapp.org/",
+        "docs_url": "https://github.com/laurent22/joplin/blob/dev/packages/server/README.md",
+        "install_docs_url": "https://github.com/laurent22/joplin/blob/dev/packages/server/README.md",
+        "docker_url": "https://hub.docker.com/r/joplin/server",
+        "docker_image": "joplin/server:3.7.2",
+        "docker_support": "official",
+        "compose_support": true,
+        "compose_url": "https://github.com/laurent22/joplin/blob/dev/docker-compose.server.yml",
+        "requires_database": true,
+        "database_types": ["postgres"],
+        "storage_profile": "depends",
+        "persistent_storage": true,
+        "deployment_methods": ["docker", "compose", "truenas_scale"],
+        "pricing_model": "freemium",
+        "release_version": "3.7.2",
+        "release_url": "https://joplinapp.org/help/about/changelog/server/"
+      },
+      "sources": [
+        "https://github.com/laurent22/joplin/blob/dev/packages/server/README.md",
+        "https://github.com/laurent22/joplin/blob/dev/packages/server/LICENSE.md",
+        "https://github.com/laurent22/joplin/blob/dev/LICENSE",
+        "https://github.com/laurent22/joplin/blob/dev/docker-compose.server.yml",
+        "https://hub.docker.com/r/joplin/server/tags",
+        "https://joplinapp.org/help/apps/joplin_server_business/",
+        "https://joplinapp.org/help/about/changelog/server/"
+      ]
+    },
+    {
+      "slug": "plane",
+      "expected": {
+        "website_url": "http://plane.so",
+        "docker_image": "rabbitmq:3.13.7-management-alpine@sha256:0c64ec4fc5596406d755dcca75e8a3b618192cc5fb69f8f0340f06290b1cc08c"
+      },
+      "changes": {
+        "website_url": "https://plane.so/",
+        "docs_url": "https://developers.plane.so/self-hosting/editions-and-versions",
+        "install_docs_url": "https://developers.plane.so/self-hosting/methods/docker-compose",
+        "docker_url": "https://developers.plane.so/self-hosting/methods/docker-compose",
+        "docker_image": null,
+        "docker_support": "official",
+        "compose_support": true,
+        "compose_url": "https://developers.plane.so/self-hosting/methods/docker-compose",
+        "requires_database": true,
+        "database_types": ["postgres", "redis"],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "deployment_methods": ["docker", "compose", "umbrel"],
+        "publisher_name": "Plane",
+        "publisher_type": "company",
+        "publisher_url": "https://plane.so/",
+        "release_version": "v1.4.2",
+        "release_url": "https://github.com/makeplane/plane/releases/tag/v1.4.2"
+      },
+      "sources": [
+        "https://developers.plane.so/self-hosting/editions-and-versions",
+        "https://developers.plane.so/self-hosting/methods/docker-compose",
+        "https://developers.plane.so/self-hosting/plane-architecture",
+        "https://github.com/makeplane/plane",
+        "https://github.com/makeplane/plane/blob/HEAD/docker-compose.yml",
+        "https://github.com/makeplane/plane/releases/tag/v1.4.2"
+      ]
+    },
+    {
+      "slug": "sentry",
+      "expected": {
+        "source_model": "open_source",
+        "license": "Apache-2.0",
+        "compose_support": false,
+        "release_version": "26.6.0"
+      },
+      "changes": {
+        "source_model": "source_available",
+        "license": "Functional Source License, Version 1.1, Apache 2.0 Future License",
+        "license_type": "custom",
+        "license_spdx_id": "FSL-1.1-Apache-2.0",
+        "publisher_name": "Functional Software, Inc. dba Sentry",
+        "publisher_type": "company",
+        "publisher_url": "https://sentry.io/",
+        "docs_url": "https://develop.sentry.dev/self-hosted/",
+        "install_docs_url": "https://develop.sentry.dev/self-hosted/",
+        "docker_url": "https://develop.sentry.dev/self-hosted/",
+        "docker_image": null,
+        "docker_support": "official",
+        "compose_support": true,
+        "compose_url": "https://github.com/getsentry/self-hosted/blob/master/docker-compose.yml",
+        "requires_database": true,
+        "database_types": ["postgres", "clickhouse", "valkey"],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "ram_min_mb": 4096,
+        "ram_recommended_mb": 16384,
+        "storage_min_gb": 20,
+        "resource_requirement_kind": "official_minimum",
+        "release_version": "26.9.0",
+        "release_url": "https://github.com/getsentry/self-hosted/releases"
+      },
+      "sources": [
+        "https://github.com/getsentry/sentry/blob/master/LICENSE.md",
+        "https://develop.sentry.dev/self-hosted/",
+        "https://github.com/getsentry/develop/blob/master/src/docs/self-hosted/index.mdx",
+        "https://github.com/getsentry/self-hosted",
+        "https://github.com/getsentry/self-hosted/blob/master/docker-compose.yml",
+        "https://github.com/getsentry/self-hosted/releases/tag/26.9.0"
+      ]
+    },
+    {
+      "slug": "standardnotes-localstack",
+      "expected": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/localstack/localstack",
+        "docker_image": "localstack/localstack:3.0"
+      },
+      "changes": {
+        "name": "Standard Notes LocalStack sidecar",
+        "summary": "Unraid template that runs LocalStack as a dependency for Standard Notes Server.",
+        "published": false,
+        "self_hosting_status": "not_self_hostable",
+        "website_url": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "publisher_name": null,
+        "publisher_type": "unknown",
+        "publisher_url": null,
+        "docs_url": "https://github.com/junkerderprovinz/unraid-apps/blob/main/standardnotes-server/README.md",
+        "install_docs_url": "https://github.com/junkerderprovinz/unraid-apps/blob/main/standardnotes-server/README.md",
+        "docker_url": null,
+        "docker_image": null,
+        "docker_support": "none",
+        "compose_support": false,
+        "compose_url": null,
+        "requires_database": null,
+        "database_types": [],
+        "storage_profile": "unknown",
+        "persistent_storage": null,
+        "deployment_methods": []
+      },
+      "sources": [
+        "https://github.com/junkerderprovinz/unraid-apps/blob/main/standardnotes-server/README.md",
+        "https://raw.githubusercontent.com/junkerderprovinz/unraid-apps/main/standardnotes-server/standardnotes-localstack.xml",
+        "https://github.com/localstack/localstack"
+      ]
+    }
+  ]
+}

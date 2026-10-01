@@ -14,7 +14,7 @@ The primary query is `self hosted apps`. Supporting queries are `self hosted app
 
 ## Data-quality contract
 
-Every actionable unknown enters a research queue. Official project sites, source repositories, license files, release feeds, container registries, and install documentation are preferred in that order for their relevant facts. A researched null is valid when the project does not publish a minimum, price, database requirement, container image, or storage estimate. Reviewed planning ranges may fill a comparison gap only when they carry an evidence URL, basis, confidence, and an explicit `estimated` label. The UI must distinguish a researched null from a field that has not been researched. Published records may include open-source, source-available, and closed-source apps when self-hosting is verified. Missing license and source-model facts block records that claim source availability. README fallbacks remain visible as weaker documentation evidence until a dedicated official page is found.
+Official project sites, source repositories, license files, release feeds, container registries, and install documentation back app facts. Estimate RAM and storage for every app for a typical small self-hosted setup. Use publisher guidance to calibrate estimates when available. Show every range as `Est. RAM` and `Est. Storage`. Published records may include open-source, source-available, and closed-source apps when self-hosting is verified.
 
 ## Show vs say
 

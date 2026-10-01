@@ -1,0 +1,923 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Offline review of the next 40 unresolved published self-hostable rows labelled closed_source, after excluding prior source_model proposals and source_model audits. Corrections are proposals only and are guarded against the saved snapshot.",
+  "apps": [
+    {
+      "slug": "arn-messager",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-or-later",
+      "source_code_url": "https://code.ffdn.org/arn/arn-messager",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/arn_messager",
+        "https://code.ffdn.org/arn/arn-messager"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The YunoHost catalog identifies this exact self-hosted app, its AGPL-3.0-or-later license, and the FFDN upstream repository.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://apps.yunohost.org/app/arn_messager",
+          "https://code.ffdn.org/arn/arn-messager#configuration-file",
+          "https://github.com/yunohost-apps/arn_messager_ynh",
+          "https://raw.githubusercontent.com/YunoHost/apps/master/logos/arn_messager.png",
+          "https://yunohost.org/en/apps"
+        ]
+      }
+    },
+    {
+      "slug": "artifactory-oss",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://jfrog.com/community/download-artifactory-oss/",
+        "https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/",
+        "https://docs.jfrog.com/installation/docs/installing-artifactory",
+        "https://investors.jfrog.com/files/doc_financials/2025/q4/a0e22157-3a11-407c-a195-8715edb28eb2-1.pdf"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "JFrog identifies Artifactory OSS as its open-source edition and provides source-code access; its 2025 filing identifies the limited Artifactory version under AGPL v3.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/102294-support-frakman-jcr/",
+          "https://forums.unraid.net/topic/102491-support-frakman-artifactory-oss/",
+          "https://i.imgur.com/aYdPHTy.png",
+          "https://jfrog.com/",
+          "https://raw.githubusercontent.com/frakman1/docker-templates/master/tynor88/artifactory-oss.xml",
+          "https://raw.githubusercontent.com/frakman1/docker-templates/master/tynor88/jcr.xml",
+          "https://registry.hub.docker.com/r/docker.bintray.io/jfrog/artifactory-oss",
+          "https://registry.hub.docker.com/r/releases-docker.jfrog.io/jfrog/artifactory-jcr"
+        ]
+      }
+    },
+    {
+      "slug": "ascii-star-wars",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/skanehira/go-starwars",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/skanehira/go-starwars",
+        "https://github.com/skanehira/go-starwars/blob/master/LICENSE",
+        "https://hub.docker.com/r/skanehira/go-starwars"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The exact Go ASCII Star Wars service is published in this upstream repository, which declares MIT; Docker Hub is its self-hosted image.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://github.com/skanehira/go-starwars/issues",
+          "https://hub.docker.com/r/skanehira/go-starwars",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/starwars.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ascii-star-wars-icon.png",
+          "https://www.asciimation.co.nz/index.php"
+        ]
+      }
+    },
+    {
+      "slug": "atrium",
+      "source_model": "source_available",
+      "license": "Elastic License 2.0",
+      "license_type": "custom",
+      "license_spdx_id": "Elastic-2.0",
+      "source_code_url": "https://github.com/Vibra-Labs/Atrium",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://atrium.vibralabs.co/",
+        "https://github.com/Vibra-Labs/Atrium",
+        "https://github.com/Vibra-Labs/Atrium/blob/main/docs/configuration.md"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Vibra Labs identifies this self-hostable client portal and publishes its source under Elastic License 2.0, which is source-available but not an OSI open-source license.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://atrium.vibralabs.co/",
+          "https://github.com/Vibra-Labs/Atrium/blob/main/docs/configuration.md",
+          "https://hub.docker.com/r/vibralabs/atrium",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/atrium.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/atrium-icon.png"
+        ]
+      }
+    },
+    {
+      "slug": "autobd",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-or-later",
+      "source_code_url": "https://forge.apps.education.fr/educajou/autobd",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/autobd",
+        "https://forge.apps.education.fr/educajou/autobd"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The YunoHost app catalog confirms the self-hosted Autobd identity, GPL-2.0-or-later license, and upstream source repository.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://apps.yunohost.org/app/autobd",
+          "https://github.com/yunohost-apps/autobd_ynh",
+          "https://raw.githubusercontent.com/YunoHost/apps/master/logos/autobd.png",
+          "https://yunohost.org/en/apps"
+        ]
+      }
+    },
+    {
+      "slug": "automover",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0",
+      "source_code_url": "https://github.com/jcofer555/automover",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/192216-automover-for-unraid/",
+        "https://github.com/jcofer555/automover",
+        "https://github.com/jcofer555/automover/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The Unraid Automover plugin is maintained in this matching upstream repository, whose declared license is GPL-2.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/192216-automover-for-unraid/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/jcofer555/automover/main/plugin/automover.plg",
+          "https://raw.githubusercontent.com/jcofer555/automover/main/src/usr/local/emhttp/plugins/automover/icon.png",
+          "https://raw.githubusercontent.com/jcofer555/unraid-plugins/main/automover.xml"
+        ]
+      }
+    },
+    {
+      "slug": "avatar",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/frncsdrk/avatar",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://frncsdrk.github.io/avatar/",
+        "https://github.com/frncsdrk/avatar",
+        "https://hub.docker.com/r/frncsdrk/avatar"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The product page and matching self-hosted Docker image identify this random-avatar app; its upstream repository declares MIT.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://frncsdrk.github.io/avatar",
+          "https://github.com/frncsdrk/avatar/issues",
+          "https://hub.docker.com/r/frncsdrk/avatar",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/avatar.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/avatar-icon.png"
+        ]
+      }
+    },
+    {
+      "slug": "axym-reader",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_code_url": "https://github.com/Axym-Labs/LetoReader",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://axym.davidewiest.com/",
+        "https://github.com/Axym-Labs/LetoReader",
+        "https://hub.docker.com/r/davidewiest/reader"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The Axym Reader product is now LetoReader; the first-party repository and matching Docker image identify the same self-hosted reader, licensed GPL-3.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://axym.davidewiest.com/",
+          "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates",
+          "https://hub.docker.com/r/davidewiest/reader",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/axym_reader.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/axym-reader-icon.png"
+        ]
+      }
+    },
+    {
+      "slug": "backissue",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "source_code_url": "https://github.com/BackIssueApp/BackIssue",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://backissue.app/",
+        "https://github.com/BackIssueApp/BackIssue",
+        "https://ghcr.io/backissueapp/backissue"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The BackIssue product site points to this app repository; its project and Compose instructions describe the same self-hosted service, licensed GPL-3.0-or-later.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://backissue.app/",
+          "https://ghcr.io/backissueapp/backissue",
+          "https://raw.githubusercontent.com/BackIssueApp/BackIssue/main/templates/backissue-icon.png",
+          "https://raw.githubusercontent.com/BackIssueApp/BackIssue/main/templates/backissue.xml"
+        ]
+      }
+    },
+    {
+      "slug": "bacula-server",
+      "source_model": "open_source",
+      "license": "Most code is GNU Affero General Public License v3.0; some components use LGPL or other compatible licenses",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "source_code_url": "https://www.bacula.org/source-download-center/",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://www.bacula.org/source-download-center/",
+        "https://www.bacula.org/what-is-bacula/bacula-copyright-trademark-and-licenses/",
+        "https://hub.docker.com/r/pwa666/bacula-server"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Bacula provides official source downloads and describes its component licensing as mixed, with the bulk of code under AGPL-3.0; the listed Docker image is packaging.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/115560-support-bacula-server/",
+          "https://hub.docker.com/r/pwa666/bacula-server",
+          "https://raw.githubusercontent.com/vrx-666/unraid-xml/master/img/bacula.png",
+          "https://raw.githubusercontent.com/vrx-666/unraid-xml/master/my-bacula-server.xml"
+        ]
+      }
+    },
+    {
+      "slug": "benevalibre",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://forge.cliss21.org/cliss21/benevalibre",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/benevalibre",
+        "https://benevalibre.org/",
+        "https://forge.cliss21.org/cliss21/benevalibre",
+        "https://app.benevalibre.org/docs/administration/index.html"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The YunoHost catalog and project site identify Benevalibre as a self-hosted AGPL-3.0-only app and point to its official source repository.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://app.benevalibre.org/docs/administration/index.html",
+          "https://apps.yunohost.org/app/benevalibre",
+          "https://benevalibre.org/",
+          "https://github.com/yunohost-apps/benevalibre_ynh",
+          "https://raw.githubusercontent.com/YunoHost/apps/master/logos/benevalibre.png",
+          "https://yunohost.org/en/apps"
+        ]
+      }
+    },
+    {
+      "slug": "bind9",
+      "source_model": "open_source",
+      "license": "Mozilla Public License 2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "MPL-2.0",
+      "source_code_url": "https://gitlab.isc.org/isc-projects/bind9",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://www.isc.org/bind/",
+        "https://gitlab.isc.org/isc-projects/bind9",
+        "https://gitlab.isc.org/isc-projects/bind9/-/blob/main/COPYRIGHT"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "ISC identifies BIND 9 as its open-source DNS server, publishes the upstream source, and licenses it under MPL-2.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/111373-support-bind9/",
+          "https://hub.docker.com/r/pwa666/bind9",
+          "https://raw.githubusercontent.com/vrx-666/unraid-xml/master/img/bind.png",
+          "https://raw.githubusercontent.com/vrx-666/unraid-xml/master/my-bind9.xml",
+          "https://www.isc.org/bind/"
+        ]
+      }
+    },
+    {
+      "slug": "bladevault",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/dedkola/bladevault",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://www.bladevault.pro/",
+        "https://github.com/dedkola/bladevault"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The BladeVault product site and repository identify the same self-hosted knife collection manager; the repository declares MIT.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://ghcr.io/dedkola/bladevault",
+          "https://github.com/dedkola/bladevault/blob/main/README.md",
+          "https://raw.githubusercontent.com/dedkola/bladevault/main/public/logo.png",
+          "https://raw.githubusercontent.com/dedkola/bladevault/main/templates/bladevault.xml",
+          "https://www.bladevault.pro/"
+        ]
+      }
+    },
+    {
+      "slug": "blocklist-mirror",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/crowdsecurity/cs-blocklist-mirror",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://docs.crowdsec.net/u/bouncers/blocklist-mirror/",
+        "https://github.com/crowdsecurity/cs-blocklist-mirror",
+        "https://hub.docker.com/r/crowdsecurity/blocklist-mirror"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "CrowdSec documents the self-hostable Blocklist Mirror and links its official repository, which declares MIT; the Docker image is packaging.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://docs.crowdsec.net/docs/bouncers/blocklist-mirror",
+          "https://forums.unraid.net/",
+          "https://hub.docker.com/r/crowdsecurity/blocklist-mirror",
+          "https://raw.githubusercontent.com/angelics/unraid-docker-template/master/blocklist-mirror.xml",
+          "https://raw.githubusercontent.com/crowdsecurity/crowdsec-docs/main/crowdsec-docs/static/img/crowdsec_logo.png"
+        ]
+      }
+    },
+    {
+      "slug": "booktracker",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/wars2k/booktracker",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/wars2k/booktracker",
+        "https://hub.docker.com/r/wars2k/booktracker"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The repository identifies the BookTracker app, provides self-hosting instructions, and declares MIT; its Docker image is published by the same maintainer.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://hub.docker.com/r/wars2k/booktracker"
+        ]
+      }
+    },
+    {
+      "slug": "bootimus",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/garybowers/bootimus",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://bootimus.com/",
+        "https://github.com/garybowers/bootimus",
+        "https://hub.docker.com/r/garybowers/bootimus"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The Bootimus site and upstream repository identify the same self-hosted PXE/HTTP boot server; its license is Apache-2.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://bootimus.com/",
+          "https://forums.unraid.net/topic/198435-support-devzwf-bootimus/",
+          "https://hub.docker.com/r/garybowers/bootimus",
+          "https://raw.githubusercontent.com/devzwf/unraid-docker-templates/main/images/bootimus.png",
+          "https://raw.githubusercontent.com/devzwf/unraid-docker-templates/main/templates/boutimus.xml"
+        ]
+      }
+    },
+    {
+      "slug": "breezewiki",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://gitdab.com/cadence/breezewiki",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/breezewiki",
+        "https://breezewiki.com/",
+        "https://docs.breezewiki.com/index.html",
+        "https://gitdab.com/cadence/breezewiki"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The YunoHost listing identifies this self-hosted BreezeWiki service and its upstream source; that project declares AGPL-3.0-only.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://apps.yunohost.org/app/breezewiki",
+          "https://breezewiki.com/",
+          "https://docs.breezewiki.com/index.html",
+          "https://github.com/yunohost-apps/breezewiki_ynh",
+          "https://raw.githubusercontent.com/YunoHost/apps/master/logos/breezewiki.png",
+          "https://yunohost.org/en/apps"
+        ]
+      }
+    },
+    {
+      "slug": "budgero",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://github.com/tombadilo-bombadilo/budgero",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://budgero.app/",
+        "https://github.com/tombadilo-bombadilo/budgero",
+        "https://hub.docker.com/r/budgero/budgero"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The Budgero product site, matching app repository, and publisher Docker image identify the self-hosted budgeting app; the app repository declares AGPL-3.0-only.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://budgero.app/",
+          "https://github.com/tombadilo-bombadilo/budgero/issues",
+          "https://hub.docker.com/r/budgero/budgero",
+          "https://raw.githubusercontent.com/tombadilo-bombadilo/budgero/master/packages/website/public/logo_512.png",
+          "https://raw.githubusercontent.com/tombadilo-bombadilo/unraid-templates/main/budgero.xml"
+        ]
+      }
+    },
+    {
+      "slug": "budget",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/range-of-motion/budget",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://usebudget.com/",
+        "https://github.com/range-of-motion/budget",
+        "https://hub.docker.com/r/rangeofmotion/budget"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The Budget product site and matching repository identify the same self-hosted budgeting app; the repository declares MIT and documents Docker deployment.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://github.com/rangeofmotion/budget/issues",
+          "https://hub.docker.com/r/rangeofmotion/budget",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/budget.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/budget-icon.png",
+          "https://usebudget.com/"
+        ]
+      }
+    },
+    {
+      "slug": "buggregator",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/buggregator/server",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/buggregator/server",
+        "https://ghcr.io/buggregator/server"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official Buggregator server repository matches the listed self-hosted service and declares MIT; GHCR is its published container.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/179102-support-buggregator/",
+          "https://ghcr.io/buggregator/server",
+          "https://raw.githubusercontent.com/JmzTaylor/unraid_templates/master/buggregator.png",
+          "https://raw.githubusercontent.com/JmzTaylor/unraid_templates/master/buggregator.xml"
+        ]
+      }
+    },
+    {
+      "slug": "caerp",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "source_code_url": "https://framagit.org/endi/endi",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://endi.coop/",
+        "https://framagit.org/endi/endi",
+        "https://pypi.org/project/endi/2026.2.1/"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The enDI project is the current CAERP product; its project site offers the community edition, and its maintained package metadata identifies the source repository and GPLv3 license.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://apps.yunohost.org/app/caerp",
+          "https://endi.coop",
+          "https://github.com/yunohost-apps/caerp_ynh",
+          "https://raw.githubusercontent.com/YunoHost/apps/master/logos/caerp.png",
+          "https://yunohost.org/en/apps"
+        ]
+      }
+    },
+    {
+      "slug": "canticle",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_code_url": "https://github.com/sydlexius/canticle",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/sydlexius/canticle"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The Canticle repository identifies the exact self-hosted lyrics service, provides Docker deployment details, and declares GPL-3.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://github.com/sydlexius/canticle/pkgs/container/canticle",
+          "https://raw.githubusercontent.com/sydlexius/canticle/main/web/static/img/canticle-mark.svg",
+          "https://raw.githubusercontent.com/sydlexius/unraid-templates/main/templates/canticle.xml",
+          "https://sydlexius.github.io/canticle/",
+          "https://sydlexius.github.io/canticle/GETTING_STARTED/"
+        ]
+      }
+    },
+    {
+      "slug": "auto-turbo-write-mode",
+      "source_code_url": "https://github.com/Squidly271/ca.turbo",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/55671-plugin-ca-auto-turbo-write-mode/",
+        "https://github.com/Squidly271/ca.turbo"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The Unraid plugin listing and matching public source repository identify this plugin. No explicit license grant was verified, so source_model remains closed_source.",
+      "expected": {
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/55671-plugin-ca-auto-turbo-write-mode",
+          "https://github.com/Squidly271/plugin-repository/raw/master/223-2239892_speedometer-png-auto-meter-speedometer.png",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/Squidly271/ca.turbo/master/plugins/ca.turbo.plg",
+          "https://raw.githubusercontent.com/Squidly271/plugin-repository/master/turbomode.xml"
+        ]
+      }
+    },
+    {
+      "slug": "auto-update-applications",
+      "source_code_url": "https://github.com/Squidly271/ca.update.applications",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/51959-plugin-ca-application-auto-update/",
+        "https://github.com/Squidly271/ca.update.applications"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The Unraid plugin listing and matching public source repository identify this plugin. No explicit license grant was verified, so source_model remains closed_source.",
+      "expected": {
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/51959-plugin-ca-application-auto-update/",
+          "https://github.com/Squidly271/ca.update.applications/raw/master/source/ca.update.applications/usr/local/emhttp/plugins/ca.update.applications/images/ca.update.applications.png",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/Squidly271/ca.update.applications/master/plugins/ca.update.applications.plg",
+          "https://raw.githubusercontent.com/Squidly271/plugin-repository/master/autoupdate.xml"
+        ]
+      }
+    },
+    {
+      "slug": "bloat",
+      "source_code_url": "https://git.freesoftwareextremist.com/bloat",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/bloat",
+        "https://git.freesoftwareextremist.com/bloat/tree/README"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The YunoHost catalog identifies this Bloat app and links its upstream source. I did not verify an explicit license grant, so source_model remains closed_source.",
+      "expected": {
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://apps.yunohost.org/app/bloat",
+          "https://git.freesoftwareextremist.com/bloat/tree/README",
+          "https://github.com/yunohost-apps/bloat_ynh",
+          "https://raw.githubusercontent.com/YunoHost/apps/master/logos/bloat.png",
+          "https://yunohost.org/en/apps"
+        ]
+      }
+    },
+    {
+      "slug": "bwapp",
+      "source_code_url": "https://sourceforge.net/projects/bwapp/files/bWAPP/",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://sourceforge.net/projects/bwapp/",
+        "https://sourceforge.net/projects/bwapp/files/bWAPP/"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official SourceForge project page identifies the self-hosted bWAPP and publishes source downloads, but does not state an explicit license grant; source_model remains closed_source.",
+      "expected": {
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://github.com/natcoso9955/unRAID-docker/raw/master/icons/bee_1.png",
+          "https://hub.docker.com/r/raesene/bwapp/",
+          "https://raw.githubusercontent.com/natcoso9955/unRAID-docker/master/bwapp_unraid.xml",
+          "https://sourceforge.net/projects/bwapp/"
+        ]
+      }
+    }
+  ],
+  "reviewed_apps": [
+    {
+      "slug": "ark-survivalascended",
+      "result": "unchanged",
+      "review_note": "Official Steam product and dedicated-server EULA identify a commercial game/server distribution; no public source or license was found.",
+      "sources": [
+        "https://store.steampowered.com/app/2399830/ARK_Survival_Ascended/",
+        "https://store.steampowered.com/eula/3359640_eula_0"
+      ]
+    },
+    {
+      "slug": "asigra-ds-system",
+      "result": "unchanged",
+      "review_note": "ASIGRA identifies DS-System as its proprietary backup product and documents licensing terms; the TrueNAS catalog entry is the self-hosted deployment.",
+      "sources": [
+        "https://www.asigra.com/asigra-truenas",
+        "https://www.asigra.com/country-partner-terms",
+        "https://apps.truenas.com/catalog/asigra-ds-system_enterprise/"
+      ]
+    },
+    {
+      "slug": "askadedicatedserver",
+      "result": "unchanged",
+      "review_note": "The Steam ASKA product page identifies the dedicated-server game distribution; no public source or license was found.",
+      "sources": [
+        "https://store.steampowered.com/app/1898300/ASKA/"
+      ]
+    },
+    {
+      "slug": "assetto-corsa-evo-server",
+      "result": "unchanged",
+      "review_note": "505 Games documents the dedicated server as an installable game tool; official publisher materials provide no public source repository or open license.",
+      "sources": [
+        "https://support.505games.com/support/solutions/articles/150000225040-assetto-corsa-evo-dedicated-server-setup",
+        "https://store.505games.com/asseto-corsa-evo/"
+      ]
+    },
+    {
+      "slug": "astropolis",
+      "result": "unchanged",
+      "review_note": "The official CurseForge modpack page and license page reserve rights; the available server pack does not include an open source license.",
+      "sources": [
+        "https://www.curseforge.com/minecraft/modpacks/astropolis",
+        "https://www.curseforge.com/minecraft/modpacks/astropolis/license"
+      ]
+    },
+    {
+      "slug": "atm7tothesky",
+      "result": "unchanged",
+      "review_note": "The official CurseForge modpack page and license page reserve rights; the server pack and third-party container are packaging, not source or a license grant.",
+      "sources": [
+        "https://www.curseforge.com/minecraft/modpacks/all-the-mods-7-to-the-sky",
+        "https://www.curseforge.com/minecraft/modpacks/all-the-mods-7-to-the-sky/license"
+      ]
+    },
+    {
+      "slug": "axigen-mail-server",
+      "result": "unchanged",
+      "review_note": "Axigen’s official EULA identifies its mail server as commercially licensed proprietary software.",
+      "sources": [
+        "https://www.axigen.com/",
+        "https://www.axigen.com/legal/eula/"
+      ]
+    },
+    {
+      "slug": "bliss",
+      "result": "unchanged",
+      "review_note": "Bliss’s official product and licensing pages describe its commercial software license; the Docker image is a deployment wrapper.",
+      "sources": [
+        "https://www.blisshq.com/",
+        "https://www.blisshq.com/music-library-management-blog/2016/09/06/change-licencing/"
+      ]
+    },
+    {
+      "slug": "blue-iris",
+      "result": "unchanged",
+      "review_note": "Blue Iris’s official site and license PDF confirm proprietary commercial licensing; the snapshot already records its custom license.",
+      "sources": [
+        "https://blueirissoftware.com/",
+        "https://blueirissoftware.com/BlueIris.PDF"
+      ]
+    },
+    {
+      "slug": "cave-factory",
+      "result": "unchanged",
+      "review_note": "The official CurseForge modpack page and license page reserve rights; the server pack is not an open source license.",
+      "sources": [
+        "https://www.curseforge.com/minecraft/modpacks/cave-factory",
+        "https://www.curseforge.com/minecraft/modpacks/cave-factory/license"
+      ]
+    },
+    {
+      "slug": "auth-grove",
+      "result": "unresolved",
+      "review_note": "The Nasqueron image identifies the hosted Auth Grove service, but I found no official application source repository or license statement to classify its source model.",
+      "sources": [
+        "https://docker.nasqueron.org/",
+        "https://hub.docker.com/r/nasqueron/auth-grove"
+      ]
+    },
+    {
+      "slug": "awtrix2",
+      "result": "unresolved",
+      "review_note": "The listed whyet/awtrix2 container is not clearly tied to the available AWTRIX2 controller repositories; product identity and applicable source license for this exact server image remain unverified.",
+      "sources": [
+        "https://awtrixdocs.blueforcer.de/",
+        "https://forum.blueforcer.de/",
+        "https://hub.docker.com/r/whyet/awtrix2"
+      ]
+    },
+    {
+      "slug": "blackcoin-quantum-quasar",
+      "result": "unresolved",
+      "review_note": "The official Blackcoin project disputes the identity and authorization of the Quantum Quasar fork; its public repository and claimed license cannot be safely attributed to this listed app.",
+      "sources": [
+        "https://blackcoin.org/",
+        "https://github.com/coinblack",
+        "https://hub.docker.com/r/qqblackcoin/blackcoin-v4-gui"
+      ]
+    },
+    {
+      "slug": "blynk-server",
+      "result": "unresolved",
+      "review_note": "Historical Blynk material identifies a self-hosted server, but the former official source repository is no longer available and I could not verify a current primary license/source endpoint.",
+      "sources": [
+        "https://community.blynk.cc/",
+        "https://github.com/blynkkk/blynk-server",
+        "https://hub.docker.com/r/mpherg/blynk-server/"
+      ]
+    }
+  ]
+}

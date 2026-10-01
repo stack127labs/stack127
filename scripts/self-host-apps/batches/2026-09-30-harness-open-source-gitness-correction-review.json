@@ -1,0 +1,250 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are offline comparison values and must be refreshed before applying.",
+  "scope": "Correct Gitness's product name, source classification, official project links, license, publisher, and Docker support after Harness rebranded Gitness as Harness Open Source.",
+  "apps": [
+    {
+      "slug": "gitness",
+      "review_scope": "partial",
+      "expected": {
+        "name": "gitness",
+        "summary": "Your lightweight, super fast code hosting and continuous integration service (powered by Drone).",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "website_url": "https://gitness.com/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/harness/gitness/issues",
+        "install_docs_url": "https://github.com/harness/gitness/issues",
+        "docker_url": "https://hub.docker.com/r/harness/gitness",
+        "docker_image": "harness/gitness:latest",
+        "docker_support": "community",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_model": "closed_source",
+        "publisher_name": "gitness",
+        "publisher_type": "unknown",
+        "publisher_url": "https://gitness.com/",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/harness/gitness/blob/main/web/src/images/gitLogo.png?raw=true",
+              "https://github.com/harness/gitness/issues",
+              "https://gitness.com/",
+              "https://hub.docker.com/r/harness/gitness",
+              "https://raw.githubusercontent.com/ibracorp/unraid-templates/master/gitness/gitness.xml"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/harness/gitness/blob/main/web/src/images/gitLogo.png?raw=true",
+              "https://github.com/harness/gitness/issues",
+              "https://gitness.com/",
+              "https://hub.docker.com/r/harness/gitness",
+              "https://raw.githubusercontent.com/ibracorp/unraid-templates/master/gitness/gitness.xml"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/harness/gitness/blob/main/web/src/images/gitLogo.png?raw=true",
+              "https://github.com/harness/gitness/issues",
+              "https://gitness.com/",
+              "https://hub.docker.com/r/harness/gitness",
+              "https://raw.githubusercontent.com/ibracorp/unraid-templates/master/gitness/gitness.xml"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/harness/gitness/blob/main/web/src/images/gitLogo.png?raw=true",
+              "https://github.com/harness/gitness/issues",
+              "https://gitness.com/",
+              "https://hub.docker.com/r/harness/gitness",
+              "https://raw.githubusercontent.com/ibracorp/unraid-templates/master/gitness/gitness.xml"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/harness/gitness/blob/main/web/src/images/gitLogo.png?raw=true",
+              "https://github.com/harness/gitness/issues",
+              "https://gitness.com/",
+              "https://hub.docker.com/r/harness/gitness",
+              "https://raw.githubusercontent.com/ibracorp/unraid-templates/master/gitness/gitness.xml"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/harness/gitness/blob/main/web/src/images/gitLogo.png?raw=true",
+              "https://github.com/harness/gitness/issues",
+              "https://gitness.com/",
+              "https://hub.docker.com/r/harness/gitness",
+              "https://raw.githubusercontent.com/ibracorp/unraid-templates/master/gitness/gitness.xml"
+            ]
+          }
+        }
+      },
+      "name": "Harness Open Source",
+      "summary": "Harness Open Source combines code hosting, CI/CD pipelines, development environments, and artifact management in a self-hosted platform.",
+      "summary_source": "stack127_enriched",
+      "summary_confidence": "high",
+      "website_url": "https://www.harness.io/open-source",
+      "source_code_url": "https://github.com/harness/harness",
+      "source_code_host": "github",
+      "docs_url": "https://github.com/harness/harness#readme",
+      "install_docs_url": "https://github.com/harness/harness#running-harness-locally",
+      "docker_url": "https://hub.docker.com/r/harness/harness",
+      "docker_image": "harness/harness:latest",
+      "docker_support": "official",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_model": "open_source",
+      "publisher_name": "Harness",
+      "publisher_type": "company",
+      "publisher_url": "https://www.harness.io",
+      "reviewed_install_methods": [
+        "docker"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/harness/gitness",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "harness/gitness:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/harness/gitness",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/ibracorp/unraid-templates/master/gitness/gitness.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/ibracorp/unraid-templates/master/gitness/gitness.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Official Docker image",
+          "url": "https://hub.docker.com/r/harness/harness",
+          "image": "harness/harness:latest",
+          "support_level": "official",
+          "source_url": "https://github.com/harness/harness#readme",
+          "note": "Harness documents this image for running Harness Open Source locally.",
+          "sort_order": 10
+        }
+      ],
+      "data_source_urls": [
+        "https://www.harness.io/open-source",
+        "https://github.com/harness/harness",
+        "https://github.com/harness/harness/blob/main/LICENSE",
+        "https://hub.docker.com/r/harness/gitness",
+        "https://hub.docker.com/r/harness/harness"
+      ],
+      "confidence": "high",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Est. RAM range for a small self-hosted setup; CI jobs and development environments can increase use.",
+          "status": "estimated",
+          "checked_at": "2026-09-30T16:51:30.000Z",
+          "confidence": "low",
+          "source_urls": [
+            "https://www.harness.io/open-source",
+            "https://github.com/harness/harness#readme"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/harness/gitness/blob/main/web/src/images/gitLogo.png?raw=true",
+            "https://github.com/harness/gitness/issues",
+            "https://gitness.com/",
+            "https://hub.docker.com/r/harness/gitness",
+            "https://raw.githubusercontent.com/ibracorp/unraid-templates/master/gitness/gitness.xml"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/harness/gitness/blob/main/web/src/images/gitLogo.png?raw=true",
+            "https://github.com/harness/gitness/issues",
+            "https://gitness.com/",
+            "https://hub.docker.com/r/harness/gitness",
+            "https://raw.githubusercontent.com/ibracorp/unraid-templates/master/gitness/gitness.xml"
+          ]
+        },
+        "storage": {
+          "note": "Est. Storage range for source repositories and artifacts; retained data can grow with use.",
+          "status": "estimated",
+          "checked_at": "2026-09-30T16:51:30.000Z",
+          "confidence": "low",
+          "source_urls": [
+            "https://www.harness.io/open-source",
+            "https://github.com/harness/harness#readme"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/harness/gitness/blob/main/web/src/images/gitLogo.png?raw=true",
+            "https://github.com/harness/gitness/issues",
+            "https://gitness.com/",
+            "https://hub.docker.com/r/harness/gitness",
+            "https://raw.githubusercontent.com/ibracorp/unraid-templates/master/gitness/gitness.xml"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/harness/gitness/blob/main/web/src/images/gitLogo.png?raw=true",
+            "https://github.com/harness/gitness/issues",
+            "https://gitness.com/",
+            "https://hub.docker.com/r/harness/gitness",
+            "https://raw.githubusercontent.com/ibracorp/unraid-templates/master/gitness/gitness.xml"
+          ]
+        }
+      }
+    }
+  ]
+}

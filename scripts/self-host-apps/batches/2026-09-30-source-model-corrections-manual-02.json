@@ -1,0 +1,513 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Manual source-model, license, link, category, summary, and maintenance corrections for confirmed closed-source false positives. Official product and source evidence only; proposals only.",
+  "apps": [
+    {
+      "slug": "amule",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-or-later",
+      "source_code_url": "https://github.com/amule-org/amule",
+      "source_code_host": "github",
+      "docs_url": "https://amule-org.github.io/",
+      "categories": [
+        "file-sharing-sync"
+      ],
+      "summary": "aMule is a peer-to-peer client for the eDonkey and Kademlia file-sharing networks.",
+      "data_source_urls": [
+        "https://github.com/amule-org/amule",
+        "https://github.com/amule-org/amule/blob/master/LICENSE.md",
+        "https://amule-org.github.io/"
+      ],
+      "review_scope": "partial",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/ngosang/docker-amule",
+        "categories": [
+          "networking-dns"
+        ],
+        "summary": "AMule is a free peer-to-peer file sharing utility that works with the eDonkey network and the Kad network, offering similar features to eMule and adding.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high"
+      }
+    },
+    {
+      "slug": "soularr",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_code_url": "https://github.com/mrusse/soularr",
+      "source_code_host": "github",
+      "docs_url": "https://soularr.net/",
+      "install_docs_url": "https://github.com/mrusse/soularr#docker",
+      "categories": [
+        "music-audio"
+      ],
+      "summary": "Soularr connects Lidarr to Soulseek through Slskd and imports completed downloads into Lidarr.",
+      "data_source_urls": [
+        "https://soularr.net/",
+        "https://github.com/mrusse/soularr",
+        "https://github.com/mrusse/soularr/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/JPDVM2014/soularr",
+        "install_docs_url": "https://github.com/JPDVM2014/soularr",
+        "categories": [
+          "developer-tools",
+          "music-audio"
+        ],
+        "summary": "A Python script that connects Lidarr with Soulseek, Soularr reads all of your \"wanted\" albums/artists from Lidarr and downloads them using Slskd, It uses the.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high"
+      }
+    },
+    {
+      "slug": "velocity",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_code_url": "https://github.com/PaperMC/Velocity",
+      "source_code_host": "github",
+      "docs_url": "https://docs.papermc.io/velocity/",
+      "install_docs_url": "https://docs.papermc.io/velocity/",
+      "categories": [
+        "games"
+      ],
+      "summary": "Velocity is a Minecraft server proxy for connecting players to backend servers.",
+      "data_source_urls": [
+        "https://github.com/PaperMC/Velocity",
+        "https://docs.papermc.io/velocity/"
+      ],
+      "review_scope": "partial",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/dkeners/unraid-templates/blob/main/README.md",
+        "install_docs_url": "https://github.com/dkeners/unraid-templates/blob/main/README.md",
+        "categories": [
+          "ai-ml",
+          "networking-dns",
+          "photos-galleries"
+        ],
+        "summary": "This template is set up to use the Velocity part of itzg/mc-proxy, It is a Docker image that provides a choice of Minecraft proxies, the exposed variables.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high"
+      }
+    },
+    {
+      "slug": "apache-webdav",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/apache/httpd",
+      "source_code_host": "github",
+      "docs_url": "https://httpd.apache.org/docs/2.4/mod/mod_dav.html",
+      "install_docs_url": "https://httpd.apache.org/docs/2.4/mod/mod_dav.html",
+      "categories": [
+        "file-sharing-sync",
+        "system-admin-hosting"
+      ],
+      "summary": "Apache WebDAV provides file authoring and versioning over WebDAV through the Apache HTTP Server.",
+      "data_source_urls": [
+        "https://httpd.apache.org/docs/2.4/mod/mod_dav.html",
+        "https://github.com/apache/httpd",
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "review_scope": "partial",
+      "website_url": "https://httpd.apache.org/",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://forums.unraid.net/topic/103601-support-apache-webdav/",
+        "install_docs_url": "https://forums.unraid.net/topic/103601-support-apache-webdav/",
+        "categories": [
+          "ai-ml",
+          "password-managers",
+          "storage-backup"
+        ],
+        "summary": "Very simple WebDAV server based on Apache, You need a WebDAV client to transfer files, It does not include a WebUI to upload files through your browser.",
+        "website_url": "https://httpd.apache.org/docs/2.4/mod/mod_dav.html",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high"
+      }
+    },
+    {
+      "slug": "rss-proxy",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_code_url": "https://github.com/damoeb/rss-proxy",
+      "source_code_host": "github",
+      "docs_url": "https://github.com/damoeb/rss-proxy",
+      "install_docs_url": "https://github.com/damoeb/rss-proxy",
+      "categories": [
+        "content-publishing"
+      ],
+      "summary": "RSS Proxy creates Atom or JSON feeds from static websites by reading their HTML structure.",
+      "data_source_urls": [
+        "https://github.com/damoeb/rss-proxy",
+        "https://rssproxy.migor.org/"
+      ],
+      "review_scope": "partial",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/damoeb/rss-proxy/issues",
+        "install_docs_url": "https://github.com/damoeb/rss-proxy/issues",
+        "categories": [
+          "email-newsletters",
+          "networking-dns"
+        ],
+        "summary": "RSS-proxy allows you to do create an ATOM or JSON feed of any static website or feeds (web to feed), just by analyzing just the HTML structure.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high"
+      }
+    },
+    {
+      "slug": "dbackup",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_code_url": "https://github.com/Skyfay/DBackup",
+      "source_code_host": "github",
+      "docs_url": "https://docs.dbackup.app/",
+      "install_docs_url": "https://docs.dbackup.app/user-guide/getting-started",
+      "categories": [
+        "storage-backup"
+      ],
+      "summary": "DBackup automates database and file backups with encryption, retention policies, and restore tools.",
+      "data_source_urls": [
+        "https://github.com/Skyfay/DBackup",
+        "https://github.com/Skyfay/DBackup/blob/main/LICENSE",
+        "https://docs.dbackup.app/",
+        "https://docs.dbackup.app/user-guide/getting-started"
+      ],
+      "review_scope": "partial",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/Skyfay/DBackup",
+        "install_docs_url": "https://github.com/Skyfay/DBackup",
+        "categories": [
+          "ai-ml",
+          "databases",
+          "monitoring-status"
+        ],
+        "summary": "DBackup is a comprehensive, backup app designed to automate and secure your database backups, It provides AES-256-GCM encryption, flexible storage options.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high"
+      }
+    },
+    {
+      "slug": "ipxe-buildweb",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "source_code_url": "https://github.com/xbgmsharp/ipxe-buildweb",
+      "source_code_host": "github",
+      "website_url": "https://github.com/xbgmsharp/ipxe-buildweb",
+      "docs_url": "https://github.com/xbgmsharp/ipxe-buildweb/blob/master/README.md",
+      "install_docs_url": "https://github.com/xbgmsharp/ipxe-buildweb/blob/master/README.md",
+      "categories": [
+        "system-admin-hosting"
+      ],
+      "summary": "iPXE BuildWeb lets you choose iPXE build options and embedded scripts, then download the built image.",
+      "data_source_urls": [
+        "https://github.com/xbgmsharp/ipxe-buildweb",
+        "https://github.com/xbgmsharp/ipxe-buildweb/blob/master/LICENSE",
+        "https://github.com/xbgmsharp/ipxe-buildweb/blob/master/README.md"
+      ],
+      "review_scope": "partial",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "website_url": "https://github.com/xbgmsharp",
+        "docs_url": "https://forums.unraid.net/",
+        "install_docs_url": "https://forums.unraid.net/",
+        "categories": [
+          "networking-dns",
+          "system-admin-hosting"
+        ],
+        "summary": "A web user interface that provide a way for the user to select any relevant iPXE build options, specify any embedded script, etc, and then construct and.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high"
+      }
+    },
+    {
+      "slug": "z80pack",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/udo-munk/z80pack",
+      "source_code_host": "github",
+      "website_url": "https://www.icl1900.co.uk/unix4fun/z80pack/",
+      "docs_url": "https://www.icl1900.co.uk/unix4fun/z80pack/",
+      "install_docs_url": "https://github.com/udo-munk/z80pack",
+      "categories": [
+        "developer-tools"
+      ],
+      "summary": "Z80Pack emulates Z80 and Intel 8080 computers and can run systems such as CP/M.",
+      "data_source_urls": [
+        "https://github.com/udo-munk/z80pack",
+        "https://github.com/udo-munk/z80pack/blob/master/LICENSE",
+        "https://www.icl1900.co.uk/unix4fun/z80pack/"
+      ],
+      "review_scope": "partial",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "website_url": "http://www.autometer.de/unix4fun/z80pack/index.html",
+        "docs_url": "https://forums.lime-technology.com/topic/58756-support-z80pack-vintage-computing-in-a-docker-cpm-and-mpm/#comment-576460",
+        "install_docs_url": "https://forums.lime-technology.com/topic/58756-support-z80pack-vintage-computing-in-a-docker-cpm-and-mpm/#comment-576460",
+        "categories": [
+          "ai-ml",
+          "password-managers",
+          "project-task-management"
+        ],
+        "summary": "Z80Pack is an emulator for emulating CP/M 1, CP/M 2, CP/M 3, and MP/M II on Linux, This is a command line Docker Container only, There is a built in Shell in.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high"
+      }
+    },
+    {
+      "slug": "conduwuit",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/x86pup/conduwuit",
+      "source_code_host": "github",
+      "website_url": "https://github.com/x86pup/conduwuit",
+      "docs_url": "https://github.com/x86pup/conduwuit",
+      "install_docs_url": "https://github.com/x86pup/conduwuit/blob/main/README.md",
+      "maintenance_status": "archived",
+      "summary": "Conduwuit is an archived Rust Matrix homeserver forked from Conduit, with Tuwunel as its official successor.",
+      "data_source_urls": [
+        "https://github.com/x86pup/conduwuit",
+        "https://github.com/x86pup/conduwuit/blob/main/LICENSE",
+        "https://github.com/matrix-construct/tuwunel"
+      ],
+      "review_scope": "partial",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "website_url": "https://conduwuit.puppyirl.gay/",
+        "docs_url": "https://github.com/girlbossceo/conduwuit/issues",
+        "install_docs_url": "https://github.com/girlbossceo/conduwuit/issues",
+        "maintenance_status": "active",
+        "summary": "A very cool, featureful fork of conduit (Rust matrix homeserver).",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high"
+      }
+    },
+    {
+      "slug": "caddygen",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/DeanWard/CaddyGen",
+      "source_code_host": "github",
+      "docs_url": "https://github.com/DeanWard/CaddyGen",
+      "install_docs_url": "https://github.com/DeanWard/CaddyGen",
+      "categories": [
+        "networking-dns",
+        "system-admin-hosting"
+      ],
+      "data_source_urls": [
+        "https://github.com/DeanWard/CaddyGen",
+        "https://caddygen.site/"
+      ],
+      "review_scope": "partial",
+      "summary": "CaddyGen builds Caddy server configurations through a web interface, with options for reverse proxies, file servers, and TLS.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/DeanWard/CaddyGen/issues",
+        "install_docs_url": "https://github.com/DeanWard/CaddyGen/issues",
+        "categories": [
+          "networking-dns",
+          "security-privacy",
+          "system-admin-hosting"
+        ],
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "summary": "A user-friendly web interface for generating Caddy server configurations, Easily create and manage reverse proxy and file server configurations with support."
+      }
+    },
+    {
+      "slug": "infcloud",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://inf-it.com/open-source/download/InfCloud_0.13.1.zip",
+      "source_code_host": "other",
+      "website_url": "https://inf-it.com/open-source/clients/infcloud/",
+      "docs_url": "https://inf-it.com/open-source/clients/infcloud/",
+      "install_docs_url": "https://inf-it.com/infcloud/readme.txt",
+      "maintenance_status": "stale",
+      "categories": [
+        "calendars-contacts"
+      ],
+      "summary": "InfCloud is a web client for accessing CalDAV calendars and CardDAV address books.",
+      "data_source_urls": [
+        "https://inf-it.com/open-source/clients/infcloud/",
+        "https://inf-it.com/open-source/download/InfCloud_0.13.1.zip"
+      ],
+      "review_scope": "partial",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "website_url": "https://inf-it.com/open-source/clients/infcloud",
+        "docs_url": "https://github.com/ckulka/infcloud-docker/issues",
+        "install_docs_url": "https://github.com/ckulka/infcloud-docker/issues",
+        "maintenance_status": "active",
+        "categories": [
+          "developer-tools"
+        ],
+        "summary": "An CalDAV/CardDAV web client implementation.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high"
+      }
+    },
+    {
+      "slug": "dokemon-agent",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/productiveops/dokemon",
+      "source_code_host": "github",
+      "docs_url": "https://github.com/productiveops/dokemon",
+      "install_docs_url": "https://hub.docker.com/r/productiveops/dokemon-agent",
+      "categories": [
+        "system-admin-hosting"
+      ],
+      "data_source_urls": [
+        "https://github.com/productiveops/dokemon",
+        "https://github.com/productiveops/dokemon/blob/main/LICENSE",
+        "https://github.com/productiveops/dokemon/blob/main/Dockerfile.agent",
+        "https://hub.docker.com/r/productiveops/dokemon-agent"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/productiveops/dokemon/issues",
+        "install_docs_url": "https://github.com/productiveops/dokemon/issues",
+        "categories": [
+          "ai-ml",
+          "networking-dns",
+          "system-admin-hosting"
+        ]
+      }
+    },
+    {
+      "slug": "localstack",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/localstack/localstack",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/localstack/localstack",
+        "https://github.com/localstack/localstack/blob/main/LICENSE.txt",
+        "https://support.localstack.cloud/migration/knowledge-base/is-it-possible-to-use"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    }
+  ]
+}

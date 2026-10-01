@@ -1,0 +1,1427 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Paired estimated RAM and storage for 20 uncovered G–I apps, based on their official source and a typical small single-node setup. App data, media, and large workloads are called out where relevant. Proposal only; refresh current values before applying.",
+  "estimates": [
+    {
+      "slug": "highlight",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 8192,
+      "estimate_max": 16384,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Publisher recommends at least 8 GB RAM and 4 CPUs for its hobby deployment; ingest volume and retained events call for headroom.",
+      "source_urls": [
+        "https://github.com/highlight/highlight"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "highlight",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 64,
+      "estimate_max": 128,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Publisher recommends at least 64 GB of disk for a hobby deployment; retained sessions, logs, and traces drive growth.",
+      "source_urls": [
+        "https://github.com/highlight/highlight"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "humhub",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 3072,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small PHP social-network instance with its database, modules, and a modest number of active users.",
+      "source_urls": [
+        "https://github.com/humhub/humhub",
+        "https://docs.humhub.org/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:45.811+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/humhub/humhub#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "humhub",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 30,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Database, profile images, and uploaded community files for a small group; member media drives growth.",
+      "source_urls": [
+        "https://github.com/humhub/humhub",
+        "https://docs.humhub.org/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:45.811+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/humhub/humhub#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "graphhopper",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One routing server with a regional OpenStreetMap graph; graph region, profiles, and routing mode set memory use.",
+      "source_urls": [
+        "https://github.com/graphhopper/graphhopper",
+        "https://github.com/graphhopper/graphhopper#readme"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:45.811+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/graphhopper/graphhopper#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "graphhopper",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application files and one regional routing graph; larger map extracts and additional profiles need more disk.",
+      "source_urls": [
+        "https://github.com/graphhopper/graphhopper",
+        "https://github.com/graphhopper/graphhopper#readme"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:45.811+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/graphhopper/graphhopper#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "glpi",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 3072,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small PHP asset and helpdesk instance with its database and a light ticket workload.",
+      "source_urls": [
+        "https://github.com/glpi-project/glpi",
+        "https://glpi-install.readthedocs.io/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:45.811+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/glpi-project/glpi#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "glpi",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 30,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Asset records, tickets, database backups, and uploaded attachments for a small IT inventory.",
+      "source_urls": [
+        "https://github.com/glpi-project/glpi",
+        "https://glpi-install.readthedocs.io/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:45.811+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/glpi-project/glpi#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "goatcounter",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Single small analytics server; the publisher says SQLite works for smaller sites, while traffic and page diversity affect use.",
+      "source_urls": [
+        "https://github.com/arp242/goatcounter",
+        "https://github.com/arp242/goatcounter#self-hosting-goatcounter"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:45.811+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/arp242/goatcounter#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "goatcounter",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "SQLite or PostgreSQL page-view records and indexes; traffic volume and retained history determine database size.",
+      "source_urls": [
+        "https://github.com/arp242/goatcounter",
+        "https://github.com/arp242/goatcounter#self-hosting-goatcounter"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:45.811+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/arp242/goatcounter#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "haraka",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One Node.js SMTP service with a modest plugin set and mail volume; concurrent connections affect peaks.",
+      "source_urls": [
+        "https://github.com/haraka/Haraka"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:45.811+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/haraka/Haraka#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "haraka",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Configuration, logs, and a small mail queue; queued message volume and retention drive disk use.",
+      "source_urls": [
+        "https://github.com/haraka/Haraka"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:45.811+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/haraka/Haraka#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "homarr",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1536,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One dashboard server with a modest number of widgets, integrations, and users.",
+      "source_urls": [
+        "https://github.com/homarr-labs/homarr"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "homarr",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Dashboard configuration, user state, and application data; linked service content remains external.",
+      "source_urls": [
+        "https://github.com/homarr-labs/homarr"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "garage",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Garage object-storage node; replication, request rate, and object count increase memory use.",
+      "source_urls": [
+        "https://git.deuxfleurs.fr/Deuxfleurs/garage"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://garagehq.deuxfleurs.fr/documentation/quick-start/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://garagehq.deuxfleurs.fr/documentation/quick-start/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "garage",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 50,
+      "estimate_max": 500,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small object-store deployment with room for user data; stored objects and replication factor dominate capacity.",
+      "source_urls": [
+        "https://git.deuxfleurs.fr/Deuxfleurs/garage"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://garagehq.deuxfleurs.fr/documentation/quick-start/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://garagehq.deuxfleurs.fr/documentation/quick-start/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "grimmory",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 3072,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small Java library server plus MariaDB; scans and simultaneous book imports can raise peak memory.",
+      "source_urls": [
+        "https://github.com/grimmory-tools/grimmory",
+        "https://grimmory.org/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "grimmory",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application data, MariaDB, and a modest ebook/comic/audiobook collection; library files drive growth.",
+      "source_urls": [
+        "https://github.com/grimmory-tools/grimmory",
+        "https://grimmory.org/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "guacamole",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 3072,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small Guacamole web application and proxy daemon with a few remote sessions; active sessions add load.",
+      "source_urls": [
+        "https://github.com/apache/guacamole-server",
+        "https://github.com/apache/guacamole-client",
+        "https://guacamole.apache.org/doc/gug/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/apache/guacamole-server#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "guacamole",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Application configuration, connection records, and logs; remote desktops and their files stay on target systems.",
+      "source_urls": [
+        "https://github.com/apache/guacamole-server",
+        "https://github.com/apache/guacamole-client",
+        "https://guacamole.apache.org/doc/gug/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/apache/guacamole-server#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "headphones",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One lightweight music-automation process with periodic searches and a small library database.",
+      "source_urls": [
+        "https://github.com/rembo10/headphones"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:16.047+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/rembo10/headphones/wiki/Installation"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/rembo10/headphones/wiki/Installation"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "headphones",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Application configuration, queue, and metadata; downloaded music files remain in the separate music library.",
+      "source_urls": [
+        "https://github.com/rembo10/headphones"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:16.047+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/rembo10/headphones/wiki/Installation"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/rembo10/headphones/wiki/Installation"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "garmin-grafana",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small scheduled Python importer and InfluxDB instance for one Garmin account; dashboard load is separate.",
+      "source_urls": [
+        "https://github.com/arpanghosh8453/garmin-grafana"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/arpanghosh8453/garmin-grafana#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "garmin-grafana",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "InfluxDB health and activity history plus backups; retention and sync history drive growth.",
+      "source_urls": [
+        "https://github.com/arpanghosh8453/garmin-grafana"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/arpanghosh8453/garmin-grafana#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "gladys",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small home-automation server with its database, integrations, and a modest number of devices.",
+      "source_urls": [
+        "https://github.com/GladysAssistant/Gladys",
+        "https://gladysassistant.com/docs/installation/docker-compose/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/GladysAssistant/Gladys#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "gladys",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Configuration, device history, and automation data for one home; retained history changes capacity needs.",
+      "source_urls": [
+        "https://github.com/GladysAssistant/Gladys",
+        "https://gladysassistant.com/docs/installation/docker-compose/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/GladysAssistant/Gladys#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "homelable",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small homelab inventory and topology service with periodic status checks.",
+      "source_urls": [
+        "https://github.com/Pouzor/homelable"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:16.047+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/Pouzor/homelable"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 10,
+        "storage_estimate_max_gb": 100,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/Pouzor/homelable"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "homelable",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Device inventory, topology, service configuration, and a modest amount of monitoring history.",
+      "source_urls": [
+        "https://github.com/Pouzor/homelable"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:16.047+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/Pouzor/homelable"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 10,
+        "storage_estimate_max_gb": 100,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/Pouzor/homelable"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "gokapi",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "high",
+      "basis": "Publisher lists 256 MB minimum and recommends 512 MB or more; active uploads add temporary memory use.",
+      "source_urls": [
+        "https://github.com/Forceu/Gokapi",
+        "https://gokapi.readthedocs.io/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://gokapi.readthedocs.io/en/latest/setup.html"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "gokapi",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Publisher lists 100 MB plus file storage; a small set of expiring file shares needs additional payload space.",
+      "source_urls": [
+        "https://github.com/Forceu/Gokapi",
+        "https://gokapi.readthedocs.io/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://gokapi.readthedocs.io/en/latest/setup.html"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "grimoire",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1536,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small bookmark service with background page parsing and previews for a modest saved-link collection.",
+      "source_urls": [
+        "https://github.com/goniszewski/grimoire"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/goniszewski/grimoire#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "grimoire",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Saved links, metadata, thumbnails, and any retained page snapshots; collection size and previews drive growth.",
+      "source_urls": [
+        "https://github.com/goniszewski/grimoire"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/goniszewski/grimoire#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "glauth",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 64,
+      "estimate_max": 256,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Small LDAP service for home or development use with a modest account and group directory.",
+      "source_urls": [
+        "https://github.com/glauth/glauth"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/glauth/glauth#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "glauth",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Configuration, directory records, and logs; the service stores little data for a small directory.",
+      "source_urls": [
+        "https://github.com/glauth/glauth"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/glauth/glauth#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "gonic",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One Subsonic music server with a small user base; audio files are read from the mounted library.",
+      "source_urls": [
+        "https://github.com/sentriz/gonic",
+        "https://github.com/sentriz/gonic#readme"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/sentriz/gonic#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "gonic",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Application database, indexes, and configuration; the mounted music library is separate.",
+      "source_urls": [
+        "https://github.com/sentriz/gonic",
+        "https://github.com/sentriz/gonic#readme"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/sentriz/gonic#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "immich-kiosk",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 64,
+      "estimate_max": 256,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Small Go slideshow service; Immich serves the photos and videos.",
+      "source_urls": [
+        "https://github.com/damongolding/immich-kiosk",
+        "https://docs.immichkiosk.app/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "immich-kiosk",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 0.5,
+      "estimate_kind": "estimated",
+      "confidence": "high",
+      "basis": "Container, configuration, and small caches only; photo and video assets remain in Immich.",
+      "source_urls": [
+        "https://github.com/damongolding/immich-kiosk",
+        "https://docs.immichkiosk.app/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "go-feature-flag",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One lightweight feature-flag relay proxy with a small configuration and request workload.",
+      "source_urls": [
+        "https://github.com/thomaspoignant/go-feature-flag",
+        "https://gofeatureflag.org/docs"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/thomaspoignant/go-feature-flag#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "go-feature-flag",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Configuration and local flag data for a small service; remote providers and application databases remain external.",
+      "source_urls": [
+        "https://github.com/thomaspoignant/go-feature-flag",
+        "https://gofeatureflag.org/docs"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:56.324+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/thomaspoignant/go-feature-flag#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    }
+  ]
+}

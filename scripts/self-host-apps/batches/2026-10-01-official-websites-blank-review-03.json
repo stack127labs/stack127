@@ -1,0 +1,332 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Review the next 40 saved-inventory apps with blank website_url and no earlier website correction proposal, ordered by slug. Add only verified official project or publisher sites. Proposal only.",
+  "apps": [
+    {
+      "slug": "milvus",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://milvus.io/",
+      "data_source_urls": [
+        "https://github.com/milvus-io/milvus",
+        "https://milvus.io/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "minipaint",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://viliusle.github.io/miniPaint/",
+      "data_source_urls": [
+        "https://github.com/viliusle/miniPaint",
+        "https://viliusle.github.io/miniPaint/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "nagios",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.nagios.org/projects/nagios-core/",
+      "data_source_urls": [
+        "https://github.com/nagiosenterprises/nagioscore",
+        "https://www.nagios.org/projects/nagios-core/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "onlyoffice-docs",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.onlyoffice.com/docs",
+      "data_source_urls": [
+        "https://github.com/onlyoffice/documentserver",
+        "https://www.onlyoffice.com/docs"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "open-terminal",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://openterminal.sh/",
+      "data_source_urls": [
+        "https://github.com/open-webui/open-terminal",
+        "https://openterminal.sh/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "openlit",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://openlit.io/",
+      "data_source_urls": [
+        "https://github.com/openlit/openlit",
+        "https://openlit.io/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "ourboard",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.ourboard.io/",
+      "data_source_urls": [
+        "https://github.com/raimohanska/ourboard",
+        "https://www.ourboard.io/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "oxid-eshop",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.oxid-esales.com/en/",
+      "data_source_urls": [
+        "https://github.com/OXID-eSales/oxideshop_ce",
+        "https://www.oxid-esales.com/en/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "paseo",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://paseo.sh/",
+      "data_source_urls": [
+        "https://github.com/getpaseo/paseo",
+        "https://paseo.sh/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "pico",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://pico.sh/",
+      "data_source_urls": [
+        "https://github.com/picosh/pico",
+        "https://pico.sh/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "pixlstash",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://pixlstash.dev/",
+      "data_source_urls": [
+        "https://github.com/pikselkroken/pixlstash",
+        "https://pixlstash.dev/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "prefect",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.prefect.io/",
+      "data_source_urls": [
+        "https://github.com/PrefectHQ/prefect",
+        "https://www.prefect.io/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "proxmenux",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://proxmenux.com/en/",
+      "data_source_urls": [
+        "https://github.com/MacRimi/ProxMenux",
+        "https://proxmenux.com/en/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "rakazo",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://rakazo.com/",
+      "data_source_urls": [
+        "https://github.com/elie222/rakazo",
+        "https://rakazo.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "re-director",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://re-director.github.io/",
+      "data_source_urls": [
+        "https://github.com/re-Director/re-director",
+        "https://re-director.github.io/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "rejourney",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://rejourney.co/",
+      "data_source_urls": [
+        "https://github.com/rejourneyco/rejourney",
+        "https://rejourney.co/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "roomote",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://roomote.dev/",
+      "data_source_urls": [
+        "https://github.com/RooCodeInc/Roomote",
+        "https://roomote.dev/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "seekstorm",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://seekstorm.com/",
+      "data_source_urls": [
+        "https://github.com/SeekStorm/SeekStorm",
+        "https://seekstorm.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "shopware",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.shopware.com/en/community/community-edition/",
+      "data_source_urls": [
+        "https://github.com/shopware/shopware",
+        "https://www.shopware.com/en/community/community-edition/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "skyvern",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.skyvern.com/",
+      "data_source_urls": [
+        "https://github.com/skyvern-ai/skyvern",
+        "https://www.skyvern.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "spanlens",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.spanlens.io/",
+      "data_source_urls": [
+        "https://github.com/spanlens/Spanlens",
+        "https://www.spanlens.io/",
+        "https://www.spanlens.io/self-hosting"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "spinifex",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://mulgadc.com/spinifex",
+      "data_source_urls": [
+        "https://github.com/mulgadc/spinifex",
+        "https://mulgadc.com/spinifex",
+        "https://docs.mulgadc.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "tailchat",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://tailchat.msgbyte.com/",
+      "data_source_urls": [
+        "https://github.com/msgbyte/tailchat",
+        "https://tailchat.msgbyte.com/"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "skipped": [
+    {
+      "slug": "miflora-mqtt-daemon",
+      "reason": "The official repository is the project page; no separate official product site was found."
+    },
+    {
+      "slug": "morphic",
+      "reason": "The similarly named Morphic sites found do not verify this repository's project, so no website is proposed."
+    },
+    {
+      "slug": "muximux",
+      "reason": "The official repository contains the project and setup guide; no separate project site was linked."
+    },
+    {
+      "slug": "once",
+      "reason": "The official repository is for Basecamp's ONCE CLI; the other official pages found refer to separate products."
+    },
+    {
+      "slug": "opennutritracker",
+      "reason": "The official FAQ describes the mobile app, and no separate official product site for this project was found."
+    },
+    {
+      "slug": "pikoci",
+      "reason": "The official link found is a documentation site; no distinct product homepage was verified."
+    },
+    {
+      "slug": "ptah-sh",
+      "reason": "The repository's product domain could not be opened, and the similarly named live product belongs to a different project."
+    },
+    {
+      "slug": "quizmaster",
+      "reason": "The official repository contains the app and deployment instructions; no separate official product site was found."
+    },
+    {
+      "slug": "rahoot",
+      "reason": "The app's official source points to its repository and container listing; no distinct project homepage was found."
+    },
+    {
+      "slug": "replaya",
+      "reason": "The official repository describes the project, but no separate official product site was linked."
+    },
+    {
+      "slug": "revert",
+      "reason": "The official repository says Revert joined Ampersand; the current Ampersand site describes a successor product."
+    },
+    {
+      "slug": "rgit",
+      "reason": "The official repository is the available project page; no distinct official product site was found."
+    },
+    {
+      "slug": "runtm",
+      "reason": "The repository's runtm.com link now points to a different product, so no website is proposed."
+    },
+    {
+      "slug": "schoco",
+      "reason": "No official project or publisher website separate from the repository was verified."
+    },
+    {
+      "slug": "sharetribe",
+      "reason": "The official site describes the current Sharetribe product, while the repository is for the older Sharetribe Go project."
+    },
+    {
+      "slug": "soketi",
+      "reason": "The official repository links soketi.app, but the site returned a 403 error during manual verification."
+    },
+    {
+      "slug": "srcbook",
+      "reason": "The official repository says Srcbook is not under active development, and its linked site could not be opened to verify it."
+    }
+  ]
+}

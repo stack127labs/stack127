@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { cache } from "react";
-import { buildRegistryMetadata, buildRegistryPageStructuredData, getPagePublicationState } from "./page-registry";
+import { buildRegistryMetadata, getRegistryPageStructuredData, getPagePublicationState } from "./page-registry";
 import { JsonLd } from "@/app/ui/site/json-ld";
 
 type Props = { children?: ReactNode; params?: Promise<Record<string, string | string[]>> };
@@ -30,7 +30,7 @@ export function registryLayout(template: string, requestAware = false) {
       const state = await stateForPath(await pathname(props), requestAware);
       if (!state) return props.children;
       if (state.kind === "missing") notFound();
-      const data = buildRegistryPageStructuredData(state);
+      const data = await getRegistryPageStructuredData(state);
       return <>{data ? <JsonLd data={data} /> : null}{props.children}</>;
     },
   };

@@ -1,0 +1,449 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected summary values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Official-project-source-backed one-sentence summary corrections for 40 published self-hosted apps. Proposal only.",
+  "apps": [
+    {
+      "slug": "ezbookkeeping",
+      "summary": "Personal finance app for recording transactions, organizing bills, and reviewing spending with charts.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/mayswind/ezbookkeeping"
+      ],
+      "expected": {
+        "summary": "Lightweight personal bookkeeping app hosted by yourself."
+      }
+    },
+    {
+      "slug": "steam-headless",
+      "summary": "Runs a Steam gaming desktop in a Docker container with browser access and GPU support.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/Steam-Headless/docker-steam-headless"
+      ],
+      "expected": {
+        "summary": "Unofficial headless remote Steam server via Docker."
+      }
+    },
+    {
+      "slug": "speaches",
+      "summary": "OpenAI-compatible audio server for streaming transcription, translation, and speech generation.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/speaches-ai/speaches"
+      ],
+      "expected": {
+        "summary": "AI transcription, translation, and speed generation."
+      }
+    },
+    {
+      "slug": "wizarr",
+      "summary": "Invites users to Jellyfin, Plex, or Emby servers and guides them through account setup.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/wizarrrr/wizarr"
+      ],
+      "expected": {
+        "summary": "User invitation management system for media servers."
+      }
+    },
+    {
+      "slug": "theme-park",
+      "summary": "Adds custom interface themes and skins to popular media and home server apps.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/themepark-dev/theme.park"
+      ],
+      "expected": {
+        "summary": "Collection of themes/skins for 50 selfhosted apps."
+      }
+    },
+    {
+      "slug": "tianji",
+      "summary": "Combines website analytics, uptime checks, server status, and telemetry in one interface.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/msgbyte/tianji"
+      ],
+      "expected": {
+        "summary": "Web analytics, server status, and uptime monitoring."
+      }
+    },
+    {
+      "slug": "zot-oci-registry",
+      "summary": "OCI registry for storing and distributing container images and other OCI artifacts.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/project-zot/zot"
+      ],
+      "expected": {
+        "summary": "Production-ready vendor-neutral OCI-native container image registry."
+      }
+    },
+    {
+      "slug": "perses",
+      "summary": "Observability dashboard for visualizing Prometheus metrics, Tempo traces, Loki logs, and profiles.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/perses/perses"
+      ],
+      "expected": {
+        "summary": "Declarative dashboard for observability visualization."
+      }
+    },
+    {
+      "slug": "saltcorn",
+      "summary": "Creates web and mobile database applications through a visual builder with custom views and actions.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/saltcorn/saltcorn"
+      ],
+      "expected": {
+        "summary": "No-code builder for creating database-backed business apps."
+      }
+    },
+    {
+      "slug": "serpbear",
+      "summary": "Tracks keyword positions in Google, monitors ranking changes, and supports search position research.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/towfiqi/serpbear"
+      ],
+      "expected": {
+        "summary": "Search engine position tracking and keyword research."
+      }
+    },
+    {
+      "slug": "bittorrent-tracker",
+      "summary": "BitTorrent tracker server and client that helps peers discover one another for file sharing.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/webtorrent/bittorrent-tracker"
+      ],
+      "expected": {
+        "summary": "Simple, BitTorrent tracker (and server) implementation."
+      }
+    },
+    {
+      "slug": "plik",
+      "summary": "Temporary file-sharing service for uploading and downloading files with expiry, password, and one-time links.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/root-gg/plik"
+      ],
+      "expected": {
+        "summary": "Scalable and friendly temporary file upload system."
+      }
+    },
+    {
+      "slug": "dreamfactory",
+      "summary": "Creates secure APIs for data sources with role-based access and identity passthrough.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/dreamfactorysoftware/dreamfactory"
+      ],
+      "expected": {
+        "summary": "Turns any SQL/NoSQL/Structured data into Restful API."
+      }
+    },
+    {
+      "slug": "loggifly",
+      "summary": "Monitors container logs for keywords or patterns and sends alerts through configured services.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/clemcer/LoggiFly"
+      ],
+      "expected": {
+        "summary": "Docker container log monitoring and notifications."
+      }
+    },
+    {
+      "slug": "part-db",
+      "summary": "Inventory manager for electronic components, tracking parts, quantities, and storage locations.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/Part-DB/Part-DB-server"
+      ],
+      "expected": {
+        "summary": "Inventory management system for your electronic components."
+      }
+    },
+    {
+      "slug": "haptic",
+      "summary": "Local-first Markdown editor for writing and organizing notes, available as desktop and web apps.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/chroxify/haptic"
+      ],
+      "expected": {
+        "summary": "Local-first, privacy-focused home for Markdown notes."
+      }
+    },
+    {
+      "slug": "yubal",
+      "summary": "Downloads YouTube Music albums, tags and organizes files, and keeps playlists in sync.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/guillevc/yubal"
+      ],
+      "expected": {
+        "summary": "YouTube Music album downloader with metadata tagging."
+      }
+    },
+    {
+      "slug": "databunker",
+      "summary": "Stores and tokenizes sensitive personal records such as customer, health, and identity data.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/securitybunker/databunker"
+      ],
+      "expected": {
+        "summary": "Secure Vault for Customer PII/PHI/PCI/KYC Records."
+      }
+    },
+    {
+      "slug": "nextcloud-deck",
+      "summary": "Kanban board for managing personal plans and team projects inside Nextcloud.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/nextcloud/deck"
+      ],
+      "expected": {
+        "summary": "Kanban-style project management app for Nextcloud."
+      }
+    },
+    {
+      "slug": "elabftw",
+      "summary": "Electronic lab notebook for research teams to record experiments and manage shared laboratory resources.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/elabftw/elabftw"
+      ],
+      "expected": {
+        "summary": "Notebook: eLabFTW is the most popular electronic lab notebook for research labs."
+      }
+    },
+    {
+      "slug": "tapmap",
+      "summary": "Maps the internet connections made by a computer and records local activity history.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/olalie/tapmap"
+      ],
+      "expected": {
+        "summary": "Visualize network connections on an interactive map."
+      }
+    },
+    {
+      "slug": "gerbera",
+      "summary": "Streams media from a home server to UPnP-compatible devices across a local network.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/gerbera/gerbera"
+      ],
+      "expected": {
+        "summary": "UPnP Media Server : Stream your digital media through your home network and consume it on all kinds of UPnP supporting devices ."
+      }
+    },
+    {
+      "slug": "sist2",
+      "summary": "Indexes files for search, extracts metadata, and creates thumbnails for browser-based file discovery.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/sist2app/sist2"
+      ],
+      "expected": {
+        "summary": "Lightning-fast file system indexer and search tool."
+      }
+    },
+    {
+      "slug": "docktail",
+      "summary": "Exposes Docker containers as Tailscale services through label-based service configuration.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/marvinvr/docktail"
+      ],
+      "expected": {
+        "summary": "Expose containers as Tailscale Services with labels."
+      }
+    },
+    {
+      "slug": "beatbump",
+      "summary": "Music player and alternative web interface for browsing and listening to YouTube Music.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/snuffyDev/Beatbump"
+      ],
+      "expected": {
+        "summary": "Privacy-respecting alternative frontend for YouTube Music."
+      }
+    },
+    {
+      "slug": "file-wizard",
+      "summary": "Browser-based file utility for converting documents, running OCR, and transcribing audio.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/LoredCast/filewizard"
+      ],
+      "expected": {
+        "summary": "Browser-based utility for file conversion and transcription."
+      }
+    },
+    {
+      "slug": "many-notes",
+      "summary": "Markdown note app for creating, editing, searching, and organizing files in browser vaults.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/brufdev/many-notes"
+      ],
+      "expected": {
+        "summary": "Markdown note-taking web app designed for simplicity."
+      }
+    },
+    {
+      "slug": "fluidcalendar",
+      "summary": "Calendar app that automatically schedules tasks around your work hours, calendar, and availability.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/dotnetfactory/fluid-calendar"
+      ],
+      "expected": {
+        "summary": "Intelligent task scheduling and calendar management."
+      }
+    },
+    {
+      "slug": "tasmoadmin",
+      "summary": "Web interface for monitoring and updating Tasmota devices, including firmware and sensor data.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/TasmoAdmin/TasmoAdmin"
+      ],
+      "expected": {
+        "summary": "Administration app for devices flashed with Tasmota."
+      }
+    },
+    {
+      "slug": "ontime",
+      "summary": "Event timekeeping app for building rundowns, scheduling segments, and displaying live countdown timers.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/cpvalente/ontime"
+      ],
+      "expected": {
+        "summary": "Timers for event rundowns, scheduling, and cueing."
+      }
+    },
+    {
+      "slug": "automad",
+      "summary": "Flat-file content manager and template engine for creating and maintaining websites.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/marcantondahmen/automad"
+      ],
+      "expected": {
+        "summary": "Flat-file content management system and template engine."
+      }
+    },
+    {
+      "slug": "osem",
+      "summary": "Conference management app for planning events focused on free software and community projects.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/openSUSE/osem"
+      ],
+      "expected": {
+        "summary": "Event management tailored to software conferences."
+      }
+    },
+    {
+      "slug": "investbrain",
+      "summary": "Investment tracker for organizing holdings, monitoring market performance across brokerages, and reviewing portfolio changes.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/investbrainapp/investbrain"
+      ],
+      "expected": {
+        "summary": "Manage and track investment portfolio performance."
+      }
+    },
+    {
+      "slug": "jellyswarrm",
+      "summary": "Combines multiple Jellyfin libraries for unified browsing, playback, and user management.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/LLukas22/Jellyswarrm"
+      ],
+      "expected": {
+        "summary": "Combine multiple Jellyfin servers into one library."
+      }
+    },
+    {
+      "slug": "astroluma",
+      "summary": "Home dashboard for organizing links, managing tasks, monitoring devices, and connecting apps.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/Sanjeet990/Astroluma"
+      ],
+      "expected": {
+        "summary": "Feature-rich dashboard for managing tasks and services."
+      }
+    },
+    {
+      "slug": "pulsarr",
+      "summary": "Monitors Plex watchlists and routes requested titles to Sonarr or Radarr for acquisition.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/jamcalli/Pulsarr"
+      ],
+      "expected": {
+        "summary": "Plex watchlist monitoring, routing, and notifications."
+      }
+    },
+    {
+      "slug": "self-service-password",
+      "summary": "Allows users to change or reset passwords in LDAP directories, including Active Directory.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/ltb-project/self-service-password"
+      ],
+      "expected": {
+        "summary": "LDAP Tool Box Self Service Password."
+      }
+    },
+    {
+      "slug": "nzbget",
+      "summary": "Downloads binary files from Usenet newsgroups using NZB files and a configurable queue.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/nzbgetcom/nzbget/blob/develop/docker/README.md",
+        "https://github.com/nzbgetcom/nzbget/blob/develop/docs/HOW_TO_USE.md"
+      ],
+      "expected": {
+        "summary": "Fast, reliable, and feature-packed NZB downloader."
+      }
+    },
+    {
+      "slug": "titra",
+      "summary": "Tracks time spent on projects and creates reports for freelancers and small teams.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/titraio/titra"
+      ],
+      "expected": {
+        "summary": "Time-tracking app for freelancers and small teams."
+      }
+    },
+    {
+      "slug": "kibana",
+      "summary": "Explores and visualizes Elasticsearch data with search, charts, maps, dashboards, and alerts.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://www.elastic.co/kibana",
+        "https://www.elastic.co/guide/en/kibana/current/index.html"
+      ],
+      "expected": {
+        "summary": "Kibana gives shape to any kind of data - structured and unstructured - indexed in Elasticsearch, Please install and run Elasticsearch docker first, Set the."
+      }
+    }
+  ]
+}

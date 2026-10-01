@@ -1,0 +1,294 @@
+{
+  "reviewed_at": "2026-09-28",
+  "scope": "Verified direct upstream repositories, license terms, and official project or installation links for eight popular apps.",
+  "apps": [
+    {
+      "slug": "automatic1111-stable-diffusion-web-ui",
+      "review_scope": "partial",
+      "changes": {
+        "summary": "Web interface for generating and editing images with Stable Diffusion models.",
+        "source_model": "open_source",
+        "license": "GNU Affero General Public License v3.0",
+        "license_spdx_id": "AGPL-3.0",
+        "license_type": "copyleft",
+        "website_url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+        "docs_url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki",
+        "install_docs_url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Containers",
+        "publisher_name": "AUTOMATIC1111",
+        "pricing_model": "free"
+      },
+      "expected": {
+        "summary": "Web interface for Stable Diffusion Integrates with Open WebUI: Add custom models:.",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "AGPL-3.0",
+        "license_type": "copyleft",
+        "website_url": null,
+        "docs_url": "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates",
+        "install_docs_url": "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates",
+        "publisher_name": "automatic1111",
+        "pricing_model": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+        "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/master/LICENSE.txt",
+        "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki",
+        "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Containers"
+      ]
+    },
+    {
+      "slug": "bitcoind",
+      "review_scope": "partial",
+      "changes": {
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_spdx_id": "MIT",
+        "license_type": "permissive",
+        "website_url": "https://bitcoincore.org/",
+        "docs_url": "https://github.com/bitcoin/bitcoin/tree/master/doc",
+        "install_docs_url": "https://bitcoin.org/en/full-node",
+        "publisher_name": "Bitcoin Core",
+        "publisher_url": "https://bitcoincore.org/",
+        "pricing_model": "free"
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "MIT",
+        "license_type": "permissive",
+        "website_url": null,
+        "docs_url": "https://forums.unraid.net/topic/195410-support-anym001-application-dockers/",
+        "install_docs_url": "https://forums.unraid.net/topic/195410-support-anym001-application-dockers/",
+        "publisher_name": "bitcoin",
+        "publisher_url": "https://github.com/bitcoin",
+        "pricing_model": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/bitcoin/bitcoin",
+        "https://github.com/bitcoin/bitcoin/blob/master/COPYING",
+        "https://bitcoincore.org/en/download/",
+        "https://bitcoin.org/en/full-node"
+      ]
+    },
+    {
+      "slug": "prom-alertmanager",
+      "review_scope": "partial",
+      "changes": {
+        "name": "Prometheus Alertmanager",
+        "summary": "Groups, deduplicates, and routes Prometheus alerts to notification services.",
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "website_url": "https://prometheus.io/",
+        "docs_url": "https://prometheus.io/docs/alerting/latest/alertmanager/",
+        "install_docs_url": "https://github.com/prometheus/alertmanager#install",
+        "docker_support": "official",
+        "publisher_name": "Prometheus",
+        "publisher_url": "https://prometheus.io/",
+        "pricing_model": "free"
+      },
+      "expected": {
+        "name": "prom-alertmanager",
+        "summary": "The Alertmanager handles alerts sent by client applications such as the Prometheus server.",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "website_url": null,
+        "docs_url": "https://forums.unraid.net/topic/87798-support-selfhostersnets-template-repository/",
+        "install_docs_url": "https://forums.unraid.net/topic/87798-support-selfhostersnets-template-repository/",
+        "docker_support": "community",
+        "publisher_name": "prometheus",
+        "publisher_url": "https://github.com/prometheus",
+        "pricing_model": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/prometheus/alertmanager",
+        "https://github.com/prometheus/alertmanager/blob/main/LICENSE",
+        "https://prometheus.io/docs/alerting/latest/alertmanager/",
+        "https://hub.docker.com/r/prom/alertmanager"
+      ]
+    },
+    {
+      "slug": "go2rtc",
+      "review_scope": "partial",
+      "changes": {
+        "summary": "Streams camera video using formats and protocols such as RTSP and WebRTC.",
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_spdx_id": "MIT",
+        "license_type": "permissive",
+        "website_url": "https://github.com/AlexxIT/go2rtc",
+        "docs_url": "https://github.com/AlexxIT/go2rtc#readme",
+        "install_docs_url": "https://github.com/AlexxIT/go2rtc#go2rtc-docker",
+        "docker_support": "official",
+        "publisher_name": "AlexxIT",
+        "publisher_url": "https://github.com/AlexxIT/go2rtc",
+        "pricing_model": "free"
+      },
+      "expected": {
+        "summary": "Camera streaming application with support RTSP, WebRTC, HomeKit, FFmpeg, RTMP, etc, • zero-dependency and zero-config small app for all OS.",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "MIT",
+        "license_type": "permissive",
+        "website_url": null,
+        "docs_url": "https://github.com/AlexxIT/go2rtc/issues",
+        "install_docs_url": "https://github.com/AlexxIT/go2rtc/issues",
+        "docker_support": "community",
+        "publisher_name": "alexxit",
+        "publisher_url": "https://github.com/alexxit",
+        "pricing_model": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/AlexxIT/go2rtc",
+        "https://github.com/AlexxIT/go2rtc/blob/master/LICENSE",
+        "https://hub.docker.com/r/alexxit/go2rtc"
+      ]
+    },
+    {
+      "slug": "onedrive",
+      "review_scope": "partial",
+      "changes": {
+        "name": "OneDrive Client for Linux",
+        "source_model": "open_source",
+        "license": "GNU General Public License v3.0",
+        "license_spdx_id": "GPL-3.0",
+        "license_type": "copyleft",
+        "website_url": "https://abraunegg.github.io/",
+        "docs_url": "https://abraunegg.github.io/",
+        "install_docs_url": "https://github.com/abraunegg/onedrive/blob/master/docs/install.md",
+        "pricing_model": "free"
+      },
+      "expected": {
+        "name": "Onedrive",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "GPL-3.0",
+        "license_type": "copyleft",
+        "website_url": null,
+        "docs_url": "https://forums.unraid.net/topic/133978-support-bversluis-onedrive/",
+        "install_docs_url": "https://forums.unraid.net/topic/133978-support-bversluis-onedrive/",
+        "pricing_model": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/abraunegg/onedrive",
+        "https://github.com/abraunegg/onedrive/blob/master/docs/install.md",
+        "https://github.com/abraunegg/onedrive/blob/master/docs/docker.md",
+        "https://abraunegg.github.io/"
+      ]
+    },
+    {
+      "slug": "dufs",
+      "review_scope": "partial",
+      "changes": {
+        "source_model": "open_source",
+        "license": "MIT License or Apache License 2.0",
+        "license_spdx_id": "MIT OR Apache-2.0",
+        "license_type": "permissive",
+        "install_docs_url": "https://github.com/sigoden/dufs#install",
+        "docker_url": "https://hub.docker.com/r/sigoden/dufs",
+        "docker_image": "sigoden/dufs:latest",
+        "docker_support": "official",
+        "pricing_model": "free"
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "install_docs_url": "https://github.com/sigoden/dufs#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "docker_support": "none",
+        "pricing_model": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/sigoden/dufs",
+        "https://github.com/sigoden/dufs/blob/main/LICENSE-APACHE",
+        "https://github.com/sigoden/dufs/blob/main/LICENSE-MIT",
+        "https://hub.docker.com/r/sigoden/dufs"
+      ]
+    },
+    {
+      "slug": "nextcloud-aio-mastercontainer",
+      "review_scope": "partial",
+      "changes": {
+        "name": "Nextcloud All-in-One",
+        "summary": "Deploys Nextcloud with its database, cache, and optional office, backup, and collaboration services.",
+        "source_model": "open_source",
+        "license": "GNU Affero General Public License v3.0",
+        "license_spdx_id": "AGPL-3.0",
+        "license_type": "copyleft",
+        "website_url": "https://nextcloud.com/",
+        "install_docs_url": "https://github.com/nextcloud/all-in-one",
+        "docker_url": "https://github.com/nextcloud-releases/all-in-one/pkgs/container/all-in-one",
+        "docker_image": "ghcr.io/nextcloud-releases/all-in-one:latest",
+        "docker_support": "official",
+        "publisher_name": "Nextcloud",
+        "publisher_type": "company",
+        "publisher_url": "https://nextcloud.com/",
+        "pricing_model": "free"
+      },
+      "expected": {
+        "name": "nextcloud-aio-mastercontainer",
+        "summary": "The official Nextcloud installation method, Nextcloud AIO provides easy deployment and maintenance with most features included in this one Nextcloud.",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "AGPL-3.0",
+        "license_type": "copyleft",
+        "website_url": null,
+        "install_docs_url": "https://github.com/nextcloud/all-in-one",
+        "docker_url": "https://registry.hub.docker.com/r/nextcloud/all-in-one",
+        "docker_image": "nextcloud/all-in-one:latest",
+        "docker_support": "community",
+        "publisher_name": "nextcloud",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/nextcloud",
+        "pricing_model": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/nextcloud/all-in-one",
+        "https://github.com/nextcloud/all-in-one/blob/main/LICENSE",
+        "https://github.com/nextcloud-releases/all-in-one/pkgs/container/all-in-one",
+        "https://nextcloud.com/"
+      ]
+    },
+    {
+      "slug": "sdnext",
+      "review_scope": "partial",
+      "changes": {
+        "name": "SD.Next",
+        "summary": "Web interface for generating, captioning, and processing AI images and videos.",
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "website_url": "https://vladmandic.github.io/sdnext/",
+        "docs_url": "https://vladmandic.github.io/sdnext-docs/",
+        "install_docs_url": "https://vladmandic.github.io/sdnext-docs/Installation/",
+        "pricing_model": "free"
+      },
+      "expected": {
+        "name": "sdnext",
+        "summary": "Stable Diffusion Next WebUI with GPU acceleration support.",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "website_url": null,
+        "docs_url": "https://github.com/vladmandic/sdnext/issues",
+        "install_docs_url": "https://github.com/vladmandic/sdnext/issues",
+        "pricing_model": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/vladmandic/sdnext",
+        "https://github.com/vladmandic/sdnext/blob/master/LICENSE",
+        "https://vladmandic.github.io/sdnext/",
+        "https://vladmandic.github.io/sdnext-docs/",
+        "https://vladmandic.github.io/sdnext-docs/Installation/"
+      ]
+    }
+  ]
+}

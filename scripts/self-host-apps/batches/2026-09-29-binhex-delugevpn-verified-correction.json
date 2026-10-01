@@ -1,0 +1,90 @@
+{
+  "apps": [
+    {
+      "slug": "binhex-delugevpn",
+      "review_scope": "partial",
+      "expected": {
+        "name": "binhex-delugevpn",
+        "summary": "Deluge is a full-featured BitTorrent client for Linux, OS X, Unix and Windows.",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "source_available",
+        "docker_image": "ghcr.io/binhex/arch-delugevpn",
+        "docker_support": "community",
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "surfaces": ["web"],
+        "categories": ["identity-access", "networking-dns", "remote-access"]
+      },
+      "name": "DelugeVPN",
+      "summary": "DelugeVPN runs the Deluge BitTorrent client with OpenVPN or WireGuard, plus optional Privoxy and MicroSocks proxies.",
+      "website_url": "https://deluge-torrent.org/",
+      "docs_url": "https://github.com/binhex/arch-delugevpn/blob/master/README.md",
+      "install_docs_url": "https://github.com/binhex/arch-delugevpn/blob/master/README.md",
+      "license": "GPL-3.0 (Binhex container project); included components have their own licenses.",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_model": "open_source",
+      "publisher_name": "Binhex",
+      "publisher_type": "community",
+      "publisher_url": "https://github.com/binhex",
+      "pricing_model": "free",
+      "docker_support": "community",
+      "docker_url": "https://github.com/binhex/arch-delugevpn/pkgs/container/arch-delugevpn",
+      "docker_image": "ghcr.io/binhex/arch-delugevpn",
+      "compose_support": null,
+      "compose_url": null,
+      "requires_database": false,
+      "database_types": [],
+      "ram_min_mb": null,
+      "storage_min_gb": null,
+      "resource_requirement_kind": "unknown",
+      "storage_profile": "depends",
+      "persistent_storage": true,
+      "deployment_methods": ["docker", "unraid"],
+      "surfaces": ["web", "cli"],
+      "summary_source": "https://github.com/binhex/arch-delugevpn/blob/master/README.md",
+      "summary_confidence": "high",
+      "categories": ["file-sharing-sync", "security-privacy"],
+      "data_source_urls": [
+        "https://deluge-torrent.org/",
+        "https://github.com/binhex/arch-delugevpn",
+        "https://github.com/binhex/arch-delugevpn/blob/master/README.md",
+        "https://github.com/binhex/arch-delugevpn/pkgs/container/arch-delugevpn",
+        "https://github.com/binhex/documentation",
+        "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/delugevpn.xml"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "resources": [
+    {
+      "slug": "binhex-delugevpn",
+      "expected": {
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary."
+      },
+      "ram_estimate_min_mb": 512,
+      "ram_estimate_max_mb": 2048,
+      "ram_estimate_kind": "estimated",
+      "ram_estimate_confidence": "low",
+      "ram_estimate_basis": "Estimate for one small Deluge client with its VPN and proxy services; active torrents and transfer load drive use.",
+      "ram_source_urls": [
+        "https://github.com/binhex/arch-delugevpn/blob/master/README.md"
+      ],
+      "storage_estimate_min_gb": 20,
+      "storage_estimate_max_gb": 200,
+      "storage_estimate_kind": "estimated",
+      "storage_estimate_confidence": "low",
+      "storage_estimate_basis": "Downloads use the mounted /data folder; 20 to 200 GB is a small-library estimate and actual space follows downloaded files.",
+      "storage_source_urls": [
+        "https://github.com/binhex/arch-delugevpn/blob/master/README.md"
+      ]
+    }
+  ]
+}

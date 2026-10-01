@@ -1,0 +1,1771 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Source-backed small-deployment RAM and storage estimates for 25 assigned apps. Every public range uses the Est. RAM or Est. Storage label. Large user datasets, model files, build outputs, and other workload-specific files are excluded where stated in the internal basis. Proposal only.",
+  "estimates": [
+    {
+      "slug": "huginn",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Huginn instance, one worker, and a small local SQL database for a modest automation set.",
+      "source_urls": [
+        "https://github.com/huginn/huginn",
+        "https://github.com/huginn/huginn/tree/master/docker/single-process"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/huginn/huginn#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "huginn",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 30,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "App files, SQL data, and execution logs for a small set of agents; large event archives are excluded.",
+      "source_urls": [
+        "https://github.com/huginn/huginn",
+        "https://github.com/huginn/huginn/tree/master/docker/single-process"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/huginn/huginn#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "metabase",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 3072,
+      "estimate_max": 5120,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One Metabase server and a small PostgreSQL app database for a few dashboard users; analytics databases stay external.",
+      "source_urls": [
+        "https://www.metabase.com/docs/latest/installation-and-operation/running-metabase-on-docker",
+        "https://www.metabase.com/learn/metabase-basics/administration/administration-and-operation/metabase-in-production"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/metabase/metabase#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "metabase",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 30,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Metabase app data, a small metadata database, plugins, and logs; queried source databases are excluded.",
+      "source_urls": [
+        "https://www.metabase.com/docs/latest/installation-and-operation/running-metabase-on-docker",
+        "https://www.metabase.com/learn/metabase-basics/administration/administration-and-operation/metabase-in-production"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/metabase/metabase#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "localai",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 3072,
+      "estimate_max": 6144,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One CPU-served 1B Q4 model with a short context and low request concurrency; GPU memory and larger models are excluded.",
+      "source_urls": [
+        "https://localai.io/docs/getting-started/models/index.html",
+        "https://localai.io/docs/getting-started/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/mudler/LocalAI#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "localai",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 3,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "LocalAI image, cache, and one small quantized model; additional models and model downloads are excluded.",
+      "source_urls": [
+        "https://localai.io/docs/getting-started/models/index.html",
+        "https://localai.io/docs/getting-started/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/mudler/LocalAI#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "cal-diy",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Single-host Cal.diy stack with the web app, API, PostgreSQL, and Redis for a small scheduling workspace.",
+      "source_urls": [
+        "https://github.com/calcom/cal.diy/blob/main/docker-compose.yml",
+        "https://github.com/calcom/cal.diy/blob/main/README.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/calcom/cal.diy#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "cal-diy",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 30,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Container images, PostgreSQL schedule data, Redis persistence, and logs for a small workspace; optional Prisma Studio is excluded.",
+      "source_urls": [
+        "https://github.com/calcom/cal.diy/blob/main/docker-compose.yml",
+        "https://github.com/calcom/cal.diy/blob/main/README.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/calcom/cal.diy#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "apache-airflow",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Small Docker Compose Airflow stack with its scheduler, API, worker, PostgreSQL, and Redis; the project advises at least 4 GB and ideally 8 GB for Compose.",
+      "source_urls": [
+        "https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html",
+        "https://airflow.apache.org/docs/apache-airflow/stable/installation/prerequisites.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/apache/airflow#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "apache-airflow",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Container images, a small metadata database, a few DAGs, and bounded task logs; large task artifacts are excluded.",
+      "source_urls": [
+        "https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html",
+        "https://airflow.apache.org/docs/apache-airflow/stable/installation/prerequisites.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/apache/airflow#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "copyparty",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 768,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Python file server with indexing and thumbnails; the optional mimalloc setting that can double memory is off.",
+      "source_urls": [
+        "https://github.com/9001/copyparty/blob/hovudstraum/scripts/docker/README.md",
+        "https://github.com/9001/copyparty/blob/hovudstraum/docs/examples/docker/basic-docker-compose/docker-compose.yml"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "copyparty",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 100,
+      "estimate_max": 120,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A 100 GB shared-file pool plus a small allowance for copyparty history, index, and thumbnails; grow storage with the share.",
+      "source_urls": [
+        "https://github.com/9001/copyparty/blob/hovudstraum/scripts/docker/README.md",
+        "https://github.com/9001/copyparty/blob/hovudstraum/docs/examples/docker/basic-docker-compose/docker-compose.yml"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "siyuan",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One SiYuan server for a personal workspace with light search and attachment use.",
+      "source_urls": [
+        "https://github.com/siyuan-note/siyuan"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/siyuan-note/siyuan#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "siyuan",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 15,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One personal SiYuan workspace with notes, indexes, and a modest attachment collection; large media libraries are excluded.",
+      "source_urls": [
+        "https://github.com/siyuan-note/siyuan"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/siyuan-note/siyuan#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "rocket-chat",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 8192,
+      "estimate_max": 12288,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Single Rocket.Chat instance plus one MongoDB replica-set member for a small team; published starter sizing is 4 GiB for each service.",
+      "source_urls": [
+        "https://docs.rocket.chat/docs/reference-architectures",
+        "https://docs.rocket.chat/docs/configure-external-mongodb-for-rocket-chat"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/RocketChat/Rocket.Chat#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "rocket-chat",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 30,
+      "estimate_max": 60,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Small Rocket.Chat database and app data, based on the documented 20 GiB app and 10 GiB database starter sizes; uploaded files are excluded.",
+      "source_urls": [
+        "https://docs.rocket.chat/docs/reference-architectures",
+        "https://docs.rocket.chat/docs/system-requirements"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/RocketChat/Rocket.Chat#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "rsshub",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One production RSSHub container with modest route traffic; the separate browser service and Redis cache are excluded.",
+      "source_urls": [
+        "https://github.com/DIYgod/RSSHub",
+        "https://github.com/DIYgod/RSSHub/blob/master/docker-compose.yml",
+        "https://rsshub.netlify.app/install"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/DIYgod/RSSHub#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "rsshub",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "RSSHub image, small local cache, and logs for a modest set of feeds; no feed archive or browser image is retained.",
+      "source_urls": [
+        "https://github.com/DIYgod/RSSHub",
+        "https://github.com/DIYgod/RSSHub/blob/master/docker-compose.yml",
+        "https://rsshub.netlify.app/install"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/DIYgod/RSSHub#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "paperless-ngx",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small single-user Paperless-ngx stack with a limited OCR queue and its database and broker; optional Tika and Gotenberg are off.",
+      "source_urls": [
+        "https://docs.paperless-ngx.com/configuration/",
+        "https://github.com/paperless-ngx/paperless-ngx/blob/dev/docker/compose/docker-compose.sqlite.yml"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "paperless-ngx",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 25,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "App data, database, and a modest personal document archive of a few thousand files; larger scans and long-term retention need more space.",
+      "source_urls": [
+        "https://docs.paperless-ngx.com/configuration/",
+        "https://github.com/paperless-ngx/paperless-ngx/blob/dev/docker/compose/docker-compose.sqlite.yml"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "logseq",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "The official static Logseq web-app container serving one user; graph processing runs in the browser.",
+      "source_urls": [
+        "https://github.com/logseq/logseq/blob/master/docs/docker-web-app-guide.md",
+        "https://docs.logseq.com/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "logseq",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Web-app image and configuration only; the official web app accesses graph files through the browser file-system API.",
+      "source_urls": [
+        "https://github.com/logseq/logseq/blob/master/docs/docker-web-app-guide.md",
+        "https://docs.logseq.com/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "payload-cms",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Payload production app with PostgreSQL and a few content editors; build-time memory and external services are excluded.",
+      "source_urls": [
+        "https://payloadcms.com/docs/production/deployment",
+        "https://payloadcms.com/docs/database/postgres"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/payloadcms/payload#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "payload-cms",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 30,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "App, PostgreSQL content, and a modest local upload collection for one small site; large media libraries are excluded.",
+      "source_urls": [
+        "https://payloadcms.com/docs/production/deployment",
+        "https://payloadcms.com/docs/database/postgres"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/payloadcms/payload#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "kong",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One DB-less Kong Gateway handling a small set of routes with declarative configuration.",
+      "source_urls": [
+        "https://developer.konghq.com/gateway/db-less-mode/",
+        "https://developer.konghq.com/gateway/install/docker/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/Kong/kong#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "kong",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Kong image, declarative route configuration, and bounded logs; database storage is not included because this estimate uses DB-less mode.",
+      "source_urls": [
+        "https://developer.konghq.com/gateway/db-less-mode/",
+        "https://developer.konghq.com/gateway/install/docker/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/Kong/kong#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "hyperswitch",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small-host Hyperswitch router with PostgreSQL and standalone Redis; scheduler, full-key-value, and monitoring profiles are excluded.",
+      "source_urls": [
+        "https://github.com/juspay/hyperswitch/blob/main/docs/try_local_system.md",
+        "https://github.com/juspay/hyperswitch/blob/main/docker-compose.yml"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 1280,
+        "ram_estimate_max_mb": 4096,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/juspay/hyperswitch#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "hyperswitch",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Container images, router configuration, and a lightly used PostgreSQL/Redis state store; long transaction retention and monitoring data are excluded.",
+      "source_urls": [
+        "https://github.com/juspay/hyperswitch/blob/main/docs/try_local_system.md",
+        "https://github.com/juspay/hyperswitch/blob/main/docker-compose.yml"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 1280,
+        "ram_estimate_max_mb": 4096,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/juspay/hyperswitch#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "headscale",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Headscale coordinator for a small private tailnet using SQLite and no high-volume metrics collection.",
+      "source_urls": [
+        "https://headscale.net/stable/setup/requirements/",
+        "https://github.com/juanfont/headscale"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "headscale",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Headscale binary/container, configuration, keys, SQLite state, and small logs for a few devices.",
+      "source_urls": [
+        "https://headscale.net/stable/setup/requirements/",
+        "https://headscale.net/stable/setup/install/container/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "puter",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Default Puter Compose services on one host for a few users, without the optional AI or SMTP profiles.",
+      "source_urls": [
+        "https://github.com/HeyPuter/puter/blob/main/doc/self-hosting.md",
+        "https://github.com/HeyPuter/puter"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 1024,
+        "ram_estimate_max_mb": 4096,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/HeyPuter/puter#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "puter",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Default service state and a small amount of user data across MariaDB, DynamoDB-local, Valkey, and S3 storage; bulk user files are excluded.",
+      "source_urls": [
+        "https://github.com/HeyPuter/puter/blob/main/doc/self-hosting.md",
+        "https://github.com/HeyPuter/puter"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 1024,
+        "ram_estimate_max_mb": 4096,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/HeyPuter/puter#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "librechat",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small LibreChat Compose deployment with the app, MongoDB, Meilisearch, RAG API, and vector database; model inference is external.",
+      "source_urls": [
+        "https://www.librechat.ai/docs/local/docker",
+        "https://www.librechat.ai/docs/local"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "librechat",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Compose images, conversation data, search indexes, and a small vector store; large RAG corpora and downloaded models are excluded.",
+      "source_urls": [
+        "https://www.librechat.ai/docs/local/docker",
+        "https://www.librechat.ai/docs/local"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "cobalt",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One self-hosted Cobalt API with low download concurrency; no large encoding queue or concurrent high-resolution jobs.",
+      "source_urls": [
+        "https://github.com/imputnet/cobalt/blob/main/docs/run-an-instance.md",
+        "https://github.com/imputnet/cobalt/blob/main/docs/examples/docker-compose.example.yml"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/imputnet/cobalt/blob/main/docs/run-an-instance.md"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "cobalt",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 30,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Cobalt containers, cache, and temporary workspace for a few downloads; long-term media retention is excluded.",
+      "source_urls": [
+        "https://github.com/imputnet/cobalt/blob/main/docs/run-an-instance.md",
+        "https://github.com/imputnet/cobalt/blob/main/docs/examples/docker-compose.example.yml"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/imputnet/cobalt/blob/main/docs/run-an-instance.md"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "reactive-resume",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Reactive Resume Compose stack with PostgreSQL, Redis, SeaweedFS, and the web app for personal use.",
+      "source_urls": [
+        "https://github.com/reactive-resume/reactive-resume/blob/main/docs/getting-started/quickstart.mdx",
+        "https://github.com/amruthpillai/reactive-resume/blob/main/compose.yml"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "reactive-resume",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 30,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Compose service state, resume records, and a modest set of attachments in SeaweedFS; large user-upload collections are excluded.",
+      "source_urls": [
+        "https://github.com/reactive-resume/reactive-resume/blob/main/docs/getting-started/quickstart.mdx",
+        "https://github.com/amruthpillai/reactive-resume/blob/main/compose.yml"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "tooljet",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 12800,
+      "estimate_max": 16384,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One co-located ToolJet app, PostgreSQL, and Redis for a small team; combines the published 4 GB app, 8 GB database, and 512 MB Redis starting allocations.",
+      "source_urls": [
+        "https://docs.tooljet.com/docs/setup/system-requirements/",
+        "https://docs.tooljet.com/docs/setup/docker/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:41.964+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/ToolJet/ToolJet#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "tooljet",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 30,
+      "estimate_max": 60,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "ToolJet app plus its database and Redis state, calibrated to the published 8 GiB database and 20 GiB storage baseline; small user data is included.",
+      "source_urls": [
+        "https://docs.tooljet.com/docs/setup/system-requirements/",
+        "https://docs.tooljet.com/docs/setup/docker/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:41.964+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/ToolJet/ToolJet#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "appsmith",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 8192,
+      "estimate_max": 12288,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One small Docker Compose Appsmith instance; the published 8 GB memory and 2 vCPU baseline anchors the range.",
+      "source_urls": [
+        "https://github.com/appsmithorg/appsmith-docs/blob/main/website/docs/getting-started/setup/README.md",
+        "https://github.com/appsmithorg/appsmith-docs/blob/main/website/docs/getting-started/setup/instance-configuration/custom-mongodb-redis.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/appsmithorg/appsmith#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "appsmith",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Single instance containers, MongoDB/Redis state, and a few internal apps with modest backups and configuration.",
+      "source_urls": [
+        "https://github.com/appsmithorg/appsmith-docs/blob/main/website/docs/getting-started/setup/README.md",
+        "https://github.com/appsmithorg/appsmith-docs/blob/main/website/docs/getting-started/setup/instance-configuration/custom-mongodb-redis.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/appsmithorg/appsmith#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "sunshine",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Sunshine host service with one active stream; publisher docs list at least 4 GB system RAM, while the game process is excluded.",
+      "source_urls": [
+        "https://docs.lizardbyte.dev/projects/sunshine/master/",
+        "https://docs.lizardbyte.dev/projects/sunshine/master/md_docs_2configuration.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:41.964+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/LizardByte/Sunshine#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "sunshine",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Sunshine binaries, pairing credentials, app list, configuration, and logs; operating system and installed games are excluded.",
+      "source_urls": [
+        "https://docs.lizardbyte.dev/projects/sunshine/master/md_docs_2configuration.html",
+        "https://docs.lizardbyte.dev/projects/sunshine/latest/md_docs_2getting__started.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:41.964+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/LizardByte/Sunshine#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "it-tools",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One static IT Tools web container for a few local users; tool computation happens in the browser.",
+      "source_urls": [
+        "https://github.com/CorentinTh/it-tools",
+        "https://github.com/CorentinTh/it-tools/blob/main/Dockerfile"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "it-tools",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "IT Tools web image and small container logs; the app keeps no server-side tool data in this scope.",
+      "source_urls": [
+        "https://github.com/CorentinTh/it-tools",
+        "https://github.com/CorentinTh/it-tools/blob/main/Dockerfile"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "outline",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Outline app with local PostgreSQL and Redis for a small team, using the official Docker Compose deployment.",
+      "source_urls": [
+        "https://docs.getoutline.com/s/hosting/doc/docker-7pfeLP5a8t",
+        "https://docs.getoutline.com/s/hosting/doc/requirements-ULdYnwi4wG"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "outline",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 30,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Outline app data, Postgres, and a modest local document-attachment collection; larger uploads and backups are excluded.",
+      "source_urls": [
+        "https://docs.getoutline.com/s/hosting/doc/docker-7pfeLP5a8t",
+        "https://docs.getoutline.com/s/hosting/doc/requirements-ULdYnwi4wG"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "photoprism",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 3072,
+      "estimate_max": 6144,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One small PhotoPrism library with limited indexing workers; the publisher lists 3 GB minimum, and large RAW/4K media are excluded.",
+      "source_urls": [
+        "https://docs.photoprism.app/getting-started/",
+        "https://docs.photoprism.app/getting-started/docker/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "photoprism",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 120,
+      "estimate_max": 150,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A 100 GB personal photo collection plus PhotoPrism database, index, cache, and thumbnails; large videos and RAW libraries are excluded.",
+      "source_urls": [
+        "https://docs.photoprism.app/getting-started/docker/",
+        "https://docs.photoprism.app/getting-started/faq/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    }
+  ]
+}

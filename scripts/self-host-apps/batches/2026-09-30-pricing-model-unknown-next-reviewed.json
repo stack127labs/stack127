@@ -1,0 +1,46 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Partial pricing_model corrections for the next 25 slug-ordered published self-hostable apps with unknown pricing. Changes are included only where official product or project pages state the price model. Proposal only; refresh the live record before applying.",
+  "apps": [
+    {
+      "slug": "1time",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://github.com/shingrus/1time.io",
+        "https://1time.io/"
+      ]
+    },
+    {
+      "slug": "abantecart",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://www.abantecart.com/features/",
+        "https://www.abantecart.com/what-is-abantecart-ecommerce"
+      ]
+    },
+    {
+      "slug": "acestream",
+      "review_scope": "partial",
+      "pricing_model": "freemium",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://www.acestream.org/about/user-agreement"
+      ]
+    },
+    {
+      "slug": "adguardhome",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://github.com/AdguardTeam/AdGuardHome",
+        "https://adguard.com/adguard-home.html"
+      ]
+    }
+  ]
+}

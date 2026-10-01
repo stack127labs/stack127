@@ -1,0 +1,3081 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and need refresh from the current inventory before any apply.",
+  "scope": "Manual RAM and storage planning ranges for M/N apps, including low-confidence estimates where project hardware and user data change actual use. Estimates are labeled Est. RAM and Est. Storage in the directory. Proposals only.",
+  "estimates": [
+    {
+      "slug": "m-i-m-o-s-a",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Small home inventory app with a lightweight web service and database.",
+      "source_urls": [
+        "https://github.com/FireMarshmellow/Spotlight_Storage",
+        "https://github.com/FireMarshmellow/Spotlight_Storage/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/170875-support-devzwf-mimosa/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/170875-support-devzwf-mimosa/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "m-i-m-o-s-a",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application data and inventory database; optional photos can increase use.",
+      "source_urls": [
+        "https://github.com/FireMarshmellow/Spotlight_Storage",
+        "https://github.com/FireMarshmellow/Spotlight_Storage/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/170875-support-devzwf-mimosa/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/170875-support-devzwf-mimosa/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "machinaris",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 16384,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Estimate for a full-node or farm with ordinary disk plotting; RAM-heavy GPU and in-memory plotting modes can require much more.",
+      "source_urls": [
+        "https://github.com/guydavis/machinaris",
+        "https://github.com/Chia-Network/chia-docs/blob/main/docs/reference-client/plotting/plotting-hardware.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:37.813+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/108896-support-machinaris-chia-crptocurrency-farming-plotman-plotting-unraid-webui/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/108896-support-machinaris-chia-crptocurrency-farming-plotman-plotting-unraid-webui/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "machinaris",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1024,
+      "estimate_max": 20480,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Estimate covers a small to large Chia plot set; plot storage drives the range.",
+      "source_urls": [
+        "https://github.com/guydavis/machinaris",
+        "https://github.com/Chia-Network/chia-docs/blob/main/docs/reference-client/plotting/plotting-hardware.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:37.813+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/108896-support-machinaris-chia-crptocurrency-farming-plotman-plotting-unraid-webui/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/108896-support-machinaris-chia-crptocurrency-farming-plotman-plotting-unraid-webui/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "macinabox",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Estimate for one modest macOS guest VM; guest RAM is configurable.",
+      "source_urls": [
+        "https://github.com/SpaceinvaderOne/Macinabox",
+        "https://github.com/SpaceinvaderOne/Macinabox#readme"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/84601-support-spaceinvaderone-macinabox/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/84601-support-spaceinvaderone-macinabox/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "macinabox",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 64,
+      "estimate_max": 128,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Estimate for one configurable macOS virtual disk, plus app data.",
+      "source_urls": [
+        "https://github.com/SpaceinvaderOne/Macinabox",
+        "https://github.com/SpaceinvaderOne/Macinabox#readme"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/84601-support-spaceinvaderone-macinabox/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/84601-support-spaceinvaderone-macinabox/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "magazarr",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small magazine search and monitoring service.",
+      "source_urls": [
+        "https://github.com/rix1337/Magazarr",
+        "https://github.com/rix1337/Magazarr/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/rix1337/Magazarr#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/rix1337/Magazarr#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "magazarr",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Magazine PDF library and download/output folder determine storage.",
+      "source_urls": [
+        "https://github.com/rix1337/Magazarr",
+        "https://github.com/rix1337/Magazarr/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/rix1337/Magazarr#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/rix1337/Magazarr#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "magic-frame",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Photo frame and family dashboard service with live sync.",
+      "source_urls": [
+        "https://magicframe.dev/",
+        "https://github.com/jeremiaa/magic-frame",
+        "https://github.com/jeremiaa/magic-frame#readme",
+        "https://spdx.org/licenses/PolyForm-Noncommercial-1.0.0.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/jeremiaa/magic-frame#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/jeremiaa/magic-frame#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "magic-frame",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 3,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application and dashboard data; photo library is stored separately.",
+      "source_urls": [
+        "https://magicframe.dev/",
+        "https://github.com/jeremiaa/magic-frame",
+        "https://github.com/jeremiaa/magic-frame#readme",
+        "https://spdx.org/licenses/PolyForm-Noncommercial-1.0.0.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/jeremiaa/magic-frame#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/jeremiaa/magic-frame#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "magnetico-environment",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "DHT crawling and metadata indexing workload.",
+      "source_urls": [
+        "https://labs.boramalper.org/magnetico/",
+        "https://github.com/boramalper/magnetico",
+        "https://github.com/boramalper/magnetico/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:19.508+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/94901-support-dyonr-magnetico-environment/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/94901-support-dyonr-magnetico-environment/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "magnetico-environment",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Search index grows with collected torrent metadata.",
+      "source_urls": [
+        "https://labs.boramalper.org/magnetico/",
+        "https://github.com/boramalper/magnetico",
+        "https://github.com/boramalper/magnetico/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:19.508+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/94901-support-dyonr-magnetico-environment/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/94901-support-dyonr-magnetico-environment/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mail2slack",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small IMAP-to-Slack integration service.",
+      "source_urls": [
+        "https://github.com/corgan2222/mail2slack",
+        "https://github.com/corgan2222/mail2slack/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:04.248+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/114590-support-corgans-docker-repository-double-take-facebox-tagbox-videobox/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/114590-support-corgans-docker-repository-double-take-facebox-tagbox-videobox/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mail2slack",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application configuration and logs.",
+      "source_urls": [
+        "https://github.com/corgan2222/mail2slack",
+        "https://github.com/corgan2222/mail2slack/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:04.248+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/114590-support-corgans-docker-repository-double-take-facebox-tagbox-videobox/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/114590-support-corgans-docker-repository-double-take-facebox-tagbox-videobox/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mailgun-logger",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Web app that polls and stores Mailgun events.",
+      "source_urls": [
+        "https://github.com/jackjoe/mailgun_logger",
+        "https://github.com/jackjoe/mailgun_logger/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/119391-support-mailgun-logger/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/119391-support-mailgun-logger/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mailgun-logger",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Retained event history and logs determine storage.",
+      "source_urls": [
+        "https://github.com/jackjoe/mailgun_logger",
+        "https://github.com/jackjoe/mailgun_logger/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/119391-support-mailgun-logger/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/119391-support-mailgun-logger/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mailrise",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small SMTP notification gateway.",
+      "source_urls": [
+        "https://mailrise.xyz/",
+        "https://github.com/YoRyan/mailrise",
+        "https://github.com/YoRyan/mailrise/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/YoRyan/mailrise/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/YoRyan/mailrise/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mailrise",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application configuration and logs.",
+      "source_urls": [
+        "https://mailrise.xyz/",
+        "https://github.com/YoRyan/mailrise",
+        "https://github.com/YoRyan/mailrise/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/YoRyan/mailrise/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/YoRyan/mailrise/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "maintainerr-overlay-helperr",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small Plex overlay helper service.",
+      "source_urls": [
+        "https://github.com/gssariev/maintainerr-overlay-helperr/",
+        "https://github.com/gssariev/maintainerr-overlay-helperr/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/197719-support-mrlinfordmaintainerr-v3-overlay-helperr/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/197719-support-mrlinfordmaintainerr-v3-overlay-helperr/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "maintainerr-overlay-helperr",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application configuration and logs.",
+      "source_urls": [
+        "https://github.com/gssariev/maintainerr-overlay-helperr/",
+        "https://github.com/gssariev/maintainerr-overlay-helperr/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/197719-support-mrlinfordmaintainerr-v3-overlay-helperr/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/197719-support-mrlinfordmaintainerr-v3-overlay-helperr/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "makershelf",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "3D model and workshop catalog service.",
+      "source_urls": [
+        "https://github.com/NilsN3DP/makershelf",
+        "https://github.com/NilsN3DP/makershelf/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/NilsN3DP/makershelf/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/NilsN3DP/makershelf/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "makershelf",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Uploaded 3D model and project files drive storage.",
+      "source_urls": [
+        "https://github.com/NilsN3DP/makershelf",
+        "https://github.com/NilsN3DP/makershelf/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/NilsN3DP/makershelf/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/NilsN3DP/makershelf/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "makerworks-v2",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Next.js storefront with PostgreSQL, local uploads, and optional Redis.",
+      "source_urls": [
+        "https://github.com/schartrand77/mkw2",
+        "https://github.com/schartrand77/mkw2/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/schartrand77/mkw2/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/schartrand77/mkw2/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "makerworks-v2",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Product uploads, orders, database, and backups drive storage.",
+      "source_urls": [
+        "https://github.com/schartrand77/mkw2",
+        "https://github.com/schartrand77/mkw2/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/schartrand77/mkw2/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/schartrand77/mkw2/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "maki",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Manga manager with local ONNX embeddings and a SQLite database.",
+      "source_urls": [
+        "https://github.com/OrbitMPGH/Maki",
+        "https://github.com/OrbitMPGH/Maki/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/OrbitMPGH/Maki/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/OrbitMPGH/Maki/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "maki",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "App data and embedding/model files; manga library is separate.",
+      "source_urls": [
+        "https://github.com/OrbitMPGH/Maki",
+        "https://github.com/OrbitMPGH/Maki/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/OrbitMPGH/Maki/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/OrbitMPGH/Maki/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "malla",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small web analyzer for Meshtastic MQTT data.",
+      "source_urls": [
+        "https://github.com/zenitraM/malla",
+        "https://github.com/zenitraM/malla/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/zenitraM/malla/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/zenitraM/malla/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "malla",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "SQLite packet history grows with retention.",
+      "source_urls": [
+        "https://github.com/zenitraM/malla",
+        "https://github.com/zenitraM/malla/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/zenitraM/malla/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/zenitraM/malla/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mame",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "MAME emulator frontend for a modest collection.",
+      "source_urls": [
+        "https://www.mamedev.org/",
+        "https://github.com/mamedev/mame",
+        "https://github.com/mamedev/mame/blob/master/COPYING"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-mame#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-mame#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mame",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "ROM collection size drives storage.",
+      "source_urls": [
+        "https://www.mamedev.org/",
+        "https://github.com/mamedev/mame",
+        "https://github.com/mamedev/mame/blob/master/COPYING"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-mame#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-mame#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "maple",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "OpenTelemetry observability service backed by ClickHouse.",
+      "source_urls": [
+        "https://maple.dev",
+        "https://github.com/MapleTechLabs/maple",
+        "https://github.com/MapleTechLabs/maple/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/MapleTechLabs/maple#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/MapleTechLabs/maple#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "maple",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Service data and retained telemetry drive storage.",
+      "source_urls": [
+        "https://maple.dev",
+        "https://github.com/MapleTechLabs/maple",
+        "https://github.com/MapleTechLabs/maple/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/MapleTechLabs/maple#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/MapleTechLabs/maple#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "marble",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Estimate based on the official README minimum of 4 GB RAM.",
+      "source_urls": [
+        "https://www.checkmarble.com",
+        "https://github.com/checkmarble/marble",
+        "https://github.com/checkmarble/marble/blob/main/LICENSE",
+        "https://spdx.org/licenses/Elastic-2.0.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "marble",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Estimate based on the official README minimum of 10 GB disk.",
+      "source_urls": [
+        "https://www.checkmarble.com",
+        "https://github.com/checkmarble/marble",
+        "https://github.com/checkmarble/marble/blob/main/LICENSE",
+        "https://spdx.org/licenses/Elastic-2.0.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "mario-leaderboard",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small web leaderboard with local score storage.",
+      "source_urls": [
+        "https://github.com/articwone/mario-leaderboard"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/ArticWone/Mario-Leaderboard/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/ArticWone/Mario-Leaderboard/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mario-leaderboard",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application files and local score database.",
+      "source_urls": [
+        "https://github.com/articwone/mario-leaderboard"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/ArticWone/Mario-Leaderboard/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/ArticWone/Mario-Leaderboard/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "matrix-synapse-slidingsync",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small incremental-sync proxy; Synapse and PostgreSQL are separate services.",
+      "source_urls": [
+        "https://github.com/matrix-org/sliding-sync",
+        "https://github.com/matrix-org/sliding-sync/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/161484-sliding-sync-matrix-protocol/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/161484-sliding-sync-matrix-protocol/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "matrix-synapse-slidingsync",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Proxy configuration and logs.",
+      "source_urls": [
+        "https://github.com/matrix-org/sliding-sync",
+        "https://github.com/matrix-org/sliding-sync/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:19.79+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/161484-sliding-sync-matrix-protocol/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/161484-sliding-sync-matrix-protocol/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mattermost-push-proxy",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small mobile push notification service.",
+      "source_urls": [
+        "https://github.com/mattermost/mattermost-push-proxy",
+        "https://developers.mattermost.com/contribute/mobile/push-notifications/service/",
+        "https://github.com/mattermost/mattermost-push-proxy/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:11.851+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/89502-support-a75g-repo/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/89502-support-a75g-repo/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mattermost-push-proxy",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application configuration and logs.",
+      "source_urls": [
+        "https://github.com/mattermost/mattermost-push-proxy",
+        "https://developers.mattermost.com/contribute/mobile/push-notifications/service/",
+        "https://github.com/mattermost/mattermost-push-proxy/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:11.851+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/89502-support-a75g-repo/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/89502-support-a75g-repo/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mbpfan",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 256,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small Linux host fan-control utility.",
+      "source_urls": [
+        "https://github.com/linux-on-mac/mbpfan",
+        "https://github.com/linux-on-mac/mbpfan/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:51.706+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/136764-support-djismgaming-mbpfan-a-fan-controller-for-macs-running-linux/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/136764-support-djismgaming-mbpfan-a-fan-controller-for-macs-running-linux/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mbpfan",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 1,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application files and configuration only.",
+      "source_urls": [
+        "https://github.com/linux-on-mac/mbpfan",
+        "https://github.com/linux-on-mac/mbpfan/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:51.706+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/136764-support-djismgaming-mbpfan-a-fan-controller-for-macs-running-linux/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/136764-support-djismgaming-mbpfan-a-fan-controller-for-macs-running-linux/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mcp-nextcloud",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Base MCP server; optional Qdrant and Ollama use additional resources.",
+      "source_urls": [
+        "https://github.com/cbcoutinho/nextcloud-mcp-server",
+        "https://github.com/cbcoutinho/nextcloud-mcp-server/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:29.936+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mcp-nextcloud",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 3,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Base server and app data; optional search services use additional storage.",
+      "source_urls": [
+        "https://github.com/cbcoutinho/nextcloud-mcp-server",
+        "https://github.com/cbcoutinho/nextcloud-mcp-server/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:29.936+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mcp-searxng",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small MCP adapter for an existing SearXNG service.",
+      "source_urls": [
+        "https://github.com/ihor-sokoliuk/mcp-searxng",
+        "https://github.com/ihor-sokoliuk/mcp-searxng/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:11.851+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mcp-searxng",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Adapter configuration only; excludes the separate SearXNG instance.",
+      "source_urls": [
+        "https://github.com/ihor-sokoliuk/mcp-searxng",
+        "https://github.com/ihor-sokoliuk/mcp-searxng/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:11.851+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mcpelevator",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Gateway includes MCP server runtimes and build tools.",
+      "source_urls": [
+        "https://github.com/pacnpal/mcpelevator",
+        "https://github.com/pacnpal/mcpelevator/blob/main/LICENSE",
+        "https://github.com/pacnpal/mcpelevator/blob/main/docs/unraid.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:29.936+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/pacnpal/mcpelevator/blob/main/docs/unraid.md"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/pacnpal/mcpelevator/blob/main/docs/unraid.md"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mcpelevator",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application, bundled runtimes, package caches, and local configuration.",
+      "source_urls": [
+        "https://github.com/pacnpal/mcpelevator",
+        "https://github.com/pacnpal/mcpelevator/blob/main/LICENSE",
+        "https://github.com/pacnpal/mcpelevator/blob/main/docs/unraid.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:29.936+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/pacnpal/mcpelevator/blob/main/docs/unraid.md"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/pacnpal/mcpelevator/blob/main/docs/unraid.md"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mediafusion",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 6144,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Service with PostgreSQL, Redis, and optional browser automation; streamed media is external.",
+      "source_urls": [
+        "https://mhdzumair.github.io/MediaFusion/",
+        "https://github.com/mhdzumair/MediaFusion",
+        "https://github.com/mhdzumair/MediaFusion/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/mhdzumair/MediaFusion/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/mhdzumair/MediaFusion/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mediafusion",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Service data, cache, and database; streamed media is external.",
+      "source_urls": [
+        "https://mhdzumair.github.io/MediaFusion/",
+        "https://github.com/mhdzumair/MediaFusion",
+        "https://github.com/mhdzumair/MediaFusion/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/mhdzumair/MediaFusion/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/mhdzumair/MediaFusion/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "media-curator",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small Radarr/Sonarr helper; media is mounted read-only.",
+      "source_urls": [
+        "https://github.com/asherflynt/media-curator",
+        "https://github.com/asherflynt/media-curator/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:29.936+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/asherflynt/media-curator/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/asherflynt/media-curator/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "media-curator",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "App data and logs only; media files are external.",
+      "source_urls": [
+        "https://github.com/asherflynt/media-curator",
+        "https://github.com/asherflynt/media-curator/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:29.936+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/asherflynt/media-curator/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/asherflynt/media-curator/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "media-vault",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Physical media catalog backed by a database.",
+      "source_urls": [
+        "https://github.com/halvar20000/media-vault",
+        "https://github.com/halvar20000/media-vault/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:29.936+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/halvar20000/media-vault/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/halvar20000/media-vault/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "media-vault",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Catalog, database, and cached artwork.",
+      "source_urls": [
+        "https://github.com/halvar20000/media-vault",
+        "https://github.com/halvar20000/media-vault/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:29.936+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/halvar20000/media-vault/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/halvar20000/media-vault/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "media-purge",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Node API, SQLite database, and scheduled media scans.",
+      "source_urls": [
+        "https://github.com/ktordoff13/media-purge",
+        "https://ca.unraid.net/apps/media-purge-0chx7ny00h3jg2",
+        "https://github.com/ktordoff13/media-purge/blob/main/docs/rules.md",
+        "https://github.com/ktordoff13/media-purge/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:29.936+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/ktordoff13/media-purge/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/ktordoff13/media-purge/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "media-purge",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "App data and SQLite log; excludes media retained in the separate 30-day recycle bin.",
+      "source_urls": [
+        "https://github.com/ktordoff13/media-purge",
+        "https://ca.unraid.net/apps/media-purge-0chx7ny00h3jg2",
+        "https://github.com/ktordoff13/media-purge/blob/main/docs/rules.md",
+        "https://github.com/ktordoff13/media-purge/blob/main/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:29.936+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/ktordoff13/media-purge/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/ktordoff13/media-purge/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "media-watchdog",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small web app that syncs Seerr requests and Emby watch history.",
+      "source_urls": [
+        "https://github.com/overboardkiller/media-watchdog",
+        "https://ca.unraid.net/apps/media-watchdog-0lp3uic07yh82w"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:02.303+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/overboardkiller/media-watchdog/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/overboardkiller/media-watchdog/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "media-watchdog",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 3,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Its /data volume stores the database, sessions, and logs; Emby app data is read-only.",
+      "source_urls": [
+        "https://github.com/overboardkiller/media-watchdog",
+        "https://ca.unraid.net/apps/media-watchdog-0lp3uic07yh82w"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:02.303+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/overboardkiller/media-watchdog/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/overboardkiller/media-watchdog/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mediainfo",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Lightweight audio and video metadata viewer.",
+      "source_urls": [
+        "https://mediaarea.net/en/MediaInfo",
+        "https://github.com/MediaArea/MediaInfo",
+        "https://github.com/MediaArea/MediaInfo/blob/master/License.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/jlesage/docker-mediainfo#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/jlesage/docker-mediainfo#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mediainfo",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application installation and configuration only.",
+      "source_urls": [
+        "https://mediaarea.net/en/MediaInfo",
+        "https://github.com/MediaArea/MediaInfo",
+        "https://github.com/MediaArea/MediaInfo/blob/master/License.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/jlesage/docker-mediainfo#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/jlesage/docker-mediainfo#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "melonds",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Nintendo DS/DSi emulator.",
+      "source_urls": [
+        "https://melonds.kuribo64.net/",
+        "https://github.com/melonDS-emu/melonDS",
+        "https://github.com/melonDS-emu/melonDS/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:37.813+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-melonds#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-melonds#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "melonds",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application and configuration; excludes game ROMs.",
+      "source_urls": [
+        "https://melonds.kuribo64.net/",
+        "https://github.com/melonDS-emu/melonDS",
+        "https://github.com/melonDS-emu/melonDS/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:37.813+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-melonds#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-melonds#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "minisatip",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small DVB tuner to SAT>IP streaming server.",
+      "source_urls": [
+        "https://github.com/catalinii/minisatip",
+        "https://github.com/catalinii/minisatip/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-minisatip#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-minisatip#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "minisatip",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application configuration and logs.",
+      "source_urls": [
+        "https://github.com/catalinii/minisatip",
+        "https://github.com/catalinii/minisatip/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-minisatip#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-minisatip#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "modrinth",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Minecraft launcher with downloaded game instances and mods.",
+      "source_urls": [
+        "https://modrinth.com/app",
+        "https://github.com/modrinth/code",
+        "https://github.com/modrinth/code/blob/main/apps/app/COPYING.md",
+        "https://github.com/linuxserver/docker-modrinth"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:41.9+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-modrinth#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-modrinth#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "modrinth",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Downloaded Minecraft instances, mod loaders, and mods determine storage.",
+      "source_urls": [
+        "https://modrinth.com/app",
+        "https://github.com/modrinth/code",
+        "https://github.com/modrinth/code/blob/main/apps/app/COPYING.md",
+        "https://github.com/linuxserver/docker-modrinth"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:41.9+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-modrinth#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-modrinth#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "msedge",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Browser memory depends on open tabs and sites.",
+      "source_urls": [
+        "https://www.microsoft.com/edge",
+        "https://www.microsoft.com/en-us/edge/server/download",
+        "https://github.com/linuxserver/docker-msedge#readme"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-msedge#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-msedge#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "msedge",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Container installation and browser profile data.",
+      "source_urls": [
+        "https://www.microsoft.com/edge",
+        "https://www.microsoft.com/en-us/edge/server/download",
+        "https://github.com/linuxserver/docker-msedge#readme"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-msedge#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-msedge#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mullvad-browser",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Privacy-focused desktop browser running in a container.",
+      "source_urls": [
+        "https://mullvad.net/browser",
+        "https://gitlab.torproject.org/tpo/applications/mullvad-browser/",
+        "https://github.com/mullvad/mullvad-browser/blob/main/README.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-mullvad-browser#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-mullvad-browser#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mullvad-browser",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Browser installation, cache, and profile data.",
+      "source_urls": [
+        "https://mullvad.net/browser",
+        "https://gitlab.torproject.org/tpo/applications/mullvad-browser/",
+        "https://github.com/mullvad/mullvad-browser/blob/main/README.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-mullvad-browser#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-mullvad-browser#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "musicbrainz-picard",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Desktop music tagger with metadata lookup.",
+      "source_urls": [
+        "https://picard.musicbrainz.org/",
+        "https://picard-docs.musicbrainz.org/en/",
+        "https://github.com/metabrainz/picard",
+        "https://github.com/metabrainz/picard/blob/master/COPYING.txt"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:47.626+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://www.github.com/mikenye/docker-picard"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://www.github.com/mikenye/docker-picard"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "musicbrainz-picard",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 3,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application and metadata cache; music files are external.",
+      "source_urls": [
+        "https://picard.musicbrainz.org/",
+        "https://picard-docs.musicbrainz.org/en/",
+        "https://github.com/metabrainz/picard",
+        "https://github.com/metabrainz/picard/blob/master/COPYING.txt"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:47.626+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://www.github.com/mikenye/docker-picard"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://www.github.com/mikenye/docker-picard"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mysql-workbench",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Visual database design and administration client.",
+      "source_urls": [
+        "https://www.mysql.com/products/workbench/",
+        "https://dev.mysql.com/doc/workbench/en/",
+        "https://github.com/mysql/mysql-workbench",
+        "https://github.com/mysql/mysql-workbench/blob/8.0/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:45.811+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-mysql-workbench#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-mysql-workbench#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mysql-workbench",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 3,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application installation and configuration only.",
+      "source_urls": [
+        "https://www.mysql.com/products/workbench/",
+        "https://dev.mysql.com/doc/workbench/en/",
+        "https://github.com/mysql/mysql-workbench",
+        "https://github.com/mysql/mysql-workbench/blob/8.0/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:45.811+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-mysql-workbench#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-mysql-workbench#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "nano-wallet",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Browser-based client-side light wallet.",
+      "source_urls": [
+        "https://wallet.linuxserver.io/",
+        "https://github.com/linuxserver/nano-wallet",
+        "https://github.com/linuxserver/nano-wallet/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-nano-wallet#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-nano-wallet#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "nano-wallet",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Static browser app and configuration; wallet data stays client-side.",
+      "source_urls": [
+        "https://wallet.linuxserver.io/",
+        "https://github.com/linuxserver/nano-wallet",
+        "https://github.com/linuxserver/nano-wallet/blob/master/LICENSE"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-nano-wallet#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-nano-wallet#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "nginx-proxy-manager",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Proxy manager web app with web server and database.",
+      "source_urls": [
+        "https://github.com/NginxProxyManager/nginx-proxy-manager",
+        "https://nginxproxymanager.com"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "nginx-proxy-manager",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Database, certificates, and logs.",
+      "source_urls": [
+        "https://github.com/NginxProxyManager/nginx-proxy-manager",
+        "https://nginxproxymanager.com"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "mkvcleaver",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Desktop interface for extracting tracks and data from MKV files.",
+      "source_urls": [
+        "https://blogs.sapib.ca/apps/mkvcleaver/",
+        "https://blogs.sapib.ca/apps/mkvcleaver/mkvcleaver-downloads/",
+        "https://blogs.sapib.ca/apps/mkvcleaver/mkvcleaver-how-to/run-from-source/",
+        "https://github.com/jlesage/docker-mkvcleaver"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:11.851+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/jlesage/docker-mkvcleaver#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/jlesage/docker-mkvcleaver#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "mkvcleaver",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application and configuration; temporary extraction space depends on input files.",
+      "source_urls": [
+        "https://blogs.sapib.ca/apps/mkvcleaver/",
+        "https://blogs.sapib.ca/apps/mkvcleaver/mkvcleaver-downloads/",
+        "https://blogs.sapib.ca/apps/mkvcleaver/mkvcleaver-how-to/run-from-source/",
+        "https://github.com/jlesage/docker-mkvcleaver"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:11.851+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/jlesage/docker-mkvcleaver#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/jlesage/docker-mkvcleaver#readme"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    }
+  ]
+}

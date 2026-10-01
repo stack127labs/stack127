@@ -1,0 +1,20 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Fill BionicGPT's blank official documentation link from its project repository and documentation site.",
+  "apps": [
+    {
+      "slug": "bionicgpt",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://bionic-gpt.com/docs/",
+      "data_source_urls": [
+        "https://github.com/bionic-gpt/bionic-gpt",
+        "https://bionic-gpt.com/docs/"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

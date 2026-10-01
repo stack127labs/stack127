@@ -1,0 +1,1789 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Paired RAM and storage estimates for small self-hosted deployments of 25 assigned apps. User media, uploads, mailboxes, workspaces, temporary conversion data, and workload-specific needs are scoped in each basis. Proposal only.",
+  "estimates": [
+    {
+      "slug": "bolt-diy",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small Bolt.DIY server using a remote model API and one active project preview; local model inference and weights are excluded.",
+      "source_urls": [
+        "https://github.com/stackblitz-labs/bolt.diy/blob/main/README.md",
+        "https://github.com/stackblitz-labs/bolt.diy/blob/main/FAQ.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://stackblitz-labs.github.io/bolt.diy/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 5,
+        "storage_estimate_max_gb": 50,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://stackblitz-labs.github.io/bolt.diy/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "bolt-diy",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "App image, dependencies, build cache, and one small workspace; additional projects and local model files need more disk.",
+      "source_urls": [
+        "https://github.com/stackblitz-labs/bolt.diy/blob/main/README.md",
+        "https://github.com/stackblitz-labs/bolt.diy/blob/main/FAQ.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://stackblitz-labs.github.io/bolt.diy/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 5,
+        "storage_estimate_max_gb": 50,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://stackblitz-labs.github.io/bolt.diy/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "jackett",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 768,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One small Jackett indexer service with occasional tracker searches; browser or download-client workloads are separate.",
+      "source_urls": [
+        "https://github.com/Jackett/Jackett/blob/master/README.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "jackett",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Jackett configuration, indexer definitions, cache, and logs; downloaded torrent files are stored by the download client.",
+      "source_urls": [
+        "https://github.com/Jackett/Jackett/blob/master/README.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "openproject",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 6144,
+      "estimate_kind": "estimated",
+      "confidence": "high",
+      "basis": "One small single-server OpenProject deployment with its application and database; official guidance starts at 4 GB for up to about 200 users.",
+      "source_urls": [
+        "https://www.openproject.org/docs/installation-and-operations/system-requirements/",
+        "https://www.openproject.org/docs/installation-and-operations/installation/docker/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/opf/openproject#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "openproject",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "high",
+      "basis": "OpenProject services, database, and a small attachment allowance; larger project uploads and history need more disk.",
+      "source_urls": [
+        "https://www.openproject.org/docs/installation-and-operations/system-requirements/",
+        "https://www.openproject.org/docs/installation-and-operations/installation/docker/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/opf/openproject#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "freshrss",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One small FreshRSS server polling a personal set of feeds with SQLite; large feed sets or frequent refreshes can raise use.",
+      "source_urls": [
+        "https://github.com/FreshRSS/FreshRSS/blob/edge/Docker/README.md",
+        "https://github.com/FreshRSS/FreshRSS"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "freshrss",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "App files, configuration, SQLite database, and a modest article cache; longer retention and media enclosures add storage.",
+      "source_urls": [
+        "https://github.com/FreshRSS/FreshRSS/blob/edge/Docker/README.md",
+        "https://github.com/FreshRSS/FreshRSS"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "transfer-sh",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 768,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small transfer.sh service using local storage and ordinary upload sizes; parallel large uploads need more memory.",
+      "source_urls": [
+        "https://github.com/dutchcoders/transfer.sh"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/dutchcoders/transfer.sh#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "transfer-sh",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small local upload pool with short retention; file payloads determine use, while S3 or other remote providers move that data off the app disk.",
+      "source_urls": [
+        "https://github.com/dutchcoders/transfer.sh"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/dutchcoders/transfer.sh#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "gotify",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One Gotify server with a small number of clients and retained notifications.",
+      "source_urls": [
+        "https://gotify.net/docs/install",
+        "https://gotify.net/docs/config"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "gotify",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "App files, SQLite data, configuration, and logs for a small notification server; longer message retention uses more.",
+      "source_urls": [
+        "https://gotify.net/docs/install",
+        "https://gotify.net/docs/config"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "grav",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 768,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One small Grav site served by PHP with modest traffic and no separate database server.",
+      "source_urls": [
+        "https://learn.getgrav.org/2/basics/requirements",
+        "https://learn.getgrav.org/2/basics/folder-structure"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/getgrav/grav#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "grav",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Grav app, flat-file content, cache, and a modest set of site images; a large media library needs additional disk.",
+      "source_urls": [
+        "https://learn.getgrav.org/2/basics/requirements",
+        "https://learn.getgrav.org/2/basics/folder-structure"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/getgrav/grav#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "spree-commerce",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One small Spree backend and local database; the official deployment guide says a store can start comfortably at 1 GB RAM.",
+      "source_urls": [
+        "https://spreecommerce.org/docs/developer/deployment/quickstart",
+        "https://github.com/spree/spree"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/spree/spree#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "spree-commerce",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Backend, database, and a modest product catalog with images; larger product media and order history can grow beyond this range.",
+      "source_urls": [
+        "https://spreecommerce.org/docs/developer/deployment/quickstart",
+        "https://github.com/spree/spree"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/spree/spree#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "openseo",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1536,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small self-hosted OpenSEO service using its required DataForSEO API; local model inference is not included.",
+      "source_urls": [
+        "https://github.com/every-app/open-seo/blob/main/docs/SELF_HOSTING_DOCKER.md",
+        "https://github.com/every-app/open-seo"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:06.256+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/every-app/open-seo/blob/main/docs/SELF_HOSTING_DOCKER.md"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 5,
+        "storage_estimate_max_gb": 50,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/every-app/open-seo/blob/main/docs/SELF_HOSTING_DOCKER.md"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "openseo",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Docker app, configuration, and modest local state; crawl and report history can grow with use.",
+      "source_urls": [
+        "https://github.com/every-app/open-seo/blob/main/docs/SELF_HOSTING_DOCKER.md",
+        "https://github.com/every-app/open-seo"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:06.256+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/every-app/open-seo/blob/main/docs/SELF_HOSTING_DOCKER.md"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 5,
+        "storage_estimate_max_gb": 50,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/every-app/open-seo/blob/main/docs/SELF_HOSTING_DOCKER.md"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "beets",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One active Beets music-tagging or import job with standard plugins; acoustic fingerprinting or large parallel imports can use more.",
+      "source_urls": [
+        "https://github.com/beetbox/beets/blob/master/docs/guides/main.rst",
+        "https://github.com/beetbox/beets/blob/master/docs/reference/config.rst"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:41.964+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/beetbox/beets#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "beets",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Beets installation, library database, and configuration; the music collection itself is user media and is not included.",
+      "source_urls": [
+        "https://github.com/beetbox/beets/blob/master/docs/guides/main.rst",
+        "https://github.com/beetbox/beets/blob/master/docs/reference/config.rst"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:41.964+00:00",
+        "ram_estimate_min_mb": 768,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/beetbox/beets#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "zigbee2mqtt",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 768,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One Zigbee2MQTT service managing a small home network; the MQTT broker and radio hardware are separate components.",
+      "source_urls": [
+        "https://www.zigbee2mqtt.io/guide/installation/02_docker.html",
+        "https://www.zigbee2mqtt.io/guide/configuration/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "zigbee2mqtt",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Configuration, Zigbee network state, and logs in the persistent data directory; device state is small for a home network.",
+      "source_urls": [
+        "https://www.zigbee2mqtt.io/guide/installation/02_docker.html",
+        "https://www.zigbee2mqtt.io/guide/configuration/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "billion-mail",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small BillionMail Compose stack, including its mail, webmail, database, Redis, and spam-filter services; campaign or delivery load can raise use.",
+      "source_urls": [
+        "https://github.com/Billionmail/BillionMail",
+        "https://github.com/Billionmail/BillionMail/blob/dev/docker-compose.yml"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:41.964+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/Billionmail/BillionMail"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 10,
+        "storage_estimate_max_gb": 100,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/Billionmail/BillionMail"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "billion-mail",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Stack files, database, and a modest mailbox allowance; retained email, campaign content, and local backups can require much more.",
+      "source_urls": [
+        "https://github.com/Billionmail/BillionMail",
+        "https://github.com/Billionmail/BillionMail/blob/dev/docker-compose.yml"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:41.964+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/Billionmail/BillionMail"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 10,
+        "storage_estimate_max_gb": 100,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/Billionmail/BillionMail"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "vert",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Self-hosted VERT web app and conversion daemon handling a few small files at a time; larger or concurrent video conversions need more CPU/GPU resources.",
+      "source_urls": [
+        "https://github.com/VERT-sh/VERT/blob/main/README.md",
+        "https://github.com/VERT-sh/vertd/blob/main/docs/DOCKER_SETUP.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/VERT-sh/VERT#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "vert",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Web app, daemon, and temporary workspace for small conversions; input and output video files can need substantially more space.",
+      "source_urls": [
+        "https://github.com/VERT-sh/VERT/blob/main/README.md",
+        "https://github.com/VERT-sh/vertd/blob/main/docs/DOCKER_SETUP.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/VERT-sh/VERT#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "cloudflared",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 64,
+      "estimate_max": 256,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One cloudflared connector maintaining a small set of Cloudflare Tunnels with light traffic.",
+      "source_urls": [
+        "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/",
+        "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "cloudflared",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 1,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Connector binary, tunnel configuration, credentials, and modest logs; proxied service data is stored elsewhere.",
+      "source_urls": [
+        "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/",
+        "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "mail-in-a-box",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Dedicated Mail-in-a-Box machine; its official setup guide recommends 1 GB RAM and lists 512 MB as the minimum.",
+      "source_urls": [
+        "https://mailinabox.email/guide.html",
+        "https://mailinabox.email/maintenance.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/mail-in-a-box/mailinabox#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "mail-in-a-box",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Mail server installation, small mailboxes, and local backups; mailbox retention and backups can outgrow this allowance.",
+      "source_urls": [
+        "https://mailinabox.email/guide.html",
+        "https://mailinabox.email/maintenance.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/mail-in-a-box/mailinabox#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "flaresolverr",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "FlareSolverr API with one or a few sequential headless browser challenges; parallel browser sessions need more RAM.",
+      "source_urls": [
+        "https://github.com/FlareSolverr/FlareSolverr"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "flaresolverr",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "App container, Selenium browser runtime, configuration, and logs; page contents are temporary rather than a retained library.",
+      "source_urls": [
+        "https://github.com/FlareSolverr/FlareSolverr"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "sonarr",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1536,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One Sonarr instance managing a small TV series list and polling indexers; downloads and media-server processing are separate.",
+      "source_urls": [
+        "https://github.com/Sonarr/Sonarr",
+        "https://wiki.servarr.com/en/sonarr",
+        "https://sonarr.tv/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "sonarr",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Sonarr binaries, configuration, database, metadata, and logs; TV files and download-client payloads are stored separately.",
+      "source_urls": [
+        "https://github.com/Sonarr/Sonarr",
+        "https://wiki.servarr.com/en/sonarr",
+        "https://sonarr.tv/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "supertokens",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1536,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "SuperTokens Core with a small local PostgreSQL store and a modest app; higher user volume or separate services change the total.",
+      "source_urls": [
+        "https://supertokens.com/docs/deployment/self-host-supertokens",
+        "https://supertokens.com/docs/deployment/scalability"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://supertokens.com/docs/deployment/self-host-supertokens"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 5,
+        "storage_estimate_max_gb": 50,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://supertokens.com/docs/deployment/self-host-supertokens"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "supertokens",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Core configuration and a small auth database; account and session records grow with users and retention.",
+      "source_urls": [
+        "https://supertokens.com/docs/deployment/self-host-supertokens",
+        "https://supertokens.com/docs/deployment/scalability"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://supertokens.com/docs/deployment/self-host-supertokens"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 5,
+        "storage_estimate_max_gb": 50,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://supertokens.com/docs/deployment/self-host-supertokens"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "peertube",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1536,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small PeerTube instance with colocated PostgreSQL and Redis and no active transcoding; the official FAQ lists 1.5 GB for basic use and 8 GB when transcoding on the same machine.",
+      "source_urls": [
+        "https://joinpeertube.org/en/faq/",
+        "https://docs.joinpeertube.org/install/any-os",
+        "https://docs.joinpeertube.org/admin/configuration",
+        "https://docs.joinpeertube.org/maintain/configuration"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "peertube",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application, database, cache, and modest temporary processing space; retained video files and transcoded variants need additional, often much larger storage.",
+      "source_urls": [
+        "https://joinpeertube.org/en/faq/",
+        "https://docs.joinpeertube.org/install/any-os",
+        "https://docs.joinpeertube.org/admin/configuration",
+        "https://docs.joinpeertube.org/maintain/configuration"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "jupyterlab",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "JupyterLab server with one basic Python kernel; notebook code, additional kernels, and data or machine-learning workloads can require much more.",
+      "source_urls": [
+        "https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html",
+        "https://jupyterlab.readthedocs.io/en/stable/user/documents_kernels.html",
+        "https://github.com/jupyterlab/jupyterlab"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/jupyterlab/jupyterlab#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "jupyterlab",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "JupyterLab, one basic Python environment, and a small notebook set; extra environments, datasets, and generated outputs are separate.",
+      "source_urls": [
+        "https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html",
+        "https://jupyterlab.readthedocs.io/en/stable/user/documents_kernels.html",
+        "https://github.com/jupyterlab/jupyterlab"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/jupyterlab/jupyterlab#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "cachet",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Cachet 3 status page with PHP 8.3 and a local relational database.",
+      "source_urls": [
+        "https://github.com/CachetHQ/Cachet",
+        "https://cachethq.io/docs"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:41.964+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/cachethq/cachet#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "cachet",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Application, database, status history, and logs for one small status page; long incident history or uploaded assets can grow.",
+      "source_urls": [
+        "https://github.com/CachetHQ/Cachet",
+        "https://cachethq.io/docs"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:41.964+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/cachethq/cachet#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "nodebb",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small NodeBB forum with its default MongoDB datastore on the same host; Redis datastore use can require memory proportional to the full data set.",
+      "source_urls": [
+        "https://docs.nodebb.org/configuring/databases/",
+        "https://docs.nodebb.org/configuring/databases/mongo/",
+        "https://docs.nodebb.org/configuring/config/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 1024,
+        "ram_estimate_max_mb": 4096,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/NodeBB/NodeBB#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "nodebb",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "NodeBB app, small MongoDB forum database, and a modest uploads allowance; user-uploaded files and post history grow with activity.",
+      "source_urls": [
+        "https://docs.nodebb.org/configuring/databases/",
+        "https://docs.nodebb.org/configuring/databases/mongo/",
+        "https://docs.nodebb.org/configuring/config/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "ram_estimate_min_mb": 1024,
+        "ram_estimate_max_mb": 4096,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/NodeBB/NodeBB#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "seafile",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "high",
+      "basis": "Small Seafile Community Edition Compose deployment; official guidance recommends at least 2 GB RAM for its integrated services.",
+      "source_urls": [
+        "https://manual.seafile.com/12.0/setup/system_requirements/",
+        "https://manual.seafile.com/14.0/setup/setup_ce_by_docker/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "seafile",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 50,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "high",
+      "basis": "Small Seafile CE instance with its services and a modest first file library; official guidance recommends over 50 GB and user files grow with sync use.",
+      "source_urls": [
+        "https://manual.seafile.com/12.0/setup/system_requirements/",
+        "https://manual.seafile.com/14.0/setup/setup_ce_by_docker/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "caprover",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "CapRover control plane on one small host; its official guide says 1 GB is a common minimum and build jobs may need more.",
+      "source_urls": [
+        "https://caprover.com/docs/get-started.html",
+        "https://caprover.com/docs/persistent-apps"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:41.964+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/caprover/caprover#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "caprover",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "CapRover control plane, Docker image cache, and a few builds; deployed app images, containers, and persistent app volumes add separate storage.",
+      "source_urls": [
+        "https://caprover.com/docs/get-started.html",
+        "https://caprover.com/docs/persistent-apps"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:41.964+00:00",
+        "ram_estimate_min_mb": 512,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/caprover/caprover#readme"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "transmission",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Transmission daemon with a modest number of active peers and torrents; increasing peer limits or network activity raises RAM use.",
+      "source_urls": [
+        "https://github.com/transmission/transmission/blob/main/README.md",
+        "https://github.com/transmission/transmission/blob/main/docs/Headless-Usage.md",
+        "https://github.com/transmission/transmission/blob/main/docs/Configuration-Files.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "transmission",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 50,
+      "estimate_max": 250,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small active download and seeding allocation including torrent payloads; the actual media or file collection can be much larger.",
+      "source_urls": [
+        "https://github.com/transmission/transmission/blob/main/README.md",
+        "https://github.com/transmission/transmission/blob/main/docs/Headless-Usage.md",
+        "https://github.com/transmission/transmission/blob/main/docs/Configuration-Files.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    }
+  ]
+}

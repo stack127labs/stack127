@@ -1,0 +1,971 @@
+{
+  "reviewed_at": "2026-09-30",
+  "scope": "Source-backed partial corrections for install links and deployment methods in reviewed A-C and D-F records. Also corrects CSA Admin's source model/license, A-Train's source model, and Namecheap DDNS Updater's license field.",
+  "apps": [
+    {
+      "slug": "acontext",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/memodb-io/Acontext#self-host-acontext",
+        "deployment_methods": [
+          "docker",
+          "package"
+        ],
+        "docker_support": "official",
+        "compose_support": null
+      },
+      "install_docs_url": "https://docs.acontext.io/settings/local",
+      "deployment_methods": [
+        "binary"
+      ],
+      "reviewed_install_methods": [
+        "binary"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "binary",
+          "label": "Acontext CLI installer",
+          "url": "https://docs.acontext.io/settings/local",
+          "support_level": "official",
+          "source_url": "https://docs.acontext.io/settings/local",
+          "image": null,
+          "note": "Install acontext-cli, then run acontext server up.",
+          "sort_order": 10
+        }
+      ],
+      "data_source_urls": [
+        "https://docs.acontext.io/settings/local",
+        "https://docs.acontext.io/quick",
+        "https://docs.acontext.io/"
+      ],
+      "confidence": "high",
+      "docker_support": "none",
+      "compose_support": false
+    },
+    {
+      "slug": "agent-vault",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/Infisical/agent-vault",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": null
+      },
+      "install_docs_url": "https://agent-vault.mintlify.app/installation",
+      "docker_url": "https://hub.docker.com/r/infisical/agent-vault",
+      "docker_image": "infisical/agent-vault",
+      "compose_url": "https://agent-vault.mintlify.app/self-hosting/docker",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "binary"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose",
+        "binary"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/infisical/agent-vault",
+          "support_level": "official",
+          "source_url": "https://agent-vault.mintlify.app/self-hosting/docker",
+          "image": "infisical/agent-vault",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://agent-vault.mintlify.app/self-hosting/docker",
+          "support_level": "official",
+          "source_url": "https://agent-vault.mintlify.app/self-hosting/docker",
+          "image": "infisical/agent-vault",
+          "note": "The official Compose setup persists data in /data.",
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Binary install",
+          "url": "https://agent-vault.mintlify.app/installation",
+          "support_level": "official",
+          "source_url": "https://agent-vault.mintlify.app/installation",
+          "image": null,
+          "note": "The binary runs the server and CLI client.",
+          "sort_order": 30
+        }
+      ],
+      "data_source_urls": [
+        "https://agent-vault.mintlify.app/installation",
+        "https://agent-vault.mintlify.app/self-hosting/docker",
+        "https://github.com/Infisical/agent-vault/releases",
+        "https://hub.docker.com/r/infisical/agent-vault"
+      ],
+      "confidence": "high",
+      "docker_support": "official",
+      "compose_support": true
+    },
+    {
+      "slug": "alarik",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null,
+        "install_docs_url": "https://github.com/achtungsoftware/alarik#readme",
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false
+      },
+      "website_url": "https://alarik.io",
+      "install_docs_url": "https://alarik.io/docs/installation",
+      "compose_url": "https://alarik.io/docs/installation",
+      "deployment_methods": [
+        "compose"
+      ],
+      "reviewed_install_methods": [
+        "compose"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://alarik.io/docs/installation",
+          "support_level": "official",
+          "source_url": "https://alarik.io/docs/installation",
+          "image": null,
+          "note": "The guide starts the API and console from the official GHCR images.",
+          "sort_order": 10
+        }
+      ],
+      "data_source_urls": [
+        "https://alarik.io",
+        "https://alarik.io/docs/installation",
+        "https://github.com/achtungsoftware/alarik/pkgs/container/alarik",
+        "https://github.com/achtungsoftware/alarik/pkgs/container/alarik-console"
+      ],
+      "confidence": "high",
+      "docker_support": "official",
+      "compose_support": true
+    },
+    {
+      "slug": "amgix",
+      "review_scope": "partial",
+      "expected": {
+        "docker_url": null,
+        "docker_image": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false
+      },
+      "docker_url": "https://hub.docker.com/r/amgixio/amgix-one",
+      "docker_image": "amgixio/amgix-one:1",
+      "deployment_methods": [
+        "docker"
+      ],
+      "reviewed_install_methods": [
+        "docker"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/amgixio/amgix-one",
+          "support_level": "official",
+          "source_url": "https://github.com/amgix/amgix-server",
+          "image": "amgixio/amgix-one:1",
+          "note": "The project README documents the all-in-one image and tag 1.",
+          "sort_order": 10
+        }
+      ],
+      "data_source_urls": [
+        "https://github.com/amgix/amgix-server",
+        "https://hub.docker.com/r/amgixio/amgix-one",
+        "https://amgix.io/"
+      ],
+      "confidence": "high",
+      "docker_support": "official",
+      "compose_support": false
+    },
+    {
+      "slug": "anibridge",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": "http://anibridge.eliasbenb.dev",
+        "install_docs_url": "https://github.com/anibridge/anibridge#readme",
+        "docker_url": "https://github.com/anibridge/anibridge/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false
+      },
+      "website_url": "https://anibridge.eliasbenb.dev/",
+      "install_docs_url": "https://anibridge.eliasbenb.dev/getting-started/docker/",
+      "docker_url": "https://github.com/anibridge/anibridge/pkgs/container/anibridge",
+      "docker_image": "ghcr.io/anibridge/anibridge:v2",
+      "compose_url": "https://anibridge.eliasbenb.dev/getting-started/docker/",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "unraid"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose",
+        "unraid"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/anibridge/anibridge/pkgs/container/anibridge",
+          "support_level": "official",
+          "source_url": "https://anibridge.eliasbenb.dev/getting-started/docker/",
+          "image": "ghcr.io/anibridge/anibridge:v2",
+          "note": "The official guide documents the v2 image.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://anibridge.eliasbenb.dev/getting-started/docker/",
+          "support_level": "official",
+          "source_url": "https://anibridge.eliasbenb.dev/getting-started/docker/",
+          "image": "ghcr.io/anibridge/anibridge:v2",
+          "note": "The official Compose setup stores configuration in /config.",
+          "sort_order": 20
+        },
+        {
+          "method": "unraid",
+          "label": "Unraid Community Apps",
+          "url": "https://ca.unraid.net/apps?app=vvkups&q=AniBridge",
+          "support_level": "official",
+          "source_url": "https://anibridge.eliasbenb.dev/getting-started/unraid/",
+          "image": "ghcr.io/anibridge/anibridge:v2",
+          "note": null,
+          "sort_order": 30
+        }
+      ],
+      "data_source_urls": [
+        "https://anibridge.eliasbenb.dev/getting-started/docker/",
+        "https://anibridge.eliasbenb.dev/getting-started/unraid/",
+        "https://github.com/anibridge/anibridge/pkgs/container/anibridge",
+        "https://ca.unraid.net/apps?app=vvkups&q=AniBridge"
+      ],
+      "confidence": "high",
+      "docker_support": "official",
+      "compose_support": true
+    },
+    {
+      "slug": "anonaddy",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/anonaddy/anonaddy#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "compose_url": null
+      },
+      "install_docs_url": "https://github.com/anonaddy/docker",
+      "docker_url": "https://hub.docker.com/r/anonaddy/anonaddy",
+      "docker_image": "anonaddy/anonaddy",
+      "deployment_methods": [
+        "docker",
+        "compose"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/anonaddy/anonaddy",
+          "support_level": "official",
+          "source_url": "https://github.com/anonaddy/docker",
+          "image": "anonaddy/anonaddy",
+          "note": "The publisher's Docker project recommends Compose for running the image.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/anonaddy/docker/blob/master/examples/compose/compose.yml",
+          "support_level": "official",
+          "source_url": "https://github.com/anonaddy/docker",
+          "image": "anonaddy/anonaddy:latest",
+          "note": "The publisher recommends Compose and provides this service file.",
+          "sort_order": 20
+        }
+      ],
+      "data_source_urls": [
+        "https://github.com/anonaddy/docker",
+        "https://hub.docker.com/r/anonaddy/anonaddy",
+        "https://github.com/anonaddy/anonaddy",
+        "https://github.com/anonaddy/docker/blob/master/examples/compose/compose.yml"
+      ],
+      "confidence": "high",
+      "docker_support": "official",
+      "compose_support": true,
+      "compose_url": "https://github.com/anonaddy/docker/blob/master/examples/compose/compose.yml"
+    },
+    {
+      "slug": "anonymousoverflow",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/httpjamesm/AnonymousOverflow#readme",
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "install_docs_url": "https://github.com/httpjamesm/AnonymousOverflow/wiki/Deployment",
+      "compose_url": "https://github.com/httpjamesm/AnonymousOverflow/wiki/Deployment",
+      "deployment_methods": [
+        "compose"
+      ],
+      "reviewed_install_methods": [
+        "compose"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/httpjamesm/AnonymousOverflow/wiki/Deployment",
+          "support_level": "official",
+          "source_url": "https://github.com/httpjamesm/AnonymousOverflow/wiki/Deployment",
+          "image": "ghcr.io/httpjamesm/anonymousoverflow:release",
+          "note": "The guide requires APP_URL and JWT_SIGNING_SECRET.",
+          "sort_order": 10
+        }
+      ],
+      "data_source_urls": [
+        "https://github.com/httpjamesm/AnonymousOverflow/wiki/Deployment",
+        "https://github.com/httpjamesm/AnonymousOverflow/blob/main/docker-compose.example.yml"
+      ],
+      "confidence": "high",
+      "docker_support": "official",
+      "compose_support": true
+    },
+    {
+      "slug": "a-train",
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "unknown"
+      },
+      "source_model": "open_source",
+      "data_source_urls": [
+        "https://github.com/m-rots/a-train",
+        "https://raw.githubusercontent.com/m-rots/a-train/main/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "namecheap-ddns-updater",
+      "review_scope": "partial",
+      "expected": {
+        "license": "No license declared in the repository"
+      },
+      "license": null,
+      "data_source_urls": [
+        "https://github.com/tranceer/nraid-namecheap-ddns-updater",
+        "https://github.com/tranceer/nraid-namecheap-ddns-updater#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "acp-admin",
+      "review_scope": "partial",
+      "expected": {
+        "name": "ACP Admin",
+        "source_model": "open_source",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "docker_url": "https://github.com/csa-admin-org/csa-admin/blob/HEAD/Dockerfile",
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false
+      },
+      "name": "CSA Admin",
+      "source_model": "source_available",
+      "license": "O'Saasy License",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "docker_url": null,
+      "deployment_methods": [],
+      "data_source_urls": [
+        "https://csa-admin.org/",
+        "https://github.com/csa-admin-org/csa-admin",
+        "https://github.com/csa-admin-org/csa-admin/blob/HEAD/LICENSE.md",
+        "https://osaasy.dev/"
+      ],
+      "confidence": "high",
+      "docker_support": "none",
+      "compose_support": false
+    },
+    {
+      "slug": "dasher",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/maddox/dasher#readme"
+      },
+      "install_docs_url": "https://github.com/maddox/dasher#setup",
+      "reviewed_install_methods": [
+        "native"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "native",
+          "label": "Native installation",
+          "url": "https://github.com/maddox/dasher#setup",
+          "support_level": "official",
+          "source_url": "https://github.com/maddox/dasher",
+          "image": null,
+          "note": "The project is sunsetted and uses legacy Amazon Dash buttons.",
+          "sort_order": 10
+        }
+      ],
+      "data_source_urls": [
+        "https://github.com/maddox/dasher"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "datasette",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/simonw/datasette#readme",
+        "docker_url": "https://github.com/simonw/datasette/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false
+      },
+      "install_docs_url": "https://docs.datasette.io/en/stable/installation.html",
+      "docker_url": "https://hub.docker.com/r/datasetteproject/datasette",
+      "docker_image": "datasetteproject/datasette",
+      "deployment_methods": [
+        "docker",
+        "native"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "native"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/datasetteproject/datasette",
+          "support_level": "official",
+          "source_url": "https://docs.datasette.io/en/stable/installation.html",
+          "image": "datasetteproject/datasette",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "native",
+          "label": "Native installation",
+          "url": "https://docs.datasette.io/en/stable/installation.html",
+          "support_level": "official",
+          "source_url": "https://docs.datasette.io/en/stable/installation.html",
+          "image": null,
+          "note": "The official guide documents pip and pipx installs.",
+          "sort_order": 20
+        }
+      ],
+      "data_source_urls": [
+        "https://docs.datasette.io/en/stable/installation.html",
+        "https://hub.docker.com/r/datasetteproject/datasette"
+      ],
+      "confidence": "high",
+      "docker_support": "official",
+      "compose_support": false
+    },
+    {
+      "slug": "dayglance",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/krelltunez/dayGLANCE#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false
+      },
+      "install_docs_url": "https://docs.dayglance.app/self-hosting",
+      "docker_url": "https://docs.dayglance.app/self-hosting",
+      "docker_image": "ghcr.io/krelltunez/dayglance:latest",
+      "compose_url": "https://docs.dayglance.app/self-hosting",
+      "deployment_methods": [
+        "docker",
+        "compose"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://docs.dayglance.app/self-hosting",
+          "support_level": "official",
+          "source_url": "https://docs.dayglance.app/self-hosting",
+          "image": "ghcr.io/krelltunez/dayglance:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://docs.dayglance.app/self-hosting",
+          "support_level": "official",
+          "source_url": "https://docs.dayglance.app/self-hosting",
+          "image": "ghcr.io/krelltunez/dayglance:latest",
+          "note": null,
+          "sort_order": 20
+        }
+      ],
+      "data_source_urls": [
+        "https://docs.dayglance.app/self-hosting",
+        "https://docs.dayglance.app/getting-started"
+      ],
+      "confidence": "high",
+      "docker_support": "official",
+      "compose_support": true
+    },
+    {
+      "slug": "ddclient",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/ddclient/ddclient#readme",
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "install_docs_url": "https://github.com/ddclient/ddclient#installation",
+      "deployment_methods": [
+        "package"
+      ],
+      "reviewed_install_methods": [
+        "package"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "package",
+          "label": "Distribution package",
+          "url": "https://github.com/ddclient/ddclient#installation",
+          "support_level": "official",
+          "source_url": "https://github.com/ddclient/ddclient",
+          "image": null,
+          "note": "The project recommends installing the package offered by the operating system.",
+          "sort_order": 10
+        }
+      ],
+      "data_source_urls": [
+        "https://github.com/ddclient/ddclient",
+        "https://ddclient.net/"
+      ],
+      "confidence": "high",
+      "docker_support": "none",
+      "compose_support": false
+    },
+    {
+      "slug": "ddracenetwork",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/ddnet/ddnet#readme",
+        "docker_url": "https://github.com/ddnet/ddnet/blob/HEAD/Dockerfile",
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false
+      },
+      "install_docs_url": "https://github.com/ddnet/ddnet#installation-from-repository",
+      "docker_url": null,
+      "deployment_methods": [
+        "package"
+      ],
+      "reviewed_install_methods": [
+        "package"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "package",
+          "label": "Distribution package",
+          "url": "https://github.com/ddnet/ddnet#installation-from-repository",
+          "support_level": "official",
+          "source_url": "https://github.com/ddnet/ddnet",
+          "image": null,
+          "note": "The README gives package-manager commands; the DDNet server binary is distributed with the DDNet client.",
+          "sort_order": 10
+        }
+      ],
+      "data_source_urls": [
+        "https://github.com/ddnet/ddnet",
+        "https://github.com/ddnet/ddnet-maps",
+        "https://ddnet.org/downloads/"
+      ],
+      "confidence": "high",
+      "docker_support": "none",
+      "compose_support": false
+    },
+    {
+      "slug": "decypharr",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/sirrobot01/decypharr#readme",
+        "docker_url": "https://github.com/sirrobot01/decypharr/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false
+      },
+      "install_docs_url": "https://decypharr.com/guides/installation/",
+      "docker_url": "https://hub.docker.com/r/cy01/blackhole",
+      "docker_image": "cy01/blackhole:latest",
+      "compose_url": "https://decypharr.com/guides/installation/",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "binary"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose",
+        "binary"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/cy01/blackhole",
+          "support_level": "official",
+          "source_url": "https://decypharr.com/guides/installation/",
+          "image": "cy01/blackhole:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://decypharr.com/guides/installation/",
+          "support_level": "official",
+          "source_url": "https://decypharr.com/guides/installation/",
+          "image": "cy01/blackhole:latest",
+          "note": "The official guide provides a Compose service.",
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Linux binary",
+          "url": "https://github.com/sirrobot01/decypharr/releases",
+          "support_level": "official",
+          "source_url": "https://decypharr.com/guides/installation/",
+          "image": null,
+          "note": "The guide links the Linux binary on GitHub Releases.",
+          "sort_order": 30
+        }
+      ],
+      "data_source_urls": [
+        "https://decypharr.com/guides/installation/",
+        "https://hub.docker.com/r/cy01/blackhole",
+        "https://github.com/sirrobot01/decypharr/releases"
+      ],
+      "confidence": "high",
+      "docker_support": "official",
+      "compose_support": true
+    },
+    {
+      "slug": "deltafin",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/gavamedia/deltafin#readme"
+      },
+      "install_docs_url": "https://github.com/gavamedia/deltafin#new-installation",
+      "reviewed_install_methods": [
+        "native"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "native",
+          "label": "Native installation",
+          "url": "https://github.com/gavamedia/deltafin#new-installation",
+          "support_level": "official",
+          "source_url": "https://github.com/gavamedia/deltafin/blob/main/README.md",
+          "image": null,
+          "note": "The guide installs Deltafin in a Python virtual environment and builds native libraries on the host.",
+          "sort_order": 10
+        }
+      ],
+      "data_source_urls": [
+        "https://github.com/gavamedia/deltafin/blob/main/README.md",
+        "https://github.com/gavamedia/deltafin/blob/main/docs/REQUIREMENTS.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "dietpi",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/MichaIng/DietPi#readme",
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": null
+      },
+      "install_docs_url": "https://dietpi.com/docs/install/",
+      "deployment_methods": [
+        "native"
+      ],
+      "reviewed_install_methods": [
+        "native"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "native",
+          "label": "Disk image installation",
+          "url": "https://dietpi.com/docs/install/",
+          "support_level": "official",
+          "source_url": "https://dietpi.com/docs/install/",
+          "image": null,
+          "note": "Install DietPi from an official disk image on a supported device or PC.",
+          "sort_order": 10
+        }
+      ],
+      "data_source_urls": [
+        "https://dietpi.com/docs/install/",
+        "https://dietpi.com/"
+      ],
+      "confidence": "high",
+      "docker_support": "none",
+      "compose_support": false
+    },
+    {
+      "slug": "dify-ai",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/langgenius/dify#readme",
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false
+      },
+      "install_docs_url": "https://docs.dify.ai/en/self-host/deploy/quick-start/docker-compose",
+      "compose_url": "https://docs.dify.ai/en/self-host/deploy/quick-start/docker-compose",
+      "deployment_methods": [
+        "compose"
+      ],
+      "reviewed_install_methods": [
+        "compose"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://docs.dify.ai/en/self-host/deploy/quick-start/docker-compose",
+          "support_level": "official",
+          "source_url": "https://docs.dify.ai/en/self-host/deploy/quick-start/docker-compose",
+          "image": null,
+          "note": "The official guide deploys Dify as a multi-service Compose stack.",
+          "sort_order": 10
+        }
+      ],
+      "data_source_urls": [
+        "https://docs.dify.ai/en/self-host/deploy/quick-start/docker-compose",
+        "https://github.com/langgenius/dify"
+      ],
+      "confidence": "high",
+      "docker_support": "official",
+      "compose_support": true
+    },
+    {
+      "slug": "discourse",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/discourse/discourse#readme",
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "install_docs_url": "https://github.com/discourse/discourse/blob/main/docs/INSTALL.md",
+      "deployment_methods": [
+        "docker"
+      ],
+      "reviewed_install_methods": [
+        "docker"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker install",
+          "url": "https://github.com/discourse/discourse/blob/main/docs/INSTALL-cloud.md",
+          "support_level": "official",
+          "source_url": "https://github.com/discourse/discourse/blob/main/docs/INSTALL.md",
+          "image": null,
+          "note": "The Discourse installer builds and manages the application container.",
+          "sort_order": 10
+        }
+      ],
+      "data_source_urls": [
+        "https://github.com/discourse/discourse/blob/main/docs/INSTALL.md",
+        "https://github.com/discourse/discourse/blob/main/docs/INSTALL-cloud.md"
+      ],
+      "confidence": "high",
+      "docker_support": "official",
+      "compose_support": false
+    },
+    {
+      "slug": "diun",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://github.com/crazy-max/diun#readme",
+        "docker_url": "https://github.com/crazy-max/diun/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false
+      },
+      "install_docs_url": "https://crazymax.dev/diun/install/docker/",
+      "docker_url": "https://hub.docker.com/r/crazymax/diun",
+      "docker_image": "crazymax/diun:latest",
+      "compose_url": "https://crazymax.dev/diun/install/docker/",
+      "deployment_methods": [
+        "docker",
+        "compose"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/crazymax/diun",
+          "support_level": "official",
+          "source_url": "https://crazymax.dev/diun/install/docker/",
+          "image": "crazymax/diun:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://crazymax.dev/diun/install/docker/",
+          "support_level": "official",
+          "source_url": "https://crazymax.dev/diun/install/docker/",
+          "image": "crazymax/diun:latest",
+          "note": "The official guide includes a Compose example.",
+          "sort_order": 20
+        }
+      ],
+      "data_source_urls": [
+        "https://crazymax.dev/diun/install/docker/",
+        "https://hub.docker.com/r/crazymax/diun"
+      ],
+      "confidence": "high",
+      "docker_support": "official",
+      "compose_support": true
+    },
+    {
+      "slug": "diyhue",
+      "review_scope": "partial",
+      "expected": {
+        "install_docs_url": "https://diyhue.readthedocs.io/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null
+      },
+      "install_docs_url": "https://diyhue.readthedocs.io/en/latest/getting_started.html",
+      "docker_url": "https://hub.docker.com/r/diyhue/core",
+      "docker_image": "diyhue/core:latest",
+      "compose_url": "https://diyhue.readthedocs.io/en/latest/getting_started.html",
+      "reviewed_install_methods": [
+        "docker",
+        "compose"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/diyhue/core",
+          "support_level": "official",
+          "source_url": "https://diyhue.readthedocs.io/en/latest/getting_started.html",
+          "image": "diyhue/core:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://diyhue.readthedocs.io/en/latest/getting_started.html",
+          "support_level": "official",
+          "source_url": "https://diyhue.readthedocs.io/en/latest/getting_started.html",
+          "image": "diyhue/core:latest",
+          "note": "The official getting-started guide documents Compose setup.",
+          "sort_order": 20
+        }
+      ],
+      "data_source_urls": [
+        "https://diyhue.readthedocs.io/en/latest/getting_started.html",
+        "https://hub.docker.com/r/diyhue/core"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

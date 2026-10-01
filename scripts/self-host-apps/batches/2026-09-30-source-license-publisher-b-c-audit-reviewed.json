@@ -1,0 +1,138 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Partial source model, license, publisher, and source repository corrections for five published, self-hostable apps.",
+  "apps": [
+    {
+      "slug": "bluesky-pds",
+      "source_model": "open_source",
+      "license": "MIT License OR Apache License 2.0",
+      "license_type": "mixed",
+      "license_spdx_id": "MIT OR Apache-2.0",
+      "source_code_url": "https://github.com/bluesky-social/pds",
+      "source_code_host": "github",
+      "publisher_name": "Bluesky Social PBC",
+      "publisher_type": "company",
+      "publisher_url": "https://bsky.social/about",
+      "data_source_urls": [
+        "https://atproto.com/guides/self-hosting",
+        "https://github.com/bluesky-social/pds",
+        "https://github.com/bluesky-social/pds/blob/main/README.md",
+        "https://github.com/bluesky-social/pds/blob/main/LICENSE-MIT.txt",
+        "https://github.com/bluesky-social/pds/blob/main/LICENSE-APACHE.txt",
+        "https://bsky.social/about"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "Bluesky-PDS",
+        "publisher_type": "unknown",
+        "publisher_url": "https://atproto.com/guides/self-hosting"
+      }
+    },
+    {
+      "slug": "cockpit-ws",
+      "source_model": "open_source",
+      "license": "LGPL-2.1-or-later, GPL-3.0-or-later, BSD-3-Clause, CC-BY-SA-3.0, and MIT (project files use separate licenses)",
+      "license_type": "mixed",
+      "source_code_url": "https://github.com/cockpit-project/cockpit",
+      "source_code_host": "github",
+      "publisher_name": "Cockpit Project",
+      "publisher_type": "community",
+      "data_source_urls": [
+        "https://cockpit-project.org/",
+        "https://github.com/cockpit-project/cockpit"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "Cockpit WS",
+        "publisher_type": "unknown"
+      }
+    },
+    {
+      "slug": "borgmatic",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "source_code_url": "https://projects.torsion.org/borgmatic-collective/borgmatic",
+      "source_code_host": "other",
+      "publisher_type": "community",
+      "publisher_url": "https://torsion.org/borgmatic/",
+      "data_source_urls": [
+        "https://torsion.org/borgmatic/",
+        "https://github.com/borgmatic-collective/borgmatic",
+        "https://github.com/borgmatic-collective/borgmatic/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_type": "unknown",
+        "publisher_url": "http://ghcr.io/borgmatic-collective/borgmatic"
+      }
+    },
+    {
+      "slug": "birdnet-go",
+      "license": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International",
+      "license_spdx_id": "CC-BY-NC-SA-4.0",
+      "publisher_name": "Tomi P. Hakala",
+      "publisher_type": "individual",
+      "data_source_urls": [
+        "https://github.com/tphakala/birdnet-go",
+        "https://github.com/tphakala/birdnet-go/blob/main/LICENSE",
+        "https://spdx.org/licenses/CC-BY-NC-SA-4.0.html"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": null,
+        "publisher_name": "tphakala",
+        "publisher_type": "community"
+      }
+    },
+    {
+      "slug": "borg-web-ui",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-or-later",
+      "source_code_url": "https://github.com/karanhudia/borg-ui",
+      "source_code_host": "github",
+      "publisher_name": "Karan Hudia",
+      "publisher_type": "individual",
+      "publisher_url": "https://github.com/karanhudia",
+      "data_source_urls": [
+        "https://github.com/karanhudia/borg-ui",
+        "https://github.com/karanhudia/borg-ui/blob/main/LICENSE",
+        "https://docs.borgui.com/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "Borg-Web-UI",
+        "publisher_type": "unknown",
+        "publisher_url": "https://karanhudia.github.io/borg-ui/"
+      }
+    }
+  ]
+}

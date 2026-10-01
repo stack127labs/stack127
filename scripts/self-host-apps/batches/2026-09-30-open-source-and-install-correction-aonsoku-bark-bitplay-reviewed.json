@@ -1,0 +1,577 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Correct open-source classifications, upstream code and license links, and official install options for four self-hostable apps.",
+  "apps": [
+    {
+      "slug": "aonsoku",
+      "review_scope": "partial",
+      "expected": {
+        "slug": "aonsoku",
+        "name": "Aonsoku",
+        "summary": "A modern client for Navidrome/Subsonic servers built with React and Rust.",
+        "website_url": "https://aonsoku.vercel.app/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/victoralvesf/aonsoku/issues",
+        "install_docs_url": "https://github.com/victoralvesf/aonsoku/issues",
+        "docker_url": "https://registry.hub.docker.com/r/ghcr.io/victoralvesf/aonsoku",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_model": "closed_source",
+        "publisher_name": "Aonsoku",
+        "publisher_type": "unknown",
+        "publisher_url": "https://aonsoku.vercel.app/",
+        "pricing_model": "unknown",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_image": "ghcr.io/victoralvesf/aonsoku:latest",
+        "compose_support": false,
+        "compose_url": null,
+        "data_source_urls": [
+          "https://aonsoku.vercel.app/",
+          "https://github.com/victoralvesf/aonsoku/issues",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/aonsoku.xml",
+          "https://raw.githubusercontent.com/victoralvesf/aonsoku/main/src-tauri/icons/128x128.png",
+          "https://registry.hub.docker.com/r/ghcr.io/victoralvesf/aonsoku"
+        ],
+        "surfaces": [
+          "web"
+        ],
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "categories": [
+          "developer-tools",
+          "music-audio",
+          "system-admin-hosting"
+        ]
+      },
+      "name": "Aonsoku",
+      "summary": "Music client for Navidrome and Subsonic servers, available as a web app and desktop app.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "website_url": "https://aonsoku.vercel.app/",
+      "source_code_url": "https://github.com/victoralvesf/aonsoku",
+      "source_code_host": "github",
+      "docs_url": "https://github.com/victoralvesf/aonsoku#readme",
+      "install_docs_url": "https://github.com/victoralvesf/aonsoku#readme",
+      "docker_url": "https://github.com/victoralvesf/aonsoku/pkgs/container/aonsoku",
+      "license": "MIT",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_model": "open_source",
+      "publisher_name": "victoralvesf",
+      "publisher_type": "individual",
+      "publisher_url": "https://github.com/victoralvesf",
+      "pricing_model": "free",
+      "docker_support": "official",
+      "docker_image": "ghcr.io/victoralvesf/aonsoku:latest",
+      "compose_support": true,
+      "compose_url": "https://github.com/victoralvesf/aonsoku/blob/main/docker-compose.yml",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "native",
+        "unraid"
+      ],
+      "surfaces": [
+        "web",
+        "desktop"
+      ],
+      "data_source_urls": [
+        "https://aonsoku.vercel.app/",
+        "https://github.com/victoralvesf/aonsoku",
+        "https://github.com/victoralvesf/aonsoku#readme",
+        "https://github.com/victoralvesf/aonsoku/blob/main/LICENSE.txt",
+        "https://github.com/victoralvesf/aonsoku/blob/main/docker-compose.yml",
+        "https://github.com/victoralvesf/aonsoku/pkgs/container/aonsoku",
+        "https://github.com/victoralvesf/aonsoku/releases/latest",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/aonsoku.xml"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose",
+        "native"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://ghcr.io/victoralvesf/aonsoku",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "ghcr.io/victoralvesf/aonsoku:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://registry.hub.docker.com/r/ghcr.io/victoralvesf/aonsoku",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/aonsoku.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/aonsoku.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/victoralvesf/aonsoku/pkgs/container/aonsoku",
+          "support_level": "official",
+          "source_url": "https://github.com/victoralvesf/aonsoku#readme",
+          "image": "ghcr.io/victoralvesf/aonsoku:latest",
+          "note": "The project README provides this image for its web app.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/victoralvesf/aonsoku/blob/main/docker-compose.yml",
+          "support_level": "official",
+          "source_url": "https://github.com/victoralvesf/aonsoku/blob/main/docker-compose.yml",
+          "image": "ghcr.io/victoralvesf/aonsoku:latest",
+          "note": "Project Compose file for the web app.",
+          "sort_order": 20
+        },
+        {
+          "method": "native",
+          "label": "Desktop app",
+          "url": "https://github.com/victoralvesf/aonsoku/releases/latest",
+          "support_level": "official",
+          "source_url": "https://github.com/victoralvesf/aonsoku#readme",
+          "image": null,
+          "note": "The project publishes desktop builds for supported operating systems.",
+          "sort_order": 60
+        }
+      ],
+      "categories": [
+        "music-audio"
+      ]
+    },
+    {
+      "slug": "ampcast",
+      "review_scope": "partial",
+      "expected": {
+        "slug": "ampcast",
+        "name": "Ampcast",
+        "summary": "A music player inspired by Winamp.",
+        "website_url": "https://ampcast.app/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/rekkyrosso/ampcast/issues",
+        "install_docs_url": "https://github.com/rekkyrosso/ampcast/issues",
+        "docker_url": "https://registry.hub.docker.com/r/ghcr.io/rekkyrosso/ampcast",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_model": "closed_source",
+        "publisher_name": "Ampcast",
+        "publisher_type": "unknown",
+        "publisher_url": "https://ampcast.app/",
+        "pricing_model": "unknown",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_image": "ghcr.io/rekkyrosso/ampcast:latest",
+        "compose_support": false,
+        "compose_url": null,
+        "data_source_urls": [
+          "https://ampcast.app/",
+          "https://github.com/rekkyrosso/ampcast/issues",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ampcast.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ampcast-icon.png",
+          "https://registry.hub.docker.com/r/ghcr.io/rekkyrosso/ampcast"
+        ],
+        "surfaces": [
+          "web"
+        ],
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high"
+      },
+      "name": "Ampcast",
+      "summary": "Self-hosted music player for Plex, Jellyfin, Emby, Navidrome, Subsonic, and other music services.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "website_url": "https://ampcast.app/",
+      "source_code_url": "https://github.com/rekkyrosso/ampcast",
+      "source_code_host": "github",
+      "docs_url": "https://github.com/rekkyrosso/ampcast#readme",
+      "install_docs_url": "https://github.com/rekkyrosso/ampcast#readme",
+      "docker_url": "https://github.com/rekkyrosso/ampcast/pkgs/container/ampcast",
+      "license": "GPL-3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_model": "open_source",
+      "publisher_name": "rekkyrosso",
+      "publisher_type": "individual",
+      "publisher_url": "https://github.com/rekkyrosso",
+      "pricing_model": "free",
+      "docker_support": "official",
+      "docker_image": "ghcr.io/rekkyrosso/ampcast:latest",
+      "compose_support": true,
+      "compose_url": "https://github.com/rekkyrosso/ampcast/blob/main/docker-compose.yml",
+      "deployment_methods": [
+        "docker",
+        "compose"
+      ],
+      "surfaces": [
+        "web"
+      ],
+      "data_source_urls": [
+        "https://ampcast.app/",
+        "https://github.com/rekkyrosso/ampcast",
+        "https://github.com/rekkyrosso/ampcast#readme",
+        "https://github.com/rekkyrosso/ampcast/blob/main/LICENSE",
+        "https://github.com/rekkyrosso/ampcast/blob/main/docker-compose.yml",
+        "https://github.com/rekkyrosso/ampcast/pkgs/container/ampcast",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ampcast.xml"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://ghcr.io/rekkyrosso/ampcast",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "ghcr.io/rekkyrosso/ampcast:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://registry.hub.docker.com/r/ghcr.io/rekkyrosso/ampcast",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ampcast.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ampcast.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/rekkyrosso/ampcast/pkgs/container/ampcast",
+          "support_level": "official",
+          "source_url": "https://github.com/rekkyrosso/ampcast#readme",
+          "image": "ghcr.io/rekkyrosso/ampcast:latest",
+          "note": "Official image published by the project owner.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/rekkyrosso/ampcast/blob/main/docker-compose.yml",
+          "support_level": "official",
+          "source_url": "https://github.com/rekkyrosso/ampcast/blob/main/docker-compose.yml",
+          "image": "ghcr.io/rekkyrosso/ampcast:latest",
+          "note": "Project Compose file for the self-hosted web app.",
+          "sort_order": 20
+        }
+      ]
+    },
+    {
+      "slug": "bark-server",
+      "review_scope": "partial",
+      "expected": {
+        "slug": "bark-server",
+        "name": "Bark-Server",
+        "summary": "Backend for Bark, an iOS app to receive custom push notifications.",
+        "website_url": "https://bark.day.app/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/Finb/bark-server/issues",
+        "install_docs_url": "https://github.com/Finb/bark-server/issues",
+        "docker_url": "https://hub.docker.com/r/finab/bark-server",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_model": "closed_source",
+        "publisher_name": "Bark-Server",
+        "publisher_type": "unknown",
+        "publisher_url": "https://bark.day.app/",
+        "pricing_model": "unknown",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_image": "finab/bark-server:latest",
+        "compose_support": false,
+        "compose_url": null,
+        "requires_database": null,
+        "database_types": [],
+        "data_source_urls": [
+          "https://bark.day.app/",
+          "https://bark.day.app/_media/Icon.png",
+          "https://github.com/Finb/bark-server/issues",
+          "https://hub.docker.com/r/finab/bark-server",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/bark.xml"
+        ],
+        "surfaces": [
+          "web"
+        ],
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "categories": [
+          "system-admin-hosting"
+        ]
+      },
+      "name": "Bark Server",
+      "summary": "Server backend for Bark, an iOS app that receives custom push notifications.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "website_url": "https://bark.day.app/",
+      "source_code_url": "https://github.com/Finb/bark-server",
+      "source_code_host": "github",
+      "docs_url": "https://github.com/Finb/bark-server#readme",
+      "install_docs_url": "https://github.com/Finb/bark-server#readme",
+      "docker_url": "https://github.com/Finb/bark-server/pkgs/container/bark-server",
+      "license": "MIT",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_model": "open_source",
+      "publisher_name": "Finb",
+      "publisher_type": "individual",
+      "publisher_url": "https://github.com/Finb",
+      "pricing_model": "free",
+      "docker_support": "official",
+      "docker_image": "ghcr.io/finb/bark-server:latest",
+      "compose_support": true,
+      "compose_url": "https://github.com/Finb/bark-server/blob/master/deploy/docker-compose.yaml",
+      "requires_database": false,
+      "database_types": [],
+      "deployment_methods": [
+        "binary",
+        "docker",
+        "compose",
+        "unraid"
+      ],
+      "surfaces": [
+        "api"
+      ],
+      "data_source_urls": [
+        "https://bark.day.app/",
+        "https://github.com/Finb/bark-server",
+        "https://github.com/Finb/bark-server#readme",
+        "https://github.com/Finb/bark-server/blob/master/LICENSE",
+        "https://github.com/Finb/bark-server/blob/master/deploy/docker-compose.yaml",
+        "https://github.com/Finb/bark-server/pkgs/container/bark-server",
+        "https://github.com/Finb/bark-server/releases",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/bark.xml"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose",
+        "binary"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/finab/bark-server",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "finab/bark-server:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/finab/bark-server",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/bark.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/bark.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/Finb/bark-server/pkgs/container/bark-server",
+          "support_level": "official",
+          "source_url": "https://github.com/Finb/bark-server#readme",
+          "image": "ghcr.io/finb/bark-server:latest",
+          "note": "Official GHCR image documented by the project.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/Finb/bark-server/blob/master/deploy/docker-compose.yaml",
+          "support_level": "official",
+          "source_url": "https://github.com/Finb/bark-server/blob/master/deploy/docker-compose.yaml",
+          "image": "ghcr.io/finb/bark-server:latest",
+          "note": "Project Compose deployment example.",
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Precompiled binary",
+          "url": "https://github.com/Finb/bark-server/releases",
+          "support_level": "official",
+          "source_url": "https://github.com/Finb/bark-server#readme",
+          "image": null,
+          "note": "The project publishes precompiled server binaries.",
+          "sort_order": 50
+        }
+      ],
+      "categories": [
+        "communication"
+      ]
+    },
+    {
+      "slug": "bitplay",
+      "review_scope": "partial",
+      "expected": {
+        "slug": "bitplay",
+        "name": "BitPlay",
+        "summary": "BitPlay is a web app built with Go that allows you to stream video content directly from torrents in your browser, It features a clean web UI, support for.",
+        "website_url": "https://bitplay.to/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/aculix/bitplay/issues",
+        "install_docs_url": "https://github.com/aculix/bitplay/issues",
+        "docker_url": "https://registry.hub.docker.com/r/ghcr.io/aculix/bitplay",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_model": "closed_source",
+        "publisher_name": "BitPlay",
+        "publisher_type": "unknown",
+        "publisher_url": "https://bitplay.to/",
+        "pricing_model": "unknown",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_image": "ghcr.io/aculix/bitplay:main",
+        "compose_support": false,
+        "compose_url": null,
+        "data_source_urls": [
+          "https://bitplay.to/",
+          "https://github.com/aculix/bitplay/issues",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/bitplay.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/bitplay-icon.png",
+          "https://registry.hub.docker.com/r/ghcr.io/aculix/bitplay"
+        ],
+        "surfaces": [
+          "web"
+        ],
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "categories": [
+          "remote-access",
+          "search",
+          "video-conferencing"
+        ]
+      },
+      "name": "BitPlay",
+      "summary": "Streams video from torrent and magnet links in a web player, with search through Prowlarr or Jackett.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "website_url": "https://github.com/aculix/bitplay",
+      "source_code_url": "https://github.com/aculix/bitplay",
+      "source_code_host": "github",
+      "docs_url": "https://github.com/aculix/bitplay#readme",
+      "install_docs_url": "https://github.com/aculix/bitplay#readme",
+      "docker_url": "https://github.com/aculix/bitplay/pkgs/container/bitplay",
+      "license": "MIT",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_model": "open_source",
+      "publisher_name": "aculix",
+      "publisher_type": "individual",
+      "publisher_url": "https://github.com/aculix",
+      "pricing_model": "free",
+      "docker_support": "official",
+      "docker_image": "ghcr.io/aculix/bitplay:latest",
+      "compose_support": true,
+      "compose_url": "https://github.com/aculix/bitplay#running-with-docker-compose",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "unraid"
+      ],
+      "surfaces": [
+        "web"
+      ],
+      "data_source_urls": [
+        "https://github.com/aculix/bitplay",
+        "https://github.com/aculix/bitplay#readme",
+        "https://github.com/aculix/bitplay/blob/main/LICENSE",
+        "https://github.com/aculix/bitplay/pkgs/container/bitplay",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/bitplay.xml"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://ghcr.io/aculix/bitplay",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "ghcr.io/aculix/bitplay:main",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://registry.hub.docker.com/r/ghcr.io/aculix/bitplay",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/bitplay.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/bitplay.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/aculix/bitplay/pkgs/container/bitplay",
+          "support_level": "official",
+          "source_url": "https://github.com/aculix/bitplay#readme",
+          "image": "ghcr.io/aculix/bitplay:latest",
+          "note": "The project README documents this GHCR image.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/aculix/bitplay#running-with-docker-compose",
+          "support_level": "official",
+          "source_url": "https://github.com/aculix/bitplay#running-with-docker-compose",
+          "image": "ghcr.io/aculix/bitplay:latest",
+          "note": "The README recommends Compose and includes a deployment example.",
+          "sort_order": 20
+        }
+      ],
+      "categories": [
+        "media-servers"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Q–R follow-up summary corrections based on official project material. Proposal only.",
+  "corrections": [
+    {
+      "slug": "q-zandronum",
+      "review_scope": "partial",
+      "summary": "Runs a Q-Zandronum dedicated server for multiplayer matches.",
+      "expected": {
+        "summary": "A lightweight, dedicated headless server container for Q-Zandronum (v1.4.22), the specialized Doom multiplayer source port optimized for Quake Champions:."
+      },
+      "data_source_urls": [
+        "https://qzandronum.com/",
+        "https://github.com/bobbydigital420/q-zandronum-debianslim-docker"
+      ],
+      "review_note": "Summary rewritten from official project or publisher material."
+    },
+    {
+      "slug": "rackpad",
+      "review_scope": "partial",
+      "summary": "Tracks racks, devices, connections, networks, and operations for a homelab.",
+      "expected": {
+        "summary": "Infrastructure inventory and operations workspace."
+      },
+      "data_source_urls": [
+        "https://github.com/Kobii-git/rackpad"
+      ],
+      "review_note": "Summary rewritten from official project or publisher material."
+    },
+    {
+      "slug": "rallly-fork-rallly-selfhosted",
+      "review_scope": "partial",
+      "summary": "Schedules group meetings with polls so participants can choose suitable times.",
+      "expected": {
+        "summary": "Self-hosted collaborative scheduling application based on Rallly."
+      },
+      "data_source_urls": [
+        "https://hub.docker.com/r/dpirkle/rallly_fork-rallly_selfhosted",
+        "https://rallly.com/"
+      ],
+      "review_note": "Summary rewritten from official project or publisher material."
+    },
+    {
+      "slug": "release-bot",
+      "review_scope": "partial",
+      "summary": "Monitors GitHub releases and sends Telegram notifications when selected repositories publish updates.",
+      "expected": {
+        "summary": "A Telegram bot that monitors the releases of given repos, sending messages upon a new release."
+      },
+      "data_source_urls": [
+        "https://github.com/JanisV/release-bot"
+      ],
+      "review_note": "Summary rewritten from official project or publisher material."
+    },
+    {
+      "slug": "reubah",
+      "review_scope": "partial",
+      "summary": "Processes images and converts documents through a simple web interface.",
+      "expected": {
+        "summary": "A simple web tool for processing images and converting documents with a simple interface."
+      },
+      "data_source_urls": [
+        "https://github.com/dendianugerah/reubah"
+      ],
+      "review_note": "Summary rewritten from official project or publisher material."
+    },
+    {
+      "slug": "riven",
+      "review_scope": "partial",
+      "summary": "Streams media through debrid services and integrates with Plex, Jellyfin, and Emby.",
+      "expected": {
+        "summary": "Media streaming with various third-party integrations."
+      },
+      "data_source_urls": [
+        "https://github.com/rivenmedia/riven"
+      ],
+      "review_note": "Summary rewritten from official project or publisher material."
+    },
+    {
+      "slug": "rtl-tcp",
+      "review_scope": "partial",
+      "summary": "Streams radio samples from an RTL-SDR dongle to networked radio applications.",
+      "expected": {
+        "summary": "RTL-SDR TCP server for RTL-SDR dongles."
+      },
+      "data_source_urls": [
+        "https://github.com/Cossey/docker/blob/master/rtl-tcp/README.md"
+      ],
+      "review_note": "Summary rewritten from official project or publisher material."
+    }
+  ]
+}

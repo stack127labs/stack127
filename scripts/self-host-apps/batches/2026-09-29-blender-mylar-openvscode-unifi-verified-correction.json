@@ -1,0 +1,195 @@
+{
+  "apps": [
+    {
+      "slug": "blender",
+      "review_scope": "partial",
+      "expected": {
+        "source_code_url": "https://github.com/linuxserver/docker-blender",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "source_available",
+        "github_project_id": "923408d3-fdc5-42df-8698-0008c0083f7d",
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "categories": ["games", "photos-galleries"]
+      },
+      "changes": {
+        "website_url": "https://www.blender.org/",
+        "source_code_url": "https://projects.blender.org/blender/blender",
+        "license": "GNU General Public License v3.0 or later",
+        "license_spdx_id": "GPL-3.0-or-later",
+        "source_model": "open_source",
+        "publisher_name": "Blender Foundation",
+        "publisher_type": "foundation",
+        "docker_support": "community",
+        "docker_image": "lscr.io/linuxserver/blender:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "persistent_storage": true,
+        "surfaces": ["desktop", "web"],
+        "release_version": "5.2.2 LTS",
+        "categories": ["photos-galleries"]
+      },
+      "estimates": {
+        "ram": "Est. 8192–32768 MB",
+        "basis": "Blender publishes 8 GB minimum and 32 GB recommended desktop memory; actual browser-container, scene, and render needs vary.",
+        "storage": "Est. 1–500 GB",
+        "storage_basis": "Application and user files, project assets, caches, and renders; stored work dominates the range."
+      },
+      "sources": [
+        "https://www.blender.org/about/",
+        "https://www.blender.org/about/foundation/",
+        "https://www.blender.org/about/license/",
+        "https://www.blender.org/download/",
+        "https://www.blender.org/download/requirements/",
+        "https://projects.blender.org/blender/blender",
+        "https://docs.blender.org/manual/en/latest/",
+        "https://docs.linuxserver.io/images/docker-blender/",
+        "https://hub.docker.com/r/linuxserver/blender",
+        "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/blender.xml"
+      ]
+    },
+    {
+      "slug": "mylar3",
+      "review_scope": "partial",
+      "expected": {
+        "source_code_url": "https://github.com/mylar3/mylar3",
+        "github_project_id": "b30983aa-f1a4-4789-9816-091e215d3846",
+        "docker_support": "official",
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "install_options": [],
+        "categories": ["automation", "ebooks-libraries"]
+      },
+      "changes": {
+        "website_url": "https://mylar.nerdfirehurricane.com/",
+        "source_code_url": "https://github.com/MylarComics/mylar3",
+        "license": "GNU General Public License v3.0",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "MylarComics community",
+        "publisher_type": "community",
+        "docker_support": "community",
+        "docker_image": "lscr.io/linuxserver/mylar3:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "database_types": ["SQLite"],
+        "persistent_storage": true,
+        "surfaces": ["web", "api"],
+        "deployment_methods": ["native", "docker", "compose", "unraid"]
+      },
+      "estimates": {
+        "ram": "Est. 256–2048 MB",
+        "basis": "Small library-manager estimate; active downloads, connected clients, and post-processing affect memory.",
+        "storage": "Est. 1–500 GB",
+        "storage_basis": "The comics library, downloads, and application data determine storage use."
+      },
+      "sources": [
+        "https://github.com/MylarComics/mylar3",
+        "https://github.com/MylarComics/mylar3/blob/stable/LICENSE",
+        "https://github.com/MylarComics/mylar3/blob/stable/README.md",
+        "https://github.com/MylarComics/mylar3/blob/stable/API_REFERENCE",
+        "https://mylar.nerdfirehurricane.com/",
+        "https://docs.linuxserver.io/images/docker-mylar3/",
+        "https://hub.docker.com/r/linuxserver/mylar3",
+        "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/mylar3.xml",
+        "https://github.com/MylarComics/mylar3/wiki/Usage"
+      ]
+    },
+    {
+      "slug": "openvscode-server",
+      "review_scope": "partial",
+      "expected": {
+        "source_code_url": "https://github.com/linuxserver/docker-openvscode-server",
+        "license": "GNU Affero General Public License v3.0",
+        "license_spdx_id": "GPL-3.0",
+        "github_project_id": "3db78f5e-1d13-4291-86df-ca83036a9093",
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "categories": ["ai-ml", "developer-tools", "system-admin-hosting"]
+      },
+      "changes": {
+        "source_code_url": "https://github.com/gitpod-io/openvscode-server",
+        "license": "MIT License",
+        "license_spdx_id": "MIT",
+        "license_type": "permissive",
+        "source_model": "open_source",
+        "publisher_name": "Gitpod",
+        "publisher_type": "company",
+        "docker_support": "official",
+        "docker_image": "gitpod/openvscode-server:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "persistent_storage": true,
+        "release_version": "v1.109.5",
+        "categories": ["developer-tools"]
+      },
+      "estimates": {
+        "ram": "Est. 1024–8192 MB",
+        "basis": "Extensions, language servers, and builds affect memory use.",
+        "storage": "Est. 1–50 GB",
+        "storage_basis": "Workspace files, extensions, and development toolchains determine storage use."
+      },
+      "sources": [
+        "https://github.com/gitpod-io/openvscode-server",
+        "https://github.com/gitpod-io/openvscode-server/blob/main/LICENSE.txt",
+        "https://github.com/gitpod-io/openvscode-server/blob/main/product.json",
+        "https://github.com/gitpod-io/openvscode-server#readme",
+        "https://github.com/gitpod-io/openvscode-server/releases",
+        "https://hub.docker.com/r/gitpod/openvscode-server",
+        "https://docs.linuxserver.io/deprecated_images/docker-openvscode-server/"
+      ]
+    },
+    {
+      "slug": "unifi-network-application",
+      "review_scope": "partial",
+      "expected": {
+        "source_code_url": "https://github.com/linuxserver/docker-unifi-network-application",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "source_available",
+        "github_project_id": "76215c9a-8c13-41f5-9751-127fb02361b2",
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "categories": ["monitoring-status", "networking-dns", "system-admin-hosting"]
+      },
+      "changes": {
+        "name": "UniFi Network Application (Legacy)",
+        "summary": "Legacy self-hosted controller for configuring and managing UniFi network devices; UniFi OS Server is the current self-hosting standard.",
+        "source_code_url": null,
+        "license": "Proprietary software under the Ubiquiti EULA",
+        "license_spdx_id": null,
+        "license_type": "custom",
+        "source_model": "closed_source",
+        "publisher_name": "Ubiquiti Inc.",
+        "publisher_type": "company",
+        "docker_support": "community",
+        "docker_image": "lscr.io/linuxserver/unifi-network-application:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": ["MongoDB"],
+        "persistent_storage": true,
+        "pricing_model": "free",
+        "categories": ["networking-dns", "system-admin-hosting"]
+      },
+      "estimates": {
+        "ram": "Est. 2048–8192 MB",
+        "basis": "Application and external MongoDB estimate; device count and database activity affect use.",
+        "storage": "Est. 10–100 GB",
+        "storage_basis": "Configuration and MongoDB data grow with device count and retained statistics."
+      },
+      "sources": [
+        "https://help.ui.com/hc/en-us/articles/34210126298775-Self-Hosting-UniFi",
+        "https://help.ui.com/hc/en-us/articles/220066768--Legacy-Updating-and-Installing-Self-Hosted-UniFi-Network-Servers-Linux",
+        "https://www.ui.com/eula/",
+        "https://docs.linuxserver.io/images/docker-unifi-network-application/",
+        "https://hub.docker.com/r/linuxserver/unifi-network-application",
+        "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/unifi-network-application.xml"
+      ]
+    }
+  ]
+}

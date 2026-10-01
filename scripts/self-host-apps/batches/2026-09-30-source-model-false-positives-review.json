@@ -1,0 +1,1022 @@
+{
+  "reviewed_at": "2026-09-30",
+  "project_id": "tulgfrqamtcshdtmhvpx",
+  "database_access": "read_only",
+  "production_changed": false,
+  "scope": "Source-model and license review of 15 published apps currently marked closed_source. Verify each app identity and upstream license separately from third-party container wrappers.",
+  "apps": [
+    {
+      "slug": "amule",
+      "id": "4fb97273-441e-4324-ba6a-3c52fc2f986d",
+      "production_snapshot": {
+        "id": "4fb97273-441e-4324-ba6a-3c52fc2f986d",
+        "slug": "amule",
+        "name": "amule",
+        "summary": "AMule is a free peer-to-peer file sharing utility that works with the eDonkey network and the Kad network, offering similar features to eMule and adding.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "https://www.amule.org/",
+        "docs_url": "https://github.com/ngosang/docker-amule",
+        "install_docs_url": "https://github.com/ngosang/docker-amule",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://www.amule.org/",
+        "publisher_name": "amule",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_url": "https://hub.docker.com/r/ngosang/amule",
+        "docker_image": "ngosang/amule",
+        "compose_url": null,
+        "docker_support": "community",
+        "compose_support": false,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "https://github.com/ngosang/docker-amule",
+          "https://github.com/riffsphereha/Unraid-Templates/blob/main/amule/amule.png?raw=true",
+          "https://hub.docker.com/r/ngosang/amule",
+          "https://raw.githubusercontent.com/riffsphereha/Unraid-Templates/main/amule/amule.xml",
+          "https://www.amule.org/"
+        ],
+        "data_checked_at": "2026-09-02 11:04:36.712404+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "GNU General Public License v2.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-2.0-or-later",
+        "source_code_url": "https://github.com/amule-org/amule",
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://github.com/amule-org/amule",
+        "https://github.com/amule-org/amule/blob/master/LICENSE.md",
+        "https://github.com/ngosang/docker-amule"
+      ],
+      "evidence_notes": [
+        "Current project README says development continues in amule-org and identifies aMule as the eD2k/Kad client.",
+        "The upstream license file explicitly states GPLv2 or later. The production Docker image is a community package, not the app source."
+      ],
+      "gaps_or_updates_needed": [
+        "Populate empty upstream source and license fields; keep the ngosang container identified as community packaging."
+      ]
+    },
+    {
+      "slug": "soularr",
+      "id": "90c1fab3-7794-4dba-81c5-71bef0e0b8cb",
+      "production_snapshot": {
+        "id": "90c1fab3-7794-4dba-81c5-71bef0e0b8cb",
+        "slug": "soularr",
+        "name": "soularr",
+        "summary": "Lidarr integration that downloads wanted music from Soulseek through Slskd.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "https://soularr.net/",
+        "docs_url": "https://github.com/JPDVM2014/soularr",
+        "install_docs_url": "https://github.com/JPDVM2014/soularr",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://soularr.net/",
+        "publisher_name": "soularr",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_url": "https://hub.docker.com/r/mrusse08/soularr",
+        "docker_image": "mrusse08/soularr:latest",
+        "compose_url": null,
+        "docker_support": "community",
+        "compose_support": false,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "https://github.com/JPDVM2014/soularr",
+          "https://hub.docker.com/r/mrusse08/soularr",
+          "https://raw.githubusercontent.com/JPDVM2014/unraid-templates/main/soularr.xml",
+          "https://raw.githubusercontent.com/mrusse/soularr/refs/heads/main/resources/logo.png",
+          "https://soularr.net/"
+        ],
+        "data_checked_at": "2026-09-02 12:45:41.214707+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "GNU General Public License v3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/mrusse/soularr",
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://soularr.net/",
+        "https://github.com/mrusse/soularr",
+        "https://github.com/mrusse/soularr/blob/main/LICENSE",
+        "https://github.com/JPDVM2014/soularr"
+      ],
+      "evidence_notes": [
+        "The official Soularr website links to mrusse/soularr; its README identifies the same mrusse08/soularr image used in production.",
+        "The upstream repo declares GPL-3.0. The currently recorded JPDVM2014 link is an Unraid setup guide, not the source repository."
+      ],
+      "gaps_or_updates_needed": [
+        "Set the source field to the upstream repo; keep the Unraid guide separate from source."
+      ]
+    },
+    {
+      "slug": "handbrake-for-nvidia",
+      "id": "5c7b6e97-d3a3-4804-8bca-784cc716f07f",
+      "production_snapshot": {
+        "id": "5c7b6e97-d3a3-4804-8bca-784cc716f07f",
+        "slug": "handbrake-for-nvidia",
+        "name": "HandBrake-for-Nvidia",
+        "summary": "Video transcoder that converts media to modern, widely supported formats.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "https://handbrake.fr/",
+        "docs_url": "https://forums.unraid.net/topic/57420-support-handbrake/",
+        "install_docs_url": "https://forums.unraid.net/topic/57420-support-handbrake/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://handbrake.fr/",
+        "publisher_name": "HandBrake-for-Nvidia",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_url": "https://registry.hub.docker.com/r/jlesage/handbrake",
+        "docker_image": "zocker160/handbrake-nvenc:latest",
+        "compose_url": null,
+        "docker_support": "community",
+        "compose_support": false,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/57420-support-handbrake/",
+          "https://github.com/junkerderprovinz/handbrake/blob/main/README.md",
+          "https://handbrake.fr/",
+          "https://hub.docker.com/r/junkerderprovinz/handbrake",
+          "https://raw.githubusercontent.com/DatPat/unraid-templates/main/handbrakenvidia/my-HandBrake.xml",
+          "https://raw.githubusercontent.com/jlesage/docker-templates/master/jlesage/images/handbrake-icon.png",
+          "https://raw.githubusercontent.com/junkerderprovinz/unraid-apps/main/handbrake/handbrake.xml",
+          "https://registry.hub.docker.com/r/jlesage/handbrake"
+        ],
+        "data_checked_at": "2026-09-02 11:48:15.3369+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "GNU General Public License v2.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-2.0",
+        "source_code_url": "https://github.com/HandBrake/HandBrake",
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://handbrake.fr/",
+        "https://github.com/HandBrake/HandBrake",
+        "https://github.com/HandBrake/HandBrake/blob/master/LICENSE",
+        "https://hub.docker.com/r/zocker160/handbrake-nvenc",
+        "https://github.com/junkerderprovinz/handbrake"
+      ],
+      "evidence_notes": [
+        "HandBrake's official project docs and repository identify the transcoder as GPLv2 open-source software.",
+        "The production image zocker160/handbrake-nvenc is separate third-party packaging. The junkerderprovinz/handbrake source currently listed in data is a different wrapper; it declares AGPL-3.0-only for the wrapper and GPL-2.0 for HandBrake itself."
+      ],
+      "gaps_or_updates_needed": [
+        "docker_url currently points to jlesage/handbrake while docker_image is zocker160/handbrake-nvenc; verify/correct the install link separately.",
+        "Do not assign the junkerderprovinz wrapper license to the zocker160 image without matching evidence."
+      ]
+    },
+    {
+      "slug": "velocity",
+      "id": "c8341fe5-998f-4eb3-971c-42e99768c492",
+      "production_snapshot": {
+        "id": "c8341fe5-998f-4eb3-971c-42e99768c492",
+        "slug": "velocity",
+        "name": "Velocity",
+        "summary": "Proxy server for connecting Minecraft clients to backend servers.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "https://papermc.io/software/velocity",
+        "docs_url": "https://github.com/dkeners/unraid-templates/blob/main/README.md",
+        "install_docs_url": "https://github.com/dkeners/unraid-templates/blob/main/README.md",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://papermc.io/software/velocity",
+        "publisher_name": "Velocity",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_url": "https://registry.hub.docker.com/r/itzg/mc-proxy",
+        "docker_image": "itzg/mc-proxy",
+        "compose_url": null,
+        "docker_support": "community",
+        "compose_support": false,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "https://github.com/dkeners/unraid-templates/blob/main/README.md",
+          "https://papermc.io/software/velocity",
+          "https://papermc.io/software/velocity/",
+          "https://raw.githubusercontent.com/dkeners/unraid-templates/main/dkeners/velocity.xml",
+          "https://raw.githubusercontent.com/dkeners/unraid-templates/refs/heads/main/dkeners/images/velocity.png",
+          "https://registry.hub.docker.com/r/itzg/mc-proxy"
+        ],
+        "data_checked_at": "2026-09-02 13:00:37.702517+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "GNU General Public License v3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/PaperMC/Velocity",
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://github.com/PaperMC/Velocity",
+        "https://docs.papermc.io/velocity/",
+        "https://registry.hub.docker.com/r/itzg/mc-proxy"
+      ],
+      "evidence_notes": [
+        "PaperMC's official repository describes Velocity as its Minecraft proxy and explicitly says it is GPLv3 licensed.",
+        "itzg/mc-proxy is a separate container package."
+      ],
+      "gaps_or_updates_needed": [
+        "Populate upstream source and license fields; keep the container package separate."
+      ]
+    },
+    {
+      "slug": "apache-webdav",
+      "id": "73912405-9f27-4961-bf03-4fe547a3f1cf",
+      "production_snapshot": {
+        "id": "73912405-9f27-4961-bf03-4fe547a3f1cf",
+        "slug": "apache-webdav",
+        "name": "Apache-WebDAV",
+        "summary": "WebDAV server based on Apache for transferring files with compatible clients.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "https://httpd.apache.org/docs/2.4/mod/mod_dav.html",
+        "docs_url": "https://forums.unraid.net/topic/103601-support-apache-webdav/",
+        "install_docs_url": "https://forums.unraid.net/topic/103601-support-apache-webdav/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://httpd.apache.org/docs/2.4/mod/mod_dav.html",
+        "publisher_name": "Apache-WebDAV",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_url": "https://github.com/mgutt/docker-apachewebdav",
+        "docker_image": "apachewebdav/apachewebdav",
+        "compose_url": null,
+        "docker_support": "community",
+        "compose_support": false,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/103601-support-apache-webdav/",
+          "https://github.com/mgutt/docker-apachewebdav",
+          "https://httpd.apache.org/docs/2.4/mod/mod_dav.html",
+          "https://raw.githubusercontent.com/mgutt/unraid-docker-templates/main/mgutt/Apache-WebDAV.xml",
+          "https://raw.githubusercontent.com/mgutt/unraid-docker-templates/main/mgutt/images/webdav-powered-by-apache.png"
+        ],
+        "data_checked_at": "2026-09-02 11:04:36.712404+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_code_url": "https://github.com/apache/httpd",
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://httpd.apache.org/docs/2.4/mod/mod_dav.html",
+        "https://github.com/apache/httpd",
+        "https://github.com/mgutt/docker-apachewebdav"
+      ],
+      "evidence_notes": [
+        "Official mod_dav documentation identifies WebDAV as an Apache HTTP Server module; Apache HTTP Server source is Apache-2.0 licensed.",
+        "mgutt/docker-apachewebdav is third-party container packaging, not the app source."
+      ],
+      "gaps_or_updates_needed": [
+        "Use Apache HTTP Server as upstream and identify mod_dav as the feature/module.",
+        "Current docker_url is the wrapper source repository, not a registry destination; review that install link separately."
+      ]
+    },
+    {
+      "slug": "rss-proxy",
+      "id": "b391289b-e9c5-434a-b5f4-8df180b5fcde",
+      "production_snapshot": {
+        "id": "b391289b-e9c5-434a-b5f4-8df180b5fcde",
+        "slug": "rss-proxy",
+        "name": "RSS-proxy",
+        "summary": "RSS-proxy allows you to do create an ATOM or JSON feed of any static website or feeds (web to feed), just by analyzing just the HTML structure.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "https://rssproxy.migor.org/",
+        "docs_url": "https://github.com/damoeb/rss-proxy/issues",
+        "install_docs_url": "https://github.com/damoeb/rss-proxy/issues",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://rssproxy.migor.org/",
+        "publisher_name": "RSS-proxy",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_url": "https://hub.docker.com/r/damoeb/rss-proxy",
+        "docker_image": "damoeb/rss-proxy:2",
+        "compose_url": null,
+        "docker_support": "community",
+        "compose_support": false,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "https://github.com/damoeb/rss-proxy/issues",
+          "https://hub.docker.com/r/damoeb/rss-proxy",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/rss_proxy.xml",
+          "https://rssproxy.migor.org/",
+          "https://rssproxy.migor.org/assets/rss_icon.png"
+        ],
+        "data_checked_at": "2026-09-02 12:41:33.642972+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "GNU General Public License v3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/damoeb/rss-proxy",
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://github.com/damoeb/rss-proxy",
+        "https://rssproxy.migor.org/",
+        "https://hub.docker.com/r/damoeb/rss-proxy"
+      ],
+      "evidence_notes": [
+        "The project README describes RSS-proxy, documents the production Docker image, and explicitly states GNU GPLv3."
+      ],
+      "gaps_or_updates_needed": [
+        "Replace the issues-only docs/source link with the upstream project URL in the source field."
+      ]
+    },
+    {
+      "slug": "infcloud",
+      "id": "d7ddb80f-9cf3-46a5-bb68-f31139b1cc12",
+      "production_snapshot": {
+        "id": "d7ddb80f-9cf3-46a5-bb68-f31139b1cc12",
+        "slug": "infcloud",
+        "name": "Infcloud",
+        "summary": "CalDAV/CardDAV web client implementation for synchronizing calendars and contacts.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "https://inf-it.com/open-source/clients/infcloud",
+        "docs_url": "https://github.com/ckulka/infcloud-docker/issues",
+        "install_docs_url": "https://github.com/ckulka/infcloud-docker/issues",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://inf-it.com/open-source/clients/infcloud",
+        "publisher_name": "Infcloud",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_url": "https://hub.docker.com/r/ckulka/infcloud",
+        "docker_image": "ckulka/infcloud:latest",
+        "compose_url": null,
+        "docker_support": "community",
+        "compose_support": false,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "https://github.com/ckulka/infcloud-docker/issues",
+          "https://hub.docker.com/r/ckulka/infcloud",
+          "https://inf-it.com/open-source/clients/infcloud",
+          "https://inf-it.com/open-source/clients/infcloud/",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/infcloud.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/infcloud-icon.png"
+        ],
+        "data_checked_at": "2026-09-02 11:52:12.217287+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "GNU Affero General Public License v3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_code_url": "https://inf-it.com/open-source/download/InfCloud_0.13.1.zip",
+        "source_code_host": "other"
+      },
+      "source_urls": [
+        "https://inf-it.com/open-source/clients/infcloud/",
+        "https://inf-it.com/open-source/download/InfCloud_0.13.1.zip",
+        "https://github.com/ckulka/infcloud-docker",
+        "https://hub.docker.com/r/ckulka/infcloud"
+      ],
+      "evidence_notes": [
+        "The publisher page says InfCloud is open source under AGPLv3 and offers the source archive; it identifies release 0.13.1 as its latest stable release.",
+        "ckulka/infcloud-docker is a separate MIT-licensed Docker wrapper and quotes InfCloud's AGPLv3 license."
+      ],
+      "gaps_or_updates_needed": [
+        "Record the official app source archive, not wrapper source, as source_code_url.",
+        "The release shown on the official page is from 2015; flag age for maintenance review. Current docs points to wrapper issues."
+      ]
+    },
+    {
+      "slug": "dbackup",
+      "id": "f392fa54-cb4a-4f08-8005-8cbd1b787dc8",
+      "production_snapshot": {
+        "id": "f392fa54-cb4a-4f08-8005-8cbd1b787dc8",
+        "slug": "dbackup",
+        "name": "Dbackup",
+        "summary": "Backup manager that schedules, encrypts, stores, and restores database and file backups.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "https://dbackup.app/",
+        "docs_url": "https://github.com/Skyfay/DBackup",
+        "install_docs_url": "https://github.com/Skyfay/DBackup",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://dbackup.app/",
+        "publisher_name": "Dbackup",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_url": "https://hub.docker.com/r/skyfay/dbackup",
+        "docker_image": "skyfay/dbackup:latest",
+        "compose_url": null,
+        "docker_support": "community",
+        "compose_support": false,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "https://dbackup.app/",
+          "https://github.com/Skyfay/DBackup",
+          "https://hub.docker.com/r/skyfay/dbackup",
+          "https://raw.githubusercontent.com/devzwf/unraid-docker-templates/main/images/dbackup-logo.png",
+          "https://raw.githubusercontent.com/devzwf/unraid-docker-templates/main/templates/dbackup.xml"
+        ],
+        "data_checked_at": "2026-09-02 11:21:16.091357+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "GNU General Public License v3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/Skyfay/DBackup",
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://github.com/Skyfay/DBackup",
+        "https://github.com/Skyfay/DBackup/blob/main/LICENSE",
+        "https://dbackup.app/",
+        "https://hub.docker.com/r/skyfay/dbackup"
+      ],
+      "evidence_notes": [
+        "DBackup's project repo identifies the self-hosted backup app, documents its Docker distribution, and links GPL-3.0."
+      ],
+      "gaps_or_updates_needed": [
+        "Populate the empty upstream source and license fields."
+      ]
+    },
+    {
+      "slug": "ipxe-buildweb",
+      "id": "72727d1e-f07d-4f79-b374-43f1bb800826",
+      "production_snapshot": {
+        "id": "72727d1e-f07d-4f79-b374-43f1bb800826",
+        "slug": "ipxe-buildweb",
+        "name": "iPXE-buildweb",
+        "summary": "Web interface for building customized iPXE network-boot binaries.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "https://github.com/xbgmsharp",
+        "docs_url": "https://forums.unraid.net/",
+        "install_docs_url": "https://forums.unraid.net/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://github.com/xbgmsharp",
+        "publisher_name": "iPXE-buildweb",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_url": "https://hub.docker.com/r/angelics/unraid-docker-ipxe-buildweb",
+        "docker_image": "angelics/unraid-docker-ipxe-buildweb",
+        "compose_url": null,
+        "docker_support": "community",
+        "compose_support": false,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/",
+          "https://github.com/xbgmsharp",
+          "https://hub.docker.com/r/angelics/unraid-docker-ipxe-buildweb",
+          "https://raw.githubusercontent.com/angelics/unraid-docker-template/master/ipxebuildweb.xml",
+          "https://raw.githubusercontent.com/xbgmsharp/ipxe-buildweb/master/favicon.ico"
+        ],
+        "data_checked_at": "2026-09-02 11:52:12.217287+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "GNU General Public License v3.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-or-later",
+        "source_code_url": "https://github.com/xbgmsharp/ipxe-buildweb",
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://github.com/xbgmsharp/ipxe-buildweb",
+        "https://github.com/xbgmsharp/ipxe-buildweb/blob/master/LICENSE",
+        "https://github.com/xbgmsharp/ipxe-buildweb/blob/master/README.md",
+        "https://github.com/ipxe/ipxe/blob/master/COPYING"
+      ],
+      "evidence_notes": [
+        "The project repo describes iPXE-buildweb as a web interface to select build options and generate iPXE binaries; README states GPLv3 or later.",
+        "The buildweb code's license is distinct from generated iPXE binaries, whose applicable license may vary by target."
+      ],
+      "gaps_or_updates_needed": [
+        "Replace the publisher profile URL with the project repository in source_code_url; review site/docs links separately."
+      ]
+    },
+    {
+      "slug": "playitgg",
+      "id": "8a9bf9ec-9ca5-4972-ad95-4b11f2f025cc",
+      "production_snapshot": {
+        "id": "8a9bf9ec-9ca5-4972-ad95-4b11f2f025cc",
+        "slug": "playitgg",
+        "name": "playitgg",
+        "summary": "Game server proxy that lets you share a local game server without port forwarding or exposing your home IP address.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "https://playit.gg/",
+        "docs_url": "https://hub.docker.com/r/pepaondrugs/playitgg-docker/",
+        "install_docs_url": "https://hub.docker.com/r/pepaondrugs/playitgg-docker/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://playit.gg/",
+        "publisher_name": "playitgg",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_url": "https://hub.docker.com/r/pepaondrugs/playitgg-docker",
+        "docker_image": "pepaondrugs/playitgg-docker",
+        "compose_url": null,
+        "docker_support": "community",
+        "compose_support": false,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "https://ghcr.io/mafen/playit-docker",
+          "https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main/Apps/playit-agent",
+          "https://github.com/playit-cloud/playit-agent",
+          "https://hub.docker.com/r/pepaondrugs/playitgg-docker",
+          "https://hub.docker.com/r/pepaondrugs/playitgg-docker/",
+          "https://i.imgur.com/HF2JYkI.png",
+          "https://playit.gg/",
+          "https://playit.gg/docs",
+          "https://raw.githubusercontent.com/PepaonDrugs/unraid-templates/main/playitgg/playitgg.xml"
+        ],
+        "data_checked_at": "2026-09-28 08:49:24.844296+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "BSD 2-Clause License",
+        "license_type": "permissive",
+        "license_spdx_id": "BSD-2-Clause",
+        "source_code_url": "https://github.com/playit-cloud/playit-agent",
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://playit.gg/",
+        "https://playit.gg/download",
+        "https://playit.gg/docs",
+        "https://github.com/playit-cloud/playit-agent",
+        "https://github.com/playit-cloud/playit-agent/blob/master/LICENSE.txt",
+        "https://hub.docker.com/r/pepaondrugs/playitgg-docker"
+      ],
+      "evidence_notes": [
+        "The playit project identifies playit-agent as its official program, links its downloads and Docker instructions, and provides a BSD-2-Clause license.",
+        "Production uses the separate community image pepaondrugs/playitgg-docker. The agent connects to Playit's hosted relay; users do not self-host that backend."
+      ],
+      "gaps_or_updates_needed": [
+        "Link the official agent source and keep its community image identified separately.",
+        "Review self-hostable status/name because the agent depends on Playit's hosted relay."
+      ]
+    },
+    {
+      "slug": "dokemon-agent",
+      "id": "85977afc-d506-4f12-81b2-e9038a8957fb",
+      "production_snapshot": {
+        "id": "85977afc-d506-4f12-81b2-e9038a8957fb",
+        "slug": "dokemon-agent",
+        "name": "dokemon-agent",
+        "summary": "Dokémon-Agent to connect to a Dokémon-Server to manage multiple docker servers from a single webui.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "https://dokemon.dev/",
+        "docs_url": "https://github.com/productiveops/dokemon/issues",
+        "install_docs_url": "https://github.com/productiveops/dokemon/issues",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://dokemon.dev/",
+        "publisher_name": "dokemon-agent",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_url": "https://hub.docker.com/r/productiveops/dokemon-agent",
+        "docker_image": "productiveops/dokemon-agent:latest",
+        "compose_url": null,
+        "docker_support": "community",
+        "compose_support": false,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "https://dokemon.dev/",
+          "https://github.com/productiveops/dokemon/issues",
+          "https://hub.docker.com/r/productiveops/dokemon",
+          "https://hub.docker.com/r/productiveops/dokemon-agent",
+          "https://raw.githubusercontent.com/Joly0/unraid-templates/main/containers/dokemon-agent.xml",
+          "https://raw.githubusercontent.com/Joly0/unraid-templates/main/containers/dokemon.xml",
+          "https://raw.githubusercontent.com/Joly0/unraid-templates/main/icons/dokemon-agent-icon.png"
+        ],
+        "data_checked_at": "2026-09-28 08:49:24.844296+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_code_url": "https://github.com/productiveops/dokemon",
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://dokemon.dev/",
+        "https://github.com/productiveops/dokemon",
+        "https://github.com/productiveops/dokemon/blob/main/LICENSE",
+        "https://hub.docker.com/r/productiveops/dokemon-agent"
+      ],
+      "evidence_notes": [
+        "The official Dokémon repository contains Dockerfile.agent, describes the server/agent product, and declares MIT licensing.",
+        "The production agent image is a separate Docker distribution from the same project."
+      ],
+      "gaps_or_updates_needed": [
+        "Populate upstream source and license fields; current docs URL points to the issues page."
+      ]
+    },
+    {
+      "slug": "z80pack",
+      "id": "4a057af8-0031-4e75-b114-5a010519afe3",
+      "production_snapshot": {
+        "id": "4a057af8-0031-4e75-b114-5a010519afe3",
+        "slug": "z80pack",
+        "name": "Z80Pack",
+        "summary": "Emulator for running CP/M and MP/M systems on Linux.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "http://www.autometer.de/unix4fun/z80pack/index.html",
+        "docs_url": "https://forums.lime-technology.com/topic/58756-support-z80pack-vintage-computing-in-a-docker-cpm-and-mpm/#comment-576460",
+        "install_docs_url": "https://forums.lime-technology.com/topic/58756-support-z80pack-vintage-computing-in-a-docker-cpm-and-mpm/#comment-576460",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "http://www.autometer.de/unix4fun/z80pack/index.html",
+        "publisher_name": "Z80Pack",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_url": "https://registry.hub.docker.com/r/dlandon/z80pack/",
+        "docker_image": "dlandon/z80pack",
+        "compose_url": null,
+        "docker_support": "community",
+        "compose_support": false,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "http://www.autometer.de/unix4fun/z80pack/index.html",
+          "https://forums.lime-technology.com/topic/58756-support-z80pack-vintage-computing-in-a-docker-cpm-and-mpm/#comment-576460",
+          "https://forums.unraid.net/topic/58756-support-z80pack-vintage-computing-in-a-docker-cpm-and-mpm/",
+          "https://github.com/dlandon/docker.templates/raw/master/z80pack.png",
+          "https://raw.githubusercontent.com/dlandon/docker.templates/master/Z80Pack.xml",
+          "https://registry.hub.docker.com/r/dlandon/z80pack/"
+        ],
+        "data_checked_at": "2026-09-02 13:08:22.75107+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_code_url": "https://github.com/udo-munk/z80pack",
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://github.com/udo-munk/z80pack",
+        "https://github.com/udo-munk/z80pack/blob/master/LICENSE",
+        "https://www.icl1900.co.uk/unix4fun/z80pack/",
+        "https://github.com/dlandon/z80pack"
+      ],
+      "evidence_notes": [
+        "The upstream maintainer's repository describes Z80Pack and includes an MIT license; its README links to the ICL1900 documentation.",
+        "dlandon/z80pack is a separate Docker package for Unraid."
+      ],
+      "gaps_or_updates_needed": [
+        "Populate upstream source and license fields; review old Autometer website and wrapper links separately."
+      ]
+    },
+    {
+      "slug": "conduwuit",
+      "id": "e43f82ad-6d7b-4a51-921e-76c1542ed1d5",
+      "production_snapshot": {
+        "id": "e43f82ad-6d7b-4a51-921e-76c1542ed1d5",
+        "slug": "conduwuit",
+        "name": "conduwuit",
+        "summary": "Rust Matrix homeserver for running federated chat communities.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "https://conduwuit.puppyirl.gay/",
+        "docs_url": "https://github.com/girlbossceo/conduwuit/issues",
+        "install_docs_url": "https://github.com/girlbossceo/conduwuit/issues",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://conduwuit.puppyirl.gay/",
+        "publisher_name": "conduwuit",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_url": "https://hub.docker.com/r/girlbossceo/conduwuit",
+        "docker_image": "girlbossceo/conduwuit:latest",
+        "compose_url": null,
+        "docker_support": "community",
+        "compose_support": false,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "https://conduwuit.puppyirl.gay/",
+          "https://github.com/girlbossceo/conduwuit/issues",
+          "https://hub.docker.com/r/girlbossceo/conduwuit",
+          "https://matrix-construct.github.io/tuwunel/",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/conduwuit.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/conduwuit-icon.png"
+        ],
+        "data_checked_at": "2026-09-02 11:17:17.463979+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_code_url": "https://github.com/x86pup/conduwuit",
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://github.com/x86pup/conduwuit",
+        "https://github.com/x86pup/conduwuit/blob/main/LICENSE",
+        "https://github.com/matrix-construct/tuwunel",
+        "https://github.com/matrix-construct/tuwunel/blob/main/LICENSE"
+      ],
+      "evidence_notes": [
+        "The archived conduwuit upstream identifies the Matrix homeserver and Apache-2.0 license; GitHub redirects the former girlbossceo URL to x86pup/conduwuit.",
+        "Tuwunel's official repository identifies it as conduwuit's official successor and also carries Apache-2.0."
+      ],
+      "gaps_or_updates_needed": [
+        "Set source_code_url to the canonical archived repository. Keep the record as conduwuit unless a separate product migration is approved.",
+        "Current docs URL points to issues; note Tuwunel as the maintained successor."
+      ]
+    },
+    {
+      "slug": "caddygen",
+      "id": "4b9f249a-1931-4ebd-97da-21d1a213ed3e",
+      "production_snapshot": {
+        "id": "4b9f249a-1931-4ebd-97da-21d1a213ed3e",
+        "slug": "caddygen",
+        "name": "CaddyGen",
+        "summary": "Web interface for generating Caddy reverse-proxy and file-server configurations.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "https://caddygen.site/",
+        "docs_url": "https://github.com/DeanWard/CaddyGen/issues",
+        "install_docs_url": "https://github.com/DeanWard/CaddyGen/issues",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://caddygen.site/",
+        "publisher_name": "CaddyGen",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "docker_url": "https://hub.docker.com/r/wardy784/caddygen",
+        "docker_image": "wardy784/caddygen:latest",
+        "compose_url": null,
+        "docker_support": "community",
+        "compose_support": false,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "https://caddygen.site/",
+          "https://github.com/DeanWard/CaddyGen/issues",
+          "https://hub.docker.com/r/wardy784/caddygen",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/caddygen.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/caddy-gen-icon.png"
+        ],
+        "data_checked_at": "2026-09-02 11:17:17.463979+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_code_url": "https://github.com/DeanWard/CaddyGen",
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://github.com/wardy784/caddygen",
+        "https://github.com/DeanWard/CaddyGen",
+        "https://hub.docker.com/r/wardy784/caddygen",
+        "https://caddygen.site/"
+      ],
+      "evidence_notes": [
+        "The CaddyGen repository describes the same config-generator app and Docker image used in production; its README explicitly declares MIT and links the clone URL at wardy784/caddygen.",
+        "The repo page does not show a separate LICENSE file, so the MIT evidence is the project README declaration."
+      ],
+      "gaps_or_updates_needed": [
+        "Populate source/license fields from the maintainer's explicit README statement.",
+        "Current docs URL points to issues; use project README or verified site docs."
+      ]
+    },
+    {
+      "slug": "localstack",
+      "id": "b3c4784b-68d1-44ba-bba4-77766697b889",
+      "production_snapshot": {
+        "id": "b3c4784b-68d1-44ba-bba4-77766697b889",
+        "slug": "localstack",
+        "name": "LocalStack",
+        "summary": "LocalStack emulates AWS services locally for development and testing.",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "license": "LocalStack Terms of Service (current distribution)",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "website_url": "https://www.localstack.cloud/",
+        "docs_url": "https://docs.localstack.cloud/aws/",
+        "install_docs_url": "https://docs.localstack.cloud/aws/getting-started/installation/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://www.localstack.cloud/",
+        "publisher_name": "LocalStack",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_url": "https://hub.docker.com/r/localstack/localstack",
+        "docker_image": "localstack/localstack:latest",
+        "compose_url": "https://docs.localstack.cloud/aws/getting-started/installation/",
+        "docker_support": "official",
+        "compose_support": true,
+        "github_project_id": null,
+        "github_full_name": null,
+        "source_full_name": null,
+        "github_checked_at": null,
+        "source_checked_at": null,
+        "data_source_urls": [
+          "https://www.localstack.cloud/",
+          "https://www.localstack.cloud/legal/terms-of-service",
+          "https://docs.localstack.cloud/aws/getting-started/installation/",
+          "https://docs.localstack.cloud/aws/getting-started/auth-token/",
+          "https://docs.localstack.cloud/aws/licensing/",
+          "https://docs.localstack.cloud/aws/customization/other-installations/docker-images/",
+          "https://blog.localstack.cloud/localstack-for-aws-release-2026-03-0/",
+          "https://github.com/localstack/localstack",
+          "https://hub.docker.com/r/localstack/localstack"
+        ],
+        "data_checked_at": "2026-09-28 08:49:24.844296+00"
+      },
+      "proposed_fields": {
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_code_url": "https://github.com/localstack/localstack",
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://github.com/localstack/localstack",
+        "https://github.com/localstack/localstack/blob/main/LICENSE",
+        "https://github.com/localstack/localstack/blob/main/docs/end_user_license_agreement/README.md",
+        "https://blog.localstack.cloud/the-road-ahead-for-localstack/",
+        "https://docs.localstack.cloud/aws/licensing/",
+        "https://www.localstack.cloud/legal/terms-of-service"
+      ],
+      "evidence_notes": [
+        "The official repo identifies LocalStack and states the source version is Apache-2.0 licensed; this supports open_source for the published code.",
+        "Runtime distribution has separate terms: from March 2026 the unified image requires an auth token and uses plan-based access; LocalStack says legacy Community releases remain available without an ongoing update commitment. The EULA/plan restrictions remain relevant to use, but are distinct from the Apache source license."
+      ],
+      "gaps_or_updates_needed": [
+        "Replace the current custom Terms license label with the verified Apache-2.0 source license and add the source URL.",
+        "Keep the current image auth/plan requirements and legacy Community edition distinction in install facts; do not imply Hobby allows commercial use."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,440 @@
+{
+  "reviewed_at": "2026-09-30",
+  "database_access": "read_only",
+  "canonical_project": "tulgfrqamtcshdtmhvpx",
+  "scope": "Review of 12 published self-hostable apps currently marked with source_model unknown. Product identity and available official license statements were checked. No production changes made.",
+  "records": [
+    {
+      "slug": "45d-drive-map",
+      "id": "97d977a5-e0a1-4c64-a6e6-94788ec94025",
+      "product_identity": "Unraid plugin that adds the 45Drives disk map to Unraid's Main page and generates disk and server metadata on the Unraid host.",
+      "current": {
+        "website_url": null,
+        "docs_url": "https://github.com/unraid/45d-drivemap",
+        "install_docs_url": "https://github.com/unraid/45d-drivemap/releases/latest/download/45d-drivemap.plg",
+        "source_code_url": "https://github.com/unraid/45d-drivemap",
+        "publisher_url": "https://github.com/unraid",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": ["unraid"],
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://github.com/unraid/45d-drivemap",
+        "https://github.com/unraid/45d-drivemap/blob/main/README.md"
+      ],
+      "evidence_notes": [
+        "The project README identifies the Unraid plugin and provides its stable .plg installation URL.",
+        "The repository file listing and README show no license file or explicit license terms."
+      ],
+      "unresolved": ["No project license terms were verified; a public repository alone does not establish open_source or closed_source."]
+    },
+    {
+      "slug": "a-eye",
+      "id": "cdc947d5-8c14-4d1c-880b-fad306290421",
+      "product_identity": "Self-hosted AI photo tool that uses local vision models through Ollama to describe, tag, rename, and search photos.",
+      "current": {
+        "website_url": null,
+        "docs_url": "https://github.com/SpaceinvaderOne/a-eye",
+        "install_docs_url": "https://github.com/SpaceinvaderOne/a-eye",
+        "source_code_url": "https://github.com/SpaceinvaderOne/a-eye",
+        "publisher_url": "https://github.com/SpaceinvaderOne",
+        "docker_url": "https://hub.docker.com/r/spaceinvaderone/a-eye",
+        "docker_image": "spaceinvaderone/a-eye",
+        "compose_url": "https://github.com/SpaceinvaderOne/a-eye#docker",
+        "deployment_methods": ["docker", "compose", "unraid"],
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://github.com/SpaceinvaderOne/a-eye",
+        "https://hub.docker.com/r/spaceinvaderone/a-eye"
+      ],
+      "evidence_notes": [
+        "The project README identifies the app, its Ollama requirement, Docker Compose setup, and Unraid installation instructions.",
+        "The repository file listing and README show no license file or explicit license terms."
+      ],
+      "unresolved": ["No license terms for A-Eye itself were verified; do not infer its license from Ollama or other dependencies."]
+    },
+    {
+      "slug": "a-train",
+      "id": "53a5a3f2-dd9b-473b-8bc8-17631ae19e05",
+      "product_identity": "Official Autoscan trigger that listens for changes in Google Drive Shared Drives using a service account.",
+      "current": {
+        "website_url": null,
+        "docs_url": "https://github.com/m-rots/a-train",
+        "install_docs_url": "https://github.com/m-rots/a-train",
+        "source_code_url": "https://github.com/m-rots/a-train",
+        "publisher_url": "https://github.com/m-rots",
+        "docker_url": "https://github.com/m-rots/a-train/pkgs/container/a-train",
+        "docker_image": "ghcr.io/m-rots/a-train",
+        "compose_url": null,
+        "deployment_methods": ["native", "binary", "docker"],
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://github.com/m-rots/a-train",
+        "https://raw.githubusercontent.com/m-rots/a-train/main/README.md",
+        "https://github.com/Cloudbox/autoscan"
+      ],
+      "evidence_notes": [
+        "The A-Train README explicitly says A-Train has a permissible open-source license and invites forks, so source_model can be open_source.",
+        "The maintainer does not name A-Train's exact license in the inspected README; no LICENSE file was visible in the repository root listing.",
+        "The README describes A-Train as the official Autoscan Google Drive trigger and documents its Docker image, binary, and source installation."
+      ],
+      "unresolved": ["The exact license name and SPDX identifier remain unverified; keep license null and license_type unknown until confirmed from A-Train's own license metadata or maintainer."]
+    },
+    {
+      "slug": "adguardhome-unbound-redis",
+      "id": "ed7a28ae-7ce2-47ac-acf7-b1232b60f9a8",
+      "product_identity": "Community-maintained combined container and Compose setup for AdGuard Home, Unbound, and Redis.",
+      "current": {
+        "website_url": "https://github.com/imTHAI/adguardhome-unbound-redis",
+        "docs_url": "https://github.com/imTHAI/adguardhome-unbound-redis#-quick-start-docker-compose",
+        "install_docs_url": "https://github.com/imTHAI/adguardhome-unbound-redis#-quick-start-docker-compose",
+        "source_code_url": "https://github.com/imTHAI/adguardhome-unbound-redis",
+        "publisher_url": "https://github.com/imTHAI",
+        "docker_url": "https://hub.docker.com/r/imthai/adguardhome-unbound-redis",
+        "docker_image": "imthai/adguardhome-unbound-redis:latest",
+        "compose_url": "https://github.com/imTHAI/adguardhome-unbound-redis#-quick-start-docker-compose",
+        "deployment_methods": ["docker", "unraid"],
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://github.com/imTHAI/adguardhome-unbound-redis",
+        "https://hub.docker.com/r/imthai/adguardhome-unbound-redis"
+      ],
+      "evidence_notes": [
+        "The project README describes a single container combining AdGuard Home, Unbound, and Redis and provides its Compose setup.",
+        "The repository file listing and README show no license file or explicit license terms for this combined project. The components' licenses cannot be assigned to this wrapper as a whole."
+      ],
+      "unresolved": ["No license terms for the combined project were verified; component licenses do not settle the wrapper's source model."]
+    },
+    {
+      "slug": "namecheap-ddns-updater",
+      "id": "09924f83-eec8-4543-b146-d53e4e2edd4c",
+      "product_identity": "Lightweight container that periodically updates multiple Namecheap Dynamic DNS records.",
+      "current": {
+        "website_url": "https://github.com/tranceer/nraid-namecheap-ddns-updater",
+        "docs_url": "https://github.com/tranceer/nraid-namecheap-ddns-updater#readme",
+        "install_docs_url": "https://github.com/tranceer/nraid-namecheap-ddns-updater#readme",
+        "source_code_url": "https://github.com/tranceer/nraid-namecheap-ddns-updater",
+        "publisher_url": "https://github.com/tranceer",
+        "docker_url": "https://hub.docker.com/r/tranceer/namecheap-ddns-updater",
+        "docker_image": "tranceer/namecheap-ddns-updater:latest",
+        "compose_url": null,
+        "deployment_methods": ["docker", "unraid"],
+        "source_model": "unknown",
+        "license": "No license declared in the repository",
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://github.com/tranceer/nraid-namecheap-ddns-updater",
+        "https://github.com/tranceer/nraid-namecheap-ddns-updater#readme",
+        "https://hub.docker.com/r/tranceer/namecheap-ddns-updater"
+      ],
+      "evidence_notes": [
+        "The README identifies the app, its environment variables, and its Docker image and says it can be deployed through Unraid Community Applications.",
+        "The repository root has no license file or stated license terms. The current 'No license declared in the repository' text should not be stored as if it were a license name."
+      ],
+      "unresolved": ["No license terms were verified; retain source_model unknown and store license as null rather than as a descriptive sentence."]
+    },
+    {
+      "slug": "oak",
+      "id": "8e9087ad-af2a-4953-8ca3-5a2c7dcc27b5",
+      "product_identity": "Self-hosted homepage for navigating self-hosted apps, bookmarks, and other widgets.",
+      "current": {
+        "website_url": null,
+        "docs_url": "https://github.com/bert-mccutchen/oak#readme",
+        "install_docs_url": "https://github.com/bert-mccutchen/oak#readme",
+        "source_code_url": "https://github.com/bert-mccutchen/oak",
+        "publisher_url": "https://github.com/bert-mccutchen",
+        "docker_url": "https://github.com/bert-mccutchen/oak#readme",
+        "docker_image": "ghcr.io/bert-mccutchen/oak:latest",
+        "compose_url": null,
+        "deployment_methods": ["docker", "unraid"],
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://github.com/bert-mccutchen/oak",
+        "https://github.com/bert-mccutchen/oak/blob/main/README.md"
+      ],
+      "evidence_notes": [
+        "The project README identifies Oak as a homepage for self-hosters and documents its Docker image and persistent SQLite storage.",
+        "The repository root file listing and README show no license file or explicit license terms."
+      ],
+      "unresolved": ["No license terms for Oak itself were verified; inspiration from Flame or SUI does not determine Oak's license."]
+    },
+    {
+      "slug": "obfs4-bridge",
+      "id": "fc157522-231b-404d-89a7-bb473fd72f63",
+      "product_identity": "The Tor Project's Docker image and Compose deployment for operating an obfs4 Tor bridge.",
+      "current": {
+        "website_url": "https://www.torproject.org/",
+        "docs_url": "https://community.torproject.org/relay/setup/bridge/",
+        "install_docs_url": "https://community.torproject.org/relay/setup/bridge/docker/",
+        "source_code_url": "https://gitlab.torproject.org/tpo/anti-censorship/docker-obfs4-bridge",
+        "publisher_url": "https://www.torproject.org/",
+        "docker_url": "https://hub.docker.com/r/thetorproject/obfs4-bridge",
+        "docker_image": "thetorproject/obfs4-bridge:latest",
+        "compose_url": "https://community.torproject.org/relay/setup/bridge/docker/",
+        "deployment_methods": ["docker", "compose", "native"],
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://gitlab.torproject.org/tpo/anti-censorship/docker-obfs4-bridge",
+        "https://community.torproject.org/relay/setup/bridge/docker/",
+        "https://community.torproject.org/relay/setup/bridge/",
+        "https://hub.docker.com/r/thetorproject/obfs4-bridge"
+      ],
+      "evidence_notes": [
+        "Tor's official docs and Docker Hub identify the image and document Docker deployment for an obfs4 bridge.",
+        "The official GitLab project and license file could not be inspected in this review. Licenses of Tor or obfs4 components do not establish the wrapper project's license."
+      ],
+      "unresolved": ["The project's own license terms remain unverified because its official GitLab files were not accessible to inspect."]
+    },
+    {
+      "slug": "p3r-lemp-stack",
+      "id": "dbd1e77d-86e1-4606-89ed-450785ef0ce6",
+      "product_identity": "P3R LEMP Stack is described as a Debian container preloaded with NGINX, MariaDB, and PHP 7.3.",
+      "current": {
+        "website_url": null,
+        "docs_url": "https://unraid.net/community/apps/p51?via=theImagineBuilders",
+        "install_docs_url": "https://unraid.net/community/apps/p51?via=theImagineBuilders",
+        "source_code_url": null,
+        "publisher_url": "https://unraid.net/community/apps/p51?via=theImagineBuilders",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": ["unraid"],
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://unraid.net/community/apps/p51?via=theImagineBuilders",
+        "https://github.com/P3R-CO/unraid",
+        "https://raw.githubusercontent.com/P3R-CO/unraid/master/lemp.xml"
+      ],
+      "evidence_notes": [
+        "The Unraid Community Apps entry describes P3R LEMP Stack as an all-in-one container with Debian, NGINX, MariaDB, and PHP 7.3.",
+        "The P3R-CO repository README describes P3R LEMP as a single-container stack, but the row has no source_code_url and the exact ownership relationship to the catalog publisher capt.asic was not confirmed.",
+        "No app source license terms were verified. Licenses of Debian, NGINX, MariaDB, and PHP do not establish the license of the assembled container or its configuration."
+      ],
+      "unresolved": [
+        "Confirm whether P3R-CO/unraid is the source repository for this exact capt.asic catalog entry.",
+        "No license terms for the app or assembled container were verified."
+      ]
+    },
+    {
+      "slug": "qbithelparr",
+      "id": "9beb0f49-33f8-4b51-8325-267427509e30",
+      "product_identity": "Discord bot that sends status notifications for qBittorrent torrents.",
+      "current": {
+        "website_url": null,
+        "docs_url": "https://github.com/Entree3k/qbithelparr#readme",
+        "install_docs_url": "https://github.com/Entree3k/qbithelparr#readme",
+        "source_code_url": "https://github.com/Entree3k/qbithelparr",
+        "publisher_url": "https://github.com/Entree3k",
+        "docker_url": "https://hub.docker.com/r/entree3000/qbithelparr",
+        "docker_image": "entree3000/qbithelparr:latest",
+        "compose_url": "https://github.com/Entree3k/qbithelparr/blob/main/docker-compose.yml",
+        "deployment_methods": ["docker", "compose", "native", "unraid"],
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://github.com/Entree3k/qbithelparr",
+        "https://hub.docker.com/r/entree3000/qbithelparr",
+        "https://ca.unraid.net/apps/qbithelparr-15mrs5f0hcwhlb"
+      ],
+      "evidence_notes": [
+        "The project README identifies the Discord and qBittorrent notification bot and documents Docker and Python setup.",
+        "The repository root file listing and README show no license file or explicit license terms."
+      ],
+      "unresolved": ["No license terms were verified; do not infer open_source from the public repository or available Docker image."]
+    },
+    {
+      "slug": "qbittorrent-auto-port-forward",
+      "id": "c266fca5-eb5c-42ef-bd22-024d454af626",
+      "product_identity": "Shell script and Docker container that sets qBittorrent's listening port from a text file.",
+      "current": {
+        "website_url": null,
+        "docs_url": "https://github.com/claabs/qbittorrent-port-forward-file#readme",
+        "install_docs_url": "https://github.com/claabs/qbittorrent-port-forward-file#docker-compose",
+        "source_code_url": "https://github.com/claabs/qbittorrent-port-forward-file",
+        "publisher_url": "https://github.com/claabs",
+        "docker_url": "https://github.com/claabs/qbittorrent-port-forward-file/pkgs/container/qbittorrent-port-forward-file",
+        "docker_image": "ghcr.io/claabs/qbittorrent-port-forward-file:latest",
+        "compose_url": "https://github.com/claabs/qbittorrent-port-forward-file#docker-compose",
+        "deployment_methods": ["docker", "compose"],
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://github.com/claabs/qbittorrent-port-forward-file",
+        "https://github.com/claabs/qbittorrent-port-forward-file#docker-compose",
+        "https://github.com/claabs/qbittorrent-port-forward-file/pkgs/container/qbittorrent-port-forward-file"
+      ],
+      "evidence_notes": [
+        "The project page identifies the tool and documents Docker Compose use.",
+        "The repository file listing and README show no license file or explicit license terms."
+      ],
+      "unresolved": ["No license terms were verified; the Docker image and public source repository do not establish a source model by themselves."]
+    },
+    {
+      "slug": "qbittorrent-exporter",
+      "id": "3ba6591e-e703-4824-aa71-d8671915ae6b",
+      "product_identity": "Prometheus exporter for qBittorrent.",
+      "current": {
+        "website_url": null,
+        "docs_url": "https://github.com/caseyscarborough/qbittorrent-exporter#readme",
+        "install_docs_url": "https://github.com/caseyscarborough/qbittorrent-exporter#readme",
+        "source_code_url": "https://github.com/caseyscarborough/qbittorrent-exporter",
+        "publisher_url": "https://github.com/caseyscarborough",
+        "docker_url": "https://hub.docker.com/r/caseyscarborough/qbittorrent-exporter",
+        "docker_image": "caseyscarborough/qbittorrent-exporter:latest",
+        "compose_url": null,
+        "deployment_methods": ["docker", "native"],
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://github.com/caseyscarborough/qbittorrent-exporter",
+        "https://hub.docker.com/r/caseyscarborough/qbittorrent-exporter"
+      ],
+      "evidence_notes": [
+        "The project README identifies a Prometheus exporter for qBittorrent and documents Docker usage.",
+        "The repository root file listing, README, and inspected Gradle manifest show no license file or explicit project license terms."
+      ],
+      "unresolved": ["No license terms were verified; do not infer the project's model from its public source or container image."]
+    },
+    {
+      "slug": "s3sync",
+      "id": "9ba0f9ae-75b6-499f-b311-3273f25cee62",
+      "product_identity": "Docker container that backs up one or more mounted folders to S3 using the AWS CLI sync command.",
+      "current": {
+        "website_url": null,
+        "docs_url": "https://github.com/what-name/docker-s3sync#readme",
+        "install_docs_url": "https://github.com/what-name/docker-s3sync#readme",
+        "source_code_url": "https://github.com/what-name/docker-s3sync",
+        "publisher_url": "https://github.com/what-name",
+        "docker_url": "https://hub.docker.com/repository/docker/whatname/docker-s3sync",
+        "docker_image": "whatname/docker-s3sync",
+        "compose_url": null,
+        "deployment_methods": ["docker", "unraid"],
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://github.com/what-name/docker-s3sync",
+        "https://hub.docker.com/repository/docker/whatname/docker-s3sync"
+      ],
+      "evidence_notes": [
+        "The project README identifies the S3 backup purpose, use of AWS CLI sync, and its Docker setup.",
+        "The repository root file listing and README show no license file or explicit license terms. Its upstream container and AWS CLI license do not determine this wrapper's license."
+      ],
+      "unresolved": ["No license terms for this wrapper were verified; keep source_model unknown until the publisher's license is available."]
+    }
+  ]
+}

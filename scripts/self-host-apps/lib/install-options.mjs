@@ -133,6 +133,34 @@ function supportLevelForDocker(value) {
   return "third_party";
 }
 
+function githubRepository(value) {
+  try {
+    const url = new URL(value);
+    if (url.hostname.toLowerCase() !== "github.com") return null;
+    const [owner, repo] = url.pathname.split("/").filter(Boolean);
+    return owner && repo ? `${owner.toLowerCase()}/${repo.toLowerCase().replace(/\.git$/, "")}` : null;
+  } catch {
+    return null;
+  }
+}
+
+function supportLevelForCompose(app, composeUrl) {
+  const composeRepo = githubRepository(composeUrl);
+  const sourceRepo = githubRepository(app.source_code_url);
+  if (composeRepo && sourceRepo && composeRepo === sourceRepo) return "official";
+  if (app.docker_support === "community") return "community";
+
+  const composeHost = (() => {
+    try { return new URL(composeUrl).hostname.toLowerCase(); } catch { return null; }
+  })();
+  const publisherHosts = [app.website_url, app.publisher_url].map((value) => {
+    try { return new URL(value).hostname.toLowerCase().replace(/^www\./, ""); } catch { return null; }
+  }).filter(Boolean);
+  const officialHost = composeHost && publisherHosts.some((host) =>
+    composeHost.replace(/^www\./, "") === host || composeHost.replace(/^www\./, "").endsWith(`.${host}`));
+  return officialHost ? "official" : "community";
+}
+
 function sourceRegistryUrls(sourceRow) {
   const rawSources = sourceRow?.payload?.raw?.sources;
   const explicit = [
@@ -195,7 +223,7 @@ export function buildInstallOptions(app, sourceRows = []) {
       method: "compose",
       url: composeUrl,
       image: app.docker_image,
-      support_level: supportLevelForDocker(app.docker_support),
+      support_level: supportLevelForCompose(app, composeUrl),
       source_url: composeUrl,
       sort_order: 20,
     });
@@ -206,9 +234,8 @@ export function buildInstallOptions(app, sourceRows = []) {
       add({
         method: "truenas_scale",
         url: sourceRow.source_url,
-        support_level: "official",
+        support_level: "community",
         source_url: sourceRow.source_url,
-        note: "Listed in the TrueNAS SCALE app catalog; catalog listing does not imply publisher support.",
         sort_order: 30,
       });
     }
@@ -216,9 +243,8 @@ export function buildInstallOptions(app, sourceRows = []) {
       add({
         method: "umbrel",
         url: sourceRow.source_url,
-        support_level: "official",
+        support_level: "community",
         source_url: sourceRow.source_url,
-        note: "Listed in the Umbrel app catalog; catalog listing does not imply publisher support.",
         sort_order: 40,
       });
     }
@@ -228,7 +254,6 @@ export function buildInstallOptions(app, sourceRows = []) {
         url: sourceRow.source_url,
         support_level: "community",
         source_url: sourceRow.source_url,
-        note: "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
         sort_order: 35,
       });
     }
@@ -236,9 +261,8 @@ export function buildInstallOptions(app, sourceRows = []) {
       add({
         method: "casaos",
         url: sourceRow.source_url,
-        support_level: "official",
+        support_level: "community",
         source_url: sourceRow.source_url,
-        note: "Listed in the CasaOS app store; store listing does not imply publisher support.",
         sort_order: 45,
       });
       if (sourceRow.payload?.compose_url) {
@@ -246,7 +270,7 @@ export function buildInstallOptions(app, sourceRows = []) {
           method: "compose",
           url: sourceRow.payload.compose_url,
           image: sourceRow.payload.image ?? app.docker_image,
-          support_level: "official",
+          support_level: "community",
           source_url: sourceRow.source_url,
           sort_order: 20,
         });
@@ -256,9 +280,8 @@ export function buildInstallOptions(app, sourceRows = []) {
       add({
         method: "yunohost",
         url: sourceRow.source_url,
-        support_level: "official",
+        support_level: "community",
         source_url: sourceRow.source_url,
-        note: "Listed in the YunoHost app catalog; package status and upstream support still need review.",
         sort_order: 50,
       });
     }
@@ -269,35 +292,11 @@ export function buildInstallOptions(app, sourceRows = []) {
           method: "docker",
           url: sourceUrl,
           image: app.docker_image,
-          support_level: supportLevelForDocker(app.docker_support),
+          support_level: "community",
           source_url: sourceRow.source_url,
           sort_order: 10,
         });
       }
-    }
-  }
-
-  // Every self-hostable app should expose at least one actionable path. Some
-  // projects publish native/package instructions without a registry image or
-  // compose file, so retain the publisher's installation page as the fallback
-  // instead of leaving an empty install-options row.
-  if (options.length === 0) {
-    const fallbackUrl = [app.install_docs_url, app.docs_url, app.source_code_url, app.website_url]
-      .find((value) => isHttpUrl(value));
-    if (fallbackUrl) {
-      const methods = new Set(Array.isArray(app.deployment_methods) ? app.deployment_methods : []);
-      const method = methods.has("package") ? "package"
-        : methods.has("binary") ? "binary"
-          : methods.has("native") ? "native"
-            : "native";
-      add({
-        method,
-        url: fallbackUrl,
-        support_level: "official",
-        source_url: fallbackUrl,
-        note: "Publisher installation documentation; verify dependencies and platform support.",
-        sort_order: 60,
-      });
     }
   }
 

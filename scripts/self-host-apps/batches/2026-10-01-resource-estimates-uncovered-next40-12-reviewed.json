@@ -1,0 +1,3171 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Offline paired estimated RAM and storage ranges for the exact next 40 uncovered eligible apps. Official project pages support each app-specific workload basis; values are estimates for small self-hosted deployments.",
+  "estimates": [
+    {
+      "slug": "awesome-sysadmin",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/awesome-foss/awesome-sysadmin"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "a68a639e-6682-412d-9106-373e5ca33a21",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:41.031771+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/awesome-foss/awesome-sysadmin#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "basis": "Static curated sysadmin directory served as a small site; no user database or media processing."
+    },
+    {
+      "slug": "awesome-sysadmin",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/awesome-foss/awesome-sysadmin"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "a68a639e-6682-412d-9106-373e5ca33a21",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:40.145+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:41.031771+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/awesome-foss/awesome-sysadmin#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "basis": "Site source and generated pages with modest logs; no user-uploaded content."
+    },
+    {
+      "slug": "christmas-community",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/Wingysam/Christmas-Community"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "e3843164-3093-4a52-ba39-b7acfe7520ab",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/Wingysam/Christmas-Community#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "basis": "Small Node gift-list app with household accounts and list data; light web workload."
+    },
+    {
+      "slug": "christmas-community",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/Wingysam/Christmas-Community"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "e3843164-3093-4a52-ba39-b7acfe7520ab",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/Wingysam/Christmas-Community#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "basis": "Persisted account and gift-list records are mostly small text data in the app volume."
+    },
+    {
+      "slug": "chronoframe",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/HoshinoSuzumi/chronoframe"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "9637b3eb-f496-4738-aa04-4f1ec77ff487",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/HoshinoSuzumi/chronoframe#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 768,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "basis": "Photo ingestion, EXIF processing and thumbnail generation need more headroom than a simple gallery."
+    },
+    {
+      "slug": "chronoframe",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/HoshinoSuzumi/chronoframe"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "9637b3eb-f496-4738-aa04-4f1ec77ff487",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/HoshinoSuzumi/chronoframe#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 768,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 50,
+      "estimate_max": 500,
+      "basis": "Photo originals and generated thumbnails are central app data and dominate disk use."
+    },
+    {
+      "slug": "chyrplite",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/xenocrat/chyrp-lite"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "2bccae96-557f-4220-a86a-9978c56e25ba",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://chyrplite.net/wiki/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 768,
+      "basis": "Light PHP blog with a small SQL database and ordinary page traffic."
+    },
+    {
+      "slug": "chyrplite",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/xenocrat/chyrp-lite"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "2bccae96-557f-4220-a86a-9978c56e25ba",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://chyrplite.net/wiki/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 20,
+      "basis": "Site code, database, themes and uploaded blog images make up the persistent data."
+    },
+    {
+      "slug": "cially",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/cially/cially"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "b53fa9cc-7cfc-434c-853b-dc80e8d2c7b8",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/cially/cially#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "basis": "Discord bot, dashboard and PocketBase event backend run together; event volume drives load."
+    },
+    {
+      "slug": "cially",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/cially/cially"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "b53fa9cc-7cfc-434c-853b-dc80e8d2c7b8",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/cially/cially#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 50,
+      "basis": "Retained Discord activity events and analytics database grow with server usage."
+    },
+    {
+      "slug": "cinephage",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/MoldyTaint/Cinephage"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "9b35ec69-e74e-43cd-ae96-dfad5d2a893a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/MoldyTaint/Cinephage#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 4096,
+      "basis": "Media metadata and concurrent stream or download tasks add load beyond the web app."
+    },
+    {
+      "slug": "cinephage",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/MoldyTaint/Cinephage"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "9b35ec69-e74e-43cd-ae96-dfad5d2a893a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/MoldyTaint/Cinephage#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 500,
+      "basis": "Config and metadata stay small, while downloaded or locally mounted media can dominate; .strm mode keeps references only."
+    },
+    {
+      "slug": "circled-me",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/circled-me/server"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "39bfe2f8-d072-4ee9-8be1-e6e355e0256b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/circled-me/server#compiling-and-running-the-server"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "basis": "Photo and video uploads, processing and multiple community features need a modest server allowance."
+    },
+    {
+      "slug": "circled-me",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/circled-me/server"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "39bfe2f8-d072-4ee9-8be1-e6e355e0256b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/circled-me/server#compiling-and-running-the-server"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 100,
+      "estimate_max": 1000,
+      "basis": "Community photo and video originals plus derivatives are the main persistent data."
+    },
+    {
+      "slug": "civicrm-drupal",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/civicrm/civicrm-drupal-8",
+        "https://docs.civicrm.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "eb9db3bd-d24d-4750-886f-16253c823cda",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://docs.civicrm.org/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "basis": "Estimate covers Drupal, CiviCRM, PHP and a database service in a small deployment."
+    },
+    {
+      "slug": "civicrm-drupal",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/civicrm/civicrm-drupal-8",
+        "https://docs.civicrm.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "eb9db3bd-d24d-4750-886f-16253c823cda",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://docs.civicrm.org/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "basis": "CRM records, uploaded documents, site files and database backups grow over time."
+    },
+    {
+      "slug": "civitai-data-manager",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/jmsltnv/civitai-data-manager"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "c33c9eb1-b3c5-40ee-ab0b-050fe22cfa81",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/jmsltnv/civitai-data-manager#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "basis": "Local metadata scan, hashing and HTML catalog generation are lighter than model inference."
+    },
+    {
+      "slug": "civitai-data-manager",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/jmsltnv/civitai-data-manager"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "c33c9eb1-b3c5-40ee-ab0b-050fe22cfa81",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/jmsltnv/civitai-data-manager#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "basis": "Metadata, hashes, generated catalogs and optional preview images; model files remain in the selected source folders."
+    },
+    {
+      "slug": "cjdns",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/cjdelisle/cjdns"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "d6e7e2f4-65c3-44d7-b374-61cfcf7471ad",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "basis": "A single network daemon handles routing and peer connections without a large application database."
+    },
+    {
+      "slug": "cjdns",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/cjdelisle/cjdns"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "d6e7e2f4-65c3-44d7-b374-61cfcf7471ad",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "basis": "Configuration, keys and logs are small; network traffic is not retained as a media library."
+    },
+    {
+      "slug": "claper",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/ClaperCo/Claper",
+        "https://docs.claper.co/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "021fc77d-6829-4c50-a65b-68a22d9ebc5a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/ClaperCo/Claper#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "basis": "Phoenix real-time audience sessions and concurrent polls need more memory than a static presentation site."
+    },
+    {
+      "slug": "claper",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/ClaperCo/Claper",
+        "https://docs.claper.co/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "021fc77d-6829-4c50-a65b-68a22d9ebc5a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/ClaperCo/Claper#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 20,
+      "basis": "Presentation assets, audience questions, poll results and interaction records persist."
+    },
+    {
+      "slug": "claude-devtools",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/matt1398/claude-devtools",
+        "https://claude-dev.tools/docs"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "efa730e4-e125-4328-8e16-941716aa78a8",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T05:20:51.336648+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/matt1398/claude-devtools#docker--standalone-deployment"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "basis": "Local log viewer with modest web runtime; large sessions affect parsing and open views."
+    },
+    {
+      "slug": "claude-devtools",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/matt1398/claude-devtools",
+        "https://claude-dev.tools/docs"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "efa730e4-e125-4328-8e16-941716aa78a8",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T05:20:51.336648+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/matt1398/claude-devtools#docker--standalone-deployment"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "basis": "Retained Claude Code transcripts and project logs dominate the app data directory."
+    },
+    {
+      "slug": "clean-slate",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/successible/cleanslate"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "1814f0b0-17ec-4581-8d5a-ad21133a9d1a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/successible/cleanslate#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 768,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "basis": "Self-host layout runs Next.js, Hasura and PostgreSQL services together."
+    },
+    {
+      "slug": "clean-slate",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/successible/cleanslate"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "1814f0b0-17ec-4581-8d5a-ad21133a9d1a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/successible/cleanslate#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 768,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 50,
+      "basis": "Food, exercise and recipe records in PostgreSQL, plus database and app files."
+    },
+    {
+      "slug": "clearflask",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/clearflask/clearflask"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "406fd1aa-009a-479d-9ab8-d161480f1c6f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/clearflask/clearflask#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 4096,
+        "ram_estimate_min_mb": 1280,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 6144,
+      "basis": "Java feedback service with database and search dependencies running in the self-host stack."
+    },
+    {
+      "slug": "clearflask",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/clearflask/clearflask"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "406fd1aa-009a-479d-9ab8-d161480f1c6f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/clearflask/clearflask#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 4096,
+        "ram_estimate_min_mb": 1280,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "basis": "Persistent feedback records, user data, search indexes and service data share the data volume."
+    },
+    {
+      "slug": "clipbucket",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/MacWarrior/clipbucket-v5"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "2b7252e5-bafb-4760-a3b4-353c9f212bd1",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/MacWarrior/clipbucket-v5#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 768,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 8192,
+      "basis": "PHP video hosting is modest at idle but transcoding and concurrent streams need substantial headroom."
+    },
+    {
+      "slug": "clipbucket",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/MacWarrior/clipbucket-v5"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "2b7252e5-bafb-4760-a3b4-353c9f212bd1",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/MacWarrior/clipbucket-v5#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 768,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 100,
+      "estimate_max": 1000,
+      "basis": "Uploaded videos and transcoded renditions are the primary data and drive disk needs."
+    },
+    {
+      "slug": "cloudpanel",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.cloudpanel.io/docs/v2/requirements/",
+        "https://github.com/cloudpanel-io/cloudpanel-ce"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "28593431-81b5-4b6b-b650-385ebe0ab679",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/cloudpanel-io/cloudpanel-ce#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "basis": "Official minimum is 2 GB RAM; the upper range allows panel services and a few light hosted sites."
+    },
+    {
+      "slug": "cloudpanel",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.cloudpanel.io/docs/v2/requirements/",
+        "https://github.com/cloudpanel-io/cloudpanel-ce"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "28593431-81b5-4b6b-b650-385ebe0ab679",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/cloudpanel-io/cloudpanel-ce#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 30,
+      "basis": "Official minimum disk is 10 GB; the upper range allows system, panel and light site files."
+    },
+    {
+      "slug": "cmyflix",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/farfalleflickan/cmyflix"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "36f760af-0da5-4f4f-bc2d-bfd02a48dd2b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/farfalleflickan/cmyflix#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "basis": "Small C service builds JSON catalogs and web pages; video playback is served from the NAS files."
+    },
+    {
+      "slug": "cmyflix",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/farfalleflickan/cmyflix"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "36f760af-0da5-4f4f-bc2d-bfd02a48dd2b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/farfalleflickan/cmyflix#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 100,
+      "estimate_max": 1000,
+      "basis": "The catalog is small, but the indexed movie and show library is the main self-hosted data."
+    },
+    {
+      "slug": "cncjs",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/cncjs/cncjs"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "bb7faa07-1dd0-451c-a595-24c14fa19f9e",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/cncjs/cncjs#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 768,
+      "basis": "Web controller for CNC hardware with a light Node service and browser interface."
+    },
+    {
+      "slug": "cncjs",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/cncjs/cncjs"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "bb7faa07-1dd0-451c-a595-24c14fa19f9e",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/cncjs/cncjs#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "basis": "Controller settings, logs and G-code jobs are small compared with the machine work itself."
+    },
+    {
+      "slug": "codimd",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/hackmdio/codimd",
+        "https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#Administration-Guides"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "a039133f-b2f7-49f7-8e08-7141b42dc909",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#Administration-Guides"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1536,
+      "basis": "Node collaborative Markdown service with a database and real-time editing sessions."
+    },
+    {
+      "slug": "codimd",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/hackmdio/codimd",
+        "https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#Administration-Guides"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "a039133f-b2f7-49f7-8e08-7141b42dc909",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#Administration-Guides"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 20,
+      "basis": "Notes, database files and optional image uploads form the persisted content."
+    },
+    {
+      "slug": "coin",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://code.ffdn.org/ffdn/coin/-/tree/dev"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "003a3793-d419-41c4-a9fb-ff70f9c9d9dc",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1536,
+      "basis": "Django member-management app with a database and ordinary small-organization traffic."
+    },
+    {
+      "slug": "coin",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://code.ffdn.org/ffdn/coin/-/tree/dev"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "003a3793-d419-41c4-a9fb-ff70f9c9d9dc",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 50,
+      "basis": "ISP member, service and billing records plus generated exports and backups."
+    },
+    {
+      "slug": "collabora",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.collaboraonline.com/code/",
+        "https://github.com/CollaboraOnline/online.mirror",
+        "https://sdk.collaboraonline.com/docs/installation/CODE_Docker_image.html"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "cd050d78-68fe-4196-84d5-3aa7f318d24b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "created_at": "2026-09-02T05:18:16.798279+00:00",
+        "updated_at": "2026-09-02T14:13:13.144658+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://www.collaboraonline.com/code/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "basis": "Collabora Online has a roughly 2 GB base allowance plus memory for active document workers."
+    },
+    {
+      "slug": "collabora",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://www.collaboraonline.com/code/",
+        "https://github.com/CollaboraOnline/online.mirror",
+        "https://sdk.collaboraonline.com/docs/installation/CODE_Docker_image.html"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "cd050d78-68fe-4196-84d5-3aa7f318d24b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "created_at": "2026-09-02T05:18:16.798279+00:00",
+        "updated_at": "2026-09-02T14:13:13.144658+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://www.collaboraonline.com/code/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 10,
+      "basis": "Container image, logs and temporary document work; the connected WOPI host stores original files."
+    },
+    {
+      "slug": "collective-access-providence",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/collectiveaccess/providence"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "0ed93466-67d2-4ae0-a617-6aeaf311adc4",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/collectiveaccess/providence#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "basis": "PHP cataloging stack with a database and processing for varied collection media."
+    },
+    {
+      "slug": "collective-access-providence",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/collectiveaccess/providence"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "0ed93466-67d2-4ae0-a617-6aeaf311adc4",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/collectiveaccess/providence#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 100,
+      "estimate_max": 1000,
+      "basis": "Collection records, uploaded images, documents, audio, video and generated derivatives."
+    },
+    {
+      "slug": "comic-library-utilities",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/allaboutduncan/clu-comics",
+        "https://clucomics.org/quickstart"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "70bdbb55-11d3-46a8-b455-d88b43259d94",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/allaboutduncan/clu-comics#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 3072,
+      "basis": "Comic metadata, downloads and batch archive conversion require extra processing headroom."
+    },
+    {
+      "slug": "comic-library-utilities",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/allaboutduncan/clu-comics",
+        "https://clucomics.org/quickstart"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "70bdbb55-11d3-46a8-b455-d88b43259d94",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/allaboutduncan/clu-comics#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 50,
+      "estimate_max": 500,
+      "basis": "The app manages a mapped comic library; originals and converted comic archives dominate disk."
+    },
+    {
+      "slug": "commet",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/commetchat/commet",
+        "https://commet.chat/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "cf25433e-46ff-4feb-abc0-915e17b0f5e5",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:13.144658+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "basis": "Self-hosted web client delivery is lightweight; Matrix server traffic and messages run elsewhere."
+    },
+    {
+      "slug": "commet",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/commetchat/commet",
+        "https://commet.chat/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "cf25433e-46ff-4feb-abc0-915e17b0f5e5",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:13.144658+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "basis": "Static client assets and small configuration only; the Matrix homeserver stores messages and media."
+    },
+    {
+      "slug": "compose-craft",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/composecraft/composecraft",
+        "https://composecraft.com/docs/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "1b9ec6ea-2cca-44b3-8f9a-f430707086ed",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/composecraft/composecraft#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "basis": "Next.js editor and MongoDB run together for Compose projects and sharing."
+    },
+    {
+      "slug": "compose-craft",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/composecraft/composecraft",
+        "https://composecraft.com/docs/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "1b9ec6ea-2cca-44b3-8f9a-f430707086ed",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/composecraft/composecraft#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 20,
+      "basis": "Compose files, account/project records and shared diagram metadata are small database content."
+    },
+    {
+      "slug": "compteur-du-gase",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/Jojo144/compteur_du_gase"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "27290801-b4ad-4e3e-beb0-bb54b1b94561",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:13.144658+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "basis": "Small Django account and stock-management deployment with ordinary community traffic."
+    },
+    {
+      "slug": "compteur-du-gase",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/Jojo144/compteur_du_gase"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "27290801-b4ad-4e3e-beb0-bb54b1b94561",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:13.144658+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 10,
+      "basis": "Product, provider, household and order records with occasional spreadsheet exports."
+    },
+    {
+      "slug": "concourse",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/concourse/concourse",
+        "https://concourse-ci.org/install.html",
+        "https://github.com/concourse/concourse-chart"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "9e6b533f-3927-4203-8838-b752f2683d54",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "created_at": "2026-09-02T04:41:57.886713+00:00",
+        "updated_at": "2026-09-02T14:13:13.144658+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://concourse-ci.org/install.html"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "basis": "Estimate includes the web service, PostgreSQL and one worker; build tasks add variable memory."
+    },
+    {
+      "slug": "concourse",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/concourse/concourse",
+        "https://concourse-ci.org/install.html",
+        "https://github.com/concourse/concourse-chart"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "9e6b533f-3927-4203-8838-b752f2683d54",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "created_at": "2026-09-02T04:41:57.886713+00:00",
+        "updated_at": "2026-09-02T14:13:13.144658+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://concourse-ci.org/install.html"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 100,
+      "basis": "Build artifacts, worker caches, logs and task images can grow quickly with pipeline use."
+    },
+    {
+      "slug": "concrete-5-cms",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/concretecms/concretecms",
+        "https://documentation.concretecms.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "5e664dad-b638-4f13-a65f-5f7a0824a6f9",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/concretecms/concretecms#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1536,
+      "basis": "PHP CMS and SQL database sized for a small website with light editor traffic."
+    },
+    {
+      "slug": "concrete-5-cms",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/concretecms/concretecms",
+        "https://documentation.concretecms.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "5e664dad-b638-4f13-a65f-5f7a0824a6f9",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/concretecms/concretecms#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 50,
+      "basis": "Website files, database content and uploaded images/documents grow with the site."
+    },
+    {
+      "slug": "concrete5",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/concrete5/concrete5",
+        "https://documentation.concretecms.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "6ee54a1b-97e4-4c42-b427-6841b811e1bd",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:13.144658+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://documentation.concrete5.org"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1536,
+      "basis": "Legacy concrete5 name redirects to the official Concrete CMS project; estimate is for a small PHP site."
+    },
+    {
+      "slug": "concrete5",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/concrete5/concrete5",
+        "https://documentation.concretecms.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "6ee54a1b-97e4-4c42-b427-6841b811e1bd",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:13.144658+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://documentation.concrete5.org"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 50,
+      "basis": "Website files, database content and uploaded images/documents grow with the site."
+    },
+    {
+      "slug": "configarr",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/raydak-labs/configarr",
+        "https://configarr.de/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "55543a9a-525b-426c-a5cd-ddf26a1501f3",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/raydak-labs/configarr#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 768,
+      "basis": "Scheduled config sync process calls Radarr and Sonarr APIs; it does not run their media workloads."
+    },
+    {
+      "slug": "configarr",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/raydak-labs/configarr",
+        "https://configarr.de/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "55543a9a-525b-426c-a5cd-ddf26a1501f3",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/raydak-labs/configarr#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 5,
+      "basis": "YAML configuration, secrets, sync state and logs remain small."
+    },
+    {
+      "slug": "container-hub",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/eznix86/docker-registry-ui"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "1733cbd9-e762-4431-8b07-94a2d25e29e9",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/eznix86/docker-registry-ui#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "basis": "Lightweight registry browser UI; image listing and storage data come from external registries."
+    },
+    {
+      "slug": "container-hub",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/eznix86/docker-registry-ui"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "1733cbd9-e762-4431-8b07-94a2d25e29e9",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/eznix86/docker-registry-ui#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 5,
+      "basis": "UI files and configuration only; registry image blobs live in the configured registry."
+    },
+    {
+      "slug": "contao",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/contao/contao",
+        "https://contao.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "0f296ac7-6cd8-4e3c-a703-7d34986a1c7f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/contao/contao#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "basis": "PHP CMS with a database sized for one small-to-medium website and a few editors."
+    },
+    {
+      "slug": "contao",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/contao/contao",
+        "https://contao.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "0f296ac7-6cd8-4e3c-a703-7d34986a1c7f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:18.576021+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/contao/contao#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 50,
+      "basis": "Site code, database content, uploaded images and documents."
+    },
+    {
+      "slug": "converse",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/conversejs/converse.js",
+        "https://conversejs.org/docs/html/index.html"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "c2fa90c4-6817-459f-8a21-caa5104bf2e2",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:13.144658+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://conversejs.org/docs/html/index.html"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "basis": "Converse is a client-side web app; a small static web host serves the client bundle."
+    },
+    {
+      "slug": "converse",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/conversejs/converse.js",
+        "https://conversejs.org/docs/html/index.html"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "c2fa90c4-6817-459f-8a21-caa5104bf2e2",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:13.144658+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://conversejs.org/docs/html/index.html"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 5,
+      "basis": "Client files and web configuration; chat history and uploads are handled by the XMPP service."
+    },
+    {
+      "slug": "converse-js",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/conversejs/converse.js",
+        "https://conversejs.org/docs/html/index.html"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "0a16e5e4-534e-4bd0-a0fc-bd55a5984b44",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/conversejs/converse.js#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "basis": "Converse.js is a client-side web app; a small static web host serves the client bundle."
+    },
+    {
+      "slug": "converse-js",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/conversejs/converse.js",
+        "https://conversejs.org/docs/html/index.html"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "0a16e5e4-534e-4bd0-a0fc-bd55a5984b44",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/conversejs/converse.js#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 5,
+      "basis": "Client files and web configuration; chat history and uploads are handled by the XMPP service."
+    },
+    {
+      "slug": "convert-to-it",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/p2r3/convert",
+        "https://convert.to.it/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "937b2f7b-65f8-4bf7-894c-cf31ae86ce89",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/p2r3/convert#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 4096,
+      "basis": "Universal conversion invokes different media and document tools; concurrent large jobs need headroom."
+    },
+    {
+      "slug": "convert-to-it",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/p2r3/convert",
+        "https://convert.to.it/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "937b2f7b-65f8-4bf7-894c-cf31ae86ce89",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/p2r3/convert#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "basis": "Uploaded inputs, conversion outputs and temporary work files scale with file sizes."
+    },
+    {
+      "slug": "convos",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/convos-chat/convos",
+        "https://convos.chat/getting-started"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "683a6219-261a-4630-8be7-026cc7648e01",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/convos-chat/convos#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1536,
+      "basis": "Persistent browser IRC client with a web service and connection handling for active networks."
+    },
+    {
+      "slug": "convos",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/convos-chat/convos",
+        "https://convos.chat/getting-started"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "683a6219-261a-4630-8be7-026cc7648e01",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/convos-chat/convos#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 50,
+      "basis": "The mounted Convos data directory keeps accounts, configuration and retained chat history."
+    },
+    {
+      "slug": "cookcli",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/cooklang/cookcli",
+        "https://demo.cooklang.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "e4adfc93-4d53-42e3-8edf-db029d5cc6c5",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/cooklang/cookcli#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "basis": "Single-binary recipe web server and parser with low database and concurrency needs."
+    },
+    {
+      "slug": "cookcli",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/cooklang/cookcli",
+        "https://demo.cooklang.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "e4adfc93-4d53-42e3-8edf-db029d5cc6c5",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/cooklang/cookcli#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 5,
+      "basis": "Plain-text recipes, meal plans, pantry data and small user configuration files."
+    },
+    {
+      "slug": "cops",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/mikespub-org/seblucas-cops"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "a98285a9-3d6e-4cf2-b130-0f021fbf2a65",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "created_at": "2026-09-02T09:51:47.367629+00:00",
+        "updated_at": "2026-09-02T14:13:13.144658+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "basis": "Light PHP OPDS catalog frontend reads an existing Calibre SQLite library."
+    },
+    {
+      "slug": "cops",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/mikespub-org/seblucas-cops"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "a98285a9-3d6e-4cf2-b130-0f021fbf2a65",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "created_at": "2026-09-02T09:51:47.367629+00:00",
+        "updated_at": "2026-09-02T14:13:13.144658+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 100,
+      "basis": "COPS files and cache are small; the mounted ebook collection and covers determine total disk."
+    },
+    {
+      "slug": "coral",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/coralproject/talk",
+        "https://docs.coralproject.net/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "21313c38-d15d-43f6-9b6b-43048fe4a67a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://docs.coralproject.net/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 768,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "basis": "Node commenting and moderation service with database/search dependencies for a small publication."
+    },
+    {
+      "slug": "coral",
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "source_urls": [
+        "https://github.com/coralproject/talk",
+        "https://docs.coralproject.net/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "21313c38-d15d-43f6-9b6b-43048fe4a67a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://docs.coralproject.net/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 768,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "basis": "Comment threads, user and moderation records, and indexes accumulate with site traffic."
+    },
+    {
+      "slug": "corecontrol",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/crocofied/CoreObs"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "81dcd46e-bd54-45bc-b2fb-33c3cd3a1876",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/crocofied/CoreObs#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "basis": "Compose runs a Next.js web app, Go agent and PostgreSQL together for a small server set."
+    },
+    {
+      "slug": "corecontrol",
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "source_urls": [
+        "https://github.com/crocofied/CoreObs"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "81dcd46e-bd54-45bc-b2fb-33c3cd3a1876",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/crocofied/CoreObs#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 20,
+      "basis": "Server records, app links and uptime data persist in PostgreSQL; extensive history is not yet part of the documented feature set."
+    }
+  ]
+}

@@ -39,11 +39,11 @@ Use the controlled taxonomy in `scripts/self-host-apps/lib/categories.mjs`. Assi
 
 ## Technical facts
 
-`ram_min_mb`, `ram_recommended_mb`, and `storage_min_gb` hold requirements stated by an official source. `ram_default_limit_mb` is a reviewed appliance default and is not an app minimum. `storage_profile` and `persistent_storage` describe workload shape, not capacity.
+`ram_min_mb`, `ram_recommended_mb`, and `storage_min_gb` retain requirements stated by an official source as estimate evidence. `ram_default_limit_mb` is a reviewed appliance default and is not an app minimum. `storage_profile` and `persistent_storage` describe workload shape, not capacity. The directory displays estimate ranges for all apps.
 
-Planning ranges live in `self_host_app_resource_estimates`. The row keeps separate RAM and storage ranges, each with a kind (`derived` or `estimated`), confidence, basis, source URLs, note, and check date. The UI labels these values `(estimated)` and never presents them as a publisher requirement. If a source was checked and did not publish a value, the value stays null.
+Planning ranges live in `self_host_app_resource_estimates`. The row keeps separate RAM and storage ranges, each with a kind (`derived` or `estimated`), confidence, short basis, source URL, optional note, and check date. The UI labels every range `Est. RAM` and `Est. Storage`. Package limits are not app requirements.
 
-`technical_fact_status` on the app row records whether each audited fact is `published`, `not_published`, or `unchecked`, plus source URLs and the check date. This replaces a separate field-source table and lets QA show real gaps.
+`technical_fact_status` on the app row records whether each audited fact is `published`, `not_published`, or `unchecked`, plus source URLs and the check date. RAM and storage use `estimated` when the directory has a reviewed estimate. This replaces a separate field-source table and lets QA show real gaps.
 
 ## Install destinations
 

@@ -1,0 +1,352 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Review the next 40 saved-inventory apps with a blank website_url and no earlier website correction proposal, ordered by slug. Add only verified official project or publisher sites. Proposal only.",
+  "apps": [
+    {
+      "slug": "app",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://tinycld.org/",
+      "data_source_urls": [
+        "https://github.com/tinycld/tinycld",
+        "https://tinycld.org/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "e-label",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://filipecarneiro.github.io/ELabel/",
+      "data_source_urls": [
+        "https://github.com/filipecarneiro/ELabel",
+        "https://filipecarneiro.github.io/ELabel/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "fablecut",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://fablecut.space/",
+      "data_source_urls": [
+        "https://github.com/ronak-create/FableCut",
+        "https://fablecut.space/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "icinga",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://icinga.com/",
+      "data_source_urls": [
+        "https://github.com/icinga/icinga2",
+        "https://github.com/icinga",
+        "https://icinga.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "illa-builder",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://illacloud.com/",
+      "data_source_urls": [
+        "https://github.com/illacloud/illa-builder",
+        "https://github.com/illacloud",
+        "https://illacloud.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "inngest",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.inngest.com/",
+      "data_source_urls": [
+        "https://github.com/inngest/inngest",
+        "https://github.com/inngest",
+        "https://www.inngest.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "jean",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://jean.build/",
+      "data_source_urls": [
+        "https://github.com/coollabsio/jean",
+        "https://jean.build/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "jumpserver",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.jumpserver.com/",
+      "data_source_urls": [
+        "https://github.com/jumpserver/jumpserver",
+        "https://www.jumpserver.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "keygen",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://keygen.sh/",
+      "data_source_urls": [
+        "https://github.com/keygen-sh/keygen-api",
+        "https://github.com/keygen-sh",
+        "https://keygen.sh/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "kirby",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://getkirby.com/",
+      "data_source_urls": [
+        "https://github.com/getkirby/kirby",
+        "https://github.com/getkirby",
+        "https://getkirby.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "letta",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.letta.com/",
+      "data_source_urls": [
+        "https://github.com/letta-ai/letta",
+        "https://github.com/letta-ai",
+        "https://www.letta.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "lobechat",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://lobehub.com/",
+      "data_source_urls": [
+        "https://github.com/lobehub/lobehub",
+        "https://github.com/lobehub",
+        "https://lobehub.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "logstash",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.elastic.co/logstash",
+      "data_source_urls": [
+        "https://github.com/elastic/logstash",
+        "https://www.elastic.co/products/logstash",
+        "https://www.elastic.co/logstash"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "mage",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.mage.ai/",
+      "data_source_urls": [
+        "https://github.com/mage-ai/mage-ai",
+        "https://github.com/mage-ai",
+        "https://www.mage.ai/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "materia",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://primamateria.systems/",
+      "data_source_urls": [
+        "https://github.com/stryan/materia",
+        "https://primamateria.systems/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "maxkb",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://maxkb.cn/",
+      "data_source_urls": [
+        "https://github.com/1panel-dev/maxkb",
+        "https://maxkb.cn/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "meilisearch-ui",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://meilisearch-ui.vercel.app/",
+      "data_source_urls": [
+        "https://github.com/eyeix/meilisearch-ui",
+        "https://github.com/riccox/meilisearch-ui",
+        "https://meilisearch-ui.vercel.app/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "mem0",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://mem0.ai/",
+      "data_source_urls": [
+        "https://github.com/mem0ai/mem0",
+        "https://github.com/mem0ai",
+        "https://mem0.ai/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "memgraph",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://memgraph.com/",
+      "data_source_urls": [
+        "https://github.com/memgraph/memgraph",
+        "https://github.com/memgraph",
+        "https://memgraph.com/"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "skipped": [
+    {
+      "slug": "assets",
+      "reason": "The official repository describes the app, but no separate first-party project site is linked."
+    },
+    {
+      "slug": "bin",
+      "reason": "The README links bin.gy as a public instance, not as a project homepage."
+    },
+    {
+      "slug": "bolt-diy",
+      "reason": "The official GitHub Pages link is the documentation portal; a separate project homepage was not found. This was also recorded in the prior official-site review."
+    },
+    {
+      "slug": "booklore",
+      "reason": "The official repository points to BookOrbit as its successor; no distinct BookLore project homepage was found."
+    },
+    {
+      "slug": "dasher",
+      "reason": "The publisher marks the project as sunset and provides setup through the repository; no distinct official homepage was found."
+    },
+    {
+      "slug": "deltafin",
+      "reason": "The official repository is the project page; no distinct official product site was linked."
+    },
+    {
+      "slug": "emailwiz",
+      "reason": "The official repository provides the setup script and guide; no distinct product homepage was found."
+    },
+    {
+      "slug": "feedpushr",
+      "reason": "The official README and installation instructions are in the repository; no separate project site was linked."
+    },
+    {
+      "slug": "github-ntfy",
+      "reason": "The repository is the publisher's project page; no distinct official product site was found."
+    },
+    {
+      "slug": "headphones",
+      "reason": "The official repository and wiki are the project pages; the linked codeshy page is for VIP membership, not a homepage."
+    },
+    {
+      "slug": "hestia-core",
+      "reason": "The official README documents the project and deployment; no separate project site was linked."
+    },
+    {
+      "slug": "homelable",
+      "reason": "The official repository contains the project and deployment docs; no separate homepage was linked."
+    },
+    {
+      "slug": "ikuyo",
+      "reason": "The official repository is the available project page; no distinct product site was linked."
+    },
+    {
+      "slug": "jauth",
+      "reason": "The official repository is the available project page; no distinct product site was linked."
+    },
+    {
+      "slug": "larasend",
+      "reason": "The official repository contains product and installation details; no separate product site was linked."
+    },
+    {
+      "slug": "legal-templates",
+      "reason": "The official repository contains the template files; no distinct product homepage was found."
+    },
+    {
+      "slug": "litecart",
+      "reason": "The official repository says the project was renamed to myCart; no separate product homepage was linked."
+    },
+    {
+      "slug": "litexiv",
+      "reason": "The official Codeberg project page was not accessible to verify a separate first-party site, so no website is proposed."
+    },
+    {
+      "slug": "lottie-tools",
+      "reason": "The official README documents local and Docker use; its generic GitHub Pages path does not verify a distinct project homepage."
+    },
+    {
+      "slug": "machtiani",
+      "reason": "The official repository is the available project page; no distinct product site was linked."
+    },
+    {
+      "slug": "mejiro",
+      "reason": "The official Pellicola repository documents installation; no distinct product homepage was linked."
+    }
+  ]
+}

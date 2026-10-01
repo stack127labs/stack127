@@ -1,0 +1,1675 @@
+{
+  "report_date": "2026-09-30",
+  "project_id": "tulgfrqamtcshdtmhvpx",
+  "selection": "First 25 alphabetically among published self_hostable T–Z apps with empty install-option rows.",
+  "production_write": false,
+  "snapshot_source": "Read-only query of public.self_host_apps and public.self_host_app_install_options on 2026-09-30.",
+  "source_policy": "Official project docs, publisher repositories and publisher-owned packages only.",
+  "summary": {
+    "selected_apps": 25,
+    "apps_with_verified_options": 25,
+    "verified_options": 50,
+    "install_option_rows_populated": 25,
+    "unresolved_apps": [],
+    "app_rows_updated": 25,
+    "note": "Tasmota has an official firmware flashing route; Teikei documents production deployment on Dokku; TiddlyPWA documents a DIY sync server. Terrateam has Open Source routes; its current Stategraph branding is flagged."
+  },
+  "field_guard_assumptions": [
+    "App updates require the id, slug, published/self_hostable state, install URL, Docker URL/image, Compose URL, deployment methods and support flags to match the read-only snapshot.",
+    "Install-option updates require options=[] and every destination URL/image array to be empty.",
+    "Tasmota, Teikei and TiddlyPWA remain published/self_hostable because their official sources document user-controlled device firmware, Dokku deployment, and a DIY sync server, respectively.",
+    "App updates change only reviewed install fields and merge source links or related technical-fact keys; unrelated app facts are preserved.",
+    "The migration is a reviewed draft and has not been applied to production."
+  ],
+  "apps": [
+    {
+      "slug": "tabby",
+      "id": "a85b0213-cdb6-47c8-b17d-871ab2cfa91c",
+      "name": "Tabby",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://tabby.tabbyml.com/docs/installation/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://tabby.tabbyml.com/docs/quick-start/installation/docker/",
+        "docker_url": "https://tabby.tabbyml.com/docs/quick-start/installation/docker/",
+        "docker_image": "registry.tabbyml.com/tabbyml/tabby",
+        "compose_url": null,
+        "deployment_methods": [
+          "binary",
+          "compose",
+          "docker",
+          "package"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://tabby.tabbyml.com/docs/quick-start/installation/docker/",
+          "source_url": "https://tabby.tabbyml.com/docs/quick-start/installation/docker/",
+          "image": "registry.tabbyml.com/tabbyml/tabby",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/TabbyML/tabby/blob/main/website/docs/quick-start/installation/docker-compose.mdx",
+          "source_url": "https://github.com/TabbyML/tabby/blob/main/website/docs/quick-start/installation/docker-compose.mdx",
+          "image": "registry.tabbyml.com/tabbyml/tabby",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Linux binary",
+          "url": "https://tabby.tabbyml.com/docs/quick-start/installation/linux/",
+          "source_url": "https://tabby.tabbyml.com/docs/quick-start/installation/linux/",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 30
+        },
+        {
+          "method": "package",
+          "label": "Homebrew package",
+          "url": "https://tabby.tabbyml.com/docs/quick-start/installation/apple/",
+          "source_url": "https://tabby.tabbyml.com/docs/quick-start/installation/apple/",
+          "image": null,
+          "note": "Official Homebrew route is for Apple silicon.",
+          "support_level": "official",
+          "sort_order": 40
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://tabby.tabbyml.com/docs/quick-start/installation/docker/",
+          "note": "Official Docker image and install steps."
+        },
+        {
+          "url": "https://github.com/TabbyML/tabby/blob/main/website/docs/quick-start/installation/docker-compose.mdx",
+          "note": "Official Compose sample."
+        },
+        {
+          "url": "https://tabby.tabbyml.com/docs/quick-start/installation/linux/",
+          "note": "Official standalone Linux executable."
+        },
+        {
+          "url": "https://tabby.tabbyml.com/docs/quick-start/installation/apple/",
+          "note": "Official Homebrew route."
+        }
+      ],
+      "review_note": "Update the older install link to the current official guide. MDX documentation page contains examples, not a Compose YAML file."
+    },
+    {
+      "slug": "tagr",
+      "id": "2d6a98bf-65f9-4374-a08c-e355a3871f52",
+      "name": "Tagr",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/suitux/Tagr#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/suitux/Tagr#readme",
+        "docker_url": "https://github.com/suitux/Tagr/pkgs/container/tagr",
+        "docker_image": "ghcr.io/suitux/tagr:latest",
+        "compose_url": "https://github.com/suitux/Tagr/blob/main/docker-compose.yml",
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/suitux/Tagr/pkgs/container/tagr",
+          "source_url": "https://github.com/suitux/Tagr/pkgs/container/tagr",
+          "image": "ghcr.io/suitux/tagr:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/suitux/Tagr/blob/main/docker-compose.yml",
+          "source_url": "https://github.com/suitux/Tagr",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "native",
+          "label": "Node.js install",
+          "url": "https://github.com/suitux/Tagr#readme",
+          "source_url": "https://github.com/suitux/Tagr",
+          "image": null,
+          "note": "README requires Node.js 22+ and pnpm.",
+          "support_level": "official",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/suitux/Tagr",
+          "note": "Official README documents Docker, Compose and manual Node.js installation."
+        },
+        {
+          "url": "https://github.com/suitux/Tagr/pkgs/container/tagr",
+          "note": "Publisher GHCR package."
+        }
+      ],
+      "review_note": "Add the documented Docker, Compose and Node.js routes."
+    },
+    {
+      "slug": "tagspaces",
+      "id": "a1ebb726-7b52-448a-9f33-a91c72c7abd2",
+      "name": "TagSpaces",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/tagspaces/tagspaces#readme",
+        "docker_url": "https://github.com/tagspaces/tagspaces/blob/HEAD/docker/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.tagspaces.org/tutorials/tagspaces-web-docker/",
+        "docker_url": "https://hub.docker.com/r/tagspaces/tagspaces-lite-web",
+        "docker_image": "tagspaces/tagspaces-lite-web",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": null,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "TagSpaces Lite Web Docker image",
+          "url": "https://hub.docker.com/r/tagspaces/tagspaces-lite-web",
+          "source_url": "https://docs.tagspaces.org/tutorials/tagspaces-web-docker/",
+          "image": "tagspaces/tagspaces-lite-web",
+          "note": "Pro Web uses this image with separately purchased web files.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tagspaces.org/tutorials/tagspaces-web-docker/",
+          "note": "Official guide documents Lite Web Docker and the Pro Web package workflow."
+        },
+        {
+          "url": "https://hub.docker.com/r/tagspaces/tagspaces-lite-web",
+          "note": "Publisher Docker Hub image."
+        }
+      ],
+      "review_note": "Replace the Dockerfile URL. The official guide does not show Compose."
+    },
+    {
+      "slug": "taiga",
+      "id": "594c7a69-53ff-4d3b-8338-b205c02a2a4c",
+      "name": "Taiga",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://docs.taiga.io/setup-production.html",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.taiga.io/setup-production.html",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": "https://github.com/taigaio/taiga-docker/blob/main/docker-compose.yml",
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Production Docker Compose stack",
+          "url": "https://docs.taiga.io/setup-production.html",
+          "source_url": "https://docs.taiga.io/setup-production.html",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.taiga.io/setup-production.html",
+          "note": "Official production guide deploys Taiga with Docker Compose."
+        },
+        {
+          "url": "https://github.com/taigaio/taiga-docker",
+          "note": "Official Docker deployment repository."
+        },
+        {
+          "url": "https://github.com/taigaio/taiga-docker/blob/main/docker-compose.yml",
+          "note": "Official Taiga Docker repository Compose configuration; linked by the production install guide."
+        }
+      ],
+      "review_note": "Use the production Compose stack; no standalone product image is documented here."
+    },
+    {
+      "slug": "tasks-md",
+      "id": "bd5e9503-3ede-4846-a9d7-ef31f9c1a239",
+      "name": "Tasks.md",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/BaldissaraMatheus/Tasks.md#readme",
+        "docker_url": "https://github.com/BaldissaraMatheus/Tasks.md/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/BaldissaraMatheus/Tasks.md#readme",
+        "docker_url": "https://hub.docker.com/r/baldissaramatheus/tasks.md",
+        "docker_image": "baldissaramatheus/tasks.md",
+        "compose_url": null,
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/baldissaramatheus/tasks.md",
+          "source_url": "https://hub.docker.com/r/baldissaramatheus/tasks.md",
+          "image": "baldissaramatheus/tasks.md",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/BaldissaraMatheus/Tasks.md#readme",
+          "source_url": "https://github.com/BaldissaraMatheus/Tasks.md",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "native",
+          "label": "Node.js install",
+          "url": "https://github.com/BaldissaraMatheus/Tasks.md#readme",
+          "source_url": "https://github.com/BaldissaraMatheus/Tasks.md",
+          "image": null,
+          "note": "README documents a Node.js/npm source install.",
+          "support_level": "official",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/BaldissaraMatheus/Tasks.md",
+          "note": "Official README documents Docker, Compose and manual install."
+        },
+        {
+          "url": "https://hub.docker.com/r/baldissaramatheus/tasks.md",
+          "note": "Docker Hub image page."
+        }
+      ],
+      "review_note": "Replace the Dockerfile link and add the other documented routes. README contains Compose instructions, not a direct Compose YAML file."
+    },
+    {
+      "slug": "taskview",
+      "id": "5bd33f2a-7cd7-43ce-9d4d-b407a5b05e5d",
+      "name": "TaskView",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/Gimanh/taskview-community#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://taskview.tech/docs/getting-started/installation",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "TaskView Docker Compose stack",
+          "url": "https://taskview.tech/docs/getting-started/installation",
+          "source_url": "https://taskview.tech/docs/getting-started/installation",
+          "image": null,
+          "note": "Stack includes API, web app and database migration images.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://taskview.tech/docs/getting-started/installation",
+          "note": "Official self-host guide provides the full Compose stack."
+        }
+      ],
+      "review_note": "Replace the native-only method list with the official Compose route. Official installation guide provides a Compose stack inline, not a direct Compose YAML file."
+    },
+    {
+      "slug": "tasmota",
+      "id": "0e2f84b8-7660-4b48-b61e-9c5448a4da73",
+      "name": "Tasmota",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/arendst/Tasmota#readme",
+        "docker_url": "https://github.com/arendst/Tasmota/blob/HEAD/lib/lib_div/arduino-vid6608/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://tasmota.github.io/docs/Getting-Started/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "other"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "other",
+          "label": "Flash firmware to compatible ESP devices",
+          "url": "https://tasmota.github.io/docs/Getting-Started/",
+          "source_url": "https://tasmota.github.io/docs/Getting-Started/",
+          "image": null,
+          "note": "Official guide covers compatible ESP devices, firmware binaries and flashing methods.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://tasmota.github.io/docs/Getting-Started/",
+          "note": "Official guide describes compatible ESP devices, downloadable firmware binaries, Web Installer and serial flashing."
+        },
+        {
+          "url": "https://github.com/arendst/Tasmota",
+          "note": "Official repository identifies Tasmota as device firmware; the old nested Dockerfile is not an app install destination."
+        }
+      ],
+      "review_note": "Retain as user-installed local device firmware and add an `other` option for flashing supported ESP hardware. Remove the unrelated Dockerfile and unsupported Docker claim."
+    },
+    {
+      "slug": "teable",
+      "id": "4bdec657-7237-4728-8d17-b7f5e3eeaf21",
+      "name": "Teable",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/teableio/teable#readme",
+        "docker_url": "https://github.com/teableio/teable/blob/HEAD/dockers/teable/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/teableio/teable-deployment#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "compose",
+          "helm"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker all-in-one platform",
+          "url": "https://github.com/teableio/teable-deployment/tree/main/docker/all-in-one",
+          "source_url": "https://github.com/teableio/teable-deployment/blob/main/README.md",
+          "image": null,
+          "note": "Deploys the full platform, not only the app container.",
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "helm",
+          "label": "Kubernetes Helm platform",
+          "url": "https://github.com/teableio/teable-deployment/tree/main/helm",
+          "source_url": "https://github.com/teableio/teable-deployment/blob/main/README.md",
+          "image": null,
+          "note": "Deploys the full platform.",
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/teableio/teable-deployment/blob/main/README.md",
+          "note": "Official repo documents Docker all-in-one and Kubernetes/Helm."
+        },
+        {
+          "url": "https://github.com/teableio/teable-deployment/tree/main/docker/all-in-one",
+          "note": "Official Docker deployment."
+        },
+        {
+          "url": "https://github.com/teableio/teable-deployment/tree/main/helm",
+          "note": "Official Helm deployment."
+        }
+      ],
+      "review_note": "The all-in-one deployment uses multiple Compose files and a setup script; the directory is the guide, not one standalone Compose file. Keep the official all-in-one deployment directory as the user-facing Compose option."
+    },
+    {
+      "slug": "teikei",
+      "id": "a623a3ba-84a6-40a4-8e62-180bbb1ca3b6",
+      "name": "teikei",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/teikei/teikei#readme",
+        "docker_url": "https://github.com/teikei/teikei/blob/HEAD/packages/api/db/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/teikei/teikei#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "other"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "other",
+          "label": "Deploy with Dokku",
+          "url": "https://github.com/teikei/teikei#readme",
+          "source_url": "https://github.com/teikei/teikei",
+          "image": null,
+          "note": "The project documents per-package Dokku production deployments; Node.js, PostgreSQL and environment configuration are required.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/teikei/teikei",
+          "note": "Official README gives the full stack requirements and package build/deployment configuration for Dokku production apps. The database Dockerfile is a helper, not the app image."
+        }
+      ],
+      "review_note": "Keep the verified self-host status and list the documented Dokku deployment. Clear the database Dockerfile and unsupported app Docker claims."
+    },
+    {
+      "slug": "teleport",
+      "id": "26e35adc-6b4c-4e82-b588-551ac50a605a",
+      "name": "Teleport",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/gravitational/teleport#readme",
+        "docker_url": "https://github.com/gravitational/teleport/blob/HEAD/build.assets/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://goteleport.com/docs/get-started/deploy-community/",
+        "docker_url": "https://goteleport.com/docs/get-started/deploy-community/",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "binary",
+          "docker",
+          "helm",
+          "package"
+        ],
+        "docker_support": "official",
+        "compose_support": null,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "binary",
+          "label": "Linux tarball install",
+          "url": "https://goteleport.com/docs/installation/single-machine/linux/",
+          "source_url": "https://goteleport.com/docs/installation/single-machine/linux/",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Docker demo install",
+          "url": "https://goteleport.com/docs/get-started/deploy-community/",
+          "source_url": "https://goteleport.com/docs/get-started/deploy-community/",
+          "image": null,
+          "note": "Runs an Ubuntu container, then installs Teleport inside; demo/home-lab route, not a Teleport image.",
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "helm",
+          "label": "Kubernetes Helm deployment",
+          "url": "https://goteleport.com/docs/installation/self-hosted/helm-deployments/kubernetes-cluster/",
+          "source_url": "https://goteleport.com/docs/installation/self-hosted/helm-deployments/kubernetes-cluster/",
+          "image": null,
+          "note": "Production self-hosted Enterprise needs a valid license.",
+          "support_level": "official",
+          "sort_order": 30
+        },
+        {
+          "method": "package",
+          "label": "Linux package install",
+          "url": "https://goteleport.com/docs/installation/single-machine/linux/",
+          "source_url": "https://goteleport.com/docs/installation/single-machine/linux/",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 40
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://goteleport.com/docs/get-started/deploy-community/",
+          "note": "Community Edition single-host demo/home-lab guide."
+        },
+        {
+          "url": "https://goteleport.com/docs/installation/single-machine/",
+          "note": "Official single-machine install index."
+        },
+        {
+          "url": "https://goteleport.com/docs/installation/single-machine/linux/",
+          "note": "Official Linux packages and tarball."
+        },
+        {
+          "url": "https://goteleport.com/docs/installation/self-hosted/helm-deployments/kubernetes-cluster/",
+          "note": "Official Kubernetes Helm setup."
+        },
+        {
+          "url": "https://goteleport.com/docs/installation/self-hosted/",
+          "note": "Production Enterprise requires a valid license."
+        }
+      ],
+      "review_note": "Replace the build Dockerfile. Label Docker as a demo and Helm as Enterprise."
+    },
+    {
+      "slug": "temporal",
+      "id": "55001225-60c1-4ef9-84f7-d2efc02c35de",
+      "name": "Temporal",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://docs.temporal.io/self-hosted-guide",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.temporal.io/self-hosted-guide/deployment",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": "https://github.com/temporalio/samples-server/blob/main/compose/docker-compose.yml",
+        "deployment_methods": [
+          "binary",
+          "compose",
+          "helm"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose stack",
+          "url": "https://github.com/temporalio/samples-server/tree/main/compose",
+          "source_url": "https://docs.temporal.io/self-hosted-guide/deployment",
+          "image": null,
+          "note": "Local development and testing setup; the official README directs production deployments to the Helm chart.",
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "binary",
+          "label": "Temporal server binaries",
+          "url": "https://docs.temporal.io/self-hosted-guide/deployment",
+          "source_url": "https://docs.temporal.io/self-hosted-guide/deployment",
+          "image": null,
+          "note": "Docs describe server and UI Go binaries as services.",
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "helm",
+          "label": "Kubernetes Helm charts",
+          "url": "https://github.com/temporalio/helm-charts",
+          "source_url": "https://docs.temporal.io/self-hosted-guide/deployment",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.temporal.io/self-hosted-guide/deployment",
+          "note": "Official self-host docs cover Compose, binaries and Helm."
+        },
+        {
+          "url": "https://github.com/temporalio/samples-server/tree/main/compose",
+          "note": "Official Compose sample."
+        },
+        {
+          "url": "https://github.com/temporalio/helm-charts",
+          "note": "Official Helm chart repository."
+        },
+        {
+          "url": "https://github.com/temporalio/samples-server/blob/main/compose/docker-compose.yml",
+          "note": "Official default Compose file. The repository documents these Compose setups for local development and testing."
+        }
+      ],
+      "review_note": "Add official binary and Helm routes and use the Compose sample directory."
+    },
+    {
+      "slug": "terrateam",
+      "id": "65e81db7-ec86-4bd0-b8b9-4e7244fb5348",
+      "name": "Terrateam",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://docs.terrateam.io/quickstart/self-hosted/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://stategraph.com/docs/admin/self-hosting",
+        "docker_url": "https://stategraph.com/docs/admin/self-hosting",
+        "docker_image": "ghcr.io/terrateamio/terrat-oss",
+        "compose_url": null,
+        "deployment_methods": [
+          "compose",
+          "helm"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Open Source Docker Compose",
+          "url": "https://stategraph.com/docs/get-started/quickstart/self-hosted-open-source",
+          "source_url": "https://stategraph.com/docs/admin/self-hosting",
+          "image": "ghcr.io/terrateamio/terrat-oss",
+          "note": "Current docs call the product Stategraph Orchestration. Open Source is MPL-2.0, needs no key, and allows up to 3 active users monthly per GitHub or GitLab installation.",
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "helm",
+          "label": "Open Source Kubernetes Helm",
+          "url": "https://stategraph.com/docs/admin/self-hosting/open-source/kubernetes",
+          "source_url": "https://stategraph.com/docs/admin/self-hosting",
+          "image": "ghcr.io/terrateamio/terrat-oss",
+          "note": "This is the Open Source route; Enterprise uses a separate licensed image.",
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://stategraph.com/docs/admin/self-hosting",
+          "note": "Official page lists the OSS image, Compose/Kubernetes/ECS options, MPL-2.0/no key and 3-user monthly limit."
+        },
+        {
+          "url": "https://stategraph.com/docs/get-started/quickstart/self-hosted-open-source",
+          "note": "Official linked OSS quickstart; review browser could not retrieve its contents."
+        },
+        {
+          "url": "https://stategraph.com/docs/admin/self-hosting/open-source/kubernetes",
+          "note": "Official linked OSS Kubernetes/Helm guide; review browser could not retrieve its contents."
+        },
+        {
+          "url": "https://stategraph.com/blog/terrateam-open-source",
+          "note": "Official post explains Terrateam Community and Enterprise editions."
+        }
+      ],
+      "review_note": "Add only the Open Source routes. Review whether the directory display name should follow the new Stategraph Orchestration branding; linked route pages did not load in the review browser. Quickstart guide is a Compose installation destination, not a direct Compose YAML file."
+    },
+    {
+      "slug": "teslalogger",
+      "id": "88fe287b-f5d9-4d1b-b876-e2481fef5d23",
+      "name": "TeslaLogger",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/bassmaster187/TeslaLogger#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/bassmaster187/TeslaLogger/blob/master/docker_setup.md",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "binary",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose install",
+          "url": "https://github.com/bassmaster187/TeslaLogger/blob/master/docker_setup.md",
+          "source_url": "https://github.com/bassmaster187/TeslaLogger/blob/master/docker_setup.md",
+          "image": null,
+          "note": "Downloads the current Compose and environment files from the NET8 branch.",
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "binary",
+          "label": "Raspberry Pi image",
+          "url": "https://teslalogger.de/en/docs/installation/raspberry-install/",
+          "source_url": "https://teslalogger.de/en/docs/installation/raspberry-install/",
+          "image": null,
+          "note": "Guide explains flashing the official image to an SD card.",
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/bassmaster187/TeslaLogger/blob/master/docker_setup.md",
+          "note": "Official Docker setup."
+        },
+        {
+          "url": "https://teslalogger.de/en/docs/requirements/",
+          "note": "Official requirements include Docker and Raspberry Pi."
+        },
+        {
+          "url": "https://teslalogger.de/en/docs/installation/raspberry-install/",
+          "note": "Official Raspberry Pi image installation."
+        },
+        {
+          "url": "https://github.com/bassmaster187/TeslaLogger",
+          "note": "Official project README."
+        }
+      ],
+      "review_note": "Replace native-only metadata with the official Compose and Raspberry Pi image routes. Docker setup guide is documentation, not a direct Compose YAML file."
+    },
+    {
+      "slug": "testflight-watcher",
+      "id": "9e220ddf-b529-4559-9abf-adce5d3b07ab",
+      "name": "TestFlight Watcher",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/MaximilianGT500/testflight-watcher#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/MaximilianGT500/testflight-watcher#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Node.js install",
+          "url": "https://github.com/MaximilianGT500/testflight-watcher#readme",
+          "source_url": "https://github.com/MaximilianGT500/testflight-watcher",
+          "image": null,
+          "note": "README documents Node.js startup; Pushover is needed for push notifications.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/MaximilianGT500/testflight-watcher",
+          "note": "Official README documents the Node.js app, web server and startup."
+        }
+      ],
+      "review_note": "Add the documented native install."
+    },
+    {
+      "slug": "text-generation-inference",
+      "id": "a5494ad2-555d-4788-a0ae-e16fc79ad489",
+      "name": "Text Generation Inference",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/huggingface/text-generation-inference#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/huggingface/text-generation-inference#readme",
+        "docker_url": "https://github.com/huggingface/text-generation-inference/pkgs/container/text-generation-inference",
+        "docker_image": "ghcr.io/huggingface/text-generation-inference:3.3.5",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": null,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Official Docker image",
+          "url": "https://github.com/huggingface/text-generation-inference/pkgs/container/text-generation-inference",
+          "source_url": "https://github.com/huggingface/text-generation-inference",
+          "image": "ghcr.io/huggingface/text-generation-inference:3.3.5",
+          "note": "Upstream repository was archived 2026-03-21; maintenance mode.",
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "native",
+          "label": "Local source install",
+          "url": "https://github.com/huggingface/text-generation-inference#readme",
+          "source_url": "https://github.com/huggingface/text-generation-inference",
+          "image": null,
+          "note": "Build from source; requires Rust, Python and build dependencies.",
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/huggingface/text-generation-inference",
+          "note": "Official README has Docker and local install instructions; repo archived 2026-03-21."
+        },
+        {
+          "url": "https://github.com/huggingface/text-generation-inference/pkgs/container/text-generation-inference",
+          "note": "Official GHCR package."
+        }
+      ],
+      "review_note": "Add both routes and flag the archived project for maintenance review."
+    },
+    {
+      "slug": "text-generation-webui",
+      "id": "51b505b9-bdc1-4886-a964-3f5ad5198060",
+      "name": "Text Generation WebUI",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/oobabooga/textgen/blob/HEAD/README.md",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/oobabooga/textgen/blob/main/README.md",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "compose",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose for Web UI",
+          "url": "https://github.com/oobabooga/textgen/wiki/09-%E2%80%90-Docker",
+          "source_url": "https://github.com/oobabooga/textgen/wiki/09-%E2%80%90-Docker",
+          "image": null,
+          "note": "Compose builds locally; no single prebuilt application image.",
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "native",
+          "label": "Manual Web UI install",
+          "url": "https://github.com/oobabooga/textgen/blob/main/README.md",
+          "source_url": "https://github.com/oobabooga/textgen/blob/main/README.md",
+          "image": null,
+          "note": "Applies to the browser Web UI; upstream also offers a newer TextGen desktop app.",
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/oobabooga/textgen/blob/main/README.md",
+          "note": "Official README covers Web UI install and current desktop builds."
+        },
+        {
+          "url": "https://github.com/oobabooga/textgen/wiki/09-%E2%80%90-Docker",
+          "note": "Official Compose variants for NVIDIA, AMD, Intel and CPU."
+        }
+      ],
+      "review_note": "Keep the row focused on browser Web UI; upstream also has a newer desktop app. Official Docker wiki is an installation guide with Compose variants, not a direct Compose YAML file."
+    },
+    {
+      "slug": "textpattern",
+      "id": "4c2f9667-2b41-411d-84a1-56a48ff16221",
+      "name": "Textpattern",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/textpattern/textpattern#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.textpattern.com/installation/installing-textpattern",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "PHP and MySQL install",
+          "url": "https://docs.textpattern.com/installation/installing-textpattern",
+          "source_url": "https://docs.textpattern.com/installation/installing-textpattern",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.textpattern.com/installation/installing-textpattern",
+          "note": "Official guide uploads the archive to a web server and completes MySQL/browser setup."
+        }
+      ],
+      "review_note": "Add the official web server install."
+    },
+    {
+      "slug": "the-battle-for-wesnoth",
+      "id": "4f7a4780-db11-4098-be06-e3400091b3d0",
+      "name": "The Battle for Wesnoth",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/wesnoth/wesnoth#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/wesnoth/wesnoth/blob/master/INSTALL.md",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Dedicated multiplayer server",
+          "url": "https://wiki.wesnoth.org/Multiplayerservers",
+          "source_url": "https://github.com/wesnoth/wesnoth/blob/master/INSTALL.md",
+          "image": null,
+          "note": "Build and run wesnothd; this is the multiplayer server, not the game client.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/wesnoth/wesnoth/blob/master/INSTALL.md",
+          "note": "Official build instructions include the wesnothd target."
+        },
+        {
+          "url": "https://wiki.wesnoth.org/Multiplayerservers",
+          "note": "Official wiki documents running a dedicated server."
+        }
+      ],
+      "review_note": "Add the official dedicated multiplayer server route."
+    },
+    {
+      "slug": "thelia",
+      "id": "df888818-95c5-4912-beb8-ba42f14a8d76",
+      "name": "Thelia",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/thelia/thelia#readme",
+        "docker_url": "https://github.com/thelia/thelia/blob/HEAD/templates/frontOffice/modern/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://doc.thelia.net/docs/2.x/getting_started/Installation",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "compose",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose install",
+          "url": "https://doc.thelia.net/docs/2.x/getting_started/docker",
+          "source_url": "https://doc.thelia.net/docs/2.x/getting_started/docker",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "native",
+          "label": "Composer install",
+          "url": "https://doc.thelia.net/docs/2.x/getting_started/Installation",
+          "source_url": "https://doc.thelia.net/docs/2.x/getting_started/Installation",
+          "image": null,
+          "note": "Official Thelia 2 Composer project install.",
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://doc.thelia.net/docs/2.x/getting_started/Installation",
+          "note": "Official Thelia 2 Composer install."
+        },
+        {
+          "url": "https://doc.thelia.net/docs/2.x/getting_started/docker",
+          "note": "Official Thelia 2 Docker Compose guide."
+        }
+      ],
+      "review_note": "Replace the theme Dockerfile with Thelia's official Compose and Composer guides. Official Docker guide is documentation, not a direct Compose YAML file."
+    },
+    {
+      "slug": "theme-park",
+      "id": "307914a6-e9b5-48f8-9b43-18cf34148293",
+      "name": "theme.park",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/themepark-dev/theme.park#readme",
+        "docker_url": "https://github.com/themepark-dev/theme.park/blob/HEAD/docker-mods/emby/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.theme-park.dev/setup/",
+        "docker_url": "https://github.com/themepark-dev/theme.park/pkgs/container/theme.park",
+        "docker_image": "ghcr.io/themepark-dev/theme.park:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "compose",
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/themepark-dev/theme.park/pkgs/container/theme.park",
+          "source_url": "https://docs.theme-park.dev/setup/",
+          "image": "ghcr.io/themepark-dev/theme.park:latest",
+          "note": "Serves theme CSS files.",
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://docs.theme-park.dev/setup/",
+          "source_url": "https://docs.theme-park.dev/setup/",
+          "image": null,
+          "note": "Serves theme CSS files for supported apps.",
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.theme-park.dev/setup/",
+          "note": "Official Docker and Compose setup."
+        },
+        {
+          "url": "https://github.com/themepark-dev/theme.park/pkgs/container/theme.park",
+          "note": "Official GHCR package."
+        }
+      ],
+      "review_note": "Replace the unrelated docker-mods Dockerfile with the theme CSS server setup. Official setup guide is documentation, not a direct Compose YAML file."
+    },
+    {
+      "slug": "ticky",
+      "id": "59a77f65-7b82-4d36-973d-3aff0495c44c",
+      "name": "Ticky",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/dkorecko/Ticky#readme",
+        "docker_url": "https://github.com/dkorecko/Ticky/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/dkorecko/Ticky#readme",
+        "docker_url": "https://github.com/dkorecko/Ticky#readme",
+        "docker_image": "ghcr.io/dkorecko/ticky:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/dkorecko/Ticky#readme",
+          "source_url": "https://github.com/dkorecko/Ticky",
+          "image": "ghcr.io/dkorecko/ticky:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/dkorecko/Ticky#readme",
+          "source_url": "https://github.com/dkorecko/Ticky",
+          "image": null,
+          "note": "The README stack includes MySQL.",
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "native",
+          "label": "Manual .NET install",
+          "url": "https://github.com/dkorecko/Ticky#readme",
+          "source_url": "https://github.com/dkorecko/Ticky",
+          "image": null,
+          "note": "Run the Ticky.Web project with dotnet.",
+          "support_level": "official",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/dkorecko/Ticky",
+          "note": "Official README gives the GHCR image, Compose stack and dotnet run route."
+        }
+      ],
+      "review_note": "Replace the Dockerfile URL with README install instructions. README provides Compose instructions inline; no direct Compose YAML destination was verified."
+    },
+    {
+      "slug": "tiddlywiki",
+      "id": "491a132c-d8c5-4f92-9b33-ddac1a41a457",
+      "name": "TiddlyWiki",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://tiddlywiki.com/static/Installing%2520TiddlyWiki%2520on%2520Node.js.html",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://tiddlywiki.com/static/GettingStarted%20-%20Node.js.html",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "package"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "npm package install",
+          "url": "https://tiddlywiki.com/static/GettingStarted%20-%20Node.js.html",
+          "source_url": "https://tiddlywiki.com/static/GettingStarted%20-%20Node.js.html",
+          "image": null,
+          "note": "Runs a Node.js wiki server; docs recommend a trusted network or external proxy before internet exposure.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://tiddlywiki.com/static/GettingStarted%20-%20Node.js.html",
+          "note": "Official guide installs npm package and starts a wiki server."
+        },
+        {
+          "url": "https://tiddlywiki.com/static/WebServer.html",
+          "note": "Official server exposure and access guidance."
+        }
+      ],
+      "review_note": "Fix double-encoded docs link and change unsupported Docker/Compose negatives to unknown."
+    },
+    {
+      "slug": "tigase",
+      "id": "62b6ab79-b1c4-48e7-9c3d-ea66473e7ef7",
+      "name": "Tigase",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/tigase/tigase-server#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.tigase.net/en/8.4.0/Tigase_Administration/Quick_Start_Guide/Intro.html",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "binary"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "binary",
+          "label": "Tigase server distribution",
+          "url": "https://docs.tigase.net/en/8.4.0/Tigase_Administration/Quick_Start_Guide/Intro.html",
+          "source_url": "https://docs.tigase.net/en/8.4.0/Tigase_Administration/Quick_Start_Guide/Intro.html",
+          "image": null,
+          "note": "Official guide directs users to server distribution and web installer.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tigase.net/en/8.4.0/Tigase_Administration/Quick_Start_Guide/Intro.html",
+          "note": "Official quick-start covers JDK, distribution and installer."
+        }
+      ],
+      "review_note": "Point to the official versioned quick-start guide."
+    },
+    {
+      "slug": "timeplus",
+      "id": "0d311c15-40a7-4c52-a6c5-6318bc2b3d6b",
+      "name": "Timeplus",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://install.timeplus.com/oss",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.timeplus.com/proton",
+        "docker_url": "https://docs.timeplus.com/proton",
+        "docker_image": "d.timeplus.com/timeplus-io/proton:latest",
+        "compose_url": "https://github.com/timeplus-io/proton/blob/develop/examples/ecommerce/docker-compose.yml",
+        "deployment_methods": [
+          "binary",
+          "compose",
+          "docker",
+          "helm",
+          "package"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://docs.timeplus.com/proton",
+          "source_url": "https://docs.timeplus.com/proton",
+          "image": "d.timeplus.com/timeplus-io/proton:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose example",
+          "url": "https://github.com/timeplus-io/proton/tree/develop/examples/ecommerce",
+          "source_url": "https://docs.timeplus.com/proton",
+          "image": null,
+          "note": "Official example uses Kafka or Redpanda external streams.",
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Linux or macOS binary",
+          "url": "https://docs.timeplus.com/proton",
+          "source_url": "https://docs.timeplus.com/proton",
+          "image": null,
+          "note": "Official installer provides a standalone binary.",
+          "support_level": "official",
+          "sort_order": 30
+        },
+        {
+          "method": "package",
+          "label": "Homebrew package",
+          "url": "https://docs.timeplus.com/proton",
+          "source_url": "https://docs.timeplus.com/proton",
+          "image": null,
+          "note": "Official Homebrew route is for macOS.",
+          "support_level": "official",
+          "sort_order": 40
+        },
+        {
+          "method": "helm",
+          "label": "Kubernetes Helm chart",
+          "url": "https://github.com/timeplus-io/helm-charts/tree/main/charts/timeplus-proton",
+          "source_url": "https://docs.timeplus.com/proton",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 50
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.timeplus.com/proton",
+          "note": "Official docs cover binary, Homebrew, Docker, Compose example and Helm."
+        },
+        {
+          "url": "https://github.com/timeplus-io/proton/tree/develop/examples/ecommerce",
+          "note": "Official Compose example."
+        },
+        {
+          "url": "https://github.com/timeplus-io/helm-charts/tree/main/charts/timeplus-proton",
+          "note": "Official Helm chart."
+        },
+        {
+          "url": "https://github.com/timeplus-io/proton/blob/develop/examples/ecommerce/docker-compose.yml",
+          "note": "Official ecommerce Compose example linked from Proton deployment documentation."
+        }
+      ],
+      "review_note": "Point to Proton docs and add all five documented install routes."
+    },
+    {
+      "slug": "tiddlypwa",
+      "id": "c7262ed6-7bf7-40d8-8022-e9caf27beb07",
+      "name": "TiddlyPWA",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://tiddly.packett.cool",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://tiddly.packett.cool/#ServerHosting/DIY",
+        "deployment_methods": [
+          "other"
+        ],
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "other",
+          "label": "DIY sync server setup",
+          "url": "https://tiddly.packett.cool/#ServerHosting/DIY",
+          "source_url": "https://tiddly.packett.cool/",
+          "image": null,
+          "note": "Official TiddlyPWA documentation includes a DIY server-hosting guide for its sync server.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://tiddly.packett.cool/",
+          "note": "Official app/docs page includes ServerHosting/DIY and describes hosting a TiddlyPWA sync server."
+        },
+        {
+          "url": "https://codeberg.org/valpackett/tiddlypwa",
+          "note": "Official source repository; direct page access was blocked, so no repository-only facts were used."
+        }
+      ],
+      "review_note": "Retain the self-host status and record the official DIY sync server path."
+    }
+  ]
+}

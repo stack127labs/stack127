@@ -1,0 +1,1250 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Offline official-source audit of the exact 40 saved rows labeled closed_source. Corrections are proposals only and guarded against the saved snapshot.",
+  "apps": [
+    {
+      "slug": "chaptertool",
+      "source_model": "unknown",
+      "source_code_url": "https://github.com/Mtillmann/chaptertool",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/Mtillmann/chaptertool/issues",
+        "https://hub.docker.com/r/martintillmann/chaptertool-gui",
+        "https://mtillmann.github.io/chaptertool/",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/chaptertool.xml",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/chaptertool-icon.png",
+        "https://github.com/Mtillmann/chaptertool",
+        "https://github.com/Mtillmann/chaptertool/blob/main/faq.md",
+        "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository"
+      ],
+      "review_scope": "partial",
+      "confidence": "medium",
+      "review_note": "The matching upstream repository provides the self-hosted app and Docker build, but publishes no license file or license grant; source model is unknown.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://github.com/Mtillmann/chaptertool/issues",
+          "https://hub.docker.com/r/martintillmann/chaptertool-gui",
+          "https://mtillmann.github.io/chaptertool/",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/chaptertool.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/chaptertool-icon.png"
+        ]
+      }
+    },
+    {
+      "slug": "chatonsinfos",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://framagit.org/chatons/chatonsinfos",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/chatonsinfos",
+        "https://framagit.org/chatons/chatonsinfos/-/blob/master/README.md",
+        "https://github.com/yunohost-apps/chatonsinfos_ynh",
+        "https://raw.githubusercontent.com/YunoHost/apps/master/logos/chatonsinfos.png",
+        "https://yunohost.org/en/apps",
+        "https://framagit.org/chatons/chatonsinfos"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official YunoHost catalog identifies this exact app, its AGPL-3.0 license, and the upstream Framagit repository.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://apps.yunohost.org/app/chatonsinfos",
+          "https://framagit.org/chatons/chatonsinfos/-/blob/master/README.md",
+          "https://github.com/yunohost-apps/chatonsinfos_ynh",
+          "https://raw.githubusercontent.com/YunoHost/apps/master/logos/chatonsinfos.png",
+          "https://yunohost.org/en/apps"
+        ]
+      }
+    },
+    {
+      "slug": "chirpstack-gateway-bridge",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/chirpstack/chirpstack-gateway-bridge",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/177991-support-andaks-docker-application",
+        "https://hub.docker.com/r/chirpstack/chirpstack",
+        "https://hub.docker.com/r/chirpstack/chirpstack-gateway-bridge",
+        "https://hub.docker.com/r/chirpstack/chirpstack-rest-api",
+        "https://raw.githubusercontent.com/andaks/unraid-templates/master/chirpstack/chirpstack_logo.png",
+        "https://raw.githubusercontent.com/andaks/unraid-templates/master/chirpstack/chirpstack-gateway-bridge.xml",
+        "https://raw.githubusercontent.com/andaks/unraid-templates/master/chirpstack/chirpstack-rest-api.xml",
+        "https://raw.githubusercontent.com/andaks/unraid-templates/master/chirpstack/chirpstack.xml",
+        "https://www.chirpstack.io/",
+        "https://github.com/chirpstack/chirpstack-gateway-bridge",
+        "https://github.com/chirpstack/chirpstack-docker",
+        "https://www.chirpstack.io/docs/gateway-bridge/"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "ChirpStack publishes the Gateway Bridge source and Docker image under MIT; its official Compose guide includes this service.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/177991-support-andaks-docker-application",
+          "https://hub.docker.com/r/chirpstack/chirpstack",
+          "https://hub.docker.com/r/chirpstack/chirpstack-gateway-bridge",
+          "https://hub.docker.com/r/chirpstack/chirpstack-rest-api",
+          "https://raw.githubusercontent.com/andaks/unraid-templates/master/chirpstack/chirpstack_logo.png",
+          "https://raw.githubusercontent.com/andaks/unraid-templates/master/chirpstack/chirpstack-gateway-bridge.xml",
+          "https://raw.githubusercontent.com/andaks/unraid-templates/master/chirpstack/chirpstack-rest-api.xml",
+          "https://raw.githubusercontent.com/andaks/unraid-templates/master/chirpstack/chirpstack.xml",
+          "https://www.chirpstack.io/"
+        ]
+      }
+    },
+    {
+      "slug": "chitubox-novnc",
+      "website_url": "https://www.chitubox.com/en/download/chitubox-basic",
+      "data_source_urls": [
+        "https://hub.docker.com/r/mikeah/chitubox-novnc",
+        "https://media.imgcdn.org/repo/2023/03/chitubox-pro/chitubox-pro-logo.png",
+        "https://raw.githubusercontent.com/helfrichmichael/unraid-templates/main/chitubox/chitubox.xml",
+        "https://www.chitubox.com/en/download/chitubox-basic",
+        "https://docs.chitubox.com/en-US/chitubox/latest/license-management",
+        "https://dental.chitubox.com/lang/article/dental/law/legal"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Corrected the product link: CHITUBOX is CBD-Tech software with account and license-key terms; the listed noVNC container is a community wrapper.",
+      "expected": {
+        "website_url": "https://ultimaker.com/software/ultimaker-chitubox",
+        "data_source_urls": [
+          "https://hub.docker.com/r/mikeah/chitubox-novnc",
+          "https://media.imgcdn.org/repo/2023/03/chitubox-pro/chitubox-pro-logo.png",
+          "https://raw.githubusercontent.com/helfrichmichael/unraid-templates/main/chitubox/chitubox.xml",
+          "https://ultimaker.com/software/ultimaker-chitubox"
+        ]
+      }
+    },
+    {
+      "slug": "chowdown",
+      "source_model": "open_source",
+      "license": "Unlicense",
+      "license_type": "public_domain",
+      "license_spdx_id": "Unlicense",
+      "source_code_url": "https://github.com/clarklab/chowdown",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://hub.docker.com/r/gregyankovoy/chowdown/",
+        "https://hub.docker.com/r/gregyankovoy/chowdown/Dockerfile/",
+        "https://raw.githubusercontent.com/GregYankovoy/docker-templates/master/greg/chowdown.xml",
+        "https://raw.githubusercontent.com/gregyankovoy/docker-templates/master/greg/img/chowdown-logo.png",
+        "https://github.com/clarklab/chowdown",
+        "https://github.com/clarklab/chowdown/blob/master/LICENSE",
+        "https://github.com/GregYankovoy/docker-chowdown",
+        "https://hub.docker.com/r/gregyankovoy/chowdown",
+        "https://chowdown.io/",
+        "https://github.com/clarklab/chowdown/blob/gh-pages/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The app upstream is Unlicense; the listed Docker packaging repo is MIT. Both are permissive public grants, so this app is open source with mixed package licenses.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://hub.docker.com/r/gregyankovoy/chowdown/",
+          "https://hub.docker.com/r/gregyankovoy/chowdown/Dockerfile/",
+          "https://raw.githubusercontent.com/GregYankovoy/docker-templates/master/greg/chowdown.xml",
+          "https://raw.githubusercontent.com/gregyankovoy/docker-templates/master/greg/img/chowdown-logo.png"
+        ],
+        "website_url": "https://hub.docker.com/r/gregyankovoy/chowdown/",
+        "docs_url": "https://hub.docker.com/r/gregyankovoy/chowdown/",
+        "install_docs_url": "https://hub.docker.com/r/gregyankovoy/chowdown/"
+      },
+      "website_url": "https://chowdown.io/",
+      "docs_url": "https://github.com/clarklab/chowdown#readme",
+      "install_docs_url": "https://github.com/clarklab/chowdown#readme"
+    },
+    {
+      "slug": "clouddrive",
+      "license": "CloudDrive End-User License Agreement (proprietary)",
+      "license_type": "custom",
+      "data_source_urls": [
+        "https://hub.docker.com/r/cloudnas/clouddrive2",
+        "https://raw.githubusercontent.com/cloud-fs/unraid-templates/main/clouddrive.xml",
+        "https://www.clouddrive2.com/",
+        "https://www.clouddrive2.com/img/clouddrive-512.png",
+        "https://www.clouddrive2.com/eula.html",
+        "https://www.clouddrive2.com/en/download.html"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "CloudDrive2 provides an official Docker service and EULA. The EULA grants a limited use license and states the software is proprietary.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "data_source_urls": [
+          "https://hub.docker.com/r/cloudnas/clouddrive2",
+          "https://raw.githubusercontent.com/cloud-fs/unraid-templates/main/clouddrive.xml",
+          "https://www.clouddrive2.com/",
+          "https://www.clouddrive2.com/img/clouddrive-512.png"
+        ]
+      }
+    },
+    {
+      "slug": "clumoove",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://github.com/xXRoxXeRXx/clumoove",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Clumoove/icon.svg",
+        "https://ghcr.io/xxroxxerxx/clumoove-frontend",
+        "https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main/Apps/Clumoove",
+        "https://github.com/xXRoxXeRXx/clumoove",
+        "https://github.com/xXRoxXeRXx/clumoove/blob/main/LICENSE",
+        "https://github.com/xXRoxXeRXx/clumoove#self-hosting"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official Clumoove repository declares AGPL-3.0 and documents Docker Compose self-hosting.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Clumoove/icon.svg",
+          "https://ghcr.io/xxroxxerxx/clumoove-frontend",
+          "https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main/Apps/Clumoove"
+        ]
+      }
+    },
+    {
+      "slug": "codechef",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_code_url": "https://github.com/IPdotSetAF/CodeChef",
+      "source_code_host": "github",
+      "docker_url": "https://github.com/IPdotSetAF/CodeChef/pkgs/container/codechef",
+      "docker_support": "official",
+      "docs_url": "https://ipdotsetaf.ir/project/codechef",
+      "install_docs_url": "https://ipdotsetaf.ir/project/codechef",
+      "data_source_urls": [
+        "https://codechef.ipdotsetaf.ir/",
+        "https://github.com/ipdotsetaf/codechef/issues",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/codechef.xml",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/codechef-icon.png",
+        "https://registry.hub.docker.com/r/ghcr.io/ipdotsetaf/codechef",
+        "https://ipdotsetaf.ir/project/codechef",
+        "https://github.com/IPdotSetAF/CodeChef",
+        "https://github.com/IPdotSetAF/CodeChef/blob/main/LICENSE",
+        "https://github.com/IPdotSetAF/CodeChef/pkgs/container/codechef"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The listed image is documented by the matching publisher repository, which declares GPL-3.0. Its project page says newer development moved to a separate non-open-source project; this row’s linked CodeChef build remains GPL-3.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docker_url": "https://registry.hub.docker.com/r/ghcr.io/ipdotsetaf/codechef",
+        "docker_support": "community",
+        "docs_url": "https://github.com/ipdotsetaf/codechef/issues",
+        "install_docs_url": "https://github.com/ipdotsetaf/codechef/issues",
+        "data_source_urls": [
+          "https://codechef.ipdotsetaf.ir/",
+          "https://github.com/ipdotsetaf/codechef/issues",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/codechef.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/codechef-icon.png",
+          "https://registry.hub.docker.com/r/ghcr.io/ipdotsetaf/codechef"
+        ]
+      }
+    },
+    {
+      "slug": "codeproject-ai-server",
+      "source_model": "source_available",
+      "license": "Server Side Public License v1",
+      "license_type": "custom",
+      "license_spdx_id": "SSPL-1.0",
+      "source_code_url": "https://github.com/CodeProject/CodeProject.AI-Server",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://hub.docker.com/r/codeproject/ai-server",
+        "https://raw.githubusercontent.com/alexbn71/unraid-templates/main/CodeProject.AI_Server/CodeProject.AI_Server.xml",
+        "https://raw.githubusercontent.com/alexbn71/unraid-templates/main/CodeProject.AI_Server/CodeProject.AI_ServerGPU.xml",
+        "https://raw.githubusercontent.com/alexbn71/unraid-templates/main/codeprojectaiserver_official.png",
+        "https://www.codeproject.com/ai/docs/",
+        "https://www.codeproject.com/Forums/1869052/CodeProject-API",
+        "https://www.codeproject.com/Forums/1969389/Artificial-Intelligence",
+        "https://github.com/CodeProject/CodeProject.AI-Server",
+        "https://github.com/CodeProject/CodeProject.AI-Server/blob/main/LICENCE.md",
+        "https://www.codeproject.com/AI/docs/why/running_in_docker.html"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "CodeProject.AI Server is self-hosted and publishes source under SSPL-1.0. SSPL is source-available, not an open-source license.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://hub.docker.com/r/codeproject/ai-server",
+          "https://raw.githubusercontent.com/alexbn71/unraid-templates/main/CodeProject.AI_Server/CodeProject.AI_Server.xml",
+          "https://raw.githubusercontent.com/alexbn71/unraid-templates/main/CodeProject.AI_Server/CodeProject.AI_ServerGPU.xml",
+          "https://raw.githubusercontent.com/alexbn71/unraid-templates/main/codeprojectaiserver_official.png",
+          "https://www.codeproject.com/ai/docs/",
+          "https://www.codeproject.com/Forums/1869052/CodeProject-API",
+          "https://www.codeproject.com/Forums/1969389/Artificial-Intelligence"
+        ]
+      }
+    },
+    {
+      "slug": "codex-docs",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/codex-team/codex.docs",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://docs.codex.so/",
+        "https://forums.unraid.net/topic/137296-support-b42n1-repo/",
+        "https://ghcr.io/codex-team/codex.docs",
+        "https://raw.githubusercontent.com/b42n1/unraid-templates/main/logos/logo-codex-docs.png",
+        "https://raw.githubusercontent.com/b42n1/unraid-templates/main/templates/codex-docs.xml",
+        "https://github.com/codex-team/codex.docs",
+        "https://github.com/codex-team/codex.docs/blob/main/LICENSE",
+        "https://docs.codex.so/getting-started"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official CodeX Docs repository declares Apache-2.0 and the product docs provide Docker Compose deployment instructions.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://docs.codex.so/",
+          "https://forums.unraid.net/topic/137296-support-b42n1-repo/",
+          "https://ghcr.io/codex-team/codex.docs",
+          "https://raw.githubusercontent.com/b42n1/unraid-templates/main/logos/logo-codex-docs.png",
+          "https://raw.githubusercontent.com/b42n1/unraid-templates/main/templates/codex-docs.xml"
+        ]
+      }
+    },
+    {
+      "slug": "coin",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-or-later",
+      "source_code_url": "https://code.ffdn.org/ffdn/coin",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/coin",
+        "https://code.ffdn.org/FFDN/coin",
+        "https://github.com/yunohost-apps/coin_ynh",
+        "https://raw.githubusercontent.com/YunoHost/apps/master/logos/coin.png",
+        "https://yunohost.org/en/apps",
+        "https://code.ffdn.org/ffdn/coin"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The YunoHost app catalog identifies Coin as the FFDN ISP information system and states AGPL-3.0-or-later with its upstream repository.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://apps.yunohost.org/app/coin",
+          "https://code.ffdn.org/FFDN/coin",
+          "https://github.com/yunohost-apps/coin_ynh",
+          "https://raw.githubusercontent.com/YunoHost/apps/master/logos/coin.png",
+          "https://yunohost.org/en/apps"
+        ]
+      }
+    },
+    {
+      "slug": "comfyui-magic",
+      "source_model": "unknown",
+      "source_code_url": "https://github.com/FUTRlabs/ComfyUI-Magic",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://avatars.githubusercontent.com/u/121283862",
+        "https://discord.gg/nusNSsrTuV",
+        "https://hub.docker.com/r/futrlabsmagic/comfyui-magic/",
+        "https://raw.githubusercontent.com/m0ngr31/unraid_ca/master/ComfyUI-Magic.xml",
+        "https://www.minethefutr.com/",
+        "https://github.com/FUTRlabs/ComfyUI-Magic",
+        "https://github.com/FUTRlabs/ComfyUI-Magic/blob/main/README.md",
+        "https://hub.docker.com/r/futrlabsmagic/comfyui-magic",
+        "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository"
+      ],
+      "review_scope": "partial",
+      "confidence": "medium",
+      "review_note": "The exact publisher repository and Docker instructions are public, but the repository has no license file or grant. Its source model is unknown rather than closed source.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://avatars.githubusercontent.com/u/121283862",
+          "https://discord.gg/nusNSsrTuV",
+          "https://hub.docker.com/r/futrlabsmagic/comfyui-magic/",
+          "https://raw.githubusercontent.com/m0ngr31/unraid_ca/master/ComfyUI-Magic.xml",
+          "https://www.minethefutr.com/"
+        ]
+      }
+    },
+    {
+      "slug": "commento",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://gitlab.com/commento/commento",
+      "source_code_host": "gitlab",
+      "data_source_urls": [
+        "https://commento.io/",
+        "https://forums.unraid.net/topic/89502-support-a75g-repo/",
+        "https://gitlab.com/commento/commento",
+        "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/commento.xml",
+        "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/icons/commento.png",
+        "https://gitlab.com/commento/docs/-/tree/master",
+        "https://gitlab.com/commento/commento/-/tree/master"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Commento’s official project documentation says it is MIT licensed; the official GitLab repository provides the self-hosted build.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://commento.io/",
+          "https://forums.unraid.net/topic/89502-support-a75g-repo/",
+          "https://gitlab.com/commento/commento",
+          "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/commento.xml",
+          "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/icons/commento.png"
+        ]
+      }
+    },
+    {
+      "slug": "companion",
+      "source_model": "open_source",
+      "license": "MIT License for Companion core; bundled dependencies and modules retain their own licenses",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "source_code_url": "https://github.com/bitfocus/companion",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://bitfocus.io/companion/",
+        "https://bitfocus.io/companion/support",
+        "https://bitfocus.io/images/brand/companion.png",
+        "https://github.com/bitfocus/companion/pkgs/container/companion%2Fcompanion",
+        "https://hub.docker.com/r/marraz/companion",
+        "https://raw.githubusercontent.com/Marraz/unraid-templates/main/Companion/Companion.xml",
+        "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/companion.xml",
+        "https://github.com/bitfocus/companion",
+        "https://github.com/bitfocus/companion/blob/main/LICENSE.md",
+        "https://github.com/bitfocus/companion/docs/user-guide/3_config/modules.md"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Bitfocus licenses the Companion core under MIT. Bundled modules and dependencies keep their own licenses, so the package is mixed-license.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://bitfocus.io/companion/",
+          "https://bitfocus.io/companion/support",
+          "https://bitfocus.io/images/brand/companion.png",
+          "https://github.com/bitfocus/companion/pkgs/container/companion%2Fcompanion",
+          "https://hub.docker.com/r/marraz/companion",
+          "https://raw.githubusercontent.com/Marraz/unraid-templates/main/Companion/Companion.xml",
+          "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/companion.xml"
+        ]
+      }
+    },
+    {
+      "slug": "confluence",
+      "docker_url": "https://hub.docker.com/r/atlassian/confluence",
+      "docker_image": "atlassian/confluence",
+      "docker_support": "official",
+      "docs_url": "https://hub.docker.com/r/atlassian/confluence",
+      "install_docs_url": "https://confluence.atlassian.com/doc/confluence-installation-guide-135681.html",
+      "data_source_urls": [
+        "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_1505148164/confluence.png",
+        "https://raw.githubusercontent.com/maschhoff/docker/master/unraid%20xml/my-confluence.xml",
+        "https://www.atlassian.com/software/confluence",
+        "https://hub.docker.com/r/atlassian/confluence",
+        "https://support.atlassian.com/confluence-cloud/docs/migrate-from-confluence-cloud-to-server/",
+        "https://confluence.atlassian.com/doc/confluence-installation-guide-135681.html",
+        "https://confluence.atlassian.com/security/supported-platforms-in-confluence-1409093111.html"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Confluence remains self-managed as Data Center, but Server support and its old Docker image ended in 2024. Updated the listed build to Atlassian’s current official image.",
+      "expected": {
+        "docker_url": "https://hub.docker.com/r/atlassian/confluence-server",
+        "docker_image": "atlassian/confluence-server",
+        "docker_support": "community",
+        "docs_url": "https://hub.docker.com/r/atlassian/confluence-server",
+        "install_docs_url": "https://hub.docker.com/r/atlassian/confluence-server",
+        "data_source_urls": [
+          "https://hub.docker.com/r/atlassian/confluence-server",
+          "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_1505148164/confluence.png",
+          "https://raw.githubusercontent.com/maschhoff/docker/master/unraid%20xml/my-confluence.xml",
+          "https://www.atlassian.com/software/confluence"
+        ]
+      }
+    },
+    {
+      "slug": "contextmod",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/FoxxMD/context-mod",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://contextmod.dev/",
+        "https://contextmod.dev/logo.png",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/contextmod.xml",
+        "https://registry.hub.docker.com/r/ghcr.io/foxxmd/context-mod",
+        "https://github.com/FoxxMD/context-mod",
+        "https://github.com/FoxxMD/context-mod/blob/master/LICENSE",
+        "https://contextmod.dev/operator/installation.html"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The exact ContextMod upstream repository declares MIT and documents its self-hosted Docker deployment.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://contextmod.dev/",
+          "https://contextmod.dev/logo.png",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/contextmod.xml",
+          "https://registry.hub.docker.com/r/ghcr.io/foxxmd/context-mod"
+        ]
+      }
+    },
+    {
+      "slug": "convert-commander",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/Convert-Commander/convert-commander",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://cc.bleibundgut.ch/",
+        "https://github.com/Benzauber/convert-commander/issues",
+        "https://hub.docker.com/r/benzauber/convert-commander",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/convert_commander.xml",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/convert-commander-icon.png",
+        "https://github.com/Convert-Commander/convert-commander",
+        "https://github.com/Convert-Commander/convert-commander/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The current official Convert-Commander repository identifies the app as open source, declares Apache-2.0, and documents the listed Docker image.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://cc.bleibundgut.ch/",
+          "https://github.com/Benzauber/convert-commander/issues",
+          "https://hub.docker.com/r/benzauber/convert-commander",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/convert_commander.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/convert-commander-icon.png"
+        ]
+      }
+    },
+    {
+      "slug": "coral-accelerator-module-drivers",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/unraid/unraid-coral-driver",
+      "source_code_host": "github",
+      "docker_support": "none",
+      "docker_url": null,
+      "docker_image": null,
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/98064-support-blakeblackshear-frigate/",
+        "https://raw.githubusercontent.com/unraid/docker-templates/master/limetech/Coral-Driver.xml",
+        "https://raw.githubusercontent.com/unraid/docker-templates/refs/heads/master/images/coral-driver.png",
+        "https://github.com/unraid/unraid-coral-driver",
+        "https://github.com/unraid/unraid-coral-driver/blob/master/LICENSE",
+        "https://raw.githubusercontent.com/unraid/unraid-coral-driver/master/coral-driver.plg",
+        "https://forums.unraid.net/topic/92865-support-ich777-nvidiadvbzfsiscsimft-kernel-helperbuilder-docker/"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "This is the Unraid Coral Driver plugin, not a Docker app. Its official repository declares MIT; corrected the Docker fields to none.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docker_support": "community",
+        "docker_url": "https://hub.docker.com/r/https://raw.githubusercontent.com/unraid/unraid-coral-driver/master/coral-driver.plg",
+        "docker_image": "https://raw.githubusercontent.com/unraid/unraid-coral-driver/master/coral-driver.plg",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/98064-support-blakeblackshear-frigate/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/unraid/unraid-coral-driver/master/coral-driver.plg",
+          "https://raw.githubusercontent.com/unraid/docker-templates/master/limetech/Coral-Driver.xml",
+          "https://raw.githubusercontent.com/unraid/docker-templates/refs/heads/master/images/coral-driver.png"
+        ]
+      }
+    },
+    {
+      "slug": "crawl4ai",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/unclecode/crawl4ai",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://crawl4ai.com/",
+        "https://docs.crawl4ai.com/",
+        "https://hub.docker.com/r/unclecode/crawl4ai",
+        "https://openalternative.co/crawl4ai",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/crawl4ai.xml",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/crawl4ai-icon.png",
+        "https://github.com/unclecode/crawl4ai",
+        "https://github.com/unclecode/crawl4ai/blob/main/LICENSE",
+        "https://github.com/unclecode/crawl4ai/tree/main/deploy/docker"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The Crawl4AI maintainers publish the source under Apache-2.0 and provide official Docker deployment instructions.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://crawl4ai.com/",
+          "https://docs.crawl4ai.com/",
+          "https://hub.docker.com/r/unclecode/crawl4ai",
+          "https://openalternative.co/crawl4ai",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/crawl4ai.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/crawl4ai-icon.png"
+        ]
+      }
+    },
+    {
+      "slug": "create-re-flavored",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+        "https://hub.docker.com/repository/docker/goobaroo/createreflavored",
+        "https://media.forgecdn.net/avatars/801/833/638166120480589980.png",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/createre-flavored_server.xml",
+        "https://www.curseforge.com/minecraft/modpacks/create-re-flavored",
+        "https://www.curseforge.com/minecraft/modpacks/create-re-flavored/license"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official CurseForge project identifies Create Re-Flavored as an MIT-licensed modpack and publishes server files.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/createreflavored",
+          "https://media.forgecdn.net/avatars/801/833/638166120480589980.png",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/createre-flavored_server.xml",
+          "https://www.curseforge.com/minecraft/modpacks/create-re-flavored"
+        ]
+      }
+    },
+    {
+      "slug": "createflavored",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+        "https://hub.docker.com/repository/docker/goobaroo/createflavored",
+        "https://media.forgecdn.net/avatars/480/609/637779254076211311.png",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/createflavored_server.xml",
+        "https://www.curseforge.com/minecraft/modpacks/create-flavored",
+        "https://www.curseforge.com/minecraft/modpacks/create-flavored/license"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official CurseForge project identifies Create Flavored as an MIT-licensed modpack and publishes server files.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/createflavored",
+          "https://media.forgecdn.net/avatars/480/609/637779254076211311.png",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/createflavored_server.xml",
+          "https://www.curseforge.com/minecraft/modpacks/create-flavored"
+        ]
+      }
+    },
+    {
+      "slug": "crowdsec-mikrotik-bouncer",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/funkolab/cs-mikrotik-bouncer",
+      "source_code_host": "github",
+      "maintenance_status": "archived",
+      "data_source_urls": [
+        "https://app.crowdsec.net/hub/author/funkolab/remediation-components/cs-mikrotik-bouncer",
+        "https://github.com/funkolab/cs-mikrotik-bouncer/pkgs/container/cs-mikrotik-bouncer",
+        "https://raw.githubusercontent.com/jcesclapez/unraid-templates/main/crowdsec-mikrotik-bouncer/crowdsec-mikrotik-bouncer.xml",
+        "https://raw.githubusercontent.com/jcesclapez/unraid-templates/refs/heads/main/crowdsec-mikrotik-bouncer/crowdsec_mikrotik_logo.png",
+        "https://github.com/funkolab/cs-mikrotik-bouncer",
+        "https://github.com/funkolab/cs-mikrotik-bouncer/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The exact official bouncer repository declares Apache-2.0 and was archived by its owner on June 8, 2025.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "maintenance_status": "active",
+        "data_source_urls": [
+          "https://app.crowdsec.net/hub/author/funkolab/remediation-components/cs-mikrotik-bouncer",
+          "https://github.com/funkolab/cs-mikrotik-bouncer/pkgs/container/cs-mikrotik-bouncer",
+          "https://raw.githubusercontent.com/jcesclapez/unraid-templates/main/crowdsec-mikrotik-bouncer/crowdsec-mikrotik-bouncer.xml",
+          "https://raw.githubusercontent.com/jcesclapez/unraid-templates/refs/heads/main/crowdsec-mikrotik-bouncer/crowdsec_mikrotik_logo.png"
+        ]
+      }
+    },
+    {
+      "slug": "crushftp10",
+      "license": "CrushFTP proprietary license agreement",
+      "license_type": "custom",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/69152-support-markusmcnugens-docker-repository/",
+        "https://hub.docker.com/r/markusmcnugen/crushftp/",
+        "https://raw.githubusercontent.com/MarkusMcNugen/docker-templates/master/crushftp10/crushftp.png",
+        "https://raw.githubusercontent.com/MarkusMcNugen/docker-templates/master/crushftp10/crushftp10-template.xml",
+        "https://www.crushftp.com/index.html",
+        "https://www.crushftp.com/license.html",
+        "https://hub.docker.com/r/markusmcnugen/crushftp"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "CrushFTP’s official license page describes proprietary use and transfer restrictions; the Docker image is community packaging.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/69152-support-markusmcnugens-docker-repository/",
+          "https://hub.docker.com/r/markusmcnugen/crushftp/",
+          "https://raw.githubusercontent.com/MarkusMcNugen/docker-templates/master/crushftp10/crushftp.png",
+          "https://raw.githubusercontent.com/MarkusMcNugen/docker-templates/master/crushftp10/crushftp10-template.xml",
+          "https://www.crushftp.com/index.html"
+        ]
+      }
+    },
+    {
+      "slug": "cryptgeon-redis",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/cupcakearmy/cryptgeon",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/128263-support-lamp-cryptgeon_redis/",
+        "https://github.com/cupcakearmy/cryptgeon/blob/main/design/favicon.png?raw=1",
+        "https://hub.docker.com/r/cupcakearmy/cryptgeon",
+        "https://raw.githubusercontent.com/Srcodesalittle/cryptgeon_redis/main/cryptgeon_redis.xml",
+        "https://github.com/cupcakearmy/cryptgeon",
+        "https://github.com/cupcakearmy/cryptgeon/blob/main/LICENSE",
+        "https://github.com/cupcakearmy/cryptgeon/blob/main/docker-compose.yaml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The listed app is Cryptgeon, whose official repository declares MIT and provides the Docker Compose setup with Redis.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/128263-support-lamp-cryptgeon_redis/",
+          "https://github.com/cupcakearmy/cryptgeon/blob/main/design/favicon.png?raw=1",
+          "https://hub.docker.com/r/cupcakearmy/cryptgeon",
+          "https://raw.githubusercontent.com/Srcodesalittle/cryptgeon_redis/main/cryptgeon_redis.xml"
+        ]
+      }
+    },
+    {
+      "slug": "cryptomator-webdav",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_code_url": "https://github.com/greycubesgav/cryptomator-webdav",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/greycubesgav/unraid-templates/",
+        "https://github.com/greycubesgav/unraid-templates/raw/main/cryptomator-webdav/images/cryptomator_logo.png",
+        "https://hub.docker.com/r/greycubesgav/cryptomator-webdav",
+        "https://raw.githubusercontent.com/greycubesgav/unraid-templates/main/cryptomator-webdav/cryptomator-webdav.xml",
+        "https://github.com/greycubesgav/cryptomator-webdav",
+        "https://github.com/greycubesgav/cryptomator-webdav/blob/main/LICENSE",
+        "https://github.com/cryptomator/cli"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The exact Docker WebDAV wrapper repository is GPL-3.0 licensed and packages Cryptomator CLI for a self-hosted WebDAV service.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://github.com/greycubesgav/unraid-templates/",
+          "https://github.com/greycubesgav/unraid-templates/raw/main/cryptomator-webdav/images/cryptomator_logo.png",
+          "https://hub.docker.com/r/greycubesgav/cryptomator-webdav",
+          "https://raw.githubusercontent.com/greycubesgav/unraid-templates/main/cryptomator-webdav/cryptomator-webdav.xml"
+        ]
+      }
+    },
+    {
+      "slug": "cubebackup-googleworkspace",
+      "license": "CubeBackup proprietary software license (Terms of Service)",
+      "license_type": "custom",
+      "docker_url": "https://hub.docker.com/r/cubebackup/workspace",
+      "docker_image": "cubebackup/workspace",
+      "docker_support": "official",
+      "docs_url": "https://www.cubebackup.com/docs/user_guide/installation/",
+      "install_docs_url": "https://www.cubebackup.com/docs/user_guide/installation/",
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/CorneliousJD/Docker-Templates/master/CubeBackup-GoogleWorkspace.xml",
+        "https://raw.githubusercontent.com/CorneliousJD/Docker-Templates/master/CubeBackup-Microsoft365.xml",
+        "https://raw.githubusercontent.com/CorneliousJD/Docker-Templates/master/icons/cubebackup.png",
+        "https://www.cubebackup.com/",
+        "https://www.cubebackup.com/en/contact",
+        "https://www.cubebackup.com/docs/legal/terms-of-service/",
+        "https://www.cubebackup.com/docs/user_guide/installation/",
+        "https://hub.docker.com/r/cubebackup/workspace"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "CubeBackup’s terms make the software proprietary. Its current official Google Workspace Docker image is cubebackup/workspace, not the old listed image.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "docker_url": "https://registry.hub.docker.com/r/cubebackup/cubebackup",
+        "docker_image": "cubebackup/cubebackup",
+        "docker_support": "community",
+        "docs_url": "https://www.cubebackup.com/en/contact",
+        "install_docs_url": "https://www.cubebackup.com/en/contact",
+        "data_source_urls": [
+          "https://raw.githubusercontent.com/CorneliousJD/Docker-Templates/master/CubeBackup-GoogleWorkspace.xml",
+          "https://raw.githubusercontent.com/CorneliousJD/Docker-Templates/master/CubeBackup-Microsoft365.xml",
+          "https://raw.githubusercontent.com/CorneliousJD/Docker-Templates/master/icons/cubebackup.png",
+          "https://registry.hub.docker.com/r/cubebackup/cube365",
+          "https://registry.hub.docker.com/r/cubebackup/cubebackup",
+          "https://www.cubebackup.com/",
+          "https://www.cubebackup.com/en/contact"
+        ]
+      }
+    },
+    {
+      "slug": "cultivons",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://xulops.net/forge/cultivons.php?menu=download",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/cultivons",
+        "https://github.com/yunohost-apps/cultivons_ynh",
+        "https://raw.githubusercontent.com/YunoHost/apps/master/logos/cultivons.png",
+        "https://xulops.net/forge/cultivons.php",
+        "https://xulops.net/forge/cultivons.php?menu=about",
+        "https://yunohost.org/en/apps",
+        "https://xulops.net/forge/cultivons.php?menu=download"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official YunoHost catalog identifies Cultivons, its Apache-2.0 license, and the publisher’s code repository.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://apps.yunohost.org/app/cultivons",
+          "https://github.com/yunohost-apps/cultivons_ynh",
+          "https://raw.githubusercontent.com/YunoHost/apps/master/logos/cultivons.png",
+          "https://xulops.net/forge/cultivons.php",
+          "https://xulops.net/forge/cultivons.php?menu=about",
+          "https://yunohost.org/en/apps"
+        ]
+      }
+    },
+    {
+      "slug": "cura-novnc",
+      "source_model": "open_source",
+      "license": "GNU Lesser General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "LGPL-3.0",
+      "source_code_url": "https://github.com/Ultimaker/Cura",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://hub.docker.com/r/mikeah/cura-novnc",
+        "https://raw.githubusercontent.com/helfrichmichael/unraid-templates/main/cura/cura.xml",
+        "https://raw.githubusercontent.com/Ultimaker/Cura/main/resources/images/cura-icon.png",
+        "https://ultimaker.com/software/ultimaker-cura",
+        "https://github.com/Ultimaker/Cura",
+        "https://github.com/Ultimaker/Cura/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The listed noVNC image wraps Ultimaker Cura. Cura’s official repository declares LGPL-3.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://hub.docker.com/r/mikeah/cura-novnc",
+          "https://raw.githubusercontent.com/helfrichmichael/unraid-templates/main/cura/cura.xml",
+          "https://raw.githubusercontent.com/Ultimaker/Cura/main/resources/images/cura-icon.png",
+          "https://ultimaker.com/software/ultimaker-cura"
+        ]
+      }
+    },
+    {
+      "slug": "daredoessnapcast",
+      "source_model": "open_source",
+      "license": "MIT (DareDoes Snapcast container wrapper); GNU GPL v3.0 or later (Snapcast); MIT (librespot)",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "source_code_url": "https://github.com/daredoes/docker-snapcast",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/119582-support-daredoes-snapcast/",
+        "https://hub.docker.com/r/daredoes/snapcast",
+        "https://icons.iconarchive.com/icons/alecive/flatwoken/512/Apps-Player-Audio-icon.png",
+        "https://raw.githubusercontent.com/daredoes/unraid-templates/main/daredoes/snapcast.xml",
+        "https://github.com/badaix/snapcast",
+        "https://github.com/badaix/snapcast/blob/master/LICENSE",
+        "https://github.com/daredoes/docker-snapcast",
+        "https://github.com/daredoes/docker-snapcast/blob/master/LICENSE",
+        "https://github.com/snapcast/snapcast",
+        "https://github.com/snapcast/snapcast/blob/develop/LICENSE",
+        "https://github.com/librespot-org/librespot"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The listed container runs Snapcast, whose official upstream repository declares GPL-3.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/119582-support-daredoes-snapcast/",
+          "https://hub.docker.com/r/daredoes/snapcast",
+          "https://icons.iconarchive.com/icons/alecive/flatwoken/512/Apps-Player-Audio-icon.png",
+          "https://raw.githubusercontent.com/daredoes/unraid-templates/main/daredoes/snapcast.xml"
+        ]
+      }
+    },
+    {
+      "slug": "data-volume-monitor-dvm-for-unraid",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-only",
+      "source_code_url": "https://github.com/desertwitch/DVM-unRAID",
+      "source_code_host": "github",
+      "docker_support": "none",
+      "docker_url": null,
+      "docker_image": null,
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/158472-plugin-data-volume-monitor-dvm/",
+        "https://raw.githubusercontent.com/desertwitch/DVM-unRAID/main/plugin/dwdvm.png",
+        "https://raw.githubusercontent.com/desertwitch/unraid-plugins/main/dwdvm.xml",
+        "https://github.com/desertwitch/DVM-unRAID",
+        "https://github.com/desertwitch/DVM-unRAID/blob/main/LICENSE",
+        "https://raw.githubusercontent.com/desertwitch/DVM-unRAID/main/plugin/dwdvm.plg"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "DVM is an Unraid plugin, not a Docker app. Its official repository declares GPL-2.0; removed malformed Docker links.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docker_support": "community",
+        "docker_url": "https://hub.docker.com/r/https://raw.githubusercontent.com/desertwitch/DVM-unRAID/main/plugin/dwdvm.plg",
+        "docker_image": "https://raw.githubusercontent.com/desertwitch/DVM-unRAID/main/plugin/dwdvm.plg",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/158472-plugin-data-volume-monitor-dvm/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/desertwitch/DVM-unRAID/main/plugin/dwdvm.plg",
+          "https://raw.githubusercontent.com/desertwitch/DVM-unRAID/main/plugin/dwdvm.png",
+          "https://raw.githubusercontent.com/desertwitch/unraid-plugins/main/dwdvm.xml"
+        ]
+      }
+    },
+    {
+      "slug": "dato",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-or-later",
+      "source_code_url": "https://framagit.org/squeak/dato",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/dato",
+        "https://github.com/yunohost-apps/dato_ynh",
+        "https://raw.githubusercontent.com/YunoHost/apps/master/logos/dato.png",
+        "https://squeak.eauchat.org/dato",
+        "https://squeak.eauchat.org/dato/",
+        "https://yunohost.org/en/apps",
+        "https://framagit.org/squeak/dato"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official YunoHost app catalog identifies Dato, its AGPL-3.0-or-later license, and the upstream Framagit source.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://apps.yunohost.org/app/dato",
+          "https://github.com/yunohost-apps/dato_ynh",
+          "https://raw.githubusercontent.com/YunoHost/apps/master/logos/dato.png",
+          "https://squeak.eauchat.org/dato",
+          "https://squeak.eauchat.org/dato/",
+          "https://yunohost.org/en/apps"
+        ]
+      }
+    },
+    {
+      "slug": "dd-agent",
+      "name": "Datadog Agent",
+      "summary": "Collects host metrics and events and sends them to Datadog.",
+      "source_model": "open_source",
+      "license": "Apache License 2.0 (Agent user space); GNU General Public License v2.0 (eBPF code)",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "source_code_url": "https://github.com/DataDog/datadog-agent",
+      "source_code_host": "github",
+      "self_hosting_status": "self_hostable",
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/allistera/datadog-unraid/main/datadog.png",
+        "https://raw.githubusercontent.com/allistera/datadog-unraid/main/templates/datadog-agent.xml",
+        "https://registry.datadoghq.com/agent",
+        "https://www.datadoghq.com/",
+        "https://github.com/DataDog/datadog-agent",
+        "https://github.com/DataDog/datadog-agent/blob/main/LICENSE",
+        "https://docs.datadoghq.com/getting_started/agent/",
+        "https://docs.datadoghq.com/agent/"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Corrected the app identity: Datadog Agent is open source, but it sends telemetry to Datadog and is not a standalone self-hosted monitoring service. User-space code is Apache-2.0 and eBPF code is GPL-2.0.",
+      "expected": {
+        "name": "dd-agent",
+        "summary": "Datadog is a monitoring service for cloud-scale applications, providing monitoring of servers, databases, tools, and services, through a SaaS-based data.",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "self_hosting_status": "self_hostable",
+        "data_source_urls": [
+          "https://raw.githubusercontent.com/allistera/datadog-unraid/main/datadog.png",
+          "https://raw.githubusercontent.com/allistera/datadog-unraid/main/templates/datadog-agent.xml",
+          "https://registry.datadoghq.com/agent",
+          "https://www.datadoghq.com/"
+        ],
+        "publisher_name": "dd-agent",
+        "publisher_type": "unknown",
+        "publisher_url": "https://www.datadoghq.com/",
+        "docs_url": "https://raw.githubusercontent.com/allistera/datadog-unraid/main/templates/datadog-agent.xml",
+        "install_docs_url": "https://raw.githubusercontent.com/allistera/datadog-unraid/main/templates/datadog-agent.xml"
+      },
+      "publisher_name": "Datadog, Inc.",
+      "publisher_type": "company",
+      "publisher_url": "https://www.datadoghq.com/",
+      "docs_url": "https://docs.datadoghq.com/agent/",
+      "install_docs_url": "https://docs.datadoghq.com/getting_started/agent/"
+    }
+  ],
+  "reviewed_apps": [
+    {
+      "slug": "chancery",
+      "result": "unresolved",
+      "review_note": "The listed site and vladzodchey/chancery image do not match the unrelated Chancery project found in search; publisher, exact product identity, license, and source remain unclear.",
+      "sources": [
+        "https://www.vladzodchey.ru/",
+        "https://hub.docker.com/r/vladzodchey/chancery"
+      ]
+    },
+    {
+      "slug": "chibisafe-caddy",
+      "result": "unresolved",
+      "review_note": "The exact Unraid template installs only caddy:2-alpine and requires separate Chibisafe backend and frontend containers. The row is a proxy sidecar, not the full Chibisafe app; its directory identity needs review.",
+      "sources": [
+        "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/chibisafe-caddy.xml",
+        "https://github.com/chibisafe/guides/blob/main/docs/installation/running-with-docker.md",
+        "https://github.com/chibisafe/chibisafe"
+      ]
+    },
+    {
+      "slug": "clipy",
+      "result": "unresolved",
+      "review_note": "The Unraid listing and Docker Hub identify a Flask clipboard container, but I found no publisher source repository or license for this exact build.",
+      "sources": [
+        "https://ca.unraid.net/fr/apps/clipy-1hlmtra0nut9bu",
+        "https://hub.docker.com/r/knex666/clipy"
+      ]
+    },
+    {
+      "slug": "config-editor",
+      "result": "unresolved",
+      "review_note": "The exact item is an Unraid plugin, and its maintainer says it is deprecated on current Unraid. The saved Docker fields are malformed; no accessible upstream license terms were found in the official plugin record.",
+      "sources": [
+        "https://forums.unraid.net/topic/56382-plugin-ca-config-editor/",
+        "https://raw.githubusercontent.com/Squidly271/plugin-repository/master/ca.cfg.editor.xml"
+      ]
+    },
+    {
+      "slug": "conjurr",
+      "result": "unresolved",
+      "review_note": "The current Unraid catalog image is jma1ice/conjurr, while saved links point to yungsnuzzy/conjurr and newsletterr. The source, image publisher, and license cannot be confidently joined.",
+      "sources": [
+        "https://ca.unraid.net/apps/conjurr-1141yi116hdh1x",
+        "https://hub.docker.com/r/jma1ice/conjurr",
+        "https://github.com/yungsnuzzy/conjurr",
+        "https://www.newsletterr.org/"
+      ]
+    },
+    {
+      "slug": "cups-for-canon",
+      "result": "unresolved",
+      "review_note": "The Unraid template and Docker Hub identify a community CUPS/Canon image, but no publisher source repository or terms for the exact build were found.",
+      "sources": [
+        "https://forums.unraid.net/topic/137276-support-cups-for-canon-printers/",
+        "https://hub.docker.com/r/nodedogconsulting/cups-canon"
+      ]
+    },
+    {
+      "slug": "createaboveandbeyond",
+      "result": "unchanged",
+      "review_note": "The official CurseForge page identifies the exact modpack and lists its license as All Rights Reserved; the server pack is self-hostable packaging.",
+      "sources": [
+        "https://www.curseforge.com/minecraft/modpacks/create-above-and-beyond",
+        "https://www.curseforge.com/minecraft/modpacks/create-above-and-beyond/license"
+      ]
+    },
+    {
+      "slug": "dawn-craft",
+      "result": "unchanged",
+      "review_note": "The official CurseForge page identifies DawnCraft - Echoes of Legends, publishes server packs, and lists All Rights Reserved.",
+      "sources": [
+        "https://www.curseforge.com/minecraft/modpacks/dawn-craft",
+        "https://www.curseforge.com/minecraft/modpacks/dawn-craft/license"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected categories must be refreshed against current records before applying.",
+  "scope": "Manual category and summary corrections where stored values do not match the app's documented purpose. Proposals only.",
+  "apps": [
+    {
+      "slug": "apt-cacher-ng",
+      "review_scope": "partial",
+      "categories": ["networking-dns", "system-admin-hosting"],
+      "summary": "Apt-Cacher NG caches Linux software package downloads through a network proxy, reducing repeat downloads across machines.",
+      "expected": {
+        "categories": ["networking-dns"],
+        "summary": "Apt-Cacher NG is a caching proxy, specialized for package files from Linux distributors, primarily for Debian (and Debian based) distributions but not."
+      },
+      "data_source_urls": ["https://packages.debian.org/bookworm/amd64/apt-cacher-ng", "https://manpages.debian.org/bookworm/apt-cacher-ng/apt-cacher-ng.8.en.html"]
+    },
+    {
+      "slug": "altus",
+      "review_scope": "partial",
+      "categories": [
+        "communication"
+      ],
+      "expected": {
+        "categories": [
+          "developer-tools",
+          "networking-dns"
+        ],
+        "summary": "Altus(https://github.com/amanharwara/altus) is an Electron-based WhatsApp client with themes and multiple account support."
+      },
+      "data_source_urls": [
+        "https://github.com/amanharwara/altus"
+      ],
+      "summary": "Altus is an Electron desktop client for WhatsApp Web with support for multiple accounts, themes, and notifications."
+    },
+    {
+      "slug": "audacity",
+      "review_scope": "partial",
+      "categories": [
+        "music-audio"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "music-audio",
+          "photos-galleries"
+        ],
+        "summary": "Audacity is an easy-to-use, multi-track audio editor and recorder, The graphical user interface (GUI) of the application can be accessed through a modern web."
+      },
+      "data_source_urls": [
+        "https://www.audacityteam.org/faq/",
+        "https://support.audacityteam.org/basics/audacity-editing"
+      ],
+      "summary": "Audacity records and edits audio, with tools for working across tracks and applying effects."
+    },
+    {
+      "slug": "babybuddy",
+      "review_scope": "partial",
+      "categories": [
+        "health-fitness"
+      ],
+      "expected": {
+        "categories": [
+          "developer-tools",
+          "email-newsletters"
+        ],
+        "summary": "Babybuddy(https://github.com/babybuddy/babybuddy) is a buddy for babies, Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn."
+      },
+      "data_source_urls": [
+        "https://github.com/babybuddy/babybuddy"
+      ],
+      "summary": "Baby Buddy helps caregivers track a baby's sleep, feedings, diaper changes, growth, and other care activities."
+    },
+    {
+      "slug": "calligra",
+      "review_scope": "partial",
+      "categories": [
+        "design-creative",
+        "documents-pdfs"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "databases",
+          "documents-pdfs"
+        ],
+        "summary": "Calligra(https://calligra.org/) is an office and graphic art suite by KDE, It is available for desktop PCs, tablet computers, and smartphones, It contains."
+      },
+      "data_source_urls": [
+        "https://calligra.org/",
+        "https://apps.kde.org/en-gb/calligra/"
+      ],
+      "summary": "Calligra brings document, spreadsheet, presentation, and vector graphics apps together in one suite."
+    },
+    {
+      "slug": "cardano-node",
+      "review_scope": "partial",
+      "categories": [
+        "system-admin-hosting"
+      ],
+      "expected": {
+        "categories": [
+          "games"
+        ],
+        "summary": "Https://docs.cardano.org/about-cardano/introduction/."
+      },
+      "data_source_urls": [
+        "https://developers.cardano.org/tools/cardano-node/",
+        "https://docs.cardano.org/about-cardano/learn/cardano-node"
+      ],
+      "summary": "Cardano Node connects to the Cardano network, validates the chain, and supports stake pool operations."
+    },
+    {
+      "slug": "charm",
+      "review_scope": "partial",
+      "categories": [
+        "developer-tools",
+        "system-admin-hosting"
+      ],
+      "expected": {
+        "categories": [
+          "ebooks-libraries",
+          "storage-backup"
+        ],
+        "summary": "The Charm Tool and Library."
+      },
+      "data_source_urls": [
+        "https://github.com/charmbracelet/charm"
+      ],
+      "summary": "Charm runs a self-hosted service for terminal applications, with encrypted key-value storage, user files, and accounts."
+    },
+    {
+      "slug": "clamdscan",
+      "review_scope": "partial",
+      "categories": [
+        "security-privacy"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "project-task-management",
+          "storage-backup"
+        ],
+        "summary": "ClamAV - clamdscan is a one-shot filesystem malware scanner for Unraid using ClamAV and clamdscan, When the container starts, it updates the ClamAV virus."
+      },
+      "data_source_urls": [
+        "https://github.com/Cisco-Talos/clamav-documentation/blob/main/src/Introduction.md",
+        "https://github.com/bmartino1/clamav-alpine"
+      ],
+      "summary": "ClamAV clamdscan is a command-line tool that scans files for malware signatures."
+    },
+    {
+      "slug": "cloudberrybackup",
+      "review_scope": "partial",
+      "categories": [
+        "storage-backup"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "photos-galleries",
+          "storage-backup"
+        ],
+        "summary": "Backup files and folders to cloud storage of your choice: Amazon S3, Azure Blob Storage, Google Cloud Storage, HP Cloud, Rackspace Cloud Files, OpenStack."
+      },
+      "data_source_urls": [
+        "https://www.msp360.com/cloudberry-products/",
+        "https://help.msp360.com/cloudberry-backup/"
+      ],
+      "summary": "CloudBerry Backup backs up files and folders to cloud storage services and supports restoring them."
+    },
+    {
+      "slug": "comfyui-intel-xpu",
+      "review_scope": "partial",
+      "categories": [
+        "ai-ml"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "developer-tools",
+          "system-admin-hosting"
+        ],
+        "summary": "ComfyUI container with native PyTorch XPU support for Intel Arc GPUs, Designed and tested with Intel Arc Pro Battlemage GPUs using the Linux xe driver and."
+      },
+      "data_source_urls": [
+        "https://github.com/Comfy-Org/ComfyUI",
+        "https://docs.comfy.org/"
+      ],
+      "summary": "ComfyUI Intel XPU packages ComfyUI with Intel GPU support for node-based generative AI workflows."
+    },
+    {
+      "slug": "gimp",
+      "review_scope": "partial",
+      "categories": [
+        "design-creative"
+      ],
+      "expected": {
+        "categories": [
+          "photos-galleries",
+          "project-task-management"
+        ],
+        "summary": "GIMP(https://www.gimp.org/) is a free and raster graphics editor used for image manipulation (retouching) and image editing, free-form drawing, transcoding."
+      },
+      "data_source_urls": [
+        "https://www.gimp.org/about/"
+      ],
+      "summary": "GIMP is an image editor for photo retouching, image composition, and original artwork."
+    },
+    {
+      "slug": "gupax",
+      "review_scope": "partial",
+      "categories": [
+        "system-admin-hosting"
+      ],
+      "expected": {
+        "categories": [
+          "games",
+          "remote-access"
+        ],
+        "summary": "Browser-based Monero mining - P2Pool + XMRig GUI with optional Tor."
+      },
+      "data_source_urls": [
+        "https://github.com/gupax-io/gupax",
+        "https://github.com/monero-project/monero-docs/blob/master/docs/en/interacting/mining/guides/p2pool/xmrig-p2pool.md"
+      ],
+      "summary": "Gupax is a Monero mining app that combines P2Pool and XMRig, with options to connect to a local or remote node."
+    }
+  ]
+}

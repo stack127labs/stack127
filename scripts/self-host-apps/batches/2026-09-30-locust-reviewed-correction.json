@@ -1,0 +1,193 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are offline comparison values and must be refreshed before any apply.",
+  "scope": "Correct Locust source model, license, links, summary, Docker and Compose support, install options, and small-load-test resource estimates. Proposal only.",
+  "apps": [
+    {
+      "slug": "locust",
+      "review_scope": "partial",
+      "expected": {
+        "summary": "Web server stress test locustfile.py is required in /mnt/locust/ See here for examples: https://docs.locust.io/en/stable/writing-a-locustfile.html.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "website_url": "https://docs.locust.io/en/stable/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/locustio/locust",
+        "install_docs_url": "https://github.com/locustio/locust",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_model": "closed_source",
+        "docker_support": "community",
+        "compose_support": false,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "categories": [
+          "system-admin-hosting"
+        ]
+      },
+      "summary": "Python-based load testing tool for websites and other services, with results shown in a web interface.",
+      "summary_source": "stack127_enriched",
+      "summary_confidence": "high",
+      "website_url": "https://locust.io/",
+      "source_code_url": "https://github.com/locustio/locust",
+      "source_code_host": "github",
+      "docs_url": "https://docs.locust.io/en/stable/",
+      "install_docs_url": "https://docs.locust.io/en/stable/installation.html",
+      "license": "MIT",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_model": "open_source",
+      "docker_support": "official",
+      "compose_support": true,
+      "compose_url": "https://docs.locust.io/en/stable/running-in-docker.html",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "unraid"
+      ],
+      "categories": [
+        "developer-tools"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/locustio/locust",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "locustio/locust",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/locustio/locust",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SCUR0/Unraid_Docker_Locust/main/locust.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/SCUR0/Unraid_Docker_Locust/main/locust.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "url": "https://hub.docker.com/r/locustio/locust",
+          "note": null,
+          "image": "locustio/locust",
+          "label": "Official Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://docs.locust.io/en/stable/running-in-docker.html",
+          "support_level": "official"
+        },
+        {
+          "url": "https://docs.locust.io/en/stable/running-in-docker.html",
+          "note": "The official guide includes a Compose example with a master and workers.",
+          "image": "locustio/locust",
+          "label": "Docker Compose",
+          "method": "compose",
+          "sort_order": 20,
+          "source_url": "https://docs.locust.io/en/stable/running-in-docker.html",
+          "support_level": "official"
+        }
+      ],
+      "data_source_urls": [
+        "https://locust.io/",
+        "https://docs.locust.io/en/stable/what-is-locust.html",
+        "https://docs.locust.io/en/stable/installation.html",
+        "https://docs.locust.io/en/stable/running-in-docker.html",
+        "https://docs.locust.io/en/stable/running-distributed.html",
+        "https://github.com/locustio/locust",
+        "https://github.com/locustio/locust/blob/master/LICENSE"
+      ]
+    }
+  ],
+  "estimates": [
+    {
+      "slug": "locust",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small single-node load test; simulated users and worker count drive memory, and distributed workers need added capacity.",
+      "source_urls": [
+        "https://docs.locust.io/en/stable/running-in-docker.html",
+        "https://docs.locust.io/en/stable/running-distributed.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:38.005+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/locustio/locust"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/locustio/locust"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "locust",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Locust image, test scripts, and short result exports; excludes test target data and long-term report retention.",
+      "source_urls": [
+        "https://docs.locust.io/en/stable/running-in-docker.html",
+        "https://docs.locust.io/en/stable/what-is-locust.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:38.005+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/locustio/locust"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/locustio/locust"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    }
+  ]
+}

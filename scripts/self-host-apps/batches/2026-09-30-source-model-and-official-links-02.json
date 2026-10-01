@@ -1,0 +1,139 @@
+{
+  "reviewed_at": "2026-09-30",
+  "project_id": "tulgfrqamtcshdtmhvpx",
+  "database_access": "read_only_before_guarded_migration",
+  "scope": "Correct source models, licenses, and official documentation links from upstream sources.",
+  "apps": [
+    {
+      "slug": "homechart",
+      "expected": {
+        "website_url": "https://homechart.app/",
+        "source_code_url": null,
+        "docs_url": "https://github.com/candiddev/homechart",
+        "install_docs_url": "https://github.com/candiddev/homechart",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "update": {
+        "docs_url": "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+        "install_docs_url": "https://homechart.app/docs/guides/get-homechart/self-hosted/"
+      },
+      "source_urls": [
+        "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+        "https://candid.dev/open-source",
+        "https://github.com/candiddev/homechart"
+      ]
+    },
+    {
+      "slug": "syncplay",
+      "expected": {
+        "website_url": "https://syncplay.pl/",
+        "source_code_url": null,
+        "docs_url": "https://github.com/dnomd343/syncplay-docker/issues",
+        "install_docs_url": "https://github.com/dnomd343/syncplay-docker/issues",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "update": {
+        "source_code_url": "https://github.com/Syncplay/syncplay",
+        "docs_url": "https://syncplay.pl/guide/",
+        "install_docs_url": "https://syncplay.pl/guide/server/",
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0"
+      },
+      "source_urls": [
+        "https://github.com/Syncplay/syncplay",
+        "https://github.com/Syncplay/syncplay/blob/master/LICENSE",
+        "https://syncplay.pl/guide/server/"
+      ]
+    },
+    {
+      "slug": "unifi-cam-proxy",
+      "expected": {
+        "website_url": "https://unifi-cam-proxy.com/",
+        "source_code_url": null,
+        "docs_url": "https://github.com/keshavdv/unifi-cam-proxy/issues",
+        "install_docs_url": "https://github.com/keshavdv/unifi-cam-proxy/issues",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "update": {
+        "source_code_url": "https://github.com/keshavdv/unifi-cam-proxy",
+        "docs_url": "https://unifi-cam-proxy.com/",
+        "install_docs_url": "https://unifi-cam-proxy.com/",
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "source_urls": [
+        "https://github.com/keshavdv/unifi-cam-proxy",
+        "https://unifi-cam-proxy.com/"
+      ]
+    },
+    {
+      "slug": "octofarm",
+      "expected": {
+        "website_url": "https://octofarm.net/",
+        "source_code_url": null,
+        "docs_url": "https://github.com/NotExpectedYet/OctoFarm/issues",
+        "install_docs_url": "https://github.com/NotExpectedYet/OctoFarm/issues",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "update": {
+        "source_code_url": "https://github.com/OctoFarm/OctoFarm",
+        "docs_url": "https://docs.octofarm.net/",
+        "install_docs_url": "https://docs.octofarm.net/",
+        "source_model": "open_source",
+        "license": "GNU Affero General Public License v3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0"
+      },
+      "source_urls": [
+        "https://github.com/OctoFarm/OctoFarm",
+        "https://docs.octofarm.net/",
+        "https://octofarm.net/"
+      ]
+    },
+    {
+      "slug": "vocechat-server",
+      "expected": {
+        "website_url": "https://voce.chat/",
+        "source_code_url": null,
+        "docs_url": "https://github.com/Privoce/vocechat-server-rust/issues",
+        "install_docs_url": "https://github.com/Privoce/vocechat-server-rust/issues",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_host": "unknown"
+      },
+      "update": {
+        "source_code_url": "https://github.com/Privoce/vocechat-server-rust",
+        "docs_url": "https://doc.voce.chat/",
+        "install_docs_url": "https://doc.voce.chat/install/docker",
+        "source_model": "source_available",
+        "license": "Big Time Public License",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "source_code_host": "github"
+      },
+      "source_urls": [
+        "https://github.com/Privoce/vocechat-server-rust",
+        "https://doc.voce.chat/",
+        "https://doc.voce.chat/install/docker"
+      ]
+    }
+  ]
+}

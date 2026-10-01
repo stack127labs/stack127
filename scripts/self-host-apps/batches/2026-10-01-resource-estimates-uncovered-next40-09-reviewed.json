@@ -1,0 +1,3299 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Offline proposal of paired app-specific RAM and storage estimates for the exact next 40-app roster. Each range is for a small self-hosted deployment and is based on the app workload or retained data. Expected guards copy each exact saved resource-estimate sidecar; this proposal makes no database or production changes.",
+  "estimates": [
+    {
+      "slug": "bitwarden-secure-sync",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A scheduled export for one Bitwarden vault uses little memory; seven retained export sets drive storage.",
+      "source_urls": [
+        "https://github.com/aronmarinelli/bitwarden-secure-sync"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "ae50b66a-126c-4145-b6f0-c20cb72e33d6",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/156283-support-bitwarden-secure-sync"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/156283-support-bitwarden-secure-sync"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitwarden-secure-sync",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A scheduled export for one Bitwarden vault uses little memory; seven retained export sets drive storage.",
+      "source_urls": [
+        "https://github.com/aronmarinelli/bitwarden-secure-sync"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "ae50b66a-126c-4145-b6f0-c20cb72e33d6",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/156283-support-bitwarden-secure-sync"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/156283-support-bitwarden-secure-sync"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blackcoin-quantum-quasar",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "The listed image is described as a headless coin node; allow memory and disk for node operation and its local chain. Fork identity and chain size remain unverified.",
+      "source_urls": [
+        "https://hub.docker.com/r/qqblackcoin/blackcoin-v4-gui",
+        "https://blackcoin.org/",
+        "https://github.com/coinblack"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "f446bea0-cb42-49d9-8659-3bcc631cc9ac",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:04.248+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:05.113815+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blackcoin-quantum-quasar",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "The listed image is described as a headless coin node; allow memory and disk for node operation and its local chain. Fork identity and chain size remain unverified.",
+      "source_urls": [
+        "https://hub.docker.com/r/qqblackcoin/blackcoin-v4-gui",
+        "https://blackcoin.org/",
+        "https://github.com/coinblack"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "f446bea0-cb42-49d9-8659-3bcc631cc9ac",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:04.248+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:05.113815+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blackmatrix",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One router matrix service with a few ATEM and Videohub devices stores configuration and small event logs.",
+      "source_urls": [
+        "https://github.com/stoatworks-labs/blackmatrix"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "948df1fa-3521-4ca1-9ae7-d8cc12f1d38d",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/stoatworks-labs/blackmatrix/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/stoatworks-labs/blackmatrix/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blackmatrix",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One router matrix service with a few ATEM and Videohub devices stores configuration and small event logs.",
+      "source_urls": [
+        "https://github.com/stoatworks-labs/blackmatrix"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "948df1fa-3521-4ca1-9ae7-d8cc12f1d38d",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/stoatworks-labs/blackmatrix/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/stoatworks-labs/blackmatrix/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blade-of-agony",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A single hosted game session needs a desktop/game runtime and its game assets; saved games and configuration stay small.",
+      "source_urls": [
+        "https://github.com/linuxserver/docker-blade-of-agony",
+        "https://boa.realm667.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "281800db-53f1-45a9-9700-59ae0a88c30c",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-blade-of-agony#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-blade-of-agony#readme"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blade-of-agony",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A single hosted game session needs a desktop/game runtime and its game assets; saved games and configuration stay small.",
+      "source_urls": [
+        "https://github.com/linuxserver/docker-blade-of-agony",
+        "https://boa.realm667.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "281800db-53f1-45a9-9700-59ae0a88c30c",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-blade-of-agony#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-blade-of-agony#readme"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bladevault",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One personal knife collection stores a small SQLite database and user-added photos.",
+      "source_urls": [
+        "https://www.bladevault.pro/",
+        "https://github.com/dedkola/bladevault"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "c47558df-ae6a-46b7-b4b8-91aa22fbcee4",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:45.591+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:46.476883+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/dedkola/bladevault/blob/main/README.md"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/dedkola/bladevault/blob/main/README.md"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bladevault",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One personal knife collection stores a small SQLite database and user-added photos.",
+      "source_urls": [
+        "https://www.bladevault.pro/",
+        "https://github.com/dedkola/bladevault"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "c47558df-ae6a-46b7-b4b8-91aa22fbcee4",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:45.591+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:46.476883+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/dedkola/bladevault/blob/main/README.md"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/dedkola/bladevault/blob/main/README.md"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blend-calc",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 64,
+      "estimate_max": 256,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A static browser-based projector calculator has no server-side data workload beyond its small web assets.",
+      "source_urls": [
+        "https://github.com/stoatworks-labs/blend-calc"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "24f6bf15-e2a6-4e48-98a2-e94f02deb6f7",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/stoatworks-labs/blend-calc/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/stoatworks-labs/blend-calc/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blend-calc",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 1,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A static browser-based projector calculator has no server-side data workload beyond its small web assets.",
+      "source_urls": [
+        "https://github.com/stoatworks-labs/blend-calc"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "24f6bf15-e2a6-4e48-98a2-e94f02deb6f7",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/stoatworks-labs/blend-calc/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/stoatworks-labs/blend-calc/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bliss",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One music library scan uses memory for indexing; artwork, indexes, and configuration need space, while the source music library is mounted separately.",
+      "source_urls": [
+        "https://www.blisshq.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "bc18d171-5227-48ed-b258-1eb8f68267f0",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/141872-support-findthelorax-docker-templates"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/141872-support-findthelorax-docker-templates"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bliss",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One music library scan uses memory for indexing; artwork, indexes, and configuration need space, while the source music library is mounted separately.",
+      "source_urls": [
+        "https://www.blisshq.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "bc18d171-5227-48ed-b258-1eb8f68267f0",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/141872-support-findthelorax-docker-templates"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/141872-support-findthelorax-docker-templates"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bloat",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 64,
+      "estimate_max": 256,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Fediverse web client serves its frontend and stores little local state.",
+      "source_urls": [
+        "https://git.freesoftwareextremist.com/bloat/",
+        "https://docs.pleroma.social/backend/clients/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "6d6d74c3-addd-478a-963f-f2b9e08b83ea",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://git.freesoftwareextremist.com/bloat/tree/README"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "bloat",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 1,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Fediverse web client serves its frontend and stores little local state.",
+      "source_urls": [
+        "https://git.freesoftwareextremist.com/bloat/",
+        "https://docs.pleroma.social/backend/clients/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "6d6d74c3-addd-478a-963f-f2b9e08b83ea",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://git.freesoftwareextremist.com/bloat/tree/README"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "blocklist-mirror",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A single HTTP bouncer caches CrowdSec decisions and keeps short operational logs.",
+      "source_urls": [
+        "https://docs.crowdsec.net/u/bouncers/blocklist-mirror/",
+        "https://github.com/crowdsecurity/cs-blocklist-mirror"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "3abc324d-13ff-465d-97f6-67ad514525da",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:15.901+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:16.780174+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blocklist-mirror",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 1,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A single HTTP bouncer caches CrowdSec decisions and keeps short operational logs.",
+      "source_urls": [
+        "https://docs.crowdsec.net/u/bouncers/blocklist-mirror/",
+        "https://github.com/crowdsecurity/cs-blocklist-mirror"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "3abc324d-13ff-465d-97f6-67ad514525da",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:15.901+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:16.780174+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blockstream-blind-oracle",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Jade PIN oracle handles a small request load and stores server keys and PIN records.",
+      "source_urls": [
+        "https://github.com/Blockstream/blind_pin_server"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "838edcc3-8eef-4473-905a-7d06d776c70e",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:16:40.829915+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://t.me/blockstream_jade"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://t.me/blockstream_jade"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blockstream-blind-oracle",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Jade PIN oracle handles a small request load and stores server keys and PIN records.",
+      "source_urls": [
+        "https://github.com/Blockstream/blind_pin_server"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "838edcc3-8eef-4473-905a-7d06d776c70e",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:16:40.829915+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://t.me/blockstream_jade"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://t.me/blockstream_jade"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blue-iris",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small camera setup needs memory for live streams and recording; retained video dominates storage.",
+      "source_urls": [
+        "https://blueirissoftware.com/",
+        "https://blueirissoftware.com/BlueIris.PDF"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "072c30d7-21b1-46e8-9456-9f3c5f7e9042",
+        "ram_note": null,
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [],
+        "ram_estimate_kind": null,
+        "ram_estimate_basis": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_min_mb": null,
+        "storage_source_urls": [
+          "https://blueirissoftware.com/BlueIris.PDF"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": null,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blue-iris",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 500,
+      "estimate_max": 2000,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small camera setup needs memory for live streams and recording; retained video dominates storage.",
+      "source_urls": [
+        "https://blueirissoftware.com/",
+        "https://blueirissoftware.com/BlueIris.PDF"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "072c30d7-21b1-46e8-9456-9f3c5f7e9042",
+        "ram_note": null,
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [],
+        "ram_estimate_kind": null,
+        "ram_estimate_basis": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_min_mb": null,
+        "storage_source_urls": [
+          "https://blueirissoftware.com/BlueIris.PDF"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": null,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blynk-server",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "The legacy Java server lists a 30 MB RAM minimum; this estimate adds room for the Java runtime and a small device set.",
+      "source_urls": [
+        "https://community.blynk.cc/",
+        "https://github.com/Peterkn2001/blynk-server"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "0c97b747-6fa5-4a4b-b7db-71d93691a819",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:52.435+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:53.259667+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://community.blynk.cc/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://community.blynk.cc/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "blynk-server",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One legacy Blynk server with a small set of devices stores configuration and retained sensor history.",
+      "source_urls": [
+        "https://community.blynk.cc/",
+        "https://github.com/Peterkn2001/blynk-server"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "0c97b747-6fa5-4a4b-b7db-71d93691a819",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:52.435+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:53.259667+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://community.blynk.cc/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://community.blynk.cc/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bolt12-pay",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Lightning payment and identity service needs modest app state alongside its connected Lightning node.",
+      "source_urls": [
+        "https://github.com/Alex71btc/lndk-pay"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "75fe17f5-fb8b-47cd-b494-5b9d590925e8",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:16:40.829915+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/Alex71btc/lndk-pay/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/Alex71btc/lndk-pay/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bolt12-pay",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Lightning payment and identity service needs modest app state alongside its connected Lightning node.",
+      "source_urls": [
+        "https://github.com/Alex71btc/lndk-pay"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "75fe17f5-fb8b-47cd-b494-5b9d590925e8",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:16:40.829915+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/Alex71btc/lndk-pay/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/Alex71btc/lndk-pay/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "boltarr",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small network dashboard keeps scan results, topology data, and service state for a home subnet.",
+      "source_urls": [
+        "https://github.com/brq-ae/boltarr"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "e309d274-59ad-46c0-b255-947d36e3961f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:49.443+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:50.46476+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/198727-support-boltarr-self-hosted-network-dashboard/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/198727-support-boltarr-self-hosted-network-dashboard/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "boltarr",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small network dashboard keeps scan results, topology data, and service state for a home subnet.",
+      "source_urls": [
+        "https://github.com/brq-ae/boltarr"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "e309d274-59ad-46c0-b255-947d36e3961f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:49.443+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:50.46476+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/198727-support-boltarr-self-hosted-network-dashboard/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/198727-support-boltarr-self-hosted-network-dashboard/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bombvault",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small homelab backup schedule uses modest app memory; retained container, VM, and folder backups dominate storage.",
+      "source_urls": [
+        "https://github.com/junkerderprovinz/bombvault"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "8f4411a1-b69d-4f7e-bc7c-8e493f67d4fd",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/junkerderprovinz/bombvault/blob/main/README.md"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/junkerderprovinz/bombvault/blob/main/README.md"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bombvault",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 50,
+      "estimate_max": 500,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small homelab backup schedule uses modest app memory; retained container, VM, and folder backups dominate storage.",
+      "source_urls": [
+        "https://github.com/junkerderprovinz/bombvault"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "8f4411a1-b69d-4f7e-bc7c-8e493f67d4fd",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/junkerderprovinz/bombvault/blob/main/README.md"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/junkerderprovinz/bombvault/blob/main/README.md"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bookbounty",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Readarr helper stores configuration, search results, and logs rather than the book files it locates.",
+      "source_urls": [
+        "https://github.com/TheWicklowWolf/BookBounty"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "a10de427-8fef-4a1f-8c76-0be80fddb4a3",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:15.901+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:16.780174+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/TheWicklowWolf/BookBounty#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "bookbounty",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Readarr helper stores configuration, search results, and logs rather than the book files it locates.",
+      "source_urls": [
+        "https://github.com/TheWicklowWolf/BookBounty"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "a10de427-8fef-4a1f-8c76-0be80fddb4a3",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:15.901+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:16.780174+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/TheWicklowWolf/BookBounty#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "booktracker",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One personal reading tracker stores book records, reading history, and a small number of covers.",
+      "source_urls": [
+        "https://hub.docker.com/r/wars2k/booktracker"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "c9a488f0-8eb5-4554-983f-fe0d328ba214",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-02T13:53:59.094078+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://hub.docker.com/r/wars2k/booktracker"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://hub.docker.com/r/wars2k/booktracker"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "booktracker",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One personal reading tracker stores book records, reading history, and a small number of covers.",
+      "source_urls": [
+        "https://hub.docker.com/r/wars2k/booktracker"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "c9a488f0-8eb5-4554-983f-fe0d328ba214",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-02T13:53:59.094078+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://hub.docker.com/r/wars2k/booktracker"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://hub.docker.com/r/wars2k/booktracker"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bor",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small endpoint-policy deployment stores configuration, device inventory, and policy history.",
+      "source_urls": [
+        "https://github.com/VuteTech/bor"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "eee23821-48af-4efa-87bd-433cb306f1a5",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T09:31:18.86036+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/VuteTech/bor#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/VuteTech/bor#readme"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bor",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small endpoint-policy deployment stores configuration, device inventory, and policy history.",
+      "source_urls": [
+        "https://github.com/VuteTech/bor"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "eee23821-48af-4efa-87bd-433cb306f1a5",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T09:31:18.86036+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/VuteTech/bor#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/VuteTech/bor#readme"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "borg-mysql-backup",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small MySQL backup job creates dumps and retained Borg archives; the source database and retention policy drive storage.",
+      "source_urls": [
+        "https://github.com/haridusministeerium/docker-borg-mysql-backup"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "a429830f-76fb-4ff0-8818-d21238e89fbf",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/99047-support-borg-mysql-backup/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/99047-support-borg-mysql-backup/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "borg-mysql-backup",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small MySQL backup job creates dumps and retained Borg archives; the source database and retention policy drive storage.",
+      "source_urls": [
+        "https://github.com/haridusministeerium/docker-borg-mysql-backup"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "a429830f-76fb-4ff0-8818-d21238e89fbf",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/99047-support-borg-mysql-backup/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/99047-support-borg-mysql-backup/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "borg-web-ui",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Borg UI manages scheduled backup and restore jobs; the repository archives, not the UI itself, drive disk use.",
+      "source_urls": [
+        "https://github.com/karanhudia/borg-ui",
+        "https://docs.borgui.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "20911d6d-8692-4ff4-97d5-b2108a2141a3",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:11.851+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:12.764533+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://karanhudia.github.io/borg-ui/configuration"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://karanhudia.github.io/borg-ui/configuration"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "borg-web-ui",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 500,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Borg UI manages scheduled backup and restore jobs; the repository archives, not the UI itself, drive disk use.",
+      "source_urls": [
+        "https://github.com/karanhudia/borg-ui",
+        "https://docs.borgui.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "20911d6d-8692-4ff4-97d5-b2108a2141a3",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:11.851+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:12.764533+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://karanhudia.github.io/borg-ui/configuration"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://karanhudia.github.io/borg-ui/configuration"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "borgmatic",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Borgmatic backup job uses little application memory; the chosen backup repositories and retention policy dominate storage.",
+      "source_urls": [
+        "https://torsion.org/borgmatic/",
+        "https://github.com/borgmatic-collective/borgmatic"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "fd8296a5-a133-4466-b6de-47316e227321",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/99218-support-borgmatic/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/99218-support-borgmatic/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "borgmatic",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 500,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Borgmatic backup job uses little application memory; the chosen backup repositories and retention policy dominate storage.",
+      "source_urls": [
+        "https://torsion.org/borgmatic/",
+        "https://github.com/borgmatic-collective/borgmatic"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "fd8296a5-a133-4466-b6de-47316e227321",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/99218-support-borgmatic/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/99218-support-borgmatic/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "botdarr",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One chat bot connected to a few media managers stores configuration and short logs.",
+      "source_urls": [
+        "https://github.com/shayaantx/botdarr"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "0a94b2b5-3853-4861-9557-ab37abb2ba00",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://raw.githubusercontent.com/qubex22/unraid-templates/main/botdarr/botdarr.xml"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://raw.githubusercontent.com/qubex22/unraid-templates/main/botdarr/botdarr.xml"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "botdarr",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One chat bot connected to a few media managers stores configuration and short logs.",
+      "source_urls": [
+        "https://github.com/shayaantx/botdarr"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "0a94b2b5-3853-4861-9557-ab37abb2ba00",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://raw.githubusercontent.com/qubex22/unraid-templates/main/botdarr/botdarr.xml"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://raw.githubusercontent.com/qubex22/unraid-templates/main/botdarr/botdarr.xml"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "botmem",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small personal-memory RAG stack runs its API and data services; indexed conversations and embeddings drive memory and storage needs.",
+      "source_urls": [
+        "https://github.com/botmem/botmem"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "468ac318-80bd-4cbf-8b66-36f7cfde346c",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/198623-support-botmem-personal-memory-rag-system/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/198623-support-botmem-personal-memory-rag-system/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "botmem",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small personal-memory RAG stack runs its API and data services; indexed conversations and embeddings drive memory and storage needs.",
+      "source_urls": [
+        "https://github.com/botmem/botmem"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "468ac318-80bd-4cbf-8b66-36f7cfde346c",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/198623-support-botmem-personal-memory-rag-system/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/198623-support-botmem-personal-memory-rag-system/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bots",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small monitoring dashboard stores checks and a limited history of price, website, and TCP status changes.",
+      "source_urls": [
+        "https://github.com/DotumZane/Bots"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "f8333f44-ed21-49a4-bb65-0b2c8e74b6fa",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/DotumZane/Bots/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/DotumZane/Bots/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bots",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small monitoring dashboard stores checks and a limited history of price, website, and TCP status changes.",
+      "source_urls": [
+        "https://github.com/DotumZane/Bots"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "f8333f44-ed21-49a4-bb65-0b2c8e74b6fa",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/DotumZane/Bots/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/DotumZane/Bots/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "botwave",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small central BotWave server manages a few Raspberry Pi broadcasters; uploaded audio and queues drive storage.",
+      "source_urls": [
+        "https://github.com/dpipstudio/botwave",
+        "https://github.com/dpipstudio/botwave/wiki/Setup"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "5376a2be-e78a-43fc-80a1-f9bae5ee732c",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/dpipstudio/botwave#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "botwave",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small central BotWave server manages a few Raspberry Pi broadcasters; uploaded audio and queues drive storage.",
+      "source_urls": [
+        "https://github.com/dpipstudio/botwave",
+        "https://github.com/dpipstudio/botwave/wiki/Setup"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "5376a2be-e78a-43fc-80a1-f9bae5ee732c",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/dpipstudio/botwave#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "bragibooks",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One worker processes audiobook files; temporary inputs and converted M4B outputs drive peak memory and storage.",
+      "source_urls": [
+        "https://github.com/djdembeck/bragibooks",
+        "https://github.com/djdembeck/m4b-merge"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "72abd17f-f460-4036-8925-1ed370bf7e31",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/djdembeck/bragibooks/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/djdembeck/bragibooks/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bragibooks",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One worker processes audiobook files; temporary inputs and converted M4B outputs drive peak memory and storage.",
+      "source_urls": [
+        "https://github.com/djdembeck/bragibooks",
+        "https://github.com/djdembeck/m4b-merge"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "72abd17f-f460-4036-8925-1ed370bf7e31",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/djdembeck/bragibooks/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/djdembeck/bragibooks/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "braincut-blur",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small video-blurring service loads image-processing models and temporarily handles source and rendered video files.",
+      "source_urls": [
+        "https://github.com/CrazyDevil66/braincut-blur"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "9ad65d87-90c8-488d-b907-da575534f7ef",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:49.443+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:50.46476+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/CrazyDevil66/braincut-blur/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/CrazyDevil66/braincut-blur/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "braincut-blur",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small video-blurring service loads image-processing models and temporarily handles source and rendered video files.",
+      "source_urls": [
+        "https://github.com/CrazyDevil66/braincut-blur"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "9ad65d87-90c8-488d-b907-da575534f7ef",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:49.443+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:50.46476+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/CrazyDevil66/braincut-blur/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/CrazyDevil66/braincut-blur/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "brainrotguard",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A family YouTube approval service stores request history, metadata, and cached thumbnails for a small household.",
+      "source_urls": [
+        "https://github.com/GHJJ123/brainrotguard"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "249eea97-1385-4062-84b4-e5792872ac03",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/GHJJ123/brainrotguard/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/GHJJ123/brainrotguard/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "brainrotguard",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A family YouTube approval service stores request history, metadata, and cached thumbnails for a small household.",
+      "source_urls": [
+        "https://github.com/GHJJ123/brainrotguard"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "249eea97-1385-4062-84b4-e5792872ac03",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/GHJJ123/brainrotguard/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/GHJJ123/brainrotguard/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "brave",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One or two remote Brave browser sessions need memory for active tabs; browser profiles, cache, and downloads drive storage.",
+      "source_urls": [
+        "https://github.com/linuxserver/docker-brave",
+        "https://github.com/brave/brave-browser",
+        "https://brave.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "284e61c1-9086-4e0f-9ff5-fee27a648dda",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:15.901+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:16.780174+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-brave#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-brave#readme"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "brave",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One or two remote Brave browser sessions need memory for active tabs; browser profiles, cache, and downloads drive storage.",
+      "source_urls": [
+        "https://github.com/linuxserver/docker-brave",
+        "https://github.com/brave/brave-browser",
+        "https://brave.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "284e61c1-9086-4e0f-9ff5-fee27a648dda",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:15.901+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:16.780174+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/linuxserver/docker-brave#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/linuxserver/docker-brave#readme"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "breitbandmessung-de",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A scheduled connection-speed test client stores configuration, logs, and measurement history.",
+      "source_urls": [
+        "https://github.com/Shnezzin/breitbandmessung-node"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "011b5c57-3cd1-42a5-ab4f-02391763384e",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/shneezin/breitbandmessung-node"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/shneezin/breitbandmessung-node"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "breitbandmessung-de",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A scheduled connection-speed test client stores configuration, logs, and measurement history.",
+      "source_urls": [
+        "https://github.com/Shnezzin/breitbandmessung-node"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "011b5c57-3cd1-42a5-ab4f-02391763384e",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/shneezin/breitbandmessung-node"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/shneezin/breitbandmessung-node"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bricksync",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small LEGO inventory synchronization job stores local inventory and order state between the connected marketplaces.",
+      "source_urls": [
+        "https://github.com/zzjhons/bricksync"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "29d7caa2-01cd-42f7-ab44-703eeedb2ac4",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:06.155+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:07.081981+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://raw.githubusercontent.com/brandonb1987/BrickSync_Unraid_Docker/main/templates/bricksync.xml"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://raw.githubusercontent.com/brandonb1987/BrickSync_Unraid_Docker/main/templates/bricksync.xml"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bricksync",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small LEGO inventory synchronization job stores local inventory and order state between the connected marketplaces.",
+      "source_urls": [
+        "https://github.com/zzjhons/bricksync"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "29d7caa2-01cd-42f7-ab44-703eeedb2ac4",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:06.155+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:07.081981+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://raw.githubusercontent.com/brandonb1987/BrickSync_Unraid_Docker/main/templates/bricksync.xml"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://raw.githubusercontent.com/brandonb1987/BrickSync_Unraid_Docker/main/templates/bricksync.xml"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "briefkasten",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One bookmarking app with PostgreSQL stores bookmark metadata, tags, and a limited reading archive.",
+      "source_urls": [
+        "https://github.com/ndom91/briefkasten",
+        "https://docs.briefkastenhq.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "62df3656-7b63-4921-83e2-5a83a38a5b5a",
+        "ram_note": null,
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [],
+        "ram_estimate_kind": null,
+        "ram_estimate_basis": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_min_mb": null,
+        "storage_source_urls": [
+          "https://github.com/ndom91/briefkasten"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": null,
+        "storage_estimate_max_gb": 100,
+        "storage_estimate_min_gb": 10,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "briefkasten",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One bookmarking app with PostgreSQL stores bookmark metadata, tags, and a limited reading archive.",
+      "source_urls": [
+        "https://github.com/ndom91/briefkasten",
+        "https://docs.briefkastenhq.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "62df3656-7b63-4921-83e2-5a83a38a5b5a",
+        "ram_note": null,
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [],
+        "ram_estimate_kind": null,
+        "ram_estimate_basis": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_min_mb": null,
+        "storage_source_urls": [
+          "https://github.com/ndom91/briefkasten"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": null,
+        "storage_estimate_max_gb": 100,
+        "storage_estimate_min_gb": 10,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "brigata-studio2go",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One private agent and Studio instance stores its database and workspace files; model-serving needs depend on the configured agent backend.",
+      "source_urls": [
+        "https://github.com/0xC/brigata-studio2go",
+        "https://brigata.ai/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "6aaa7ce2-718b-4fe2-bf90-1e22fe3db480",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/0xC/brigata-studio2go-unraid/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/0xC/brigata-studio2go-unraid/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "brigata-studio2go",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One private agent and Studio instance stores its database and workspace files; model-serving needs depend on the configured agent backend.",
+      "source_urls": [
+        "https://github.com/0xC/brigata-studio2go",
+        "https://brigata.ai/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "6aaa7ce2-718b-4fe2-bf90-1e22fe3db480",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/0xC/brigata-studio2go-unraid/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/0xC/brigata-studio2go-unraid/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "broadcastchannel",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small Telegram-to-web feed stores channel post metadata and a limited amount of cached content.",
+      "source_urls": [
+        "https://github.com/miantiao-me/BroadcastChannel",
+        "https://memo.miantiao.me/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "0cb61eb4-9d67-4ce0-ba9d-2a44ebf5f82a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/miantiao-me/BroadcastChannel#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "broadcastchannel",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small Telegram-to-web feed stores channel post metadata and a limited amount of cached content.",
+      "source_urls": [
+        "https://github.com/miantiao-me/BroadcastChannel",
+        "https://memo.miantiao.me/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "0cb61eb4-9d67-4ce0-ba9d-2a44ebf5f82a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:55.019578+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/miantiao-me/BroadcastChannel#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "broadcaster",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One generated TV channel needs memory for stream packaging; temporary HLS segments drive extra disk use, while source media is mounted separately.",
+      "source_urls": [
+        "https://github.com/theodorecharles/Broadcaster"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "23a54561-4f2c-45dd-8de3-66847472e8bf",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/theodorecharles/Broadcaster/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/theodorecharles/Broadcaster/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "broadcaster",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One generated TV channel needs memory for stream packaging; temporary HLS segments drive extra disk use, while source media is mounted separately.",
+      "source_urls": [
+        "https://github.com/theodorecharles/Broadcaster"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "23a54561-4f2c-45dd-8de3-66847472e8bf",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/theodorecharles/Broadcaster/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/theodorecharles/Broadcaster/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "browserless-v2",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A few concurrent headless browser sessions drive memory; browser binaries, profiles, downloads, and temporary files drive storage.",
+      "source_urls": [
+        "https://github.com/browserless/browserless",
+        "https://github.com/browserless/browserless/blob/main/MIGRATION-2.0.md"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "804c0853-2ccf-4bcd-b675-83c11d701b11",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/160453-support-template-masterwishxbrowserless-v2/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/160453-support-template-masterwishxbrowserless-v2/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "browserless-v2",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A few concurrent headless browser sessions drive memory; browser binaries, profiles, downloads, and temporary files drive storage.",
+      "source_urls": [
+        "https://github.com/browserless/browserless",
+        "https://github.com/browserless/browserless/blob/main/MIGRATION-2.0.md"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "804c0853-2ccf-4bcd-b675-83c11d701b11",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/160453-support-template-masterwishxbrowserless-v2/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/160453-support-template-masterwishxbrowserless-v2/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "btc-tracker",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Bitcoin investment tracker stores a small portfolio, price history, configuration, and logs.",
+      "source_urls": [
+        "https://github.com/wilqq-the/btc-tracker"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "c0926154-2f3c-4c0a-be83-6529d3cb8cb2",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:16:40.829915+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/wilqq-the/BTC-Tracker/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/wilqq-the/BTC-Tracker/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "btc-tracker",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Bitcoin investment tracker stores a small portfolio, price history, configuration, and logs.",
+      "source_urls": [
+        "https://github.com/wilqq-the/btc-tracker"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "c0926154-2f3c-4c0a-be83-6529d3cb8cb2",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T10:16:40.829915+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/wilqq-the/BTC-Tracker/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/wilqq-the/BTC-Tracker/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "btdex",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One graphical BTDEX session needs memory for its browser-based desktop and trading UI; app state and cache stay limited.",
+      "source_urls": [
+        "https://github.com/furritos/docker-btdex"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "580fe6f5-8721-46a2-898f-583686a732b3",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:37.813+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:38.763767+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/furritos/docker-btdex/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/furritos/docker-btdex/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "btdex",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One graphical BTDEX session needs memory for its browser-based desktop and trading UI; app state and cache stay limited.",
+      "source_urls": [
+        "https://github.com/furritos/docker-btdex"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "580fe6f5-8721-46a2-898f-583686a732b3",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:37.813+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:38.763767+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/furritos/docker-btdex/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/furritos/docker-btdex/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "buddypress",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small BuddyPress community runs within WordPress; member activity and uploaded profile or group media drive database and storage growth.",
+      "source_urls": [
+        "https://buddypress.org/",
+        "https://github.com/buddypress/buddypress"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "1b92f769-d334-4018-9b68-a047f08a6069",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/buddypress/buddypress#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "buddypress",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small BuddyPress community runs within WordPress; member activity and uploaded profile or group media drive database and storage growth.",
+      "source_urls": [
+        "https://buddypress.org/",
+        "https://github.com/buddypress/buddypress"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "1b92f769-d334-4018-9b68-a047f08a6069",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/buddypress/buddypress#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "budgero",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One private budgeting instance stores encrypted account, transaction, and rule data for a household.",
+      "source_urls": [
+        "https://budgero.app/",
+        "https://hub.docker.com/r/budgero/budgero"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "f2354cf4-f7b1-4fd4-99a4-7202322ade6a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:17:17.463979+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/tombadilo-bombadilo/budgero/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/tombadilo-bombadilo/budgero/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "budgero",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One private budgeting instance stores encrypted account, transaction, and rule data for a household.",
+      "source_urls": [
+        "https://budgero.app/",
+        "https://hub.docker.com/r/budgero/budgero"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "f2354cf4-f7b1-4fd4-99a4-7202322ade6a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:17:17.463979+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/tombadilo-bombadilo/budgero/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/tombadilo-bombadilo/budgero/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    }
+  ]
+}

@@ -1020,7 +1020,28 @@ function toolSpot(spec, A) {
   const d = spec.data;
   const cx = A.w / 2;
   const cy = A.h / 2;
-  if (d.motif === "bidThreshold") {
+  if (d.motif === "customerEconomics") {
+    drawIcon(A, "user", 28, cy, 23, "@ink");
+    A.line(49, cy, 58, cy, { stroke: "@sub" });
+    A.line(58, 23, 58, 87, { stroke: "@sub" });
+    const measures = [
+      { icon: "coin", y: 23, tone: "@primary" },
+      { icon: "server", y: cy, tone: "@sub" },
+      { icon: "tag", y: 87, tone: "@sub" },
+    ];
+    for (const measure of measures) {
+      A.arrow(58, measure.y, 82, measure.y, { tone: measure.tone });
+      drawIcon(A, measure.icon, 104, measure.y, 17, measure.tone);
+    }
+  } else if (d.motif === "usagePrice") {
+    drawIcon(A, "document", 28, cy, 26, "@ink");
+    A.line(42, cy, 50, cy, { stroke: "@sub" });
+    A.line(54, cy - 14, 68, cy - 14, { stroke: "@sub" });
+    A.line(54, cy, 76, cy, { stroke: "@primary" });
+    A.line(54, cy + 14, 64, cy + 14, { stroke: "@sub" });
+    A.arrow(80, cy, 97, cy, { tone: "@sub" });
+    drawIcon(A, "coin", 115, cy, 22, "@primary");
+  } else if (d.motif === "bidThreshold") {
     drawIcon(A, d.icon, cx, cy, Math.min(A.w, A.h) * 0.48, "@ink");
   } else if (d.motif === "kenpEarnings") {
     drawIcon(A, d.icon, cx - 22, cy, Math.min(A.w, A.h) * 0.42, "@ink");

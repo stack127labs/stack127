@@ -1,0 +1,903 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values must be refreshed against current records before applying.",
+  "scope": "Second A/B cohort source-model and app-license corrections based on official project or publisher sources. Container recipes were not treated as the app license. Proposals only.",
+  "apps": [
+    {
+      "slug": "actual-mcp-server",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/agigante80/actual-mcp-server"
+      ]
+    },
+    {
+      "slug": "bbergle-zap2xml",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/jef/zap2xml"
+      ]
+    },
+    {
+      "slug": "belot",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License (xCards artwork is LGPL-3.0)",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_code_url": "https://github.com/leppermesiah/belot"
+      },
+      "data_source_urls": [
+        "https://github.com/leppermesiah/belot"
+      ],
+      "source_code_url": "MIT License (xCards artwork is LGPL-3.0)"
+    },
+    {
+      "slug": "bifrost",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/others-git/bifrost"
+      ]
+    },
+    {
+      "slug": "binhex-bitmagnet",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-bitmagnet"
+      },
+      "data_source_urls": [
+        "https://github.com/bitmagnet-io/bitmagnet"
+      ],
+      "source_code_url": "https://github.com/bitmagnet-io/bitmagnet"
+    },
+    {
+      "slug": "binhex-code-server",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-code-server"
+      },
+      "data_source_urls": [
+        "https://github.com/coder/code-server"
+      ],
+      "source_code_url": "https://github.com/coder/code-server"
+    },
+    {
+      "slug": "binhex-filebrowser",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-filebrowser"
+      },
+      "data_source_urls": [
+        "https://github.com/filebrowser/filebrowser"
+      ],
+      "source_code_url": "https://github.com/filebrowser/filebrowser"
+    },
+    {
+      "slug": "binhex-flaresolverr",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-flaresolverr"
+      },
+      "data_source_urls": [
+        "https://github.com/FlareSolverr/FlareSolverr"
+      ],
+      "source_code_url": "https://github.com/FlareSolverr/FlareSolverr"
+    },
+    {
+      "slug": "binhex-get-iplayer",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-get-iplayer"
+      },
+      "data_source_urls": [
+        "https://github.com/get-iplayer/get_iplayer"
+      ],
+      "source_code_url": "https://github.com/get-iplayer/get_iplayer"
+    },
+    {
+      "slug": "binhex-gonic",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-gonic"
+      },
+      "data_source_urls": [
+        "https://github.com/sentriz/gonic"
+      ],
+      "source_code_url": "https://github.com/sentriz/gonic"
+    },
+    {
+      "slug": "binhex-hexchat",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0 with OpenSSL exception",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-only WITH OpenSSL-exception",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-hexchat"
+      },
+      "data_source_urls": [
+        "https://github.com/hexchat/hexchat"
+      ],
+      "source_code_url": "https://github.com/hexchat/hexchat"
+    },
+    {
+      "slug": "binhex-jellyfin",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-jellyfin"
+      },
+      "data_source_urls": [
+        "https://github.com/jellyfin/jellyfin"
+      ],
+      "source_code_url": "https://github.com/jellyfin/jellyfin"
+    },
+    {
+      "slug": "binhex-jenkins",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-jenkins"
+      },
+      "data_source_urls": [
+        "https://github.com/jenkinsci/jenkins"
+      ],
+      "source_code_url": "https://github.com/jenkinsci/jenkins"
+    },
+    {
+      "slug": "binhex-lidarr",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-lidarr"
+      },
+      "data_source_urls": [
+        "https://github.com/Lidarr/Lidarr"
+      ],
+      "source_code_url": "https://github.com/Lidarr/Lidarr"
+    },
+    {
+      "slug": "binhex-nginx",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "BSD 2-Clause License",
+      "license_type": "permissive",
+      "license_spdx_id": "BSD-2-Clause",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-nginx"
+      },
+      "data_source_urls": [
+        "https://nginx.org/en/docs/",
+        "https://github.com/nginx/nginx"
+      ],
+      "source_code_url": "https://github.com/nginx/nginx"
+    },
+    {
+      "slug": "binhex-nicotineplus",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-nicotineplus"
+      },
+      "data_source_urls": [
+        "https://github.com/Nicotine-Plus/nicotine-plus"
+      ],
+      "source_code_url": "https://github.com/Nicotine-Plus/nicotine-plus"
+    },
+    {
+      "slug": "binhex-nzbget",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-nzbget"
+      },
+      "data_source_urls": [
+        "https://github.com/nzbgetcom/nzbget"
+      ],
+      "source_code_url": "https://github.com/nzbgetcom/nzbget"
+    },
+    {
+      "slug": "binhex-rclone",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-rclone"
+      },
+      "data_source_urls": [
+        "https://github.com/rclone/rclone"
+      ],
+      "source_code_url": "https://github.com/rclone/rclone"
+    },
+    {
+      "slug": "binhex-readarr",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-readarr"
+      },
+      "data_source_urls": [
+        "https://github.com/Readarr/Readarr"
+      ],
+      "source_code_url": "https://github.com/Readarr/Readarr"
+    },
+    {
+      "slug": "binhex-seerr",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-seerr"
+      },
+      "data_source_urls": [
+        "https://github.com/seerr-team/seerr"
+      ],
+      "source_code_url": "https://github.com/seerr-team/seerr"
+    },
+    {
+      "slug": "binhex-slskd",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-slskd"
+      },
+      "data_source_urls": [
+        "https://github.com/slskd/slskd"
+      ],
+      "source_code_url": "https://github.com/slskd/slskd"
+    },
+    {
+      "slug": "binhex-syncthing",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Mozilla Public License 2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "MPL-2.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-syncthing"
+      },
+      "data_source_urls": [
+        "https://github.com/syncthing/syncthing"
+      ],
+      "source_code_url": "https://github.com/syncthing/syncthing"
+    },
+    {
+      "slug": "binhex-tvheadend",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-tvheadend"
+      },
+      "data_source_urls": [
+        "https://github.com/tvheadend/tvheadend"
+      ],
+      "source_code_url": "https://github.com/tvheadend/tvheadend"
+    },
+    {
+      "slug": "binhex-urbackup",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/binhex/arch-urbackup"
+      },
+      "data_source_urls": [
+        "https://github.com/uroni/urbackup_backend"
+      ],
+      "source_code_url": "https://github.com/uroni/urbackup_backend"
+    },
+    {
+      "slug": "bitfeed",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/bitfeed-project/bitfeed"
+      ]
+    },
+    {
+      "slug": "blend-calc",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/stoatworks-labs/blend-calc"
+      ]
+    },
+    {
+      "slug": "boltarr",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0"
+      },
+      "data_source_urls": [
+        "https://github.com/brq-ae/boltarr"
+      ]
+    },
+    {
+      "slug": "bombvault",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0"
+      },
+      "data_source_urls": [
+        "https://github.com/junkerderprovinz/bombvault"
+      ]
+    },
+    {
+      "slug": "bonob",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0"
+      },
+      "data_source_urls": [
+        "https://github.com/simojenki/bonob"
+      ]
+    },
+    {
+      "slug": "borgitory",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/mlapaglia/borgitory"
+      ]
+    },
+    {
+      "slug": "botdarr",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0"
+      },
+      "data_source_urls": [
+        "https://github.com/shayaantx/botdarr"
+      ]
+    },
+    {
+      "slug": "botmem",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0"
+      },
+      "data_source_urls": [
+        "https://github.com/botmem/botmem"
+      ]
+    },
+    {
+      "slug": "boxwatchr",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0"
+      },
+      "data_source_urls": [
+        "https://github.com/nulcraft/boxwatchr"
+      ]
+    },
+    {
+      "slug": "binner",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0"
+      },
+      "data_source_urls": [
+        "https://github.com/replaysMike/Binner"
+      ]
+    },
+    {
+      "slug": "binhex-emby",
+      "review_scope": "partial",
+      "source_model": "closed_source",
+      "source_code_url": null,
+      "license": "Proprietary",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "expected": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/binhex/arch-emby",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/emby.xml"
+      },
+      "website_url": "https://emby.media/",
+      "data_source_urls": [
+        "https://emby.media/",
+        "https://help.emby.media/terms.html"
+      ]
+    },
+    {
+      "slug": "binhex-goland",
+      "review_scope": "partial",
+      "source_model": "closed_source",
+      "source_code_url": null,
+      "license": "Proprietary",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "expected": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/binhex/arch-goland",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/goland.xml"
+      },
+      "website_url": "https://www.jetbrains.com/go/",
+      "data_source_urls": [
+        "https://www.jetbrains.com/go/",
+        "https://www.jetbrains.com/legal/docs/company/useterms/"
+      ]
+    },
+    {
+      "slug": "binhex-makemkv",
+      "review_scope": "partial",
+      "source_model": "closed_source",
+      "source_code_url": null,
+      "license": "Proprietary",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "expected": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/binhex/arch-makemkv",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/makemkv.xml"
+      },
+      "website_url": "https://www.makemkv.com/",
+      "data_source_urls": [
+        "https://www.makemkv.com/buy/",
+        "https://www.makemkv.com/developers/"
+      ]
+    },
+    {
+      "slug": "binhex-minecraftbedrockserver",
+      "review_scope": "partial",
+      "source_model": "closed_source",
+      "source_code_url": null,
+      "license": "Proprietary",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "expected": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/binhex/arch-minecraftbedrockserver",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/minecraftbedrockserver.xml"
+      },
+      "website_url": "https://www.minecraft.net/",
+      "data_source_urls": [
+        "https://www.minecraft.net/en-us/eula",
+        "https://www.minecraft.net/en-us/download/server"
+      ]
+    },
+    {
+      "slug": "binhex-minecraftserver",
+      "review_scope": "partial",
+      "source_model": "closed_source",
+      "source_code_url": null,
+      "license": "Proprietary",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "expected": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/binhex/arch-minecraftserver",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/minecraftserver.xml"
+      },
+      "website_url": "https://www.minecraft.net/",
+      "data_source_urls": [
+        "https://www.minecraft.net/en-us/eula",
+        "https://www.minecraft.net/en-us/download/server"
+      ]
+    },
+    {
+      "slug": "binhex-plex",
+      "review_scope": "partial",
+      "source_model": "closed_source",
+      "source_code_url": null,
+      "license": "Proprietary",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "expected": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/binhex/arch-plex",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/plex.xml"
+      },
+      "website_url": "https://www.plex.tv/",
+      "data_source_urls": [
+        "https://www.plex.tv/about/privacy-legal/plex-terms-of-service/"
+      ]
+    },
+    {
+      "slug": "binhex-plexpass",
+      "review_scope": "partial",
+      "source_model": "closed_source",
+      "source_code_url": null,
+      "license": "Proprietary",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "expected": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/binhex/arch-plexpass",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/plexpass.xml"
+      },
+      "website_url": "https://www.plex.tv/",
+      "data_source_urls": [
+        "https://www.plex.tv/about/privacy-legal/plex-terms-of-service/"
+      ]
+    },
+    {
+      "slug": "binhex-resilio-sync",
+      "review_scope": "partial",
+      "source_model": "closed_source",
+      "source_code_url": null,
+      "license": "Proprietary",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "expected": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/binhex/arch-resilio-sync",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/resilio-sync.xml"
+      },
+      "website_url": "https://www.resilio.com/",
+      "data_source_urls": [
+        "https://www.resilio.com/legal/eula/"
+      ]
+    },
+    {
+      "slug": "binhex-rider",
+      "review_scope": "partial",
+      "source_model": "closed_source",
+      "source_code_url": null,
+      "license": "Proprietary",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "expected": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/binhex/arch-rider",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/rider.xml"
+      },
+      "website_url": "https://www.jetbrains.com/rider/",
+      "data_source_urls": [
+        "https://www.jetbrains.com/rider/",
+        "https://www.jetbrains.com/legal/docs/company/useterms/"
+      ]
+    },
+    {
+      "slug": "binhex-rustrover",
+      "review_scope": "partial",
+      "source_model": "closed_source",
+      "source_code_url": null,
+      "license": "Proprietary",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "expected": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/binhex/arch-rustrover",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/rustrover.xml"
+      },
+      "website_url": "https://www.jetbrains.com/rust/",
+      "data_source_urls": [
+        "https://www.jetbrains.com/rust/",
+        "https://www.jetbrains.com/legal/docs/company/useterms/"
+      ]
+    },
+    {
+      "slug": "binhex-webstorm",
+      "review_scope": "partial",
+      "source_model": "closed_source",
+      "source_code_url": null,
+      "license": "Proprietary",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "expected": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/binhex/arch-webstorm",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/webstorm.xml"
+      },
+      "website_url": "https://www.jetbrains.com/webstorm/",
+      "data_source_urls": [
+        "https://www.jetbrains.com/webstorm/",
+        "https://www.jetbrains.com/legal/docs/company/useterms/"
+      ]
+    },
+    {
+      "slug": "binhex-teamspeak",
+      "review_scope": "partial",
+      "source_model": "closed_source",
+      "source_code_url": null,
+      "license": "Proprietary",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "expected": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/binhex/arch-teamspeak",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/teamspeak.xml"
+      },
+      "website_url": "https://teamspeak.com/",
+      "data_source_urls": [
+        "https://teamspeak.com/en/terms-and-conditions"
+      ]
+    },
+    {
+      "slug": "binhex-official-purgarr",
+      "review_scope": "partial",
+      "license": "Business Source License 1.1",
+      "license_type": "custom",
+      "license_spdx_id": "BUSL-1.1",
+      "expected": {
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "custom",
+        "license_spdx_id": "BSL-1.0"
+      },
+      "data_source_urls": [
+        "https://github.com/steveharsant/purgarr"
+      ]
+    }
+  ]
+}

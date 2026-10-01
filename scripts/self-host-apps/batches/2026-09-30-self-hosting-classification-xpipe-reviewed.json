@@ -1,0 +1,22 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Remove XPipe from the self-host apps directory because its publisher identifies it as a local desktop application, not a server or container app. Proposal only.",
+  "apps": [
+    {
+      "slug": "xpipe",
+      "review_scope": "partial",
+      "expected": {
+        "published": true,
+        "self_hosting_status": "self_hostable"
+      },
+      "published": false,
+      "self_hosting_status": "not_self_hostable",
+      "data_source_urls": [
+        "https://docs.xpipe.io/guide/installation",
+        "https://docs.xpipe.io/reference/security"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

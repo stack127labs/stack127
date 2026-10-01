@@ -1,0 +1,750 @@
+{
+  "exchange.adobe.com": {
+    "website_url": "https://www.adobe.com/",
+    "asset_url": "https://www.adobe.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/exchange-adobe-com.png"
+  },
+  "partners.playstation.net": {
+    "website_url": "https://www.playstation.com/en-in/",
+    "asset_url": "https://gmedia.playstation.com/is/image/SIEPDC/ps-logo-favicon?$icon-196-196--t$",
+    "icon_path": "/platform-fees/icons/partners-playstation-net.png"
+  },
+  "www.framer.com": {
+    "website_url": "https://www.framer.com/marketplace/plugins/",
+    "asset_url": "https://www.framer.com/creators/seo/community-install-ios-180.png",
+    "icon_path": "/platform-fees/icons/www-framer-com.png"
+  },
+  "docs.apify.com": {
+    "website_url": "https://apify.com/",
+    "asset_url": "https://apify.com/apple-icon.png?apple-icon.1qabm0kj8blk6.png?dpl=cec27cf298",
+    "icon_path": "/platform-fees/icons/docs-apify-com.png"
+  },
+  "docs.snowflake.com": {
+    "website_url": "https://www.snowflake.com/en/",
+    "asset_url": "https://www.snowflake.com/etc.clientlibs/snowflake-site/clientlibs/clientlib-react/resources/apple-touch-icon.png?v=3",
+    "icon_path": "/platform-fees/icons/docs-snowflake-com.png"
+  },
+  "cloud.google.com": {
+    "website_url": "https://cloud.google.com/terms/marketplace-revenue-share-schedule",
+    "asset_url": "https://www.gstatic.com/cgc/super_cloud_gradient.png",
+    "icon_path": "/platform-fees/icons/cloud-google-com.png"
+  },
+  "docs.rapidapi.com": {
+    "website_url": "https://rapidapi.com/",
+    "asset_url": "https://rapidapi.com/static-assets/default/favicon-8e7d522e-653f-4edd-ac27-3f6ed950e45d.png",
+    "icon_path": "/platform-fees/icons/docs-rapidapi-com.png"
+  },
+  "www.aptoide.com": {
+    "website_url": "https://en.aptoide.com/",
+    "asset_url": "https://en.aptoide.com/static/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-aptoide-com.png"
+  },
+  "docs.aws.amazon.com": {
+    "website_url": "https://aws.amazon.com/marketplace/",
+    "asset_url": "https://prod-us-east-1.cdn.chrome.marketplace.aws.dev/assets/207755e7-ed46-476a-89df-daeecb318206/client/favicon.ico",
+    "icon_path": "/platform-fees/icons/docs-aws-amazon-com.png"
+  },
+  "www.2checkout.com": {
+    "website_url": "https://www.2checkout.com/",
+    "asset_url": "https://www.2checkout.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-2checkout-com.png"
+  },
+  "www.paddle.com": {
+    "website_url": "https://www.paddle.com/",
+    "asset_url": "https://www.paddle.com/icon4.png?icon4.2505fc7ib2tqc.png?dpl=e404051a894a71adf5cd107d7f2dd8282e87323d63abea3cd0c2d018b171603b366162636335323735383261303330303038376433373437",
+    "icon_path": "/platform-fees/icons/www-paddle-com.png"
+  },
+  "www.snowflake.com": {
+    "website_url": "https://www.snowflake.com/en/",
+    "asset_url": "https://www.snowflake.com/etc.clientlibs/snowflake-site/clientlibs/clientlib-react/resources/apple-touch-icon.png?v=3",
+    "icon_path": "/platform-fees/icons/www-snowflake-com.png"
+  },
+  "www.xbox.com": {
+    "website_url": "https://developer.microsoft.com/en-US/games/partner",
+    "asset_url": "https://developer.microsoft.com/games/partner/favicon-512.png",
+    "icon_path": "/platform-fees/icons/www-xbox-com.png"
+  },
+  "www.magnific.com": {
+    "website_url": "https://www.magnific.com/",
+    "asset_url": "https://media.magnific.com/magnific-favicons/apple-touch-icon.png?w=180&v=2",
+    "icon_path": "/platform-fees/icons/www-magnific-com.png"
+  },
+  "contributor.flaticon.com": {
+    "website_url": "https://www.flaticon.com/",
+    "asset_url": "https://www.flaticon.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/contributor-flaticon-com.png"
+  },
+  "www.fontspring.com": {
+    "website_url": "https://www.fontspring.com/participate",
+    "asset_url": "https://www.fontspring.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-fontspring-com.png"
+  },
+  "www.figma.com": {
+    "website_url": "https://www.figma.com/community",
+    "asset_url": "https://static.figma.com/uploads/1a667ef53b7c4837049399d0593ffca39e0bec9e",
+    "icon_path": "/platform-fees/icons/www-figma-com.png"
+  },
+  "www.fab.com": {
+    "website_url": "https://www.fab.com/",
+    "asset_url": "https://static.fab.com/static/builds/web/dist/frontend/assets/images/common/favicon/55950a2ddbbaa3937c5a48b0bd460965-v1.png",
+    "icon_path": "/platform-fees/icons/www-fab-com.png"
+  },
+  "www.youworkforthem.com": {
+    "website_url": "https://www.youworkforthem.com/",
+    "asset_url": "https://www.youworkforthem.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-youworkforthem-com.png"
+  },
+  "docs.mod.io": {
+    "website_url": "https://mod.io/",
+    "asset_url": "https://mod.io/images/favicon-apple-touch.png",
+    "icon_path": "/platform-fees/icons/docs-mod-io.png"
+  },
+  "wiki.gdevelop.io": {
+    "website_url": "https://gdevelop.io/",
+    "asset_url": "https://gdevelop.io/favicons/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/wiki-gdevelop-io.png"
+  },
+  "www.printables.com": {
+    "website_url": "https://www.printables.com/store",
+    "asset_url": "https://www.printables.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-printables-com.png"
+  },
+  "cults3d.com": {
+    "website_url": "https://cults3d.com/",
+    "asset_url": "https://assets.cults3d.com/assets/favicons/cults-e19f0b01f785a57ca7e0a5aeb5b365ea8255e2d52389045f7049e470499130b4.ico",
+    "icon_path": "/platform-fees/icons/cults3d-com.png"
+  },
+  "create.roblox.com": {
+    "website_url": "https://www.roblox.com/",
+    "asset_url": "https://images.rbxcdn.com/905bd722ee0a6ceda3caacde54c0b081.png",
+    "icon_path": "/platform-fees/icons/create-roblox-com.png"
+  },
+  "www.songtradr.com": {
+    "website_url": "https://www.songtradr.com/",
+    "asset_url": "https://www.songtradr.com/favicon/logo192.png",
+    "icon_path": "/platform-fees/icons/www-songtradr-com.png"
+  },
+  "www.blackbox.global": {
+    "website_url": "https://www.blackbox.global/",
+    "asset_url": "https://images.squarespace-cdn.com/content/v1/5a6a7fdeace864c92048da22/1516933920381-6XSSYUZTKMLZ6R310LUV/favicon.ico?format=100w",
+    "icon_path": "/platform-fees/icons/www-blackbox-global.png"
+  },
+  "www.codester.com": {
+    "website_url": "https://www.codester.com/",
+    "asset_url": "https://www.codester.com/static/img/favicons/android-icon-192x192.png",
+    "icon_path": "/platform-fees/icons/www-codester-com.png"
+  },
+  "motionarray.com": {
+    "website_url": "https://motionarray.com/",
+    "asset_url": "https://assets.motionarray.com/images/2024/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/motionarray-com.png"
+  },
+  "www.motionelements.com": {
+    "website_url": "https://www.motionelements.com/",
+    "asset_url": "https://static.moele.me/img/favicon/220520/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/www-motionelements-com.png"
+  },
+  "www.loopmasters.com": {
+    "website_url": "https://www.loopmasters.com/",
+    "asset_url": "https://www.loopmasters.com/android-chrome-256x256.png",
+    "icon_path": "/platform-fees/icons/www-loopmasters-com.png"
+  },
+  "www.beatstars.com": {
+    "website_url": "https://www.beatstars.com/",
+    "asset_url": "https://content.beatstars.com/public/bts/content/favicon.png",
+    "icon_path": "/platform-fees/icons/www-beatstars-com.png"
+  },
+  "www.audiosocket.com": {
+    "website_url": "https://www.audiosocket.com/artists",
+    "asset_url": "https://www.audiosocket.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-audiosocket-com.png"
+  },
+  "cdbaby.com": {
+    "website_url": "https://cdbaby.com/",
+    "asset_url": "https://cdbaby.com/wp-content/themes/cdbaby_theme/images/favicon/android-chrome-192x192.png",
+    "icon_path": "/platform-fees/icons/cdbaby-com.png"
+  },
+  "contribute.storyblocks.com": {
+    "website_url": "https://www.storyblocks.com/",
+    "asset_url": "https://www.storyblocks.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/contribute-storyblocks-com.png"
+  },
+  "www.adsrsounds.com": {
+    "website_url": "https://www.adsrsounds.com/",
+    "asset_url": "https://www.adsrsounds.com/wp-content/themes/adsr/img/ico/android-icon-192x192.png",
+    "icon_path": "/platform-fees/icons/www-adsrsounds-com.png"
+  },
+  "www.codegrape.com": {
+    "website_url": "https://www.codegrape.com/",
+    "asset_url": "https://images.codegrape.com/codegrape/android-192.png",
+    "icon_path": "/platform-fees/icons/www-codegrape-com.png"
+  },
+  "www.amuse.io": {
+    "website_url": "https://www.amuse.io/en/",
+    "asset_url": "https://www.amuse.io/images/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/www-amuse-io.png"
+  },
+  "www.renderosity.com": {
+    "website_url": "https://www.renderosity.com/",
+    "asset_url": "https://www.renderosity.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-renderosity-com.png"
+  },
+  "www.awal.com": {
+    "website_url": "https://www.awal.com/",
+    "asset_url": "https://www.awal.com/wp-content/themes/awal/favicon.png",
+    "icon_path": "/platform-fees/icons/www-awal-com.png"
+  },
+  "airbit.com": {
+    "website_url": "https://airbit.com/",
+    "asset_url": "https://airbit.com/favicon.ico?v2",
+    "icon_path": "/platform-fees/icons/airbit-com.png"
+  },
+  "symphonic.com": {
+    "website_url": "https://symphonic.com/",
+    "asset_url": "https://symphonic.com/wp-content/uploads/2023/05/cropped-SymPhoNic_Logo_Square_BGblack_WhiteText-192x192.jpg",
+    "icon_path": "/platform-fees/icons/symphonic-com.png"
+  },
+  "artists.soundcloud.com": {
+    "website_url": "https://soundcloud.com/",
+    "asset_url": "https://a-v2.sndcdn.com/assets/images/sc-icons/ios-a62dfc8fe7.png",
+    "icon_path": "/platform-fees/icons/artists-soundcloud-com.png"
+  },
+  "www.soundon.global": {
+    "website_url": "https://www.soundon.global/",
+    "asset_url": "https://www.soundon.global/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-soundon-global.png"
+  },
+  "www.gamedevmarket.net": {
+    "website_url": "https://www.gamedevmarket.net/",
+    "asset_url": "https://www.gamedevmarket.net/favicon.png",
+    "icon_path": "/platform-fees/icons/www-gamedevmarket-net.png"
+  },
+  "press.barnesandnoble.com": {
+    "website_url": "https://press.barnesandnoble.com/",
+    "asset_url": "https://press.barnesandnoble.com/react-assets/img/bnpress-favicon.ico",
+    "icon_path": "/platform-fees/icons/press-barnesandnoble-com.png"
+  },
+  "soundrop.com": {
+    "website_url": "https://soundrop.com/",
+    "asset_url": "https://soundrop.com/favicon/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/soundrop-com.png"
+  },
+  "www.udemy.com": {
+    "website_url": "https://www.udemy.com/",
+    "asset_url": "https://frontends.udemycdn.com/frontends-homepage/staticx/udemy/images/v7/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/www-udemy-com.png"
+  },
+  "kdp.amazon.com": {
+    "website_url": "https://kdp.amazon.com/en_US/",
+    "asset_url": "https://images-na.ssl-images-amazon.com/images/G/01/kdp/favicon._V384603346_.ico",
+    "icon_path": "/platform-fees/icons/kdp-amazon-com.png"
+  },
+  "www.recordunion.com": {
+    "website_url": "https://www.recordunion.com/",
+    "asset_url": "https://www.recordunion.com/icons/icon-512x512.png?v=d67591c5428983230f49f9532d5e6a47",
+    "icon_path": "/platform-fees/icons/www-recordunion-com.png"
+  },
+  "www.learnworlds.com": {
+    "website_url": "https://www.learnworlds.com/",
+    "asset_url": "https://www.learnworlds.com/app/uploads/2015/10/cropped-footer-logo-192x192.png",
+    "icon_path": "/platform-fees/icons/www-learnworlds-com.png"
+  },
+  "www.teachery.co": {
+    "website_url": "https://www.teachery.co/",
+    "asset_url": "https://framerusercontent.com/images/Dx1wqQtrA4J2cxkshqxWJflaEM.svg",
+    "icon_path": "/platform-fees/icons/www-teachery-co.png"
+  },
+  "www.verbling.com": {
+    "website_url": "https://www.verbling.com/teach",
+    "asset_url": "https://cdn.verbling.com/icon-180.png",
+    "icon_path": "/platform-fees/icons/www-verbling-com.png"
+  },
+  "www.inkitt.com": {
+    "website_url": "https://www.inkitt.com/",
+    "asset_url": "https://cdn-firebase.inkitt.com/packs/static/images/fav_inkitt_96-028935b88849d372496f.png",
+    "icon_path": "/platform-fees/icons/www-inkitt-com.png"
+  },
+  "ezycourse.com": {
+    "website_url": "https://ezycourse.com/",
+    "asset_url": "https://ezycourse.com/favicon.ico?favicon.3qkx3tpoi_2ij.ico",
+    "icon_path": "/platform-fees/icons/ezycourse-com.png"
+  },
+  "www.ticketleap.com": {
+    "website_url": "https://www.ticketleap.com/",
+    "asset_url": "https://www.ticketleap.com/wp-content/uploads/2026/07/cropped-TicketLeap_TileLogo_Light-192x192.png",
+    "icon_path": "/platform-fees/icons/www-ticketleap-com.png"
+  },
+  "www.ruzuku.com": {
+    "website_url": "https://www.ruzuku.com/",
+    "asset_url": "https://www.ruzuku.com/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/www-ruzuku-com.png"
+  },
+  "kartra.com": {
+    "website_url": "https://kartra.com/",
+    "asset_url": "https://kartra.com/wp-content/themes/kartra/assets/build/images/pwa/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/kartra-com.png"
+  },
+  "www.memberspace.com": {
+    "website_url": "https://www.memberspace.com/",
+    "asset_url": "https://www.memberspace.com/wp-content/uploads/2022/11/cropped-favicon-192x192.webp",
+    "icon_path": "/platform-fees/icons/www-memberspace-com.png"
+  },
+  "www.learndash.com": {
+    "website_url": "https://www.liquidweb.com/software/learndash/",
+    "asset_url": "https://res.cloudinary.com/lwcom/images/f_auto,q_auto/v1776858458/prod/favicon/favicon.svg?_i=AA",
+    "icon_path": "/platform-fees/icons/www-learndash-com.png"
+  },
+  "www.cambly.com": {
+    "website_url": "https://www.cambly.com/english",
+    "asset_url": "https://www.cambly.com/static/images/cambly-favicon.png",
+    "icon_path": "/platform-fees/icons/www-cambly-com.png"
+  },
+  "memberpress.com": {
+    "website_url": "https://memberpress.com/",
+    "asset_url": "https://memberpress.com/wp-content/uploads/2017/05/cropped-memberpress-favicon-300x300.png",
+    "icon_path": "/platform-fees/icons/memberpress-com.png"
+  },
+  "www.draft2digital.com": {
+    "website_url": "https://draft2digital.com/",
+    "asset_url": "https://draft2digital-prod-static.s3.amazonaws.com/img/favicon/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/www-draft2digital-com.png"
+  },
+  "restrictcontentpro.com": {
+    "website_url": "https://github.com/restrictcontentpro",
+    "asset_url": "https://avatars.githubusercontent.com/u/16404294?v=4",
+    "icon_path": "/platform-fees/icons/restrictcontentpro-com.png"
+  },
+  "www.outseta.com": {
+    "website_url": "https://www.outseta.com/",
+    "asset_url": "https://cdn.prod.website-files.com/663cf90ca192fe7e5bcb8bd7/67379fb5cb6c37c64792aa02_webclip-2.png",
+    "icon_path": "/platform-fees/icons/www-outseta-com.png"
+  },
+  "bettermode.com": {
+    "website_url": "https://bettermode.com/",
+    "asset_url": "https://cdn.prod.website-files.com/632a253b6e9c1587d2b8853d/668d898306d3b61d4c39b7e2_Image%20Resizer%20Logo.png",
+    "icon_path": "/platform-fees/icons/bettermode-com.png"
+  },
+  "creator-support.discord.com": {
+    "website_url": "https://discord.com/",
+    "asset_url": "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/62fddf0fde45a8baedcc7ee5_847541504914fd33810e70a0ea73177e%20(2)-1.png",
+    "icon_path": "/platform-fees/icons/creator-support-discord-com.png"
+  },
+  "write.as": {
+    "website_url": "https://write.as/",
+    "asset_url": "https://cdn.writeas.net/img/favicon-chrome.png",
+    "icon_path": "/platform-fees/icons/write-as.png"
+  },
+  "ghost.org": {
+    "website_url": "https://ghost.org/",
+    "asset_url": "https://ghost.org/favicon.png",
+    "icon_path": "/platform-fees/icons/ghost-org.png"
+  },
+  "www.buzzsprout.com": {
+    "website_url": "https://www.buzzsprout.com/",
+    "asset_url": "https://www.buzzsprout.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-buzzsprout-com.png"
+  },
+  "helloaudio.fm": {
+    "website_url": "https://helloaudio.fm/",
+    "asset_url": "https://helloaudio.fm/wp-content/uploads/2022/02/MainLogo-300x300.webp",
+    "icon_path": "/platform-fees/icons/helloaudio-fm.png"
+  },
+  "streamelements.com": {
+    "website_url": "https://streamelements.com/",
+    "asset_url": "https://streamelements.com/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/streamelements-com.png"
+  },
+  "topmate.io": {
+    "website_url": "https://topmate.io/",
+    "asset_url": "https://topmate.io/favicon.svg",
+    "icon_path": "/platform-fees/icons/topmate-io.png"
+  },
+  "vimeo.com": {
+    "website_url": "https://vimeo.com/ott",
+    "asset_url": "https://f.vimeocdn.com/cms/images/apple-icon.png",
+    "icon_path": "/platform-fees/icons/vimeo-com.png"
+  },
+  "www.growthmentor.com": {
+    "website_url": "https://www.growthmentor.com/faq/how-do-mentors-get-paid",
+    "asset_url": "https://www.growthmentor.com/assets/favicon/android-chrome-192x192-eb7aa6a1ea8982c775669690b76833c61bf25cc7dc0b8df63cadd368043ceb6a.png",
+    "icon_path": "/platform-fees/icons/www-growthmentor-com.png"
+  },
+  "mentorcruise.com": {
+    "website_url": "https://mentorcruise.com/",
+    "asset_url": "https://cdn.mentorcruise.com/img/favicons/favicon-196x196.png",
+    "icon_path": "/platform-fees/icons/mentorcruise-com.png"
+  },
+  "tidycal.com": {
+    "website_url": "https://tidycal.com/",
+    "asset_url": "https://tidycal.com/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/tidycal-com.png"
+  },
+  "www.tipeee.com": {
+    "website_url": "https://www.tipeee.com/",
+    "asset_url": "https://en.tipeee.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-tipeee-com.png"
+  },
+  "vgen.co": {
+    "website_url": "https://vgen.co/",
+    "asset_url": "https://vgen.co/img/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/vgen-co.png"
+  },
+  "skeb.jp": {
+    "website_url": "https://skeb.jp/",
+    "asset_url": "https://fcdn.skeb.jp/assets/v1/commons/android-chrome-512x512.png",
+    "icon_path": "/platform-fees/icons/skeb-jp.png"
+  },
+  "www.kickstarter.com": {
+    "website_url": "https://www.kickstarter.com/",
+    "asset_url": "https://www.kickstarter.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-kickstarter-com.png"
+  },
+  "www.backerkit.com": {
+    "website_url": "https://www.backerkit.com/",
+    "asset_url": "https://www.backerkit.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-backerkit-com.png"
+  },
+  "soundbetter.com": {
+    "website_url": "https://soundbetter.com/",
+    "asset_url": "https://soundbetter.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/soundbetter-com.png"
+  },
+  "www.malt.com": {
+    "website_url": "https://www.malt.com/",
+    "asset_url": "https://dam.malt.com/mobile/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/www-malt-com.png"
+  },
+  "www.ulule.com": {
+    "website_url": "https://www.ulule.com/",
+    "asset_url": "https://next.ulule.com/assets/img/common/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/www-ulule-com.png"
+  },
+  "promptbase.com": {
+    "website_url": "https://promptbase.com/sell",
+    "asset_url": "https://promptbase.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/promptbase-com.png"
+  },
+  "www.pickaxe.co": {
+    "website_url": "https://pickaxe.co/",
+    "asset_url": "https://pickaxe.co/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-pickaxe-co.png"
+  },
+  "civitai.com": {
+    "website_url": "https://civitai.com/",
+    "asset_url": "https://civitai.com/images/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/civitai-com.png"
+  },
+  "www.redbubble.com": {
+    "website_url": "https://www.redbubble.com/",
+    "asset_url": "https://www.redbubble.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-redbubble-com.png"
+  },
+  "www.teepublic.com": {
+    "website_url": "https://www.teepublic.com/",
+    "asset_url": "https://www.teepublic.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-teepublic-com.png"
+  },
+  "www.gelato.com": {
+    "website_url": "https://www.gelato.com/",
+    "asset_url": "https://www.gelato.com/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-gelato-com.png"
+  },
+  "www.contrado.com": {
+    "website_url": "https://www.contrado.com/",
+    "asset_url": "https://static.contrado.com/resources/images/2021-1/166939/favicon-196x196-1054310.png",
+    "icon_path": "/platform-fees/icons/www-contrado-com.png"
+  },
+  "www.mollie.com": {
+    "website_url": "https://www.mollie.com/",
+    "asset_url": "https://framerusercontent.com/images/qv5pP6IyH5pkUJsKlgG23E4RbBM.png",
+    "icon_path": "/platform-fees/icons/www-mollie-com.png"
+  },
+  "hitpayapp.com": {
+    "website_url": "https://hitpayapp.com/",
+    "asset_url": "https://framerusercontent.com/images/ZYOGxNjIKgqksXk3CutKo6Av5TE.png",
+    "icon_path": "/platform-fees/icons/hitpayapp-com.png"
+  },
+  "www.omise.co": {
+    "website_url": "https://www.omise.co/en",
+    "asset_url": "https://cdn.prod.website-files.com/67481ca1f2e8301c5e5e3895/67b31dccf355a66a3924d211_favicon-256.png",
+    "icon_path": "/platform-fees/icons/www-omise-co.png"
+  },
+  "gumroad.com": {
+    "website_url": "https://gumroad.com/",
+    "asset_url": "https://assets.gumroad.com/images/pink-icon.png",
+    "icon_path": "/platform-fees/icons/gumroad-com.png"
+  },
+  "wirestock.io": {
+    "website_url": "https://wirestock.io/",
+    "asset_url": "https://framerusercontent.com/images/2uZGCUWY8bXUoPUOb4WlVcktRc.png",
+    "icon_path": "/platform-fees/icons/wirestock-io.png"
+  },
+  "www.facer.io": {
+    "website_url": "https://www.facer.io/",
+    "asset_url": "https://cdn.facer.io/original/public/facer-prod-node18/img/favicons/favicon-96x96.png",
+    "icon_path": "/platform-fees/icons/www-facer-io.png"
+  },
+  "help.nas.com": {
+    "website_url": "https://nas.com/",
+    "asset_url": "https://intercom.help/nascom/assets/favicon",
+    "icon_path": "/platform-fees/icons/help-nas-com.png"
+  },
+  "aws.amazon.com": {
+    "website_url": "https://aws.amazon.com/data-exchange/faqs/",
+    "asset_url": "https://a0.awsstatic.com/libra-css/images/site/touch-icon-ipad-144-smile.png",
+    "icon_path": "/platform-fees/icons/aws-amazon-com.png"
+  },
+  "sell.app": {
+    "website_url": "https://sell.app/",
+    "asset_url": "https://sell.app/img/apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/sell-app.png"
+  },
+  "easydigitaldownloads.com": {
+    "website_url": "https://easydigitaldownloads.com/",
+    "asset_url": "https://easydigitaldownloads.com/wp-content/uploads/2026/02/cropped-edd-icon-192x192.png",
+    "icon_path": "/platform-fees/icons/easydigitaldownloads-com.png"
+  },
+  "www.fanfix.io": {
+    "website_url": "https://fanfix.io/",
+    "asset_url": "https://framerusercontent.com/images/8aluQS7bsU35DQ0mqIOqJxPOUM.png",
+    "icon_path": "/platform-fees/icons/www-fanfix-io.png"
+  },
+  "www.fanvue.com": {
+    "website_url": "https://www.fanvue.com/",
+    "asset_url": "https://cdn.prod.website-files.com/64cba339ea43d08fe319e32f/673cc16ffbdc7dfc2a0bdc23_Default-Logo-Type.png",
+    "icon_path": "/platform-fees/icons/www-fanvue-com.png"
+  },
+  "medium.com": {
+    "website_url": "https://medium.com/partner-program",
+    "asset_url": "https://miro.medium.com/v2/resize:fill:304:304/10fd5c419ac61637245384e7099e131627900034828f4f386bdaa47a74eae156",
+    "icon_path": "/platform-fees/icons/medium-com.png"
+  },
+  "mym.fans": {
+    "website_url": "https://mym.fans/",
+    "asset_url": "https://mym.fans/favicon.ico",
+    "icon_path": "/platform-fees/icons/mym-fans.png"
+  },
+  "www.kobo.com": {
+    "website_url": "https://www.kobo.com/writinglife",
+    "asset_url": "https://maint.kobo.com/kobo-maintenance/android-chrome-192x192.png",
+    "icon_path": "/platform-fees/icons/www-kobo-com.png"
+  },
+  "datarade.ai": {
+    "website_url": "https://providers.datarade.ai/apply",
+    "asset_url": "https://providers.datarade.ai/external/provider-studio-apple-touch-icon.png",
+    "icon_path": "/platform-fees/icons/datarade-ai.png"
+  },
+  "store.epicgames.com": {
+    "website_url": "https://store.epicgames.com/mobile?lang=en-US",
+    "asset_url": "https://static-assets-prod.epicgames.com/epic-store/static/favicon.ico",
+    "icon_path": "/platform-fees/icons/store-epicgames-com.png"
+  },
+  "dev.epicgames.com": {
+    "website_url": "https://dev.epicgames.com/documentation/en-us/fortnite/engagement-payout-in-fortnite-creative",
+    "asset_url": "https://static-assets-prod.epicgames.com/epic-store/static/favicon.ico",
+    "icon_path": "/platform-fees/icons/dev-epicgames-com.png"
+  },
+  "www.bigcommerce.com": {
+    "website_url": "https://docs.bigcommerce.com/developer/learn/courses/checkout-orders-rest-api/orders-api/order-status",
+    "asset_url": "https://docs.bigcommerce.com/api/fern-docs/favicon.ico",
+    "icon_path": "/platform-fees/icons/www-bigcommerce-com.png"
+  },
+  "www.junodownload.com": {
+    "website_url": "https://wwwcdn.junodownload.com/images/bye_jd.html",
+    "asset_url": "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACaklEQVRYR+2WPUjqURjGHz9ARPxAEbHFJROXEtLFj0GDcA4CcbFwEFpq6mMRAsVFyE0QlAIRcTGoIUhIEXUSN4OaBCcHTQjF0Lqcc0luXSW5eG73gi+c7X/O+/s/532f83K0Wu0bvjE4C4CFAv+8AhaLZdwjr6+vqFQqM/eMSCSCwWDA/f092u32xH1fdgHZzOPx6OZ+v4+1tbWZAVZWVnB9fQ2fz4e7u7v/FODi4gJcLpfSv7y8wOv1/l0FZs4GQCAQUMi3t5/mOpcrSKVSYwUGgwE8Hs8HJrVajf39fTgcDshkMlonpVIJkUiEfse0BpaXl5FMJvH8/IxYLIaHhwdIpVI4nU66AoEAQqEQmyIkdZHNZiEUCrG9vY1ut/tBma2tLRweHkIul7MBsFqtSCQS2NvbQy6Xm1gq5+fnMJvNbACOjo7gcrlgMpkwHA4nAhBlgsEgG4BoNAqVSgUi9bQgLpjJZNgAxONxev9ut3sqgE6nw9XVFRuAcDiM1dVVbG5uTgV4rxMmVry7u4vj42PYbDa0Wq2JEAcHB7RImQAsLS3R6iedQNT4HGKxGDc3N1AqlWwASELSCTs7Ozg5OcHl5eWYQaFQ4OzsjLqi3W5nB0Ce6dPTU2pEj4+PdBEnNBqNKBQK1AmLxeKfA2g0Gtze3o7/rNfr0QHjc+j1emxsbNC2JINHPp9HrVajc8T6+jq16Kenp9nnAT6fj3K5DIlEMn6IyO5ms0kfnXnGxImIANTr9d/ypNNp+P3+eebHzADVapW2VKfTYQ/A4XBof5MYjUZU+kajMdfE74d9OZQyyfrLoQuAb1fgB1QAffASlbscAAAAAElFTkSuQmCC",
+    "icon_path": "/platform-fees/icons/www-junodownload-com.png"
+  },
+  "www.templatemonster.com": {
+    "website_url": "https://helpdesk.templatemonster.com/what-commission-will-i-get/",
+    "asset_url": "https://s.tmimgcdn.com/img/favicon.ico?d=9392c5f",
+    "icon_path": "/platform-fees/icons/www-templatemonster-com.png"
+  },
+  "www.ticketsource.co.uk": {
+    "website_url": "https://www.ticketsource.co.uk/",
+    "asset_url": "data:image/x-icon;base64,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AAAAAAAAAAAAAAAAAAYBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEFAAAAAAAAAAAAAAAAAAAAAAAACAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBCAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAADAQEBAQEBAQEBAQEECQAAAAAAAAQBAQEBAQEBAQEBAQMAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQEBAgAAAAAAAAAAAAAAAwEBAQEBAQEBAQEJAAAAAAAAAAAAAAAAAAMBAQEBAQEBAQEEAAAAAAAAAAAAAAAAAAYBAQEBAQEBAQECAAAAAAAAAAAAAAAAAAEBAQEBAQEBAQQAAAAAAAAAAAAAAAAAAAAGAQEBAQEBAQEBCQAAAAAAAAAAAAAABwEBAQEBAQEBAgAAAAAAAAAAAAAAAAAAAAAAAwEBAQEBAQEBBQAAAAAAAAAAAAAAAAUCAQEBAQEBCQAAAAAAAAAAAAAAAAAAAAAAAAEBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAkEAgECAAAAAAAAAwIFCQAAAAAAAAAAAAMBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQECBgAAAAAAAAkBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEGAAAAAAABAQEBAQEBAQgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAQEBAQEBAQEJAAAAAAABAQEBAQEBAQcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAQEBAQEBAQEAAAAAAAABAQEBAQEBAQYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQIAAAAAAAABAQEBAQEBAQcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQYAAAAAAAABAQEBAQEBAQkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcBAQEBAQEBAQAAAAAAAAAAAAUCAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBAQEBAQEBAQAAAAAAAAAAAAAAAAkEAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQEBAQEBAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQEBAQEBAQEBBgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAQIFCQAAAAAAAAAAAAAAAQEBAQEBAQECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQEBAQECBQkAAAAAAAAIAQEBAQEBAQEHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQEBAgUJAAADAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBAQEBAQEBAQEBAQEBAQIBAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAgUJAAAAAAAAAAAAAAAAAAAAAAAACAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQIGCQAAAAAAAAAAAAAAAAAAAAAJBAIBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEEBwAAAAAAAAAAAAAAAAAAAAAACAQBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBBQAAAAAAAAAAAAAAAAAAAAAAAAcCAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBBgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAgEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJBAIBAQEBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQQBAQEBAQEBAQEBAQEBAQECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcEAQEBAQEBAQEBAQEHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAgEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJBAIBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQUAAAAAAAAAAAD///////8AAP///////wAA///8B///AAD//+AAf/8AAP//gAAf/wAA//4AAA//AAD/+AAAA/8AAP/wAAAB/wAA/+AAAAD/AAD/wAAAAH8AAP/AAAAAfwAA/4AB+AA/AAD/gA/+AB8AAP8AH/8AHwAA/wA//4APAAD+AH//wA8AAP8Af//gDwAA/+D8P+APAAD///wH4A8AAP///AHwBwAA///4AfAHAAD///gD8AcAAP//+APwBwAA///4A/AHAAD///AH/A8AAP//8Af/jwAA///wB///AAD//+AH//8AAP//4A///wAA///gD///AADg/+AP//8AAOAPwA///wAA4ADAH///AADAAAAf//8AAMAAAB///wAAwAAAH///AADAAAAB//8AAIAAAAAf/wAA4AAAAAP/AAD+AAAAAH8AAP/gAAAAfwAA//4AAAD/AAD//8AAAP8AAP///AAA/wAA////wAD/AAD////8Af8AAP////+B/wAA//////n/AAAoAAAAIAAAAEAAAAABAAgAAAAAAIAEAAAAAAAAAAAAAAABAAAAAAAAAAAAABpg6wAlaekANnPtAEJ97gBSh+4AYZHxAG+b8gB+pfMAi67zAFFx/wBxi/8AkaX/ALG//wDR2v8A////AAAAAAAAGi8AAC1QAAA/cAAAUZAAAGOwAAB2zwAAiPAAEZj/ADGm/wBRs/8AccH/AJHP/wCx3f8A0ev/AP///wAAAAAAACwvAABLUAAAaHAAAIaQAAClsAAAw88AAOHwABHv/wAx8f8AUfP/AHH1/wCR9/8Asfn/ANH7/wD///8AAAAAAAAvIQAAUDcAAHBMAACQYwAAsHkAAM+PAADwpgAR/7QAMf++AFH/yABx/9MAkf/cALH/5QDR//AA////AAAAAAAALw4AAFAYAABwIgAAkCwAALA2AADPQAAA8EoAEf9bADH/cQBR/4cAcf+dAJH/sgCx/8kA0f/fAP///wAAAAAAAi8AAARQAAAGcAAACJAAAAqwAAALzwAADvAAACD/EgA9/zEAW/9RAHn/cQCY/5EAtf+xANT/0QD///8AAAAAABQvAAAiUAAAMHAAAD2QAABMsAAAWc8AAGfwAAB4/xEAiv8xAJz/UQCu/3EAwP+RANL/sQDk/9EA////AAAAAAAmLwAAQFAAAFpwAAB0kAAAjrAAAKnPAADC8AAA0f8RANj/MQDe/1EA4/9xAOn/kQDv/7EA9v/RAP///wAAAAAALyYAAFBBAABwWwAAkHQAALCOAADPqQAA8MMAAP/SEQD/2DEA/91RAP/kcQD/6pEA//CxAP/20QD///8AAAAAAC8UAABQIgAAcDAAAJA+AACwTQAAz1sAAPBpAAD/eREA/4oxAP+dUQD/r3EA/8GRAP/SsQD/5dEA////AAAAAAAvAwAAUAQAAHAGAACQCQAAsAoAAM8MAADwDgAA/yASAP8+MQD/XFEA/3pxAP+XkQD/trEA/9TRAP///wAAAAAALwAOAFAAFwBwACEAkAArALAANgDPAEAA8ABJAP8RWgD/MXAA/1GGAP9xnAD/kbIA/7HIAP/R3wD///8AAAAAAC8AIABQADYAcABMAJAAYgCwAHgAzwCOAPAApAD/EbMA/zG+AP9RxwD/cdEA/5HcAP+x5QD/0fAA////AAAAAAAsAC8ASwBQAGkAcACHAJAApQCwAMQAzwDhAPAA8BH/APIx/wD0Uf8A9nH/APeR/wD5sf8A+9H/AP///wAAAAAAGwAvAC0AUAA/AHAAUgCQAGMAsAB2AM8AiADwAJkR/wCmMf8AtFH/AMJx/wDPkf8A3LH/AOvR/wD///8AAAAAAAgALwAOAFAAFQBwABsAkAAhALAAJgDPACwA8AA+Ef8AWDH/AHFR/wCMcf8AppH/AL+x/wDa0f8A////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQkIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAQEBAQEBAQIFAAAAAAAAAAAAAAAAAAAAAAAAAAAFAQEBAQEBAQEBAQEBBQAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQEBAQEBAgAAAAAAAAAAAAAAAAAAAAEBAQEBAQEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAABAQEBAQEBAQEBAQEBAQEBAQEBAgAAAAAAAAAAAAAABAEBAQEBAQEECQAACQQBAQEBAQEBAwAAAAAAAAAAAAABAQEBAQECAAAAAAAAAAADAQEBAQEBCQAAAAAAAAAAAwEBAQEBAgAAAAAAAAAAAAADAQEBAQEDAAAAAAAAAAABAQEBAQEAAAAAAAAAAAAAAAACAQEBAQEAAAAAAAAAAAAABwQBBQAAAAAFCQAAAAAAAAYBAQEBAQgAAAAAAAAAAAAAAAAAAAAAAAEBAQIGAAAAAAEBAQEBBwAAAAAAAAAAAAAAAAAAAAAHAQEBAQEAAAAAAQEBAQEFAAAAAAAAAAAAAAAAAAAAAAIBAQEBAQAAAAABAQEBAQUAAAAAAAAAAAAAAAAAAAAAAQEBAQECAAAAAAEBAQEBBgAAAAAAAAAAAAAAAAAAAAkBAQEBAQcAAAAAAAAHAgEJAAAAAAAAAAAAAAAAAAAABQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQEBAgAAAAAAAAAAAAAAAAAAAAMBBAgAAAAAAAAIAQEBAQEJAAAAAAAAAAAAAAAAAAAAAQEBAQECBQkAAAMBAQEBAQAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQECAQEBAQECAAAAAAAAAAAAAAAAAAAABwEBAQEBAQEBAQEBAQEBAQUAAAAAAAAAAAAAAAAAAAADAQEBAQEBAQEBAQEBAQEBAQEECAAAAAAAAAAAAAAAAAAFAgEBAQEBAQEBAQEBAQEBAQEBAQEECAAAAAAAAAAAAAAAAAkEAgEBAQEBAQEBAQEBAQEBAQEBAQIAAAAAAAAAAAAAAAAAAAkEAQEBAQEBAQEBAQEBAQEBAgAAAAAAAAAAAAAAAAAAAAAAAAcEAQEBAQEBAQEBAQEGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUCAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQQCAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQUAAAAAAAD///////4////wA///wAD//4AAf/8AAD/+AAAf/ADAD/wH+Af4D/wH+B/+B/4efgP//g8D//wPA//8DwP//A8D//gPw//4H///+B////gf/8PwH//AMD//wAA//4AAP/+AAAf/wAAAf/gA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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAXX+cgF1/nIB9f7xAfX+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/oUBlf6YAZYOm/GmDr3xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xpg698ZYOm/GV/pgBdf60AfX+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABdf60AZYOufGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xlg6b8XX+tAH1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/oUBpg698aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg698ZX+pwH1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaX+kwF2Drzxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg688ZX+hQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOuPGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlg658fX+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAXYOvPGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Drzxpf6TAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6TAaYOvfGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvGV/oUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6TAXYOjvGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8ZX+hQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAXYOjvGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xdf60AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAXYOvPGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOvfH1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOyvGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlg6b8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZX+hQGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlg6b8aYOyvGmDsrxlg6b8XYOvPGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GV/pgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QGmDr3xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg688ZX+mAGl/pMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAZX+pwF2Drzxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8XX+cgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/pgBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xpf6WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXX+tAF2Drzxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDrjwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBpg698aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GWDpvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAaYOuPGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8XX+cgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6WAaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDrjwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlf6nAaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GV/pgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOvfGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDsrwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/qcBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8fX+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr3wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOyvGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GV/oUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/qcBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpf6TAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF1/nIBdg6O8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg648AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QGV/oUBlf6YAXYOvPGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg7K8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGl/pMBlf6YAaX+kwH1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZX+mAGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOvPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6TAZX+pwGWDpvxdg6O8aYOv/GmDr/xpg6/8ZX+hQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpg648aYOv/GmDr/xdg6O8aYOyvGV/pgBpf6TAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGl/pMBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdf5yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QF1/rQBlf6YAZYOm/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZYOm/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xpg7K8aX+lgGl/pMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZYOm/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8ZX+hQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOvPH1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/pgBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/Gl/pYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/oUBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6WAaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpg648aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlg658AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXX+tAGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOuPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOvfGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aX+lgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF1/rQBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDrjwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F1/nIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlf6FAaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/oUBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaX+lgGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8ZX+pwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpg648aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlg658AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmDrjxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GV/qcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOvfGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aX+lgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaX+kwGV/qcBlg6b8XYOjvGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpf6TAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/H1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBdf60AZX+mAF2Drzxdg6O8aYOv/GmDr/xpg6/8fX+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGl/pYBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GWDpvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QF1/rQBlf6YAZYOm/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlg658aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXYOjvGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XX+tAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/pgBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDsrwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABdf60AaYOuPF1/rQB9f7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlg6b8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOuPGmDr/xpg6/8XYOjvGWDpvxlf6YAaX+kwH1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XX+cgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmDr3xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8ZYOm/GV/pgBpf6TAfX+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZX+hQGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xpg7K8aX+lgGl/pMAAAAAAAAAAAAAAAAAAAAAAAAAAAGmDrjxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDsrwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6WAaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOvPGmDrjxpf6WAfX+8QAAAAABdg688aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZYOufGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xdg688aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XX+cgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmDr3xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GWDrnwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6WAaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg688aX+lgGl/pMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZYOufGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOvPGmDrjxdf60AfX+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF2Do7xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xlg6b8ZX+mAGl/pMB9f7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBdg688aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvGWDpvxlf6YAaX+kwH1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBlf6FAZYOufF2Drzxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8aYOyvGV/pgBpf6TAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaX+kwGV/qcBlg6b8XYOjvGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr3xpf6WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBdf60AZX+mAF2Drzxdg6O8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aX+lgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QF1/rQBlf6YAXYOvPF2Do7xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F1/nIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAZX+hQGV/pgBdg688aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBlf6FAZYOufGmDr3xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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AAAAAAAAAAAAAP//////////////////////////B////////+AAP///////AAAH//////wAAAH/////8AAAAP/////gAAAAP////4AAAAAf////AAAAAA////4AAAAAB////AAAAAAD///4AAAAAAH///gAAAAAAf//8AAAAAAA///gAAH4AAB//+AAD/8AAH//wAA//4AAP//AAH//4AA//8AA///wAB//gAH///gAH/+AAf//+AAf/8AD+H/8AB///AP4D/wAD///h/gA/gAP////8AA+AA/////wAH4AD/////AAfgAP////8AB+AA/////gAH4AD////+AA/gAP////4AD+AA/////gAP8AD////8AA/+AP////wAH//h/////AAf///////8AB////////gAP///////+AA/////D//4AD////8A//AAP////wAP8AB////+AAHwAH////4AABAAf////gAAAAB////+AAAAAP////wAAAAA/////AAAAAA////8AAAAAAP///wAAAAAAD//+AAAAAAAA//+AAAAAAAAf//gAAAAAAAf//wAAAAAAB///8AAAAAAH////AAAAAA/////wAAAAD/////8AAAAP/////+AAAA///////gAAH///////4AAf///////+AB/////////gP/////////w//KAAAADAAAABgAAAAAQAgAAAAAACAJQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF1/nIBpf6WAaYOuPGWDpvxlg6b8XYOvPF2Drzxpg7K8ZYOufGV/qcBpf6TAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlf6nAaYOvfGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOvPGV/pgBdf5yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZX+pwGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8ZYOufF1/nIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF1/rQBpg698aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xlf6nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOuPGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOuPH1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlg658aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GWDpvx9f7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmDsrxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlg6b8fX+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOuPGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOuPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABdf60AaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GV/oUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/pgBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOvfGV/oUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QF2Drzxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8ZX+mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QF2Drzxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg648AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QF2Drzxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDrjwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmDsrxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8ZX+hQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/oUBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8ZYOufGV/qcBdf60AaX+kwF1/rQBlf6nAXYOvPGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr3x9f7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpg698aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlg658XX+cgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABdf60AaYOvfGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8ZX+mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6WAaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBpg7K8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7x9f7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZYOm/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QF2Drzxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8ZX+hQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF2Drzxdg6O8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg698AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlf6FAaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDsrwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QF1/rQBlf6YAXYOvPGmDr/xpg6/8aX+lgAAAAAAAAAAAAAAAAAAAAABpg648XYOvPGmDrjxdf60AfX+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGWDpvxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg698AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAaX+lgH1/vEAAAAAAAAAAAAAAAAAAAAAAXYOvPGmDr/xpg6/8aYOv/F2Do7xlg6b8ZX+mAGl/pMAAAAAAAAAAAAAAAABlf6nAaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F1/nIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlg658AAAAAAAAAAAAAAAAaX+kwGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdf5yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/oUBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aX+lgAAAAAAAAAAAAAAAAF1/nIBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XX+tAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpg648aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/H1/vEAAAAAAAAAAAAAAAABdf5yAaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/Gl/pMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOvfGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr3wAAAAAAAAAAAAAAAAAAAAAZX+hQGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/x9f7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6YAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6TAZX+pwGWDpvxdg6O8aYOv/GmDr/xdg6O8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/oUBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XX+tAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QF1/rQBlf6YAZX+mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpg648aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOvfGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDsrwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAaX+lgH1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZX+hQGmDr/xpg6/8XYOvPGmDrjxdf60AfX+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGl/pYBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XX+cgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmDrjxpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xlg6b8ZX+mAGl/pMB9f7xAAAAAAAAAAABlg658aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpg698aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvGWDpvxlf6YAXYOjvGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDsrwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZX+hQGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8ZX+pwH1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmDrjxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8ZYOm/GV/pgBpf6TAfX+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpg7K8XYOjvGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xlg6b8ZX+mAGl/pMB9f7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBdf60AZX+mAF2Drzxdg6O8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvGmDsrxlf6YAfX+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QGV/oUBlf6YAXYOvPGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAZX+hQGWDrnxdg6O8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDsrwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGl/pMBlf6nAZYOm/F2Do7xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAXX+tAGV/pgBdg688XYOjvGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XX+cgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBdf60AZX+mAF2Drzxdg6O8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QGV/oUBlg658XYOvPGmDr/xpg6/8aYOv/GmDsrwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6TAZX+pwGWDrnxpf6WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAD//+D//wAAAP/+AA//AAAA//gAA/8AAAD/8AAB/wAAAP/AAAD/AAAA/4AAAH8AAAD/AAAAPwAAAP8AAAAfAAAA/gAAAA8AAAD+AD+ADwAAAPwA/8AHAAAA/AH/4AcAAAD8A//wBwAAAP4DwfgHAAAA/+PAOAMAAAD//4A4AwAAAP//gDgDAAAA//+AOAMAAAD//4B4AwAAAP//AHwHAAAA//8Af4cAAAD//wD//wAAAP//AP//AAAAx/4A//8AAADAfgD//wAAAMAGAf//AAAAwAAB//8AAACAAAH//wAAAIAAAP//AAAAgAAAD/8AAACAAAAA/wAAAMAAAAAfAAAA/AAAAD8AAAD/wAAAPwAAAP/8AAA/AAAA//+AAD8AAAD///gAfwAAAP///4B/AAAA////+H8AAAAoAAAAIAAAAEAAAAABACAAAAAAAIAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlf6FAZX+mAGV/pgBpg648ZX+pwF1/rQBdf5yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/oUBlg6b8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xlg6b8ZX+pwH1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGl/pMBlg6b8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8ZYOm/Gl/pMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABdf60AaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvGl/pYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXX+tAGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/Gl/pYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF1/nIBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvF1/rQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXYOvPGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg688ZX+mAGl/pYBlf6FAZX+mAF2Drzxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOvfH1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGl/pYBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8aX+lgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF1/rQBpg698aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8ZX+mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOvfGmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvGl/pMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBpg698aYOv/GmDr/xpg6/8aYOv/GmDr/xpg698AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdf60AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGl/pMBdg6O8aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6FAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBlf6FAZYOufF2Drzxpg6/8ZYOm/AAAAAAAAAAAAAAAAH1/vEBlg6b8ZX+mAGl/pMAAAAAAAAAAAAAAAAAAAAAAAAAAAGmDsrxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDrjwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGl/pMBpf6TAAAAAAAAAAAAAAAAAaX+lgGmDr/xpg6/8aYOv/F2Do7xpg7K8ZX+hQAAAAAAAAAAAZX+hQGmDr/xpg6/8aYOv/GmDr/xpg6/8ZYOufAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlg658aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6nAAAAAAAAAAABdf5yAaYOv/GmDr/xpg6/8aYOv/GmDr/xlg6b8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF2Do7xpg6/8aYOv/GmDr/xpg6/8aYOv/F1/nIAAAAAAAAAAAF1/nIBpg6/8aYOv/GmDr/xpg6/8aYOv/GWDpvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlf6FAaYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8AAAAAAAAAAAAAAAAZX+hQGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOyvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/pgBpg6/8aYOv/GmDr/xpg6/8aYOv/GWDrnwAAAAAAAAAAAAAAAAAAAAAaX+kwGV/qcBlg658XYOjvGmDr/xlf6YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZYOm/GmDr/xpg6/8aYOv/GmDr/xpg6/8aX+lgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAXX+tAGl/pMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/x9f7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6TAaX+kwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZX+hQGmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmDr3xpg6/8XYOvPGmDrjxdf60AfX+8QAAAAAAAAAAAAAAAAAAAAABpg648aYOv/GmDr/xpg6/8aYOv/GmDr/xlf6YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAaYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8ZYOm/GV/pgBpf6TAfX+8QGmDr3xpg6/8aYOv/GmDr/xpg6/8aYOv/F1/rQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGl/pYBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZYOufGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GWDpvxpf6TAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpg698aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg688aYOuPGl/pYB9f7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/qcBlg6b8XYOjvGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg688aYOuPF1/rQB9f7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAXX+tAGV/pgBdg688XYOjvGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xdf60AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAXX+tAGV/pgBdg688aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAZX+hQGWDrnxdg688aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg7K8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6TAZX+pwGWDpvxdg6O8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GV/qcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBdf60AZX+mAF2Drzxdg6O8aYOv/GmDr/xpg6/8XX+cgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBdf60AZX+mAGWDpvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///////Af//+AA//+AAH//AAA//gAAH/wAAA/8AAAH+APwB/gH+AfwD/wD+Bw+A/+cBgP//AYD//wGA//4DgP/+A8D//gP4//wD//P8B//wPAf/4AAH/+AAD//gAAf/4AAAf+AAAAf4AAAD/4AAB//4AAf//4AH///wB////w/KAAAABgAAAAwAAAAAQAgAAAAAABgCQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlf6FAZYOufGmDr3xdg6O8XYOjvGWDpvxlf6YAaX+kwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaX+lgGmDr3xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GWDpvxdf5yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpg648aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8ZX+hQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmDrjxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvGl/pMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXX+tAGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDsrxlf6YAaYOuPF2Drzxpg6/8aYOv/GmDr/xpg6/8aYOv/F2Drzx9f7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOvfGmDr/xpg6/8aYOv/GmDr/xlg6b8AAAAAAAAAAAAAAAAAAAAAAAAAABdf60AXYOjvGmDr/xpg6/8aYOv/GmDr/xlf6nAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6TAaYOv/GmDr/xpg6/8aYOv/GWDpvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaX+kwF2Do7xpg6/8aYOv/GmDr/xdg688AAAAAAAAAAAAAAAAAAAAAAAAAABdf5yAZX+pwGmDsrxdg6O8aYOv/F1/nIAAAAAAAAAAAGV/pgBdf60AfX+8QAAAAAAAAAAAAAAAAGV/pgBpg6/8aYOv/GmDr/xpg6/8XX+cgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAaX+kwAAAAAAAAAAAfX+8QGmDr/xpg6/8XYOjvGWDpvxdf60AAAAAAGl/pMBpg6/8aYOv/GmDr/xpg6/8ZX+hQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaX+lgGmDr/xpg6/8aYOv/GmDr/xdf5yAAAAAAF1/nIBpg6/8aYOv/GmDr/xpg6/8aX+lgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZYOufGmDr/xpg6/8aYOv/F2Do7wAAAAAAAAAAH1/vEBpg6/8aYOv/GmDr/xpg6/8XX+tAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOvfGmDr/xpg6/8aYOv/GmDsrwAAAAAAAAAAAAAAABpf6TAZX+pwGWDrnxdg6O8XX+cgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAaYOv/GmDr/xpg6/8aYOv/GV/qcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGl/pMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6WAaYOv/GmDr/xpg6/8aYOv/F1/nIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaX+lgGmDr/xdg688aYOuPF1/rQB9f7xAAAAAAAAAAABlg658aYOv/GmDr/xpg6/8XYOjvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZYOufGmDr/xpg6/8aYOv/GmDr/xdg6O8ZYOm/GV/pgBdg6O8aYOv/GmDr/xpg6/8ZYOufAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXYOjvGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8ZX+mAH1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAaYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xpg7K8ZX+mAGl/pMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaX+kwGV/qcBlg6b8XYOjvGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8aYOyvF1/rQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QF1/rQBlf6YAXYOvPF2Do7xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F1/rQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBdf60AZX+mAF2Drzxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAZX+hQGWDrnxdg688aYOv/GmDr/xpg6/8aYOyvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaX+kwGV/qcBlg6b8aX+lgAAAAAAAAAAAAAAAAAAAAAP///wD/gH8A/gAfAPwADwD4AAcA8AADAPA+AwDgfwMA4GOBAPzAgQD/wIEA/8GBAP/BwQD/gf8A34H/AIGD/wCAA/8AgAH/AAAAPwCAAAcA8AAHAP8ADwD/8A8A//8PACgAAAAUAAAAKAAAAAEAIAAAAAAAkAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF1/nIB9f7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZX+pwF2Drzxpg6/8aYOv/GmDr/xdg6O8aYOuPGl/pMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaX+kwGmDr3xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOjvGV/qcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF1/rQBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDrjwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAXYOjvGmDr/xpg6/8aYOv/GmDr/xpg7K8ZYOufGmDsrxdg6O8aYOv/GmDr/xpg6/8aYOv/GV/oUAAAAAAAAAAAAAAAAAAAAAAAAAAAGmDrjxpg6/8aYOv/GmDr/xpg698aX+kwAAAAAAAAAAAAAAAAH1/vEBlg658aYOv/GmDr/xpg6/8aYOvfAAAAAAAAAAAAAAAAAAAAAAAAAAAXYOvPGmDr/xpg6/8aYOv/F1/nIAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBlg6b8aYOv/GmDr/xpg6/8ZX+hQAAAAAAAAAAAAAAAAAAAAAAAAAAAXX+tAGV/pgBlf6YAAAAAAAAAAABdg688ZYOm/GV/pgBpf6TAAAAAAGV/oUBpg6/8aYOv/GmDr/xpg648AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QGmDr/xpg6/8aYOv/GmDsrwAAAAAXX+cgGmDr/xpg6/8aYOv/GWDrnwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlf6FAaYOv/GmDr/xpg6/8ZX+pwAAAAAB9f7xAaYOv/GmDr/xpg6/8ZYOufAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmDrjxpg6/8aYOv/GmDr/xdf5yAAAAAAAAAAABpf6TAaX+lgGWDrnxpf6WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOvfGmDr/xpg6/8XYOjvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGl/pYBlf6YAaX+kwH1/vEAAAAAAAAAAAH1/vEBpg6/8aYOv/GmDr/xpg7K8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYOvfGmDr/xpg6/8XYOjvGWDpvxlf6YAZX+mAGmDr/xpg6/8aYOv/GV/qcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8ZX+hQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZX+hQF2Do7xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOvPGmDrjxdf60AfX+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QF1/rQBlf6YAXYOvPGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8ZYOm/H1/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QGV/oUBlg658XYOvPGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaX+kwGV/qcBlg6b8XYOjvGmDr/xpg6/8aYOv/GV/pgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAXX+tAGV/pgBdg688aX+kwAAAAAAAAAAAAAAAA/8/wAP4B8AD4APAA8ABwAOAAMADgcDAA4PgQAPGEEAD/BBAA/wQQAP8GEAD/D/AAhg/wAIAP8AAAD/AAAADwAIAAMAD4AHAA/4BwAP/wcAAoAAAAEAAAACAAAAABACAAAAAAAEAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpf6TAXX+tAGl/pMB9f7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGV/qcBpg6/8aYOv/GmDr/xpg6/8XYOjvGV/qcB9f7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfX+8QF2Drzxpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8XYOvPF1/nIAAAAAAAAAAAAAAAAAAAAAAAAAAAGmDsrxpg6/8aYOv/GmDr/xdg688aYOyvF2Drzxpg6/8aYOv/GmDr/xlg6b8fX+8QAAAAAAAAAAAAAAAAF1/rQBpg6/8aYOv/GmDr/xpf6WAAAAAAAAAAAAAAAAAXX+tAF2Do7xpg6/8aYOv/GV/oUAAAAAAAAAAAAAAAABdf60AZYOm/F2Do7xlf6YAAAAAAF1/rQBpf6TAAAAAAAAAAABlf6YAaYOv/GmDr/xpg7K8AAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAAAAAAAAAAABdg688aYOv/F2Do7xpf6TAXX+cgGmDr/xpg6/8aYOvfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAaYOv/GmDr/xdg6O8AAAAAH1/vEBpg6/8aYOv/GmDr3wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZX+hQGmDr/xpg6/8aYOyvAAAAAAAAAAAfX+8QGV/oUBpf6WAAAAAAAAAAABdf5yAAAAAAAAAAAAAAAAAAAAAAGmDrjxpg6/8aYOv/GV/qcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAXYOjvF2Drzxpg648aX+lgH1/vEBpg698aYOv/GmDr/xdf5yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZX+hQGmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xdg6O8fX+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGl/pYBdg6O8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8aYOv/F2Do7xlg6b8ZX+mAGl/pMB9f7xAAAAAAAAAAAAAAAAAAAAAAGl/pMBlf6nAZYOm/F2Do7xpg6/8aYOv/GmDr/xpg6/8aYOv/GmDr/xpg6/8ZYOufAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9f7xAXX+tAGV/pgBdg688XYOjvGmDr/xpg6/8aYOv/Gl/pYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1/vEBdf60AZX+mAF2Drzx9f7xAAAAAAAAAAAP4fAAD4BwAA4AMAAOABAADBwQAAwmEAAPYBAAD8IQAA/DEAALw/AAAAPwAAAD8AAAADAADAAwAA+AMAAP+DAAA=",
+    "icon_path": "/platform-fees/icons/www-ticketsource-co-uk.png"
+  },
+  "www.webnovel.com": {
+    "website_url": "https://apps.apple.com/us/app/webnovel-read-novels-manga/id1234939196?uo=4",
+    "asset_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b3/54/d3/b354d307-22f6-251a-d738-cf125c233865/AppIcon-0-0-1x_U007emarketing-0-9-0-sRGB-0-85-220.png/512x512bb.jpg",
+    "icon_path": "/platform-fees/icons/www-webnovel-com.png"
+  },
+  "www.lulu.com": {
+    "website_url": "https://help.lulu.com/en/support/solutions/articles/64000262744-creator-revenue-guide",
+    "asset_url": "https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/64047520245/fav_icon/2fqP6pik6kUBUxFuWsX7tWR2NP5qL2ADyw.png",
+    "icon_path": "/platform-fees/icons/www-lulu-com.png"
+  },
+  "www.truelancer.com": {
+    "website_url": "https://blog.truelancer.com/how-to-withdraw-money-from-your-truelancer-account/",
+    "asset_url": "https://blog.truelancer.com/wp-content/uploads/2025/07/logoo.png",
+    "icon_path": "/platform-fees/icons/www-truelancer-com.png"
+  },
+  "superprofile.bio": {
+    "website_url": "https://iris.superprofile.bio/help/cosmofeed/articles/plans-billing",
+    "asset_url": "https://iris.superprofile.bio/icon.svg?098d1a68b00bb229",
+    "icon_path": "/platform-fees/icons/superprofile-bio.png"
+  },
+  "trakteer.id": {
+    "website_url": "https://new.trakteer.id/feature-and-pricing",
+    "asset_url": "https://new.trakteer.id/_assets/v11/d9fbe910c3de0c23f238ee33809b601099eb29df.png",
+    "icon_path": "/platform-fees/icons/trakteer-id.png"
+  },
+  "www.indiegogo.com": {
+    "website_url": "https://help.indiegogo.com/article/596-fees",
+    "asset_url": "https://d33v4339jhl8k0.cloudfront.net/docs/assets/602e22fb6f44a32676aad7e4/images/68e61e26e6ccaf7bc6a831da/site-icon.png",
+    "icon_path": "/platform-fees/icons/www-indiegogo-com.png"
+  },
+  "paystack.com": {
+    "website_url": "https://support.paystack.com/en/articles/2130306",
+    "asset_url": "https://support.paystack.com/attachments/b73f2931-62d1-4d84-932c-b6f2605fe8e6.png",
+    "icon_path": "/platform-fees/icons/paystack-com.png"
+  },
+  "www.threadless.com": {
+    "website_url": "https://artistshopshelp.threadless.com/",
+    "asset_url": "https://d33v4339jhl8k0.cloudfront.net/docs/assets/55d20ae1e4b089486cadc329/images/55db4679e4b0426019bdf64d/pencil.png",
+    "icon_path": "/platform-fees/icons/www-threadless-com.png"
+  },
+  "www.xendit.co": {
+    "website_url": "https://github.com/xendit",
+    "asset_url": "https://avatars.githubusercontent.com/u/9703405?v=4",
+    "icon_path": "/platform-fees/icons/www-xendit-co.png",
+    "verification_url": "https://www.xendit.co/en-id/blog/try-xendit-checkout-on-our-demo-page/"
+  },
+  "www.bonfire.com": {
+    "website_url": "https://help.bonfire.com/en/articles/1614156-pricing-fees",
+    "asset_url": "https://intercom.help/bonfire/assets/favicon",
+    "icon_path": "/platform-fees/icons/www-bonfire-com.png"
+  },
+  "about.dailymotion.com": {
+    "website_url": "https://about.dailymotion.com/en/become-premium-creator/",
+    "asset_url": "https://corpostatic.dailymotion.com/corporate-cms-release-assets-prod-aws/725db18/app/themes/dailymotion/front/build/images/favio-icon-72x72.png",
+    "icon_path": "/platform-fees/icons/about-dailymotion-com.png"
+  },
+  "dev.onestore.co.kr": {
+    "website_url": "https://dev.onestore.net/dev",
+    "asset_url": "https://dev.onestore.net/dev/favicon.ico?favicon.fc4fcbbe.ico",
+    "icon_path": "/platform-fees/icons/dev-onestore-co-kr.png"
+  },
+  "www.xinxii.com": {
+    "website_url": "https://www.xinxii.com/",
+    "asset_url": "https://www.xinxii.com/image/catalog/favicon.png",
+    "icon_path": "/platform-fees/icons/www-xinxii-com.png"
+  },
+  "www.creativefabrica.com": {
+    "website_url": "https://github.com/creativefabrica",
+    "asset_url": "https://avatars.githubusercontent.com/u/34438327?v=4",
+    "icon_path": "/platform-fees/icons/www-creativefabrica-com.png"
+  },
+  "sellsn.io": {
+    "website_url": "https://github.com/Sellsn-Platform",
+    "asset_url": "https://avatars.githubusercontent.com/u/128258257?v=4",
+    "icon_path": "/platform-fees/icons/sellsn-io.png"
+  },
+  "designbundles.net": {
+    "website_url": "https://designbundles.net/register",
+    "asset_url": "https://fbcd.co/images/favicon/new/favicon-db.svg",
+    "icon_path": "/platform-fees/icons/designbundles-net.png"
+  },
+  "fontbundles.net": {
+    "website_url": "https://fontbundles.net/register",
+    "asset_url": "https://fbcd.co/images/favicon/new/favicon-fb.svg",
+    "icon_path": "/platform-fees/icons/fontbundles-net.png"
+  },
+  "artistree.io": {
+    "website_url": "https://artistree.io/",
+    "asset_url": "https://message-images-qa.s3.amazonaws.com/icon-48.png",
+    "icon_path": "/platform-fees/icons/artistree-io.png"
+  },
+  "www.tiktok.com": {
+    "website_url": "https://apps.apple.com/us/app/tiktok-videos-shop-live/id835599320?uo=4",
+    "asset_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b0/7c/88/b07c88d8-0314-7b8b-7ab0-788e7059074b/TikTok_AppIcon26-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+    "icon_path": "/platform-fees/icons/www-tiktok-com.png"
+  },
+  "support.tiktok.com": {
+    "website_url": "https://apps.apple.com/us/app/tiktok-videos-shop-live/id835599320?uo=4",
+    "asset_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b0/7c/88/b07c88d8-0314-7b8b-7ab0-788e7059074b/TikTok_AppIcon26-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+    "icon_path": "/platform-fees/icons/support-tiktok-com.png"
+  },
+  "www.bigo.tv": {
+    "website_url": "https://apps.apple.com/us/app/bigo-live-live-stream-go-live/id1077137248?uo=4",
+    "asset_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/90/9b/e4/909be4c5-89a0-e6fc-a2c1-69f0a2e7330e/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+    "icon_path": "/platform-fees/icons/www-bigo-tv.png"
+  },
+  "www.payhere.lk": {
+    "website_url": "https://wordpress.org/plugins/payhere-payment-gateway/",
+    "asset_url": "https://ps.w.org/payhere-payment-gateway/assets/icon-256x256.png?rev=2346974",
+    "icon_path": "/platform-fees/icons/www-payhere-lk.png"
+  },
+  "www.spreadconnect.app": {
+    "website_url": "https://wordpress.org/plugins/wc-spod/",
+    "asset_url": "https://ps.w.org/wc-spod/assets/icon-256x256.png?rev=3133974",
+    "icon_path": "/platform-fees/icons/www-spreadconnect-app.png"
+  },
+  "graphicriver.net": {
+    "website_url": "https://graphicriver.net/",
+    "asset_url": "https://public-assets.envato-static.com/icons/graphicriver.net/apple-touch-icon-144x144-precomposed.png",
+    "icon_path": "/platform-fees/icons/graphicriver-net.png"
+  },
+  "en.amazingtalker.com": {
+    "website_url": "https://apps.apple.com/us/app/amazingtalker-learn-languages/id1503450866?uo=4",
+    "asset_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a1/42/08/a142085c-40e2-c152-756d-a9de68f2b81f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+    "icon_path": "/platform-fees/icons/en-amazingtalker-com.png"
+  },
+  "braip.com": {
+    "website_url": "https://apps.apple.com/us/app/braip/id1496153395?uo=4",
+    "asset_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/9c/d6/13/9cd613f5-6513-5324-0b71-95905d800859/AppIcon-1x_U007emarketing-0-5-0-85-220.png/512x512bb.jpg",
+    "icon_path": "/platform-fees/icons/braip-com.png"
+  },
+  "uteach.io": {
+    "website_url": "https://apps.apple.com/us/app/uteach/id1626296167?uo=4",
+    "asset_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6a/65/e0/6a65e046-3eff-8181-7102-664fae7f5e97/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+    "icon_path": "/platform-fees/icons/uteach-io.png"
+  },
+  "steadyhq.com": {
+    "website_url": "https://apps.apple.com/us/app/steady-app/id6748311157?uo=4",
+    "asset_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ec/a8/ec/eca8ec7d-1b4a-bb64-44a4-bfb44da95076/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+    "icon_path": "/platform-fees/icons/steadyhq-com.png"
+  },
+  "toolost.com": {
+    "website_url": "https://apps.apple.com/us/app/too-lost-music-distribution/id6502718551?uo=4",
+    "asset_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fe/a7/e5/fea7e54b-0d35-cc12-75f3-3e5d0c2774ee/AppIcon-0-0-1x_U007emarketing-0-0-0-8-0-0-sRGB-85-220.png/512x512bb.jpg",
+    "icon_path": "/platform-fees/icons/toolost-com.png"
+  },
+  "seedandspark.com": {
+    "website_url": "https://faq.seedandspark.com/en/articles/3550136-where-can-i-find-the-official-seed-spark-logo",
+    "asset_url": "https://seedandspark-content.s3.amazonaws.com/files/LogosforDownload.zip",
+    "archive_path": "Logos for Download/SVG/Seed_Spark-mark-black.svg",
+    "icon_path": "/platform-fees/icons/seedandspark-com.png"
+  },
+  "www.pozible.com": {
+    "website_url": "https://www.pozible.com/crowdfunding-tips/creator-pack",
+    "asset_url": "https://cdn.pozible.com/Creator%20Pack/Pozible%20Media%20Kit.zip",
+    "archive_path": "Pozible Media Kit/Logo (light)/pozible-symbol-color.png",
+    "icon_path": "/platform-fees/icons/www-pozible-com.png"
+  },
+  "www.stocksy.com": {
+    "website_url": "https://brandpad.io/02-stocksy-elements/",
+    "asset_url": "https://res.cloudinary.com/brandpad/image/upload/v1617844253/afqng3cccwsxruykrdpi.ico",
+    "icon_path": "/platform-fees/icons/www-stocksy-com.png",
+    "verification_url": "https://support.stocksy.com/hc/en-us/articles/15534286909076-Where-do-I-find-the-Stocksy-logo"
+  },
+  "developer.huawei.com": {
+    "website_url": "https://appgallery.huawei.com/app/C27162",
+    "asset_url": "https://appgallery.huawei.com/app/C27162",
+    "icon_path": "/platform-fees/icons/huawei-appgallery.svg",
+    "source_type": "official_embedded_svg",
+    "embedded_title": "ic_ag",
+    "checked_at": "2026-09-30",
+    "note": "Exact SVG decoded from the official AppGallery page image data URL; scalable vector, replacing the small developer-site favicon."
+  },
+  "www.spreadshirt.com": {
+    "website_url": "https://github.com/spreadshirt",
+    "asset_url": "https://avatars.githubusercontent.com/u/4557665?v=4",
+    "icon_path": "/platform-fees/icons/www-spreadshirt-com.png",
+    "source_type": "official_github_organization",
+    "official_website": "https://developer.spreadshirt.net",
+    "original_width": 200,
+    "original_height": 200,
+    "checked_at": "2026-09-30"
+  }
+}

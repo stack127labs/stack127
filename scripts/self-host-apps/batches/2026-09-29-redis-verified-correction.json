@@ -1,0 +1,103 @@
+{
+  "apps": [
+    {
+      "slug": "redis",
+      "review_scope": "partial",
+      "expected": {
+        "name": "Redis",
+        "source_code_url": "https://github.com/docker-library/redis",
+        "source_full_name": "docker-library/redis",
+        "github_full_name": "docker-library/redis",
+        "license": "No open-source license declared",
+        "license_spdx_id": "BSD-3-Clause",
+        "source_model": "source_available",
+        "website_url": null,
+        "docs_url": null,
+        "docker_support": "community",
+        "docker_image": "redis",
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "surfaces": ["web"],
+        "categories": ["databases", "networking-dns", "photos-galleries"]
+      },
+      "name": "Redis",
+      "summary": "Redis is an in-memory data store for caching, data structures, messaging, and vector search.",
+      "website_url": "https://redis.io/",
+      "source_code_url": "https://github.com/redis/redis",
+      "docs_url": "https://redis.io/docs/latest/operate/oss_and_stack/",
+      "install_docs_url": "https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/docker/",
+      "docker_url": "https://hub.docker.com/_/redis/",
+      "compose_url": "https://redis.io/tutorials/operate/orchestration/docker/",
+      "license": "Redis 8+: AGPLv3, RSALv2, or SSPLv1. Redis 7.4–7.8: RSALv2 or SSPLv1. Redis 7.2 and earlier: BSD-3-Clause.",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_model": "open_source",
+      "publisher_name": "Redis Ltd.",
+      "publisher_type": "company",
+      "publisher_url": "https://redis.io/",
+      "pricing_model": "free",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "docker_image": "redis:8",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_min_mb": null,
+      "storage_min_gb": null,
+      "resource_requirement_kind": "unknown",
+      "storage_profile": "depends",
+      "persistent_storage": true,
+      "deployment_methods": ["docker", "unraid"],
+      "surfaces": ["api", "cli"],
+      "summary_source": "https://github.com/redis/redis",
+      "summary_confidence": "high",
+      "categories": ["databases"],
+      "data_source_urls": [
+        "https://redis.io/",
+        "https://redis.io/docs/latest/operate/oss_and_stack/",
+        "https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/docker/",
+        "https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/memory-optimization/",
+        "https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/",
+        "https://redis.io/legal/licenses/",
+        "https://redis.io/tutorials/operate/orchestration/docker/",
+        "https://github.com/redis/redis",
+        "https://github.com/redis/redis/blob/unstable/LICENSE.txt",
+        "https://github.com/redis/docker-library-redis",
+        "https://hub.docker.com/_/redis/",
+        "https://raw.githubusercontent.com/juusujanar/unraid-templates/master/Redis.xml"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "resources": [
+    {
+      "slug": "redis",
+      "expected": {
+        "ram_estimate_min_mb": 1024,
+        "ram_estimate_max_mb": 8192,
+        "ram_estimate_basis": "Small single-node service; data volume and request load vary.",
+        "storage_estimate_min_gb": 5,
+        "storage_estimate_max_gb": 100,
+        "storage_estimate_basis": "Small single-node service; data volume and request load vary."
+      },
+      "ram_estimate_min_mb": 512,
+      "ram_estimate_max_mb": 2048,
+      "ram_estimate_kind": "estimated",
+      "ram_estimate_confidence": "low",
+      "ram_estimate_basis": "A small Redis cache or key-value service can start around 512 MB to 2 GB; required memory follows the live data set and peak use.",
+      "ram_source_urls": [
+        "https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/memory-optimization/"
+      ],
+      "storage_estimate_min_gb": 1,
+      "storage_estimate_max_gb": 20,
+      "storage_estimate_kind": "estimated",
+      "storage_estimate_confidence": "low",
+      "storage_estimate_basis": "A small persistent Redis data set can start around 1 to 20 GB; RDB/AOF files and backups grow with data and write volume.",
+      "storage_source_urls": [
+        "https://redis.io/tutorials/operate/orchestration/docker/",
+        "https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/"
+      ]
+    }
+  ]
+}

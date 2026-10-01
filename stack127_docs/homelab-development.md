@@ -13,6 +13,11 @@ The main stack127 workspace is `/home/teja/projects/stack127` on `teja-homelab`.
 
 Do not start a local Supabase Docker stack. Do not print, copy, or commit secrets.
 
+For a replacement development project, follow [development database recovery](development-database.md).
+Production supplies the published website records. Platform fees, launch
+directories, and ad networks have private draft data in both databases and stay
+unpublished in production. Keep development previews when refreshing records.
+
 ## Development server
 
 `npm run dev` and `npm run start` bind to `0.0.0.0:3333`.

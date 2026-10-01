@@ -1,0 +1,242 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values copied from its self-host-app records.",
+  "scope": "Corrected source model, license, repository, official links, summary, categories, and maintenance status for clearly identified Q-R apps. Official sources reviewed; proposals only.",
+  "apps": [
+    {
+      "slug": "questdb",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/questdb/questdb",
+      "source_code_host": "github",
+      "docs_url": "https://questdb.com/docs/",
+      "install_docs_url": "https://questdb.com/docs/",
+      "summary": "Runs a time-series database for fast data ingestion and SQL analytics.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "categories": ["databases"],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://forums.unraid.net/topic/147814-support-questdb-questdb/",
+        "install_docs_url": "https://forums.unraid.net/topic/147814-support-questdb-questdb/",
+        "summary": "QuestDB is an database designed to make time-series lightning fast and easy.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "categories": ["databases", "games"]
+      },
+      "data_source_urls": [
+        "https://github.com/questdb/questdb",
+        "https://github.com/questdb/questdb/blob/master/LICENSE",
+        "https://questdb.com/docs/"
+      ]
+    },
+    {
+      "slug": "quireink",
+      "review_scope": "partial",
+      "source_model": "source_available",
+      "license": "PolyForm Noncommercial 1.0.0",
+      "license_type": "custom",
+      "license_spdx_id": "PolyForm-Noncommercial-1.0.0",
+      "source_code_url": "https://github.com/joiha-steven/quireink",
+      "source_code_host": "github",
+      "docs_url": "https://github.com/joiha-steven/quireink#readme",
+      "install_docs_url": "https://github.com/joiha-steven/quireink/blob/main/docs/self-host-docker.md",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/joiha-steven/quireink/issues",
+        "install_docs_url": "https://github.com/joiha-steven/quireink/issues"
+      },
+      "data_source_urls": [
+        "https://github.com/joiha-steven/quireink",
+        "https://github.com/joiha-steven/quireink/blob/main/docs/decisions/0015-relicense-polyform-noncommercial.md",
+        "https://github.com/joiha-steven/quireink/blob/main/docs/self-host-docker.md",
+        "https://quireink.com/"
+      ]
+    },
+    {
+      "slug": "refact",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "BSD 3-Clause License",
+      "license_type": "permissive",
+      "license_spdx_id": "BSD-3-Clause",
+      "source_code_url": "https://github.com/smallcloudai/refact",
+      "source_code_host": "github",
+      "docs_url": "https://github.com/smallcloudai/refact",
+      "install_docs_url": "https://github.com/smallcloudai/refact/issues/891",
+      "summary": "Refact is a local-first coding assistant with IDE chat and agent workflows.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "maintenance_status": "archived",
+      "categories": ["ai-ml", "developer-tools"],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://www.smallcloud.ai/discord",
+        "install_docs_url": "https://www.smallcloud.ai/discord",
+        "summary": "Refact WebUI for fine-tuning and self-hosting of code models, that you can later use inside Refact plugins for code completion and chat.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "maintenance_status": "active",
+        "categories": ["ai-ml", "communication", "system-admin-hosting"]
+      },
+      "data_source_urls": [
+        "https://github.com/smallcloudai/refact",
+        "https://github.com/smallcloudai/refact/blob/main/LICENSE",
+        "https://github.com/smallcloudai/refact/issues/891",
+        "https://refact.ai/"
+      ]
+    },
+    {
+      "slug": "reticulum-meshchat",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/liamcottle/reticulum-meshchat",
+      "source_code_host": "github",
+      "docs_url": "https://github.com/liamcottle/reticulum-meshchat#readme",
+      "install_docs_url": "https://github.com/liamcottle/reticulum-meshchat#readme",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://github.com/liamcottle/reticulum-meshchat/issues",
+        "install_docs_url": "https://github.com/liamcottle/reticulum-meshchat/issues"
+      },
+      "data_source_urls": [
+        "https://github.com/liamcottle/reticulum-meshchat",
+        "https://github.com/liamcottle/reticulum-meshchat/blob/master/LICENSE",
+        "https://meshchat.app/"
+      ]
+    },
+    {
+      "slug": "rika2mqtt",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/sebastienvermeille/rika2mqtt",
+      "source_code_host": "github",
+      "docs_url": "https://github.com/sebastienvermeille/rika2mqtt#readme",
+      "install_docs_url": "https://github.com/sebastienvermeille/rika2mqtt#readme",
+      "summary": "RIKA2MQTT connects a RIKA Firenet stove to an MQTT server for monitoring and control.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "categories": ["home-automation-iot", "monitoring-status"],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://forums.unraid.net/topic/144581-support-rika2mqtt/",
+        "install_docs_url": "https://forums.unraid.net/topic/144581-support-rika2mqtt/",
+        "summary": "Rika2Mqtt is a free and opensource bridge enabling end-users to connect their RIKA firenet stove to an MQTT server, It goes both way so you can monitor and.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "categories": ["home-automation-iot", "monitoring-status", "system-admin-hosting"]
+      },
+      "data_source_urls": [
+        "https://github.com/sebastienvermeille/rika2mqtt",
+        "https://github.com/sebastienvermeille/rika2mqtt/blob/master/LICENSE",
+        "https://rika2mqtt.cookiecode.dev/"
+      ]
+    },
+    {
+      "slug": "root",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Lesser General Public License v2.1 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "LGPL-2.1-or-later",
+      "source_code_url": "https://github.com/root-project/root",
+      "source_code_host": "github",
+      "docs_url": "https://root.cern/install/",
+      "install_docs_url": "https://root.cern/install/",
+      "summary": "ROOT is a C++ and Python framework for storing, analyzing, and visualizing scientific data.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "categories": ["developer-tools"],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://forums.unraid.net/topic/94979-trilium-docker/",
+        "install_docs_url": "https://forums.unraid.net/topic/94979-trilium-docker/",
+        "summary": "ROOT is a framework for data processing, born at CERN, at the heart of the research on high-energy physics, Every day, thousands of physicists use ROOT.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "categories": ["search"]
+      },
+      "data_source_urls": [
+        "https://github.com/root-project/root",
+        "https://github.com/root-project/root/blob/master/LICENSE",
+        "https://root.cern/install/"
+      ]
+    },
+    {
+      "slug": "rw-photonix",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://github.com/photonixapp/photonix",
+      "source_code_host": "github",
+      "website_url": "https://photonix.org/",
+      "docs_url": "https://github.com/photonixapp/photonix#readme",
+      "install_docs_url": "https://github.com/photonixapp/photonix#readme",
+      "summary": "Photonix is a photo manager with searchable libraries and computer-vision features.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "categories": ["photos-galleries"],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "website_url": "https://forums.unraid.net/topic/112590-support-cedev-photonix/",
+        "docs_url": "https://forums.unraid.net/topic/112590-support-cedev-photonix/",
+        "install_docs_url": "https://forums.unraid.net/topic/112590-support-cedev-photonix/",
+        "summary": "Photonix is a photo management application that streamlines the process of storing, presenting and re-discovering photos, Once set up it will ingest all the.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "categories": ["ai-ml", "databases", "photos-galleries"]
+      },
+      "data_source_urls": [
+        "https://github.com/photonixapp/photonix",
+        "https://github.com/photonixapp/photonix/blob/master/LICENSE",
+        "https://photonix.org/"
+      ]
+    }
+  ]
+}

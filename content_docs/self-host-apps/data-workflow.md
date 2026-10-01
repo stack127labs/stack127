@@ -54,7 +54,7 @@ npm run self-host-apps:refresh-app-catalog-facts -- --truenas-dir <checkout> --u
 
 Both technical collectors produce pending evidence only. Appliance defaults and service names are scoped to that package, not automatically treated as requirements of every app deployment. Apply field corrections after source review; neither collector can advance a verification date or publish a parser result.
 
-Planning estimates are separate reviewed records. The proposal command creates research tasks without numbers:
+Estimate RAM and storage for every published app for a typical small self-hosted setup. Use publisher guidance to calibrate the estimates when available. The directory labels every range `Est. RAM` and `Est. Storage`; it does not show a long explanation.
 
 
 ```bash
@@ -62,13 +62,7 @@ npm run self-host-apps:propose-resource-estimates -- --limit 5000 --out <resourc
 npm run self-host-apps:apply-resource-estimates -- --file <reviewed-estimates.json> --apply-reviewed
 ```
 
-An estimate submitted to the applier must include a range, kind, confidence, basis, and source URLs, plus a `review` object with:
-
-- `method`: `measurement`, `calculation`, or `published_estimate`.
-- `workload`: the user count, dataset, enabled services, or other conditions the range describes.
-- `explanation`: how the cited evidence supports the numbers, including the calculation when applicable.
-
-The writer retains workload and explanation with the estimate note. Estimates are always shown as `(estimated)`. A generic deployment-shape range is not a reviewed estimate. Do not assign numbers from database counts, categories, or persistence flags. An app's homepage is not numerical evidence merely because it is reachable. Keep old generated ranges in the audit queue until they are replaced by supported estimates or removed with a recoverable record of the change.
+An estimate record needs a range, kind, confidence, a short internal basis, and a link to the official project or publisher page. Use `review.method: "app_estimate"` for a practical estimate. Keep published requirements as source evidence for the estimate, not as a separate public RAM or storage label. Do not use a package memory cap as an app requirement.
 
 Install destinations are refreshed into one row per app:
 

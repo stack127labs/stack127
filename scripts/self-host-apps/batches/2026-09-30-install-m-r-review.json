@@ -1,0 +1,1051 @@
+{
+  "report_date": "2026-09-30",
+  "project_id": "tulgfrqamtcshdtmhvpx",
+  "database_access": "read_only",
+  "production_write": false,
+  "scope": "Read-only official-source review of the first 25 published self-hostable apps with slugs M–R and no install-option links, ordered by slug. Verified install destinations are listed below; community images are labeled. No production changes made.",
+  "selection": {
+    "published": true,
+    "self_hosting_status": "self_hostable",
+    "slug_prefix": "m-r",
+    "install_options": "absent or empty",
+    "order_by": "slug ASC",
+    "limit": 25,
+    "slugs": [
+      "maddy-mail-server",
+      "mafl",
+      "mage",
+      "magento-open-source",
+      "magic-frame",
+      "mail-in-a-box",
+      "maildev",
+      "manage",
+      "manage-my-damn-life",
+      "mantisbt",
+      "manyfold",
+      "maple",
+      "matchering",
+      "materia",
+      "materialious",
+      "matomo",
+      "mautic",
+      "maxkb",
+      "medama-analytics",
+      "mediamtx",
+      "medusa",
+      "medusajs",
+      "meetily",
+      "mem0",
+      "memgraph"
+    ]
+  },
+  "apps": [
+    {
+      "slug": "maddy-mail-server",
+      "id": "2dd0151a-d73a-4989-963b-940b9e21137b",
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Linux tarball or source install",
+          "url": "https://maddy.email/tutorials/setting-up/",
+          "support_level": "official",
+          "source_url": "https://maddy.email/tutorials/setting-up/",
+          "image": null,
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Official GHCR image",
+          "url": "https://github.com/foxcpp/maddy/pkgs/container/maddy",
+          "support_level": "official",
+          "source_url": "https://maddy.email/tutorials/setting-up/",
+          "image": "ghcr.io/foxcpp/maddy:latest",
+          "note": "The setup guide's older Docker Hub tag is stale; the upstream GHCR package currently lists latest and 0.8 tags.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://maddy.email/tutorials/setting-up/",
+          "note": "Official setup guide documents Linux tarball, Docker, and source installation."
+        },
+        {
+          "url": "https://github.com/foxcpp/maddy/pkgs/container/maddy",
+          "note": "Package page under the upstream project lists the maintained GHCR image and tags."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add native and Docker install options. Replace any Dockerfile URL in docker_url with the GHCR package destination."
+      ]
+    },
+    {
+      "slug": "mafl",
+      "id": "ad600680-b4c9-4df9-aa29-3654bc5e5be2",
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Mafl Docker image",
+          "url": "https://hub.docker.com/r/hywax/mafl",
+          "support_level": "official",
+          "source_url": "https://github.com/hywax/mafl",
+          "image": "hywax/mafl:latest",
+          "note": "The upstream README publishes this image to Docker Hub and GHCR and includes a Compose example.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://github.com/hywax/mafl#docker",
+          "support_level": "official",
+          "source_url": "https://github.com/hywax/mafl",
+          "image": "hywax/mafl:latest",
+          "note": null,
+          "sort_order": 20
+        },
+        {
+          "method": "native",
+          "label": "Node.js install",
+          "url": "https://github.com/hywax/mafl#node",
+          "support_level": "official",
+          "source_url": "https://github.com/hywax/mafl",
+          "image": null,
+          "note": "Upstream documents building and running the app with Node and Yarn.",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/hywax/mafl",
+          "note": "Official README documents Docker Hub/GHCR images, Compose, and Node installation."
+        },
+        {
+          "url": "https://hub.docker.com/r/hywax/mafl",
+          "note": "Docker Hub package for the image named by the upstream README."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add Docker, Compose, and native install options; update deployment_methods to match."
+      ]
+    },
+    {
+      "slug": "mage",
+      "id": "2712ac45-def7-4f71-804f-1122f29ab343",
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Mage Docker image",
+          "url": "https://docs.mage.ai/getting-started/setup",
+          "support_level": "official",
+          "source_url": "https://docs.mage.ai/getting-started/setup",
+          "image": "mageai/mageai:latest",
+          "note": "Official quickstart provides the Docker run command.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Mage Compose quickstart",
+          "url": "https://github.com/mage-ai/compose-quickstart",
+          "support_level": "official",
+          "source_url": "https://docs.mage.ai/getting-started/setup",
+          "image": null,
+          "note": "The official docs link this starter repository and show docker compose up.",
+          "sort_order": 20
+        },
+        {
+          "method": "package",
+          "label": "Install with pip",
+          "url": "https://pypi.org/project/mage-ai/",
+          "support_level": "official",
+          "source_url": "https://docs.mage.ai/getting-started/setup",
+          "image": null,
+          "note": "The official setup guide and project package page document pip installation.",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.mage.ai/getting-started/setup",
+          "note": "Official setup guide documents Docker, Compose, pip, and conda routes."
+        },
+        {
+          "url": "https://pypi.org/project/mage-ai/",
+          "note": "Mage package page links to official docs and lists Docker and pip quickstarts."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add Docker, Compose, and package install options."
+      ]
+    },
+    {
+      "slug": "magento-open-source",
+      "id": "f00a442e-90ce-497f-bfd4-7a55c8a02446",
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Composer install",
+          "url": "https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/composer",
+          "support_level": "official",
+          "source_url": "https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/composer",
+          "image": null,
+          "note": "The on-premises guide installs Magento Open Source with the magento/project-community-edition Composer package.",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/composer",
+          "note": "Adobe's on-premises guide gives the Composer project-community-edition install command."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add the official Composer install option and set deployment_methods to include native."
+      ]
+    },
+    {
+      "slug": "magic-frame",
+      "id": "635f17e2-ceac-4204-a7f4-7a756427ac36",
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose install",
+          "url": "https://magicframe.dev/docs/installation/",
+          "support_level": "official",
+          "source_url": "https://magicframe.dev/docs/installation/",
+          "image": "ghcr.io/jeremiaa/magic-frame-app:latest",
+          "note": "The official installer and manual Compose steps use the project image.",
+          "sort_order": 10
+        },
+        {
+          "method": "helm",
+          "label": "Helm chart",
+          "url": "https://magicframe.dev/docs/installation/",
+          "support_level": "official",
+          "source_url": "https://magicframe.dev/docs/installation/",
+          "image": null,
+          "note": "The install guide documents the Helm chart path.",
+          "sort_order": 20
+        },
+        {
+          "method": "kubernetes",
+          "label": "Kubernetes manifests",
+          "url": "https://magicframe.dev/docs/installation/",
+          "support_level": "official",
+          "source_url": "https://magicframe.dev/docs/installation/",
+          "image": "ghcr.io/jeremiaa/magic-frame-app:latest",
+          "note": "The install guide documents Kubernetes manifests and image pinning.",
+          "sort_order": 30
+        },
+        {
+          "method": "home_assistant_os",
+          "label": "Home Assistant add-on",
+          "url": "https://magicframe.dev/docs/installation/",
+          "support_level": "official",
+          "source_url": "https://magicframe.dev/docs/installation/",
+          "image": null,
+          "note": "The project documents an add-on install for Home Assistant OS.",
+          "sort_order": 40
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://magicframe.dev/docs/installation/",
+          "note": "Official installation guide documents installer, Compose, Kubernetes, Helm, and Home Assistant paths."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add the documented Compose, Helm, Kubernetes, and Home Assistant install options."
+      ]
+    },
+    {
+      "slug": "mail-in-a-box",
+      "id": "55733266-af6f-4c4e-8234-07ea33e99cd7",
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Ubuntu server install",
+          "url": "https://mailinabox.email/guide.html",
+          "support_level": "official",
+          "source_url": "https://mailinabox.email/guide.html",
+          "image": null,
+          "note": "The official guide uses a dedicated Ubuntu server and setup script; it does not support Docker installs.",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://mailinabox.email/guide.html",
+          "note": "Official setup guide provides the installation script and required host setup."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add the native install option. Remove Docker from deployment_methods if it is currently listed."
+      ]
+    },
+    {
+      "slug": "maildev",
+      "id": "e8184dd7-eb9e-4bd6-acc8-a09a19933214",
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "MailDev Docker image",
+          "url": "https://hub.docker.com/r/maildev/maildev",
+          "support_level": "official",
+          "source_url": "https://github.com/maildev/maildev",
+          "image": "maildev/maildev:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "package",
+          "label": "Install from npm",
+          "url": "https://github.com/maildev/maildev#install",
+          "support_level": "official",
+          "source_url": "https://github.com/maildev/maildev",
+          "image": null,
+          "note": "The upstream README documents npm install -g maildev.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/maildev/maildev",
+          "note": "Official README documents npm installation and the Docker Hub image."
+        },
+        {
+          "url": "https://hub.docker.com/r/maildev/maildev",
+          "note": "Docker Hub image linked by the project README."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add Docker and package install options."
+      ]
+    },
+    {
+      "slug": "manage",
+      "id": "0c159210-81bc-4bfe-8216-0cfe9fa65651",
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Node.js or Bun self-hosting",
+          "url": "https://github.com/techulus/manage#self-hosting",
+          "support_level": "official",
+          "source_url": "https://github.com/techulus/manage",
+          "image": null,
+          "note": "Upstream says it can run on Node.js/Bun platforms and lists PostgreSQL, optional S3-compatible storage, and SMTP requirements.",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/techulus/manage",
+          "note": "Official README includes a self-hosting section and manual deployment requirements."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add the documented native self-hosting option and update deployment_methods."
+      ]
+    },
+    {
+      "slug": "manage-my-damn-life",
+      "id": "7c0b024d-3f5d-424c-a870-0776cc9f69f5",
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose install",
+          "url": "https://github.com/intri-in/manage-my-damn-life-nextjs/blob/main/docs/install/Docker/index.md",
+          "support_level": "official",
+          "source_url": "https://github.com/intri-in/manage-my-damn-life-nextjs/blob/main/docs/install/Docker/index.md",
+          "image": "intriin/mmdl:latest",
+          "note": "The documented stack runs MMDL and MySQL. The project notes that its installation instructions have not been thoroughly tested.",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "MMDL Docker image",
+          "url": "https://hub.docker.com/r/intriin/mmdl",
+          "support_level": "official",
+          "source_url": "https://github.com/intri-in/manage-my-damn-life-nextjs/blob/main/docs/install/Docker/index.md",
+          "image": "intriin/mmdl:latest",
+          "note": "The official install guide documents docker pull intriin/mmdl:latest and docker run.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/intri-in/manage-my-damn-life-nextjs/blob/main/docs/install/Docker/index.md",
+          "note": "Official guide documents both Compose and standalone Docker installation."
+        },
+        {
+          "url": "https://hub.docker.com/r/intriin/mmdl",
+          "note": "Docker Hub destination for the image named in the official installation guide."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add Docker and Compose options. Replace the current Dockerfile URL with the image or install guide destination."
+      ]
+    },
+    {
+      "slug": "mantisbt",
+      "id": "c74ed558-3655-4683-805e-ebfb0f690c58",
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "PHP web server installation",
+          "url": "https://github.com/mantisbt/mantisbt#installation",
+          "support_level": "official",
+          "source_url": "https://github.com/mantisbt/mantisbt",
+          "image": null,
+          "note": "Official README describes installing the release tarball with PHP, a web server, and a database.",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Community MantisBT Docker image",
+          "url": "https://hub.docker.com/r/okainov/mantisbt",
+          "support_level": "community",
+          "source_url": "https://github.com/okainov/mantisbt-docker",
+          "image": "okainov/mantisbt:latest",
+          "note": "This is a community-maintained image, not an upstream MantisBT image.",
+          "sort_order": 20
+        },
+        {
+          "method": "compose",
+          "label": "Community MantisBT Compose setup",
+          "url": "https://github.com/okainov/mantisbt-docker#quick-start",
+          "support_level": "community",
+          "source_url": "https://github.com/okainov/mantisbt-docker",
+          "image": "okainov/mantisbt:latest",
+          "note": "The community project provides a Compose example with a MySQL service.",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/mantisbt/mantisbt#installation",
+          "note": "Upstream installation instructions establish that MantisBT supports self-hosting with PHP and a database."
+        },
+        {
+          "url": "https://github.com/okainov/mantisbt-docker",
+          "note": "Community image source and setup project."
+        },
+        {
+          "url": "https://hub.docker.com/r/okainov/mantisbt",
+          "note": "Registry destination for the community image."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add the official native option. Label the Docker image and Compose setup community, and replace the Dockerfile URL with the community registry destination."
+      ]
+    },
+    {
+      "slug": "manyfold",
+      "id": "ee27a98c-6997-46e4-8850-50626a095ec7",
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Manyfold Solo image",
+          "url": "https://github.com/manyfold3d/manyfold/pkgs/container/manyfold-solo",
+          "support_level": "official",
+          "source_url": "https://manyfold.app/get-started/docker",
+          "image": "ghcr.io/manyfold3d/manyfold-solo:latest",
+          "note": "All-in-one image includes the database and Redis.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://manyfold.app/get-started/docker",
+          "support_level": "official",
+          "source_url": "https://manyfold.app/get-started/docker",
+          "image": "manyfold3d/manyfold-solo:latest",
+          "note": "Official guide provides a simple Solo Compose setup and a standard multi-service setup.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://manyfold.app/get-started/docker",
+          "note": "Official Docker guide names both images and includes Compose examples."
+        },
+        {
+          "url": "https://github.com/manyfold3d/manyfold/pkgs/container/manyfold-solo",
+          "note": "Upstream GHCR package destination for the Solo image."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add Docker and Compose options."
+      ]
+    },
+    {
+      "slug": "maple",
+      "id": "db5c01d1-16e9-4612-9581-26c769aae4fa",
+      "verified_options": [
+        {
+          "method": "binary",
+          "label": "Maple Local binary",
+          "url": "https://maple.dev/docs/local-mode/",
+          "support_level": "official",
+          "source_url": "https://maple.dev/docs/local-mode/",
+          "image": null,
+          "note": "Official guide installs a single binary that runs a local, self-hosted observability stack and persists data on the host.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Local Docker Compose stack",
+          "url": "https://github.com/MapleTechLabs/maple#docker-local",
+          "support_level": "official",
+          "source_url": "https://github.com/MapleTechLabs/maple",
+          "image": null,
+          "note": "The upstream README documents this as a local development stack, not a general production deployment.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://maple.dev/docs/local-mode/",
+          "note": "Official guide documents the self-hosted local binary, persistence, and install methods."
+        },
+        {
+          "url": "https://github.com/MapleTechLabs/maple",
+          "note": "Upstream README says the project can be self-hosted and documents a local Compose stack."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add the local binary option. Keep the Compose option labeled local/development only; do not present it as a production guide."
+      ]
+    },
+    {
+      "slug": "matchering",
+      "id": "5a5625e9-1631-431e-a532-3f67d63f71fc",
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Matchering Web Docker image",
+          "url": "https://hub.docker.com/r/sergree/matchering-web",
+          "support_level": "official",
+          "source_url": "https://github.com/sergree/matchering/blob/master/DOCKER_LINUX.md",
+          "image": "sergree/matchering-web:latest",
+          "note": "Official Linux Docker guide gives the run command and persistent data volume.",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/sergree/matchering/blob/master/DOCKER_LINUX.md",
+          "note": "Official Linux Docker install guide names the image and persistent volume."
+        },
+        {
+          "url": "https://hub.docker.com/r/sergree/matchering-web",
+          "note": "Docker Hub destination for the image named in the upstream guide."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add the official Docker image option and replace the Dockerfile link in docker_url with the registry page."
+      ]
+    },
+    {
+      "slug": "materia",
+      "id": "efa37443-cf4d-474f-bea0-79923f09acd5",
+      "verified_options": [
+        {
+          "method": "binary",
+          "label": "Linux binary release",
+          "url": "https://github.com/stryan/materia/releases",
+          "support_level": "official",
+          "source_url": "https://github.com/stryan/materia",
+          "image": null,
+          "note": "The upstream README directs users to architecture-specific release binaries.",
+          "sort_order": 10
+        },
+        {
+          "method": "other",
+          "label": "Podman container image",
+          "url": "https://github.com/stryan/materia#with-podman",
+          "support_level": "official",
+          "source_url": "https://github.com/stryan/materia",
+          "image": "ghcr.io/stryan/materia:stable",
+          "note": "Materia's README says to run it with Podman, not Docker.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/stryan/materia",
+          "note": "Official README documents binary releases and explicitly requires Podman for its container mode."
+        },
+        {
+          "url": "https://github.com/stryan/materia/releases",
+          "note": "Official binary release destination."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add binary and Podman options. Do not classify the Podman-only route as Docker support."
+      ]
+    },
+    {
+      "slug": "materialious",
+      "id": "79b7ffb4-d737-48de-9929-c8ac03b81b19",
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Materialious Full image",
+          "url": "https://hub.docker.com/r/wardpearce/materialious-full",
+          "support_level": "official",
+          "source_url": "https://github.com/Materialious/Materialious/blob/main/docs/DOCKER-FULL.md",
+          "image": "wardpearce/materialious-full:latest",
+          "note": "The full image includes the backend and account system; it differs from the front-end-only image.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Materialious Full Compose setup",
+          "url": "https://github.com/Materialious/Materialious/blob/main/docs/DOCKER-FULL.md",
+          "support_level": "official",
+          "source_url": "https://github.com/Materialious/Materialious/blob/main/docs/DOCKER-FULL.md",
+          "image": "wardpearce/materialious-full:latest",
+          "note": null,
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/Materialious/Materialious/blob/main/docs/DOCKER-FULL.md",
+          "note": "Official full-stack container guide names the image and provides Compose configuration."
+        },
+        {
+          "url": "https://hub.docker.com/r/wardpearce/materialious-full",
+          "note": "Docker Hub destination named by the official guide."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add Docker and Compose options. Replace the Dockerfile URL with the Materialious Full registry page."
+      ]
+    },
+    {
+      "slug": "matomo",
+      "id": "4febae8d-af0d-43a5-b8d6-fa4d074f1791",
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "On-premises installation",
+          "url": "https://matomo.org/guide/installation-maintenance/matomo-on-premise-self-hosted/",
+          "support_level": "official",
+          "source_url": "https://matomo.org/guide/installation-maintenance/matomo-on-premise-self-hosted/",
+          "image": null,
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Official Matomo Docker image",
+          "url": "https://hub.docker.com/_/matomo",
+          "support_level": "official",
+          "source_url": "https://matomo.org/faq/how-to-install/install-matomo-with-docker/",
+          "image": "matomo:latest",
+          "note": null,
+          "sort_order": 20
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://matomo.org/faq/how-to-install/install-matomo-with-docker/",
+          "support_level": "official",
+          "source_url": "https://matomo.org/faq/how-to-install/install-matomo-with-docker/",
+          "image": "matomo:latest",
+          "note": "Official guide recommends Compose with MariaDB, persistent volumes, and a cron service.",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://matomo.org/guide/installation-maintenance/matomo-on-premise-self-hosted/",
+          "note": "Official on-premises install guide."
+        },
+        {
+          "url": "https://matomo.org/faq/how-to-install/install-matomo-with-docker/",
+          "note": "Official Docker guide recommends a persistent Compose setup."
+        },
+        {
+          "url": "https://hub.docker.com/_/matomo",
+          "note": "Docker Official Image listing for Matomo."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add native, Docker, and Compose options."
+      ]
+    },
+    {
+      "slug": "mautic",
+      "id": "40053fd2-5ddd-4498-9a77-00949a25b90d",
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "Mautic production package",
+          "url": "https://docs.mautic.org/en/7.0/getting_started/how_to_install_mautic.html",
+          "support_level": "official",
+          "source_url": "https://docs.mautic.org/en/7.0/getting_started/how_to_install_mautic.html",
+          "image": null,
+          "note": "Official install docs link to the downloadable stable production package.",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Official Mautic Docker image",
+          "url": "https://hub.docker.com/r/mautic/mautic",
+          "support_level": "official",
+          "source_url": "https://github.com/mautic/docker-mautic",
+          "image": "mautic/mautic:latest",
+          "note": "The upstream Docker project identifies this as its official image and recommends Apache over FPM for now.",
+          "sort_order": 20
+        },
+        {
+          "method": "compose",
+          "label": "Mautic Compose examples",
+          "url": "https://github.com/mautic/docker-mautic/tree/main/examples",
+          "support_level": "official",
+          "source_url": "https://github.com/mautic/docker-mautic",
+          "image": "mautic/mautic:latest",
+          "note": "The official Docker repository includes Compose examples; review and configure them before production use.",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.mautic.org/en/7.0/getting_started/how_to_install_mautic.html",
+          "note": "Official docs explain production package installation."
+        },
+        {
+          "url": "https://github.com/mautic/docker-mautic",
+          "note": "Official image repository and Docker Compose examples."
+        },
+        {
+          "url": "https://hub.docker.com/r/mautic/mautic",
+          "note": "Docker Hub page identifies Mautic as the image publisher."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add package, Docker, and Compose options."
+      ]
+    },
+    {
+      "slug": "maxkb",
+      "id": "27796ef9-e874-4fcb-af5a-cfe627fdbf31",
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "MaxKB Docker image",
+          "url": "https://hub.docker.com/r/1panel/maxkb",
+          "support_level": "official",
+          "source_url": "https://docs.maxkb.pro/quick_start/",
+          "image": "1panel/maxkb:latest",
+          "note": "Official quick start provides the Docker run command and persistence mounts.",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.maxkb.pro/quick_start/",
+          "note": "Official quick start names the image and gives the Docker command."
+        },
+        {
+          "url": "https://hub.docker.com/r/1panel/maxkb",
+          "note": "Docker Hub registry destination for the documented image."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add the official Docker install option and update deployment_methods."
+      ]
+    },
+    {
+      "slug": "medama-analytics",
+      "id": "0924fed4-4596-4c4c-929a-e75b33142c8f",
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Medama Docker image",
+          "url": "https://github.com/medama-io/medama/pkgs/container/medama",
+          "support_level": "official",
+          "source_url": "https://medama.mintlify.app/deployment/installation",
+          "image": "ghcr.io/medama-io/medama:edge",
+          "note": "The GHCR package lists the edge tag; it does not currently list a latest tag.",
+          "sort_order": 10
+        },
+        {
+          "method": "binary",
+          "label": "Single binary release",
+          "url": "https://github.com/medama-io/medama/releases",
+          "support_level": "official",
+          "source_url": "https://medama.mintlify.app/deployment/installation",
+          "image": null,
+          "note": "The official install guide also documents a standalone binary.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://medama.mintlify.app/deployment/installation",
+          "note": "Official installation guide documents the binary and Docker options."
+        },
+        {
+          "url": "https://github.com/medama-io/medama/pkgs/container/medama",
+          "note": "Upstream GHCR package destination."
+        },
+        {
+          "url": "https://github.com/medama-io/medama/releases",
+          "note": "Upstream binary release destination."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add Docker and binary options. Replace the Dockerfile URL with the GHCR package destination."
+      ]
+    },
+    {
+      "slug": "mediamtx",
+      "id": "0c290ad4-ae83-43b9-8b46-f792953e10e4",
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "MediaMTX Docker image",
+          "url": "https://hub.docker.com/r/bluenviron/mediamtx",
+          "support_level": "official",
+          "source_url": "https://mediamtx.org/docs/kickoff/install",
+          "image": "bluenviron/mediamtx:1",
+          "note": "Official docs list the maintained image variants and explain that tag 1 follows the current 1.x release line.",
+          "sort_order": 10
+        },
+        {
+          "method": "binary",
+          "label": "Standalone binary",
+          "url": "https://github.com/bluenviron/mediamtx/releases",
+          "support_level": "official",
+          "source_url": "https://mediamtx.org/docs/kickoff/install",
+          "image": null,
+          "note": "Official install guide also documents standalone binaries.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://mediamtx.org/docs/kickoff/install",
+          "note": "Official installation guide documents binary and Docker installs."
+        },
+        {
+          "url": "https://hub.docker.com/r/bluenviron/mediamtx",
+          "note": "Docker Hub destination for the image named by the official guide."
+        },
+        {
+          "url": "https://github.com/bluenviron/mediamtx/releases",
+          "note": "Official binary releases."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add Docker and binary options. Replace the Dockerfile URL with the registry destination."
+      ]
+    },
+    {
+      "slug": "medusa",
+      "id": "2920edd4-34a8-4256-aaeb-98cff8c97067",
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Official PyMedusa Docker image",
+          "url": "https://hub.docker.com/r/pymedusa/medusa",
+          "support_level": "official",
+          "source_url": "https://github.com/pymedusa/Medusa/blob/master/readme.md",
+          "image": "pymedusa/medusa:master",
+          "note": "Upstream README identifies the master tag for release builds.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Official PyMedusa Compose setup",
+          "url": "https://github.com/pymedusa/Medusa/blob/master/readme.md#usage",
+          "support_level": "official",
+          "source_url": "https://github.com/pymedusa/Medusa/blob/master/readme.md",
+          "image": "pymedusa/medusa:master",
+          "note": "Upstream README recommends Compose and includes a setup example.",
+          "sort_order": 20
+        },
+        {
+          "method": "docker",
+          "label": "LinuxServer community image",
+          "url": "https://docs.linuxserver.io/images/docker-medusa/",
+          "support_level": "community",
+          "source_url": "https://docs.linuxserver.io/images/docker-medusa/",
+          "image": "lscr.io/linuxserver/medusa:latest",
+          "note": "The upstream README credits LinuxServer as its alternative image provider.",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/pymedusa/Medusa/blob/master/readme.md",
+          "note": "Official README identifies the Docker Hub image and credits LinuxServer's alternative image."
+        },
+        {
+          "url": "https://hub.docker.com/r/pymedusa/medusa",
+          "note": "Upstream Docker Hub image destination."
+        },
+        {
+          "url": "https://docs.linuxserver.io/images/docker-medusa/",
+          "note": "LinuxServer community install and Compose guide."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add the official Docker and Compose options, plus the LinuxServer community image. Replace the Dockerfile URL with the official image destination and mark the LinuxServer option community."
+      ]
+    },
+    {
+      "slug": "medusajs",
+      "id": "f01cfd06-9d57-4744-90d6-52cf97465acb",
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Create a Medusa app",
+          "url": "https://docs.medusajs.com/learn/installation",
+          "support_level": "official",
+          "source_url": "https://docs.medusajs.com/learn/installation",
+          "image": null,
+          "note": "Official quickstart uses create-medusa-app and PostgreSQL.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Official Docker install tutorial",
+          "url": "https://docs.medusajs.com/learn/installation/docker",
+          "support_level": "official",
+          "source_url": "https://docs.medusajs.com/learn/installation/docker",
+          "image": null,
+          "note": "The official Docker tutorial starts a project-specific Compose stack; it does not publish a general Medusa image. The separate medusajs/docker-medusa repository is community-managed and for development, so it is not listed as an official image route.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.medusajs.com/learn/installation",
+          "note": "Official create-medusa-app setup guide."
+        },
+        {
+          "url": "https://docs.medusajs.com/learn/installation/docker",
+          "note": "Official Compose-based Docker install tutorial."
+        },
+        {
+          "url": "https://github.com/medusajs/docker-medusa",
+          "note": "Checked and excluded as an official production route: this repository states it is community-managed and intended for development."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add native and Compose options. Do not mark the community Docker sample as an official image or production deployment."
+      ]
+    },
+    {
+      "slug": "meetily",
+      "id": "52df5ffc-6550-458e-b7c2-c8df648ec13c",
+      "verified_options": [
+        {
+          "method": "binary",
+          "label": "Desktop app releases",
+          "url": "https://github.com/Zackriya-Solutions/meetily/releases",
+          "support_level": "official",
+          "source_url": "https://github.com/Zackriya-Solutions/meetily/releases",
+          "image": null,
+          "note": "Official releases provide desktop installers; Linux users can build from source.",
+          "sort_order": 10
+        },
+        {
+          "method": "native",
+          "label": "Build from source",
+          "url": "https://github.com/Zackriya-Solutions/meetily/blob/main/docs/BUILDING.md",
+          "support_level": "official",
+          "source_url": "https://github.com/Zackriya-Solutions/meetily/blob/main/docs/BUILDING.md",
+          "image": null,
+          "note": "Official Linux build instructions.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/Zackriya-Solutions/meetily/releases",
+          "note": "Official release page provides current desktop packages and source-build assets."
+        },
+        {
+          "url": "https://github.com/Zackriya-Solutions/meetily",
+          "note": "Project repository identifies the current desktop application."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add the desktop package option. Do not retain a Docker option based only on outdated release instructions."
+      ]
+    },
+    {
+      "slug": "mem0",
+      "id": "2b168a0b-b68d-41de-bd48-23324d929508",
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Mem0 self-hosted Compose setup",
+          "url": "https://docs.mem0.ai/open-source/setup",
+          "support_level": "official",
+          "source_url": "https://docs.mem0.ai/open-source/setup",
+          "image": null,
+          "note": "Official self-host guide starts the API and dashboard with the repository's Docker Compose setup.",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.mem0.ai/open-source/setup",
+          "note": "Official open-source self-hosting guide documents the Compose route and persistent database setup."
+        },
+        {
+          "url": "https://github.com/mem0ai/mem0",
+          "note": "Upstream project repository."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add the official Compose option and update deployment_methods."
+      ]
+    },
+    {
+      "slug": "memgraph",
+      "id": "4e6b2777-71f2-4532-a747-4a94c039f09e",
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Memgraph MAGE Docker image",
+          "url": "https://hub.docker.com/r/memgraph/memgraph-mage",
+          "support_level": "official",
+          "source_url": "https://memgraph.com/docs/getting-started/install-memgraph/docker",
+          "image": "memgraph/memgraph-mage:latest",
+          "note": "Official guide recommends this image for Memgraph with MAGE.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Memgraph and Lab Compose setup",
+          "url": "https://memgraph.com/docs/getting-started/install-memgraph/docker",
+          "support_level": "official",
+          "source_url": "https://memgraph.com/docs/getting-started/install-memgraph/docker",
+          "image": "memgraph/memgraph-mage:latest",
+          "note": "The official docs provide a Compose example with Memgraph and Memgraph Lab.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://memgraph.com/docs/getting-started/install-memgraph/docker",
+          "note": "Official guide documents the Docker image, run command, and Compose setup."
+        },
+        {
+          "url": "https://hub.docker.com/r/memgraph/memgraph-mage",
+          "note": "Official Docker Hub image destination."
+        }
+      ],
+      "gaps_updates_needed": [
+        "Add Docker and Compose options."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Source model and license corrections for confirmed public projects. Proposal only; no data was applied.",
+  "apps": [
+    {
+      "slug": "community-applications",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/unraid/community.applications",
+      "source_code_host": "github",
+      "license": "GNU General Public License v2.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-or-later",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/38582-plug-in-community-applications",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/unraid/community.applications/master/plugins/community.applications.plg",
+        "https://raw.githubusercontent.com/unraid/docker-templates/master/images/CA.png",
+        "https://raw.githubusercontent.com/unraid/docker-templates/master/limetech/community.applications.xml",
+        "https://github.com/unraid/community.applications",
+        "https://github.com/unraid/community.applications/blob/master/LICENSE",
+        "https://github.com/unraid/community.applications/blob/master/plugins/community.applications.plg"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/38582-plug-in-community-applications",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/unraid/community.applications/master/plugins/community.applications.plg",
+          "https://raw.githubusercontent.com/unraid/docker-templates/master/images/CA.png",
+          "https://raw.githubusercontent.com/unraid/docker-templates/master/limetech/community.applications.xml"
+        ]
+      }
+    },
+    {
+      "slug": "diskspeed",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/jbartlett777/DiskSpeed",
+      "source_code_host": "github",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/70636-diskspeed",
+        "https://hub.docker.com/r/jbartlett777/diskspeed/",
+        "https://raw.githubusercontent.com/jbartlett777/DiskSpeed/master/DiskSpeed.png",
+        "https://raw.githubusercontent.com/jbartlett777/DiskSpeed/master/DiskSpeed.xml",
+        "https://github.com/jbartlett777/DiskSpeed",
+        "https://github.com/jbartlett777/DiskSpeed/blob/master/LICENSE",
+        "https://github.com/jbartlett777/DiskSpeed/blob/master/README.md"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/70636-diskspeed",
+          "https://hub.docker.com/r/jbartlett777/diskspeed/",
+          "https://raw.githubusercontent.com/jbartlett777/DiskSpeed/master/DiskSpeed.png",
+          "https://raw.githubusercontent.com/jbartlett777/DiskSpeed/master/DiskSpeed.xml"
+        ]
+      }
+    },
+    {
+      "slug": "docker-compose-maker",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/ajnart/dcm",
+      "source_code_host": "github",
+      "license": "GNU Affero General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-or-later",
+      "data_source_urls": [
+        "https://compose.ajnart.dev/",
+        "https://github.com/ajnart/docker-compose-maker/issues",
+        "https://raw.githubusercontent.com/ajnart/docker-compose-maker/main/public/favicon.png",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/docker_compose_maker.xml",
+        "https://registry.hub.docker.com/r/ghcr.io/ajnart/dcm",
+        "https://github.com/ajnart/dcm",
+        "https://github.com/ajnart/dcm/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://compose.ajnart.dev/",
+          "https://github.com/ajnart/docker-compose-maker/issues",
+          "https://raw.githubusercontent.com/ajnart/docker-compose-maker/main/public/favicon.png",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/docker_compose_maker.xml",
+          "https://registry.hub.docker.com/r/ghcr.io/ajnart/dcm"
+        ]
+      }
+    },
+    {
+      "slug": "encrypted-drive-manager",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/SpaceinvaderOne/encrypted-drive-manager",
+      "source_code_host": "github",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/193798-plugin-encrypted-drive-manager/",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/SpaceinvaderOne/encrypted-drive-manager/main/unraid-plugin/encrypted-drive-manager.plg",
+        "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/encrypted-drive-manager.xml",
+        "https://raw.githubusercontent.com/SpaceinvaderOne/encrypted-drive-manager/main/source/usr/local/emhttp/plugins/encrypted-drive-manager/images/EDM-Icon.png",
+        "https://github.com/SpaceinvaderOne/encrypted-drive-manager",
+        "https://github.com/SpaceinvaderOne/encrypted-drive-manager/blob/main/README.md"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/193798-plugin-encrypted-drive-manager/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/SpaceinvaderOne/encrypted-drive-manager/main/unraid-plugin/encrypted-drive-manager.plg",
+          "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/encrypted-drive-manager.xml",
+          "https://raw.githubusercontent.com/SpaceinvaderOne/encrypted-drive-manager/main/source/usr/local/emhttp/plugins/encrypted-drive-manager/images/EDM-Icon.png"
+        ]
+      }
+    },
+    {
+      "slug": "fresh-editor",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/sinelaw/fresh",
+      "source_code_host": "github",
+      "license": "GNU General Public License v2.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-or-later",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/196640-plugin-fresh-a-terminal-text-editor/",
+        "https://getfresh.dev/",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.plg",
+        "https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.png",
+        "https://raw.githubusercontent.com/johnngone/unraid-ca-templates/main/fresh-editor.xml",
+        "https://github.com/sinelaw/fresh",
+        "https://github.com/sinelaw/fresh/releases",
+        "https://github.com/sinelaw/fresh/blob/master/LICENSE"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/196640-plugin-fresh-a-terminal-text-editor/",
+          "https://getfresh.dev/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.plg",
+          "https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.png",
+          "https://raw.githubusercontent.com/johnngone/unraid-ca-templates/main/fresh-editor.xml"
+        ]
+      }
+    },
+    {
+      "slug": "fanctrl-plus",
+      "source_model": "source_available",
+      "source_code_url": "https://github.com/ck9393/fanctrlplus",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/191722-plugin-fancrtl-plus",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/ck9393/fanctrlplus/main/unraid/fanctrlplus.plg",
+        "https://raw.githubusercontent.com/ck9393/fanctrlplus/main/FanctrlPlus.xml",
+        "https://raw.githubusercontent.com/ck9393/fanctrlplus/main/images/fanctrlplus.png",
+        "https://github.com/ck9393/fanctrlplus",
+        "https://github.com/ck9393/fanctrlplus/releases",
+        "https://forums.unraid.net/topic/191722-plugin-fancrtl-plus/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/191722-plugin-fancrtl-plus",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/ck9393/fanctrlplus/main/unraid/fanctrlplus.plg",
+          "https://raw.githubusercontent.com/ck9393/fanctrlplus/main/FanctrlPlus.xml",
+          "https://raw.githubusercontent.com/ck9393/fanctrlplus/main/images/fanctrlplus.png"
+        ]
+      }
+    },
+    {
+      "slug": "fix-common-problems",
+      "source_model": "source_available",
+      "source_code_url": "https://github.com/Squidly271/fix.common.problems",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/47266-plugin-ca-fix-common-problems/",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/unraid/fix.common.problems/master/plugins/fix.common.problems.plg",
+        "https://raw.githubusercontent.com/Squidly271/fix.common.problems/master/9617be8364816010_400x400ar.png",
+        "https://raw.githubusercontent.com/unraid/docker-templates/master/limetech/fix.common.problems.xml",
+        "https://github.com/Squidly271/fix.common.problems"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/47266-plugin-ca-fix-common-problems/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/unraid/fix.common.problems/master/plugins/fix.common.problems.plg",
+          "https://raw.githubusercontent.com/Squidly271/fix.common.problems/master/9617be8364816010_400x400ar.png",
+          "https://raw.githubusercontent.com/unraid/docker-templates/master/limetech/fix.common.problems.xml"
+        ]
+      }
+    },
+    {
+      "slug": "firewire-drivers",
+      "source_model": "source_available",
+      "source_code_url": "https://github.com/ich777/unraid-firewire",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/92865-support-ich777-nvidiadvb-kernel-helperbuilder-docker/",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/ich777/intel-gpu-top/master/intel-gpu-top.plg",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/ich777/unraid-firewire/master/firewire.plg",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/ich777/unraid-hpsahba/master/hpsahba.plg",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/ich777/unraid-it87-driver/master/it87-driver.plg",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/ich777/unraid-nct6687-driver/master/nct6687-driver.plg",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/ich777/unraid-radeontop/master/radeontop.plg",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/ich777/unraid-uinput/master/uinput.plg",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/Firewire.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/hpsahba.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/firewire.png",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/intel-gpu-top.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/IT87.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/NCT6687.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/radeontop.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/uinput.xml",
+        "https://github.com/ich777/unraid-firewire",
+        "https://github.com/ich777/unraid-firewire/blob/master/README.md",
+        "https://raw.githubusercontent.com/ich777/unraid-firewire/master/firewire.plg"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/92865-support-ich777-nvidiadvb-kernel-helperbuilder-docker/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/ich777/intel-gpu-top/master/intel-gpu-top.plg",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/ich777/unraid-firewire/master/firewire.plg",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/ich777/unraid-hpsahba/master/hpsahba.plg",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/ich777/unraid-it87-driver/master/it87-driver.plg",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/ich777/unraid-nct6687-driver/master/nct6687-driver.plg",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/ich777/unraid-radeontop/master/radeontop.plg",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/ich777/unraid-uinput/master/uinput.plg",
+          "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/Firewire.xml",
+          "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/hpsahba.xml",
+          "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/firewire.png",
+          "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/intel-gpu-top.xml",
+          "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/IT87.xml",
+          "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/NCT6687.xml",
+          "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/radeontop.xml",
+          "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/uinput.xml"
+        ]
+      }
+    },
+    {
+      "slug": "dynamix-wireguard",
+      "source_model": "source_available",
+      "source_code_url": "https://github.com/unraid/dynamix",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/84229-dynamix-wireguard-vpn/?tab=comments#comment-780291",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/unraid/dynamix/master/unRAIDv6/dynamix.wireguard.plg",
+        "https://raw.githubusercontent.com/unraid/dynamix-plugins-xml/master/dynamix.wireguard.png",
+        "https://raw.githubusercontent.com/unraid/dynamix-plugins-xml/master/wireguard.xml",
+        "https://github.com/unraid/dynamix",
+        "https://raw.githubusercontent.com/unraid/dynamix/master/unRAIDv6/dynamix.wireguard.plg",
+        "https://forums.unraid.net/topic/84229-dynamix-wireguard-vpn/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/84229-dynamix-wireguard-vpn/?tab=comments#comment-780291",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/unraid/dynamix/master/unRAIDv6/dynamix.wireguard.plg",
+          "https://raw.githubusercontent.com/unraid/dynamix-plugins-xml/master/dynamix.wireguard.png",
+          "https://raw.githubusercontent.com/unraid/dynamix-plugins-xml/master/wireguard.xml"
+        ]
+      }
+    },
+    {
+      "slug": "disable-security-mitigations",
+      "source_model": "source_available",
+      "source_code_url": "https://github.com/Squidly271/disable.security",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/80563-plugin-disable-security-mitigations/",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/Squidly271/disable.security/master/plugins/disable.security.plg",
+        "https://raw.githubusercontent.com/Squidly271/plugin-repository/master/disable.security.xml",
+        "https://raw.githubusercontent.com/Squidly271/disable.security/master/plugins/disable.security.plg"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/80563-plugin-disable-security-mitigations/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/Squidly271/disable.security/master/plugins/disable.security.plg",
+          "https://raw.githubusercontent.com/Squidly271/plugin-repository/master/disable.security.xml"
+        ]
+      }
+    }
+  ]
+}

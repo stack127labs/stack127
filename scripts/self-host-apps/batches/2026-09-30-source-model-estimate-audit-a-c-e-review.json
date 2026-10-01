@@ -1,0 +1,1655 @@
+{
+  "reviewed_at": "2026-09-30",
+  "baseline": "Static inventory captured 2026-09-08; refresh expected values before applying.",
+  "scope": "Partial source-model and license corrections supported by official project repositories.",
+  "apps": [
+    {
+      "slug": "amcrest2mqtt",
+      "review_scope": "partial",
+      "name": "amcrest2mqtt",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/dchesterton/amcrest2mqtt",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "name": "amcrest2mqtt",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/dchesterton/amcrest2mqtt",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/dchesterton/amcrest2mqtt"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "autokuma",
+      "review_scope": "partial",
+      "name": "AutoKuma",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/bigboot/autokuma",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "name": "AutoKuma",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/bigboot/autokuma",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/BigBoot/AutoKuma"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "arraycad",
+      "review_scope": "partial",
+      "name": "arraycad",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/stoatworks-labs/arraycad",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "name": "arraycad",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/stoatworks-labs/arraycad",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/stoatworks-labs/arraycad"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "alby-hub",
+      "review_scope": "partial",
+      "name": "Alby Hub ✨",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/getalby/hub",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "expected": {
+        "name": "Alby Hub ✨",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/getalby/hub",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0"
+      },
+      "data_source_urls": [
+        "https://github.com/getAlby/hub"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "biboumi",
+      "review_scope": "partial",
+      "name": "Biboumi",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/louiz/biboumi",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "zlib License",
+      "license_type": "permissive",
+      "license_spdx_id": "Zlib",
+      "expected": {
+        "name": "Biboumi",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/louiz/biboumi",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "Zlib"
+      },
+      "data_source_urls": [
+        "https://github.com/louiz/biboumi"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "aspect-calc",
+      "review_scope": "partial",
+      "name": "aspect-calc",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/stoatworks-labs/aspect-calc",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "name": "aspect-calc",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/stoatworks-labs/aspect-calc",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/stoatworks-labs/aspect-calc"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "atem-overseer",
+      "review_scope": "partial",
+      "name": "atem-overseer",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/stoatworks-labs/atem-overseer",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "name": "atem-overseer",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/stoatworks-labs/atem-overseer",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/stoatworks-labs/atem-overseer"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "cabernet",
+      "review_scope": "partial",
+      "name": "cabernet",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/cabernetwork/cabernet",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "name": "cabernet",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/cabernetwork/cabernet",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/cabernetwork/cabernet"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "capture",
+      "review_scope": "partial",
+      "name": "capture",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/bluewave-labs/capture",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "expected": {
+        "name": "capture",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/bluewave-labs/capture",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0"
+      },
+      "data_source_urls": [
+        "https://github.com/bluewave-labs/capture"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "cross-seed",
+      "review_scope": "partial",
+      "name": "cross-seed",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/cross-seed/cross-seed",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "expected": {
+        "name": "cross-seed",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/cross-seed/cross-seed",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0"
+      },
+      "data_source_urls": [
+        "https://github.com/cross-seed/cross-seed"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "docling-serve",
+      "review_scope": "partial",
+      "name": "Docling-Serve",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/docling-project/docling-serve",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "name": "Docling-Serve",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/docling-project/docling-serve",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/docling-project/docling-serve"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "dumb",
+      "review_scope": "partial",
+      "name": "DUMB",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/i-am-puid-0/dumb",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "expected": {
+        "name": "DUMB",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/i-am-puid-0/dumb",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0"
+      },
+      "data_source_urls": [
+        "https://github.com/I-am-PUID-0/DUMB"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "eas3-mqtt-gateway",
+      "review_scope": "partial",
+      "name": "eas3-mqtt-Gateway",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/sr258/eas3-mqtt",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "name": "eas3-mqtt-Gateway",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/sr258/eas3-mqtt",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/sr258/eas3-mqtt"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "ecowitt2mqtt",
+      "review_scope": "partial",
+      "name": "ecowitt2mqtt",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/bachya/ecowitt2mqtt",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "name": "ecowitt2mqtt",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/bachya/ecowitt2mqtt",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/bachya/ecowitt2mqtt"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "electerm-web",
+      "review_scope": "partial",
+      "name": "electerm-web",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/electerm/electerm-web",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "name": "electerm-web",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/electerm/electerm-web",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/electerm/electerm-web"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "electrumx",
+      "review_scope": "partial",
+      "name": "electrumx",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "source_code_url": "https://github.com/spesmilo/electrumx",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "name": "electrumx",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_code_url": "https://github.com/spesmilo/electrumx",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "data_source_urls": [
+        "https://github.com/spesmilo/electrumx"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "estimates": [
+    {
+      "slug": "amcrest2mqtt",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One small Python service for one camera; MQTT broker is external. Includes app, config and modest logs.",
+      "source_urls": [
+        "https://github.com/dchesterton/amcrest2mqtt"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:52.435+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/72033-support-digiblurs-docker-template-repository/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/72033-support-digiblurs-docker-template-repository/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "amcrest2mqtt",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One small Python service for one camera; MQTT broker is external. Includes app, config and modest logs.",
+      "source_urls": [
+        "https://github.com/dchesterton/amcrest2mqtt"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:52.435+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/72033-support-digiblurs-docker-template-repository/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/72033-support-digiblurs-docker-template-repository/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "autokuma",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Small Rust service with local configuration/data; Uptime Kuma is external.",
+      "source_urls": [
+        "https://github.com/BigBoot/AutoKuma"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "autokuma",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Small Rust service with local configuration/data; Uptime Kuma is external.",
+      "source_urls": [
+        "https://github.com/BigBoot/AutoKuma"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "arraycad",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 64,
+      "estimate_max": 256,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Static calculator served by a container; calculations run in the browser.",
+      "source_urls": [
+        "https://github.com/stoatworks-labs/arraycad"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/stoatworks-labs/arraycad/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/stoatworks-labs/arraycad/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "arraycad",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 0.5,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Static calculator served by a container; calculations run in the browser.",
+      "source_urls": [
+        "https://github.com/stoatworks-labs/arraycad"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/stoatworks-labs/arraycad/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/stoatworks-labs/arraycad/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "alby-hub",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "high",
+      "basis": "Assumes the default internal Bitcoin node; publisher recommends 2 GB RAM and 1 GB disk.",
+      "source_urls": [
+        "https://github.com/getAlby/hub#deploy-it-yourself"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://support.getalby.com"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://support.getalby.com"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "alby-hub",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "high",
+      "basis": "Assumes the default internal Bitcoin node; publisher recommends 2 GB RAM and 1 GB disk.",
+      "source_urls": [
+        "https://github.com/getAlby/hub#deploy-it-yourself"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://support.getalby.com"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://support.getalby.com"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "biboumi",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Lightweight XMPP to IRC gateway; app, configuration and modest logs, with remote services external.",
+      "source_urls": [
+        "https://github.com/louiz/biboumi"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://doc.biboumi.louiz.org"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "biboumi",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Lightweight XMPP to IRC gateway; app, configuration and modest logs, with remote services external.",
+      "source_urls": [
+        "https://github.com/louiz/biboumi"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://doc.biboumi.louiz.org"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "aspect-calc",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 64,
+      "estimate_max": 256,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Static browser calculator with no server-side data store.",
+      "source_urls": [
+        "https://github.com/stoatworks-labs/aspect-calc"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/stoatworks-labs/aspect-calc/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/stoatworks-labs/aspect-calc/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "aspect-calc",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 0.5,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Static browser calculator with no server-side data store.",
+      "source_urls": [
+        "https://github.com/stoatworks-labs/aspect-calc"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/stoatworks-labs/aspect-calc/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/stoatworks-labs/aspect-calc/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "atem-overseer",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Node service for switcher control and live stream relaying; device count and stream load vary.",
+      "source_urls": [
+        "https://github.com/stoatworks-labs/atem-overseer"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/stoatworks-labs/atem-overseer/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/stoatworks-labs/atem-overseer/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "atem-overseer",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Node service for switcher control and live stream relaying; device count and stream load vary.",
+      "source_urls": [
+        "https://github.com/stoatworks-labs/atem-overseer"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/stoatworks-labs/atem-overseer/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/stoatworks-labs/atem-overseer/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "cabernet",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Python IPTV/EPG service; includes app database, config, plugins and guide data, not relayed media streams.",
+      "source_urls": [
+        "https://github.com/cabernetwork/cabernet"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/122788-support-jpdvm2014-templates/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/122788-support-jpdvm2014-templates/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "cabernet",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Python IPTV/EPG service; includes app database, config, plugins and guide data, not relayed media streams.",
+      "source_urls": [
+        "https://github.com/cabernetwork/cabernet"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/122788-support-jpdvm2014-templates/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/122788-support-jpdvm2014-templates/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "capture",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Lightweight Go metrics agent; storage mainly covers the container and modest logs.",
+      "source_urls": [
+        "https://github.com/bluewave-labs/capture"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/bluewave-labs/capture/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/bluewave-labs/capture/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "capture",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Lightweight Go metrics agent; storage mainly covers the container and modest logs.",
+      "source_urls": [
+        "https://github.com/bluewave-labs/capture"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/bluewave-labs/capture/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/bluewave-labs/capture/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "cross-seed",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Background daemon for a modest torrent catalog; torrent payloads stay with the client and media library.",
+      "source_urls": [
+        "https://www.cross-seed.org/docs/basics/getting-started"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/cross-seed/cross-seed/issues?q=is%3Aissue"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/cross-seed/cross-seed/issues?q=is%3Aissue"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "cross-seed",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Background daemon for a modest torrent catalog; torrent payloads stay with the client and media library.",
+      "source_urls": [
+        "https://www.cross-seed.org/docs/basics/getting-started"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/cross-seed/cross-seed/issues?q=is%3Aissue"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/cross-seed/cross-seed/issues?q=is%3Aissue"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "docling-serve",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 8192,
+      "estimate_max": 16384,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "CPU-oriented document parsing/OCR with model cache persisted; concurrency and extra models increase use.",
+      "source_urls": [
+        "https://github.com/docling-project/docling-serve/blob/main/README.md",
+        "https://github.com/docling-project/docling-serve/blob/main/docs/models.md",
+        "https://github.com/docling-project/docling-serve/blob/main/docs/deployment.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/193982-support-docling-serve-convert-documents-to-markdownjson/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/193982-support-docling-serve-convert-documents-to-markdownjson/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "docling-serve",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 30,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "CPU-oriented document parsing/OCR with model cache persisted; concurrency and extra models increase use.",
+      "source_urls": [
+        "https://github.com/docling-project/docling-serve/blob/main/README.md",
+        "https://github.com/docling-project/docling-serve/blob/main/docs/models.md",
+        "https://github.com/docling-project/docling-serve/blob/main/docs/deployment.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:12.101+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/193982-support-docling-serve-convert-documents-to-markdownjson/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/193982-support-docling-serve-convert-documents-to-markdownjson/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "dumb",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Assumes a small stack of bundled services and some local media/cache; actual local library size varies widely.",
+      "source_urls": [
+        "https://i-am-puid-0.github.io/DUMB/",
+        "https://github.com/I-am-PUID-0/DUMB"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:15.901+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://i-am-puid-0.github.io/DUMB/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://i-am-puid-0.github.io/DUMB/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "dumb",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 500,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Assumes a small stack of bundled services and some local media/cache; actual local library size varies widely.",
+      "source_urls": [
+        "https://i-am-puid-0.github.io/DUMB/",
+        "https://github.com/I-am-PUID-0/DUMB"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:15.901+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://i-am-puid-0.github.io/DUMB/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://i-am-puid-0.github.io/DUMB/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "eas3-mqtt-gateway",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small Node gateway forwarding sensor broadcasts to an external MQTT broker; app/config and modest logs.",
+      "source_urls": [
+        "https://github.com/sr258/eas3-mqtt",
+        "https://github.com/sr258/eas3-mqtt/blob/main/README.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:04.248+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/193341-support-swiss01-eas3-mqtt-gateway/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/193341-support-swiss01-eas3-mqtt-gateway/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "eas3-mqtt-gateway",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 1,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small Node gateway forwarding sensor broadcasts to an external MQTT broker; app/config and modest logs.",
+      "source_urls": [
+        "https://github.com/sr258/eas3-mqtt",
+        "https://github.com/sr258/eas3-mqtt/blob/main/README.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:13:04.248+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/193341-support-swiss01-eas3-mqtt-gateway/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/193341-support-swiss01-eas3-mqtt-gateway/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "ecowitt2mqtt",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small weather-station gateway forwarding reports to an external MQTT broker; app/config and modest logs.",
+      "source_urls": [
+        "https://github.com/bachya/ecowitt2mqtt",
+        "https://github.com/bachya/ecowitt2mqtt/blob/main/README.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://hub.docker.com/r/bachya/ecowitt2mqtt/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://hub.docker.com/r/bachya/ecowitt2mqtt/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "ecowitt2mqtt",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 1,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small weather-station gateway forwarding reports to an external MQTT broker; app/config and modest logs.",
+      "source_urls": [
+        "https://github.com/bachya/ecowitt2mqtt",
+        "https://github.com/bachya/ecowitt2mqtt/blob/main/README.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:11:54.167+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://hub.docker.com/r/bachya/ecowitt2mqtt/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://hub.docker.com/r/bachya/ecowitt2mqtt/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "electerm-web",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Single-user/modest SSH and SFTP sessions; includes local SQLite data, app and logs.",
+      "source_urls": [
+        "https://github.com/electerm/electerm-web",
+        "https://github.com/electerm/electerm-web/blob/main/package.json"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/electerm/electerm-web"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/electerm/electerm-web"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "electerm-web",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Single-user/modest SSH and SFTP sessions; includes local SQLite data, app and logs.",
+      "source_urls": [
+        "https://github.com/electerm/electerm-web",
+        "https://github.com/electerm/electerm-web/blob/main/package.json"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:17.71+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/electerm/electerm-web"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/electerm/electerm-web"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "electrumx",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 8192,
+      "estimate_max": 16384,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Assumes ElectrumX and a Bitcoin full-node backend share the host; disk includes blockchain and index growth.",
+      "source_urls": [
+        "https://electrumx.readthedocs.io/en/latest/HOWTO.html",
+        "https://electrumx.readthedocs.io/en/latest/environment.html",
+        "https://bitcoin.org/en/full-node",
+        "https://github.com/bitcoin/bitcoin/issues/34200"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/112959-support-ofawx-templates-repo/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/112959-support-ofawx-templates-repo/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "electrumx",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1000,
+      "estimate_max": 2000,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Assumes ElectrumX and a Bitcoin full-node backend share the host; disk includes blockchain and index growth.",
+      "source_urls": [
+        "https://electrumx.readthedocs.io/en/latest/HOWTO.html",
+        "https://electrumx.readthedocs.io/en/latest/environment.html",
+        "https://bitcoin.org/en/full-node",
+        "https://github.com/bitcoin/bitcoin/issues/34200"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/112959-support-ofawx-templates-repo/"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/112959-support-ofawx-templates-repo/"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    }
+  ]
+}

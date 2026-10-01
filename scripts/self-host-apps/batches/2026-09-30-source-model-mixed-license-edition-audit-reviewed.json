@@ -1,0 +1,20 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; refresh expected values before applying.",
+  "scope": "Partial source-model correction proposal for confirmed mixed-license self-hosted editions.",
+  "apps": [
+    {
+      "slug": "databend",
+      "review_scope": "partial",
+      "source_model": "source_available",
+      "expected": {
+        "source_model": "open_source"
+      },
+      "data_source_urls": [
+        "https://www.databend.com/databend-community/",
+        "https://docs.databend.com/guides/self-hosted/editions/enterprise/license",
+        "https://github.com/databendlabs/databend"
+      ]
+    }
+  ]
+}

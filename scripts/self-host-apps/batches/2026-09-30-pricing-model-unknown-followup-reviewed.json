@@ -1,0 +1,239 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Partial pricing_model corrections for published self-hostable apps, based on official product, pricing, and license pages. Proposal only.",
+  "apps": [
+    {
+      "slug": "alloy",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://grafana.com/oss/alloy-opentelemetry-collector/"
+      ]
+    },
+    {
+      "slug": "apache-zookeeper",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://zookeeper.apache.org/",
+        "https://github.com/apache/zookeeper/blob/master/LICENSE"
+      ]
+    },
+    {
+      "slug": "blender",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://www.blender.org/about/license/"
+      ]
+    },
+    {
+      "slug": "boinc",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://boinc.berkeley.edu/develop.php"
+      ]
+    },
+    {
+      "slug": "browserless",
+      "review_scope": "partial",
+      "pricing_model": "freemium",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://docs.browserless.io/enterprise/open-source"
+      ]
+    },
+    {
+      "slug": "crashplanpro",
+      "review_scope": "partial",
+      "pricing_model": "subscription",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://support.crashplan.com/hc/en-us/articles/9802774807821-CrashPlan-Products-and-Subscription-Plans"
+      ]
+    },
+    {
+      "slug": "docker-in-docker-dind",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://docs.docker.com/engine/",
+        "https://docs.docker.com/subscription-billing/desktop-license/"
+      ]
+    },
+    {
+      "slug": "drone",
+      "review_scope": "partial",
+      "pricing_model": "freemium",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://docs.drone.io/enterprise/"
+      ]
+    },
+    {
+      "slug": "duckdns",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://www.duckdns.org/faqs.jsp"
+      ]
+    },
+    {
+      "slug": "filebot",
+      "review_scope": "partial",
+      "pricing_model": "paid",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://www.filebot.net/purchase.html"
+      ]
+    },
+    {
+      "slug": "firefox",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://www.mozilla.org/en-US/about/legal/firefox/",
+        "https://www.mozilla.org/en-US/foundation/licensing/"
+      ]
+    },
+    {
+      "slug": "grafanamimir",
+      "review_scope": "partial",
+      "pricing_model": "freemium",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://grafana.com/oss/mimir/"
+      ]
+    },
+    {
+      "slug": "kibana",
+      "review_scope": "partial",
+      "pricing_model": "freemium",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://www.elastic.co/subscriptions/"
+      ]
+    },
+    {
+      "slug": "kong-gateway",
+      "review_scope": "partial",
+      "pricing_model": "freemium",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://konghq.com/products/kong-gateway",
+        "https://konghq.com/pricing"
+      ]
+    },
+    {
+      "slug": "localstack",
+      "review_scope": "partial",
+      "pricing_model": "freemium",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://www.localstack.cloud/pricing"
+      ]
+    },
+    {
+      "slug": "mariadb",
+      "review_scope": "partial",
+      "pricing_model": "freemium",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://mariadb.com/products/community-server/"
+      ]
+    },
+    {
+      "slug": "neo4j",
+      "review_scope": "partial",
+      "pricing_model": "freemium",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://neo4j.com/pricing/"
+      ]
+    },
+    {
+      "slug": "nzbhydra2",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://github.com/theotherp/nzbhydra2"
+      ]
+    },
+    {
+      "slug": "openssh-server",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://github.com/openssh/openssh-portable/blob/master/LICENCE"
+      ]
+    },
+    {
+      "slug": "pgvector-18",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://github.com/pgvector/pgvector/blob/master/LICENSE"
+      ]
+    },
+    {
+      "slug": "rabbitmq",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://www.rabbitmq.com/"
+      ]
+    },
+    {
+      "slug": "rstudio",
+      "review_scope": "partial",
+      "pricing_model": "freemium",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://posit.co/products/open-source/rstudio-server"
+      ]
+    },
+    {
+      "slug": "swag",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://docs.linuxserver.io/images/docker-swag/",
+        "https://github.com/linuxserver/docker-swag"
+      ]
+    },
+    {
+      "slug": "teamcity-buildagent",
+      "review_scope": "partial",
+      "pricing_model": "freemium",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://www.jetbrains.com/teamcity/buy/",
+        "https://www.jetbrains.com/help/teamcity/licensing-policy.html"
+      ]
+    },
+    {
+      "slug": "woodpecker",
+      "review_scope": "partial",
+      "pricing_model": "free",
+      "expected": { "pricing_model": "unknown" },
+      "data_source_urls": [
+        "https://woodpecker-ci.org/",
+        "https://woodpecker-ci.org/about"
+      ]
+    }
+  ]
+}

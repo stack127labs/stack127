@@ -1,0 +1,306 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Fill blank docs_url values with official documentation links. Proposal only.",
+  "apps": [
+    {
+      "slug": "sharetribe",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/sharetribe/sharetribe#readme",
+      "data_source_urls": [
+        "https://github.com/sharetribe/sharetribe",
+        "https://github.com/sharetribe/sharetribe#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "shelve",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://shelve.cloud/docs/self-hosting/vercel",
+      "data_source_urls": [
+        "https://github.com/HugoRCD/shelve",
+        "https://shelve.cloud/docs/self-hosting/vercel"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "snapify",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/MarconLP/snapify#readme",
+      "data_source_urls": [
+        "https://github.com/MarconLP/snapify",
+        "https://github.com/MarconLP/snapify#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "srcbook",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/srcbookdev/srcbook#readme",
+      "data_source_urls": [
+        "https://github.com/srcbookdev/srcbook",
+        "https://github.com/srcbookdev/srcbook#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "svg-edit",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/SVG-Edit/svgedit#readme",
+      "data_source_urls": [
+        "https://github.com/SVG-Edit/svgedit",
+        "https://github.com/SVG-Edit/svgedit#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "taiga",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.taiga.io/setup-production.html",
+      "data_source_urls": [
+        "https://github.com/taigaio/taiga-back",
+        "https://docs.taiga.io/setup-production.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "tailchat",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/msgbyte/tailchat#readme",
+      "data_source_urls": [
+        "https://github.com/msgbyte/tailchat",
+        "https://github.com/msgbyte/tailchat#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "terrateam",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.terrateam.io/self-hosted",
+      "data_source_urls": [
+        "https://github.com/terrateamio/terrateam",
+        "https://docs.terrateam.io/self-hosted"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "tiddlypwa",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://codeberg.org/valpackett/tiddlypwa/src/branch/main/README.md",
+      "data_source_urls": [
+        "https://codeberg.org/valpackett/tiddlypwa",
+        "https://codeberg.org/valpackett/tiddlypwa/src/branch/main/README.md"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "tuxseo",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/LVTD-LLC/TuxSEO#readme",
+      "data_source_urls": [
+        "https://github.com/LVTD-LLC/TuxSEO",
+        "https://github.com/LVTD-LLC/TuxSEO#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "twake-chat",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/linagora/twake-on-matrix/blob/main/docs/configurations/config_web_app_for_public_platform.md",
+      "data_source_urls": [
+        "https://github.com/linagora/twake-on-matrix",
+        "https://github.com/linagora/twake-on-matrix/blob/main/docs/configurations/config_web_app_for_public_platform.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "txtdot",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/TempoWorks/txtdot#readme",
+      "data_source_urls": [
+        "https://github.com/TempoWorks/txtdot",
+        "https://github.com/TempoWorks/txtdot#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "unibee",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/UniBee-Billing/unibee#readme",
+      "data_source_urls": [
+        "https://github.com/UniBee-Billing/unibee",
+        "https://github.com/UniBee-Billing/unibee#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "uploady",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/farisc0de/Uploady#readme",
+      "data_source_urls": [
+        "https://github.com/farisc0de/Uploady",
+        "https://github.com/farisc0de/Uploady#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "uwave",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/u-wave/core#readme",
+      "data_source_urls": [
+        "https://github.com/u-wave/core",
+        "https://github.com/u-wave/core#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "vino",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://gitlab.gnome.org/Archive/vino/-/blob/master/README",
+      "data_source_urls": [
+        "https://gitlab.gnome.org/Archive/vino",
+        "https://gitlab.gnome.org/Archive/vino/-/blob/master/README"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "vixipy",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://codeberg.org/vixipy/Vixipy/src/branch/main/doc/INSTALL.md",
+      "data_source_urls": [
+        "https://codeberg.org/vixipy/Vixipy",
+        "https://codeberg.org/vixipy/Vixipy/src/branch/main/doc/INSTALL.md"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "wachd",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/wachd/wachd#readme",
+      "data_source_urls": [
+        "https://github.com/wachd/wachd",
+        "https://github.com/wachd/wachd#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "webarchive",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/derfenix/webarchive#readme",
+      "data_source_urls": [
+        "https://github.com/derfenix/webarchive",
+        "https://github.com/derfenix/webarchive#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "webdb",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.webdb.app/installation/compose",
+      "data_source_urls": [
+        "https://github.com/WebDB-App/app",
+        "https://docs.webdb.app/installation/compose"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "will-be-done",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/will-be-done/will-be-done#readme",
+      "data_source_urls": [
+        "https://github.com/will-be-done/will-be-done",
+        "https://github.com/will-be-done/will-be-done#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "windshift",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://windshift.sh/docs/01-getting-started/02-quick-start",
+      "data_source_urls": [
+        "https://github.com/Windshiftapp/core",
+        "https://windshift.sh/docs/01-getting-started/02-quick-start"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "word-mastermind",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/clupasq/word-mastermind#readme",
+      "data_source_urls": [
+        "https://github.com/clupasq/word-mastermind",
+        "https://github.com/clupasq/word-mastermind#readme"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

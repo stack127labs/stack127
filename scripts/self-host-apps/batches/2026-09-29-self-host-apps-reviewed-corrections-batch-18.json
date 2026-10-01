@@ -1,0 +1,184 @@
+{
+  "reviewed_at": "2026-09-29",
+  "scope": "First-party review of six existing records. Corrected source model, publisher, license, official links, install methods, database and storage facts, categories, and resource estimates where the official sources supported those changes.",
+  "apps": [
+    {
+      "slug": "gitness",
+      "expected": { "name": "gitness", "source_model": "closed_source", "source_code_url": null, "license": null, "docker_image": "harness/gitness:latest", "docker_support": "community" },
+      "changes": {
+        "name": "Harness Open Source",
+        "summary": "Open-source software delivery platform for Git hosting, CI/CD pipelines, development environments, and artifact registries.",
+        "website_url": "https://www.harness.io/open-source",
+        "source_code_url": "https://github.com/harness/harness",
+        "source_code_host": "github",
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "publisher_name": "Harness, Inc.",
+        "publisher_type": "company",
+        "publisher_url": "https://www.harness.io/",
+        "docs_url": "https://github.com/harness/harness",
+        "install_docs_url": "https://github.com/harness/harness#readme",
+        "docker_url": "https://hub.docker.com/r/harness/harness",
+        "docker_image": "harness/harness",
+        "docker_support": "official",
+        "compose_support": false,
+        "requires_database": false,
+        "database_types": [],
+        "storage_profile": "depends",
+        "persistent_storage": true,
+        "categories": ["developer-tools"],
+        "deployment_methods": ["docker"]
+      },
+      "sources": [
+        "https://www.harness.io/open-source",
+        "https://github.com/harness/harness",
+        "https://github.com/harness/harness/blob/main/LICENSE",
+        "https://hub.docker.com/r/harness/harness"
+      ]
+    },
+    {
+      "slug": "crawl4ai",
+      "expected": { "source_model": "closed_source", "source_code_url": null, "license": null, "docker_support": "community", "compose_support": false },
+      "changes": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/unclecode/crawl4ai",
+        "source_code_host": "github",
+        "license": "Apache License 2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "publisher_name": "Crawl4AI",
+        "publisher_url": "https://crawl4ai.com/",
+        "install_docs_url": "https://github.com/unclecode/crawl4ai/blob/main/deploy/docker/README.md",
+        "docker_support": "official",
+        "compose_support": true,
+        "compose_url": "https://github.com/unclecode/crawl4ai/blob/main/docker-compose.yml",
+        "requires_database": false,
+        "database_types": [],
+        "storage_profile": "depends",
+        "persistent_storage": true,
+        "categories": ["ai-ml", "search"],
+        "deployment_methods": ["docker", "compose", "unraid"]
+      },
+      "sources": [
+        "https://github.com/unclecode/crawl4ai",
+        "https://github.com/unclecode/crawl4ai/blob/main/LICENSE",
+        "https://github.com/unclecode/crawl4ai/blob/main/deploy/docker/README.md",
+        "https://github.com/unclecode/crawl4ai/blob/main/docker-compose.yml",
+        "https://docs.crawl4ai.com/"
+      ]
+    },
+    {
+      "slug": "appflowy",
+      "expected": { "source_model": "closed_source", "source_code_url": null, "persistent_storage": null, "categories": ["monitoring-status", "project-task-management"] },
+      "changes": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial",
+        "source_code_host": "github",
+        "license": "AppFlowy Self-Hosted Commercial License",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "persistent_storage": true,
+        "database_types": ["postgresql", "redis"],
+        "categories": ["knowledge-notes", "project-task-management"]
+      },
+      "sources": [
+        "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial",
+        "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/SELF_HOST_LICENSE_AGREEMENT.md",
+        "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/docker-compose.yml",
+        "https://appflowy.com/docs/Step-by-step-Self-Hosting-Guide---From-Zero-to-Production"
+      ]
+    },
+    {
+      "slug": "maybe",
+      "expected": { "source_model": "open_source", "maintenance_status": "archived", "compose_url": "https://raw.githubusercontent.com/getumbrel/umbrel-apps/master/maybe/docker-compose.yml" },
+      "changes": {
+        "docs_url": "https://github.com/maybe-finance/maybe",
+        "install_docs_url": "https://github.com/maybe-finance/maybe/blob/main/docs/hosting/docker.md",
+        "docker_url": "https://github.com/maybe-finance/maybe/pkgs/container/maybe",
+        "docker_image": "ghcr.io/maybe-finance/maybe:latest",
+        "compose_support": true,
+        "compose_url": "https://github.com/maybe-finance/maybe/blob/main/compose.example.yml",
+        "requires_database": true,
+        "database_types": ["postgres", "redis"],
+        "storage_profile": "depends",
+        "persistent_storage": true,
+        "categories": ["finance-budgeting"],
+        "deployment_methods": ["docker", "compose", "umbrel"]
+      },
+      "sources": [
+        "https://github.com/maybe-finance/maybe",
+        "https://github.com/maybe-finance/maybe/blob/main/LICENSE",
+        "https://github.com/maybe-finance/maybe/blob/main/docs/hosting/docker.md",
+        "https://github.com/maybe-finance/maybe/blob/main/compose.example.yml",
+        "https://github.com/maybe-finance/maybe/releases",
+        "https://github.com/maybe-finance/maybe/pkgs/container/maybe"
+      ]
+    },
+    {
+      "slug": "youtrack",
+      "expected": { "publisher_name": "YouTrack", "license": null, "docker_image": "jetbrains/youtrack:2023.1.17582", "docker_support": "community" },
+      "changes": {
+        "publisher_name": "JetBrains s.r.o.",
+        "publisher_type": "company",
+        "publisher_url": "https://www.jetbrains.com/",
+        "license": "JetBrains YouTrack Server License Agreement",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "docs_url": "https://www.jetbrains.com/help/youtrack/server/",
+        "install_docs_url": "https://www.jetbrains.com/help/youtrack/server/youtrack-docker-installation.html",
+        "docker_url": "https://hub.docker.com/r/jetbrains/youtrack",
+        "docker_image": "jetbrains/youtrack:2026.1.14055",
+        "docker_support": "official",
+        "requires_database": false,
+        "database_types": [],
+        "storage_profile": "depends",
+        "persistent_storage": true,
+        "categories": ["developer-tools", "project-task-management"],
+        "deployment_methods": ["docker"]
+      },
+      "sources": [
+        "https://www.jetbrains.com/youtrack/",
+        "https://www.jetbrains.com/help/youtrack/server/youtrack-docker-installation.html",
+        "https://www.jetbrains.com/help/youtrack/server/youtrack-supported-environments.html",
+        "https://www.jetbrains.com/help/youtrack/server/manage-youtrack-server-license.html",
+        "https://www.jetbrains.com/legal/docs/youtrack/license/",
+        "https://hub.docker.com/r/jetbrains/youtrack"
+      ]
+    },
+    {
+      "slug": "confluence",
+      "expected": { "publisher_name": "Confluence", "license": null, "docker_image": "atlassian/confluence-server", "docker_support": "community" },
+      "changes": {
+        "publisher_name": "Atlassian",
+        "publisher_type": "company",
+        "publisher_url": "https://www.atlassian.com/",
+        "license": "Atlassian Customer Agreement (Confluence Data Center subscription)",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "summary": "Atlassian's self-managed workspace for shared documentation, project pages, and team knowledge.",
+        "summary_source": "https://www.atlassian.com/software/confluence",
+        "docs_url": "https://confluence.atlassian.com/doc/confluence-installation-guide-135681.html",
+        "install_docs_url": "https://confluence.atlassian.com/doc/confluence-installation-guide-135681.html",
+        "docker_url": "https://hub.docker.com/r/atlassian/confluence",
+        "docker_image": "atlassian/confluence:9.2.5-ubi9-r1",
+        "docker_support": "official",
+        "requires_database": true,
+        "database_types": ["postgresql", "mysql", "oracle", "sqlserver"],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "categories": ["knowledge-notes", "wikis"],
+        "deployment_methods": ["docker"]
+      },
+      "sources": [
+        "https://www.atlassian.com/software/confluence",
+        "https://hub.docker.com/r/atlassian/confluence",
+        "https://confluence.atlassian.com/doc/confluence-installation-guide-135681.html",
+        "https://confluence.atlassian.com/doc/supported-platforms-207488198.html",
+        "https://www.atlassian.com/licensing/confluence",
+        "https://www.atlassian.com/licensing/data-center-end-of-life"
+      ]
+    }
+  ]
+}

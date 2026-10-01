@@ -1,0 +1,157 @@
+{
+  "apps": [
+    {
+      "slug": "myst",
+      "review_scope": "partial",
+      "expected": {
+        "name": "myst",
+        "summary": "Node software for providing decentralized VPN bandwidth through the Mysterium network.",
+        "website_url": null,
+        "docs_url": "https://forums.unraid.net/topic/116789-support-locus313-template-repo/",
+        "install_docs_url": "https://forums.unraid.net/topic/116789-support-locus313-template-repo/",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "source_available",
+        "publisher_name": "mysteriumnetwork",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/mysteriumnetwork",
+        "pricing_model": "unknown",
+        "docker_support": "community",
+        "docker_url": "https://hub.docker.com/r/mysteriumnetwork/myst/",
+        "docker_image": "mysteriumnetwork/myst",
+        "compose_support": false,
+        "compose_url": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_min_mb": null,
+        "storage_min_gb": null,
+        "resource_requirement_kind": "unknown",
+        "storage_profile": "unknown",
+        "persistent_storage": null,
+        "deployment_methods": ["docker", "unraid"],
+        "surfaces": ["web"],
+        "summary_source": "curated",
+        "categories": ["ai-ml", "networking-dns", "system-admin-hosting"]
+      },
+      "name": "Mysterium Node",
+      "summary": "Mysterium Node lets you run a decentralized VPN service on your own server.",
+      "website_url": "https://mysterium.network/",
+      "docs_url": "https://docs.mysterium.network/",
+      "install_docs_url": "https://github.com/mysteriumnetwork/node/blob/master/INSTALL.md",
+      "license": "GPL-3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_model": "open_source",
+      "publisher_name": "BlockDev AG",
+      "publisher_type": "company",
+      "publisher_url": "https://mysterium.network/",
+      "pricing_model": "free",
+      "docker_support": "official",
+      "docker_url": "https://hub.docker.com/r/mysteriumnetwork/myst",
+      "docker_image": "mysteriumnetwork/myst",
+      "compose_support": null,
+      "compose_url": null,
+      "requires_database": false,
+      "database_types": [],
+      "ram_min_mb": 1024,
+      "storage_min_gb": 0.5,
+      "resource_requirement_kind": "official_minimum",
+      "storage_profile": "depends",
+      "persistent_storage": true,
+      "deployment_methods": ["native", "docker", "unraid"],
+      "surfaces": ["web", "api", "cli"],
+      "summary_source": "https://github.com/mysteriumnetwork/node/blob/master/README.md",
+      "summary_confidence": "high",
+      "categories": ["remote-access", "security-privacy"],
+      "reviewed_install_methods": ["native", "docker"],
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/mysteriumnetwork/myst/",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "mysteriumnetwork/myst",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/mysteriumnetwork/myst/",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/locus313/unraid-docker-templates/main/templates/myst.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/locus313/unraid-docker-templates/main/templates/myst.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "native",
+          "label": "Linux install guide",
+          "url": "https://github.com/mysteriumnetwork/node/blob/master/INSTALL.md",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://github.com/mysteriumnetwork/node/blob/master/INSTALL.md",
+          "note": "Official Linux package and standalone binary instructions.",
+          "sort_order": 5
+        },
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/mysteriumnetwork/myst",
+          "image": "mysteriumnetwork/myst",
+          "support_level": "official",
+          "source_url": "https://github.com/mysteriumnetwork/node/blob/master/INSTALL.md",
+          "note": "Official image. Linux Docker setup uses host networking and NET_ADMIN.",
+          "sort_order": 10
+        }
+      ],
+      "data_source_urls": [
+        "https://mysterium.network/",
+        "https://docs.mysterium.network/",
+        "https://github.com/mysteriumnetwork/node",
+        "https://github.com/mysteriumnetwork/node/blob/master/LICENSE",
+        "https://github.com/mysteriumnetwork/node/blob/master/README.md",
+        "https://github.com/mysteriumnetwork/node/blob/master/INSTALL.md",
+        "https://github.com/mysteriumnetwork/node/releases",
+        "https://hub.docker.com/r/mysteriumnetwork/myst",
+        "https://raw.githubusercontent.com/locus313/unraid-docker-templates/main/templates/myst.xml"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "resources": [
+    {
+      "slug": "myst",
+      "expected": {
+        "ram_estimate_min_mb": 2048,
+        "ram_estimate_max_mb": 8192,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary."
+      },
+      "ram_estimate_min_mb": 1024,
+      "ram_estimate_max_mb": 2048,
+      "ram_estimate_kind": "estimated",
+      "ram_estimate_confidence": "medium",
+      "ram_estimate_basis": "Official guide lists 1 GB RAM; 1 to 2 GB suits a small VPN node.",
+      "ram_source_urls": [
+        "https://docs.mysterium.network/for-node-runners/linux-guide",
+        "https://github.com/mysteriumnetwork/node/blob/master/INSTALL.md"
+      ],
+      "storage_estimate_min_gb": 0.5,
+      "storage_estimate_max_gb": 5,
+      "storage_estimate_kind": "estimated",
+      "storage_estimate_confidence": "medium",
+      "storage_estimate_basis": "Official guide lists 500 MB free disk; node identity and logs use its data directory.",
+      "storage_source_urls": [
+        "https://docs.mysterium.network/for-node-runners/linux-guide",
+        "https://github.com/mysteriumnetwork/node/blob/master/INSTALL.md"
+      ]
+    }
+  ]
+}

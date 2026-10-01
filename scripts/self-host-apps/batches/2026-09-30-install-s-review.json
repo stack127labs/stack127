@@ -1,0 +1,1591 @@
+{
+  "report_date": "2026-09-30",
+  "project_id": "tulgfrqamtcshdtmhvpx",
+  "selection": "Requested next 25 published self_hostable apps with empty install-option rows: safebucket through shelf.",
+  "production_write": false,
+  "snapshot_source": "Read-only query of public.self_host_apps on 2026-09-30; all selected rows were published, self_hostable, and had install_options null.",
+  "apps": [
+    {
+      "slug": "safebucket",
+      "id": "e53f3035-7ee4-4411-9880-2da01d83ed4a",
+      "name": "Safebucket",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://docs.safebucket.io",
+        "docs_url": "https://docs.safebucket.io",
+        "install_docs_url": "https://github.com/safebucket/safebucket#readme",
+        "source_code_url": "https://github.com/safebucket/safebucket",
+        "publisher_url": "https://github.com/safebucket",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/safebucket/safebucket/pkgs/container/safebucket",
+          "support_level": "official",
+          "source_url": "https://github.com/safebucket/safebucket/pkgs/container/safebucket",
+          "image": "ghcr.io/safebucket/safebucket:latest",
+          "note": "Publisher-owned GHCR package; the official local-lite Compose file uses the latest tag."
+        },
+        {
+          "method": "compose",
+          "label": "Local Docker Compose setup",
+          "url": "https://github.com/safebucket/safebucket/blob/main/deployments/local/lite/docker-compose.yml",
+          "support_level": "official",
+          "source_url": "https://docs.safebucket.io/getting-started/local-lite-deployment/",
+          "image": null,
+          "note": "Official Compose file for the local-lite setup; the guide distinguishes it from the fuller production deployment."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/safebucket/safebucket/pkgs/container/safebucket",
+          "note": "Publisher package page lists the GHCR image and is the Docker install destination."
+        },
+        {
+          "url": "https://docs.safebucket.io/getting-started/local-lite-deployment/",
+          "note": "Official setup guide documents the local-lite Compose deployment."
+        },
+        {
+          "url": "https://github.com/safebucket/safebucket/blob/main/deployments/local/lite/docker-compose.yml",
+          "note": "Official local-lite Docker Compose file."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the verified Docker and Compose options. Replace the README install link with the official Compose guide if it is the intended user-facing setup."
+      ],
+      "proposed": {
+        "install_docs_url": "https://docs.safebucket.io/getting-started/local-lite-deployment/",
+        "docker_url": "https://github.com/safebucket/safebucket/pkgs/container/safebucket",
+        "docker_image": "ghcr.io/safebucket/safebucket:latest",
+        "compose_url": "https://github.com/safebucket/safebucket/blob/main/deployments/local/lite/docker-compose.yml",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "sandstorm",
+      "id": "33d48f29-d4e9-48e6-9715-049fee11962d",
+      "name": "Sandstorm",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://sandstorm.org",
+        "docs_url": "https://github.com/sandstorm-io/sandstorm#readme",
+        "install_docs_url": "https://github.com/sandstorm-io/sandstorm#readme",
+        "source_code_url": "https://github.com/sandstorm-io/sandstorm",
+        "publisher_url": "https://github.com/sandstorm-io",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Linux install script",
+          "url": "https://docs.sandstorm.io/en/latest/install/",
+          "support_level": "official",
+          "source_url": "https://docs.sandstorm.io/en/latest/install/",
+          "image": null,
+          "note": "The guide documents the HTTPS-verified install script and signature-verified alternatives."
+        },
+        {
+          "method": "docker",
+          "label": "Docker setup guide",
+          "url": "https://docs.sandstorm.io/en/latest/install/",
+          "support_level": "official",
+          "source_url": "https://docs.sandstorm.io/en/latest/install/",
+          "image": null,
+          "note": "The guide documents a Docker procedure but recommends running outside Docker; there is no Sandstorm image."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.sandstorm.io/en/latest/install/",
+          "note": "Official installation guide lists script and source installation methods; it recommends running outside Docker."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official native and Docker-guide options and methods. Point install_docs_url to the official installation guide."
+      ],
+      "proposed": {
+        "install_docs_url": "https://docs.sandstorm.io/en/latest/install/",
+        "docker_url": "https://docs.sandstorm.io/en/latest/install/",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native",
+          "docker"
+        ],
+        "docker_support": "official",
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "sayr",
+      "id": "34da8f2c-2d6a-49ab-9abd-657766f819e1",
+      "name": "Sayr",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://sayr.io",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/dorasto/sayr",
+        "source_code_url": "https://github.com/dorasto/sayr",
+        "publisher_url": "https://github.com/dorasto",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://github.com/dorasto/sayr/blob/main/docker/self-host/compose.yml",
+          "support_level": "official",
+          "source_url": "https://sayr.io/docs/self-hosting/get-started",
+          "image": null,
+          "note": "Official self-host guide uses Compose and publisher GHCR images for the services."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://sayr.io/docs/self-hosting/get-started",
+          "note": "Official self-host instructions cover the multi-service Compose setup."
+        },
+        {
+          "url": "https://github.com/dorasto/sayr/blob/main/docker/self-host/compose.yml",
+          "note": "Official Compose file downloaded by the self-hosting guide."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official Compose option and method. Replace the README install_docs_url with the self-host guide."
+      ],
+      "proposed": {
+        "install_docs_url": "https://sayr.io/docs/self-hosting/get-started",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": "https://github.com/dorasto/sayr/blob/main/docker/self-host/compose.yml",
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "scalar",
+      "id": "e044075a-c80c-4338-986a-aa6fd0818797",
+      "name": "Scalar",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://scalar.com",
+        "docs_url": null,
+        "install_docs_url": "https://guides.scalar.com/scalar/scalar-api-references/integrations/docker",
+        "source_code_url": "https://github.com/scalar/scalar",
+        "publisher_url": "https://github.com/scalar",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://scalar.com/products/api-references/integrations/docker",
+          "support_level": "official",
+          "source_url": "https://scalar.com/products/api-references/integrations/docker",
+          "image": "scalarapi/api-reference:latest",
+          "note": "Official Docker guide provides the image and run command."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://scalar.com/products/api-references/integrations/docker",
+          "support_level": "official",
+          "source_url": "https://scalar.com/products/api-references/integrations/docker",
+          "image": "scalarapi/api-reference:latest",
+          "note": "The same official guide includes a Compose example."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://scalar.com/products/api-references/integrations/docker",
+          "note": "Official page documents the Docker image, run command, and Compose example."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add official Docker and Compose options. Update the older install_docs_url to the current official Docker guide."
+      ],
+      "proposed": {
+        "install_docs_url": "https://scalar.com/products/api-references/integrations/docker",
+        "docker_url": "https://scalar.com/products/api-references/integrations/docker",
+        "docker_image": "scalarapi/api-reference:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "scm-manager",
+      "id": "ce2bff9a-f3d5-4433-beb2-a007ec1e40e7",
+      "name": "SCM Manager",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://scm-manager.org",
+        "docs_url": "https://github.com/scm-manager/scm-manager#readme",
+        "install_docs_url": "https://github.com/scm-manager/scm-manager#readme",
+        "source_code_url": "https://github.com/scm-manager/scm-manager",
+        "publisher_url": "https://github.com/scm-manager",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/scmmanager/scm-manager",
+          "support_level": "official",
+          "source_url": "https://scm-manager.org/docs/latest/en/installation/docker/",
+          "image": "scmmanager/scm-manager:latest",
+          "note": "The official Docker guide documents the publisher image."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://scm-manager.org/docs/latest/en/installation/docker/",
+          "support_level": "official",
+          "source_url": "https://scm-manager.org/docs/latest/en/installation/docker/",
+          "image": "scmmanager/scm-manager:latest",
+          "note": "Official guide includes a Compose configuration and persistent home volume."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://scm-manager.org/docs/latest/en/installation/docker/",
+          "note": "Official Docker installation guide documents Docker and Compose deployment."
+        },
+        {
+          "url": "https://hub.docker.com/r/scmmanager/scm-manager",
+          "note": "Publisher-owned Docker Hub repository is the Docker image destination."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add Docker and Compose options and methods. Replace the README install link with the official Docker installation guide."
+      ],
+      "proposed": {
+        "install_docs_url": "https://scm-manager.org/docs/latest/en/installation/docker/",
+        "docker_url": "https://hub.docker.com/r/scmmanager/scm-manager",
+        "docker_image": "scmmanager/scm-manager:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "screego",
+      "id": "2c426122-1b1e-45b7-a0cf-816ed1f90451",
+      "name": "Screego",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://app.screego.net",
+        "docs_url": "https://github.com/screego/server#readme",
+        "install_docs_url": "https://github.com/screego/server#readme",
+        "source_code_url": "https://github.com/screego/server",
+        "publisher_url": "https://github.com/screego",
+        "docker_url": "https://github.com/screego/server/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/screego/server/pkgs/container/server",
+          "support_level": "official",
+          "source_url": "https://github.com/screego/server/pkgs/container/server",
+          "image": "ghcr.io/screego/server:1.12.5",
+          "note": "Publisher-owned GHCR package; current package page lists tag 1.12.5."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/screego/server/pkgs/container/server",
+          "note": "Publisher GHCR package page provides the current image and tag."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the GHCR Docker option. Replace docker_url, which currently points to a Dockerfile, with the package page."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/screego/server#readme",
+        "docker_url": "https://github.com/screego/server/pkgs/container/server",
+        "docker_image": "ghcr.io/screego/server:1.12.5",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "scrob",
+      "id": "ffa56f3d-8995-4cad-b2fe-20e1629960cc",
+      "name": "Scrob",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://scrob.app",
+        "docs_url": "https://github.com/ellite/scrob#readme",
+        "install_docs_url": "https://github.com/ellite/scrob#readme",
+        "source_code_url": "https://github.com/ellite/scrob",
+        "publisher_url": "https://github.com/ellite",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/bellamy/scrob",
+          "support_level": "official",
+          "source_url": "https://github.com/ellite/scrob#readme",
+          "image": "bellamy/scrob:latest",
+          "note": "The official project README identifies this Docker Hub image and a GHCR mirror."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://github.com/ellite/scrob#readme",
+          "support_level": "official",
+          "source_url": "https://github.com/ellite/scrob#readme",
+          "image": null,
+          "note": "The README gives the Compose setup and links to the direct docker-compose.yaml file."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://scrob.app/",
+          "note": "Official site says to deploy with Docker Compose."
+        },
+        {
+          "url": "https://github.com/ellite/scrob#readme",
+          "note": "Official deployment guide identifies the image and provides Compose instructions."
+        },
+        {
+          "url": "https://github.com/ellite/scrob/blob/main/docker-compose.yaml",
+          "note": "Official Compose file used by the README install steps."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace the homepage as the Compose destination with the official README; set compose_url to the direct Compose file and update the stale native deployment method to docker and compose."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/ellite/scrob#readme",
+        "docker_url": "https://hub.docker.com/r/bellamy/scrob",
+        "docker_image": "bellamy/scrob:latest",
+        "compose_url": "https://github.com/ellite/scrob/blob/main/docker-compose.yaml",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "review_note": "The README explicitly downloads and runs the official Compose file; the standard image is bellamy/scrob:latest."
+    },
+    {
+      "slug": "seanime",
+      "id": "81ada5eb-25e2-40b7-9b02-87ba5be740ac",
+      "name": "Seanime",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://seanime.app",
+        "docs_url": "https://github.com/5rahim/seanime#readme",
+        "install_docs_url": "https://github.com/5rahim/seanime#readme",
+        "source_code_url": "https://github.com/5rahim/seanime",
+        "publisher_url": "https://github.com/5rahim",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "binary",
+          "label": "Official release downloads",
+          "url": "https://github.com/5rahim/seanime/releases",
+          "support_level": "official",
+          "source_url": "https://github.com/5rahim/seanime/releases",
+          "image": null,
+          "note": "The upstream release page provides downloadable builds for supported platforms."
+        },
+        {
+          "method": "docker",
+          "label": "Community Docker image",
+          "url": "https://hub.docker.com/r/umagistr/seanime",
+          "support_level": "community",
+          "source_url": "https://hub.docker.com/r/umagistr/seanime",
+          "image": "umagistr/seanime:latest",
+          "note": "Community-maintained multi-architecture image from umagistr; no upstream endorsement appears on the image page."
+        },
+        {
+          "method": "compose",
+          "label": "Community Docker Compose setup",
+          "url": "https://hub.docker.com/r/umagistr/seanime",
+          "support_level": "community",
+          "source_url": "https://hub.docker.com/r/umagistr/seanime",
+          "image": "umagistr/seanime:latest",
+          "note": "The community image page also documents a Compose configuration."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/5rahim/seanime/releases",
+          "note": "Official releases include downloadable platform builds."
+        },
+        {
+          "url": "https://hub.docker.com/r/umagistr/seanime",
+          "note": "Docker Hub page identifies umagistr as image publisher and documents its image and Compose configuration."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add official binary and clearly labeled community Docker options. Record binary and docker deployment methods."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/5rahim/seanime#readme",
+        "docker_url": "https://hub.docker.com/r/umagistr/seanime",
+        "docker_image": "umagistr/seanime:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "binary",
+          "docker",
+          "compose"
+        ],
+        "docker_support": "community",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "secluso",
+      "id": "4125a6ad-7642-4c03-864a-5cc9f4021b76",
+      "name": "Secluso",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://secluso.com",
+        "docs_url": "https://github.com/secluso/core#readme",
+        "install_docs_url": "https://github.com/secluso/core#readme",
+        "source_code_url": "https://github.com/secluso/core",
+        "publisher_url": "https://github.com/secluso",
+        "docker_url": "https://github.com/secluso/core/blob/HEAD/releases/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "binary",
+          "label": "Build-your-own release tool",
+          "url": "https://github.com/secluso/core/releases",
+          "support_level": "official",
+          "source_url": "https://secluso.com/build-your-own",
+          "image": null,
+          "note": "The publisher guide directs users to the release tool used to prepare a Raspberry Pi OS image."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://secluso.com/build-your-own",
+          "note": "Official build-your-own guide describes the self-hosted Raspberry Pi setup."
+        },
+        {
+          "url": "https://github.com/secluso/core/releases",
+          "note": "Official release page provides the deployment tool; no supported Docker image was found."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official release-tool option. Clear docker_url and remove the Docker method because the stored link is a Dockerfile, not a deployment image."
+      ],
+      "proposed": {
+        "install_docs_url": "https://secluso.com/build-your-own",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "binary"
+        ],
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "secrover",
+      "id": "570f0bbe-07d2-4e78-980f-72546c1b91db",
+      "name": "Secrover",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://secrover.org",
+        "docs_url": "https://github.com/Secrover/Secrover#readme",
+        "install_docs_url": "https://github.com/Secrover/Secrover#readme",
+        "source_code_url": "https://github.com/Secrover/Secrover",
+        "publisher_url": "https://github.com/Secrover",
+        "docker_url": "https://github.com/Secrover/Secrover/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/secrover/secrover",
+          "support_level": "official",
+          "source_url": "https://github.com/Secrover/Secrover",
+          "image": "secrover/secrover:latest",
+          "note": "Upstream instructions use the same publisher Docker Hub image."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/Secrover/Secrover",
+          "note": "Official project instructions provide Docker run commands for secrover/secrover."
+        },
+        {
+          "url": "https://hub.docker.com/r/secrover/secrover",
+          "note": "Publisher Docker Hub repository confirms the install destination and latest tag."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official Docker option. Replace docker_url, which currently points to a Dockerfile, with Docker Hub."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/Secrover/Secrover#readme",
+        "docker_url": "https://hub.docker.com/r/secrover/secrover",
+        "docker_image": "secrover/secrover:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "securo",
+      "id": "704fcf85-eb83-46d2-b98a-060670759474",
+      "name": "Securo",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://usesecuro.com/",
+        "docs_url": "https://github.com/securo-finance/securo#readme",
+        "install_docs_url": "https://github.com/securo-finance/securo#readme",
+        "source_code_url": "https://github.com/securo-finance/securo",
+        "publisher_url": "https://github.com/securo-finance",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose production setup",
+          "url": "https://docs.usesecuro.com/docs/deployment/docker",
+          "support_level": "official",
+          "source_url": "https://docs.usesecuro.com/docs/deployment/docker",
+          "image": null,
+          "note": "Official production guide uses prebuilt GHCR images and Docker Compose."
+        },
+        {
+          "method": "helm",
+          "label": "Official Helm chart",
+          "url": "https://docs.usesecuro.com/docs/deployment/kubernetes",
+          "support_level": "official",
+          "source_url": "https://docs.usesecuro.com/docs/deployment/kubernetes",
+          "image": null,
+          "note": "Official guide installs chart oci://ghcr.io/securo-finance/charts/securo."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.usesecuro.com/docs/deployment/docker",
+          "note": "Official production deployment guide documents Compose and the publisher's prebuilt container images."
+        },
+        {
+          "url": "https://docs.usesecuro.com/docs/deployment/kubernetes",
+          "note": "Official guide documents installation from the Securo Helm OCI chart."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add Compose and Helm options. Replace the native deployment method with compose and helm; update install_docs_url to the official deployment overview."
+      ],
+      "proposed": {
+        "install_docs_url": "https://docs.usesecuro.com/docs/deployment/docker",
+        "docker_url": "https://docs.usesecuro.com/docs/deployment/docker",
+        "docker_image": null,
+        "compose_url": "https://github.com/securo-finance/securo/blob/main/docker-compose.prod.yml",
+        "deployment_methods": [
+          "compose",
+          "helm"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "seekstorm",
+      "id": "5b6abaa0-01ea-4163-b28f-88eba794e8da",
+      "name": "SeekStorm",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": null,
+        "docs_url": "https://github.com/SeekStorm/SeekStorm#readme",
+        "install_docs_url": "https://github.com/SeekStorm/SeekStorm#readme",
+        "source_code_url": "https://github.com/SeekStorm/SeekStorm",
+        "publisher_url": "https://github.com/SeekStorm",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/wolfgarbe/seekstorm_server",
+          "support_level": "official",
+          "source_url": "https://hub.docker.com/r/wolfgarbe/seekstorm_server",
+          "image": "wolfgarbe/seekstorm_server:latest",
+          "note": "The publisher Docker Hub page provides the server image and run command."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hub.docker.com/r/wolfgarbe/seekstorm_server",
+          "note": "Publisher-owned image page documents the image and a Docker run example."
+        },
+        {
+          "url": "https://github.com/SeekStorm/SeekStorm",
+          "note": "Official project repository links to the server and project documentation."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the verified Docker option and docker method. Keep the existing native method only if its separate official install route is reviewed in the source-field pass."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/SeekStorm/SeekStorm#readme",
+        "docker_url": "https://hub.docker.com/r/wolfgarbe/seekstorm_server",
+        "docker_image": "wolfgarbe/seekstorm_server:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "native",
+          "docker"
+        ],
+        "docker_support": "official",
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "self-host-blocks",
+      "id": "39e6fabf-83ee-4986-a411-44d6c2442aae",
+      "name": "Self Host Blocks",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://shb.skarabox.com",
+        "docs_url": "https://github.com/ibizaman/selfhostblocks#readme",
+        "install_docs_url": "https://github.com/ibizaman/selfhostblocks#readme",
+        "source_code_url": "https://github.com/ibizaman/selfhostblocks",
+        "publisher_url": "https://github.com/ibizaman",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "NixOS flake setup",
+          "url": "https://shb.skarabox.com/usage.html",
+          "support_level": "official",
+          "source_url": "https://shb.skarabox.com/usage.html",
+          "image": null,
+          "note": "Official guide demonstrates NixOS flake setup and deployment with NixOS-Rebuild, Colmena, and deploy-rs."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://shb.skarabox.com/usage.html",
+          "note": "Official usage guide provides the Nix flake setup and deployment examples."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official NixOS option and native method. Replace the README install link with the usage guide."
+      ],
+      "proposed": {
+        "install_docs_url": "https://shb.skarabox.com/usage.html",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "self-hosted-gateway",
+      "id": "b46f9dc8-9305-4cf8-98e5-b063eae6b231",
+      "name": "Self-Hosted Gateway",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://gethomerun.app",
+        "docs_url": "https://github.com/hintjen/selfhosted-gateway#readme",
+        "install_docs_url": "https://github.com/hintjen/selfhosted-gateway#readme",
+        "source_code_url": "https://github.com/hintjen/selfhosted-gateway",
+        "publisher_url": "https://github.com/hintjen",
+        "docker_url": "https://github.com/hintjen/selfhosted-gateway/blob/HEAD/src/gateway/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker gateway setup",
+          "url": "https://github.com/hintjen/selfhosted-gateway#readme",
+          "support_level": "official",
+          "source_url": "https://github.com/hintjen/selfhosted-gateway#readme",
+          "image": null,
+          "note": "Build and start the gateway with the documented make docker, make setup, and make gateway commands."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose client link",
+          "url": "https://github.com/hintjen/selfhosted-gateway#readme",
+          "support_level": "official",
+          "source_url": "https://github.com/hintjen/selfhosted-gateway#readme",
+          "image": null,
+          "note": "The README generates a Compose client service snippet; this is not a complete standalone Compose file."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/hintjen/selfhosted-gateway#readme",
+          "note": "Official README documents gateway setup and the client Compose link flow."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace the Dockerfile URL with the official README install guide and add the verified Docker and Compose destinations. Keep compose_url null because the README supplies a snippet, not a complete Compose YAML file."
+      ],
+      "skip_reason": "The only verified deployment instructions are in the source repository README and Makefile workflow. The published client image is not a verified standalone destination for installing the gateway, so no install option is proposed.",
+      "proposed": {
+        "install_docs_url": "https://github.com/hintjen/selfhosted-gateway#readme",
+        "docker_url": "https://github.com/hintjen/selfhosted-gateway#readme",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "review_note": "Official install steps exist in the README even without a publisher registry image."
+    },
+    {
+      "slug": "selfh-st-icons",
+      "id": "9eb089fd-e5e7-4c68-bc38-6a1dff28e1b4",
+      "name": "selfh.st/icons",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://selfh.st/icons",
+        "docs_url": "https://github.com/selfhst/icons#readme",
+        "install_docs_url": "https://github.com/selfhst/icons#readme",
+        "source_code_url": "https://github.com/selfhst/icons",
+        "publisher_url": "https://github.com/selfhst",
+        "docker_url": "https://github.com/selfhst/icons/blob/HEAD/build/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/selfhst/icons/pkgs/container/icons",
+          "support_level": "official",
+          "source_url": "https://github.com/selfhst/icons/wiki",
+          "image": "ghcr.io/selfhst/icons:latest",
+          "note": "Publisher wiki documents the image and the GHCR package is the install destination."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://github.com/selfhst/icons/wiki",
+          "support_level": "official",
+          "source_url": "https://github.com/selfhst/icons/wiki",
+          "image": "ghcr.io/selfhst/icons:latest",
+          "note": "Official wiki provides Compose configuration and environment options."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/selfhst/icons/wiki",
+          "note": "Official project wiki documents the Docker Compose service and GHCR image."
+        },
+        {
+          "url": "https://github.com/selfhst/icons/pkgs/container/icons",
+          "note": "Publisher GHCR package destination."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add official Docker and Compose options. Replace docker_url, which currently points to a Dockerfile, with the GHCR package page."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/selfhst/icons/wiki",
+        "docker_url": "https://github.com/selfhst/icons/pkgs/container/icons",
+        "docker_image": "ghcr.io/selfhst/icons:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "selfhost-ai",
+      "id": "fde4ea64-c42d-47d8-887f-11de869f265d",
+      "name": "selfhost-ai",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://github.com/kossakovsky/selfhost-ai#readme",
+        "docs_url": "https://github.com/kossakovsky/selfhost-ai#readme",
+        "install_docs_url": "https://github.com/kossakovsky/selfhost-ai#readme",
+        "source_code_url": "https://github.com/kossakovsky/selfhost-ai",
+        "publisher_url": "https://github.com/kossakovsky",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose stack installer",
+          "url": "https://github.com/kossakovsky/selfhost-ai#readme",
+          "support_level": "official",
+          "source_url": "https://github.com/kossakovsky/selfhost-ai#readme",
+          "image": null,
+          "note": "The official quick start runs scripts/install.sh, which configures and starts the selected services using Docker Compose."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/kossakovsky/selfhost-ai#readme",
+          "note": "Official README has the quick-start installer command and describes the Docker Compose deployment."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official Compose installer option and replace the stale native-only method with compose. The README is a valid install destination; no single Compose file is the complete guided install."
+      ],
+      "skip_reason": "The only install route found is to clone the source repository and run its installer script. That is not a separate install destination for the directory.",
+      "proposed": {
+        "install_docs_url": "https://github.com/kossakovsky/selfhost-ai#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "review_note": "The official README directly documents the self-hosted installer and Compose-based deployment."
+    },
+    {
+      "slug": "selfoss",
+      "id": "3d8c77cd-1444-4cb2-bea2-2372ece7d22d",
+      "name": "Selfoss",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://selfoss.aditu.de",
+        "docs_url": "https://github.com/fossar/selfoss#readme",
+        "install_docs_url": "https://github.com/fossar/selfoss#readme",
+        "source_code_url": "https://github.com/fossar/selfoss",
+        "publisher_url": "https://github.com/fossar",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Web server installation",
+          "url": "https://selfoss.aditu.de/docs/administration/installation/basic/",
+          "support_level": "official",
+          "source_url": "https://selfoss.aditu.de/docs/administration/installation/",
+          "image": null,
+          "note": "Official instructions cover installing the release archive in a PHP web-server environment."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://selfoss.aditu.de/docs/administration/installation/",
+          "note": "Official installation documentation links to the basic web-server setup."
+        },
+        {
+          "url": "https://selfoss.aditu.de/docs/administration/installation/basic/",
+          "note": "Official basic installation page gives the web-root setup steps."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official native option and method. Replace the README install link with the basic installation guide."
+      ],
+      "proposed": {
+        "install_docs_url": "https://selfoss.aditu.de/docs/administration/installation/basic/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "semaphore-ui",
+      "id": "62a4ad13-c7ae-4d5e-92b2-7c190e34bdbb",
+      "name": "Semaphore UI",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://semaphoreui.com",
+        "docs_url": "https://github.com/semaphoreui/semaphore#readme",
+        "install_docs_url": "https://github.com/semaphoreui/semaphore#readme",
+        "source_code_url": "https://github.com/semaphoreui/semaphore",
+        "publisher_url": "https://github.com/semaphoreui",
+        "docker_url": "https://github.com/semaphoreui/semaphore/blob/HEAD/deployment/docker/job/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/semaphoreui/semaphore",
+          "support_level": "official",
+          "source_url": "https://semaphoreui.com/docs/getting-started",
+          "image": "semaphoreui/semaphore:latest",
+          "note": "Official Docker Hub package and publisher docs provide the image."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://semaphoreui.com/docs/getting-started",
+          "support_level": "official",
+          "source_url": "https://semaphoreui.com/docs/getting-started",
+          "image": "semaphoreui/semaphore:v2.19.12",
+          "note": "Official getting-started guide includes a Compose configuration."
+        },
+        {
+          "method": "package",
+          "label": "Linux packages",
+          "url": "https://semaphoreui.com/docs/getting-started",
+          "support_level": "official",
+          "source_url": "https://semaphoreui.com/docs/getting-started",
+          "image": null,
+          "note": "Official guide includes Debian/Ubuntu and RHEL-family packages."
+        },
+        {
+          "method": "binary",
+          "label": "Binary archive",
+          "url": "https://github.com/semaphoreui/semaphore/releases",
+          "support_level": "official",
+          "source_url": "https://semaphoreui.com/docs/getting-started",
+          "image": null,
+          "note": "Official guide directs users to release archives for their operating system and architecture."
+        },
+        {
+          "method": "helm",
+          "label": "Official Helm chart",
+          "url": "https://semaphoreui.com/docs/getting-started",
+          "support_level": "official",
+          "source_url": "https://semaphoreui.com/docs/getting-started",
+          "image": null,
+          "note": "Guide identifies the semaphoreui/semaphore chart from the official Helm repository."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://semaphoreui.com/docs/getting-started",
+          "note": "Official guide lists package, Docker Compose, binary archive, and Kubernetes with Helm."
+        },
+        {
+          "url": "https://hub.docker.com/r/semaphoreui/semaphore",
+          "note": "Publisher Docker Hub package documents Docker and Compose examples."
+        },
+        {
+          "url": "https://github.com/semaphoreui/semaphore/releases",
+          "note": "Official release page is the binary download destination."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add official Docker, Compose, package, binary, and Helm options. Replace docker_url, which points to a job-worker Dockerfile, with the Docker Hub package. Update deployment methods to match the verified routes."
+      ],
+      "proposed": {
+        "install_docs_url": "https://semaphoreui.com/docs/getting-started",
+        "docker_url": "https://hub.docker.com/r/semaphoreui/semaphore",
+        "docker_image": "semaphoreui/semaphore:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package",
+          "binary",
+          "helm"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "sendportal",
+      "id": "987108e2-24b1-4399-bf57-a20ccdb69989",
+      "name": "Sendportal",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://sendportal.io",
+        "docs_url": null,
+        "install_docs_url": "https://sendportal.io/docs/v2/getting-started/installation",
+        "source_code_url": "https://github.com/mettle/sendportal",
+        "publisher_url": "https://github.com/mettle",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Web server installation",
+          "url": "https://sendportal.io/docs/v2/getting-started/installation",
+          "support_level": "official",
+          "source_url": "https://sendportal.io/docs/v2/getting-started/installation",
+          "image": null,
+          "note": "Official v2 installation guide documents the PHP, Composer, and database setup."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://sendportal.io/docs/v2/getting-started/installation",
+          "note": "Official guide provides standalone installation steps and dependencies."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the verified native option and method; the current install_docs_url is already the right guide."
+      ],
+      "proposed": {
+        "install_docs_url": "https://sendportal.io/docs/v2/getting-started/installation",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "seppo",
+      "id": "716e33d3-4ee9-475e-88d8-0d41b79817cf",
+      "name": "Seppo",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": null,
+        "docs_url": null,
+        "install_docs_url": "https://seppo.mro.name/downloads",
+        "source_code_url": "https://codeberg.org/seppo/seppo",
+        "publisher_url": "https://codeberg.org/seppo",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "CGI web host download",
+          "url": "https://seppo.mro.name/downloads",
+          "support_level": "official",
+          "source_url": "https://seppo.mro.name/en/support/",
+          "image": null,
+          "note": "Official support instructions describe downloading the single CGI program and installing it on a web host with CGI enabled."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://seppo.mro.name/en/support/",
+          "note": "Official support page describes the self-hosted CGI installation and links to downloads."
+        },
+        {
+          "url": "https://seppo.mro.name/downloads",
+          "note": "Official downloads destination referenced by the support instructions."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the verified native/CGI option and method. Add the official product site to website_url if confirmed in the source-link review."
+      ],
+      "proposed": {
+        "install_docs_url": "https://seppo.mro.name/en/support/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "serendipity",
+      "id": "d15f58e5-cd70-4040-a22d-d5e41454ee3b",
+      "name": "Serendipity",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://s9y.org",
+        "docs_url": "https://docs.s9y.org",
+        "install_docs_url": "https://github.com/s9y/Serendipity#readme",
+        "source_code_url": "https://github.com/s9y/Serendipity",
+        "publisher_url": "https://github.com/s9y",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Web server installation",
+          "url": "https://docs.s9y.org/docs/users/getting-started/fresh-installation.html",
+          "support_level": "official",
+          "source_url": "https://docs.s9y.org/docs/users/getting-started/fresh-installation.html",
+          "image": null,
+          "note": "Official guide walks through installing the downloaded archive on a web server."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.s9y.org/docs/users/getting-started/fresh-installation.html",
+          "note": "Official fresh installation guide documents the self-hosted web-server setup."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the native option and method. Replace install_docs_url with the official fresh-installation guide."
+      ],
+      "proposed": {
+        "install_docs_url": "https://docs.s9y.org/docs/users/getting-started/fresh-installation.html",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "sessy",
+      "id": "d8771029-54c8-44fa-b557-030fa2847409",
+      "name": "Sessy",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://sessy.do",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/marckohlbrugge/sessy",
+        "source_code_url": "https://github.com/marckohlbrugge/sessy",
+        "publisher_url": "https://github.com/marckohlbrugge",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/marckohlbrugge/sessy/pkgs/container/sessy",
+          "support_level": "official",
+          "source_url": "https://github.com/marckohlbrugge/sessy/blob/main/docs/docker-deployment.md",
+          "image": "ghcr.io/marckohlbrugge/sessy:main",
+          "note": "Maintainer's deployment guide documents this GHCR image and persistent storage."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://github.com/marckohlbrugge/sessy/blob/main/docs/docker-deployment.md",
+          "support_level": "official",
+          "source_url": "https://github.com/marckohlbrugge/sessy/blob/main/docs/docker-deployment.md",
+          "image": "ghcr.io/marckohlbrugge/sessy:main",
+          "note": "Official deployment guide includes a Compose setup."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/marckohlbrugge/sessy/blob/main/docs/docker-deployment.md",
+          "note": "Official deployment guide documents Docker and Compose use of the prebuilt image."
+        },
+        {
+          "url": "https://github.com/marckohlbrugge/sessy/pkgs/container/sessy",
+          "note": "Maintainer GHCR package destination."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official Docker and Compose options. Update install_docs_url to the Docker deployment guide."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/marckohlbrugge/sessy/blob/main/docs/docker-deployment.md",
+        "docker_url": "https://github.com/marckohlbrugge/sessy/pkgs/container/sessy",
+        "docker_image": "ghcr.io/marckohlbrugge/sessy:main",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "sftpgo-community-edition",
+      "id": "6508cf24-7759-4513-bcea-ca888ca643af",
+      "name": "Sftpgo Community Edition",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://sftpgo.com",
+        "docs_url": "https://github.com/drakkan/sftpgo#readme",
+        "install_docs_url": "https://github.com/drakkan/sftpgo#readme",
+        "source_code_url": "https://github.com/drakkan/sftpgo",
+        "publisher_url": "https://github.com/drakkan",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/drakkan/sftpgo",
+          "support_level": "official",
+          "source_url": "https://docs.sftpgo.com/2.7/docker/",
+          "image": "drakkan/sftpgo:latest",
+          "note": "Official open-source documentation uses the drakkan/sftpgo image; this is the Community Edition route."
+        },
+        {
+          "method": "package",
+          "label": "Linux packages",
+          "url": "https://docs.sftpgo.com/2.7/installation/",
+          "support_level": "official",
+          "source_url": "https://docs.sftpgo.com/2.7/installation/",
+          "image": null,
+          "note": "Official Community Edition installation guide includes native Linux packages."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://docs.sftpgo.com/2.7/docker/",
+          "support_level": "official",
+          "source_url": "https://docs.sftpgo.com/2.7/docker/",
+          "image": "drakkan/sftpgo:latest",
+          "note": "Official Docker docs explicitly describe using docker-compose for environment configuration."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.sftpgo.com/2.7/docker/",
+          "note": "Open-source Docker guide identifies the official image and usage."
+        },
+        {
+          "url": "https://docs.sftpgo.com/2.7/installation/",
+          "note": "Open-source installation guide documents supported native package installation."
+        },
+        {
+          "url": "https://hub.docker.com/r/drakkan/sftpgo",
+          "note": "Official Docker Hub destination for the Community Edition image."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add official Docker and Linux package options. Update install_docs_url to the Community Edition documentation rather than the repo README."
+      ],
+      "proposed": {
+        "install_docs_url": "https://docs.sftpgo.com/2.7/installation/",
+        "docker_url": "https://hub.docker.com/r/drakkan/sftpgo",
+        "docker_image": "drakkan/sftpgo:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "sharkord",
+      "id": "b1d5e459-7fc5-4ea9-8142-c14e0e42e9d5",
+      "name": "Sharkord",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://sharkord.com",
+        "docs_url": "https://github.com/Sharkord/sharkord#readme",
+        "install_docs_url": "https://github.com/Sharkord/sharkord#readme",
+        "source_code_url": "https://github.com/Sharkord/sharkord",
+        "publisher_url": "https://github.com/Sharkord",
+        "docker_url": "https://github.com/Sharkord/sharkord/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/sharkord/sharkord",
+          "support_level": "official",
+          "source_url": "https://sharkord.com/docs/introduction/installation/docker",
+          "image": "sharkord/sharkord:latest",
+          "note": "Official Docker guide gives this image and its required ports and data path."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://sharkord.com/docs/introduction/installation/docker-compose",
+          "support_level": "official",
+          "source_url": "https://sharkord.com/docs/introduction/installation/docker-compose",
+          "image": "sharkord/sharkord:latest",
+          "note": "Official Compose guide includes the service setup."
+        },
+        {
+          "method": "binary",
+          "label": "Release downloads",
+          "url": "https://github.com/Sharkord/sharkord/releases",
+          "support_level": "official",
+          "source_url": "https://sharkord.com/docs/introduction/quick-start",
+          "image": null,
+          "note": "Official quick start links to downloadable release builds."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://sharkord.com/docs/introduction/installation/docker",
+          "note": "Official Docker guide documents the image and run command."
+        },
+        {
+          "url": "https://sharkord.com/docs/introduction/installation/docker-compose",
+          "note": "Official Compose install guide documents the multi-service setup."
+        },
+        {
+          "url": "https://sharkord.com/docs/introduction/quick-start",
+          "note": "Official quick start documents binary downloads."
+        },
+        {
+          "url": "https://hub.docker.com/r/sharkord/sharkord",
+          "note": "Publisher Docker Hub destination confirms the image."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add official Docker, Compose, and binary options. Replace docker_url, which points to a Dockerfile, with the Docker Hub package. Update deployment methods to match verified routes."
+      ],
+      "proposed": {
+        "install_docs_url": "https://sharkord.com/docs/introduction/installation/docker",
+        "docker_url": "https://hub.docker.com/r/sharkord/sharkord",
+        "docker_image": "sharkord/sharkord:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "binary"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "shelf",
+      "id": "d499c28c-677e-42ba-96aa-a4d0108552ed",
+      "name": "Shelf",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "website_url": "https://shelf.nu",
+        "docs_url": "https://github.com/Shelf-nu/shelf.nu#readme",
+        "install_docs_url": "https://github.com/Shelf-nu/shelf.nu#readme",
+        "source_code_url": "https://github.com/Shelf-nu/shelf.nu",
+        "publisher_url": "https://github.com/Shelf-nu",
+        "docker_url": "https://github.com/Shelf-nu/shelf.nu/blob/HEAD/apps/webapp/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "install_options": null
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Community Docker image",
+          "url": "https://github.com/Shelf-nu/shelf.nu/pkgs/container/shelf.nu",
+          "support_level": "community",
+          "source_url": "https://docs.shelf.nu/docker",
+          "image": "ghcr.io/shelf-nu/shelf.nu:latest",
+          "note": "Publisher docs say this Docker setup is community-powered and is not officially supported by Shelf Asset Management Inc."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.shelf.nu/docker",
+          "note": "Publisher docs describe Docker setup and explicitly state it is community-powered and unsupported officially."
+        },
+        {
+          "url": "https://github.com/Shelf-nu/shelf.nu/pkgs/container/shelf.nu",
+          "note": "Publisher GHCR package destination for the documented image."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the community Docker option with an explicit community support label. Replace docker_url, which points to a Dockerfile, with the GHCR package page."
+      ],
+      "proposed": {
+        "install_docs_url": "https://docs.shelf.nu/docker",
+        "docker_url": "https://github.com/Shelf-nu/shelf.nu/pkgs/container/shelf.nu",
+        "docker_image": "ghcr.io/shelf-nu/shelf.nu:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "community",
+        "install_option_action": "populate"
+      }
+    }
+  ]
+}

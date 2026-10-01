@@ -1,0 +1,97 @@
+{
+  "apps": [
+    {
+      "slug": "ffmpeg-nvidia",
+      "review_scope": "partial",
+      "expected": {
+        "name": "ffmpeg-nvidia",
+        "source_code_url": "https://github.com/jrottenberg/ffmpeg",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "source_available",
+        "docker_image": "jrottenberg/ffmpeg:4.2-nvidia",
+        "docker_support": "community",
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "surfaces": ["web"],
+        "categories": ["system-admin-hosting"]
+      },
+      "name": "FFmpeg (NVIDIA)",
+      "summary": "FFmpeg (NVIDIA) runs the command-line media transcoder in Docker with NVIDIA hardware encoding and decoding.",
+      "website_url": "https://ffmpeg.org/",
+      "source_code_url": "https://github.com/FFmpeg/FFmpeg",
+      "docs_url": "https://www.ffmpeg.org/documentation.html",
+      "install_docs_url": "https://github.com/jrottenberg/ffmpeg/blob/main/README.md",
+      "docker_url": "https://hub.docker.com/r/jrottenberg/ffmpeg/tags",
+      "license": "FFmpeg core: LGPL-2.1-or-later. Optional GPL parts and bundled libraries have their own licenses.",
+      "license_type": "copyleft",
+      "license_spdx_id": "LGPL-2.1",
+      "source_model": "open_source",
+      "publisher_name": "jrottenberg",
+      "publisher_type": "community",
+      "publisher_url": "https://github.com/jrottenberg",
+      "pricing_model": "free",
+      "maintenance_status": "active",
+      "docker_support": "community",
+      "docker_image": "jrottenberg/ffmpeg:9-nvidia",
+      "compose_support": null,
+      "compose_url": null,
+      "requires_database": false,
+      "database_types": [],
+      "ram_min_mb": null,
+      "storage_min_gb": null,
+      "resource_requirement_kind": "unknown",
+      "storage_profile": "depends",
+      "persistent_storage": true,
+      "deployment_methods": ["docker", "unraid"],
+      "surfaces": ["cli"],
+      "summary_source": "https://github.com/jrottenberg/ffmpeg/blob/main/README.md",
+      "summary_confidence": "high",
+      "categories": ["media-servers"],
+      "data_source_urls": [
+        "https://ffmpeg.org/",
+        "https://www.ffmpeg.org/documentation.html",
+        "https://github.com/FFmpeg/FFmpeg",
+        "https://github.com/FFmpeg/FFmpeg/blob/master/LICENSE.md",
+        "https://github.com/jrottenberg/ffmpeg",
+        "https://github.com/jrottenberg/ffmpeg/blob/main/README.md",
+        "https://hub.docker.com/r/jrottenberg/ffmpeg",
+        "https://hub.docker.com/r/jrottenberg/ffmpeg/tags",
+        "https://raw.githubusercontent.com/qubex22/unraid-templates/main/ffmpeg-nvidia/ffmpeg-nvidia.xml"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "resources": [
+    {
+      "slug": "ffmpeg-nvidia",
+      "expected": {
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary."
+      },
+      "ram_estimate_min_mb": 1024,
+      "ram_estimate_max_mb": 4096,
+      "ram_estimate_kind": "estimated",
+      "ram_estimate_confidence": "low",
+      "ram_estimate_basis": "Estimate for one transcode job; resolution, filters, concurrent jobs, and GPU processing change memory use.",
+      "ram_source_urls": [
+        "https://github.com/jrottenberg/ffmpeg/blob/main/README.md",
+        "https://ffmpeg.org/ffmpeg.html"
+      ],
+      "storage_estimate_min_gb": 10,
+      "storage_estimate_max_gb": 100,
+      "storage_estimate_kind": "estimated",
+      "storage_estimate_confidence": "low",
+      "storage_estimate_basis": "FFmpeg reads input files and writes output files; 10 to 100 GB is an estimate for a small set of source and encoded media files.",
+      "storage_source_urls": [
+        "https://ffmpeg.org/ffmpeg.html",
+        "https://github.com/jrottenberg/ffmpeg/blob/main/README.md"
+      ]
+    }
+  ]
+}

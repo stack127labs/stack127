@@ -1,0 +1,755 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values copied from its self-host-app records.",
+  "scope": "Official-source license and source-model corrections for O–P app records not covered by existing reviews. Proposal only; wrapper-only and ambiguous mappings are skipped.",
+  "apps": [
+    {
+      "slug": "obs-ndi",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-only",
+      "source_code_url": "https://github.com/DistroAV/DistroAV",
+      "source_code_host": "github",
+      "review_note": "The former OBS-NDI project redirects to first-party DistroAV, which identifies the plugin and GPL-2.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/DistroAV/DistroAV",
+        "https://github.com/DistroAV/DistroAV/blob/master/LICENSE",
+        "https://distroav.org/"
+      ]
+    },
+    {
+      "slug": "openconnectserver",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-or-later",
+      "source_code_url": "https://gitlab.com/openconnect/ocserv",
+      "source_code_host": "gitlab",
+      "review_note": "The package is the ocserv VPN server; upstream COPYING declares GPL-2.0-or-later.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://gitlab.com/openconnect/ocserv",
+        "https://gitlab.com/openconnect/ocserv/-/blob/master/COPYING",
+        "https://ocserv.openconnect-vpn.net/"
+      ]
+    },
+    {
+      "slug": "opendyndns",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/HaschekSolutions/opendyndns",
+      "source_code_host": "github",
+      "review_note": "Publisher repository describes this self-hostable DynDNS service and identifies Apache-2.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/HaschekSolutions/opendyndns",
+        "https://github.com/HaschekSolutions/opendyndns/blob/main/LICENSE",
+        "https://haschek.solutions/"
+      ]
+    },
+    {
+      "slug": "openg2p-spar-self-service-api",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Mozilla Public License 2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "MPL-2.0",
+      "source_code_url": "https://github.com/OpenG2P/openg2p-spar-self-service",
+      "source_code_host": "github",
+      "review_note": "Official OpenG2P repository contains the SPAR self-service API and declares MPL-2.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/OpenG2P/openg2p-spar-self-service",
+        "https://github.com/OpenG2P/openg2p-spar-self-service/blob/develop/LICENSE",
+        "https://openg2p.org/"
+      ]
+    },
+    {
+      "slug": "openra",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "source_code_url": "https://github.com/OpenRA/OpenRA",
+      "source_code_host": "github",
+      "review_note": "Official OpenRA repository identifies the game engine and GPL-3.0-or-later.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/OpenRA/OpenRA",
+        "https://github.com/OpenRA/OpenRA/blob/bleed/COPYING",
+        "https://www.openra.net/"
+      ]
+    },
+    {
+      "slug": "opensondage",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "CeCILL-B Free Software License Agreement",
+      "license_type": "permissive",
+      "license_spdx_id": "CECILL-B",
+      "source_code_url": "https://framagit.org/framasoft/framadate",
+      "source_code_host": "other",
+      "review_note": "Framasoft identifies Framadate as the OpenSondage-derived project, links its source, and names CeCILL-B.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://framasoft.org/fr/credits/",
+        "https://framagit.org/framasoft/framadate",
+        "https://framadate.org/"
+      ]
+    },
+    {
+      "slug": "opentofu",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Mozilla Public License 2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "MPL-2.0",
+      "source_code_url": "https://github.com/opentofu/opentofu",
+      "source_code_host": "github",
+      "review_note": "OpenTofu’s publisher links the public source repository, licensed MPL-2.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://opentofu.org/",
+        "https://github.com/opentofu/opentofu",
+        "https://github.com/opentofu/opentofu/blob/main/LICENSE",
+        "https://opentofu.org/docs/intro/install/docker/"
+      ]
+    },
+    {
+      "slug": "owncast-emojiwall",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": null,
+      "license_type": "unknown",
+      "license_spdx_id": null,
+      "source_code_url": "https://framagit.org/owncast-things/owncast-emojiwall",
+      "source_code_host": "other",
+      "review_note": "The official project site describes the software as free/libre and links its public first-party repository, supporting open-source classification. The official LICENSE link could not be retrieved, so this proposal leaves the exact license unclassified.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://smol.stream/owncast-emojiwall",
+        "https://framagit.org/owncast-things/owncast-emojiwall",
+        "https://framagit.org/owncast-things/owncast-emojiwall/-/blob/develop/LICENSE"
+      ]
+    },
+    {
+      "slug": "pad",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/PerpetualSoftware/pad",
+      "source_code_host": "github",
+      "review_note": "Pad’s product site links its self-hosted repository, which declares Apache-2.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://getpad.dev/",
+        "https://github.com/PerpetualSoftware/pad",
+        "https://github.com/PerpetualSoftware/pad/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "paheko",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://fossil.kd2.org/paheko",
+      "source_code_host": "other",
+      "review_note": "Publisher identifies Paheko as AGPLv3 and publishes source in its official Fossil repository.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://fossil.kd2.org/paheko/",
+        "https://fossil.kd2.org/paheko/wiki?name=Documentation",
+        "https://www.paheko.cloud/"
+      ]
+    },
+    {
+      "slug": "paradedb",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://github.com/paradedb/paradedb",
+      "source_code_host": "github",
+      "review_note": "Official repository states ParadeDB Community is AGPL-3.0; Enterprise is separately licensed.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/paradedb/paradedb",
+        "https://github.com/paradedb/paradedb/blob/dev/LICENSE",
+        "https://docs.paradedb.com/"
+      ]
+    },
+    {
+      "slug": "phabricator",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/phacility/phabricator",
+      "source_code_host": "github",
+      "review_note": "Original publisher repository says Phabricator is Apache-2.0 except where noted; it is no longer maintained.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/phacility/phabricator",
+        "https://github.com/phacility/phabricator/blob/master/LICENSE"
+      ]
+    },
+    {
+      "slug": "plant-it",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "source_code_url": "https://github.com/MDeLuise/plant-it",
+      "source_code_host": "github",
+      "review_note": "Project repository describes Plant-it and identifies GPL-3.0; this does not establish server support.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/MDeLuise/plant-it",
+        "https://github.com/MDeLuise/plant-it/blob/main/LICENSE.txt",
+        "https://docs.plant-it.org/latest"
+      ]
+    },
+    {
+      "slug": "pollaris",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://framagit.org/pollaris/pollaris",
+      "source_code_host": "other",
+      "review_note": "Framasoft docs identify self-hostable Pollaris and AGPL-3, and link its source.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://docs.framasoft.org/fr/pollaris/",
+        "https://framagit.org/pollaris/pollaris",
+        "https://framagit.org/pollaris/pollaris/-/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "postgres",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "PostgreSQL License",
+      "license_type": "permissive",
+      "license_spdx_id": "PostgreSQL",
+      "source_code_url": "https://github.com/postgres/postgres",
+      "source_code_host": "github",
+      "review_note": "PostgreSQL’s official license page names the PostgreSQL License and its source repository.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://www.postgresql.org/about/licence/",
+        "https://github.com/postgres/postgres",
+        "https://github.com/postgres/postgres/blob/master/COPYRIGHT"
+      ]
+    },
+    {
+      "slug": "powershell",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/PowerShell/PowerShell",
+      "source_code_host": "github",
+      "review_note": "Microsoft’s PowerShell repository contains the product source and MIT license.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/PowerShell/PowerShell",
+        "https://github.com/PowerShell/PowerShell/blob/master/LICENSE.txt",
+        "https://learn.microsoft.com/en-us/powershell/scripting/install/powershell-in-docker"
+      ]
+    },
+    {
+      "slug": "printstash-api",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://github.com/xiao-villamor/PrintStash",
+      "source_code_host": "github",
+      "review_note": "The API image belongs to the first-party PrintStash repo, which identifies the self-hosted app and AGPL-3.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/xiao-villamor/PrintStash",
+        "https://github.com/xiao-villamor/PrintStash/blob/main/LICENSE",
+        "https://github.com/xiao-villamor/PrintStash/blob/main/docker-compose.yml"
+      ]
+    },
+    {
+      "slug": "prosody",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT/X11 License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://hg.prosody.im/trunk",
+      "source_code_host": "other",
+      "review_note": "Prosody docs identify the MIT/X11 license and link the upstream Mercurial repository.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://prosody.im/doc/license",
+        "https://prosody.im/doc/dev/repositories",
+        "https://hg.prosody.im/trunk"
+      ]
+    },
+    {
+      "slug": "pterodactyl-deamons",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/pterodactyl/wings",
+      "source_code_host": "github",
+      "review_note": "Pterodactyl’s official Wings repository identifies the daemon and its MIT license.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://pterodactyl.io/wings/1.0/installing.html",
+        "https://github.com/pterodactyl/wings",
+        "https://github.com/pterodactyl/wings/blob/develop/LICENSE"
+      ]
+    },
+    {
+      "slug": "pullbox",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "source_code_url": "https://github.com/pullboxapp/pullbox",
+      "source_code_host": "github",
+      "review_note": "Pullbox publisher repository identifies the self-hosted app and GPL-3.0-or-later.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/pullboxapp/pullbox",
+        "https://github.com/pullboxapp/pullbox/blob/main/LICENSE",
+        "https://pullbox.app/"
+      ]
+    },
+    {
+      "slug": "pumpkinmc",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "source_code_url": "https://github.com/Pumpkin-MC/Pumpkin",
+      "source_code_host": "github",
+      "review_note": "Pumpkin publisher repository describes its Minecraft server and states the server is GPLv3.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/Pumpkin-MC/Pumpkin",
+        "https://github.com/Pumpkin-MC/Pumpkin/blob/master/LICENSE",
+        "https://pumpkinmc.org/"
+      ]
+    }
+  ],
+  "already_covered": [
+    {
+      "slug": "octofarm",
+      "covered_by": [
+        "2026-09-30-source-model-and-official-links-02.json"
+      ]
+    },
+    {
+      "slug": "openbooks",
+      "covered_by": [
+        "2026-09-29-source-license-install-estimate-batch-03.json"
+      ]
+    },
+    {
+      "slug": "openvpnaccessserver",
+      "covered_by": [
+        "2026-09-30-source-model-license-m-r-review.json"
+      ]
+    },
+    {
+      "slug": "orb-sensor",
+      "covered_by": [
+        "2026-09-30-source-model-license-m-r-review.json"
+      ]
+    },
+    {
+      "slug": "pgadmin4",
+      "covered_by": [
+        "2026-09-30-source-model-license-m-r-review.json"
+      ]
+    },
+    {
+      "slug": "phpipam-cron",
+      "covered_by": [
+        "2026-09-30-source-model-license-m-r-review.json"
+      ]
+    },
+    {
+      "slug": "pia-wg-config-generator",
+      "covered_by": [
+        "2026-09-29-gostatic-pia-govod-verified-correction.json"
+      ]
+    },
+    {
+      "slug": "pict-rs",
+      "covered_by": [
+        "2026-09-30-source-model-license-m-r-review.json"
+      ]
+    },
+    {
+      "slug": "plantuml",
+      "covered_by": [
+        "2026-09-29-source-license-install-estimate-batch-03.json"
+      ]
+    },
+    {
+      "slug": "playitgg",
+      "covered_by": [
+        "2026-09-30-source-model-false-positives-review.json"
+      ]
+    },
+    {
+      "slug": "postgis",
+      "covered_by": [
+        "2026-09-30-source-model-license-m-r-review.json"
+      ]
+    },
+    {
+      "slug": "postgrest",
+      "covered_by": [
+        "2026-09-29-actual-postgrest-verified-correction.json"
+      ]
+    },
+    {
+      "slug": "prysm-beacon-ethereum",
+      "covered_by": [
+        "2026-09-30-source-model-license-m-r-review.json"
+      ]
+    },
+    {
+      "slug": "pure-ftpd",
+      "covered_by": [
+        "2026-09-30-source-model-and-install-corrections-01.json"
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "slug": "obfs4-bridge",
+      "reason": "Community bridge image; exact upstream implementation/license for this container was not established."
+    },
+    {
+      "slug": "onlyoffice-mysql-server",
+      "reason": "Community MySQL wrapper; product boundary between database image and ONLYOFFICE deployment is unclear."
+    },
+    {
+      "slug": "onvif-server",
+      "reason": "Third-party ONVIF/RTSP container; no first-party product license was verified."
+    },
+    {
+      "slug": "openg2p-selfservice-api",
+      "reason": "First-party source repository for this legacy API variant was not matched to this row."
+    },
+    {
+      "slug": "openg2p-selfservice-ui",
+      "reason": "First-party source repository for this legacy UI variant was not matched to this row."
+    },
+    {
+      "slug": "openg2p-spar-self-service-ui",
+      "reason": "UI source/license not confirmed; verified SPAR repository covers the API row only."
+    },
+    {
+      "slug": "openg2p-spar-self-service-ui-lk",
+      "reason": "Regional UI source repository and license were not confirmed."
+    },
+    {
+      "slug": "openvmtools-compiled",
+      "reason": "Unraid package/plugin rather than a clearly identified standalone app; wrapper license is not established."
+    },
+    {
+      "slug": "orbeon",
+      "reason": "Container edition is unclear; Orbeon CE and PE have different licensing."
+    },
+    {
+      "slug": "par2cron-for-unraid",
+      "reason": "Unraid plugin packaging, not a clearly identified standalone app source."
+    },
+    {
+      "slug": "parity-check-tuning",
+      "reason": "Unraid plugin packaging, not a clearly identified standalone app source."
+    },
+    {
+      "slug": "parkpow-shipping-container-recognizer-snapshot",
+      "reason": "Publisher license terms for this specific recognizer snapshot were not verified."
+    },
+    {
+      "slug": "peachpub",
+      "reason": "Available link is a YunoHost package; first-party source/license not confirmed."
+    },
+    {
+      "slug": "peertube-search-index",
+      "reason": "Upstream source is linked by a package catalog, but first-party product license was not confirmed."
+    },
+    {
+      "slug": "petitesannonces",
+      "reason": "Public Framagit project is listed, but its first-party license was not verified."
+    },
+    {
+      "slug": "petrolette",
+      "reason": "Public Framagit project is listed, but its first-party license was not verified."
+    },
+    {
+      "slug": "pi-cam-self",
+      "reason": "Community container with no confirmed first-party source/license."
+    },
+    {
+      "slug": "pihole-dot-doh",
+      "reason": "Integration wrapper around Pi-hole and DNS-over-HTTPS; no separate product license was verified."
+    },
+    {
+      "slug": "plandex-selfhosted",
+      "reason": "Community image; exact upstream app/license mapping was not verified."
+    },
+    {
+      "slug": "playwright",
+      "reason": "Community browser-automation container; Microsoft Playwright licensing does not establish the whole app boundary."
+    },
+    {
+      "slug": "plexiglassmountain",
+      "reason": "Minecraft modpack; no separately licensed software product was established."
+    },
+    {
+      "slug": "plexmo",
+      "reason": "Project repo identified, but license was not verified from first-party source."
+    },
+    {
+      "slug": "pmb",
+      "reason": "Publisher names CeCILL, but exact license version/source repository were not pinned to this row."
+    },
+    {
+      "slug": "pmda",
+      "reason": "First-party product source/license was not identified."
+    },
+    {
+      "slug": "podpeopledb",
+      "reason": "Mapping from community container to distinct first-party source was not established."
+    },
+    {
+      "slug": "pokehaan-craft",
+      "reason": "Minecraft modpack; no separately licensed software product was established."
+    },
+    {
+      "slug": "pomerium-proxy",
+      "reason": "Current link is a community proxy image; exact first-party product source was not established."
+    },
+    {
+      "slug": "popcorn-vote",
+      "reason": "Repository listed, but first-party product license was not verified."
+    },
+    {
+      "slug": "postgresql-pg-corn",
+      "reason": "Community image combines PostgreSQL, pg_cron and wrapper code; complete app license was not established."
+    },
+    {
+      "slug": "potatomesh-ingestor-amd64",
+      "reason": "First-party license for the listed ingestor was not verified."
+    },
+    {
+      "slug": "powershelluniversal",
+      "reason": "Publisher license terms for the self-hosted product were not verified."
+    },
+    {
+      "slug": "printbuddy",
+      "reason": "Project repository listed, but its first-party license was not verified."
+    },
+    {
+      "slug": "prusaslicer-novnc",
+      "reason": "Community browser container for PrusaSlicer; the wrapper license and exact upstream product boundary were not verified."
+    },
+    {
+      "slug": "pt-helper",
+      "reason": "Unraid helper/plugin packaging; no distinct first-party software license was verified."
+    },
+    {
+      "slug": "ptools-backend",
+      "reason": "Third-party container listing without a confirmed first-party source/license match."
+    },
+    {
+      "slug": "puck",
+      "reason": "Game-server container entry without confirmed upstream source/license."
+    },
+    {
+      "slug": "puppetmaster",
+      "reason": "Unraid container listing points to a forum thread; the exact first-party Puppet product source/license was not matched to this row."
+    },
+    {
+      "slug": "pypiron",
+      "reason": "Official product source/license were not confirmed from available links."
+    },
+    {
+      "slug": "python-3-for-unraid",
+      "reason": "Unraid plugin for installing a runtime, not a standalone app with a distinct license."
+    }
+  ]
+}

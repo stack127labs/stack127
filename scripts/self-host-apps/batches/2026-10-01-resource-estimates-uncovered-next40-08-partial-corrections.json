@@ -1,0 +1,1081 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Offline partial corrections for verified official links, license/source-model facts, publisher-stated resource requirements, archive status, and only clear controlled categories. Bison Wallet identity is intentionally unresolved. Snapshot values are guards only and must be refreshed before any apply.",
+  "apps": [
+    {
+      "slug": "binhex-libreoffice",
+      "categories": [
+        "documents-pdfs"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-libreoffice",
+        "https://www.libreoffice.org/"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "databases",
+          "project-task-management"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-minecraftbedrockserver",
+      "categories": [
+        "games"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-minecraftbedrockserver",
+        "https://www.minecraft.net/en-us/download/server"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "email-newsletters",
+          "video-conferencing"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-minecraftserver",
+      "categories": [
+        "games"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-minecraftserver",
+        "https://www.minecraft.net/en-us/download/server"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "email-newsletters",
+          "video-conferencing"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-minidlna",
+      "categories": [
+        "media-servers"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-minidlna",
+        "https://sourceforge.net/projects/minidlna/"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "system-admin-hosting",
+          "video-conferencing"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-nginx",
+      "categories": [
+        "system-admin-hosting"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-nginx",
+        "https://nginx.org/"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "email-newsletters",
+          "video-conferencing"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-nicotineplus",
+      "categories": [
+        "file-sharing-sync"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-nicotineplus",
+        "https://nicotine-plus.org/"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "developer-tools",
+          "networking-dns"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-nzbget",
+      "categories": [
+        "file-sharing-sync"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-nzbget",
+        "https://nzbget.com/"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "developer-tools",
+          "system-admin-hosting"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-official-docker-registry-proxy",
+      "categories": [
+        "developer-tools"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/rpardini/docker-registry-proxy"
+      ],
+      "expected": {
+        "categories": [
+          "identity-access",
+          "networking-dns",
+          "photos-galleries"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-official-teamspeak6-server",
+      "categories": [
+        "communication"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/teamspeak/teamspeak6-server",
+        "https://hub.docker.com/r/teamspeaksystems/teamspeak6-server"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "networking-dns",
+          "photos-galleries"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-plexpass",
+      "categories": [
+        "media-servers"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-plexpass",
+        "https://www.plex.tv/media-server-downloads/"
+      ],
+      "expected": {
+        "categories": [
+          "music-audio",
+          "photos-galleries",
+          "video-conferencing"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-privoxyvpn",
+      "categories": [
+        "networking-dns",
+        "security-privacy"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-privoxyvpn",
+        "https://www.privoxy.org/"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "networking-dns",
+          "security-privacy"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-prowlarr",
+      "categories": [
+        "search"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-prowlarr",
+        "https://prowlarr.com/"
+      ],
+      "expected": {
+        "categories": [
+          "networking-dns",
+          "search",
+          "video-conferencing"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-pycharm",
+      "categories": [
+        "developer-tools"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-pycharm",
+        "https://www.jetbrains.com/pycharm/"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-qbittorrent",
+      "categories": [
+        "file-sharing-sync"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-qbittorrent",
+        "https://www.qbittorrent.org/"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-rclone",
+      "categories": [
+        "storage-backup"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-rclone",
+        "https://rclone.org/"
+      ],
+      "expected": {
+        "categories": [
+          "developer-tools",
+          "project-task-management",
+          "storage-backup"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-readarr",
+      "website_url": "https://readarr.com/",
+      "source_code_url": "https://github.com/Readarr/Readarr",
+      "source_code_host": "github",
+      "docs_url": "https://github.com/Readarr/Readarr#readme",
+      "install_docs_url": "https://github.com/binhex/arch-readarr#readme",
+      "maintenance_status": "archived",
+      "categories": [
+        "ebooks-libraries"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Readarr upstream repository is archived since 2025-06-27; official site and upstream repository replace wrapper-only links.",
+      "data_source_urls": [
+        "https://readarr.com/",
+        "https://github.com/Readarr/Readarr",
+        "https://github.com/Readarr/Readarr/blob/develop/LICENSE.md",
+        "https://github.com/binhex/arch-readarr"
+      ],
+      "expected": {
+        "website_url": "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/readarr.xml",
+        "source_code_url": "https://github.com/binhex/arch-readarr",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/binhex/documentation",
+        "install_docs_url": "https://github.com/binhex/documentation",
+        "maintenance_status": "active",
+        "categories": [
+          "monitoring-status",
+          "music-audio",
+          "video-conferencing"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-resilio-sync",
+      "categories": [
+        "file-sharing-sync"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-resilio-sync",
+        "https://www.resilio.com/sync/"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "networking-dns",
+          "storage-backup"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-rider",
+      "categories": [
+        "developer-tools"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-rider",
+        "https://www.jetbrains.com/rider/"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "games",
+          "project-task-management"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-rustrover",
+      "categories": [
+        "developer-tools"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-rustrover",
+        "https://www.jetbrains.com/rust/"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-slskd",
+      "categories": [
+        "file-sharing-sync"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-slskd",
+        "https://github.com/slskd/slskd"
+      ],
+      "expected": {
+        "categories": [
+          "developer-tools",
+          "networking-dns",
+          "system-admin-hosting"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-syncthing",
+      "categories": [
+        "file-sharing-sync"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-syncthing",
+        "https://syncthing.net/"
+      ],
+      "expected": {
+        "categories": [
+          "project-task-management",
+          "storage-backup"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-teamspeak",
+      "categories": [
+        "communication"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-teamspeak",
+        "https://teamspeak.com/en/"
+      ],
+      "expected": {
+        "categories": [
+          "communication",
+          "networking-dns",
+          "video-conferencing"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-tvheadend",
+      "categories": [
+        "media-servers"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-tvheadend",
+        "https://github.com/tvheadend/tvheadend"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "photos-galleries",
+          "video-conferencing"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-urbackup",
+      "categories": [
+        "storage-backup"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-urbackup",
+        "https://www.urbackup.org/"
+      ],
+      "expected": {
+        "categories": [
+          "photos-galleries",
+          "project-task-management",
+          "storage-backup"
+        ]
+      }
+    },
+    {
+      "slug": "binhex-webstorm",
+      "categories": [
+        "developer-tools"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/binhex/arch-webstorm",
+        "https://www.jetbrains.com/webstorm/"
+      ],
+      "expected": {
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ]
+      }
+    },
+    {
+      "slug": "bitbucket-pipelines-runner",
+      "summary": "Bitbucket Pipelines Runner runs pipeline builds on your own infrastructure.",
+      "website_url": "https://bitbucket.org/product/features/pipelines",
+      "source_code_url": null,
+      "source_code_host": "unknown",
+      "source_model": "closed_source",
+      "license": "Proprietary",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "docs_url": "https://support.atlassian.com/bitbucket-cloud/docs/runners/",
+      "install_docs_url": "https://support.atlassian.com/bitbucket-cloud/docs/set-up-and-use-runners-for-linux/",
+      "docker_url": "https://support.atlassian.com/bitbucket-cloud/docs/set-up-and-use-runners-for-linux/",
+      "docker_image": "docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner",
+      "docker_support": "official",
+      "ram_min_mb": 8192,
+      "resource_requirement_kind": "official_minimum",
+      "publisher_name": "Atlassian",
+      "publisher_type": "company",
+      "publisher_url": "https://www.atlassian.com/",
+      "categories": [
+        "developer-tools"
+      ],
+      "technical_fact_status": {
+        "ram": {
+          "note": "Atlassian minimum: 8 GB RAM on the host and at least 512 MB allocated to the runner container.",
+          "status": "published",
+          "checked_at": "2026-09-30T21:22:25+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://support.atlassian.com/bitbucket-cloud/docs/runners/",
+            "https://support.atlassian.com/bitbucket-cloud/docs/set-up-and-use-runners-for-linux/"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://bitbucket.org/product/features/pipelines",
+            "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.png?raw=1",
+            "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md",
+            "https://raw.githubusercontent.com/Eurotimmy/unraid-templates/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.xml",
+            "https://registry.hub.docker.com/r/docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://bitbucket.org/product/features/pipelines",
+            "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.png?raw=1",
+            "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md",
+            "https://raw.githubusercontent.com/Eurotimmy/unraid-templates/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.xml",
+            "https://registry.hub.docker.com/r/docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://bitbucket.org/product/features/pipelines",
+            "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.png?raw=1",
+            "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md",
+            "https://raw.githubusercontent.com/Eurotimmy/unraid-templates/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.xml",
+            "https://registry.hub.docker.com/r/docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://bitbucket.org/product/features/pipelines",
+            "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.png?raw=1",
+            "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md",
+            "https://raw.githubusercontent.com/Eurotimmy/unraid-templates/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.xml",
+            "https://registry.hub.docker.com/r/docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://bitbucket.org/product/features/pipelines",
+            "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.png?raw=1",
+            "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md",
+            "https://raw.githubusercontent.com/Eurotimmy/unraid-templates/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.xml",
+            "https://registry.hub.docker.com/r/docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner"
+          ]
+        }
+      },
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Atlassian documentation identifies self-hosted Linux Docker setup, image, and RAM minima; Atlassian identifies its products as proprietary.",
+      "data_source_urls": [
+        "https://support.atlassian.com/bitbucket-cloud/docs/runners/",
+        "https://support.atlassian.com/bitbucket-cloud/docs/set-up-and-use-runners-for-linux/",
+        "https://www.atlassian.com/licensing/purchase-licensing"
+      ],
+      "expected": {
+        "summary": "Bitbucket Pipelines runner (Linux Docker) for Unraid, Outbound-only connection; launches pipeline step containers on the host via Docker socket.",
+        "website_url": "https://bitbucket.org/product/features/pipelines",
+        "source_code_url": "https://bitbucket.org/product/features/pipelines",
+        "source_code_host": "other",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "docs_url": "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md",
+        "install_docs_url": "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md",
+        "docker_url": "https://registry.hub.docker.com/r/docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner",
+        "docker_image": "docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner:latest",
+        "docker_support": "community",
+        "ram_min_mb": null,
+        "resource_requirement_kind": "unknown",
+        "publisher_name": "bitbucket-pipelines-runner",
+        "publisher_type": "unknown",
+        "publisher_url": "https://bitbucket.org/product/features/pipelines",
+        "categories": [
+          "ai-ml",
+          "developer-tools",
+          "system-admin-hosting"
+        ],
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://bitbucket.org/product/features/pipelines",
+              "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.png?raw=1",
+              "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md",
+              "https://raw.githubusercontent.com/Eurotimmy/unraid-templates/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.xml",
+              "https://registry.hub.docker.com/r/docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://bitbucket.org/product/features/pipelines",
+              "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.png?raw=1",
+              "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md",
+              "https://raw.githubusercontent.com/Eurotimmy/unraid-templates/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.xml",
+              "https://registry.hub.docker.com/r/docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://bitbucket.org/product/features/pipelines",
+              "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.png?raw=1",
+              "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md",
+              "https://raw.githubusercontent.com/Eurotimmy/unraid-templates/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.xml",
+              "https://registry.hub.docker.com/r/docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://bitbucket.org/product/features/pipelines",
+              "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.png?raw=1",
+              "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md",
+              "https://raw.githubusercontent.com/Eurotimmy/unraid-templates/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.xml",
+              "https://registry.hub.docker.com/r/docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://bitbucket.org/product/features/pipelines",
+              "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.png?raw=1",
+              "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md",
+              "https://raw.githubusercontent.com/Eurotimmy/unraid-templates/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.xml",
+              "https://registry.hub.docker.com/r/docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://bitbucket.org/product/features/pipelines",
+              "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.png?raw=1",
+              "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md",
+              "https://raw.githubusercontent.com/Eurotimmy/unraid-templates/main/Bitbucket-Pipelines-Runner/bitbucket-pipelines-runner.xml",
+              "https://registry.hub.docker.com/r/docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "slug": "bitmappery",
+      "categories": [
+        "design-creative"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/igorski/bitmappery"
+      ],
+      "expected": {
+        "categories": [
+          "photos-galleries"
+        ]
+      }
+    },
+    {
+      "slug": "bitplay",
+      "source_code_url": "https://github.com/aculix/bitplay",
+      "source_code_host": "github",
+      "license": "MIT",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_model": "open_source",
+      "docs_url": "https://github.com/aculix/bitplay#readme",
+      "install_docs_url": "https://github.com/aculix/bitplay#running-with-docker-compose",
+      "docker_url": "https://github.com/aculix/bitplay#running-with-docker-compose",
+      "compose_support": true,
+      "compose_url": "https://github.com/aculix/bitplay#running-with-docker-compose",
+      "docker_support": "official",
+      "deployment_methods": [
+        "docker",
+        "compose"
+      ],
+      "categories": [
+        "media-servers"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official repository and LICENSE show the Go torrent streaming app is MIT-licensed and includes Docker Compose instructions.",
+      "data_source_urls": [
+        "https://github.com/aculix/bitplay",
+        "https://github.com/aculix/bitplay/blob/main/LICENSE"
+      ],
+      "expected": {
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_model": "closed_source",
+        "docs_url": "https://github.com/aculix/bitplay/issues",
+        "install_docs_url": "https://github.com/aculix/bitplay/issues",
+        "docker_url": "https://registry.hub.docker.com/r/ghcr.io/aculix/bitplay",
+        "compose_support": false,
+        "compose_url": null,
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "categories": [
+          "remote-access",
+          "search",
+          "video-conferencing"
+        ]
+      }
+    },
+    {
+      "slug": "bitwarden-export",
+      "categories": [
+        "password-managers",
+        "storage-backup"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Official project sources support this category.",
+      "data_source_urls": [
+        "https://github.com/0neTX/Bitwarden_Export",
+        "https://hub.docker.com/r/0netx/bw-export",
+        "https://bitwarden.com/help/cli/"
+      ],
+      "expected": {
+        "categories": [
+          "password-managers",
+          "photos-galleries",
+          "storage-backup"
+        ]
+      }
+    },
+    {
+      "slug": "bitwarden-lite",
+      "name": "Bitwarden Lite",
+      "summary": "Bitwarden Lite is a single-container password manager for personal use and home labs.",
+      "website_url": "https://bitwarden.com/products/personal/",
+      "source_code_url": "https://github.com/bitwarden/server",
+      "source_code_host": "github",
+      "docs_url": "https://bitwarden.com/help/install-and-deploy-lite/",
+      "install_docs_url": "https://bitwarden.com/help/install-and-deploy-lite/",
+      "docker_url": "https://github.com/bitwarden/self-host/pkgs/container/lite",
+      "license": "AGPL-3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_model": "open_source",
+      "docker_support": "official",
+      "compose_support": true,
+      "compose_url": "https://bitwarden.com/help/install-and-deploy-lite/",
+      "deployment_methods": [
+        "docker",
+        "compose"
+      ],
+      "publisher_name": "Bitwarden",
+      "publisher_type": "company",
+      "publisher_url": "https://bitwarden.com/",
+      "ram_min_mb": 200,
+      "storage_min_gb": 1,
+      "resource_requirement_kind": "official_minimum",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Official Bitwarden Lite minimum: 200 MB RAM.",
+          "status": "published",
+          "checked_at": "2026-09-30T21:22:25+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://bitwarden.com/help/install-and-deploy-lite/"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/bitwarden/self-host/pkgs/container/lite",
+            "https://github.com/mimartin12/unraid-bw-lite-template",
+            "https://github.com/mimartin12/unraid-bw-lite-template/issues",
+            "https://raw.githubusercontent.com/bitwarden/brand/main/icons/256x256.png",
+            "https://raw.githubusercontent.com/mimartin12/unraid-bw-lite-template/main/templates/bitwarden-lite.xml"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/bitwarden/self-host/pkgs/container/lite",
+            "https://github.com/mimartin12/unraid-bw-lite-template",
+            "https://github.com/mimartin12/unraid-bw-lite-template/issues",
+            "https://raw.githubusercontent.com/bitwarden/brand/main/icons/256x256.png",
+            "https://raw.githubusercontent.com/mimartin12/unraid-bw-lite-template/main/templates/bitwarden-lite.xml"
+          ]
+        },
+        "storage": {
+          "note": "Official Bitwarden Lite minimum: 1 GB storage.",
+          "status": "published",
+          "checked_at": "2026-09-30T21:22:25+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://bitwarden.com/help/install-and-deploy-lite/"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/bitwarden/self-host/pkgs/container/lite",
+            "https://github.com/mimartin12/unraid-bw-lite-template",
+            "https://github.com/mimartin12/unraid-bw-lite-template/issues",
+            "https://raw.githubusercontent.com/bitwarden/brand/main/icons/256x256.png",
+            "https://raw.githubusercontent.com/mimartin12/unraid-bw-lite-template/main/templates/bitwarden-lite.xml"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/bitwarden/self-host/pkgs/container/lite",
+            "https://github.com/mimartin12/unraid-bw-lite-template",
+            "https://github.com/mimartin12/unraid-bw-lite-template/issues",
+            "https://raw.githubusercontent.com/bitwarden/brand/main/icons/256x256.png",
+            "https://raw.githubusercontent.com/mimartin12/unraid-bw-lite-template/main/templates/bitwarden-lite.xml"
+          ]
+        }
+      },
+      "categories": [
+        "password-managers"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Bitwarden official docs and repositories give the Lite links, deployment modes, app source, and 200 MB RAM / 1 GB storage minimums.",
+      "data_source_urls": [
+        "https://bitwarden.com/products/personal/",
+        "https://bitwarden.com/help/install-and-deploy-lite/",
+        "https://github.com/bitwarden/server",
+        "https://github.com/bitwarden/self-host",
+        "https://github.com/bitwarden/self-host/pkgs/container/lite",
+        "https://github.com/bitwarden/server/blob/main/LICENSE_FAQ.md"
+      ],
+      "expected": {
+        "name": "Bitwarden-Lite",
+        "summary": "Unofficial Unraid template for the official Bitwarden Lite password manager image, This template is not supported, endorsed, or maintained by Bitwarden, It.",
+        "website_url": "https://raw.githubusercontent.com/mimartin12/unraid-bw-lite-template/main/templates/bitwarden-lite.xml",
+        "source_code_url": "https://github.com/mimartin12/unraid-bw-lite-template",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/mimartin12/unraid-bw-lite-template/issues",
+        "install_docs_url": "https://github.com/mimartin12/unraid-bw-lite-template/issues",
+        "docker_url": "https://github.com/bitwarden/self-host/pkgs/container/lite",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "source_available",
+        "docker_support": "community",
+        "compose_support": false,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "publisher_name": "mimartin12",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/mimartin12",
+        "ram_min_mb": null,
+        "storage_min_gb": null,
+        "resource_requirement_kind": "unknown",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/bitwarden/self-host/pkgs/container/lite",
+              "https://github.com/mimartin12/unraid-bw-lite-template",
+              "https://github.com/mimartin12/unraid-bw-lite-template/issues",
+              "https://raw.githubusercontent.com/bitwarden/brand/main/icons/256x256.png",
+              "https://raw.githubusercontent.com/mimartin12/unraid-bw-lite-template/main/templates/bitwarden-lite.xml"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/bitwarden/self-host/pkgs/container/lite",
+              "https://github.com/mimartin12/unraid-bw-lite-template",
+              "https://github.com/mimartin12/unraid-bw-lite-template/issues",
+              "https://raw.githubusercontent.com/bitwarden/brand/main/icons/256x256.png",
+              "https://raw.githubusercontent.com/mimartin12/unraid-bw-lite-template/main/templates/bitwarden-lite.xml"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/bitwarden/self-host/pkgs/container/lite",
+              "https://github.com/mimartin12/unraid-bw-lite-template",
+              "https://github.com/mimartin12/unraid-bw-lite-template/issues",
+              "https://raw.githubusercontent.com/bitwarden/brand/main/icons/256x256.png",
+              "https://raw.githubusercontent.com/mimartin12/unraid-bw-lite-template/main/templates/bitwarden-lite.xml"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/bitwarden/self-host/pkgs/container/lite",
+              "https://github.com/mimartin12/unraid-bw-lite-template",
+              "https://github.com/mimartin12/unraid-bw-lite-template/issues",
+              "https://raw.githubusercontent.com/bitwarden/brand/main/icons/256x256.png",
+              "https://raw.githubusercontent.com/mimartin12/unraid-bw-lite-template/main/templates/bitwarden-lite.xml"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/bitwarden/self-host/pkgs/container/lite",
+              "https://github.com/mimartin12/unraid-bw-lite-template",
+              "https://github.com/mimartin12/unraid-bw-lite-template/issues",
+              "https://raw.githubusercontent.com/bitwarden/brand/main/icons/256x256.png",
+              "https://raw.githubusercontent.com/mimartin12/unraid-bw-lite-template/main/templates/bitwarden-lite.xml"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/bitwarden/self-host/pkgs/container/lite",
+              "https://github.com/mimartin12/unraid-bw-lite-template",
+              "https://github.com/mimartin12/unraid-bw-lite-template/issues",
+              "https://raw.githubusercontent.com/bitwarden/brand/main/icons/256x256.png",
+              "https://raw.githubusercontent.com/mimartin12/unraid-bw-lite-template/main/templates/bitwarden-lite.xml"
+            ]
+          }
+        },
+        "categories": [
+          "ai-ml",
+          "databases",
+          "photos-galleries"
+        ]
+      }
+    },
+    {
+      "slug": "bitwarden-portal",
+      "website_url": "https://github.com/Reaper0x1/bitwarden-portal",
+      "docs_url": "https://github.com/Reaper0x1/bitwarden-portal#readme",
+      "install_docs_url": "https://github.com/Reaper0x1/bitwarden-portal#readme",
+      "license": null,
+      "license_type": "unknown",
+      "license_spdx_id": null,
+      "source_model": "unknown",
+      "categories": [
+        "password-managers",
+        "storage-backup"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The project repository has no declared license, so source model and license are left unknown.",
+      "data_source_urls": [
+        "https://github.com/Reaper0x1/bitwarden-portal"
+      ],
+      "expected": {
+        "website_url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/bitwarden_portal.xml",
+        "docs_url": "https://github.com/Reaper0x1/bitwarden-portal/issues",
+        "install_docs_url": "https://github.com/Reaper0x1/bitwarden-portal/issues",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "categories": [
+          "password-managers",
+          "project-task-management",
+          "storage-backup"
+        ]
+      }
+    }
+  ]
+}

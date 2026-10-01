@@ -1,0 +1,321 @@
+{
+  "apps": [
+    {
+      "slug": "httpbin",
+      "review_scope": "partial",
+      "expected": {
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "source_model": "closed_source",
+        "license": null,
+        "license_spdx_id": null,
+        "license_type": "unknown",
+        "publisher_name": "httpbin",
+        "publisher_type": "unknown",
+        "docker_support": "community"
+      },
+      "source_code_url": "https://github.com/postmanlabs/httpbin",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "ISC",
+      "license_spdx_id": "ISC",
+      "license_type": "permissive",
+      "publisher_name": "Kenneth Reitz",
+      "publisher_type": "community",
+      "docker_support": "official",
+      "data_source_urls": [
+        "https://httpbin.org/",
+        "https://github.com/postmanlabs/httpbin",
+        "https://github.com/postmanlabs/httpbin/blob/master/LICENSE",
+        "https://github.com/postmanlabs/httpbin/blob/master/README.md",
+        "https://hub.docker.com/r/kennethreitz/httpbin"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/kennethreitz/httpbin",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "kennethreitz/httpbin:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/kennethreitz/httpbin",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/httpbin.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/httpbin.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Official Docker image",
+          "url": "https://hub.docker.com/r/kennethreitz/httpbin",
+          "source_url": "https://github.com/postmanlabs/httpbin/blob/master/README.md",
+          "image": "kennethreitz/httpbin:latest",
+          "support_level": "official",
+          "note": "Publisher-maintained image documented by the httpbin project.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": ["docker"]
+    },
+    {
+      "slug": "hugo",
+      "review_scope": "partial",
+      "expected": {
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "source_model": "closed_source",
+        "license": null,
+        "license_spdx_id": null,
+        "license_type": "unknown",
+        "publisher_name": "Hugo",
+        "publisher_type": "unknown",
+        "docs_url": "https://github.com/klakegg/docker-hugo/issues",
+        "install_docs_url": "https://github.com/klakegg/docker-hugo/issues",
+        "categories": ["networking-dns"]
+      },
+      "source_code_url": "https://github.com/gohugoio/hugo",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "publisher_name": "Hugo Authors",
+      "publisher_type": "community",
+      "docs_url": "https://gohugo.io/documentation/",
+      "install_docs_url": "https://gohugo.io/installation/",
+      "categories": ["content-publishing"],
+      "data_source_urls": [
+        "https://gohugo.io/",
+        "https://gohugo.io/documentation/",
+        "https://gohugo.io/installation/",
+        "https://github.com/gohugoio/hugo",
+        "https://github.com/gohugoio/hugo/blob/master/LICENSE"
+      ]
+    },
+    {
+      "slug": "kapacitor",
+      "review_scope": "partial",
+      "expected": {
+        "name": "kapacitor",
+        "summary": "Data processing engine that reacts to events from time-series databases and services.",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "source_model": "closed_source",
+        "license": null,
+        "license_spdx_id": null,
+        "license_type": "unknown",
+        "publisher_name": "kapacitor",
+        "publisher_type": "unknown",
+        "docs_url": "https://hub.docker.com/_/kapacitor/",
+        "install_docs_url": "https://hub.docker.com/_/kapacitor/",
+        "categories": ["video-conferencing"]
+      },
+      "name": "Kapacitor",
+      "summary": "Processes time-series data to create alerts, run ETL jobs, and detect anomalies.",
+      "source_code_url": "https://github.com/influxdata/kapacitor",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "publisher_name": "InfluxData",
+      "publisher_type": "company",
+      "docs_url": "https://docs.influxdata.com/kapacitor/v1/",
+      "install_docs_url": "https://docs.influxdata.com/kapacitor/v1/introduction/install-docker/",
+      "categories": ["monitoring-status"],
+      "data_source_urls": [
+        "https://www.influxdata.com/time-series-platform/kapacitor/",
+        "https://docs.influxdata.com/kapacitor/v1/",
+        "https://docs.influxdata.com/kapacitor/v1/introduction/install-docker/",
+        "https://github.com/influxdata/kapacitor",
+        "https://github.com/influxdata/kapacitor/blob/master/LICENSE",
+        "https://hub.docker.com/_/kapacitor/"
+      ]
+    },
+    {
+      "slug": "mailcatcher",
+      "review_scope": "partial",
+      "expected": {
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "source_model": "closed_source",
+        "license": null,
+        "license_spdx_id": null,
+        "license_type": "unknown",
+        "publisher_name": "MailCatcher",
+        "publisher_type": "unknown",
+        "docker_support": "community",
+        "docs_url": "https://github.com/sj26/mailcatcher/issues",
+        "install_docs_url": "https://github.com/sj26/mailcatcher/issues",
+        "categories": ["ai-ml", "email-newsletters", "system-admin-hosting"]
+      },
+      "source_code_url": "https://github.com/sj26/mailcatcher",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "publisher_name": "Samuel Cochran",
+      "publisher_type": "community",
+      "docker_support": "official",
+      "docs_url": "https://github.com/sj26/mailcatcher",
+      "install_docs_url": "https://github.com/sj26/mailcatcher/blob/main/README.md",
+      "categories": ["developer-tools"],
+      "data_source_urls": [
+        "https://mailcatcher.me/",
+        "https://github.com/sj26/mailcatcher",
+        "https://github.com/sj26/mailcatcher/blob/main/LICENSE",
+        "https://github.com/sj26/mailcatcher/blob/main/README.md",
+        "https://hub.docker.com/r/sj26/mailcatcher"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/sj26/mailcatcher",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "sj26/mailcatcher:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/sj26/mailcatcher",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/mailcatcher.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/mailcatcher.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Official Docker image",
+          "url": "https://hub.docker.com/r/sj26/mailcatcher",
+          "source_url": "https://github.com/sj26/mailcatcher/blob/main/README.md",
+          "image": "sj26/mailcatcher:latest",
+          "support_level": "official",
+          "note": "Maintainer-published Docker image documented in the project README.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": ["docker"]
+    },
+    {
+      "slug": "swagger-editor",
+      "review_scope": "partial",
+      "expected": {
+        "name": "Swagger-Editor",
+        "summary": "Swagger Editor lets you edit OpenAPI API definitions (OpenAPI 2.0 and OpenAPI 3.0.3) in JSON or YAML format inside your browser and to preview documentations.",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "source_model": "closed_source",
+        "license": null,
+        "license_spdx_id": null,
+        "license_type": "unknown",
+        "publisher_name": "Swagger-Editor",
+        "publisher_type": "unknown",
+        "docs_url": "https://github.com/swagger-api/swagger-editor/issues",
+        "install_docs_url": "https://github.com/swagger-api/swagger-editor/issues",
+        "docker_url": "https://hub.docker.com/r/swaggerapi/swagger-editor",
+        "docker_image": "swaggerapi/swagger-editor:latest",
+        "docker_support": "community",
+        "categories": ["documents-pdfs", "remote-access", "system-admin-hosting"]
+      },
+      "name": "Swagger Editor",
+      "summary": "Browser-based editor for designing and validating OpenAPI and AsyncAPI definitions.",
+      "source_code_url": "https://github.com/swagger-api/swagger-editor",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "publisher_name": "SmartBear",
+      "publisher_type": "company",
+      "docs_url": "https://swagger.io/docs/open-source-tools/swagger-editor/",
+      "install_docs_url": "https://swagger.io/docs/open-source-tools/swagger-editor/",
+      "docker_url": "https://swagger.io/docs/open-source-tools/swagger-editor/",
+      "docker_image": "docker.swagger.io/swaggerapi/swagger-editor:next-v5",
+      "docker_support": "official",
+      "categories": ["developer-tools"],
+      "data_source_urls": [
+        "https://editor.swagger.io/",
+        "https://swagger.io/docs/open-source-tools/swagger-editor/",
+        "https://github.com/swagger-api/swagger-editor",
+        "https://github.com/swagger-api/swagger-editor/tree/main/LICENSES",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/swagger_editor.xml",
+        "https://smartbear.com/"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/swaggerapi/swagger-editor",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "swaggerapi/swagger-editor:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/swaggerapi/swagger-editor",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/swagger_editor.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/swagger_editor.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Official Docker image",
+          "url": "https://swagger.io/docs/open-source-tools/swagger-editor/",
+          "source_url": "https://swagger.io/docs/open-source-tools/swagger-editor/",
+          "image": "docker.swagger.io/swaggerapi/swagger-editor:next-v5",
+          "support_level": "official",
+          "note": "Official image and run instructions from the Swagger Editor docs.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": ["docker"]
+    },
+    {
+      "slug": "alloy",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null,
+        "publisher_name": "grafana",
+        "publisher_type": "community",
+        "docs_url": "https://github.com/grafana/alloy",
+        "install_docs_url": "https://github.com/grafana/alloy"
+      },
+      "website_url": "https://grafana.com/oss/alloy-opentelemetry-collector/",
+      "publisher_name": "Grafana Labs",
+      "publisher_type": "company",
+      "docs_url": "https://grafana.com/docs/alloy/latest/",
+      "install_docs_url": "https://grafana.com/docs/alloy/latest/set-up/install/",
+      "data_source_urls": [
+        "https://grafana.com/oss/alloy-opentelemetry-collector/",
+        "https://grafana.com/docs/alloy/latest/",
+        "https://grafana.com/docs/alloy/latest/set-up/install/",
+        "https://github.com/grafana/alloy",
+        "https://github.com/grafana/alloy/blob/main/LICENSE"
+      ]
+    }
+  ]
+}

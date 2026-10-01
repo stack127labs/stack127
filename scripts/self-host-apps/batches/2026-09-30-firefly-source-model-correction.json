@@ -1,0 +1,21 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Correct Firefly's source model based on the publisher's public repository and usage terms. Proposal only.",
+  "apps": [
+    {
+      "slug": "firefly",
+      "review_scope": "partial",
+      "source_model": "source_available",
+      "expected": {
+        "source_model": "closed_source"
+      },
+      "data_source_urls": [
+        "https://github.com/Safe3/firefly",
+        "https://github.com/Safe3/firefly#license"
+      ],
+      "confidence": "high",
+      "review_note": "The publisher makes the server source public, but its README limits free use to personal use and says commercial source licensing requires contacting the publisher. This is source-available, not open source or closed source."
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08. Proposal only; refresh before applying.",
+  "scope": "App-specific Chatwoot RAM and storage estimates from official self-hosting guidance.",
+  "estimates": [
+    {
+      "slug": "chatwoot",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 8192,
+      "estimate_max": 16384,
+      "estimate_kind": "estimated",
+      "confidence": "high",
+      "basis": "Official self-hosted guide lists 8 GB minimum RAM and recommends 16 GB.",
+      "source_urls": [
+        "https://www.chatwoot.com/deploy",
+        "https://www.chatwoot.com/pricing/self-hosted-plans"
+      ],
+      "note": "The official pricing FAQ gives a lower 4 GB starting point; the deployment guide has the more detailed production specification.",
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "chatwoot",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 60,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Official deployment guide specifies a 60 GB SSD; the estimate adds headroom for app data, PostgreSQL, Redis, and logs.",
+      "source_urls": [
+        "https://www.chatwoot.com/deploy",
+        "https://www.chatwoot.com/pricing/self-hosted-plans"
+      ],
+      "note": "File uploads can use S3-compatible storage, so large attachment libraries may sit outside this range.",
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    }
+  ]
+}

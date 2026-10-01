@@ -57,14 +57,13 @@ test("the page-owned migrations preserve facts and finish the streamlined model"
 
 test("the public directory can filter every source model without assuming GitHub", async () => {
   const page = await read("app/(site)/(directories)/self-host-apps/page.tsx");
-  const card = await read("app/(site)/(directories)/self-host-apps/directory-app-card.tsx");
+  const card = await read("app/ui/directories/directory-app-card.tsx");
   const drawer = await read("app/(site)/(directories)/self-host-apps/directory-app-browser.tsx");
 
   assert.match(page, /name="source"/);
   assert.match(page, /Closed source/);
   assert.match(page, /label: "Not verified", value: "unknown"/);
   assert.match(page, /popularity_score/);
-  assert.match(page, /“Not published” means the official source/);
   assert.match(card, /sourceModelLabel/);
   assert.match(card, /maintenance_status === "unknown"/);
   assert.doesNotMatch(card, /<FaGithub[^>]*>[\s\S]*formatStars/);
@@ -78,8 +77,10 @@ test("QA treats missing decision facts and weak resource provenance as visible w
 
   assert.match(report, /ram_pending/);
   assert.match(report, /ram_not_published/);
+  assert.match(report, /ram_estimate_missing/);
   assert.match(report, /storage_pending/);
   assert.match(report, /storage_not_published/);
+  assert.match(report, /storage_estimate_missing/);
   assert.match(report, /technical_fact_status/);
   assert.match(report, /factWasChecked/);
   assert.match(report, /researched_null_counts/);
@@ -95,22 +96,22 @@ test("QA treats missing decision facts and weak resource provenance as visible w
   assert.match(gate, /published_not_self_hostable/);
 });
 
-test("storage tiers and drawer facts use reviewed profiles when no exact minimum exists", async () => {
-  const card = await read("app/(site)/(directories)/self-host-apps/directory-app-card.tsx");
+test("cards and detail drawer show resource ranges with estimate labels", async () => {
+  const card = await read("app/ui/directories/directory-app-card.tsx");
   const drawer = await read("app/(site)/(directories)/self-host-apps/directory-app-browser.tsx");
 
-  assert.match(card, /app\.storage_profile !== "unknown"/);
-  assert.match(drawer, /depends on retained data/);
-  assert.match(drawer, /app\.ram_researched \? "not published" : "not checked"/);
-  assert.match(drawer, /app\.storage_researched \? "not published" : "not checked"/);
-  assert.match(drawer, /app\.docker_image_researched \? "not published" : "not checked"/);
-  assert.match(card, /app\.ram_min_mb \?\? app\.ram_recommended_mb \?\? app\.ram_default_limit_mb/);
+  assert.match(card, /label: "Est\. RAM"/);
+  assert.match(card, /label: "Est\. Storage"/);
+  assert.match(card, /formatEstimateRange\(minimum, app\.ram_estimate_max_mb \?\? minimum, "ram"\)/);
+  assert.match(card, /formatEstimateRange\(minimum, app\.storage_estimate_max_gb \?\? minimum, "storage"\)/);
+  assert.match(drawer, /\["Est\. RAM", formatRamRequirement\(app\)/);
+  assert.match(drawer, /\["Est\. Storage", formatStorageRequirement\(app\)/);
 });
 
 test("resource estimates and install options stay separate from exact facts", async () => {
   const migration = await read("supabase/migrations/20260901060529_streamline_self_host_apps_data_model.sql");
   const apps = await read("lib/apps.ts");
-  const card = await read("app/(site)/(directories)/self-host-apps/directory-app-card.tsx");
+  const card = await read("app/ui/directories/directory-app-card.tsx");
   const drawer = await read("app/(site)/(directories)/self-host-apps/directory-app-browser.tsx");
   const proposer = await read("scripts/self-host-apps/propose-resource-estimates.mjs");
   const applier = await read("scripts/self-host-apps/apply-resource-estimates.mjs");
@@ -126,7 +127,8 @@ test("resource estimates and install options stay separate from exact facts", as
   assert.match(migration, /primary key references public\.self_host_apps/);
   assert.match(apps, /install_options/);
   assert.match(apps, /resource_estimates/);
-  assert.match(card, /estimated/);
+  assert.match(card, /label: "Est\. RAM"/);
+  assert.match(card, /label: "Est\. Storage"/);
   assert.match(drawer, /installOptions/);
   assert.match(proposer, /mode: "research_queue"/);
   assert.match(proposer, /buildResourceReviewQueue/);

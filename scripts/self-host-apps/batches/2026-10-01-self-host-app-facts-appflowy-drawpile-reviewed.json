@@ -1,0 +1,435 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Correct official deployment links, license/source model, and verified server deployment facts for AppFlowy and Drawpile. Proposal only.",
+  "apps": [
+    {
+      "slug": "appflowy",
+      "review_scope": "partial",
+      "expected": {
+        "source_code_url": "https://github.com/AppFlowy-IO/AppFlowy",
+        "source_code_host": "github",
+        "source_model": "open_source",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "publisher_name": "AppFlowy-IO",
+        "publisher_type": "community",
+        "docs_url": "https://docs.appflowy.io/docs/appflowy/readme.md",
+        "install_docs_url": "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+        "docker_url": "https://hub.docker.com/r/appflowyio/appflowy_client",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": false,
+        "database_types": [],
+        "surfaces": [
+          "desktop"
+        ],
+        "technical_fact_status": {
+          "ram": {
+            "note": "Official primary source checked for RAM.",
+            "status": "published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://appflowy.com",
+              "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+              "https://docs.appflowy.io/docs/appflowy/readme.md",
+              "https://github.com/AppFlowy-IO/AppFlowy",
+              "https://hub.docker.com/r/appflowyio/appflowy_client",
+              "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/HEAD/README.md"
+            ]
+          },
+          "docker": {
+            "note": "Official primary source checked for Docker support.",
+            "status": "published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://appflowy.com",
+              "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+              "https://docs.appflowy.io/docs/appflowy/readme.md",
+              "https://github.com/AppFlowy-IO/AppFlowy",
+              "https://hub.docker.com/r/appflowyio/appflowy_client",
+              "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/HEAD/README.md"
+            ]
+          },
+          "compose": {
+            "note": "Official primary source checked for Compose support.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://appflowy.com",
+              "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+              "https://docs.appflowy.io/docs/appflowy/readme.md",
+              "https://github.com/AppFlowy-IO/AppFlowy",
+              "https://hub.docker.com/r/appflowyio/appflowy_client",
+              "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/HEAD/README.md"
+            ]
+          },
+          "storage": {
+            "note": "Official primary source checked for storage.",
+            "status": "published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://appflowy.com",
+              "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+              "https://docs.appflowy.io/docs/appflowy/readme.md",
+              "https://github.com/AppFlowy-IO/AppFlowy",
+              "https://hub.docker.com/r/appflowyio/appflowy_client",
+              "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/HEAD/README.md"
+            ]
+          },
+          "database": {
+            "note": "Official deployment checked for datastore services.",
+            "status": "published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://appflowy.com",
+              "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+              "https://docs.appflowy.io/docs/appflowy/readme.md",
+              "https://github.com/AppFlowy-IO/AppFlowy",
+              "https://hub.docker.com/r/appflowyio/appflowy_client",
+              "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/HEAD/README.md"
+            ]
+          },
+          "docker_image": {
+            "note": "Official primary source checked for a prebuilt image.",
+            "status": "published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "high",
+            "source_urls": [
+              "https://appflowy.com",
+              "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+              "https://docs.appflowy.io/docs/appflowy/readme.md",
+              "https://github.com/AppFlowy-IO/AppFlowy",
+              "https://hub.docker.com/r/appflowyio/appflowy_client",
+              "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/HEAD/README.md"
+            ]
+          }
+        }
+      },
+      "source_code_url": "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial",
+      "source_code_host": "github",
+      "source_model": "source_available",
+      "license": "AppFlowy Self-Hosted Commercial License",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "publisher_name": "AppFlowy",
+      "publisher_type": "company",
+      "docs_url": "https://appflowy.com/docs",
+      "install_docs_url": "https://appflowy.com/docs/Step-by-step-Self-Hosting-Guide---From-Zero-to-Production",
+      "docker_url": "https://hub.docker.com/r/appflowyinc/appflowy_cloud",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "postgres",
+        "redis"
+      ],
+      "surfaces": [
+        "desktop",
+        "server",
+        "web"
+      ],
+      "data_source_urls": [
+        "https://appflowy.com",
+        "https://appflowy.com/docs/Step-by-step-Self-Hosting-Guide---From-Zero-to-Production",
+        "https://appflowy.io/",
+        "https://apps.yunohost.org/app/appflowy",
+        "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+        "https://docs.appflowy.io/docs/appflowy/readme.md",
+        "https://github.com/AppFlowy-IO/AppFlowy",
+        "https://github.com/AppFlowy-IO/AppFlowy-Cloud",
+        "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial",
+        "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/README.md",
+        "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/SELF_HOST_LICENSE_AGREEMENT.md",
+        "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/docker-compose.yml",
+        "https://github.com/AppFlowy-IO/appflowy",
+        "https://github.com/appflowy-io/appflowy",
+        "https://github.com/yunohost-apps/appflowy_ynh",
+        "https://hub.docker.com/r/appflowyinc/appflowy_cloud",
+        "https://hub.docker.com/r/appflowyio/appflowy_client",
+        "https://openalternative.co/appflowy",
+        "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/HEAD/README.md",
+        "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+        "https://selfhostedworld.com/software/appflowy",
+        "https://selfhst.github.io/cdn/directory/software.json",
+        "https://yunohost.org/en/apps"
+      ],
+      "confidence": "high",
+      "technical_fact_status": {
+        "ram": {
+          "status": "estimated",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "low",
+          "note": "Estimate for the current multi-service self-hosted deployment.",
+          "source_urls": [
+            "https://appflowy.com/docs/Step-by-step-Self-Hosting-Guide---From-Zero-to-Production",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/SELF_HOST_LICENSE_AGREEMENT.md",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/docker-compose.yml",
+            "https://hub.docker.com/r/appflowyinc/appflowy_cloud"
+          ]
+        },
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "high",
+          "note": "Official self-hosted server deployment uses Docker.",
+          "source_urls": [
+            "https://appflowy.com/docs/Step-by-step-Self-Hosting-Guide---From-Zero-to-Production",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/SELF_HOST_LICENSE_AGREEMENT.md",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/docker-compose.yml",
+            "https://hub.docker.com/r/appflowyinc/appflowy_cloud"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "high",
+          "note": "Official repository provides the production Docker Compose stack.",
+          "source_urls": [
+            "https://appflowy.com/docs/Step-by-step-Self-Hosting-Guide---From-Zero-to-Production",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/SELF_HOST_LICENSE_AGREEMENT.md",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/docker-compose.yml",
+            "https://hub.docker.com/r/appflowyinc/appflowy_cloud"
+          ]
+        },
+        "storage": {
+          "status": "estimated",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "low",
+          "note": "Estimate for self-hosted database, file, and index data.",
+          "source_urls": [
+            "https://appflowy.com/docs/Step-by-step-Self-Hosting-Guide---From-Zero-to-Production",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/SELF_HOST_LICENSE_AGREEMENT.md",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/docker-compose.yml",
+            "https://hub.docker.com/r/appflowyinc/appflowy_cloud"
+          ]
+        },
+        "database": {
+          "status": "published",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "high",
+          "note": "Official stack requires PostgreSQL and Redis; object storage can use MinIO or external S3.",
+          "source_urls": [
+            "https://appflowy.com/docs/Step-by-step-Self-Hosting-Guide---From-Zero-to-Production",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/SELF_HOST_LICENSE_AGREEMENT.md",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/docker-compose.yml",
+            "https://hub.docker.com/r/appflowyinc/appflowy_cloud"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "high",
+          "note": "Official Compose stack uses the AppFlowy publisher image.",
+          "source_urls": [
+            "https://appflowy.com/docs/Step-by-step-Self-Hosting-Guide---From-Zero-to-Production",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/SELF_HOST_LICENSE_AGREEMENT.md",
+            "https://github.com/AppFlowy-IO/AppFlowy-SelfHost-Commercial/blob/main/docker-compose.yml",
+            "https://hub.docker.com/r/appflowyinc/appflowy_cloud"
+          ]
+        }
+      }
+    },
+    {
+      "slug": "drawpile",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null,
+        "docs_url": null,
+        "install_docs_url": "https://github.com/drawpile/Drawpile",
+        "docker_url": null,
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "surfaces": [
+          "desktop"
+        ],
+        "technical_fact_status": {
+          "ram": {
+            "note": "Official primary source checked for RAM.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/drawpile/Drawpile",
+              "https://opengraph.githubassets.com/23fc154151ad1453ede2cfe2ca87b9488f57c53bf9c0cd7a867e8eb0c2df3661/drawpile/Drawpile",
+              "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/LICENSE.txt",
+              "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/README.md"
+            ]
+          },
+          "docker": {
+            "note": "Official primary source checked for Docker support.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/drawpile/Drawpile",
+              "https://opengraph.githubassets.com/23fc154151ad1453ede2cfe2ca87b9488f57c53bf9c0cd7a867e8eb0c2df3661/drawpile/Drawpile",
+              "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/LICENSE.txt",
+              "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/README.md"
+            ]
+          },
+          "compose": {
+            "note": "Official primary source checked for Compose support.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/drawpile/Drawpile",
+              "https://opengraph.githubassets.com/23fc154151ad1453ede2cfe2ca87b9488f57c53bf9c0cd7a867e8eb0c2df3661/drawpile/Drawpile",
+              "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/LICENSE.txt",
+              "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/README.md"
+            ]
+          },
+          "storage": {
+            "note": "Official primary source checked for storage.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/drawpile/Drawpile",
+              "https://opengraph.githubassets.com/23fc154151ad1453ede2cfe2ca87b9488f57c53bf9c0cd7a867e8eb0c2df3661/drawpile/Drawpile",
+              "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/LICENSE.txt",
+              "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/README.md"
+            ]
+          },
+          "database": {
+            "note": "Official deployment checked for datastore services.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/drawpile/Drawpile",
+              "https://opengraph.githubassets.com/23fc154151ad1453ede2cfe2ca87b9488f57c53bf9c0cd7a867e8eb0c2df3661/drawpile/Drawpile",
+              "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/LICENSE.txt",
+              "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/README.md"
+            ]
+          },
+          "docker_image": {
+            "note": "Official primary source checked for a prebuilt image.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/drawpile/Drawpile",
+              "https://opengraph.githubassets.com/23fc154151ad1453ede2cfe2ca87b9488f57c53bf9c0cd7a867e8eb0c2df3661/drawpile/Drawpile",
+              "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/LICENSE.txt",
+              "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/README.md"
+            ]
+          }
+        }
+      },
+      "website_url": "https://drawpile.net/",
+      "docs_url": "https://docs.drawpile.net/help/",
+      "install_docs_url": "https://docs.drawpile.net/help/server/dedicatedserver.html",
+      "docker_url": "https://hub.docker.com/r/drawpile/drawpile-srv",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "surfaces": [
+        "desktop",
+        "server",
+        "web"
+      ],
+      "data_source_urls": [
+        "https://docs.drawpile.net/help/server/dedicatedserver.html",
+        "https://docs.drawpile.net/help/server/docker.html",
+        "https://docs.drawpile.net/help/server/serverconfig",
+        "https://drawpile.net/",
+        "https://github.com/drawpile/Drawpile",
+        "https://github.com/drawpile/drawpile",
+        "https://hub.docker.com/r/drawpile/drawpile-srv",
+        "https://opengraph.githubassets.com/23fc154151ad1453ede2cfe2ca87b9488f57c53bf9c0cd7a867e8eb0c2df3661/drawpile/Drawpile",
+        "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/LICENSE.txt",
+        "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/README.md"
+      ],
+      "confidence": "high",
+      "technical_fact_status": {
+        "ram": {
+          "status": "estimated",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "low",
+          "note": "Estimate for a small dedicated drawing server.",
+          "source_urls": [
+            "https://docs.drawpile.net/help/server/dedicatedserver.html",
+            "https://docs.drawpile.net/help/server/docker.html",
+            "https://docs.drawpile.net/help/server/serverconfig",
+            "https://hub.docker.com/r/drawpile/drawpile-srv"
+          ]
+        },
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "high",
+          "note": "Official docs show the dedicated server running in Docker.",
+          "source_urls": [
+            "https://docs.drawpile.net/help/server/dedicatedserver.html",
+            "https://docs.drawpile.net/help/server/docker.html",
+            "https://docs.drawpile.net/help/server/serverconfig",
+            "https://hub.docker.com/r/drawpile/drawpile-srv"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "high",
+          "note": "Official setup guide uses Docker Compose for the server stack.",
+          "source_urls": [
+            "https://docs.drawpile.net/help/server/dedicatedserver.html",
+            "https://docs.drawpile.net/help/server/docker.html",
+            "https://docs.drawpile.net/help/server/serverconfig",
+            "https://hub.docker.com/r/drawpile/drawpile-srv"
+          ]
+        },
+        "storage": {
+          "status": "estimated",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "low",
+          "note": "Estimate for a small server; retained session files can grow with use.",
+          "source_urls": [
+            "https://docs.drawpile.net/help/server/dedicatedserver.html",
+            "https://docs.drawpile.net/help/server/docker.html",
+            "https://docs.drawpile.net/help/server/serverconfig",
+            "https://hub.docker.com/r/drawpile/drawpile-srv"
+          ]
+        },
+        "database": {
+          "status": "published",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "high",
+          "note": "Server configuration can use a file or an optional SQLite database.",
+          "source_urls": [
+            "https://docs.drawpile.net/help/server/dedicatedserver.html",
+            "https://docs.drawpile.net/help/server/docker.html",
+            "https://docs.drawpile.net/help/server/serverconfig",
+            "https://hub.docker.com/r/drawpile/drawpile-srv"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "high",
+          "note": "Official Drawpile Docker Hub account publishes the dedicated server image.",
+          "source_urls": [
+            "https://docs.drawpile.net/help/server/dedicatedserver.html",
+            "https://docs.drawpile.net/help/server/docker.html",
+            "https://docs.drawpile.net/help/server/serverconfig",
+            "https://hub.docker.com/r/drawpile/drawpile-srv"
+          ]
+        }
+      }
+    }
+  ]
+}

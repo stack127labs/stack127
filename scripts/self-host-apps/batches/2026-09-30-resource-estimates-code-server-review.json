@@ -1,0 +1,78 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08. Proposal only; refresh before applying.",
+  "scope": "App-specific code-server estimates from official requirements and install guidance.",
+  "estimates": [
+    {
+      "slug": "code-server",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "high",
+      "basis": "Official requirements recommend 1 GB minimum; the setup guide recommends a 2 GB VM.",
+      "source_urls": [
+        "https://coder.com/docs/code-server/requirements",
+        "https://coder.com/docs/code-server/install",
+        "https://github.com/coder/code-server/blob/main/ci/helm-chart/values.yaml"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    },
+    {
+      "slug": "code-server",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 32,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Official Helm chart defaults to a 10 GiB persistent volume; setup guidance uses a 32 GB SSD boot disk.",
+      "source_urls": [
+        "https://coder.com/docs/code-server/requirements",
+        "https://coder.com/docs/code-server/install",
+        "https://github.com/coder/code-server/blob/main/ci/helm-chart/values.yaml"
+      ],
+      "note": "Project workspaces and build artifacts use additional disk.",
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
+      }
+    }
+  ]
+}

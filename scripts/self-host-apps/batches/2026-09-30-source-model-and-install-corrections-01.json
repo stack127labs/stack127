@@ -1,0 +1,236 @@
+{
+  "reviewed_at": "2026-09-30",
+  "project_id": "tulgfrqamtcshdtmhvpx",
+  "database_access": "read_only_before_guarded_migration",
+  "scope": "Correct five verified closed-source misclassifications and their official links. Keep community install routes labeled as community. Add verified official install routes.",
+  "apps": [
+    {
+      "slug": "localtunnel",
+      "expected": {
+        "website_url": "https://localtunnel.me/",
+        "source_code_url": null,
+        "docs_url": "https://github.com/localtunnel/server/issues",
+        "install_docs_url": "https://github.com/localtunnel/server/issues",
+        "docker_url": "https://hub.docker.com/r/defunctzombie/localtunnel-server",
+        "docker_image": "defunctzombie/localtunnel-server:latest",
+        "compose_url": null,
+        "deployment_methods": ["docker", "unraid"],
+        "docker_support": "community",
+        "compose_support": false,
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "update": {
+        "docs_url": "https://github.com/localtunnel/server#readme",
+        "install_docs_url": "https://github.com/localtunnel/server#readme",
+        "source_code_url": "https://github.com/localtunnel/server",
+        "deployment_methods": ["docker", "native", "unraid"],
+        "docker_support": "official",
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "source_urls": [
+        "https://github.com/localtunnel/server",
+        "https://github.com/localtunnel/server#readme",
+        "https://github.com/localtunnel/server/blob/master/LICENSE"
+      ],
+      "expected_install_options": [
+        {"url":"https://hub.docker.com/r/defunctzombie/localtunnel-server","note":"Community-maintained image. Verify the publisher before pulling.","image":"defunctzombie/localtunnel-server:latest","label":"Docker image","method":"docker","sort_order":10,"source_url":"https://hub.docker.com/r/defunctzombie/localtunnel-server","support_level":"community"},
+        {"url":"https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/localtunnel.xml","note":"Listed in the Unraid Community Applications catalog; verify the template publisher before installing.","image":null,"label":"Unraid catalog","method":"unraid","sort_order":35,"source_url":"https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/localtunnel.xml","support_level":"community"}
+      ],
+      "install_options": [
+        {"url":"https://hub.docker.com/r/defunctzombie/localtunnel-server","note":null,"image":"defunctzombie/localtunnel-server:latest","label":"Docker image","method":"docker","sort_order":10,"source_url":"https://github.com/localtunnel/server#readme","support_level":"official"},
+        {"url":"https://github.com/localtunnel/server#readme","note":null,"image":null,"label":"Native installation","method":"native","sort_order":20,"source_url":"https://github.com/localtunnel/server#readme","support_level":"official"},
+        {"url":"https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/localtunnel.xml","note":"Listed in the Unraid Community Applications catalog; verify the template publisher before installing.","image":null,"label":"Unraid catalog","method":"unraid","sort_order":35,"source_url":"https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/localtunnel.xml","support_level":"community"}
+      ]
+    },
+    {
+      "slug": "pure-ftpd",
+      "expected": {
+        "website_url": "https://www.pureftpd.org/project/pure-ftpd/",
+        "source_code_url": null,
+        "docs_url": "https://forums.unraid.net/topic/89502-support-a75g-repo/",
+        "install_docs_url": "https://forums.unraid.net/topic/89502-support-a75g-repo/",
+        "docker_url": "https://hub.docker.com/r/crazymax/pure-ftpd/",
+        "docker_image": "crazymax/pure-ftpd:latest",
+        "compose_url": null,
+        "deployment_methods": ["docker", "unraid"],
+        "docker_support": "community",
+        "compose_support": false,
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "update": {
+        "docs_url": "https://www.pureftpd.org/project/pure-ftpd/doc/",
+        "install_docs_url": "https://www.pureftpd.org/project/pure-ftpd/download/",
+        "source_code_url": "https://github.com/jedisct1/pure-ftpd",
+        "deployment_methods": ["docker", "package", "unraid"],
+        "source_model": "open_source",
+        "license": "ISC License",
+        "license_type": "permissive",
+        "license_spdx_id": "ISC"
+      },
+      "source_urls": [
+        "https://www.pureftpd.org/project/pure-ftpd/",
+        "https://www.pureftpd.org/project/pure-ftpd/doc/",
+        "https://www.pureftpd.org/project/pure-ftpd/download/",
+        "https://github.com/jedisct1/pure-ftpd",
+        "https://github.com/jedisct1/pure-ftpd/blob/master/COPYING"
+      ],
+      "expected_install_options": [
+        {"url":"https://hub.docker.com/r/crazymax/pure-ftpd/","note":"Community-maintained image. Verify the publisher before pulling.","image":"crazymax/pure-ftpd:latest","label":"Docker image","method":"docker","sort_order":10,"source_url":"https://hub.docker.com/r/crazymax/pure-ftpd/","support_level":"community"},
+        {"url":"https://raw.githubusercontent.com/A75G/docker-templates/master/templates/pure-ftpd.xml","note":"Listed in the Unraid Community Applications catalog; verify the template publisher before installing.","image":null,"label":"Unraid catalog","method":"unraid","sort_order":35,"source_url":"https://raw.githubusercontent.com/A75G/docker-templates/master/templates/pure-ftpd.xml","support_level":"community"}
+      ],
+      "install_options": [
+        {"url":"https://hub.docker.com/r/crazymax/pure-ftpd/","note":"Community-maintained image. Verify the publisher before pulling.","image":"crazymax/pure-ftpd:latest","label":"Docker image","method":"docker","sort_order":10,"source_url":"https://hub.docker.com/r/crazymax/pure-ftpd/","support_level":"community"},
+        {"url":"https://www.pureftpd.org/project/pure-ftpd/download/","note":null,"image":null,"label":"Official packages and releases","method":"package","sort_order":30,"source_url":"https://www.pureftpd.org/project/pure-ftpd/download/","support_level":"official"},
+        {"url":"https://raw.githubusercontent.com/A75G/docker-templates/master/templates/pure-ftpd.xml","note":"Listed in the Unraid Community Applications catalog; verify the template publisher before installing.","image":null,"label":"Unraid catalog","method":"unraid","sort_order":35,"source_url":"https://raw.githubusercontent.com/A75G/docker-templates/master/templates/pure-ftpd.xml","support_level":"community"}
+      ]
+    },
+    {
+      "slug": "subversion",
+      "expected": {
+        "website_url": "https://subversion.apache.org/",
+        "source_code_url": null,
+        "docs_url": "https://forums.unraid.net/topic/126612-support-kilrahsubversion/",
+        "install_docs_url": "https://forums.unraid.net/topic/126612-support-kilrahsubversion/",
+        "docker_url": "https://hub.docker.com/r/elleflorio/svn-server/",
+        "docker_image": "elleflorio/svn-server",
+        "compose_url": null,
+        "deployment_methods": ["docker", "unraid"],
+        "docker_support": "community",
+        "compose_support": false,
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "update": {
+        "docs_url": "https://subversion.apache.org/docs/",
+        "install_docs_url": "https://subversion.apache.org/source-code.html",
+        "source_code_url": "https://github.com/apache/subversion",
+        "deployment_methods": ["docker", "package", "unraid"],
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0"
+      },
+      "source_urls": [
+        "https://subversion.apache.org/",
+        "https://subversion.apache.org/docs/",
+        "https://subversion.apache.org/source-code.html",
+        "https://github.com/apache/subversion",
+        "https://github.com/apache/subversion/blob/trunk/LICENSE"
+      ],
+      "expected_install_options": [
+        {"url":"https://hub.docker.com/r/elleflorio/svn-server/","note":"Community-maintained image. Verify the publisher before pulling.","image":"elleflorio/svn-server","label":"Docker image","method":"docker","sort_order":10,"source_url":"https://hub.docker.com/r/elleflorio/svn-server/","support_level":"community"},
+        {"url":"https://raw.githubusercontent.com/kilrah/unraid-docker-templates/main/templates/subversion.xml","note":"Listed in the Unraid Community Applications catalog; verify the template publisher before installing.","image":null,"label":"Unraid catalog","method":"unraid","sort_order":35,"source_url":"https://raw.githubusercontent.com/kilrah/unraid-docker-templates/main/templates/subversion.xml","support_level":"community"}
+      ],
+      "install_options": [
+        {"url":"https://hub.docker.com/r/elleflorio/svn-server/","note":"Community-maintained image. Verify the publisher before pulling.","image":"elleflorio/svn-server","label":"Docker image","method":"docker","sort_order":10,"source_url":"https://hub.docker.com/r/elleflorio/svn-server/","support_level":"community"},
+        {"url":"https://subversion.apache.org/source-code.html","note":null,"image":null,"label":"Official binary packages","method":"package","sort_order":30,"source_url":"https://subversion.apache.org/source-code.html","support_level":"official"},
+        {"url":"https://raw.githubusercontent.com/kilrah/unraid-docker-templates/main/templates/subversion.xml","note":"Listed in the Unraid Community Applications catalog; verify the template publisher before installing.","image":null,"label":"Unraid catalog","method":"unraid","sort_order":35,"source_url":"https://raw.githubusercontent.com/kilrah/unraid-docker-templates/main/templates/subversion.xml","support_level":"community"}
+      ]
+    },
+    {
+      "slug": "tar1090",
+      "expected": {
+        "website_url": null,
+        "source_code_url": null,
+        "docs_url": "https://forums.unraid.net/topic/89502-support-a75g-repo/",
+        "install_docs_url": "https://forums.unraid.net/topic/89502-support-a75g-repo/",
+        "docker_url": "https://hub.docker.com/r/mikenye/tar1090/",
+        "docker_image": "mikenye/tar1090:latest",
+        "compose_url": null,
+        "deployment_methods": ["docker", "unraid"],
+        "docker_support": "community",
+        "compose_support": false,
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "update": {
+        "docs_url": "https://github.com/wiedehopf/tar1090#readme",
+        "install_docs_url": "https://github.com/wiedehopf/tar1090#readme",
+        "source_code_url": "https://github.com/wiedehopf/tar1090",
+        "deployment_methods": ["docker", "native", "unraid"],
+        "source_model": "open_source",
+        "license": "GNU General Public License v2.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-2.0-or-later"
+      },
+      "source_urls": [
+        "https://github.com/wiedehopf/tar1090",
+        "https://github.com/wiedehopf/tar1090#readme",
+        "https://github.com/wiedehopf/tar1090/blob/master/LICENSE"
+      ],
+      "expected_install_options": [
+        {"url":"https://hub.docker.com/r/mikenye/tar1090/","note":"Community-maintained image. Verify the publisher before pulling.","image":"mikenye/tar1090:latest","label":"Docker image","method":"docker","sort_order":10,"source_url":"https://hub.docker.com/r/mikenye/tar1090/","support_level":"community"},
+        {"url":"https://raw.githubusercontent.com/A75G/docker-templates/master/templates/tar1090.xml","note":"Listed in the Unraid Community Applications catalog; verify the template publisher before installing.","image":null,"label":"Unraid catalog","method":"unraid","sort_order":35,"source_url":"https://raw.githubusercontent.com/A75G/docker-templates/master/templates/tar1090.xml","support_level":"community"}
+      ],
+      "install_options": [
+        {"url":"https://hub.docker.com/r/mikenye/tar1090/","note":"Community-maintained image. Verify the publisher before pulling.","image":"mikenye/tar1090:latest","label":"Docker image","method":"docker","sort_order":10,"source_url":"https://hub.docker.com/r/mikenye/tar1090/","support_level":"community"},
+        {"url":"https://github.com/wiedehopf/tar1090#readme","note":null,"image":null,"label":"Native install script","method":"native","sort_order":20,"source_url":"https://github.com/wiedehopf/tar1090#readme","support_level":"official"},
+        {"url":"https://raw.githubusercontent.com/A75G/docker-templates/master/templates/tar1090.xml","note":"Listed in the Unraid Community Applications catalog; verify the template publisher before installing.","image":null,"label":"Unraid catalog","method":"unraid","sort_order":35,"source_url":"https://raw.githubusercontent.com/A75G/docker-templates/master/templates/tar1090.xml","support_level":"community"}
+      ]
+    },
+    {
+      "slug": "chowdown",
+      "expected": {
+        "website_url": null,
+        "source_code_url": null,
+        "docs_url": "https://hub.docker.com/r/gregyankovoy/chowdown/",
+        "install_docs_url": "https://hub.docker.com/r/gregyankovoy/chowdown/",
+        "docker_url": "https://hub.docker.com/r/gregyankovoy/chowdown/Dockerfile/",
+        "docker_image": "gregyankovoy/chowdown",
+        "compose_url": null,
+        "deployment_methods": ["docker", "unraid"],
+        "docker_support": "community",
+        "compose_support": false,
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "update": {
+        "website_url": "https://chowdown.io/",
+        "source_code_url": "https://github.com/clarklab/chowdown",
+        "docs_url": "https://github.com/clarklab/chowdown#readme",
+        "install_docs_url": "https://github.com/clarklab/chowdown#readme",
+        "docker_url": "https://hub.docker.com/r/gregyankovoy/chowdown",
+        "compose_url": "https://github.com/clarklab/chowdown/blob/gh-pages/docker-compose.yml",
+        "deployment_methods": ["compose", "docker", "native", "unraid"],
+        "compose_support": true,
+        "source_model": "open_source",
+        "license": "Unlicense",
+        "license_type": "public_domain",
+        "license_spdx_id": "Unlicense"
+      },
+      "source_urls": [
+        "https://chowdown.io/",
+        "https://github.com/clarklab/chowdown",
+        "https://github.com/clarklab/chowdown#readme",
+        "https://github.com/clarklab/chowdown/blob/gh-pages/LICENSE",
+        "https://github.com/clarklab/chowdown/blob/gh-pages/docker-compose.yml",
+        "https://hub.docker.com/r/gregyankovoy/chowdown"
+      ],
+      "expected_install_options": [
+        {"url":"https://hub.docker.com/r/gregyankovoy/chowdown/Dockerfile/","note":"Community-maintained image. Verify the publisher before pulling.","image":"gregyankovoy/chowdown","label":"Docker image","method":"docker","sort_order":10,"source_url":"https://hub.docker.com/r/gregyankovoy/chowdown/Dockerfile/","support_level":"community"},
+        {"url":"https://raw.githubusercontent.com/GregYankovoy/docker-templates/master/greg/chowdown.xml","note":"Listed in the Unraid Community Applications catalog; verify the template publisher before installing.","image":null,"label":"Unraid catalog","method":"unraid","sort_order":35,"source_url":"https://raw.githubusercontent.com/GregYankovoy/docker-templates/master/greg/chowdown.xml","support_level":"community"}
+      ],
+      "install_options": [
+        {"url":"https://hub.docker.com/r/gregyankovoy/chowdown","note":"Community-maintained image. Verify the publisher before pulling.","image":"gregyankovoy/chowdown","label":"Docker image","method":"docker","sort_order":10,"source_url":"https://hub.docker.com/r/gregyankovoy/chowdown","support_level":"community"},
+        {"url":"https://github.com/clarklab/chowdown/blob/gh-pages/docker-compose.yml","note":null,"image":"jekyll/jekyll","label":"Docker Compose","method":"compose","sort_order":20,"source_url":"https://github.com/clarklab/chowdown/blob/gh-pages/docker-compose.yml","support_level":"official"},
+        {"url":"https://github.com/clarklab/chowdown#readme","note":null,"image":null,"label":"Native Jekyll install","method":"native","sort_order":30,"source_url":"https://github.com/clarklab/chowdown#readme","support_level":"official"},
+        {"url":"https://raw.githubusercontent.com/GregYankovoy/docker-templates/master/greg/chowdown.xml","note":"Listed in the Unraid Community Applications catalog; verify the template publisher before installing.","image":null,"label":"Unraid catalog","method":"unraid","sort_order":35,"source_url":"https://raw.githubusercontent.com/GregYankovoy/docker-templates/master/greg/chowdown.xml","support_level":"community"}
+      ]
+    }
+  ]
+}

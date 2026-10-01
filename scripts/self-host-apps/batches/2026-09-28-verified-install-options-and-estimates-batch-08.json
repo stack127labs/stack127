@@ -1,0 +1,632 @@
+{
+  "reviewed_at": "2026-09-28",
+  "scope": "Restored reviewed Unraid links, replaced six generic estimates with workload-based ranges and current project sources, and refreshed Docker image evidence.",
+  "apps": [
+    {
+      "slug": "dailynotes",
+      "source_urls": [
+        "https://github.com/djedi/DailyNotes#docker-setup"
+      ],
+      "expected_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/xhenxhe/dailynotes",
+          "image": "xhenxhe/dailynotes",
+          "support_level": "official",
+          "source_url": "https://github.com/djedi/DailyNotes#docker-setup",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/djedi/DailyNotes/blob/master/docker-compose.yml",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://github.com/djedi/DailyNotes/blob/master/docker-compose.yml",
+          "note": null,
+          "sort_order": 20
+        }
+      ],
+      "restored_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/xhenxhe/dailynotes",
+          "image": "xhenxhe/dailynotes",
+          "support_level": "official",
+          "source_url": "https://github.com/djedi/DailyNotes#docker-setup",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/djedi/DailyNotes/blob/master/docker-compose.yml",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://github.com/djedi/DailyNotes/blob/master/docker-compose.yml",
+          "note": null,
+          "sort_order": 20
+        },
+        {
+          "method": "unraid",
+          "label": "Unraid catalog",
+          "url": "https://raw.githubusercontent.com/m0ngr31/unraid_ca/master/DailyNotes.xml",
+          "image": null,
+          "support_level": "community",
+          "source_url": "https://raw.githubusercontent.com/m0ngr31/unraid_ca/master/DailyNotes.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "sort_order": 35
+        }
+      ],
+      "expected_resource_estimates": {
+        "ram_estimate_min_mb": 2048,
+        "ram_estimate_max_mb": 8192,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "ram_source_urls": [
+          "https://github.com/m0ngr31/DailyNotes/issues/"
+        ],
+        "storage_estimate_min_gb": 5,
+        "storage_estimate_max_gb": 100,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_source_urls": [
+          "https://github.com/m0ngr31/DailyNotes/issues/"
+        ]
+      },
+      "resource_estimates": {
+        "ram": {
+          "min_mb": 512,
+          "max_mb": 2048,
+          "kind": "estimated",
+          "confidence": "low",
+          "basis": "Small Python note app with an SQLite store; users and saved files raise memory and disk use.",
+          "source_urls": [
+            "https://github.com/djedi/DailyNotes#docker-setup"
+          ]
+        },
+        "storage": {
+          "min_gb": 1,
+          "max_gb": 20,
+          "kind": "estimated",
+          "confidence": "low",
+          "basis": "Keeps Markdown notes and app data; saved notes and attachments drive storage use.",
+          "source_urls": [
+            "https://github.com/djedi/DailyNotes#docker-setup"
+          ]
+        }
+      },
+      "expected_docker_image_status": {
+        "status": "published",
+        "checked_at": "2026-09-02T14:22:59.972798+00:00"
+      },
+      "docker_image_status": {
+        "status": "published",
+        "checked_at": "2026-09-28",
+        "confidence": "high",
+        "note": "The project recommends its Docker Hub image.",
+        "source_urls": [
+          "https://github.com/djedi/DailyNotes#docker-setup",
+          "https://hub.docker.com/r/xhenxhe/dailynotes"
+        ]
+      }
+    },
+    {
+      "slug": "eplustv",
+      "source_urls": [
+        "https://github.com/tonywagner/EPlusTV#readme"
+      ],
+      "expected_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/tonywagner/eplustv",
+          "image": "tonywagner/eplustv",
+          "support_level": "official",
+          "source_url": "https://github.com/tonywagner/EPlusTV#docker-run",
+          "note": null,
+          "sort_order": 10
+        }
+      ],
+      "restored_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/tonywagner/eplustv",
+          "image": "tonywagner/eplustv",
+          "support_level": "official",
+          "source_url": "https://github.com/tonywagner/EPlusTV#docker-run",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "unraid",
+          "label": "Unraid catalog",
+          "url": "https://raw.githubusercontent.com/m0ngr31/unraid_ca/master/EPlusTV.xml",
+          "image": null,
+          "support_level": "community",
+          "source_url": "https://raw.githubusercontent.com/m0ngr31/unraid_ca/master/EPlusTV.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "sort_order": 35
+        }
+      ],
+      "expected_resource_estimates": {
+        "ram_estimate_min_mb": 2048,
+        "ram_estimate_max_mb": 8192,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "Small single-node service; active users and stored content vary.",
+        "ram_source_urls": [
+          "https://github.com/m0ngr31/EPlusTV/issues"
+        ],
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "Small single-node service; active users and stored content vary.",
+        "storage_source_urls": [
+          "https://github.com/m0ngr31/EPlusTV/issues"
+        ]
+      },
+      "resource_estimates": {
+        "ram": {
+          "min_mb": 512,
+          "max_mb": 2048,
+          "kind": "estimated",
+          "confidence": "low",
+          "basis": "Creates channel schedules and playlists; provider count and concurrent guide generation drive memory use.",
+          "source_urls": [
+            "https://github.com/tonywagner/EPlusTV#readme"
+          ]
+        },
+        "storage": {
+          "min_gb": 1,
+          "max_gb": 10,
+          "kind": "estimated",
+          "confidence": "low",
+          "basis": "Stores app configuration and channel schedules; playback streams remain with the provider and player.",
+          "source_urls": [
+            "https://github.com/tonywagner/EPlusTV#readme"
+          ]
+        }
+      },
+      "expected_docker_image_status": {
+        "status": "published",
+        "checked_at": "2026-09-02T14:22:59.972798+00:00"
+      },
+      "docker_image_status": {
+        "status": "published",
+        "checked_at": "2026-09-28",
+        "confidence": "high",
+        "note": "The project documents its Docker Hub image.",
+        "source_urls": [
+          "https://github.com/tonywagner/EPlusTV#docker-run",
+          "https://hub.docker.com/r/tonywagner/eplustv"
+        ]
+      }
+    },
+    {
+      "slug": "audplexus",
+      "source_urls": [
+        "https://github.com/mstrhakr/audplexus#quick-start"
+      ],
+      "expected_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/orgs/mstrhakr/packages/container/package/audplexus",
+          "image": "ghcr.io/mstrhakr/audplexus:latest",
+          "support_level": "official",
+          "source_url": "https://github.com/orgs/mstrhakr/packages/container/package/audplexus",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/mstrhakr/audplexus/blob/master/compose.yaml",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://github.com/mstrhakr/audplexus/blob/master/compose.yaml",
+          "note": null,
+          "sort_order": 20
+        }
+      ],
+      "restored_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/orgs/mstrhakr/packages/container/package/audplexus",
+          "image": "ghcr.io/mstrhakr/audplexus:latest",
+          "support_level": "official",
+          "source_url": "https://github.com/orgs/mstrhakr/packages/container/package/audplexus",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/mstrhakr/audplexus/blob/master/compose.yaml",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://github.com/mstrhakr/audplexus/blob/master/compose.yaml",
+          "note": null,
+          "sort_order": 20
+        },
+        {
+          "method": "unraid",
+          "label": "Unraid catalog",
+          "url": "https://raw.githubusercontent.com/mstrhakr/plugin-repository/master/audplexus.xml",
+          "image": null,
+          "support_level": "community",
+          "source_url": "https://raw.githubusercontent.com/mstrhakr/plugin-repository/master/audplexus.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "sort_order": 35
+        }
+      ],
+      "expected_resource_estimates": {
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "ram_source_urls": [
+          "https://github.com/mstrhakr/audplexus/issues/"
+        ],
+        "storage_estimate_min_gb": 50,
+        "storage_estimate_max_gb": 500,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_source_urls": [
+          "https://github.com/mstrhakr/audplexus/issues/"
+        ]
+      },
+      "resource_estimates": {
+        "ram": {
+          "min_mb": 512,
+          "max_mb": 4096,
+          "kind": "estimated",
+          "confidence": "low",
+          "basis": "Concurrent downloads and audiobook processing increase memory use.",
+          "source_urls": [
+            "https://github.com/mstrhakr/audplexus#quick-start"
+          ]
+        },
+        "storage": {
+          "min_gb": 50,
+          "max_gb": 500,
+          "kind": "estimated",
+          "confidence": "low",
+          "basis": "Stores downloaded audiobooks and temporary processing files; library size drives storage use.",
+          "source_urls": [
+            "https://github.com/mstrhakr/audplexus#quick-start"
+          ]
+        }
+      },
+      "expected_docker_image_status": {
+        "status": "published",
+        "checked_at": "2026-09-02T14:22:59.972798+00:00"
+      },
+      "docker_image_status": {
+        "status": "published",
+        "checked_at": "2026-09-28",
+        "confidence": "high",
+        "note": "The project documents its GHCR image.",
+        "source_urls": [
+          "https://github.com/mstrhakr/audplexus#quick-start",
+          "https://github.com/orgs/mstrhakr/packages/container/package/audplexus"
+        ]
+      }
+    },
+    {
+      "slug": "dell-idrac-fan-controller",
+      "source_urls": [
+        "https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker#requirements"
+      ],
+      "expected_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/tigerblue77/dell_idrac_fan_controller",
+          "image": "tigerblue77/dell_idrac_fan_controller",
+          "support_level": "official",
+          "source_url": "https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker#download-docker-image",
+          "note": null,
+          "sort_order": 10
+        }
+      ],
+      "restored_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/tigerblue77/dell_idrac_fan_controller",
+          "image": "tigerblue77/dell_idrac_fan_controller",
+          "support_level": "official",
+          "source_url": "https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker#download-docker-image",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "unraid",
+          "label": "Unraid catalog",
+          "url": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/idrac-fan-controller.xml",
+          "image": null,
+          "support_level": "community",
+          "source_url": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/idrac-fan-controller.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "sort_order": 35
+        }
+      ],
+      "expected_resource_estimates": {
+        "ram_estimate_min_mb": 2048,
+        "ram_estimate_max_mb": 8192,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "ram_source_urls": [
+          "https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker"
+        ],
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_source_urls": [
+          "https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker"
+        ]
+      },
+      "resource_estimates": {
+        "ram": {
+          "min_mb": 128,
+          "max_mb": 512,
+          "kind": "estimated",
+          "confidence": "low",
+          "basis": "A small shell-based service polls fan and temperature readings on a short interval.",
+          "source_urls": [
+            "https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker#requirements"
+          ]
+        },
+        "storage": {
+          "min_gb": 1,
+          "max_gb": 5,
+          "kind": "estimated",
+          "confidence": "low",
+          "basis": "Keeps the controller image and logs; it does not store a media or document library.",
+          "source_urls": [
+            "https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker#download-docker-image"
+          ]
+        }
+      },
+      "expected_docker_image_status": {
+        "status": "published",
+        "checked_at": "2026-09-02T14:22:59.972798+00:00"
+      },
+      "docker_image_status": {
+        "status": "published",
+        "checked_at": "2026-09-28",
+        "confidence": "high",
+        "note": "The project publishes its Docker image on Docker Hub.",
+        "source_urls": [
+          "https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker#download-docker-image",
+          "https://hub.docker.com/r/tigerblue77/dell_idrac_fan_controller"
+        ]
+      }
+    },
+    {
+      "slug": "hyperhdr",
+      "source_urls": [
+        "https://github.com/awawa-dev/HyperHDR",
+        "https://github.com/awawa-dev/HyperHDR/wiki/Installation"
+      ],
+      "expected_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/nocturno/hyper-hdr",
+          "image": "nocturno/hyper-hdr:latest",
+          "support_level": "community",
+          "source_url": "https://hub.docker.com/r/nocturno/hyper-hdr",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "sort_order": 10
+        }
+      ],
+      "restored_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/nocturno/hyper-hdr",
+          "image": "nocturno/hyper-hdr:latest",
+          "support_level": "community",
+          "source_url": "https://hub.docker.com/r/nocturno/hyper-hdr",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "sort_order": 10
+        },
+        {
+          "method": "unraid",
+          "label": "Unraid catalog",
+          "url": "https://raw.githubusercontent.com/EMP83/unraid-templates/main/hyperhdr/hyperhdr.xml",
+          "image": null,
+          "support_level": "community",
+          "source_url": "https://raw.githubusercontent.com/EMP83/unraid-templates/main/hyperhdr/hyperhdr.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "sort_order": 35
+        }
+      ],
+      "expected_resource_estimates": {
+        "ram_estimate_min_mb": 1024,
+        "ram_estimate_max_mb": 8192,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "Small single-node service; active users and stored content vary.",
+        "ram_source_urls": [
+          "https://github.com/awawa-dev/HyperHDR/discussions"
+        ],
+        "storage_estimate_min_gb": 50,
+        "storage_estimate_max_gb": 500,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "Small single-node service; active users and stored content vary.",
+        "storage_source_urls": [
+          "https://github.com/awawa-dev/HyperHDR/discussions"
+        ]
+      },
+      "resource_estimates": {
+        "ram": {
+          "min_mb": 512,
+          "max_mb": 2048,
+          "kind": "estimated",
+          "confidence": "low",
+          "basis": "Video capture and lighting analysis use memory that varies with input resolution and processing settings.",
+          "source_urls": [
+            "https://github.com/awawa-dev/HyperHDR",
+            "https://github.com/awawa-dev/HyperHDR/wiki/Installation"
+          ]
+        },
+        "storage": {
+          "min_gb": 1,
+          "max_gb": 10,
+          "kind": "estimated",
+          "confidence": "low",
+          "basis": "Stores the application and configuration; capture settings and logs drive additional disk use.",
+          "source_urls": [
+            "https://github.com/awawa-dev/HyperHDR",
+            "https://github.com/awawa-dev/HyperHDR/wiki/Installation"
+          ]
+        }
+      },
+      "expected_docker_image_status": {
+        "status": "published",
+        "checked_at": "2026-09-02T14:22:59.972798+00:00"
+      },
+      "docker_image_status": {
+        "status": "published",
+        "checked_at": "2026-09-28",
+        "confidence": "high",
+        "note": "A community-maintained Docker Hub image is available.",
+        "source_urls": [
+          "https://hub.docker.com/r/nocturno/hyper-hdr"
+        ]
+      }
+    },
+    {
+      "slug": "network-list-sync",
+      "source_urls": [
+        "https://github.com/mstrhakr/network-list-sync#readme"
+      ],
+      "expected_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/orgs/mstrhakr/packages/container/package/network-list-sync",
+          "image": "ghcr.io/mstrhakr/network-list-sync:main",
+          "support_level": "official",
+          "source_url": "https://github.com/mstrhakr/network-list-sync#quick-start",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/mstrhakr/network-list-sync/blob/main/compose.yaml",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://github.com/mstrhakr/network-list-sync/blob/main/compose.yaml",
+          "note": null,
+          "sort_order": 20
+        }
+      ],
+      "restored_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/orgs/mstrhakr/packages/container/package/network-list-sync",
+          "image": "ghcr.io/mstrhakr/network-list-sync:main",
+          "support_level": "official",
+          "source_url": "https://github.com/mstrhakr/network-list-sync#quick-start",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/mstrhakr/network-list-sync/blob/main/compose.yaml",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://github.com/mstrhakr/network-list-sync/blob/main/compose.yaml",
+          "note": null,
+          "sort_order": 20
+        },
+        {
+          "method": "unraid",
+          "label": "Unraid catalog",
+          "url": "https://raw.githubusercontent.com/mstrhakr/plugin-repository/master/network-list-sync.xml",
+          "image": null,
+          "support_level": "community",
+          "source_url": "https://raw.githubusercontent.com/mstrhakr/plugin-repository/master/network-list-sync.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "sort_order": 35
+        }
+      ],
+      "expected_resource_estimates": {
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "ram_source_urls": [
+          "https://github.com/mstrhakr/network-list-sync/issues/"
+        ],
+        "storage_estimate_min_gb": 50,
+        "storage_estimate_max_gb": 500,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_source_urls": [
+          "https://github.com/mstrhakr/network-list-sync/issues/"
+        ]
+      },
+      "resource_estimates": {
+        "ram": {
+          "min_mb": 128,
+          "max_mb": 512,
+          "kind": "estimated",
+          "confidence": "low",
+          "basis": "A single Go service manages sync jobs and an embedded web UI; endpoint count drives memory use.",
+          "source_urls": [
+            "https://github.com/mstrhakr/network-list-sync#readme"
+          ]
+        },
+        "storage": {
+          "min_gb": 1,
+          "max_gb": 5,
+          "kind": "estimated",
+          "confidence": "low",
+          "basis": "SQLite stores settings and sync history; number of jobs and retained history drive storage use.",
+          "source_urls": [
+            "https://github.com/mstrhakr/network-list-sync#readme"
+          ]
+        }
+      },
+      "expected_docker_image_status": {
+        "status": "published",
+        "checked_at": "2026-09-02T14:22:59.972798+00:00"
+      },
+      "docker_image_status": {
+        "status": "published",
+        "checked_at": "2026-09-28",
+        "confidence": "high",
+        "note": "The project recommends its GHCR image.",
+        "source_urls": [
+          "https://github.com/mstrhakr/network-list-sync#quick-start",
+          "https://github.com/orgs/mstrhakr/packages/container/package/network-list-sync"
+        ]
+      }
+    }
+  ]
+}

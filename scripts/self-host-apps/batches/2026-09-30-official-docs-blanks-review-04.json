@@ -1,0 +1,346 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are offline comparison guards and must be refreshed before any apply.",
+  "scope": "Fill blank docs_url values with official documentation links. Proposal only.",
+  "apps": [
+    {
+      "slug": "feedpushr",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/ncarlier/feedpushr/blob/master/README.md#installation",
+      "data_source_urls": [
+        "https://github.com/ncarlier/feedpushr/blob/master/README.md#installation",
+        "https://github.com/ncarlier/feedpushr"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "form-io",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://help.form.io/deploy/local-deployment",
+      "data_source_urls": [
+        "https://help.form.io/deploy/local-deployment",
+        "https://github.com/formio/formio",
+        "https://form.io"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "frappe-crm",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.frappe.io/crm/introduction/installation",
+      "data_source_urls": [
+        "https://docs.frappe.io/crm/introduction/installation",
+        "https://github.com/frappe/crm",
+        "https://frappe.io/crm"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "gomodel",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/ENTERPILOT/GoModel#quick-start",
+      "data_source_urls": [
+        "https://github.com/ENTERPILOT/GoModel#quick-start",
+        "https://github.com/ENTERPILOT/GoModel"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "homebutler",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/Higangssh/homebutler/blob/main/docs/docker.md",
+      "data_source_urls": [
+        "https://github.com/Higangssh/homebutler/blob/main/docs/docker.md",
+        "https://github.com/Higangssh/homebutler"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "kasm-workspaces",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.kasm.com/docs/install/single_server_install",
+      "data_source_urls": [
+        "https://docs.kasm.com/docs/install/single_server_install",
+        "https://github.com/kasmtech/workspaces-core-images",
+        "https://kasmweb.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "larasend",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/savvyagents/larasend/blob/main/README.md#quick-start-with-docker",
+      "data_source_urls": [
+        "https://github.com/savvyagents/larasend/blob/main/README.md#quick-start-with-docker",
+        "https://github.com/savvyagents/larasend"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "linky",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/trylinky/linky/blob/main/docs/self-hosting.md",
+      "data_source_urls": [
+        "https://github.com/trylinky/linky/blob/main/docs/self-hosting.md",
+        "https://github.com/trylinky/linky",
+        "https://lin.ky"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "lottie-tools",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/marciogranzotto/lottie-tools/blob/master/README.md#docker-setup-alternative",
+      "data_source_urls": [
+        "https://github.com/marciogranzotto/lottie-tools/blob/master/README.md#docker-setup-alternative",
+        "https://github.com/marciogranzotto/lottie-tools"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "mcaptcha",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://mcaptcha.org/docs/self-hosting/getting-started",
+      "data_source_urls": [
+        "https://mcaptcha.org/docs/self-hosting/getting-started",
+        "https://github.com/mCaptcha/mCaptcha",
+        "https://mcaptcha.org"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "meilisearch-ui",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/riccox/meilisearch-ui#quick-start",
+      "data_source_urls": [
+        "https://github.com/riccox/meilisearch-ui#quick-start",
+        "https://github.com/eyeix/meilisearch-ui"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "mejiro",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/dmpop/pellicola#installation-and-usage",
+      "data_source_urls": [
+        "https://github.com/dmpop/pellicola#installation-and-usage",
+        "https://github.com/dmpop/pellicola"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "openinary",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.openinary.dev/quickstart",
+      "data_source_urls": [
+        "https://docs.openinary.dev/quickstart",
+        "https://github.com/openinary/openinary",
+        "https://openinary.dev"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "oxid-eshop",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.oxid-esales.com/developer/en/latest/getting_started/installation/index.html",
+      "data_source_urls": [
+        "https://docs.oxid-esales.com/developer/en/latest/getting_started/installation/index.html",
+        "https://github.com/OXID-eSales/oxideshop_ce"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "pikoci",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/PikoCI/pikoci#quick-start",
+      "data_source_urls": [
+        "https://github.com/PikoCI/pikoci#quick-start",
+        "https://github.com/pikoci/pikoci"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "pixlstash",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://pixlstash.dev/install.html",
+      "data_source_urls": [
+        "https://pixlstash.dev/install.html",
+        "https://github.com/pikselkroken/pixlstash"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "plone",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://6.docs.plone.org/install/containers/index.html",
+      "data_source_urls": [
+        "https://6.docs.plone.org/install/containers/index.html",
+        "https://github.com/plone/Products.CMFPlone",
+        "https://plone.org/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "splitpro",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/oss-apps/split-pro/blob/main/docker/README.md",
+      "data_source_urls": [
+        "https://github.com/oss-apps/split-pro/blob/main/docker/README.md",
+        "https://github.com/oss-apps/split-pro",
+        "https://splitpro.app"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "statusnook",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/goksan/statusnook#deployment-paths",
+      "data_source_urls": [
+        "https://github.com/goksan/statusnook#deployment-paths",
+        "https://github.com/goksan/statusnook",
+        "https://statusnook.com"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "statusscout",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/Vincenius/statusscout#getting-started",
+      "data_source_urls": [
+        "https://github.com/Vincenius/statusscout#getting-started",
+        "https://github.com/Vincenius/statusscout",
+        "https://statusscout.dev"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "structr",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://structr.org/docs",
+      "data_source_urls": [
+        "https://structr.org/docs",
+        "https://github.com/structr/structr",
+        "https://structr.org"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "temps",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://temps.sh/docs/quickstart",
+      "data_source_urls": [
+        "https://temps.sh/docs/quickstart",
+        "https://github.com/gotempsh/temps",
+        "https://temps.sh/docs"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "trypost",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.trypost.it/self-hosting/overview",
+      "data_source_urls": [
+        "https://docs.trypost.it/self-hosting/overview",
+        "https://github.com/trypostit/trypost",
+        "https://trypost.it"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "werbot",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/werbot/werbot#installation",
+      "data_source_urls": [
+        "https://github.com/werbot/werbot#installation",
+        "https://github.com/werbot/werbot",
+        "https://werbot.com"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "youtube-dl-nas",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/hyeonsangjeon/youtube-dl-nas#quick-start",
+      "data_source_urls": [
+        "https://github.com/hyeonsangjeon/youtube-dl-nas#quick-start",
+        "https://github.com/hyeonsangjeon/youtube-dl-nas"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

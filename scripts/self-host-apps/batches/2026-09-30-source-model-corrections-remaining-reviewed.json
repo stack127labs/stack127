@@ -1,0 +1,226 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Official-source corrections for closed_source records with no earlier reviewed source-model proposal. Offline proposal only; no database access or apply.",
+  "apps": [
+    {
+      "slug": "boinc",
+      "source_model": "open_source",
+      "license": "GNU Lesser General Public License v3.0 or later (core); GNU General Public License v3.0 (other components)",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "source_code_url": "https://github.com/BOINC/boinc",
+      "source_code_host": "github",
+      "review_note": "The official BOINC repository identifies the software as open source. Its core is LGPL-3.0-or-later, with GPL-3.0 components also present.",
+      "data_source_urls": [
+        "https://github.com/BOINC/boinc",
+        "https://github.com/BOINC/boinc/wiki/SourceCodeGit",
+        "https://github.com/BOINC/boinc/wiki/ServerIntro"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "db-backup",
+      "source_model": "source_available",
+      "license": "AGPL-3.0-or-later (Community Edition); proprietary Nfrastack Supporter License v1 (Supported Edition)",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "source_code_url": "https://github.com/nfrastack/db-backup",
+      "source_code_host": "github",
+      "review_note": "The former tiredofit repository redirects to this current project. Its README describes open-core distribution: AGPL Community Edition and a proprietary Supported Edition.",
+      "data_source_urls": [
+        "https://github.com/nfrastack/db-backup",
+        "https://github.com/nfrastack/db-backup/blob/main/README.md",
+        "https://nfrastack.com/db-backup",
+        "https://github.com/tiredofit/docker-db-backup"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "dvwa-web",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "source_code_url": "https://github.com/digininja/DVWA",
+      "source_code_host": "github",
+      "review_note": "The official DVWA repository identifies the application, supports source installation, and licenses it under GPL-3.0-or-later.",
+      "data_source_urls": [
+        "https://github.com/digininja/DVWA",
+        "https://github.com/digininja/DVWA/blob/master/COPYING.txt",
+        "https://dvwa.co.uk/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "firefoxsyncserver",
+      "source_model": "open_source",
+      "license": "Mozilla Public License 2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "MPL-2.0",
+      "source_code_url": "https://github.com/mozilla-services/syncserver",
+      "source_code_host": "github",
+      "maintenance_status": "archived",
+      "review_note": "Mozilla Services identifies this repository as the all-in-one self-hosted Firefox Sync server and marks it unmaintained and archived; the project says it has been replaced by syncstorage-rs.",
+      "data_source_urls": [
+        "https://github.com/mozilla-services/syncserver",
+        "https://mozilla-services.readthedocs.io/en/latest/howtos/run-sync-1.5.html"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "maintenance_status": "active"
+      }
+    },
+    {
+      "slug": "forgejorunner",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "source_code_url": "https://code.forgejo.org/forgejo/runner",
+      "source_code_host": "other",
+      "review_note": "The official Forgejo Runner repository and current v13 module list GPL-3.0-or-later. Earlier mixed-license information is outdated for the current release.",
+      "data_source_urls": [
+        "https://code.forgejo.org/forgejo/runner",
+        "https://pkg.go.dev/code.forgejo.org/forgejo/runner/v13",
+        "https://forgejo.org/docs/latest/admin/actions/installation/binary/",
+        "https://forgejo.org/docs/latest/admin/actions/installation/docker/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "httpyac",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/AnWeber/httpyac",
+      "source_code_host": "github",
+      "review_note": "The official httpYac repository matches the product site and describes the CLI and Docker invocation; it declares the MIT License.",
+      "data_source_urls": [
+        "https://github.com/AnWeber/httpyac",
+        "https://httpyac.github.io/",
+        "https://httpyac.github.io/guide/installation_docker.html"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "puppetmaster",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/puppetlabs/puppetserver",
+      "source_code_host": "github",
+      "review_note": "Puppet Server is the official server-side component corresponding to this Puppet master entry; its official repository states Apache-2.0.",
+      "data_source_urls": [
+        "https://github.com/puppetlabs/puppetserver",
+        "https://github.com/puppetlabs/puppetserver/blob/main/LICENSE.md",
+        "https://www.puppet.com/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "viewtube",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://github.com/ViewTube/viewtube",
+      "source_code_host": "github",
+      "review_note": "The official ViewTube repository matches the product, says it can be hosted by users, and declares AGPL-3.0.",
+      "data_source_urls": [
+        "https://github.com/ViewTube/viewtube",
+        "https://github.com/ViewTube/viewtube/blob/master/LICENSE",
+        "https://viewtube.io/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "znapzend",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "source_code_url": "https://github.com/oetiker/znapzend",
+      "source_code_host": "github",
+      "review_note": "The upstream project repository documents ZnapZend and its source installation; official source files state GPL-3.0-or-later.",
+      "data_source_urls": [
+        "https://github.com/oetiker/znapzend",
+        "https://github.com/oetiker/znapzend/blob/master/doc/znapzendzetup.pod",
+        "https://forums.unraid.net/topic/84442-znapzend-plugin-for-unraid/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    }
+  ]
+}

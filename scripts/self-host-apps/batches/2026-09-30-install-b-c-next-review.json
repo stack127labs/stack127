@@ -1,0 +1,1398 @@
+{
+  "report_date": "2026-09-30",
+  "project_id": "tulgfrqamtcshdtmhvpx",
+  "selection": "Next 25 alphabetically among published self_hostable rows with empty option arrays after excluding reviewed reports; boxbox through docker-netbootxyz.",
+  "production_write": true,
+  "snapshot_source": "Read-only query of public.self_host_apps and public.self_host_app_install_options on 2026-09-30.",
+  "source_policy": "Official current product docs, publisher repositories, and publisher-owned package/container pages.",
+  "summary": {
+    "selected_apps": 25,
+    "apps_with_verified_options": 24,
+    "verified_options": 38,
+    "install_option_rows_populated": 24,
+    "unpublished_as_out_of_scope": 1,
+    "app_rows_updated": 25,
+    "unresolved_apps": [],
+    "note": "24 eligible apps receive official install routes. Cubiks 2048 is removed as client-only. CRM stays published because current upstream documents Docker self-hosting."
+  },
+  "field_guard_assumptions": [
+    "App updates require exact id, slug, published/self-hosting state, install URLs, deployment methods, Docker support, and Compose support from the read-only snapshot.",
+    "BugPin summary correction also matches its exact current summary before updating.",
+    "Install-option updates require options=[] and all 21 destination URL/image arrays empty.",
+    "Cubiks 2048 is the only unpublished row; the current app fields are guarded and no install-option row is changed.",
+    "Source links are merged. Relevant Docker/image/Compose technical-status keys are updated; unrelated app facts are preserved.",
+    "Migration draft has not been applied to production."
+  ],
+  "apps": [
+    {
+      "slug": "boxbox",
+      "id": "23447bef-da49-4d23-8572-7be1c099562d",
+      "name": "BoxBox",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/jR4dh3y/BoxBox#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/jR4dh3y/BoxBox/blob/master/docs/docker.md",
+        "docker_url": "https://github.com/jR4dh3y/BoxBox/blob/master/docs/docker.md",
+        "docker_image": "ghcr.io/jr4dh3y/boxbox:v0.2.2",
+        "compose_url": "https://github.com/jR4dh3y/BoxBox/blob/master/docker-compose.yml",
+        "deployment_methods": [
+          "compose",
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/jR4dh3y/BoxBox/blob/master/docs/docker.md",
+          "source_url": "https://raw.githubusercontent.com/jR4dh3y/BoxBox/master/docs/docker.md",
+          "image": "ghcr.io/jr4dh3y/boxbox:v0.2.2",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/jR4dh3y/BoxBox/blob/master/docker-compose.yml",
+          "source_url": "https://raw.githubusercontent.com/jR4dh3y/BoxBox/master/docker-compose.yml",
+          "image": "ghcr.io/jr4dh3y/boxbox:v0.2.2",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        "https://raw.githubusercontent.com/jR4dh3y/BoxBox/master/docs/docker.md",
+        "https://raw.githubusercontent.com/jR4dh3y/BoxBox/master/docker-compose.yml"
+      ],
+      "review_note": "Add the official Docker and Compose routes; the Compose file currently pins v0.2.2."
+    },
+    {
+      "slug": "bugpin",
+      "id": "1edbcb7f-80d8-437f-b9a4-6b301be2d247",
+      "name": "BugPin",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/aranticlabs/bugpin#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty",
+        "summary": "Visual bug reporting and ticketing tool for web applications, (Source Code) AGPL-3.0/MIT Docker."
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.bugpin.io/installation/docker",
+        "docker_url": "https://docs.bugpin.io/installation/docker",
+        "docker_image": "registry.arantic.cloud/bugpin/bugpin:latest",
+        "compose_url": "https://raw.githubusercontent.com/aranticlabs/bugpin/main/docker-compose.yml",
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate",
+        "summary": "Self-hosted visual bug reporting for web apps, with screenshots, attachments, and issue triage."
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://docs.bugpin.io/installation/docker",
+          "source_url": "https://docs.bugpin.io/installation/docker",
+          "image": "registry.arantic.cloud/bugpin/bugpin:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://raw.githubusercontent.com/aranticlabs/bugpin/main/docker-compose.yml",
+          "source_url": "https://docs.bugpin.io/installation/docker",
+          "image": "registry.arantic.cloud/bugpin/bugpin:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "native",
+          "label": "Bun install",
+          "url": "https://docs.bugpin.io/installation/docker#bun",
+          "source_url": "https://docs.bugpin.io/installation/docker",
+          "image": null,
+          "note": "Official guide also documents Bun source install.",
+          "support_level": "official",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        "https://docs.bugpin.io/installation/docker",
+        "https://raw.githubusercontent.com/aranticlabs/bugpin/main/docker-compose.yml"
+      ],
+      "review_note": "Use the publisher's current install guide and fix the malformed summary."
+    },
+    {
+      "slug": "c15t",
+      "id": "f36243a9-244c-4331-b2bc-c18e521a346e",
+      "name": "c15t",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/c15t/c15t/blob/main/docs/self-host/quickstart.mdx",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://c15t.com/docs/self-host/quickstart",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "package"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "Backend package",
+          "url": "https://c15t.com/docs/self-host/quickstart",
+          "source_url": "https://c15t.com/docs/self-host/quickstart",
+          "image": null,
+          "note": "Install @c15t/backend and run it on your own infrastructure.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://c15t.com/docs/self-host/quickstart"
+      ],
+      "review_note": "Official quickstart supports a self-hosted backend package."
+    },
+    {
+      "slug": "cap-so",
+      "id": "db390e9b-47c9-4553-9d52-ed17351491bf",
+      "name": "Cap So",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/CapSoftware/Cap#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/CapSoftware/Cap/blob/main/docker-compose.yml",
+        "docker_url": "https://github.com/CapSoftware/Cap/blob/main/docker-compose.yml",
+        "docker_image": "ghcr.io/capsoftware/cap-web:latest",
+        "compose_url": "https://github.com/CapSoftware/Cap/blob/main/docker-compose.yml",
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/CapSoftware/Cap/blob/main/docker-compose.yml",
+          "source_url": "https://raw.githubusercontent.com/CapSoftware/Cap/main/docker-compose.yml",
+          "image": "ghcr.io/capsoftware/cap-web:latest",
+          "note": "Starts web, media server, MySQL, and MinIO.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/CapSoftware/Cap/blob/main/docker-compose.yml",
+        "https://github.com/CapSoftware/Cap"
+      ],
+      "review_note": "Use the official Compose stack and its required services."
+    },
+    {
+      "slug": "capjs",
+      "id": "836e2641-6c26-4bb6-bd94-0bdc39b28872",
+      "name": "Capjs",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/tiagorangel1/cap#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://capjs.js.org/guide/",
+        "docker_url": "https://capjs.js.org/guide/",
+        "docker_image": "tiago2/cap:latest",
+        "compose_url": "https://capjs.js.org/guide/",
+        "deployment_methods": [
+          "compose",
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://capjs.js.org/guide/",
+          "source_url": "https://capjs.js.org/guide/",
+          "image": "tiago2/cap:latest",
+          "note": "Official guide recommends standalone Docker server.",
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://capjs.js.org/guide/",
+          "source_url": "https://capjs.js.org/guide/",
+          "image": "tiago2/cap:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        "https://capjs.js.org/guide/",
+        "https://github.com/tiagozip/cap"
+      ],
+      "review_note": "Upstream redirects to tiagozip/cap; official docs support Docker."
+    },
+    {
+      "slug": "centaur",
+      "id": "5d306e59-26ab-438d-83b0-d76cb1426703",
+      "name": "Centaur",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/paradigmxyz/centaur",
+        "docker_url": "https://github.com/paradigmxyz/centaur",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/paradigmxyz/centaur/blob/main/docs/pages/deploying-in-production.mdx",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "helm",
+          "kubernetes"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_option_action": "populate",
+        "technical_fact_status_patch": {
+          "docker": {
+            "status": "unchecked",
+            "checked_at": "2026-09-30",
+            "confidence": "low",
+            "note": "The old Docker URL was only the source repository. Reviewed production docs specify Helm; Docker install remains unverified.",
+            "source_urls": [
+              "https://github.com/paradigmxyz/centaur/blob/main/docs/pages/deploying-in-production.mdx"
+            ]
+          }
+        }
+      },
+      "verified_options": [
+        {
+          "method": "helm",
+          "label": "Helm chart",
+          "url": "https://github.com/paradigmxyz/centaur/tree/main/contrib/chart",
+          "source_url": "https://github.com/paradigmxyz/centaur/blob/main/docs/pages/deploying-in-production.mdx",
+          "image": null,
+          "note": "Production guide installs Centaur with Helm on Kubernetes.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/paradigmxyz/centaur/blob/main/docs/pages/deploying-in-production.mdx",
+        "https://github.com/paradigmxyz/centaur/tree/main/contrib/chart"
+      ],
+      "review_note": "Replace the repository-root Docker URL with the official Helm route."
+    },
+    {
+      "slug": "chatto",
+      "id": "da1ce6b9-e931-43d8-98ec-04ebbdc89991",
+      "name": "Chatto",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/chattocorp/chatto",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/chattocorp/chatto/blob/main/examples/dockercompose/README.md",
+        "docker_url": "https://github.com/chattocorp/chatto/blob/main/examples/dockercompose/README.md",
+        "docker_image": null,
+        "compose_url": "https://github.com/chattocorp/chatto/tree/main/examples/dockercompose",
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/chattocorp/chatto/blob/main/examples/dockercompose/README.md",
+          "source_url": "https://github.com/chattocorp/chatto/blob/main/examples/dockercompose/README.md",
+          "image": null,
+          "note": "Use the production example; root Compose file is development-only.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/chattocorp/chatto/blob/main/examples/dockercompose/README.md",
+        "https://github.com/chattocorp/chatto/tree/main/examples/dockercompose"
+      ],
+      "review_note": "Use the production Compose example, not the development root file."
+    },
+    {
+      "slug": "checkmk",
+      "id": "e4dd51a6-111f-4894-b698-e7f41d0e1f14",
+      "name": "Checkmk",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/checkmk/checkmk#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.checkmk.com/latest/en/introduction_docker.html",
+        "docker_url": "https://docs.checkmk.com/latest/en/introduction_docker.html",
+        "docker_image": "checkmk/check-mk-community:2.5.0-latest",
+        "compose_url": "https://docs.checkmk.com/latest/en/introduction_docker.html",
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "package"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/checkmk/check-mk-community",
+          "source_url": "https://docs.checkmk.com/latest/en/introduction_docker.html",
+          "image": "checkmk/check-mk-community:2.5.0-latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://docs.checkmk.com/latest/en/introduction_docker.html",
+          "source_url": "https://docs.checkmk.com/latest/en/introduction_docker.html",
+          "image": "checkmk/check-mk-community:2.5.0-latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "package",
+          "label": "Linux packages",
+          "url": "https://docs.checkmk.com/latest/en/install_packages.html",
+          "source_url": "https://docs.checkmk.com/latest/en/install_packages.html",
+          "image": null,
+          "note": "Official packages are documented for supported Linux distributions.",
+          "support_level": "official",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        "https://docs.checkmk.com/latest/en/introduction_docker.html",
+        "https://docs.checkmk.com/latest/en/install_packages.html"
+      ],
+      "review_note": "Add official Docker, Compose, and Linux package routes."
+    },
+    {
+      "slug": "claude-code-local",
+      "id": "9aa95471-ce1a-4480-b0c9-87254cd47e86",
+      "name": "claude-code-local",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/nicedreamzapp/claude-code-local#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/nicedreamzapp/claude-code-local/blob/main/README.md",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "macOS install",
+          "url": "https://github.com/nicedreamzapp/claude-code-local/blob/main/README.md",
+          "source_url": "https://github.com/nicedreamzapp/claude-code-local/blob/main/README.md",
+          "image": null,
+          "note": "Requires an Apple Silicon Mac.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/nicedreamzapp/claude-code-local/blob/main/README.md"
+      ],
+      "review_note": "Keep the official native route and note the hardware requirement."
+    },
+    {
+      "slug": "cloud-seeder",
+      "id": "f1f43c4d-6ad8-459e-99c4-799b49eb88b1",
+      "name": "Cloud Seeder",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/ipv6rslimited/cloudseeder",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/ipv6rslimited/cloudseeder/releases",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "binary"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "binary",
+          "label": "Desktop downloads",
+          "url": "https://github.com/ipv6rslimited/cloudseeder/releases",
+          "source_url": "https://github.com/ipv6rslimited/cloudseeder",
+          "image": null,
+          "note": "Desktop releases; Podman is required to run appliances.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/ipv6rslimited/cloudseeder",
+        "https://github.com/ipv6rslimited/cloudseeder/releases"
+      ],
+      "review_note": "Add publisher releases for desktop OSes; Podman is a prerequisite."
+    },
+    {
+      "slug": "clyocloud",
+      "id": "54563f71-71a5-46b5-ba4e-8b7de8b2d396",
+      "name": "ClyoCloud",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://code.weexnes.dev/ClyoCloud#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://clyo.cloud/docs",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Linux install",
+          "url": "https://clyo.cloud/docs",
+          "source_url": "https://clyo.cloud/",
+          "image": null,
+          "note": "Official site documents a Linux install script and systemd service.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://clyo.cloud/",
+        "https://clyo.cloud/docs"
+      ],
+      "review_note": "Use the official website's Linux installation route."
+    },
+    {
+      "slug": "codeman",
+      "id": "4ad5bb14-72c0-43d2-abd3-dd095ad85b5e",
+      "name": "Codeman",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/Ark0N/Codeman#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/Ark0N/Codeman/wiki/Installation/8949aa15b86f71cc67d1df09fa75eb35c0782bcc",
+        "docker_url": "https://github.com/Ark0N/Codeman#readme",
+        "docker_image": null,
+        "compose_url": "https://github.com/Ark0N/Codeman/tree/master/docker",
+        "deployment_methods": [
+          "compose",
+          "native",
+          "package"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/Ark0N/Codeman/tree/master/docker",
+          "source_url": "https://github.com/Ark0N/Codeman#readme",
+          "image": null,
+          "note": "Project scripts build and start the Docker deployment.",
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "package",
+          "label": "npm package",
+          "url": "https://www.npmjs.com/package/aicodeman",
+          "source_url": "https://github.com/Ark0N/Codeman/wiki/Installation/8949aa15b86f71cc67d1df09fa75eb35c0782bcc",
+          "image": null,
+          "note": "Install globally with npm.",
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "native",
+          "label": "Linux and macOS installer",
+          "url": "https://getcodeman.com/install",
+          "source_url": "https://github.com/Ark0N/Codeman#readme",
+          "image": null,
+          "note": "The upstream one-line installer supports macOS and Linux.",
+          "support_level": "official",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        "https://github.com/Ark0N/Codeman",
+        "https://github.com/Ark0N/Codeman/wiki/Installation/8949aa15b86f71cc67d1df09fa75eb35c0782bcc",
+        "https://www.npmjs.com/package/aicodeman",
+        "https://getcodeman.com/install"
+      ],
+      "review_note": "Add official installer/package and project Compose deployment."
+    },
+    {
+      "slug": "codezero",
+      "id": "dd4c6f29-d317-4040-8e53-e1c8545a577e",
+      "name": "CodeZero",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://docs.codezero.build",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.codezero.build/general/install/",
+        "docker_url": "https://docs.codezero.build/general/install/",
+        "docker_image": null,
+        "compose_url": "https://docs.codezero.build/general/install/",
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://docs.codezero.build/general/install/",
+          "source_url": "https://docs.codezero.build/general/install/",
+          "image": null,
+          "note": "The official guide deploys the release with Compose.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://docs.codezero.build/general/install/"
+      ],
+      "review_note": "Keep the supported Compose stack and remove the unverified standalone Docker method."
+    },
+    {
+      "slug": "collie",
+      "id": "fa8dc52e-3ce6-4009-9bdb-f95b66724137",
+      "name": "Collie",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/AltanS/collie#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/AltanS/collie/blob/main/docs/install.md",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "binary"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "binary",
+          "label": "Release binary",
+          "url": "https://github.com/AltanS/collie/releases",
+          "source_url": "https://github.com/AltanS/collie/blob/main/docs/install.md",
+          "image": null,
+          "note": "Installer downloads the published binary.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/AltanS/collie/blob/main/docs/install.md",
+        "https://github.com/AltanS/collie/releases"
+      ],
+      "review_note": "Use the official binary release path."
+    },
+    {
+      "slug": "compose-farm",
+      "id": "fba13dcb-ef6e-4ade-a17c-9dd87e1d69c6",
+      "name": "compose-farm",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/basnijholt/compose-farm#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/basnijholt/compose-farm#readme",
+        "docker_url": "https://github.com/basnijholt/compose-farm#readme",
+        "docker_image": "ghcr.io/basnijholt/compose-farm:latest",
+        "compose_url": "https://github.com/basnijholt/compose-farm#readme",
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "package"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/basnijholt/compose-farm/pkgs/container/compose-farm",
+          "source_url": "https://github.com/basnijholt/compose-farm#readme",
+          "image": "ghcr.io/basnijholt/compose-farm:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/basnijholt/compose-farm#readme",
+          "source_url": "https://github.com/basnijholt/compose-farm#readme",
+          "image": "ghcr.io/basnijholt/compose-farm:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "package",
+          "label": "Python package",
+          "url": "https://pypi.org/project/compose-farm/",
+          "source_url": "https://github.com/basnijholt/compose-farm#readme",
+          "image": null,
+          "note": "README documents uv or pip install.",
+          "support_level": "official",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        "https://github.com/basnijholt/compose-farm",
+        "https://github.com/basnijholt/compose-farm/pkgs/container/compose-farm",
+        "https://pypi.org/project/compose-farm/"
+      ],
+      "review_note": "Add upstream container and Python package routes."
+    },
+    {
+      "slug": "convex",
+      "id": "56dba6a1-9cc8-476a-af45-db0e6d8f64e8",
+      "name": "Convex",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/get-convex/convex-backend/tree/main/self-hosted",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.convex.dev/self-hosting",
+        "docker_url": "https://docs.convex.dev/self-hosting",
+        "docker_image": "ghcr.io/get-convex/convex-backend:latest",
+        "compose_url": "https://github.com/get-convex/convex-backend/blob/main/self-hosted/docker/docker-compose.yml",
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/get-convex/convex-backend/blob/main/self-hosted/docker/docker-compose.yml",
+          "source_url": "https://docs.convex.dev/self-hosting",
+          "image": "ghcr.io/get-convex/convex-backend:latest",
+          "note": "Official backend and dashboard deployment.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://docs.convex.dev/self-hosting",
+        "https://github.com/get-convex/convex-backend/tree/main/self-hosted"
+      ],
+      "review_note": "Use the official backend and dashboard Compose deployment."
+    },
+    {
+      "slug": "coroot",
+      "id": "4d550d0d-60aa-40fb-a31b-54295a3896c2",
+      "name": "Coroot",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/coroot/coroot#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.coroot.com/installation/",
+        "docker_url": "https://docs.coroot.com/installation/docker/",
+        "docker_image": "ghcr.io/coroot/coroot",
+        "compose_url": "https://raw.githubusercontent.com/coroot/coroot/main/deploy/docker-compose.yaml",
+        "deployment_methods": [
+          "compose",
+          "helm"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://raw.githubusercontent.com/coroot/coroot/main/deploy/docker-compose.yaml",
+          "source_url": "https://docs.coroot.com/installation/docker/",
+          "image": "ghcr.io/coroot/coroot",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "helm",
+          "label": "Kubernetes Helm chart",
+          "url": "https://coroot.github.io/helm-charts",
+          "source_url": "https://docs.coroot.com/installation/kubernetes/",
+          "image": null,
+          "note": "Official Coroot Operator and chart repository.",
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        "https://docs.coroot.com/installation/",
+        "https://docs.coroot.com/installation/docker/",
+        "https://docs.coroot.com/installation/kubernetes/",
+        "https://coroot.github.io/helm-charts"
+      ],
+      "review_note": "Add official Compose and Kubernetes deployment routes."
+    },
+    {
+      "slug": "courselit",
+      "id": "6b22a2a7-e724-42e9-b50e-f596699980c9",
+      "name": "CourseLit",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://docs.courselit.app/self-hosting/self-host/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.courselit.app/self-hosting/self-host/",
+        "docker_url": "https://docs.courselit.app/self-hosting/self-host/",
+        "docker_image": "codelit/courselit-app",
+        "compose_url": "https://raw.githubusercontent.com/codelitdev/courselit/main/deployment/docker/docker-compose.yml",
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://raw.githubusercontent.com/codelitdev/courselit/main/deployment/docker/docker-compose.yml",
+          "source_url": "https://docs.courselit.app/self-hosting/self-host/",
+          "image": "codelit/courselit-app",
+          "note": "Self-host guide recommends the provided Compose deployment.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://docs.courselit.app/self-hosting/self-host/",
+        "https://raw.githubusercontent.com/codelitdev/courselit/main/deployment/docker/docker-compose.yml"
+      ],
+      "review_note": "Use the official self-host guide and Compose file."
+    },
+    {
+      "slug": "cozystack",
+      "id": "a6dd4753-22da-44a7-b1cc-1eb8dca7ea50",
+      "name": "Cozystack",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://cozystack.io/docs/getting-started/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://cozystack.io/docs/v1.6/install/cozystack/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "kubernetes"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "kubernetes",
+          "label": "Kubernetes installation",
+          "url": "https://cozystack.io/docs/v1.6/install/cozystack/",
+          "source_url": "https://cozystack.io/docs/v1.6/install/cozystack/",
+          "image": null,
+          "note": "Official guide installs Cozystack on a Kubernetes cluster.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://cozystack.io/docs/v1.6/install/cozystack/",
+        "https://cozystack.io/docs/v1.6/install/kubernetes/talm/"
+      ],
+      "review_note": "Replace the generic link with the official Kubernetes installation guide."
+    },
+    {
+      "slug": "craft-cms",
+      "id": "87fb5f68-fe07-4478-8b71-9c3ce45e7da3",
+      "name": "Craft CMS",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://craftcms.com/docs/5.x/install.html",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://craftcms.com/docs/5.x/install.html",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "package"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "Composer project",
+          "url": "https://craftcms.com/knowledge-base/using-the-starter-project",
+          "source_url": "https://craftcms.com/docs/5.x/install.html",
+          "image": null,
+          "note": "Install the official starter project with Composer.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://craftcms.com/docs/5.x/install.html",
+        "https://craftcms.com/knowledge-base/using-the-starter-project"
+      ],
+      "review_note": "Add Craft's official Composer starter project."
+    },
+    {
+      "slug": "crm",
+      "id": "1db3d9b0-0220-4c77-b09b-27b26881c23b",
+      "name": "CRM",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/trycompai/crm#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/trycompai/comp/blob/main/SELF_HOSTING.md",
+        "docker_url": "https://github.com/trycompai/comp/blob/main/SELF_HOSTING.md",
+        "docker_image": null,
+        "compose_url": "https://github.com/trycompai/comp/blob/main/docker-compose.yml",
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/trycompai/comp/blob/main/SELF_HOSTING.md",
+          "source_url": "https://github.com/trycompai/comp/blob/main/SELF_HOSTING.md",
+          "image": null,
+          "note": "Self-host guide covers app and portal; PostgreSQL, email, and workflow services are required.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/trycompai/comp/blob/main/SELF_HOSTING.md",
+        "https://github.com/trycompai/comp/blob/main/docker-compose.yml",
+        "https://www.trycomp.ai/docs/self-hosting/env-reference"
+      ],
+      "review_note": "Current upstream is Comp; its official repository documents Docker self-hosting."
+    },
+    {
+      "slug": "crumbs",
+      "id": "83666fbf-009e-47ba-841c-b311e21724e6",
+      "name": "Crumbs",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/bretzel-app/crumbs#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/bretzel-app/crumbs#readme",
+        "docker_url": "https://github.com/orgs/bretzel-app/packages/container/package/crumbs",
+        "docker_image": "ghcr.io/bretzel-app/crumbs:latest",
+        "compose_url": "https://github.com/bretzel-app/crumbs#readme",
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/orgs/bretzel-app/packages/container/package/crumbs",
+          "source_url": "https://github.com/bretzel-app/crumbs#readme",
+          "image": "ghcr.io/bretzel-app/crumbs:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/bretzel-app/crumbs/blob/main/docker-compose.yml",
+          "source_url": "https://github.com/bretzel-app/crumbs#readme",
+          "image": "ghcr.io/bretzel-app/crumbs:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "native",
+          "label": "Node.js install",
+          "url": "https://github.com/bretzel-app/crumbs#readme",
+          "source_url": "https://github.com/bretzel-app/crumbs#readme",
+          "image": null,
+          "note": "The README documents a manual pnpm build and Node.js server run.",
+          "support_level": "official",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        "https://github.com/bretzel-app/crumbs",
+        "https://github.com/orgs/bretzel-app/packages/container/package/crumbs"
+      ],
+      "review_note": "Add the publisher GHCR image and Compose route."
+    },
+    {
+      "slug": "cstate",
+      "id": "357a1766-3e5a-4ac2-a050-8043b6bbbf00",
+      "name": "cState",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/cstate/cstate",
+        "docker_url": "https://github.com/cstate/cstate",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/cstate/cstate#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_option_action": "populate",
+        "technical_fact_status_patch": {
+          "docker": {
+            "status": "unchecked",
+            "checked_at": "2026-09-30",
+            "confidence": "low",
+            "note": "The old Docker URL was only the source repository. Upstream documents Hugo static-site generation; Docker install remains unverified.",
+            "source_urls": [
+              "https://github.com/cstate/cstate"
+            ]
+          }
+        }
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Hugo static site",
+          "url": "https://github.com/cstate/cstate#readme",
+          "source_url": "https://github.com/cstate/cstate#readme",
+          "image": null,
+          "note": "Build the Hugo status page and host the generated static files on your own web server.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/cstate/cstate"
+      ],
+      "review_note": "Replace the repo-root Docker URL with the upstream Hugo build route."
+    },
+    {
+      "slug": "cubiks-2048",
+      "id": "f9fe7aa1-51bc-4ceb-82d0-6c7fac4649f7",
+      "name": "Cubiks 2048",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": null,
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_option_action": "leave empty",
+        "published": false,
+        "self_hosting_status": "not_self_hostable"
+      },
+      "verified_options": [],
+      "sources": [
+        "https://github.com/Kshitij-Banerjee/Cubiks-2048",
+        "https://kshitij-banerjee.github.io/Cubiks-2048/"
+      ],
+      "review_note": "Official project is a browser game with a GitHub Pages demo and no server/appliance/self-host deployment; client-only software is outside the directory scope.",
+      "eligibility_review": {
+        "decision": "unpublish",
+        "reason": "Official project is a browser game with a GitHub Pages demo and no server/appliance/self-host deployment; client-only software is outside the directory scope.",
+        "source_urls": [
+          "https://github.com/Kshitij-Banerjee/Cubiks-2048",
+          "https://kshitij-banerjee.github.io/Cubiks-2048/"
+        ]
+      }
+    },
+    {
+      "slug": "docker-netbootxyz",
+      "id": "e21ff9a4-185a-4085-b7cd-9a8a4fcc3843",
+      "name": "docker-netbootxyz",
+      "existing": {
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "install_docs_url": "https://github.com/netbootxyz/docker-netbootxyz#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": "options=[]; all destination URL and image arrays empty"
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/netbootxyz/docker-netbootxyz#readme",
+        "docker_url": "https://hub.docker.com/r/netbootxyz/netbootxyz",
+        "docker_image": "ghcr.io/netbootxyz/netbootxyz",
+        "compose_url": "https://github.com/netbootxyz/docker-netbootxyz/blob/master/docker-compose.yml.example",
+        "deployment_methods": [
+          "compose",
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/netbootxyz/netbootxyz",
+          "source_url": "https://github.com/netbootxyz/docker-netbootxyz#readme",
+          "image": "ghcr.io/netbootxyz/netbootxyz",
+          "note": "Requires a separate DHCP server.",
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/netbootxyz/docker-netbootxyz/blob/master/docker-compose.yml.example",
+          "source_url": "https://github.com/netbootxyz/docker-netbootxyz#readme",
+          "image": "ghcr.io/netbootxyz/netbootxyz",
+          "note": "Configure DHCP separately.",
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        "https://github.com/netbootxyz/docker-netbootxyz",
+        "https://hub.docker.com/r/netbootxyz/netbootxyz"
+      ],
+      "review_note": "Correct native to the official Docker and Compose routes; note external DHCP requirement."
+    }
+  ],
+  "migration_version": "20260929230234"
+}

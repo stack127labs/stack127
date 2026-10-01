@@ -1,0 +1,260 @@
+{
+  "reviewed_at": "2026-09-29",
+  "scope": "Partial source review of 11 published or recently excluded records. Corrected self-hosting links, database details, source and publisher details where verified, categories, and Docker destinations. RAM and storage are handled in the companion reviewed estimate file.",
+  "apps": [
+    {
+      "slug": "affine-community-edition",
+      "review_scope": "partial",
+      "expected": {
+        "license": "Mixed MIT and backend server license",
+        "license_type": "permissive",
+        "docker_url": "https://docs.affine.pro/self-host-affine/references/docker-compose-yml",
+        "docker_image": "ghcr.io/toeverything/affine:0.27.4@sha256:b649f5ce2384ffdf13c23bccf81d759e15973d59d0b0058af65d895a84373099",
+        "compose_url": "https://raw.githubusercontent.com/getumbrel/umbrel-apps/master/affine/docker-compose.yml",
+        "storage_profile": "low",
+        "categories": ["communities-social", "knowledge-notes", "security-privacy"]
+      },
+      "license": "Mixed MIT, MPL-2.0, and AFFiNE EE License",
+      "license_type": "custom",
+      "docker_url": "https://github.com/toeverything/AFFiNE/pkgs/container/affine",
+      "docker_image": "ghcr.io/toeverything/affine:stable",
+      "compose_url": "https://github.com/toeverything/AFFiNE/blob/canary/.docker/selfhost/compose.yml",
+      "storage_profile": "depends",
+      "categories": ["communities-social", "knowledge-notes"],
+      "data_source_urls": [
+        "https://github.com/toeverything/AFFiNE/blob/canary/LICENSE",
+        "https://github.com/toeverything/AFFiNE/blob/canary/packages/backend/server/LICENSE",
+        "https://github.com/toeverything/AFFiNE/blob/canary/.docker/selfhost/compose.yml"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "coolify",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": "https://github.com/coollabsio/coolify#readme",
+        "install_docs_url": "https://github.com/coollabsio/coolify#readme",
+        "docker_url": "https://github.com/coollabsio/coolify/blob/HEAD/docker-compose.yml",
+        "docker_image": "ghcr.io/coollabsio/coolify:4.3.14",
+        "compose_url": "https://github.com/coollabsio/coolify/blob/HEAD/docker-compose.yml",
+        "publisher_name": "coollabsio",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/coollabsio",
+        "ram_min_mb": null,
+        "ram_recommended_mb": null,
+        "storage_min_gb": null,
+        "resource_requirement_kind": "unknown"
+      },
+      "docs_url": "https://coolify.io/docs/",
+      "install_docs_url": "https://coolify.io/docs/start-with-self-hosted",
+      "docker_url": "https://hub.docker.com/r/coollabsio/coolify",
+      "docker_image": "coollabsio/coolify:latest",
+      "compose_url": "https://github.com/coollabsio/coolify/blob/main/docker-compose.prod.yml",
+      "publisher_name": "CoolLabs Solutions Kft.",
+      "publisher_type": "company",
+      "publisher_url": "https://coolify.io/privacy-policy",
+      "ram_min_mb": 2048,
+      "storage_min_gb": 10,
+      "resource_requirement_kind": "official_minimum",
+      "data_source_urls": [
+        "https://coolify.io/docs/start-with-self-hosted",
+        "https://coolify.io/privacy-policy",
+        "https://hub.docker.com/r/coollabsio/coolify",
+        "https://github.com/coollabsio/coolify/blob/main/docker-compose.prod.yml"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "memos",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": "https://github.com/usememos/memos#readme",
+        "install_docs_url": "https://github.com/usememos/memos#readme",
+        "docker_url": "https://github.com/usememos/memos/blob/HEAD/scripts/compose.yaml",
+        "docker_image": "neosmemo/memos:0.30.0@sha256:71a5b4738d1bed96e92112004054f0888e92791b64eb78afd79077c96e6f9327",
+        "compose_url": "https://github.com/usememos/memos/blob/HEAD/scripts/compose.yaml",
+        "requires_database": true,
+        "database_types": ["postgres"],
+        "storage_profile": "low"
+      },
+      "docs_url": "https://usememos.com/docs",
+      "install_docs_url": "https://usememos.com/docs/getting-started",
+      "docker_url": "https://hub.docker.com/r/neosmemo/memos",
+      "docker_image": "neosmemo/memos:stable",
+      "compose_url": "https://github.com/usememos/memos/blob/main/scripts/compose.yaml",
+      "requires_database": false,
+      "database_types": ["sqlite", "mysql", "postgres"],
+      "storage_profile": "depends",
+      "data_source_urls": [
+        "https://usememos.com/docs/getting-started",
+        "https://usememos.com/docs/deploy/docker",
+        "https://usememos.com/docs/configuration/storage",
+        "https://github.com/usememos/memos/blob/main/scripts/compose.yaml"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "nocodb",
+      "review_scope": "partial",
+      "expected": {
+        "summary": "Spreadsheet-style database UI for building tables, forms, and API-backed workflows.",
+        "install_docs_url": "https://nocodb.com/docs/self-hosting/installation/quickstart",
+        "compose_url": "https://raw.githubusercontent.com/getumbrel/umbrel-apps/master/nocodb/docker-compose.yml",
+        "ram_min_mb": null,
+        "ram_recommended_mb": null,
+        "storage_min_gb": null,
+        "resource_requirement_kind": "unknown",
+        "categories": ["databases", "developer-tools", "documents-pdfs"]
+      },
+      "summary": "Turns databases into collaborative spreadsheets, forms, and APIs.",
+      "docs_url": "https://nocodb.com/docs/self-hosting",
+      "install_docs_url": "https://nocodb.com/docs/self-hosting/installation/quickstart",
+      "compose_url": "https://nocodb.com/docs/self-hosting/installation/quickstart",
+      "ram_min_mb": 2048,
+      "ram_recommended_mb": 8192,
+      "storage_min_gb": 10,
+      "resource_requirement_kind": "official_minimum",
+      "categories": ["databases", "developer-tools"],
+      "summary_source": "https://nocodb.com/docs/self-hosting",
+      "summary_confidence": "high",
+      "data_source_urls": [
+        "https://product-feed.nocodb.com/docs/self-hosting",
+        "https://nocodb.com/docs/self-hosting/installation/quickstart",
+        "https://nocodb.com/docs/self-hosting/installation/single-server"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "penpot",
+      "review_scope": "partial",
+      "expected": {
+        "name": "penpot",
+        "summary": "Web design and prototyping app meant for cross-domain teams.",
+        "docs_url": "https://github.com/penpot/penpot#readme",
+        "install_docs_url": "https://github.com/penpot/penpot#readme",
+        "docker_url": "https://github.com/penpot/penpot/blob/HEAD/docker/images/docker-compose.yaml",
+        "docker_image": "penpotapp/frontend:2.17.2@sha256:94fa2864d8fc0cd62245af95c03cca89306a7fd23c206a98a3e9dc9a376ea27e",
+        "compose_url": "https://github.com/penpot/penpot/blob/HEAD/docker/images/docker-compose.yaml",
+        "publisher_name": "penpot",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/penpot",
+        "categories": ["system-admin-hosting"]
+      },
+      "summary": "Collaborative design tool for creating interface layouts, prototypes, and design systems.",
+      "docs_url": "https://help.penpot.app/technical-guide/",
+      "install_docs_url": "https://help.penpot.app/technical-guide/getting-started/",
+      "docker_url": "https://hub.docker.com/r/penpotapp/frontend",
+      "docker_image": "penpotapp/frontend:latest",
+      "compose_url": "https://raw.githubusercontent.com/penpot/penpot/main/docker/images/docker-compose.yaml",
+      "publisher_name": "Kaleidos",
+      "publisher_type": "company",
+      "publisher_url": "https://penpot.app/about",
+      "categories": ["design-creative"],
+      "summary_source": "https://penpot.app/",
+      "summary_confidence": "high",
+      "data_source_urls": [
+        "https://penpot.app/about",
+        "https://penpot.app/",
+        "https://help.penpot.app/technical-guide/getting-started/docker/",
+        "https://help.penpot.app/technical-guide/getting-started/recommended-settings/",
+        "https://help.penpot.app/technical-guide/configuration/",
+        "https://raw.githubusercontent.com/penpot/penpot/main/docker/images/docker-compose.yaml"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "pocketbase",
+      "review_scope": "partial",
+      "expected": {
+        "summary": "Backend for your next SaaS and Mobile app in one file.",
+        "docs_url": "https://github.com/pocketbase/pocketbase#readme",
+        "install_docs_url": "https://github.com/pocketbase/pocketbase#readme",
+        "docker_url": null,
+        "docker_image": "ghcr.io/muchobien/pocketbase:0.40.1@sha256:8b14308d9634c37bfb4d8ecfd7b90e5961b0f0b4e6b7c8d7116f4c68fabbe58c",
+        "requires_database": true,
+        "database_types": ["pocketbase"],
+        "storage_profile": "high",
+        "surfaces": ["web", "mobile"]
+      },
+      "summary": "Backend platform with an embedded SQLite database, user authentication, file storage, and a REST API.",
+      "docs_url": "https://pocketbase.io/docs/",
+      "install_docs_url": "https://pocketbase.io/docs/going-to-production/",
+      "docker_url": "https://github.com/muchobien/pocketbase/pkgs/container/pocketbase",
+      "docker_image": "ghcr.io/muchobien/pocketbase:0.40.4",
+      "requires_database": false,
+      "database_types": ["sqlite"],
+      "storage_profile": "depends",
+      "surfaces": ["web", "api"],
+      "summary_source": "https://pocketbase.io/docs/",
+      "summary_confidence": "high",
+      "data_source_urls": [
+        "https://pocketbase.io/docs/",
+        "https://pocketbase.io/docs/going-to-production/",
+        "https://github.com/muchobien/pocketbase/pkgs/container/pocketbase"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "vaultwarden",
+      "review_scope": "partial",
+      "expected": {
+        "requires_database": true,
+        "database_types": ["postgres"],
+        "storage_profile": "high",
+        "compose_url": "https://raw.githubusercontent.com/getumbrel/umbrel-apps/master/vaultwarden/docker-compose.yml",
+        "categories": ["developer-tools", "password-managers"]
+      },
+      "requires_database": false,
+      "database_types": ["sqlite", "mysql", "postgres"],
+      "storage_profile": "depends",
+      "compose_url": "https://github.com/dani-garcia/vaultwarden/wiki/Using-Docker-Compose",
+      "categories": ["password-managers"],
+      "data_source_urls": [
+        "https://github.com/dani-garcia/vaultwarden/blob/main/README.md",
+        "https://github.com/dani-garcia/vaultwarden/blob/main/.env.template",
+        "https://github.com/dani-garcia/vaultwarden/wiki/Using-Docker-Compose"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "localsend",
+      "review_scope": "partial",
+      "expected": {
+        "docker_url": "https://github.com/localsend/localsend/blob/HEAD/server/Dockerfile"
+      },
+      "docker_url": null,
+      "data_source_urls": [
+        "https://localsend.org/",
+        "https://github.com/localsend/localsend/blob/main/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "world-monitor",
+      "review_scope": "partial",
+      "expected": {
+        "docker_url": "https://github.com/koala73/worldmonitor/blob/HEAD/docker-compose.yml"
+      },
+      "docker_url": null,
+      "data_source_urls": [
+        "https://github.com/koala73/worldmonitor/blob/main/SELF_HOSTING.md",
+        "https://github.com/koala73/worldmonitor/blob/main/docker-compose.yml"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "hoppscotch-community-edition",
+      "review_scope": "partial",
+      "expected": {
+        "docker_url": "https://github.com/hoppscotch/hoppscotch/blob/main/docker-compose.yml"
+      },
+      "docker_url": "https://hub.docker.com/r/hoppscotch/hoppscotch-backend",
+      "data_source_urls": [
+        "https://docs.hoppscotch.io/documentation/self-host/community-edition/install-and-build",
+        "https://hub.docker.com/r/hoppscotch/hoppscotch-backend",
+        "https://raw.githubusercontent.com/hoppscotch/hoppscotch/HEAD/docker-compose.yml"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

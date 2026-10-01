@@ -1,0 +1,3325 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Offline proposal of app-specific estimated RAM and storage ranges for the next 40 uncovered eligible apps. Each estimate carries the complete saved resource-estimate sidecar as its snapshot guard; no database or production changes are included.",
+  "skipped": [
+    {
+      "slug": "auth-grove",
+      "reason": "The saved website points to Nasqueron’s general Docker image catalogue, which does not list Auth Grove; no official product page or source was found to support an estimate."
+    }
+  ],
+  "estimates": [
+    {
+      "slug": "aria2-with-ariang",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small aria2 engine with AriaNg control UI; active transfers and concurrent connections drive memory.",
+      "source_urls": [
+        "https://github.com/mayswind/AriaNg",
+        "https://aria2.github.io/manual/en/html/aria2c.html"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "2c375b60-c8e5-4da9-aacf-faf99eb9a2f7",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.lime-technology.com/topic/60117-support-aria2-webui/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.lime-technology.com/topic/60117-support-aria2-webui/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "aria2-with-ariang",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 500,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small download service with its queue and retained downloads in the configured destination; downloaded files drive disk use.",
+      "source_urls": [
+        "https://github.com/mayswind/AriaNg",
+        "https://aria2.github.io/manual/en/html/aria2c.html"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "2c375b60-c8e5-4da9-aacf-faf99eb9a2f7",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.lime-technology.com/topic/60117-support-aria2-webui/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.lime-technology.com/topic/60117-support-aria2-webui/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "ark-survival-ascended",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 16384,
+      "estimate_max": 32768,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small ARK: Survival Ascended server; the official setup guide says memory varies with map, players, server age, and mods.",
+      "source_urls": [
+        "https://ark.wiki.gg/wiki/Dedicated_server_setup",
+        "https://github.com/blckassassin/arksa"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "b8c30013-56f1-4fb2-8ad0-50225975f21d",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:06.155+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:07.081981+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://raw.githubusercontent.com/blckassassin/ArkSA/main/README.md"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://raw.githubusercontent.com/blckassassin/ArkSA/main/README.md"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "ark-survival-ascended",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One server install needs about 11 GiB; saves, updates, and mods add space.",
+      "source_urls": [
+        "https://ark.wiki.gg/wiki/Dedicated_server_setup",
+        "https://github.com/blckassassin/arksa"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "b8c30013-56f1-4fb2-8ad0-50225975f21d",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:06.155+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:07.081981+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://raw.githubusercontent.com/blckassassin/ArkSA/main/README.md"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://raw.githubusercontent.com/blckassassin/ArkSA/main/README.md"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "ark-survivalascended",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 16384,
+      "estimate_max": 32768,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small ARK: Survival Ascended server; the official setup guide says memory varies with map, players, server age, and mods.",
+      "source_urls": [
+        "https://ark.wiki.gg/wiki/Dedicated_server_setup",
+        "https://github.com/Reckleschamp/game-servers/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "d2e95440-3a95-4e4e-be0f-f9e99b4ce2cd",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:02.303+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:03.162005+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/Reckleschamp/game-servers/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/Reckleschamp/game-servers/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "ark-survivalascended",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "One server install needs about 11 GiB; saves, updates, and mods add space.",
+      "source_urls": [
+        "https://ark.wiki.gg/wiki/Dedicated_server_setup",
+        "https://github.com/Reckleschamp/game-servers/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "d2e95440-3a95-4e4e-be0f-f9e99b4ce2cd",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:02.303+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:03.162005+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/Reckleschamp/game-servers/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/Reckleschamp/game-servers/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "arkalib",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small household budgeting service with a web app and transaction records; account count and history affect memory.",
+      "source_urls": [
+        "https://apps.yunohost.org/app/arkalib",
+        "https://github.com/BaptisteCHRPN/arkalib"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "45544555-acce-48fd-bd03-0fad36762f13",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "arkalib",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small budget database, configuration, and exports; retained transaction history drives growth.",
+      "source_urls": [
+        "https://apps.yunohost.org/app/arkalib",
+        "https://github.com/BaptisteCHRPN/arkalib"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "45544555-acce-48fd-bd03-0fad36762f13",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "armadietto",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Node.js RemoteStorage server; streaming storage keeps document contents from needing to fit in server memory.",
+      "source_urls": [
+        "https://github.com/remotestorage/armadietto",
+        "https://github.com/remotestorage/armadietto/tree/master/docker"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "163c76cc-03ec-468c-998a-cbc5ba7912f1",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "armadietto",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 1000,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "User documents are kept in the server file store or configured S3-compatible storage; user data volume drives capacity.",
+      "source_urls": [
+        "https://github.com/remotestorage/armadietto",
+        "https://github.com/remotestorage/armadietto/tree/master/docker"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "163c76cc-03ec-468c-998a-cbc5ba7912f1",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "armareforger",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 8192,
+      "estimate_max": 16384,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Arma Reforger dedicated server; player count, active scenario, and mods affect memory.",
+      "source_urls": [
+        "https://community.bohemia.net/wiki/Arma_Reforger:Server_Hosting",
+        "https://community.bohemia.net/wiki/Arma_Reforger:Server_Config"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "ab831ad8-f6f6-4d5f-9b0c-90b89995e3f7",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:51.706+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:52.597429+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/jcoker85/UnraidGameServers/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/jcoker85/UnraidGameServers/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "armareforger",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 40,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One dedicated server with its scenario files, logs, and a modest set of mods.",
+      "source_urls": [
+        "https://community.bohemia.net/wiki/Arma_Reforger:Server_Hosting",
+        "https://community.bohemia.net/wiki/Arma_Reforger:Server_Config"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "ab831ad8-f6f6-4d5f-9b0c-90b89995e3f7",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:51.706+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:52.597429+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/jcoker85/UnraidGameServers/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/jcoker85/UnraidGameServers/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "arn-messager",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One Matrix bridge bot serving a small group; bridge activity and connected users drive memory.",
+      "source_urls": [
+        "https://code.ffdn.org/arn/arn-messager#configuration-file",
+        "https://apps.yunohost.org/app/arn_messager"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "a34652e5-87ed-4d85-b1e6-b8813f647b8b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://code.ffdn.org/arn/arn-messager#configuration-file"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "arn-messager",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Configuration, credentials, and a small amount of bridge state and logs.",
+      "source_urls": [
+        "https://code.ffdn.org/arn/arn-messager#configuration-file",
+        "https://apps.yunohost.org/app/arn_messager"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "a34652e5-87ed-4d85-b1e6-b8813f647b8b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://code.ffdn.org/arn/arn-messager#configuration-file"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "arr-dashboard",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Node.js dashboard with SQLite state and several media-service integrations; cache refreshes and library size affect memory.",
+      "source_urls": [
+        "https://github.com/Kha-kis/arr-dashboard",
+        "https://github.com/Kha-kis/arr-dashboard/wiki",
+        "https://hub.docker.com/r/khak1s/arr-dashboard"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "d73951cb-2a0d-4008-be61-5c3e47652e11",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T09:59:58.459224+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://apps.truenas.com/catalog/arr-dashboard_community/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://apps.truenas.com/catalog/arr-dashboard_community/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "arr-dashboard",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "SQLite configuration, secrets, backups, and cached media-service metadata; connected library size affects growth.",
+      "source_urls": [
+        "https://github.com/Kha-kis/arr-dashboard",
+        "https://github.com/Kha-kis/arr-dashboard/wiki",
+        "https://hub.docker.com/r/khak1s/arr-dashboard"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "d73951cb-2a0d-4008-be61-5c3e47652e11",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T09:59:58.459224+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://apps.truenas.com/catalog/arr-dashboard_community/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://apps.truenas.com/catalog/arr-dashboard_community/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "arr-tools",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small set of scripts and web tools for managing several *arr services; enabled tools and polling activity affect memory.",
+      "source_urls": [
+        "https://github.com/L4stIdi0t/arr-tools",
+        "https://raw.githubusercontent.com/L4stIdi0t/Unraid-template/master/Arr-Tools/ArrTools.xml"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "af402441-8071-4b13-b5ee-bde3117171e3",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://raw.githubusercontent.com/L4stIdi0t/Unraid-template/master/Arr-Tools/ArrTools.xml"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://raw.githubusercontent.com/L4stIdi0t/Unraid-template/master/Arr-Tools/ArrTools.xml"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "arr-tools",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Tool configuration, task state, and logs; the connected media libraries remain in the *arr services.",
+      "source_urls": [
+        "https://github.com/L4stIdi0t/arr-tools",
+        "https://raw.githubusercontent.com/L4stIdi0t/Unraid-template/master/Arr-Tools/ArrTools.xml"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "af402441-8071-4b13-b5ee-bde3117171e3",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://raw.githubusercontent.com/L4stIdi0t/Unraid-template/master/Arr-Tools/ArrTools.xml"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://raw.githubusercontent.com/L4stIdi0t/Unraid-template/master/Arr-Tools/ArrTools.xml"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "arrs2discord",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Scheduled PowerShell scripts that read *arr APIs and post webhook updates; concurrent jobs determine peak memory.",
+      "source_urls": [
+        "https://github.com/fscorrupt/docker-arrs2discord"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "a12984a3-c6c4-42cd-8b36-2653794ebbc1",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/fscorrupt/docker-arrs2discord/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/fscorrupt/docker-arrs2discord/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "arrs2discord",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 1,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Small configuration files and short script logs; media files remain in the connected services.",
+      "source_urls": [
+        "https://github.com/fscorrupt/docker-arrs2discord"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "a12984a3-c6c4-42cd-8b36-2653794ebbc1",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/fscorrupt/docker-arrs2discord/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/fscorrupt/docker-arrs2discord/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "arrstalledhandler",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Python service checking download queues and recording stalled items; polling frequency and queue size affect memory.",
+      "source_urls": [
+        "https://github.com/tommyvange/ArrStalledHandler"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "3fd70707-8535-42f2-a62a-8084e0e93adc",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/tommyvange/ArrStalledHandler/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/tommyvange/ArrStalledHandler/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "arrstalledhandler",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Configuration, stalled-download state, and logs; the media files remain in the connected downloader.",
+      "source_urls": [
+        "https://github.com/tommyvange/ArrStalledHandler"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "3fd70707-8535-42f2-a62a-8084e0e93adc",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/tommyvange/ArrStalledHandler/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/tommyvange/ArrStalledHandler/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "arrvantage",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small web dashboard connected to a few media services; integrations and refresh activity affect memory.",
+      "source_urls": [
+        "https://github.com/Kazwahs/arrvantage",
+        "https://github.com/Kazwahs/arrvantage/blob/main/SETUP.md"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "9e8fc4ba-9b66-4224-bb8a-3fa290f8692f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T09:59:58.459224+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://apps.truenas.com/catalog/arrvantage_community/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://apps.truenas.com/catalog/arrvantage_community/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "arrvantage",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Configuration, service credentials, and small application state; media files stay in the connected services.",
+      "source_urls": [
+        "https://github.com/Kazwahs/arrvantage",
+        "https://github.com/Kazwahs/arrvantage/blob/main/SETUP.md"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "9e8fc4ba-9b66-4224-bb8a-3fa290f8692f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T09:59:58.459224+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://apps.truenas.com/catalog/arrvantage_community/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://apps.truenas.com/catalog/arrvantage_community/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "arti",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Arti Tor client process; active connections and client configuration affect memory.",
+      "source_urls": [
+        "https://arti.torproject.org/",
+        "https://arti.torproject.org/FAQs/",
+        "https://arti.torproject.org/contributing/for-developers/config-options/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "de54cab5-d47f-461f-a627-ea2d7b841b10",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T09:59:58.459224+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://apps.truenas.com/catalog/arti_community/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://apps.truenas.com/catalog/arti_community/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "arti",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Client configuration, cache, and state files; Arti does not currently operate as a relay.",
+      "source_urls": [
+        "https://arti.torproject.org/",
+        "https://arti.torproject.org/FAQs/",
+        "https://arti.torproject.org/contributing/for-developers/config-options/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "de54cab5-d47f-461f-a627-ea2d7b841b10",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T09:59:58.459224+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://apps.truenas.com/catalog/arti_community/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://apps.truenas.com/catalog/arti_community/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "artifactory-oss",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 6144,
+      "estimate_max": 12288,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "JFrog sizes a small Artifactory deployment for up to 20 active clients at 6 GB RAM; this range adds host and workload headroom.",
+      "source_urls": [
+        "https://docs.jfrog.com/installation/docs/hardware-sizing-matrix",
+        "https://docs.jfrog.com/installation/docs/docker",
+        "https://jfrog.com/reference-architecture/self-managed/deployment/considerations/storage/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "50372396-c778-4acb-bb06-a582a7373901",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/102491-support-frakman-artifactory-oss/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/102491-support-frakman-artifactory-oss/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "artifactory-oss",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 100,
+      "estimate_max": 1000,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small artifact repository; JFrog says binary storage scales with retained artifacts and recommends planning capacity for repository growth.",
+      "source_urls": [
+        "https://docs.jfrog.com/installation/docs/hardware-sizing-matrix",
+        "https://docs.jfrog.com/installation/docs/docker",
+        "https://jfrog.com/reference-architecture/self-managed/deployment/considerations/storage/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "50372396-c778-4acb-bb06-a582a7373901",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/102491-support-frakman-artifactory-oss/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/102491-support-frakman-artifactory-oss/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "artillery",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small gallery-dl task manager with a few scheduled jobs; concurrent downloads and image processing affect memory.",
+      "source_urls": [
+        "https://github.com/ObviousViking/Artillery"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "955eb9b6-88f0-41ee-99e9-e876bc77cc26",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:37.813+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:38.763767+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/ObviousViking/Artillery/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/ObviousViking/Artillery/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "artillery",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 500,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Configuration and logs are small; downloaded images in the configured destination dominate storage.",
+      "source_urls": [
+        "https://github.com/ObviousViking/Artillery"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "955eb9b6-88f0-41ee-99e9-e876bc77cc26",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:37.813+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:38.763767+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/ObviousViking/Artillery/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/ObviousViking/Artillery/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "ascii-star-wars",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 64,
+      "estimate_max": 256,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small Go ASCII animation process with no database or persistent service state.",
+      "source_urls": [
+        "https://github.com/skanehira/go-starwars"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "1f2fbfca-14c7-4392-a4b6-2217211eb514",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:51.706+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:52.597429+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/skanehira/go-starwars/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/skanehira/go-starwars/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "ascii-star-wars",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.01,
+      "estimate_max": 0.1,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "The Go program and its bundled animation resources need little disk space; it keeps no media library.",
+      "source_urls": [
+        "https://github.com/skanehira/go-starwars"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "1f2fbfca-14c7-4392-a4b6-2217211eb514",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:51.706+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:52.597429+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/skanehira/go-starwars/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/skanehira/go-starwars/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "asciinema",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "The official self-hosting guide sets 512 MB as the minimum for a personal server and 1 GB for a community instance.",
+      "source_urls": [
+        "https://docs.asciinema.org/manual/server/self-hosting/",
+        "https://docs.asciinema.org/getting-started/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "90bc53c9-7a08-4218-97d1-b20a6057e69f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:52.435+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:53.259667+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/asciinema/asciinema-server#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "asciinema",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A small server stores uploaded terminal recordings and PostgreSQL state; the number and retention of recordings drive disk use.",
+      "source_urls": [
+        "https://docs.asciinema.org/manual/server/self-hosting/",
+        "https://docs.asciinema.org/getting-started/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "90bc53c9-7a08-4218-97d1-b20a6057e69f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:52.435+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:53.259667+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/asciinema/asciinema-server#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "asigra-ds-system",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 16384,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small backup repository service; concurrent backup and recovery jobs and protected-machine count drive memory.",
+      "source_urls": [
+        "https://www.asigra.com/asigra-truenas",
+        "https://s3.amazonaws.com/asigra-documentation/Help/v14.1/DS-System%20Help/DS-System_Help/Updating_the_DS-System_configuration_file_parame.html"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "8820f6c7-9876-4f18-9ebe-39f071539e71",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T09:59:58.459224+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://apps.truenas.com/catalog/asigra-ds-system_enterprise/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://apps.truenas.com/catalog/asigra-ds-system_enterprise/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "asigra-ds-system",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 100,
+      "estimate_max": 10000,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "The official product stores backup data and needs temporary processing space; protected data and retention determine capacity.",
+      "source_urls": [
+        "https://www.asigra.com/asigra-truenas",
+        "https://s3.amazonaws.com/asigra-documentation/Help/v14.1/DS-System%20Help/DS-System_Help/Updating_the_DS-System_configuration_file_parame.html"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "8820f6c7-9876-4f18-9ebe-39f071539e71",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T09:59:58.459224+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://apps.truenas.com/catalog/asigra-ds-system_enterprise/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://apps.truenas.com/catalog/asigra-ds-system_enterprise/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "askadedicatedserver",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 8192,
+      "estimate_max": 16384,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small ASKA dedicated game server; active players and world simulation affect memory.",
+      "source_urls": [
+        "https://store.steampowered.com/app/1898300/ASKA/",
+        "https://hub.docker.com/r/jimbit0/aska-dedicated-server/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "c9e543c0-bf2e-42e5-a5cf-5c1d8870460b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:02.303+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:03.162005+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://hub.docker.com/r/jimbit0/aska-dedicated-server/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://hub.docker.com/r/jimbit0/aska-dedicated-server/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "askadedicatedserver",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One server install with a world save, logs, and update headroom; save history and world size drive growth.",
+      "source_urls": [
+        "https://store.steampowered.com/app/1898300/ASKA/",
+        "https://hub.docker.com/r/jimbit0/aska-dedicated-server/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "c9e543c0-bf2e-42e5-a5cf-5c1d8870460b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:02.303+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:03.162005+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://hub.docker.com/r/jimbit0/aska-dedicated-server/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://hub.docker.com/r/jimbit0/aska-dedicated-server/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "assets",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small self-hosted portfolio tracker with a Go API and SQLite database; users, portfolios, and cached quotes affect memory.",
+      "source_urls": [
+        "https://github.com/venil7/assets"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "ea7956e0-826b-49cb-8a50-6090ce12e411",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T08:42:14.892009+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/venil7/assets#quick-start"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "assets",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.5,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "SQLite transaction and portfolio records, configuration, and backups; imported transaction history drives growth.",
+      "source_urls": [
+        "https://github.com/venil7/assets"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "ea7956e0-826b-49cb-8a50-6090ce12e411",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T08:42:14.892009+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/venil7/assets#quick-start"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "assetto-corsa-evo-server",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Assetto Corsa EVO dedicated server; player slots and event activity affect memory.",
+      "source_urls": [
+        "https://support.505games.com/support/solutions/150000216858",
+        "https://help.steampowered.com/en/wizard/HelpWithGameTechnicalIssue?appid=3058630"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "389c7d45-25db-4178-8a49-20dd0318227c",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:06.155+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:07.081981+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/198628-support-vandal-assetto-corsa-evo-server"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/198628-support-vandal-assetto-corsa-evo-server"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "assetto-corsa-evo-server",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One dedicated server and its track and configuration files; updates and added content need extra space.",
+      "source_urls": [
+        "https://support.505games.com/support/solutions/150000216858",
+        "https://help.steampowered.com/en/wizard/HelpWithGameTechnicalIssue?appid=3058630"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "389c7d45-25db-4178-8a49-20dd0318227c",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:06.155+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:07.081981+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/198628-support-vandal-assetto-corsa-evo-server"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/198628-support-vandal-assetto-corsa-evo-server"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "astro",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small homelab dashboard with a Go backend and service configuration; dashboard traffic and stored service data affect memory.",
+      "source_urls": [
+        "https://github.com/igorsheg/astro"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "36e10d18-48a8-4aa3-90b7-3a7e89bbc395",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:37.813+00:00",
+        "created_at": "2026-09-02T13:53:59.094078+00:00",
+        "updated_at": "2026-09-02T14:12:38.763767+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/igorsheg/astro#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/igorsheg/astro#readme"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "astro",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Dashboard configuration, service records, and local images; no media library is stored by the app.",
+      "source_urls": [
+        "https://github.com/igorsheg/astro"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "36e10d18-48a8-4aa3-90b7-3a7e89bbc395",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:37.813+00:00",
+        "created_at": "2026-09-02T13:53:59.094078+00:00",
+        "updated_at": "2026-09-02T14:12:38.763767+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/igorsheg/astro#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/igorsheg/astro#readme"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "astroluma",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small MERN dashboard with its MongoDB service; multiple users, uploads, and integrations affect memory.",
+      "source_urls": [
+        "https://github.com/Sanjeet990/Astroluma",
+        "https://getastroluma.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "f8629ccb-b5a1-4671-abd0-e30de62f4089",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:15.901+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:16.780174+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/Sanjeet990/Astroluma#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "astroluma",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "MongoDB state, uploaded files, and configuration; uploaded content and user activity drive growth.",
+      "source_urls": [
+        "https://github.com/Sanjeet990/Astroluma",
+        "https://getastroluma.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "f8629ccb-b5a1-4671-abd0-e30de62f4089",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:15.901+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:16.780174+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/Sanjeet990/Astroluma#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "astropolis",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 8192,
+      "estimate_max": 16384,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small modded Minecraft server for the Astropolis pack; players, loaded chunks, and installed mods affect memory.",
+      "source_urls": [
+        "https://www.curseforge.com/minecraft/modpacks/astropolis",
+        "https://www.minecraft.net/en-us/download/server"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "167faf7b-922a-466b-8161-b6655827f534",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "astropolis",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A modded Minecraft server install, generated world, and backups; world exploration and backup retention drive disk use.",
+      "source_urls": [
+        "https://www.curseforge.com/minecraft/modpacks/astropolis",
+        "https://www.minecraft.net/en-us/download/server"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "167faf7b-922a-466b-8161-b6655827f534",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "atlas-network",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small network discovery dashboard with SQLite state; scan size, graph history, and polling frequency affect memory.",
+      "source_urls": [
+        "https://github.com/karam-ajaj/atlas"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "3991cdc6-fe72-45b7-b4a5-06263884ae82",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:52.435+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:53.259667+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/karam-ajaj/atlas#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "atlas-network",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "SQLite device and topology history, configuration, and logs; network size and retained scan history drive growth.",
+      "source_urls": [
+        "https://github.com/karam-ajaj/atlas"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "3991cdc6-fe72-45b7-b4a5-06263884ae82",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:52.435+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:11:53.259667+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/karam-ajaj/atlas#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 512,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "atm7tothesky",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 8192,
+      "estimate_max": 16384,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small All the Mods 7 To the Sky server pack; the modpack has a large Java workload, and players and world activity affect memory.",
+      "source_urls": [
+        "https://www.curseforge.com/minecraft/modpacks/all-the-mods-7-to-the-sky",
+        "https://github.com/AllTheMods/Server-Scripts"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "cc9b1b78-8f2c-40b0-a3e7-c7a554ed9f00",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "atm7tothesky",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 15,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Server-pack files, generated skyblock worlds, logs, and backups; world activity and retained backups drive disk use.",
+      "source_urls": [
+        "https://www.curseforge.com/minecraft/modpacks/all-the-mods-7-to-the-sky",
+        "https://github.com/AllTheMods/Server-Scripts"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "cc9b1b78-8f2c-40b0-a3e7-c7a554ed9f00",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "atria",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 8192,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small event platform with Flask, PostgreSQL, file storage, and optional Redis; attendee count and live event activity affect memory.",
+      "source_urls": [
+        "https://github.com/thesubtleties/atria"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "c6d8cd9b-ac8c-446c-93ce-9657a1ca262a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/thesubtleties/atria#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 768,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "atria",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 200,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "PostgreSQL event records and uploaded files; the configured MinIO or S3-compatible store holds event media.",
+      "source_urls": [
+        "https://github.com/thesubtleties/atria"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "c6d8cd9b-ac8c-446c-93ce-9657a1ca262a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:39.861+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:12:40.851128+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://github.com/thesubtleties/atria#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_min_mb": 768,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "atrium",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 6144,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small client portal with a NestJS API, Next.js frontend, and PostgreSQL; active clients and background work affect memory.",
+      "source_urls": [
+        "https://github.com/Vibra-Labs/Atrium",
+        "https://github.com/Vibra-Labs/Atrium/blob/main/docs/configuration.md"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "55bd8da4-11d1-4168-b4cc-0aacea513740",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/Vibra-Labs/Atrium/blob/main/docs/configuration.md"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/Vibra-Labs/Atrium/blob/main/docs/configuration.md"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "atrium",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 500,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Project records, database state, and client uploads; the range assumes local storage, while S3-compatible storage can be planned separately.",
+      "source_urls": [
+        "https://github.com/Vibra-Labs/Atrium",
+        "https://github.com/Vibra-Labs/Atrium/blob/main/docs/configuration.md"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "55bd8da4-11d1-4168-b4cc-0aacea513740",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/Vibra-Labs/Atrium/blob/main/docs/configuration.md"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/Vibra-Labs/Atrium/blob/main/docs/configuration.md"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "ats-buddy",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "The app is a static browser interface and does not run a server model; local model inference uses separate hardware.",
+      "source_urls": [
+        "https://github.com/seehiong/ats-buddy",
+        "https://seehiong.github.io/ats-buddy/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "e16276ba-f181-4d39-bdea-0cebb4e26bbe",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T13:14:08.876038+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/seehiong/ats-buddy#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/seehiong/ats-buddy#readme"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "ats-buddy",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 2,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Static application files and small configuration; model files are managed by the selected browser or local model runtime.",
+      "source_urls": [
+        "https://github.com/seehiong/ats-buddy",
+        "https://seehiong.github.io/ats-buddy/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "e16276ba-f181-4d39-bdea-0cebb4e26bbe",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T13:14:08.876038+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/seehiong/ats-buddy#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/seehiong/ats-buddy#readme"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "atticd",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Attic Nix cache service; cache metadata and concurrent uploads or downloads affect memory.",
+      "source_urls": [
+        "https://docs.attic.rs/",
+        "https://docs.attic.rs/tutorial.html"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "4c490341-4fe2-4b4b-add7-72866f029172",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://raw.githubusercontent.com/TheToddLuci0/Unraid-Apps/main/src/attic/README.md"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://raw.githubusercontent.com/TheToddLuci0/Unraid-Apps/main/src/attic/README.md"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "atticd",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 1000,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Nix binary cache objects dominate storage; Attic uses an S3-compatible storage provider whose capacity is set by cache retention.",
+      "source_urls": [
+        "https://docs.attic.rs/",
+        "https://docs.attic.rs/tutorial.html"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "4c490341-4fe2-4b4b-add7-72866f029172",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://raw.githubusercontent.com/TheToddLuci0/Unraid-Apps/main/src/attic/README.md"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://raw.githubusercontent.com/TheToddLuci0/Unraid-Apps/main/src/attic/README.md"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "audacious",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A browser-accessible Audacious container with a virtual desktop; concurrent streams and GUI activity affect memory.",
+      "source_urls": [
+        "https://github.com/audacious-media-player/audacious",
+        "https://github.com/jlesage/docker-audacious"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "67933457-9cc0-4cc3-8aaf-4d09c896eab4",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/jlesage/docker-audacious#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/jlesage/docker-audacious#readme"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "audacious",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 1000,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "The player and its settings are small; a mounted music library dominates storage.",
+      "source_urls": [
+        "https://github.com/audacious-media-player/audacious",
+        "https://github.com/jlesage/docker-audacious"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "67933457-9cc0-4cc3-8aaf-4d09c896eab4",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/jlesage/docker-audacious#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/jlesage/docker-audacious#readme"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "audiomass",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "The hosted files serve a browser editor; audio decoding and editing happen in the user browser, not on the web server.",
+      "source_urls": [
+        "https://github.com/pkalogiros/AudioMass",
+        "https://audiomass.co/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "23bc75ce-e36c-4671-8aef-d43c50fd4a63",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/pkalogiros/AudioMass"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/pkalogiros/AudioMass"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "audiomass",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 1,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Static application files and a small web server; edited audio files remain on the user device.",
+      "source_urls": [
+        "https://github.com/pkalogiros/AudioMass",
+        "https://audiomass.co/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "23bc75ce-e36c-4671-8aef-d43c50fd4a63",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/pkalogiros/AudioMass"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/pkalogiros/AudioMass"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "audplexus",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Go audiobook downloader and organizer; concurrent downloads and audio processing affect memory.",
+      "source_urls": [
+        "https://github.com/mstrhakr/audplexus"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "968357a2-b855-4b35-9212-0884595e974d",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/mstrhakr/audplexus#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/mstrhakr/audplexus#readme"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "audplexus",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 1000,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Configuration and temporary downloads are modest; the organized audiobook library dominates storage.",
+      "source_urls": [
+        "https://github.com/mstrhakr/audplexus"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "968357a2-b855-4b35-9212-0884595e974d",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/mstrhakr/audplexus#readme"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/mstrhakr/audplexus#readme"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "auto-turbo-write-mode",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 16,
+      "estimate_max": 128,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A lightweight Unraid plugin that changes an array write setting based on drive state and schedules.",
+      "source_urls": [
+        "https://forums.unraid.net/topic/55671-plugin-ca-auto-turbo-write-mode/",
+        "https://docs.unraid.net/unraid-os/using-unraid-to/manage-storage/array/overview/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "4f93f9c3-8f5a-4dc7-b676-7647347fae44",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/55671-plugin-ca-auto-turbo-write-mode"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/55671-plugin-ca-auto-turbo-write-mode"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "auto-turbo-write-mode",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.01,
+      "estimate_max": 0.1,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Plugin files, settings, and small logs; the plugin does not store array data.",
+      "source_urls": [
+        "https://forums.unraid.net/topic/55671-plugin-ca-auto-turbo-write-mode/",
+        "https://docs.unraid.net/unraid-os/using-unraid-to/manage-storage/array/overview/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "4f93f9c3-8f5a-4dc7-b676-7647347fae44",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/55671-plugin-ca-auto-turbo-write-mode"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/55671-plugin-ca-auto-turbo-write-mode"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "auto-update-applications",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 32,
+      "estimate_max": 256,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A lightweight Unraid plugin that checks and schedules app or plugin updates; the system performs the actual updates.",
+      "source_urls": [
+        "https://ca.unraid.net/apps/auto-update-applications-0ylkfa81d6x8us",
+        "https://raw.githubusercontent.com/Squidly271/ca.update.applications/master/plugins/ca.update.applications.plg"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "ddf74d91-3ba8-451a-bd19-bf5008d5d6dc",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/51959-plugin-ca-application-auto-update/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/51959-plugin-ca-application-auto-update/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "auto-update-applications",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.01,
+      "estimate_max": 0.5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Plugin settings and update history; application images and appdata are stored separately.",
+      "source_urls": [
+        "https://ca.unraid.net/apps/auto-update-applications-0ylkfa81d6x8us",
+        "https://raw.githubusercontent.com/Squidly271/ca.update.applications/master/plugins/ca.update.applications.plg"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "ddf74d91-3ba8-451a-bd19-bf5008d5d6dc",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/51959-plugin-ca-application-auto-update/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/51959-plugin-ca-application-auto-update/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "autobd",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Flask comic-strip editor with a web interface and image export; concurrent editing and image processing affect memory.",
+      "source_urls": [
+        "https://apps.yunohost.org/app/autobd",
+        "https://forge.apps.education.fr/educajou/autobd",
+        "https://github.com/YunoHost-Apps/autobd_ynh"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "194dd17a-5f7b-495c-b6bc-5fdef2d1f879",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "autobd",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "The app includes background and character assets; user images and exported comic strips drive additional storage.",
+      "source_urls": [
+        "https://apps.yunohost.org/app/autobd",
+        "https://forge.apps.education.fr/educajou/autobd",
+        "https://github.com/YunoHost-Apps/autobd_ynh"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "194dd17a-5f7b-495c-b6bc-5fdef2d1f879",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T10:29:40.593779+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": null,
+        "ram_source_urls": [
+          "https://yunohost.org/en/apps"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [],
+        "storage_estimate_kind": null,
+        "storage_estimate_basis": null,
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_confidence": null
+      }
+    },
+    {
+      "slug": "autofiller-web",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small queue interface and worker for sending selected game downloads to Lancache; queued jobs and download activity affect memory.",
+      "source_urls": [
+        "https://github.com/redvex2460/autofiller.web",
+        "https://raw.githubusercontent.com/redvex2460/docker-templates/master/redvex2460/Autofiller-Web.xml"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "d4acb84a-060f-4786-9252-1a61b7c89db9",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://discord.gg/egVNBW53Dq"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://discord.gg/egVNBW53Dq"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "autofiller-web",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Configuration, queue state, and logs; cached game files are stored by the separate Lancache service.",
+      "source_urls": [
+        "https://github.com/redvex2460/autofiller.web",
+        "https://raw.githubusercontent.com/redvex2460/docker-templates/master/redvex2460/Autofiller-Web.xml"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "d4acb84a-060f-4786-9252-1a61b7c89db9",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://discord.gg/egVNBW53Dq"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://discord.gg/egVNBW53Dq"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "automatic1111-stable-diffusion-web-ui",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 8192,
+      "estimate_max": 16384,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "The project troubleshooting guide says 16 GB of regular RAM runs the web UI smoothly; GPU VRAM is separate.",
+      "source_urls": [
+        "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+        "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Troubleshooting"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "adc3c70c-91ea-4dda-8ccd-00671c9073a4",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:15.901+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:16.780174+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "automatic1111-stable-diffusion-web-ui",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 200,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "The web UI, Python environment, model checkpoints, extensions, and generated images; model and output retention drive storage.",
+      "source_urls": [
+        "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+        "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Troubleshooting"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "adc3c70c-91ea-4dda-8ccd-00671c9073a4",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:15.901+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:16.780174+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/133764-support-grtgbln-docker-templates"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "automover",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 64,
+      "estimate_max": 256,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "A lightweight Unraid plugin that monitors pool thresholds and starts the native mover; large move jobs are handled by Unraid.",
+      "source_urls": [
+        "https://github.com/jcofer555/automover",
+        "https://ca.unraid.net/apps/automover-1j9set00tpmqhc"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "ffa0206b-4961-4623-b348-b68eff66514b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:51.706+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:52.597429+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/192216-automover-for-unraid/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/192216-automover-for-unraid/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "automover",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.01,
+      "estimate_max": 0.1,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Plugin files and small settings; its documented logs use temporary storage and moved files remain on the Unraid pools.",
+      "source_urls": [
+        "https://github.com/jcofer555/automover",
+        "https://ca.unraid.net/apps/automover-1j9set00tpmqhc"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "ffa0206b-4961-4623-b348-b68eff66514b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:51.706+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:12:52.597429+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/192216-automover-for-unraid/"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/192216-automover-for-unraid/"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "autoscan",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One small Go webhook and scan queue service; queued library changes and the number of connected media servers affect memory.",
+      "source_urls": [
+        "https://github.com/Cloudbox/autoscan"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "8db39aab-5bd8-4f99-9c3c-e9fdb1bbdb1f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/Cloudbox/autoscan/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/Cloudbox/autoscan/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "autoscan",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 0.1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Configuration and the SQLite scan queue; media files stay in the connected Plex, Emby, or Jellyfin libraries.",
+      "source_urls": [
+        "https://github.com/Cloudbox/autoscan"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "app_id": "8db39aab-5bd8-4f99-9c3c-e9fdb1bbdb1f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:08:48.256264+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/Cloudbox/autoscan/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/Cloudbox/autoscan/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    }
+  ]
+}

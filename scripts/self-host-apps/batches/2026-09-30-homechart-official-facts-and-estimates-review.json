@@ -1,0 +1,395 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are offline comparison values and must be refreshed before applying.",
+  "scope": "Correct Homechart links, publisher and pricing facts, categories, supported installs, database and RAM requirements, and estimated resources from official sources.",
+  "apps": [
+    {
+      "slug": "homechart",
+      "review_scope": "partial",
+      "expected": {
+        "name": "homechart",
+        "summary": "Homechart is a productivity application to manage your household data--budgets, tasks, recipes, and more, Homechart can run in your browser or on your.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "docs_url": "https://github.com/candiddev/homechart",
+        "install_docs_url": "https://github.com/candiddev/homechart",
+        "docker_url": "https://registry.hub.docker.com/r/ghcr.io/candiddev/homechart",
+        "docker_image": "ghcr.io/candiddev/homechart:latest",
+        "docker_support": "community",
+        "compose_support": false,
+        "compose_url": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_min_mb": null,
+        "resource_requirement_kind": "unknown",
+        "storage_profile": "unknown",
+        "persistent_storage": null,
+        "pricing_model": "unknown",
+        "publisher_name": "homechart",
+        "publisher_type": "unknown",
+        "publisher_url": "https://homechart.app/",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "surfaces": [
+          "web"
+        ],
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/candiddev/homechart",
+              "https://homechart.app/",
+              "https://homechart.app/homechart.png",
+              "https://raw.githubusercontent.com/W3LFARe/unraid_templates/main/homechart/homechart.xml",
+              "https://registry.hub.docker.com/r/ghcr.io/candiddev/homechart"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/candiddev/homechart",
+              "https://homechart.app/",
+              "https://homechart.app/homechart.png",
+              "https://raw.githubusercontent.com/W3LFARe/unraid_templates/main/homechart/homechart.xml",
+              "https://registry.hub.docker.com/r/ghcr.io/candiddev/homechart"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/candiddev/homechart",
+              "https://homechart.app/",
+              "https://homechart.app/homechart.png",
+              "https://raw.githubusercontent.com/W3LFARe/unraid_templates/main/homechart/homechart.xml",
+              "https://registry.hub.docker.com/r/ghcr.io/candiddev/homechart"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/candiddev/homechart",
+              "https://homechart.app/",
+              "https://homechart.app/homechart.png",
+              "https://raw.githubusercontent.com/W3LFARe/unraid_templates/main/homechart/homechart.xml",
+              "https://registry.hub.docker.com/r/ghcr.io/candiddev/homechart"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/candiddev/homechart",
+              "https://homechart.app/",
+              "https://homechart.app/homechart.png",
+              "https://raw.githubusercontent.com/W3LFARe/unraid_templates/main/homechart/homechart.xml",
+              "https://registry.hub.docker.com/r/ghcr.io/candiddev/homechart"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/candiddev/homechart",
+              "https://homechart.app/",
+              "https://homechart.app/homechart.png",
+              "https://raw.githubusercontent.com/W3LFARe/unraid_templates/main/homechart/homechart.xml",
+              "https://registry.hub.docker.com/r/ghcr.io/candiddev/homechart"
+            ]
+          }
+        },
+        "categories": [
+          "databases",
+          "finance-budgeting",
+          "recipes-food"
+        ]
+      },
+      "name": "Homechart",
+      "summary": "Homechart helps households manage calendars, chores, budgets, tasks, meals, and other shared information.",
+      "summary_source": "stack127_enriched",
+      "summary_confidence": "high",
+      "docs_url": "https://homechart.app/docs/",
+      "install_docs_url": "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+      "docker_url": "https://github.com/candiddev/homechart/pkgs/container/homechart",
+      "docker_image": "ghcr.io/candiddev/homechart:latest",
+      "docker_support": "official",
+      "compose_support": true,
+      "compose_url": "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+      "requires_database": true,
+      "database_types": [
+        "postgresql"
+      ],
+      "ram_min_mb": 512,
+      "resource_requirement_kind": "official_minimum",
+      "storage_profile": "depends",
+      "persistent_storage": true,
+      "pricing_model": "freemium",
+      "publisher_name": "Candid Development",
+      "publisher_type": "company",
+      "publisher_url": "https://candid.dev/",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "helm",
+        "kubernetes",
+        "binary",
+        "podman",
+        "unraid"
+      ],
+      "surfaces": [
+        "web",
+        "ios",
+        "android",
+        "windows"
+      ],
+      "technical_fact_status": {
+        "ram": {
+          "note": "Publisher lists 512 MB as the server minimum; the directory range also estimates PostgreSQL for a small setup.",
+          "status": "published",
+          "checked_at": "2026-09-30T16:51:30.000Z",
+          "confidence": "high",
+          "source_urls": [
+            "https://homechart.app/docs/guides/get-homechart/self-hosted/"
+          ]
+        },
+        "docker": {
+          "note": "Publisher documents a Docker image and Docker installation.",
+          "status": "published",
+          "checked_at": "2026-09-30T16:51:30.000Z",
+          "confidence": "high",
+          "source_urls": [
+            "https://homechart.app/docs/guides/get-homechart/self-hosted/"
+          ]
+        },
+        "compose": {
+          "note": "Publisher provides a Docker Compose setup for Homechart and PostgreSQL.",
+          "status": "published",
+          "checked_at": "2026-09-30T16:51:30.000Z",
+          "confidence": "high",
+          "source_urls": [
+            "https://homechart.app/docs/guides/get-homechart/self-hosted/"
+          ]
+        },
+        "storage": {
+          "note": "The Est. Storage range is for light household data stored in PostgreSQL.",
+          "status": "estimated",
+          "checked_at": "2026-09-30T16:51:30.000Z",
+          "confidence": "low",
+          "source_urls": [
+            "https://homechart.app/docs/guides/get-homechart/self-hosted/"
+          ]
+        },
+        "database": {
+          "note": "Publisher requires PostgreSQL 16.",
+          "status": "published",
+          "checked_at": "2026-09-30T16:51:30.000Z",
+          "confidence": "high",
+          "source_urls": [
+            "https://homechart.app/docs/guides/get-homechart/self-hosted/"
+          ]
+        },
+        "docker_image": {
+          "note": "Publisher documents the ghcr.io/candiddev/homechart image.",
+          "status": "published",
+          "checked_at": "2026-09-30T16:51:30.000Z",
+          "confidence": "high",
+          "source_urls": [
+            "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+            "https://github.com/candiddev/homechart/pkgs/container/homechart"
+          ]
+        }
+      },
+      "categories": [
+        "calendars-contacts",
+        "finance-budgeting",
+        "project-task-management"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose",
+        "helm",
+        "binary",
+        "other"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://ghcr.io/candiddev/homechart",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "ghcr.io/candiddev/homechart:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://registry.hub.docker.com/r/ghcr.io/candiddev/homechart",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/W3LFARe/unraid_templates/main/homechart/homechart.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/W3LFARe/unraid_templates/main/homechart/homechart.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Official Docker image",
+          "url": "https://github.com/candiddev/homechart/pkgs/container/homechart",
+          "image": "ghcr.io/candiddev/homechart:latest",
+          "support_level": "official",
+          "source_url": "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+          "note": "The publisher provides a Compose file for Homechart and PostgreSQL.",
+          "sort_order": 20
+        },
+        {
+          "method": "helm",
+          "label": "Helm chart",
+          "url": "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+          "note": "The publisher documents its Homechart chart for Kubernetes.",
+          "sort_order": 25
+        },
+        {
+          "method": "binary",
+          "label": "Homechart binary",
+          "url": "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+          "note": "The publisher provides binaries for multiple operating systems and architectures.",
+          "sort_order": 30
+        },
+        {
+          "method": "other",
+          "label": "Podman",
+          "url": "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+          "image": "ghcr.io/candiddev/homechart:latest",
+          "support_level": "official",
+          "source_url": "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+          "note": "The publisher documents running the container with Podman.",
+          "sort_order": 40
+        }
+      ],
+      "data_source_urls": [
+        "https://homechart.app/",
+        "https://homechart.app/pricing",
+        "https://homechart.app/docs/",
+        "https://homechart.app/docs/guides/get-homechart/",
+        "https://homechart.app/docs/guides/get-homechart/self-hosted/",
+        "https://candid.dev/",
+        "https://candid.dev/open-source",
+        "https://github.com/candiddev/homechart",
+        "https://github.com/candiddev/homechart/pkgs/container/homechart"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "estimates": [
+    {
+      "slug": "homechart",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Publisher lists a 512 MB server minimum; this range allows for PostgreSQL in a small household setup.",
+      "source_urls": [
+        "https://homechart.app/docs/guides/get-homechart/self-hosted/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/candiddev/homechart"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/candiddev/homechart"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "homechart",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "Light household calendars, notes, tasks, and lists stored in PostgreSQL; excludes large file archives.",
+      "source_urls": [
+        "https://homechart.app/docs/guides/get-homechart/self-hosted/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://github.com/candiddev/homechart"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://github.com/candiddev/homechart"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    }
+  ]
+}

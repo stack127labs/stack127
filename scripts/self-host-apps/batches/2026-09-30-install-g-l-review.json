@@ -1,0 +1,1810 @@
+{
+  "report_date": "2026-09-30",
+  "project_id": "tulgfrqamtcshdtmhvpx",
+  "selection": "Requested first 25 published self_hostable apps with empty install-option arrays, slugs g3proxy through goeland.",
+  "production_write": false,
+  "apps": [
+    {
+      "slug": "g3proxy",
+      "id": "6ea6778b-3430-47ae-bc0e-54cbcb7a868b",
+      "name": "g3proxy",
+      "existing": {
+        "website_url": "https://g3-project.readthedocs.io/projects/g3proxy/en/latest/",
+        "source_code_url": "https://github.com/bytedance/g3/tree/master/g3proxy",
+        "install_docs_url": "https://g3-project.readthedocs.io/projects/g3proxy/en/latest/",
+        "publisher_url": "https://www.bytedance.com/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "Debian/Ubuntu packages",
+          "url": "https://cloudsmith.io/~g3-oqh/repos/g3-stable/packages/?q=name%3Ag3proxy",
+          "support_level": "official",
+          "source_url": "https://github.com/bytedance/g3/blob/master/g3proxy/UserGuide.en_US.md",
+          "image": null,
+          "note": "The Cloudsmith feed is marked for testing and currently trails the latest project release.",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Build Docker image",
+          "url": "https://github.com/bytedance/g3/blob/master/doc/build_and_package.md#docker-image",
+          "support_level": "official",
+          "source_url": "https://github.com/bytedance/g3/blob/master/doc/build_and_package.md#docker-image",
+          "image": null,
+          "note": "Build the image from the official source; no prebuilt upstream image was verified.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/bytedance/g3/blob/master/g3proxy/UserGuide.en_US.md",
+          "note": "The official user guide identifies Linux package installation for Debian, RHEL, and other distributions."
+        },
+        {
+          "url": "https://cloudsmith.io/~g3-oqh/repos/g3-stable/packages/?q=name%3Ag3proxy",
+          "note": "G3's Cloudsmith repository lists published g3proxy packages and repository setup instructions."
+        },
+        {
+          "url": "https://github.com/bytedance/g3/blob/master/doc/build_and_package.md#docker-image",
+          "note": "The upstream build guide documents building a Docker image from source."
+        },
+        {
+          "url": "https://github.com/bytedance/g3/blob/master/g3proxy/UserGuide.en_US.md#installation",
+          "note": "The official user guide links to the installation section for supported package setup."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the Debian/Ubuntu package and Docker build options; set deployment_methods to docker and package. No direct Compose file or prebuilt official image was verified."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/bytedance/g3/blob/master/g3proxy/UserGuide.en_US.md#installation",
+        "docker_url": "https://github.com/bytedance/g3/blob/master/doc/build_and_package.md#docker-image",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "package"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "gal-ne",
+      "id": "eceedd88-6414-4259-bd5c-49340e3ad047",
+      "name": "Gal Ne",
+      "existing": {
+        "website_url": "https://galene.org",
+        "source_code_url": "https://github.com/jech/galene",
+        "install_docs_url": "https://github.com/jech/galene#readme",
+        "publisher_url": "https://github.com/jech",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Native installation",
+          "url": "https://galene.org/galene-install.html",
+          "support_level": "official",
+          "source_url": "https://galene.org/galene-install.html",
+          "image": null,
+          "note": "The official guide explains how to build the server binary, copy it to a Linux host, and run it as a service.",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://galene.org/galene-install.html",
+          "note": "Official installation guide documents building and running Galene on a server."
+        },
+        {
+          "url": "https://github.com/jech/galene",
+          "note": "The upstream repository confirms the official installation guide and quick-start build instructions."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Keep the native installation method and add its guide as an install option.",
+        "This record appears to duplicate the Galene project also listed under slug galene; review the duplicate app record separately."
+      ],
+      "proposed": {
+        "published": false,
+        "duplicate_of": "galene",
+        "install_option_action": "skip_duplicate"
+      }
+    },
+    {
+      "slug": "galene",
+      "id": "b5943e99-f0a4-4e09-807c-09038ead27d9",
+      "name": "Galene",
+      "existing": {
+        "website_url": "https://galene.org",
+        "source_code_url": "https://github.com/jech/galene",
+        "install_docs_url": "https://github.com/jech/galene#readme",
+        "publisher_url": "https://github.com/jech",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Native installation",
+          "url": "https://galene.org/galene-install.html",
+          "support_level": "official",
+          "source_url": "https://galene.org/galene-install.html",
+          "image": null,
+          "note": "The official guide explains how to build the server binary, copy it to a Linux host, and run it as a service.",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://galene.org/galene-install.html",
+          "note": "Official installation guide documents building and running Galene on a server."
+        },
+        {
+          "url": "https://github.com/jech/galene",
+          "note": "The upstream repository confirms the official installation guide and quick-start build instructions."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Set the native deployment method and add the official install guide. Merge the duplicate gal-ne record into this canonical record."
+      ],
+      "proposed": {
+        "install_docs_url": "https://galene.org/galene-install.html",
+        "deployment_methods": [
+          "native"
+        ],
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "galette",
+      "id": "31f7c79d-57f1-489a-a366-87e3b5be8bcc",
+      "name": "Galette",
+      "existing": {
+        "website_url": "https://galette.eu",
+        "source_code_url": "https://github.com/galette/galette",
+        "install_docs_url": "https://github.com/galette/galette#readme",
+        "publisher_url": "https://github.com/galette",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Native installation",
+          "url": "https://doc.galette.eu/en/master/installation/index.html",
+          "support_level": "official",
+          "source_url": "https://doc.galette.eu/en/master/installation/index.html",
+          "image": null,
+          "note": "The official guide installs the release archive on a web server and finishes setup in the browser.",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Community Docker image",
+          "url": "https://hub.docker.com/r/galette/galette",
+          "support_level": "community",
+          "source_url": "https://github.com/galette/docker",
+          "image": "galette/galette:1.2.0",
+          "note": "Community image; its latest visible app version is 1.2.0, behind the core project’s 1.2.1 release.",
+          "sort_order": 20
+        },
+        {
+          "method": "compose",
+          "label": "Community Docker Compose",
+          "url": "https://github.com/galette/docker/blob/1.2.1/docker-compose/galette-and-mariadb/docker-compose.yml",
+          "support_level": "community",
+          "source_url": "https://github.com/galette/docker",
+          "image": null,
+          "note": "Community-maintained Compose file; its image tag was not verified.",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://doc.galette.eu/en/master/installation/index.html",
+          "note": "The official installation manual gives release archive and web-server instructions. It mentions a community Docker repository but does not identify its target in the inspected page."
+        },
+        {
+          "url": "https://hub.docker.com/r/galette/galette",
+          "note": "The Docker Hub page identifies Galette Community as the image maintainer and shows the latest visible image version as 1.2.0."
+        },
+        {
+          "url": "https://github.com/galette/docker",
+          "note": "The image source repository says it is community-maintained and separate from the core project; it links the Compose files."
+        },
+        {
+          "url": "https://github.com/galette/docker/blob/1.2.1/docker-compose/galette-and-mariadb/docker-compose.yml",
+          "note": "Direct community Compose YAML destination."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official archive install and the community Docker and Compose routes. Keep the community label visible; the Docker Hub image trails the core release."
+      ],
+      "proposed": {
+        "install_docs_url": "https://doc.galette.eu/en/master/installation/index.html",
+        "docker_url": "https://hub.docker.com/r/galette/galette",
+        "docker_image": "galette/galette:1.2.0",
+        "compose_url": "https://github.com/galette/docker/blob/1.2.1/docker-compose/galette-and-mariadb/docker-compose.yml",
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "native"
+        ],
+        "docker_support": "community",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "games-on-whales",
+      "id": "6d385058-0102-4cdf-b4b8-7854c0e3bafb",
+      "name": "Games on Whales",
+      "existing": {
+        "website_url": "https://games-on-whales.github.io/wolf/stable",
+        "source_code_url": "https://github.com/games-on-whales/wolf",
+        "install_docs_url": "https://github.com/games-on-whales/wolf#readme",
+        "publisher_url": "https://github.com/games-on-whales",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/games-on-whales/wolf/pkgs/container/wolf",
+          "support_level": "official",
+          "source_url": "https://games-on-whales.github.io/wolf/stable/user/quickstart.html",
+          "image": "ghcr.io/games-on-whales/wolf:stable",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://games-on-whales.github.io/wolf/stable/user/quickstart.html",
+          "support_level": "official",
+          "source_url": "https://games-on-whales.github.io/wolf/stable/user/quickstart.html",
+          "image": "ghcr.io/games-on-whales/wolf:stable",
+          "note": "The quick-start guide provides Docker Compose configurations for supported hardware.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://games-on-whales.github.io/wolf/stable/user/quickstart.html",
+          "note": "Official quick-start gives Docker CLI and Compose install configurations using the stable GHCR image."
+        },
+        {
+          "url": "https://github.com/games-on-whales/wolf/pkgs/container/wolf",
+          "note": "The upstream GitHub Packages page publishes the Wolf container image."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the Docker and Compose install options and deployment methods."
+      ],
+      "proposed": {
+        "install_docs_url": "https://games-on-whales.github.io/wolf/stable/user/quickstart.html",
+        "docker_url": "https://github.com/games-on-whales/wolf/pkgs/container/wolf",
+        "docker_image": "ghcr.io/games-on-whales/wolf:stable",
+        "compose_url": null,
+        "deployment_methods": [
+          "compose",
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "garage",
+      "id": "939f0283-e49a-40a6-afed-806b2a3220d0",
+      "name": "Garage",
+      "existing": {
+        "website_url": "https://garagehq.deuxfleurs.fr",
+        "source_code_url": "https://github.com/deuxfleurs-org/garage",
+        "install_docs_url": "https://garagehq.deuxfleurs.fr/documentation/quick-start/",
+        "publisher_url": "https://github.com/deuxfleurs-org",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/dxflrs/garage",
+          "support_level": "official",
+          "source_url": "https://github.com/deuxfleurs-org/garage/blob/main-v2/doc/book/cookbook/real-world.md",
+          "image": "dxflrs/garage:v2.4.1",
+          "note": "The project recommends a fixed version tag instead of latest.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/deuxfleurs-org/garage/blob/main-v2/doc/book/cookbook/real-world.md",
+          "support_level": "official",
+          "source_url": "https://github.com/deuxfleurs-org/garage/blob/main-v2/doc/book/cookbook/real-world.md",
+          "image": "dxflrs/garage:v2.4.1",
+          "note": "The official cookbook includes a Compose example and uses host networking for cluster communication.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/deuxfleurs-org/garage/blob/main-v2/doc/book/cookbook/real-world.md",
+          "note": "The official cookbook documents the Docker Hub image, docker pull/run, and a Docker Compose example."
+        },
+        {
+          "url": "https://hub.docker.com/r/dxflrs/garage",
+          "note": "Docker Hub identifies the Garage image publisher as Association Deuxfleurs."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the Docker and Compose install options and deployment methods."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/deuxfleurs-org/garage/blob/main-v2/doc/book/cookbook/real-world.md",
+        "docker_url": "https://hub.docker.com/r/dxflrs/garage",
+        "docker_image": "dxflrs/garage:v2.4.1",
+        "compose_url": null,
+        "deployment_methods": [
+          "compose",
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "garlic-hub",
+      "id": "be90fd9f-16ba-4af4-bf8c-f2f5faa8cc73",
+      "name": "Garlic-Hub",
+      "existing": {
+        "website_url": "https://garlic-signage.com/garlic-hub/",
+        "source_code_url": "https://github.com/garlic-signage/garlic-hub",
+        "install_docs_url": "https://github.com/garlic-signage/garlic-hub#readme",
+        "publisher_url": "https://github.com/garlic-signage",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/sagiadinos/garlic-hub",
+          "support_level": "official",
+          "source_url": "https://garlic-signage.com/garlic-hub/installation/",
+          "image": "sagiadinos/garlic-hub:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://garlic-signage.com/garlic-hub/installation/",
+          "support_level": "official",
+          "source_url": "https://garlic-signage.com/garlic-hub/installation/",
+          "image": "garlic-hub",
+          "note": "The official guide shows Compose installation from the project repository with a build step.",
+          "sort_order": 20
+        },
+        {
+          "method": "native",
+          "label": "Raspberry Pi installation",
+          "url": "https://garlic-signage.com/resources/tutorials/raspberry-pi-digital-signage-setup/",
+          "support_level": "official",
+          "source_url": "https://garlic-signage.com/resources/tutorials/raspberry-pi-digital-signage-setup/",
+          "image": null,
+          "note": null,
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://garlic-signage.com/garlic-hub/installation/",
+          "note": "Official installation guide documents both building with Compose and running the prebuilt Docker Hub image."
+        },
+        {
+          "url": "https://hub.docker.com/r/sagiadinos/garlic-hub",
+          "note": "The publisher's Docker Hub image matches the official install guide."
+        },
+        {
+          "url": "https://garlic-signage.com/resources/tutorials/raspberry-pi-digital-signage-setup/",
+          "note": "Publisher guide documents native Raspberry Pi installation."
+        },
+        {
+          "url": "https://github.com/garlic-signage/garlic-hub/blob/main/docker-compose.yaml",
+          "note": "Direct official Compose YAML; it builds the image from the repository Dockerfile."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Keep native installation; add Docker and Compose. Set compose_url to the official YAML file."
+      ],
+      "proposed": {
+        "install_docs_url": "https://garlic-signage.com/garlic-hub/installation/",
+        "docker_url": "https://hub.docker.com/r/sagiadinos/garlic-hub",
+        "docker_image": "sagiadinos/garlic-hub:latest",
+        "compose_url": "https://github.com/garlic-signage/garlic-hub/blob/main/docker-compose.yaml",
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "genea-app",
+      "id": "1a14c4a9-653a-4c0f-884f-3b524a3597fe",
+      "name": "Genea.app",
+      "existing": {
+        "website_url": "https://www.genea.app",
+        "source_code_url": "https://github.com/genea-app/genea-app",
+        "install_docs_url": "https://github.com/genea-app/genea-app#readme",
+        "publisher_url": "https://github.com/genea-app",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Self-hosted static site",
+          "url": "https://github.com/genea-app/genea-app#installation",
+          "support_level": "official",
+          "source_url": "https://github.com/genea-app/genea-app#installation",
+          "image": null,
+          "note": "The project says to unpack the files and serve them over HTTPS; the app has no server-side components.",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/genea-app/genea-app#installation",
+          "note": "Official README documents unpacking the app files and serving them over HTTPS."
+        },
+        {
+          "url": "https://www.genea.app/",
+          "note": "The official website describes Genea as a client-side application with local data handling."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the native/static hosting option and deployment method."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/genea-app/genea-app#installation",
+        "deployment_methods": [
+          "native"
+        ],
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "genericagent",
+      "id": "116c410b-8cd7-4c43-b46d-4499759dc4bf",
+      "name": "GenericAgent",
+      "existing": {
+        "website_url": "https://github.com/lsdefine/GenericAgent",
+        "source_code_url": "https://github.com/lsdefine/GenericAgent",
+        "install_docs_url": "https://github.com/lsdefine/GenericAgent/blob/main/docs/installation.md",
+        "publisher_url": "https://github.com/lsdefine",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "package",
+          "source"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Python installation",
+          "url": "https://gaagent.ai/start/",
+          "support_level": "official",
+          "source_url": "https://gaagent.ai/start/",
+          "image": null,
+          "note": "The official guide supports a one-line Linux/macOS installer or cloning the project and installing its Python dependencies.",
+          "sort_order": 10
+        },
+        {
+          "method": "binary",
+          "label": "Desktop releases",
+          "url": "https://github.com/lsdefine/GenericAgent/releases/latest",
+          "support_level": "official",
+          "source_url": "https://github.com/lsdefine/GenericAgent/releases/latest",
+          "image": null,
+          "note": "The release page includes a Windows executable and a macOS disk image.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/lsdefine/GenericAgent/blob/main/docs/installation.md",
+          "note": "Official installation guide provides installer and Python setup routes."
+        },
+        {
+          "url": "https://github.com/lsdefine/GenericAgent/releases",
+          "note": "Upstream releases page publishes the desktop app artifacts."
+        },
+        {
+          "url": "https://gaagent.ai/",
+          "note": "Official project homepage."
+        },
+        {
+          "url": "https://gaagent.ai/start/",
+          "note": "Official setup guide for Linux/macOS."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Set the official website to gaagent.ai; replace package/source methods with native and binary; use the official start guide and releases."
+      ],
+      "proposed": {
+        "website_url": "https://gaagent.ai/",
+        "install_docs_url": "https://gaagent.ai/start/",
+        "deployment_methods": [
+          "binary",
+          "native"
+        ],
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "geneweb",
+      "id": "80c1b5c9-559b-459d-9987-67dfcb37c60c",
+      "name": "GeneWeb",
+      "existing": {
+        "website_url": "https://geneweb.tuxfamily.org/wiki/GeneWeb",
+        "source_code_url": "https://github.com/geneweb/geneweb",
+        "install_docs_url": "https://github.com/geneweb/geneweb#readme",
+        "publisher_url": "https://github.com/geneweb",
+        "docker_url": "https://github.com/geneweb/geneweb/blob/HEAD/docker/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "binary",
+          "label": "Prebuilt binaries",
+          "url": "https://github.com/geneweb/geneweb/releases/latest",
+          "support_level": "official",
+          "source_url": "https://github.com/geneweb/geneweb#getting-started",
+          "image": null,
+          "note": "Current upstream releases provide Linux, macOS, and Windows builds.",
+          "sort_order": 10
+        },
+        {
+          "method": "native",
+          "label": "Build from source",
+          "url": "https://github.com/geneweb/geneweb#getting-started",
+          "support_level": "official",
+          "source_url": "https://github.com/geneweb/geneweb#getting-started",
+          "image": null,
+          "note": "The current README documents building and running GeneWeb from source.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/geneweb/geneweb",
+          "note": "The official README links current prebuilt releases and gives extraction and launch instructions."
+        },
+        {
+          "url": "https://geneweb.tuxfamily.org/wiki/Docker",
+          "note": "The upstream wiki gives Docker instructions using the jeffernz community image."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Remove the stale community Docker route and Dockerfile URL; add the current official binary and source-build routes."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/geneweb/geneweb#getting-started",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "binary",
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "geoposler",
+      "id": "51932ef4-6ab2-48a3-8442-ce5a8c2b8a29",
+      "name": "Geoposler",
+      "existing": {
+        "website_url": "https://github.com/garanda21/geoposler",
+        "source_code_url": "https://github.com/garanda21/geoposler",
+        "install_docs_url": "https://github.com/garanda21/geoposler#readme",
+        "publisher_url": "https://github.com/garanda21",
+        "docker_url": "https://github.com/garanda21/geoposler/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/garanda21/geoposler#docker-compose-example",
+          "support_level": "official",
+          "source_url": "https://github.com/garanda21/geoposler#docker-compose-example",
+          "image": "ghcr.io/garanda21/geoposler:latest",
+          "note": "Project archived on February 24, 2026.",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/garanda21/geoposler",
+          "note": "Official repository is archived; the README says to start the self-hosted app with Docker Compose."
+        },
+        {
+          "url": "https://github.com/garanda21/geoposler#docker-compose-example",
+          "note": "Official inline Compose example names ghcr.io/garanda21/geoposler:latest."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Use the official inline Compose setup and image; mark the archived project. Do not set compose_url because no direct YAML file is published."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/garanda21/geoposler#docker-compose-example",
+        "docker_url": "https://github.com/garanda21/geoposler#docker-compose-example",
+        "docker_image": "ghcr.io/garanda21/geoposler:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "maintenance_status": "archived",
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "gerbera",
+      "id": "221ef295-a490-4b74-94dd-285b15ac0f36",
+      "name": "Gerbera",
+      "existing": {
+        "website_url": "https://gerbera.io",
+        "source_code_url": "https://github.com/gerbera/gerbera",
+        "install_docs_url": "https://github.com/gerbera/gerbera#readme",
+        "publisher_url": "https://github.com/gerbera",
+        "docker_url": "https://github.com/gerbera/gerbera/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/gerbera/gerbera",
+          "support_level": "official",
+          "source_url": "https://github.com/gerbera/gerbera/blob/master/README.Docker.md",
+          "image": "gerbera/gerbera:3.2.1",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/gerbera/gerbera/blob/master/README.Docker.md#examples",
+          "support_level": "official",
+          "source_url": "https://github.com/gerbera/gerbera/blob/master/README.Docker.md#examples",
+          "image": "gerbera/gerbera:3.2.1",
+          "note": "The official Docker guide includes an inline Compose example.",
+          "sort_order": 20
+        },
+        {
+          "method": "package",
+          "label": "Linux packages",
+          "url": "https://docs.gerbera.io/en/latest/install.html",
+          "support_level": "official",
+          "source_url": "https://docs.gerbera.io/en/latest/install.html",
+          "image": null,
+          "note": "The official guide lists distribution packages and Gerbera-maintained Debian and Ubuntu repositories.",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.gerbera.io/en/latest/install.html",
+          "note": "Official install guide documents Docker Hub and supported distribution package routes."
+        },
+        {
+          "url": "https://hub.docker.com/r/gerbera/gerbera",
+          "note": "The project image page documents Docker run and Compose examples."
+        },
+        {
+          "url": "https://github.com/gerbera/gerbera/blob/master/README.Docker.md",
+          "note": "Official Docker guide gives image tags, Docker run instructions, and inline Compose example."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace the Dockerfile URL with Docker Hub, add the current image and package route, and keep the Compose guide as an install option. There is no separate Compose YAML."
+      ],
+      "proposed": {
+        "install_docs_url": "https://docs.gerbera.io/en/latest/install.html",
+        "docker_url": "https://hub.docker.com/r/gerbera/gerbera",
+        "docker_image": "gerbera/gerbera:3.2.1",
+        "compose_url": null,
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "package"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "giraffile",
+      "id": "20fd4acc-660f-4cb7-9884-fde197147f65",
+      "name": "Giraffile",
+      "existing": {
+        "website_url": "https://giraffile.pages.dev/",
+        "source_code_url": "https://github.com/coffeetron832/Giraffile",
+        "install_docs_url": "https://github.com/coffeetron832/Giraffile#readme",
+        "publisher_url": "https://github.com/coffeetron832",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "verified_options": [],
+      "sources": [
+        {
+          "url": "https://github.com/coffeetron832/Giraffile",
+          "note": "The official repository and README were inspected; no self-host installation instructions or deployment target were found."
+        },
+        {
+          "url": "https://giraffile.pages.dev/",
+          "note": "The project site is hosted on Cloudflare Pages, but it does not document a user self-host route."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "No publisher-documented self-host route was found. Set self-hosting status to unknown and unpublish until the publisher documents one."
+      ],
+      "proposed": {
+        "published": false,
+        "self_hosting_status": "unknown",
+        "install_docs_url": null,
+        "deployment_methods": [],
+        "install_option_action": "skip"
+      }
+    },
+    {
+      "slug": "git-sync",
+      "id": "1ff06790-c7ed-43c0-b0fb-8cfcbc29aa7f",
+      "name": "Git-Sync",
+      "existing": {
+        "website_url": "https://github.com/AkashRajpurohit/git-sync/wiki",
+        "source_code_url": "https://github.com/AkashRajpurohit/git-sync",
+        "install_docs_url": "https://github.com/AkashRajpurohit/git-sync#readme",
+        "publisher_url": "https://github.com/AkashRajpurohit",
+        "docker_url": "https://github.com/AkashRajpurohit/git-sync/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/AkashRajpurohit/git-sync/pkgs/container/git-sync",
+          "support_level": "official",
+          "source_url": "https://github.com/AkashRajpurohit/git-sync/wiki/Installation",
+          "image": "ghcr.io/akashrajpurohit/git-sync:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/AkashRajpurohit/git-sync/wiki/Installation",
+          "support_level": "official",
+          "source_url": "https://github.com/AkashRajpurohit/git-sync/wiki/Installation",
+          "image": "ghcr.io/akashrajpurohit/git-sync:latest",
+          "note": "The upstream install guide includes a Compose service.",
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Prebuilt binaries",
+          "url": "https://github.com/AkashRajpurohit/git-sync/releases",
+          "support_level": "official",
+          "source_url": "https://github.com/AkashRajpurohit/git-sync/wiki/Installation",
+          "image": null,
+          "note": "The install guide links to platform-specific prebuilt releases.",
+          "sort_order": 30
+        },
+        {
+          "method": "native",
+          "label": "Go source installation",
+          "url": "https://github.com/AkashRajpurohit/git-sync/wiki/Installation",
+          "support_level": "official",
+          "source_url": "https://github.com/AkashRajpurohit/git-sync/wiki/Installation",
+          "image": null,
+          "note": "The official guide documents go install and building from source.",
+          "sort_order": 40
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/AkashRajpurohit/git-sync/wiki/Installation",
+          "note": "Official wiki lists prebuilt binaries, the GHCR image and a Compose example."
+        },
+        {
+          "url": "https://github.com/AkashRajpurohit/git-sync/pkgs/container/git-sync",
+          "note": "The upstream GitHub Packages page publishes the git-sync container."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official Docker, inline Compose, binary, and Go source install routes."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/AkashRajpurohit/git-sync/wiki/Installation",
+        "docker_url": "https://github.com/AkashRajpurohit/git-sync/pkgs/container/git-sync",
+        "docker_image": "ghcr.io/akashrajpurohit/git-sync:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "binary",
+          "compose",
+          "docker",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "gitbucket",
+      "id": "c7375bf3-db46-410b-916d-6b7b9b24ff22",
+      "name": "gitbucket",
+      "existing": {
+        "website_url": "https://gitbucket.github.io",
+        "source_code_url": "https://github.com/gitbucket/gitbucket",
+        "install_docs_url": "https://github.com/gitbucket/gitbucket#readme",
+        "publisher_url": "https://github.com/gitbucket",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "binary",
+          "label": "WAR release",
+          "url": "https://github.com/gitbucket/gitbucket/releases/latest",
+          "support_level": "official",
+          "source_url": "https://github.com/gitbucket/gitbucket/blob/master/README.md",
+          "image": null,
+          "note": "Requires Java 17; the WAR can run with java -jar or in a supported servlet container.",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/gitbucket/gitbucket-docker/pkgs/container/gitbucket",
+          "support_level": "official",
+          "source_url": "https://github.com/gitbucket/gitbucket-docker",
+          "image": "ghcr.io/gitbucket/gitbucket:latest",
+          "note": "The GitBucket organization publishes this image from its Docker repository.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/gitbucket/gitbucket/blob/master/README.md",
+          "note": "Official README gives Java 17 and WAR installation instructions."
+        },
+        {
+          "url": "https://github.com/gitbucket/gitbucket-docker/pkgs/container/gitbucket",
+          "note": "The GitBucket organization publishes the official GHCR image; its package page lists the latest tag."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add binary and Docker options and deployment methods."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/gitbucket/gitbucket#installation",
+        "docker_url": "https://github.com/gitbucket/gitbucket-docker/pkgs/container/gitbucket",
+        "docker_image": "ghcr.io/gitbucket/gitbucket:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "binary",
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "github-ntfy",
+      "id": "5239687d-c00c-4b97-b750-d1f696b15d29",
+      "name": "ntfy alerts",
+      "existing": {
+        "website_url": null,
+        "source_code_url": "https://github.com/BreizhHardware/ntfy_alerts",
+        "install_docs_url": "https://github.com/BreizhHardware/ntfy_alerts",
+        "publisher_url": "https://github.com/BreizhHardware",
+        "docker_url": "https://github.com/BreizhHardware/ntfy_alerts",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/breizhhardware/github-ntfy",
+          "support_level": "official",
+          "source_url": "https://github.com/BreizhHardware/ntfy_alerts",
+          "image": "breizhhardware/github-ntfy:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/BreizhHardware/ntfy_alerts#installation",
+          "support_level": "official",
+          "source_url": "https://github.com/BreizhHardware/ntfy_alerts#installation",
+          "image": "breizhhardware/github-ntfy:latest",
+          "note": "The README recommends Docker and supplies a Compose service.",
+          "sort_order": 20
+        },
+        {
+          "method": "native",
+          "label": "Manual installation",
+          "url": "https://github.com/BreizhHardware/ntfy_alerts#manual-installation",
+          "support_level": "official",
+          "source_url": "https://github.com/BreizhHardware/ntfy_alerts#manual-installation",
+          "image": null,
+          "note": "The README documents compiling and running the Rust application.",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/BreizhHardware/ntfy_alerts",
+          "note": "Official README documents Docker Compose and manual Rust build/run steps."
+        },
+        {
+          "url": "https://hub.docker.com/r/breizhhardware/github-ntfy",
+          "note": "Docker Hub lists the publisher's github-ntfy image."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace the source-repository Docker link with Docker Hub; add Docker, Compose, and native options. The Compose example is inline, so leave compose_url null."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/BreizhHardware/ntfy_alerts#installation",
+        "docker_url": "https://hub.docker.com/r/breizhhardware/github-ntfy",
+        "docker_image": "breizhhardware/github-ntfy:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "github-release-monitor",
+      "id": "b201924b-7151-44b6-a83c-faf3d7da81d3",
+      "name": "GitHub Release Monitor",
+      "existing": {
+        "website_url": "https://github.com/iamspido/github-release-monitor",
+        "source_code_url": "https://github.com/iamspido/github-release-monitor",
+        "install_docs_url": "https://github.com/iamspido/github-release-monitor#readme",
+        "publisher_url": "https://github.com/iamspido",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/iamspido/github-release-monitor/pkgs/container/github-release-monitor",
+          "support_level": "official",
+          "source_url": "https://github.com/iamspido/github-release-monitor",
+          "image": "ghcr.io/iamspido/github-release-monitor:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/iamspido/github-release-monitor#docker-compose-setup-recommended",
+          "support_level": "official",
+          "source_url": "https://github.com/iamspido/github-release-monitor",
+          "image": "ghcr.io/iamspido/github-release-monitor:latest",
+          "note": "The recommended Compose example includes a reverse proxy and SMTP relay.",
+          "sort_order": 20
+        },
+        {
+          "method": "native",
+          "label": "Manual installation",
+          "url": "https://github.com/iamspido/github-release-monitor#setup-guide-manual",
+          "support_level": "official",
+          "source_url": "https://github.com/iamspido/github-release-monitor",
+          "image": null,
+          "note": "The README documents a manual Node.js installation.",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/iamspido/github-release-monitor",
+          "note": "Official README documents Docker, Compose, and manual Node.js installation."
+        },
+        {
+          "url": "https://github.com/iamspido/github-release-monitor/pkgs/container/github-release-monitor",
+          "note": "Publisher GHCR package page for the official image."
+        },
+        {
+          "url": "https://github.com/iamspido/github-release-monitor/blob/main/example/github-release-monitor/compose.yaml",
+          "note": "Direct official Compose YAML."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the direct Compose file, GHCR package, and manual Node.js route."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/iamspido/github-release-monitor#docker-compose-setup-recommended",
+        "docker_url": "https://github.com/iamspido/github-release-monitor/pkgs/container/github-release-monitor",
+        "docker_image": "ghcr.io/iamspido/github-release-monitor:latest",
+        "compose_url": "https://github.com/iamspido/github-release-monitor/blob/main/example/github-release-monitor/compose.yaml",
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "gitit",
+      "id": "48eddaf8-7162-42b8-bfa7-53b323d60075",
+      "name": "Gitit",
+      "existing": {
+        "website_url": "https://github.com/jgm/gitit",
+        "source_code_url": "https://github.com/jgm/gitit",
+        "install_docs_url": "https://github.com/jgm/gitit#readme",
+        "publisher_url": "https://github.com/jgm",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Native installation",
+          "url": "https://github.com/jgm/gitit#compiling-and-installing-gitit",
+          "support_level": "official",
+          "source_url": "https://github.com/jgm/gitit",
+          "image": null,
+          "note": "The upstream README documents installation with Stack or Cabal and running the wiki as a local service.",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/jgm/gitit#compiling-and-installing-gitit",
+          "note": "Official README documents Stack or Cabal installation; no official Docker or Compose route was verified."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official Stack/Cabal installation route; no official Docker or Compose setup was verified."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/jgm/gitit#compiling-and-installing-gitit",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "gitproxy",
+      "id": "27288fc4-6570-4b62-8b19-d7d44f0dec75",
+      "name": "GitProxy",
+      "existing": {
+        "website_url": "https://git-proxy.finos.org/",
+        "source_code_url": "https://github.com/finos/git-proxy",
+        "install_docs_url": "https://github.com/finos/git-proxy#readme",
+        "publisher_url": "https://github.com/finos",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "npm package",
+          "url": "https://www.npmjs.com/package/%40finos/git-proxy",
+          "support_level": "official",
+          "source_url": "https://git-proxy.finos.org/docs/quickstart/intercept/",
+          "image": null,
+          "note": "Official quick start runs the package with npx.",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/finos/git-proxy",
+          "support_level": "official",
+          "source_url": "https://github.com/finos/git-proxy/blob/main/.github/workflows/docker-publish.yml",
+          "image": "finos/git-proxy:latest",
+          "note": null,
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://git-proxy.finos.org/docs/installation/",
+          "note": "Official FINOS installation documentation."
+        },
+        {
+          "url": "https://git-proxy.finos.org/docs/quickstart/intercept/",
+          "note": "Official quick start uses npx with @finos/git-proxy."
+        },
+        {
+          "url": "https://github.com/finos/git-proxy/blob/main/.github/workflows/docker-publish.yml",
+          "note": "Publisher workflow builds and publishes finos/git-proxy with a latest tag."
+        },
+        {
+          "url": "https://github.com/finos/git-proxy/blob/main/docker-compose.yml",
+          "note": "The repository Compose file is an end-to-end test setup, not an install configuration."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official npm package and Docker Hub image; omit the test-only Compose file."
+      ],
+      "proposed": {
+        "install_docs_url": "https://git-proxy.finos.org/docs/installation/",
+        "docker_url": "https://hub.docker.com/r/finos/git-proxy",
+        "docker_image": "finos/git-proxy:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "package"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "gladys-assistant",
+      "id": "7331c0f6-87d8-4f6b-8770-37308d076ff8",
+      "name": "Gladys Assistant",
+      "existing": {
+        "website_url": null,
+        "source_code_url": "https://github.com/gladysassistant/gladys",
+        "install_docs_url": "https://github.com/gladysassistant/gladys#readme",
+        "publisher_url": "https://github.com/gladysassistant",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/gladysassistant/gladys",
+          "support_level": "official",
+          "source_url": "https://gladysassistant.com/docs/installation/docker/",
+          "image": "gladysassistant/gladys:v5",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://gladysassistant.com/docs/installation/docker-compose/",
+          "support_level": "official",
+          "source_url": "https://gladysassistant.com/docs/installation/docker-compose/",
+          "image": "gladysassistant/gladys:v5",
+          "note": "The official guide includes Compose YAML.",
+          "sort_order": 20
+        },
+        {
+          "method": "synology",
+          "label": "Synology NAS",
+          "url": "https://gladysassistant.com/docs/installation/synology/",
+          "support_level": "official",
+          "source_url": "https://gladysassistant.com/docs/installation/synology/",
+          "image": "gladysassistant/gladys:v5",
+          "note": null,
+          "sort_order": 30
+        },
+        {
+          "method": "unraid",
+          "label": "Unraid NAS",
+          "url": "https://gladysassistant.com/docs/installation/unraid/",
+          "support_level": "official",
+          "source_url": "https://gladysassistant.com/docs/installation/unraid/",
+          "image": "gladysassistant/gladys:v5",
+          "note": null,
+          "sort_order": 40
+        },
+        {
+          "method": "other",
+          "label": "Freebox Delta",
+          "url": "https://gladysassistant.com/docs/installation/freebox-delta/",
+          "support_level": "official",
+          "source_url": "https://gladysassistant.com/docs/installation/freebox-delta/",
+          "image": null,
+          "note": null,
+          "sort_order": 50
+        },
+        {
+          "method": "other",
+          "label": "Raspberry Pi image",
+          "url": "https://gladysassistant.com/docs/installation/raspberry-pi/",
+          "support_level": "official",
+          "source_url": "https://gladysassistant.com/docs/installation/raspberry-pi/",
+          "image": null,
+          "note": null,
+          "sort_order": 60
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://gladysassistant.com/",
+          "note": "Official Gladys Assistant website."
+        },
+        {
+          "url": "https://gladysassistant.com/docs/installation/docker/",
+          "note": "Official Docker installation guide and image."
+        },
+        {
+          "url": "https://gladysassistant.com/docs/installation/docker-compose/",
+          "note": "Official Compose guide with inline YAML."
+        },
+        {
+          "url": "https://gladysassistant.com/docs/installation/synology/",
+          "note": "Official Synology installation guide."
+        },
+        {
+          "url": "https://gladysassistant.com/docs/installation/unraid/",
+          "note": "Official Unraid installation guide."
+        },
+        {
+          "url": "https://gladysassistant.com/docs/installation/freebox-delta/",
+          "note": "Official Freebox Delta installation guide."
+        },
+        {
+          "url": "https://gladysassistant.com/docs/installation/raspberry-pi/",
+          "note": "Official Raspberry Pi installation image guide."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add official Docker, Compose, NAS, Freebox, and Raspberry Pi routes; use the official Gladys website."
+      ],
+      "proposed": {
+        "website_url": "https://gladysassistant.com/",
+        "install_docs_url": "https://gladysassistant.com/docs/installation/docker-compose/",
+        "docker_url": "https://hub.docker.com/r/gladysassistant/gladys",
+        "docker_image": "gladysassistant/gladys:v5",
+        "compose_url": null,
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "other",
+          "synology",
+          "unraid"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "glauth",
+      "id": "dc97ea2d-7c6e-4c88-9466-d3415876eeb3",
+      "name": "GLAuth",
+      "existing": {
+        "website_url": "https://github.com/glauth/glauth",
+        "source_code_url": "https://github.com/glauth/glauth",
+        "install_docs_url": "https://github.com/glauth/glauth#readme",
+        "publisher_url": "https://github.com/glauth",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/glauth/glauth",
+          "support_level": "official",
+          "source_url": "https://glauth.github.io/docs/containerization.html",
+          "image": "glauth/glauth",
+          "note": "The official container guide documents the upstream image and Docker run commands.",
+          "sort_order": 10
+        },
+        {
+          "method": "helm",
+          "label": "Helm chart",
+          "url": "https://glauth.github.io/helm-glauth",
+          "support_level": "official",
+          "source_url": "https://glauth.github.io/docs/kubernetes.html",
+          "image": null,
+          "note": "The official Kubernetes guide calls this the project's Helm chart and documents helm repo add and helm install.",
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Prebuilt binaries",
+          "url": "https://github.com/glauth/glauth/releases",
+          "support_level": "official",
+          "source_url": "https://glauth.github.io/docs/quickstart.html",
+          "image": null,
+          "note": "The official quick start links to precompiled releases and describes running the server with a config file.",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://glauth.github.io/",
+          "note": "Official GLAuth project website."
+        },
+        {
+          "url": "https://glauth.github.io/docs/setup.html",
+          "note": "Official setup guide."
+        },
+        {
+          "url": "https://glauth.github.io/docs/containerization.html",
+          "note": "Official docs identify the Docker Hub image and Docker run setup."
+        },
+        {
+          "url": "https://glauth.github.io/docs/kubernetes.html",
+          "note": "Official Kubernetes guide documents the Helm chart."
+        },
+        {
+          "url": "https://glauth.github.io/docs/quickstart.html",
+          "note": "Official quick start links to prebuilt binaries."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Use the project site and setup guide; add Docker, Helm, and binary routes."
+      ],
+      "proposed": {
+        "website_url": "https://glauth.github.io/",
+        "install_docs_url": "https://glauth.github.io/docs/setup.html",
+        "docker_url": "https://hub.docker.com/r/glauth/glauth",
+        "docker_image": "glauth/glauth",
+        "compose_url": null,
+        "deployment_methods": [
+          "binary",
+          "docker",
+          "helm"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "go-doxy",
+      "id": "c8ee61db-9768-400f-980e-243fe3f58eae",
+      "name": "go-doxy",
+      "existing": {
+        "website_url": "https://docs.godoxy.dev",
+        "source_code_url": "https://github.com/yusing/godoxy",
+        "install_docs_url": "https://github.com/yusing/godoxy#readme",
+        "publisher_url": "https://github.com/yusing",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "data_source_urls": [
+          "https://registry.hub.docker.com/r/ghcr.io/yusing/godoxy"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/yusing/godoxy/pkgs/container/godoxy",
+          "support_level": "official",
+          "source_url": "https://docs.godoxy.dev/docs/godoxy/Setup",
+          "image": "ghcr.io/yusing/godoxy:latest",
+          "note": "The official image is on GHCR; the install docs use Compose for the supported setup.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://docs.godoxy.dev/docs/godoxy/Setup",
+          "support_level": "official",
+          "source_url": "https://docs.godoxy.dev/docs/godoxy/Setup",
+          "image": "ghcr.io/yusing/godoxy:latest",
+          "note": "The official setup guide runs a setup script that prepares the Compose deployment.",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.godoxy.dev/docs/godoxy/Setup",
+          "note": "Official setup guide documents the Compose deployment."
+        },
+        {
+          "url": "https://github.com/yusing/godoxy/pkgs/container/godoxy",
+          "note": "Publisher GHCR package page."
+        },
+        {
+          "url": "https://github.com/yusing/godoxy/blob/main/compose.example.yml",
+          "note": "Direct official Compose YAML uses the Godoxy image."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official GHCR package and direct Compose YAML; remove the malformed registry source."
+      ],
+      "proposed": {
+        "install_docs_url": "https://docs.godoxy.dev/docs/godoxy/Setup",
+        "docker_url": "https://github.com/yusing/godoxy/pkgs/container/godoxy",
+        "docker_image": "ghcr.io/yusing/godoxy:latest",
+        "compose_url": "https://github.com/yusing/godoxy/blob/main/compose.example.yml",
+        "deployment_methods": [
+          "compose",
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "data_source_urls_remove": [
+          "https://registry.hub.docker.com/r/ghcr.io/yusing/godoxy"
+        ],
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "go-feature-flag",
+      "id": "20d97561-1c75-46e0-89ab-68b17cb90745",
+      "name": "GO Feature Flag",
+      "existing": {
+        "website_url": "https://gofeatureflag.org",
+        "source_code_url": "https://github.com/thomaspoignant/go-feature-flag",
+        "install_docs_url": "https://github.com/thomaspoignant/go-feature-flag#readme",
+        "publisher_url": "https://github.com/thomaspoignant",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/gofeatureflag/go-feature-flag",
+          "support_level": "official",
+          "source_url": "https://gofeatureflag.org/docs/relay-proxy/install_relay_proxy",
+          "image": "gofeatureflag/go-feature-flag:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "package",
+          "label": "Homebrew package",
+          "url": "https://gofeatureflag.org/docs/relay-proxy/install_relay_proxy",
+          "support_level": "official",
+          "source_url": "https://gofeatureflag.org/docs/relay-proxy/install_relay_proxy",
+          "image": null,
+          "note": "Official command: brew install go-feature-flag.",
+          "sort_order": 20
+        },
+        {
+          "method": "package",
+          "label": "Scoop package",
+          "url": "https://gofeatureflag.org/docs/relay-proxy/install_relay_proxy",
+          "support_level": "official",
+          "source_url": "https://gofeatureflag.org/docs/relay-proxy/install_relay_proxy",
+          "image": null,
+          "note": "Official command: scoop install go-feature-flag.",
+          "sort_order": 30
+        },
+        {
+          "method": "binary",
+          "label": "Prebuilt binaries",
+          "url": "https://github.com/thomaspoignant/go-feature-flag/releases",
+          "support_level": "official",
+          "source_url": "https://gofeatureflag.org/docs/relay-proxy/install_relay_proxy",
+          "image": null,
+          "note": "Official docs list x86 and ARM binaries.",
+          "sort_order": 40
+        },
+        {
+          "method": "helm",
+          "label": "Helm chart",
+          "url": "https://charts.gofeatureflag.org/",
+          "support_level": "official",
+          "source_url": "https://gofeatureflag.org/docs/relay-proxy/deployment/helm",
+          "image": null,
+          "note": null,
+          "sort_order": 50
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://gofeatureflag.org/docs/relay-proxy/install_relay_proxy",
+          "note": "Official docs list Docker, Homebrew, Scoop, and prebuilt binary installation."
+        },
+        {
+          "url": "https://gofeatureflag.org/docs/relay-proxy/deployment/helm",
+          "note": "Official guide documents deployment through its Helm chart."
+        },
+        {
+          "url": "https://charts.gofeatureflag.org/",
+          "note": "Official Helm repository."
+        },
+        {
+          "url": "https://hub.docker.com/r/gofeatureflag/go-feature-flag",
+          "note": "Docker Hub page for the official image."
+        },
+        {
+          "url": "https://github.com/thomaspoignant/go-feature-flag/releases",
+          "note": "Publisher release binaries."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add official Docker, Homebrew, Scoop, binary, and Helm routes."
+      ],
+      "proposed": {
+        "install_docs_url": "https://gofeatureflag.org/docs/relay-proxy/install_relay_proxy",
+        "docker_url": "https://hub.docker.com/r/gofeatureflag/go-feature-flag",
+        "docker_image": "gofeatureflag/go-feature-flag:latest",
+        "compose_url": null,
+        "deployment_methods": [
+          "binary",
+          "docker",
+          "helm",
+          "package"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "gobookmarks",
+      "id": "c1fc8e81-0978-466d-9e44-30762ce49bc4",
+      "name": "gobookmarks",
+      "existing": {
+        "website_url": "https://github.com/arran4/gobookmarks",
+        "source_code_url": "https://github.com/arran4/gobookmarks",
+        "install_docs_url": "https://github.com/arran4/gobookmarks#readme",
+        "publisher_url": "https://github.com/arran4",
+        "docker_url": "https://github.com/arran4/gobookmarks/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/arran4/gobookmarks#docker",
+          "support_level": "official",
+          "source_url": "https://github.com/arran4/gobookmarks#docker",
+          "image": "ghcr.io/arran4/gobookmarks",
+          "note": "The official README documents the published image.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/arran4/gobookmarks#docker-compose",
+          "support_level": "official",
+          "source_url": "https://github.com/arran4/gobookmarks#docker-compose",
+          "image": "ghcr.io/arran4/gobookmarks",
+          "note": "The README includes inline Compose examples.",
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Prebuilt binaries",
+          "url": "https://github.com/arran4/gobookmarks/releases",
+          "support_level": "official",
+          "source_url": "https://github.com/arran4/gobookmarks#quick-start",
+          "image": null,
+          "note": "Release packages include systemd and FreeBSD service files.",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/arran4/gobookmarks#quick-start",
+          "note": "Official README documents Docker image and binary installation."
+        },
+        {
+          "url": "https://github.com/arran4/gobookmarks#docker-compose",
+          "note": "Official README includes two inline Compose configurations."
+        },
+        {
+          "url": "https://github.com/arran4/gobookmarks/releases",
+          "note": "Publisher release page for binary packages."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add official Docker, inline Compose, and binary routes; use the README as the Docker guide."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/arran4/gobookmarks#quick-start",
+        "docker_url": "https://github.com/arran4/gobookmarks#docker",
+        "docker_image": "ghcr.io/arran4/gobookmarks",
+        "compose_url": null,
+        "deployment_methods": [
+          "binary",
+          "compose",
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    },
+    {
+      "slug": "goeland",
+      "id": "ca27a933-2d86-4c38-badf-c9ea2d013f4d",
+      "name": "Goeland",
+      "existing": {
+        "website_url": "https://github.com/slurdge/goeland",
+        "source_code_url": "https://github.com/slurdge/goeland",
+        "install_docs_url": "https://github.com/slurdge/goeland#readme",
+        "publisher_url": "https://github.com/slurdge",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/slurdge/goeland",
+          "support_level": "official",
+          "source_url": "https://github.com/slurdge/goeland",
+          "image": "slurdge/goeland",
+          "note": "The official README names Docker Hub and GHCR images.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/slurdge/goeland#docker",
+          "support_level": "official",
+          "source_url": "https://github.com/slurdge/goeland#docker",
+          "image": "ghcr.io/slurdge/goeland",
+          "note": "The README includes an inline Compose service.",
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Prebuilt binaries",
+          "url": "https://github.com/slurdge/goeland/releases",
+          "support_level": "official",
+          "source_url": "https://github.com/slurdge/goeland",
+          "image": null,
+          "note": "The README lists platform binaries.",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/slurdge/goeland",
+          "note": "Official README documents binaries, Docker Hub and GHCR images, Docker run, and inline Compose."
+        },
+        {
+          "url": "https://hub.docker.com/r/slurdge/goeland",
+          "note": "Docker Hub page for the project image."
+        },
+        {
+          "url": "https://github.com/slurdge/goeland/releases",
+          "note": "Publisher release binaries."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add official Docker Hub, inline Compose, and binary routes."
+      ],
+      "proposed": {
+        "install_docs_url": "https://github.com/slurdge/goeland#readme",
+        "docker_url": "https://hub.docker.com/r/slurdge/goeland",
+        "docker_image": "slurdge/goeland",
+        "compose_url": null,
+        "deployment_methods": [
+          "binary",
+          "compose",
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_option_action": "populate"
+      }
+    }
+  ]
+}

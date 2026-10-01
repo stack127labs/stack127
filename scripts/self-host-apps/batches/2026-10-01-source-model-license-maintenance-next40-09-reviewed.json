@@ -1,0 +1,176 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Offline partial corrections for source model, license, source link, and maintenance facts with direct repository or publisher evidence. Blackcoin Quantum Quasar and Bloat remain unresolved. The saved snapshot is only an expected-value guard and must be refreshed before any apply.",
+  "apps": [
+    {
+      "slug": "bitwarden-secure-sync",
+      "source_model": "open_source",
+      "license": "GPL-3.0",
+      "data_source_urls": [
+        "https://github.com/aronmarinelli/bitwarden-secure-sync",
+        "https://github.com/aronmarinelli/bitwarden-secure-sync/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)"
+      }
+    },
+    {
+      "slug": "blocklist-mirror",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/crowdsecurity/cs-blocklist-mirror",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://docs.crowdsec.net/u/bouncers/blocklist-mirror/",
+        "https://github.com/crowdsecurity/cs-blocklist-mirror",
+        "https://github.com/crowdsecurity/cs-blocklist-mirror/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "blynk-server",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_code_url": "https://github.com/Peterkn2001/blynk-server",
+      "source_code_host": "github",
+      "maintenance_status": "stale",
+      "data_source_urls": [
+        "https://github.com/Peterkn2001/blynk-server",
+        "https://github.com/Peterkn2001/blynk-server/blob/master/license.txt",
+        "https://community.blynk.cc/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "maintenance_status": "active"
+      }
+    },
+    {
+      "slug": "borg-web-ui",
+      "source_model": "open_source",
+      "license": "AGPL-3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://github.com/karanhudia/borg-ui",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/karanhudia/borg-ui",
+        "https://docs.borgui.com/",
+        "https://github.com/karanhudia/borg-ui/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "borgmatic",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "source_code_url": "https://github.com/borgmatic-collective/borgmatic",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://torsion.org/borgmatic/",
+        "https://github.com/borgmatic-collective/borgmatic"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "botdarr",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "data_source_urls": [
+        "https://github.com/shayaantx/botdarr"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)"
+      }
+    },
+    {
+      "slug": "bragibooks",
+      "source_model": "open_source",
+      "license": "GPL-3.0",
+      "data_source_urls": [
+        "https://github.com/djdembeck/bragibooks",
+        "https://github.com/djdembeck/bragibooks/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)"
+      }
+    },
+    {
+      "slug": "brave",
+      "source_model": "open_source",
+      "license": "MPL-2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "MPL-2.0",
+      "source_code_url": "https://github.com/brave/brave-core",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://brave.com/",
+        "https://github.com/brave/brave-browser",
+        "https://github.com/brave/brave-core"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/linuxserver/docker-brave",
+        "source_code_host": "github"
+      }
+    },
+    {
+      "slug": "browserless-v2",
+      "license": "SSPL-1.0 or Browserless Commercial License",
+      "data_source_urls": [
+        "https://github.com/browserless/browserless",
+        "https://github.com/browserless/browserless/blob/main/package.json"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "license": "No license file declared (all rights reserved by default)"
+      }
+    }
+  ]
+}

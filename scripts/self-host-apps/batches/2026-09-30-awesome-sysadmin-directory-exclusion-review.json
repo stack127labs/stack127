@@ -1,0 +1,20 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; refresh current values before applying.",
+  "scope": "Remove Awesome Sysadmin from the self-hosted app directory because its official repository is a curated software and resource list, not an app that can be installed.",
+  "apps": [
+    {
+      "slug": "awesome-sysadmin",
+      "review_scope": "partial",
+      "expected": {
+        "published": true,
+        "self_hosting_status": "self_hostable"
+      },
+      "published": false,
+      "self_hosting_status": "not_self_hostable",
+      "data_source_urls": [
+        "https://github.com/awesome-foss/awesome-sysadmin"
+      ]
+    }
+  ]
+}

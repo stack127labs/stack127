@@ -14,6 +14,14 @@
     "keyboard-shortcuts:sync": "node --experimental-strip-types scripts/keyboard-shortcuts/sync-pages.mjs",
     "keyboard-shortcuts:check": "node --experimental-strip-types scripts/keyboard-shortcuts/sync-pages.mjs --check",
     "quality": "npm run typecheck && npm run test:core",
+    "ad-networks:discover": "node scripts/ad-networks/discover.mjs",
+    "ad-networks:import:notion": "node scripts/ad-networks/import-notion-exports.mjs",
+    "ad-networks:phase2": "node scripts/ad-networks/phase2-once.mjs",
+    "ad-networks:local:status": "node scripts/ad-networks/status.mjs",
+    "ad-networks:local:backup": "node scripts/ad-networks/backup-local.mjs",
+    "ad-networks:worker": "node scripts/ad-networks/worker.mjs",
+    "ad-networks:queue:backfill": "node scripts/ad-networks/backfill-verification-queue.mjs",
+    "ad-networks:verify": "node scripts/ad-networks/verify.mjs",
     "stack127:cache:process": "node scripts/stack127/cache/process-revalidation.mjs",
     "stack127:cache:watch:local": "node --env-file=.env.local scripts/stack127/cache/watch-local-revalidation.mjs",
     "self-host-apps:discover-awesome-selfhosted": "node scripts/self-host-apps/discover-awesome-selfhosted.mjs",
@@ -88,6 +96,7 @@
     "react-icons": "^5.6.0",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
+    "tldts": "^7.4.15",
     "yaml": "2.8.1"
   },
   "devDependencies": {

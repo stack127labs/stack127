@@ -1,0 +1,152 @@
+{
+  "apps": [
+    {
+      "slug": "mariadb",
+      "review_scope": "partial",
+      "expected": {
+        "source_code_url": "https://github.com/linuxserver/docker-mariadb",
+        "license": "GNU Affero General Public License v3.0",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "open_source",
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "github_project_id": "69de004a-1af4-4a42-9548-64cd4537bcf8",
+        "categories": ["databases", "networking-dns", "system-admin-hosting"]
+      },
+      "changes": {
+        "name": "MariaDB",
+        "summary": "Open-source relational database server with a MySQL-compatible SQL interface.",
+        "website_url": "https://mariadb.org/",
+        "source_code_url": "https://github.com/MariaDB/server",
+        "license": "GNU General Public License v2.0 only",
+        "license_spdx_id": "GPL-2.0-only",
+        "source_model": "open_source",
+        "publisher_name": "MariaDB Foundation",
+        "publisher_type": "foundation",
+        "docker_support": "official",
+        "docker_url": "https://hub.docker.com/_/mariadb",
+        "docker_image": "mariadb",
+        "compose_support": true,
+        "requires_database": false,
+        "database_types": [],
+        "persistent_storage": true,
+        "surfaces": ["api", "cli"],
+        "categories": ["databases"]
+      },
+      "sources": [
+        "https://mariadb.org/about/",
+        "https://github.com/MariaDB/server",
+        "https://hub.docker.com/_/mariadb",
+        "https://mariadb.com/docs/server/server-management/automated-mariadb-deployment-and-administration/docker-and-mariadb/installing-and-using-mariadb-via-docker",
+        "https://mariadb.com/docs/server/server-management/automated-mariadb-deployment-and-administration/docker-and-mariadb/setting-up-a-lamp-stack-with-docker-compose",
+        "https://github.com/linuxserver/docker-mariadb",
+        "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/mariadb.xml"
+      ]
+    },
+    {
+      "slug": "hydra2",
+      "review_scope": "partial",
+      "expected": {
+        "source_code_url": "https://github.com/linuxserver/docker-hydra2",
+        "license": "GNU Affero General Public License v3.0",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "open_source",
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "github_project_id": "b271c4c8-702a-43f5-a1af-9ee1256912d6",
+        "categories": ["ai-ml", "system-admin-hosting"]
+      },
+      "changes": {
+        "name": "NZBHydra 2",
+        "summary": "Usenet metasearch for NZB indexers and Torznab trackers, with search results for connected apps.",
+        "website_url": "https://github.com/theotherp/nzbhydra2",
+        "source_code_url": "https://github.com/theotherp/nzbhydra2",
+        "license": "GPL-3.0 (LICENSE); Apache-2.0 (README)",
+        "license_spdx_id": null,
+        "source_model": "open_source",
+        "github_project_id": "90122294-d0f7-445f-b57f-1478652c17aa",
+        "docker_support": "community",
+        "docker_url": "https://hub.docker.com/r/linuxserver/nzbhydra2",
+        "docker_image": "lscr.io/linuxserver/nzbhydra2:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "database_types": [],
+        "persistent_storage": true,
+        "surfaces": ["web", "api"],
+        "release_version": "v9.0.6",
+        "categories": ["search"]
+      },
+      "sources": [
+        "https://github.com/theotherp/nzbhydra2",
+        "https://github.com/theotherp/nzbhydra2/blob/master/LICENSE",
+        "https://github.com/theotherp/nzbhydra2/blob/master/readme.md",
+        "https://github.com/theotherp/nzbhydra2/wiki/Memory-requirements",
+        "https://github.com/theotherp/nzbhydra2/wiki/External-API%2C-RSS-and-cached-queries",
+        "https://github.com/theotherp/nzbhydra2/releases",
+        "https://docs.linuxserver.io/images/docker-nzbhydra2/",
+        "https://hub.docker.com/r/linuxserver/nzbhydra2"
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "slug": "mariadb",
+      "expected": {
+        "ram_estimate_min_mb": 1024,
+        "ram_estimate_max_mb": 8192,
+        "ram_estimate_basis": "Small single-node service; data volume and request load vary.",
+        "storage_estimate_min_gb": 5,
+        "storage_estimate_max_gb": 100,
+        "storage_estimate_basis": "Small single-node service; data volume and request load vary."
+      },
+      "ram_estimate_min_mb": 512,
+      "ram_estimate_max_mb": 4096,
+      "ram_estimate_kind": "estimated",
+      "ram_estimate_confidence": "low",
+      "ram_estimate_basis": "Estimated for a small single-server database. Memory use depends on the active data set, cache settings, and connections.",
+      "ram_source_urls": [
+        "https://mariadb.com/docs/server/server-usage/storage-engines/innodb/innodb-buffer-pool",
+        "https://mariadb.com/docs/server/ha-and-performance/mariadb-memory-allocation"
+      ],
+      "storage_estimate_min_gb": 1,
+      "storage_estimate_max_gb": 100,
+      "storage_estimate_kind": "estimated",
+      "storage_estimate_confidence": "low",
+      "storage_estimate_basis": "Estimated database files and logs for a small self-hosted server. Actual data size depends on the databases and retention.",
+      "storage_source_urls": [
+        "https://hub.docker.com/_/mariadb",
+        "https://mariadb.com/docs/server/server-management/automated-mariadb-deployment-and-administration/docker-and-mariadb/setting-up-a-lamp-stack-with-docker-compose"
+      ]
+    },
+    {
+      "slug": "hydra2",
+      "expected": {
+        "ram_estimate_min_mb": 2048,
+        "ram_estimate_max_mb": 8192,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary."
+      },
+      "ram_estimate_min_mb": 256,
+      "ram_estimate_max_mb": 2048,
+      "ram_estimate_kind": "estimated",
+      "ram_estimate_confidence": "low",
+      "ram_estimate_basis": "The author reports about 200 to 300 MB in a low-memory setup; more indexers, history, and statistics use more.",
+      "ram_source_urls": [
+        "https://github.com/theotherp/nzbhydra2/wiki/Memory-requirements"
+      ],
+      "storage_estimate_min_gb": 1,
+      "storage_estimate_max_gb": 20,
+      "storage_estimate_kind": "estimated",
+      "storage_estimate_confidence": "low",
+      "storage_estimate_basis": "Search history, statistics, and the H2 database grow with indexers and retention settings.",
+      "storage_source_urls": [
+        "https://github.com/theotherp/nzbhydra2/wiki/Memory-requirements",
+        "https://docs.linuxserver.io/images/docker-nzbhydra2/"
+      ]
+    }
+  ]
+}

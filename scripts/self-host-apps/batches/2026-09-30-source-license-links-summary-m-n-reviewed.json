@@ -1,0 +1,1085 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and need refresh from the current inventory before any apply.",
+  "scope": "Source, license, link, identity, and summary corrections reviewed against official project, publisher, source, license, or catalog pages. Proposals only; unresolved licensing is marked unknown.",
+  "apps": [
+    {
+      "slug": "m-i-m-o-s-a",
+      "review_scope": "partial",
+      "name": "Spotlight Storage",
+      "source_code_url": "https://github.com/FireMarshmellow/Spotlight_Storage",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "summary": "Spotlight Storage helps you track and organize items in your home inventory.",
+      "website_url": "https://github.com/FireMarshmellow/Spotlight_Storage",
+      "docs_url": "https://github.com/FireMarshmellow/Spotlight_Storage#readme",
+      "install_docs_url": "https://github.com/FireMarshmellow/Spotlight_Storage#readme",
+      "expected": {
+        "name": "M.I.M.O.S.A",
+        "source_code_url": "https://github.com/firemarshmellow/m.i.m.o.s.a",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "summary": "MIMOSA - short for \"Mellow_Labs Inventory Management and Organization System Apparatus\", Just like a refreshing mimosa, this system will make your life.",
+        "website_url": "https://raw.githubusercontent.com/devzwf/unraid-docker-templates/main/templates/mimosa.xml",
+        "docs_url": "https://forums.unraid.net/topic/170875-support-devzwf-mimosa/",
+        "install_docs_url": "https://forums.unraid.net/topic/170875-support-devzwf-mimosa/"
+      },
+      "data_source_urls": [
+        "https://github.com/FireMarshmellow/Spotlight_Storage",
+        "https://github.com/FireMarshmellow/Spotlight_Storage/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "machinaris",
+      "review_scope": "partial",
+      "name": "Machinaris",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "website_url": "https://machinaris.app/",
+      "docs_url": "https://github.com/guydavis/machinaris#readme",
+      "install_docs_url": "https://github.com/guydavis/machinaris#readme",
+      "summary": "Machinaris helps manage Chia farming, plotting, and node activity through a web interface.",
+      "maintenance_status": "stale",
+      "expected": {
+        "name": "machinaris",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "website_url": "https://raw.githubusercontent.com/guydavis/machinaris-unraid/master/machinaris.xml",
+        "docs_url": "https://forums.unraid.net/topic/108896-support-machinaris-chia-crptocurrency-farming-plotman-plotting-unraid-webui/",
+        "install_docs_url": "https://forums.unraid.net/topic/108896-support-machinaris-chia-crptocurrency-farming-plotman-plotting-unraid-webui/",
+        "summary": "Building upon the official Chia binaries, Machinaris also offers a plot manager, log monitor, and a simple WebUI for Unraid.",
+        "maintenance_status": "active"
+      },
+      "data_source_urls": [
+        "https://machinaris.app/",
+        "https://github.com/guydavis/machinaris",
+        "https://github.com/guydavis/machinaris/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "macinabox",
+      "review_scope": "partial",
+      "source_model": "unknown",
+      "license": null,
+      "license_type": "unknown",
+      "license_spdx_id": null,
+      "website_url": "https://github.com/SpaceinvaderOne/Macinabox",
+      "docs_url": "https://github.com/SpaceinvaderOne/Macinabox#readme",
+      "install_docs_url": "https://github.com/SpaceinvaderOne/Macinabox#readme",
+      "summary": "Macinabox automates creating macOS virtual machines on an Unraid server.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "website_url": "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/macinabox.xml",
+        "docs_url": "https://forums.unraid.net/topic/84601-support-spaceinvaderone-macinabox/",
+        "install_docs_url": "https://forums.unraid.net/topic/84601-support-spaceinvaderone-macinabox/",
+        "summary": "Macinabox downloads and installs various macOS versions as a VM on your Unraid server, With this new version, there’s no need for additional helper scripts."
+      },
+      "data_source_urls": [
+        "https://github.com/SpaceinvaderOne/Macinabox",
+        "https://github.com/SpaceinvaderOne/Macinabox#readme"
+      ]
+    },
+    {
+      "slug": "magazarr",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "website_url": "https://github.com/rix1337/Magazarr",
+      "docs_url": "https://github.com/rix1337/Magazarr#readme",
+      "install_docs_url": "https://github.com/rix1337/Magazarr#readme",
+      "summary": "Magazarr tracks magazine issues and searches Quasarr for new releases.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/rix1337/docker-templates/main/rix1337/magazarr.xml",
+        "docs_url": "https://github.com/rix1337/Magazarr#readme",
+        "install_docs_url": "https://github.com/rix1337/Magazarr#readme",
+        "summary": "Magazarr is a magazine-only companion for Quasarr, It keeps a free-text magazine list, periodically searches Quasarr for recent issues, sends matching."
+      },
+      "data_source_urls": [
+        "https://github.com/rix1337/Magazarr",
+        "https://github.com/rix1337/Magazarr/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "magic-frame",
+      "review_scope": "partial",
+      "license": "PolyForm Noncommercial License 1.0.0",
+      "license_type": "custom",
+      "license_spdx_id": "PolyForm-Noncommercial-1.0.0",
+      "website_url": "https://magicframe.dev/",
+      "docs_url": "https://github.com/jeremiaa/magic-frame#readme",
+      "install_docs_url": "https://github.com/jeremiaa/magic-frame#readme",
+      "summary": "Magic Frame turns a screen into a family photo frame and dashboard, with Home Assistant and Immich integrations.",
+      "expected": {
+        "license": "Other",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "website_url": "https://magicframe.dev/",
+        "docs_url": "https://github.com/jeremiaa/magic-frame#readme",
+        "install_docs_url": "https://github.com/jeremiaa/magic-frame#readme",
+        "summary": "Home display - part photo frame, part family board, part Home Assistant dashboard, Drag-&-drop, live sync, Immich wallpapers, No cloud."
+      },
+      "data_source_urls": [
+        "https://magicframe.dev/",
+        "https://github.com/jeremiaa/magic-frame",
+        "https://github.com/jeremiaa/magic-frame#readme",
+        "https://spdx.org/licenses/PolyForm-Noncommercial-1.0.0.html"
+      ]
+    },
+    {
+      "slug": "magnetico-environment",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "website_url": "https://labs.boramalper.org/magnetico/",
+      "docs_url": "https://github.com/boramalper/magnetico#readme",
+      "install_docs_url": "https://github.com/boramalper/magnetico#readme",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/DyonR/docker-templates/master/Templates/magnetico-environment/magnetico-environment-template.xml",
+        "docs_url": "https://forums.unraid.net/topic/94901-support-dyonr-magnetico-environment/",
+        "install_docs_url": "https://forums.unraid.net/topic/94901-support-dyonr-magnetico-environment/"
+      },
+      "data_source_urls": [
+        "https://labs.boramalper.org/magnetico/",
+        "https://github.com/boramalper/magnetico",
+        "https://github.com/boramalper/magnetico/blob/master/LICENSE"
+      ]
+    },
+    {
+      "slug": "mail2slack",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "website_url": "https://github.com/corgan2222/mail2slack",
+      "docs_url": "https://github.com/corgan2222/mail2slack#readme",
+      "install_docs_url": "https://github.com/corgan2222/mail2slack#readme",
+      "summary": "Mail2Slack forwards messages from an IMAP inbox to a Slack channel.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/corgan2222/unraid-templates/main/mail2slack/mail2slack.xml",
+        "docs_url": "https://forums.unraid.net/topic/114590-support-corgans-docker-repository-double-take-facebox-tagbox-videobox/",
+        "install_docs_url": "https://forums.unraid.net/topic/114590-support-corgans-docker-repository-double-take-facebox-tagbox-videobox/",
+        "summary": "Scans a IMAP Inbox and post every Mail to a Slack Channel."
+      },
+      "data_source_urls": [
+        "https://github.com/corgan2222/mail2slack",
+        "https://github.com/corgan2222/mail2slack/blob/master/LICENSE"
+      ]
+    },
+    {
+      "slug": "mailgun-logger",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "website_url": "https://github.com/jackjoe/mailgun_logger",
+      "docs_url": "https://github.com/jackjoe/mailgun_logger#readme",
+      "install_docs_url": "https://github.com/jackjoe/mailgun_logger#readme",
+      "summary": "Mailgun Logger collects and displays events from the Mailgun API.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/pierot/unraid-ca-apps/main/mailgun_logger.xml",
+        "docs_url": "https://forums.unraid.net/topic/119391-support-mailgun-logger/",
+        "install_docs_url": "https://forums.unraid.net/topic/119391-support-mailgun-logger/",
+        "summary": "MailgunLogger is a simple admin tool that uses the Mailgun API to retrieves events on a regular basis from Mailgun - who only provide a limited time of event."
+      },
+      "data_source_urls": [
+        "https://github.com/jackjoe/mailgun_logger",
+        "https://github.com/jackjoe/mailgun_logger/blob/master/LICENSE"
+      ]
+    },
+    {
+      "slug": "mailrise",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "website_url": "https://mailrise.xyz/",
+      "docs_url": "https://github.com/YoRyan/mailrise#readme",
+      "install_docs_url": "https://github.com/YoRyan/mailrise#readme",
+      "summary": "Mailrise converts incoming email into Apprise notifications for a homelab.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/EMP83/unraid-templates/main/mailrise/Mailrise.xml",
+        "docs_url": "https://github.com/YoRyan/mailrise/issues",
+        "install_docs_url": "https://github.com/YoRyan/mailrise/issues",
+        "summary": "Mailrise is an SMTP server that converts the emails it receives into Apprise⁠ notifications, The intended use case is as an email relay for a home lab or."
+      },
+      "data_source_urls": [
+        "https://mailrise.xyz/",
+        "https://github.com/YoRyan/mailrise",
+        "https://github.com/YoRyan/mailrise/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "maintainerr-overlay-helperr",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "website_url": "https://github.com/gssariev/maintainerr-overlay-helperr/",
+      "docs_url": "https://github.com/gssariev/maintainerr-overlay-helperr/#readme",
+      "install_docs_url": "https://github.com/gssariev/maintainerr-overlay-helperr/#readme",
+      "summary": "Maintainerr Overlay Helperr adds a leaving-soon overlay to Plex and connects it with Maintainerr.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/maintainerr_overlay_helperr.xml",
+        "docs_url": "https://forums.unraid.net/topic/197719-support-mrlinfordmaintainerr-v3-overlay-helperr/",
+        "install_docs_url": "https://forums.unraid.net/topic/197719-support-mrlinfordmaintainerr-v3-overlay-helperr/",
+        "summary": "Works in combination with Maintainerr, adding a Netflix-style \"leaving soon\" overlay on top of your media, It integrates with Plex and Maintainerr to."
+      },
+      "data_source_urls": [
+        "https://github.com/gssariev/maintainerr-overlay-helperr/",
+        "https://github.com/gssariev/maintainerr-overlay-helperr/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "makershelf",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "website_url": "https://github.com/NilsN3DP/makershelf",
+      "docs_url": "https://github.com/NilsN3DP/makershelf#readme",
+      "install_docs_url": "https://github.com/NilsN3DP/makershelf#readme",
+      "summary": "MakerShelf organizes 3D print files, tracks filament, and helps manage workshop projects and printers.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/NilsN3DP/makershelf/main/deploy/makershelf-unraid.xml",
+        "docs_url": "https://github.com/NilsN3DP/makershelf/issues",
+        "install_docs_url": "https://github.com/NilsN3DP/makershelf/issues",
+        "summary": "Makershelf Server for Unraid - 3D print file and project manager for makers, workshops and teams, Organise models, track filament, manage your printer farm."
+      },
+      "data_source_urls": [
+        "https://github.com/NilsN3DP/makershelf",
+        "https://github.com/NilsN3DP/makershelf/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "makerworks-v2",
+      "review_scope": "partial",
+      "name": "MakerWorks Storefront",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "website_url": "https://github.com/schartrand77/mkw2",
+      "docs_url": "https://github.com/schartrand77/mkw2#readme",
+      "install_docs_url": "https://github.com/schartrand77/mkw2#readme",
+      "summary": "MakerWorks Storefront helps 3D printing businesses display products, quote jobs, accept orders, and manage fulfillment.",
+      "expected": {
+        "name": "MakerWorks-v2",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/schartrand77/makerworks-unraid-templates/main/makerworks-v2.xml",
+        "docs_url": "https://github.com/schartrand77/mkw2/issues",
+        "install_docs_url": "https://github.com/schartrand77/mkw2/issues",
+        "summary": "MakerWorks is a 3D printing commerce app with storefront, instant quoting, checkout, customer order tracking, admin operations, backups, and optional."
+      },
+      "data_source_urls": [
+        "https://github.com/schartrand77/mkw2",
+        "https://github.com/schartrand77/mkw2/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "maki",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "website_url": "https://github.com/OrbitMPGH/Maki",
+      "docs_url": "https://github.com/OrbitMPGH/Maki#readme",
+      "install_docs_url": "https://github.com/OrbitMPGH/Maki#readme",
+      "summary": "Maki tracks manga series across multiple sources and manages downloaded chapters as CBZ files.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/OrbitMPGH/Maki/main/distribution/unraid/maki.xml",
+        "docs_url": "https://github.com/OrbitMPGH/Maki/issues",
+        "install_docs_url": "https://github.com/OrbitMPGH/Maki/issues",
+        "summary": "Maki is a manga collection manager for the *arr ecosystem, It tracks series across multiple scraper sources and torrent trackers, downloads chapters into CBZ."
+      },
+      "data_source_urls": [
+        "https://github.com/OrbitMPGH/Maki",
+        "https://github.com/OrbitMPGH/Maki/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "malla",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "website_url": "https://github.com/zenitraM/malla",
+      "docs_url": "https://github.com/zenitraM/malla#readme",
+      "install_docs_url": "https://github.com/zenitraM/malla#readme",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/malla.xml",
+        "docs_url": "https://github.com/zenitraM/malla/issues",
+        "install_docs_url": "https://github.com/zenitraM/malla/issues"
+      },
+      "data_source_urls": [
+        "https://github.com/zenitraM/malla",
+        "https://github.com/zenitraM/malla/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "mame",
+      "review_scope": "partial",
+      "source_code_url": "https://github.com/mamedev/mame",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-only",
+      "website_url": "https://www.mamedev.org/",
+      "docs_url": "https://www.mamedev.org/",
+      "summary": "MAME emulates arcade machines, game consoles, old computers, and other hardware.",
+      "expected": {
+        "source_code_url": "https://github.com/linuxserver/docker-mame",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/mame.xml",
+        "docs_url": "https://github.com/linuxserver/docker-mame#readme",
+        "summary": "MAME(https://www.mamedev.org/) is a free and emulator designed to emulate the hardware of arcade games, video game consoles, old computers and other systems."
+      },
+      "data_source_urls": [
+        "https://www.mamedev.org/",
+        "https://github.com/mamedev/mame",
+        "https://github.com/mamedev/mame/blob/master/COPYING"
+      ]
+    },
+    {
+      "slug": "maple",
+      "review_scope": "partial",
+      "source_model": "source_available",
+      "license": "Functional Source License 1.1, Apache License 2.0 after two years",
+      "license_type": "custom",
+      "license_spdx_id": "FSL-1.1-ALv2",
+      "website_url": "https://maple.dev",
+      "docs_url": "https://github.com/MapleTechLabs/maple#readme",
+      "install_docs_url": "https://github.com/MapleTechLabs/maple#readme",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "website_url": null,
+        "docs_url": "https://github.com/MapleTechLabs/maple#readme",
+        "install_docs_url": "https://github.com/MapleTechLabs/maple#readme"
+      },
+      "data_source_urls": [
+        "https://maple.dev",
+        "https://github.com/MapleTechLabs/maple",
+        "https://github.com/MapleTechLabs/maple/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "marble",
+      "review_scope": "partial",
+      "license": "Elastic License 2.0",
+      "license_type": "custom",
+      "license_spdx_id": "Elastic-2.0",
+      "docs_url": "https://github.com/checkmarble/marble#readme",
+      "expected": {
+        "license": "Elastic License 2.0",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "docs_url": null
+      },
+      "data_source_urls": [
+        "https://www.checkmarble.com",
+        "https://github.com/checkmarble/marble",
+        "https://github.com/checkmarble/marble/blob/main/LICENSE",
+        "https://spdx.org/licenses/Elastic-2.0.html"
+      ]
+    },
+    {
+      "slug": "mario-leaderboard",
+      "review_scope": "partial",
+      "source_model": "unknown",
+      "license": null,
+      "license_type": "unknown",
+      "license_spdx_id": null,
+      "website_url": "https://github.com/articwone/mario-leaderboard",
+      "docs_url": "https://github.com/articwone/mario-leaderboard#readme",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/ArticWone/Mario-Leaderboard/main/unraid/Mario-Leaderboard.xml",
+        "docs_url": "https://github.com/ArticWone/Mario-Leaderboard/issues"
+      },
+      "data_source_urls": [
+        "https://github.com/articwone/mario-leaderboard"
+      ]
+    },
+    {
+      "slug": "matrix-synapse-slidingsync",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "website_url": "https://github.com/matrix-org/sliding-sync",
+      "docs_url": "https://github.com/matrix-org/sliding-sync#readme",
+      "install_docs_url": "https://github.com/matrix-org/sliding-sync#readme",
+      "summary": "Matrix Sliding Sync is an archived proxy for incremental syncing with Synapse, superseded by support built into Synapse.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "website_url": "https://raw.githubusercontent.com/Richy1989/unraid-templates/main/synapse_sliding_sync/synapse_sliding_sync.xml",
+        "docs_url": "https://forums.unraid.net/topic/161484-sliding-sync-matrix-protocol/",
+        "install_docs_url": "https://forums.unraid.net/topic/161484-sliding-sync-matrix-protocol/",
+        "summary": "Run a sliding sync proxy, An implementation of MSC3575 for you Synapse Backend, Setup Process: Requires Postgres 13+, createdb syncv3 SYNCV3_SERVER Required."
+      },
+      "data_source_urls": [
+        "https://github.com/matrix-org/sliding-sync",
+        "https://github.com/matrix-org/sliding-sync/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "mattermost-push-proxy",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "website_url": "https://github.com/mattermost/mattermost-push-proxy",
+      "docs_url": "https://developers.mattermost.com/contribute/mobile/push-notifications/service/",
+      "install_docs_url": "https://developers.mattermost.com/contribute/mobile/push-notifications/service/",
+      "summary": "Mattermost Push Proxy delivers mobile push notifications for a Mattermost server.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "website_url": "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/mattermost-push-proxy.xml",
+        "docs_url": "https://forums.unraid.net/topic/89502-support-a75g-repo/",
+        "install_docs_url": "https://forums.unraid.net/topic/89502-support-a75g-repo/",
+        "summary": "Mattermost Push Notification Service, after starting mkdir /mnt/user/appdata/mattermost-push-proxy/config cd /mnt/user/appdata/mattermost-push-proxy/config."
+      },
+      "data_source_urls": [
+        "https://github.com/mattermost/mattermost-push-proxy",
+        "https://developers.mattermost.com/contribute/mobile/push-notifications/service/",
+        "https://github.com/mattermost/mattermost-push-proxy/blob/master/LICENSE"
+      ]
+    },
+    {
+      "slug": "mbpfan",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "website_url": "https://github.com/linux-on-mac/mbpfan",
+      "docs_url": "https://github.com/linux-on-mac/mbpfan#readme",
+      "install_docs_url": "https://github.com/linux-on-mac/mbpfan#readme",
+      "summary": "mbpfan adjusts fan speeds on Mac computers running Linux.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/djismgaming/docker-templates/main/djismGAMING/mbpfan.xml",
+        "docs_url": "https://forums.unraid.net/topic/136764-support-djismgaming-mbpfan-a-fan-controller-for-macs-running-linux/",
+        "install_docs_url": "https://forums.unraid.net/topic/136764-support-djismgaming-mbpfan-a-fan-controller-for-macs-running-linux/",
+        "summary": "Containerized mbpfan (for Macs running Linux, to control fans) NOTE: the executable in the container was compiled by bplein from."
+      },
+      "data_source_urls": [
+        "https://github.com/linux-on-mac/mbpfan",
+        "https://github.com/linux-on-mac/mbpfan/blob/master/LICENSE"
+      ]
+    },
+    {
+      "slug": "mcp-nextcloud",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "website_url": "https://github.com/cbcoutinho/nextcloud-mcp-server",
+      "docs_url": "https://github.com/cbcoutinho/nextcloud-mcp-server#readme",
+      "install_docs_url": "https://github.com/cbcoutinho/nextcloud-mcp-server#readme",
+      "summary": "The Nextcloud MCP server lets AI tools access a Nextcloud instance, with optional semantic search through Qdrant and Ollama.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/Cyberschorsch/unraid-templates/main/templates/mcp-nextcloud.xml",
+        "docs_url": "https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/",
+        "install_docs_url": "https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/",
+        "summary": "Enable AI assistants to interact with your Nextcloud instance, The Nextcloud MCP (Model Context Protocol) server allows Large Language Models like Claude."
+      },
+      "data_source_urls": [
+        "https://github.com/cbcoutinho/nextcloud-mcp-server",
+        "https://github.com/cbcoutinho/nextcloud-mcp-server/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "mcp-searxng",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "website_url": "https://github.com/ihor-sokoliuk/mcp-searxng",
+      "docs_url": "https://github.com/ihor-sokoliuk/mcp-searxng#readme",
+      "install_docs_url": "https://github.com/ihor-sokoliuk/mcp-searxng#readme",
+      "summary": "MCP-SearXNG connects AI tools to an existing SearXNG instance for web search.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/Cyberschorsch/unraid-templates/main/templates/mcp-searxng.xml",
+        "docs_url": "https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/",
+        "install_docs_url": "https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/",
+        "summary": "An MCP server implementation that integrates the SearXNG API, providing web search capabilities, Features Web Search: General queries, news, articles, with."
+      },
+      "data_source_urls": [
+        "https://github.com/ihor-sokoliuk/mcp-searxng",
+        "https://github.com/ihor-sokoliuk/mcp-searxng/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "mcpelevator",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "website_url": "https://github.com/pacnpal/mcpelevator",
+      "docs_url": "https://github.com/pacnpal/mcpelevator#readme",
+      "install_docs_url": "https://github.com/pacnpal/mcpelevator/blob/main/docs/unraid.md",
+      "summary": "mcpelevator exposes local stdio MCP servers as authenticated HTTP endpoints.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/pacnpal/unraid-templates/main/mcpelevator.xml",
+        "docs_url": "https://github.com/pacnpal/mcpelevator/blob/main/docs/unraid.md",
+        "install_docs_url": "https://github.com/pacnpal/mcpelevator/blob/main/docs/unraid.md",
+        "summary": "Elevate MCP servers into authenticated HTTP endpoints -, in one container, Most MCP servers ship as stdio programs (npx/uvx commands) that phones and remote."
+      },
+      "data_source_urls": [
+        "https://github.com/pacnpal/mcpelevator",
+        "https://github.com/pacnpal/mcpelevator/blob/main/LICENSE",
+        "https://github.com/pacnpal/mcpelevator/blob/main/docs/unraid.md"
+      ]
+    },
+    {
+      "slug": "media-curator",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "website_url": "https://github.com/asherflynt/media-curator",
+      "docs_url": "https://github.com/asherflynt/media-curator#readme",
+      "install_docs_url": "https://github.com/asherflynt/media-curator#readme",
+      "summary": "Media Curator finds files in Radarr and Sonarr libraries whose size does not match their quality and can demote them.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/asherflynt/media-curator/main/media-curator.xml",
+        "docs_url": "https://github.com/asherflynt/media-curator/issues",
+        "install_docs_url": "https://github.com/asherflynt/media-curator/issues",
+        "summary": "Media-curator audits your Radarr/Sonarr library for files whose size contradicts the quality they claim to be, and reclaims disk space by demoting."
+      },
+      "data_source_urls": [
+        "https://github.com/asherflynt/media-curator",
+        "https://github.com/asherflynt/media-curator/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "media-purge",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "website_url": "https://github.com/ktordoff13/media-purge",
+      "docs_url": "https://github.com/ktordoff13/media-purge/blob/main/docs/rules.md",
+      "install_docs_url": "https://ca.unraid.net/apps/media-purge-0chx7ny00h3jg2",
+      "summary": "Media Purge recommends files to remove or downgrade in Plex and Jellyfin libraries, then moves approved files through a recycle bin.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/ktordoff13/media-purge/main/docker/unraid-template.xml",
+        "docs_url": "https://github.com/ktordoff13/media-purge/issues",
+        "install_docs_url": "https://github.com/ktordoff13/media-purge/issues",
+        "summary": "Rule-based media cleanup for Plex and Jellyfin, Scans your libraries, recommends what to delete."
+      },
+      "data_source_urls": [
+        "https://github.com/ktordoff13/media-purge",
+        "https://ca.unraid.net/apps/media-purge-0chx7ny00h3jg2",
+        "https://github.com/ktordoff13/media-purge/blob/main/docs/rules.md",
+        "https://github.com/ktordoff13/media-purge/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "media-vault",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "website_url": "https://github.com/halvar20000/media-vault",
+      "docs_url": "https://github.com/halvar20000/media-vault#readme",
+      "install_docs_url": "https://github.com/halvar20000/media-vault#readme",
+      "summary": "Media Vault catalogs a collection of physical media such as discs and tapes.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/halvar20000/media-vault/main/templates/media-vault.xml",
+        "docs_url": "https://github.com/halvar20000/media-vault/issues",
+        "install_docs_url": "https://github.com/halvar20000/media-vault/issues",
+        "summary": "Media library service backed by PostgreSQL for storing and organizing files."
+      },
+      "data_source_urls": [
+        "https://github.com/halvar20000/media-vault",
+        "https://github.com/halvar20000/media-vault/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "media-watchdog",
+      "review_scope": "partial",
+      "source_model": "unknown",
+      "license": null,
+      "license_type": "unknown",
+      "license_spdx_id": null,
+      "website_url": "https://github.com/overboardkiller/media-watchdog",
+      "docs_url": "https://github.com/overboardkiller/media-watchdog#readme",
+      "install_docs_url": "https://ca.unraid.net/apps/media-watchdog-0lp3uic07yh82w",
+      "summary": "Media Watchdog lets Emby users flag unwanted Seerr requests, then helps admins remove them through Radarr or Sonarr.",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/overboardkiller/unraid-templates/main/media-watchdog.xml",
+        "docs_url": "https://github.com/overboardkiller/media-watchdog/issues",
+        "install_docs_url": "https://github.com/overboardkiller/media-watchdog/issues",
+        "summary": "Cross-reference your Seerr requests with your Emby watch history, Users can flag unwanted movies and shows for removal, Admins can review flags and delete."
+      },
+      "data_source_urls": [
+        "https://github.com/overboardkiller/media-watchdog",
+        "https://ca.unraid.net/apps/media-watchdog-0lp3uic07yh82w"
+      ]
+    },
+    {
+      "slug": "mediafusion",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "website_url": "https://mhdzumair.github.io/MediaFusion/",
+      "docs_url": "https://mhdzumair.github.io/MediaFusion/",
+      "install_docs_url": "https://mhdzumair.github.io/MediaFusion/",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/JamsRepos/Unraid-Templates/main/templates/mediafusion.xml",
+        "docs_url": "https://github.com/mhdzumair/MediaFusion/issues",
+        "install_docs_url": "https://github.com/mhdzumair/MediaFusion/issues"
+      },
+      "data_source_urls": [
+        "https://mhdzumair.github.io/MediaFusion/",
+        "https://github.com/mhdzumair/MediaFusion",
+        "https://github.com/mhdzumair/MediaFusion/blob/main/LICENSE"
+      ]
+    },
+    {
+      "slug": "mediainfo",
+      "review_scope": "partial",
+      "source_code_url": "https://github.com/MediaArea/MediaInfo",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "BSD 2-Clause \"Simplified\" License",
+      "license_type": "permissive",
+      "license_spdx_id": "BSD-2-Clause",
+      "website_url": "https://mediaarea.net/en/MediaInfo",
+      "docs_url": "https://mediaarea.net/en/MediaInfo",
+      "install_docs_url": "https://github.com/MediaArea/MediaInfo#readme",
+      "summary": "MediaInfo displays technical and tag information about audio and video files.",
+      "expected": {
+        "source_code_url": "https://github.com/jlesage/docker-mediainfo",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/jlesage/docker-templates/master/jlesage/mediainfo.xml",
+        "docs_url": "https://github.com/jlesage/docker-mediainfo#readme",
+        "install_docs_url": "https://github.com/jlesage/docker-mediainfo#readme",
+        "summary": "MediaInfo is a convenient unified display of the most relevant technical and tag data for video and audio files, The graphical user interface (GUI) of the."
+      },
+      "data_source_urls": [
+        "https://mediaarea.net/en/MediaInfo",
+        "https://github.com/MediaArea/MediaInfo",
+        "https://github.com/MediaArea/MediaInfo/blob/master/License.html"
+      ]
+    },
+    {
+      "slug": "melonds",
+      "review_scope": "partial",
+      "source_code_url": "https://github.com/melonDS-emu/melonDS",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "website_url": "https://melonds.kuribo64.net/",
+      "docs_url": "https://github.com/melonDS-emu/melonDS#readme",
+      "install_docs_url": "https://github.com/melonDS-emu/melonDS#readme",
+      "summary": "melonDS emulates Nintendo DS and DSi systems.",
+      "expected": {
+        "source_code_url": "https://github.com/linuxserver/docker-melonds",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/melonds.xml",
+        "docs_url": "https://github.com/linuxserver/docker-melonds#readme",
+        "install_docs_url": "https://github.com/linuxserver/docker-melonds#readme",
+        "summary": "MelonDS(https://melonds.kuribo64.net/) aims at providing fast and accurate Nintendo DS emulation."
+      },
+      "data_source_urls": [
+        "https://melonds.kuribo64.net/",
+        "https://github.com/melonDS-emu/melonDS",
+        "https://github.com/melonDS-emu/melonDS/blob/master/LICENSE"
+      ]
+    },
+    {
+      "slug": "minisatip",
+      "review_scope": "partial",
+      "source_code_url": "https://github.com/catalinii/minisatip",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-only",
+      "website_url": "https://github.com/catalinii/minisatip",
+      "docs_url": "https://github.com/catalinii/minisatip#readme",
+      "install_docs_url": "https://github.com/catalinii/minisatip#readme",
+      "summary": "MiniSatip streams DVB tuner channels to SAT>IP clients over a network.",
+      "expected": {
+        "source_code_url": "https://github.com/linuxserver/docker-minisatip",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/minisatip.xml",
+        "docs_url": "https://github.com/linuxserver/docker-minisatip#readme",
+        "install_docs_url": "https://github.com/linuxserver/docker-minisatip#readme",
+        "summary": "Minisatip(https://github.com/catalinii/minisatip) is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2."
+      },
+      "data_source_urls": [
+        "https://github.com/catalinii/minisatip",
+        "https://github.com/catalinii/minisatip/blob/master/LICENSE"
+      ]
+    },
+    {
+      "slug": "modrinth",
+      "review_scope": "partial",
+      "name": "Modrinth App",
+      "source_code_url": "https://github.com/modrinth/code",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "website_url": "https://modrinth.com/app",
+      "docs_url": "https://github.com/modrinth/code/tree/main/apps/app",
+      "install_docs_url": "https://github.com/linuxserver/docker-modrinth#readme",
+      "summary": "Modrinth App installs and manages Minecraft versions, mod loaders, mods, and game instances.",
+      "expected": {
+        "name": "modrinth",
+        "source_code_url": "https://github.com/linuxserver/docker-modrinth",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/modrinth.xml",
+        "docs_url": "https://github.com/linuxserver/docker-modrinth#readme",
+        "install_docs_url": "https://github.com/linuxserver/docker-modrinth#readme",
+        "summary": "Modrinth App(https://modrinth.com/) is a unique, launcher that allows you to play your favorite mods, and keep them up to date, neat little package."
+      },
+      "data_source_urls": [
+        "https://modrinth.com/app",
+        "https://github.com/modrinth/code",
+        "https://github.com/modrinth/code/blob/main/apps/app/COPYING.md",
+        "https://github.com/linuxserver/docker-modrinth"
+      ]
+    },
+    {
+      "slug": "msedge",
+      "review_scope": "partial",
+      "source_code_url": null,
+      "source_code_host": null,
+      "source_model": "closed_source",
+      "license": "Microsoft Software License Terms",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "website_url": "https://www.microsoft.com/edge",
+      "docs_url": "https://github.com/linuxserver/docker-msedge#readme",
+      "install_docs_url": "https://github.com/linuxserver/docker-msedge#readme",
+      "publisher_name": "Microsoft",
+      "publisher_type": "company",
+      "publisher_url": "https://www.microsoft.com/",
+      "summary": "Microsoft Edge is a web browser developed by Microsoft.",
+      "expected": {
+        "source_code_url": "https://github.com/linuxserver/docker-msedge",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/msedge.xml",
+        "docs_url": "https://github.com/linuxserver/docker-msedge#readme",
+        "install_docs_url": "https://github.com/linuxserver/docker-msedge#readme",
+        "publisher_name": "linuxserver",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/linuxserver",
+        "summary": "Microsoft Edge(https://www.microsoft.com/edge) is a cross-app web browser developed by Microsoft and based on Chromium."
+      },
+      "data_source_urls": [
+        "https://www.microsoft.com/edge",
+        "https://www.microsoft.com/en-us/edge/server/download",
+        "https://github.com/linuxserver/docker-msedge#readme"
+      ]
+    },
+    {
+      "slug": "mullvad-browser",
+      "review_scope": "partial",
+      "source_code_url": "https://gitlab.torproject.org/tpo/applications/mullvad-browser/",
+      "source_code_host": "gitlab",
+      "source_model": "open_source",
+      "license": "Mozilla Public License 2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "MPL-2.0",
+      "website_url": "https://mullvad.net/browser",
+      "docs_url": "https://mullvad.net/browser",
+      "install_docs_url": "https://github.com/linuxserver/docker-mullvad-browser#readme",
+      "summary": "Mullvad Browser is a privacy-focused browser developed by Mullvad and the Tor Project.",
+      "expected": {
+        "source_code_url": "https://github.com/linuxserver/docker-mullvad-browser",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/mullvad-browser.xml",
+        "docs_url": "https://github.com/linuxserver/docker-mullvad-browser#readme",
+        "install_docs_url": "https://github.com/linuxserver/docker-mullvad-browser#readme",
+        "summary": "The Mullvad Browser(https://mullvad.net/en/browser) is a privacy-focused web browser developed in a collaboration between Mullvad VPN and the Tor Project."
+      },
+      "data_source_urls": [
+        "https://mullvad.net/browser",
+        "https://gitlab.torproject.org/tpo/applications/mullvad-browser/",
+        "https://github.com/mullvad/mullvad-browser/blob/main/README.md"
+      ]
+    },
+    {
+      "slug": "musicbrainz-picard",
+      "review_scope": "partial",
+      "source_code_url": "https://github.com/metabrainz/picard",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-or-later",
+      "website_url": "https://picard.musicbrainz.org/",
+      "docs_url": "https://picard-docs.musicbrainz.org/en/",
+      "install_docs_url": "https://picard-docs.musicbrainz.org/en/",
+      "summary": "MusicBrainz Picard identifies and tags music files using MusicBrainz metadata.",
+      "expected": {
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "website_url": "https://picard.musicbrainz.org/",
+        "docs_url": "https://www.github.com/mikenye/docker-picard",
+        "install_docs_url": "https://www.github.com/mikenye/docker-picard",
+        "summary": "Picard is a cross-app music tagger written in Python."
+      },
+      "data_source_urls": [
+        "https://picard.musicbrainz.org/",
+        "https://picard-docs.musicbrainz.org/en/",
+        "https://github.com/metabrainz/picard",
+        "https://github.com/metabrainz/picard/blob/master/COPYING.txt"
+      ]
+    },
+    {
+      "slug": "mysql-workbench",
+      "review_scope": "partial",
+      "source_code_url": "https://github.com/mysql/mysql-workbench",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-only",
+      "website_url": "https://www.mysql.com/products/workbench/",
+      "docs_url": "https://dev.mysql.com/doc/workbench/en/",
+      "install_docs_url": "https://github.com/mysql/mysql-workbench/blob/8.0/INSTALL",
+      "summary": "MySQL Workbench is a visual tool for designing and administering MySQL databases.",
+      "expected": {
+        "source_code_url": "https://github.com/linuxserver/docker-mysql-workbench",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/mysql-workbench.xml",
+        "docs_url": "https://github.com/linuxserver/docker-mysql-workbench#readme",
+        "install_docs_url": "https://github.com/linuxserver/docker-mysql-workbench#readme",
+        "summary": "MySQL Workbench(https://www.mysql.com/products/workbench/) is a unified visual tool for database architects, developers, and DBAs, MySQL Workbench provides."
+      },
+      "data_source_urls": [
+        "https://www.mysql.com/products/workbench/",
+        "https://dev.mysql.com/doc/workbench/en/",
+        "https://github.com/mysql/mysql-workbench",
+        "https://github.com/mysql/mysql-workbench/blob/8.0/LICENSE"
+      ]
+    },
+    {
+      "slug": "nano-wallet",
+      "review_scope": "partial",
+      "source_code_url": "https://github.com/linuxserver/nano-wallet",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "website_url": "https://wallet.linuxserver.io/",
+      "docs_url": "https://github.com/linuxserver/nano-wallet#readme",
+      "install_docs_url": "https://github.com/linuxserver/nano-wallet#readme",
+      "summary": "Nano Wallet is a browser-based light wallet for sending and receiving Nano.",
+      "expected": {
+        "source_code_url": "https://github.com/linuxserver/docker-nano-wallet",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/nano-wallet.xml",
+        "docs_url": "https://github.com/linuxserver/docker-nano-wallet#readme",
+        "install_docs_url": "https://github.com/linuxserver/docker-nano-wallet#readme",
+        "summary": "Nano-wallet(https://nano.org/) is a digital payment protocol designed to be accessible and lightweight, with a focus on removing inefficiencies present in."
+      },
+      "data_source_urls": [
+        "https://wallet.linuxserver.io/",
+        "https://github.com/linuxserver/nano-wallet",
+        "https://github.com/linuxserver/nano-wallet/blob/master/LICENSE"
+      ]
+    },
+    {
+      "slug": "mkvcleaver",
+      "review_scope": "partial",
+    "source_code_url": "https://blogs.sapib.ca/apps/mkvcleaver/mkvcleaver-downloads/",
+      "source_code_host": "other",
+      "source_model": "open_source",
+      "license": "GNU General Public License",
+      "license_type": "copyleft",
+      "license_spdx_id": null,
+      "website_url": "https://blogs.sapib.ca/apps/mkvcleaver/",
+      "docs_url": "https://blogs.sapib.ca/apps/mkvcleaver/",
+      "install_docs_url": "https://github.com/jlesage/docker-mkvcleaver#readme",
+      "summary": "MKVCleaver extracts tracks, attachments, tags, subtitles, and other data from MKV files.",
+      "expected": {
+      "source_code_url": "https://github.com/jlesage/docker-mkvcleaver",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "website_url": "https://raw.githubusercontent.com/jlesage/docker-templates/master/jlesage/mkvcleaver.xml",
+        "docs_url": "https://github.com/jlesage/docker-mkvcleaver#readme",
+        "install_docs_url": "https://github.com/jlesage/docker-mkvcleaver#readme",
+        "summary": "MKVcleaver is a GUI (Graphical User Interface) for mkvtoolnix, designed to extract data from MKV files, It can be used in a batch mode."
+      },
+      "data_source_urls": [
+        "https://blogs.sapib.ca/apps/mkvcleaver/",
+        "https://blogs.sapib.ca/apps/mkvcleaver/mkvcleaver-downloads/",
+        "https://blogs.sapib.ca/apps/mkvcleaver/mkvcleaver-how-to/run-from-source/",
+        "https://github.com/jlesage/docker-mkvcleaver"
+      ]
+    }
+  ]
+}

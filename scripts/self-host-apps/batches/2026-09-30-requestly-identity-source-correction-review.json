@@ -1,0 +1,97 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Correct Requestly identity, source model, license, publisher, docs, surface, and summary after official product and repository pages distinguish the closed-source API Client from the open-source HTTP Interceptor. Proposal only; refresh the live row before apply.",
+  "apps": [
+    {
+      "slug": "requestly",
+      "review_scope": "partial",
+      "expected": {
+        "name": "Requestly",
+        "summary": "Developer tool for building, testing, and debuging web apps.",
+        "summary_source": "stack127_enriched",
+        "summary_confidence": "medium",
+        "website_url": "https://requestly.com",
+        "source_code_url": "https://github.com/requestly/requestly",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/requestly/requestly#readme",
+        "install_docs_url": "https://github.com/requestly/requestly#readme",
+        "license": "AGPL-3.0-only",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-only",
+        "publisher_name": "requestly",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/requestly",
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "surfaces": [
+          "web"
+        ],
+        "data_source_urls": [
+          "https://github.com/requestly/requestly",
+          "https://github.com/requestly/requestly/blob/master/LICENSE",
+          "https://github.com/requestly/requestly#readme",
+          "https://openalternative.co/requestly",
+          "https://raw.githubusercontent.com/requestly/requestly/HEAD/README.md",
+          "https://requestly.com",
+          "https://requestly.com/",
+          "https://selfhst.github.io/cdn/directory/software.json"
+        ]
+      },
+      "name": "Requestly API Client",
+      "summary": "Designs and tests APIs in a desktop client with collections, environments, and scripted request workflows.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "website_url": "https://requestly.com/",
+      "source_code_url": null,
+      "source_code_host": "unknown",
+      "docs_url": "https://docs.requestly.com/api-client/overview",
+      "install_docs_url": "https://docs.requestly.com/api-client/overview",
+      "license": "Proprietary software",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "publisher_name": "BrowserStack",
+      "publisher_type": "company",
+      "publisher_url": "https://www.browserstack.com/",
+      "source_model": "closed_source",
+      "pricing_model": "freemium",
+      "surfaces": [
+        "desktop"
+      ],
+      "reviewed_install_methods": [
+        "native"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://github.com/requestly/requestly#readme",
+          "note": "Publisher installation documentation; verify dependencies and platform support.",
+          "image": null,
+          "label": "Native installation",
+          "method": "native",
+          "sort_order": 60,
+          "source_url": "https://github.com/requestly/requestly#readme",
+          "support_level": "official"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "native",
+          "label": "Requestly API Client",
+          "url": "https://docs.requestly.com/api-client/overview",
+          "support_level": "official",
+          "source_url": "https://docs.requestly.com/api-client/overview",
+          "image": null,
+          "note": "The official guide installs the desktop app on macOS, Windows, or Linux.",
+          "sort_order": 10
+        }
+      ],
+      "data_source_urls": [
+        "https://github.com/requestly/requestly",
+        "https://github.com/requestly/interceptor",
+        "https://requestly.com/",
+        "https://docs.requestly.com/api-client/overview",
+        "https://requestly.com/terms/"
+      ]
+    }
+  ]
+}

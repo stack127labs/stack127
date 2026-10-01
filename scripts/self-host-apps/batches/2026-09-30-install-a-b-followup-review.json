@@ -1,0 +1,1170 @@
+{
+  "reviewed_at": "2026-09-30",
+  "database_access": "read_only",
+  "canonical_project": "tulgfrqamtcshdtmhvpx",
+  "scope": "Review of 25 published self_hostable records assigned by slug, with no install options. Verified install destinations and methods from official project/publisher material. No production changes made.",
+  "selection": {
+    "filters": {
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "install_options": "empty array"
+    },
+    "order_by": "parent-assigned slug list",
+    "limit": 25,
+    "records": [
+      "ansible",
+      "ansible-nas",
+      "antville",
+      "anubis",
+      "apache-airflow",
+      "apache-druid",
+      "apache-iotdb",
+      "apache-pinot",
+      "apache-solr",
+      "apostrophe",
+      "ara-records-ansible",
+      "argus",
+      "asciinema",
+      "asterisk",
+      "atheos",
+      "atomic-crm",
+      "ats-buddy",
+      "atsumeru",
+      "atuin",
+      "audiomass",
+      "authman",
+      "authportal",
+      "awesome-sysadmin",
+      "awstats",
+      "baby-buddy"
+    ]
+  },
+  "records": [
+    {
+      "slug": "ansible",
+      "app_id": "c8f8a06f-e6f4-4dc7-8b26-9ac8d1c9f191",
+      "current": {
+        "website_url": "https://www.ansible.com",
+        "docs_url": "https://docs.ansible.com/ansible/latest/index.html",
+        "install_docs_url": "https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html",
+        "source_code_url": "https://github.com/ansible/ansible",
+        "publisher_url": "https://github.com/ansible",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [
+        {
+          "method": "package",
+          "label": "Ansible pipx installation",
+          "url": "https://docs.ansible.com/projects/ansible/latest/installation_guide/intro_installation.html",
+          "support_level": "official",
+          "source_url": "https://docs.ansible.com/projects/ansible/latest/installation_guide/intro_installation.html",
+          "image": null,
+          "note": "Official guide installs Ansible or ansible-core on a control node with pipx.",
+          "sort_order": 10
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "Official installation guide supports installing Ansible packages with pipx on a control node."
+      ],
+      "sources": [
+        "https://www.ansible.com",
+        "https://docs.ansible.com/projects/ansible/latest/installation_guide/intro_installation.html",
+        "https://github.com/ansible/ansible"
+      ],
+      "gaps_updates": [
+        "Add package to deployment_methods; use the official installation guide as install_docs_url."
+      ]
+    },
+    {
+      "slug": "ansible-nas",
+      "app_id": "d3104fd6-60aa-4103-b434-7a84bbb173a2",
+      "current": {
+        "website_url": null,
+        "docs_url": null,
+        "install_docs_url": "https://ansible-nas.io/docs/getting-started/installation/",
+        "source_code_url": "https://github.com/DaveStephens/ansible-nas",
+        "publisher_url": "https://github.com/DaveStephens",
+        "docker_url": "https://ansible-nas.io/docs/getting-started/installation/",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "native",
+          "label": "Ansible-NAS playbook setup",
+          "url": "https://ansible-nas.io/docs/getting-started/installation/",
+          "support_level": "official",
+          "source_url": "https://ansible-nas.io/docs/getting-started/installation/",
+          "image": null,
+          "note": "Official guide installs Ansible and runs the Ansible-NAS playbook on the host.",
+          "sort_order": 10
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "Official installation guide describes Ansible-NAS as a playbook that configures a home server, not an app container."
+      ],
+      "sources": [
+        "https://ansible-nas.io/docs/getting-started/installation/",
+        "https://github.com/DaveStephens/ansible-nas"
+      ],
+      "gaps_updates": [
+        "Replace the Docker URL/method with the native playbook setup; the current Docker URL points to install documentation, not an image."
+      ]
+    },
+    {
+      "slug": "antville",
+      "app_id": "3e65297b-d330-4ae4-a677-e08980ec00bf",
+      "current": {
+        "website_url": "https://antville.org",
+        "docs_url": "https://github.com/antville/antville#readme",
+        "install_docs_url": "https://github.com/antville/antville#readme",
+        "source_code_url": "https://github.com/antville/antville",
+        "publisher_url": "https://github.com/antville",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [
+        {
+          "method": "native",
+          "label": "Antville manual installation",
+          "url": "https://github.com/antville/antville/blob/main/INSTALL.md",
+          "support_level": "official",
+          "source_url": "https://github.com/antville/antville/blob/main/INSTALL.md",
+          "image": null,
+          "note": "The project install guide requires Helma Object Publisher and PostgreSQL or MySQL/MariaDB; it does not give a direct Antville package link.",
+          "sort_order": 10
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "The upstream INSTALL.md gives a server setup procedure and database initialization steps."
+      ],
+      "sources": [
+        "https://antville.org",
+        "https://github.com/antville/antville/blob/main/INSTALL.md",
+        "https://github.com/antville/antville"
+      ],
+      "gaps_updates": [
+        "Replace the repository-root install_docs_url with the INSTALL.md guide; add native to deployment_methods. Confirm the old Helma-based instructions still match supported current versions."
+      ]
+    },
+    {
+      "slug": "anubis",
+      "app_id": "47a2cc00-0046-4ee9-baff-efb0839c1e0d",
+      "current": {
+        "website_url": "https://anubis.techaro.lol",
+        "docs_url": "https://github.com/TecharoHQ/anubis#readme",
+        "install_docs_url": "https://github.com/TecharoHQ/anubis#readme",
+        "source_code_url": "https://github.com/TecharoHQ/anubis",
+        "publisher_url": "https://github.com/TecharoHQ",
+        "docker_url": "https://github.com/TecharoHQ/anubis/blob/HEAD/docs/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Anubis container image",
+          "url": "https://github.com/TecharoHQ/anubis/pkgs/container/anubis",
+          "support_level": "official",
+          "source_url": "https://anubis.techaro.lol/docs/admin/installation/",
+          "image": "ghcr.io/techarohq/anubis:main",
+          "note": "Official GHCR package. The package page currently lists the main tag; prefer a release tag when available.",
+          "sort_order": 10
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "The publisher's GHCR package page publishes the Anubis container; the current database Docker URL is a Dockerfile source file."
+      ],
+      "sources": [
+        "https://anubis.techaro.lol/docs/admin/installation/",
+        "https://github.com/TecharoHQ/anubis",
+        "https://github.com/TecharoHQ/anubis/pkgs/container/anubis"
+      ],
+      "gaps_updates": [
+        "Replace docker_url with the GHCR package page and set docker_image to the verified image reference; keep Docker as a deployment method."
+      ]
+    },
+    {
+      "slug": "apache-airflow",
+      "app_id": "5a9b7c97-011d-4f33-99b1-1545dae08a9f",
+      "current": {
+        "website_url": "https://airflow.apache.org",
+        "docs_url": "https://github.com/apache/airflow#readme",
+        "install_docs_url": "https://github.com/apache/airflow#readme",
+        "source_code_url": "https://github.com/apache/airflow",
+        "publisher_url": "https://github.com/apache",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Apache Airflow Docker image",
+          "url": "https://hub.docker.com/r/apache/airflow",
+          "support_level": "official",
+          "source_url": "https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html",
+          "image": "apache/airflow:3.3.2",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Apache Airflow Docker Compose",
+          "url": "https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html",
+          "support_level": "official",
+          "source_url": "https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html",
+          "image": "apache/airflow:3.3.2",
+          "note": "Official Compose guide is a quick-start environment and explicitly says it is not designed for production.",
+          "sort_order": 20
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "Apache's current Docker guide uses the apache/airflow image and provides a Compose quick start."
+      ],
+      "sources": [
+        "https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html",
+        "https://hub.docker.com/r/apache/airflow",
+        "https://github.com/apache/airflow"
+      ],
+      "gaps_updates": [
+        "Set install_docs_url to the official Docker guide and add compose to deployment_methods; keep the production caveat visible in the option note."
+      ]
+    },
+    {
+      "slug": "apache-druid",
+      "app_id": "9de8fc29-46b5-46f1-abda-d009eb083702",
+      "current": {
+        "website_url": null,
+        "docs_url": "https://github.com/apache/druid#readme",
+        "install_docs_url": "https://github.com/apache/druid#readme",
+        "source_code_url": "https://github.com/apache/druid",
+        "publisher_url": "https://github.com/apache",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Apache Druid Docker image",
+          "url": "https://hub.docker.com/r/apache/druid",
+          "support_level": "official",
+          "source_url": "https://druid.apache.org/docs/latest/tutorials/docker/",
+          "image": "apache/druid:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Apache Druid Docker quick start",
+          "url": "https://druid.apache.org/docs/latest/tutorials/docker/",
+          "support_level": "official",
+          "source_url": "https://druid.apache.org/docs/latest/tutorials/docker/",
+          "image": "apache/druid:latest",
+          "note": "Official example starts an eight-container quick-start cluster; docs require at least 6 GiB Docker memory and say production needs tailored configuration.",
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Apache Druid binary download",
+          "url": "https://druid.apache.org/downloads/",
+          "support_level": "official",
+          "source_url": "https://druid.apache.org/downloads/",
+          "image": null,
+          "note": null,
+          "sort_order": 30
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "Apache Druid docs link the Docker Hub image, document Docker Compose deployment, and publish binary release archives."
+      ],
+      "sources": [
+        "https://druid.apache.org/docs/latest/tutorials/docker/",
+        "https://druid.apache.org/downloads/",
+        "https://hub.docker.com/r/apache/druid",
+        "https://github.com/apache/druid"
+      ],
+      "gaps_updates": [
+        "Add Docker, Compose, and binary methods; set install_docs_url to the official Docker quick start and website_url to druid.apache.org."
+      ]
+    },
+    {
+      "slug": "apache-iotdb",
+      "app_id": "f75ba3c6-e563-414b-8dc8-55e050caeccd",
+      "current": {
+        "website_url": null,
+        "docs_url": "https://github.com/apache/iotdb#readme",
+        "install_docs_url": "https://github.com/apache/iotdb#readme",
+        "source_code_url": "https://github.com/apache/iotdb",
+        "publisher_url": "https://github.com/apache",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Apache IoTDB Docker image",
+          "url": "https://hub.docker.com/r/apache/iotdb",
+          "support_level": "official",
+          "source_url": "https://iotdb.apache.org/UserGuide/latest/Deployment-and-Maintenance/Docker-Deployment_apache.html",
+          "image": "apache/iotdb:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Apache IoTDB Compose deployment",
+          "url": "https://iotdb.apache.org/UserGuide/latest/Deployment-and-Maintenance/Docker-Deployment_apache.html",
+          "support_level": "official",
+          "source_url": "https://iotdb.apache.org/UserGuide/latest/Deployment-and-Maintenance/Docker-Deployment_apache.html",
+          "image": "apache/iotdb:latest",
+          "note": null,
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Apache IoTDB binary download",
+          "url": "https://iotdb.apache.org/Download/",
+          "support_level": "official",
+          "source_url": "https://iotdb.apache.org/UserGuide/latest/Deployment-and-Maintenance/IoTDB-Package_apache.html",
+          "image": null,
+          "note": null,
+          "sort_order": 30
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "The official deployment guide documents the apache/iotdb image and Compose configurations; the package guide points to official binary downloads."
+      ],
+      "sources": [
+        "https://iotdb.apache.org/UserGuide/latest/Deployment-and-Maintenance/Docker-Deployment_apache.html",
+        "https://iotdb.apache.org/UserGuide/latest/Deployment-and-Maintenance/IoTDB-Package_apache.html",
+        "https://iotdb.apache.org/Download/",
+        "https://hub.docker.com/r/apache/iotdb"
+      ],
+      "gaps_updates": [
+        "Add Docker, Compose, and binary methods; replace repository-root install_docs_url with the official deployment guide."
+      ]
+    },
+    {
+      "slug": "apache-pinot",
+      "app_id": "9b5f3700-4b5d-4404-9e29-7aa137e15319",
+      "current": {
+        "website_url": null,
+        "docs_url": "https://github.com/apache/pinot#readme",
+        "install_docs_url": "https://github.com/apache/pinot#readme",
+        "source_code_url": "https://github.com/apache/pinot",
+        "publisher_url": "https://github.com/apache",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Apache Pinot Docker image",
+          "url": "https://hub.docker.com/r/apachepinot/pinot",
+          "support_level": "official",
+          "source_url": "https://docs.pinot.apache.org/start-here/install/docker",
+          "image": "apachepinot/pinot:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Apache Pinot Docker Compose setup",
+          "url": "https://docs.pinot.apache.org/start-here/install/docker",
+          "support_level": "official",
+          "source_url": "https://docs.pinot.apache.org/start-here/install/docker",
+          "image": "apachepinot/pinot:latest",
+          "note": "Official guide starts Pinot with ZooKeeper and optionally Kafka.",
+          "sort_order": 20
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "Pinot's official Docker install guide documents both Compose and individual Docker-run deployment and uses the apachepinot/pinot image."
+      ],
+      "sources": [
+        "https://docs.pinot.apache.org/start-here/install/docker",
+        "https://hub.docker.com/r/apachepinot/pinot",
+        "https://github.com/apache/pinot"
+      ],
+      "gaps_updates": [
+        "Add Docker and Compose methods; set install_docs_url to Pinot's official Docker guide."
+      ]
+    },
+    {
+      "slug": "apache-solr",
+      "app_id": "7aa33688-6668-4266-ad82-bd88d667e09e",
+      "current": {
+        "website_url": "https://solr.apache.org",
+        "docs_url": "https://github.com/apache/solr#readme",
+        "install_docs_url": "https://github.com/apache/solr#readme",
+        "source_code_url": "https://github.com/apache/solr",
+        "publisher_url": "https://github.com/apache",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Apache Solr Docker image",
+          "url": "https://hub.docker.com/_/solr",
+          "support_level": "official",
+          "source_url": "https://solr.apache.org/guide/solr/latest/deployment-guide/solr-in-docker.html",
+          "image": "solr:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "binary",
+          "label": "Apache Solr binary release",
+          "url": "https://solr.apache.org/downloads.html",
+          "support_level": "official",
+          "source_url": "https://solr.apache.org/guide/solr/latest/deployment-guide/installing-solr.html",
+          "image": null,
+          "note": null,
+          "sort_order": 20
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "The official Solr guide documents the solr container image; the install guide links binary archives on the project download page."
+      ],
+      "sources": [
+        "https://solr.apache.org/guide/solr/latest/deployment-guide/solr-in-docker.html",
+        "https://solr.apache.org/guide/solr/latest/deployment-guide/installing-solr.html",
+        "https://solr.apache.org/downloads.html",
+        "https://hub.docker.com/_/solr"
+      ],
+      "gaps_updates": [
+        "Add Docker and binary methods; replace the repository README as install_docs_url with the official Solr installation guide."
+      ]
+    },
+    {
+      "slug": "apostrophe",
+      "app_id": "e4c03a32-c4b3-438d-a825-6124975ebdbc",
+      "current": {
+        "website_url": "https://apostrophecms.com",
+        "docs_url": "https://github.com/apostrophecms/apostrophe#readme",
+        "install_docs_url": "https://github.com/apostrophecms/apostrophe#readme",
+        "source_code_url": "https://github.com/apostrophecms/apostrophe",
+        "publisher_url": "https://github.com/apostrophecms",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [
+        {
+          "method": "native",
+          "label": "Create an Apostrophe site with npm",
+          "url": "https://apostrophecms.com/docs/guide/development-setup.html",
+          "support_level": "official",
+          "source_url": "https://apostrophecms.com/docs/guide/hosting.html",
+          "image": null,
+          "note": "Official setup guide scaffolds a site with npm; production hosting requirements are documented separately.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Apostrophe Docker Compose guide",
+          "url": "https://apostrophecms.com/docs/cookbook/using-docker.html",
+          "support_level": "official",
+          "source_url": "https://apostrophecms.com/docs/cookbook/using-docker.html",
+          "image": null,
+          "note": "Official production guide builds a project-specific application image and runs it with Compose; it is not a prebuilt CMS image.",
+          "sort_order": 20
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "Official docs give an npm project setup and a production Docker/Compose guide."
+      ],
+      "sources": [
+        "https://apostrophecms.com/docs/guide/development-setup.html",
+        "https://apostrophecms.com/docs/guide/hosting.html",
+        "https://apostrophecms.com/docs/cookbook/using-docker.html",
+        "https://github.com/apostrophecms/apostrophe"
+      ],
+      "gaps_updates": [
+        "Replace repository-root install_docs_url with official setup or hosting docs; add native and compose methods."
+      ]
+    },
+    {
+      "slug": "ara-records-ansible",
+      "app_id": "9b6eb381-f5f2-46b5-b22c-f138b5dd3689",
+      "current": {
+        "website_url": "https://ara.recordsansible.org",
+        "docs_url": "https://github.com/ansible-community/ara#readme",
+        "install_docs_url": "https://github.com/ansible-community/ara#readme",
+        "source_code_url": "https://github.com/ansible-community/ara",
+        "publisher_url": "https://github.com/ansible-community",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "ARA API Docker Hub image",
+          "url": "https://hub.docker.com/r/recordsansible/ara-api",
+          "support_level": "official",
+          "source_url": "https://ara.readthedocs.io/en/latest/distribution-packages.html",
+          "image": "recordsansible/ara-api:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "ARA API Quay image",
+          "url": "https://quay.io/repository/recordsansible/ara-api",
+          "support_level": "official",
+          "source_url": "https://ara.readthedocs.io/en/latest/distribution-packages.html",
+          "image": "quay.io/recordsansible/ara-api:latest",
+          "note": null,
+          "sort_order": 20
+        },
+        {
+          "method": "package",
+          "label": "ARA Python package",
+          "url": "https://pypi.org/project/ara/",
+          "support_level": "official",
+          "source_url": "https://ara.readthedocs.io/en/latest/distribution-packages.html",
+          "image": null,
+          "note": "The project lists PyPI as an officially supported distribution; use its docs to run the API server.",
+          "sort_order": 30
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "ARA's distribution docs list PyPI and both container registries as officially supported. Its container docs show using the API server image."
+      ],
+      "sources": [
+        "https://ara.readthedocs.io/en/latest/distribution-packages.html",
+        "https://ara.readthedocs.io/en/latest/container-images.html",
+        "https://hub.docker.com/r/recordsansible/ara-api",
+        "https://quay.io/repository/recordsansible/ara-api",
+        "https://pypi.org/project/ara/"
+      ],
+      "gaps_updates": [
+        "Add package to deployment_methods; replace repository-root install_docs_url with ARA's official distribution/container docs."
+      ]
+    },
+    {
+      "slug": "argus",
+      "app_id": "96c98f35-5ef5-4dd8-a2a1-e450750ec889",
+      "current": {
+        "website_url": "https://release-argus.io",
+        "docs_url": "https://github.com/release-argus/Argus#readme",
+        "install_docs_url": "https://github.com/release-argus/Argus#readme",
+        "source_code_url": "https://github.com/release-argus/Argus",
+        "publisher_url": "https://github.com/release-argus",
+        "docker_url": "https://github.com/release-argus/Argus/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Argus container image",
+          "url": "https://github.com/release-argus/Argus/pkgs/container/argus",
+          "support_level": "official",
+          "source_url": "https://github.com/release-argus/Argus#readme",
+          "image": "ghcr.io/release-argus/argus:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "binary",
+          "label": "Argus release binary",
+          "url": "https://github.com/release-argus/Argus/releases",
+          "support_level": "official",
+          "source_url": "https://github.com/release-argus/Argus#readme",
+          "image": null,
+          "note": "The official README directs operators to download the binary from Releases.",
+          "sort_order": 20
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "The official README identifies GHCR and release binaries as installation routes; the current Docker URL points only to a Dockerfile."
+      ],
+      "sources": [
+        "https://github.com/release-argus/Argus#readme",
+        "https://github.com/release-argus/Argus/pkgs/container/argus",
+        "https://github.com/release-argus/Argus/releases"
+      ],
+      "gaps_updates": [
+        "Replace docker_url with the GHCR package page, set docker_image, add binary to deployment_methods."
+      ]
+    },
+    {
+      "slug": "asciinema",
+      "app_id": "90bc53c9-7a08-4218-97d1-b20a6057e69f",
+      "current": {
+        "website_url": "https://docs.asciinema.org/manual/server",
+        "docs_url": "https://docs.asciinema.org/manual/server",
+        "install_docs_url": "https://github.com/asciinema/asciinema-server#readme",
+        "source_code_url": "https://github.com/asciinema/asciinema-server",
+        "publisher_url": "https://github.com/asciinema",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "asciinema server container",
+          "url": "https://github.com/asciinema/asciinema-server/pkgs/container/asciinema-server",
+          "support_level": "official",
+          "source_url": "https://docs.asciinema.org/manual/server/self-hosting/",
+          "image": "ghcr.io/asciinema/asciinema-server:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "asciinema server Docker Compose setup",
+          "url": "https://docs.asciinema.org/getting-started/#self-hosting-the-server",
+          "support_level": "official",
+          "source_url": "https://docs.asciinema.org/getting-started/#self-hosting-the-server",
+          "image": "ghcr.io/asciinema/asciinema-server:latest",
+          "note": "Official quick start includes a Compose stack with PostgreSQL.",
+          "sort_order": 20
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "The official server documentation names the GHCR image and provides a Compose self-hosting quick start."
+      ],
+      "sources": [
+        "https://docs.asciinema.org/manual/server/self-hosting/",
+        "https://docs.asciinema.org/getting-started/#self-hosting-the-server",
+        "https://github.com/asciinema/asciinema-server/pkgs/container/asciinema-server"
+      ],
+      "gaps_updates": [
+        "Replace the source-repository install link with server self-hosting docs; add Docker and Compose methods."
+      ]
+    },
+    {
+      "slug": "asterisk",
+      "app_id": "4af23c64-fac9-4318-b8c7-b205e3e5b2b4",
+      "current": {
+        "website_url": "https://www.asterisk.org",
+        "docs_url": "https://github.com/asterisk/asterisk#readme",
+        "install_docs_url": "https://github.com/asterisk/asterisk#readme",
+        "source_code_url": "https://github.com/asterisk/asterisk",
+        "publisher_url": "https://github.com/asterisk",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [
+        {
+          "method": "native",
+          "label": "Build Asterisk from source",
+          "url": "https://docs.asterisk.org/Getting-Started/Installing-Asterisk/Installing-Asterisk-From-Source/What-to-Download/",
+          "support_level": "official",
+          "source_url": "https://www.asterisk.org/downloads/",
+          "image": null,
+          "note": "Official guide downloads the Asterisk source archive and documents building it on the host.",
+          "sort_order": 10
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "Asterisk's official documentation points to the current source archive and installation-from-source instructions."
+      ],
+      "sources": [
+        "https://docs.asterisk.org/Getting-Started/Installing-Asterisk/Installing-Asterisk-From-Source/What-to-Download/",
+        "https://www.asterisk.org/downloads/",
+        "https://github.com/asterisk/asterisk"
+      ],
+      "gaps_updates": [
+        "Add native to deployment_methods and replace the repository README as install_docs_url with the source-install guide."
+      ]
+    },
+    {
+      "slug": "atheos",
+      "app_id": "9c20ae7f-4416-4865-bd68-b75cc7d60aca",
+      "current": {
+        "website_url": "https://www.atheos.io",
+        "docs_url": "https://github.com/Atheos/Atheos#readme",
+        "install_docs_url": "https://github.com/Atheos/Atheos#readme",
+        "source_code_url": "https://github.com/Atheos/Atheos",
+        "publisher_url": "https://github.com/Atheos",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [
+        {
+          "method": "native",
+          "label": "Atheos manual web-server install",
+          "url": "https://github.com/Atheos/Atheos/blob/main/docs/README.md#manual-installation",
+          "support_level": "official",
+          "source_url": "https://github.com/Atheos/Atheos/blob/main/docs/README.md#manual-installation",
+          "image": null,
+          "note": "Official manual install requires a web-accessible folder and writable application directories. The docs do not name a Docker Hub image.",
+          "sort_order": 10
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "The project installation document describes a manual web-server install. It mentions Docker Hub generically but provides no official image name."
+      ],
+      "sources": [
+        "https://github.com/Atheos/Atheos/blob/main/docs/README.md",
+        "https://www.atheos.io",
+        "https://github.com/Atheos/Atheos"
+      ],
+      "gaps_updates": [
+        "Replace the repository-root install_docs_url with the manual-install guide; do not add a Docker option until the project names a verifiable image."
+      ]
+    },
+    {
+      "slug": "atomic-crm",
+      "app_id": "3e20e24e-fa86-4a31-b91a-5b47dcf6ef95",
+      "current": {
+        "website_url": "http://marmelab.com/atomic-crm",
+        "docs_url": "https://github.com/marmelab/atomic-crm#readme",
+        "install_docs_url": "https://github.com/marmelab/atomic-crm#readme",
+        "source_code_url": "https://github.com/marmelab/atomic-crm",
+        "publisher_url": "https://github.com/marmelab",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [],
+      "skip_reason": "Official instructions cover only local development with Make, Node, Docker, and local Supabase; no operator installation or published deployment target was verified.",
+      "inspection_notes": [
+        "The official README describes Atomic CRM and provides a local-development setup; the repository Docker files are not install destinations."
+      ],
+      "sources": [
+        "https://github.com/marmelab/atomic-crm#readme",
+        "http://marmelab.com/atomic-crm"
+      ],
+      "gaps_updates": [
+        "Review self_hosting_status; replace the repository README install link if the publisher adds deployment documentation."
+      ]
+    },
+    {
+      "slug": "ats-buddy",
+      "app_id": "e16276ba-f181-4d39-bdea-0cebb4e26bbe",
+      "current": {
+        "website_url": "https://seehiong.github.io/ats-buddy/",
+        "docs_url": "https://github.com/seehiong/ats-buddy#readme",
+        "install_docs_url": "https://github.com/seehiong/ats-buddy#readme",
+        "source_code_url": "https://github.com/seehiong/ats-buddy",
+        "publisher_url": "https://github.com/seehiong",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "verified_install_options": [],
+      "skip_reason": "The official README only documents a local Vite development/build preview and says the published site is static. No separate self-host deployment destination or install guide was verified.",
+      "inspection_notes": [
+        "The product is a browser-side resume analyzer with local model execution; the repository documents npm development commands but not an operator deployment."
+      ],
+      "sources": [
+        "https://github.com/seehiong/ats-buddy#readme",
+        "https://seehiong.github.io/ats-buddy/"
+      ],
+      "gaps_updates": [
+        "Review the existing native deployment method and self_hosting_status; add an install option only if the project documents a static self-host route."
+      ]
+    },
+    {
+      "slug": "atsumeru",
+      "app_id": "e533cc4c-f0e7-4eff-a8df-873ad0c03049",
+      "current": {
+        "website_url": "https://atsumeru.xyz",
+        "docs_url": "https://github.com/Atsumeru-xyz/Atsumeru#readme",
+        "install_docs_url": "https://github.com/Atsumeru-xyz/Atsumeru#readme",
+        "source_code_url": "https://github.com/Atsumeru-xyz/Atsumeru",
+        "publisher_url": "https://github.com/Atsumeru-xyz",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Atsumeru Docker image",
+          "url": "https://hub.docker.com/r/atsumerudev/atsumeru",
+          "support_level": "official",
+          "source_url": "https://github.com/Atsumeru-xyz/Atsumeru-Docker",
+          "image": "atsumerudev/atsumeru:1.1",
+          "note": "The project's Docker repository provides this image; Docker Hub shows tag 1.1 and says it was last updated over a year ago.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Atsumeru Docker Compose guide",
+          "url": "https://github.com/Atsumeru-xyz/Atsumeru-Docker#usage",
+          "support_level": "official",
+          "source_url": "https://github.com/Atsumeru-xyz/Atsumeru-Docker",
+          "image": "atsumerudev/atsumeru:1.1",
+          "note": null,
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Atsumeru server JAR releases",
+          "url": "https://github.com/Atsumeru-xyz/Atsumeru/releases",
+          "support_level": "official",
+          "source_url": "https://github.com/Atsumeru-xyz/Atsumeru#readme",
+          "image": null,
+          "note": "The official README directs users to download the current server JAR from Releases.",
+          "sort_order": 30
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "The upstream README documents downloadable JAR releases and links its project Docker image; a sibling repository under the same organization documents Docker and Compose."
+      ],
+      "sources": [
+        "https://github.com/Atsumeru-xyz/Atsumeru#readme",
+        "https://github.com/Atsumeru-xyz/Atsumeru/releases",
+        "https://github.com/Atsumeru-xyz/Atsumeru-Docker",
+        "https://hub.docker.com/r/atsumerudev/atsumeru"
+      ],
+      "gaps_updates": [
+        "Add Docker, Compose, and binary methods; set install_docs_url to the server guide or official Docker setup. Note the registry image is older than a year and confirm compatibility before recommending it."
+      ]
+    },
+    {
+      "slug": "atuin",
+      "app_id": "4e9b8ab1-151c-4e28-b972-743e54e08f14",
+      "current": {
+        "website_url": "https://atuin.sh",
+        "docs_url": "https://github.com/atuinsh/atuin#readme",
+        "install_docs_url": "https://github.com/atuinsh/atuin#readme",
+        "source_code_url": "https://github.com/atuinsh/atuin",
+        "publisher_url": "https://github.com/atuinsh",
+        "docker_url": "https://github.com/atuinsh/atuin/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Atuin server container",
+          "url": "https://github.com/atuinsh/atuin/pkgs/container/atuin",
+          "support_level": "official",
+          "source_url": "https://docs.atuin.sh/latest/self-hosting/docker/",
+          "image": "ghcr.io/atuinsh/atuin:202f6ad",
+          "note": "The current GHCR package lists tag 202f6ad; official docs advise using tagged builds rather than main or latest.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Atuin server Docker Compose setup",
+          "url": "https://docs.atuin.sh/latest/self-hosting/docker/",
+          "support_level": "official",
+          "source_url": "https://docs.atuin.sh/latest/self-hosting/docker/",
+          "image": "ghcr.io/atuinsh/atuin:202f6ad",
+          "note": null,
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Atuin server release binaries",
+          "url": "https://github.com/atuinsh/atuin/releases",
+          "support_level": "official",
+          "source_url": "https://docs.atuin.sh/latest/self-hosting/server-setup/",
+          "image": null,
+          "note": "Official server setup docs link prebuilt binaries and an installer in each release.",
+          "sort_order": 30
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "The official self-hosting docs document Docker, Compose, and a separate server binary; the current Docker URL is a Dockerfile."
+      ],
+      "sources": [
+        "https://docs.atuin.sh/latest/self-hosting/server-setup/",
+        "https://docs.atuin.sh/latest/self-hosting/docker/",
+        "https://github.com/atuinsh/atuin/releases",
+        "https://github.com/atuinsh/atuin/pkgs/container/atuin"
+      ],
+      "gaps_updates": [
+        "Replace docker_url with the GHCR package page, set docker_image to the currently verified tagged reference, add Compose and binary methods, and set install_docs_url to current self-hosting docs."
+      ]
+    },
+    {
+      "slug": "audiomass",
+      "app_id": "23bc75ce-e36c-4671-8aef-d43c50fd4a63",
+      "current": {
+        "website_url": null,
+        "docs_url": null,
+        "install_docs_url": "https://github.com/pkalogiros/AudioMass",
+        "source_code_url": "https://github.com/pkalogiros/AudioMass",
+        "publisher_url": "https://github.com/pkalogiros",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [],
+      "skip_reason": "The official README has local run commands inside the source repository, but no separate install guide, release package, or published container destination was verified.",
+      "inspection_notes": [
+        "The README describes AudioMass as a web audio editor and uses a Go or Python development web server to run the checkout."
+      ],
+      "sources": [
+        "https://github.com/pkalogiros/AudioMass"
+      ],
+      "gaps_updates": [
+        "Keep the repository as source_code_url; review self_hosting_status and use an install option only if a separate supported deployment route is documented."
+      ]
+    },
+    {
+      "slug": "authman",
+      "app_id": "a78e229a-3a0b-46b0-9db4-b00ead24b6b6",
+      "current": {
+        "website_url": "https://github.com/simular/authman-server",
+        "docs_url": "https://github.com/simular/authman-server#readme",
+        "install_docs_url": "https://github.com/simular/authman-server#readme",
+        "source_code_url": "https://github.com/simular/authman-server",
+        "publisher_url": "https://github.com/simular",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [],
+      "skip_reason": "The official server repository README only redirects users to the Authman app repository; no server installation instructions, releases, package, or image destination were verified.",
+      "inspection_notes": [
+        "The publisher's server README identifies itself as Authman server but delegates readers to the companion Authman app repository."
+      ],
+      "sources": [
+        "https://github.com/simular/authman-server",
+        "https://github.com/simular/authman-app"
+      ],
+      "gaps_updates": [
+        "Correct website_url to the publisher's product page if appropriate; replace repository-root install_docs_url only when server install docs are published."
+      ]
+    },
+    {
+      "slug": "authportal",
+      "app_id": "2640e3db-9531-4ddf-9687-5a014b3975d3",
+      "current": {
+        "website_url": "https://github.com/modom-ofn/auth-portal",
+        "docs_url": "https://github.com/modom-ofn/auth-portal#readme",
+        "install_docs_url": "https://github.com/modom-ofn/auth-portal#readme",
+        "source_code_url": "https://github.com/modom-ofn/auth-portal",
+        "publisher_url": "https://github.com/modom-ofn",
+        "docker_url": "https://github.com/modom-ofn/auth-portal/blob/HEAD/auth-portal/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "AuthPortal Docker image",
+          "url": "https://hub.docker.com/r/modomofn/auth-portal",
+          "support_level": "official",
+          "source_url": "https://github.com/modom-ofn/auth-portal#readme",
+          "image": "modomofn/auth-portal:latest",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "AuthPortal Docker Compose quick start",
+          "url": "https://github.com/modom-ofn/auth-portal#quick-start",
+          "support_level": "official",
+          "source_url": "https://github.com/modom-ofn/auth-portal#quick-start",
+          "image": "modomofn/auth-portal:latest",
+          "note": "The Quick Start runs the app with PostgreSQL; its Compose example builds the app image from the project checkout.",
+          "sort_order": 20
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "The official README links the Docker Hub image and includes a Compose quick start; Docker Hub confirms the latest tag."
+      ],
+      "sources": [
+        "https://github.com/modom-ofn/auth-portal#quick-start",
+        "https://hub.docker.com/r/modomofn/auth-portal"
+      ],
+      "gaps_updates": [
+        "Replace docker_url with the Docker Hub registry page and set docker_image; set compose_url to the Quick Start guide."
+      ]
+    },
+    {
+      "slug": "awesome-sysadmin",
+      "app_id": "a68a639e-6682-412d-9106-373e5ca33a21",
+      "current": {
+        "website_url": "https://sysadmin.awesome-selfhosted.net",
+        "docs_url": "https://github.com/awesome-foss/awesome-sysadmin#readme",
+        "install_docs_url": "https://github.com/awesome-foss/awesome-sysadmin#readme",
+        "source_code_url": "https://github.com/awesome-foss/awesome-sysadmin",
+        "publisher_url": "https://github.com/awesome-foss",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_install_options": [],
+      "skip_reason": "This is a curated list of sysadmin resources, not a software application with an install destination.",
+      "inspection_notes": [
+        "The publisher's README describes the project as a curated list and contains links to other software."
+      ],
+      "sources": [
+        "https://github.com/awesome-foss/awesome-sysadmin#readme",
+        "https://sysadmin.awesome-selfhosted.net"
+      ],
+      "gaps_updates": [
+        "Remove the Docker deployment method and review whether this list belongs in the self-hosted applications directory."
+      ]
+    },
+    {
+      "slug": "awstats",
+      "app_id": "fb9bd2a5-cbfa-48d1-b3f5-4903c4e7a8ca",
+      "current": {
+        "website_url": "https://www.awstats.org",
+        "docs_url": "https://github.com/eldy/AWStats#readme",
+        "install_docs_url": "https://github.com/eldy/AWStats#readme",
+        "source_code_url": "https://github.com/eldy/AWStats",
+        "publisher_url": "https://github.com/eldy",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [
+        {
+          "method": "binary",
+          "label": "AWStats 8.0 download",
+          "url": "https://www.awstats.org/#download",
+          "support_level": "official",
+          "source_url": "https://www.awstats.org/docs/awstats_setup.html",
+          "image": null,
+          "note": "Official downloads page links the 8.0 tar.gz, ZIP, and RPM; the setup guide explains unpacking and configuration.",
+          "sort_order": 10
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "The publisher's downloads page lists AWStats 8.0 tar.gz, ZIP, and RPM packages and links official setup documentation."
+      ],
+      "sources": [
+        "https://www.awstats.org/#download",
+        "https://www.awstats.org/docs/awstats_setup.html",
+        "https://github.com/eldy/AWStats"
+      ],
+      "gaps_updates": [
+        "Add binary to deployment_methods and replace the GitHub source link as install_docs_url with the official setup guide."
+      ]
+    },
+    {
+      "slug": "baby-buddy",
+      "app_id": "e5aadf00-a81f-41b7-b5e8-61b842c923ed",
+      "current": {
+        "website_url": "http://docs.baby-buddy.net",
+        "docs_url": "http://docs.baby-buddy.net",
+        "install_docs_url": "https://github.com/babybuddy/babybuddy#readme",
+        "source_code_url": "https://github.com/babybuddy/babybuddy",
+        "publisher_url": "https://github.com/babybuddy",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Baby Buddy LinuxServer container",
+          "url": "https://hub.docker.com/r/linuxserver/babybuddy",
+          "support_level": "community",
+          "source_url": "https://docs.baby-buddy.net/setup/deployment/",
+          "image": "lscr.io/linuxserver/babybuddy:latest",
+          "note": "Baby Buddy's own docs recommend the LinuxServer.io community-maintained container.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Baby Buddy Docker Compose template",
+          "url": "https://docs.baby-buddy.net/setup/deployment/",
+          "support_level": "community",
+          "source_url": "https://docs.baby-buddy.net/setup/deployment/",
+          "image": "lscr.io/linuxserver/babybuddy:latest",
+          "note": "The official deployment guide includes a Compose template using the LinuxServer.io community image.",
+          "sort_order": 20
+        }
+      ],
+      "skip_reason": null,
+      "inspection_notes": [
+        "Baby Buddy's official deployment guide identifies LinuxServer.io as the community container publisher and provides a Compose template."
+      ],
+      "sources": [
+        "https://docs.baby-buddy.net/setup/deployment/",
+        "https://hub.docker.com/r/linuxserver/babybuddy",
+        "https://github.com/linuxserver/docker-babybuddy",
+        "https://github.com/babybuddy/babybuddy"
+      ],
+      "gaps_updates": [
+        "Add docker and compose methods with community support level; replace the repository README install link with the official deployment guide."
+      ]
+    }
+  ]
+}

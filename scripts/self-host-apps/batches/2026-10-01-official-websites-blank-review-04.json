@@ -1,0 +1,404 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Review the next 40 saved-inventory apps with blank website_url and no earlier website correction proposal, ordered by slug. Add only verified official project or publisher sites. Proposal only.",
+  "apps": [
+    {
+      "slug": "92five",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://92fiveapp.com/",
+      "data_source_urls": [
+        "https://github.com/chintanbanugaria/92five",
+        "https://92fiveapp.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "agent-vault",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://docs.agent-vault.dev/",
+      "data_source_urls": [
+        "https://github.com/Infisical/agent-vault",
+        "https://docs.agent-vault.dev/",
+        "https://infisical.com/blog/agent-vault-the-open-source-credential-proxy-and-vault-for-agents"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "alarik",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://alarik.io/",
+      "data_source_urls": [
+        "https://github.com/achtungsoftware/alarik",
+        "https://alarik.io/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "ansible-nas",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://ansible-nas.io/",
+      "data_source_urls": [
+        "https://github.com/DaveStephens/ansible-nas",
+        "https://ansible-nas.io/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "apache-druid",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://druid.apache.org/",
+      "data_source_urls": [
+        "https://github.com/apache/druid",
+        "https://github.com/apache/druid-website-src",
+        "https://druid.apache.org/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "apache-iotdb",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://iotdb.apache.org/",
+      "data_source_urls": [
+        "https://github.com/apache/iotdb",
+        "https://github.com/apache/iotdb-docs",
+        "https://iotdb.apache.org/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "autogpt",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://agpt.co/",
+      "data_source_urls": [
+        "https://github.com/Significant-Gravitas/AutoGPT",
+        "https://github.com/Significant-Gravitas",
+        "https://agpt.co/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "big-agi",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://big-agi.com/",
+      "data_source_urls": [
+        "https://github.com/enricoros/big-AGI",
+        "https://big-agi.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "bionicgpt",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://bionic-gpt.com/",
+      "data_source_urls": [
+        "https://github.com/bionic-gpt/bionic-gpt",
+        "https://bionic-gpt.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "comfyui",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://comfy.org/",
+      "data_source_urls": [
+        "https://github.com/Comfy-Org/ComfyUI",
+        "https://github.com/Comfy-Org",
+        "https://comfy.org/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "daytona",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.daytona.io/",
+      "data_source_urls": [
+        "https://github.com/daytonaio/daytona",
+        "https://github.com/daytonaio",
+        "https://www.daytona.io/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "elasticsearch",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.elastic.co/elasticsearch",
+      "data_source_urls": [
+        "https://github.com/elastic/elasticsearch",
+        "https://www.elastic.co/elasticsearch"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "erxes",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://erxes.io/",
+      "data_source_urls": [
+        "https://github.com/erxes/erxes",
+        "https://github.com/erxes",
+        "https://erxes.io/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "focalboard",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.focalboard.com/",
+      "data_source_urls": [
+        "https://github.com/mattermost-community/focalboard",
+        "https://www.focalboard.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "fonoster",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://fonoster.com/",
+      "data_source_urls": [
+        "https://github.com/fonoster/fonoster",
+        "https://github.com/fonoster",
+        "https://fonoster.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "grai",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.grai.io/",
+      "data_source_urls": [
+        "https://github.com/grai-io/grai-core",
+        "https://www.grai.io/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "honcho",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://honcho.dev/",
+      "data_source_urls": [
+        "https://github.com/plastic-labs/honcho",
+        "https://honcho.dev/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "huggingface-chat-ui",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://huggingface.co/chat/",
+      "data_source_urls": [
+        "https://github.com/huggingface/chat-ui",
+        "https://huggingface.co/chat/",
+        "https://huggingface.co/docs/chat-ui/main/index"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "ironclaw",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.ironclaw.com/",
+      "data_source_urls": [
+        "https://github.com/nearai/ironclaw",
+        "https://www.ironclaw.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "jina",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://jina.ai/serve",
+      "data_source_urls": [
+        "https://github.com/jina-ai/serve",
+        "https://jina.ai/serve"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "livekit",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://livekit.com/",
+      "data_source_urls": [
+        "https://github.com/livekit/livekit",
+        "https://livekit.com/",
+        "https://docs.livekit.io/transport/self-hosting/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "llamafile",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://docs.mozilla.ai/llamafile/",
+      "data_source_urls": [
+        "https://github.com/mozilla-ai/llamafile",
+        "https://docs.mozilla.ai/llamafile/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "maple",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://maple.dev/",
+      "data_source_urls": [
+        "https://github.com/MapleTechLabs/maple",
+        "https://maple.dev/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "mindsdb",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://mindshub.ai/",
+      "data_source_urls": [
+        "https://github.com/mindsdb/mindshub",
+        "https://github.com/mindsdb",
+        "https://mindshub.ai/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "nextchat",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://nextchat.club/",
+      "data_source_urls": [
+        "https://github.com/ChatGPTNextWeb/NextChat",
+        "https://nextchat.club/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "october",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://octobercms.com/",
+      "data_source_urls": [
+        "https://github.com/octobercms/october",
+        "https://octobercms.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "odysseus",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://odysseus-dev.github.io/odysseus/",
+      "data_source_urls": [
+        "https://github.com/odysseus-dev/odysseus",
+        "https://odysseus-dev.github.io/odysseus/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "olares",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.olares.com/",
+      "data_source_urls": [
+        "https://github.com/beclab/Olares",
+        "https://www.olares.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "omoios",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://omoios.dev/",
+      "data_source_urls": [
+        "https://github.com/kivo360/OmoiOS",
+        "https://omoios.dev/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "open-notebook",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.open-notebook.ai/",
+      "data_source_urls": [
+        "https://github.com/lfnovo/open-notebook",
+        "https://www.open-notebook.ai/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "openship",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://openship.io/",
+      "data_source_urls": [
+        "https://github.com/oblien/openship",
+        "https://openship.io/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "pgdog",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://pgdog.dev/",
+      "data_source_urls": [
+        "https://github.com/pgdogdev/pgdog",
+        "https://pgdog.dev/"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "skipped": [
+    {
+      "slug": "doublezero",
+      "reason": "The official repository documents the app and its Docker setup, but no distinct official product homepage was found."
+    },
+    {
+      "slug": "epicyon",
+      "reason": "The official Codeberg project could not be accessed to verify a separate site, and no distinct official homepage was found in the available primary-source evidence."
+    },
+    {
+      "slug": "lobehub",
+      "reason": "This record uses the same official repository as LobeChat, whose prior website batch already proposes lobehub.com; avoid a duplicate correction while the two directory identities remain unresolved."
+    },
+    {
+      "slug": "maybe",
+      "reason": "The repository is archived after the publisher pivoted away from the self-hosted personal-finance app; maybe.co could not be opened during review, so its current relationship to this app remains unclear."
+    },
+    {
+      "slug": "mistborn",
+      "reason": "The official GitLab repository contains the project and installation guidance, but no separate official product homepage was verified."
+    },
+    {
+      "slug": "open-lovable",
+      "reason": "The official README describes this as a Firecrawl example app and provides local setup only; no distinct project homepage was found."
+    },
+    {
+      "slug": "oxitraffic",
+      "reason": "The official Codeberg repository was blocked during review, and the saved inventory contains no separate first-party project homepage to verify."
+    },
+    {
+      "slug": "phice",
+      "reason": "The official Codeberg repository could not be accessed, and no separate official product homepage was found in the available evidence."
+    }
+  ]
+}

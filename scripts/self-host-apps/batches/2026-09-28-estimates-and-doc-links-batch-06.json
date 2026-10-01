@@ -1,0 +1,146 @@
+{
+  "reviewed_at": "2026-09-28",
+  "scope": "Filled missing RAM and storage estimates for 15 published apps using official requirements or each app's documented workload. Added six official documentation links.",
+  "apps": [
+    {
+      "slug": "blue-iris",
+      "expected": { "ram_estimate_kind": null, "storage_estimate_min_gb": 5, "storage_estimate_max_gb": 100 },
+      "changes": {
+        "ram": { "min_mb": 8192, "max_mb": 32768, "kind": "estimated", "confidence": "medium", "basis": "The publisher lists at least 8 GB and recommends about 1 GB per high-megapixel camera, so camera count raises the estimate.", "source_urls": ["https://blueirissoftware.com/BlueIris.PDF"] },
+        "storage": { "min_gb": 500, "max_gb": 4000, "kind": "estimated", "confidence": "low", "basis": "Recorded video size depends on camera count, bitrate, and retention time.", "source_urls": ["https://blueirissoftware.com/BlueIris.PDF"] }
+      },
+      "sources": ["https://blueirissoftware.com/BlueIris.PDF"]
+    },
+    {
+      "slug": "channels-dvr",
+      "expected": { "ram_estimate_kind": null, "storage_estimate_min_gb": 50, "storage_estimate_max_gb": 500 },
+      "changes": {
+        "ram": { "min_mb": 512, "max_mb": 2048, "kind": "estimated", "confidence": "high", "basis": "The publisher lists 512 MB minimum and recommends 1 GB; concurrent streams and transcoding can use more.", "source_urls": ["https://getchannels.com/docs/getting-started/system-requirements/channels-dvr-server/"] },
+        "storage": { "min_gb": 500, "max_gb": 2000, "kind": "estimated", "confidence": "high", "basis": "The publisher recommends 2 TB for over 250 recording hours and estimates about 8 GB per hour of HDTV.", "source_urls": ["https://getchannels.com/docs/getting-started/system-requirements/channels-dvr-server/"] }
+      },
+      "sources": ["https://getchannels.com/docs/getting-started/system-requirements/channels-dvr-server/"]
+    },
+    {
+      "slug": "datalens",
+      "expected": { "ram_estimate_kind": null, "storage_estimate_min_gb": 1, "storage_estimate_max_gb": 20, "docs_url": null },
+      "changes": {
+        "ram": { "min_mb": 4096, "max_mb": 16384, "kind": "estimated", "confidence": "high", "basis": "The project lists a 4 GB minimal configuration; more memory is useful as users and queries grow.", "source_urls": ["https://github.com/datalens-tech/datalens"] },
+        "storage": { "min_gb": 5, "max_gb": 100, "kind": "estimated", "confidence": "medium", "basis": "Stores PostgreSQL metadata, settings, connections, and workbooks; the connected data sources remain separate.", "source_urls": ["https://github.com/datalens-tech/datalens"] },
+        "docs_url": "https://datalens.tech/docs"
+      },
+      "sources": ["https://github.com/datalens-tech/datalens", "https://datalens.tech/docs"]
+    },
+    {
+      "slug": "emby",
+      "expected": { "ram_estimate_kind": null },
+      "changes": {
+        "ram": { "min_mb": 1024, "max_mb": 8192, "kind": "estimated", "confidence": "medium", "basis": "The publisher lists 512 MB minimum on Linux and 2 GB for HD transcoding; streams and transcoding needs vary.", "source_urls": ["https://emby.media/support/articles/System-Requirements.html"] }
+      },
+      "sources": ["https://emby.media/support/articles/System-Requirements.html"]
+    },
+    {
+      "slug": "highlight",
+      "expected": { "ram_estimate_kind": null, "storage_estimate_min_gb": 5, "storage_estimate_max_gb": 100, "docs_url": null },
+      "changes": {
+        "ram": { "min_mb": 16384, "max_mb": 32768, "kind": "estimated", "confidence": "high", "basis": "The project recommends 32 GB for its hobby deployment; ingestion volume affects the practical range.", "source_urls": ["https://github.com/highlight/highlight", "https://www.highlight.io/docs/general/company/open-source/hosting/self-host-hobby"] },
+        "storage": { "min_gb": 128, "max_gb": 256, "kind": "estimated", "confidence": "high", "basis": "The project recommends 256 GB disk for its hobby deployment; retained events and sessions drive storage use.", "source_urls": ["https://github.com/highlight/highlight", "https://www.highlight.io/docs/general/company/open-source/hosting/self-host-hobby"] },
+        "docs_url": "https://www.highlight.io/docs/general/company/open-source/hosting/self-host-hobby"
+      },
+      "sources": ["https://github.com/highlight/highlight", "https://www.highlight.io/docs/general/company/open-source/hosting/self-host-hobby"]
+    },
+    {
+      "slug": "hyperdx",
+      "expected": { "ram_estimate_kind": null, "storage_estimate_min_gb": 5, "storage_estimate_max_gb": 100, "docs_url": null },
+      "changes": {
+        "ram": { "min_mb": 8192, "max_mb": 32768, "kind": "estimated", "confidence": "low", "basis": "A small ClickStack setup runs the observability UI, collector, and ClickHouse; ingest rate and query load drive memory use.", "source_urls": ["https://clickhouse.com/docs/use-cases/observability/clickstack/deployment", "https://clickhouse.com/clickstack"] },
+        "storage": { "min_gb": 50, "max_gb": 500, "kind": "estimated", "confidence": "low", "basis": "ClickHouse stores telemetry; ingestion rate, compression, and retention drive storage use.", "source_urls": ["https://clickhouse.com/docs/use-cases/observability/clickstack/deployment", "https://clickhouse.com/clickstack"] },
+        "docs_url": "https://clickhouse.com/docs/use-cases/observability/clickstack"
+      },
+      "sources": ["https://clickhouse.com/docs/use-cases/observability/clickstack/deployment", "https://clickhouse.com/clickstack"]
+    },
+    {
+      "slug": "infinite-os",
+      "expected": { "ram_estimate_kind": null, "storage_estimate_min_gb": 1, "storage_estimate_max_gb": 20 },
+      "changes": {
+        "ram": { "min_mb": 256, "max_mb": 2048, "kind": "estimated", "confidence": "medium", "basis": "The project says its dashboard uses about 80 MB of RAM; deployed application containers need separate resources.", "source_urls": ["https://github.com/goinfinite/os"] },
+        "storage": { "min_gb": 1, "max_gb": 20, "kind": "estimated", "confidence": "low", "basis": "Covers the base host-in-a-box service and its metadata; deployed application images and data need separate storage.", "source_urls": ["https://github.com/goinfinite/os"] }
+      },
+      "sources": ["https://github.com/goinfinite/os"]
+    },
+    {
+      "slug": "marble",
+      "expected": { "ram_estimate_kind": null, "storage_estimate_kind": null, "docs_url": null },
+      "changes": {
+        "ram": { "min_mb": 4096, "max_mb": 16384, "kind": "estimated", "confidence": "high", "basis": "The install guide lists 4 GB minimum; Elasticsearch and transaction screening can need more.", "source_urls": ["https://github.com/checkmarble/marble/blob/main/installation/README.md", "https://github.com/checkmarble/marble/blob/main/docker-compose.yaml"] },
+        "storage": { "min_gb": 10, "max_gb": 100, "kind": "estimated", "confidence": "medium", "basis": "The install guide lists 10 GB minimum; database records and screening indexes grow with use.", "source_urls": ["https://github.com/checkmarble/marble/blob/main/installation/README.md", "https://github.com/checkmarble/marble/blob/main/docker-compose.yaml"] },
+        "docs_url": "https://docs.checkmarble.com/"
+      },
+      "sources": ["https://github.com/checkmarble/marble/blob/main/installation/README.md", "https://github.com/checkmarble/marble/blob/main/docker-compose.yaml", "https://docs.checkmarble.com/"]
+    },
+    {
+      "slug": "olares",
+      "expected": { "ram_estimate_kind": null, "storage_estimate_kind": null, "website_url": null, "docs_url": null },
+      "changes": {
+        "ram": { "min_mb": 8192, "max_mb": 32768, "kind": "estimated", "confidence": "high", "basis": "The publisher's minimum is 8 GB RAM; local AI apps and other services need more.", "source_urls": ["https://www.olares.com/docs/manual/get-started/install-olares"] },
+        "storage": { "min_gb": 150, "max_gb": 500, "kind": "estimated", "confidence": "high", "basis": "The publisher requires at least a 150 GB SSD; installed apps and personal data use additional space.", "source_urls": ["https://www.olares.com/docs/manual/get-started/install-olares"] },
+        "website_url": "https://www.olares.com/",
+        "docs_url": "https://www.olares.com/docs/manual/get-started/install-olares"
+      },
+      "sources": ["https://www.olares.com/", "https://www.olares.com/docs/manual/get-started/install-olares"]
+    },
+    {
+      "slug": "plex",
+      "expected": { "ram_estimate_kind": null },
+      "changes": {
+        "ram": { "min_mb": 1024, "max_mb": 8192, "kind": "estimated", "confidence": "medium", "basis": "Plex says 4 GB is typically sufficient and Linux systems may use less; concurrent streams and transcoding affect the range.", "source_urls": ["https://support.plex.tv/articles/200375666-plex-media-server-requirements/"] }
+      },
+      "sources": ["https://support.plex.tv/articles/200375666-plex-media-server-requirements/"]
+    },
+    {
+      "slug": "ragflow",
+      "expected": { "ram_estimate_kind": null, "storage_estimate_min_gb": 5, "storage_estimate_max_gb": 100 },
+      "changes": {
+        "ram": { "min_mb": 16384, "max_mb": 32768, "kind": "estimated", "confidence": "high", "basis": "The project requires at least 16 GB RAM for its Docker deployment; document parsing and concurrent work add load.", "source_urls": ["https://github.com/infiniflow/ragflow/blob/main/docs/quickstart.mdx"] },
+        "storage": { "min_gb": 50, "max_gb": 200, "kind": "estimated", "confidence": "high", "basis": "The project requires at least 50 GB disk; document collections and indexes need room to grow.", "source_urls": ["https://github.com/infiniflow/ragflow/blob/main/docs/quickstart.mdx"] }
+      },
+      "sources": ["https://github.com/infiniflow/ragflow/blob/main/docs/quickstart.mdx"]
+    },
+    {
+      "slug": "trench",
+      "expected": { "ram_estimate_kind": null, "storage_estimate_min_gb": 5, "storage_estimate_max_gb": 100, "docs_url": null },
+      "changes": {
+        "ram": { "min_mb": 4096, "max_mb": 16384, "kind": "estimated", "confidence": "high", "basis": "The project recommends at least 4 GB RAM and 4 CPU cores for a production self-hosted setup.", "source_urls": ["https://github.com/FrigadeHQ/trench"] },
+        "storage": { "min_gb": 20, "max_gb": 500, "kind": "estimated", "confidence": "low", "basis": "Stores event data in ClickHouse and Kafka; event volume and retention drive storage use.", "source_urls": ["https://github.com/FrigadeHQ/trench"] },
+        "docs_url": "https://docs.trench.dev/quickstart"
+      },
+      "sources": ["https://github.com/FrigadeHQ/trench", "https://docs.trench.dev/quickstart"]
+    },
+    {
+      "slug": "wazo",
+      "expected": { "ram_estimate_kind": null, "storage_estimate_kind": null },
+      "changes": {
+        "ram": { "min_mb": 4096, "max_mb": 16384, "kind": "estimated", "confidence": "high", "basis": "The publisher lists 4 GB RAM minimum for a small production installation of about 50 users.", "source_urls": ["https://wazo-platform.org/uc-doc/installation/"] },
+        "storage": { "min_gb": 50, "max_gb": 200, "kind": "estimated", "confidence": "high", "basis": "The publisher lists 50 GB storage minimum for a small production installation; call records and recordings can grow.", "source_urls": ["https://wazo-platform.org/uc-doc/installation/"] }
+      },
+      "sources": ["https://wazo-platform.org/uc-doc/installation/"]
+    },
+    {
+      "slug": "workadventure",
+      "expected": { "ram_estimate_kind": null, "storage_estimate_min_gb": 1, "storage_estimate_max_gb": 20 },
+      "changes": {
+        "ram": { "min_mb": 8192, "max_mb": 32768, "kind": "estimated", "confidence": "high", "basis": "The publisher's baseline is about 8 GB RAM, plus 1 GB per 100 concurrent users; media services can need more.", "source_urls": ["https://docs.workadventu.re/admin/admin-self-hosting/"] },
+        "storage": { "min_gb": 20, "max_gb": 100, "kind": "estimated", "confidence": "high", "basis": "The publisher suggests 20–30 GB to start for databases; messages, attachments, and maps increase storage use.", "source_urls": ["https://docs.workadventu.re/admin/admin-self-hosting/"] }
+      },
+      "sources": ["https://docs.workadventu.re/admin/admin-self-hosting/"]
+    },
+    {
+      "slug": "zimbra-collaboration",
+      "expected": { "ram_estimate_kind": null },
+      "changes": {
+        "ram": { "min_mb": 8192, "max_mb": 32768, "kind": "estimated", "confidence": "high", "basis": "The publisher lists 8 GB RAM minimum for a single-server installation; mailbox count affects the estimate.", "source_urls": ["https://zimbra.github.io/documentation/zimbra-10/single-server-install.html"] },
+        "storage": { "min_gb": 100, "max_gb": 500, "kind": "estimated", "confidence": "medium", "basis": "The publisher lists 100 GB for production software and logs, with additional disk space needed for mail storage.", "source_urls": ["https://zimbra.github.io/documentation/zimbra-10/single-server-install.html"] }
+      },
+      "sources": ["https://zimbra.github.io/documentation/zimbra-10/single-server-install.html"]
+    }
+  ]
+}

@@ -39,7 +39,7 @@
   place-items: center;
 }
 .title { min-width: 0; }
-.title h2 {
+.title :is(h2, h3) {
   margin: 0;
   font-family: var(--font-display);
   font-size: var(--text-h3);

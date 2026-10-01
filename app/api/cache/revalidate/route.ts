@@ -29,7 +29,7 @@ export async function POST(request: Request) {
   const tags = payload.tags ?? [];
   if (!Array.isArray(paths) || !Array.isArray(tags) || paths.length > 200 || tags.length > 200 ||
     paths.some((path) => typeof path !== "string" || !/^\/(?:[a-z0-9/_-]*)$/.test(path)) ||
-    tags.some((tag) => typeof tag !== "string" || !/^[a-z0-9:_-]{1,128}$/.test(tag))) {
+    tags.some((tag) => typeof tag !== "string" || !/^[a-z0-9:/_-]{1,128}$/.test(tag))) {
     return NextResponse.json({ error: "Invalid targets" }, { status: 400 });
   }
 

@@ -1,0 +1,56 @@
+{
+  "reviewed_at": "2026-09-30",
+  "slug": "deltafin",
+  "app_id": "c1c593a8-6393-4ff8-893f-181d0a228e37",
+  "live_resource_estimates": {
+    "ram_mb": [2048, 8192],
+    "ram_kind": "estimated",
+    "ram_confidence": "low",
+    "ram_basis": "Typical small self-hosted instance; workload and stored data vary.",
+    "ram_source_urls": ["https://github.com/gavamedia/deltafin"],
+    "storage_gb": [1, 20],
+    "storage_kind": "estimated",
+    "storage_confidence": "low",
+    "storage_basis": "Typical small self-hosted instance; workload and stored data vary.",
+    "storage_source_urls": ["https://github.com/gavamedia/deltafin"],
+    "checked_at": "2026-09-28T11:08:23.499769+00:00"
+  },
+  "reviewed_estimates": {
+    "ram_mb": [65536, 131072],
+    "ram_kind": "estimated",
+    "ram_confidence": "low",
+    "ram_basis": "Published working hosts: 64 GB M1 Max maintainer benchmark; 128 GB DGX Spark contributor run.",
+    "ram_source_urls": [
+      "https://github.com/gavamedia/deltafin/blob/main/docs/PERFORMANCE.md",
+      "https://github.com/gavamedia/deltafin/pull/2"
+    ],
+    "storage_gb": [215, 1700],
+    "storage_kind": "estimated",
+    "storage_confidence": "high",
+    "storage_basis": "Publisher lists about 215 GB for streaming and 1.7 TB for a full install.",
+    "storage_source_urls": [
+      "https://github.com/gavamedia/deltafin/blob/main/README.md",
+      "https://github.com/gavamedia/deltafin/blob/main/docs/REQUIREMENTS.md"
+    ]
+  },
+  "source_findings": [
+    {
+      "url": "https://github.com/gavamedia/deltafin/blob/main/docs/PERFORMANCE.md",
+      "supports": "Maintainer benchmark uses a 64 GB M1 Max host; also states that RAM affects available cache headroom."
+    },
+    {
+      "url": "https://github.com/gavamedia/deltafin/pull/2",
+      "supports": "Contributor reports a successful Deltafin run on a 128 GB DGX Spark."
+    },
+    {
+      "url": "https://github.com/gavamedia/deltafin/blob/main/README.md",
+      "supports": "Publisher lists about 215 GB to start with streaming and 1.7 TB for the full local K3 model."
+    },
+    {
+      "url": "https://github.com/gavamedia/deltafin/blob/main/docs/REQUIREMENTS.md",
+      "supports": "Requirements repeat the 215 GB streaming and 1.7 TB full-install disk figures."
+    }
+  ],
+  "migration": "supabase/migrations/20260930220000_self_host_app_deltafin_resource_estimate.sql",
+  "guard": "Requires the exact app ID and slug, published status, all current RAM/storage estimate values and URLs, and checked_at timestamp. Updates only resource-estimate fields; no migration applied."
+}

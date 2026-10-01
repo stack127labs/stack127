@@ -1,0 +1,229 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values copied directly from its self-host-app records.",
+  "scope": "Proposal-only review of uncovered G-H records with missing product-license data or likely product-source links. Uses official project or publisher sources; community container wrappers are not treated as product source.",
+  "apps": [
+    {
+      "slug": "galleria",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_code_url": "https://github.com/BuiltByTed/Galleria",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/BuiltByTed/Galleria",
+        "https://github.com/BuiltByTed/Galleria/blob/master/LICENSE",
+        "https://github.com/BuiltByTed/Galleria/blob/master/README.md"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "garage-s3-simple",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://git.deuxfleurs.fr/Deuxfleurs/garage",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://git.deuxfleurs.fr/Deuxfleurs/garage",
+        "https://github.com/deuxfleurs-org/garage",
+        "https://garagehq.deuxfleurs.fr/documentation/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "garage-s3-tailscale",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://git.deuxfleurs.fr/Deuxfleurs/garage",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://git.deuxfleurs.fr/Deuxfleurs/garage",
+        "https://github.com/deuxfleurs-org/garage",
+        "https://garagehq.deuxfleurs.fr/documentation/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "gridcoinwalletgui",
+      "review_scope": "partial",
+      "summary": "Wallet software for the Gridcoin network, which rewards users for contributing BOINC research computing.",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/gridcoin-community/Gridcoin-Research",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/gridcoin-community/Gridcoin-Research",
+        "https://github.com/gridcoin-community/Gridcoin-Research/blob/development/README.md",
+        "https://gridcoin.us/"
+      ],
+      "expected": {
+        "summary": "Get some Gridcoins from Boinc and Folding@home work, This docker contains Gridcoin Wallet with GUI running on Ubuntu, You can access the wallet via VNC and.",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "groestlcoind",
+      "review_scope": "partial",
+      "summary": "Groestlcoin Core validates the peer-to-peer network and includes an optional wallet and graphical interface.",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/Groestlcoin/groestlcoin",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/Groestlcoin/groestlcoin",
+        "https://github.com/Groestlcoin/groestlcoin/blob/master/README.md",
+        "https://groestlcoin.org/groestlcoin-core-wallet/"
+      ],
+      "expected": {
+        "summary": "Support the Groestlcoin network by hosting your own node, This template provides a full Groestlcoin Core node, built in a verifiably trustless way, [br][br].",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "gsdock",
+      "review_scope": "partial",
+      "summary": "Runs GoodSync Connect Server on Linux to connect devices for file synchronization and backup.",
+      "license": "GoodSync End User Software License Agreement",
+      "license_type": "custom",
+      "data_source_urls": [
+        "https://www.goodsync.com/license",
+        "https://www.goodsync.com/for-linux",
+        "https://www.goodsync.com/manual"
+      ],
+      "expected": {
+        "summary": "GoodSync Connect Server Runs the GoodSync Connect Linux server to store your backups, Valid GoodSync Connect account required, The WebUI credentials are the.",
+        "license": null,
+        "license_type": "unknown"
+      }
+    },
+    {
+      "slug": "hasheous",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://github.com/gaseous-project/hasheous",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/gaseous-project/hasheous",
+        "https://github.com/gaseous-project/hasheous/blob/main/LICENSE",
+        "https://hasheous.org/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "headendarr",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/Headendarr/Headendarr",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/Headendarr/Headendarr",
+        "https://github.com/Headendarr/Headendarr/blob/master/LICENSE",
+        "https://headendarr.github.io/Headendarr/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "hearchco-agent",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://github.com/hearchco/agent",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/hearchco/agent",
+        "https://github.com/hearchco/agent/blob/main/LICENSE",
+        "https://github.com/hearchco/agent/pkgs/container/agent",
+        "https://hearch.co/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "homey",
+      "review_scope": "partial",
+      "license": "Athom End User Licence Agreement (EULA)",
+      "license_type": "custom",
+      "data_source_urls": [
+        "https://homey.app/en-nl/homey-self-hosted-server/",
+        "https://legal.athom.com/?document=eula&language=en",
+        "https://legal.athom.com/?document=terms-of-use",
+        "https://support.homey.app/hc/en-us/articles/24010537261980-How-to-install-Homey-Self-Hosted-Server-with-Docker-on-Linux"
+      ],
+      "expected": {
+        "license": null,
+        "license_type": "unknown"
+      }
+    }
+  ]
+}

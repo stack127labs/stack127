@@ -9,7 +9,7 @@ type CardCategory = { name: string; icon_key?: string | null };
 type CardFact = { label: string; value: string; icon: LucideIcon };
 
 export function AppFactCardContent({
-  name, image, categories, summary, facts, status,
+  name, image, categories, summary, facts, status, headingLevel = 2, hideCategory = false, headline,
 }: {
   name: string;
   image: ReactNode;
@@ -17,7 +17,11 @@ export function AppFactCardContent({
   summary: string;
   facts: CardFact[];
   status?: ReactNode;
+  headingLevel?: 2 | 3;
+  hideCategory?: boolean;
+  headline?: ReactNode;
 }) {
+  const Heading = headingLevel === 3 ? "h3" : "h2";
   const primary = categories[0];
   const more = categories.slice(1);
 
@@ -26,8 +30,8 @@ export function AppFactCardContent({
       <div className={styles.identity}>
         <span className={styles.image}>{image}</span>
         <div className={styles.title}>
-          <h2>{name}</h2>
-          <span className={styles.category} data-card-category>
+          <Heading>{name}</Heading>
+          {!hideCategory && <span className={styles.category} data-card-category>
             <CategoryIcon iconKey={primary?.icon_key} />
             <span>{primary?.name ?? "Uncategorized"}</span>
             {more.length > 0 && (
@@ -36,11 +40,12 @@ export function AppFactCardContent({
                 <span className={styles.srOnly}> more {more.length === 1 ? "category" : "categories"}: {more.map((category) => category.name).join(", ")}</span>
               </span>
             )}
-          </span>
+          </span>}
           {status}
         </div>
       </div>
-      <p className={styles.summary}>{summary}</p>
+      {summary && <p className={styles.summary}>{summary}</p>}
+      {headline}
       <AppCardFacts facts={facts} />
     </>
   );

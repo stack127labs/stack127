@@ -1,0 +1,658 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Source model and license corrections for confirmed public projects, including source-available projects. Proposal only; no data was applied.",
+  "apps": [
+    {
+      "slug": "mirrorshuttle-for-unraid",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/desertwitch/mirrorshuttle-unRAID",
+      "source_code_host": "github",
+      "license": "GNU General Public License v2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/191119-plugin-mirrorshuttle-for-unraid/",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/desertwitch/mirrorshuttle-unRAID/main/plugin/mirsht.plg",
+        "https://raw.githubusercontent.com/desertwitch/mirrorshuttle-unRAID/main/plugin/mirsht.png",
+        "https://raw.githubusercontent.com/desertwitch/unraid-plugins/main/mirsht.xml",
+        "https://github.com/desertwitch/mirrorshuttle-unRAID",
+        "https://github.com/desertwitch/mirrorshuttle-unRAID/blob/main/LICENSE",
+        "https://github.com/desertwitch/mirrorshuttle-unRAID/blob/main/README.md",
+        "https://raw.githubusercontent.com/desertwitch/mirrorshuttle-unRAID/main/plugin/mirsht.plg"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/191119-plugin-mirrorshuttle-for-unraid/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/desertwitch/mirrorshuttle-unRAID/main/plugin/mirsht.plg",
+          "https://raw.githubusercontent.com/desertwitch/mirrorshuttle-unRAID/main/plugin/mirsht.png",
+          "https://raw.githubusercontent.com/desertwitch/unraid-plugins/main/mirsht.xml"
+        ]
+      }
+    },
+    {
+      "slug": "motd",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/dkaser/unraid-motd",
+      "source_code_host": "github",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/177200-support-motd-message-of-the-day/",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/dkaser/unraid-motd/main/plugin/motd.plg",
+        "https://raw.githubusercontent.com/dkaser/unraid-plugins/main/motd.xml",
+        "https://github.com/dkaser/unraid-motd",
+        "https://github.com/dkaser/unraid-motd/blob/main/LICENSE",
+        "https://github.com/dkaser/unraid-motd/blob/main/README.md",
+        "https://raw.githubusercontent.com/dkaser/unraid-motd/main/plugin/motd.plg"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/177200-support-motd-message-of-the-day/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/dkaser/unraid-motd/main/plugin/motd.plg",
+          "https://raw.githubusercontent.com/dkaser/unraid-plugins/main/motd.xml"
+        ]
+      }
+    },
+    {
+      "slug": "mute",
+      "source_model": "source_available",
+      "source_code_url": "https://github.com/silkyclouds/mute",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/silkyclouds/mute",
+        "https://hub.docker.com/r/meaning/mute-client",
+        "https://muteq.eu/",
+        "https://raw.githubusercontent.com/silkyclouds/PMDA_unraid_xml/main/mute_logo.png",
+        "https://raw.githubusercontent.com/silkyclouds/PMDA_unraid_xml/main/mute.xml",
+        "https://github.com/silkyclouds/mute/blob/main/README.md"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://github.com/silkyclouds/mute",
+          "https://hub.docker.com/r/meaning/mute-client",
+          "https://muteq.eu/",
+          "https://raw.githubusercontent.com/silkyclouds/PMDA_unraid_xml/main/mute_logo.png",
+          "https://raw.githubusercontent.com/silkyclouds/PMDA_unraid_xml/main/mute.xml"
+        ]
+      }
+    },
+    {
+      "slug": "mympd",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/jcorporation/myMPD",
+      "source_code_host": "github",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "data_source_urls": [
+        "https://avatars.githubusercontent.com/u/765844",
+        "https://forums.unraid.net/topic/119582-support-daredoes-snapcast",
+        "https://hub.docker.com/r/daredoes/mympd",
+        "https://jcorporation.github.io/myMPD/",
+        "https://raw.githubusercontent.com/daredoes/unraid-templates/main/daredoes/mympd.xml",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/mympd.xml",
+        "https://registry.hub.docker.com/r/ghcr.io/jcorporation/mympd/mympd",
+        "https://github.com/jcorporation/myMPD",
+        "https://github.com/jcorporation/myMPD/blob/master/LICENSE",
+        "https://github.com/jcorporation/myMPD/blob/master/build.sh"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://avatars.githubusercontent.com/u/765844",
+          "https://forums.unraid.net/topic/119582-support-daredoes-snapcast",
+          "https://hub.docker.com/r/daredoes/mympd",
+          "https://jcorporation.github.io/myMPD/",
+          "https://raw.githubusercontent.com/daredoes/unraid-templates/main/daredoes/mympd.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/mympd.xml",
+          "https://registry.hub.docker.com/r/ghcr.io/jcorporation/mympd/mympd"
+        ]
+      }
+    },
+    {
+      "slug": "nidimages",
+      "source_model": "open_source",
+      "source_code_url": "https://git.sitegui.dev/sitegui/nidimages",
+      "source_code_host": "other",
+      "license": "GNU Affero General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/nidimages",
+        "https://github.com/yunohost-apps/nidimages_ynh",
+        "https://raw.githubusercontent.com/YunoHost/apps/master/logos/nidimages.png",
+        "https://yunohost.org/en/apps",
+        "https://git.sitegui.dev/sitegui/nidimages"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://apps.yunohost.org/app/nidimages",
+          "https://github.com/yunohost-apps/nidimages_ynh",
+          "https://raw.githubusercontent.com/YunoHost/apps/master/logos/nidimages.png",
+          "https://yunohost.org/en/apps"
+        ]
+      }
+    },
+    {
+      "slug": "nomifactory-ceu",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/Nomi-CEu/Nomi-CEu",
+      "source_code_host": "github",
+      "license": "GNU Lesser General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "LGPL-3.0",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+        "https://hub.docker.com/repository/docker/goobaroo/nomifactoryceu",
+        "https://hub.docker.com/repository/docker/goobaroo/vaulthunters",
+        "https://hub.docker.com/repository/docker/goobaroo/vaulthunters3",
+        "https://media.forgecdn.net/avatars/1168/150/638738915756848436.png",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/nomifactoryceu_server.xml",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/vaulthunters_server.xml",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/vaulthunters3rdedition_server.xml",
+        "https://vaulthunters.gg/",
+        "https://github.com/Nomi-CEu/Nomi-CEu",
+        "https://github.com/Nomi-CEu/Nomi-CEu/blob/main/LICENSE",
+        "https://github.com/Nomi-CEu/Nomi-CEu/blob/main/README.md"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/nomifactoryceu",
+          "https://hub.docker.com/repository/docker/goobaroo/vaulthunters",
+          "https://hub.docker.com/repository/docker/goobaroo/vaulthunters3",
+          "https://media.forgecdn.net/avatars/1168/150/638738915756848436.png",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/nomifactoryceu_server.xml",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/vaulthunters_server.xml",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/vaulthunters3rdedition_server.xml",
+          "https://vaulthunters.gg/"
+        ]
+      }
+    },
+    {
+      "slug": "nspanelmanager",
+      "source_model": "source_available",
+      "source_code_url": "https://github.com/NSPManager/NSPanelManager",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/184877-support-nspanel-manager/",
+        "https://hub.docker.com/r/nspanelmanager/nspanelmanager-amd64",
+        "https://nspanelmanager.com/",
+        "https://raw.githubusercontent.com/NSPManager/NSPanelManager/main/unraid/nspanelmanager.xml",
+        "https://raw.githubusercontent.com/NSPManager/NSPanelManager/refs/heads/main/unraid/icon.png",
+        "https://github.com/NSPManager/NSPanelManager",
+        "https://github.com/NSPManager/NSPanelManager/blob/main/README.md"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/184877-support-nspanel-manager/",
+          "https://hub.docker.com/r/nspanelmanager/nspanelmanager-amd64",
+          "https://nspanelmanager.com/",
+          "https://raw.githubusercontent.com/NSPManager/NSPanelManager/main/unraid/nspanelmanager.xml",
+          "https://raw.githubusercontent.com/NSPManager/NSPanelManager/refs/heads/main/unraid/icon.png"
+        ]
+      }
+    },
+    {
+      "slug": "nwipe-with-preclear",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/desertwitch/nwipe-unRAID",
+      "source_code_host": "github",
+      "license": "GNU General Public License v2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/168624-plugin-nwipe-secure-disk-eraser-for-unraid/",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/desertwitch/nwipe-unRAID/main/plugin/dwnwipe.plg",
+        "https://raw.githubusercontent.com/desertwitch/unraid-plugins/main/dwnwipe.xml",
+        "https://github.com/desertwitch/nwipe-unRAID",
+        "https://github.com/desertwitch/nwipe-unRAID/blob/main/LICENSE",
+        "https://github.com/desertwitch/nwipe-unRAID/blob/main/README.md"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/168624-plugin-nwipe-secure-disk-eraser-for-unraid/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/desertwitch/nwipe-unRAID/main/plugin/dwnwipe.plg",
+          "https://raw.githubusercontent.com/desertwitch/unraid-plugins/main/dwnwipe.xml"
+        ]
+      }
+    },
+    {
+      "slug": "octofarm",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/OctoFarm/OctoFarm",
+      "source_code_host": "github",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "data_source_urls": [
+        "https://github.com/NotExpectedYet/OctoFarm/issues",
+        "https://github.com/OctoFarm/OctoFarm/raw/master/server/assets/images/android-chrome-512x512.png",
+        "https://hub.docker.com/r/octofarm/octofarm/",
+        "https://octofarm.net/",
+        "https://raw.githubusercontent.com/NotExpectedYet/OctoFarm-UnRaid-Template/master/octofarm/octofarm.xml",
+        "https://github.com/OctoFarm/OctoFarm",
+        "https://github.com/OctoFarm/OctoFarm/blob/master/LICENSE.txt",
+        "https://docs.octofarm.net/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://github.com/NotExpectedYet/OctoFarm/issues",
+          "https://github.com/OctoFarm/OctoFarm/raw/master/server/assets/images/android-chrome-512x512.png",
+          "https://hub.docker.com/r/octofarm/octofarm/",
+          "https://octofarm.net/",
+          "https://raw.githubusercontent.com/NotExpectedYet/OctoFarm-UnRaid-Template/master/octofarm/octofarm.xml"
+        ]
+      }
+    },
+    {
+      "slug": "onvif-server",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/BigTonyTones/Tonys-Onvf-RTSP-Server",
+      "source_code_host": "github",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/InstantCassette-Apps",
+        "https://github.com/BigTonyTones/Tonys-Onvf-RTSP-Server",
+        "https://github.com/InstantCassette",
+        "https://raw.githubusercontent.com/InstantCassette/Unraid-Community-Apps/main/templates/img/ONVIF-Server.png",
+        "https://raw.githubusercontent.com/InstantCassette/Unraid-Community-Apps/main/templates/ONVIF-Server.xml",
+        "https://github.com/BigTonyTones/Tonys-Onvf-RTSP-Server/blob/main/LICENSE",
+        "https://github.com/BigTonyTones/Tonys-Onvf-RTSP-Server/blob/main/README.md"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/InstantCassette-Apps",
+          "https://github.com/BigTonyTones/Tonys-Onvf-RTSP-Server",
+          "https://github.com/InstantCassette",
+          "https://raw.githubusercontent.com/InstantCassette/Unraid-Community-Apps/main/templates/img/ONVIF-Server.png",
+          "https://raw.githubusercontent.com/InstantCassette/Unraid-Community-Apps/main/templates/ONVIF-Server.xml"
+        ]
+      }
+    },
+    {
+      "slug": "openbooks",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/evan-buss/openbooks",
+      "source_code_host": "github",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "data_source_urls": [
+        "https://evan-buss.github.io/openbooks/",
+        "https://evan-buss.github.io/openbooks/configuration/",
+        "https://hub.docker.com/r/evanbuss/openbooks",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/openbooks.xml",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/openbooks-icon.png",
+        "https://github.com/evan-buss/openbooks",
+        "https://github.com/evan-buss/openbooks/blob/master/LICENSE",
+        "https://github.com/evan-buss/openbooks/blob/master/README.md"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://evan-buss.github.io/openbooks/",
+          "https://evan-buss.github.io/openbooks/configuration/",
+          "https://hub.docker.com/r/evanbuss/openbooks",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/openbooks.xml",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/openbooks-icon.png"
+        ]
+      }
+    },
+    {
+      "slug": "openg2p-selfservice-api",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/OpenG2P/openg2p-spar-self-service",
+      "source_code_host": "github",
+      "license": "Mozilla Public License 2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "MPL-2.0",
+      "data_source_urls": [
+        "https://hub.docker.com/r/openg2p/openg2p-selfservice-api",
+        "https://openg2p.org",
+        "https://github.com/OpenG2P/openg2p-spar-self-service",
+        "https://github.com/OpenG2P/openg2p-spar-self-service/blob/main/LICENSE",
+        "https://docs.openg2p.org/spar/development/repositories",
+        "https://docs.openg2p.org/spar/development/developer-install/spar-self-service-api"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://hub.docker.com/r/openg2p/openg2p-selfservice-api",
+          "https://openg2p.org"
+        ]
+      }
+    },
+    {
+      "slug": "openg2p-spar-self-service-ui",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/OpenG2P/openg2p-spar-self-service-ui",
+      "source_code_host": "github",
+      "license": "Mozilla Public License 2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "MPL-2.0",
+      "data_source_urls": [
+        "https://hub.docker.com/r/openg2p/openg2p-spar-self-service-ui",
+        "https://openg2p.org",
+        "https://github.com/OpenG2P/openg2p-spar-self-service-ui",
+        "https://github.com/OpenG2P/openg2p-spar-self-service-ui/blob/develop/LICENSE",
+        "https://docs.openg2p.org/spar/development/repositories",
+        "https://docs.openg2p.org/1.3/spar/development/developer-install/spar-self-service-ui"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://hub.docker.com/r/openg2p/openg2p-spar-self-service-ui",
+          "https://openg2p.org"
+        ]
+      }
+    },
+    {
+      "slug": "openvmtools-compiled",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/vmware/open-vm-tools",
+      "source_code_host": "github",
+      "license": "GPL v2, LGPL v2.1, X11, and BSD-style component licenses",
+      "license_type": "mixed",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/187519-plugin-open-vm-tools/",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/StevenDTX/unRAID-open-vm-tools/master/openVMTools_compiled.plg",
+        "https://raw.githubusercontent.com/StevenDTX/unraid-plugin-repository/master/openVMTools_compiled_2.png",
+        "https://raw.githubusercontent.com/StevenDTX/unraid-plugin-repository/master/openVMTools-compiled.xml",
+        "https://github.com/StevenDTX/unRAID-open-vm-tools",
+        "https://github.com/vmware/open-vm-tools",
+        "https://github.com/vmware/open-vm-tools/blob/master/README.md",
+        "https://github.com/vmware/open-vm-tools/blob/master/open-vm-tools/LICENSE"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/187519-plugin-open-vm-tools/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/StevenDTX/unRAID-open-vm-tools/master/openVMTools_compiled.plg",
+          "https://raw.githubusercontent.com/StevenDTX/unraid-plugin-repository/master/openVMTools_compiled_2.png",
+          "https://raw.githubusercontent.com/StevenDTX/unraid-plugin-repository/master/openVMTools-compiled.xml"
+        ]
+      }
+    },
+    {
+      "slug": "orbeon",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/orbeon/orbeon-forms",
+      "source_code_host": "github",
+      "license": "GNU Lesser General Public License v2.1 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "LGPL-2.1-or-later",
+      "data_source_urls": [
+        "https://docker.nasqueron.org/",
+        "https://hub.docker.com/r/nasqueron/orbeon",
+        "https://www.gravatar.com/avatar/a46404980d5e3f46f914c3513f78c30d?s=80&r=g&d=mm",
+        "https://github.com/orbeon/orbeon-forms",
+        "https://github.com/orbeon/orbeon-forms/blob/master/LICENSE.txt",
+        "https://doc.orbeon.com/faq/licensing",
+        "https://doc.orbeon.com/installation/docker"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://docker.nasqueron.org/",
+          "https://hub.docker.com/r/nasqueron/orbeon",
+          "https://www.gravatar.com/avatar/a46404980d5e3f46f914c3513f78c30d?s=80&r=g&d=mm"
+        ]
+      }
+    },
+    {
+      "slug": "par2cron-for-unraid",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/desertwitch/par2cron-unRAID",
+      "source_code_host": "github",
+      "license": "GNU General Public License v2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/196782-plugin-par2cron-for-unraid/",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/desertwitch/par2cron-unRAID/main/plugin/dwpar2cron.plg",
+        "https://raw.githubusercontent.com/desertwitch/par2cron-unRAID/main/plugin/dwpar2cron.png",
+        "https://raw.githubusercontent.com/desertwitch/unraid-plugins/main/dwpar2cron.xml",
+        "https://github.com/desertwitch/par2cron-unRAID",
+        "https://github.com/desertwitch/par2cron-unRAID/blob/main/LICENSE",
+        "https://raw.githubusercontent.com/desertwitch/par2cron-unRAID/main/plugin/dwpar2cron.pl"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/196782-plugin-par2cron-for-unraid/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/desertwitch/par2cron-unRAID/main/plugin/dwpar2cron.plg",
+          "https://raw.githubusercontent.com/desertwitch/par2cron-unRAID/main/plugin/dwpar2cron.png",
+          "https://raw.githubusercontent.com/desertwitch/unraid-plugins/main/dwpar2cron.xml"
+        ]
+      }
+    },
+    {
+      "slug": "parity-check-tuning",
+      "source_model": "source_available",
+      "source_code_url": "https://github.com/itimpi/parity.check.tuning",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/78394-plugin-parity-check-tuning/",
+        "https://hub.docker.com/r/https://raw.githubusercontent.com/itimpi/parity.check.tuning/master/parity.check.tuning.plg",
+        "https://raw.githubusercontent.com/itimpi/Unraid-CA-Templates/master/parity.check.tuning.xml",
+        "https://ca.unraid.net/apps/parity-check-tuning-1okha2z1f4w1af",
+        "https://github.com/itimpi/parity.check.tuning",
+        "https://github.com/itimpi/parity.check.tuning/blob/master/README.md",
+        "https://github.com/itimpi/parity.check.tuning/blob/master/Parity%20Check%20Tuning%20Design%20Notes.md"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/78394-plugin-parity-check-tuning/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/itimpi/parity.check.tuning/master/parity.check.tuning.plg",
+          "https://raw.githubusercontent.com/itimpi/Unraid-CA-Templates/master/parity.check.tuning.xml"
+        ]
+      }
+    },
+    {
+      "slug": "peertube-search-index",
+      "source_model": "open_source",
+      "source_code_url": "https://framagit.org/framasoft/peertube/search-index",
+      "source_code_host": "other",
+      "license": "GNU Affero General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/peertube-search-index",
+        "https://github.com/yunohost-apps/peertube-search-index_ynh",
+        "https://raw.githubusercontent.com/YunoHost/apps/master/logos/peertube-search-index.png",
+        "https://search.joinpeertube.org/",
+        "https://yunohost.org/en/apps",
+        "https://framagit.org/framasoft/peertube/search-index",
+        "https://docs.joinpeertube.org/admin/configuration"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://apps.yunohost.org/app/peertube-search-index",
+          "https://github.com/yunohost-apps/peertube-search-index_ynh",
+          "https://raw.githubusercontent.com/YunoHost/apps/master/logos/peertube-search-index.png",
+          "https://search.joinpeertube.org/",
+          "https://yunohost.org/en/apps"
+        ]
+      }
+    },
+    {
+      "slug": "petitesannonces",
+      "source_model": "open_source",
+      "source_code_url": "https://framagit.org/toitoinebzh/petitesannonces",
+      "source_code_host": "other",
+      "license": "GNU Affero General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-or-later",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/petitesannonces",
+        "https://framagit.org/toitoinebzh/petitesannonces",
+        "https://github.com/yunohost-apps/petitesannonces_ynh",
+        "https://raw.githubusercontent.com/YunoHost/apps/master/logos/petitesannonces.png",
+        "https://yunohost.org/en/apps"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://apps.yunohost.org/app/petitesannonces",
+          "https://framagit.org/toitoinebzh/petitesannonces",
+          "https://github.com/yunohost-apps/petitesannonces_ynh",
+          "https://raw.githubusercontent.com/YunoHost/apps/master/logos/petitesannonces.png",
+          "https://yunohost.org/en/apps"
+        ]
+      }
+    },
+    {
+      "slug": "petrolette",
+      "source_model": "open_source",
+      "source_code_url": "https://framagit.org/yphil/petrolette",
+      "source_code_host": "other",
+      "license": "GNU Affero General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/petrolette",
+        "https://framagit.org/yphil/petrolette",
+        "https://github.com/yunohost-apps/petrolette_ynh",
+        "https://raw.githubusercontent.com/YunoHost/apps/master/logos/petrolette.png",
+        "https://yunohost.org/en/apps"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "data_source_urls": [
+          "https://apps.yunohost.org/app/petrolette",
+          "https://framagit.org/yphil/petrolette",
+          "https://github.com/yunohost-apps/petrolette_ynh",
+          "https://raw.githubusercontent.com/YunoHost/apps/master/logos/petrolette.png",
+          "https://yunohost.org/en/apps"
+        ]
+      }
+    }
+  ]
+}

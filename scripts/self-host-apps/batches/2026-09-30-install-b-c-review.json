@@ -1,0 +1,1130 @@
+{
+  "report_date": "2026-09-30",
+  "project_id": "tulgfrqamtcshdtmhvpx",
+  "selection": "Requested 25 published self_hostable apps with empty install-option arrays: backdrop-cms through bor.",
+  "production_write": false,
+  "apps": [
+    {
+      "slug": "backdrop-cms",
+      "id": "892adb5b-ee25-4188-a608-e07079db88e5",
+      "name": "Backdrop CMS",
+      "existing": {
+        "website_url": "https://backdropcms.org",
+        "source_code_url": "https://github.com/backdrop/backdrop",
+        "install_docs_url": "https://github.com/backdrop/backdrop#readme",
+        "publisher_url": "https://github.com/backdrop",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Web server installation",
+          "url": "https://backdropcms.org/project/backdrop/releases",
+          "support_level": "official",
+          "source_url": "https://docs.backdropcms.org/documentation/installation-instructions",
+          "image": null,
+          "note": "The guide directs users to download a release archive, place it in a webroot, and run the browser installer."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.backdropcms.org/documentation/installation-instructions",
+          "note": "Official guide documents archive installation on a web server and database setup."
+        },
+        {
+          "url": "https://backdropcms.org/project/backdrop/releases",
+          "note": "Official release page provides downloadable Backdrop CMS archives."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the native option and method; update install_docs_url to the official installation guide."
+      ]
+    },
+    {
+      "slug": "backuppc",
+      "id": "1c424ec8-ee77-479a-9a87-cbe9549d0b62",
+      "name": "BackupPC",
+      "existing": {
+        "website_url": "https://github.com/backuppc/backuppc",
+        "source_code_url": "https://github.com/backuppc/backuppc",
+        "install_docs_url": "https://github.com/backuppc/backuppc#readme",
+        "publisher_url": "https://github.com/backuppc",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Native installation",
+          "url": "https://backuppc.github.io/backuppc/BackupPC",
+          "support_level": "official",
+          "source_url": "https://backuppc.github.io/backuppc/BackupPC",
+          "image": null,
+          "note": "The official manual covers obtaining and installing BackupPC, with distribution package managers as the recommended path for supported distributions."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://backuppc.github.io/backuppc/BackupPC",
+          "note": "Official manual includes installation steps and points users to distribution packages or the release archive."
+        },
+        {
+          "url": "https://github.com/backuppc/backuppc/releases",
+          "note": "Upstream releases page provides the project release destination."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the native option and method; use the official manual as install_docs_url and the manual site as website_url."
+      ]
+    },
+    {
+      "slug": "basebuddy",
+      "id": "add96a2b-9cf5-41ac-960c-567816302dc7",
+      "name": "BaseBuddy",
+      "existing": {
+        "website_url": "https://basebuddy.stack127.com",
+        "source_code_url": "https://github.com/stack127labs/basebuddy",
+        "install_docs_url": "https://github.com/stack127labs/basebuddy/blob/main/INSTALL.md",
+        "publisher_url": "https://stack127.com/labs",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "source",
+          "docker"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker VPS setup",
+          "url": "https://basebuddy.stack127.com/support/deploy-vps-docker",
+          "support_level": "official",
+          "source_url": "https://basebuddy.stack127.com/support/deploy-vps-docker",
+          "image": null,
+          "note": "The official VPS guide documents the Docker-based server setup and app start steps; no registry image is identified."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://basebuddy.stack127.com/support/deploy-vps-docker",
+          "note": "Official support guide documents the Docker-based VPS deployment."
+        },
+        {
+          "url": "https://basebuddy.stack127.com/docs/installation",
+          "note": "Official installation docs cover setup requirements and the app install flow."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the Docker setup option; update install_docs_url to the official installation docs. Do not set a docker_image unless a published image is verified."
+      ]
+    },
+    {
+      "slug": "beam",
+      "id": "586befdd-d3da-4f09-b58d-756211656bd5",
+      "name": "Beam",
+      "existing": {
+        "website_url": "https://beam.cloud",
+        "source_code_url": "https://github.com/beam-cloud/beta9",
+        "install_docs_url": "https://github.com/beam-cloud/beta9/tree/main/deploy",
+        "publisher_url": "https://github.com/beam-cloud",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [],
+      "sources": [
+        {
+          "url": "https://github.com/beam-cloud/beta9",
+          "note": "Official repository identifies the self-hostable open-source project as Beta9; the Beam service is managed."
+        },
+        {
+          "url": "https://www.beta9.dev/",
+          "note": "Official Beta9 page describes self-hosting but did not provide a verified installation destination in the inspected material."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "No verified install destination found. The row is named Beam, while official self-hosting material refers to Beta9; confirm the record identity and install route before adding an option or keeping Docker."
+      ]
+    },
+    {
+      "slug": "beaver-habit-tracker",
+      "id": "521992f7-f2b9-44cb-94c0-8703907a87d8",
+      "name": "Beaver Habit Tracker",
+      "existing": {
+        "website_url": "https://beaverhabits.com/demo",
+        "source_code_url": "https://github.com/daya0576/beaverhabits",
+        "install_docs_url": "https://github.com/daya0576/beaverhabits#readme",
+        "publisher_url": "https://github.com/daya0576",
+        "docker_url": "https://github.com/daya0576/beaverhabits/blob/HEAD/docker/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/daya0576/beaverhabits",
+          "support_level": "official",
+          "source_url": "https://github.com/daya0576/beaverhabits#readme",
+          "image": "daya0576/beaverhabits:latest",
+          "note": "The upstream README documents the Docker image and run command."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/daya0576/beaverhabits#readme",
+          "note": "Upstream README documents Docker and Compose deployment using daya0576/beaverhabits."
+        },
+        {
+          "url": "https://hub.docker.com/r/daya0576/beaverhabits",
+          "note": "Docker Hub lists the project image under the upstream maintainer account."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace docker_url, which points to a Dockerfile, with the Docker Hub image page and set docker_image. Compose instructions appear in the README but have no separate direct install page."
+      ]
+    },
+    {
+      "slug": "beets",
+      "id": "477a8fd6-2b51-4e96-8e63-eea873069174",
+      "name": "Beets",
+      "existing": {
+        "website_url": "http://beets.io",
+        "source_code_url": "https://github.com/beetbox/beets",
+        "install_docs_url": "https://github.com/beetbox/beets#readme",
+        "publisher_url": "https://github.com/beetbox",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "Python package",
+          "url": "https://pypi.org/project/beets/",
+          "support_level": "official",
+          "source_url": "https://docs.beets.io/en/v2.0.0/guides/main.html",
+          "image": null,
+          "note": "The official guide documents installation with pip; PyPI is the package destination."
+        },
+        {
+          "method": "docker",
+          "label": "Community Docker image",
+          "url": "https://docs.linuxserver.io/images/docker-beets/",
+          "support_level": "community",
+          "source_url": "https://docs.linuxserver.io/images/docker-beets/",
+          "image": "lscr.io/linuxserver/beets:latest",
+          "note": "LinuxServer maintains this container; its web player is an add-on around the Beets CLI."
+        },
+        {
+          "method": "compose",
+          "label": "Community Docker Compose",
+          "url": "https://docs.linuxserver.io/images/docker-beets/",
+          "support_level": "community",
+          "source_url": "https://docs.linuxserver.io/images/docker-beets/",
+          "image": "lscr.io/linuxserver/beets:latest",
+          "note": "LinuxServer documents Compose deployment for its community image."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.beets.io/en/v2.0.0/guides/main.html",
+          "note": "Official documentation describes Beets as a command-line music library manager and gives installation instructions."
+        },
+        {
+          "url": "https://pypi.org/project/beets/",
+          "note": "PyPI hosts the Beets package."
+        },
+        {
+          "url": "https://docs.linuxserver.io/images/docker-beets/",
+          "note": "LinuxServer documents a community-maintained container and Compose route."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the official package option. If listing the LinuxServer routes, label them community-maintained; Beets itself is a command-line tool. Update website_url to https://beets.io."
+      ]
+    },
+    {
+      "slug": "biblioreads",
+      "id": "2f9839cc-8828-4e40-9e07-f9bca79f112f",
+      "name": "BiblioReads",
+      "existing": {
+        "website_url": "https://biblioreads.eu.org",
+        "source_code_url": "https://github.com/nesaku/BiblioReads",
+        "install_docs_url": "https://github.com/nesaku/BiblioReads#readme",
+        "publisher_url": "https://github.com/nesaku",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/nesaku/biblioreads",
+          "support_level": "official",
+          "source_url": "https://github.com/nesaku/BiblioReads#docker-installation",
+          "image": "nesaku/biblioreads:latest",
+          "note": "The upstream README documents the image and Docker run command."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://hub.docker.com/r/nesaku/biblioreads",
+          "support_level": "official",
+          "source_url": "https://github.com/nesaku/BiblioReads#docker-installation",
+          "image": "nesaku/biblioreads:latest",
+          "note": "The upstream README links the Compose setup."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/nesaku/BiblioReads#docker-installation",
+          "note": "Official README documents Docker installation and Compose setup."
+        },
+        {
+          "url": "https://hub.docker.com/r/nesaku/biblioreads",
+          "note": "Docker Hub hosts the BiblioReads image named by the README."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the Docker image and Compose options; set docker_url, docker_image, and compose_url."
+      ]
+    },
+    {
+      "slug": "bicimon",
+      "id": "5f4cc35a-f50a-4cb8-b44f-32205cd715e5",
+      "name": "Bicimon",
+      "existing": {
+        "website_url": "https://github.com/knrdl/bicimon",
+        "source_code_url": "https://github.com/knrdl/bicimon",
+        "install_docs_url": "https://github.com/knrdl/bicimon#readme",
+        "publisher_url": "https://github.com/knrdl",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [],
+      "sources": [
+        {
+          "url": "https://github.com/knrdl/bicimon",
+          "note": "Official repository describes Bicimon as a bike speedometer and PWA; it says the app stores no data."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "No server install route found. This is a browser-based PWA, so review whether it belongs in a self-hosted server directory."
+      ]
+    },
+    {
+      "slug": "bigtree-cms",
+      "id": "a81c793c-4f08-4424-af62-c136dc14c070",
+      "name": "BigTree CMS",
+      "existing": {
+        "website_url": null,
+        "source_code_url": "https://github.com/bigtreecms/BigTree-CMS",
+        "install_docs_url": "https://github.com/bigtreecms/BigTree-CMS",
+        "publisher_url": "https://github.com/bigtreecms",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Web server installation",
+          "url": "https://www.bigtreecms.org/download/core/",
+          "support_level": "official",
+          "source_url": "https://www.bigtreecms.org/developers/dev-guide/installation/",
+          "image": null,
+          "note": "The official download page provides BigTree CMS; its guide explains installation on a PHP/MySQL web server."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.bigtreecms.org/developers/dev-guide/installation/",
+          "note": "Official guide documents web server installation requirements and steps."
+        },
+        {
+          "url": "https://www.bigtreecms.org/download/core/",
+          "note": "Official site provides the downloadable core package."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the native option and method; add https://www.bigtreecms.org as website_url and use the official installation guide as install_docs_url."
+      ]
+    },
+    {
+      "slug": "bindery",
+      "id": "2b063ab0-99a5-437a-9b18-b4c6722a819b",
+      "name": "Bindery",
+      "existing": {
+        "website_url": "https://github.com/jarynclouatre/bindery",
+        "source_code_url": "https://github.com/jarynclouatre/bindery",
+        "install_docs_url": "https://github.com/jarynclouatre/bindery#readme",
+        "publisher_url": "https://github.com/jarynclouatre",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "data_source_urls": [
+          "https://github.com/jarynclouatre/bindery",
+          "https://github.com/jarynclouatre/bindery#readme",
+          "https://github.com/vavallee/bindery",
+          "https://opengraph.githubassets.com/1/jarynclouatre/bindery",
+          "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+          "https://selfhostedworld.com/software/bindery"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/dinkeyes/bindery",
+          "support_level": "official",
+          "source_url": "https://github.com/jarynclouatre/bindery",
+          "image": "dinkeyes/bindery:latest",
+          "note": "The upstream README documents this image for the self-hosted converter."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/jarynclouatre/bindery",
+          "note": "Upstream README documents the Docker image and Compose setup."
+        },
+        {
+          "url": "https://hub.docker.com/r/dinkeyes/bindery",
+          "note": "Docker Hub provides the image target referenced by the project documentation."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the Docker image option; set docker_url and docker_image; replace native with docker and compose methods. The Compose setup is documented in the README, but that page is evidence rather than a direct install destination. Remove the unrelated vavallee/bindery URL from data_source_urls."
+      ]
+    },
+    {
+      "slug": "binpastes",
+      "id": "d3c17a69-b620-476a-87d6-3cc70bace5f9",
+      "name": "BinPastes",
+      "existing": {
+        "website_url": "https://github.com/querwurzel/BinPastes",
+        "source_code_url": "https://github.com/querwurzel/BinPastes",
+        "install_docs_url": "https://github.com/querwurzel/BinPastes#readme",
+        "publisher_url": "https://github.com/querwurzel",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [],
+      "sources": [
+        {
+          "url": "https://github.com/querwurzel/BinPastes",
+          "note": "Official README documents building a jar locally with Maven and running it; the repository release and package sections show no download destination."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "No direct install destination found. The documented route builds the jar from source, so keep the install options empty until a published package, image, or downloadable release is verified."
+      ]
+    },
+    {
+      "slug": "birdnet-analyzer",
+      "id": "f4955bb8-262d-4538-94cc-d96f2d5e9057",
+      "name": "BirdNET-Analyzer",
+      "existing": {
+        "website_url": "https://birdnet-team.github.io/BirdNET-Analyzer",
+        "source_code_url": "https://github.com/birdnet-team/BirdNET-Analyzer",
+        "install_docs_url": "https://github.com/birdnet-team/BirdNET-Analyzer#readme",
+        "publisher_url": "https://github.com/birdnet-team",
+        "docker_url": "https://github.com/birdnet-team/BirdNET-Analyzer/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Desktop installers",
+          "url": "https://github.com/birdnet-team/BirdNET-Analyzer/releases",
+          "support_level": "official",
+          "source_url": "https://birdnet-team.github.io/BirdNET-Analyzer/stable/installation.html",
+          "image": null,
+          "note": "Official documentation links the Windows and macOS GUI installers from the releases page."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://birdnet-team.github.io/BirdNET-Analyzer/stable/installation.html",
+          "note": "Official guide documents Windows/macOS installers and command-line setup; the CLI route requires installing from the source tree."
+        },
+        {
+          "url": "https://github.com/birdnet-team/BirdNET-Analyzer/releases",
+          "note": "Upstream releases page is the destination for the documented desktop installers."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace the Docker method and Dockerfile URL with the native installer option; update install_docs_url to the official installation guide. Do not confuse the related birdnet PyPI library with the full Analyzer app."
+      ]
+    },
+    {
+      "slug": "bitcart",
+      "id": "637c366d-f376-42c6-bd8c-c7b29e1780af",
+      "name": "Bitcart",
+      "existing": {
+        "website_url": "https://bitcart.ai",
+        "source_code_url": "https://github.com/bitcart/bitcart",
+        "install_docs_url": "https://github.com/bitcart/bitcart-docker#using-provided-scripts-easy",
+        "publisher_url": "https://github.com/bitcart",
+        "docker_url": "https://github.com/bitcart/bitcart-docker",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker deployment",
+          "url": "https://docs.bitcart.ai/deployment/docker",
+          "support_level": "official",
+          "source_url": "https://docs.bitcart.ai/deployment/docker",
+          "image": null,
+          "note": "The official Docker deployment guide uses the Bitcart setup script to install its multi-container stack."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.bitcart.ai/deployment/docker",
+          "note": "Official deployment guide documents the supported Docker stack setup."
+        },
+        {
+          "url": "https://github.com/bitcart/bitcart-docker",
+          "note": "Upstream Docker repository provides the deployment scripts used by the guide."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the Docker deployment option; set docker_url and install_docs_url to the official deployment guide. Keep docker as the method and remove compose unless a separate Compose install route is verified."
+      ]
+    },
+    {
+      "slug": "bitmappery",
+      "id": "cca3ad06-edce-4e24-943f-aa1dd53def5d",
+      "name": "BitMappery",
+      "existing": {
+        "website_url": null,
+        "source_code_url": "https://github.com/igorski/bitmappery",
+        "install_docs_url": "https://github.com/igorski/bitmappery",
+        "publisher_url": "https://github.com/igorski",
+        "docker_url": "https://github.com/igorski/bitmappery",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [],
+      "sources": [
+        {
+          "url": "https://github.com/igorski/bitmappery/blob/master/README.md",
+          "note": "The project README describes a self-hosted Docker build from the source tree; no prebuilt registry destination or separate install page was verified."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "No direct install destination found. The inspected route requires building an image from the source repository; clear docker_url and review the Docker method until a registry image or separate install destination is verified."
+      ]
+    },
+    {
+      "slug": "bittorrent-tracker",
+      "id": "c7b0b0a7-d367-4881-b094-0a034e04fed0",
+      "name": "bittorrent-tracker",
+      "existing": {
+        "website_url": "https://webtorrent.io",
+        "source_code_url": "https://github.com/webtorrent/bittorrent-tracker",
+        "install_docs_url": "https://github.com/webtorrent/bittorrent-tracker#readme",
+        "publisher_url": "https://github.com/webtorrent",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "npm package",
+          "url": "https://www.npmjs.com/package/bittorrent-tracker",
+          "support_level": "official",
+          "source_url": "https://github.com/webtorrent/bittorrent-tracker",
+          "image": null,
+          "note": "The upstream project documents npm installation and running a tracker server."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/webtorrent/bittorrent-tracker",
+          "note": "Official README documents installation from npm and the server CLI."
+        },
+        {
+          "url": "https://www.npmjs.com/package/bittorrent-tracker",
+          "note": "npm is the package destination for bittorrent-tracker."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the package option and package deployment method."
+      ]
+    },
+    {
+      "slug": "bitwarden",
+      "id": "7d7abe94-0107-46d1-add6-4826daf3ca39",
+      "name": "Bitwarden",
+      "existing": {
+        "website_url": "https://bitwarden.com",
+        "source_code_url": "https://github.com/bitwarden/server",
+        "install_docs_url": "https://github.com/bitwarden/server#readme",
+        "publisher_url": "https://github.com/bitwarden",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "data_source_urls": [
+          "https://bitwarden.com",
+          "https://bitwarden.com/",
+          "https://github.com/bitwarden/server",
+          "https://github.com/bitwarden/server/blob/HEAD/dev/docker-compose.yml",
+          "https://github.com/bitwarden/server#readme",
+          "https://openalternative.co/bitwarden",
+          "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+          "https://raw.githubusercontent.com/bitwarden/server/HEAD/README.md",
+          "https://selfhostedworld.com/software/bitwarden",
+          "https://selfhst.github.io/cdn/directory/software.json"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Standard Linux Docker deployment",
+          "url": "https://bitwarden.com/help/install-on-premise-linux/",
+          "support_level": "official",
+          "source_url": "https://bitwarden.com/help/install-on-premise-linux/",
+          "image": null,
+          "note": "The official guide uses its setup script to deploy and manage the standard Docker Compose server."
+        },
+        {
+          "method": "docker",
+          "label": "Bitwarden Lite Docker image",
+          "url": "https://github.com/bitwarden/self-host/pkgs/container/lite",
+          "support_level": "official",
+          "source_url": "https://bitwarden.com/help/install-and-deploy-lite/",
+          "image": "ghcr.io/bitwarden/lite:latest",
+          "note": "Official Lite deployment docs name ghcr.io/bitwarden/lite as the container image."
+        },
+        {
+          "method": "helm",
+          "label": "Official Helm deployment",
+          "url": "https://bitwarden.com/help/self-host-with-helm/",
+          "support_level": "official",
+          "source_url": "https://bitwarden.com/help/self-host-with-helm/",
+          "image": null,
+          "note": "Official docs describe the Helm chart deployment."
+        },
+        {
+          "method": "compose",
+          "label": "Bitwarden Lite Docker Compose",
+          "url": "https://bitwarden.com/help/install-and-deploy-lite/",
+          "support_level": "official",
+          "source_url": "https://bitwarden.com/help/install-and-deploy-lite/",
+          "image": "ghcr.io/bitwarden/lite:latest",
+          "note": "The official Lite guide documents a Docker Compose configuration using this image."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://bitwarden.com/help/install-on-premise-linux/",
+          "note": "Official standard Linux self-hosting guide documents Docker Compose deployment."
+        },
+        {
+          "url": "https://bitwarden.com/help/install-and-deploy-lite/",
+          "note": "Official Lite guide documents the GHCR image and deployment steps."
+        },
+        {
+          "url": "https://bitwarden.com/help/self-host-with-helm/",
+          "note": "Official guide documents the Helm deployment route."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the standard and Lite Compose, Lite Docker, and Helm options; add compose and helm methods. Set docker_url to the verified GHCR package page and docker_image to ghcr.io/bitwarden/lite:latest. Use official help pages for install_docs_url; remove the dev/docker-compose.yml source link."
+      ]
+    },
+    {
+      "slug": "bknd",
+      "id": "5dcb6a25-5b4d-4f51-9b0d-955a3de70cc7",
+      "name": "bknd",
+      "existing": {
+        "website_url": "https://bknd.io",
+        "source_code_url": "https://github.com/bknd-io/bknd",
+        "install_docs_url": "https://github.com/bknd-io/bknd#readme",
+        "publisher_url": "https://github.com/bknd-io",
+        "docker_url": "https://github.com/bknd-io/bknd/blob/HEAD/docker/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker setup guide",
+          "url": "https://docs.bknd.io/integration/docker/",
+          "support_level": "official",
+          "source_url": "https://docs.bknd.io/integration/docker/",
+          "image": null,
+          "note": "Official Docker guide provides build and run commands; the image is built locally from the project Dockerfile."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://docs.bknd.io/integration/docker/",
+          "support_level": "official",
+          "source_url": "https://docs.bknd.io/integration/docker/",
+          "image": null,
+          "note": "The same official guide includes a Compose build-from-source example."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.bknd.io/integration/docker/",
+          "note": "Official docs include Docker build/run and Compose deployment instructions and state that the image is built locally."
+        },
+        {
+          "url": "https://github.com/bknd-io/bknd",
+          "note": "Upstream repository is linked by the official guide as the Docker build context."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace docker_url with the official Docker guide and add compose_url plus the compose method. Do not set docker_image because the guide builds it locally."
+      ]
+    },
+    {
+      "slug": "blocky",
+      "id": "8e117f09-18cb-41b0-bef0-c8ef496f3a14",
+      "name": "blocky",
+      "existing": {
+        "website_url": "https://0xerr0r.github.io/blocky",
+        "source_code_url": "https://github.com/0xERR0R/blocky",
+        "install_docs_url": "https://github.com/0xERR0R/blocky#readme",
+        "publisher_url": "https://github.com/0xERR0R",
+        "docker_url": "https://github.com/0xERR0R/blocky/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/spx01/blocky",
+          "support_level": "official",
+          "source_url": "https://0xerr0r.github.io/blocky/latest/installation/",
+          "image": "spx01/blocky:latest",
+          "note": "The official guide names Docker Hub and GHCR images and gives Docker run instructions."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://0xerr0r.github.io/blocky/latest/installation/",
+          "support_level": "official",
+          "source_url": "https://0xerr0r.github.io/blocky/latest/installation/",
+          "image": "spx01/blocky:latest",
+          "note": "The official installation guide includes Compose configuration."
+        },
+        {
+          "method": "binary",
+          "label": "Standalone binary",
+          "url": "https://github.com/0xERR0R/blocky/releases",
+          "support_level": "official",
+          "source_url": "https://0xerr0r.github.io/blocky/latest/installation/",
+          "image": null,
+          "note": "The official guide links downloadable standalone binaries for supported architectures."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://0xerr0r.github.io/blocky/latest/installation/",
+          "note": "Official guide documents DockerHub/GHCR images, Compose, and standalone binaries."
+        },
+        {
+          "url": "https://hub.docker.com/r/spx01/blocky",
+          "note": "Docker Hub hosts the spx01/blocky image named by the guide."
+        },
+        {
+          "url": "https://github.com/0xERR0R/blocky/releases",
+          "note": "Upstream releases provide binary downloads linked by the guide."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace the Dockerfile URL with the Docker Hub image page; set docker_image and compose_url; add compose and binary methods/options."
+      ]
+    },
+    {
+      "slug": "bludit",
+      "id": "316c2694-2267-4891-ad54-37b38de10896",
+      "name": "Bludit",
+      "existing": {
+        "website_url": "https://www.bludit.com",
+        "source_code_url": "https://github.com/bludit/bludit",
+        "install_docs_url": "https://github.com/bludit/bludit#readme",
+        "publisher_url": "https://github.com/bludit",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/bludit/docker",
+          "support_level": "official",
+          "source_url": "https://docs.bludit.com/en/getting-started/installation-guide",
+          "image": "bludit/docker:latest",
+          "note": "The official guide identifies bludit/docker:latest as the Docker image."
+        },
+        {
+          "method": "native",
+          "label": "Web server installation",
+          "url": "https://www.bludit.com/",
+          "support_level": "official",
+          "source_url": "https://docs.bludit.com/en/getting-started/installation-guide",
+          "image": null,
+          "note": "The official installation guide links the downloadable ZIP and explains manual web server installation."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.bludit.com/en/getting-started/installation-guide",
+          "note": "Official guide documents ZIP-based web server installation and the Docker image."
+        },
+        {
+          "url": "https://hub.docker.com/r/bludit/docker",
+          "note": "Docker Hub identifies the image publisher as Bludit and provides the image destination."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add Docker and native options; set docker_url and docker_image, and add native to deployment_methods. Update install_docs_url to the official installation guide."
+      ]
+    },
+    {
+      "slug": "blue-iris",
+      "id": "072c30d7-21b1-46e8-9456-9f3c5f7e9042",
+      "name": "Blue Iris",
+      "existing": {
+        "website_url": "https://blueirissoftware.com/",
+        "source_code_url": null,
+        "install_docs_url": "https://blueirissoftware.com/BlueIris.PDF",
+        "publisher_url": "https://blueirissoftware.com/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "package"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "Windows installer",
+          "url": "https://blueirissoftware.com/",
+          "support_level": "official",
+          "source_url": "https://blueirissoftware.com/",
+          "image": null,
+          "note": "The official site links the Blue Iris installer and documents Windows service operation."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://blueirissoftware.com/",
+          "note": "Official site provides the installer and identifies Blue Iris as Windows video security software."
+        },
+        {
+          "url": "https://blueirissoftware.com/BlueIris.PDF",
+          "note": "Official manual provides setup and system information."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add the installer option. Keep the package method and note that the server application requires Windows."
+      ]
+    },
+    {
+      "slug": "bluecherry",
+      "id": "50132388-54c9-4088-934a-db7f89f29f09",
+      "name": "Bluecherry",
+      "existing": {
+        "website_url": "https://github.com/bluecherrydvr/bluecherry-apps",
+        "source_code_url": "https://github.com/bluecherrydvr/bluecherry-apps",
+        "install_docs_url": "https://github.com/bluecherrydvr/bluecherry-apps#readme",
+        "publisher_url": "https://github.com/bluecherrydvr",
+        "docker_url": "https://github.com/bluecherrydvr/bluecherry-apps/blob/HEAD/actions/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker server installation",
+          "url": "https://docs.bluecherrydvr.com/server-installation",
+          "support_level": "official",
+          "source_url": "https://docs.bluecherrydvr.com/server-installation",
+          "image": null,
+          "note": "Official server docs recommend Docker and provide the deployment instructions."
+        },
+        {
+          "method": "package",
+          "label": "Linux package installation",
+          "url": "https://docs.bluecherrydvr.com/server-installation",
+          "support_level": "official",
+          "source_url": "https://docs.bluecherrydvr.com/server-installation",
+          "image": null,
+          "note": "Official server docs also describe package installation for supported Debian/Ubuntu systems."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://docs.bluecherrydvr.com/server-installation",
+          "note": "Official server installation page documents Docker and package-based installation routes."
+        },
+        {
+          "url": "https://github.com/bluecherrydvr/bluecherry-apps",
+          "note": "Upstream organization repository identifies the Bluecherry server application."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace the Dockerfile URL with the official server installation page; update website_url and install_docs_url to that page and add the package method."
+      ]
+    },
+    {
+      "slug": "bookbounty",
+      "id": "a10de427-8fef-4a1f-8c76-0be80fddb4a3",
+      "name": "BookBounty",
+      "existing": {
+        "website_url": "https://github.com/TheWicklowWolf/BookBounty",
+        "source_code_url": "https://github.com/TheWicklowWolf/BookBounty",
+        "install_docs_url": "https://github.com/TheWicklowWolf/BookBounty#readme",
+        "publisher_url": "https://github.com/TheWicklowWolf",
+        "docker_url": "https://github.com/TheWicklowWolf/BookBounty/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/122788-support-jpdvm2014-templates/#comment-1400719",
+          "https://github.com/thewicklowwolf/bookbounty",
+          "https://github.com/TheWicklowWolf/BookBounty",
+          "https://github.com/TheWicklowWolf/BookBounty/blob/HEAD/Dockerfile",
+          "https://github.com/TheWicklowWolf/BookBounty#readme",
+          "https://hub.docker.com/r/thewicklowwolf/bookbounty",
+          "https://hub.docker.com/r/thewicklowwolf/eBookBuddy",
+          "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+          "https://raw.githubusercontent.com/JPDVM2014/unraid-templates/main/bookbounty.xml",
+          "https://raw.githubusercontent.com/JPDVM2014/unraid-templates/main/ebookbuddy.xml",
+          "https://raw.githubusercontent.com/TheWicklowWolf/BookBounty/HEAD/README.md",
+          "https://selfhostedworld.com/software/bookbounty"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/thewicklowwolf/bookbounty",
+          "support_level": "official",
+          "source_url": "https://github.com/TheWicklowWolf/BookBounty",
+          "image": "thewicklowwolf/bookbounty:latest",
+          "note": "The upstream README documents the maintainer's Docker Hub image."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://hub.docker.com/r/thewicklowwolf/bookbounty",
+          "support_level": "official",
+          "source_url": "https://github.com/TheWicklowWolf/BookBounty",
+          "image": "thewicklowwolf/bookbounty:latest",
+          "note": "The upstream project documents Compose use with its image."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/TheWicklowWolf/BookBounty",
+          "note": "Upstream README documents Docker deployment and Compose use."
+        },
+        {
+          "url": "https://hub.docker.com/r/thewicklowwolf/bookbounty",
+          "note": "Docker Hub hosts the BookBounty image under the project maintainer account."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace docker_url with the Docker Hub image page, set docker_image, and add compose_url plus the compose method. Remove https://hub.docker.com/r/thewicklowwolf/eBookBuddy from data_source_urls because it is a sibling app."
+      ]
+    },
+    {
+      "slug": "bookhaven",
+      "id": "88937433-8175-496f-a7e1-e99be488d4da",
+      "name": "BookHaven",
+      "existing": {
+        "website_url": "https://github.com/HrBingR/BookHaven",
+        "source_code_url": "https://github.com/HrBingR/BookHaven",
+        "install_docs_url": "https://github.com/HrBingR/BookHaven#readme",
+        "publisher_url": "https://github.com/HrBingR",
+        "docker_url": "https://github.com/HrBingR/BookHaven/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/hrbingr/bookhaven",
+          "support_level": "official",
+          "source_url": "https://github.com/HrBingR/BookHaven",
+          "image": "hrbingr/bookhaven:latest",
+          "note": "The upstream README and Docker Hub page identify the maintainer's image."
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://hub.docker.com/r/hrbingr/bookhaven",
+          "support_level": "official",
+          "source_url": "https://github.com/HrBingR/BookHaven",
+          "image": "hrbingr/bookhaven:latest",
+          "note": "The official repository documents Compose deployment using this image."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/HrBingR/BookHaven",
+          "note": "Official repository provides the Compose deployment instructions."
+        },
+        {
+          "url": "https://hub.docker.com/r/hrbingr/bookhaven",
+          "note": "Docker Hub hosts the BookHaven image under the upstream maintainer account."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace docker_url with the Docker Hub image page; set docker_image and compose_url. This project is distinct from the similarly named BookHeaven app."
+      ]
+    },
+    {
+      "slug": "bookheaven",
+      "id": "73d1aae6-0c27-4af5-a199-c8318e654c3e",
+      "name": "BookHeaven",
+      "existing": {
+        "website_url": "https://bookheaven.ggarrido.dev",
+        "source_code_url": "https://github.com/BookHeaven/BookHeaven.Server",
+        "install_docs_url": "https://github.com/BookHeaven/BookHeaven.Server#readme",
+        "publisher_url": "https://github.com/BookHeaven",
+        "docker_url": "https://github.com/BookHeaven/BookHeaven.Server/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/orgs/BookHeaven/packages/container/package/bookheaven-server",
+          "support_level": "official",
+          "source_url": "https://github.com/BookHeaven/BookHeaven.Server",
+          "image": "ghcr.io/bookheaven/bookheaven-server:latest",
+          "note": "The upstream README documents its GHCR image and Docker deployment."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/BookHeaven/BookHeaven.Server",
+          "note": "Official server README documents Docker, Compose, and Podman commands and names the GHCR image."
+        },
+        {
+          "url": "https://github.com/orgs/BookHeaven/packages/container/package/bookheaven-server",
+          "note": "GitHub Packages is the image destination for ghcr.io/bookheaven/bookheaven-server."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Replace docker_url with the GHCR package page, set docker_image, and add compose to deployment_methods. Compose and Podman examples are in the README; use a separate install page before adding them as options. This project is distinct from the similarly named BookHaven app."
+      ]
+    },
+    {
+      "slug": "bor",
+      "id": "eee23821-48af-4efa-87bd-433cb306f1a5",
+      "name": "Bor",
+      "existing": {
+        "website_url": null,
+        "source_code_url": "https://github.com/VuteTech/bor",
+        "install_docs_url": "https://github.com/VuteTech/bor#readme",
+        "publisher_url": "https://github.com/VuteTech",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "Linux packages",
+          "url": "https://getbor.dev/download/",
+          "support_level": "official",
+          "source_url": "https://getbor.dev/download/",
+          "image": null,
+          "note": "The official download page provides Bor Server/Agent installation packages for supported Linux distributions."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://getbor.dev/download/",
+          "note": "Official download page offers distribution package downloads and distinguishes server and agent packages."
+        },
+        {
+          "url": "https://getbor.dev/docs/server/",
+          "note": "Official server documentation describes the server package and service setup."
+        }
+      ],
+      "gaps_or_updates_needed": [
+        "Add https://getbor.dev as website_url, use the official server docs as install_docs_url, and replace native with the package method."
+      ]
+    }
+  ]
+}

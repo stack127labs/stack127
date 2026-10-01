@@ -14,7 +14,7 @@ Use these rules when reviewing apps for `/self-host-apps`.
 - An official Docker image is valid distribution evidence. A community image must be labeled `community` and must not imply publisher support.
 - Link Docker actions to a registry or package page where someone can pull or install the image. A Dockerfile, Compose file, repository, or README can support the evidence record but is not a Docker install destination.
 - Platform catalogs such as TrueNAS SCALE and Umbrel may be listed as separate install options when their catalog URL is verified. Catalog inclusion does not imply publisher support.
-- RAM and storage ranges need a documented measurement, calculation, or published estimate, with a stated workload, evidence URLs, basis, and confidence. They must carry an explicit `estimated` label. Do not generate ranges from category or database-count defaults.
+- Estimate RAM and storage for every published app for a typical small self-hosted setup. Use publisher guidance to calibrate the estimates when available. Always label the ranges `Est. RAM` and `Est. Storage`. Keep an official source link and a short internal basis in the record; do not show a long explanation.
 - Do not add generic tags, verdicts, long descriptions, or per-app prose pages.
 
 ## Summaries

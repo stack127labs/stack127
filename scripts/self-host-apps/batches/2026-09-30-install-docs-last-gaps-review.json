@@ -1,0 +1,236 @@
+{
+  "reviewed_at": "2026-09-30",
+  "scope": "Official docs and self-host install link corrections for 12 published self-host apps, checked against the Sept. 8 static inventory.",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "proposal_only": true,
+  "apps": [
+    {
+      "slug": "cozy-cloud",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": "https://github.com/cozy/cozy-stack",
+        "docs_url": null,
+        "install_docs_url": null
+      },
+      "website_url": "https://en.cozy.io/",
+      "docs_url": "https://docs.cozy.io/en/",
+      "install_docs_url": "https://docs.cozy.io/en/tutorials/selfhosting/docker/",
+      "data_source_urls": [
+        "https://en.cozy.io/",
+        "https://docs.cozy.io/en/",
+        "https://docs.cozy.io/en/tutorials/selfhosting/",
+        "https://docs.cozy.io/en/tutorials/selfhosting/docker/",
+        "https://github.com/cozy/cozy-stack"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "edx",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": "https://www.edx.org/",
+        "docs_url": null,
+        "install_docs_url": null
+      },
+      "website_url": "https://openedx.org/",
+      "docs_url": "https://docs.openedx.org/en/latest/",
+      "install_docs_url": "https://docs.openedx.org/en/latest/site_ops/quickstarts/tutor_quickstart_ops.html",
+      "data_source_urls": [
+        "https://docs.openedx.org/en/latest/",
+        "https://docs.openedx.org/en/latest/site_ops/install_configure_run_guide/index.html",
+        "https://docs.openedx.org/en/latest/site_ops/quickstarts/tutor_quickstart_ops.html",
+        "https://github.com/openedx/openedx-platform",
+        "https://openedx.org/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "g3proxy",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://g3-project.readthedocs.io/projects/g3proxy/en/latest/",
+      "data_source_urls": [
+        "https://g3-project.readthedocs.io/projects/g3proxy/en/latest/",
+        "https://github.com/bytedance/g3/blob/master/g3proxy/README.md",
+        "https://github.com/bytedance/g3/blob/master/g3proxy/UserGuide.en_US.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "neos",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.neos.io/",
+      "data_source_urls": [
+        "https://docs.neos.io/",
+        "https://docs.neos.io/guide/installation-development-setup",
+        "https://docs.neos.io/guide/installation-development-setup/docker-and-docker-compose-setup",
+        "https://www.neos.io/docs-and-support.html",
+        "https://github.com/neos/neos-development-collection"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "silverstripe",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null,
+        "install_docs_url": null
+      },
+      "docs_url": "https://docs.silverstripe.org/en/6/",
+      "install_docs_url": "https://docs.silverstripe.org/en/6/getting_started/composer/",
+      "data_source_urls": [
+        "https://docs.silverstripe.org/en/6/",
+        "https://docs.silverstripe.org/en/6/getting_started/",
+        "https://docs.silverstripe.org/en/6/getting_started/composer/",
+        "https://github.com/silverstripe/silverstripe-framework"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "sip3",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null,
+        "install_docs_url": null
+      },
+      "docs_url": "https://docs.sip3.io/",
+      "install_docs_url": "https://docs.sip3.io/docs/InstallationGuide.html",
+      "data_source_urls": [
+        "https://docs.sip3.io/",
+        "https://docs.sip3.io/docs/InstallationGuide.html",
+        "https://github.com/sip3io/sip3-captain-ce"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "snypy",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null,
+        "install_docs_url": null
+      },
+      "docs_url": "https://github.com/snypy/snypy-docker#readme",
+      "install_docs_url": "https://github.com/snypy/snypy-docker#setup-application",
+      "data_source_urls": [
+        "https://github.com/snypy",
+        "https://github.com/snypy/snypy-frontend",
+        "https://github.com/snypy/snypy-backend",
+        "https://github.com/snypy/snypy-docker",
+        "https://snypy.com/",
+        "https://github.com/snypy/snypy-docker#readme",
+        "https://github.com/snypy/snypy-docker#setup-application"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "traccar",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null,
+        "install_docs_url": null
+      },
+      "docs_url": "https://www.traccar.org/documentation/",
+      "install_docs_url": "https://www.traccar.org/linux/",
+      "data_source_urls": [
+        "https://www.traccar.org/documentation/",
+        "https://www.traccar.org/install-vps/",
+        "https://www.traccar.org/manual-installation/",
+        "https://github.com/traccar/traccar",
+        "https://www.traccar.org/linux/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "turtl",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null,
+        "install_docs_url": null
+      },
+      "docs_url": "https://turtlapp.com/docs/",
+      "install_docs_url": "https://github.com/turtl/server#running-the-server-via-docker-compose",
+      "data_source_urls": [
+        "https://turtlapp.com/",
+        "https://turtlapp.com/docs/",
+        "https://github.com/turtl/server",
+        "https://github.com/turtl/server#running-the-server-via-docker-compose"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "wave",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/u-wave/core#readme",
+      "data_source_urls": [
+        "https://u-wave.net/",
+        "https://u-wave.net/install",
+        "https://github.com/u-wave/core",
+        "https://github.com/u-wave/core#readme"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "yunohost",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null,
+        "install_docs_url": null
+      },
+      "docs_url": "https://doc.yunohost.org/en/docs/",
+      "install_docs_url": "https://doc.yunohost.org/admin/get_started/install_on/on_top_of_debian/",
+      "data_source_urls": [
+        "https://doc.yunohost.org/en/docs/",
+        "https://doc.yunohost.org/admin/get_started/install_on/on_top_of_debian/",
+        "https://github.com/YunoHost/yunohost"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "zimbra-collaboration",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null,
+        "install_docs_url": null
+      },
+      "docs_url": "https://zimbra.github.io/documentation/zimbra-10/",
+      "install_docs_url": "https://zimbra.github.io/documentation/zimbra-10/single-server-install.html",
+      "data_source_urls": [
+        "https://zimbra.github.io/documentation/zimbra-10/",
+        "https://zimbra.github.io/documentation/zimbra-10/single-server-install.html",
+        "https://github.com/Zimbra/zm-web-client"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "skipped_fields": [
+    {
+      "slug": "g3proxy",
+      "field": "install_docs_url",
+      "reason": "A separate current proposal already covers this field and points to the official install guide; avoid a duplicate guarded correction."
+    },
+    {
+      "slug": "wave",
+      "field": "install_docs_url",
+      "reason": "The official install page warns that its steps are unfinished and lists older dependencies that conflict with the current core README; no current end-to-end install guide was verified."
+    },
+    {
+      "slug": "neos",
+      "field": "install_docs_url",
+      "reason": "The official Docker setup guide is for development; the docs recommend automated Docker deployments for production but do not provide a current production installation guide."
+    }
+  ],
+  "special_checks": [
+    {
+      "slug": "snypy",
+      "finding": "The frontend repository alone is only the UI, but the official project organization also publishes the backend and a Docker Compose setup with a self-host quickstart. Keep self_hosting_status as self_hostable; no status or source-code correction is proposed."
+    }
+  ]
+}

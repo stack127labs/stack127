@@ -1,0 +1,742 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Offline review of the next 40 published rows labelled closed_source. Source, license, and source-link corrections only; proposal, not applied.",
+  "apps": [
+    {
+      "slug": "adsb-main",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "source_code_url": "https://github.com/Mictronics/readsb-protobuf",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/166152-support-unknowncalls-docker-templates/",
+        "https://hub.docker.com/r/mikenye/readsb-protobuf",
+        "https://raw.githubusercontent.com/Unknowncall/adsb-unraid-templates/master/adsb-main.xml",
+        "https://github.com/Mictronics/readsb-protobuf",
+        "https://github.com/Mictronics/readsb-protobuf/blob/dev/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The app is Mictronics readsb-protobuf, licensed GPL-3.0-or-later. The Unraid template and Docker image are packaging sources.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "adsb-flightaware",
+      "source_model": "open_source",
+      "license": "Mixed licenses: PiAware and dump978-fa BSD-2-Clause; dump1090-fa GPL-2.0; mlat-client GPL-3.0-or-later; SoapySDR Boost-1.0",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "source_code_url": "https://github.com/flightaware/piaware",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/166152-support-unknowncalls-docker-templates/",
+        "https://hub.docker.com/r/mikenye/piaware/",
+        "https://raw.githubusercontent.com/Unknowncall/adsb-unraid-templates/master/adsb-flightaware.xml",
+        "https://flightaware.com/adsb/piaware/",
+        "https://github.com/flightaware/piaware",
+        "https://github.com/flightaware/piaware/blob/master/LICENSE.txt",
+        "https://github.com/flightaware/dump1090",
+        "https://github.com/flightaware/dump978",
+        "https://github.com/mutability/mlat-client",
+        "https://github.com/pothosware/SoapySDR",
+        "https://hub.docker.com/r/mikenye/piaware",
+        "https://hub.docker.com/r/mikenye/piaware/dockerfile",
+        "https://github.com/flightaware/dump1090/blob/master/LICENSE",
+        "https://github.com/mutability/mlat-client/blob/master/COPYING",
+        "https://github.com/pothosware/SoapySDR/blob/master/LICENSE_1_0.txt"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "PiAware is open source. The listed image bundles PiAware with separately licensed FlightAware and third-party components, so the app row uses mixed licenses; the image itself is packaging.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "age",
+      "source_model": "open_source",
+      "license": "BSD 3-Clause License",
+      "license_type": "permissive",
+      "license_spdx_id": "BSD-3-Clause",
+      "source_code_url": "https://github.com/FiloSottile/age",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/110023-plugin-age/",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/age.xml",
+        "https://github.com/FiloSottile/age",
+        "https://github.com/FiloSottile/age/blob/main/LICENSE",
+        "https://hub.docker.com/r/ich777/age"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The plugin README identifies FiloSottile/age as the app. Its official repository uses BSD-3-Clause; the Unraid plugin is packaging.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "airflow",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/apache/airflow",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://docker.nasqueron.org/",
+        "https://hub.docker.com/r/nasqueron/airflow",
+        "https://github.com/apache/airflow",
+        "https://github.com/apache/airflow/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The listed service is Apache Airflow, whose official source repository is Apache-2.0. The Nasqueron image is a packaged deployment.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "airvault",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "source_code_url": "https://github.com/wizier/airvault",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://airvault.cloud/",
+        "https://github.com/wizier/airvault/issues",
+        "https://github.com/wizier/airvault/pkgs/container/airvault",
+        "https://raw.githubusercontent.com/wizier/unraid-templates/main/icons/airvault-icon.png",
+        "https://raw.githubusercontent.com/wizier/unraid-templates/main/templates/airvault.xml",
+        "https://github.com/wizier/airvault",
+        "https://github.com/wizier/airvault/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The AirVault product site links to the official self-hosted backup app repository, which declares GPL-3.0-or-later.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "ampd",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_code_url": "https://github.com/rain0r/ampd",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://hub.docker.com/r/rain0r/ampd",
+        "https://rain0r.github.io/ampd/",
+        "https://rain0r.github.io/ampd/docs/docker.html",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ampd.xml",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ampd-icon.png",
+        "https://github.com/rain0r/ampd",
+        "https://github.com/rain0r/ampd/blob/master/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The AMPD product documentation points to its official source repository. The project license is GPL-3.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "amud-agent",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/boubli/AMUD-Dashboard",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://boubli.github.io/AMUD-Dashboard/",
+        "https://boubli.github.io/AMUD-Dashboard/img/amud-logo-github.png",
+        "https://github.com/boubli/AMUD-Dashboard/discussions",
+        "https://hub.docker.com/r/tradmss/amud-dashboard",
+        "https://raw.githubusercontent.com/boubli/AMUD-Dashboard/main/templates/amud-agent.xml",
+        "https://raw.githubusercontent.com/boubli/AMUD-Dashboard/main/templates/amud-dashboard.xml",
+        "https://github.com/boubli/AMUD-Dashboard",
+        "https://github.com/boubli/AMUD-Dashboard/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The project repository contains the AMUD dashboard and agent, and declares MIT. Docker Hub is the container packaging source.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "anarchism",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-or-later",
+      "source_code_url": "https://salsa.debian.org/debian/anarchism",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/anarchism",
+        "https://github.com/yunohost-apps/anarchism_ynh",
+        "https://raw.githubusercontent.com/YunoHost/apps/master/logos/anarchism.png",
+        "https://salsa.debian.org/debian/anarchism",
+        "https://salsa.debian.org/debian/anarchism/",
+        "https://yunohost.org/en/apps",
+        "https://salsa.debian.org/debian/anarchism/-/blob/debian/latest/debian/copyright"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The YunoHost catalog identifies the app license as GPL-2.0-or-later and links to the Debian source repository.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "androiddebugbridge",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/BLBurgess/adb-hass-androidtv",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/101087-support-android-debug-bridge-adb-corneliousjd-repo/",
+        "https://hub.docker.com/r/barnybbb/adb-hass-androidtv",
+        "https://hub.docker.com/r/barnybbb/adb-hass-androidtv/",
+        "https://raw.githubusercontent.com/CorneliousJD/Docker-Templates/master/androiddebugbridge.xml",
+        "https://raw.githubusercontent.com/CorneliousJD/Docker-Templates/master/icons/adb.png",
+        "https://github.com/BLBurgess/adb-hass-androidtv",
+        "https://github.com/BLBurgess/adb-hass-androidtv/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The project README identifies this as the Android Debug Bridge server used by the listed app and declares MIT.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "ankidock",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://github.com/ankicommunity/ankicommunity-sync-server",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://apps.ankiweb.net/",
+        "https://hub.docker.com/r/lawryder/ankidock/",
+        "https://raw.githubusercontent.com/lawryder/unraid_docker_reps/main/Ankidock.xml",
+        "https://github.com/lawryder/ankidock",
+        "https://github.com/ankicommunity/ankicommunity-sync-server",
+        "https://github.com/ankicommunity/ankicommunity-sync-server/blob/master/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The wrapper README says it packages ankicommunity-sync-server. AGPL-3.0 applies to that upstream server; no wrapper license is inferred.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "apacheds",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/apache/directory-server",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://hub.docker.com/r/homelabs/apacheds",
+        "https://directory.apache.org/apacheds/",
+        "https://github.com/apache/directory-server",
+        "https://github.com/apache/directory-server/blob/master/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The Apache Directory Server site links to its official source repository, which uses Apache-2.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "apachephp8-docker",
+      "source_model": "unknown",
+      "source_code_url": "https://github.com/NightMeer/ApachePHP8",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://ghcr.io/nightmeer/apachephp8",
+        "https://github.com/NightMeer/Unraid-Docker-Templates/issues",
+        "https://raw.githubusercontent.com/NightMeer/Unraid-Docker-Templates/main/images/apache-php.png",
+        "https://raw.githubusercontent.com/NightMeer/Unraid-Docker-Templates/main/templates/ApachePHP8.xml",
+        "https://github.com/NightMeer/ApachePHP8"
+      ],
+      "review_scope": "partial",
+      "confidence": "medium",
+      "review_note": "The listed image has a public Dockerfile repository, but that repository declares no project license. Keep the source model unknown rather than label the image closed source or open source.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "appdata-backup-restore-v2-5",
+      "source_model": "unknown",
+      "source_code_url": "https://github.com/Commifreak/ca.backup2",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/132721-plugin-ca-appdata-backup-restore-v3/",
+        "https://raw.githubusercontent.com/Commifreak/ca.backup2/master/securityIcon-WithShadow.png",
+        "https://raw.githubusercontent.com/Commifreak/unraid-plugins/main/appdatabackup_v2.xml",
+        "https://github.com/Commifreak/ca.backup2"
+      ],
+      "review_scope": "partial",
+      "confidence": "medium",
+      "review_note": "This public repository contains the Unraid backup plugin but declares no project license. Keep the source model unknown rather than label the plugin closed source or open source.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "aquacomputer-d5next",
+      "source_model": "open_source",
+      "license": "Mixed licenses: Unraid plugin GPL-2.0; upstream Linux driver GPL-3.0-or-later",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "source_code_url": "https://github.com/ich777/unraid-aquacomputer-d5next",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/92865-support-ich777-amd-vendor-reset-coraltpu-hpsahba",
+        "https://forums.unraid.net/topic/92865-support-ich777-amd-vendor-reset-coraltpu-hpsahba/",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/Aquacomputer-D5Next.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/ashmem.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/HailoRT-Driver.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/headscale-admin-plugin.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/aquacomputer.png",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/MemryX-Driver.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/NUT-Actions.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/OpenRGB-Patch.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/QNAP-EC.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/RCON.xml",
+        "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/UGREENLED-Driver.xml",
+        "https://github.com/ich777/unraid-aquacomputer-d5next",
+        "https://github.com/ich777/unraid-aquacomputer-d5next/blob/master/LICENSE",
+        "https://github.com/aleksamagicka/aquacomputer_d5next-hwmon",
+        "https://github.com/aleksamagicka/aquacomputer_d5next-hwmon/blob/master/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The Unraid plugin and the upstream Linux driver declare different GPL versions. The row uses mixed licensing and links to the plugin source.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "araa",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://github.com/Extravi/araa-search",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://araa.extravi.dev/",
+        "https://extravi.dev/araa/",
+        "https://hub.docker.com/r/temthelem/araa-search",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/araa.xml",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/araa-icon.png",
+        "https://github.com/Extravi/araa-search",
+        "https://github.com/Extravi/araa-search/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The product site points to the official metasearch app repository, which declares AGPL-3.0.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "archipelago-server",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/ArchipelagoMW/Archipelago",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://archipelago.gg/",
+        "https://hub.docker.com/r/pommejedusor/archipelago_server",
+        "https://raw.githubusercontent.com/Collectathon/unraid-templates/main/archipelago-server.xml",
+        "https://raw.githubusercontent.com/Collectathon/unraid-templates/refs/heads/main/icons/archipelago.png",
+        "https://github.com/ArchipelagoMW/Archipelago",
+        "https://github.com/ArchipelagoMW/Archipelago/blob/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The Archipelago project site points to its official repository, which includes the server and declares MIT.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "archiveteam-warrior",
+      "source_model": "unknown",
+      "source_code_url": "https://github.com/ArchiveTeam/warrior-dockerfile",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/138245-support-archiveteam-warrior-maintained-by-darknavi/",
+        "https://github.com/JakeShirley/unraid-templates/blob/main/assets/archiveteam-warrior.png?raw=true",
+        "https://hub.docker.com/r/archiveteam/warrior-dockerfile/",
+        "https://raw.githubusercontent.com/JakeShirley/unraid-templates/main/archiveteam-warrior.xml",
+        "https://wiki.archiveteam.org/index.php/ArchiveTeam_Warrior",
+        "https://github.com/ArchiveTeam/warrior-dockerfile",
+        "https://github.com/ArchiveTeam/warrior-code2"
+      ],
+      "review_scope": "partial",
+      "confidence": "medium",
+      "review_note": "The official Docker build repository has no project license declaration. The separate warrior-code2 license does not establish the license for the full image, so keep the source model unknown.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "argos",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://framagit.org/framasoft/framaspace/argos",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/argos",
+        "https://argos-monitoring.framasoft.org/",
+        "https://argos-monitoring.framasoft.org/#",
+        "https://github.com/yunohost-apps/argos_ynh",
+        "https://raw.githubusercontent.com/YunoHost/apps/master/logos/argos.png",
+        "https://yunohost.org/en/apps",
+        "https://framagit.org/framasoft/framaspace/argos"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Framasoft identifies Argos Panoptès as AGPLv3 and publishes its official source on Framagit.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "aria2-with-ariang",
+      "source_model": "unknown",
+      "source_code_url": "https://github.com/fanningert/aria2-with-ariang",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://forums.lime-technology.com/topic/60117-support-aria2-webui/",
+        "https://raw.githubusercontent.com/fanningert/unraid-docker-templates/master/fanningert/Aria2AriaNG.xml",
+        "https://raw.githubusercontent.com/fanningert/unraid-docker-templates/master/fanningert/Aria2Daemon.xml",
+        "https://raw.githubusercontent.com/fanningert/unraid-docker-templates/master/fanningert/Aria2ToWebUI.xml",
+        "https://raw.githubusercontent.com/fanningert/unraid-docker-templates/master/fanningert/icons/aria2ariang.png",
+        "https://registry.hub.docker.com/r/fanningert/aria2-daemon/",
+        "https://registry.hub.docker.com/r/fanningert/aria2-with-ariang/",
+        "https://registry.hub.docker.com/r/fanningert/aria2-with-webui/",
+        "https://github.com/fanningert/aria2-with-ariang",
+        "https://github.com/aria2/aria2",
+        "https://github.com/mayswind/AriaNg"
+      ],
+      "review_scope": "partial",
+      "confidence": "medium",
+      "review_note": "The archived image repository has no wrapper license. The separate aria2 and AriaNg licenses do not establish the license for this combined image, so keep the source model unknown.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    }
+  ],
+  "reviewed_apps": [
+    {
+      "slug": "acronis",
+      "result": "unchanged",
+      "review_note": "Commercial Acronis backup product; no official application source repository identified.",
+      "sources": [
+        "https://www.acronis.com/",
+        "https://hub.docker.com/r/acronisdocker/backup_agent/"
+      ]
+    },
+    {
+      "slug": "adbtuner",
+      "result": "unchanged",
+      "review_note": "The maintainer describes ADBTuner as closed source in the support thread.",
+      "sources": [
+        "https://community.getchannels.com/t/adbtuner-a-channel-tuning-application-for-networked-google-tv-android-tv-devices"
+      ]
+    },
+    {
+      "slug": "adsb-adsbexchange",
+      "result": "unchanged",
+      "review_note": "The public repository is a community Docker wrapper; it does not establish the underlying ADSBExchange feeder license.",
+      "sources": [
+        "https://hub.docker.com/r/mikenye/adsbexchange",
+        "https://www.adsbexchange.com/"
+      ]
+    },
+    {
+      "slug": "adsb-fr24feed",
+      "result": "unchanged",
+      "review_note": "The listed image packages the FlightRadar24 feeder; no matching public app source repository has been verified.",
+      "sources": [
+        "https://hub.docker.com/r/mikenye/fr24feed",
+        "https://www.flightradar24.com/share-your-data"
+      ]
+    },
+    {
+      "slug": "adsb-radarbox",
+      "result": "unchanged",
+      "review_note": "The listed image packages the RadarBox feeder; no matching public app source repository has been verified.",
+      "sources": [
+        "https://hub.docker.com/r/mikenye/radarbox",
+        "https://www.radarbox.com/"
+      ]
+    },
+    {
+      "slug": "advanced-listdiff",
+      "result": "unchanged",
+      "review_note": "Only the image listing was verified; no official app source repository or license was identified.",
+      "sources": [
+        "https://hub.docker.com/r/manimo/advanced-listdiff"
+      ]
+    },
+    {
+      "slug": "affine-self-hosted",
+      "result": "unchanged",
+      "review_note": "This is a third-party image, and its exact AFFiNE edition/backend licensing is not established by the image listing.",
+      "sources": [
+        "https://hub.docker.com/r/zhangshuodocker/affine-self-hosted",
+        "https://github.com/toeverything/AFFiNE",
+        "https://affine.pro/license"
+      ]
+    },
+    {
+      "slug": "agent-dvr",
+      "result": "unchanged",
+      "review_note": "The official product is published by iSpyConnect; no public source repository for this app was verified.",
+      "sources": [
+        "https://www.ispyconnect.com/",
+        "https://hub.docker.com/r/doitandbedone/ispyagentdvr"
+      ]
+    },
+    {
+      "slug": "aistor",
+      "result": "unchanged",
+      "review_note": "MinIO AIStor is a commercial product; the public MinIO repository is a distinct product and does not establish AIStor source licensing.",
+      "sources": [
+        "https://min.io/product/aistor",
+        "https://github.com/minio/minio",
+        "https://apps.truenas.com/catalog/aistor_stable/"
+      ]
+    },
+    {
+      "slug": "all-the-mods-9-mohistmc",
+      "result": "unchanged",
+      "review_note": "This server image bundles the Minecraft modpack and server software; the bundle has no single app license to assign.",
+      "sources": [
+        "https://www.curseforge.com/minecraft/modpacks/all-the-mods-9",
+        "https://www.minecraft.net/eula",
+        "https://hub.docker.com/r/cobbert/docker-allthemods9"
+      ]
+    },
+    {
+      "slug": "all-the-mods-9-to-the-sky",
+      "result": "unchanged",
+      "review_note": "This server image bundles the Minecraft modpack and server software; the bundle has no single app license to assign.",
+      "sources": [
+        "https://www.curseforge.com/minecraft/modpacks/all-the-mods-9-to-the-sky",
+        "https://www.minecraft.net/eula",
+        "https://hub.docker.com/repository/docker/goobaroo/atm9sky"
+      ]
+    },
+    {
+      "slug": "allthemods10",
+      "result": "unchanged",
+      "review_note": "This server image bundles the Minecraft modpack and server software; the bundle has no single app license to assign.",
+      "sources": [
+        "https://www.curseforge.com/minecraft/modpacks/all-the-mods-10",
+        "https://www.minecraft.net/eula",
+        "https://hub.docker.com/repository/docker/w3lfare/allthemods10"
+      ]
+    },
+    {
+      "slug": "allthemods10-tts",
+      "result": "unchanged",
+      "review_note": "This server image bundles the Minecraft modpack and server software; the bundle has no single app license to assign.",
+      "sources": [
+        "https://www.curseforge.com/minecraft/modpacks/all-the-mods-10-sky",
+        "https://www.minecraft.net/eula",
+        "https://hub.docker.com/repository/docker/w3lfare/allthemods10-tts"
+      ]
+    },
+    {
+      "slug": "allthemods11",
+      "result": "unchanged",
+      "review_note": "This server image bundles the Minecraft modpack and server software; the bundle has no single app license to assign.",
+      "sources": [
+        "https://www.curseforge.com/minecraft/modpacks/all-the-mods-11",
+        "https://www.minecraft.net/eula",
+        "https://hub.docker.com/repository/docker/itsnotwebby/unraid-atm11"
+      ]
+    },
+    {
+      "slug": "allthemods7",
+      "result": "unchanged",
+      "review_note": "This server image bundles the Minecraft modpack and server software; the bundle has no single app license to assign.",
+      "sources": [
+        "https://www.curseforge.com/minecraft/modpacks/all-the-mods-7",
+        "https://www.minecraft.net/eula",
+        "https://hub.docker.com/repository/docker/goobaroo/allthemods7"
+      ]
+    },
+    {
+      "slug": "allthemods8",
+      "result": "unchanged",
+      "review_note": "This server image bundles the Minecraft modpack and server software; the bundle has no single app license to assign.",
+      "sources": [
+        "https://www.curseforge.com/minecraft/modpacks/all-the-mods-8",
+        "https://www.minecraft.net/eula",
+        "https://hub.docker.com/repository/docker/goobaroo/allthemods8"
+      ]
+    },
+    {
+      "slug": "allthemons",
+      "result": "unchanged",
+      "review_note": "This server image bundles the Minecraft modpack and server software; the bundle has no single app license to assign.",
+      "sources": [
+        "https://www.curseforge.com/minecraft/modpacks/all-the-mons",
+        "https://www.minecraft.net/eula",
+        "https://hub.docker.com/repository/docker/itsnotwebby/docker-atmons"
+      ]
+    },
+    {
+      "slug": "alpaca-to-influxdb",
+      "result": "unchanged",
+      "review_note": "The directory name says Alpaca, but its linked image and template identify Binance-to-InfluxDB; product identity must be resolved before a source correction.",
+      "sources": [
+        "https://hub.docker.com/r/nixoninnes/binance-to-influxdb",
+        "https://raw.githubusercontent.com/NixonInnes/unraid-builds-xml/main/alpaca-to-influxdb.xml",
+        "https://alpaca.markets/docs/"
+      ]
+    },
+    {
+      "slug": "americasarmy-pg",
+      "result": "unchanged",
+      "review_note": "This is a proprietary game server distributed through SteamCMD; the game is not the public source of the container wrapper.",
+      "sources": [
+        "https://www.americasarmy.com/",
+        "https://store.steampowered.com/app/203290/Americas_Army_Proving_Grounds/",
+        "https://hub.docker.com/r/ich777/steamcmd/"
+      ]
+    },
+    {
+      "slug": "androidstudio",
+      "result": "unchanged",
+      "review_note": "Android Studio is Google proprietary software; the public JetBrains Projector repository is a separate remote-display tool.",
+      "sources": [
+        "https://developer.android.com/studio",
+        "https://github.com/JetBrains/projector-docker",
+        "https://hub.docker.com/repository/docker/jassycliq/android-studio-projector"
+      ]
+    },
+    {
+      "slug": "ap-self-hosted",
+      "result": "unchanged",
+      "review_note": "Anchorpoint is the commercial product publisher; no public application source license was verified.",
+      "sources": [
+        "https://anchorpoint.app/",
+        "https://hub.docker.com/r/anchorpointhq/ap-self-hosted"
+      ]
+    }
+  ]
+}

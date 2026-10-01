@@ -1,0 +1,30 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Replace the raw Unraid template URL and broad documentation repository link with official File Browser pages, and repair the truncated summary. Proposal only.",
+  "apps": [
+    {
+      "slug": "binhex-filebrowser",
+      "review_scope": "partial",
+      "website_url": "https://filebrowser.org/",
+      "docs_url": "https://github.com/filebrowser/filebrowser/tree/master/docs",
+      "install_docs_url": "https://github.com/filebrowser/filebrowser/blob/master/docs/installation.md",
+      "summary": "Binhex's container runs File Browser, a web interface for managing files in a selected server directory.",
+      "expected": {
+        "website_url": "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/filebrowser.xml",
+        "docs_url": "https://github.com/binhex/documentation",
+        "install_docs_url": "https://github.com/binhex/documentation",
+        "summary": "File Browser provides a file managing interface within a specified directory and it can be used to upload, delete, preview and edit your files, It is a."
+      },
+      "data_source_urls": [
+        "https://filebrowser.org/",
+        "https://github.com/filebrowser/filebrowser",
+        "https://github.com/filebrowser/filebrowser/tree/master/docs",
+        "https://github.com/filebrowser/filebrowser/blob/master/docs/installation.md",
+        "https://github.com/binhex/arch-filebrowser"
+      ],
+      "confidence": "high",
+      "review_note": "The upstream repository confirms the product purpose, says its documentation and installation guide are in the docs directory, and the official project domain redirects to the repository. Binhex identifies its own container as File Browser."
+    }
+  ]
+}

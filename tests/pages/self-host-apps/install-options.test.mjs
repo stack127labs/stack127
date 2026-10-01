@@ -100,8 +100,40 @@ test("new appliance catalogs and their compose files become install options", ()
 
   assert.deepEqual(options.map((option) => option.method), ["docker", "compose", "unraid", "casaos", "yunohost"]);
   assert.equal(options.find((option) => option.method === "unraid")?.support_level, "community");
-  assert.equal(options.find((option) => option.method === "casaos")?.support_level, "official");
+  assert.equal(options.find((option) => option.method === "casaos")?.support_level, "community");
   assert.equal(options.find((option) => option.method === "compose")?.url, "https://raw.githubusercontent.com/IceWhaleTech/CasaOS-AppStore/main/Apps/Example/docker-compose.yml");
+  assert.equal(options.find((option) => option.method === "compose")?.support_level, "community");
+});
+
+test("only project-owned Compose files are marked as official", () => {
+  const options = buildInstallOptions({
+    source_code_url: "https://github.com/publisher/app",
+    website_url: "https://example.org",
+    docker_support: "official",
+    docker_image: null,
+    docker_url: null,
+    compose_url: "https://github.com/publisher/app/blob/main/compose.yaml",
+  });
+  assert.equal(options.find((option) => option.method === "compose")?.support_level, "official");
+
+  const community = buildInstallOptions({
+    source_code_url: "https://github.com/publisher/app",
+    docker_support: "official",
+    docker_image: null,
+    docker_url: null,
+    compose_url: "https://github.com/community/deployments/blob/main/compose.yaml",
+  });
+  assert.equal(community.find((option) => option.method === "compose")?.support_level, "community");
+});
+
+test("a source link alone does not create an install option", () => {
+  assert.deepEqual(buildInstallOptions({
+    source_code_url: "https://github.com/publisher/app",
+    website_url: "https://example.org",
+    docs_url: "https://example.org/docs",
+    install_docs_url: "https://example.org/install",
+    deployment_methods: ["native"],
+  }), []);
 });
 
 test("streamlined install storage keeps one row with multiple destination links", () => {

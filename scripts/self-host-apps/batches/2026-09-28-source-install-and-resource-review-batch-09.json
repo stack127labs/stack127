@@ -1,0 +1,1682 @@
+{
+  "reviewed_at": "2026-09-28",
+  "scope": "Manually reviewed seven full records using each project’s current official repository, license, documentation and install sources. Corrected summaries, categories, source model and license, resource estimates, technical facts, and install options.",
+  "apps": [
+    {
+      "slug": "addarr",
+      "review_scope": "full_record",
+      "expected": {
+        "summary": "Telegram bot for adding series to Sonarr and movies to Radarr through chat commands.",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "MIT",
+        "license_type": "permissive",
+        "website_url": null,
+        "docs_url": "https://github.com/Homelabbers/unraid-templates/issues/new/choose",
+        "install_docs_url": "https://github.com/Homelabbers/unraid-templates/issues/new/choose",
+        "compose_support": false,
+        "compose_url": null,
+        "requires_database": null,
+        "database_types": [],
+        "persistent_storage": null,
+        "storage_profile": "unknown",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "data_source_urls": [
+          "https://github.com/Homelabbers/unraid-templates/issues/new/choose",
+          "https://github.com/waterboy1602/addarr",
+          "https://hub.docker.com/r/waterboy1602/addarr/",
+          "https://opengraph.githubassets.com/1/waterboy1602/addarr",
+          "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/addarr.xml",
+          "https://raw.githubusercontent.com/waterboy1602/addarr/HEAD/README.md"
+        ]
+      },
+      "summary": "Telegram bot for adding series to Sonarr and movies to Radarr, and controlling Transmission and SABnzbd download speeds.",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "website_url": "https://github.com/Waterboy1602/Addarr",
+      "docs_url": "https://github.com/Waterboy1602/Addarr",
+      "install_docs_url": "https://github.com/Waterboy1602/Addarr/wiki",
+      "compose_support": true,
+      "compose_url": "https://github.com/Waterboy1602/Addarr/blob/main/docker-compose.yml",
+      "requires_database": false,
+      "database_types": [],
+      "persistent_storage": true,
+      "storage_profile": "tiny",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "unraid"
+      ],
+      "data_source_urls": [
+        "https://github.com/Waterboy1602/Addarr",
+        "https://github.com/Waterboy1602/Addarr/blob/main/LICENSE",
+        "https://github.com/Waterboy1602/Addarr/blob/main/README.md",
+        "https://github.com/Waterboy1602/Addarr/blob/main/docker-compose.yml",
+        "https://github.com/Waterboy1602/Addarr/wiki",
+        "https://hub.docker.com/r/waterboy1602/addarr",
+        "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/addarr.xml"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose",
+        "unraid"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/waterboy1602/addarr/",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "waterboy1602/addarr",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/waterboy1602/addarr/",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/addarr.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/addarr.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "url": "https://hub.docker.com/r/waterboy1602/addarr",
+          "note": null,
+          "image": "waterboy1602/addarr",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://github.com/Waterboy1602/Addarr/wiki",
+          "support_level": "official"
+        },
+        {
+          "url": "https://github.com/Waterboy1602/Addarr/blob/main/docker-compose.yml",
+          "note": null,
+          "image": null,
+          "label": "Docker Compose",
+          "method": "compose",
+          "sort_order": 20,
+          "source_url": "https://github.com/Waterboy1602/Addarr/blob/main/docker-compose.yml",
+          "support_level": "official"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/addarr.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/addarr.xml",
+          "support_level": "community"
+        }
+      ],
+      "resource_estimate_expected": {
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "ram_source_urls": [
+          "https://github.com/waterboy1602/addarr"
+        ],
+        "storage_source_urls": [
+          "https://github.com/waterboy1602/addarr"
+        ]
+      },
+      "resource_estimate": {
+        "ram_min_mb": 128,
+        "ram_max_mb": 512,
+        "ram_basis": "One bot process with small config and log files.",
+        "ram_source_urls": [
+          "https://github.com/Waterboy1602/Addarr/blob/main/docker-compose.yml"
+        ],
+        "storage_min_gb": 1,
+        "storage_max_gb": 5,
+        "storage_basis": "Keeps config and logs; media remains in the connected download and library apps.",
+        "storage_source_urls": [
+          "https://github.com/Waterboy1602/Addarr/blob/main/docker-compose.yml"
+        ]
+      },
+      "sources": [
+        "https://github.com/Waterboy1602/Addarr",
+        "https://github.com/Waterboy1602/Addarr/blob/main/LICENSE",
+        "https://github.com/Waterboy1602/Addarr/blob/main/README.md",
+        "https://github.com/Waterboy1602/Addarr/blob/main/docker-compose.yml",
+        "https://github.com/Waterboy1602/Addarr/wiki",
+        "https://hub.docker.com/r/waterboy1602/addarr",
+        "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/addarr.xml"
+      ],
+      "pricing_model": "free",
+      "docker_support": "official",
+      "docker_url": "https://hub.docker.com/r/waterboy1602/addarr",
+      "docker_image": "waterboy1602/addarr",
+      "expected_categories": [
+        "identity-access",
+        "knowledge-notes"
+      ],
+      "categories": [
+        "automation",
+        "communication"
+      ],
+      "expected_source_model": "source_available",
+      "expected_license": "No license file declared (all rights reserved by default)",
+      "source_code_url": "https://github.com/Waterboy1602/Addarr",
+      "source_code_host": "github",
+      "summary_source": "https://github.com/Waterboy1602/Addarr",
+      "summary_confidence": "high",
+      "data_confidence": "high",
+      "technical_updates": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Upstream documents its Docker image and Compose setup.",
+          "source_urls": [
+            "https://github.com/Waterboy1602/Addarr",
+            "https://github.com/Waterboy1602/Addarr/blob/main/docker-compose.yml",
+            "https://hub.docker.com/r/waterboy1602/addarr"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Upstream provides a Compose file.",
+          "source_urls": [
+            "https://github.com/Waterboy1602/Addarr/blob/main/docker-compose.yml"
+          ]
+        },
+        "database": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Configuration and small text files are stored locally; no database service is used.",
+          "source_urls": [
+            "https://github.com/Waterboy1602/Addarr/blob/main/docker-compose.yml",
+            "https://github.com/Waterboy1602/Addarr/blob/main/README.md"
+          ]
+        },
+        "persistent_storage": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Configuration, chat lists and logs are persistent files.",
+          "source_urls": [
+            "https://github.com/Waterboy1602/Addarr/blob/main/docker-compose.yml"
+          ]
+        },
+        "ram": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "Estimated range is stored separately.",
+          "source_urls": [
+            "https://github.com/Waterboy1602/Addarr"
+          ]
+        },
+        "storage": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "Estimated range is stored separately.",
+          "source_urls": [
+            "https://github.com/Waterboy1602/Addarr"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "The project documents this image in its Compose file.",
+          "source_urls": [
+            "https://github.com/Waterboy1602/Addarr/blob/main/docker-compose.yml",
+            "https://hub.docker.com/r/waterboy1602/addarr"
+          ]
+        }
+      },
+      "reviewed_at": "2026-09-28",
+      "expected_docs_url": "https://github.com/Homelabbers/unraid-templates/issues/new/choose"
+    },
+    {
+      "slug": "adguard-exporter",
+      "review_scope": "full_record",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "MIT",
+        "license_type": "permissive",
+        "website_url": null,
+        "install_docs_url": "https://github.com/henrywhitaker3/adguard-exporter",
+        "docker_support": "community",
+        "docker_url": "https://ghcr.io/henrywhitaker3/adguard-exporter:latest",
+        "docker_image": "ghcr.io/henrywhitaker3/adguard-exporter:latest",
+        "requires_database": null,
+        "persistent_storage": null,
+        "storage_profile": "unknown",
+        "data_source_urls": [
+          "https://ghcr.io/henrywhitaker3/adguard-exporter:latest",
+          "https://github.com/henrywhitaker3/adguard-exporter",
+          "https://raw.githubusercontent.com/henrywhitaker3/adguard-exporter/HEAD/README.md",
+          "https://raw.githubusercontent.com/tquizzle/Docker-xml/master/docker-adguard-prom-exporter.xml",
+          "https://raw.githubusercontent.com/tquizzle/Docker-xml/refs/heads/master/img/adguard-prometheus-exporter.png"
+        ],
+        "docs_url": "https://github.com/henrywhitaker3/adguard-exporter"
+      },
+      "summary": "Prometheus exporter that collects DNS, traffic, DHCP and client metrics from AdGuard Home.",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "website_url": "https://github.com/henrywhitaker3/adguard-exporter",
+      "docs_url": "https://github.com/henrywhitaker3/adguard-exporter",
+      "install_docs_url": "https://github.com/henrywhitaker3/adguard-exporter#installation",
+      "docker_support": "official",
+      "docker_url": "https://github.com/henrywhitaker3/adguard-exporter/pkgs/container/adguard-exporter",
+      "docker_image": "ghcr.io/henrywhitaker3/adguard-exporter:latest",
+      "requires_database": false,
+      "database_types": [],
+      "persistent_storage": false,
+      "storage_profile": "tiny",
+      "data_source_urls": [
+        "https://github.com/henrywhitaker3/adguard-exporter",
+        "https://github.com/henrywhitaker3/adguard-exporter/blob/main/LICENSE",
+        "https://github.com/henrywhitaker3/adguard-exporter#installation",
+        "https://github.com/henrywhitaker3/adguard-exporter/pkgs/container/adguard-exporter",
+        "https://raw.githubusercontent.com/tquizzle/Docker-xml/master/docker-adguard-prom-exporter.xml"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "unraid"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://ghcr.io/henrywhitaker3/adguard-exporter:latest",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "ghcr.io/henrywhitaker3/adguard-exporter:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://ghcr.io/henrywhitaker3/adguard-exporter:latest",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/tquizzle/Docker-xml/master/docker-adguard-prom-exporter.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/tquizzle/Docker-xml/master/docker-adguard-prom-exporter.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "url": "https://github.com/henrywhitaker3/adguard-exporter/pkgs/container/adguard-exporter",
+          "note": null,
+          "image": "ghcr.io/henrywhitaker3/adguard-exporter:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://github.com/henrywhitaker3/adguard-exporter#installation",
+          "support_level": "official"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/tquizzle/Docker-xml/master/docker-adguard-prom-exporter.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/tquizzle/Docker-xml/master/docker-adguard-prom-exporter.xml",
+          "support_level": "community"
+        }
+      ],
+      "resource_estimate_expected": {
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 5,
+        "storage_estimate_max_gb": 100,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "ram_source_urls": [
+          "https://github.com/henrywhitaker3/adguard-exporter"
+        ],
+        "storage_source_urls": [
+          "https://github.com/henrywhitaker3/adguard-exporter"
+        ]
+      },
+      "resource_estimate": {
+        "ram_min_mb": 128,
+        "ram_max_mb": 512,
+        "ram_basis": "Small Go exporter; number of monitored AdGuard Home servers affects use.",
+        "ram_source_urls": [
+          "https://github.com/henrywhitaker3/adguard-exporter#installation"
+        ],
+        "storage_min_gb": 1,
+        "storage_max_gb": 5,
+        "storage_basis": "Exporter is stateless; Prometheus stores the collected time series.",
+        "storage_source_urls": [
+          "https://github.com/henrywhitaker3/adguard-exporter#usage"
+        ]
+      },
+      "sources": [
+        "https://github.com/henrywhitaker3/adguard-exporter",
+        "https://github.com/henrywhitaker3/adguard-exporter/blob/main/LICENSE",
+        "https://github.com/henrywhitaker3/adguard-exporter#installation",
+        "https://github.com/henrywhitaker3/adguard-exporter/pkgs/container/adguard-exporter",
+        "https://raw.githubusercontent.com/tquizzle/Docker-xml/master/docker-adguard-prom-exporter.xml"
+      ],
+      "pricing_model": "free",
+      "compose_support": false,
+      "compose_url": null,
+      "deployment_methods": [
+        "docker",
+        "unraid"
+      ],
+      "expected_categories": [
+        "documents-pdfs",
+        "monitoring-status",
+        "system-admin-hosting"
+      ],
+      "categories": [
+        "monitoring-status",
+        "networking-dns"
+      ],
+      "expected_source_model": "source_available",
+      "expected_license": "No license file declared (all rights reserved by default)",
+      "source_code_url": "https://github.com/henrywhitaker3/adguard-exporter",
+      "source_code_host": "github",
+      "summary_source": "https://github.com/henrywhitaker3/adguard-exporter",
+      "summary_confidence": "high",
+      "data_confidence": "high",
+      "technical_updates": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "The project publishes a GHCR image.",
+          "source_urls": [
+            "https://github.com/henrywhitaker3/adguard-exporter",
+            "https://github.com/henrywhitaker3/adguard-exporter/pkgs/container/adguard-exporter"
+          ]
+        },
+        "compose": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "No upstream Compose deployment is documented.",
+          "source_urls": [
+            "https://github.com/henrywhitaker3/adguard-exporter"
+          ]
+        },
+        "database": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "The exporter is stateless and connects to AdGuard Home over its API.",
+          "source_urls": [
+            "https://github.com/henrywhitaker3/adguard-exporter"
+          ]
+        },
+        "persistent_storage": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Metrics are exported to Prometheus, which stores their time series.",
+          "source_urls": [
+            "https://github.com/henrywhitaker3/adguard-exporter#usage"
+          ]
+        },
+        "ram": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "Estimated range is stored separately.",
+          "source_urls": [
+            "https://github.com/henrywhitaker3/adguard-exporter"
+          ]
+        },
+        "storage": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "Estimated range is stored separately.",
+          "source_urls": [
+            "https://github.com/henrywhitaker3/adguard-exporter"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "The project publishes this GHCR image.",
+          "source_urls": [
+            "https://github.com/henrywhitaker3/adguard-exporter/pkgs/container/adguard-exporter"
+          ]
+        }
+      },
+      "reviewed_at": "2026-09-28",
+      "expected_docs_url": "https://github.com/henrywhitaker3/adguard-exporter"
+    },
+    {
+      "slug": "agate",
+      "review_scope": "full_record",
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "website_url": null,
+        "docs_url": "https://github.com/mbrubeck/agate/blob/master/README.md#configuration",
+        "install_docs_url": "https://github.com/mbrubeck/agate/blob/master/README.md#configuration",
+        "docker_support": "community",
+        "requires_database": null,
+        "persistent_storage": null,
+        "storage_profile": "unknown",
+        "data_source_urls": [
+          "https://github.com/mbrubeck/agate",
+          "https://github.com/mbrubeck/agate/blob/master/README.md#configuration",
+          "https://github.com/mbrubeck/agate/pkgs/container/agate",
+          "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/agate.xml",
+          "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/agate.png"
+        ]
+      },
+      "source_model": "open_source",
+      "license": "Apache License 2.0 or MIT License; test code uses GPL-3.0-or-later",
+      "license_spdx_id": "Apache-2.0",
+      "website_url": "https://github.com/mbrubeck/agate",
+      "docs_url": "https://github.com/mbrubeck/agate/blob/master/README.md",
+      "install_docs_url": "https://github.com/mbrubeck/agate/blob/master/README.md#installation-and-setup",
+      "docker_support": "official",
+      "requires_database": false,
+      "database_types": [],
+      "persistent_storage": true,
+      "storage_profile": "depends",
+      "data_source_urls": [
+        "https://github.com/mbrubeck/agate",
+        "https://github.com/mbrubeck/agate/blob/master/README.md",
+        "https://github.com/mbrubeck/agate/blob/master/LICENSE-APACHE",
+        "https://github.com/mbrubeck/agate/blob/master/LICENSE-MIT",
+        "https://github.com/mbrubeck/agate/pkgs/container/agate",
+        "https://github.com/mbrubeck/agate/releases",
+        "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/agate.xml"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "unraid"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://github.com/mbrubeck/agate/pkgs/container/agate",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "ghcr.io/mbrubeck/agate:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://github.com/mbrubeck/agate/pkgs/container/agate",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/agate.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/agate.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "url": "https://github.com/mbrubeck/agate/pkgs/container/agate",
+          "note": null,
+          "image": "ghcr.io/mbrubeck/agate:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://github.com/mbrubeck/agate/blob/master/README.md#installation-and-setup",
+          "support_level": "official"
+        },
+        {
+          "url": "https://github.com/mbrubeck/agate/releases",
+          "note": null,
+          "image": null,
+          "label": "Agate releases",
+          "method": "native",
+          "sort_order": 30,
+          "source_url": "https://github.com/mbrubeck/agate/blob/master/README.md#installation-and-setup",
+          "support_level": "official"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/agate.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/agate.xml",
+          "support_level": "community"
+        }
+      ],
+      "resource_estimate_expected": {
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "ram_source_urls": [
+          "https://github.com/mbrubeck/agate"
+        ],
+        "storage_source_urls": [
+          "https://github.com/mbrubeck/agate"
+        ]
+      },
+      "resource_estimate": {
+        "ram_min_mb": 128,
+        "ram_max_mb": 512,
+        "ram_basis": "Small static Gemini server; upstream describes it as efficient on low-end hardware.",
+        "ram_source_urls": [
+          "https://github.com/mbrubeck/agate/blob/master/README.md"
+        ],
+        "storage_min_gb": 1,
+        "storage_max_gb": 20,
+        "storage_basis": "Stores served files and TLS certificates; content size drives storage use.",
+        "storage_source_urls": [
+          "https://github.com/mbrubeck/agate/blob/master/README.md#installation-and-setup"
+        ]
+      },
+      "sources": [
+        "https://github.com/mbrubeck/agate",
+        "https://github.com/mbrubeck/agate/blob/master/README.md",
+        "https://github.com/mbrubeck/agate/blob/master/LICENSE-APACHE",
+        "https://github.com/mbrubeck/agate/blob/master/LICENSE-MIT",
+        "https://github.com/mbrubeck/agate/pkgs/container/agate",
+        "https://github.com/mbrubeck/agate/releases",
+        "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/agate.xml"
+      ],
+      "license_type": "permissive",
+      "pricing_model": "free",
+      "docker_url": "https://github.com/mbrubeck/agate/pkgs/container/agate",
+      "docker_image": "ghcr.io/mbrubeck/agate:latest",
+      "compose_support": false,
+      "compose_url": null,
+      "deployment_methods": [
+        "docker",
+        "native",
+        "unraid"
+      ],
+      "expected_categories": [
+        "networking-dns",
+        "system-admin-hosting"
+      ],
+      "categories": [
+        "networking-dns",
+        "system-admin-hosting"
+      ],
+      "expected_source_model": "source_available",
+      "expected_license": "No license file declared (all rights reserved by default)",
+      "source_code_url": "https://github.com/mbrubeck/agate",
+      "source_code_host": "github",
+      "summary_source": "https://github.com/mbrubeck/agate",
+      "summary_confidence": "high",
+      "data_confidence": "high",
+      "technical_updates": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Upstream documents its GHCR image.",
+          "source_urls": [
+            "https://github.com/mbrubeck/agate",
+            "https://github.com/mbrubeck/agate/pkgs/container/agate"
+          ]
+        },
+        "compose": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "No upstream Compose deployment is documented.",
+          "source_urls": [
+            "https://github.com/mbrubeck/agate"
+          ]
+        },
+        "database": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Static file server; no database is needed.",
+          "source_urls": [
+            "https://github.com/mbrubeck/agate"
+          ]
+        },
+        "persistent_storage": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Content and certificates are mounted as persistent files.",
+          "source_urls": [
+            "https://github.com/mbrubeck/agate"
+          ]
+        },
+        "ram": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "Estimated range is stored separately.",
+          "source_urls": [
+            "https://github.com/mbrubeck/agate"
+          ]
+        },
+        "storage": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "Estimated range is stored separately.",
+          "source_urls": [
+            "https://github.com/mbrubeck/agate"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "The project publishes its own GHCR image.",
+          "source_urls": [
+            "https://github.com/mbrubeck/agate/pkgs/container/agate"
+          ]
+        }
+      },
+      "reviewed_at": "2026-09-28",
+      "expected_docs_url": "https://github.com/mbrubeck/agate/blob/master/README.md#configuration"
+    },
+    {
+      "slug": "agendav",
+      "review_scope": "full_record",
+      "expected": {
+        "summary": "Manages personal and shared calendars in a browser using an existing CalDAV server.",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "GPL-3.0",
+        "license_type": "copyleft",
+        "website_url": null,
+        "docs_url": "https://forums.unraid.net/topic/124480-support-vilhjalmr26-unraid-templates/",
+        "install_docs_url": "https://forums.unraid.net/topic/124480-support-vilhjalmr26-unraid-templates/",
+        "requires_database": null,
+        "database_types": [],
+        "persistent_storage": null,
+        "storage_profile": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/124480-support-vilhjalmr26-unraid-templates/",
+          "https://github.com/agendav/agendav",
+          "https://hub.docker.com/r/vilhjalmr26/agendav/",
+          "https://raw.githubusercontent.com/Vilhjalmr26/unraid_icons/main/agendav.png",
+          "https://raw.githubusercontent.com/Vilhjalmr26/unraid_templates/main/agendav_template.xml"
+        ]
+      },
+      "summary": "Web client for viewing and managing personal and shared calendars on an existing CalDAV server.",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "website_url": "https://github.com/agendav/agendav",
+      "docs_url": "https://agendav.readthedocs.io/en/latest/",
+      "install_docs_url": "https://agendav.readthedocs.io/en/latest/admin/installation.html",
+      "requires_database": true,
+      "database_types": [
+        "mysql",
+        "postgresql",
+        "sqlite"
+      ],
+      "persistent_storage": true,
+      "storage_profile": "low",
+      "data_source_urls": [
+        "https://github.com/agendav/agendav",
+        "https://github.com/agendav/agendav/blob/main/LICENSE",
+        "https://agendav.readthedocs.io/en/latest/",
+        "https://agendav.readthedocs.io/en/latest/admin/installation.html",
+        "https://hub.docker.com/r/vilhjalmr26/agendav",
+        "https://raw.githubusercontent.com/Vilhjalmr26/unraid_templates/main/agendav_template.xml"
+      ],
+      "resource_estimate_expected": {
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "ram_source_urls": [
+          "https://github.com/agendav/agendav"
+        ],
+        "storage_source_urls": [
+          "https://github.com/agendav/agendav"
+        ]
+      },
+      "resource_estimate": {
+        "ram_min_mb": 512,
+        "ram_max_mb": 2048,
+        "ram_basis": "PHP web app and required database; users and database choice affect use.",
+        "ram_source_urls": [
+          "https://agendav.readthedocs.io/en/latest/admin/installation.html"
+        ],
+        "storage_min_gb": 1,
+        "storage_max_gb": 10,
+        "storage_basis": "Stores settings and metadata; calendar events remain on the separate CalDAV server.",
+        "storage_source_urls": [
+          "https://agendav.readthedocs.io/en/latest/admin/installation.html"
+        ]
+      },
+      "sources": [
+        "https://github.com/agendav/agendav",
+        "https://github.com/agendav/agendav/blob/main/LICENSE",
+        "https://agendav.readthedocs.io/en/latest/",
+        "https://agendav.readthedocs.io/en/latest/admin/installation.html",
+        "https://hub.docker.com/r/vilhjalmr26/agendav",
+        "https://raw.githubusercontent.com/Vilhjalmr26/unraid_templates/main/agendav_template.xml"
+      ],
+      "license_type": "copyleft",
+      "pricing_model": "free",
+      "docker_support": "community",
+      "docker_url": "https://hub.docker.com/r/vilhjalmr26/agendav",
+      "docker_image": "vilhjalmr26/agendav",
+      "compose_support": false,
+      "compose_url": null,
+      "deployment_methods": [
+        "native",
+        "docker",
+        "unraid"
+      ],
+      "expected_categories": [
+        "calendars-contacts"
+      ],
+      "categories": [
+        "calendars-contacts"
+      ],
+      "install_options": [
+        {
+          "url": "https://agendav.readthedocs.io/en/latest/admin/installation.html",
+          "note": null,
+          "image": null,
+          "label": "AgenDAV install guide",
+          "method": "native",
+          "sort_order": 5,
+          "source_url": "https://agendav.readthedocs.io/en/latest/admin/installation.html",
+          "support_level": "official"
+        },
+        {
+          "url": "https://hub.docker.com/r/vilhjalmr26/agendav",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "vilhjalmr26/agendav",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/vilhjalmr26/agendav",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Vilhjalmr26/unraid_templates/main/agendav_template.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/Vilhjalmr26/unraid_templates/main/agendav_template.xml",
+          "support_level": "community"
+        }
+      ],
+      "expected_source_model": "source_available",
+      "expected_license": "No license file declared (all rights reserved by default)",
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/vilhjalmr26/agendav/",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "vilhjalmr26/agendav",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/vilhjalmr26/agendav/",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Vilhjalmr26/unraid_templates/main/agendav_template.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/Vilhjalmr26/unraid_templates/main/agendav_template.xml",
+          "support_level": "community"
+        }
+      ],
+      "source_code_url": "https://github.com/agendav/agendav",
+      "source_code_host": "github",
+      "summary_source": "https://github.com/agendav/agendav",
+      "summary_confidence": "high",
+      "data_confidence": "high",
+      "technical_updates": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Upstream says it has no official Docker image; the listed image is community maintained.",
+          "source_urls": [
+            "https://github.com/agendav/agendav",
+            "https://hub.docker.com/r/vilhjalmr26/agendav"
+          ]
+        },
+        "compose": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "The upstream Compose file is for local development only.",
+          "source_urls": [
+            "https://github.com/agendav/agendav/blob/main/README.md"
+          ]
+        },
+        "database": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "A MySQL, PostgreSQL or SQLite database is required; calendar events stay on a separate CalDAV server.",
+          "source_urls": [
+            "https://github.com/agendav/agendav/blob/main/README.md",
+            "https://agendav.readthedocs.io/en/latest/admin/installation.html"
+          ]
+        },
+        "persistent_storage": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "The application database stores its settings and metadata.",
+          "source_urls": [
+            "https://github.com/agendav/agendav/blob/main/README.md",
+            "https://agendav.readthedocs.io/en/latest/admin/installation.html"
+          ]
+        },
+        "ram": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "Estimated range is stored separately.",
+          "source_urls": [
+            "https://agendav.readthedocs.io/en/latest/admin/installation.html"
+          ]
+        },
+        "storage": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "Estimated range is stored separately.",
+          "source_urls": [
+            "https://agendav.readthedocs.io/en/latest/admin/installation.html"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Community-maintained Docker image; upstream does not publish an official image.",
+          "source_urls": [
+            "https://github.com/agendav/agendav/blob/main/README.md",
+            "https://hub.docker.com/r/vilhjalmr26/agendav"
+          ]
+        }
+      },
+      "reviewed_at": "2026-09-28",
+      "expected_docs_url": "https://forums.unraid.net/topic/124480-support-vilhjalmr26-unraid-templates/"
+    },
+    {
+      "slug": "airsonic-advanced",
+      "review_scope": "full_record",
+      "expected": {
+        "summary": "Airsonic-Advanced is a more modern implementation of the Airsonic fork with several key performance and feature enhancements.",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "GPL-3.0",
+        "license_type": "copyleft",
+        "website_url": null,
+        "docs_url": "https://forums.unraid.net/topic/89502-support-a75g-repo/",
+        "install_docs_url": "https://forums.unraid.net/topic/89502-support-a75g-repo/",
+        "docker_support": "community",
+        "requires_database": null,
+        "database_types": [],
+        "persistent_storage": null,
+        "storage_profile": "unknown",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/89502-support-a75g-repo/",
+          "https://github.com/airsonic-advanced/airsonic-advanced",
+          "https://hub.docker.com/r/airsonicadvanced/airsonic-advanced/",
+          "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/airsonic-advanced.xml",
+          "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/icons/airsonic-advanced.png",
+          "https://raw.githubusercontent.com/airsonic-advanced/airsonic-advanced/HEAD/README.md"
+        ]
+      },
+      "summary": "Streams music and podcasts from a self-hosted library to web and compatible players, with audio transcoding.",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_spdx_id": "GPL-3.0",
+      "website_url": "https://github.com/airsonic-advanced/airsonic-advanced",
+      "docs_url": "https://github.com/airsonic-advanced/airsonic-advanced/blob/master/README.md",
+      "install_docs_url": "https://github.com/airsonic-advanced/airsonic-advanced/blob/master/README.md#docker",
+      "docker_support": "official",
+      "requires_database": false,
+      "database_types": [
+        "hsql",
+        "mariadb",
+        "mysql",
+        "postgresql"
+      ],
+      "persistent_storage": true,
+      "storage_profile": "high",
+      "data_source_urls": [
+        "https://github.com/airsonic-advanced/airsonic-advanced",
+        "https://github.com/airsonic-advanced/airsonic-advanced/blob/master/LICENSE",
+        "https://github.com/airsonic-advanced/airsonic-advanced/blob/master/README.md",
+        "https://hub.docker.com/r/airsonicadvanced/airsonic-advanced",
+        "https://ghcr.io/airsonic-advanced/airsonic-advanced",
+        "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/airsonic-advanced.xml"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "unraid"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/airsonicadvanced/airsonic-advanced/",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "airsonicadvanced/airsonic-advanced:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/airsonicadvanced/airsonic-advanced/",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/airsonic-advanced.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/airsonic-advanced.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "url": "https://hub.docker.com/r/airsonicadvanced/airsonic-advanced",
+          "note": null,
+          "image": "airsonicadvanced/airsonic-advanced:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://github.com/airsonic-advanced/airsonic-advanced/blob/master/README.md#docker",
+          "support_level": "official"
+        },
+        {
+          "url": "https://github.com/airsonic-advanced/airsonic-advanced/releases",
+          "note": null,
+          "image": null,
+          "label": "Airsonic-Advanced releases",
+          "method": "native",
+          "sort_order": 30,
+          "source_url": "https://github.com/airsonic-advanced/airsonic-advanced/blob/master/README.md",
+          "support_level": "official"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/airsonic-advanced.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/airsonic-advanced.xml",
+          "support_level": "community"
+        }
+      ],
+      "resource_estimate_expected": {
+        "ram_estimate_min_mb": 2048,
+        "ram_estimate_max_mb": 8192,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 50,
+        "storage_estimate_max_gb": 500,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "ram_source_urls": [
+          "https://github.com/airsonic-advanced/airsonic-advanced"
+        ],
+        "storage_source_urls": [
+          "https://github.com/airsonic-advanced/airsonic-advanced"
+        ]
+      },
+      "resource_estimate": {
+        "ram_min_mb": 2048,
+        "ram_max_mb": 8192,
+        "ram_basis": "Java media server; library scans, concurrent streams and transcoding drive memory use.",
+        "ram_source_urls": [
+          "https://github.com/airsonic-advanced/airsonic-advanced/blob/master/README.md#docker"
+        ],
+        "storage_min_gb": 50,
+        "storage_max_gb": 500,
+        "storage_basis": "Upstream describes libraries of hundreds of gigabytes; media collection size drives storage use.",
+        "storage_source_urls": [
+          "https://github.com/airsonic-advanced/airsonic-advanced/blob/master/README.md"
+        ]
+      },
+      "sources": [
+        "https://github.com/airsonic-advanced/airsonic-advanced",
+        "https://github.com/airsonic-advanced/airsonic-advanced/blob/master/LICENSE",
+        "https://github.com/airsonic-advanced/airsonic-advanced/blob/master/README.md",
+        "https://hub.docker.com/r/airsonicadvanced/airsonic-advanced",
+        "https://ghcr.io/airsonic-advanced/airsonic-advanced",
+        "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/airsonic-advanced.xml"
+      ],
+      "license_type": "copyleft",
+      "pricing_model": "free",
+      "docker_url": "https://hub.docker.com/r/airsonicadvanced/airsonic-advanced",
+      "docker_image": "airsonicadvanced/airsonic-advanced:latest",
+      "compose_support": false,
+      "compose_url": null,
+      "deployment_methods": [
+        "docker",
+        "native",
+        "unraid"
+      ],
+      "expected_categories": [
+        "ai-ml",
+        "music-audio",
+        "system-admin-hosting"
+      ],
+      "categories": [
+        "media-servers",
+        "music-audio"
+      ],
+      "expected_source_model": "source_available",
+      "expected_license": "No license file declared (all rights reserved by default)",
+      "source_code_url": "https://github.com/airsonic-advanced/airsonic-advanced",
+      "source_code_host": "github",
+      "summary_source": "https://github.com/airsonic-advanced/airsonic-advanced",
+      "summary_confidence": "high",
+      "data_confidence": "high",
+      "technical_updates": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Upstream publishes Docker images on Docker Hub and GHCR.",
+          "source_urls": [
+            "https://github.com/airsonic-advanced/airsonic-advanced",
+            "https://hub.docker.com/r/airsonicadvanced/airsonic-advanced",
+            "https://ghcr.io/airsonic-advanced/airsonic-advanced"
+          ]
+        },
+        "compose": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "No upstream Compose deployment is documented.",
+          "source_urls": [
+            "https://github.com/airsonic-advanced/airsonic-advanced"
+          ]
+        },
+        "database": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "An internal database works by default; external database backends are optional.",
+          "source_urls": [
+            "https://github.com/airsonic-advanced/airsonic-advanced",
+            "https://github.com/airsonic-advanced/airsonic-advanced#compatibility-notes"
+          ]
+        },
+        "persistent_storage": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Music, podcasts, playlists and application data use persistent volumes.",
+          "source_urls": [
+            "https://github.com/airsonic-advanced/airsonic-advanced"
+          ]
+        },
+        "ram": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "Estimated range is stored separately.",
+          "source_urls": [
+            "https://github.com/airsonic-advanced/airsonic-advanced"
+          ]
+        },
+        "storage": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "Estimated range is stored separately.",
+          "source_urls": [
+            "https://github.com/airsonic-advanced/airsonic-advanced"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "The project publishes images on Docker Hub and GHCR.",
+          "source_urls": [
+            "https://hub.docker.com/r/airsonicadvanced/airsonic-advanced",
+            "https://ghcr.io/airsonic-advanced/airsonic-advanced"
+          ]
+        }
+      },
+      "reviewed_at": "2026-09-28",
+      "expected_docs_url": "https://forums.unraid.net/topic/89502-support-a75g-repo/"
+    },
+    {
+      "slug": "apache-tika-server",
+      "review_scope": "full_record",
+      "expected": {
+        "summary": "Apache Tika is a project of the Apache Software Foundation that detects and extracts metadata and text from over a thousand different file types.",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "publisher_name": "apache",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/apache",
+        "website_url": null,
+        "docs_url": "https://github.com/Skylinar/unraid_templates/blob/main/README.md#apache-tika-server",
+        "install_docs_url": "https://github.com/Skylinar/unraid_templates/blob/main/README.md#apache-tika-server",
+        "docker_support": "community",
+        "compose_support": false,
+        "compose_url": null,
+        "requires_database": null,
+        "database_types": [],
+        "persistent_storage": null,
+        "storage_profile": "unknown",
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "data_source_urls": [
+          "https://github.com/apache/tika",
+          "https://github.com/Skylinar/unraid_templates/blob/main/README.md#apache-tika-server",
+          "https://hub.docker.com/r/apache/tika",
+          "https://raw.githubusercontent.com/Skylinar/unraid_templates/main/templates/apache-tika-server.xml",
+          "https://raw.githubusercontent.com/Skylinar/unraid_templates/refs/heads/main/images/tika.png?raw=true"
+        ],
+        "docker_url": "https://hub.docker.com/r/apache/tika",
+        "docker_image": "apache/tika:latest"
+      },
+      "summary": "HTTP service that extracts text and metadata from more than 1,000 file types.",
+      "source_model": "open_source",
+      "license": "Apache License 2.0; bundled components may have separate license terms",
+      "license_spdx_id": "Apache-2.0",
+      "publisher_name": "Apache Software Foundation",
+      "publisher_type": "foundation",
+      "publisher_url": "https://www.apache.org/",
+      "website_url": "https://tika.apache.org/",
+      "docs_url": "https://tika.apache.org/docs/4.0.x/using-tika/index.html",
+      "install_docs_url": "https://tika.apache.org/docs/4.0.x/using-tika/docker.html",
+      "docker_support": "official",
+      "compose_support": true,
+      "compose_url": "https://tika.apache.org/docs/4.0.x/using-tika/docker.html",
+      "requires_database": false,
+      "database_types": [],
+      "persistent_storage": false,
+      "storage_profile": "low",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "native",
+        "unraid"
+      ],
+      "data_source_urls": [
+        "https://tika.apache.org/",
+        "https://tika.apache.org/license.html",
+        "https://tika.apache.org/download",
+        "https://tika.apache.org/docs/4.0.x/using-tika/docker.html",
+        "https://hub.docker.com/r/apache/tika",
+        "https://raw.githubusercontent.com/Skylinar/unraid_templates/main/templates/apache-tika-server.xml"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose",
+        "native",
+        "unraid"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/apache/tika",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "apache/tika:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/apache/tika",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Skylinar/unraid_templates/main/templates/apache-tika-server.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/Skylinar/unraid_templates/main/templates/apache-tika-server.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "url": "https://hub.docker.com/r/apache/tika",
+          "note": null,
+          "image": "apache/tika:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://tika.apache.org/docs/4.0.x/using-tika/docker.html",
+          "support_level": "official"
+        },
+        {
+          "url": "https://tika.apache.org/docs/4.0.x/using-tika/docker.html",
+          "note": null,
+          "image": null,
+          "label": "Docker Compose",
+          "method": "compose",
+          "sort_order": 20,
+          "source_url": "https://tika.apache.org/docs/4.0.x/using-tika/docker.html",
+          "support_level": "official"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Skylinar/unraid_templates/main/templates/apache-tika-server.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/Skylinar/unraid_templates/main/templates/apache-tika-server.xml",
+          "support_level": "community"
+        },
+        {
+          "url": "https://tika.apache.org/download",
+          "note": null,
+          "image": null,
+          "label": "Apache Tika ZIP",
+          "method": "native",
+          "sort_order": 40,
+          "source_url": "https://tika.apache.org/download",
+          "support_level": "official"
+        }
+      ],
+      "resource_estimate_expected": {
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "ram_source_urls": [
+          "https://github.com/apache/tika"
+        ],
+        "storage_source_urls": [
+          "https://github.com/apache/tika"
+        ]
+      },
+      "resource_estimate": {
+        "ram_min_mb": 2048,
+        "ram_max_mb": 8192,
+        "ram_basis": "Official Docker guide shows a 4 GB example; parsing concurrency and document size drive memory use.",
+        "ram_source_urls": [
+          "https://tika.apache.org/docs/4.0.x/using-tika/docker.html"
+        ],
+        "storage_min_gb": 1,
+        "storage_max_gb": 10,
+        "storage_basis": "Stateless parser service; image and temporary files use space, while document retention stays external.",
+        "storage_source_urls": [
+          "https://tika.apache.org/docs/4.0.x/using-tika/docker.html"
+        ]
+      },
+      "sources": [
+        "https://tika.apache.org/",
+        "https://tika.apache.org/license.html",
+        "https://tika.apache.org/download",
+        "https://tika.apache.org/docs/4.0.x/using-tika/docker.html",
+        "https://hub.docker.com/r/apache/tika",
+        "https://raw.githubusercontent.com/Skylinar/unraid_templates/main/templates/apache-tika-server.xml"
+      ],
+      "license_type": "permissive",
+      "pricing_model": "free",
+      "source_code_url": "https://github.com/apache/tika",
+      "docker_url": "https://hub.docker.com/r/apache/tika",
+      "docker_image": "apache/tika:latest",
+      "expected_categories": [
+        "project-task-management",
+        "system-admin-hosting"
+      ],
+      "categories": [
+        "documents-pdfs",
+        "developer-tools"
+      ],
+      "expected_source_model": "source_available",
+      "expected_license": "No license file declared (all rights reserved by default)",
+      "source_code_host": "github",
+      "summary_source": "https://tika.apache.org/",
+      "summary_confidence": "high",
+      "data_confidence": "high",
+      "technical_updates": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Apache Tika publishes the apache/tika image.",
+          "source_urls": [
+            "https://tika.apache.org/docs/4.0.x/using-tika/docker.html",
+            "https://hub.docker.com/r/apache/tika"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Official documentation provides a Docker Compose example.",
+          "source_urls": [
+            "https://tika.apache.org/docs/4.0.x/using-tika/docker.html"
+          ]
+        },
+        "database": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "The parser service is stateless; callers manage storage for submitted documents.",
+          "source_urls": [
+            "https://tika.apache.org/docs/4.0.x/using-tika/docker.html"
+          ]
+        },
+        "persistent_storage": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Tika does not retain parsed documents as a service.",
+          "source_urls": [
+            "https://tika.apache.org/docs/4.0.x/using-tika/docker.html"
+          ]
+        },
+        "ram": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "Estimated range is stored separately.",
+          "source_urls": [
+            "https://tika.apache.org/docs/4.0.x/using-tika/docker.html"
+          ]
+        },
+        "storage": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "Estimated range is stored separately.",
+          "source_urls": [
+            "https://tika.apache.org/docs/4.0.x/using-tika/docker.html"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Official Apache Tika Docker image.",
+          "source_urls": [
+            "https://tika.apache.org/docs/4.0.x/using-tika/docker.html",
+            "https://hub.docker.com/r/apache/tika"
+          ]
+        }
+      },
+      "reviewed_at": "2026-09-28",
+      "expected_docs_url": "https://github.com/Skylinar/unraid_templates/blob/main/README.md#apache-tika-server"
+    },
+    {
+      "slug": "bionicgpt",
+      "review_scope": "full_record",
+      "expected": {
+        "license": "BUSL-1.1 with MIT future license",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "publisher_name": "bionic-gpt",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/bionic-gpt",
+        "website_url": null,
+        "docs_url": null,
+        "install_docs_url": "https://github.com/bionic-gpt/bionic-gpt",
+        "docker_url": "https://github.com/bionic-gpt/bionic-gpt",
+        "compose_url": null,
+        "pricing_model": "unknown",
+        "persistent_storage": null,
+        "storage_profile": "unknown",
+        "data_source_urls": [
+          "https://github.com/bionic-gpt/bionic-gpt",
+          "https://opengraph.githubassets.com/c361f134d46816001a251f6ff1343fd4043be507f5facaa506aa059f208fb4a3/bionic-gpt/bionic-gpt",
+          "https://raw.githubusercontent.com/bionic-gpt/bionic-gpt/HEAD/LICENCE",
+          "https://raw.githubusercontent.com/bionic-gpt/bionic-gpt/HEAD/README.md"
+        ],
+        "source_model": "source_available",
+        "docker_support": "official",
+        "docker_image": null,
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "PostgreSQL"
+        ],
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ]
+      },
+      "license": "Apache License 2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "publisher_name": "Bionic GPT",
+      "publisher_type": "company",
+      "publisher_url": "https://github.com/bionic-gpt",
+      "website_url": "https://bionic-gpt.com/",
+      "docs_url": "https://bionic-gpt.com/docs/",
+      "install_docs_url": "https://bionic-gpt.com/docs/running-locally/kubernetes/",
+      "docker_url": "https://github.com/bionic-gpt/bionic-gpt/pkgs/container/bionicgpt",
+      "compose_url": "https://bionic-gpt.com/docs/running-locally/docker-compose/",
+      "pricing_model": "freemium",
+      "persistent_storage": true,
+      "storage_profile": "depends",
+      "data_source_urls": [
+        "https://github.com/bionic-gpt/bionic-gpt",
+        "https://github.com/bionic-gpt/bionic-gpt/blob/main/LICENCE",
+        "https://github.com/bionic-gpt/bionic-gpt/pkgs/container/bionicgpt",
+        "https://bionic-gpt.com/",
+        "https://bionic-gpt.com/pricing/",
+        "https://bionic-gpt.com/docs/",
+        "https://bionic-gpt.com/docs/running-locally/docker-compose/",
+        "https://bionic-gpt.com/docs/running-locally/kubernetes/",
+        "https://bionic-gpt.com/docs/guides/managing-models/"
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose"
+      ],
+      "expected_install_options": [],
+      "install_options": [
+        {
+          "url": "https://github.com/bionic-gpt/bionic-gpt/pkgs/container/bionicgpt",
+          "note": null,
+          "image": "ghcr.io/bionic-gpt/bionicgpt:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://github.com/bionic-gpt/bionic-gpt/pkgs/container/bionicgpt",
+          "support_level": "official"
+        },
+        {
+          "url": "https://bionic-gpt.com/docs/running-locally/docker-compose/",
+          "note": "For proofs of concept; upstream does not recommend it for production.",
+          "image": null,
+          "label": "Docker Compose",
+          "method": "compose",
+          "sort_order": 20,
+          "source_url": "https://bionic-gpt.com/docs/running-locally/docker-compose/",
+          "support_level": "official"
+        },
+        {
+          "url": "https://bionic-gpt.com/docs/running-locally/kubernetes/",
+          "note": null,
+          "image": null,
+          "label": "Kubernetes install",
+          "method": "kubernetes",
+          "sort_order": 30,
+          "source_url": "https://bionic-gpt.com/docs/running-locally/kubernetes/",
+          "support_level": "official"
+        }
+      ],
+      "sources": [
+        "https://github.com/bionic-gpt/bionic-gpt",
+        "https://github.com/bionic-gpt/bionic-gpt/blob/main/LICENCE",
+        "https://github.com/bionic-gpt/bionic-gpt/pkgs/container/bionicgpt",
+        "https://bionic-gpt.com/",
+        "https://bionic-gpt.com/pricing/",
+        "https://bionic-gpt.com/docs/",
+        "https://bionic-gpt.com/docs/running-locally/docker-compose/",
+        "https://bionic-gpt.com/docs/running-locally/kubernetes/",
+        "https://bionic-gpt.com/docs/guides/managing-models/"
+      ],
+      "summary": "Self-hosted AI workspace for team chat, document search, and workflows with connected language models.",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/bionic-gpt/bionic-gpt",
+      "docker_support": "official",
+      "docker_image": "ghcr.io/bionic-gpt/bionicgpt:latest",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "postgresql"
+      ],
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "kubernetes"
+      ],
+      "expected_categories": [
+        "ai-ml",
+        "knowledge-notes"
+      ],
+      "categories": [
+        "ai-ml",
+        "knowledge-notes"
+      ],
+      "resource_estimate_expected": {
+        "ram_estimate_min_mb": 8192,
+        "ram_estimate_max_mb": 32768,
+        "ram_estimate_basis": "Small local model workload; model size and outputs vary.",
+        "storage_estimate_min_gb": 20,
+        "storage_estimate_max_gb": 100,
+        "storage_estimate_basis": "Small local model workload; model size and outputs vary."
+      },
+      "resource_estimate": {
+        "ram_min_mb": 8192,
+        "ram_max_mb": 32768,
+        "ram_basis": "AI app stack, retrieval and local inference; model size and concurrent use drive memory.",
+        "ram_source_urls": [
+          "https://bionic-gpt.com/docs/running-locally/docker-compose/",
+          "https://bionic-gpt.com/docs/guides/managing-models/"
+        ],
+        "storage_min_gb": 20,
+        "storage_max_gb": 100,
+        "storage_basis": "Stores application data, documents and indexes; locally stored models add space.",
+        "storage_source_urls": [
+          "https://bionic-gpt.com/docs/running-locally/docker-compose/",
+          "https://bionic-gpt.com/docs/guides/managing-models/"
+        ]
+      },
+      "expected_source_model": null,
+      "expected_license": "BUSL-1.1 with MIT future license",
+      "source_code_host": "github",
+      "summary_source": "https://github.com/bionic-gpt/bionic-gpt",
+      "summary_confidence": "high",
+      "data_confidence": "high",
+      "technical_updates": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "The project publishes its GHCR container image.",
+          "source_urls": [
+            "https://github.com/bionic-gpt/bionic-gpt/pkgs/container/bionicgpt"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Official Compose setup is available for proof-of-concept use, not recommended for production.",
+          "source_urls": [
+            "https://bionic-gpt.com/docs/running-locally/docker-compose/"
+          ]
+        },
+        "database": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Bionic stores app data in PostgreSQL and generated files in object storage.",
+          "source_urls": [
+            "https://github.com/bionic-gpt/bionic-gpt",
+            "https://bionic-gpt.com/docs/"
+          ]
+        },
+        "persistent_storage": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "Persists chat data and documents.",
+          "source_urls": [
+            "https://github.com/bionic-gpt/bionic-gpt",
+            "https://bionic-gpt.com/docs/"
+          ]
+        },
+        "ram": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "Estimated range is stored separately.",
+          "source_urls": [
+            "https://bionic-gpt.com/docs/running-locally/docker-compose/",
+            "https://bionic-gpt.com/docs/guides/managing-models/"
+          ]
+        },
+        "storage": {
+          "status": "not_published",
+          "checked_at": "2026-09-28",
+          "confidence": "low",
+          "note": "Estimated range is stored separately.",
+          "source_urls": [
+            "https://bionic-gpt.com/docs/running-locally/docker-compose/",
+            "https://bionic-gpt.com/docs/guides/managing-models/"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-28",
+          "confidence": "high",
+          "note": "The project publishes its GHCR container image.",
+          "source_urls": [
+            "https://github.com/bionic-gpt/bionic-gpt/pkgs/container/bionicgpt"
+          ]
+        }
+      },
+      "reviewed_at": "2026-09-28",
+      "expected_docs_url": null
+    }
+  ]
+}

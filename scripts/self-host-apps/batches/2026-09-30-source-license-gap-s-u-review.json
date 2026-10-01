@@ -1,0 +1,585 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values copied directly from its self-host-app records.",
+  "scope": "Verified missing product-license fields and source-model/source-link corrections for uncovered S-U records. Product-source and license evidence comes from first-party project or publisher pages. Proposals only.",
+  "apps": [
+    {
+      "slug": "sanoid",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "source_code_url": "https://github.com/jimsalterjrs/sanoid",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/jimsalterjrs/sanoid",
+        "https://github.com/jimsalterjrs/sanoid/blob/master/LICENSE",
+        "https://github.com/jimsalterjrs/sanoid/blob/master/README.md"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "serviio",
+      "review_scope": "partial",
+      "license": "Serviio End User Licence Agreement",
+      "license_type": "custom",
+      "data_source_urls": [
+        "https://serviio.org/licence",
+        "https://serviio.org/"
+      ],
+      "expected": {
+        "license": null,
+        "license_type": "unknown"
+      }
+    },
+    {
+      "slug": "shoutrrr",
+      "review_scope": "partial",
+      "summary": "Sends notifications to messaging services through a software library or command line.",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/containrrr/shoutrrr",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/containrrr/shoutrrr",
+        "https://containrrr.dev/shoutrrr/",
+        "https://containrrr.dev/shoutrrr/dev/getting-started/"
+      ],
+      "expected": {
+        "summary": "Notification library for gophers and their furry friends, Heavily inspired by Apprise, [br] This is a CLI tool, Please edit the **Post Arguments**.",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "shrtn",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/CordlessWool/shrtn",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/CordlessWool/shrtn",
+        "https://github.com/CordlessWool/shrtn/blob/main/LICENSE",
+        "https://shrtn.io/setup",
+        "https://shrtn.io/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "simstudio-app",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/simstudioai/sim",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/simstudioai/sim",
+        "https://github.com/simstudioai/sim/blob/main/LICENSE",
+        "https://docs.sim.ai/platform/self-hosting",
+        "https://simstudio.ai/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "sing-box",
+      "review_scope": "partial",
+      "summary": "Universal proxy software for routing network traffic through configurable protocols and rules.",
+      "source_model": "source_available",
+      "license": "GNU General Public License v3.0 or later with additional name-association restriction",
+      "license_type": "custom",
+      "source_code_url": "https://github.com/SagerNet/sing-box",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/SagerNet/sing-box",
+        "https://sing-box.sagernet.org/"
+      ],
+      "expected": {
+        "summary": "Sing-box is a versatile, high-performance proxy software designed for network tunneling, traffic routing, and advanced traffic management, It supports.",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "smartermail",
+      "review_scope": "partial",
+      "license": "SMARTERTOOLS END USER LICENSE AGREEMENT",
+      "license_type": "custom",
+      "data_source_urls": [
+        "https://help.smartertools.com/SmarterMail/Current/Topics/Misc/EULA",
+        "https://www.smartertools.com/smartermail",
+        "https://help.smartertools.com/SmarterMail/Current/Topics/Installation/Installation"
+      ],
+      "expected": {
+        "license": null,
+        "license_type": "unknown"
+      }
+    },
+    {
+      "slug": "snowflake",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "BSD 3-Clause License",
+      "license_type": "permissive",
+      "license_spdx_id": "BSD-3-Clause",
+      "source_code_url": "https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake",
+      "source_code_host": "gitlab",
+      "data_source_urls": [
+        "https://community.torproject.org/relay/setup/snowflake/standalone/",
+        "https://community.torproject.org/relay/setup/snowflake/standalone/source/",
+        "https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/-/blob/main/LICENSE"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "spokes",
+      "review_scope": "partial",
+      "summary": "Self-hosted chat app for group messages, voice, video, and photo albums.",
+      "source_model": "source_available",
+      "license": "Business Source License 1.1 with Additional Use Grant",
+      "license_type": "custom",
+      "license_spdx_id": "BUSL-1.1",
+      "source_code_url": "https://github.com/PCBeeQC/Spokes",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://www.spokes.sh/eula/",
+        "https://www.spokes.sh/releases/",
+        "https://www.spokes.sh/download/",
+        "https://www.spokes.sh/",
+        "https://spokes.sh/introduction/",
+        "https://github.com/PCBeeQC/Spokes/pkgs/container/spokes"
+      ],
+      "expected": {
+        "summary": "Spokes is the simple, fully-featured alternative to popular cloud chat apps, A chat app that runs entirely on your own infrastructure, Easy control and.",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "standardnotes-web",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://github.com/standardnotes/app",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/standardnotes/app",
+        "https://github.com/standardnotes/app/blob/main/LICENSE",
+        "https://github.com/standardnotes/server",
+        "https://standardnotes.org/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "steel",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/steel-dev/steel-browser",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/steel-dev/steel-browser",
+        "https://github.com/steel-dev/steel-browser/blob/main/LICENSE",
+        "https://docs.steel.dev/",
+        "https://steel.dev/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "stillwater",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "source_code_url": "https://github.com/sydlexius/stillwater",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/sydlexius/stillwater",
+        "https://github.com/sydlexius/stillwater/blob/main/LICENSE",
+        "https://sydlexius.github.io/stillwater/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "storj",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://github.com/storj/storj",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/storj/storj",
+        "https://github.com/storj/storj/blob/main/README.md",
+        "https://www.storj.io/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "subs",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/ajnart/subs",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/ajnart/subs",
+        "https://github.com/ajnart/subs/blob/main/LICENSE",
+        "https://subs.ajnart.fr/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "taglib",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/dixtdf/taglib",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/dixtdf/taglib",
+        "https://github.com/dixtdf/taglib/blob/master/LICENSE",
+        "https://github.com/dixtdf/taglib/tree/master/src/usr/local/emhttp/plugins/taglib"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "tailscale",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "BSD 3-Clause License",
+      "license_type": "permissive",
+      "license_spdx_id": "BSD-3-Clause",
+      "source_code_url": "https://github.com/tailscale/tailscale",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/tailscale/tailscale",
+        "https://github.com/tailscale/tailscale/blob/main/LICENSE",
+        "https://tailscale.com/opensource",
+        "https://tailscale.com/docs/install/linux"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "teamspeak",
+      "review_scope": "partial",
+      "license": "TeamSpeak 3 Server License Agreement",
+      "license_type": "custom",
+      "data_source_urls": [
+        "https://support.teamspeak.com/hc/en-us/articles/360002712998-How-to-accept-the-server-license-agreement-Server-3-1-0",
+        "https://support.teamspeak.com/hc/en-us/articles/360002712958-How-do-I-set-up-my-own-non-commercial-TS3-server",
+        "https://teamspeak.com/en/terms-and-conditions"
+      ],
+      "expected": {
+        "license": null,
+        "license_type": "unknown"
+      }
+    },
+    {
+      "slug": "textbee-api",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/textbee/textbee",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/textbee/textbee",
+        "https://github.com/textbee/textbee/blob/main/LICENSE",
+        "https://textbee.dev/docs/self-hosting",
+        "https://textbee.dev/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "tgraph-bot",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "source_code_url": "https://github.com/engels74/tgraph-bot-source",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/engels74/tgraph-bot-source",
+        "https://github.com/engels74/tgraph-bot",
+        "https://engels74.net/containers/tgraph-bot/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "titlecardmaker",
+      "review_scope": "partial",
+      "summary": "Creates custom episode title cards for Plex, Jellyfin, and Emby media libraries.",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "source_code_url": "https://github.com/TitleCardMaker/TitleCardMaker",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/TitleCardMaker/TitleCardMaker",
+        "https://github.com/TitleCardMaker/TitleCardMaker/blob/main/LICENSE",
+        "https://titlecardmaker.com/"
+      ],
+      "expected": {
+        "summary": "Automated title card maker for Plex, Emby, and Jellyfin, Setup instructions: https://titlecardmaker.com/getting_started.",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "twingate-connector",
+      "review_scope": "partial",
+      "license": "Twingate Customer Agreement",
+      "license_type": "custom",
+      "data_source_urls": [
+        "https://www.twingate.com/terms",
+        "https://www.twingate.com/docs/connector-client-registration",
+        "https://www.twingate.com/docs/faq"
+      ],
+      "expected": {
+        "license": null,
+        "license_type": "unknown"
+      }
+    },
+    {
+      "slug": "tronbyt-server",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/tronbyt/server",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/tronbyt/server",
+        "https://github.com/tronbyt/server/blob/main/LICENSE",
+        "https://tronbyt.com/getting-started/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "unbalanced",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/jbrodriguez/unbalance",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/jbrodriguez/unbalance",
+        "https://github.com/jbrodriguez/unbalance/blob/main/LICENSE",
+        "https://github.com/jbrodriguez/unbalance/blob/main/README.md"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "unmanic-central-datastore",
+      "review_scope": "partial",
+      "source_model": "source_available",
+      "license": "Unmanic Central Datastore License (non-commercial use only)",
+      "license_type": "custom",
+      "source_code_url": "https://github.com/Unmanic/unmanic-central-datastore",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/Unmanic/unmanic-central-datastore",
+        "https://github.com/Unmanic/unmanic-central-datastore/blob/master/LICENSE",
+        "https://github.com/Unmanic/unmanic-central-datastore/blob/master/README.md",
+        "https://docs.unmanic.app/#unmanic-central"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "unstructuredapi",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "source_code_url": "https://github.com/Unstructured-IO/unstructured-api",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/Unstructured-IO/unstructured-api",
+        "https://github.com/Unstructured-IO/unstructured-api/blob/main/LICENSE",
+        "https://unstructured.io/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "updater",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/wandercone/Updater",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/wandercone/Updater",
+        "https://github.com/wandercone/Updater/blob/main/LICENSE",
+        "https://docs.unraid.net/"
+      ],
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    }
+  ]
+}

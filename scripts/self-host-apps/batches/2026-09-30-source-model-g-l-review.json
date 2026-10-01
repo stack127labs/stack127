@@ -1,0 +1,81 @@
+{
+  "report_date": "2026-09-30",
+  "project_id": "tulgfrqamtcshdtmhvpx",
+  "selection": "Published G-L apps labeled closed source where official upstream sources identify the matching project and its license.",
+  "production_write": true,
+  "summary": {
+    "selected_apps": 6,
+    "confirmed_source_model_corrections": 6,
+    "unresolved_apps": [],
+    "note": "Every proposed source model and license is supported by the project website or its upstream source repository."
+  },
+  "apps": [
+    {
+      "slug": "goss",
+      "id": "936d89cc-c6ce-427a-9c7f-e74ec5f24b95",
+      "name": "goss",
+      "existing": {"source_model": "closed_source", "source_code_url": null, "license": null, "license_type": "unknown", "license_spdx_id": null},
+      "proposed": {"source_model": "open_source", "source_code_url": "https://github.com/goss-org/goss", "license": "Apache License 2.0", "license_type": "permissive", "license_spdx_id": "Apache-2.0"},
+      "sources": [
+        {"url": "https://github.com/goss-org/goss", "supports": "The matching Goss server-validation project, its source repository, and Apache-2.0 license."},
+        {"url": "https://goss.rocks/", "supports": "Official project homepage."}
+      ]
+    },
+    {
+      "slug": "gpodder",
+      "id": "2ff623dc-9b83-41b3-b116-34ef7c71f6bd",
+      "name": "gPodder",
+      "existing": {"source_model": "closed_source", "source_code_url": null, "license": null, "license_type": "unknown", "license_spdx_id": null},
+      "proposed": {"source_model": "open_source", "source_code_url": "https://github.com/gpodder/gpodder", "license": "GNU General Public License v3.0 or later", "license_type": "copyleft", "license_spdx_id": "GPL-3.0-or-later"},
+      "sources": [
+        {"url": "https://gpodder.github.io/", "supports": "Official project site describes gPodder as open source."},
+        {"url": "https://github.com/gpodder/gpodder", "supports": "Matching upstream repository states GPL version 3 or any later version."}
+      ]
+    },
+    {
+      "slug": "grammalecte",
+      "id": "bdb36e98-6297-48f4-bb32-4e5c69d5ef77",
+      "name": "Grammalecte",
+      "existing": {"source_model": "closed_source", "source_code_url": null, "license": null, "license_type": "unknown", "license_spdx_id": null},
+      "proposed": {"source_model": "open_source", "source_code_url": "https://github.com/algoo/grammalecte", "license": "GNU General Public License v3.0", "license_type": "copyleft", "license_spdx_id": "GPL-3.0"},
+      "sources": [
+        {"url": "https://www.grammalecte.net/", "supports": "Official site describes Grammalecte as open source and notes the project handover to Algoo."},
+        {"url": "https://github.com/algoo/grammalecte", "supports": "Matching upstream source repository states GPL 3."}
+      ]
+    },
+    {
+      "slug": "icecast2",
+      "id": "ef220d4a-d8ed-4dc6-ab5b-fd8f3f8682f9",
+      "name": "Icecast2",
+      "existing": {"source_model": "closed_source", "source_code_url": null, "license": null, "license_type": "unknown", "license_spdx_id": null},
+      "proposed": {"source_model": "open_source", "source_code_url": "https://gitlab.xiph.org/xiph/icecast-server", "license": "GNU General Public License v2.0", "license_type": "copyleft", "license_spdx_id": "GPL-2.0-only"},
+      "sources": [
+        {"url": "https://icecast.org/", "supports": "Official project site identifies Icecast as a streaming server and states GNU GPL version 2."},
+        {"url": "https://icecast.org/download/", "supports": "Official download page links the Xiph development repository."},
+        {"url": "https://gitlab.xiph.org/xiph/icecast-server", "supports": "Official Xiph source repository."}
+      ]
+    },
+    {
+      "slug": "httrack",
+      "id": "18bd7757-c930-4012-854f-1dd0dcd98fb5",
+      "name": "HTTrack",
+      "existing": {"source_model": "closed_source", "source_code_url": null, "license": null, "license_type": "unknown", "license_spdx_id": null},
+      "proposed": {"source_model": "open_source", "source_code_url": "https://github.com/xroche/httrack", "license": "GNU General Public License v3.0 or later", "license_type": "copyleft", "license_spdx_id": "GPL-3.0-or-later"},
+      "sources": [
+        {"url": "https://www.httrack.com/page/5/en/index.html", "supports": "Official license page identifies the open-source project and GPL terms."},
+        {"url": "https://github.com/xroche/httrack", "supports": "Official repository identifies itself as HTTrack's development repository and displays GPL-3.0."}
+      ]
+    },
+    {
+      "slug": "librey",
+      "id": "6fd7fbe9-a429-4c53-938d-81d5292490dd",
+      "name": "LibreY",
+      "existing": {"source_model": "closed_source", "source_code_url": null, "license": null, "license_type": "unknown", "license_spdx_id": null},
+      "proposed": {"source_model": "open_source", "source_code_url": "https://github.com/Ahwxorg/LibreY", "license": "GNU Affero General Public License v3.0 or later", "license_type": "copyleft", "license_spdx_id": "AGPL-3.0-or-later"},
+      "sources": [
+        {"url": "https://github.com/Ahwxorg/LibreY", "supports": "Upstream source repository identifies LibreY and documents self-hosting."},
+        {"url": "https://github.com/Ahwxorg/LibreY/blob/main/LICENSE", "supports": "Repository license file contains the GNU Affero GPL v3 grant, allowing later versions."}
+      ]
+    }
+  ]
+}

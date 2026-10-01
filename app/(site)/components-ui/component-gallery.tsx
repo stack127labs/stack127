@@ -153,8 +153,8 @@ export function ComponentGallery() {
                 { label: "Source", value: "open source", icon: Code2 },
                 { label: "Pricing", value: "free to self-host", icon: WalletCards },
                 { label: "Est. RAM", value: "2–4 GB", icon: MemoryStick },
-                { label: "Storage", value: "low", icon: HardDrive },
-                { label: "Last update", value: "not published", icon: CalendarDays },
+                { label: "Est. Storage", value: "low", icon: HardDrive },
+                { label: "Last update", value: "not recorded", icon: CalendarDays },
               ]}
             />
           </Link>

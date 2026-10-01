@@ -42,6 +42,8 @@ List the route, engine, component, styles, focused test, script, and content row
 
 Name the primary tool catalog and any secondary catalogs in rank order. Explain the reader task that makes each placement useful. If no suitable catalog exists, flag the new catalog for the main agent to plan before integration. Do not substitute a loosely related catalog just to fill this field.
 
+For a new tool, brief its catalog `toolSpot` marker art: one visual takeaway, a recognizable focal subject, at most one supporting object or relationship, and the intended semantic tone. Give it a tool-specific art key. The drawing has no visible words and must read at card size in both themes. This is card art, separate from optional figures in the tool article.
+
 ## Interface
 
 ### Flow

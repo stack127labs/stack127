@@ -1,0 +1,168 @@
+{
+  "apps": [
+    {
+      "slug": "actualserver",
+      "review_scope": "partial",
+      "expected": {
+        "name": "ActualServer",
+        "source_code_url": "https://github.com/kippenhof/docker-templates",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "source_available",
+        "docker_support": "community",
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "source_full_name": "kippenhof/docker-templates",
+        "categories": ["finance-budgeting", "security-privacy", "system-admin-hosting"]
+      },
+      "name": "Actual Budget",
+      "summary": "Local-first budgeting software for managing accounts, transactions, and budgets across devices.",
+      "website_url": "https://actualbudget.org/",
+      "source_code_url": "https://github.com/actualbudget/actual",
+      "docs_url": "https://actualbudget.org/docs/",
+      "install_docs_url": "https://actualbudget.org/docs/install/docker/",
+      "docker_url": "https://hub.docker.com/r/actualbudget/actual-server",
+      "compose_url": "https://github.com/actualbudget/actual/blob/master/docker-compose.yml",
+      "license": "MIT License.",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_model": "open_source",
+      "publisher_name": "Actual Budget",
+      "publisher_type": "community",
+      "publisher_url": "https://actualbudget.org/",
+      "pricing_model": "free",
+      "docker_support": "official",
+      "docker_image": "actualbudget/actual-server:latest",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "persistent_storage": true,
+      "storage_profile": "depends",
+      "surfaces": ["web"],
+      "categories": ["finance-budgeting", "security-privacy"],
+      "data_source_urls": [
+        "https://actualbudget.org/",
+        "https://actualbudget.org/docs/",
+        "https://actualbudget.org/docs/install/docker/",
+        "https://github.com/actualbudget/actual",
+        "https://github.com/actualbudget/actual/blob/master/LICENSE.txt",
+        "https://github.com/actualbudget/actual/blob/master/packages/docs/docs/install/docker.md",
+        "https://github.com/actualbudget/actual/blob/master/docker-compose.yml",
+        "https://hub.docker.com/r/actualbudget/actual-server",
+        "https://raw.githubusercontent.com/hofq/docker-templates/main/actual-server.xml"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "postgrest",
+      "review_scope": "partial",
+      "expected": {
+        "name": "PostgREST",
+        "source_code_url": null,
+        "license": null,
+        "license_spdx_id": null,
+        "source_model": "closed_source",
+        "docker_support": "community",
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "categories": ["databases", "developer-tools", "documents-pdfs"]
+      },
+      "name": "PostgREST",
+      "summary": "Turns tables, views, and functions in an existing PostgreSQL database into a REST API.",
+      "website_url": "https://postgrest.org/",
+      "source_code_url": "https://github.com/PostgREST/postgrest",
+      "docs_url": "https://docs.postgrest.org/en/latest/",
+      "install_docs_url": "https://docs.postgrest.org/en/latest/explanations/install.html",
+      "docker_url": "https://hub.docker.com/r/postgrest/postgrest",
+      "compose_url": "https://docs.postgrest.org/en/latest/explanations/install.html#containerized-postgrest-and-db-with-docker-compose",
+      "license": "MIT License.",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_model": "open_source",
+      "publisher_name": "PostgREST",
+      "publisher_type": "community",
+      "publisher_url": "https://github.com/PostgREST",
+      "pricing_model": "free",
+      "docker_support": "official",
+      "docker_image": "postgrest/postgrest:latest",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": ["PostgreSQL"],
+      "persistent_storage": false,
+      "storage_profile": "low",
+      "surfaces": ["api"],
+      "categories": ["databases", "developer-tools"],
+      "data_source_urls": [
+        "https://postgrest.org/",
+        "https://docs.postgrest.org/en/latest/",
+        "https://docs.postgrest.org/en/latest/explanations/install.html",
+        "https://github.com/PostgREST/postgrest",
+        "https://github.com/PostgREST/postgrest/blob/main/LICENSE",
+        "https://github.com/PostgREST/postgrest/blob/main/postgrest.cabal",
+        "https://hub.docker.com/r/postgrest/postgrest",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/postgrest.xml"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "resources": [
+    {
+      "slug": "actualserver",
+      "expected": {
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary."
+      },
+      "ram_estimate_min_mb": 256,
+      "ram_estimate_max_mb": 1024,
+      "ram_estimate_kind": "estimated",
+      "ram_estimate_confidence": "low",
+      "ram_estimate_basis": "A small Actual server handles budget sync and a few users; simultaneous clients and sync activity raise memory use.",
+      "ram_source_urls": [
+        "https://github.com/actualbudget/actual/blob/master/packages/docs/docs/install/docker.md"
+      ],
+      "storage_estimate_min_gb": 1,
+      "storage_estimate_max_gb": 20,
+      "storage_estimate_kind": "estimated",
+      "storage_estimate_confidence": "low",
+      "storage_estimate_basis": "Actual saves server and budget files under /data; the number of budgets, imports, and backups determines growth.",
+      "storage_source_urls": [
+        "https://actualbudget.org/docs/install/docker/",
+        "https://github.com/actualbudget/actual/blob/master/packages/docs/docs/install/docker.md"
+      ]
+    },
+    {
+      "slug": "postgrest",
+      "expected": {
+        "ram_estimate_min_mb": 1024,
+        "ram_estimate_max_mb": 8192,
+        "ram_estimate_basis": "Small single-node service; data volume and request load vary.",
+        "storage_estimate_min_gb": 5,
+        "storage_estimate_max_gb": 100,
+        "storage_estimate_basis": "Small single-node service; data volume and request load vary."
+      },
+      "ram_estimate_min_mb": 512,
+      "ram_estimate_max_mb": 2048,
+      "ram_estimate_kind": "estimated",
+      "ram_estimate_confidence": "low",
+      "ram_estimate_basis": "Estimate for the API server alone; request rate and concurrent database connections affect memory, and PostgreSQL needs separate RAM.",
+      "ram_source_urls": [
+        "https://docs.postgrest.org/en/latest/explanations/install.html",
+        "https://github.com/PostgREST/postgrest"
+      ],
+      "storage_estimate_min_gb": 1,
+      "storage_estimate_max_gb": 5,
+      "storage_estimate_kind": "estimated",
+      "storage_estimate_confidence": "low",
+      "storage_estimate_basis": "PostgREST keeps no application database on its own; this range covers the service image, configuration, and logs, not PostgreSQL data.",
+      "storage_source_urls": [
+        "https://docs.postgrest.org/en/latest/explanations/install.html"
+      ]
+    }
+  ]
+}

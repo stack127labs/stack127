@@ -1,0 +1,327 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Fill blank docs_url values with official documentation links. Proposal only.",
+  "apps": [
+    {
+      "slug": "92five",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/chintanbanugaria/92five#readme",
+      "data_source_urls": ["https://github.com/chintanbanugaria/92five", "https://github.com/chintanbanugaria/92five#readme"],
+      "confidence": "high"
+    },
+    {
+      "slug": "abby",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/tryabby/abby#readme",
+      "data_source_urls": ["https://github.com/tryabby/abby", "https://github.com/tryabby/abby#readme"],
+      "confidence": "high"
+    },
+    {
+      "slug": "app",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://tinycld.org/docs/installation",
+      "data_source_urls": ["https://tinycld.org/docs/installation", "https://github.com/tinycld/tinycld"],
+      "confidence": "high"
+    },
+    {
+      "slug": "audiomass",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/pkalogiros/AudioMass/blob/production/README.md",
+      "data_source_urls": ["https://github.com/pkalogiros/AudioMass", "https://github.com/pkalogiros/AudioMass/blob/production/README.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "beam",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.beam.cloud/",
+      "data_source_urls": ["https://docs.beam.cloud/", "https://github.com/beam-cloud/beta9"],
+      "confidence": "high"
+    },
+    {
+      "slug": "bigtree-cms",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://www.bigtreecms.org/developers/dev-guide/installation/",
+      "data_source_urls": ["https://www.bigtreecms.org/developers/dev-guide/installation/", "https://github.com/bigtreecms/BigTree-CMS"],
+      "confidence": "high"
+    },
+    {
+      "slug": "billabear",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/billabear/billabear#readme",
+      "data_source_urls": ["https://github.com/billabear/billabear", "https://github.com/billabear/billabear#readme"],
+      "confidence": "high"
+    },
+    {
+      "slug": "billion-mail",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/Billionmail/BillionMail/blob/dev/README.md",
+      "data_source_urls": ["https://github.com/Billionmail/BillionMail", "https://github.com/Billionmail/BillionMail/blob/dev/README.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "bin",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/w4/bin/blob/master/README.md",
+      "data_source_urls": ["https://github.com/w4/bin", "https://github.com/w4/bin/blob/master/README.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "bitmappery",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/igorski/bitmappery/blob/master/README.md",
+      "data_source_urls": ["https://github.com/igorski/bitmappery", "https://github.com/igorski/bitmappery/blob/master/README.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "booklore",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/booklore-app/booklore-docs/blob/master/docs/getting-started.md",
+      "data_source_urls": ["https://github.com/booklore-app/booklore", "https://github.com/booklore-app/booklore-docs/blob/master/docs/getting-started.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "briefkasten",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.briefkastenhq.com/docs",
+      "data_source_urls": ["https://docs.briefkastenhq.com/docs", "https://github.com/ndom91/briefkasten"],
+      "confidence": "high"
+    },
+    {
+      "slug": "bytechef",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.bytechef.io/platform/use-bytechef/self-hosted",
+      "data_source_urls": ["https://docs.bytechef.io/platform/use-bytechef/self-hosted", "https://github.com/bytechefhq/bytechef"],
+      "confidence": "high"
+    },
+    {
+      "slug": "campfire",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/basecamp/once-campfire/blob/main/docs/self-hosting.md",
+      "data_source_urls": ["https://github.com/basecamp/once-campfire", "https://github.com/basecamp/once-campfire/blob/main/docs/self-hosting.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "centaur",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/paradigmxyz/centaur/blob/main/README.md",
+      "data_source_urls": ["https://github.com/paradigmxyz/centaur", "https://github.com/paradigmxyz/centaur/blob/main/README.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "chatto",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://chatto.run/self-hosted",
+      "data_source_urls": ["https://chatto.run/self-hosted", "https://github.com/chattocorp/chatto"],
+      "confidence": "high"
+    },
+    {
+      "slug": "cloud-seeder",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/ipv6rslimited/cloudseeder#readme",
+      "data_source_urls": ["https://github.com/ipv6rslimited/cloudseeder", "https://github.com/ipv6rslimited/cloudseeder#readme"],
+      "confidence": "high"
+    },
+    {
+      "slug": "convex",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://stack.convex.dev/self-hosted-develop-and-deploy",
+      "data_source_urls": ["https://stack.convex.dev/self-hosted-develop-and-deploy", "https://github.com/get-convex/convex-backend"],
+      "confidence": "high"
+    },
+    {
+      "slug": "cstate",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/cstate/cstate#readme",
+      "data_source_urls": ["https://github.com/cstate/cstate", "https://github.com/cstate/cstate#readme"],
+      "confidence": "high"
+    },
+    {
+      "slug": "cubiks-2048",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048#readme",
+      "data_source_urls": ["https://github.com/Kshitij-Banerjee/Cubiks-2048", "https://github.com/Kshitij-Banerjee/Cubiks-2048#readme"],
+      "confidence": "medium"
+    },
+    {
+      "slug": "databend",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.databend.com/",
+      "data_source_urls": ["https://docs.databend.com/", "https://github.com/databendlabs/databend"],
+      "confidence": "high"
+    },
+    {
+      "slug": "datalens",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/datalens-tech/datalens/blob/main/README.md",
+      "data_source_urls": ["https://github.com/datalens-tech/datalens", "https://github.com/datalens-tech/datalens/blob/main/README.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "digger",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/diggerhq/digger/blob/develop/README.md",
+      "data_source_urls": ["https://github.com/diggerhq/digger", "https://github.com/diggerhq/digger/blob/develop/README.md"],
+      "confidence": "medium"
+    },
+    {
+      "slug": "doublezero",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/technomancy-dev/00/blob/main/README.md",
+      "data_source_urls": ["https://github.com/technomancy-dev/00", "https://github.com/technomancy-dev/00/blob/main/README.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "e-label",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/filipecarneiro/ELabel/blob/main/README.md",
+      "data_source_urls": ["https://github.com/filipecarneiro/ELabel", "https://github.com/filipecarneiro/ELabel/blob/main/README.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "easymonitor",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/easymonitordev/easymonitor#readme",
+      "data_source_urls": ["https://github.com/easymonitordev/easymonitor", "https://github.com/easymonitordev/easymonitor#readme"],
+      "confidence": "high"
+    },
+    {
+      "slug": "emailwiz",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/LukeSmithxyz/emailwiz/blob/master/README.md",
+      "data_source_urls": ["https://github.com/LukeSmithxyz/emailwiz", "https://github.com/LukeSmithxyz/emailwiz/blob/master/README.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "epicyon",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/bashrc2/epicyon#readme",
+      "data_source_urls": ["https://github.com/bashrc2/epicyon", "https://github.com/bashrc2/epicyon#readme", "https://codeberg.org/bashrc/epicyon"],
+      "confidence": "medium"
+    },
+    {
+      "slug": "eventschedule",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://eventschedule.com/docs",
+      "data_source_urls": ["https://eventschedule.com/docs", "https://github.com/eventschedule/eventschedule"],
+      "confidence": "high"
+    },
+    {
+      "slug": "fablecut",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/ronak-create/FableCut/blob/main/README.md",
+      "data_source_urls": ["https://github.com/ronak-create/FableCut", "https://github.com/ronak-create/FableCut/blob/main/README.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "ferretdb",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.ferretdb.io/",
+      "data_source_urls": ["https://docs.ferretdb.io/", "https://github.com/FerretDB/FerretDB"],
+      "confidence": "high"
+    },
+    {
+      "slug": "github-ntfy",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/BreizhHardware/ntfy_alerts/blob/main/README.md",
+      "data_source_urls": ["https://github.com/BreizhHardware/ntfy_alerts", "https://github.com/BreizhHardware/ntfy_alerts/blob/main/README.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "grai",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/grai-io/grai-core/blob/master/README.md",
+      "data_source_urls": ["https://github.com/grai-io/grai-core", "https://github.com/grai-io/grai-core/blob/master/README.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "hackatime",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://hackatime.hackclub.com/docs",
+      "data_source_urls": ["https://hackatime.hackclub.com/docs", "https://github.com/hackclub/hackatime"],
+      "confidence": "high"
+    },
+    {
+      "slug": "headphones",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/rembo10/headphones/wiki/Installation",
+      "data_source_urls": ["https://github.com/rembo10/headphones", "https://github.com/rembo10/headphones/wiki/Installation"],
+      "confidence": "high"
+    },
+    {
+      "slug": "hexclave",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.hexclave.com/",
+      "data_source_urls": ["https://docs.hexclave.com/", "https://github.com/hexclave/hexclave"],
+      "confidence": "high"
+    },
+    {
+      "slug": "homelable",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/Pouzor/homelable/blob/main/INSTALLATION.md",
+      "data_source_urls": ["https://github.com/Pouzor/homelable", "https://github.com/Pouzor/homelable/blob/main/INSTALLATION.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "honeywire",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/andreicscs/HoneyWire/blob/main/README.md",
+      "data_source_urls": ["https://github.com/andreicscs/HoneyWire", "https://github.com/andreicscs/HoneyWire/blob/main/README.md"],
+      "confidence": "high"
+    },
+    {
+      "slug": "hyperdx",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://clickhouse.com/docs/use-cases/observability/clickstack",
+      "data_source_urls": ["https://clickhouse.com/docs/use-cases/observability/clickstack", "https://github.com/hyperdxio/hyperdx"],
+      "confidence": "high"
+    },
+    {
+      "slug": "ikuyo",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/kenrick95/ikuyo#readme",
+      "data_source_urls": ["https://github.com/kenrick95/ikuyo", "https://github.com/kenrick95/ikuyo#readme"],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "apps": [
+    {
+      "slug": "docker-github-actions-runner",
+      "review_scope": "partial",
+      "expected": {
+        "name": "Docker-Github-Actions-Runner",
+        "source_code_url": "https://github.com/myoung34/docker-github-actions-runner",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "source_available",
+        "docker_support": "community",
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "surfaces": ["web"],
+        "categories": ["developer-tools", "system-admin-hosting"]
+      },
+      "name": "GitHub Actions Runner (Docker)",
+      "summary": "Runs self-hosted GitHub Actions runners in Docker and can execute Docker-based workflow jobs.",
+      "website_url": "https://github.com/myoung34/docker-github-actions-runner",
+      "source_code_url": "https://github.com/myoung34/docker-github-actions-runner",
+      "docs_url": "https://github.com/myoung34/docker-github-actions-runner/wiki",
+      "install_docs_url": "https://github.com/myoung34/docker-github-actions-runner/wiki/Usage",
+      "docker_url": "https://hub.docker.com/r/myoung34/github-runner",
+      "compose_url": "https://github.com/myoung34/docker-github-actions-runner/wiki/Usage#docker-compose",
+      "license": "GNU General Public License v3.0 (GPL-3.0) for this project; bundled components may have separate licenses.",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "source_model": "open_source",
+      "publisher_name": "myoung34",
+      "publisher_type": "community",
+      "publisher_url": "https://github.com/myoung34",
+      "pricing_model": "free",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "docker_image": "myoung34/github-runner:latest",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "persistent_storage": true,
+      "storage_profile": "depends",
+      "surfaces": ["cli"],
+      "summary_source": "https://github.com/myoung34/docker-github-actions-runner",
+      "summary_confidence": "high",
+      "categories": ["developer-tools", "system-admin-hosting"],
+      "data_source_urls": [
+        "https://github.com/myoung34/docker-github-actions-runner",
+        "https://github.com/myoung34/docker-github-actions-runner/blob/master/LICENSE",
+        "https://github.com/myoung34/docker-github-actions-runner/wiki/Usage",
+        "https://github.com/myoung34/docker-github-actions-runner/wiki/Usage#docker-compose",
+        "https://github.com/myoung34/docker-github-actions-runner/blob/master/README.md",
+        "https://hub.docker.com/r/myoung34/github-runner",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/github_runner.xml"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "resources": [
+    {
+      "slug": "docker-github-actions-runner",
+      "expected": {
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary."
+      },
+      "ram_estimate_min_mb": 256,
+      "ram_estimate_max_mb": 2048,
+      "ram_estimate_kind": "estimated",
+      "ram_estimate_confidence": "low",
+      "ram_estimate_basis": "The project's Kubernetes example assigns 256 MiB request and 512 MiB limit to one runner; workflow tools and Docker jobs can need more.",
+      "ram_source_urls": [
+        "https://github.com/myoung34/docker-github-actions-runner/wiki/Usage#kubernetes"
+      ],
+      "storage_estimate_min_gb": 5,
+      "storage_estimate_max_gb": 50,
+      "storage_estimate_kind": "estimated",
+      "storage_estimate_confidence": "low",
+      "storage_estimate_basis": "A small runner needs workspace and configuration space; checked-out code, Docker images, and build caches can use much more.",
+      "storage_source_urls": [
+        "https://github.com/myoung34/docker-github-actions-runner/wiki/Usage#docker-compose",
+        "https://github.com/myoung34/docker-github-actions-runner/blob/master/README.md"
+      ]
+    }
+  ]
+}

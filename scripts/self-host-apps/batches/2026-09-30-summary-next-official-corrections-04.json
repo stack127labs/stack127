@@ -1,0 +1,51 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected summary values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Four concise summary corrections based on official project sources. Proposal only.",
+  "apps": [
+    {
+      "slug": "adnanh-webhook",
+      "summary": "HTTP webhook server that runs configured commands when matching requests arrive.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/adnanh/webhook"
+      ],
+      "expected": {
+        "summary": "Lightweight webhook server for running shell commands."
+      }
+    },
+    {
+      "slug": "firezone",
+      "summary": "Zero-trust remote access service for managing user access to private network resources.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://www.firezone.dev/kb/faq"
+      ],
+      "expected": {
+        "summary": "Enterprise-ready zero-trust access app built on WireGuard."
+      }
+    },
+    {
+      "slug": "graphhopper",
+      "summary": "Java routing engine that calculates routes, travel times, and directions from map data.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/graphhopper/graphhopper"
+      ],
+      "expected": {
+        "summary": "Fast routing library and server using OpenStreetMap."
+      }
+    },
+    {
+      "slug": "paperless-ai",
+      "summary": "Adds AI-assisted document analysis and automatic tagging to Paperless-ngx.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/clusterzx/paperless-ai"
+      ],
+      "expected": {
+        "summary": "Automated document analyzer for Paperless using AI."
+      }
+    }
+  ]
+}

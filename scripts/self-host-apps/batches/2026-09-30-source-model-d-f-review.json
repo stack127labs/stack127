@@ -1,0 +1,982 @@
+{
+  "reviewed_at": "2026-09-30",
+  "project_id": "tulgfrqamtcshdtmhvpx",
+  "database_access": "read_only",
+  "production_changed": true,
+  "scope": "D-F published, self-hostable apps labeled closed_source; live cohort was 85 records at the time of the read-only check.",
+  "summary": {
+    "live_cohort_count": 85,
+    "confirmed_source_model_corrections": 33,
+    "deferred_exact_image_identity_or_license": 2,
+    "duplicate_records_excluded_pending_merge_and_unpublish": 2,
+    "other_records_without_a_proposed_correction": 48,
+    "note": "Omitted records are not thereby confirmed as correctly labeled closed_source. The two duplicate rows need a separate merge/unpublish review."
+  },
+  "apps": [
+    {
+      "slug": "daredoessnapcast",
+      "id": "7d06a06c-8c78-4fd5-a846-9147a85fdda2",
+      "name": "DareDoesSnapcast",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/daredoes/docker-snapcast",
+        "source_code_host": "github",
+        "license": "MIT (container wrapper); GNU GPL v3.0 or later (Snapcast); MIT (librespot)",
+        "license_type": "mixed",
+        "license_spdx_id": null
+      },
+      "source_urls": [
+        "https://forums.unraid.net/topic/119582-support-daredoes-snapcast/",
+        "https://github.com/daredoes/docker-snapcast",
+        "https://github.com/daredoes/docker-snapcast/blob/master/LICENSE",
+        "https://github.com/snapcast/snapcast",
+        "https://github.com/snapcast/snapcast/blob/develop/LICENSE",
+        "https://github.com/librespot-org/librespot"
+      ],
+      "identity_review": "Exact app is the DareDoes Snapcast container; its wrapper repository is the source link, with Snapcast core and librespot recorded as bundled components."
+    },
+    {
+      "slug": "data-volume-monitor-dvm-for-unraid",
+      "id": "b1e10f26-2ebe-42ad-a3f7-72c7b6d92481",
+      "name": "Data Volume Monitor (DVM) for UNRAID",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/desertwitch/DVM-unRAID",
+        "source_code_host": "github",
+        "license": "GNU General Public License v2.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-2.0-only"
+      },
+      "source_urls": [
+        "https://github.com/desertwitch/DVM-unRAID"
+      ]
+    },
+    {
+      "slug": "dato",
+      "id": "426af06d-6638-44dc-8b38-8ce1fc173bef",
+      "name": "Dato",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://framagit.org/squeak/dato",
+        "source_code_host": "framagit",
+        "license": "GNU Affero General Public License v3.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-or-later"
+      },
+      "source_urls": [
+        "https://framagit.org/squeak/dato",
+        "https://apps.yunohost.org/app/dato"
+      ]
+    },
+    {
+      "slug": "dd-agent",
+      "id": "0354b086-a7b6-49ad-8154-4753d08ccab3",
+      "name": "dd-agent",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/DataDog/datadog-agent",
+        "source_code_host": "github",
+        "license": "Apache License 2.0 (user-space components); GNU General Public License v2.0 (BPF code)",
+        "license_type": "mixed",
+        "license_spdx_id": null
+      },
+      "source_urls": [
+        "https://docs.datadoghq.com/agent/",
+        "https://docs.datadoghq.com/getting_started/agent/",
+        "https://github.com/DataDog/datadog-agent",
+        "https://github.com/DataDog/datadog-agent/blob/main/LICENSE",
+        "https://www.datadoghq.com/"
+      ],
+      "identity_correction": {
+        "existing": {
+          "name": "dd-agent",
+          "summary": "Datadog is a monitoring service for cloud-scale applications, providing monitoring of servers, databases, tools, and services, through a SaaS-based data.",
+          "publisher_name": "dd-agent",
+          "publisher_type": "unknown",
+          "docs_url": null,
+          "install_docs_url": null
+        },
+        "proposed": {
+          "name": "Datadog Agent",
+          "summary": "Collects host metrics and events and sends them to Datadog.",
+          "publisher_name": "Datadog, Inc.",
+          "publisher_type": "company",
+          "docs_url": "https://docs.datadoghq.com/agent/",
+          "install_docs_url": "https://docs.datadoghq.com/getting_started/agent/"
+        },
+        "source_urls": [
+          "https://docs.datadoghq.com/agent/",
+          "https://docs.datadoghq.com/getting_started/agent/",
+          "https://github.com/DataDog/datadog-agent/blob/main/LICENSE",
+          "https://www.datadoghq.com/"
+        ],
+        "note": "The Agent runs on customer hosts but sends collected data to Datadog; the current summary describes the SaaS platform instead of the listed Agent."
+      }
+    },
+    {
+      "slug": "ddnet",
+      "id": "d6c3c8c6-f830-4a70-bd59-3d86654014de",
+      "name": "DDNet",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/ddnet/ddnet",
+        "source_code_host": "github",
+        "license": "Custom permissive DDNet license; bundled game data, fonts, and third-party libraries have separate licenses",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "source_urls": [
+        "https://github.com/ddnet/ddnet",
+        "https://github.com/ddnet/ddnet/blob/master/license.txt"
+      ]
+    },
+    {
+      "slug": "debian-apt-mirror",
+      "id": "4a042037-0206-4265-b6ae-082ac66ac401",
+      "name": "Debian-APT-Mirror",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/apt-mirror/apt-mirror",
+        "source_code_host": "github",
+        "license": "GNU General Public License v2.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-2.0-or-later"
+      },
+      "source_urls": [
+        "https://github.com/apt-mirror/apt-mirror"
+      ]
+    },
+    {
+      "slug": "derbynet-server",
+      "id": "de662e15-3b84-4ca8-bf30-d6f9a7a257fb",
+      "name": "derbynet_server",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/jeffpiazza/derbynet",
+        "source_code_host": "github",
+        "license": "MIT License",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "source_urls": [
+        "https://github.com/jeffpiazza/derbynet"
+      ]
+    },
+    {
+      "slug": "diacamma",
+      "id": "52f940ac-8e62-4d55-abbc-b82b5872efb9",
+      "name": "Diacamma",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/Diacamma2/asso",
+        "source_code_host": "github",
+        "license": "GNU General Public License v3.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-or-later"
+      },
+      "source_urls": [
+        "https://github.com/Diacamma2/asso",
+        "https://apps.yunohost.org/app/diacamma"
+      ]
+    },
+    {
+      "slug": "diagnostickoeur",
+      "id": "b5ccde12-5eb4-4dd6-8f9a-4e5f0f4ed0da",
+      "name": "Diagnostickoeur",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://framagit.org/stickoeur/diagnostickoeur",
+        "source_code_host": "framagit",
+        "license": "GNU General Public License v3.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-or-later"
+      },
+      "source_urls": [
+        "https://framagit.org/stickoeur/diagnostickoeur",
+        "https://apps.yunohost.org/app/diagnostickoeur"
+      ]
+    },
+    {
+      "slug": "discord-tickets",
+      "id": "400c217e-e95d-4b06-bd01-1482a8c7f4d6",
+      "name": "discord-tickets",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/discord-tickets/bot",
+        "source_code_host": "github",
+        "license": "GNU General Public License v3.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-or-later"
+      },
+      "source_urls": [
+        "https://github.com/discord-tickets/bot"
+      ]
+    },
+    {
+      "slug": "discordgsm",
+      "id": "5e498051-2b3e-4e6d-92ad-cebd41f08c2d",
+      "name": "DiscordGSM",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/DiscordGSM/GameServerMonitor",
+        "source_code_host": "github",
+        "license": "MIT License",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "source_urls": [
+        "https://github.com/DiscordGSM/GameServerMonitor"
+      ]
+    },
+    {
+      "slug": "docker-swarm-visualizer",
+      "id": "43a0730a-f283-46bf-8ddf-abd904ea26fd",
+      "name": "Docker-Swarm-Visualizer",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/sammonsempes/DockerSwarmVisualizer",
+        "source_code_host": "github",
+        "license": "Apache License 2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0"
+      },
+      "source_urls": [
+        "https://github.com/sammonsempes/DockerSwarmVisualizer"
+      ]
+    },
+    {
+      "slug": "docpht",
+      "id": "bc1ee18e-a4f0-4286-83f2-1f18dfef1d7c",
+      "name": "docpht",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/docpht/docpht",
+        "source_code_host": "github",
+        "license": "MIT License",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "source_urls": [
+        "https://github.com/docpht/docpht"
+      ]
+    },
+    {
+      "slug": "doge-node",
+      "id": "e09c0333-7a2d-4c79-a95f-f40bee4c54aa",
+      "name": "Doge-Node",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/dogecoin/dogecoin",
+        "source_code_host": "github",
+        "license": "MIT License",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "source_urls": [
+        "https://github.com/dogecoin/dogecoin"
+      ]
+    },
+    {
+      "slug": "dont-code",
+      "id": "78647c47-4610-4d21-87d9-be0123c17445",
+      "name": "Dont Code",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/dont-code/dont-code",
+        "source_code_host": "github",
+        "license": "GNU Affero General Public License v3.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-or-later"
+      },
+      "source_urls": [
+        "https://github.com/dont-code/dont-code",
+        "https://apps.yunohost.org/app/dont-code"
+      ]
+    },
+    {
+      "slug": "dotclear2",
+      "id": "049ba303-78df-499c-a57c-c89611ca140a",
+      "name": "Dotclear2",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/dotclear/dotclear",
+        "source_code_host": "github",
+        "license": "GNU Affero General Public License v3.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-or-later"
+      },
+      "source_urls": [
+        "https://github.com/dotclear/dotclear"
+      ]
+    },
+    {
+      "slug": "drupal-cms",
+      "id": "71bcb9b7-f096-4c31-9564-e30b827aaec6",
+      "name": "Drupal Cms",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://git.drupalcode.org/project/drupal_cms",
+        "source_code_host": "gitlab",
+        "license": "GNU General Public License v2.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-2.0-or-later"
+      },
+      "source_urls": [
+        "https://git.drupalcode.org/project/drupal_cms",
+        "https://www.drupal.org/about/licensing"
+      ]
+    },
+    {
+      "slug": "duniter",
+      "id": "1f3c84a7-cb7d-4ea5-a4fc-41ad0e484afd",
+      "name": "Duniter",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://git.duniter.org/nodes/typescript/duniter",
+        "source_code_host": "gitlab",
+        "license": "GNU Affero General Public License v3.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-or-later"
+      },
+      "source_urls": [
+        "https://git.duniter.org/nodes/typescript/duniter",
+        "https://apps.yunohost.org/app/duniter"
+      ]
+    },
+    {
+      "slug": "easy-rsync",
+      "id": "80114412-4eaa-45d6-a2b7-f709d82de192",
+      "name": "Easy Rsync",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/Teknicallity/easy-rsync",
+        "source_code_host": "github",
+        "license": "GNU Affero General Public License v3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-only"
+      },
+      "source_urls": [
+        "https://github.com/Teknicallity/easy-rsync"
+      ]
+    },
+    {
+      "slug": "elastic-search",
+      "id": "cb449726-21e3-4bdf-9f23-da4c6029490f",
+      "name": "Elastic Search",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/elastic/elasticsearch",
+        "source_code_host": "github",
+        "license": "Default distribution: Elastic License 2.0; free source components: AGPL-3.0-only, SSPL-1.0, or ELv2, unless a file header says otherwise; X-Pack code is ELv2-only.",
+        "license_type": "mixed",
+        "license_spdx_id": null
+      },
+      "source_urls": [
+        "https://github.com/elastic/elasticsearch",
+        "https://github.com/elastic/elasticsearch/blob/main/LICENSE.txt",
+        "https://www.elastic.co/pricing/faq/licensing"
+      ]
+    },
+    {
+      "slug": "emailengine",
+      "id": "ea72914a-2bda-4e34-a406-b44efe3af208",
+      "name": "EmailEngine",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "source_available",
+        "source_code_url": "https://github.com/postalsys/emailengine",
+        "source_code_host": "github",
+        "license": "EmailEngine License Agreement v2.1",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "source_urls": [
+        "https://github.com/postalsys/emailengine",
+        "https://github.com/postalsys/emailengine/blob/master/LICENSE_EMAILENGINE.txt"
+      ]
+    },
+    {
+      "slug": "emailpoubelle",
+      "id": "6dfec059-8191-4d6e-ba8b-03924bec8332",
+      "name": "Emailpoubelle",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://framagit.org/kepon/emailPoubellePhp",
+        "source_code_host": "framagit",
+        "license": "Beerware License",
+        "license_type": "permissive",
+        "license_spdx_id": "Beerware"
+      },
+      "source_urls": [
+        "https://framagit.org/kepon/emailPoubellePhp",
+        "https://apps.yunohost.org/app/emailpoubelle"
+      ]
+    },
+    {
+      "slug": "embywrapped",
+      "id": "fac40859-c768-4f16-9fd4-3132395a5bf7",
+      "name": "EmbyWrapped",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/CtznSniiips/emby-wrapped",
+        "source_code_host": "github",
+        "license": "MIT License",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "source_urls": [
+        "https://github.com/CtznSniiips/emby-wrapped"
+      ]
+    },
+    {
+      "slug": "faceprivacy",
+      "id": "7edb852b-0de4-44c4-92bf-40c29fc9d54d",
+      "name": "Faceprivacy",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://forge.apps.education.fr/faceprivacy/app",
+        "source_code_host": "gitlab",
+        "license": "MIT License",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "source_urls": [
+        "https://forge.apps.education.fr/faceprivacy/app",
+        "https://apps.yunohost.org/app/faceprivacy"
+      ]
+    },
+    {
+      "slug": "facturascripts",
+      "id": "e10ab635-97db-456e-b840-d23ebc68cb32",
+      "name": "facturascripts",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/NeoRazorX/facturascripts",
+        "source_code_host": "github",
+        "license": "GNU Lesser General Public License v3.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "LGPL-3.0-or-later"
+      },
+      "source_urls": [
+        "https://github.com/NeoRazorX/facturascripts"
+      ]
+    },
+    {
+      "slug": "feishin",
+      "id": "b0c689c6-9656-49bb-82ed-469cadc5830d",
+      "name": "Feishin",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/jeffvli/feishin",
+        "source_code_host": "github",
+        "license": "GNU General Public License v3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-only"
+      },
+      "source_urls": [
+        "https://github.com/jeffvli/feishin",
+        "https://github.com/jeffvli/feishin/blob/development/LICENSE"
+      ]
+    },
+    {
+      "slug": "fivefilters-full-text-rss",
+      "id": "617258ea-695e-4922-be9f-e74da077c36d",
+      "name": "fivefilters-full-text-rss",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://bitbucket.org/fivefilters/full-text-rss",
+        "source_code_host": "other",
+        "license": "GNU Affero General Public License v3.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-or-later"
+      },
+      "source_urls": [
+        "https://bitbucket.org/fivefilters/full-text-rss",
+        "https://forum.fivefilters.org/t/license-question/350",
+        "https://www.fivefilters.org/full-text-rss/"
+      ]
+    },
+    {
+      "slug": "flash-backup",
+      "id": "d9bb3755-6f81-4f62-a8eb-6477ed2768e1",
+      "name": "Flash Backup",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/jcofer555/flash-backup",
+        "source_code_host": "github",
+        "license": "GNU General Public License v2.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-2.0-only"
+      },
+      "source_urls": [
+        "https://github.com/jcofer555/flash-backup"
+      ]
+    },
+    {
+      "slug": "fogproject",
+      "id": "b2af9d44-f9e6-4642-b471-5a2b21509a7b",
+      "name": "fogproject",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/FOGProject/fogproject",
+        "source_code_host": "github",
+        "license": "GNU General Public License v3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-only"
+      },
+      "source_urls": [
+        "https://github.com/FOGProject/fogproject"
+      ]
+    },
+    {
+      "slug": "folderframe",
+      "id": "cba24832-422a-4f68-8f4d-202d079b6d63",
+      "name": "folderframe",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://github.com/The-Grog/FolderFrame",
+        "source_code_host": "github",
+        "license": "MIT License",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT"
+      },
+      "source_urls": [
+        "https://github.com/The-Grog/FolderFrame"
+      ]
+    },
+    {
+      "slug": "forgejo-runner",
+      "id": "f11df3a0-656c-4917-bb29-8d8f325c1e77",
+      "name": "Forgejo Runner",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://code.forgejo.org/forgejo/runner",
+        "source_code_host": "forgejo",
+        "license": "GNU General Public License v3.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-or-later"
+      },
+      "source_urls": [
+        "https://code.forgejo.org/forgejo/runner"
+      ]
+    },
+    {
+      "slug": "framaforms",
+      "id": "86c5dcec-f18e-4f93-b296-e90c8a798662",
+      "name": "Framaforms",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://framagit.org/yakforms/yakforms",
+        "source_code_host": "framagit",
+        "license": "GNU General Public License v2.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-2.0-only"
+      },
+      "source_urls": [
+        "https://framaforms.org/",
+        "https://framagit.org/yakforms/yakforms"
+      ]
+    },
+    {
+      "slug": "framagames",
+      "id": "21eceb8b-adcf-4fab-a574-febd39884706",
+      "name": "Framagames",
+      "existing": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "source_code_url": "https://framagit.org/framasoft/framagames",
+        "source_code_host": "framagit",
+        "license": "GNU Affero General Public License v3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-only"
+      },
+      "source_urls": [
+        "https://framagit.org/framasoft/framagames",
+        "https://apps.yunohost.org/app/framagames"
+      ]
+    }
+  ],
+  "follow_up": [
+    {
+      "slugs": [
+        "dind",
+        "dind-swarm-worker"
+      ],
+      "reason": "Both records use ghcr.io/josh5/ubuntu-dind. Moby/Docker Engine's Apache license does not establish the exact custom image wrapper's source or license.",
+      "source_urls": [
+        "https://docs.docker.com/engine/",
+        "https://github.com/moby/moby",
+        "https://raw.githubusercontent.com/Josh5/unraid-docker-templates/master/josh5/dind.xml",
+        "https://raw.githubusercontent.com/Josh5/unraid-docker-templates/master/josh5/dind-swarm-worker.xml"
+      ]
+    }
+  ],
+  "record_notes": [
+    {
+      "slugs": [
+        "docuwiki",
+        "dokuwiki"
+      ],
+      "recommendation": "Merge the verified Docker and Unraid install options into canonical dokuwiki, reconcile categories and conflicting resource estimates, re-point the enriched candidate, then unpublish docuwiki.",
+      "note": "Both rows describe the same official DokuWiki app. docuwiki is excluded from source corrections; dokuwiki already links the correct source and GPL-2.0 license. Estimates conflict (docuwiki: 2–8 GB RAM and 5–100 GB storage; dokuwiki: 256 MB–2 GB RAM and 1–20 GB storage), so review before merging.",
+      "source_urls": [
+        "https://www.dokuwiki.org/dokuwiki",
+        "https://github.com/dokuwiki/dokuwiki",
+        "https://www.dokuwiki.org/install",
+        "https://hub.docker.com/r/dokuwiki/dokuwiki",
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/docuwiki.xml"
+      ],
+      "linked_reference_counts": {
+        "docuwiki": {
+          "enriched_candidates": 1,
+          "categories": 3,
+          "install_options": 1,
+          "resource_estimates": 1
+        },
+        "dokuwiki": {
+          "duplicate_candidates": 5,
+          "categories": 1,
+          "install_options": 1,
+          "resource_estimates": 1
+        },
+        "terminal_app_references": 0
+      }
+    },
+    {
+      "slugs": [
+        "forgejo-runner",
+        "forgejorunner"
+      ],
+      "recommendation": "Merge verified container and Unraid install details into canonical forgejo-runner, reconcile categories and resource estimates, correct its docs, re-point the enriched candidate, then unpublish forgejorunner.",
+      "note": "Both rows describe the same Forgejo Runner project. forgejorunner has the official image and an Unraid template, but its docs point to an unrelated Nextexplorer forum thread. Its RAM estimate (2–8 GB) also differs from the canonical row (256 MB–2 GB), so review before merging.",
+      "source_urls": [
+        "https://code.forgejo.org/forgejo/runner",
+        "https://forgejo.org/docs/latest/admin/runner-installation/",
+        "https://forgejo.org/docs/v17.0/admin/actions/installation/docker/",
+        "https://code.forgejo.org/forgejo/-/packages/container/runner/",
+        "https://raw.githubusercontent.com/maybegrim/unraid-templates/main/ForgejoRunner/ForgejoRunner.xml"
+      ],
+      "linked_reference_counts": {
+        "forgejo-runner": {
+          "enriched_candidates": 1,
+          "categories": 1,
+          "install_options": 1,
+          "resource_estimates": 1
+        },
+        "forgejorunner": {
+          "enriched_candidates": 1,
+          "categories": 3,
+          "install_options": 1,
+          "resource_estimates": 1
+        },
+        "terminal_app_references": 0
+      }
+    },
+    {
+      "slugs": [
+        "daredoessnapcast"
+      ],
+      "note": "The app is DareDoes’ Snapcast Docker wrapper, not the upstream Snapcast core alone. The exact wrapper is source_code_url; Snapcast and librespot are cited as bundled components.",
+      "source_urls": [
+        "https://forums.unraid.net/topic/119582-support-daredoes-snapcast/",
+        "https://github.com/daredoes/docker-snapcast",
+        "https://github.com/snapcast/snapcast",
+        "https://github.com/librespot-org/librespot"
+      ]
+    },
+    {
+      "slugs": [
+        "ddnet"
+      ],
+      "note": "DDNet is the exact dedicated-server software used by the third-party image. Keep license_type=custom and no SPDX ID: the upstream license grants commercial use, changes, and redistribution with conditions, while bundled assets and libraries have separate licenses.",
+      "source_urls": [
+        "https://github.com/ddnet/ddnet",
+        "https://github.com/ddnet/ddnet/blob/master/license.txt"
+      ]
+    },
+    {
+      "slugs": [
+        "folderframe"
+      ],
+      "note": "The proposed source is the app repository. Its separate official deployment repository provides Docker and Unraid packaging.",
+      "source_urls": [
+        "https://github.com/The-Grog/FolderFrame",
+        "https://github.com/The-Grog/FolderFrame-Deployment"
+      ]
+    },
+    {
+      "slugs": [
+        "elastic-search"
+      ],
+      "note": "Keep source_model=source_available for the shipped default distribution; the official license now also offers AGPL-3.0-only for free source components, while X-Pack remains ELv2-only.",
+      "source_urls": [
+        "https://github.com/elastic/elasticsearch/blob/main/LICENSE.txt",
+        "https://www.elastic.co/pricing/faq/licensing"
+      ]
+    }
+  ],
+  "migration_version": "20260929235330",
+  "migration_file": "supabase/migrations/20260929235330_self_host_apps_d_f_verified_source_model_corrections.sql"
+}

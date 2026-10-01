@@ -1,0 +1,417 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values copied from its self-host-app records.",
+  "scope": "I–L official-source license and source-model corrections, including first-party repo identity checks; proposals only.",
+  "apps": [
+    {
+      "slug": "iceshrimp",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://iceshrimp.dev/iceshrimp/iceshrimp",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://iceshrimp.dev",
+        "https://iceshrimp.dev/iceshrimp/iceshrimp"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "ics-proxy",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "source_code_url": "https://github.com/13hannes11/ics-proxy",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/13hannes11/ics-proxy",
+        "https://github.com/13hannes11/ics-proxy/blob/main/LICENSE",
+        "https://ics-proxy.de/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "imagemaid",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/Kometa-Team/ImageMaid",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/Kometa-Team/ImageMaid",
+        "https://github.com/Kometa-Team/ImageMaid/blob/master/LICENSE",
+        "https://kometa.wiki/en/latest/kometa/scripts/imagemaid/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "internet-archive",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://github.com/jjjake/internetarchive",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://archive.org/developers/internetarchive/",
+        "https://github.com/jjjake/internetarchive",
+        "https://github.com/jjjake/internetarchive/blob/master/pyproject.toml"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "iota",
+      "source_model": "source_available",
+      "license": "All rights reserved (custom terms)",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "source_code_url": "https://git.methanium.net/tensamin/iota",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://docs.tensamin.net/",
+        "https://docs.tensamin.net/installation/",
+        "https://git.methanium.net/tensamin/iota",
+        "https://git.methanium.net/tensamin/iota/src/branch/main/LICENSE"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "iventoy",
+      "license": "iVentoy Free Edition terms (non-commercial); Pro Edition requires a paid license file",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "data_source_urls": [
+        "https://www.iventoy.com/en/doc_edition.html",
+        "https://www.iventoy.com/en/doc_license.html"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "kibana",
+      "source_model": "source_available",
+      "license": "Elastic License 2.0",
+      "license_type": "custom",
+      "license_spdx_id": "Elastic-2.0",
+      "source_code_url": "https://github.com/elastic/kibana",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/elastic/kibana",
+        "https://github.com/elastic/kibana/blob/v7.12.0/LICENSE.txt",
+        "https://www.elastic.co/blog/whats-new-elastic-7-11-0-searchable-snapshots-schema-on-read"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "keyoxide-proxy",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-or-later",
+      "source_code_url": "https://codeberg.org/keyoxide/keyoxide-web",
+      "source_code_host": "codeberg",
+      "data_source_urls": [
+        "https://codeberg.org/keyoxide/keyoxide-web",
+        "https://docs.keyoxide.org/guides/self-hosting/",
+        "https://docs.keyoxide.org/wiki/keyoxide/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "lancache-dns",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/lancachenet/lancache-dns",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/lancachenet/lancache-dns",
+        "https://lancache.net/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "libre-closet",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://github.com/lazztech/Libre-Closet",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/lazztech/Libre-Closet",
+        "https://github.com/lazztech/Libre-Closet/blob/main/LICENSE",
+        "https://librecloset.lazz.tech/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "lucia",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/seiggy/lucia-dotnet",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/seiggy/lucia-dotnet",
+        "https://github.com/seiggy/lucia-dotnet/blob/master/LICENSE",
+        "https://luciahome.net/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "lstu",
+      "source_model": "open_source",
+      "license": "WTFPL",
+      "license_type": "permissive",
+      "license_spdx_id": "WTFPL",
+      "source_code_url": "https://framagit.org/fiat-tux/hat-softwares/lstu",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://framagit.org/fiat-tux/hat-softwares/lstu",
+        "https://framagit.org/fiat-tux/hat-softwares/lstu/wikis/home",
+        "https://lstu.fr/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "lufi",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "source_code_url": "https://framagit.org/fiat-tux/hat-softwares/lufi",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://framagit.org/fiat-tux/hat-softwares/lufi",
+        "https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home",
+        "https://github.com/ldidry/lufi",
+        "https://github.com/ldidry/lufi/blob/master/LICENSE"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "lutim",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License",
+      "license_type": "copyleft",
+      "license_spdx_id": null,
+      "source_code_url": "https://framagit.org/fiat-tux/hat-softwares/lutim",
+      "source_code_host": "other",
+      "data_source_urls": [
+        "https://fiat-tux.fr/2014/02/16/lut-im-un-service-dhebergement-dimages-gratuit-libre-et-anonyme/",
+        "https://framagit.org/fiat-tux/hat-softwares/lutim"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "lyrionmusicserver",
+      "source_model": "open_source",
+      "license": "GNU General Public License v2.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-only",
+      "source_code_url": "https://github.com/LMS-Community/slimserver",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/LMS-Community/slimserver",
+        "https://github.com/LMS-Community/slimserver/blob/public/9.2/License.txt",
+        "https://lyrion.org/reference/lyrion-music-server/"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "kong-gateway",
+      "license": "Kong Software License Agreement (Enterprise)",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "data_source_urls": [
+        "https://docs.konghq.com/gateway/latest/install/docker/",
+        "https://docs.konghq.com/gateway/latest/licenses/",
+        "https://github.com/Kong/kong",
+        "https://hub.docker.com/r/kong/kong-gateway"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "idle-miner-dashboard",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "source_code_url": "https://github.com/ElectricBrainUK/IdleMiner",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/ElectricBrainUK/IdleMiner",
+        "https://github.com/ElectricBrainUK/IdleMiner/blob/master/LICENSE",
+        "https://github.com/ElectricBrainUK/IdleMiner/blob/master/README.md",
+        "https://hub.docker.com/r/electricbrainuk/idleminerdashboard"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    },
+    {
+      "slug": "komodo-client",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-or-later",
+      "source_code_url": "https://github.com/moghtech/komodo",
+      "source_code_host": "github",
+      "data_source_urls": [
+        "https://github.com/moghtech/komodo",
+        "https://github.com/moghtech/komodo/blob/main/Cargo.toml",
+        "https://github.com/moghtech/komodo/blob/main/LICENSE",
+        "https://github.com/moghtech/komodo/pkgs/container/komodo-periphery",
+        "https://komo.do/docs/setup/connect-servers"
+      ],
+      "review_scope": "partial",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "source_code_url": null,
+        "source_code_host": "unknown"
+      }
+    }
+  ]
+}

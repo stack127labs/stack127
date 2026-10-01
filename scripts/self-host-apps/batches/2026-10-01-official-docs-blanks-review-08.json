@@ -1,0 +1,567 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Fill blank docs_url values from official project documentation or the official source repository README. Offline proposal only.",
+  "apps": [
+    {
+      "slug": "airbyte",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/airbytehq/airbyte/blob/master/docs/platform/using-airbyte/getting-started/oss-quickstart.md",
+      "data_source_urls": [
+        "https://github.com/airbytehq/airbyte",
+        "https://github.com/airbytehq/airbyte/blob/master/docs/platform/using-airbyte/getting-started/oss-quickstart.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "apache-answer",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://answer.apache.org/docs/installation/",
+      "data_source_urls": [
+        "https://github.com/apache/answer",
+        "https://answer.apache.org/docs/installation/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "arize-phoenix",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://arize.com/docs/phoenix/self-hosting",
+      "data_source_urls": [
+        "https://github.com/Arize-ai/phoenix",
+        "https://arize.com/docs/phoenix/self-hosting"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "autogpt",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://agpt.co/docs/platform/self-hosting/getting-started.md",
+      "data_source_urls": [
+        "https://github.com/Significant-Gravitas/AutoGPT",
+        "https://agpt.co/docs/platform/self-hosting/getting-started.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "bionicgpt",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://bionic-gpt.com/docs/",
+      "data_source_urls": [
+        "https://github.com/bionic-gpt/bionic-gpt",
+        "https://bionic-gpt.com/docs/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "cap",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://cap.so/docs/self-hosting",
+      "data_source_urls": [
+        "https://github.com/CapSoftware/Cap",
+        "https://cap.so/docs/self-hosting"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "chroma",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.trychroma.com/",
+      "data_source_urls": [
+        "https://github.com/chroma-core/chroma",
+        "https://docs.trychroma.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "clickhouse",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://clickhouse.com/docs/en/getting-started/quick-start/oss",
+      "data_source_urls": [
+        "https://github.com/ClickHouse/ClickHouse",
+        "https://clickhouse.com/docs/en/getting-started/quick-start/oss"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "cozy-cloud",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.cozy.io/en/tutorials/selfhosting/",
+      "data_source_urls": [
+        "https://github.com/cozy/cozy-stack",
+        "https://docs.cozy.io/en/tutorials/selfhosting/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "dify",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.dify.ai/",
+      "data_source_urls": [
+        "https://github.com/langgenius/dify",
+        "https://docs.dify.ai/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "edx",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.openedx.org/en/latest/site_ops/install_configure_run_guide/index.html",
+      "data_source_urls": [
+        "https://github.com/openedx/openedx-platform",
+        "https://docs.openedx.org/en/latest/site_ops/install_configure_run_guide/index.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "firecrawl",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.firecrawl.dev/contributing/self-host",
+      "data_source_urls": [
+        "https://github.com/firecrawl/firecrawl",
+        "https://docs.firecrawl.dev/contributing/self-host"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "flowise-ai",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.flowiseai.com/getting-started",
+      "data_source_urls": [
+        "https://github.com/FlowiseAI/Flowise",
+        "https://docs.flowiseai.com/getting-started"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "focalboard",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://www.focalboard.com/docs/personal-edition/docker/",
+      "data_source_urls": [
+        "https://github.com/mattermost-community/focalboard",
+        "https://www.focalboard.com/docs/personal-edition/docker/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "g3proxy",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://g3-project.readthedocs.io/projects/g3proxy/en/latest/",
+      "data_source_urls": [
+        "https://github.com/bytedance/g3/tree/master/g3proxy",
+        "https://g3-project.readthedocs.io/projects/g3proxy/en/latest/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "harness",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/harness/harness#readme",
+      "data_source_urls": [
+        "https://github.com/harness/harness",
+        "https://github.com/harness/harness#readme"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "hermes-agent",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://hermes-agent.nousresearch.com/docs/",
+      "data_source_urls": [
+        "https://github.com/NousResearch/hermes-agent",
+        "https://hermes-agent.nousresearch.com/docs/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "highlight",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/highlight/highlight#readme",
+      "data_source_urls": [
+        "https://github.com/highlight/highlight",
+        "https://github.com/highlight/highlight#readme"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "jan",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://www.jan.ai/docs",
+      "data_source_urls": [
+        "https://github.com/janhq/jan",
+        "https://www.jan.ai/docs"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "langflow",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.langflow.org/deployment-docker",
+      "data_source_urls": [
+        "https://github.com/langflow-ai/langflow",
+        "https://docs.langflow.org/deployment-docker"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "lobehub",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/lobehub/lobehub#readme",
+      "data_source_urls": [
+        "https://github.com/lobehub/lobehub",
+        "https://github.com/lobehub/lobehub#readme"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "marble",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.checkmarble.com/docs/deployment-steps",
+      "data_source_urls": [
+        "https://github.com/checkmarble/marble",
+        "https://docs.checkmarble.com/docs/deployment-steps"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "maybe",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/maybe-finance/maybe/wiki/Self-Hosting-Setup-Guide",
+      "data_source_urls": [
+        "https://github.com/maybe-finance/maybe",
+        "https://github.com/maybe-finance/maybe/wiki/Self-Hosting-Setup-Guide"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "multica",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/multica-ai/multica/blob/main/SELF_HOSTING.md",
+      "data_source_urls": [
+        "https://github.com/multica-ai/multica",
+        "https://github.com/multica-ai/multica/blob/main/SELF_HOSTING.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "neos",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.neos.io/guide/installation-development-setup",
+      "data_source_urls": [
+        "https://github.com/neos/neos-development-collection",
+        "https://docs.neos.io/guide/installation-development-setup"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "nextchat",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/ChatGPTNextWeb/NextChat#readme",
+      "data_source_urls": [
+        "https://github.com/ChatGPTNextWeb/NextChat",
+        "https://github.com/ChatGPTNextWeb/NextChat#readme"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "openbb",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.openbb.co/odp/v4/python/installation",
+      "data_source_urls": [
+        "https://github.com/OpenBB-finance/OpenBB",
+        "https://docs.openbb.co/odp/v4/python/installation"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "openhands",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.openhands.dev/openhands/usage/agent-canvas/backend-setup/vm",
+      "data_source_urls": [
+        "https://github.com/OpenHands/OpenHands",
+        "https://docs.openhands.dev/openhands/usage/agent-canvas/backend-setup/vm"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "pi",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/earendil-works/pi#readme",
+      "data_source_urls": [
+        "https://github.com/earendil-works/pi",
+        "https://github.com/earendil-works/pi#readme"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "rustdesk",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://rustdesk.com/docs/en/self-host/install/",
+      "data_source_urls": [
+        "https://github.com/rustdesk/rustdesk",
+        "https://rustdesk.com/docs/en/self-host/install/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "silverstripe",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.silverstripe.org/en/6/",
+      "data_source_urls": [
+        "https://github.com/silverstripe/silverstripe-framework",
+        "https://docs.silverstripe.org/en/6/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "sip3",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.sip3.io/docs/InstallationGuide.html",
+      "data_source_urls": [
+        "https://github.com/sip3io/sip3-captain-ce",
+        "https://docs.sip3.io/docs/InstallationGuide.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "snypy",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/snypy/snypy-frontend#readme",
+      "data_source_urls": [
+        "https://github.com/snypy/snypy-frontend",
+        "https://github.com/snypy/snypy-frontend#readme"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "supermemory",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/supermemoryai/supermemory/blob/main/apps/docs/self-hosting/quickstart.mdx",
+      "data_source_urls": [
+        "https://github.com/supermemoryai/supermemory",
+        "https://github.com/supermemoryai/supermemory/blob/main/apps/docs/self-hosting/quickstart.mdx"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "tabby",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://tabby.tabbyml.com/docs/quick-start/register-account/",
+      "data_source_urls": [
+        "https://github.com/TabbyML/tabby",
+        "https://tabby.tabbyml.com/docs/quick-start/register-account/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "temporal",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.temporal.io/self-hosted-guide",
+      "data_source_urls": [
+        "https://github.com/temporalio/temporal",
+        "https://docs.temporal.io/self-hosted-guide"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "traccar",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://www.traccar.org/install-vps/",
+      "data_source_urls": [
+        "https://github.com/traccar/traccar",
+        "https://www.traccar.org/install-vps/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "turtl",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/turtl/server#readme",
+      "data_source_urls": [
+        "https://github.com/turtl/server",
+        "https://github.com/turtl/server#readme"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "wave",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/u-wave/core#readme",
+      "data_source_urls": [
+        "https://github.com/u-wave/core",
+        "https://github.com/u-wave/core#readme"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "yunohost",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://doc.yunohost.org/admin/get_started/install_on/remote_server/",
+      "data_source_urls": [
+        "https://github.com/YunoHost/yunohost",
+        "https://doc.yunohost.org/admin/get_started/install_on/remote_server/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "zeroclaw",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.zeroclaw.com/",
+      "data_source_urls": [
+        "https://github.com/zeroclaw-labs/zeroclaw",
+        "https://docs.zeroclaw.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "zimbra-collaboration",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://www.zimbra.com/product/documentation/",
+      "data_source_urls": [
+        "https://github.com/Zimbra/zm-web-client",
+        "https://www.zimbra.com/product/documentation/"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "skipped": [
+    {
+      "slug": "amical",
+      "reason": "Self-hosting classification review is still pending; hold the documentation-link update until eligibility is resolved."
+    },
+    {
+      "slug": "meetily",
+      "reason": "Self-hosting classification review is still pending; hold the documentation-link update until eligibility is resolved."
+    },
+    {
+      "slug": "timescribe",
+      "reason": "Self-hosting classification review is still pending; hold the documentation-link update until eligibility is resolved."
+    }
+  ]
+}

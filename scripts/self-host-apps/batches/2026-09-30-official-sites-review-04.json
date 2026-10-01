@@ -1,0 +1,296 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards and must be refreshed before any apply.",
+  "scope": "Review first-party website gaps for 25 published self-host apps. Propose distinct official project or product websites only. Proposal only.",
+  "apps": [
+    {
+      "slug": "maybe",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://maybefinance.com/",
+      "data_source_urls": [
+        "https://maybefinance.com/",
+        "https://github.com/maybe-finance/marketing",
+        "https://github.com/maybe-finance/maybe"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "focalboard",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.focalboard.com/",
+      "data_source_urls": [
+        "https://www.focalboard.com/",
+        "https://github.com/mattermost/focalboard",
+        "https://docs.mattermost.com/developers/contribute/more-info/focalboard"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "llamafile",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.mozilla.ai/open-tools/llamafile",
+      "data_source_urls": [
+        "https://www.mozilla.ai/open-tools/llamafile",
+        "https://github.com/mozilla-ai/llamafile"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "jina",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://jina.ai/serve/",
+      "data_source_urls": [
+        "https://jina.ai/serve/",
+        "https://github.com/jina-ai/serve"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "ironclaw",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.ironclaw.com/",
+      "data_source_urls": [
+        "https://www.ironclaw.com/",
+        "https://github.com/nearai/ironclaw"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "openship",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://openship.io/",
+      "data_source_urls": [
+        "https://openship.io/",
+        "https://github.com/oblien/openship"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "october",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://octobercms.com/",
+      "data_source_urls": [
+        "https://octobercms.com/",
+        "https://github.com/octobercms/october",
+        "https://github.com/octobercms"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "huggingface-chat-ui",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://huggingface.co/chat/",
+      "data_source_urls": [
+        "https://huggingface.co/chat/",
+        "https://github.com/huggingface/chat-ui"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "sentry-self-hosted",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://sentry.io/",
+      "data_source_urls": [
+        "https://sentry.io/",
+        "https://github.com/getsentry/self-hosted"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "webstudio",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://webstudio.is/",
+      "data_source_urls": [
+        "https://webstudio.is/",
+        "https://github.com/webstudio-is/webstudio"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "fonoster",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://fonoster.com/",
+      "data_source_urls": [
+        "https://fonoster.com/",
+        "https://github.com/fonoster/fonoster"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "svg-edit",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://svgedit.netlify.app/",
+      "data_source_urls": [
+        "https://github.com/SVG-Edit/svgedit",
+        "https://svgedit.netlify.app/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "big-agi",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://big-agi.com/",
+      "data_source_urls": [
+        "https://big-agi.com/",
+        "https://github.com/enricoros/big-AGI"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "honcho",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://honcho.dev/",
+      "data_source_urls": [
+        "https://honcho.dev/",
+        "https://github.com/plastic-labs/honcho"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "piku",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://piku.github.io/",
+      "data_source_urls": [
+        "https://piku.github.io/",
+        "https://github.com/piku/piku"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "pgdog",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://pgdog.dev/",
+      "data_source_urls": [
+        "https://pgdog.dev/",
+        "https://docs.pgdog.dev/",
+        "https://github.com/pgdogdev/pgdog",
+        "https://github.com/pgdogdev/helm"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "plunk",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.useplunk.com/",
+      "data_source_urls": [
+        "https://www.useplunk.com/",
+        "https://github.com/useplunk/plunk"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "tsuru",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://tsuru.io/",
+      "data_source_urls": [
+        "https://tsuru.io/",
+        "https://github.com/tsuru/tsuru"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "rudderstack",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.rudderstack.com/",
+      "data_source_urls": [
+        "https://www.rudderstack.com/",
+        "https://github.com/rudderlabs/rudder-server",
+        "https://github.com/rudderlabs"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "erxes",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://erxes.io/",
+      "data_source_urls": [
+        "https://erxes.io/",
+        "https://github.com/erxes/erxes",
+        "https://github.com/erxes"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "skipped": [
+    {
+      "slug": "text-generation-webui",
+      "reason": "Official project materials point to the repository, releases, and docs; no distinct first-party project/product site was found."
+    },
+    {
+      "slug": "open-lovable",
+      "reason": "The official repository points to Lovable.dev as a separate hosted product; no distinct first-party Open Lovable site was found."
+    },
+    {
+      "slug": "bolt-diy",
+      "reason": "The official stackblitz-labs.github.io/bolt.diy/ site is a documentation portal; no separate project/product homepage was found."
+    },
+    {
+      "slug": "olares",
+      "reason": "Already proposed as https://www.olares.com/ in scripts/self-host-apps/batches/2026-09-28-estimates-and-doc-links-batch-06.json; omitted to avoid a duplicate correction."
+    },
+    {
+      "slug": "headphones",
+      "reason": "The official project repository and wiki are the available project pages; no distinct first-party project/product site was found."
+    }
+  ]
+}

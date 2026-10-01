@@ -1,0 +1,569 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are offline comparison guards and must be refreshed before any apply.",
+  "scope": "Fill blank docs_url values with official documentation links. Proposal only.",
+  "apps": [
+    {
+      "slug": "bolt-diy",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://stackblitz-labs.github.io/bolt.diy/",
+      "data_source_urls": [
+        "https://stackblitz-labs.github.io/bolt.diy/",
+        "https://github.com/stackblitz-labs/bolt.diy"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "scalar",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://scalar.com/products/api-references/getting-started",
+      "data_source_urls": [
+        "https://scalar.com/products/api-references/getting-started",
+        "https://github.com/scalar/scalar",
+        "https://scalar.com",
+        "https://guides.scalar.com/scalar/scalar-api-references/integrations/docker"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "openship",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://openship.io/docs",
+      "data_source_urls": [
+        "https://openship.io/docs",
+        "https://github.com/oblien/openship"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "huggingface-chat-ui",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://huggingface.co/docs/chat-ui",
+      "data_source_urls": [
+        "https://huggingface.co/docs/chat-ui",
+        "https://github.com/huggingface/chat-ui",
+        "https://raw.githubusercontent.com/huggingface/chat-ui/HEAD/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "big-agi",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://big-agi.com/docs",
+      "data_source_urls": [
+        "https://big-agi.com/docs",
+        "https://github.com/enricoros/big-AGI",
+        "https://github.com/enricoros/big-AGI/blob/main/docs/installation.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "anarlog",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.anarlog.so/",
+      "data_source_urls": [
+        "https://docs.anarlog.so/",
+        "https://github.com/fastrepl/anarlog",
+        "https://anarlog.so",
+        "https://github.com/fastrepl/anarlog/blob/main/docs/installation.mdx"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "your-next-store-yns",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://yournextstore.com/docs",
+      "data_source_urls": [
+        "https://yournextstore.com/docs",
+        "https://github.com/yournextstore/yournextstore",
+        "https://demo.yournextstore.com"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "honcho",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.honcho.dev/",
+      "data_source_urls": [
+        "https://docs.honcho.dev/",
+        "https://github.com/plastic-labs/honcho",
+        "https://raw.githubusercontent.com/plastic-labs/honcho/HEAD/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "pgdog",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.pgdog.dev/",
+      "data_source_urls": [
+        "https://docs.pgdog.dev/",
+        "https://github.com/pgdogdev/pgdog",
+        "https://raw.githubusercontent.com/pgdogdev/pgdog/HEAD/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "olares",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://www.olares.com/docs/manual/overview",
+      "data_source_urls": [
+        "https://www.olares.com/docs/manual/overview",
+        "https://github.com/beclab/Olares",
+        "https://raw.githubusercontent.com/beclab/Olares/HEAD/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "rudderstack",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://www.rudderstack.com/docs/",
+      "data_source_urls": [
+        "https://www.rudderstack.com/docs/",
+        "https://github.com/rudderlabs/rudder-server",
+        "https://raw.githubusercontent.com/rudderlabs/rudder-server/HEAD/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "garage",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://garagehq.deuxfleurs.fr/documentation/",
+      "data_source_urls": [
+        "https://garagehq.deuxfleurs.fr/documentation/",
+        "https://github.com/deuxfleurs-org/garage",
+        "https://garagehq.deuxfleurs.fr",
+        "https://garagehq.deuxfleurs.fr/documentation/quick-start/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "tracecat",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.tracecat.com/",
+      "data_source_urls": [
+        "https://docs.tracecat.com/",
+        "https://github.com/TracecatHQ/tracecat",
+        "https://tracecat.com"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "open-terminal",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.openwebui.com/features/open-terminal/",
+      "data_source_urls": [
+        "https://docs.openwebui.com/features/open-terminal/",
+        "https://github.com/open-webui/open-terminal"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "undb",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.undb.io/",
+      "data_source_urls": [
+        "https://docs.undb.io/",
+        "https://github.com/undb-io/undb",
+        "https://undb.io"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "agent-vault",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.agent-vault.dev/",
+      "data_source_urls": [
+        "https://docs.agent-vault.dev/",
+        "https://github.com/Infisical/agent-vault"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "languine",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://languine.ai/en/docs",
+      "data_source_urls": [
+        "https://languine.ai/en/docs",
+        "https://github.com/languine-ai/languine",
+        "https://languine.ai"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "yaade",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.yaade.io/",
+      "data_source_urls": [
+        "https://docs.yaade.io/",
+        "https://github.com/EsperoTech/yaade"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "c15t",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://c15t.com/docs/",
+      "data_source_urls": [
+        "https://c15t.com/docs/",
+        "https://github.com/c15t/c15t",
+        "https://c15t.com",
+        "https://github.com/c15t/c15t/blob/main/docs/self-host/quickstart.mdx"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "classroomio",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://classroomio.com/docs/developers",
+      "data_source_urls": [
+        "https://classroomio.com/docs/developers",
+        "https://github.com/classroomio/classroomio"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "llm-gateway",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.llmgateway.io/",
+      "data_source_urls": [
+        "https://docs.llmgateway.io/",
+        "https://github.com/theopenco/llmgateway",
+        "https://llmgateway.io",
+        "https://github.com/theopenco/llmgateway/blob/main/apps/docs/content/self-host/docker-compose.mdx"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "keygen",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://keygen.sh/docs/",
+      "data_source_urls": [
+        "https://keygen.sh/docs/",
+        "https://github.com/keygen-sh/keygen-api"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "forward-email",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://forwardemail.net/en/self-hosted",
+      "data_source_urls": [
+        "https://forwardemail.net/en/self-hosted",
+        "https://github.com/forwardemail/forwardemail.net"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "traceway",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.tracewayapp.com/",
+      "data_source_urls": [
+        "https://docs.tracewayapp.com/",
+        "https://github.com/tracewayapp/traceway"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "kirby",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://getkirby.com/docs",
+      "data_source_urls": [
+        "https://getkirby.com/docs",
+        "https://github.com/getkirby/kirby"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "horilla",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.horilla.com/",
+      "data_source_urls": [
+        "https://docs.horilla.com/",
+        "https://github.com/horilla/horilla-hr",
+        "https://www.horilla.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "drawpile",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.drawpile.net/help/",
+      "data_source_urls": [
+        "https://docs.drawpile.net/help/",
+        "https://github.com/drawpile/Drawpile"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "pico",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://pico.sh/getting-started",
+      "data_source_urls": [
+        "https://pico.sh/getting-started",
+        "https://github.com/picosh/pico"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "databuddy",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://www.databuddy.cc/docs",
+      "data_source_urls": [
+        "https://www.databuddy.cc/docs",
+        "https://github.com/databuddy-analytics/Databuddy",
+        "https://www.databuddy.cc",
+        "https://github.com/databuddy-analytics/Databuddy/blob/main/docker-compose.selfhost.yml"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "logchimp",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.logchimp.app/",
+      "data_source_urls": [
+        "https://docs.logchimp.app/",
+        "https://github.com/logchimp/logchimp",
+        "https://logchimp.app",
+        "https://docs.logchimp.app/self-hosting/installation"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "courselit",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.courselit.app/",
+      "data_source_urls": [
+        "https://docs.courselit.app/",
+        "https://github.com/codelitdev/courselit",
+        "https://courselit.app",
+        "https://docs.courselit.app/self-hosting/self-host/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "ycode",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.ycode.com/docs",
+      "data_source_urls": [
+        "https://docs.ycode.com/docs",
+        "https://github.com/ycode/ycode",
+        "https://www.ycode.com",
+        "https://docs.ycode.com/docs/getting-started/installation"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "wraft",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.wraft.app/users",
+      "data_source_urls": [
+        "https://docs.wraft.app/users",
+        "https://github.com/wraft/wraft",
+        "https://wraft.app",
+        "https://docs.wraft.app/developers"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "betterlytics",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://dev.betterlytics.io/docs",
+      "data_source_urls": [
+        "https://dev.betterlytics.io/docs",
+        "https://github.com/betterlytics/betterlytics",
+        "https://betterlytics.io/",
+        "https://betterlytics.io/docs/installation/self-hosting"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "codezero",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.codezero.build/",
+      "data_source_urls": [
+        "https://docs.codezero.build/",
+        "https://github.com/code0-tech/codezero",
+        "https://codezero.build",
+        "https://docs.codezero.build"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "openserp",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://openserp.org/docs/",
+      "data_source_urls": [
+        "https://openserp.org/docs/",
+        "https://github.com/karust/openserp",
+        "https://openserp.org"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "runtm",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.runtm.com/",
+      "data_source_urls": [
+        "https://docs.runtm.com/",
+        "https://github.com/runtm-ai/runtm"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "photostructure",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://photostructure.com/getting-started/user-guide/",
+      "data_source_urls": [
+        "https://photostructure.com/getting-started/user-guide/",
+        "https://github.com/photostructure/photostructure-for-servers",
+        "https://photostructure.com/server/photostructure-for-servers/",
+        "https://photostructure.com/server/photostructure-for-docker-compose/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "phase",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.phase.dev/",
+      "data_source_urls": [
+        "https://docs.phase.dev/",
+        "https://github.com/phasehq/console",
+        "https://phase.dev",
+        "https://docs.phase.dev/self-hosting/docker-compose"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "hive",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://the-guild.dev/graphql/hive/docs",
+      "data_source_urls": [
+        "https://the-guild.dev/graphql/hive/docs",
+        "https://github.com/graphql-hive/console",
+        "https://the-guild.dev/graphql/hive",
+        "https://the-guild.dev/graphql/hive/docs/schema-registry/self-hosting/get-started"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

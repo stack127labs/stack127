@@ -1,0 +1,19 @@
+[Unit]
+Description=stack127 ad network publisher verification worker
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/teja/projects/stack127
+Environment=AD_NETWORK_DB_PATH=%h/.local/share/stack127/ad-networks.sqlite
+Environment=NODE_NO_WARNINGS=1
+ExecStart=/usr/bin/node scripts/ad-networks/worker.mjs --role verification --concurrency 12 --limit 2500
+Restart=always
+RestartSec=30
+TimeoutStopSec=90
+KillMode=control-group
+Nice=10
+
+[Install]
+WantedBy=default.target

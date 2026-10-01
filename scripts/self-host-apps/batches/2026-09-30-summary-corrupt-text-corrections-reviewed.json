@@ -1,0 +1,51 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected summary values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Official-source-backed fixes for four malformed or incomplete app summaries. Proposal only.",
+  "apps": [
+    {
+      "slug": "cap-captcha",
+      "summary": "Verifies form submissions with proof-of-work and instrumentation challenges instead of visual puzzles.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/tiagozip/cap"
+      ],
+      "expected": {
+        "summary": "Runs a CAPTCHA backend that issues proof-of-work challenges and verifies tokens for forms."
+      }
+    },
+    {
+      "slug": "projectsend",
+      "summary": "Client file-sharing app for uploading files, assigning access, and sharing them securely.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/projectsend/projectsend"
+      ],
+      "expected": {
+        "summary": "Upload files and assign them to specific you create, Give access to those files to your."
+      }
+    },
+    {
+      "slug": "aleph",
+      "summary": "Indexes documents and structured data for search, browsing, and entity cross-referencing.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/alephdata/aleph"
+      ],
+      "expected": {
+        "summary": "Search and browse documents and data; find the people and companies you look for."
+      }
+    },
+    {
+      "slug": "nextcloudpi",
+      "summary": "Provides ready-to-use Nextcloud images and installers for Raspberry Pi, virtual machines, and other supported boards.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/nextcloud/nextcloudpi"
+      ],
+      "expected": {
+        "summary": "Build code for NextcloudPi: Raspberry Pi, Odroid, Rock64, curl installer."
+      }
+    }
+  ]
+}

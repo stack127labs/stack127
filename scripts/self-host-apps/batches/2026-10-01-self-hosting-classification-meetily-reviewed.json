@@ -1,0 +1,31 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Remove Meetily from the self-host apps directory because the current supported release is a local desktop app, not a supported server deployment. Proposal only.",
+  "apps": [
+    {
+      "slug": "meetily",
+      "review_scope": "partial",
+      "expected": {
+        "published": true,
+        "self_hosting_status": "self_hostable"
+      },
+      "published": false,
+      "self_hosting_status": "not_self_hostable",
+      "data_source_urls": [
+        "https://api.github.com/repos/Zackriya-Solutions/meetily",
+        "https://api.github.com/repos/Zackriya-Solutions/meetily/license",
+        "https://github.com/Zackriya-Solutions/meetily",
+        "https://github.com/Zackriya-Solutions/meetily#installation",
+        "https://github.com/Zackriya-Solutions/meetily/blob/main/backend/README.md",
+        "https://github.com/Zackriya-Solutions/meetily/blob/main/frontend/README.md",
+        "https://github.com/zackriya-solutions/meetily",
+        "https://meetily.ai",
+        "https://meetily.ai/",
+        "https://openalternative.co/meetily",
+        "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/HEAD/README.md"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

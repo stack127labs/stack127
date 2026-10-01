@@ -1,0 +1,750 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Q–R app summaries rewritten from linked project sources in short, plain language. Proposal only.",
+  "corrections": [
+    {
+      "slug": "qdirstat",
+      "review_scope": "partial",
+      "summary": "Shows directory sizes in a tree and treemap to help locate space use.",
+      "expected": {
+        "summary": "QDirStat is a graphical application to show where your disk space has gone and to help you to clean it up, The graphical user interface (GUI) of the."
+      },
+      "data_source_urls": [
+        "https://github.com/shundhammer/qdirstat",
+        "https://github.com/jlesage/docker-qdirstat"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "quakejs",
+      "review_scope": "partial",
+      "summary": "Runs ioquake3 in a browser through JavaScript and Emscripten, with server support.",
+      "expected": {
+        "summary": "QuakeJS is a port of ioquake3 to JavaScript with the help of Emscripten.[br]IMPORTANT Use Custom:br0 https://youtu.be/2VnQxxn00jU?t=121 put Fixed IP address."
+      },
+      "data_source_urls": [
+        "https://github.com/inolen/quakejs",
+        "https://github.com/treyyoder/quakejs-docker"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "quartz-builder",
+      "review_scope": "partial",
+      "summary": "Builds and serves static websites using Quartz and an Express web server.",
+      "expected": {
+        "summary": "Implementation of Quartz static site generator (https://github.com/jackyzha0/quartz) + ExpressJS hosting, This can be used to make a static website from your."
+      },
+      "data_source_urls": [
+        "https://github.com/jackyzha0/quartz",
+        "https://github.com/typingpenguin/quartz_builder"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "question2answer",
+      "review_scope": "partial",
+      "summary": "Runs a Q&A site where members ask questions, post answers, vote, and comment.",
+      "expected": {
+        "summary": "App for Question&Answer sites."
+      },
+      "data_source_urls": [
+        "https://www.question2answer.org/",
+        "https://github.com/q2a/question2answer"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "questly",
+      "review_scope": "partial",
+      "summary": "Lets families assign quests for points that children exchange for household rewards.",
+      "expected": {
+        "summary": "A family points-and-rewards app, Grown-ups award points for quests and good behaviour; kids spend them in a shop of rewards you stock yourself, Kids sign in."
+      },
+      "data_source_urls": [
+        "https://github.com/mahansford/questly"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "qui",
+      "review_scope": "partial",
+      "summary": "Manages qBittorrent instances and automates torrent workflows from a web interface.",
+      "expected": {
+        "summary": "QBittorrent web UI."
+      },
+      "data_source_urls": [
+        "https://github.com/autobrr/qui",
+        "https://getqui.com/docs/intro"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "quireink",
+      "review_scope": "partial",
+      "summary": "Publishes a Markdown blog with an editor, scheduled posts, and email newsletters.",
+      "expected": {
+        "summary": "A blog in one small container: a real editor over Markdown (tables, footnotes, mathematics, video), scheduled publishing, newsletters over your own SMTP."
+      },
+      "data_source_urls": [
+        "https://github.com/joiha-steven/quireink#readme",
+        "https://github.com/joiha-steven/quireink/blob/main/docs/self-host-docker.md"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rancher",
+      "review_scope": "partial",
+      "summary": "Manages Kubernetes clusters and workloads through a web console.",
+      "expected": {
+        "summary": "A container management app built for organizations that deploy containers in production, The docker version of Rancher cannot be made HA (Highly Available)."
+      },
+      "data_source_urls": [
+        "https://github.com/rancher/rancher",
+        "https://ranchermanager.docs.rancher.com/"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "raneto",
+      "review_scope": "partial",
+      "summary": "Creates a searchable knowledge base from Markdown files in a Node.js web app.",
+      "expected": {
+        "summary": "Knowledgebase app that uses static Markdown files."
+      },
+      "data_source_urls": [
+        "https://github.com/ryanlelek/Raneto"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "ratelog",
+      "review_scope": "partial",
+      "summary": "Tracks and rates movies and TV shows, then builds ranked lists for each user.",
+      "expected": {
+        "summary": "A web app to search, rate, and track movies and TV shows via TMDB."
+      },
+      "data_source_urls": [
+        "https://github.com/golmenero/ratelog"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rathole",
+      "review_scope": "partial",
+      "summary": "Routes traffic through a reverse proxy to expose services behind NAT.",
+      "expected": {
+        "summary": "Installs and manages the rathole client on Unraid, rathole is a lightweight, high-performance reverse proxy that exposes local services on a NAT network to a."
+      },
+      "data_source_urls": [
+        "https://github.com/rathole-org/rathole"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rawtherapee",
+      "review_scope": "partial",
+      "summary": "Processes RAW photos with detailed controls for exposure, color, and image detail.",
+      "expected": {
+        "summary": "RawTherapee(https://rawtherapee.com/) is a free, cross-app raw image processing program."
+      },
+      "data_source_urls": [
+        "https://www.rawtherapee.com/",
+        "https://github.com/RawTherapee/RawTherapee"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rcon-webadmin",
+      "review_scope": "partial",
+      "summary": "Administers game servers through a browser interface that connects using RCON.",
+      "expected": {
+        "summary": "Out of the box, RCON Web Admin can check users for high ping, VAC status, or filter the chat for you around the clock, This image lets you run the."
+      },
+      "data_source_urls": [
+        "https://github.com/rcon-web-admin/rcon-web-admin",
+        "https://hub.docker.com/r/itzg/rcon"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rdiff-backup-rdiffweb",
+      "review_scope": "partial",
+      "summary": "Runs rdiff-backup and provides a web interface for managing backup repositories.",
+      "expected": {
+        "summary": "FR: app de sauvegarde incrémentales rdiff-backup associé à une webui de gestion du dépôt créé par rdiffweb EN: Incremental app for backup using rdiff-backup."
+      },
+      "data_source_urls": [
+        "https://github.com/waazaa-fr/rdiff-backup-rdiffweb"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rdt-client",
+      "review_scope": "partial",
+      "summary": "Acts as a Real-Debrid client proxy for compatible media and download apps.",
+      "expected": {
+        "summary": "Real-Debrid Client Proxy."
+      },
+      "data_source_urls": [
+        "https://github.com/rogerfar/rdt-client"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "reactionlight",
+      "review_scope": "partial",
+      "summary": "Assigns Discord roles when members react to messages in selected channels.",
+      "expected": {
+        "summary": "Easy to use reaction role Discord bot written in Python, README FIRST: How to create the bot and run it on Unraid:."
+      },
+      "data_source_urls": [
+        "https://github.com/eibex/reaction-light"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "readur",
+      "review_scope": "partial",
+      "summary": "Extracts searchable text from scanned documents using optical character recognition.",
+      "expected": {
+        "summary": "An intuitive OCR app for documents."
+      },
+      "data_source_urls": [
+        "https://github.com/readur/readur"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "red-discordbot",
+      "review_scope": "partial",
+      "summary": "Adds configurable commands for moderation and community features on Discord servers.",
+      "expected": {
+        "summary": "The newest Red-Discordbot in a convenient multi-arch container [br][br] How to create a bot account:."
+      },
+      "data_source_urls": [
+        "https://github.com/Cog-Creators/Red-DiscordBot",
+        "https://github.com/phasecorex/docker-red-discordbot"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "red-eclipse-2",
+      "review_scope": "partial",
+      "summary": "Hosts multiplayer matches for a fast-paced arena shooter with parkour movement.",
+      "expected": {
+        "summary": "Arena first-person shooter similar to Unreal Tournament."
+      },
+      "data_source_urls": [
+        "https://www.redeclipse.net/",
+        "https://github.com/redeclipse/base"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "redditchatbridge",
+      "review_scope": "partial",
+      "summary": "Relays Reddit Chat messages to a private Discord server and sends replies back.",
+      "expected": {
+        "summary": "Bridge between Reddit Chat and a private Discord server, Reddit DMs land in per-conversation #dm-* channels with the sender's snoovatar; replies relay back."
+      },
+      "data_source_urls": [
+        "https://github.com/mmenanno/reddit_chat_bridge"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "redirect",
+      "review_scope": "partial",
+      "summary": "Redirects requests to another path or domain using the YunoHost redirection service.",
+      "expected": {
+        "summary": "Create a redirection or a proxy to another path."
+      },
+      "data_source_urls": [
+        "https://github.com/YunoHost-Apps/redirect_ynh"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "reelping",
+      "review_scope": "partial",
+      "summary": "Monitors Plex availability and sends Discord notifications about server status.",
+      "expected": {
+        "summary": "ReelPing is a lightweight, Plex Media Server status monitor and Discord notifier, It continuously checks whether your Plex server is reachable and, when a."
+      },
+      "data_source_urls": [
+        "https://github.com/bgriffin63/reelping"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "remmina",
+      "review_scope": "partial",
+      "summary": "Connects to remote desktops and servers using common remote access protocols.",
+      "expected": {
+        "summary": "Remote access screen and file sharing."
+      },
+      "data_source_urls": [
+        "https://remmina.org/",
+        "https://gitlab.com/Remmina/Remmina"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "remotely",
+      "review_scope": "partial",
+      "summary": "Provides browser-based remote support, screen sharing, and scripting for computers.",
+      "expected": {
+        "summary": "A remote control and remote scripting app, built with.NET 6, Blazor, and SignalR Core."
+      },
+      "data_source_urls": [
+        "https://github.com/immense/remotely"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "remoteterm-for-meshcore",
+      "review_scope": "partial",
+      "summary": "Connects to MeshCore radios for terminal access, packet capture, and messaging.",
+      "expected": {
+        "summary": "A remote client for MeshCore radios with packet capture, store-and-decrypt, bots, MQTT, and more."
+      },
+      "data_source_urls": [
+        "https://github.com/jkingsman/remote-terminal-for-meshcore"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "resticprofile",
+      "review_scope": "partial",
+      "summary": "Configures and schedules restic backups through named profiles and automation.",
+      "expected": {
+        "summary": "A configuration profiles manager for restic backup, resticprofile is the missing link between a configuration file and restic backup, This image is built for."
+      },
+      "data_source_urls": [
+        "https://github.com/creativeprojects/resticprofile"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "reticulum-meshchat",
+      "review_scope": "partial",
+      "summary": "Sends messages over mesh networks powered by the Reticulum Network Stack.",
+      "expected": {
+        "summary": "A simple mesh network communications app powered by the Reticulum Network Stack."
+      },
+      "data_source_urls": [
+        "https://github.com/liamcottle/reticulum-meshchat",
+        "https://meshchat.app/"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "retronas-inabox",
+      "review_scope": "partial",
+      "summary": "Installs a prepared RetroNAS virtual machine on an Unraid server.",
+      "expected": {
+        "summary": "This container will fully install a RetroNAS VM into the VMs tab of your server, It downloads an a vDisk image, verifies it with a checksum before creating a."
+      },
+      "data_source_urls": [
+        "https://github.com/SpaceinvaderOne/RetroNASinabox",
+        "https://github.com/retronas/retronas"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "ride-the-lightning",
+      "review_scope": "partial",
+      "summary": "Monitors and manages Lightning Network nodes through a web interface.",
+      "expected": {
+        "summary": "A dashboard for the Lightning Network."
+      },
+      "data_source_urls": [
+        "https://github.com/Ride-The-Lightning/RTL"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rimgo",
+      "review_scope": "partial",
+      "summary": "Browses Imgur through an alternative frontend built for image sharing.",
+      "expected": {
+        "summary": "Alternative frontend for Imgur."
+      },
+      "data_source_urls": [
+        "https://codeberg.org/rimgo/rimgo"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rlcraft",
+      "review_scope": "partial",
+      "summary": "Runs a Minecraft server with the RLCraft modpack installed.",
+      "expected": {
+        "summary": "RLCraft 1.12.2 - Release v2.9.3 Modded Minecraft Server[br][br][b]RLCraft 1.12.2 - Release v2.9.3[/b][br]A modpack specially designed to bring an incredibly."
+      },
+      "data_source_urls": [
+        "https://www.curseforge.com/minecraft/modpacks/rlcraft"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rmfakecloud",
+      "review_scope": "partial",
+      "summary": "Syncs reMarkable tablets through a cloud service you operate.",
+      "expected": {
+        "summary": "Host your own cloud for the remarkable."
+      },
+      "data_source_urls": [
+        "https://github.com/ddvk/rmfakecloud"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rmlint",
+      "review_scope": "partial",
+      "summary": "Finds duplicate files, broken links, and other filesystem space waste.",
+      "expected": {
+        "summary": "Rmlint finds space waste and other broken things on your filesystem and offers to remove it."
+      },
+      "data_source_urls": [
+        "https://rmlint.readthedocs.io/en/latest/",
+        "https://github.com/sahib/rmlint"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "roadlog",
+      "review_scope": "partial",
+      "summary": "Tracks fuel, charging, and other expenses for multiple vehicles.",
+      "expected": {
+        "summary": "Roadlog is a vehicle fuel and expense tracker, Track fill-ups, expenses, consumption stats, and costs per vehicle, Includes CSV import, backup/restore, and."
+      },
+      "data_source_urls": [
+        "https://github.com/stomko11/roadlog"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "robosats",
+      "review_scope": "partial",
+      "summary": "Matches buyers and sellers for private peer-to-peer Bitcoin trades.",
+      "expected": {
+        "summary": "Simple and Private Bitcoin P2P Exchange."
+      },
+      "data_source_urls": [
+        "https://github.com/robosats/robosats"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rocket-chat",
+      "review_scope": "partial",
+      "summary": "Provides team messaging, channels, and file sharing for workplace collaboration.",
+      "expected": {
+        "summary": "The Secure CommsOS for mission-critical operations."
+      },
+      "data_source_urls": [
+        "https://rocket.chat/",
+        "https://github.com/RocketChat/Rocket.Chat"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rocketchat",
+      "review_scope": "partial",
+      "summary": "Provides team messaging, channels, and file sharing for workplace collaboration.",
+      "expected": {
+        "summary": "Team collaboration communication app."
+      },
+      "data_source_urls": [
+        "https://rocket.chat/",
+        "https://github.com/RocketChat/Rocket.Chat"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "roguelike-adventures-and-dungeons-2",
+      "review_scope": "partial",
+      "summary": "Runs a Minecraft server with the Roguelike Adventures and Dungeons 2 modpack.",
+      "expected": {
+        "summary": "RAD2 - 1.17 Modded Minecraft Server[br][br][b]RAD2 - 1.17 [/b][br]Exploration-based rogue-like modpack with quests, Character and Tool leveling, tons of new."
+      },
+      "data_source_urls": [
+        "https://www.curseforge.com/minecraft/modpacks/roguelike-adventures-and-dungeons-2"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rollerblades",
+      "review_scope": "partial",
+      "summary": "Rotates Plex pre-roll videos by schedule before movies and shows.",
+      "expected": {
+        "summary": "A tool to automate Plex prerolls based on schedules."
+      },
+      "data_source_urls": [
+        "https://github.com/jcostom/rollerblades"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "romarr",
+      "review_scope": "partial",
+      "summary": "Requests ROMs, searches game indexers, and imports downloads into a managed library.",
+      "expected": {
+        "summary": "The *arr for games, Request a title, ROMarr searches your indexers through Prowlarr, hands the winner to your download client, and files the ROM into your."
+      },
+      "data_source_urls": [
+        "https://github.com/BlizzHacker/romarr"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "romm-comm",
+      "review_scope": "partial",
+      "summary": "Controls a RomM game library from Discord and shares collection details.",
+      "expected": {
+        "summary": "A Discord bot that integrates with the RomM API to provide information about your ROM collection and control RomM from Discord."
+      },
+      "data_source_urls": [
+        "https://github.com/idio-sync/romm-comm"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "roon-server",
+      "review_scope": "partial",
+      "summary": "Streams a personal music library across Roon-compatible devices and playback zones.",
+      "expected": {
+        "summary": "Music software that transforms your listening experience."
+      },
+      "data_source_urls": [
+        "https://roon.app/",
+        "https://help.roonlabs.com/portal/en/kb/articles/installing-the-roon-server-via-docker"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rotshield",
+      "review_scope": "partial",
+      "summary": "Scans Btrfs data for bit rot and repairs damaged blocks using parity.",
+      "expected": {
+        "summary": "Btrfs scrubber for Unraid/NonRAID arrays: detects bitrot the same way btrfs scrub does, and rebuilds corrupted blocks from the array's P/Q parity instead of."
+      },
+      "data_source_urls": [
+        "https://github.com/digi-deity/rotshield"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "roundcube",
+      "review_scope": "partial",
+      "summary": "Reads and sends IMAP email from a browser, with an address book and message tools.",
+      "expected": {
+        "summary": "Browser-based IMAP with an application-like user interface."
+      },
+      "data_source_urls": [
+        "https://roundcube.net/about/",
+        "https://github.com/roundcube/roundcubemail"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "roundcubemail",
+      "review_scope": "partial",
+      "summary": "Reads and sends IMAP email from a browser, with an address book and message tools.",
+      "expected": {
+        "summary": "Roundcube Mail is an webmail software that offers a user-friendly interface for managing email accounts, It features a rich text editor, address book, and."
+      },
+      "data_source_urls": [
+        "https://roundcube.net/about/",
+        "https://github.com/roundcube/roundcubemail",
+        "https://github.com/roundcube/roundcubemail-docker"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "route96",
+      "review_scope": "partial",
+      "summary": "Hosts media uploads for Nostr clients using Blossom and NIP-96 protocols.",
+      "expected": {
+        "summary": "Blossom/NIP-96 media server for Nostr."
+      },
+      "data_source_urls": [
+        "https://github.com/v0l/route96"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rpcs3",
+      "review_scope": "partial",
+      "summary": "Emulates PlayStation 3 games on desktop computers and includes debugging tools.",
+      "expected": {
+        "summary": "RPCS3(https://rpcs3.net/) is a multi-app Sony PlayStation 3 emulator and debugger written in C++ for Windows, Linux, macOS and FreeBSD."
+      },
+      "data_source_urls": [
+        "https://github.com/RPCS3/rpcs3"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rreading-glasses",
+      "review_scope": "partial",
+      "summary": "Provides book and author metadata to compatible ebook library applications.",
+      "expected": {
+        "summary": "Rreading-glasses is a drop-in replacement for the official metadata provider that delivers lightning-fast, high-coverage book and author data to your."
+      },
+      "data_source_urls": [
+        "https://github.com/blampe/rreading-glasses"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rsnapshot",
+      "review_scope": "partial",
+      "summary": "Creates periodic filesystem snapshots using rsync and hard links.",
+      "expected": {
+        "summary": "Rsnapshot(http://www.rsnapshot.org/) is a filesystem snapshot utility based on rsync, rsnapshot makes it easy to make periodic snapshots of local machines."
+      },
+      "data_source_urls": [
+        "https://www.rsnapshot.org/"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rspamd",
+      "review_scope": "partial",
+      "summary": "Filters spam and unwanted email using rules, scoring, and machine learning.",
+      "expected": {
+        "summary": "Spam filtering system."
+      },
+      "data_source_urls": [
+        "https://rspamd.com/",
+        "https://github.com/rspamd/rspamd"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rss-to-telegram",
+      "review_scope": "partial",
+      "summary": "Forwards new posts from RSS feeds to Telegram chats and channels.",
+      "expected": {
+        "summary": "A telegram JS/TS bot that dumps posts from RSS feeds to a telegram chat, This script was created because all the third party services were unreliable, slow."
+      },
+      "data_source_urls": [
+        "https://github.com/bokker/rss-to-telegram-bot"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rtcwcoop",
+      "review_scope": "partial",
+      "summary": "Enables cooperative multiplayer in Return to Castle Wolfenstein.",
+      "expected": {
+        "summary": "A Return to Castle Wolfenstein modification which enables cooperative gameplay, based on iortcw, To run this you need legitimate copy of RTCW and RealRTCW."
+      },
+      "data_source_urls": [
+        "https://www.rtcwcoop.com/"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rumpus",
+      "review_scope": "partial",
+      "summary": "Hosts party games on a shared screen while players join from their phones.",
+      "expected": {
+        "summary": "Jackbox-style party game app: one shared TV screen and everyone else plays from their phone, Runs entirely on your LAN - no accounts, no cloud, no per-player."
+      },
+      "data_source_urls": [
+        "https://github.com/rodwilco/rumpus"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "runitor",
+      "review_scope": "partial",
+      "summary": "Runs commands and reports their result to a Healthchecks-compatible monitoring service.",
+      "expected": {
+        "summary": "Runitor runs the supplied command, captures its output, and based on its exit code reports successful or failed execution to https://healthchecks.io or your."
+      },
+      "data_source_urls": [
+        "https://github.com/bdd/runitor"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rust-server",
+      "review_scope": "partial",
+      "summary": "Runs a configurable dedicated server for the Rust multiplayer survival game.",
+      "expected": {
+        "summary": "Fully customizable Rust Server at your fingertips, [br] Set all of the settings below to suit your needs and save when you are ready, [br] [br] Features:."
+      },
+      "data_source_urls": [
+        "https://mdarkness1988.github.io/Rust-Server/"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rustatio",
+      "review_scope": "partial",
+      "summary": "Manages torrent seeding ratios by emulating supported BitTorrent clients.",
+      "expected": {
+        "summary": "A modern BitTorrent ratio management tool built with Rust, Accurately simulate seeding by emulating uTorrent, qBittorrent, Transmission, or Deluge."
+      },
+      "data_source_urls": [
+        "https://github.com/takitsu21/rustatio"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rustdesk-server",
+      "review_scope": "partial",
+      "summary": "Provides relay and rendezvous services for RustDesk remote desktop connections.",
+      "expected": {
+        "summary": "Remote control alternative for self-hosting."
+      },
+      "data_source_urls": [
+        "https://github.com/rustdesk/rustdesk-server",
+        "https://rustdesk.com/docs/en/"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rustic-waters-ii",
+      "review_scope": "partial",
+      "summary": "Runs a Minecraft server with the Rustic Waters II modpack.",
+      "expected": {
+        "summary": "Docker Container for Rustic Waters II Minecraft Modpack The docker on first run will download the same version as tagged of Rustic Waters II and install it."
+      },
+      "data_source_urls": [
+        "https://www.curseforge.com/minecraft/modpacks/rustic-waters-ii"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rusty-kaspad",
+      "review_scope": "partial",
+      "summary": "Runs a Kaspa full node using an implementation written in Rust.",
+      "expected": {
+        "summary": "A Rust implementation of a Kaspa full node."
+      },
+      "data_source_urls": [
+        "https://github.com/kaspanet/rusty-kaspa"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    },
+    {
+      "slug": "rutorrent",
+      "review_scope": "partial",
+      "summary": "Manages rTorrent downloads through a browser-based web interface.",
+      "expected": {
+        "summary": "Web front-end for rTorrent."
+      },
+      "data_source_urls": [
+        "https://github.com/Novik/ruTorrent"
+      ],
+      "review_note": "Summary rewritten from the linked official app page or source repository."
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Correct wrapper-license attribution, source links, and install support levels for Factorio and Omada Controller; add the verified Omada RAM recommendation.",
+  "apps": [
+    {
+      "slug": "factorio",
+      "review_scope": "partial",
+      "source_code_url": null,
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "expected": {
+        "source_code_url": "https://github.com/factoriotools/factorio-docker",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_code_host": "github",
+        "license": "Proprietary game software"
+      },
+      "data_source_urls": [
+        "https://www.factorio.com/terms-of-service",
+        "https://www.factorio.com/download",
+        "https://github.com/factoriotools/factorio-docker",
+        "https://github.com/factoriotools/factorio-docker/blob/master/LICENSE",
+        "https://github.com/factoriotools/factorio-docker/blob/master/docker/docker-compose.yml",
+        "https://apps.truenas.com/catalog/factorio_community/"
+      ],
+      "confidence": "high",
+      "review_note": "Wube's terms identify Factorio as proprietary software. MIT applies to the community Docker wrapper, not Factorio.",
+      "source_code_host": "unknown",
+      "license": "Proprietary Factorio software (Wube Software Ltd.)",
+      "reviewed_install_methods": [
+        "truenas_scale"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/factoriotools/factorio",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "factoriotools/factorio:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/factoriotools/factorio",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/factoriotools/factorio-docker/HEAD/docker-compose.yml",
+          "note": null,
+          "image": "factoriotools/factorio:latest",
+          "label": "Docker Compose",
+          "method": "compose",
+          "sort_order": 20,
+          "source_url": "https://raw.githubusercontent.com/factoriotools/factorio-docker/HEAD/docker-compose.yml",
+          "support_level": "community"
+        },
+        {
+          "url": "https://apps.truenas.com/catalog/factorio_community/",
+          "note": "Listed in the TrueNAS SCALE app catalog; catalog listing does not imply publisher support.",
+          "image": null,
+          "label": "TrueNAS SCALE catalog",
+          "method": "truenas_scale",
+          "sort_order": 30,
+          "source_url": "https://apps.truenas.com/catalog/factorio_community/",
+          "support_level": "official"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "truenas_scale",
+          "label": "TrueNAS SCALE catalog",
+          "url": "https://apps.truenas.com/catalog/factorio_community/",
+          "support_level": "community",
+          "source_url": "https://apps.truenas.com/catalog/factorio_community/",
+          "note": "Community catalog entry; this does not imply support from Wube Software.",
+          "sort_order": 30
+        }
+      ]
+    },
+    {
+      "slug": "omada-controller",
+      "review_scope": "partial",
+      "source_code_url": null,
+      "license": "Proprietary TP-Link controller; community Docker wrapper is AGPL-3.0",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "expected": {
+        "source_code_url": "https://github.com/mbentley/docker-omada-controller",
+        "license": "Proprietary TP-Link software; community wrapper under AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/mbentley/docker-omada-controller#readme",
+        "ram_recommended_mb": null,
+        "resource_requirement_kind": "unknown"
+      },
+      "data_source_urls": [
+        "https://support.omadanetworks.com/us/product/omada-software-controller/?resourceType=download",
+        "https://static.tp-link.com/upload/manual/2026/202604/20260401/1900002482_Omada%20SDN%20Controller_V6.2_User%20Guide.pdf",
+        "https://github.com/mbentley/docker-omada-controller",
+        "https://github.com/mbentley/docker-omada-controller/blob/master/LICENSE",
+        "https://github.com/mbentley/docker-omada-controller/blob/master/docker-compose.yml"
+      ],
+      "confidence": "high",
+      "review_note": "TP-Link publishes the on-prem controller as its own software. AGPL-3.0 applies to the independent Docker wrapper, which says it is not affiliated with TP-Link.",
+      "source_code_host": "unknown",
+      "docs_url": "https://support.omadanetworks.com/us/product/omada-software-controller/?resourceType=download",
+      "ram_recommended_mb": 16384,
+      "resource_requirement_kind": "official_recommended",
+      "reviewed_install_methods": [
+        "truenas_scale"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/mbentley/omada-controller",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "mbentley/omada-controller:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/mbentley/omada-controller",
+          "support_level": "community"
+        },
+        {
+          "url": "https://github.com/mbentley/docker-omada-controller/blob/master/docker-compose.yml",
+          "note": null,
+          "image": "mbentley/omada-controller:latest",
+          "label": "Docker Compose",
+          "method": "compose",
+          "sort_order": 20,
+          "source_url": "https://github.com/mbentley/docker-omada-controller/blob/master/docker-compose.yml",
+          "support_level": "community"
+        },
+        {
+          "url": "https://apps.truenas.com/catalog/omada-controller_community/",
+          "note": "Listed in the TrueNAS SCALE app catalog; catalog listing does not imply publisher support.",
+          "image": null,
+          "label": "TrueNAS SCALE catalog",
+          "method": "truenas_scale",
+          "sort_order": 30,
+          "source_url": "https://apps.truenas.com/catalog/omada-controller_community/",
+          "support_level": "official"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "truenas_scale",
+          "label": "TrueNAS SCALE catalog",
+          "url": "https://apps.truenas.com/catalog/omada-controller_community/",
+          "support_level": "community",
+          "source_url": "https://apps.truenas.com/catalog/omada-controller_community/",
+          "note": "Community catalog entry; this does not imply TP-Link support.",
+          "sort_order": 30
+        }
+      ]
+    }
+  ]
+}

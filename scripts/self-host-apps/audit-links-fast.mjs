@@ -49,6 +49,10 @@ function headersFor(url) {
 }
 
 async function checkUrl(item, timeoutMs) {
+  if (/https?:\/\/https\/\//i.test(item.url) || /\/r\/https?:\/\//i.test(item.url)) {
+    return { ...item, state: "bad", status: "malformed_url", final_url: item.url };
+  }
+
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
@@ -61,7 +65,7 @@ async function checkUrl(item, timeoutMs) {
     const state = response.ok ? "ok" : blockedStatuses.has(status) ? "blocked" : "bad";
     return { ...item, state, status, final_url: response.url };
   } catch (error) {
-    return { ...item, state: "bad", status: "error", final_url: item.url, error: error.message };
+    return { ...item, state: "error", status: "error", final_url: item.url, error: error.message };
   } finally {
     clearTimeout(timeout);
   }
@@ -78,7 +82,7 @@ async function runPool(items, concurrency, timeoutMs) {
       const result = await checkUrl(current, timeoutMs);
       results.push(result);
       if (result.state !== "ok") {
-        console.warn(`${result.state} ${result.slug}.${result.field} ${result.status} ${result.final_url}`);
+        console.warn(`${result.state} ${result.slug}.${result.field} ${result.status} ${result.final_url}${result.error ? ` ${result.error}` : ""}`);
       }
     }
   }
@@ -118,18 +122,25 @@ async function main() {
     }
   }
 
-  const results = await runPool(items, concurrency, timeoutMs);
+  const uniqueItems = [...new Map(items.map((item) => [item.url, item])).values()];
+  const uniqueResults = await runPool(uniqueItems, concurrency, timeoutMs);
+  const byUrl = new Map(uniqueResults.map((result) => [result.url, result]));
+  const results = items.map((item) => ({ ...byUrl.get(item.url), ...item }));
   const bad = results.filter((result) => result.state === "bad");
   const blocked = results.filter((result) => result.state === "blocked");
+  const errors = results.filter((result) => result.state === "error");
   const report = {
     generated_at: new Date().toISOString(),
     rows_checked: rows.length,
-    urls_checked: results.length,
-    ok_count: results.length - bad.length - blocked.length,
+    link_references_checked: results.length,
+    urls_checked: uniqueResults.length,
+    ok_count: results.length - bad.length - blocked.length - errors.length,
     blocked_count: blocked.length,
     bad_count: bad.length,
+    error_count: errors.length,
     blocked,
     bad,
+    errors,
   };
 
   if (args.out) {
@@ -137,15 +148,19 @@ async function main() {
     await writeFile(args.out, `${JSON.stringify(report, null, 2)}\n`);
   }
 
-  console.log(JSON.stringify({
+  const summary = JSON.stringify({
     rows_checked: report.rows_checked,
+    link_references_checked: report.link_references_checked,
     urls_checked: report.urls_checked,
     ok_count: report.ok_count,
     blocked_count: report.blocked_count,
     bad_count: report.bad_count,
-  }, null, 2));
+    error_count: report.error_count,
+  }, null, 2);
 
-  if (bad.length > 0) process.exitCode = 1;
+  const exitCode = bad.length > 0 ? 1 : errors.length > 0 ? 2 : 0;
+  await new Promise((resolve) => process.stdout.write(`${summary}\n`, resolve));
+  process.exit(exitCode);
 }
 
 main().catch((error) => {

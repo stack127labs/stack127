@@ -1,0 +1,596 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are offline comparison guards and must be refreshed before any apply.",
+  "scope": "Fill blank docs_url values only where an official, distinct, useful documentation page was verified. Proposal only.",
+  "apps": [
+    {
+      "slug": "unleash",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.getunleash.io/",
+      "data_source_urls": [
+        "https://docs.getunleash.io/",
+        "https://github.com/Unleash/unleash",
+        "https://www.getunleash.io",
+        "https://docs.getunleash.io/deploy/getting-started"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "openreplay",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.openreplay.com/en/home/",
+      "data_source_urls": [
+        "https://docs.openreplay.com/en/home/",
+        "https://github.com/openreplay/openreplay",
+        "https://openreplay.com",
+        "https://docs.openreplay.com/en/deployment/deploy-docker"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "keep",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.keephq.dev/",
+      "data_source_urls": [
+        "https://docs.keephq.dev/",
+        "https://github.com/keephq/keep",
+        "https://keephq.dev",
+        "https://docs.keephq.dev/deployment/docker"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "nango",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.nango.dev/",
+      "data_source_urls": [
+        "https://docs.nango.dev/",
+        "https://github.com/NangoHQ/nango",
+        "https://nango.dev",
+        "https://nango.dev/docs/guides/platform/self-hosting"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "growthbook",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.growthbook.io/",
+      "data_source_urls": [
+        "https://docs.growthbook.io/",
+        "https://github.com/growthbook/growthbook",
+        "https://www.growthbook.io",
+        "https://docs.growthbook.io/self-host"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "hanko",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.hanko.io/",
+      "data_source_urls": [
+        "https://docs.hanko.io/",
+        "https://github.com/teamhanko/hanko",
+        "https://www.hanko.io",
+        "https://github.com/teamhanko/hanko/tree/main/deploy"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "webstudio",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.webstudio.is/",
+      "data_source_urls": [
+        "https://docs.webstudio.is/",
+        "https://github.com/webstudio-is/webstudio",
+        "https://raw.githubusercontent.com/webstudio-is/webstudio/HEAD/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "wealthfolio",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://wealthfolio.app/docs/",
+      "data_source_urls": [
+        "https://wealthfolio.app/docs/",
+        "https://github.com/wealthfolio/wealthfolio",
+        "https://wealthfolio.app",
+        "https://wealthfolio.app/docs/guide/self-hosting/docker"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "webiny",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://www.webiny.com/docs",
+      "data_source_urls": [
+        "https://www.webiny.com/docs",
+        "https://github.com/webiny/webiny-js",
+        "https://www.webiny.com"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "hatchet",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.hatchet.run/",
+      "data_source_urls": [
+        "https://docs.hatchet.run/",
+        "https://github.com/hatchet-dev/hatchet",
+        "https://hatchet.run",
+        "https://docs.hatchet.run/self-hosting"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "openpanel-analytics",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://openpanel.dev/docs",
+      "data_source_urls": [
+        "https://openpanel.dev/docs",
+        "https://github.com/Openpanel-dev/openpanel",
+        "https://openpanel.dev",
+        "https://openpanel.dev/docs/self-hosting/self-hosting"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "lightdash",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.lightdash.com/",
+      "data_source_urls": [
+        "https://docs.lightdash.com/",
+        "https://github.com/lightdash/lightdash",
+        "https://lightdash.com",
+        "https://docs.lightdash.com/self-host/self-host-lightdash"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "jitsu",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://jitsu.com/docs/",
+      "data_source_urls": [
+        "https://jitsu.com/docs/",
+        "https://github.com/jitsucom/jitsu",
+        "https://jitsu.com",
+        "https://docs.jitsu.com/self-hosting/quick-start"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "usesend",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.usesend.com/",
+      "data_source_urls": [
+        "https://docs.usesend.com/",
+        "https://github.com/usesend/useSend",
+        "https://useSend.com",
+        "https://docs.usesend.com/self-hosting/overview"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "latitude",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.latitude.so/",
+      "data_source_urls": [
+        "https://docs.latitude.so/",
+        "https://github.com/latitude-dev/latitude-llm",
+        "https://latitude.so",
+        "https://docs.latitude.so/deployment/single-host"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "erxes",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://erxes.io/docs",
+      "data_source_urls": [
+        "https://erxes.io/docs",
+        "https://github.com/erxes/erxes",
+        "https://erxes.io/docs/local-setup"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "craft-cms",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://craftcms.com/docs/",
+      "data_source_urls": [
+        "https://craftcms.com/docs/",
+        "https://github.com/craftcms/cms",
+        "https://craftcms.com",
+        "https://craftcms.com/docs/5.x/install.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "chaskiq",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://dev.chaskiq.io/",
+      "data_source_urls": [
+        "https://dev.chaskiq.io/",
+        "https://github.com/chaskiq/chaskiq",
+        "https://chaskiq.io",
+        "https://dev.chaskiq.io/production-configuration"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "laminar",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://laminar.sh/docs",
+      "data_source_urls": [
+        "https://laminar.sh/docs",
+        "https://github.com/lmnr-ai/lmnr",
+        "https://laminar.sh",
+        "https://laminar.sh/docs/hosting-options#self-hosted-docker-compose"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "swirl-search",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.swirlaiconnect.com/",
+      "data_source_urls": [
+        "https://docs.swirlaiconnect.com/",
+        "https://github.com/swirlai/swirl-search",
+        "https://swirlaiconnect.com/",
+        "https://docs.swirlaiconnect.com/quick-start"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "trieve",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.trieve.ai/getting-started/introduction",
+      "data_source_urls": [
+        "https://docs.trieve.ai/getting-started/introduction",
+        "https://github.com/devflowinc/trieve",
+        "https://trieve.ai",
+        "https://docs.trieve.ai/self-hosting/docker-compose"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "timeplus",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.timeplus.com/",
+      "data_source_urls": [
+        "https://docs.timeplus.com/",
+        "https://github.com/timeplus-io/proton",
+        "https://timeplus.com",
+        "https://install.timeplus.com/oss"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "learnhouse",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.learnhouse.app/",
+      "data_source_urls": [
+        "https://docs.learnhouse.app/",
+        "https://github.com/learnhouse/learnhouse",
+        "https://learnhouse.app",
+        "https://docs.learnhouse.app/self-hosting/installation/quick-install"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "cozystack",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://cozystack.io/docs/",
+      "data_source_urls": [
+        "https://cozystack.io/docs/",
+        "https://github.com/cozystack/cozystack",
+        "https://cozystack.io",
+        "https://cozystack.io/docs/getting-started/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "sendportal",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://sendportal.io/docs/v2/",
+      "data_source_urls": [
+        "https://sendportal.io/docs/v2/",
+        "https://github.com/mettle/sendportal",
+        "https://sendportal.io",
+        "https://sendportal.io/docs/v2/getting-started/installation"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "open-mercato",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.openmercato.com/",
+      "data_source_urls": [
+        "https://docs.openmercato.com/",
+        "https://github.com/open-mercato/open-mercato",
+        "https://www.openmercato.com/",
+        "https://docs.openmercato.com/installation/setup"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "trench",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.trench.dev/",
+      "data_source_urls": [
+        "https://docs.trench.dev/",
+        "https://github.com/FrigadeHQ/trench",
+        "https://trench.dev",
+        "https://docs.trench.dev/quickstart"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "altcha",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://altcha.org/docs/",
+      "data_source_urls": [
+        "https://altcha.org/docs/",
+        "https://github.com/altcha-org/altcha",
+        "https://altcha.org",
+        "https://altcha.org/docs/v2/server-integration"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "ansible-nas",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://ansible-nas.io/docs/",
+      "data_source_urls": [
+        "https://ansible-nas.io/docs/",
+        "https://github.com/DaveStephens/ansible-nas",
+        "https://ansible-nas.io/docs/getting-started/installation/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "supertokens",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://supertokens.com/docs",
+      "data_source_urls": [
+        "https://supertokens.com/docs",
+        "https://github.com/supertokens/supertokens-core",
+        "https://supertokens.com",
+        "https://supertokens.com/docs/deployment/self-host-supertokens"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "ory",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://www.ory.com/docs/welcome",
+      "data_source_urls": [
+        "https://www.ory.com/docs/welcome",
+        "https://github.com/ory/kratos",
+        "https://www.ory.com/?utm_source=github&utm_medium=banner&utm_campaign=kratos",
+        "https://www.ory.com/docs/kratos/guides/deploy-kratos-example"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "october",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.octobercms.com/",
+      "data_source_urls": [
+        "https://docs.octobercms.com/",
+        "https://github.com/octobercms/october",
+        "https://docs.octobercms.com/3.x/setup/installation.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "sentry-self-hosted",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.sentry.io/",
+      "data_source_urls": [
+        "https://docs.sentry.io/",
+        "https://github.com/getsentry/self-hosted",
+        "https://develop.sentry.dev/self-hosted/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "rivet",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://rivet.dev/docs/",
+      "data_source_urls": [
+        "https://rivet.dev/docs/",
+        "https://github.com/rivet-dev/rivet",
+        "https://www.rivet.dev",
+        "https://www.rivet.dev/docs/self-hosting/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "plunk",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.useplunk.com/",
+      "data_source_urls": [
+        "https://docs.useplunk.com/",
+        "https://github.com/useplunk/plunk",
+        "https://docs.useplunk.com/self-hosting/introduction"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "tsuru",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.tsuru.io/",
+      "data_source_urls": [
+        "https://docs.tsuru.io/",
+        "https://github.com/tsuru/tsuru",
+        "https://tsuru.github.io/docs/getting_started/install_minikube/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "fonoster",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.fonoster.com/",
+      "data_source_urls": [
+        "https://docs.fonoster.com/",
+        "https://github.com/fonoster/fonoster",
+        "https://raw.githubusercontent.com/fonoster/fonoster/HEAD/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "openstatus",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://www.openstatus.dev/docs",
+      "data_source_urls": [
+        "https://www.openstatus.dev/docs",
+        "https://github.com/openstatusHQ/openstatus",
+        "https://openstatus.dev"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "piku",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://piku.github.io/",
+      "data_source_urls": [
+        "https://piku.github.io/",
+        "https://github.com/piku/piku",
+        "https://piku.github.io/install"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "uptrace",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://uptrace.dev/get",
+      "data_source_urls": [
+        "https://uptrace.dev/get",
+        "https://github.com/uptrace/uptrace",
+        "https://uptrace.dev/get/hosted/open-source-apm",
+        "https://github.com/uptrace/uptrace/tree/master/example/docker"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

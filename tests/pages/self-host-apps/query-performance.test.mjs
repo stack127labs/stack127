@@ -8,9 +8,10 @@ async function read(relativePath) {
   return readFile(new URL(relativePath, root), "utf8");
 }
 
-test("the directory loads lightweight filter rows before detailed page records", async () => {
+test("the directory loads its index in bounded batches and fetches details on demand", async () => {
   const apps = await read("lib/apps.ts");
   const page = await read("app/(site)/(directories)/self-host-apps/page.tsx");
+  const route = await read("app/api/self-host-apps/[slug]/route.ts");
 
   assert.match(apps, /export type DirectoryAppIndex/);
   assert.match(apps, /export async function getDirectoryAppIndex/);
@@ -20,8 +21,10 @@ test("the directory loads lightweight filter rows before detailed page records",
   assert.match(apps, /const DIRECTORY_APP_INDEX_BATCH_SIZE = 750/);
   assert.match(apps, /async function loadDirectoryAppIndexBatch/);
   assert.match(apps, /limit \$1\s+offset \$2/);
-  assert.match(apps, /Math\.ceil\(appCount \/ DIRECTORY_APP_INDEX_BATCH_SIZE\)/);
+  assert.match(apps, /Math\.ceil\(count \/ DIRECTORY_APP_INDEX_BATCH_SIZE\)/);
   assert.match(page, /getDirectoryAppIndex\(\)/);
-  assert.match(page, /getDirectoryAppsBySlugs\(paginatedIndexApps\.map/);
+  assert.match(page, /DirectoryAppBrowser apps=\{paginatedIndexApps\.map\(directoryAppCard\)\}/);
+  assert.doesNotMatch(page, /getDirectoryAppsBySlugs/);
   assert.doesNotMatch(page, /getDirectoryApps\(\)/);
+  assert.match(route, /getDirectoryAppsBySlugs\(\[slug\]\)/);
 });

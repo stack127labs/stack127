@@ -1,0 +1,62 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected summary values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Official-source-backed fixes for five malformed or outdated summaries. Proposal only.",
+  "apps": [
+    {
+      "slug": "streamystats",
+      "summary": "Jellyfin analytics app for playback history, library statistics, user activity, and recommendations.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/fredrikburmester/streamystats"
+      ],
+      "expected": {
+        "summary": "Shows Jellyfin playback history, library trends, and user activity in an analytics dashboard."
+      }
+    },
+    {
+      "slug": "ilias",
+      "summary": "Learning management system for creating and delivering online education and professional training.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/ILIAS-eLearning/ILIAS"
+      ],
+      "expected": {
+        "summary": "Learning management system that can cope with anything you throw at it."
+      }
+    },
+    {
+      "slug": "openreader",
+      "summary": "Reads EPUB, PDF, TXT, Markdown, and DOCX documents aloud with synchronized highlighting and audiobook export.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/richardr1126/openreader"
+      ],
+      "expected": {
+        "summary": "EPUB, PDF, DOCX, MD, and TXT file text to speech document reader, Read documents in realtime with high-quality TTS; or extract audiobooks."
+      }
+    },
+    {
+      "slug": "snikket",
+      "summary": "Private messaging server for groups with chat, voice and video calls, and invitations.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://snikket.org/service/"
+      ],
+      "expected": {
+        "summary": "Dockerized easy XMPP app, including web admin and."
+      }
+    },
+    {
+      "slug": "egroupware",
+      "summary": "Groupware suite for email, calendars, contacts, tasks, projects, files, chat, and video calls.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://www.egroupware.org/"
+      ],
+      "expected": {
+        "summary": "Web based groupware server written in PHP, forum at https://help.egroupware.org/."
+      }
+    }
+  ]
+}

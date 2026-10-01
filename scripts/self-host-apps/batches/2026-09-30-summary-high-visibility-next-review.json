@@ -1,0 +1,205 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected summary values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Official-source-backed one-sentence summary corrections for 18 published self-hosted apps. Proposal only.",
+  "apps": [
+    {
+      "slug": "payload-cms",
+      "summary": "Next.js backend for content editing, APIs, authentication, access control, and file storage.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://payloadcms.com/docs/getting-started/what-is-payload"
+      ],
+      "expected": {
+        "summary": "Developer-first headless CMS and application framework."
+      }
+    },
+    {
+      "slug": "mattermost",
+      "summary": "Team collaboration app for messaging, calls, file sharing, and workflow automation.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://mattermost.com/"
+      ],
+      "expected": {
+        "summary": "Internal chat and collaboration for organizations."
+      }
+    },
+    {
+      "slug": "influxdb",
+      "summary": "Time-series database for collecting, storing, processing, and querying metrics and events.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://docs.influxdata.com/influxdb/v2/"
+      ],
+      "expected": {
+        "summary": "Scalable datastore for metrics and real-time analytics."
+      }
+    },
+    {
+      "slug": "node-red",
+      "summary": "Visual flow editor for connecting devices, APIs, and online services into event-driven applications.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://nodered.org/"
+      ],
+      "expected": {
+        "summary": "Low-code programming for event-driven applications."
+      }
+    },
+    {
+      "slug": "opik",
+      "summary": "Tracing and evaluation software for debugging and monitoring LLM apps and agent workflows.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://www.comet.com/docs/opik/tracing/overview"
+      ],
+      "expected": {
+        "summary": "Debug, evaluate, and monitor your LLM applications, RAG systems, and agentic workflows with comprehensive tracing, automated evaluations, and."
+      }
+    },
+    {
+      "slug": "jupyterlab",
+      "summary": "Web environment for notebooks, code consoles, terminals, editors, and interactive computing.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html"
+      ],
+      "expected": {
+        "summary": "Web environment for interactive and reproducible computing."
+      }
+    },
+    {
+      "slug": "coder",
+      "summary": "Runs cloud development environments on your infrastructure for developers and coding agents.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://coder.com/docs/index"
+      ],
+      "expected": {
+        "summary": "Remote development machines on your own infrastructure."
+      }
+    },
+    {
+      "slug": "druid",
+      "summary": "Distributed analytics database for fast ingestion and queries over event-oriented data.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://druid.apache.org/docs/latest/design/index.html"
+      ],
+      "expected": {
+        "summary": "Distributed, column-oriented, real-time analytics data store."
+      }
+    },
+    {
+      "slug": "borg",
+      "summary": "Backup tool that stores deduplicated, compressed, and authenticated encrypted archives.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://www.borgbackup.org/"
+      ],
+      "expected": {
+        "summary": "Deduplicating archiver with compression and encryption."
+      }
+    },
+    {
+      "slug": "tinode",
+      "summary": "Mobile-first messaging software for building scalable real-time chat across client apps.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://www.tinode.co/"
+      ],
+      "expected": {
+        "summary": "Instant messaging app, Backend in Go.: Swift iOS, Java Android, JS webapp, scriptable command line; chatbots."
+      }
+    },
+    {
+      "slug": "sftpgo",
+      "summary": "File transfer server for SFTP, SCP, FTP/S, WebDAV, and browser-based file access.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://docs.sftpgo.com/enterprise/"
+      ],
+      "expected": {
+        "summary": "Fully featured and highly configurable SFTP server."
+      }
+    },
+    {
+      "slug": "centrifugo",
+      "summary": "Real-time messaging server that delivers app updates over WebSocket, streaming, SSE, WebTransport, and gRPC.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://centrifugal.dev/docs/getting-started/introduction"
+      ],
+      "expected": {
+        "summary": "Language-agnostic real-time messaging (Websocket or SockJS) server."
+      }
+    },
+    {
+      "slug": "mautic",
+      "summary": "Marketing automation software for contact segments, campaigns, email, and landing pages.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://mautic.org/about/"
+      ],
+      "expected": {
+        "summary": "Marketing automation software (email, social and more)."
+      }
+    },
+    {
+      "slug": "technitium-dns-server",
+      "summary": "DNS server for recursive and authoritative lookups, filtering, clustering, and encrypted DNS.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://technitium.com/dns/"
+      ],
+      "expected": {
+        "summary": "Authoritative/recursive DNS server with ad blocking functionality."
+      }
+    },
+    {
+      "slug": "tinyauth",
+      "summary": "Authentication middleware that protects reverse-proxied apps with password and OAuth logins.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://tinyauth.app/docs/getting-started/"
+      ],
+      "expected": {
+        "summary": "Simple authentication middleware for reverse proxies."
+      }
+    },
+    {
+      "slug": "btcpay-server",
+      "summary": "Non-custodial payment processor for Bitcoin, Lightning, and supported altcoins.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://docs.btcpayserver.org/FAQ/General/"
+      ],
+      "expected": {
+        "summary": "Bitcoin and other cryptocurrencies payment processor."
+      }
+    },
+    {
+      "slug": "evidence",
+      "summary": "Builds analytics reports and dashboards with Markdown, SQL, and reusable components.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://evidence.dev/"
+      ],
+      "expected": {
+        "summary": "Business intelligence as code: build fast, interactive data visualizations in SQL and markdown."
+      }
+    },
+    {
+      "slug": "wger",
+      "summary": "Fitness manager for workout routines, nutrition, body measurements, and progress tracking.",
+      "review_scope": "partial",
+      "data_source_urls": [
+        "https://github.com/wger-project/wger"
+      ],
+      "expected": {
+        "summary": "Web personal workout, fitness and weight logger/tracker."
+      }
+    }
+  ]
+}

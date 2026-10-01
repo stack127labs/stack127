@@ -1,0 +1,21 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Remove TimeScribe from the self-host apps directory because its official project describes a macOS and Windows desktop app that runs locally, not a server deployment. Proposal only.",
+  "apps": [
+    {
+      "slug": "timescribe",
+      "review_scope": "partial",
+      "expected": {
+        "published": true,
+        "self_hosting_status": "self_hostable"
+      },
+      "published": false,
+      "self_hosting_status": "not_self_hostable",
+      "data_source_urls": [
+        "https://github.com/WINBIGFOX/TimeScribe"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

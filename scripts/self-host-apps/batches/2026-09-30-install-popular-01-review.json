@@ -1,0 +1,2873 @@
+{
+  "reviewed_at": "2026-09-30",
+  "database_access": "read_only",
+  "canonical_project": "tulgfrqamtcshdtmhvpx",
+  "scope": "Read-only install-option review of 25 parent-selected published self-hostable records with empty install-option arrays. Official publisher/project install destinations are recorded; community images are labeled. No production writes were made.",
+  "selection": {
+    "filters": {
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "install_options": "empty array"
+    },
+    "order_by": "parent-assigned popularity-prioritized slug list",
+    "limit": 25,
+    "records": [
+      "unraid",
+      "docusaurus",
+      "revealjs",
+      "strapi",
+      "unsloth-studio",
+      "casaos",
+      "clickhouse",
+      "cyberchef",
+      "czkawka",
+      "dokku",
+      "dokploy",
+      "dub",
+      "erpnext",
+      "gogs",
+      "halo",
+      "harbor",
+      "harness",
+      "homepage-by-gethomepage",
+      "huly",
+      "jan",
+      "jitsi-meet",
+      "keepassxc",
+      "kodi",
+      "krayin",
+      "metabase"
+    ]
+  },
+  "records": [
+    {
+      "slug": "unraid",
+      "app_id": "5da2f611-1a8b-49b2-8e6b-bcad67db9a24",
+      "current": {
+        "name": "Unraid",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "closed_source",
+        "popularity_score": 96,
+        "website_url": "https://unraid.net/",
+        "docs_url": "https://docs.unraid.net/",
+        "install_docs_url": "https://unraid.net/download",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_url": "https://unraid.net/",
+        "publisher_name": "Lime Technology, Inc.",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "appliance"
+        ],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "5da2f611-1a8b-49b2-8e6b-bcad67db9a24",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "other",
+          "label": "Unraid OS download and USB Creator",
+          "url": "https://unraid.net/download",
+          "support_level": "official",
+          "source_url": "https://docs.unraid.net/unraid-os/getting-started/set-up-unraid/create-your-bootable-media/",
+          "image": null,
+          "note": "Official guide uses the Unraid USB Creator to download and write the OS to boot media.",
+          "sort_order": 10
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "appliance",
+          "label": "Unraid OS download and USB Creator",
+          "url": "https://unraid.net/download",
+          "support_level": "official",
+          "source_url": "https://docs.unraid.net/unraid-os/getting-started/set-up-unraid/create-your-bootable-media/",
+          "image": null,
+          "note": "Official guide uses the Unraid USB Creator to download and write the OS to boot media.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": [
+        "appliance"
+      ],
+      "expected_deployment_methods": [
+        "appliance"
+      ],
+      "directory_fit": "review",
+      "directory_fit_reason": "Unraid is a server operating system/platform, not an individual app.",
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://docs.unraid.net/unraid-os/getting-started/set-up-unraid/create-your-bootable-media/",
+        "deployment_methods": [
+          "appliance"
+        ]
+      },
+      "inspection_notes": [
+        "The official setup guide says Unraid OS boots from a USB flash device; the download page is the official installer destination."
+      ],
+      "sources": [
+        "https://unraid.net/",
+        "https://unraid.net/download",
+        "https://docs.unraid.net/unraid-os/getting-started/set-up-unraid/create-your-bootable-media/"
+      ],
+      "gaps_updates": [
+        "The current download link and appliance method are accurate. Use the official setup guide as install_docs_url; decide whether operating systems belong in this directory."
+      ],
+      "root_review": "Included as a self-host server platform; its official install path is the bootable USB installer."
+    },
+    {
+      "slug": "docusaurus",
+      "app_id": "66f4e60f-0b65-4c46-9c87-6ce9269053c4",
+      "current": {
+        "name": "Docusaurus",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 95,
+        "website_url": "https://docusaurus.io",
+        "docs_url": "https://docusaurus.io/docs",
+        "install_docs_url": "https://docusaurus.io/docs/installation",
+        "source_code_url": "https://github.com/facebook/docusaurus",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/facebook/docusaurus",
+        "publisher_name": "Facebook, Inc. and affiliates",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "66f4e60f-0b65-4c46-9c87-6ce9269053c4",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "native",
+          "label": "Serve a built Docusaurus site",
+          "url": "https://docusaurus.io/docs/deployment",
+          "support_level": "official",
+          "source_url": "https://docusaurus.io/docs/deployment",
+          "image": null,
+          "note": "Official self-hosting section uses docusaurus serve --build --port 80 --host 0.0.0.0; the docs recommend static hosting for production.",
+          "sort_order": 10
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "native",
+          "label": "Serve a built Docusaurus site",
+          "url": "https://docusaurus.io/docs/deployment",
+          "support_level": "official",
+          "source_url": "https://docusaurus.io/docs/deployment",
+          "image": null,
+          "note": "Official self-hosting section uses docusaurus serve --build --port 80 --host 0.0.0.0; the docs recommend static hosting for production.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": [
+        "native"
+      ],
+      "expected_deployment_methods": [
+        "native"
+      ],
+      "directory_fit": "review",
+      "directory_fit_reason": "Docusaurus can serve a generated site locally using the official self-hosting instructions, but the product is a static-site generator rather than a standalone app service.",
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://docusaurus.io/docs/deployment",
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "inspection_notes": [
+        "Official deployment docs generate static output and say users choose how to host those files.",
+        "The same page has a Self-Hosting section with docusaurus serve --build --port 80 --host 0.0.0.0, while warning that a static host or CDN is usually preferable."
+      ],
+      "sources": [
+        "https://docusaurus.io/docs/installation",
+        "https://docusaurus.io/docs/deployment"
+      ],
+      "gaps_updates": [
+        "Add the verified native serving route if generated-site hosting belongs in this directory. Review its category because Docusaurus itself is a generator, not a standalone server app."
+      ],
+      "root_review": "Included because official deployment documentation provides a command to serve the generated site from the user host."
+    },
+    {
+      "slug": "revealjs",
+      "app_id": "2107e75a-28ee-4477-b49c-37526144ec7d",
+      "current": {
+        "name": "revealjs",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 95,
+        "website_url": "https://revealjs.com",
+        "docs_url": "https://revealjs.com/",
+        "install_docs_url": "https://revealjs.com/installation/",
+        "source_code_url": "https://github.com/hakimel/reveal.js",
+        "source_code_host": "github",
+        "publisher_url": "https://hakim.se",
+        "publisher_name": "Hakim El Hattab",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "2107e75a-28ee-4477-b49c-37526144ec7d",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [],
+      "expected_install_options": [],
+      "reviewed_install_methods": [],
+      "expected_deployment_methods": [],
+      "directory_fit": "exclude",
+      "directory_fit_reason": "reveal.js is a presentation framework/library for building slide decks, not a standalone self-hosted service.",
+      "skip_reason": "No app install option: official installation installs reveal.js as a project dependency for creating presentations.",
+      "proposed_fields": {},
+      "inspection_notes": [
+        "Official installation page presents npm/download setup for authoring reveal.js presentations; the result is a web presentation, not a server product."
+      ],
+      "sources": [
+        "https://revealjs.com/installation/",
+        "https://revealjs.com/"
+      ],
+      "gaps_updates": [
+        "Review/remove the self-hostable classification. Do not show npm setup as a self-hosted app install."
+      ]
+    },
+    {
+      "slug": "strapi",
+      "app_id": "28fefdf2-025c-45c6-84c6-f1763f5ed409",
+      "current": {
+        "name": "Strapi",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 95,
+        "website_url": "https://strapi.io",
+        "docs_url": "https://docs.strapi.io/cms/intro",
+        "install_docs_url": "https://docs.strapi.io/cms/installation/docker",
+        "source_code_url": "https://github.com/strapi/strapi",
+        "source_code_host": "github",
+        "publisher_url": "https://strapi.io",
+        "publisher_name": "Strapi Solutions SAS",
+        "docker_url": "https://docs.strapi.io/cms/installation/docker",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "28fefdf2-025c-45c6-84c6-f1763f5ed409",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "package",
+          "label": "Create a Strapi project with npx",
+          "url": "https://docs.strapi.io/cms/quick-start",
+          "support_level": "official",
+          "source_url": "https://docs.strapi.io/cms/quick-start",
+          "image": null,
+          "note": "The official quick start runs npx create-strapi@latest and starts a local Strapi server; the current guide prompts users to sign in to Strapi Cloud during setup.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Build and run with Docker Compose",
+          "url": "https://docs.strapi.io/cms/installation/docker",
+          "support_level": "official",
+          "source_url": "https://docs.strapi.io/cms/installation/docker",
+          "image": null,
+          "note": "Official guide builds an app image from the user's project and provides Docker Compose setup; Strapi publishes no official Docker image.",
+          "sort_order": 20
+        },
+        {
+          "method": "docker",
+          "label": "Community Strapi 5 image",
+          "url": "https://hub.docker.com/r/naskio/strapi",
+          "support_level": "community",
+          "source_url": "https://docs.strapi.io/cms/installation/docker",
+          "image": "naskio/strapi:latest",
+          "note": "Strapi docs list this community image for Strapi 5 and say community images are not officially supported. Docker Hub showed the image last updated 11 months ago while the docs describe it as actively maintained; check current tags before use.",
+          "sort_order": 30
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "package",
+          "label": "Create a Strapi project with npx",
+          "url": "https://docs.strapi.io/cms/quick-start",
+          "support_level": "official",
+          "source_url": "https://docs.strapi.io/cms/quick-start",
+          "image": null,
+          "note": "The official quick start runs npx create-strapi@latest and starts a local Strapi server; the current guide prompts users to sign in to Strapi Cloud during setup.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Build and run with Docker Compose",
+          "url": "https://docs.strapi.io/cms/installation/docker",
+          "support_level": "official",
+          "source_url": "https://docs.strapi.io/cms/installation/docker",
+          "image": null,
+          "note": "Official guide builds an app image from the user's project and provides Docker Compose setup; Strapi publishes no official Docker image.",
+          "sort_order": 20
+        },
+        {
+          "method": "docker",
+          "label": "Community Strapi 5 image",
+          "url": "https://hub.docker.com/r/naskio/strapi",
+          "support_level": "community",
+          "source_url": "https://docs.strapi.io/cms/installation/docker",
+          "image": "naskio/strapi:latest",
+          "note": "Strapi docs list this community image for Strapi 5 and say community images are not officially supported. Docker Hub showed the image last updated 11 months ago while the docs describe it as actively maintained; check current tags before use.",
+          "sort_order": 30
+        }
+      ],
+      "reviewed_install_methods": [
+        "package",
+        "compose",
+        "docker"
+      ],
+      "expected_deployment_methods": [
+        "package",
+        "docker",
+        "compose"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://docs.strapi.io/cms/installation/docker",
+        "docker_url": "https://hub.docker.com/r/naskio/strapi",
+        "docker_image": "naskio/strapi:latest",
+        "compose_url": "https://docs.strapi.io/cms/installation/docker",
+        "deployment_methods": [
+          "package",
+          "docker",
+          "compose"
+        ],
+        "docker_support": "community",
+        "compose_support": true
+      },
+      "inspection_notes": [
+        "Official Strapi docs show npx create-strapi@latest for creating a project.",
+        "The official Docker guide explicitly says Strapi does not provide official Docker images; it provides a Compose recipe for building a project's image and lists naskio/strapi as community-maintained.",
+        "Docker Hub shows naskio/strapi last updated 11 months ago, so its freshness conflicts with the current docs description and needs a maintainer/tag check."
+      ],
+      "sources": [
+        "https://docs.strapi.io/cms/quick-start",
+        "https://docs.strapi.io/cms/installation/docker",
+        "https://hub.docker.com/r/naskio/strapi"
+      ],
+      "gaps_updates": [
+        "Current docker_url points to documentation and docker_support=official is inaccurate. Use the listed community image only with community support and freshness note; retain Compose as an official build-your-own-image route."
+      ]
+    },
+    {
+      "slug": "unsloth-studio",
+      "app_id": "743b43ab-1b0e-4ebc-8945-0c9c2684f075",
+      "current": {
+        "name": "Unsloth Studio",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 95,
+        "website_url": "https://unsloth.ai/docs",
+        "docs_url": "https://docs.unsloth.ai/",
+        "install_docs_url": "https://github.com/unslothai/unsloth#readme",
+        "source_code_url": "https://github.com/unslothai/unsloth",
+        "source_code_host": "github",
+        "publisher_url": "https://unsloth.ai",
+        "publisher_name": "Unsloth AI",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": null,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "743b43ab-1b0e-4ebc-8945-0c9c2684f075",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "native",
+          "label": "Unsloth Studio installer",
+          "url": "https://unsloth.ai/install.sh",
+          "support_level": "official",
+          "source_url": "https://unsloth.ai/docs/new/studio/install",
+          "image": null,
+          "note": "Official shell installer for macOS, WSL, and Linux; the install guide also gives a Windows PowerShell installer.",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Unsloth Studio container (NVIDIA)",
+          "url": "https://hub.docker.com/r/unsloth/unsloth",
+          "support_level": "official",
+          "source_url": "https://unsloth.ai/docs/get-started/install/docker",
+          "image": "unsloth/unsloth:latest",
+          "note": "Official Docker guide shows the NVIDIA image with Studio preinstalled.",
+          "sort_order": 20
+        },
+        {
+          "method": "docker",
+          "label": "Unsloth Studio container (AMD)",
+          "url": "https://hub.docker.com/r/unsloth/unsloth-rocm",
+          "support_level": "official",
+          "source_url": "https://unsloth.ai/docs/get-started/install/docker",
+          "image": "unsloth/unsloth-rocm:latest",
+          "note": "Official Docker guide shows the ROCm image for AMD GPUs.",
+          "sort_order": 30
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "native",
+          "label": "Unsloth Studio installer",
+          "url": "https://unsloth.ai/install.sh",
+          "support_level": "official",
+          "source_url": "https://unsloth.ai/docs/new/studio/install",
+          "image": null,
+          "note": "Official shell installer for macOS, WSL, and Linux; the install guide also gives a Windows PowerShell installer.",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Unsloth Studio container (NVIDIA)",
+          "url": "https://hub.docker.com/r/unsloth/unsloth",
+          "support_level": "official",
+          "source_url": "https://unsloth.ai/docs/get-started/install/docker",
+          "image": "unsloth/unsloth:latest",
+          "note": "Official Docker guide shows the NVIDIA image with Studio preinstalled.",
+          "sort_order": 20
+        },
+        {
+          "method": "docker",
+          "label": "Unsloth Studio container (AMD)",
+          "url": "https://hub.docker.com/r/unsloth/unsloth-rocm",
+          "support_level": "official",
+          "source_url": "https://unsloth.ai/docs/get-started/install/docker",
+          "image": "unsloth/unsloth-rocm:latest",
+          "note": "Official Docker guide shows the ROCm image for AMD GPUs.",
+          "sort_order": 30
+        }
+      ],
+      "reviewed_install_methods": [
+        "native",
+        "docker"
+      ],
+      "expected_deployment_methods": [
+        "native",
+        "docker"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://unsloth.ai/docs/new/studio/install",
+        "docker_url": "https://unsloth.ai/docs/get-started/install/docker",
+        "docker_image": null,
+        "deployment_methods": [
+          "native",
+          "docker"
+        ],
+        "docker_support": "official"
+      },
+      "inspection_notes": [
+        "Official documentation provides a native installer and separate NVIDIA/AMD Docker images. The Docker page says Studio is included and documents persistence and GPU flags."
+      ],
+      "sources": [
+        "https://unsloth.ai/docs/new/studio/install",
+        "https://unsloth.ai/docs/get-started/install/docker",
+        "https://hub.docker.com/r/unsloth/unsloth",
+        "https://hub.docker.com/r/unsloth/unsloth-rocm"
+      ],
+      "gaps_updates": [
+        "The current install_docs_url points to a repository README and omits the official native install route. Two official image variants mean a single docker_image field cannot represent both; use the install-option rows for exact images."
+      ]
+    },
+    {
+      "slug": "casaos",
+      "app_id": "711751d2-4dc9-46e2-9a28-8b7027abeebe",
+      "current": {
+        "name": "CasaOS",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://casaos.zimaspace.com",
+        "docs_url": "https://wiki.casaos.io/en/home",
+        "install_docs_url": "https://wiki.casaos.io/en/get-started",
+        "source_code_url": "https://github.com/IceWhaleTech/CasaOS",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/IceWhaleTech",
+        "publisher_name": "IceWhaleTech",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "711751d2-4dc9-46e2-9a28-8b7027abeebe",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "native",
+          "label": "CasaOS Linux installer",
+          "url": "https://wiki.casaos.io/en/get-started",
+          "support_level": "official",
+          "source_url": "https://wiki.casaos.io/en/get-started",
+          "image": null,
+          "note": "Official guide installs CasaOS on supported Linux server systems with the published shell installer.",
+          "sort_order": 10
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "native",
+          "label": "CasaOS Linux installer",
+          "url": "https://wiki.casaos.io/en/get-started",
+          "support_level": "official",
+          "source_url": "https://wiki.casaos.io/en/get-started",
+          "image": null,
+          "note": "Official guide installs CasaOS on supported Linux server systems with the published shell installer.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": [
+        "native"
+      ],
+      "expected_deployment_methods": [
+        "native"
+      ],
+      "directory_fit": "review",
+      "directory_fit_reason": "CasaOS is a home-server operating platform/app manager, rather than one hosted application.",
+      "skip_reason": null,
+      "proposed_fields": {
+        "deployment_methods": [
+          "native"
+        ],
+        "install_docs_url": "https://wiki.casaos.io/en/get-started"
+      },
+      "inspection_notes": [
+        "CasaOS official getting-started instructions install it on a supported Linux server; this is a host platform setup."
+      ],
+      "sources": [
+        "https://wiki.casaos.io/en/get-started",
+        "https://wiki.casaos.io/en/home"
+      ],
+      "gaps_updates": [
+        "Add the native install method. Review whether server platforms are in scope for the apps directory."
+      ],
+      "root_review": "Included as a self-host server platform with an official Linux installation guide."
+    },
+    {
+      "slug": "clickhouse",
+      "app_id": "305f30fd-b0cd-4ff8-8ab7-36a49ee52357",
+      "current": {
+        "name": "ClickHouse",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://clickhouse.com",
+        "docs_url": null,
+        "install_docs_url": "https://clickhouse.com/docs/install",
+        "source_code_url": "https://github.com/ClickHouse/ClickHouse",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/ClickHouse",
+        "publisher_name": "ClickHouse",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": null,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "305f30fd-b0cd-4ff8-8ab7-36a49ee52357",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "ClickHouse Server container",
+          "url": "https://hub.docker.com/r/clickhouse/clickhouse-server",
+          "support_level": "official",
+          "source_url": "https://clickhouse.com/docs/install",
+          "image": "clickhouse/clickhouse-server:latest",
+          "note": "Official ClickHouse Server image published on Docker Hub.",
+          "sort_order": 10
+        },
+        {
+          "method": "package",
+          "label": "ClickHouse package installation",
+          "url": "https://clickhouse.com/docs/get-started/setup/install",
+          "support_level": "official",
+          "source_url": "https://clickhouse.com/docs/get-started/setup/install",
+          "image": null,
+          "note": "Official guide covers supported package-based installs for ClickHouse Server and Client.",
+          "sort_order": 20
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "docker",
+          "label": "ClickHouse Server container",
+          "url": "https://hub.docker.com/r/clickhouse/clickhouse-server",
+          "support_level": "official",
+          "source_url": "https://clickhouse.com/docs/install",
+          "image": "clickhouse/clickhouse-server:latest",
+          "note": "Official ClickHouse Server image published on Docker Hub.",
+          "sort_order": 10
+        },
+        {
+          "method": "package",
+          "label": "ClickHouse package installation",
+          "url": "https://clickhouse.com/docs/get-started/setup/install",
+          "support_level": "official",
+          "source_url": "https://clickhouse.com/docs/get-started/setup/install",
+          "image": null,
+          "note": "Official guide covers supported package-based installs for ClickHouse Server and Client.",
+          "sort_order": 20
+        }
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "package"
+      ],
+      "expected_deployment_methods": [
+        "docker",
+        "package"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://clickhouse.com/docs/get-started/setup/install",
+        "docker_url": "https://hub.docker.com/r/clickhouse/clickhouse-server",
+        "docker_image": "clickhouse/clickhouse-server:latest",
+        "deployment_methods": [
+          "docker",
+          "package"
+        ],
+        "docker_support": "official"
+      },
+      "inspection_notes": [
+        "ClickHouse documentation directs users to Docker and package installation methods; the Docker Hub image is published under the ClickHouse organization."
+      ],
+      "sources": [
+        "https://clickhouse.com/docs/get-started/setup/install",
+        "https://hub.docker.com/r/clickhouse/clickhouse-server",
+        "https://packages.clickhouse.com/"
+      ],
+      "gaps_updates": [
+        "Add exact Docker and package installation paths. The current docker_url is empty despite docker_support being official."
+      ]
+    },
+    {
+      "slug": "cyberchef",
+      "app_id": "4c46676c-687f-48c9-993d-d6297eb3a3c6",
+      "current": {
+        "name": "CyberChef",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://gchq.github.io/CyberChef",
+        "docs_url": "https://github.com/gchq/CyberChef#readme",
+        "install_docs_url": "https://github.com/gchq/CyberChef#readme",
+        "source_code_url": "https://github.com/gchq/CyberChef",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/gchq",
+        "publisher_name": "gchq",
+        "docker_url": "https://github.com/gchq/CyberChef/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "4c46676c-687f-48c9-993d-d6297eb3a3c6",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "CyberChef container",
+          "url": "https://github.com/gchq/CyberChef/pkgs/container/cyberchef",
+          "support_level": "official",
+          "source_url": "https://github.com/gchq/CyberChef#readme",
+          "image": "ghcr.io/gchq/cyberchef:latest",
+          "note": "The official README names the prebuilt GHCR image and port 8080.",
+          "sort_order": 10
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "docker",
+          "label": "CyberChef container",
+          "url": "https://github.com/gchq/CyberChef/pkgs/container/cyberchef",
+          "support_level": "official",
+          "source_url": "https://github.com/gchq/CyberChef#readme",
+          "image": "ghcr.io/gchq/cyberchef:latest",
+          "note": "The official README names the prebuilt GHCR image and port 8080.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": [
+        "docker"
+      ],
+      "expected_deployment_methods": [
+        "docker"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "docker_url": "https://github.com/gchq/CyberChef/pkgs/container/cyberchef",
+        "docker_image": "ghcr.io/gchq/cyberchef:latest",
+        "deployment_methods": [
+          "docker"
+        ],
+        "install_docs_url": "https://github.com/gchq/CyberChef#readme"
+      },
+      "inspection_notes": [
+        "The project README publishes ghcr.io/gchq/cyberchef:latest as the official prebuilt image; the GHCR package page lists published tags."
+      ],
+      "sources": [
+        "https://github.com/gchq/CyberChef#readme",
+        "https://github.com/gchq/CyberChef/pkgs/container/cyberchef"
+      ],
+      "gaps_updates": [
+        "Current docker_url points to a Dockerfile, not an install destination. Replace it with the GHCR package page and record the verified image."
+      ]
+    },
+    {
+      "slug": "czkawka",
+      "app_id": "62993b81-c001-4831-98bd-2cc9d2b9988d",
+      "current": {
+        "name": "Czkawka",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://github.com/qarmin/czkawka",
+        "docs_url": "https://github.com/qarmin/czkawka#readme",
+        "install_docs_url": "https://github.com/qarmin/czkawka#readme",
+        "source_code_url": "https://github.com/qarmin/czkawka",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/qarmin",
+        "publisher_name": "qarmin",
+        "docker_url": "https://github.com/qarmin/czkawka/blob/HEAD/misc/docker/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "62993b81-c001-4831-98bd-2cc9d2b9988d",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [],
+      "expected_install_options": [],
+      "reviewed_install_methods": [],
+      "expected_deployment_methods": [],
+      "directory_fit": "exclude",
+      "directory_fit_reason": "Czkawka is a local desktop/CLI file-cleaning utility, not a hosted app or server service.",
+      "skip_reason": "No verified self-hosted app target: the project distributes desktop/CLI software for cleaning files on a user's machine; the Dockerfile is build source, not a published installation destination.",
+      "proposed_fields": {
+        "docker_url": null,
+        "docker_image": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": false
+      },
+      "inspection_notes": [
+        "Official project documentation describes desktop GUI and CLI use; it does not provide an official published container image/install service.",
+        "The database Docker URL points to the project's Dockerfile, which is not an install destination."
+      ],
+      "sources": [
+        "https://github.com/qarmin/czkawka",
+        "https://github.com/qarmin/czkawka/blob/master/czkawka_gui/README.md",
+        "https://github.com/qarmin/czkawka/blob/master/instructions/FAQ.md"
+      ],
+      "gaps_updates": [
+        "Review/remove the self-hostable classification, clear the Dockerfile URL and Docker install method, and keep Docker support unknown unless a published, maintained project image is verified."
+      ]
+    },
+    {
+      "slug": "dokku",
+      "app_id": "058ad0ba-bc8c-4c92-b88d-96d4ee2f841d",
+      "current": {
+        "name": "Dokku",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://dokku.com",
+        "docs_url": "https://github.com/dokku/dokku#readme",
+        "install_docs_url": "https://github.com/dokku/dokku#readme",
+        "source_code_url": "https://github.com/dokku/dokku",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/dokku",
+        "publisher_name": "dokku",
+        "docker_url": "https://github.com/dokku/dokku/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "058ad0ba-bc8c-4c92-b88d-96d4ee2f841d",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "native",
+          "label": "Dokku host installer",
+          "url": "https://dokku.com/bootstrap.sh",
+          "support_level": "official",
+          "source_url": "https://dokku.com/",
+          "image": null,
+          "note": "Official quick start downloads the bootstrap script and pins the current stable DOKKU_TAG.",
+          "sort_order": 10
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "native",
+          "label": "Dokku host installer",
+          "url": "https://dokku.com/bootstrap.sh",
+          "support_level": "official",
+          "source_url": "https://dokku.com/",
+          "image": "https://dokku.com/bootstrap.sh",
+          "note": "Official quick start downloads bootstrap.sh and pins the current stable DOKKU_TAG; Dokku installs on a Linux host and uses Docker to run users' apps.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": [
+        "native"
+      ],
+      "expected_deployment_methods": [
+        "native"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://dokku.com/",
+        "docker_url": null,
+        "docker_image": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false
+      },
+      "inspection_notes": [
+        "The current official home page gives the bootstrap.sh installer command and current stable release tag v0.38.31.",
+        "Dokku is a host-installed PaaS that uses Docker for deployed applications; the repository Dockerfile is not a Dokku install route."
+      ],
+      "sources": [
+        "https://dokku.com/",
+        "https://dokku.com/bootstrap.sh"
+      ],
+      "gaps_updates": [
+        "Replace the Dockerfile URL and Docker method with the native host installer. The current install_docs_url should point to current installation instructions."
+      ]
+    },
+    {
+      "slug": "dokploy",
+      "app_id": "59b211a3-905a-46d3-a0c3-2a2bc6468ea2",
+      "current": {
+        "name": "Dokploy",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://dokploy.com",
+        "docs_url": "https://github.com/Dokploy/dokploy#readme",
+        "install_docs_url": "https://github.com/Dokploy/dokploy#readme",
+        "source_code_url": "https://github.com/Dokploy/dokploy",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/Dokploy",
+        "publisher_name": "Dokploy",
+        "docker_url": "https://github.com/Dokploy/dokploy/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "59b211a3-905a-46d3-a0c3-2a2bc6468ea2",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "native",
+          "label": "Dokploy server installer",
+          "url": "https://dokploy.com/install.sh",
+          "support_level": "official",
+          "source_url": "https://docs.dokploy.com/docs/core/installation",
+          "image": null,
+          "note": "Official script installs Dokploy on a Linux server and sets up Docker if required.",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Dokploy Docker Swarm setup",
+          "url": "https://docs.dokploy.com/docs/core/manual-installation",
+          "support_level": "official",
+          "source_url": "https://docs.dokploy.com/docs/core/manual-installation",
+          "image": null,
+          "note": "Official manual setup creates Docker Swarm services for Dokploy and its dependencies; this is a multi-service server install, not a standalone container.",
+          "sort_order": 20
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "native",
+          "label": "Dokploy server installer",
+          "url": "https://dokploy.com/install.sh",
+          "support_level": "official",
+          "source_url": "https://docs.dokploy.com/docs/core/installation",
+          "image": null,
+          "note": "Official script installs Dokploy on a Linux server and sets up Docker if required.",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Dokploy Docker Swarm setup",
+          "url": "https://docs.dokploy.com/docs/core/manual-installation",
+          "support_level": "official",
+          "source_url": "https://docs.dokploy.com/docs/core/manual-installation",
+          "image": null,
+          "note": "Official manual setup creates Docker Swarm services for Dokploy and its dependencies; this is a multi-service server install, not a standalone container.",
+          "sort_order": 20
+        }
+      ],
+      "reviewed_install_methods": [
+        "native",
+        "docker"
+      ],
+      "expected_deployment_methods": [
+        "native",
+        "docker"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://docs.dokploy.com/docs/core/installation",
+        "docker_url": "https://docs.dokploy.com/docs/core/manual-installation",
+        "docker_image": null,
+        "deployment_methods": [
+          "native",
+          "docker"
+        ],
+        "docker_support": "official"
+      },
+      "inspection_notes": [
+        "Official installation docs give the host installer script; official manual-install docs give the Docker Swarm service setup and note server/port prerequisites."
+      ],
+      "sources": [
+        "https://docs.dokploy.com/docs/core/installation",
+        "https://docs.dokploy.com/docs/core/manual-installation"
+      ],
+      "gaps_updates": [
+        "Replace the Dockerfile link with official install instructions. Keep Docker support but distinguish the multi-service Swarm setup from a single-image install."
+      ]
+    },
+    {
+      "slug": "dub",
+      "app_id": "d00e05cf-c559-4db3-bdbb-b1e11a358be7",
+      "current": {
+        "name": "Dub",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://dub.co",
+        "docs_url": "https://dub.co/docs",
+        "install_docs_url": "https://dub.co/docs/self-hosting",
+        "source_code_url": "https://github.com/dubinc/dub",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/dubinc",
+        "publisher_name": "dubinc",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "d00e05cf-c559-4db3-bdbb-b1e11a358be7",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [],
+      "expected_install_options": [],
+      "reviewed_install_methods": [],
+      "expected_deployment_methods": [],
+      "directory_fit": "exclude",
+      "directory_fit_reason": "Dub's self-hosting instructions depend on hosted providers and deploy the application to Vercel; the docs state Docker is not supported.",
+      "skip_reason": "No verified independent self-host install target: official self-host instructions depend on hosted services including PlanetScale, Upstash, and Tinybird, deploy the app to Vercel, and state Docker is unsupported.",
+      "proposed_fields": {},
+      "inspection_notes": [
+        "The project has a self-hosting guide, but it documents a Vercel deployment and external managed dependencies rather than a standalone server install."
+      ],
+      "sources": [
+        "https://dub.co/docs/self-hosting"
+      ],
+      "gaps_updates": [
+        "Review/remove the self-hostable classification or clarify the directory's scope. Do not create an install option for the Vercel route."
+      ]
+    },
+    {
+      "slug": "erpnext",
+      "app_id": "8d95718d-fdda-47da-bbb5-0e1d8201fdd7",
+      "current": {
+        "name": "ERPNext",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://frappe.io/erpnext",
+        "docs_url": "https://github.com/frappe/erpnext#readme",
+        "install_docs_url": "https://github.com/frappe/erpnext#readme",
+        "source_code_url": "https://github.com/frappe/erpnext",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/frappe",
+        "publisher_name": "frappe",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "8d95718d-fdda-47da-bbb5-0e1d8201fdd7",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "compose",
+          "label": "ERPNext production Docker Compose setup",
+          "url": "https://frappe.github.io/frappe_docker/01-getting-started/01-choosing-a-deployment-method.html",
+          "support_level": "official",
+          "source_url": "https://frappe.github.io/frappe_docker/01-getting-started/01-choosing-a-deployment-method.html",
+          "image": null,
+          "note": "Official Frappe Docker guide distinguishes disposable quick-start from production Compose deployment; use production overrides/Easy Install for a persistent instance.",
+          "sort_order": 10
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "compose",
+          "label": "ERPNext production Docker Compose setup",
+          "url": "https://frappe.github.io/frappe_docker/01-getting-started/01-choosing-a-deployment-method.html",
+          "support_level": "official",
+          "source_url": "https://frappe.github.io/frappe_docker/01-getting-started/01-choosing-a-deployment-method.html",
+          "image": null,
+          "note": "Official Frappe Docker guide distinguishes disposable quick-start from production Compose deployment; use production overrides/Easy Install for a persistent instance.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": [
+        "compose"
+      ],
+      "expected_deployment_methods": [
+        "compose"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://frappe.github.io/frappe_docker/01-getting-started/01-choosing-a-deployment-method.html",
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "inspection_notes": [
+        "Official Frappe Docker documentation explains deployment choices and production setup. The disposable pwd.yml quick start should not be presented as a production deployment."
+      ],
+      "sources": [
+        "https://frappe.github.io/frappe_docker/",
+        "https://frappe.github.io/frappe_docker/01-getting-started/01-choosing-a-deployment-method.html",
+        "https://frappe.github.io/frappe_docker/02-setup/03-start-setup.html"
+      ],
+      "gaps_updates": [
+        "Replace the repository README install link with the official deployment-method guide. Keep Compose as the full installation route; do not present the ERPNext component image as a standalone app."
+      ]
+    },
+    {
+      "slug": "gogs",
+      "app_id": "369c2c28-31f0-459a-9cdd-08bca9ce13e7",
+      "current": {
+        "name": "Gogs",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://gogs.io",
+        "docs_url": "https://github.com/gogs/gogs#readme",
+        "install_docs_url": "https://github.com/gogs/gogs#readme",
+        "source_code_url": "https://github.com/gogs/gogs",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/gogs",
+        "publisher_name": "gogs",
+        "docker_url": "https://github.com/gogs/gogs/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "369c2c28-31f0-459a-9cdd-08bca9ce13e7",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Gogs security-focused container",
+          "url": "https://hub.docker.com/r/gogs/gogs",
+          "support_level": "official",
+          "source_url": "https://github.com/gogs/gogs/blob/main/docker-next/README.md",
+          "image": "gogs/gogs:next-latest",
+          "note": "The official next-generation Docker instructions publish and run this tag; it is not the legacy stable latest tag.",
+          "sort_order": 10
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "docker",
+          "label": "Gogs security-focused container",
+          "url": "https://hub.docker.com/r/gogs/gogs",
+          "support_level": "official",
+          "source_url": "https://github.com/gogs/gogs/blob/main/docker-next/README.md",
+          "image": "gogs/gogs:next-latest",
+          "note": "The official next-generation Docker instructions publish and run this tag; it is not the legacy stable latest tag.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": [
+        "docker"
+      ],
+      "expected_deployment_methods": [
+        "docker"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://github.com/gogs/gogs/blob/main/docker-next/README.md",
+        "docker_url": "https://hub.docker.com/r/gogs/gogs",
+        "docker_image": "gogs/gogs:next-latest",
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official"
+      },
+      "inspection_notes": [
+        "Gogs' docker-next README identifies the next-generation security-focused image, links the official Docker Hub repository, and shows a docker run command for gogs/gogs:next-latest."
+      ],
+      "sources": [
+        "https://github.com/gogs/gogs/blob/main/docker-next/README.md",
+        "https://hub.docker.com/r/gogs/gogs"
+      ],
+      "gaps_updates": [
+        "Replace the Dockerfile source link with the Docker Hub image page and avoid labelling next-latest as the stable latest image."
+      ]
+    },
+    {
+      "slug": "halo",
+      "app_id": "0d42300b-84d1-45e9-9668-154344a262ae",
+      "current": {
+        "name": "Halo",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://github.com/halo-dev/halo",
+        "docs_url": "https://github.com/halo-dev/halo#readme",
+        "install_docs_url": "https://github.com/halo-dev/halo#readme",
+        "source_code_url": "https://github.com/halo-dev/halo",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/halo-dev",
+        "publisher_name": "halo-dev",
+        "docker_url": "https://github.com/halo-dev/halo/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "0d42300b-84d1-45e9-9668-154344a262ae",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Halo Community Edition container",
+          "url": "https://hub.docker.com/r/halohub/halo",
+          "support_level": "official",
+          "source_url": "https://docs.halo.run/getting-started/install/docker",
+          "image": "halohub/halo:2.26",
+          "note": "Official Halo Docker Hub image. The registry lists stable 2.26 and newer beta tags; use a stable release tag for this record.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Halo Community Edition Docker Compose setup",
+          "url": "https://docs.halo.run/guide/install/docker-compose",
+          "support_level": "official",
+          "source_url": "https://docs.halo.run/guide/install/docker-compose",
+          "image": "halohub/halo:2.26",
+          "note": "Official Compose guide covers the community image; the separate halohub/halo-pro image is the paid/pro edition.",
+          "sort_order": 20
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "docker",
+          "label": "Halo Community Edition container",
+          "url": "https://hub.docker.com/r/halohub/halo",
+          "support_level": "official",
+          "source_url": "https://docs.halo.run/getting-started/install/docker",
+          "image": "halohub/halo:2.26",
+          "note": "Official Halo Docker Hub image. The registry lists stable 2.26 and newer beta tags; use a stable release tag for this record.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Halo Community Edition Docker Compose setup",
+          "url": "https://docs.halo.run/guide/install/docker-compose",
+          "support_level": "official",
+          "source_url": "https://docs.halo.run/guide/install/docker-compose",
+          "image": "halohub/halo:2.26",
+          "note": "Official Compose guide covers the community image; the separate halohub/halo-pro image is the paid/pro edition.",
+          "sort_order": 20
+        }
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose"
+      ],
+      "expected_deployment_methods": [
+        "docker",
+        "compose"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://docs.halo.run/guide/install/docker-compose",
+        "docker_url": "https://hub.docker.com/r/halohub/halo",
+        "docker_image": "halohub/halo:2.26",
+        "compose_url": "https://docs.halo.run/guide/install/docker-compose",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "inspection_notes": [
+        "The official project Docker Hub page links Halo's official Docker guide and publishes the halohub/halo image; tags page currently shows stable 2.26 and newer beta tags.",
+        "The official Compose guide distinguishes the community edition image from the paid Pro image."
+      ],
+      "sources": [
+        "https://docs.halo.run/guide/install/docker-compose",
+        "https://docs.halo.run/getting-started/install/docker",
+        "https://hub.docker.com/r/halohub/halo",
+        "https://hub.docker.com/r/halohub/halo/tags"
+      ],
+      "gaps_updates": [
+        "Replace the Dockerfile URL with the official image and add the official Compose route. Label the image as Community Edition, not Pro."
+      ]
+    },
+    {
+      "slug": "harbor",
+      "app_id": "ba112631-c999-447f-93ee-17bf72f03406",
+      "current": {
+        "name": "Harbor",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://goharbor.io",
+        "docs_url": "https://github.com/goharbor/harbor#readme",
+        "install_docs_url": "https://github.com/goharbor/harbor#readme",
+        "source_code_url": "https://github.com/goharbor/harbor",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/goharbor",
+        "publisher_name": "goharbor",
+        "docker_url": "https://github.com/goharbor/harbor/blob/HEAD/tools/mockery/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "ba112631-c999-447f-93ee-17bf72f03406",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "binary",
+          "label": "Harbor online/offline installer",
+          "url": "https://github.com/goharbor/harbor/releases",
+          "support_level": "official",
+          "source_url": "https://goharbor.io/docs/edge/install-config/download-installer/",
+          "image": null,
+          "note": "Official docs direct users to online or offline signed release bundles; the installer deploys the Harbor services.",
+          "sort_order": 10
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "binary",
+          "label": "Harbor online/offline installer",
+          "url": "https://github.com/goharbor/harbor/releases",
+          "support_level": "official",
+          "source_url": "https://goharbor.io/docs/edge/install-config/download-installer/",
+          "image": null,
+          "note": "Official docs direct users to online or offline signed release bundles; the installer deploys the Harbor services.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": [
+        "binary"
+      ],
+      "expected_deployment_methods": [
+        "binary"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://goharbor.io/docs/edge/install-config/download-installer/",
+        "docker_url": null,
+        "docker_image": null,
+        "deployment_methods": [
+          "binary"
+        ],
+        "docker_support": "official"
+      },
+      "inspection_notes": [
+        "Official Harbor docs direct users to release-page online/offline installer bundles, which can be signature-verified before extraction and installation.",
+        "The current Docker URL points to tools/mockery/Dockerfile inside the Harbor repository, not Harbor's server deployment."
+      ],
+      "sources": [
+        "https://goharbor.io/docs/edge/install-config/download-installer/",
+        "https://github.com/goharbor/harbor/releases",
+        "https://github.com/goharbor/harbor"
+      ],
+      "gaps_updates": [
+        "Replace the incorrect mockery Dockerfile link with the official installer route; don't expose it as Harbor's Docker image."
+      ]
+    },
+    {
+      "slug": "harness",
+      "app_id": "db888caa-3bf1-4c39-aa8c-a6c4b3c66874",
+      "current": {
+        "name": "Harness",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://www.harness.io/open-source",
+        "docs_url": null,
+        "install_docs_url": "https://developer.harness.io/docs/open-source/",
+        "source_code_url": "https://github.com/harness/harness",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/harness",
+        "publisher_name": "harness",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "db888caa-3bf1-4c39-aa8c-a6c4b3c66874",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Harness Open Source container",
+          "url": "https://hub.docker.com/r/harness/harness",
+          "support_level": "official",
+          "source_url": "https://github.com/harness/harness#running-harness-locally",
+          "image": "harness/harness:latest",
+          "note": "Publisher README gives a Docker run command and links the official Docker Hub image.",
+          "sort_order": 10
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "docker",
+          "label": "Harness Open Source container",
+          "url": "https://hub.docker.com/r/harness/harness",
+          "support_level": "official",
+          "source_url": "https://github.com/harness/harness#running-harness-locally",
+          "image": "harness/harness:latest",
+          "note": "Publisher README gives a Docker run command and links the official Docker Hub image.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": [
+        "docker"
+      ],
+      "expected_deployment_methods": [
+        "docker"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://github.com/harness/harness#running-harness-locally",
+        "docker_url": "https://hub.docker.com/r/harness/harness",
+        "docker_image": "harness/harness:latest",
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false
+      },
+      "inspection_notes": [
+        "Harness Open Source README gives a local Docker run setup and links harness/harness on Docker Hub.",
+        "The current developer.harness.io/docs/open-source URL returned 404 during review."
+      ],
+      "sources": [
+        "https://github.com/harness/harness#running-harness-locally",
+        "https://hub.docker.com/r/harness/harness",
+        "https://developer.harness.io/docs/open-source/"
+      ],
+      "gaps_updates": [
+        "Replace the 404 install_docs_url, remove the unverified Compose method, and point docker_url to the published image rather than relying on source code."
+      ]
+    },
+    {
+      "slug": "homepage-by-gethomepage",
+      "app_id": "9243dfb4-ce87-41c8-badb-b09358c54788",
+      "current": {
+        "name": "Homepage by gethomepage",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://gethomepage.dev",
+        "docs_url": "https://github.com/gethomepage/homepage#readme",
+        "install_docs_url": "https://github.com/gethomepage/homepage#readme",
+        "source_code_url": "https://github.com/gethomepage/homepage",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/gethomepage",
+        "publisher_name": "gethomepage",
+        "docker_url": "https://github.com/gethomepage/homepage/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "9243dfb4-ce87-41c8-badb-b09358c54788",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Homepage container",
+          "url": "https://github.com/gethomepage/homepage/pkgs/container/homepage",
+          "support_level": "official",
+          "source_url": "https://gethomepage.dev/installation/docker/",
+          "image": "ghcr.io/gethomepage/homepage:latest",
+          "note": "Official install guide gives a docker run command; HOMEPAGE_ALLOWED_HOSTS must be configured.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Homepage Docker Compose setup",
+          "url": "https://gethomepage.dev/installation/docker/",
+          "support_level": "official",
+          "source_url": "https://gethomepage.dev/installation/docker/",
+          "image": "ghcr.io/gethomepage/homepage:latest",
+          "note": "Official guide provides Compose configuration and the required HOMEPAGE_ALLOWED_HOSTS setting.",
+          "sort_order": 20
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "docker",
+          "label": "Homepage container",
+          "url": "https://github.com/gethomepage/homepage/pkgs/container/homepage",
+          "support_level": "official",
+          "source_url": "https://gethomepage.dev/installation/docker/",
+          "image": "ghcr.io/gethomepage/homepage:latest",
+          "note": "Official install guide gives a docker run command; HOMEPAGE_ALLOWED_HOSTS must be configured.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Homepage Docker Compose setup",
+          "url": "https://gethomepage.dev/installation/docker/",
+          "support_level": "official",
+          "source_url": "https://gethomepage.dev/installation/docker/",
+          "image": "ghcr.io/gethomepage/homepage:latest",
+          "note": "Official guide provides Compose configuration and the required HOMEPAGE_ALLOWED_HOSTS setting.",
+          "sort_order": 20
+        }
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose"
+      ],
+      "expected_deployment_methods": [
+        "docker",
+        "compose"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://gethomepage.dev/installation/docker/",
+        "docker_url": "https://github.com/gethomepage/homepage/pkgs/container/homepage",
+        "docker_image": "ghcr.io/gethomepage/homepage:latest",
+        "compose_url": "https://gethomepage.dev/installation/docker/",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "inspection_notes": [
+        "Official install guide publishes docker run and Compose examples using ghcr.io/gethomepage/homepage:latest."
+      ],
+      "sources": [
+        "https://gethomepage.dev/installation/docker/",
+        "https://github.com/gethomepage/homepage/pkgs/container/homepage"
+      ],
+      "gaps_updates": [
+        "Replace the Dockerfile source URL with the GHCR package page and add the verified Compose route."
+      ]
+    },
+    {
+      "slug": "huly",
+      "app_id": "d16b9f4f-83f9-48b9-b7a2-42195b6e4d9b",
+      "current": {
+        "name": "Huly",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://huly.io",
+        "docs_url": "https://github.com/hcengineering/platform#readme",
+        "install_docs_url": "https://github.com/hcengineering/platform#readme",
+        "source_code_url": "https://github.com/hcengineering/platform",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/hcengineering",
+        "publisher_name": "hcengineering",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "d16b9f4f-83f9-48b9-b7a2-42195b6e4d9b",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "compose",
+          "label": "Huly self-hosted platform",
+          "url": "https://docs.huly.io/getting-started/self-host/",
+          "support_level": "community",
+          "source_url": "https://docs.huly.io/getting-started/self-host/",
+          "image": null,
+          "note": "Official docs link to the Huly self-host deployment guide; Huly states self-hosting support is community-driven. The full deployment is a multi-service Compose stack.",
+          "sort_order": 10
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "compose",
+          "label": "Huly self-hosted platform",
+          "url": "https://docs.huly.io/getting-started/self-host/",
+          "support_level": "community",
+          "source_url": "https://docs.huly.io/getting-started/self-host/",
+          "image": null,
+          "note": "Official docs link to the Huly self-host deployment guide; Huly states self-hosting support is community-driven. The full deployment is a multi-service Compose stack.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": [
+        "compose"
+      ],
+      "expected_deployment_methods": [
+        "compose"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://docs.huly.io/getting-started/self-host/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": "https://docs.huly.io/getting-started/self-host/",
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "community",
+        "compose_support": true
+      },
+      "inspection_notes": [
+        "Huly's official docs confirm that the platform can be self-hosted and point to its huly-selfhost deployment guide.",
+        "The same official docs say self-host support is community-driven and some services/integrations are not included."
+      ],
+      "sources": [
+        "https://docs.huly.io/getting-started/self-host/",
+        "https://github.com/hcengineering/huly-selfhost"
+      ],
+      "gaps_updates": [
+        "Use the self-host docs route and Compose as the complete deployment method; don't imply there is a standalone Docker image install."
+      ],
+      "root_review": "Official Huly self-hosting documentation says support is community-driven; keep the Compose route labeled community."
+    },
+    {
+      "slug": "jan",
+      "app_id": "c8d6106d-57be-4338-9ad2-caf146037cd8",
+      "current": {
+        "name": "Jan",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://jan.ai/",
+        "docs_url": null,
+        "install_docs_url": "https://jan.ai/docs/desktop",
+        "source_code_url": "https://github.com/janhq/jan",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/janhq",
+        "publisher_name": "janhq",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "c8d6106d-57be-4338-9ad2-caf146037cd8",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "native",
+          "label": "Jan desktop app and local API",
+          "url": "https://www.jan.ai/docs/desktop/quickstart",
+          "support_level": "official",
+          "source_url": "https://www.jan.ai/docs/desktop/quickstart",
+          "image": null,
+          "note": "Official desktop install supports local models; Jan's CLI can start an OpenAI-compatible API on the same machine.",
+          "sort_order": 10
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "native",
+          "label": "Jan desktop app and local API",
+          "url": "https://www.jan.ai/docs/desktop/quickstart",
+          "support_level": "official",
+          "source_url": "https://www.jan.ai/docs/desktop/quickstart",
+          "image": null,
+          "note": "Official desktop install supports local models; Jan's CLI can start an OpenAI-compatible API on the same machine.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": [
+        "native"
+      ],
+      "expected_deployment_methods": [
+        "native"
+      ],
+      "directory_fit": "review",
+      "directory_fit_reason": "Jan is a desktop-first local AI application; its desktop app can start a local API server, but there is no separate server installer.",
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://www.jan.ai/docs/desktop/quickstart",
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false
+      },
+      "inspection_notes": [
+        "Official docs describe Jan as a desktop app for macOS, Windows, and Linux. Its CLI can serve an OpenAI-compatible local API, but the install is the desktop application."
+      ],
+      "sources": [
+        "https://www.jan.ai/docs/desktop",
+        "https://www.jan.ai/docs/desktop/quickstart",
+        "https://www.jan.ai/docs/desktop/cli",
+        "https://jan.ai/docs/api-server"
+      ],
+      "gaps_updates": [
+        "Add a native desktop install route only if desktop AI apps fit this directory. Do not imply Jan has a dedicated headless server installer."
+      ],
+      "root_review": "Included for local self-hosted inference; its official desktop installer can run the local API server."
+    },
+    {
+      "slug": "jitsi-meet",
+      "app_id": "e84db6cc-a233-476d-b211-c7f670453ef9",
+      "current": {
+        "name": "Jitsi Meet",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://jitsi.org/meet",
+        "docs_url": "https://github.com/jitsi/jitsi-meet#readme",
+        "install_docs_url": "https://github.com/jitsi/jitsi-meet#readme",
+        "source_code_url": "https://github.com/jitsi/jitsi-meet",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/jitsi",
+        "publisher_name": "jitsi",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "e84db6cc-a233-476d-b211-c7f670453ef9",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "compose",
+          "label": "Jitsi Meet Docker Compose deployment",
+          "url": "https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/",
+          "support_level": "official",
+          "source_url": "https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/",
+          "image": null,
+          "note": "Official guide downloads a release bundle, configures its environment, and starts the multi-container stack with docker compose up -d.",
+          "sort_order": 10
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "compose",
+          "label": "Jitsi Meet Docker Compose deployment",
+          "url": "https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/",
+          "support_level": "official",
+          "source_url": "https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/",
+          "image": null,
+          "note": "Official guide downloads a release bundle, configures its environment, and starts the multi-container stack with docker compose up -d.",
+          "sort_order": 10
+        }
+      ],
+      "reviewed_install_methods": [
+        "compose"
+      ],
+      "expected_deployment_methods": [
+        "compose"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/",
+        "compose_url": "https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/",
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "inspection_notes": [
+        "Jitsi's official self-hosting Docker guide calls for Docker and Docker Compose, a release bundle, password generation, persistent directories, and a real PUBLIC_URL.",
+        "The deployment consists of multiple linked services/images, so there is no single app image option."
+      ],
+      "sources": [
+        "https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/",
+        "https://github.com/jitsi/docker-jitsi-meet"
+      ],
+      "gaps_updates": [
+        "Add the official Compose deployment guide. Avoid treating the docker-jitsi-meet source repository as an install destination."
+      ]
+    },
+    {
+      "slug": "keepassxc",
+      "app_id": "aa72274f-8af2-42cc-8e67-b9a847ddb9ba",
+      "current": {
+        "name": "KeePassXC",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://keepassxc.org",
+        "docs_url": "https://keepassxc.org/docs/",
+        "install_docs_url": "https://github.com/keepassxreboot/keepassxc/blob/develop/INSTALL.md",
+        "source_code_url": "https://github.com/keepassxreboot/keepassxc",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/keepassxreboot",
+        "publisher_name": "keepassxreboot",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "none",
+        "compose_support": false,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "aa72274f-8af2-42cc-8e67-b9a847ddb9ba",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [],
+      "expected_install_options": [],
+      "reviewed_install_methods": [],
+      "expected_deployment_methods": [],
+      "directory_fit": "exclude",
+      "directory_fit_reason": "KeePassXC is an offline desktop password manager that stores vault files locally; it is not a self-hosted server.",
+      "skip_reason": "No self-hosted server target: official downloads are desktop applications for local use.",
+      "proposed_fields": {
+        "deployment_methods": [],
+        "docker_support": "none",
+        "compose_support": false
+      },
+      "inspection_notes": [
+        "Official KeePassXC materials describe an offline password manager with desktop downloads; there is no shared server deployment path."
+      ],
+      "sources": [
+        "https://keepassxc.org/download/",
+        "https://github.com/keepassxreboot/keepassxc/blob/develop/README.md"
+      ],
+      "gaps_updates": [
+        "Review/remove the self-hostable classification; do not present its local application install as a server deployment."
+      ]
+    },
+    {
+      "slug": "kodi",
+      "app_id": "a9e0470e-b1db-4a15-9c92-1cf9f4ed37dd",
+      "current": {
+        "name": "Kodi",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://kodi.tv",
+        "docs_url": "https://github.com/xbmc/xbmc#readme",
+        "install_docs_url": "https://github.com/xbmc/xbmc#readme",
+        "source_code_url": "https://github.com/xbmc/xbmc",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/xbmc",
+        "publisher_name": "xbmc",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "a9e0470e-b1db-4a15-9c92-1cf9f4ed37dd",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [],
+      "expected_install_options": [],
+      "reviewed_install_methods": [],
+      "expected_deployment_methods": [],
+      "directory_fit": "exclude",
+      "directory_fit_reason": "Kodi is a local media-player/media-center application, not a self-hosted server.",
+      "skip_reason": "No self-hosted server target: the official download page offers Kodi client/media-center applications for device platforms.",
+      "proposed_fields": {},
+      "inspection_notes": [
+        "Kodi's official site identifies its software as a media player and provides platform-specific client downloads."
+      ],
+      "sources": [
+        "https://kodi.tv/download/",
+        "https://kodi.tv/about"
+      ],
+      "gaps_updates": [
+        "Review/remove the self-hostable classification; do not list platform client downloads as server install options."
+      ]
+    },
+    {
+      "slug": "krayin",
+      "app_id": "015861bb-88ee-4023-8f54-9ae9a5074102",
+      "current": {
+        "name": "Krayin",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://krayincrm.com",
+        "docs_url": "https://github.com/krayin/laravel-crm#readme",
+        "install_docs_url": "https://github.com/krayin/laravel-crm#readme",
+        "source_code_url": "https://github.com/krayin/laravel-crm",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/krayin",
+        "publisher_name": "krayin",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "015861bb-88ee-4023-8f54-9ae9a5074102",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "package",
+          "label": "Krayin Composer installation",
+          "url": "https://devdocs.krayincrm.com/2.2/introduction/installation.html",
+          "support_level": "official",
+          "source_url": "https://devdocs.krayincrm.com/2.2/introduction/installation.html",
+          "image": null,
+          "note": "Official guide recommends Composer CLI using composer create-project krayin/laravel-crm and the Krayin installer.",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Krayin Docker Hub image",
+          "url": "https://hub.docker.com/r/webkul/krayin",
+          "support_level": "official",
+          "source_url": "https://devdocs.krayincrm.com/2.2/introduction/installation.html",
+          "image": "webkul/krayin:latest",
+          "note": "The publisher guide names this Docker Hub image and gives pull/run steps.",
+          "sort_order": 20
+        },
+        {
+          "method": "compose",
+          "label": "Krayin Docker Compose setup",
+          "url": "https://devdocs.krayincrm.com/2.2/introduction/installation.html",
+          "support_level": "official",
+          "source_url": "https://devdocs.krayincrm.com/2.2/introduction/installation.html",
+          "image": null,
+          "note": "Official guide documents a Compose-based multi-container setup; the URL is the install guide, not a Compose source file.",
+          "sort_order": 30
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "package",
+          "label": "Krayin Composer installation",
+          "url": "https://devdocs.krayincrm.com/2.2/introduction/installation.html",
+          "support_level": "official",
+          "source_url": "https://devdocs.krayincrm.com/2.2/introduction/installation.html",
+          "image": null,
+          "note": "Official guide recommends Composer CLI using composer create-project krayin/laravel-crm and the Krayin installer.",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Krayin Docker Hub image",
+          "url": "https://hub.docker.com/r/webkul/krayin",
+          "support_level": "official",
+          "source_url": "https://devdocs.krayincrm.com/2.2/introduction/installation.html",
+          "image": "webkul/krayin:latest",
+          "note": "The publisher guide names this Docker Hub image and gives pull/run steps.",
+          "sort_order": 20
+        },
+        {
+          "method": "compose",
+          "label": "Krayin Docker Compose setup",
+          "url": "https://devdocs.krayincrm.com/2.2/introduction/installation.html",
+          "support_level": "official",
+          "source_url": "https://devdocs.krayincrm.com/2.2/introduction/installation.html",
+          "image": null,
+          "note": "Official guide documents a Compose-based multi-container setup; the URL is the install guide, not a Compose source file.",
+          "sort_order": 30
+        }
+      ],
+      "reviewed_install_methods": [
+        "package",
+        "docker",
+        "compose"
+      ],
+      "expected_deployment_methods": [
+        "package",
+        "docker",
+        "compose"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://devdocs.krayincrm.com/2.2/introduction/installation.html",
+        "docker_url": "https://hub.docker.com/r/webkul/krayin",
+        "docker_image": "webkul/krayin:latest",
+        "compose_url": "https://devdocs.krayincrm.com/2.2/introduction/installation.html",
+        "deployment_methods": [
+          "package",
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "inspection_notes": [
+        "Krayin's official developer portal lists Composer, Docker, Docker Compose, GUI, and shared-hosting setup paths.",
+        "The Docker page shows webkul/krayin:latest; Docker Hub showed the image last updated six months ago."
+      ],
+      "sources": [
+        "https://devdocs.krayincrm.com/2.2/introduction/installation.html",
+        "https://hub.docker.com/r/webkul/krayin"
+      ],
+      "gaps_updates": [
+        "Add verified Composer, Docker, and Compose routes. The published Compose setup is a multi-container path; do not link to a raw Compose source file. Check Docker Hub freshness before recommending the image."
+      ]
+    },
+    {
+      "slug": "metabase",
+      "app_id": "37b0bb2c-12c6-40ba-8b76-5dc49f52aa70",
+      "current": {
+        "name": "Metabase",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "source_model": "open_source",
+        "popularity_score": 90,
+        "website_url": "https://metabase.com",
+        "docs_url": "https://github.com/metabase/metabase#readme",
+        "install_docs_url": "https://github.com/metabase/metabase#readme",
+        "source_code_url": "https://github.com/metabase/metabase",
+        "source_code_host": "github",
+        "publisher_url": "https://github.com/metabase",
+        "publisher_name": "metabase",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null,
+        "install_options": [],
+        "install_option_row": {
+          "app_id": "37b0bb2c-12c6-40ba-8b76-5dc49f52aa70",
+          "options": [],
+          "helm_urls": [],
+          "qnap_urls": [],
+          "checked_at": "2026-09-07T10:30:36.492+00:00",
+          "created_at": "2026-09-01T07:06:38.767003+00:00",
+          "other_urls": [],
+          "updated_at": "2026-09-28T11:08:23.499769+00:00",
+          "binary_urls": [],
+          "casaos_urls": [],
+          "cosmos_urls": [],
+          "docker_urls": [],
+          "native_urls": [],
+          "source_urls": [],
+          "umbrel_urls": [],
+          "unraid_urls": [],
+          "compose_urls": [],
+          "package_urls": [],
+          "proxmox_urls": [],
+          "runtipi_urls": [],
+          "docker_images": [],
+          "synology_urls": [],
+          "yunohost_urls": [],
+          "catalog_sources": [],
+          "kubernetes_urls": [],
+          "truenas_scale_urls": [],
+          "openmediavault_urls": [],
+          "home_assistant_os_urls": []
+        }
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Metabase official container",
+          "url": "https://hub.docker.com/r/metabase/metabase",
+          "support_level": "official",
+          "source_url": "https://www.metabase.com/docs/latest/installation-and-operation/running-metabase-on-docker",
+          "image": "metabase/metabase:latest",
+          "note": "Official Docker guide recommends the Metabase image and explains production database configuration.",
+          "sort_order": 10
+        },
+        {
+          "method": "binary",
+          "label": "Metabase Open Source JAR",
+          "url": "https://www.metabase.com/start/oss/jar",
+          "support_level": "official",
+          "source_url": "https://www.metabase.com/docs/latest/installation-and-operation/running-the-metabase-jar-file",
+          "image": null,
+          "note": "Official download page provides the Open Source JAR; official docs explain running it with Java.",
+          "sort_order": 20
+        }
+      ],
+      "expected_install_options": [
+        {
+          "method": "docker",
+          "label": "Metabase official container",
+          "url": "https://hub.docker.com/r/metabase/metabase",
+          "support_level": "official",
+          "source_url": "https://www.metabase.com/docs/latest/installation-and-operation/running-metabase-on-docker",
+          "image": "metabase/metabase:latest",
+          "note": "Official Docker guide recommends the Metabase image and explains production database configuration.",
+          "sort_order": 10
+        },
+        {
+          "method": "binary",
+          "label": "Metabase Open Source JAR",
+          "url": "https://www.metabase.com/start/oss/jar",
+          "support_level": "official",
+          "source_url": "https://www.metabase.com/docs/latest/installation-and-operation/running-the-metabase-jar-file",
+          "image": null,
+          "note": "Official download page provides the Open Source JAR; official docs explain running it with Java.",
+          "sort_order": 20
+        }
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "binary"
+      ],
+      "expected_deployment_methods": [
+        "docker",
+        "binary"
+      ],
+      "directory_fit": "fit",
+      "directory_fit_reason": null,
+      "skip_reason": null,
+      "proposed_fields": {
+        "install_docs_url": "https://www.metabase.com/docs/latest/installation-and-operation/running-metabase-on-docker",
+        "docker_url": "https://hub.docker.com/r/metabase/metabase",
+        "docker_image": "metabase/metabase:latest",
+        "deployment_methods": [
+          "docker",
+          "binary"
+        ],
+        "docker_support": "official"
+      },
+      "inspection_notes": [
+        "Metabase's official Docker docs cover the metabase/metabase image; the official JAR docs and download page provide the Open Source JAR route."
+      ],
+      "sources": [
+        "https://www.metabase.com/docs/latest/installation-and-operation/running-metabase-on-docker",
+        "https://hub.docker.com/r/metabase/metabase",
+        "https://www.metabase.com/docs/latest/installation-and-operation/running-the-metabase-jar-file",
+        "https://www.metabase.com/start/oss/jar"
+      ],
+      "gaps_updates": [
+        "Replace the repository README install link with current Docker instructions; add the JAR install option and official image destination."
+      ]
+    }
+  ]
+}

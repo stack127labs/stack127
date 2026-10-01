@@ -372,3 +372,37 @@ export function buildRegistryPageStructuredData(state: PagePublicationState) {
     url: absoluteUrl(pathFromSlug(state.page.slug)),
   };
 }
+
+// Directory structured data belongs to the same publication boundary as all
+// other page metadata. Query variants and unpublished pages never get a list.
+export async function getRegistryPageStructuredData(state: PagePublicationState) {
+  const page = buildRegistryPageStructuredData(state);
+  if (!page || state.kind !== "exact" || !state.page.slug.startsWith("platform-fees/")) return page;
+
+  const [{ getFeeDirectory }, { sectionPath }] = await Promise.all([
+    import("./platform-fees/queries"),
+    import("./platform-fees/section-routes"),
+  ]);
+  try {
+    const directory = await getFeeDirectory();
+    const section = directory.sections.find(section => sectionPath(section.id) === `/${state.page.slug}`);
+    if (!section) return page;
+    const entries = directory.entries.filter(entry => entry.section_id === section.id);
+    return {
+      ...page,
+      mainEntity: {
+        "@type": "ItemList",
+        numberOfItems: entries.length,
+        itemListElement: entries.map((entry, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          url: absoluteUrl(`${sectionPath(section.id)}#${entry.id}`),
+          item: { "@type": "Thing", name: entry.name, url: entry.website_url },
+        })),
+      },
+    };
+  } catch {
+    // The unavailable state can still show the registry's basic page metadata.
+    return page;
+  }
+}

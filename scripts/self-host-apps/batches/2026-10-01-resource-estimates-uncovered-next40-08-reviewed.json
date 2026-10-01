@@ -1,0 +1,3357 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Offline app-specific estimated RAM and storage proposal for the exact next 40-app roster. Each range has official project or deployment sources and the exact saved resource-estimate sidecar guard; no database or production changes are included.",
+  "estimates": [
+    {
+      "slug": "binhex-libreoffice",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-libreoffice",
+        "https://www.libreoffice.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 8192,
+      "confidence": "medium",
+      "basis": "Graphical office session with a browser-accessible desktop; document size and open files affect peak memory.",
+      "expected": {
+        "app_id": "2a25262d-8560-4463-b8f2-0227fbc8a861",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-libreoffice",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-libreoffice",
+        "https://www.libreoffice.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 20,
+      "confidence": "medium",
+      "basis": "Small install, profile, and office cache; documents use the mapped data volume.",
+      "expected": {
+        "app_id": "2a25262d-8560-4463-b8f2-0227fbc8a861",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-makemkv",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-makemkv",
+        "https://www.makemkv.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 4096,
+      "confidence": "low",
+      "basis": "One desktop session converting a disc; source format and concurrent jobs affect memory.",
+      "expected": {
+        "app_id": "2f71b0ef-aa68-4587-a1e8-8b19bed44495",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:52.435+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:53.259667+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-makemkv",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-makemkv",
+        "https://www.makemkv.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 100,
+      "confidence": "low",
+      "basis": "Allow for application data and space for a few large disc rips; output size varies by disc.",
+      "expected": {
+        "app_id": "2f71b0ef-aa68-4587-a1e8-8b19bed44495",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:52.435+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:53.259667+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-minecraftbedrockserver",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-minecraftbedrockserver",
+        "https://www.minecraft.net/en-us/download/server"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 4096,
+      "confidence": "low",
+      "basis": "One small Bedrock world; player count, add-ons, and world activity drive memory.",
+      "expected": {
+        "app_id": "f582befc-6f10-434f-a20d-42970091a621",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-minecraftbedrockserver",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-minecraftbedrockserver",
+        "https://www.minecraft.net/en-us/download/server"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 20,
+      "confidence": "low",
+      "basis": "One world, configuration, and backups; world growth depends on play.",
+      "expected": {
+        "app_id": "f582befc-6f10-434f-a20d-42970091a621",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-minecraftserver",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-minecraftserver",
+        "https://www.minecraft.net/en-us/download/server"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 8192,
+      "confidence": "low",
+      "basis": "One small Java server; player count, view distance, and mods drive memory.",
+      "expected": {
+        "app_id": "5e780277-d7ac-45cb-8219-8dba68c69746",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-minecraftserver",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-minecraftserver",
+        "https://www.minecraft.net/en-us/download/server"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 20,
+      "confidence": "low",
+      "basis": "One world, configuration, and backups; world growth depends on play.",
+      "expected": {
+        "app_id": "5e780277-d7ac-45cb-8219-8dba68c69746",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-minidlna",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-minidlna",
+        "https://sourceforge.net/projects/minidlna/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "confidence": "medium",
+      "basis": "Small DLNA server indexing a home media library; library size affects scan cache.",
+      "expected": {
+        "app_id": "6bd2f7ff-2159-42b6-a850-4d757e5d7d2b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-minidlna",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-minidlna",
+        "https://sourceforge.net/projects/minidlna/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "confidence": "medium",
+      "basis": "Application config and media index; the media library is stored in its mapped volume.",
+      "expected": {
+        "app_id": "6bd2f7ff-2159-42b6-a850-4d757e5d7d2b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-movarr",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-movarr",
+        "https://github.com/binhex/movarr"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "confidence": "medium",
+      "basis": "Lightweight Python scheduler and SQLite database for a single home media workflow.",
+      "expected": {
+        "app_id": "a2f20351-208f-4bdd-9681-3d326e642821",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:51.706+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:52.597429+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-movarr",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-movarr",
+        "https://github.com/binhex/movarr"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "confidence": "medium",
+      "basis": "Configuration, SQLite history, and logs; downloaded media is held by the configured media volume.",
+      "expected": {
+        "app_id": "a2f20351-208f-4bdd-9681-3d326e642821",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:51.706+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:52.597429+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-nginx",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-nginx",
+        "https://nginx.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "confidence": "medium",
+      "basis": "Small web server or reverse proxy with modest traffic and a few routes.",
+      "expected": {
+        "app_id": "a4c1d784-d919-4c90-8bd3-967755471695",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-nginx",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-nginx",
+        "https://nginx.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "confidence": "medium",
+      "basis": "Configuration and logs; cached or hosted files can grow with use.",
+      "expected": {
+        "app_id": "a4c1d784-d919-4c90-8bd3-967755471695",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-nicotineplus",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-nicotineplus",
+        "https://nicotine-plus.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "confidence": "low",
+      "basis": "One graphical peer-to-peer client; active searches and shared-file indexing affect memory.",
+      "expected": {
+        "app_id": "3911af01-d521-4351-aa2e-46d5ef66a79f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:45.591+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:46.476883+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-nicotineplus",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-nicotineplus",
+        "https://nicotine-plus.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "confidence": "low",
+      "basis": "Application profile and index; shared and downloaded files are stored separately.",
+      "expected": {
+        "app_id": "3911af01-d521-4351-aa2e-46d5ef66a79f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:45.591+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:46.476883+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-nzbget",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-nzbget",
+        "https://nzbget.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 2048,
+      "confidence": "low",
+      "basis": "One home Usenet download queue; concurrent jobs and repair/unpack work affect memory.",
+      "expected": {
+        "app_id": "e6696f79-3a7a-44d3-a2e0-0a2d7863886c",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-nzbget",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-nzbget",
+        "https://nzbget.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 200,
+      "confidence": "low",
+      "basis": "Application state plus a modest download and temporary-work area; scale with queue size.",
+      "expected": {
+        "app_id": "e6696f79-3a7a-44d3-a2e0-0a2d7863886c",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-official-docker-registry-proxy",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/rpardini/docker-registry-proxy"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "confidence": "medium",
+      "basis": "Small image-cache proxy; concurrent pulls and cache activity affect memory.",
+      "expected": {
+        "app_id": "72a34162-e93e-4d77-882c-7186d6eb6b9d",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:52.435+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:53.259667+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/rpardini/docker-registry-proxy"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/rpardini/docker-registry-proxy"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-official-docker-registry-proxy",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/rpardini/docker-registry-proxy"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 50,
+      "estimate_max": 500,
+      "confidence": "low",
+      "basis": "Keep space for cached container layers; cache size follows the images pulled.",
+      "expected": {
+        "app_id": "72a34162-e93e-4d77-882c-7186d6eb6b9d",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:52.435+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:53.259667+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/rpardini/docker-registry-proxy"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/rpardini/docker-registry-proxy"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-official-purgarr",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/steveharsant/purgarr"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "confidence": "medium",
+      "basis": "Small Python companion service polling a few media-management APIs.",
+      "expected": {
+        "app_id": "b15ba738-a6df-4864-8ef4-3155890ef3ef",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/steveharsant/purgarr/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/steveharsant/purgarr/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-official-purgarr",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/steveharsant/purgarr"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "confidence": "medium",
+      "basis": "Small configuration, state, and log files.",
+      "expected": {
+        "app_id": "b15ba738-a6df-4864-8ef4-3155890ef3ef",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/steveharsant/purgarr/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/steveharsant/purgarr/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-official-qbit-guard",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/gengines/qbit-guard"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "confidence": "medium",
+      "basis": "Small event-driven Python helper with no bundled database.",
+      "expected": {
+        "app_id": "61265dde-7a01-4b5e-b5dc-4200daba4716",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/gengines/qbit-guard/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/gengines/qbit-guard/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-official-qbit-guard",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/gengines/qbit-guard"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "confidence": "medium",
+      "basis": "Configuration and logs only; torrent payloads stay in qBittorrent.",
+      "expected": {
+        "app_id": "61265dde-7a01-4b5e-b5dc-4200daba4716",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/gengines/qbit-guard/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/gengines/qbit-guard/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-official-teamspeak6-server",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/teamspeak/teamspeak6-server",
+        "https://hub.docker.com/r/teamspeaksystems/teamspeak6-server"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "confidence": "medium",
+      "basis": "One small voice server; concurrent users and server activity affect memory.",
+      "expected": {
+        "app_id": "f41a8eae-7e79-409c-9fde-98d0d562cd1f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://hub.docker.com/r/teamspeaksystems/teamspeak6-server"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://hub.docker.com/r/teamspeaksystems/teamspeak6-server"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-official-teamspeak6-server",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/teamspeak/teamspeak6-server",
+        "https://hub.docker.com/r/teamspeaksystems/teamspeak6-server"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "confidence": "medium",
+      "basis": "Server configuration, logs, and small persistent state.",
+      "expected": {
+        "app_id": "f41a8eae-7e79-409c-9fde-98d0d562cd1f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://hub.docker.com/r/teamspeaksystems/teamspeak6-server"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://hub.docker.com/r/teamspeaksystems/teamspeak6-server"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-plexpass",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-plexpass",
+        "https://www.plex.tv/media-server-downloads/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 8192,
+      "confidence": "low",
+      "basis": "Small media server with a few streams; software transcoding can raise memory use.",
+      "expected": {
+        "app_id": "4ccc7253-2568-4a77-98c4-6e08c8d4ddb6",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:44.93002+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-plexpass",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-plexpass",
+        "https://www.plex.tv/media-server-downloads/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "confidence": "medium",
+      "basis": "Server database, posters, metadata, and cache; the media library is stored separately.",
+      "expected": {
+        "app_id": "4ccc7253-2568-4a77-98c4-6e08c8d4ddb6",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:44.09+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:44.93002+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-privoxyvpn",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-privoxyvpn",
+        "https://www.privoxy.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "confidence": "medium",
+      "basis": "Small Privoxy and VPN gateway with light traffic and a few clients.",
+      "expected": {
+        "app_id": "b4f49b1e-c30f-4e3e-b6cc-2de186ab3fc3",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-privoxyvpn",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-privoxyvpn",
+        "https://www.privoxy.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "confidence": "medium",
+      "basis": "VPN configuration, proxy settings, and logs.",
+      "expected": {
+        "app_id": "b4f49b1e-c30f-4e3e-b6cc-2de186ab3fc3",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-prowlarr",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-prowlarr",
+        "https://prowlarr.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "confidence": "medium",
+      "basis": "One indexer manager connected to a few indexers and related apps.",
+      "expected": {
+        "app_id": "dcc5e955-3644-4ef9-a413-2504781d8ad6",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-prowlarr",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-prowlarr",
+        "https://prowlarr.com/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "confidence": "medium",
+      "basis": "Configuration, indexer definitions, and application database.",
+      "expected": {
+        "app_id": "dcc5e955-3644-4ef9-a413-2504781d8ad6",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-pycharm",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-pycharm",
+        "https://www.jetbrains.com/pycharm/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 12288,
+      "confidence": "low",
+      "basis": "One browser-accessed PyCharm IDE session; project indexing and plugins increase memory use.",
+      "expected": {
+        "app_id": "88b43108-8a81-4e53-bbd8-b7ac8812917f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-pycharm",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-pycharm",
+        "https://www.jetbrains.com/pycharm/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "confidence": "medium",
+      "basis": "IDE install, user profile, plugins, caches, and a small set of projects.",
+      "expected": {
+        "app_id": "88b43108-8a81-4e53-bbd8-b7ac8812917f",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-qbittorrent",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-qbittorrent",
+        "https://www.qbittorrent.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "confidence": "low",
+      "basis": "One home torrent client; active torrents and connection counts affect memory.",
+      "expected": {
+        "app_id": "adccc8c1-caf3-4aff-ba00-4ac67ea32f1b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:37.813+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:38.763767+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-qbittorrent",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-qbittorrent",
+        "https://www.qbittorrent.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 500,
+      "confidence": "low",
+      "basis": "Allow for configuration plus active and retained downloads; payload storage grows with use.",
+      "expected": {
+        "app_id": "adccc8c1-caf3-4aff-ba00-4ac67ea32f1b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:37.813+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:38.763767+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-rclone",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-rclone",
+        "https://rclone.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "confidence": "medium",
+      "basis": "Single-user file-transfer or mount workload; parallel transfers and caches affect memory.",
+      "expected": {
+        "app_id": "1d1e9982-37de-43d7-a3d3-401b22eab26e",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-rclone",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-rclone",
+        "https://rclone.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "confidence": "medium",
+      "basis": "Configuration, logs, and optional local cache; remote files are stored at their destination.",
+      "expected": {
+        "app_id": "1d1e9982-37de-43d7-a3d3-401b22eab26e",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-readarr",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-readarr",
+        "https://github.com/Readarr/Readarr"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "confidence": "low",
+      "basis": "One small book-library manager; library size and refresh tasks affect memory.",
+      "expected": {
+        "app_id": "9da21cab-c9c2-4e0d-af8a-dda982071404",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-readarr",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-readarr",
+        "https://github.com/Readarr/Readarr"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "confidence": "medium",
+      "basis": "Application database and metadata; ebook and audiobook files use the mapped library volume.",
+      "expected": {
+        "app_id": "9da21cab-c9c2-4e0d-af8a-dda982071404",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-resilio-sync",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-resilio-sync",
+        "https://www.resilio.com/sync/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "confidence": "low",
+      "basis": "One small peer-to-peer sync node; file count, hashing, and active peers affect memory.",
+      "expected": {
+        "app_id": "47e90a7f-dd12-4215-821e-356a8ec0890b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-resilio-sync",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-resilio-sync",
+        "https://www.resilio.com/sync/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 500,
+      "confidence": "low",
+      "basis": "Allow for the synchronized files and version history; capacity follows the shared folders.",
+      "expected": {
+        "app_id": "47e90a7f-dd12-4215-821e-356a8ec0890b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-rider",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-rider",
+        "https://www.jetbrains.com/rider/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 12288,
+      "confidence": "low",
+      "basis": "One browser-accessed Rider IDE session; solution indexing and plugins increase memory use.",
+      "expected": {
+        "app_id": "b27c5575-e21b-4372-b329-64158de8844a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-rider",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-rider",
+        "https://www.jetbrains.com/rider/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "confidence": "medium",
+      "basis": "IDE install, user profile, plugins, caches, and a small set of projects.",
+      "expected": {
+        "app_id": "b27c5575-e21b-4372-b329-64158de8844a",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-rustrover",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-rustrover",
+        "https://www.jetbrains.com/rust/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 12288,
+      "confidence": "low",
+      "basis": "One browser-accessed RustRover IDE session; Rust project indexing and builds increase memory use.",
+      "expected": {
+        "app_id": "cd7b0987-ec47-4b6a-bec3-2402d86ee383",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:49.443+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:50.46476+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-rustrover",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-rustrover",
+        "https://www.jetbrains.com/rust/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "confidence": "medium",
+      "basis": "IDE install, user profile, plugins, caches, and a small set of projects.",
+      "expected": {
+        "app_id": "cd7b0987-ec47-4b6a-bec3-2402d86ee383",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:49.443+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:50.46476+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-seerr",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-seerr",
+        "https://seerr.dev/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "confidence": "medium",
+      "basis": "One small media-request service connected to a media server and request manager.",
+      "expected": {
+        "app_id": "972b8afe-7a5c-498f-b64a-fe662f88cdd4",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-seerr",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-seerr",
+        "https://seerr.dev/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "confidence": "medium",
+      "basis": "Application database, settings, and cached metadata.",
+      "expected": {
+        "app_id": "972b8afe-7a5c-498f-b64a-fe662f88cdd4",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-slskd",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-slskd",
+        "https://github.com/slskd/slskd"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "confidence": "low",
+      "basis": "One small Soulseek node; peer count, searches, and queued transfers affect memory.",
+      "expected": {
+        "app_id": "fe915cab-0169-4460-b252-06da9fd63fe0",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-slskd",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-slskd",
+        "https://github.com/slskd/slskd"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 500,
+      "confidence": "low",
+      "basis": "Allow for shared and downloaded files plus application state; file volume grows with use.",
+      "expected": {
+        "app_id": "fe915cab-0169-4460-b252-06da9fd63fe0",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:47.409+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:48.319809+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-soularr",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-soularr"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "confidence": "medium",
+      "basis": "Small scheduled Python integration for Lidarr and slskd.",
+      "expected": {
+        "app_id": "890077ab-c127-4dc1-bbea-0046d7e8bb8b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:51.706+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:52.597429+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-soularr",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-soularr"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "confidence": "medium",
+      "basis": "Configuration and logs; downloads remain in the connected download folders.",
+      "expected": {
+        "app_id": "890077ab-c127-4dc1-bbea-0046d7e8bb8b",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:51.706+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:52.597429+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-syncthing",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-syncthing",
+        "https://syncthing.net/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "confidence": "low",
+      "basis": "One small synchronization node; file count, indexing, and active connections affect memory.",
+      "expected": {
+        "app_id": "e7871675-0f19-4536-9c78-ee3a0442a114",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:52.435+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:53.259667+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-syncthing",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-syncthing",
+        "https://syncthing.net/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 500,
+      "confidence": "low",
+      "basis": "Allow for synchronized folders and file versions; capacity follows the chosen folders.",
+      "expected": {
+        "app_id": "e7871675-0f19-4536-9c78-ee3a0442a114",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:52.435+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:53.259667+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-teamspeak",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-teamspeak",
+        "https://teamspeak.com/en/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "confidence": "medium",
+      "basis": "One small TeamSpeak voice server; concurrent users and server activity affect memory.",
+      "expected": {
+        "app_id": "4cfcf363-3bf8-492e-b77c-b0d88aa84949",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-teamspeak",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-teamspeak",
+        "https://teamspeak.com/en/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "confidence": "medium",
+      "basis": "Configuration, logs, and small persistent server state.",
+      "expected": {
+        "app_id": "4cfcf363-3bf8-492e-b77c-b0d88aa84949",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-trimarr",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-trimarr",
+        "https://github.com/binhex/trimarr"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "confidence": "low",
+      "basis": "Scheduled media remuxing of a small library; active file processing affects memory.",
+      "expected": {
+        "app_id": "8a7130b6-c1d3-425f-a0bc-7350a12de337",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:02.303+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:03.162005+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-trimarr",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-trimarr",
+        "https://github.com/binhex/trimarr"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 10,
+      "confidence": "medium",
+      "basis": "Configuration, SQLite history, and logs; media files remain in the mapped library.",
+      "expected": {
+        "app_id": "8a7130b6-c1d3-425f-a0bc-7350a12de337",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:02.303+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:03.162005+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-tvheadend",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-tvheadend",
+        "https://github.com/tvheadend/tvheadend"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 1024,
+      "estimate_max": 4096,
+      "confidence": "low",
+      "basis": "Small TV and IPTV server with a few tuners; streams and guide data affect memory.",
+      "expected": {
+        "app_id": "48e1f9b4-75b1-47e0-9c72-85ac634c93e0",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-tvheadend",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-tvheadend",
+        "https://github.com/tvheadend/tvheadend"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 500,
+      "confidence": "low",
+      "basis": "Allow for a modest recording library and guide data; recording volume grows with use.",
+      "expected": {
+        "app_id": "48e1f9b4-75b1-47e0-9c72-85ac634c93e0",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:14.768962+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-urbackup",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-urbackup",
+        "https://www.urbackup.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 8192,
+      "confidence": "low",
+      "basis": "Small backup server managing a few household clients; indexing and concurrent backups affect memory.",
+      "expected": {
+        "app_id": "d7b1bbca-bf6e-416a-89ad-8e197b7615f4",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-urbackup",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-urbackup",
+        "https://www.urbackup.org/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 100,
+      "estimate_max": 2000,
+      "confidence": "low",
+      "basis": "Backups are the main storage load; capacity follows the protected devices and retention policy.",
+      "expected": {
+        "app_id": "d7b1bbca-bf6e-416a-89ad-8e197b7615f4",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:11:49.519+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:11:51.383842+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-webstorm",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-webstorm",
+        "https://www.jetbrains.com/webstorm/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 4096,
+      "estimate_max": 12288,
+      "confidence": "low",
+      "basis": "One browser-accessed WebStorm IDE session; project indexing and plugins increase memory use.",
+      "expected": {
+        "app_id": "e09f334a-c549-43ac-a27b-d337831947d0",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:49.443+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:50.46476+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "binhex-webstorm",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/binhex/arch-webstorm",
+        "https://www.jetbrains.com/webstorm/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 20,
+      "confidence": "medium",
+      "basis": "IDE install, user profile, plugins, caches, and a small set of projects.",
+      "expected": {
+        "app_id": "e09f334a-c549-43ac-a27b-d337831947d0",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:49.443+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:50.46476+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/binhex/documentation"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bison-wallet",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/decred/dcrdex"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 8192,
+      "confidence": "low",
+      "basis": "Small DCRDEX server with a few markets; connected assets and market activity affect memory. Assumes the linked project is the DCRDEX server; the app identity needs separate review.",
+      "expected": {
+        "app_id": "c44e79ed-e438-49c3-9348-6c515940cf30",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T10:16:40.829915+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/decred/dcrdex/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/decred/dcrdex/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bison-wallet",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/decred/dcrdex"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 100,
+      "confidence": "low",
+      "basis": "Allow for server configuration, order data, and logs; blockchain data is normally managed by asset nodes. Assumes the linked project is the DCRDEX server; the app identity needs separate review.",
+      "expected": {
+        "app_id": "c44e79ed-e438-49c3-9348-6c515940cf30",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T10:16:40.829915+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/decred/dcrdex/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/decred/dcrdex/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitbucket-pipelines-runner",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://bitbucket.org/product/features/pipelines",
+        "https://support.atlassian.com/bitbucket-cloud/docs/runners/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 8192,
+      "estimate_max": 16384,
+      "confidence": "medium",
+      "basis": "Atlassian recommends an 8 GB Linux host; builds and parallel steps need additional RAM.",
+      "expected": {
+        "app_id": "829ad83d-c56d-4c04-8efd-0ad9a8976861",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitbucket-pipelines-runner",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://bitbucket.org/product/features/pipelines",
+        "https://support.atlassian.com/bitbucket-cloud/docs/runners/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 20,
+      "estimate_max": 200,
+      "confidence": "low",
+      "basis": "Runner, checked-out work, Docker layers, caches, and build artifacts grow with pipeline use.",
+      "expected": {
+        "app_id": "829ad83d-c56d-4c04-8efd-0ad9a8976861",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/Eurotimmy/unraid-templates/blob/main/Bitbucket-Pipelines-Runner/README.md"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitcoin-seed-tool",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/bitcoinqna/seedtool",
+        "https://github.com/BitcoinQnA/seedtool",
+        "https://bitcoiner.guide/seed/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "confidence": "medium",
+      "basis": "Static browser tool served from a small web container; calculations run in the browser.",
+      "expected": {
+        "app_id": "1b3f92f4-bb93-4674-9d99-bde5719045f8",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T10:16:40.829915+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/BitcoinQnA/seedtool/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/BitcoinQnA/seedtool/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitcoin-seed-tool",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/bitcoinqna/seedtool",
+        "https://github.com/BitcoinQnA/seedtool",
+        "https://bitcoiner.guide/seed/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "confidence": "medium",
+      "basis": "Static site files and web-server logs; seed data is not stored by the server.",
+      "expected": {
+        "app_id": "1b3f92f4-bb93-4674-9d99-bde5719045f8",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-02T10:16:40.829915+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/BitcoinQnA/seedtool/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/BitcoinQnA/seedtool/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitmappery",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/igorski/bitmappery"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 128,
+      "estimate_max": 512,
+      "confidence": "medium",
+      "basis": "Browser-based image editor with modest static web-serving needs; editing runs in the browser.",
+      "expected": {
+        "app_id": "cca3ad06-edce-4e24-943f-aa1dd53def5d",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/igorski/bitmappery"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/igorski/bitmappery"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitmappery",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/igorski/bitmappery"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "confidence": "medium",
+      "basis": "Application files and web-server logs; user images are handled by the browser.",
+      "expected": {
+        "app_id": "cca3ad06-edce-4e24-943f-aa1dd53def5d",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:08.205+00:00",
+        "created_at": "2026-09-01T07:06:38.767003+00:00",
+        "updated_at": "2026-09-02T14:13:09.085437+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/igorski/bitmappery"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/igorski/bitmappery"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitplay",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/aculix/bitplay"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "confidence": "low",
+      "basis": "One browser-based torrent stream; active peers and video buffering affect memory.",
+      "expected": {
+        "app_id": "605e52ba-b74b-4d3c-950a-eef028ba230d",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/aculix/bitplay/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/aculix/bitplay/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitplay",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/aculix/bitplay"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 50,
+      "confidence": "low",
+      "basis": "Allow for temporary torrent data and cache; the amount depends on streamed content.",
+      "expected": {
+        "app_id": "605e52ba-b74b-4d3c-950a-eef028ba230d",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/aculix/bitplay/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/aculix/bitplay/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitwarden-export",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/0neTX/Bitwarden_Export",
+        "https://hub.docker.com/r/0netx/bw-export",
+        "https://bitwarden.com/help/cli/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "confidence": "medium",
+      "basis": "Scheduled Bitwarden CLI export job for one or a few vaults.",
+      "expected": {
+        "app_id": "404b4e6c-9f51-4141-8c73-46e731dd6f27",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:37.813+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:38.763767+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/127999-support-onetx-teledock-bot-docker-control-template-support"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/127999-support-onetx-teledock-bot-docker-control-template-support"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitwarden-export",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/0neTX/Bitwarden_Export",
+        "https://hub.docker.com/r/0netx/bw-export",
+        "https://bitwarden.com/help/cli/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "confidence": "low",
+      "basis": "Allow for retained encrypted or exported backup files; capacity follows retention.",
+      "expected": {
+        "app_id": "404b4e6c-9f51-4141-8c73-46e731dd6f27",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:37.813+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:38.763767+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://forums.unraid.net/topic/127999-support-onetx-teledock-bot-docker-control-template-support"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://forums.unraid.net/topic/127999-support-onetx-teledock-bot-docker-control-template-support"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitwarden-lite",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/mimartin12/unraid-bw-lite-template",
+        "https://bitwarden.com/help/install-and-deploy-lite/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "confidence": "medium",
+      "basis": "Small Bitwarden Lite home deployment; official minimum is 200 MB and database services add memory.",
+      "expected": {
+        "app_id": "8d3ecf4a-3afa-4588-8650-65b116097513",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/mimartin12/unraid-bw-lite-template/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/mimartin12/unraid-bw-lite-template/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitwarden-lite",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/mimartin12/unraid-bw-lite-template",
+        "https://bitwarden.com/help/install-and-deploy-lite/"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 2,
+      "estimate_max": 20,
+      "confidence": "medium",
+      "basis": "Official minimum is 1 GB; allow for the vault database, attachments, and backups.",
+      "expected": {
+        "app_id": "8d3ecf4a-3afa-4588-8650-65b116097513",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:13:10.188+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:13:11.078117+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/mimartin12/unraid-bw-lite-template/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/mimartin12/unraid-bw-lite-template/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitwarden-portal",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/reaper0x1/bitwarden-portal",
+        "https://github.com/Reaper0x1/bitwarden-portal"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 1024,
+      "confidence": "medium",
+      "basis": "Scheduled backup and restore helper for a small number of Bitwarden vaults.",
+      "expected": {
+        "app_id": "c20c8daa-e9ba-4c6c-ae28-e07f91ebf067",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/Reaper0x1/bitwarden-portal/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/Reaper0x1/bitwarden-portal/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    },
+    {
+      "slug": "bitwarden-portal",
+      "estimate_kind": "estimated",
+      "source_urls": [
+        "https://github.com/reaper0x1/bitwarden-portal",
+        "https://github.com/Reaper0x1/bitwarden-portal"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 20,
+      "confidence": "low",
+      "basis": "Allow for retained encrypted source and destination backups; capacity follows retention.",
+      "expected": {
+        "app_id": "c20c8daa-e9ba-4c6c-ae28-e07f91ebf067",
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "checked_at": "2026-09-02T14:12:35.801+00:00",
+        "created_at": "2026-09-02T11:12:41.26667+00:00",
+        "updated_at": "2026-09-02T14:12:36.70053+00:00",
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "ram_source_urls": [
+          "https://github.com/Reaper0x1/bitwarden-portal/issues"
+        ],
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_min_mb": 256,
+        "storage_source_urls": [
+          "https://github.com/Reaper0x1/bitwarden-portal/issues"
+        ],
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "ram_estimate_confidence": "low",
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_confidence": "low"
+      }
+    }
+  ]
+}

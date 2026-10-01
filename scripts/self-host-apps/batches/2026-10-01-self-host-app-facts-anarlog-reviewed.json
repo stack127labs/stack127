@@ -1,0 +1,275 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Reflect Anarlog’s official customer-hosted enterprise deployment and mixed licensing; keep the community client and enterprise server model distinct. Proposal only.",
+  "apps": [
+    {
+      "slug": "anarlog",
+      "review_scope": "partial",
+      "expected": {
+        "source_code_host": "github",
+        "source_model": "open_source",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "publisher_name": "fastrepl",
+        "publisher_type": "unknown",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/fastrepl/anarlog/blob/main/docs/installation.mdx",
+        "docker_url": null,
+        "docker_support": "unknown",
+        "compose_support": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "pricing_model": "free",
+        "surfaces": [
+          "desktop"
+        ],
+        "technical_fact_status": {
+          "ram": {
+            "note": "Official primary source checked for RAM.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://anarlog.so",
+              "https://api.github.com/repos/fastrepl/anarlog",
+              "https://api.github.com/repos/fastrepl/anarlog/license",
+              "https://github.com/fastrepl/anarlog",
+              "https://github.com/fastrepl/anarlog/blob/main/docs/installation.mdx",
+              "https://openalternative.co/anarlog",
+              "https://raw.githubusercontent.com/fastrepl/anarlog/HEAD/README.md"
+            ]
+          },
+          "docker": {
+            "note": "Official primary source checked for Docker support.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://anarlog.so",
+              "https://api.github.com/repos/fastrepl/anarlog",
+              "https://api.github.com/repos/fastrepl/anarlog/license",
+              "https://github.com/fastrepl/anarlog",
+              "https://github.com/fastrepl/anarlog/blob/main/docs/installation.mdx",
+              "https://openalternative.co/anarlog",
+              "https://raw.githubusercontent.com/fastrepl/anarlog/HEAD/README.md"
+            ]
+          },
+          "compose": {
+            "note": "Official primary source checked for Compose support.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://anarlog.so",
+              "https://api.github.com/repos/fastrepl/anarlog",
+              "https://api.github.com/repos/fastrepl/anarlog/license",
+              "https://github.com/fastrepl/anarlog",
+              "https://github.com/fastrepl/anarlog/blob/main/docs/installation.mdx",
+              "https://openalternative.co/anarlog",
+              "https://raw.githubusercontent.com/fastrepl/anarlog/HEAD/README.md"
+            ]
+          },
+          "storage": {
+            "note": "Official primary source checked for storage.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://anarlog.so",
+              "https://api.github.com/repos/fastrepl/anarlog",
+              "https://api.github.com/repos/fastrepl/anarlog/license",
+              "https://github.com/fastrepl/anarlog",
+              "https://github.com/fastrepl/anarlog/blob/main/docs/installation.mdx",
+              "https://openalternative.co/anarlog",
+              "https://raw.githubusercontent.com/fastrepl/anarlog/HEAD/README.md"
+            ]
+          },
+          "database": {
+            "note": "Official deployment checked for datastore services.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://anarlog.so",
+              "https://api.github.com/repos/fastrepl/anarlog",
+              "https://api.github.com/repos/fastrepl/anarlog/license",
+              "https://github.com/fastrepl/anarlog",
+              "https://github.com/fastrepl/anarlog/blob/main/docs/installation.mdx",
+              "https://openalternative.co/anarlog",
+              "https://raw.githubusercontent.com/fastrepl/anarlog/HEAD/README.md"
+            ]
+          },
+          "docker_image": {
+            "note": "Official primary source checked for a prebuilt image.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://anarlog.so",
+              "https://api.github.com/repos/fastrepl/anarlog",
+              "https://api.github.com/repos/fastrepl/anarlog/license",
+              "https://github.com/fastrepl/anarlog",
+              "https://github.com/fastrepl/anarlog/blob/main/docs/installation.mdx",
+              "https://openalternative.co/anarlog",
+              "https://raw.githubusercontent.com/fastrepl/anarlog/HEAD/README.md"
+            ]
+          }
+        }
+      },
+      "source_code_host": "github",
+      "source_model": "source_available",
+      "license": "MIT (community); Anarlog Enterprise Commercial License (enterprise)",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "publisher_name": "Fastrepl, Inc.",
+      "publisher_type": "company",
+      "docs_url": "https://docs.anarlog.so/",
+      "install_docs_url": "https://anarlog.so/enterprise/",
+      "docker_url": "https://github.com/fastrepl/anarlog/blob/main/enterprise/deploy/compose.prod.yaml",
+      "docker_support": "official",
+      "compose_support": true,
+      "compose_url": "https://github.com/fastrepl/anarlog/blob/main/enterprise/deploy/compose.prod.yaml",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "helm"
+      ],
+      "pricing_model": "freemium",
+      "surfaces": [
+        "desktop",
+        "server"
+      ],
+      "technical_fact_status": {
+        "ram": {
+          "status": "estimated",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "low",
+          "note": "Estimate for a small customer-hosted deployment; capture worker count changes usage.",
+          "source_urls": [
+            "https://anarlog.so/enterprise/",
+            "https://anarlog.so/pricing/",
+            "https://docs.anarlog.so/",
+            "https://github.com/fastrepl/anarlog",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSING.md",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSE",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSE.enterprise",
+            "https://github.com/fastrepl/anarlog/tree/main/enterprise/deploy",
+            "https://github.com/fastrepl/anarlog/blob/main/enterprise/deploy/compose.prod.yaml",
+            "https://github.com/fastrepl/anarlog/tree/main/enterprise/deploy/helm/anarlog-capture"
+          ]
+        },
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "high",
+          "note": "Official enterprise deployment includes a production Compose file.",
+          "source_urls": [
+            "https://anarlog.so/enterprise/",
+            "https://anarlog.so/pricing/",
+            "https://docs.anarlog.so/",
+            "https://github.com/fastrepl/anarlog",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSING.md",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSE",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSE.enterprise",
+            "https://github.com/fastrepl/anarlog/tree/main/enterprise/deploy",
+            "https://github.com/fastrepl/anarlog/blob/main/enterprise/deploy/compose.prod.yaml",
+            "https://github.com/fastrepl/anarlog/tree/main/enterprise/deploy/helm/anarlog-capture"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "high",
+          "note": "Official enterprise deployment includes a production Compose file.",
+          "source_urls": [
+            "https://anarlog.so/enterprise/",
+            "https://anarlog.so/pricing/",
+            "https://docs.anarlog.so/",
+            "https://github.com/fastrepl/anarlog",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSING.md",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSE",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSE.enterprise",
+            "https://github.com/fastrepl/anarlog/tree/main/enterprise/deploy",
+            "https://github.com/fastrepl/anarlog/blob/main/enterprise/deploy/compose.prod.yaml",
+            "https://github.com/fastrepl/anarlog/tree/main/enterprise/deploy/helm/anarlog-capture"
+          ]
+        },
+        "storage": {
+          "status": "estimated",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "low",
+          "note": "Estimate for a small deployment; retained meeting data drives growth.",
+          "source_urls": [
+            "https://anarlog.so/enterprise/",
+            "https://anarlog.so/pricing/",
+            "https://docs.anarlog.so/",
+            "https://github.com/fastrepl/anarlog",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSING.md",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSE",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSE.enterprise",
+            "https://github.com/fastrepl/anarlog/tree/main/enterprise/deploy",
+            "https://github.com/fastrepl/anarlog/blob/main/enterprise/deploy/compose.prod.yaml",
+            "https://github.com/fastrepl/anarlog/tree/main/enterprise/deploy/helm/anarlog-capture"
+          ]
+        },
+        "database": {
+          "status": "unchecked",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "low",
+          "note": "Database dependency has not been verified from the deployment configuration.",
+          "source_urls": [
+            "https://anarlog.so/enterprise/",
+            "https://anarlog.so/pricing/",
+            "https://docs.anarlog.so/",
+            "https://github.com/fastrepl/anarlog",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSING.md",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSE",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSE.enterprise",
+            "https://github.com/fastrepl/anarlog/tree/main/enterprise/deploy",
+            "https://github.com/fastrepl/anarlog/blob/main/enterprise/deploy/compose.prod.yaml",
+            "https://github.com/fastrepl/anarlog/tree/main/enterprise/deploy/helm/anarlog-capture"
+          ]
+        },
+        "docker_image": {
+          "status": "unchecked",
+          "checked_at": "2026-10-01T00:00:00Z",
+          "confidence": "low",
+          "note": "No separate public image registry was verified.",
+          "source_urls": [
+            "https://anarlog.so/enterprise/",
+            "https://anarlog.so/pricing/",
+            "https://docs.anarlog.so/",
+            "https://github.com/fastrepl/anarlog",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSING.md",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSE",
+            "https://github.com/fastrepl/anarlog/blob/main/LICENSE.enterprise",
+            "https://github.com/fastrepl/anarlog/tree/main/enterprise/deploy",
+            "https://github.com/fastrepl/anarlog/blob/main/enterprise/deploy/compose.prod.yaml",
+            "https://github.com/fastrepl/anarlog/tree/main/enterprise/deploy/helm/anarlog-capture"
+          ]
+        }
+      },
+      "data_source_urls": [
+        "https://anarlog.so",
+        "https://anarlog.so/enterprise/",
+        "https://anarlog.so/pricing/",
+        "https://api.github.com/repos/fastrepl/anarlog",
+        "https://api.github.com/repos/fastrepl/anarlog/license",
+        "https://docs.anarlog.so/",
+        "https://github.com/fastrepl/anarlog",
+        "https://github.com/fastrepl/anarlog/blob/main/LICENSE",
+        "https://github.com/fastrepl/anarlog/blob/main/LICENSE.enterprise",
+        "https://github.com/fastrepl/anarlog/blob/main/LICENSING.md",
+        "https://github.com/fastrepl/anarlog/blob/main/docs/installation.mdx",
+        "https://github.com/fastrepl/anarlog/blob/main/enterprise/deploy/compose.prod.yaml",
+        "https://github.com/fastrepl/anarlog/tree/main/enterprise/deploy",
+        "https://github.com/fastrepl/anarlog/tree/main/enterprise/deploy/helm/anarlog-capture",
+        "https://openalternative.co/anarlog",
+        "https://raw.githubusercontent.com/fastrepl/anarlog/HEAD/README.md"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

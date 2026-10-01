@@ -91,10 +91,13 @@ When correcting a claim about the tool's coverage, data handling, accuracy, or l
    npm run stack127:tool-page:content:update -- \
      --slug dns-lookup \
      --intro-file /tmp/dns-lookup-intro.md \
-     --content-file /tmp/dns-lookup-content.md
+     --usage-file /tmp/dns-lookup-usage.md \
+     --content-file /tmp/dns-lookup-content.md \
+     --meta-title "DNS lookup: current records and nameservers | stack127" \
+     --meta-description "Check public DNS records and compare resolver and authoritative answers."
    ```
 
-3. Add `--usage-file /tmp/dns-lookup-usage.md` when reviewed usage guidance is available. Omitting it preserves the existing value, including `null`. The file must contain meaningful nonempty Markdown. Add `--title "DNS lookup"` only when the visible heading changes. Add `--apply` after reviewing the dry-run result.
+3. Add `--usage-file /tmp/dns-lookup-usage.md` when reviewed usage guidance is available. Omitting it preserves the existing value, including `null`. The file must contain meaningful nonempty Markdown. Add `--title "DNS lookup"` only when the visible heading changes. Pass `--meta-title` and `--meta-description` together when search metadata changes; this updates only those registry fields and the public `updated_at` date, without incrementing `content_revision`. Add `--apply` after reviewing the dry-run result.
 4. Render and test the page from the development database.
 5. Apply the same reviewed files to production only as a separate authorized operation:
 

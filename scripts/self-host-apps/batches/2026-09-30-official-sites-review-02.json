@@ -1,0 +1,215 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are offline comparison guards and must be refreshed before any apply.",
+  "scope": "Propose website_url only when a first-party repository, publisher, or project site clearly identifies a distinct official project site. focalboard is already in 2026-09-30-official-doc-links-review.json, so OpenCode replaces it as the next high-star blank website row; alarik is already included in 2026-09-30-verified-install-options-a-c-d-f.json.",
+  "apps": [
+    {
+      "slug": "opencode",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://opencode.ai/",
+      "data_source_urls": [
+        "https://github.com/anomalyco/opencode",
+        "https://opencode.ai/"
+      ]
+    },
+    {
+      "slug": "92five",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://92fiveapp.com/",
+      "data_source_urls": [
+        "https://github.com/chintanbanugaria/92five",
+        "https://92fiveapp.com/"
+      ]
+    },
+    {
+      "slug": "doublezero",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.double-zero.cloud/",
+      "data_source_urls": [
+        "https://github.com/technomancy-dev/00",
+        "https://www.double-zero.cloud/"
+      ]
+    },
+    {
+      "slug": "grai",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.grai.io/",
+      "data_source_urls": [
+        "https://github.com/grai-io/grai-core",
+        "https://www.grai.io/"
+      ]
+    },
+    {
+      "slug": "epicyon",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://libreserver.org/epicyon",
+      "data_source_urls": [
+        "https://codeberg.org/bashrc/epicyon",
+        "https://github.com/bashrc2/epicyon",
+        "https://libreserver.org/epicyon"
+      ]
+    },
+    {
+      "slug": "omoios",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://omoios.dev/",
+      "data_source_urls": [
+        "https://github.com/kivo360/OmoiOS",
+        "https://omoios.dev/"
+      ]
+    },
+    {
+      "slug": "seppo",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://seppo.mro.name/",
+      "data_source_urls": [
+        "https://codeberg.org/seppo/seppo",
+        "https://nlnet.nl/project/Seppo/",
+        "https://seppo.mro.name/"
+      ]
+    },
+    {
+      "slug": "tiddlypwa",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://tiddly.packett.cool/",
+      "data_source_urls": [
+        "https://codeberg.org/valpackett/tiddlypwa",
+        "https://talk.tiddlywiki.org/t/tiddlypwa-secure-offline-storage-and-cross-device-synchronization-solution/7673",
+        "https://tiddly.packett.cool/"
+      ]
+    },
+    {
+      "slug": "twake-chat",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://twake-chat.com/",
+      "data_source_urls": [
+        "https://github.com/linagora/twake-on-matrix",
+        "https://twake-chat.com/"
+      ]
+    },
+    {
+      "slug": "vixipy",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://vixipy.codeberg.page/",
+      "data_source_urls": [
+        "https://codeberg.org/vixipy/Vixipy",
+        "https://vixipy.codeberg.page/"
+      ]
+    },
+    {
+      "slug": "wachd",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://wachd.io/",
+      "data_source_urls": [
+        "https://github.com/wachd/wachd",
+        "https://wachd.io/"
+      ]
+    },
+    {
+      "slug": "agent-vault",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://docs.agent-vault.dev/",
+      "data_source_urls": [
+        "https://github.com/Infisical/agent-vault",
+        "https://docs.agent-vault.dev/"
+      ]
+    },
+    {
+      "slug": "ansible-nas",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://ansible-nas.io/",
+      "data_source_urls": [
+        "https://github.com/DaveStephens/ansible-nas",
+        "https://ansible-nas.io/",
+        "https://ansible-nas.io/docs/getting-started/installation/"
+      ]
+    },
+    {
+      "slug": "apache-druid",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://druid.apache.org/",
+      "data_source_urls": [
+        "https://github.com/apache/druid",
+        "https://github.com/apache/druid-website-src",
+        "https://druid.apache.org/"
+      ]
+    },
+    {
+      "slug": "apache-iotdb",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://iotdb.apache.org/",
+      "data_source_urls": [
+        "https://github.com/apache/iotdb",
+        "https://github.com/apache/iotdb-docs",
+        "https://iotdb.apache.org/"
+      ]
+    }
+  ],
+  "skipped": [
+    {
+      "slug": "mistborn",
+      "reason": "Official sources identify the GitLab project but no distinct official project site."
+    },
+    {
+      "slug": "litexiv",
+      "reason": "No distinct official site is linked from the project; third-party instances are not official sites."
+    },
+    {
+      "slug": "oxitraffic",
+      "reason": "The maintainer lists OxiTraffic on a personal site, but no distinct project site is linked."
+    },
+    {
+      "slug": "phice",
+      "reason": "The official project source has no distinct product or project site linked."
+    },
+    {
+      "slug": "alarik",
+      "reason": "Already included in 2026-09-30-verified-install-options-a-c-d-f.json; omitted to avoid a duplicate website correction."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are offline comparison guards and must be refreshed before any apply.",
+  "scope": "Proposal-only corrections for Daytona as the current Daytona product. The linked public v0.190.0 repository is an unsupported open-source archive, not the current product codebase.",
+  "apps": [
+    {
+      "slug": "daytona",
+      "review_scope": "partial",
+      "docs_url": "https://www.daytona.io/docs/",
+      "install_docs_url": null,
+      "published": false,
+      "self_hosting_status": "not_self_hostable",
+      "docker_support": "none",
+      "compose_support": false,
+      "deployment_methods": [],
+      "docker_url": null,
+      "expected": {
+        "docs_url": null,
+        "install_docs_url": "https://github.com/daytonaio/daytona/tree/v0.190.0",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "docker_support": "official",
+        "compose_support": true,
+        "deployment_methods": ["docker", "compose"],
+        "docker_url": "https://github.com/daytonaio/daytona/tree/v0.190.0"
+      },
+      "data_source_urls": [
+        "https://www.daytona.io/",
+        "https://www.daytona.io/docs/",
+        "https://www.daytona.io/docs/en/bring-your-own-compute/",
+        "https://github.com/daytonaio/daytona",
+        "https://github.com/daytonaio/daytona/releases/tag/v0.190.0",
+        "https://github.com/daytonaio/daytona/blob/v0.190.0/LICENSE"
+      ],
+      "field_notes": {
+        "website_url": "The official website is https://www.daytona.io/. Its correction and the proposed repository maintenance value already appear in 2026-09-30-official-doc-links-review.json; do not duplicate them.",
+        "maintenance_status": "The linked GitHub repository is explicitly unmaintained, while the current Daytona product and docs are active. Mark stale only if this field is scoped to the linked public repository; the field's product-versus-repository scope needs a human decision. The existing website-links proposal marks it stale.",
+        "source_code_url": "Keep the official GitHub link as an archive of the public v0.190.0 code, not as the current product source.",
+        "source_model_and_license": "Do not change these fields in this proposal. open_source and AGPL-3.0-only are accurate for the linked public archive. Daytona says current core development moved to a private codebase. Decide whether the record represents the archive or current product before changing the source model or license.",
+        "install_docs_url": "The current BYOC guide deploys region-scoped compute services while Daytona's control plane remains managed by Daytona; it is not a full self-host installation guide. The v0.190.0 repository tree is source code, not an install guide.",
+        "self_hosting_status": "For the current Daytona product, BYOC runs sandbox workloads on customer infrastructure but still uses Daytona's control plane. The v0.190.0 OSS/on-prem deployment documentation was removed. This proposal therefore classifies the current product as not self-hostable and unpublished.",
+        "docker_and_compose": "The repository tag does not establish current supported Docker or Compose deployment. The current BYOC docs describe Helm charts for region services only, not a self-hosted Daytona control plane."
+      }
+    }
+  ]
+}

@@ -1,0 +1,660 @@
+{
+  "reviewed_at": "2026-09-30",
+  "database_access": "read_only",
+  "canonical_project": "tulgfrqamtcshdtmhvpx",
+  "scope": "First 15 published self_hostable apps with slugs starting a-c, ordered by slug, that had no install-options row. Verified install links from official project or publisher pages. No production changes made.",
+  "selection": {
+    "filters": {
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "slug_prefix": "a-c",
+      "install_options_row": "absent"
+    },
+    "order_by": "slug ASC",
+    "limit": 15,
+    "records": [
+      "accept-bot",
+      "acontext",
+      "acp-admin",
+      "agent-vault",
+      "aktivisda",
+      "alarik",
+      "altcha",
+      "amgix",
+      "amical",
+      "amnezia",
+      "analog",
+      "anarlog",
+      "anibridge",
+      "anonaddy",
+      "anonymousoverflow"
+    ]
+  },
+  "records": [
+    {
+      "slug": "accept-bot",
+      "app_id": "367eb989-b5a7-440d-b894-9e92f03df8ff",
+      "current": {
+        "website_url": "https://cardboards.net/accept-bot/",
+        "install_docs_url": "https://github.com/brockbreacher/accept-bot",
+        "source_code_url": "https://github.com/brockbreacher/accept-bot",
+        "publisher_url": "https://cardboards.net/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_install_options": [],
+      "skip_reason": "The official README describes the Discord bot, permissions, and setup variables but gives no operator self-host instructions or published container image. A Dockerfile in the source tree is not an install destination.",
+      "inspection_notes": [
+        "Checked the project repository README and the publisher site.",
+        "The README links an invite for using the bot and does not document a supported self-host deployment."
+      ],
+      "sources": [
+        "https://github.com/brockbreacher/accept-bot",
+        "https://cardboards.net/accept-bot/"
+      ],
+      "gaps_updates": [
+        "Review and remove the Docker deployment method unless the publisher provides supported deployment instructions or a registry image.",
+        "Replace the repository link in install_docs_url if a separate installation guide becomes available.",
+        "Recheck self_hosting_status against the lack of a verified self-host installation path."
+      ]
+    },
+    {
+      "slug": "acontext",
+      "app_id": "bf543b87-95c0-40fd-9619-24cb6fadf12e",
+      "current": {
+        "website_url": "https://acontext.io/",
+        "install_docs_url": "https://github.com/memodb-io/Acontext#self-host-acontext",
+        "source_code_url": "https://github.com/memodb-io/Acontext",
+        "publisher_url": "https://acontext.io/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "package"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "binary",
+          "label": "Acontext CLI installer",
+          "url": "https://docs.acontext.io/settings/local",
+          "support_level": "official",
+          "source_url": "https://docs.acontext.io/settings/local",
+          "image": null,
+          "note": "Install acontext-cli, then run acontext server up. The local server needs an LLM API key.",
+          "sort_order": 10
+        }
+      ],
+      "inspection_notes": [
+        "The official local setup guide provides an install script for acontext-cli and commands to start the server.",
+        "The guide says the server creates a local db folder for persistent data."
+      ],
+      "sources": [
+        "https://docs.acontext.io/settings/local",
+        "https://docs.acontext.io/quick"
+      ],
+      "gaps_updates": [
+        "Point install_docs_url to the official local setup guide.",
+        "Replace docker and package deployment methods with binary unless separate app-server install evidence supports them."
+      ]
+    },
+    {
+      "slug": "acp-admin",
+      "app_id": "31bcc33d-51ae-45f4-9827-c91b116aede3",
+      "current": {
+        "website_url": "https://csa-admin.org",
+        "install_docs_url": "https://github.com/csa-admin-org/csa-admin#readme",
+        "source_code_url": "https://github.com/csa-admin-org/csa-admin",
+        "publisher_url": "https://github.com/csa-admin-org",
+        "docker_url": "https://github.com/csa-admin-org/csa-admin/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "source_model": "open_source"
+      },
+      "verified_install_options": [],
+      "skip_reason": "The publisher confirms that users may self-host, but the checked GitHub README covers developer setup and has no production operator guide or published container destination. The Dockerfile is not an install destination.",
+      "inspection_notes": [
+        "The publisher site explicitly describes the code as source available under the O'Saasy license and says self-hosting requires advanced technical knowledge.",
+        "The README startup steps use development tooling and bin/dev; they do not establish a supported production deployment."
+      ],
+      "sources": [
+        "https://csa-admin.org/",
+        "https://github.com/csa-admin-org/csa-admin"
+      ],
+      "gaps_updates": [
+        "Change source_model from open_source to source_available and verify the license metadata against O'Saasy.",
+        "Clear the Dockerfile URL from docker_url and review the Docker method until an operator install destination is documented.",
+        "Keep the self-hostable status only with the publisher's direct self-hosting statement."
+      ]
+    },
+    {
+      "slug": "agent-vault",
+      "app_id": "b31f5a9e-a159-4479-bbb0-1417037258e4",
+      "current": {
+        "website_url": null,
+        "install_docs_url": "https://github.com/Infisical/agent-vault",
+        "source_code_url": "https://github.com/Infisical/agent-vault",
+        "publisher_url": "https://github.com/Infisical",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/infisical/agent-vault",
+          "support_level": "official",
+          "source_url": "https://agent-vault.mintlify.app/self-hosting/docker",
+          "image": "infisical/agent-vault",
+          "note": "Official Docker run instructions use this image.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://agent-vault.mintlify.app/self-hosting/docker",
+          "support_level": "official",
+          "source_url": "https://agent-vault.mintlify.app/self-hosting/docker",
+          "image": "infisical/agent-vault",
+          "note": "Official Compose setup persists data in a /data volume.",
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Binary install",
+          "url": "https://agent-vault.mintlify.app/installation",
+          "support_level": "official",
+          "source_url": "https://agent-vault.mintlify.app/installation",
+          "image": null,
+          "note": "The single binary runs both the server and CLI client.",
+          "sort_order": 30
+        }
+      ],
+      "inspection_notes": [
+        "The official installation page documents the binary installer and Docker run command.",
+        "The official Docker page documents both the image and a Compose setup."
+      ],
+      "sources": [
+        "https://agent-vault.mintlify.app/installation",
+        "https://agent-vault.mintlify.app/self-hosting/docker",
+        "https://github.com/Infisical/agent-vault/releases"
+      ],
+      "gaps_updates": [
+        "Set install_docs_url to the official installation page.",
+        "Add compose and binary to deployment_methods.",
+        "Add the official website URL if the project website is confirmed separately from its documentation."
+      ]
+    },
+    {
+      "slug": "aktivisda",
+      "app_id": "8d5fe3e8-eec7-4bc3-b2ae-32b6017b6ac1",
+      "current": {
+        "website_url": "https://aktivisda.earth",
+        "install_docs_url": "https://docs.aktivisda.earth/deploy/quickstart/",
+        "source_code_url": "https://framagit.org/aktivisda/aktivisda",
+        "publisher_url": "https://framagit.org/aktivisda",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "other",
+          "label": "Static-site deployment guide",
+          "url": "https://docs.aktivisda.earth/deploy/quickstart/",
+          "support_level": "official",
+          "source_url": "https://docs.aktivisda.earth/deploy/quickstart/",
+          "image": null,
+          "note": "Build and publish an Aktivisda static site. The guide says a new Backtivisda image-server install currently needs developer help.",
+          "sort_order": 10
+        }
+      ],
+      "inspection_notes": [
+        "The official quickstart gives static-site generation and web-server setup steps.",
+        "The same guide describes a GitLab project and CI runner as part of its full workflow, and warns that new Backtivisda server installation is currently difficult."
+      ],
+      "sources": [
+        "https://docs.aktivisda.earth/deploy/quickstart/",
+        "https://aktivisda.earth"
+      ],
+      "gaps_updates": [
+        "Change deployment_methods from docker to other for the main static-site product.",
+        "Keep the Backtivisda image server described as a separate dependency, not as the main app's Docker install option."
+      ]
+    },
+    {
+      "slug": "alarik",
+      "app_id": "3e62fa9a-c2c1-44f8-ab32-cf7f12f6cdff",
+      "current": {
+        "website_url": null,
+        "install_docs_url": "https://github.com/achtungsoftware/alarik#readme",
+        "source_code_url": "https://github.com/achtungsoftware/alarik",
+        "publisher_url": "https://github.com/achtungsoftware",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://alarik.io/docs/installation",
+          "support_level": "official",
+          "source_url": "https://alarik.io/docs/installation",
+          "image": null,
+          "note": "The guide starts the API and console together from official GHCR images.",
+          "sort_order": 10
+        }
+      ],
+      "inspection_notes": [
+        "The official installation guide recommends Docker Compose and lists both the API and console image names.",
+        "The GHCR API and console package pages were also checked; the install guide is the complete destination for users."
+      ],
+      "sources": [
+        "https://alarik.io/docs/installation",
+        "https://github.com/achtungsoftware/alarik/pkgs/container/alarik",
+        "https://github.com/achtungsoftware/alarik/pkgs/container/alarik-console"
+      ],
+      "gaps_updates": [
+        "Set website_url to https://alarik.io and install_docs_url to the official installation guide.",
+        "Replace native with compose in deployment_methods."
+      ]
+    },
+    {
+      "slug": "altcha",
+      "app_id": "6d380385-a3c8-41a2-9d66-fb6427660840",
+      "current": {
+        "website_url": "https://altcha.org",
+        "install_docs_url": "https://altcha.org/docs/v2/server-integration",
+        "source_code_url": "https://github.com/altcha-org/altcha",
+        "publisher_url": "https://github.com/altcha-org",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [],
+      "skip_reason": "The open-source core is a widget and server-side verification libraries integrated into another application; it is not a standalone server install. ALTCHA Sentinel is a separate commercial self-hosted product and should not be linked as the core app's install option.",
+      "inspection_notes": [
+        "Official docs separate the open-source widget and libraries from commercial Sentinel.",
+        "Sentinel has its own self-hosted installation guide; it is a separate product from this core record."
+      ],
+      "sources": [
+        "https://altcha.org/docs/",
+        "https://altcha.org/docs/integration/quick-start/",
+        "https://altcha.org/docs/sentinel/install/"
+      ],
+      "gaps_updates": [
+        "Keep the core app's deployment_methods empty unless the directory intentionally treats application libraries as installable apps.",
+        "Review whether ALTCHA Sentinel needs a separate directory record."
+      ]
+    },
+    {
+      "slug": "amgix",
+      "app_id": "a98f26c6-cb20-43f2-ab84-b8df2578b8b9",
+      "current": {
+        "website_url": "https://amgix.io/",
+        "install_docs_url": "https://github.com/amgix/amgix-server#readme",
+        "source_code_url": "https://github.com/amgix/amgix-server",
+        "publisher_url": "https://github.com/amgix",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Amgix One Docker image",
+          "url": "https://hub.docker.com/r/amgixio/amgix-one",
+          "support_level": "official",
+          "source_url": "https://github.com/amgix/amgix-server",
+          "image": "amgixio/amgix-one:1",
+          "note": "The official README documents this all-in-one image and says tag 1 tracks the latest 1.x release.",
+          "sort_order": 10
+        }
+      ],
+      "inspection_notes": [
+        "The official README gives a docker run command for amgixio/amgix-one:1 and says it persists data and model caches under /data.",
+        "The Docker Hub page was not readable in the research browser; the exact image and tag are explicitly documented by the official repository."
+      ],
+      "sources": [
+        "https://github.com/amgix/amgix-server",
+        "https://hub.docker.com/r/amgixio/amgix-one",
+        "https://amgix.io/"
+      ],
+      "gaps_updates": [
+        "Replace native with docker in deployment_methods.",
+        "Set docker_url to the registry page and docker_image to amgixio/amgix-one:1."
+      ]
+    },
+    {
+      "slug": "amical",
+      "app_id": "63e32807-ae38-4c3a-a9bf-b51ba3709af9",
+      "current": {
+        "website_url": "https://amical.ai",
+        "install_docs_url": "https://amical.ai/docs",
+        "source_code_url": "https://github.com/amicalhq/amical",
+        "publisher_url": "https://github.com/amicalhq",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [
+        {
+          "method": "binary",
+          "label": "Desktop release",
+          "url": "https://github.com/amicalhq/amical/releases",
+          "support_level": "official",
+          "source_url": "https://amical.ai/docs/quick-start",
+          "image": null,
+          "note": "Official desktop installers are provided for macOS and Windows.",
+          "sort_order": 10
+        },
+        {
+          "method": "package",
+          "label": "Homebrew cask",
+          "url": "https://formulae.brew.sh/cask/amical",
+          "support_level": "official",
+          "source_url": "https://amical.ai/docs/quick-start",
+          "image": null,
+          "note": "Official quick-start guide links the macOS Homebrew install command.",
+          "sort_order": 20
+        }
+      ],
+      "inspection_notes": [
+        "The official quick-start describes desktop installation, links to GitHub releases, and links the Homebrew cask command.",
+        "Release notes show macOS and Windows desktop installers."
+      ],
+      "sources": [
+        "https://amical.ai/docs/quick-start",
+        "https://github.com/amicalhq/amical/releases",
+        "https://formulae.brew.sh/cask/amical"
+      ],
+      "gaps_updates": [
+        "Set install_docs_url to the official desktop quick-start and add binary and package to deployment_methods.",
+        "Review self_hosting_status because the checked install options are desktop app installers, not a server deployment."
+      ]
+    },
+    {
+      "slug": "amnezia",
+      "app_id": "68b35fd5-c3f6-44f3-bbee-8b065c75ac9f",
+      "current": {
+        "website_url": "https://amnezia.org",
+        "install_docs_url": "https://github.com/amnezia-vpn/amnezia-client#readme",
+        "source_code_url": "https://github.com/amnezia-vpn/amnezia-client",
+        "publisher_url": "https://github.com/amnezia-vpn",
+        "docker_url": "https://github.com/amnezia-vpn/amnezia-client/blob/HEAD/client/server_scripts/awg/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "binary",
+          "label": "Amnezia VPN client",
+          "url": "https://github.com/amnezia-vpn/amnezia-client/releases",
+          "support_level": "official",
+          "source_url": "https://github.com/amnezia-vpn/amnezia-client",
+          "image": null,
+          "note": "Install the client locally; it can deploy VPN containers to a VPS you control.",
+          "sort_order": 10
+        }
+      ],
+      "inspection_notes": [
+        "The official README describes Amnezia as a client that deploys Docker containers to a user's server.",
+        "The official release page distributes the client; the current Dockerfile URL is a server-side component source file, not an app install destination."
+      ],
+      "sources": [
+        "https://github.com/amnezia-vpn/amnezia-client",
+        "https://github.com/amnezia-vpn/amnezia-client/releases"
+      ],
+      "gaps_updates": [
+        "Clear the Dockerfile URL from docker_url.",
+        "Use the binary client as the user-facing install option and review whether deployment_methods should describe client installation or the server containers it provisions.",
+        "Point install_docs_url to an official end-user setup guide if one is selected."
+      ]
+    },
+    {
+      "slug": "analog",
+      "app_id": "5d94ed9a-3e4c-44a9-994a-a9df850122ff",
+      "current": {
+        "website_url": "https://github.com/orangecoloured/analog",
+        "install_docs_url": "https://github.com/orangecoloured/analog",
+        "source_code_url": "https://github.com/orangecoloured/analog",
+        "publisher_url": "https://github.com/orangecoloured",
+        "docker_url": "https://github.com/orangecoloured/analog/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_install_options": [],
+      "skip_reason": "The official README documents building a Docker image from the local source tree. No publisher registry image or separate install destination was verified, and the Dockerfile/repository cannot be used as the Docker option target.",
+      "inspection_notes": [
+        "The README includes Docker build and run commands that support the Docker deployment method.",
+        "Those commands build from source and do not identify a prebuilt image destination."
+      ],
+      "sources": [
+        "https://github.com/orangecoloured/analog"
+      ],
+      "gaps_updates": [
+        "Clear the Dockerfile URL from docker_url.",
+        "Keep the Docker deployment method only if build-from-source deployment is in scope; add a Docker option after an official registry or install page is available."
+      ]
+    },
+    {
+      "slug": "anarlog",
+      "app_id": "dba706d2-c8bf-4b5f-9055-30859c32dcc8",
+      "current": {
+        "website_url": "https://anarlog.so",
+        "install_docs_url": "https://github.com/fastrepl/anarlog/blob/main/docs/installation.mdx",
+        "source_code_url": "https://github.com/fastrepl/anarlog",
+        "publisher_url": "https://github.com/fastrepl",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [
+        {
+          "method": "binary",
+          "label": "Desktop downloads",
+          "url": "https://anarlog.so/download/",
+          "support_level": "official",
+          "source_url": "https://docs.anarlog.so/desktop-installation",
+          "image": null,
+          "note": "Official desktop builds are listed for macOS, Windows, and Linux; Windows and Linux support is marked beta.",
+          "sort_order": 10
+        },
+        {
+          "method": "package",
+          "label": "APT repository",
+          "url": "https://docs.anarlog.so/desktop-installation",
+          "support_level": "official",
+          "source_url": "https://docs.anarlog.so/desktop-installation",
+          "image": null,
+          "note": "Official signed APT repository for Debian, Ubuntu, and compatible distributions.",
+          "sort_order": 20
+        }
+      ],
+      "inspection_notes": [
+        "The official desktop installation guide includes platform-specific installers and a signed APT repository.",
+        "The official CLI installation page says the executable includes a local MCP server and can run against local meeting data."
+      ],
+      "sources": [
+        "https://anarlog.so/download/",
+        "https://docs.anarlog.so/desktop-installation",
+        "https://github.com/fastrepl/anarlog/blob/main/docs/installation.mdx"
+      ],
+      "gaps_updates": [
+        "Point install_docs_url to the official desktop installation guide and add binary and package to deployment_methods.",
+        "Review self_hosting_status because the verified products are desktop/local tools rather than a server deployment."
+      ]
+    },
+    {
+      "slug": "anibridge",
+      "app_id": "5caa1687-95de-4494-9bf9-fc1d8d0d3b43",
+      "current": {
+        "website_url": "http://anibridge.eliasbenb.dev",
+        "install_docs_url": "https://github.com/anibridge/anibridge#readme",
+        "source_code_url": "https://github.com/anibridge/anibridge",
+        "publisher_url": "https://github.com/anibridge",
+        "docker_url": "https://github.com/anibridge/anibridge/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/anibridge/anibridge/pkgs/container/anibridge",
+          "support_level": "official",
+          "source_url": "https://anibridge.eliasbenb.dev/getting-started/docker/",
+          "image": "ghcr.io/anibridge/anibridge:v2",
+          "note": "Official docs give Docker CLI instructions and document the v2 image tag.",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://anibridge.eliasbenb.dev/getting-started/docker/",
+          "support_level": "official",
+          "source_url": "https://anibridge.eliasbenb.dev/getting-started/docker/",
+          "image": "ghcr.io/anibridge/anibridge:v2",
+          "note": "Official Compose setup persists configuration under /config.",
+          "sort_order": 20
+        },
+        {
+          "method": "unraid",
+          "label": "Unraid Community Applications",
+          "url": "https://ca.unraid.net/apps?app=vvkups&q=AniBridge",
+          "support_level": "community",
+          "source_url": "https://anibridge.eliasbenb.dev/getting-started/unraid/",
+          "image": "ghcr.io/anibridge/anibridge:v2",
+          "note": "Official AniBridge docs link this catalog entry and provide installation steps.",
+          "sort_order": 30
+        }
+      ],
+      "inspection_notes": [
+        "Official docs provide both Docker CLI and Compose setup using ghcr.io/anibridge/anibridge:v2.",
+        "The official Unraid guide links the Community Applications entry and documents its install flow."
+      ],
+      "sources": [
+        "https://anibridge.eliasbenb.dev/getting-started/docker/",
+        "https://anibridge.eliasbenb.dev/getting-started/unraid/",
+        "https://github.com/anibridge/anibridge/pkgs/container/anibridge",
+        "https://ca.unraid.net/apps?app=vvkups&q=AniBridge"
+      ],
+      "gaps_updates": [
+        "Use the HTTPS website URL if supported and set install_docs_url to the official Docker guide.",
+        "Replace the Dockerfile URL with the GHCR package page and add the documented image.",
+        "Add compose and unraid to deployment_methods."
+      ]
+    },
+    {
+      "slug": "anonaddy",
+      "app_id": "11ebaf56-7bf1-477c-8599-8a658d810953",
+      "current": {
+        "website_url": "https://addy.io",
+        "install_docs_url": "https://github.com/anonaddy/anonaddy#readme",
+        "source_code_url": "https://github.com/anonaddy/anonaddy",
+        "publisher_url": "https://github.com/anonaddy",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/anonaddy/anonaddy",
+          "support_level": "official",
+          "source_url": "https://github.com/anonaddy/docker",
+          "image": "anonaddy/anonaddy",
+          "note": "The publisher's Docker project documents this image and recommends Compose for running it.",
+          "sort_order": 10
+        }
+      ],
+      "inspection_notes": [
+        "The main project README links to self-hosting; the publisher's Docker project documents the image and Compose usage.",
+        "The Docker Hub image page identifies anonaddy/anonaddy as the published image."
+      ],
+      "sources": [
+        "https://github.com/anonaddy/anonaddy",
+        "https://github.com/anonaddy/docker",
+        "https://hub.docker.com/r/anonaddy/anonaddy"
+      ],
+      "gaps_updates": [
+        "Set install_docs_url to the publisher's self-hosting guide or Docker project documentation.",
+        "Add docker to deployment_methods and set docker_url and docker_image to the verified image."
+      ]
+    },
+    {
+      "slug": "anonymousoverflow",
+      "app_id": "8e262133-d607-491a-9924-ab6d5836df2e",
+      "current": {
+        "website_url": "https://aohub.httpjames.space",
+        "install_docs_url": "https://github.com/httpjamesm/AnonymousOverflow#readme",
+        "source_code_url": "https://github.com/httpjamesm/AnonymousOverflow",
+        "publisher_url": "https://github.com/httpjamesm",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": []
+      },
+      "verified_install_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/httpjamesm/AnonymousOverflow/wiki/Deployment",
+          "support_level": "official",
+          "source_url": "https://github.com/httpjamesm/AnonymousOverflow/wiki/Deployment",
+          "image": "ghcr.io/httpjamesm/anonymousoverflow:release",
+          "note": "The official deployment guide uses the official prebuilt image; set APP_URL and JWT_SIGNING_SECRET before starting.",
+          "sort_order": 10
+        }
+      ],
+      "inspection_notes": [
+        "The official deployment wiki describes the prebuilt-image Compose setup.",
+        "The repository's example Compose file confirms the official GHCR image and release tag; it is evidence only, not the install-option URL.",
+        "The wiki identifies the Codeberg alternative image as unofficial, so it was excluded."
+      ],
+      "sources": [
+        "https://github.com/httpjamesm/AnonymousOverflow/wiki/Deployment",
+        "https://github.com/httpjamesm/AnonymousOverflow/blob/main/docker-compose.example.yml"
+      ],
+      "gaps_updates": [
+        "Set install_docs_url to the official deployment wiki and add compose to deployment_methods."
+      ]
+    }
+  ]
+}

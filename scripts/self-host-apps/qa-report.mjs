@@ -5,6 +5,7 @@ import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { validateSummary } from "./lib/summary-rules.mjs";
 import { isManagedMediaUrl } from "../stack127/media/storage.mjs";
+import { hasCompleteResourceEstimate } from "./lib/resource-review.mjs";
 
 const dockerHighRiskPattern =
   /(devcontainer|dev-container|compose\.dev|docker-compose\.dev|\/test|testing|ci|e2e|vendor|\.github)/i;
@@ -30,6 +31,8 @@ const issueWeights = {
   license_missing: 65,
   ram_pending: 60,
   storage_pending: 55,
+  ram_estimate_missing: 90,
+  storage_estimate_missing: 85,
   pricing_unknown: 45,
   docker_image_missing: 40,
   source_model_unknown: 65,
@@ -80,6 +83,9 @@ function summaryIssues(row) {
 function rowIssues(row) {
   const issues = [];
 
+  if (!hasCompleteResourceEstimate(row, "ram")) issues.push("ram_estimate_missing");
+  if (!hasCompleteResourceEstimate(row, "storage")) issues.push("storage_estimate_missing");
+
   if (
     row.source_model !== "closed_source" &&
     (!row.license || String(row.license).toLowerCase() === "unknown")
@@ -92,7 +98,7 @@ function rowIssues(row) {
     row.ram_recommended_mb === null &&
     row.ram_default_limit_mb === null
   ) {
-    issues.push(row.ram_estimate_exists
+    issues.push(hasCompleteResourceEstimate(row, "ram")
       ? "ram_estimated"
       : factWasChecked(row, "ram") ? "ram_not_published" : "ram_pending");
   }
@@ -101,7 +107,7 @@ function rowIssues(row) {
     row.storage_profile === "unknown" &&
     row.persistent_storage !== true
   ) {
-    issues.push(row.storage_estimate_exists
+    issues.push(hasCompleteResourceEstimate(row, "storage")
       ? "storage_estimated"
       : factWasChecked(row, "storage") ? "storage_not_published" : "storage_pending");
   }
@@ -201,11 +207,21 @@ async function main() {
           ram_default_limit_mb,
           self_host_apps.technical_fact_status,
           self_host_apps.technical_facts_checked_at,
-          resource.ram_estimate_min_mb is not null as ram_estimate_exists,
+          resource.ram_estimate_min_mb,
+          resource.ram_estimate_max_mb,
+          resource.ram_estimate_kind,
+          resource.ram_estimate_confidence,
+          resource.ram_estimate_basis,
+          resource.ram_source_urls,
           storage_min_gb,
           storage_profile,
           persistent_storage,
-          resource.storage_estimate_min_gb is not null as storage_estimate_exists,
+          resource.storage_estimate_min_gb,
+          resource.storage_estimate_max_gb,
+          resource.storage_estimate_kind,
+          resource.storage_estimate_confidence,
+          resource.storage_estimate_basis,
+          resource.storage_source_urls,
           surfaces,
           summary_source,
           summary_confidence
@@ -250,7 +266,7 @@ async function main() {
       issues: row.outcomes.filter((outcome) => outcome.endsWith("_estimated")),
     }))),
     technical_pending_count: assessed.filter((row) =>
-      row.issues.some((issue) => issue.endsWith("_pending") || issue === "docker_image_missing")
+      row.issues.some((issue) => issue.endsWith("_pending") || issue.endsWith("_estimate_missing") || issue === "docker_image_missing")
     ).length,
     queue_count: queue.length,
     top_queue: queue.slice(0, limit),

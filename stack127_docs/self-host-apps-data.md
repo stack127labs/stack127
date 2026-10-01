@@ -29,9 +29,9 @@ An app is eligible when an official website, documentation page, download, packa
 
 ## Requirements and estimates
 
-Exact publisher requirements stay on `self_host_apps`: `ram_min_mb`, `ram_recommended_mb`, and `storage_min_gb`. Appliance defaults use `ram_default_limit_mb`; they are not app minimums. `storage_profile` and `persistent_storage` describe workload shape.
+Publisher requirements stay on `self_host_apps`: `ram_min_mb`, `ram_recommended_mb`, and `storage_min_gb`. Use those values to calibrate the estimate ranges. Appliance defaults use `ram_default_limit_mb`; they are not app minimums. `storage_profile` and `persistent_storage` describe workload shape.
 
-`self_host_app_resource_estimates` stores separate RAM and storage ranges with `derived` or `estimated` kind, confidence, basis, source URLs, note, and check date. The UI always labels these ranges `(estimated)`. A checked source that publishes no number stays null, with `technical_fact_status` set to `not_published`.
+`self_host_app_resource_estimates` stores RAM and storage estimate ranges for every app, with `derived` or `estimated` kind, confidence, a short internal basis, source URLs, optional note, and check date. The UI labels every range `Est. RAM` and `Est. Storage`. Package caps are not app requirements.
 
 ## Install destinations
 

@@ -1,0 +1,2048 @@
+{
+  "report_date": "2026-09-30",
+  "project_id": "tulgfrqamtcshdtmhvpx",
+  "database_access": "read_only",
+  "production_write": false,
+  "scope": "Official-source review of the next 25 published self-hostable M–R apps with empty install-option destinations, ordered by slug. The SQL is a guarded draft only and is not applied.",
+  "selection": {
+    "published": true,
+    "self_hosting_status": "self_hostable",
+    "slug_range": "M–R",
+    "install_options": "options=[] and every destination URL/image array empty",
+    "order_by": "slug ASC",
+    "limit": 25,
+    "slugs": [
+      "meetily",
+      "mergeable",
+      "meshping",
+      "meteroid",
+      "miflora-mqtt-daemon",
+      "milvus",
+      "mindustry",
+      "minimal-git-server",
+      "minipaint",
+      "mirumoji",
+      "mistborn",
+      "mistserver",
+      "mixpost",
+      "mkdocs",
+      "modx",
+      "mongooseim",
+      "monkeycode",
+      "moode-audio",
+      "mopidy",
+      "morphic",
+      "motion-tools-antragsgrun",
+      "movim",
+      "mpd",
+      "musicseerr",
+      "musikcube"
+    ]
+  },
+  "summary": {
+    "apps_reviewed": 25,
+    "apps_with_verified_options": 25,
+    "verified_options": 45,
+    "option_rows_to_populate": 25,
+    "out_of_scope_apps": 0,
+    "unresolved_install_routes": 0
+  },
+  "preflight": {
+    "status": "confirmed_read_only_query",
+    "target_rows": 25,
+    "live_app_rows": 25,
+    "exact_baseline_app_rows": 25,
+    "published_self_hostable_rows": 25,
+    "install_option_rows": 25,
+    "empty_option_rows": 25,
+    "all_destination_arrays_empty_rows": 25,
+    "mismatches": []
+  },
+  "guard_assumptions": [
+    "App changes require exact id, slug, published=true, self_hosting_status=self_hostable, and exact baseline install_docs_url, docker_url, docker_image, compose_url, deployment_methods, Docker support and Compose support.",
+    "Every install-option row must still have options=[] and all 21 URL/image arrays empty before it is populated.",
+    "New source URLs are merged with existing data_source_urls and source_urls; existing source links are preserved.",
+    "Only positive Docker, image, Compose and Helm facts verified against official sources are added. Unknown or unlisted methods are not marked unsupported.",
+    "No summary, category, eligibility, source-model or resource-estimate fields are changed.",
+    "The SQL draft is not applied to production."
+  ],
+  "unresolved_followups": [
+    {
+      "slug": "mergeable",
+      "field": "helm_install",
+      "issue": "The official self-host index lists Helm as currently supported and links the method page; the web fetch for that linked page returned a cache miss. The route is recorded from the official navigation link."
+    },
+    {
+      "slug": "musicseerr",
+      "field": "source_code_url",
+      "issue": "The current database source-code URL redirects away from the project. The install draft points to the current jma1ice/Musicseerr README, whose README documents the Docker Hub fallback. Keep source-code URL repair outside this install-only draft."
+    },
+    {
+      "slug": "musicseerr",
+      "field": "ghcr_image",
+      "issue": "The official README-linked GHCR package returned 404 during review; the Docker Hub image page is available and used for both Docker and Compose."
+    }
+  ],
+  "apps": [
+    {
+      "slug": "meetily",
+      "id": "52df5ffc-6550-458e-b7c2-c8df648ec13c",
+      "existing": {
+        "install_docs_url": "https://github.com/Zackriya-Solutions/meetily#installation",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/Zackriya-Solutions/meetily/blob/main/docs/BUILDING.md",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "binary",
+          "native"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 2,
+      "verified_options": [
+        {
+          "method": "binary",
+          "label": "Windows/macOS installers",
+          "url": "https://github.com/Zackriya-Solutions/meetily/releases",
+          "source_url": "https://github.com/Zackriya-Solutions/meetily/releases",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "native",
+          "label": "Linux build from source",
+          "url": "https://github.com/Zackriya-Solutions/meetily/blob/main/docs/BUILDING.md",
+          "source_url": "https://github.com/Zackriya-Solutions/meetily/blob/main/docs/BUILDING.md",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        "https://github.com/Zackriya-Solutions/meetily",
+        "https://github.com/Zackriya-Solutions/meetily/blob/main/docs/BUILDING.md",
+        "https://github.com/Zackriya-Solutions/meetily/releases",
+        "https://meetily.ai"
+      ],
+      "technical_fact_status_additions": {},
+      "review_note": "Official v0.4.1 releases provide Windows x64 and macOS ARM64 installers; Linux is documented as a source build."
+    },
+    {
+      "slug": "mergeable",
+      "id": "7915ce66-041b-4bf1-86ab-4acc542cfab0",
+      "existing": {
+        "install_docs_url": "https://github.com/pvcnt/mergeable#readme",
+        "docker_url": "https://github.com/pvcnt/mergeable/blob/HEAD/apps/web/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false
+      },
+      "proposed": {
+        "install_docs_url": "https://www.usemergeable.dev/self-host/",
+        "docker_url": "https://www.usemergeable.dev/self-host/docker/",
+        "docker_image": "ghcr.io/pvcnt/mergeable",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "helm",
+          "other"
+        ],
+        "docker_support": "official",
+        "compose_support": null
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 3,
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://www.usemergeable.dev/self-host/docker/",
+          "source_url": "https://www.usemergeable.dev/self-host/docker/",
+          "image": "ghcr.io/pvcnt/mergeable",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "helm",
+          "label": "Helm chart",
+          "url": "https://www.usemergeable.dev/self-host/helm/",
+          "source_url": "https://www.usemergeable.dev/self-host/",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "other",
+          "label": "Static files",
+          "url": "https://www.usemergeable.dev/self-host/static-files/",
+          "source_url": "https://www.usemergeable.dev/self-host/static-files/",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        "https://github.com/pvcnt/mergeable",
+        "https://github.com/pvcnt/mergeable#readme",
+        "https://www.usemergeable.dev",
+        "https://www.usemergeable.dev/self-host/",
+        "https://www.usemergeable.dev/self-host/docker/",
+        "https://www.usemergeable.dev/self-host/static-files/"
+      ],
+      "technical_fact_status_additions": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker as part of a self-host deployment route.",
+          "source_urls": [
+            "https://github.com/pvcnt/mergeable",
+            "https://github.com/pvcnt/mergeable#readme",
+            "https://www.usemergeable.dev",
+            "https://www.usemergeable.dev/self-host/",
+            "https://www.usemergeable.dev/self-host/docker/",
+            "https://www.usemergeable.dev/self-host/static-files/"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material identifies the Docker image used by the verified route.",
+          "source_urls": [
+            "https://github.com/pvcnt/mergeable",
+            "https://github.com/pvcnt/mergeable#readme",
+            "https://www.usemergeable.dev",
+            "https://www.usemergeable.dev/self-host/",
+            "https://www.usemergeable.dev/self-host/docker/",
+            "https://www.usemergeable.dev/self-host/static-files/"
+          ]
+        },
+        "helm": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project documentation provides a Helm deployment route.",
+          "source_urls": [
+            "https://github.com/pvcnt/mergeable",
+            "https://github.com/pvcnt/mergeable#readme",
+            "https://www.usemergeable.dev",
+            "https://www.usemergeable.dev/self-host/",
+            "https://www.usemergeable.dev/self-host/docker/",
+            "https://www.usemergeable.dev/self-host/static-files/"
+          ]
+        }
+      },
+      "review_note": "The official self-host guide lists Docker, Helm and static files as supported methods. Docker is a standalone image; the official guide page is the Docker destination."
+    },
+    {
+      "slug": "meshping",
+      "id": "77024b0f-db6b-4ab5-86ba-a06c27876281",
+      "existing": {
+        "install_docs_url": "https://github.com/Svedrin/meshping#readme",
+        "docker_url": "https://github.com/Svedrin/meshping/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/Svedrin/meshping#readme",
+        "docker_url": "https://hub.docker.com/r/svedrin/meshping",
+        "docker_image": "svedrin/meshping:latest",
+        "compose_url": "https://raw.githubusercontent.com/Svedrin/meshping/master/examples/docker-compose.yaml",
+        "deployment_methods": [
+          "compose",
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 2,
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/svedrin/meshping",
+          "source_url": "https://github.com/Svedrin/meshping#readme",
+          "image": "svedrin/meshping:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://raw.githubusercontent.com/Svedrin/meshping/master/examples/docker-compose.yaml",
+          "source_url": "https://github.com/Svedrin/meshping#readme",
+          "image": "svedrin/meshping:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        "https://github.com/Svedrin/meshping",
+        "https://github.com/Svedrin/meshping#readme",
+        "https://hub.docker.com/r/svedrin/meshping"
+      ],
+      "technical_fact_status_additions": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker as part of a self-host deployment route.",
+          "source_urls": [
+            "https://github.com/Svedrin/meshping",
+            "https://github.com/Svedrin/meshping#readme",
+            "https://hub.docker.com/r/svedrin/meshping"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material identifies the Docker image used by the verified route.",
+          "source_urls": [
+            "https://github.com/Svedrin/meshping",
+            "https://github.com/Svedrin/meshping#readme",
+            "https://hub.docker.com/r/svedrin/meshping"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker Compose as part of the deployment setup.",
+          "source_urls": [
+            "https://github.com/Svedrin/meshping",
+            "https://github.com/Svedrin/meshping#readme",
+            "https://hub.docker.com/r/svedrin/meshping"
+          ]
+        }
+      },
+      "review_note": "Replaces the Dockerfile-only link with the publisher Docker Hub image and direct Compose file."
+    },
+    {
+      "slug": "meteroid",
+      "id": "2b80a215-4c13-4b4c-9148-4bccb2c6b223",
+      "existing": {
+        "install_docs_url": "https://github.com/meteroid-oss/meteroid/tree/main/docker/deploy",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/meteroid-oss/meteroid#deployment",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": "https://github.com/meteroid-oss/meteroid/blob/main/docker/deploy/docker-compose.yml",
+        "deployment_methods": [
+          "compose",
+          "helm"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 2,
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose deployment",
+          "url": "https://github.com/meteroid-oss/meteroid#deployment",
+          "source_url": "https://github.com/meteroid-oss/meteroid#deployment",
+          "image": null,
+          "note": "The upstream labels this minimal Compose setup for testing and development.",
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "helm",
+          "label": "Helm chart",
+          "url": "https://github.com/meteroid-oss/meteroid/tree/main/k8s/meteroid",
+          "source_url": "https://github.com/meteroid-oss/meteroid#deployment",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        "https://github.com/meteroid-oss/meteroid",
+        "https://github.com/meteroid-oss/meteroid#deployment",
+        "https://github.com/meteroid-oss/meteroid/blob/main/docker/deploy/docker-compose.yml",
+        "https://meteroid.com"
+      ],
+      "technical_fact_status_additions": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker as part of a self-host deployment route.",
+          "source_urls": [
+            "https://github.com/meteroid-oss/meteroid",
+            "https://github.com/meteroid-oss/meteroid#deployment",
+            "https://meteroid.com"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker Compose as part of the deployment setup.",
+          "source_urls": [
+            "https://github.com/meteroid-oss/meteroid",
+            "https://github.com/meteroid-oss/meteroid#deployment",
+            "https://meteroid.com"
+          ]
+        },
+        "helm": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project documentation provides a Helm deployment route.",
+          "source_urls": [
+            "https://github.com/meteroid-oss/meteroid",
+            "https://github.com/meteroid-oss/meteroid#deployment",
+            "https://meteroid.com"
+          ]
+        }
+      },
+      "review_note": "Official deployment docs document Compose and Helm; the Compose setup is scoped to testing/development, while Helm is the production deployment route."
+    },
+    {
+      "slug": "miflora-mqtt-daemon",
+      "id": "1c8f35d0-7d22-4335-93ff-0690e0201ac1",
+      "existing": {
+        "install_docs_url": "https://github.com/ThomDietrich/miflora-mqtt-daemon#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/ThomDietrich/miflora-mqtt-daemon#readme",
+        "docker_url": "https://github.com/ThomDietrich/miflora-mqtt-daemon#usage-with-docker",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": null
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 2,
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Linux/Python service install",
+          "url": "https://github.com/ThomDietrich/miflora-mqtt-daemon#readme",
+          "source_url": "https://github.com/ThomDietrich/miflora-mqtt-daemon#readme",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "docker",
+          "label": "Build and run Docker image",
+          "url": "https://github.com/ThomDietrich/miflora-mqtt-daemon#usage-with-docker",
+          "source_url": "https://github.com/ThomDietrich/miflora-mqtt-daemon#usage-with-docker",
+          "image": null,
+          "note": "The project documents building the image locally; no prebuilt registry image is linked.",
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        "https://github.com/ThomDietrich/miflora-mqtt-daemon",
+        "https://github.com/ThomDietrich/miflora-mqtt-daemon#readme",
+        "https://github.com/ThomDietrich/miflora-mqtt-daemon#usage-with-docker"
+      ],
+      "technical_fact_status_additions": {},
+      "review_note": "Official README provides a Linux/Python service setup and requires an MQTT broker. Prior none/false Docker flags are reset to unknown because no explicit negative source claim was found."
+    },
+    {
+      "slug": "milvus",
+      "id": "1805c19e-bb24-44f2-a837-4cd2978608ed",
+      "existing": {
+        "install_docs_url": "https://github.com/milvus-io/milvus#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false
+      },
+      "proposed": {
+        "install_docs_url": "https://milvus.io/docs/install_standalone-docker.md",
+        "docker_url": "https://hub.docker.com/r/milvusdb/milvus",
+        "docker_image": "milvusdb/milvus:v3.0.2",
+        "compose_url": "https://github.com/milvus-io/milvus/releases/download/v3.0.2/milvus-standalone-docker-compose.yaml",
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "helm",
+          "package"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 4,
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Standalone Docker install",
+          "url": "https://hub.docker.com/r/milvusdb/milvus",
+          "source_url": "https://milvus.io/docs/install_standalone-docker.md",
+          "image": "milvusdb/milvus:v3.0.2",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://milvus.io/docs/install_standalone-docker-compose.md",
+          "source_url": "https://milvus.io/docs/install_standalone-docker-compose.md",
+          "image": "milvusdb/milvus:v3.0.2",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "helm",
+          "label": "Kubernetes Helm chart",
+          "url": "https://milvus.io/docs/install_cluster-helm.md",
+          "source_url": "https://milvus.io/docs/install_cluster-helm.md",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 30
+        },
+        {
+          "method": "package",
+          "label": "RPM/DEB packages",
+          "url": "https://milvus.io/docs/install_standalone-binary.md",
+          "source_url": "https://milvus.io/docs/install_standalone-binary.md",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 40
+        }
+      ],
+      "sources": [
+        "https://github.com/milvus-io/milvus",
+        "https://github.com/milvus-io/milvus#readme",
+        "https://github.com/milvus-io/milvus/releases/download/v3.0.2/milvus-standalone-docker-compose.yaml",
+        "https://hub.docker.com/r/milvusdb/milvus",
+        "https://milvus.io/docs/install_cluster-helm.md",
+        "https://milvus.io/docs/install_standalone-binary.md",
+        "https://milvus.io/docs/install_standalone-docker-compose.md",
+        "https://milvus.io/docs/install_standalone-docker.md"
+      ],
+      "technical_fact_status_additions": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker as part of a self-host deployment route.",
+          "source_urls": [
+            "https://github.com/milvus-io/milvus",
+            "https://github.com/milvus-io/milvus#readme",
+            "https://hub.docker.com/r/milvusdb/milvus",
+            "https://milvus.io/docs/configure-docker.md",
+            "https://milvus.io/docs/install_cluster-helm.md",
+            "https://milvus.io/docs/install_standalone-binary.md",
+            "https://milvus.io/docs/install_standalone-docker.md"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material identifies the Docker image used by the verified route.",
+          "source_urls": [
+            "https://github.com/milvus-io/milvus",
+            "https://github.com/milvus-io/milvus#readme",
+            "https://hub.docker.com/r/milvusdb/milvus",
+            "https://milvus.io/docs/configure-docker.md",
+            "https://milvus.io/docs/install_cluster-helm.md",
+            "https://milvus.io/docs/install_standalone-binary.md",
+            "https://milvus.io/docs/install_standalone-docker.md"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker Compose as part of the deployment setup.",
+          "source_urls": [
+            "https://github.com/milvus-io/milvus",
+            "https://github.com/milvus-io/milvus#readme",
+            "https://hub.docker.com/r/milvusdb/milvus",
+            "https://milvus.io/docs/configure-docker.md",
+            "https://milvus.io/docs/install_cluster-helm.md",
+            "https://milvus.io/docs/install_standalone-binary.md",
+            "https://milvus.io/docs/install_standalone-docker.md"
+          ]
+        },
+        "helm": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project documentation provides a Helm deployment route.",
+          "source_urls": [
+            "https://github.com/milvus-io/milvus",
+            "https://github.com/milvus-io/milvus#readme",
+            "https://hub.docker.com/r/milvusdb/milvus",
+            "https://milvus.io/docs/configure-docker.md",
+            "https://milvus.io/docs/install_cluster-helm.md",
+            "https://milvus.io/docs/install_standalone-binary.md",
+            "https://milvus.io/docs/install_standalone-docker.md"
+          ]
+        }
+      },
+      "review_note": "Official docs provide standalone Docker, Compose, cluster Helm and RPM/DEB package installation."
+    },
+    {
+      "slug": "mindustry",
+      "id": "3ea95748-e070-489f-b091-aaedf0797b37",
+      "existing": {
+        "install_docs_url": "https://github.com/Anuken/Mindustry#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "proposed": {
+        "install_docs_url": "https://mindustrygame.github.io/wiki/servers/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "binary"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 1,
+      "verified_options": [
+        {
+          "method": "binary",
+          "label": "Dedicated server JAR",
+          "url": "https://github.com/Anuken/Mindustry/releases",
+          "source_url": "https://mindustrygame.github.io/wiki/servers/",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/Anuken/Mindustry",
+        "https://github.com/Anuken/Mindustry#readme",
+        "https://mindustrygame.github.io",
+        "https://mindustrygame.github.io/wiki/servers/"
+      ],
+      "technical_fact_status_additions": {},
+      "review_note": "The official server guide uses the server JAR from releases; no Docker route is added."
+    },
+    {
+      "slug": "minimal-git-server",
+      "id": "e4976765-8b75-4496-9b3a-9a0b88aef492",
+      "existing": {
+        "install_docs_url": "https://github.com/mcarbonne/minimal-git-server#readme",
+        "docker_url": "https://github.com/mcarbonne/minimal-git-server/blob/HEAD/Dockerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/mcarbonne/minimal-git-server#readme",
+        "docker_url": "https://github.com/mcarbonne/minimal-git-server#minimal-configuration",
+        "docker_image": "ghcr.io/mcarbonne/minimal-git-server:2",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": null
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 1,
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/mcarbonne/minimal-git-server#minimal-configuration",
+          "source_url": "https://github.com/mcarbonne/minimal-git-server#readme",
+          "image": "ghcr.io/mcarbonne/minimal-git-server:2",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/mcarbonne/minimal-git-server",
+        "https://github.com/mcarbonne/minimal-git-server#readme",
+        "https://github.com/mcarbonne/minimal-git-server#minimal-configuration"
+      ],
+      "technical_fact_status_additions": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker as part of a self-host deployment route.",
+          "source_urls": [
+            "https://github.com/mcarbonne/minimal-git-server",
+            "https://github.com/mcarbonne/minimal-git-server#readme"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material identifies the Docker image used by the verified route.",
+          "source_urls": [
+            "https://github.com/mcarbonne/minimal-git-server",
+            "https://github.com/mcarbonne/minimal-git-server#readme"
+          ]
+        }
+      },
+      "review_note": "The README directly documents docker run and names ghcr.io/mcarbonne/minimal-git-server:2; the GHCR package page was not verified."
+    },
+    {
+      "slug": "minipaint",
+      "id": "06ba13be-ce52-43ec-8446-4cf01b76d475",
+      "existing": {
+        "install_docs_url": "https://github.com/viliusle/miniPaint/blob/HEAD/README.md",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/viliusle/miniPaint/wiki/Build-instructions",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "other"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 1,
+      "verified_options": [
+        {
+          "method": "other",
+          "label": "Static web build",
+          "url": "https://github.com/viliusle/miniPaint/wiki/Build-instructions",
+          "source_url": "https://github.com/viliusle/miniPaint/wiki/Build-instructions",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/viliusle/miniPaint",
+        "https://github.com/viliusle/miniPaint/wiki/Build-instructions"
+      ],
+      "technical_fact_status_additions": {},
+      "review_note": "Official build instructions produce static web files that can be hosted on a web server."
+    },
+    {
+      "slug": "mirumoji",
+      "id": "5a4f6a54-1bb7-4884-ad1f-b49d5ff68da1",
+      "existing": {
+        "install_docs_url": "https://github.com/svdC1/mirumoji#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false
+      },
+      "proposed": {
+        "install_docs_url": "https://svdc1.github.io/mirumoji/docs/setup/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 1,
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://svdc1.github.io/mirumoji/docs/setup/manual/",
+          "source_url": "https://svdc1.github.io/mirumoji/docs/setup/manual/",
+          "image": null,
+          "note": "Docker Compose V2 is required; the CLI/GUI launcher is optional.",
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/svdC1/mirumoji",
+        "https://github.com/svdC1/mirumoji#readme",
+        "https://svdc1.github.io/mirumoji/docs",
+        "https://svdc1.github.io/mirumoji/docs/setup/",
+        "https://svdc1.github.io/mirumoji/docs/setup/manual/"
+      ],
+      "technical_fact_status_additions": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker as part of a self-host deployment route.",
+          "source_urls": [
+            "https://github.com/svdC1/mirumoji",
+            "https://github.com/svdC1/mirumoji#readme",
+            "https://svdc1.github.io/mirumoji/docs",
+            "https://svdc1.github.io/mirumoji/docs/setup/",
+            "https://svdc1.github.io/mirumoji/docs/setup/manual/"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker Compose as part of the deployment setup.",
+          "source_urls": [
+            "https://github.com/svdC1/mirumoji",
+            "https://github.com/svdC1/mirumoji#readme",
+            "https://svdc1.github.io/mirumoji/docs",
+            "https://svdc1.github.io/mirumoji/docs/setup/",
+            "https://svdc1.github.io/mirumoji/docs/setup/manual/"
+          ]
+        }
+      },
+      "review_note": "Official docs support Compose, but generate the YAML from the CLI for the selected backend; no fixed Compose file is published."
+    },
+    {
+      "slug": "mistborn",
+      "id": "9fa327ea-714c-4a61-8d63-a4035cc0fe99",
+      "existing": {
+        "install_docs_url": "https://gitlab.com/cyber5k/mistborn/-/blob/master/README.md#quickstart",
+        "docker_url": "https://gitlab.com/cyber5k/mistborn/-/blob/master/README.md#quickstart",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "proposed": {
+        "install_docs_url": "https://gitlab.com/cyber5k/mistborn/-/blob/master/README.md#quickstart",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 1,
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Host install script",
+          "url": "https://gitlab.com/cyber5k/mistborn/-/blob/master/README.md#quickstart",
+          "source_url": "https://gitlab.com/cyber5k/mistborn/-/blob/master/README.md#quickstart",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://gitlab.com/cyber5k/mistborn/-/blob/master/README.md#quickstart",
+        "https://gitlab.com/cyber5k/mistborn/-/blob/master/base.yml",
+        "https://hub.docker.com/r/cyber5k/mistborn"
+      ],
+      "technical_fact_status_additions": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official host installer installs Docker and deploys Mistborn services with publisher images; there is no standalone Mistborn Docker install route.",
+          "source_urls": [
+            "https://gitlab.com/cyber5k/mistborn/-/blob/master/README.md#quickstart",
+            "https://hub.docker.com/r/cyber5k/mistborn"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official host installer runs the base.yml Compose stack through systemd; this is managed by the installer, not a separate Compose install route.",
+          "source_urls": [
+            "https://gitlab.com/cyber5k/mistborn/-/blob/master/README.md#quickstart",
+            "https://gitlab.com/cyber5k/mistborn/-/blob/master/base.yml"
+          ]
+        }
+      },
+      "review_note": "Use the canonical host install script as the install route. Official docs confirm Docker images and a base.yml Compose stack are used internally; they are not standalone install routes."
+    },
+    {
+      "slug": "mistserver",
+      "id": "ded96443-6387-4bd9-bedf-62da29dbe6ef",
+      "existing": {
+        "install_docs_url": "https://github.com/DDVTECH/mistserver#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.mistserver.org/mistserver/quickstart/installation/",
+        "docker_url": "https://hub.docker.com/r/ddvtech/mistserver",
+        "docker_image": "ddvtech/mistserver:latest",
+        "compose_url": "https://github.com/DDVTECH/mistserver-bootstrap/blob/master/docker-compose.yml",
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 3,
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/ddvtech/mistserver",
+          "source_url": "https://docs.mistserver.org/mistserver/installation/docker/",
+          "image": "ddvtech/mistserver:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose setup",
+          "url": "https://docs.mistserver.org/mistserver/installation/docker/",
+          "source_url": "https://docs.mistserver.org/mistserver/installation/docker/",
+          "image": "ddvtech/mistserver:latest",
+          "note": "The linked upstream bootstrap Compose stack is a demo setup with MistServer, Prometheus, and Grafana.",
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "native",
+          "label": "Linux install script",
+          "url": "https://docs.mistserver.org/mistserver/quickstart/installation/",
+          "source_url": "https://docs.mistserver.org/mistserver/quickstart/installation/",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        "https://docs.mistserver.org/mistserver/installation/docker/",
+        "https://docs.mistserver.org/mistserver/quickstart/installation/",
+        "https://github.com/DDVTECH/mistserver",
+        "https://github.com/DDVTECH/mistserver#readme",
+        "https://github.com/DDVTECH/mistserver-bootstrap",
+        "https://github.com/DDVTECH/mistserver-bootstrap/blob/master/docker-compose.yml",
+        "https://hub.docker.com/r/ddvtech/mistserver",
+        "https://mistserver.org"
+      ],
+      "technical_fact_status_additions": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker as part of a self-host deployment route.",
+          "source_urls": [
+            "https://docs.mistserver.org/mistserver/installation/docker/",
+            "https://docs.mistserver.org/mistserver/quickstart/installation/",
+            "https://github.com/DDVTECH/mistserver",
+            "https://github.com/DDVTECH/mistserver#readme",
+            "https://hub.docker.com/r/ddvtech/mistserver",
+            "https://mistserver.org"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material identifies the Docker image used by the verified route.",
+          "source_urls": [
+            "https://docs.mistserver.org/mistserver/installation/docker/",
+            "https://docs.mistserver.org/mistserver/quickstart/installation/",
+            "https://github.com/DDVTECH/mistserver",
+            "https://github.com/DDVTECH/mistserver#readme",
+            "https://hub.docker.com/r/ddvtech/mistserver",
+            "https://mistserver.org"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker Compose as part of the deployment setup.",
+          "source_urls": [
+            "https://docs.mistserver.org/mistserver/installation/docker/",
+            "https://docs.mistserver.org/mistserver/quickstart/installation/",
+            "https://github.com/DDVTECH/mistserver",
+            "https://github.com/DDVTECH/mistserver#readme",
+            "https://hub.docker.com/r/ddvtech/mistserver",
+            "https://mistserver.org"
+          ]
+        }
+      },
+      "review_note": "Official docs support Docker Run, Compose and a native Linux service install."
+    },
+    {
+      "slug": "mixpost",
+      "id": "d2e938c9-ffcb-494e-adab-2ff545dce131",
+      "existing": {
+        "install_docs_url": "https://github.com/inovector/mixpost#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.mixpost.app/lite/installation/docker/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "compose",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 2,
+      "verified_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose deployment",
+          "url": "https://docs.mixpost.app/lite/installation/docker/",
+          "source_url": "https://docs.mixpost.app/lite/installation/docker/",
+          "image": "inovector/mixpost:latest",
+          "note": "Includes MySQL and Redis services.",
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "native",
+          "label": "PHP/Composer install",
+          "url": "https://docs.mixpost.app/lite/installation/manual/",
+          "source_url": "https://docs.mixpost.app/lite/installation/manual/",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        "https://docs.mixpost.app/lite/installation/docker/",
+        "https://docs.mixpost.app/lite/installation/manual/",
+        "https://github.com/inovector/mixpost",
+        "https://github.com/inovector/mixpost#readme",
+        "https://mixpost.app"
+      ],
+      "technical_fact_status_additions": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker as part of a self-host deployment route.",
+          "source_urls": [
+            "https://docs.mixpost.app/lite/installation/docker/",
+            "https://docs.mixpost.app/lite/installation/manual/",
+            "https://github.com/inovector/mixpost",
+            "https://github.com/inovector/mixpost#readme",
+            "https://mixpost.app"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material identifies the Docker image used by the verified route.",
+          "source_urls": [
+            "https://docs.mixpost.app/lite/installation/docker/",
+            "https://docs.mixpost.app/lite/installation/manual/",
+            "https://github.com/inovector/mixpost",
+            "https://github.com/inovector/mixpost#readme",
+            "https://mixpost.app"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker Compose as part of the deployment setup.",
+          "source_urls": [
+            "https://docs.mixpost.app/lite/installation/docker/",
+            "https://docs.mixpost.app/lite/installation/manual/",
+            "https://github.com/inovector/mixpost",
+            "https://github.com/inovector/mixpost#readme",
+            "https://mixpost.app"
+          ]
+        }
+      },
+      "review_note": "Official docs show a Compose stack and a manual Composer/PHP install; no standalone Docker Run option is documented."
+    },
+    {
+      "slug": "mkdocs",
+      "id": "2caf97c9-feb5-4056-9f0d-40935d614be2",
+      "existing": {
+        "install_docs_url": "https://github.com/mkdocs/mkdocs#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "proposed": {
+        "install_docs_url": "https://www.mkdocs.org/user-guide/installation/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "package"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 1,
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "Python package",
+          "url": "https://www.mkdocs.org/user-guide/installation/",
+          "source_url": "https://www.mkdocs.org/user-guide/installation/",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/mkdocs/mkdocs",
+        "https://www.mkdocs.org",
+        "https://www.mkdocs.org/user-guide/installation/"
+      ],
+      "technical_fact_status_additions": {},
+      "review_note": "Official installation guide documents package installation; no Docker claim is added."
+    },
+    {
+      "slug": "modx",
+      "id": "f5124570-855f-4558-8bb8-2f33f0f892dc",
+      "existing": {
+        "install_docs_url": "https://github.com/modxcms/revolution#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.modx.com/3.x/en/getting-started/installation",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native",
+          "package"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 2,
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Web-server installation",
+          "url": "https://docs.modx.com/3.x/en/getting-started/installation",
+          "source_url": "https://docs.modx.com/3.x/en/getting-started/installation",
+          "image": null,
+          "note": "Install from the traditional MODX archive.",
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "package",
+          "label": "Composer install",
+          "url": "https://docs.modx.com/3.x/en/getting-started/installation",
+          "source_url": "https://docs.modx.com/3.x/en/getting-started/installation",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        "https://docs.modx.com/3.x/en/getting-started/installation",
+        "https://github.com/modxcms/revolution",
+        "https://github.com/modxcms/revolution#readme",
+        "https://modx.com"
+      ],
+      "technical_fact_status_additions": {},
+      "review_note": "Official MODX 3.x installation docs list traditional archive, advanced archive, Git and Composer routes."
+    },
+    {
+      "slug": "mongooseim",
+      "id": "66a2da9d-1a31-451b-9e84-5f211fc2335e",
+      "existing": {
+        "install_docs_url": "https://github.com/esl/MongooseIM#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "proposed": {
+        "install_docs_url": "https://esl.github.io/MongooseDocs/latest/getting-started/Installation/",
+        "docker_url": "https://esl.github.io/MongooseDocs/latest/getting-started/Installation/",
+        "docker_image": "docker.trymongoose.im/mongooseim",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "helm",
+          "package"
+        ],
+        "docker_support": "official",
+        "compose_support": null
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 3,
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://esl.github.io/MongooseDocs/latest/getting-started/Installation/",
+          "source_url": "https://esl.github.io/MongooseDocs/latest/getting-started/Installation/",
+          "image": "docker.trymongoose.im/mongooseim",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "helm",
+          "label": "Helm chart",
+          "url": "https://esl.github.io/MongooseDocs/latest/getting-started/Installation/",
+          "source_url": "https://esl.github.io/MongooseDocs/latest/getting-started/Installation/",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "package",
+          "label": "Linux packages",
+          "url": "https://esl.github.io/MongooseDocs/latest/getting-started/Installation/",
+          "source_url": "https://esl.github.io/MongooseDocs/latest/getting-started/Installation/",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        "https://esl.github.io/MongooseDocs/latest/getting-started/Installation/",
+        "https://github.com/esl/MongooseIM",
+        "https://github.com/esl/MongooseIM#readme",
+        "https://trymongoose.im"
+      ],
+      "technical_fact_status_additions": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker as part of a self-host deployment route.",
+          "source_urls": [
+            "https://esl.github.io/MongooseDocs/latest/getting-started/Installation/",
+            "https://github.com/esl/MongooseIM",
+            "https://github.com/esl/MongooseIM#readme",
+            "https://trymongoose.im"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material identifies the Docker image used by the verified route.",
+          "source_urls": [
+            "https://esl.github.io/MongooseDocs/latest/getting-started/Installation/",
+            "https://github.com/esl/MongooseIM",
+            "https://github.com/esl/MongooseIM#readme",
+            "https://trymongoose.im"
+          ]
+        },
+        "helm": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project documentation provides a Helm deployment route.",
+          "source_urls": [
+            "https://esl.github.io/MongooseDocs/latest/getting-started/Installation/",
+            "https://github.com/esl/MongooseIM",
+            "https://github.com/esl/MongooseIM#readme",
+            "https://trymongoose.im"
+          ]
+        }
+      },
+      "review_note": "Current official docs list package, Docker and Helm installation routes. The Docker image is named by upstream docs; no Compose claim is added."
+    },
+    {
+      "slug": "monkeycode",
+      "id": "0724b29e-a29a-4bbc-aa0f-594f690540b7",
+      "existing": {
+        "install_docs_url": "https://github.com/chaitin/MonkeyCode#self-hosted-deployment",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "script",
+          "compose"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/chaitin/MonkeyCode#self-hosted-deployment",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 1,
+      "verified_options": [
+        {
+          "method": "native",
+          "label": "Private deployment installer",
+          "url": "https://github.com/chaitin/MonkeyCode#self-hosted-deployment",
+          "source_url": "https://github.com/chaitin/MonkeyCode#self-hosted-deployment",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/chaitin/MonkeyCode",
+        "https://github.com/chaitin/MonkeyCode#self-hosted-deployment",
+        "https://monkeycode-ai.net/",
+        "https://monkeycode.docs.baizhi.cloud/"
+      ],
+      "technical_fact_status_additions": {},
+      "review_note": "The official README documents a private-deployment install script and links to deployment docs. Existing nonstandard script/Compose method claims are removed because no matching supported install routes were verified."
+    },
+    {
+      "slug": "moode-audio",
+      "id": "125cc62b-b45b-436a-8ce9-2f07df5d0779",
+      "existing": {
+        "install_docs_url": "https://github.com/moode-player/moode#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/moode-player/docs/blob/main/setup_guide.md",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "other"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 1,
+      "verified_options": [
+        {
+          "method": "other",
+          "label": "Raspberry Pi boot image",
+          "url": "https://www.moodeaudio.org/",
+          "source_url": "https://github.com/moode-player/docs/blob/main/setup_guide.md",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/moode-player/docs/blob/main/setup_guide.md",
+        "https://github.com/moode-player/moode",
+        "https://github.com/moode-player/moode#readme",
+        "https://moodeaudio.org"
+      ],
+      "technical_fact_status_additions": {},
+      "review_note": "Official setup guide instructs users to write the moOde image using Raspberry Pi Imager."
+    },
+    {
+      "slug": "mopidy",
+      "id": "59fa20f2-a521-4509-9cfb-762659b07c8d",
+      "existing": {
+        "install_docs_url": "https://github.com/mopidy/mopidy#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "proposed": {
+        "install_docs_url": "https://docs.mopidy.com/stable/installation/",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "package"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 1,
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "System packages or PyPI",
+          "url": "https://docs.mopidy.com/stable/installation/",
+          "source_url": "https://docs.mopidy.com/stable/installation/",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://docs.mopidy.com",
+        "https://docs.mopidy.com/stable/installation/",
+        "https://github.com/mopidy/mopidy",
+        "https://mopidy.com"
+      ],
+      "technical_fact_status_additions": {},
+      "review_note": "Official installation guide lists operating-system packages and PyPI/pip."
+    },
+    {
+      "slug": "morphic",
+      "id": "a48a94cb-43c8-4cb1-89f0-53a710b38d4e",
+      "existing": {
+        "install_docs_url": "https://github.com/miurla/morphic#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/miurla/morphic#installation",
+        "docker_url": "https://github.com/miurla/morphic/pkgs/container/morphic",
+        "docker_image": "ghcr.io/miurla/morphic:latest",
+        "compose_url": "https://github.com/miurla/morphic/blob/main/docker-compose.yaml",
+        "deployment_methods": [
+          "compose",
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 2,
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/miurla/morphic/pkgs/container/morphic",
+          "source_url": "https://github.com/miurla/morphic#installation",
+          "image": "ghcr.io/miurla/morphic:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose stack",
+          "url": "https://github.com/miurla/morphic#installation",
+          "source_url": "https://github.com/miurla/morphic#installation",
+          "image": "ghcr.io/miurla/morphic:latest",
+          "note": "The upstream quickstart describes this as a local stack; it starts PostgreSQL, Redis, and SearXNG.",
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        "https://github.com/miurla/morphic",
+        "https://github.com/miurla/morphic#installation",
+        "https://github.com/miurla/morphic#readme",
+        "https://github.com/miurla/morphic/blob/main/docker-compose.yaml",
+        "https://github.com/miurla/morphic/pkgs/container/morphic"
+      ],
+      "technical_fact_status_additions": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker as part of a self-host deployment route.",
+          "source_urls": [
+            "https://github.com/miurla/morphic",
+            "https://github.com/miurla/morphic#installation",
+            "https://github.com/miurla/morphic#readme",
+            "https://github.com/miurla/morphic/pkgs/container/morphic"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material identifies the Docker image used by the verified route.",
+          "source_urls": [
+            "https://github.com/miurla/morphic",
+            "https://github.com/miurla/morphic#installation",
+            "https://github.com/miurla/morphic#readme",
+            "https://github.com/miurla/morphic/pkgs/container/morphic"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker Compose as part of the deployment setup.",
+          "source_urls": [
+            "https://github.com/miurla/morphic",
+            "https://github.com/miurla/morphic#installation",
+            "https://github.com/miurla/morphic#readme",
+            "https://github.com/miurla/morphic/pkgs/container/morphic"
+          ]
+        }
+      },
+      "review_note": "Current upstream README gives the GHCR image and a full Compose stack; fixes the previous native-only/none flags."
+    },
+    {
+      "slug": "motion-tools-antragsgrun",
+      "id": "0123ddc5-5ff4-4b1d-9f11-da0fbd7c539a",
+      "existing": {
+        "install_docs_url": "https://github.com/CatoTH/antragsgruen#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "docker_support": "none",
+        "compose_support": false
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/CatoTH/antragsgruen#readme",
+        "docker_url": "https://hub.docker.com/r/tobiashoessl/antragsgruen",
+        "docker_image": "tobiashoessl/antragsgruen:latest",
+        "compose_url": "https://github.com/CatoTH/antragsgruen/blob/main/docker-compose.yml",
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 3,
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/tobiashoessl/antragsgruen",
+          "source_url": "https://github.com/CatoTH/antragsgruen#readme",
+          "image": "tobiashoessl/antragsgruen:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/CatoTH/antragsgruen/blob/main/docker-compose.yml",
+          "source_url": "https://github.com/CatoTH/antragsgruen#readme",
+          "image": "tobiashoessl/antragsgruen:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        },
+        {
+          "method": "native",
+          "label": "ZIP/web-server install",
+          "url": "https://github.com/CatoTH/antragsgruen#readme",
+          "source_url": "https://github.com/CatoTH/antragsgruen#readme",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 30
+        }
+      ],
+      "sources": [
+        "https://github.com/CatoTH/antragsgruen",
+        "https://github.com/CatoTH/antragsgruen#readme",
+        "https://hub.docker.com/r/tobiashoessl/antragsgruen",
+        "https://motion.tools"
+      ],
+      "technical_fact_status_additions": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker as part of a self-host deployment route.",
+          "source_urls": [
+            "https://github.com/CatoTH/antragsgruen",
+            "https://github.com/CatoTH/antragsgruen#readme",
+            "https://hub.docker.com/r/tobiashoessl/antragsgruen",
+            "https://motion.tools"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material identifies the Docker image used by the verified route.",
+          "source_urls": [
+            "https://github.com/CatoTH/antragsgruen",
+            "https://github.com/CatoTH/antragsgruen#readme",
+            "https://hub.docker.com/r/tobiashoessl/antragsgruen",
+            "https://motion.tools"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker Compose as part of the deployment setup.",
+          "source_urls": [
+            "https://github.com/CatoTH/antragsgruen",
+            "https://github.com/CatoTH/antragsgruen#readme",
+            "https://hub.docker.com/r/tobiashoessl/antragsgruen",
+            "https://motion.tools"
+          ]
+        }
+      },
+      "review_note": "Upstream README documents a bundled ZIP install, Docker Hub image and sample Compose file."
+    },
+    {
+      "slug": "movim",
+      "id": "f175665e-3303-4e89-a2a7-55071acc1417",
+      "existing": {
+        "install_docs_url": "https://github.com/movim/movim#readme",
+        "docker_url": "https://github.com/movim/movim/blob/HEAD/Containerfile",
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": false
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/movim/movim/blob/master/INSTALL.md",
+        "docker_url": "https://github.com/movim/movim#quick-test",
+        "docker_image": "ghcr.io/movim/movim:latest",
+        "compose_url": "https://github.com/movim/movim/blob/master/podman-compose.yml",
+        "deployment_methods": [
+          "compose",
+          "docker",
+          "native"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 3,
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker image (testing)",
+          "url": "https://github.com/movim/movim#quick-test",
+          "source_url": "https://github.com/movim/movim#readme",
+          "image": "ghcr.io/movim/movim:latest",
+          "note": "The published container is documented for testing; use the deployment guide for production.",
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Podman Compose (testing)",
+          "url": "https://github.com/movim/movim/blob/master/podman-compose.yml",
+          "source_url": "https://github.com/movim/movim#quick-test",
+          "image": null,
+          "note": "The upstream README marks this Podman Compose setup for local testing only; use INSTALL.md for production.",
+          "support_level": "official",
+          "sort_order": 15
+        },
+        {
+          "method": "native",
+          "label": "PHP/web-server deployment",
+          "url": "https://github.com/movim/movim/blob/master/INSTALL.md",
+          "source_url": "https://github.com/movim/movim/blob/master/INSTALL.md",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        "https://github.com/movim/movim",
+        "https://github.com/movim/movim#readme",
+        "https://github.com/movim/movim/blob/master/INSTALL.md",
+        "https://movim.eu",
+        "https://github.com/movim/movim#quick-test",
+        "https://github.com/movim/movim/blob/master/podman-compose.yml"
+      ],
+      "technical_fact_status_additions": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker as part of a self-host deployment route.",
+          "source_urls": [
+            "https://github.com/movim/movim",
+            "https://github.com/movim/movim#readme",
+            "https://github.com/movim/movim/blob/master/INSTALL.md",
+            "https://movim.eu"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material identifies the Docker image used by the verified route.",
+          "source_urls": [
+            "https://github.com/movim/movim",
+            "https://github.com/movim/movim#readme",
+            "https://github.com/movim/movim/blob/master/INSTALL.md",
+            "https://movim.eu"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official README documents a Podman Compose test stack; it is for local testing, while production uses the native installation guide.",
+          "source_urls": [
+            "https://github.com/movim/movim#quick-test",
+            "https://github.com/movim/movim/blob/master/podman-compose.yml"
+          ]
+        }
+      },
+      "review_note": "The README names ghcr.io/movim/movim:latest and documents Docker and Podman Compose only for testing; use INSTALL.md for production. The GHCR package page was not verified."
+    },
+    {
+      "slug": "mpd",
+      "id": "e379f656-ae6a-4ea9-bdb0-7ae7bab6d46f",
+      "existing": {
+        "install_docs_url": "https://github.com/MusicPlayerDaemon/MPD#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "proposed": {
+        "install_docs_url": "https://mpd.readthedocs.io/en/stable/user.html",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "package"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 1,
+      "verified_options": [
+        {
+          "method": "package",
+          "label": "Linux system package",
+          "url": "https://mpd.readthedocs.io/en/stable/user.html",
+          "source_url": "https://mpd.readthedocs.io/en/stable/user.html",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        }
+      ],
+      "sources": [
+        "https://github.com/MusicPlayerDaemon/MPD",
+        "https://github.com/MusicPlayerDaemon/MPD#readme",
+        "https://mpd.readthedocs.io/en/stable/user.html",
+        "https://www.musicpd.org"
+      ],
+      "technical_fact_status_additions": {},
+      "review_note": "Official user manual documents package installation and running MPD as a server."
+    },
+    {
+      "slug": "musicseerr",
+      "id": "7ecc1174-71c8-4496-b279-808e805ac523",
+      "existing": {
+        "install_docs_url": "https://github.com/HabiRabbu/Musicseerr#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/jma1ice/Musicseerr#quick-start",
+        "docker_url": "https://hub.docker.com/r/habirabbu/musicseerr",
+        "docker_image": "habirabbu/musicseerr:latest",
+        "compose_url": "https://github.com/jma1ice/Musicseerr/blob/main/docker-compose.example.yml",
+        "deployment_methods": [
+          "compose",
+          "docker"
+        ],
+        "docker_support": "official",
+        "compose_support": true
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 2,
+      "verified_options": [
+        {
+          "method": "docker",
+          "label": "Docker Hub image",
+          "url": "https://hub.docker.com/r/habirabbu/musicseerr",
+          "source_url": "https://github.com/jma1ice/Musicseerr#quick-start",
+          "image": "habirabbu/musicseerr:latest",
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/jma1ice/Musicseerr#quick-start",
+          "source_url": "https://github.com/jma1ice/Musicseerr#quick-start",
+          "image": "habirabbu/musicseerr:latest",
+          "note": "The checked-in Compose example uses GHCR; the README documents the Docker Hub image as an alternative.",
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        "https://github.com/jma1ice/Musicseerr#quick-start",
+        "https://github.com/jma1ice/Musicseerr/blob/main/docker-compose.example.yml",
+        "https://hub.docker.com/r/habirabbu/musicseerr",
+        "https://musicseerr.com"
+      ],
+      "technical_fact_status_additions": {
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker as part of a self-host deployment route.",
+          "source_urls": [
+            "https://github.com/jma1ice/Musicseerr#quick-start",
+            "https://hub.docker.com/r/habirabbu/musicseerr",
+            "https://musicseerr.com"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material identifies the Docker image used by the verified route.",
+          "source_urls": [
+            "https://github.com/jma1ice/Musicseerr#quick-start",
+            "https://hub.docker.com/r/habirabbu/musicseerr",
+            "https://musicseerr.com"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "Official project material documents Docker Compose as part of the deployment setup.",
+          "source_urls": [
+            "https://github.com/jma1ice/Musicseerr#quick-start",
+            "https://hub.docker.com/r/habirabbu/musicseerr",
+            "https://musicseerr.com"
+          ]
+        }
+      },
+      "review_note": "The previous repository URL redirects away from the project. Current repo docs provide Compose instructions; GHCR currently returns 404, so the Docker Hub package is used."
+    },
+    {
+      "slug": "musikcube",
+      "id": "11016a8d-77b6-4bcf-9bb9-97cd82815b2f",
+      "existing": {
+        "install_docs_url": "https://github.com/clangen/musikcube#readme",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "proposed": {
+        "install_docs_url": "https://github.com/clangen/musikcube/wiki/installing",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "binary",
+          "package"
+        ],
+        "docker_support": "unknown",
+        "compose_support": null
+      },
+      "eligibility": "self_hostable",
+      "install_option_action": "populate",
+      "option_count": 2,
+      "verified_options": [
+        {
+          "method": "binary",
+          "label": "Prebuilt release",
+          "url": "https://github.com/clangen/musikcube/releases",
+          "source_url": "https://github.com/clangen/musikcube/wiki/installing",
+          "image": null,
+          "note": null,
+          "support_level": "official",
+          "sort_order": 10
+        },
+        {
+          "method": "package",
+          "label": "OS packages",
+          "url": "https://github.com/clangen/musikcube/wiki/installing",
+          "source_url": "https://github.com/clangen/musikcube/wiki/installing",
+          "image": null,
+          "note": "The wiki also documents the musikcubed service.",
+          "support_level": "official",
+          "sort_order": 20
+        }
+      ],
+      "sources": [
+        "https://github.com/clangen/musikcube",
+        "https://github.com/clangen/musikcube#readme",
+        "https://github.com/clangen/musikcube/wiki/installing",
+        "https://musikcube.com"
+      ],
+      "technical_fact_status_additions": {},
+      "review_note": "Official installation wiki documents release downloads, OS packages and a musikcubed system service."
+    }
+  ]
+}

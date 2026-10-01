@@ -1,0 +1,527 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Fill blank docs_url values with official documentation links. Proposal only.",
+  "apps": [
+    {
+      "slug": "ironclaw",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/nearai/ironclaw#readme",
+      "data_source_urls": [
+        "https://github.com/nearai/ironclaw",
+        "https://github.com/nearai/ironclaw#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "itsnotes",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/alexmicuplusfour/itsnotes#readme",
+      "data_source_urls": [
+        "https://github.com/alexmicuplusfour/itsnotes",
+        "https://github.com/alexmicuplusfour/itsnotes#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "jauth",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/Jipok/Jauth#readme",
+      "data_source_urls": [
+        "https://github.com/Jipok/Jauth",
+        "https://github.com/Jipok/Jauth#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "kaufkauflist",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://codeberg.org/annaaurora/kaufkauflist/src/branch/main/README.md",
+      "data_source_urls": [
+        "https://codeberg.org/annaaurora/kaufkauflist",
+        "https://codeberg.org/annaaurora/kaufkauflist/src/branch/main/README.md"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "litecart",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/shurco/mycart#readme",
+      "data_source_urls": [
+        "https://github.com/shurco/mycart",
+        "https://github.com/shurco/mycart#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "litexiv",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://codeberg.org/LiteXiv/LiteXiv/src/branch/v2/docs/install-docker.md",
+      "data_source_urls": [
+        "https://codeberg.org/LiteXiv/LiteXiv",
+        "https://codeberg.org/LiteXiv/LiteXiv/src/branch/v2/docs/install-docker.md"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "llamafile",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.mozilla.ai/llamafile/",
+      "data_source_urls": [
+        "https://github.com/mozilla-ai/llamafile",
+        "https://docs.mozilla.ai/llamafile/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "machtiani",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/tursomari/machtiani#readme",
+      "data_source_urls": [
+        "https://github.com/tursomari/machtiani",
+        "https://github.com/tursomari/machtiani#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "manage",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/techulus/manage#readme",
+      "data_source_urls": [
+        "https://github.com/techulus/manage",
+        "https://github.com/techulus/manage#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "materia",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://primamateria.systems/",
+      "data_source_urls": [
+        "https://github.com/stryan/materia",
+        "https://primamateria.systems/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "meteroid",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/meteroid-oss/meteroid#readme",
+      "data_source_urls": [
+        "https://github.com/meteroid-oss/meteroid",
+        "https://github.com/meteroid-oss/meteroid#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "minipaint",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/viliusle/miniPaint#readme",
+      "data_source_urls": [
+        "https://github.com/viliusle/miniPaint",
+        "https://github.com/viliusle/miniPaint#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "mistborn",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://gitlab.com/cyber5k/mistborn/-/blob/master/README.md#quickstart",
+      "data_source_urls": [
+        "https://gitlab.com/cyber5k/mistborn",
+        "https://gitlab.com/cyber5k/mistborn/-/blob/master/README.md#quickstart"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "nexmail",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://codeberg.org/nexmail/NexMail/src/branch/main/docs/installation.md",
+      "data_source_urls": [
+        "https://codeberg.org/nexmail/NexMail",
+        "https://codeberg.org/nexmail/NexMail/src/branch/main/docs/installation.md"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "odysseus",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/odysseus-dev/odysseus/blob/HEAD/docs/setup.md",
+      "data_source_urls": [
+        "https://github.com/odysseus-dev/odysseus",
+        "https://github.com/odysseus-dev/odysseus/blob/HEAD/docs/setup.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "omoios",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/kivo360/OmoiOS#readme",
+      "data_source_urls": [
+        "https://github.com/kivo360/OmoiOS",
+        "https://github.com/kivo360/OmoiOS#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "once",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/basecamp/once#readme",
+      "data_source_urls": [
+        "https://github.com/basecamp/once",
+        "https://github.com/basecamp/once#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "open-lovable",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/firecrawl/open-lovable#readme",
+      "data_source_urls": [
+        "https://github.com/firecrawl/open-lovable",
+        "https://github.com/firecrawl/open-lovable#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "open-wearables",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://openwearables.io/docs/quickstart#local-development-setup",
+      "data_source_urls": [
+        "https://github.com/the-momentum/open-wearables",
+        "https://openwearables.io/docs/quickstart#local-development-setup"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "openseo",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/every-app/open-seo/blob/main/docs/SELF_HOSTING_DOCKER.md",
+      "data_source_urls": [
+        "https://github.com/every-app/open-seo",
+        "https://github.com/every-app/open-seo/blob/main/docs/SELF_HOSTING_DOCKER.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "orama",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.orama.com/docs/orama-js",
+      "data_source_urls": [
+        "https://github.com/oramasearch/orama",
+        "https://docs.orama.com/docs/orama-js"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "ourboard",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/raimohanska/ourboard#readme",
+      "data_source_urls": [
+        "https://github.com/raimohanska/ourboard",
+        "https://github.com/raimohanska/ourboard#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "oxitraffic",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://codeberg.org/mo8it/oxitraffic/src/branch/main/README.md#setup",
+      "data_source_urls": [
+        "https://codeberg.org/mo8it/oxitraffic",
+        "https://codeberg.org/mo8it/oxitraffic/src/branch/main/README.md#setup"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "pagecord",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/lylo/pagecord#readme",
+      "data_source_urls": [
+        "https://github.com/lylo/pagecord",
+        "https://github.com/lylo/pagecord#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "pdf-dark",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/1436941541/pdf-dark#readme",
+      "data_source_urls": [
+        "https://github.com/1436941541/pdf-dark",
+        "https://github.com/1436941541/pdf-dark#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "phice",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://codeberg.org/c4ffe14e/phice/src/branch/main/README.md",
+      "data_source_urls": [
+        "https://codeberg.org/c4ffe14e/phice",
+        "https://codeberg.org/c4ffe14e/phice/src/branch/main/README.md"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "prismical",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://prismical.ai/docs",
+      "data_source_urls": [
+        "https://github.com/amicalhq/prismical",
+        "https://prismical.ai/docs"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "ptah-sh",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/ptah-sh/ptah-server#readme",
+      "data_source_urls": [
+        "https://github.com/ptah-sh/ptah-server",
+        "https://github.com/ptah-sh/ptah-server#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "quizmaster",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/nymanjens/quizmaster#readme",
+      "data_source_urls": [
+        "https://github.com/nymanjens/quizmaster",
+        "https://github.com/nymanjens/quizmaster#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "rahoot",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/Ralex91/Razzia/blob/main/README.md",
+      "data_source_urls": [
+        "https://github.com/Ralex91/Razzia",
+        "https://github.com/Ralex91/Razzia/blob/main/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "re-director",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/re-Director/re-director#readme",
+      "data_source_urls": [
+        "https://github.com/re-Director/re-director",
+        "https://github.com/re-Director/re-director#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "rejourney",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/rejourneyco/rejourney#readme",
+      "data_source_urls": [
+        "https://github.com/rejourneyco/rejourney",
+        "https://github.com/rejourneyco/rejourney#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "replaya",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/s2-streamstore/replaya#readme",
+      "data_source_urls": [
+        "https://github.com/s2-streamstore/replaya",
+        "https://github.com/s2-streamstore/replaya#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "reqcore",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/reqcore-inc/reqcore#readme",
+      "data_source_urls": [
+        "https://github.com/reqcore-inc/reqcore",
+        "https://github.com/reqcore-inc/reqcore#readme"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "revert",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/revertinc/revert/blob/main/README.md",
+      "data_source_urls": [
+        "https://github.com/revertinc/revert",
+        "https://github.com/revertinc/revert/blob/main/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "rgit",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/w4/rgit#readme",
+      "data_source_urls": [
+        "https://github.com/w4/rgit",
+        "https://github.com/w4/rgit#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "sayr",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/dorasto/sayr#readme",
+      "data_source_urls": [
+        "https://github.com/dorasto/sayr",
+        "https://github.com/dorasto/sayr#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "schoco",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/PhiTux/schoco#readme",
+      "data_source_urls": [
+        "https://github.com/PhiTux/schoco",
+        "https://github.com/PhiTux/schoco#readme"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "seppo",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://codeberg.org/seppo/seppo#readme",
+      "data_source_urls": [
+        "https://codeberg.org/seppo/seppo",
+        "https://codeberg.org/seppo/seppo#readme"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "sessy",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/marckohlbrugge/sessy#readme",
+      "data_source_urls": [
+        "https://github.com/marckohlbrugge/sessy",
+        "https://github.com/marckohlbrugge/sessy#readme"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

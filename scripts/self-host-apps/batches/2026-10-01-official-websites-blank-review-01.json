@@ -1,0 +1,343 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Propose first-party project or publisher websites for the next 40 eligible blank website fields. Add only distinct official sites; leave unsupported entries unchanged.",
+  "apps": [
+    {
+      "slug": "apache-pinot",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://pinot.apache.org/",
+      "data_source_urls": [
+        "https://github.com/apache/pinot",
+        "https://pinot.apache.org/"
+      ]
+    },
+    {
+      "slug": "audiomass",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://audiomass.co/",
+      "data_source_urls": [
+        "https://github.com/pkalogiros/AudioMass",
+        "https://audiomass.co/"
+      ]
+    },
+    {
+      "slug": "bigtree-cms",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.bigtreecms.org/",
+      "data_source_urls": [
+        "https://github.com/bigtreecms/BigTree-CMS",
+        "https://www.bigtreecms.org/"
+      ]
+    },
+    {
+      "slug": "bitmappery",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.igorski.nl/opensource/bitmappery",
+      "data_source_urls": [
+        "https://github.com/igorski/bitmappery",
+        "https://www.igorski.nl/opensource/bitmappery"
+      ]
+    },
+    {
+      "slug": "bor",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://getbor.dev/",
+      "data_source_urls": [
+        "https://github.com/VuteTech/bor",
+        "https://getbor.dev/"
+      ]
+    },
+    {
+      "slug": "briefkasten",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://briefkastenhq.com/",
+      "data_source_urls": [
+        "https://github.com/ndom91/briefkasten",
+        "https://briefkastenhq.com/"
+      ]
+    },
+    {
+      "slug": "centaur",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://centaur.run/",
+      "data_source_urls": [
+        "https://github.com/paradigmxyz/centaur",
+        "https://centaur.run/"
+      ]
+    },
+    {
+      "slug": "chatto",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://chatto.run/",
+      "data_source_urls": [
+        "https://github.com/chattocorp/chatto",
+        "https://chatto.run/"
+      ]
+    },
+    {
+      "slug": "checkmk",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://checkmk.com/",
+      "data_source_urls": [
+        "https://github.com/checkmk/checkmk",
+        "https://checkmk.com/"
+      ]
+    },
+    {
+      "slug": "classroomio",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://classroomio.com/",
+      "data_source_urls": [
+        "https://github.com/classroomio/classroomio",
+        "https://classroomio.com/"
+      ]
+    },
+    {
+      "slug": "cloud-seeder",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://ipv6.rs/cloudseeder/",
+      "data_source_urls": [
+        "https://github.com/ipv6rslimited/cloudseeder",
+        "https://ipv6.rs/cloudseeder/"
+      ]
+    },
+    {
+      "slug": "coroot",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://coroot.com/",
+      "data_source_urls": [
+        "https://github.com/coroot/coroot",
+        "https://coroot.com/"
+      ]
+    },
+    {
+      "slug": "crm",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://trycrm.ai/",
+      "data_source_urls": [
+        "https://github.com/trycompai/crm",
+        "https://trycrm.ai/"
+      ]
+    },
+    {
+      "slug": "cstate",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://cstate.uncascade.com/",
+      "data_source_urls": [
+        "https://github.com/cstate/cstate",
+        "https://cstate.uncascade.com/"
+      ]
+    },
+    {
+      "slug": "drawpile",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://drawpile.net/",
+      "data_source_urls": [
+        "https://github.com/drawpile/Drawpile",
+        "https://drawpile.net/"
+      ]
+    },
+    {
+      "slug": "esphomedesigner",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://koosoli.github.io/ESPHomeDesigner/",
+      "data_source_urls": [
+        "https://github.com/koosoli/ESPHomeDesigner",
+        "https://koosoli.github.io/ESPHomeDesigner/"
+      ]
+    },
+    {
+      "slug": "eventschedule",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://eventschedule.com/",
+      "data_source_urls": [
+        "https://github.com/eventschedule/eventschedule",
+        "https://eventschedule.com/"
+      ]
+    },
+    {
+      "slug": "firefiles",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.firefiles.app/",
+      "data_source_urls": [
+        "https://github.com/faisalsayed10/firefiles",
+        "https://www.firefiles.app/"
+      ]
+    },
+    {
+      "slug": "fleetbase",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://fleetbase.io/",
+      "data_source_urls": [
+        "https://github.com/fleetbase/fleetbase",
+        "https://fleetbase.io/"
+      ]
+    },
+    {
+      "slug": "forward-email",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://forwardemail.net/",
+      "data_source_urls": [
+        "https://github.com/forwardemail/forwardemail.net",
+        "https://forwardemail.net/"
+      ]
+    },
+    {
+      "slug": "gladys-assistant",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://gladysassistant.com/",
+      "data_source_urls": [
+        "https://github.com/gladysassistant/gladys",
+        "https://gladysassistant.com/"
+      ]
+    },
+    {
+      "slug": "gomodel",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://gomodel.enterpilot.io/",
+      "data_source_urls": [
+        "https://github.com/ENTERPILOT/GoModel",
+        "https://gomodel.enterpilot.io/"
+      ]
+    },
+    {
+      "slug": "gorules",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://gorules.io/",
+      "data_source_urls": [
+        "https://github.com/gorules/zen",
+        "https://gorules.io/"
+      ]
+    },
+    {
+      "slug": "greptimedb",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://greptime.com/",
+      "data_source_urls": [
+        "https://github.com/greptimeteam/greptimedb",
+        "https://greptime.com/"
+      ]
+    },
+    {
+      "slug": "hashicorp-vault",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://www.hashicorp.com/en/products/vault",
+      "data_source_urls": [
+        "https://github.com/hashicorp/vault",
+        "https://www.hashicorp.com/en/products/vault"
+      ]
+    },
+    {
+      "slug": "hexabot",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://hexabot.ai/ai-agent-platform",
+      "data_source_urls": [
+        "https://github.com/hexastack/hexabot",
+        "https://hexabot.ai/ai-agent-platform"
+      ]
+    },
+    {
+      "slug": "homebutler",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://homebutler.dev/",
+      "data_source_urls": [
+        "https://github.com/Higangssh/homebutler",
+        "https://homebutler.dev/"
+      ]
+    },
+    {
+      "slug": "honeywire",
+      "review_scope": "partial",
+      "expected": {
+        "website_url": null
+      },
+      "website_url": "https://honeywire.dev/",
+      "data_source_urls": [
+        "https://github.com/andreicscs/HoneyWire",
+        "https://honeywire.dev/"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are comparison guards only and must be refreshed before any apply.",
+  "scope": "Correct the LibreQR identity, source and license data, summary, and category. Proposal only.",
+  "apps": [
+    {
+      "slug": "qr",
+      "review_scope": "partial",
+      "summary": "Generates QR codes in a PHP web interface with configurable colors, size, and redundancy.",
+      "website_url": "https://qr.antopie.org/",
+      "source_code_url": "https://code.antopie.org/miraty/libreqr",
+      "source_code_host": "other",
+      "docs_url": "https://code.antopie.org/miraty/libreqr#readme",
+      "install_docs_url": "https://apps.yunohost.org/app/qr",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-or-later",
+      "publisher_name": "Miraty",
+      "publisher_type": "individual",
+      "publisher_url": "https://miraty.antopie.org/",
+      "categories": [
+        "design-creative"
+      ],
+      "expected": {
+        "summary": "Qr app available for self-hosting.",
+        "website_url": "https://apps.yunohost.org/app/qr",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://yunohost.org/en/apps",
+        "install_docs_url": "https://yunohost.org/en/apps",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "publisher_name": "YunoHost community",
+        "publisher_type": "community",
+        "publisher_url": "https://apps.yunohost.org/app/qr",
+        "categories": [
+          "ai-ml",
+          "system-admin-hosting"
+        ],
+        "data_source_urls": [
+          "https://apps.yunohost.org/app/qr",
+          "https://yunohost.org/en/apps"
+        ]
+      },
+      "data_source_urls": [
+        "https://apps.yunohost.org/app/qr",
+        "https://code.antopie.org/miraty/libreqr",
+        "https://qr.antopie.org/",
+        "https://miraty.antopie.org/"
+      ],
+      "review_note": "The YunoHost catalog identifies this as LibreQR, a PHP QR-code web interface, links the official Forgejo repository, and states AGPLv3-or-later. The upstream README confirms the YunoHost package name and publisher contact."
+    }
+  ]
+}

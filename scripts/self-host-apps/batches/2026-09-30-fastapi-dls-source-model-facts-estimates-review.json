@@ -1,0 +1,301 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Correct FastAPI-DLS source model, publisher, summary, links, deployment facts, and paired small-install estimates. Proposal only.",
+  "apps": [
+    {
+      "slug": "fastapi-dls",
+      "review_scope": "partial",
+      "name": "FastAPI-DLS",
+      "summary": "FastAPI-DLS provides a delegated license service for NVIDIA vGPU deployments.",
+      "summary_source": "stack127_enriched",
+      "summary_confidence": "high",
+      "source_code_url": "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls",
+      "source_code_host": "other",
+      "docs_url": "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/tree/main",
+      "install_docs_url": "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/blob/main/README.md",
+      "source_model": "source_available",
+      "publisher_name": "Oscar Krause",
+      "publisher_type": "individual",
+      "publisher_url": "https://git.collinwebdesigns.de/oscar.krause",
+      "docker_support": "official",
+      "compose_support": true,
+      "compose_url": "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/blob/main/docker-compose.yml",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "unraid"
+      ],
+      "requires_database": true,
+      "database_types": [
+        "sqlite"
+      ],
+      "storage_profile": "low",
+      "persistent_storage": true,
+      "categories": [
+        "system-admin-hosting"
+      ],
+      "data_source_urls": [
+        "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/tree/main",
+        "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/blob/main/README.md",
+        "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/blob/main/docker-compose.yml",
+        "https://hub.docker.com/r/collinwebdesigns/fastapi-dls",
+        "https://git.collinwebdesigns.de/oscar.krause"
+      ],
+      "expected": {
+        "name": "FastAPI-DLS",
+        "summary": "Minimal Delegated License Service (DLS).",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docs_url": "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/issues",
+        "install_docs_url": "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/issues",
+        "source_model": "closed_source",
+        "publisher_name": "FastAPI-DLS",
+        "publisher_type": "unknown",
+        "publisher_url": "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls",
+        "docker_support": "community",
+        "compose_support": false,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "requires_database": null,
+        "database_types": [],
+        "storage_profile": "unknown",
+        "persistent_storage": null,
+        "categories": [
+          "developer-tools"
+        ],
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls",
+              "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/issues",
+              "https://git.collinwebdesigns.de/uploads/-/system/project/avatar/106/png-transparent-nvidia-grid-logo-business-nvidia-electronics-text-trademark.png?width=64",
+              "https://hub.docker.com/r/collinwebdesigns/fastapi-dls",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/fastapi_dls.xml"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls",
+              "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/issues",
+              "https://git.collinwebdesigns.de/uploads/-/system/project/avatar/106/png-transparent-nvidia-grid-logo-business-nvidia-electronics-text-trademark.png?width=64",
+              "https://hub.docker.com/r/collinwebdesigns/fastapi-dls",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/fastapi_dls.xml"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls",
+              "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/issues",
+              "https://git.collinwebdesigns.de/uploads/-/system/project/avatar/106/png-transparent-nvidia-grid-logo-business-nvidia-electronics-text-trademark.png?width=64",
+              "https://hub.docker.com/r/collinwebdesigns/fastapi-dls",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/fastapi_dls.xml"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls",
+              "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/issues",
+              "https://git.collinwebdesigns.de/uploads/-/system/project/avatar/106/png-transparent-nvidia-grid-logo-business-nvidia-electronics-text-trademark.png?width=64",
+              "https://hub.docker.com/r/collinwebdesigns/fastapi-dls",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/fastapi_dls.xml"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls",
+              "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/issues",
+              "https://git.collinwebdesigns.de/uploads/-/system/project/avatar/106/png-transparent-nvidia-grid-logo-business-nvidia-electronics-text-trademark.png?width=64",
+              "https://hub.docker.com/r/collinwebdesigns/fastapi-dls",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/fastapi_dls.xml"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls",
+              "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/issues",
+              "https://git.collinwebdesigns.de/uploads/-/system/project/avatar/106/png-transparent-nvidia-grid-logo-business-nvidia-electronics-text-trademark.png?width=64",
+              "https://hub.docker.com/r/collinwebdesigns/fastapi-dls",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/fastapi_dls.xml"
+            ]
+          }
+        }
+      },
+      "review_note": "The official GitLab project exposes its implementation without a visible license file, so its source is available but not verified as open source. The publisher’s Docker Hub page confirms the Docker image, Compose setup, and SQLite-backed state.",
+      "technical_fact_status": {
+        "ram": {
+          "status": "estimated",
+          "checked_at": "2026-09-30",
+          "confidence": "low",
+          "note": "Estimated for a low-concurrency Python licensing service.",
+          "source_urls": [
+            "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/tree/main",
+            "https://hub.docker.com/r/collinwebdesigns/fastapi-dls"
+          ]
+        },
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The publisher links its Docker Hub image from the project.",
+          "source_urls": [
+            "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/tree/main",
+            "https://hub.docker.com/r/collinwebdesigns/fastapi-dls"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The publisher provides a Compose example.",
+          "source_urls": [
+            "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/blob/main/docker-compose.yml",
+            "https://hub.docker.com/r/collinwebdesigns/fastapi-dls"
+          ]
+        },
+        "storage": {
+          "status": "estimated",
+          "checked_at": "2026-09-30",
+          "confidence": "low",
+          "note": "Estimated for the container, SQLite state, certificates, and logs.",
+          "source_urls": [
+            "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/tree/main",
+            "https://hub.docker.com/r/collinwebdesigns/fastapi-dls"
+          ]
+        },
+        "database": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The Compose example stores service state in SQLite.",
+          "source_urls": [
+            "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/blob/main/docker-compose.yml",
+            "https://hub.docker.com/r/collinwebdesigns/fastapi-dls"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls",
+            "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/issues",
+            "https://git.collinwebdesigns.de/uploads/-/system/project/avatar/106/png-transparent-nvidia-grid-logo-business-nvidia-electronics-text-trademark.png?width=64",
+            "https://hub.docker.com/r/collinwebdesigns/fastapi-dls",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/fastapi_dls.xml"
+          ]
+        }
+      }
+    }
+  ],
+  "estimates": [
+    {
+      "slug": "fastapi-dls",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 256,
+      "estimate_max": 512,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "One low-concurrency Python licensing service with a small SQLite state volume; the range leaves room for container and runtime overhead.",
+      "source_urls": [
+        "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/tree/main",
+        "https://hub.docker.com/r/collinwebdesigns/fastapi-dls"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "fastapi-dls",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 4,
+      "estimate_kind": "estimated",
+      "confidence": "low",
+      "basis": "The Compose setup keeps SQLite state and certificates in persistent volumes; the range allows room for the image, state, and logs.",
+      "source_urls": [
+        "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/tree/main",
+        "https://hub.docker.com/r/collinwebdesigns/fastapi-dls"
+      ],
+      "note": null,
+      "review": {
+        "method": "app_estimate"
+      },
+      "expected": {
+        "checked_at": "2026-09-02T14:12:13.872+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/issues"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls/-/issues"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    }
+  ]
+}

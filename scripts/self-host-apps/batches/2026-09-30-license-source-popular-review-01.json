@@ -1,0 +1,817 @@
+{
+  "reviewed_at": "2026-09-30",
+  "database_access": "read_only",
+  "canonical_project": "tulgfrqamtcshdtmhvpx",
+  "scope": "Read-only review of 25 published self-hostable app records with a null license or unknown license type. Verified license and source model against official project, publisher, repository, or product terms where available. Proposed values are guarded-review candidates only; no production data or migrations changed.",
+  "records": [
+    {
+      "slug": "hydra2",
+      "id": "e6845311-d5f1-4368-9c9c-1688bb37b68f",
+      "product_identity": "NZBHydra 2; metasearch for Usenet indexers and Torznab trackers.",
+      "current": {
+        "website_url": "https://github.com/theotherp/nzbhydra2",
+        "source_code_url": "https://github.com/theotherp/nzbhydra2",
+        "source_code_host": "github",
+        "publisher_name": "theotherp",
+        "publisher_url": "https://github.com/theotherp",
+        "source_model": "open_source",
+        "license": "GPL-3.0 (LICENSE); Apache-2.0 (README)",
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "license": "GNU General Public License v3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0"
+      },
+      "sources": [
+        "https://github.com/theotherp/nzbhydra2",
+        "https://github.com/theotherp/nzbhydra2/blob/master/LICENSE",
+        "https://github.com/theotherp/nzbhydra2/blob/master/readme.md"
+      ],
+      "evidence_notes": [
+        "The repository LICENSE is the GNU General Public License version 3. GitHub repository metadata identifies the project as GPL-3.0.",
+        "The README has an Apache-2.0 notice for the README text; it does not replace the repository's app license."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "tubearchivist-redis",
+      "id": "1e0a93f6-eca5-46f6-99fb-0a2f3d3d8753",
+      "product_identity": "Redis service image used as a TubeArchivist dependency; the Unraid template points to the official floating redis image.",
+      "current": {
+        "website_url": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "docker_image": "redis",
+        "publisher_name": "TubeArchivist-Redis",
+        "publisher_url": "https://forums.unraid.net/topic/114073-support-crocs-tube-archivist/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "license": "Redis 8+: RSALv2 OR SSPLv1 OR AGPLv3; earlier versions use different terms",
+        "license_type": "mixed",
+        "license_spdx_id": null,
+        "source_code_url": "https://github.com/redis/redis",
+        "source_code_host": "github"
+      },
+      "sources": [
+        "https://github.com/tubearchivist/unraid-templates/blob/main/TubeArchivist-RedisJSON.xml",
+        "https://hub.docker.com/_/redis",
+        "https://github.com/redis/redis",
+        "https://github.com/redis/redis/blob/unstable/LICENSE.txt",
+        "https://github.com/redis/redis/blob/unstable/REDISCONTRIBUTIONS.txt"
+      ],
+      "evidence_notes": [
+        "The current TubeArchivist Unraid template uses the official redis image and links to redis/redis; its tag is not pinned.",
+        "Redis's official license file says Redis 8+ offers RSALv2, SSPLv1, or AGPLv3, while Redis 7.2 and earlier remain BSD-3-Clause.",
+        "The open_source proposal describes the current Redis 8+ license choices, including AGPLv3. The unpinned image makes the exact terms version-dependent."
+      ],
+      "unresolved": [
+        "Confirm the intended directory identity is the Redis dependency container, not TubeArchivist itself. The license depends on the Redis version actually pulled."
+      ]
+    },
+    {
+      "slug": "nzbhydra2",
+      "id": "79a31a2a-9d38-432e-b953-a920ed7a1cbb",
+      "product_identity": "NZBHydra 2; same upstream application as the separate hydra2 record.",
+      "current": {
+        "website_url": "https://github.com/theotherp/nzbhydra2",
+        "source_code_url": "https://github.com/theotherp/nzbhydra2",
+        "source_code_host": "github",
+        "publisher_name": "theotherp",
+        "publisher_url": "https://github.com/theotherp",
+        "source_model": "open_source",
+        "license": "GPL-3.0 (LICENSE); Apache-2.0 (README)",
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "license": "GNU General Public License v3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0"
+      },
+      "sources": [
+        "https://github.com/theotherp/nzbhydra2",
+        "https://github.com/theotherp/nzbhydra2/blob/master/LICENSE",
+        "https://github.com/theotherp/nzbhydra2/blob/master/readme.md"
+      ],
+      "evidence_notes": [
+        "The repository LICENSE is the GNU General Public License version 3. GitHub repository metadata identifies the project as GPL-3.0.",
+        "The README has an Apache-2.0 notice for the README text; it does not replace the repository's app license.",
+        "This record and hydra2 point to the same upstream app; retain both records unless a separate deduplication review authorizes a merge."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "resiliosync",
+      "id": "ce43a180-a42d-4c53-8246-100b6595e787",
+      "product_identity": "Resilio Sync peer-to-peer file synchronization software.",
+      "current": {
+        "website_url": "https://www.resilio.com/individuals/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "ResilioSync",
+        "publisher_url": "https://www.resilio.com/individuals/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": "Resilio Software License and Subscriptions (Sync EULA)",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://www.resilio.com/legal/eula-subscription/",
+        "https://www.resilio.com/legal/eula/",
+        "https://www.resilio.com/individuals/"
+      ],
+      "evidence_notes": [
+        "Resilio's Sync EULA says the software is licensed, not sold, and restricts reverse engineering."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "teamcity-buildagent",
+      "id": "a3c2c821-c15f-434a-88fa-f13d4a7ea7d5",
+      "product_identity": "JetBrains TeamCity build agent container for connecting build workers to a TeamCity server.",
+      "current": {
+        "website_url": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "TeamCity-BuildAgent",
+        "publisher_url": "https://hub.docker.com/r/jetbrains/teamcity-agent/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": "JetBrains TeamCity License Agreement",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://hub.docker.com/r/jetbrains/teamcity-agent",
+        "https://www.jetbrains.com/legal/docs/teamcity/license/"
+      ],
+      "evidence_notes": [
+        "The official image is distributed under the TeamCity license. The agreement defines build-agent licensing and separately provides eligible open-source projects a use license; that does not make the TeamCity agent software open source."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "truecommand",
+      "id": "1731f698-5504-401e-ae20-9fc3af31698d",
+      "product_identity": "iXsystems TrueCommand fleet management and monitoring software for TrueNAS.",
+      "current": {
+        "website_url": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "truecommand",
+        "publisher_url": "https://hub.docker.com/r/ixsystems/truecommand/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": "TrueCommand End User License Agreement",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://www.truenas.com/docs/truecommand/3.0/notices/tctermsofservice/",
+        "https://hub.docker.com/r/ixsystems/truecommand/"
+      ],
+      "evidence_notes": [
+        "TrueNAS's official TrueCommand terms grant a limited license to iXsystems software and restrict copying and reverse engineering."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "sinusbot",
+      "id": "d1d58105-c015-4883-8b91-db10e1576542",
+      "product_identity": "Music and media bot for TeamSpeak and Discord servers.",
+      "current": {
+        "website_url": "https://forum.sinusbot.com/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "Sinusbot",
+        "publisher_url": "https://forum.sinusbot.com/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": "SinusBot License Agreement",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://sinusbot.github.io/docs/licenses/",
+        "https://www.sinusbot.com/"
+      ],
+      "evidence_notes": [
+        "The official license page permits private use and requires written permission for redistribution or commercial use; the official site describes personal and commercial licensing."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "americasarmy-pg",
+      "id": "3a895aac-5060-40d6-aa37-09efd325b807",
+      "product_identity": "America's Army: Proving Grounds dedicated game server.",
+      "current": {
+        "website_url": "https://www.americasarmy.com/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "AmericasArmy-PG",
+        "publisher_url": "https://www.americasarmy.com/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": "America's Army Licensing Agreement",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://store.steampowered.com/eula/203290_eula_0",
+        "https://www.americasarmy.com/"
+      ],
+      "evidence_notes": [
+        "The publisher's Steam EULA identifies the software as proprietary and grants a limited license to install and use it."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "honeygain",
+      "id": "1e8aab33-07e3-45f5-bf54-733664e8ab5a",
+      "product_identity": "Honeygain's bandwidth-sharing application with a self-hosted Docker image.",
+      "current": {
+        "website_url": "https://packetstream.io/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "honeygain",
+        "publisher_url": "https://packetstream.io/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": "Honeygain Terms of Use",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://www.honeygain.com/terms-of-use/?lang=en",
+        "https://www.honeygain.com/about-us/",
+        "https://www.honeygain.com/open-source-licenses/"
+      ],
+      "evidence_notes": [
+        "Honeygain's Terms of Use grant a limited, revocable app-use license and reserve its intellectual property. Its open-source licenses page covers third-party components, not the Honeygain app itself."
+      ],
+      "additional_field_issues": [
+        "The current website_url and publisher_url point to packetstream.io, which is a different service. Correct both to https://www.honeygain.com/ after reviewing the record identity."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "keeperautomator",
+      "id": "2a3e1318-e61d-4ab3-96d6-63ac0571c5af",
+      "product_identity": "Keeper Automator service for Keeper's zero-knowledge device approval workflow.",
+      "current": {
+        "website_url": "https://docs.keeper.io/sso-connect-cloud/device-approvals/automator",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "KeeperAutomator",
+        "publisher_url": "https://docs.keeper.io/sso-connect-cloud/device-approvals/automator",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": "Keeper Security Terms of Use",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://docs.keeper.io/sso-connect-cloud/device-approvals/automator",
+        "https://hub.docker.com/r/keeper/automator",
+        "https://www.keepersecurity.com/legal/terms-of-use/"
+      ],
+      "evidence_notes": [
+        "Keeper's official Automator documentation and Docker image identify the product. Keeper's terms grant limited software use and restrict reverse engineering; no separate Automator-specific EULA was found."
+      ],
+      "unresolved": [
+        "If the directory requires an app-specific agreement title, keep license and license_type unknown until Keeper publishes or identifies one."
+      ]
+    },
+    {
+      "slug": "roonserver",
+      "id": "fef2d11f-609e-4910-b040-6c16bd9b28be",
+      "product_identity": "Roon music server for managing and streaming a local music library.",
+      "current": {
+        "website_url": "https://roonlabs.com/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "RoonServer",
+        "publisher_url": "https://roonlabs.com/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": "Roon Software License",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://roon.app/en/termsandconditions",
+        "https://roonlabs.com/"
+      ],
+      "evidence_notes": [
+        "Roon's official terms grant a limited, non-transferable software license and prohibit reverse engineering."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "ecodms",
+      "id": "d974e5f3-ad5e-4c10-aa06-2427ba550e08",
+      "product_identity": "ecoDMS document management and archiving software.",
+      "current": {
+        "website_url": "https://www.ecodms.de/index.php/en/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "ecoDMS",
+        "publisher_url": "https://www.ecodms.de/index.php/en/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": "ecoDMS End User License Agreement",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://www.ecodms.de/en/gtc",
+        "https://www.ecodms.de/de/eula",
+        "https://www.ecodms.de/index.php/en/"
+      ],
+      "evidence_notes": [
+        "ecoDMS's official GTC identifies the EULA and says the customer receives usage rights, not intellectual property or source code."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "mymediaforalexa",
+      "id": "72da8692-06cd-4047-a38b-350590205b58",
+      "product_identity": "My Media for Alexa media server that makes a personal media library available to Alexa devices.",
+      "current": {
+        "website_url": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "MyMediaForAlexa",
+        "publisher_url": "https://forums.unraid.net/topic/72781-mymediaforalexa-docker/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": "Software License Agreement for My Media for Alexa",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://www.mymediaalexa.com/",
+        "https://github.com/itimpi/MyMediaForAlexa"
+      ],
+      "evidence_notes": [
+        "The official site labels a Software License Agreement for the app and states full service is subscription-based after the trial. The Unraid repository is an install template, not app source."
+      ],
+      "additional_field_issues": [
+        "The official site identifies Bizmodeller Limited. Consider setting website_url and publisher_url to https://www.mymediaalexa.com/ and publisher_name to Bizmodeller Limited."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "obfs4-bridge",
+      "id": "fc157522-231b-404d-89a7-bb473fd72f63",
+      "product_identity": "Dockerized Tor obfs4 bridge relay.",
+      "current": {
+        "website_url": "https://www.torproject.org/",
+        "source_code_url": "https://gitlab.torproject.org/tpo/anti-censorship/docker-obfs4-bridge",
+        "source_code_host": "gitlab",
+        "publisher_name": "The Tor Project, Inc.",
+        "publisher_url": "https://www.torproject.org/",
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://gitlab.torproject.org/tpo/anti-censorship/docker-obfs4-bridge",
+        "https://community.torproject.org/relay/setup/bridge/docker/",
+        "https://support.torproject.org/about-tor/using-and-sharing/distributing/"
+      ],
+      "evidence_notes": [
+        "The official Tor docs confirm this bridge Docker image and Tor's general free-software status, but those do not establish the license of this GitLab wrapper project."
+      ],
+      "unresolved": [
+        "The official GitLab project could not be inspected during this review (403 in the research interface); do not infer the wrapper's source model or license from Tor core."
+      ]
+    },
+    {
+      "slug": "chirpstack-gateway-bridge",
+      "id": "b692d04c-bf9e-4a4c-8b2f-1547fea6a4f4",
+      "product_identity": "ChirpStack component that connects LoRaWAN gateways to the ChirpStack network server.",
+      "current": {
+        "website_url": "https://www.chirpstack.io/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "chirpstack-gateway-bridge",
+        "publisher_url": "https://www.chirpstack.io/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_code_url": "https://github.com/chirpstack/chirpstack-gateway-bridge",
+        "source_code_host": "github"
+      },
+      "sources": [
+        "https://github.com/chirpstack/chirpstack-gateway-bridge",
+        "https://github.com/chirpstack/chirpstack-gateway-bridge/blob/master/LICENSE",
+        "https://www.chirpstack.io/"
+      ],
+      "evidence_notes": [
+        "The official repository's LICENSE grants the app under MIT and provides source code. The current closed_source classification is incorrect."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "ngrok",
+      "id": "afddb914-612f-4fea-989c-a75af95bc981",
+      "product_identity": "ngrok agent for exposing local services through ngrok's managed edge.",
+      "current": {
+        "website_url": "https://ngrok.com/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "ngrok",
+        "publisher_url": "https://ngrok.com/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": "ngrok Terms of Service (Agent license)",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://ngrok.com/tos",
+        "https://ngrok.com/download/linux",
+        "https://github.com/inconshreveable/ngrok"
+      ],
+      "evidence_notes": [
+        "The current official agent is distributed as a v3 binary. The Terms of Service license the ngrok Agent and restrict reverse engineering.",
+        "The archived inconshreveable/ngrok repository is an earlier v1 project and does not establish the license for the current v3 agent."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "ts3musicbot",
+      "id": "cea93ecf-820e-4f1e-bc66-705f7f7a4117",
+      "product_identity": "Proprietary TeamSpeak 3 music bot distributed with an official Docker image.",
+      "current": {
+        "website_url": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "ts3musicbot",
+        "publisher_url": "https://hub.docker.com/r/ts3mb/ts3musicbot/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://www.ts3musicbot.net/index.php?mode=welcome",
+        "https://hub.docker.com/r/ts3mb/ts3musicbot/"
+      ],
+      "evidence_notes": [
+        "The official site and image require a purchased product license for use, but no named software license text was verified. Keep license and license_type null/unknown rather than naming an inferred agreement."
+      ],
+      "unresolved": [
+        "Exact license title and terms remain unverified."
+      ]
+    },
+    {
+      "slug": "paradedb",
+      "id": "2a0c9cd6-6365-4a93-80f9-aca0a78e82c4",
+      "product_identity": "ParadeDB Community, a PostgreSQL extension for search and analytics; enterprise features are separately licensed.",
+      "current": {
+        "website_url": "https://paradedb.com/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "ParadeDB",
+        "publisher_url": "https://paradedb.com/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "license": "GNU Affero General Public License v3.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-or-later",
+        "source_code_url": "https://github.com/ParadeDB/paradedb",
+        "source_code_host": "github"
+      },
+      "sources": [
+        "https://github.com/ParadeDB/paradedb",
+        "https://github.com/ParadeDB/paradedb/blob/main/LICENSE",
+        "https://github.com/ParadeDB/paradedb/blob/main/README.md",
+        "https://paradedb.com/"
+      ],
+      "evidence_notes": [
+        "The official repository publishes the Community edition under AGPL. Current source-file headers specify AGPL-3.0-or-later; the README license badge uses AGPL-3.0 shorthand. Enterprise features are separately licensed."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "questdb",
+      "id": "a3b812d2-0da4-4611-8442-ad224f68904c",
+      "product_identity": "QuestDB Community time-series database.",
+      "current": {
+        "website_url": "https://questdb.io/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "QuestDB",
+        "publisher_url": "https://questdb.io/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_code_url": "https://github.com/questdb/questdb",
+        "source_code_host": "github"
+      },
+      "sources": [
+        "https://questdb.io/",
+        "https://github.com/questdb/questdb",
+        "https://github.com/questdb/questdb/blob/master/core/src/main/java/io/questdb/TelemetryJob.java"
+      ],
+      "evidence_notes": [
+        "QuestDB describes its project as open source, and its application source carries the Apache License 2.0 notice. The current closed_source classification is incorrect."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "unimus",
+      "id": "093eb70c-1c36-44a7-909a-5c87bfbde999",
+      "product_identity": "Unimus network configuration backup and change-management software.",
+      "current": {
+        "website_url": null,
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "unimus",
+        "publisher_url": "https://hub.docker.com/r/croc/unimus/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://unimus.net/pricing.html",
+        "https://github.com/netcore-jsa",
+        "https://github.com/netcore-jsa/unimus-docker"
+      ],
+      "evidence_notes": [
+        "Official pricing documents free and paid seat tiers for the self-hosted application. The public GitHub organization contains container packaging, not application source. No exact application license agreement was verified."
+      ],
+      "unresolved": [
+        "Exact software license title and terms remain unverified; do not treat the Docker packaging repository as application source."
+      ]
+    },
+    {
+      "slug": "xenorchestra",
+      "id": "9d690850-a36d-4354-b1a2-b1aec3c6f657",
+      "product_identity": "Xen Orchestra, a web interface and management platform for XenServer/XCP-ng virtualization.",
+      "current": {
+        "website_url": "https://xen-orchestra.com/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "XenOrchestra",
+        "publisher_url": "https://xen-orchestra.com/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "license": "GNU Affero General Public License v3.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-or-later",
+        "source_code_url": "https://github.com/vatesfr/xen-orchestra",
+        "source_code_host": "github"
+      },
+      "sources": [
+        "https://github.com/vatesfr/xen-orchestra",
+        "https://github.com/vatesfr/xen-orchestra/blob/master/LICENSE.md",
+        "https://xen-orchestra.com/"
+      ],
+      "evidence_notes": [
+        "The official repository publishes the Xen Orchestra source; its license manifest identifies core packages such as xo-server as AGPL-3.0-or-later. Commercial support/appliance availability does not make the source unavailable."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "agent-dvr",
+      "id": "2841ccc0-7411-4561-a8b3-306f748192bc",
+      "product_identity": "Agent DVR video surveillance server from iSpyConnect.",
+      "current": {
+        "website_url": "https://www.ispyconnect.com/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "Agent-DVR",
+        "publisher_url": "https://www.ispyconnect.com/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": "iSpyConnect Terms of Service (Agent DVR)",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://www.ispyconnect.com/terms",
+        "https://www.ispyconnect.com/faq",
+        "https://github.com/ispysoftware/iSpy"
+      ],
+      "evidence_notes": [
+        "The official terms cover Agent DVR. The official FAQ says Agent DVR was rebuilt from scratch; the separate iSpy repository is not source for Agent DVR and must not be used to classify it as open source."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "clouddrive",
+      "id": "1781728e-900a-494a-a0ab-8e50b07fe5b0",
+      "product_identity": "CloudDrive 2 mounts cloud storage as a local disk.",
+      "current": {
+        "website_url": "https://www.clouddrive2.com/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "CloudDrive",
+        "publisher_url": "https://www.clouddrive2.com/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": "CloudDrive User License Agreement",
+        "license_type": "custom",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://www.clouddrive2.com/eula.html",
+        "https://www.clouddrive2.com/"
+      ],
+      "evidence_notes": [
+        "The official User License Agreement identifies CloudDrive as proprietary software and restricts reverse engineering and access to source."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "openra",
+      "id": "12d6d77c-1585-4d67-92a9-1bd4600a4fd9",
+      "product_identity": "OpenRA open-source engine for classic Command & Conquer-style real-time strategy games.",
+      "current": {
+        "website_url": "http://openra.net/",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "OpenRA",
+        "publisher_url": "http://openra.net/",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "open_source",
+        "license": "GNU General Public License v3.0 or later",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-or-later",
+        "source_code_url": "https://github.com/OpenRA/OpenRA",
+        "source_code_host": "github",
+        "website_url": "https://www.openra.net/",
+        "publisher_url": "https://www.openra.net/"
+      },
+      "sources": [
+        "https://github.com/OpenRA/OpenRA",
+        "https://github.com/OpenRA/OpenRA/blob/bleed/COPYING",
+        "https://www.openra.net/"
+      ],
+      "evidence_notes": [
+        "OpenRA's official repository describes the engine as open source; its project licensing notice is GPL v3 or later. Current closed_source classification is incorrect."
+      ],
+      "unresolved": []
+    },
+    {
+      "slug": "songkong",
+      "id": "df5b6b71-682c-4476-9e6f-a1a2684206b7",
+      "product_identity": "SongKong music library tagging and organization software.",
+      "current": {
+        "website_url": "http://www.jthink.net/songkong",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "publisher_name": "songkong",
+        "publisher_url": "http://www.jthink.net/songkong",
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "proposed": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "sources": [
+        "https://jthink.net/songkong/download.jsp",
+        "https://www.jthink.net/songkong/buy.jsp",
+        "https://jthink.net/songkong/"
+      ],
+      "evidence_notes": [
+        "Official download and purchase pages show that full functionality requires a paid license and distinguish the Lite mode. No exact software license text was verified, so an exact license name and type remain unknown."
+      ],
+      "unresolved": [
+        "Exact license title and terms remain unverified."
+      ]
+    }
+  ]
+}

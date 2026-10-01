@@ -6,6 +6,11 @@ name = "local"
 script = ""
 
 [[actions]]
-name = "Run"
+name = "Build and run"
 icon = "run"
-command = "node scripts/version127/dev-or-url.mjs"
+command = "node scripts/stack127/homelab-preview.mjs build"
+
+[[actions]]
+name = "Rebuild and run"
+icon = "run"
+command = "node scripts/stack127/homelab-preview.mjs rebuild"

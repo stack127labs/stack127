@@ -1,24 +1,6 @@
 {
   "estimates": [
     {
-      "slug": "immich",
-      "resource_kind": "ram",
-      "unit": "mb",
-      "estimate_min": 6144,
-      "estimate_max": 8192,
-      "estimate_kind": "estimated",
-      "confidence": "high",
-      "basis": "Official minimum and recommended RAM for a standard Immich installation",
-      "source_urls": [
-        "https://docs.immich.app/install/requirements/"
-      ],
-      "review": {
-        "method": "published_estimate",
-        "workload": "Standard Immich installation with normal uploads and background processing",
-        "explanation": "Immich publishes a 6 GB minimum and recommends 8 GB. This range records those two endpoints without estimating storage for the photo library."
-      }
-    },
-    {
       "slug": "pi-hole",
       "resource_kind": "ram",
       "unit": "mb",
@@ -34,6 +16,23 @@
         "method": "published_estimate",
         "workload": "Basic Pi-hole installation on a supported operating system",
         "explanation": "Pi-hole publishes a 512 MB RAM requirement. No broader official operating range is given, so both endpoints use that requirement."
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
       }
     },
     {
@@ -52,6 +51,23 @@
         "method": "published_estimate",
         "workload": "Basic Pi-hole installation on a supported operating system",
         "explanation": "Pi-hole publishes 2 GB of free space as the minimum and recommends 4 GB."
+      },
+      "expected": {
+        "checked_at": null,
+        "ram_estimate_min_mb": null,
+        "ram_estimate_max_mb": null,
+        "ram_estimate_kind": null,
+        "ram_estimate_confidence": null,
+        "ram_estimate_basis": null,
+        "ram_source_urls": [],
+        "ram_note": null,
+        "storage_estimate_min_gb": null,
+        "storage_estimate_max_gb": null,
+        "storage_estimate_kind": null,
+        "storage_estimate_confidence": null,
+        "storage_estimate_basis": null,
+        "storage_source_urls": [],
+        "storage_note": null
       }
     }
   ]

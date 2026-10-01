@@ -1,0 +1,1549 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Offline official-source audit of the exact next 40 saved rows labeled closed_source. Corrections are proposals only and guarded against the saved snapshot.",
+  "apps": [
+    {
+      "slug": "4get",
+      "source_model": "open_source",
+      "source_code_url": "https://git.lolcat.ca/lolcat/4get",
+      "source_code_host": "other",
+      "license": "GNU Affero General Public License v3.0 only",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-only",
+      "install_docs_url": "https://git.lolcat.ca/lolcat/4get",
+      "categories": [
+        "search"
+      ],
+      "data_source_urls": [
+        "https://git.lolcat.ca/lolcat/4get",
+        "https://hub.docker.com/r/luuul/4get/"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The project repository publishes its source under AGPL-3.0-only and includes Docker setup. The closed-source label and unrelated categories were wrong.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "install_docs_url": "https://git.lolcat.ca/lolcat/4get/issues",
+        "categories": [
+          "ai-ml",
+          "photos-galleries",
+          "video-conferencing"
+        ],
+        "data_source_urls": [
+          "https://git.lolcat.ca/lolcat/4get",
+          "https://git.lolcat.ca/lolcat/4get/issues",
+          "https://hub.docker.com/r/luuul/4get/",
+          "https://raw.githubusercontent.com/imTHAI/unraid-templates/main/4get/4get.xml",
+          "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/4get.xml",
+          "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/docker_icons/4get.png"
+        ]
+      }
+    },
+    {
+      "slug": "audplexus",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/mstrhakr/audplexus",
+      "source_code_host": "github",
+      "website_url": "https://github.com/mstrhakr/audplexus",
+      "install_docs_url": "https://github.com/mstrhakr/audplexus#readme",
+      "license": "MIT",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "docker_support": "official",
+      "docker_url": "https://github.com/mstrhakr/audplexus/pkgs/container/audplexus",
+      "docker_image": "ghcr.io/mstrhakr/audplexus:latest",
+      "categories": [
+        "ebooks-libraries",
+        "media-servers"
+      ],
+      "data_source_urls": [
+        "https://github.com/mstrhakr/audplexus",
+        "https://github.com/mstrhakr/audplexus#readme",
+        "https://github.com/mstrhakr/audplexus/pkgs/container/audplexus"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The matching upstream project is self-hosted, MIT-licensed, and publishes its own GHCR image. The old closed-source label and issue-page links were wrong.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "website_url": "https://github.com/mstrhakr/audplexus/issues/",
+        "install_docs_url": "https://github.com/mstrhakr/audplexus#readme",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "docker_support": "community",
+        "docker_url": "https://github.com/orgs/mstrhakr/packages/container/package/audplexus",
+        "docker_image": "ghcr.io/mstrhakr/audplexus",
+        "categories": [
+          "ebooks-libraries",
+          "music-audio"
+        ],
+        "data_source_urls": [
+          "https://github.com/mstrhakr/audplexus/issues/",
+          "https://github.com/mstrhakr/audplexus#readme",
+          "https://github.com/orgs/mstrhakr/packages/container/package/audplexus",
+          "https://raw.githubusercontent.com/mstrhakr/audplexus/master/logo.png",
+          "https://raw.githubusercontent.com/mstrhakr/plugin-repository/master/audplexus.xml"
+        ]
+      }
+    },
+    {
+      "slug": "bark-server",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/Finb/bark-server",
+      "source_code_host": "github",
+      "install_docs_url": "https://github.com/Finb/bark-server#readme",
+      "license": "MIT",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "docker_support": "official",
+      "docker_url": "https://github.com/Finb/bark-server/pkgs/container/bark-server",
+      "docker_image": "ghcr.io/finb/bark-server:latest",
+      "categories": [
+        "communication"
+      ],
+      "data_source_urls": [
+        "https://bark.day.app/",
+        "https://github.com/Finb/bark-server",
+        "https://github.com/Finb/bark-server/blob/master/LICENSE",
+        "https://github.com/Finb/bark-server/pkgs/container/bark-server"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The matching upstream repository identifies Bark Server, states MIT, and documents the GHCR image. It is a push-notification server, not a closed-source admin tool.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "install_docs_url": "https://github.com/Finb/bark-server/issues",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "docker_support": "community",
+        "docker_url": "https://hub.docker.com/r/finab/bark-server",
+        "docker_image": "finab/bark-server:latest",
+        "categories": [
+          "system-admin-hosting"
+        ],
+        "data_source_urls": [
+          "https://bark.day.app/",
+          "https://bark.day.app/_media/Icon.png",
+          "https://github.com/Finb/bark-server/issues",
+          "https://hub.docker.com/r/finab/bark-server",
+          "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/bark.xml"
+        ]
+      }
+    },
+    {
+      "slug": "chronograf",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/influxdata/chronograf",
+      "source_code_host": "github",
+      "install_docs_url": "https://docs.influxdata.com/chronograf/v1/",
+      "license": "GNU Affero General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-or-later",
+      "docker_support": "official",
+      "categories": [
+        "monitoring-status"
+      ],
+      "data_source_urls": [
+        "https://github.com/influxdata/chronograf",
+        "https://github.com/influxdata/chronograf/blob/master/LICENSE",
+        "https://docs.influxdata.com/chronograf/v1/",
+        "https://hub.docker.com/_/chronograf/"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "InfluxData publishes Chronograf source under AGPL-3.0-or-later and documents its official Docker image. The saved closed-source label was false.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "install_docs_url": "https://forums.unraid.net/topic/71264-support-data-monkey-chronograf/",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "docker_support": "community",
+        "categories": [
+          "monitoring-status"
+        ],
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/71264-support-data-monkey-chronograf/",
+          "https://hub.docker.com/_/chronograf/",
+          "https://raw.githubusercontent.com/Data-Monkey/docker-templates/master/Data-Monkey/chronograf.xml",
+          "https://raw.githubusercontent.com/Data-Monkey/docker-templates/master/Data-Monkey/img/chronograf.png",
+          "https://www.influxdata.com/time-series-platform/chronograf/"
+        ]
+      }
+    },
+    {
+      "slug": "collabora-code",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/CollaboraOnline/online.mirror",
+      "source_code_host": "github",
+      "website_url": "https://www.collaboraonline.com/code/",
+      "license": "MPL-2.0 and third-party open-source licenses; executable forms have additional proprietary terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "docker_support": "official",
+      "categories": [
+        "documents-pdfs"
+      ],
+      "data_source_urls": [
+        "https://github.com/CollaboraOnline/online.mirror",
+        "https://www.collaboraonline.com/terms/collabora-online-mplv2/",
+        "https://sdk.collaboraonline.com/docs/installation/CODE_Docker_image.html",
+        "https://hub.docker.com/r/collabora/code/"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "Collabora publishes CODE source primarily under MPL-2.0 and other open-source licenses; its executable form has added proprietary terms. The official Docker image is supported.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "website_url": "https://sdk.collaboraonline.com/docs/installation/CODE_Docker_image.html",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "docker_support": "community",
+        "categories": [
+          "ai-ml",
+          "documents-pdfs",
+          "photos-galleries"
+        ],
+        "data_source_urls": [
+          "https://hub.docker.com/r/collabora/code/",
+          "https://raw.githubusercontent.com/chvb/docker-templates/master/chvb/img/collabora.png",
+          "https://raw.githubusercontent.com/L4stIdi0t/Unraid-template/master/Collabora/Collabora-CODE.xml",
+          "https://sdk.collaboraonline.com/docs/installation/CODE_Docker_image.html"
+        ]
+      }
+    },
+    {
+      "slug": "dailynotes",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/djedi/DailyNotes",
+      "source_code_host": "github",
+      "website_url": "https://github.com/djedi/DailyNotes",
+      "install_docs_url": "https://github.com/djedi/DailyNotes#readme",
+      "license": "MIT",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "docker_support": "official",
+      "docker_url": "https://hub.docker.com/r/xhenxhe/dailynotes",
+      "docker_image": "xhenxhe/dailynotes:latest",
+      "categories": [
+        "knowledge-notes",
+        "project-task-management"
+      ],
+      "data_source_urls": [
+        "https://github.com/djedi/DailyNotes",
+        "https://github.com/djedi/DailyNotes/blob/master/LICENSE",
+        "https://hub.docker.com/r/xhenxhe/dailynotes"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The canonical repository redirects to djedi/DailyNotes, is MIT-licensed, and recommends the xhenxhe Docker Hub image. The saved repo, image, and categories were outdated.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "website_url": "https://github.com/m0ngr31/DailyNotes/issues/",
+        "install_docs_url": "https://github.com/m0ngr31/DailyNotes/issues/",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "docker_support": "community",
+        "docker_url": "https://hub.docker.com/r/m0ngr31/dailynotes/",
+        "docker_image": "m0ngr31/dailynotes",
+        "categories": [
+          "ai-ml",
+          "knowledge-notes",
+          "monitoring-status"
+        ],
+        "data_source_urls": [
+          "https://github.com/m0ngr31/DailyNotes/issues/",
+          "https://hub.docker.com/r/m0ngr31/dailynotes/",
+          "https://i.imgur.com/AI8bd73.png",
+          "https://raw.githubusercontent.com/m0ngr31/unraid_ca/master/DailyNotes.xml"
+        ]
+      }
+    },
+    {
+      "slug": "ddrescue",
+      "name": "GNU ddrescue",
+      "source_model": "open_source",
+      "source_code_url": "https://savannah.gnu.org/projects/ddrescue/",
+      "source_code_host": "other",
+      "website_url": "https://www.gnu.org/s/ddrescue/ddrescue.html",
+      "install_docs_url": "https://www.gnu.org/software/ddrescue/manual/ddrescue_manual.html",
+      "license": "GNU General Public License v2.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-2.0-or-later",
+      "docker_support": "none",
+      "docker_url": null,
+      "docker_image": null,
+      "categories": [
+        "storage-backup"
+      ],
+      "data_source_urls": [
+        "https://www.gnu.org/s/ddrescue/ddrescue.html",
+        "https://www.gnu.org/software/ddrescue/manual/ddrescue_manual.html",
+        "https://savannah.gnu.org/projects/ddrescue/",
+        "https://raw.githubusercontent.com/dkaser/unraid-plugins/main/ddrescue.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "GNU identifies ddrescue as GPL-2.0-or-later. The saved Docker link was malformed; this row is a native recovery utility distributed through an Unraid plugin, not a Docker image.",
+      "expected": {
+        "name": "ddrescue",
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "website_url": "https://forums.unraid.net/topic/192095-plugin-ddrescue/",
+        "install_docs_url": "https://forums.unraid.net/topic/192095-plugin-ddrescue/",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "docker_support": "community",
+        "docker_url": "https://hub.docker.com/r/https://raw.githubusercontent.com/dkaser/unraid-ddrescue/main/plugin/ddrescue.plg",
+        "docker_image": "https://raw.githubusercontent.com/dkaser/unraid-ddrescue/main/plugin/ddrescue.plg",
+        "categories": [
+          "developer-tools"
+        ],
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/192095-plugin-ddrescue/",
+          "https://hub.docker.com/r/https://raw.githubusercontent.com/dkaser/unraid-ddrescue/main/plugin/ddrescue.plg",
+          "https://raw.githubusercontent.com/dkaser/unraid-plugins/main/ddrescue.xml"
+        ]
+      }
+    },
+    {
+      "slug": "deconz",
+      "name": "deCONZ",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/dresden-elektronik/deconz",
+      "source_code_host": "github",
+      "license": "BSD-3-Clause (core); Phoscon App is separate",
+      "license_type": "permissive",
+      "license_spdx_id": "BSD-3-Clause",
+      "categories": [
+        "home-automation-iot"
+      ],
+      "data_source_urls": [
+        "https://github.com/dresden-elektronik/deconz",
+        "https://github.com/dresden-elektronik/deconz/blob/master/LICENSE.txt",
+        "https://www.phoscon.de/en/conbee2/",
+        "https://hub.docker.com/r/deconzcommunity/deconz"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "deCONZ core is BSD-3-Clause. Phoscon App is fetched separately and is not part of the core repository; the saved source label and categories were wrong.",
+      "expected": {
+        "name": "deconz",
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "networking-dns",
+          "photos-galleries"
+        ],
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/128385-support-deconz-community-official/",
+          "https://forums.unraid.net/topic/92946-support-spaceinvaderone-deconz/",
+          "https://hub.docker.com/r/deconzcommunity/deconz",
+          "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/deconz.xml",
+          "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/docker_icons/deconz.png",
+          "https://raw.githubusercontent.com/thecode/unraid-docker-templates/main/templates/deconz-community.xml",
+          "https://registry.hub.docker.com/r/spaceinvaderone/deconz",
+          "https://www.phoscon.de/en/conbee2/"
+        ]
+      }
+    },
+    {
+      "slug": "dell-idrac-fan-controller",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker",
+      "source_code_host": "github",
+      "license": "AGPL-3.0-only for current releases; earlier releases used CC BY-NC-SA 4.0",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "system-admin-hosting"
+      ],
+      "data_source_urls": [
+        "https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker",
+        "https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker/blob/main/LICENSE",
+        "https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker/blob/main/LICENSE-COMMERCIAL.md",
+        "https://hub.docker.com/r/tigerblue77/dell_idrac_fan_controller/"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The publisher states current releases are AGPL-3.0-only, with a separate commercial license; earlier releases remain under CC BY-NC-SA 4.0. The project is open source.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "communication",
+          "password-managers"
+        ],
+        "data_source_urls": [
+          "https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker",
+          "https://hub.docker.com/r/tigerblue77/dell_idrac_fan_controller/",
+          "https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/idrac-fan-controller.xml"
+        ]
+      }
+    },
+    {
+      "slug": "dependency-track-api-server",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/DependencyTrack/dependency-track",
+      "source_code_host": "github",
+      "website_url": "https://dependencytrack.org/",
+      "install_docs_url": "https://docs.dependencytrack.org/",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "docker_support": "official",
+      "categories": [
+        "developer-tools",
+        "security-privacy"
+      ],
+      "data_source_urls": [
+        "https://github.com/DependencyTrack/dependency-track",
+        "https://github.com/DependencyTrack/dependency-track/blob/master/LICENSE.txt",
+        "https://docs.dependencytrack.org/",
+        "https://hub.docker.com/r/dependencytrack/apiserver"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official project describes Dependency-Track as open source under Apache-2.0 and publishes the API server image. The closed-source label was false.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "website_url": "https://github.com/DependencyTrack/dependency-track/issues",
+        "install_docs_url": "https://github.com/DependencyTrack/dependency-track/issues",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "docker_support": "community",
+        "categories": [
+          "ai-ml",
+          "project-task-management",
+          "security-privacy"
+        ],
+        "data_source_urls": [
+          "https://github.com/DependencyTrack/dependency-track/issues",
+          "https://github.com/DependencyTrack/dependency-track/raw/master/docs/touch-icon.png",
+          "https://hub.docker.com/r/dependencytrack/apiserver",
+          "https://raw.githubusercontent.com/Frooodle/unraid-templates/main/dependency-track-api-server.xml",
+          "https://raw.githubusercontent.com/Frooodle/unraid-templates/main/dependency-track-frontend.xml",
+          "https://registry.hub.docker.com/r/dependencytrack/frontend"
+        ]
+      }
+    },
+    {
+      "slug": "deploycat",
+      "website_url": "https://www.deploycat.app/",
+      "install_docs_url": "https://www.deploycat.app/download.html",
+      "license": "Proprietary software under the DeployCat Terms of Service and EULA",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "publisher_name": "Hightexperts LLC",
+      "publisher_type": "company",
+      "publisher_url": "https://www.deploycat.app/",
+      "categories": [
+        "games",
+        "system-admin-hosting"
+      ],
+      "data_source_urls": [
+        "https://www.deploycat.app/",
+        "https://www.deploycat.app/terms",
+        "https://www.deploycat.app/download.html",
+        "https://hub.docker.com/r/meowsers/deploycat/",
+        "https://raw.githubusercontent.com/hightexpertsllc/Deploycat-docker-xml/main/Deploycat.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official EULA names Hightexperts LLC, says the app is proprietary, and describes desktop software that deploys game servers on the user’s own hardware. The listed Docker image is a community wrapper.",
+      "expected": {
+        "website_url": "https://deploycat.app/",
+        "install_docs_url": "https://discord.gg/gVcjQHfhUS",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "publisher_name": "DeployCat",
+        "publisher_type": "unknown",
+        "publisher_url": "https://deploycat.app/",
+        "categories": [
+          "games",
+          "system-admin-hosting"
+        ],
+        "data_source_urls": [
+          "https://deploycat.app/",
+          "https://discord.gg/gVcjQHfhUS",
+          "https://hub.docker.com/r/meowsers/deploycat/",
+          "https://raw.githubusercontent.com/hightexpertsllc/Deploycat-docker-xml/main/Deploycat.xml",
+          "https://raw.githubusercontent.com/hightexpertsllc/Deploycat-docker-xml/main/icon.png"
+        ]
+      }
+    },
+    {
+      "slug": "direwolf20",
+      "license": "Mixed: FTB mods are All Rights Reserved and pack distribution is limited to CurseForge; third-party mods have their own terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "games"
+      ],
+      "data_source_urls": [
+        "https://www.feed-the-beast.com/modpacks/95-ftb-presents-direwolf20-118",
+        "https://www.feed-the-beast.com/raw/docs/mod-license",
+        "https://hub.docker.com/r/ratomas/direwolf20",
+        "https://raw.githubusercontent.com/Ratomas/CA_XML/master/direwolf20.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official FTB license reserves FTB mod rights and limits modpack distribution to CurseForge; third-party mods have separate terms. The closed-source label is retained, with license and category fields corrected.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "games",
+          "system-admin-hosting"
+        ],
+        "data_source_urls": [
+          "https://github.com/Ratomas/direwolf20/blob/master/direwolf20.png?raw=true",
+          "https://github.com/Ratomas/direwolf20/issues",
+          "https://hub.docker.com/r/ratomas/direwolf20",
+          "https://raw.githubusercontent.com/Ratomas/CA_XML/master/direwolf20.xml",
+          "https://www.feed-the-beast.com/modpack/95_ftb_presents_direwolf20_1_18"
+        ],
+        "website_url": "https://www.feed-the-beast.com/modpack/95_ftb_presents_direwolf20_1_18"
+      },
+      "website_url": "https://www.feed-the-beast.com/modpacks/95-ftb-presents-direwolf20-118"
+    },
+    {
+      "slug": "dns-api",
+      "source_model": "unknown",
+      "data_source_urls": [
+        "https://hub.docker.com/r/homelabaas/dns-api"
+      ],
+      "review_scope": "partial",
+      "confidence": "medium",
+      "review_note": "The Docker Hub page identifies a DNS API image but gives no verified source repository or license. Use unknown instead of claiming closed source.",
+      "expected": {
+        "source_model": "closed_source",
+        "data_source_urls": [
+          "https://hub.docker.com/r/homelabaas/dns-api"
+        ]
+      }
+    },
+    {
+      "slug": "dns-doh-companion",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/testdasi/simple-dns-doh",
+      "source_code_host": "github",
+      "website_url": "https://github.com/testdasi/simple-dns-doh",
+      "install_docs_url": "https://github.com/testdasi/simple-dns-doh#readme",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0-only",
+      "categories": [
+        "networking-dns"
+      ],
+      "data_source_urls": [
+        "https://github.com/testdasi/simple-dns-doh",
+        "https://github.com/testdasi/simple-dns-doh/blob/master/LICENSE",
+        "https://hub.docker.com/r/testdasi/simple-dns-doh/"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The matching upstream repository contains the DNS-over-HTTPS server, Docker build, and GPL-3.0 license. The closed-source label and unrelated categories were wrong.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "website_url": "https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/",
+        "install_docs_url": "https://forums.unraid.net/topic/96233-support-testdasi-repo",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "networking-dns",
+          "system-admin-hosting"
+        ],
+        "data_source_urls": [
+          "https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/",
+          "https://forums.unraid.net/topic/96233-support-testdasi-repo",
+          "https://hub.docker.com/r/testdasi/simple-dns-doh/",
+          "https://raw.githubusercontent.com/testdasi/simple-dns-doh/master/DNS-icon.png",
+          "https://raw.githubusercontent.com/testdasi/testdasi-unraid-repo/master/dns-doh-companion.xml"
+        ]
+      }
+    },
+    {
+      "slug": "docker-controller",
+      "source_model": "unknown",
+      "categories": [
+        "system-admin-hosting"
+      ],
+      "data_source_urls": [
+        "https://hub.docker.com/r/acaranta/docker-controller"
+      ],
+      "review_scope": "partial",
+      "confidence": "medium",
+      "review_note": "The Docker Hub image has no verified source repository or license. The source model should be unknown; Docker Controller belongs under system administration.",
+      "expected": {
+        "source_model": "closed_source",
+        "categories": [
+          "ai-ml",
+          "system-admin-hosting"
+        ],
+        "data_source_urls": [
+          "https://hub.docker.com/r/acaranta/docker-controller",
+          "https://www.gravatar.com/avatar/e278b00ff402998d5839b9ee5ebb686a?s=80&r=g&d=mm"
+        ]
+      }
+    },
+    {
+      "slug": "dragon-torrents",
+      "source_model": "unknown",
+      "data_source_urls": [
+        "https://dragon-torrents.web.app/",
+        "https://hub.docker.com/r/pandaboynl/dragon-torrents/",
+        "https://github.com/PandaBoyNL/Dragon-Torrents-Site/issues"
+      ],
+      "review_scope": "partial",
+      "confidence": "medium",
+      "review_note": "The site and container establish an installable product, but no code repository or license terms are verifiable. The closed-source claim is unsupported, so use unknown.",
+      "expected": {
+        "source_model": "closed_source",
+        "data_source_urls": [
+          "https://dragon-torrents.web.app/",
+          "https://github.com/PandaBoyNL/Dragon-Torrents-Site/issues",
+          "https://hub.docker.com/r/pandaboynl/dragon-torrents/",
+          "https://raw.githubusercontent.com/PandaBoyNL/Dragon-Torrents-Site/main/dragon-torrents.xml",
+          "https://raw.githubusercontent.com/PandaBoyNL/Dragon-Torrents-Site/main/icon.png"
+        ]
+      }
+    },
+    {
+      "slug": "ecodms",
+      "license": "Proprietary software under the ecoDMS EULA",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "publisher_name": "ecoDMS GmbH",
+      "publisher_type": "company",
+      "publisher_url": "https://www.ecodms.de/",
+      "categories": [
+        "documents-pdfs"
+      ],
+      "data_source_urls": [
+        "https://www.ecodms.de/index.php/en/",
+        "https://www.ecodms.de/en/eula",
+        "https://www.ecodms.de/en/gtc",
+        "https://hub.docker.com/r/ecodms/allinone-18.09/",
+        "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/ecoDMS.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "ecoDMS terms state that the software is copyrighted, the source code is not included, and use is licensed. The closed-source label is correct; the license and category fields were missing or wrong. The listed 18.09 container build is old and needs separate maintenance review.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "publisher_name": "ecoDMS",
+        "publisher_type": "unknown",
+        "publisher_url": "https://www.ecodms.de/index.php/en/",
+        "categories": [
+          "ai-ml",
+          "communication",
+          "password-managers"
+        ],
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/89502-support-a75g-repo/",
+          "https://hub.docker.com/r/ecodms/allinone-18.09/",
+          "https://raw.githubusercontent.com/A75G/docker-templates/master/templates/ecoDMS.xml",
+          "https://secure.gravatar.com/avatar/b52fd0ed66fae9aa9a4d71a1f5dae83c.jpg",
+          "https://www.ecodms.de/index.php/en/"
+        ]
+      }
+    },
+    {
+      "slug": "elastiflow",
+      "license": "ElastiFlow Community EULA V1.1 (object-code license)",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "install_docs_url": "https://docs.elastiflow.com/",
+      "docker_support": "official",
+      "docker_url": "https://hub.docker.com/r/elastiflow/flow-collector",
+      "categories": [
+        "monitoring-status",
+        "networking-dns"
+      ],
+      "data_source_urls": [
+        "https://www.elastiflow.com/",
+        "https://www.elastiflow.com/community-license",
+        "https://docs.elastiflow.com/",
+        "https://hub.docker.com/r/elastiflow/flow-collector"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The publisher’s Community EULA licenses object code for one instance on one device. ElastiFlow remains closed source; its official docs provide Docker deployment.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "install_docs_url": "https://raw.githubusercontent.com/qubex22/unraid-templates/main/elastiflow/elastiflow.xml",
+        "docker_support": "community",
+        "docker_url": "https://registry.hub.docker.com/r/elastiflow/flow-collector",
+        "categories": [
+          "documents-pdfs",
+          "networking-dns",
+          "project-task-management"
+        ],
+        "data_source_urls": [
+          "https://raw.githubusercontent.com/qubex22/unraid-templates/main/elastiflow/elastiflow.png",
+          "https://raw.githubusercontent.com/qubex22/unraid-templates/main/elastiflow/elastiflow.xml",
+          "https://registry.hub.docker.com/r/elastiflow/flow-collector",
+          "https://www.elastiflow.com/"
+        ]
+      }
+    },
+    {
+      "slug": "enigmatica6",
+      "source_model": "unknown",
+      "source_code_url": "https://github.com/EnigmaticaModpacks/Enigmatica6",
+      "source_code_host": "github",
+      "categories": [
+        "games"
+      ],
+      "data_source_urls": [
+        "https://www.curseforge.com/minecraft/modpacks/enigmatica6",
+        "https://github.com/EnigmaticaModpacks/Enigmatica6"
+      ],
+      "review_scope": "partial",
+      "confidence": "medium",
+      "review_note": "The publisher calls this the official repository and issue tracker, but it has no license file or stated license grant. A public repository alone does not establish open source; source model should be unknown.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "categories": [
+          "ai-ml",
+          "games",
+          "system-admin-hosting"
+        ],
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/enigmatica6",
+          "https://media.forgecdn.net/avatars/287/328/637307875703147764.jpeg",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/enigmatica6_server.xml",
+          "https://www.curseforge.com/minecraft/modpacks/enigmatica6"
+        ]
+      }
+    },
+    {
+      "slug": "eplustv",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/tonywagner/EPlusTV",
+      "source_code_host": "github",
+      "website_url": "https://github.com/tonywagner/EPlusTV",
+      "install_docs_url": "https://github.com/tonywagner/EPlusTV#readme",
+      "license": "MIT",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "docker_support": "official",
+      "docker_url": "https://hub.docker.com/r/tonywagner/eplustv",
+      "docker_image": "tonywagner/eplustv:latest",
+      "categories": [
+        "media-servers"
+      ],
+      "data_source_urls": [
+        "https://github.com/tonywagner/EPlusTV",
+        "https://github.com/tonywagner/EPlusTV/blob/master/LICENSE",
+        "https://hub.docker.com/r/tonywagner/eplustv"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official EPlusTV repository is MIT-licensed and recommends the tonywagner Docker Hub image. The saved closed-source label and old image link were wrong.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "website_url": "https://github.com/m0ngr31/EPlusTV/issues",
+        "install_docs_url": "https://github.com/m0ngr31/EPlusTV/issues",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "docker_support": "community",
+        "docker_url": "https://hub.docker.com/r/m0ngr31/eplustv/",
+        "docker_image": "m0ngr31/eplustv",
+        "categories": [
+          "ai-ml",
+          "knowledge-notes",
+          "video-conferencing"
+        ],
+        "data_source_urls": [
+          "https://github.com/m0ngr31/EPlusTV/issues",
+          "https://hub.docker.com/r/m0ngr31/eplustv/",
+          "https://i.imgur.com/LrdVje2.png",
+          "https://raw.githubusercontent.com/m0ngr31/unraid_ca/master/EPlusTV.xml"
+        ]
+      }
+    },
+    {
+      "slug": "excalidraw-sh",
+      "source_model": "unknown",
+      "categories": [
+        "design-creative"
+      ],
+      "data_source_urls": [
+        "https://hub.docker.com/r/alenalex/excalidraw-sh",
+        "https://github.com/excalidraw/excalidraw"
+      ],
+      "review_scope": "partial",
+      "confidence": "medium",
+      "review_note": "The image is described as a self-hosted Excalidraw implementation, but no build link ties it to upstream Excalidraw source. Keep the exact image source model unknown.",
+      "expected": {
+        "source_model": "closed_source",
+        "categories": [
+          "developer-tools"
+        ],
+        "data_source_urls": [
+          "https://hub.docker.com/r/alenalex/excalidraw-sh"
+        ]
+      }
+    },
+    {
+      "slug": "ffmpeg-malin",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/sftpmalin/Media-Remote-Convert",
+      "source_code_host": "github",
+      "website_url": "https://github.com/sftpmalin/Media-Remote-Convert",
+      "install_docs_url": "https://github.com/sftpmalin/Media-Remote-Convert#readme",
+      "license": "MIT",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "docker_support": "official",
+      "docker_url": "https://hub.docker.com/r/sftpmalin/ffmpeg",
+      "docker_image": "sftpmalin/ffmpeg:latest",
+      "categories": [
+        "media-servers"
+      ],
+      "data_source_urls": [
+        "https://github.com/sftpmalin/Media-Remote-Convert",
+        "https://github.com/sftpmalin/Media-Remote-Convert/blob/main/LICENSE",
+        "https://hub.docker.com/r/sftpmalin/ffmpeg"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The matching upstream repository publishes the MIT-licensed media conversion container and its Docker image. The saved closed-source label and unrelated categories were wrong.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "website_url": "https://hub.docker.com/r/sftpmalin/ffmpeg",
+        "install_docs_url": "https://github.com/sftpmalin/Media-Remote-Convert/issues",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "docker_support": "community",
+        "docker_url": "https://registry.hub.docker.com/r/sftpmalin/ffmpeg",
+        "docker_image": "sftpmalin/ffmpeg:latest",
+        "categories": [
+          "documents-pdfs",
+          "remote-access",
+          "video-conferencing"
+        ],
+        "data_source_urls": [
+          "https://github.com/sftpmalin/Media-Remote-Convert/issues",
+          "https://hub.docker.com/r/sftpmalin/ffmpeg",
+          "https://raw.githubusercontent.com/sftpmalin/Media-Remote-Convert/main/logo/sftpmalin1.png",
+          "https://raw.githubusercontent.com/sftpmalin/Media-Remote-Convert/main/templates-user/FFmpeg_Malin.xml",
+          "https://registry.hub.docker.com/r/sftpmalin/ffmpeg"
+        ]
+      }
+    },
+    {
+      "slug": "filedrop",
+      "source_model": "open_source",
+      "docker_support": "official",
+      "categories": [
+        "file-sharing-sync"
+      ],
+      "data_source_urls": [
+        "https://github.com/Noe-Favier/filedrop-v2",
+        "https://github.com/Noe-Favier/filedrop-v2/blob/master/LICENSE",
+        "https://hub.docker.com/r/noecl/filedrop",
+        "https://github.com/IceWhaleTech/CasaOS-AppStore/issues/109"
+      ],
+      "review_scope": "partial",
+      "confidence": "medium",
+      "review_note": "The matching upstream repository is Apache-2.0 and links to the noecl Docker image. FileDrop supports self-hosting; the saved source, Docker, and category labels were wrong.",
+      "expected": {
+        "source_model": "closed_source",
+        "docker_support": "official",
+        "categories": [
+          "developer-tools"
+        ],
+        "data_source_urls": [
+          "https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Filedrop/icon.svg",
+          "https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main/Apps/Filedrop",
+          "https://hub.docker.com/r/noecl/filedrop"
+        ],
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null
+      },
+      "source_code_url": "https://github.com/Noe-Favier/filedrop-v2",
+      "source_code_host": "github",
+      "license": "Apache-2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0"
+    },
+    {
+      "slug": "firefly-iii-data-importer",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/firefly-iii/data-importer",
+      "source_code_host": "github",
+      "install_docs_url": "https://docs.firefly-iii.org/",
+      "license": "GNU Affero General Public License v3.0 or later",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0-or-later",
+      "docker_support": "official",
+      "categories": [
+        "finance-budgeting"
+      ],
+      "data_source_urls": [
+        "https://github.com/firefly-iii/data-importer",
+        "https://github.com/firefly-iii/data-importer/blob/main/LICENSE",
+        "https://docs.firefly-iii.org/",
+        "https://hub.docker.com/r/fireflyiii/data-importer/"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official importer repository is AGPL-3.0-or-later and the project publishes its Docker image. The saved closed-source label and extra categories were wrong.",
+      "expected": {
+        "source_model": "closed_source",
+        "source_code_url": null,
+        "source_code_host": "unknown",
+        "install_docs_url": "https://forums.unraid.net/topic/144385-support-mattfaz-repo/",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "docker_support": "community",
+        "categories": [
+          "ai-ml",
+          "finance-budgeting",
+          "security-privacy"
+        ],
+        "data_source_urls": [
+          "https://docs.firefly-iii.org/",
+          "https://forums.unraid.net/topic/144385-support-mattfaz-repo/",
+          "https://hub.docker.com/r/fireflyiii/core/",
+          "https://hub.docker.com/r/fireflyiii/data-importer/",
+          "https://raw.githubusercontent.com/MattFaz/unraid_templates/main/fireflyiii-dataimporter.xml",
+          "https://raw.githubusercontent.com/MattFaz/unraid_templates/main/fireflyiii.xml",
+          "https://raw.githubusercontent.com/MattFaz/unraid_templates/main/images/fireflyiii-logo.png"
+        ]
+      }
+    },
+    {
+      "slug": "fodaris-agent",
+      "source_model": "unknown",
+      "license": "MIT (agent, as stated by the publisher)",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "install_docs_url": "https://docs.fodaris.co.uk/endpoints/overview",
+      "docker_support": "official",
+      "categories": [
+        "monitoring-status",
+        "system-admin-hosting"
+      ],
+      "data_source_urls": [
+        "https://fodaris.co.uk/",
+        "https://docs.fodaris.co.uk/",
+        "https://hub.docker.com/r/goodhallsolutions/fodaris-agent",
+        "https://ca.unraid.net/apps/fodaris-agent-1kpxj950vxoar1"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The publisher says the agent is MIT-licensed and requires a Fodaris server. No source repository is linked, so the source model is unknown rather than closed source.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "install_docs_url": "https://raw.githubusercontent.com/Goodhall-Solutions-ltd/unraid-templates/main/fodaris-agent.xml",
+        "docker_support": "community",
+        "categories": [
+          "ai-ml",
+          "identity-access",
+          "monitoring-status"
+        ],
+        "data_source_urls": [
+          "https://fodaris.co.uk/",
+          "https://fodaris.co.uk/images/icon.png",
+          "https://hub.docker.com/r/goodhallsolutions/fodaris",
+          "https://hub.docker.com/r/goodhallsolutions/fodaris-agent",
+          "https://raw.githubusercontent.com/Goodhall-Solutions-ltd/unraid-templates/main/fodaris-agent.xml",
+          "https://raw.githubusercontent.com/Goodhall-Solutions-ltd/unraid-templates/main/fodaris-server.xml"
+        ]
+      }
+    },
+    {
+      "slug": "framewrk",
+      "license": "Custom terms: use allowed; resale, redistribution, and distribution of modified copies are prohibited",
+      "license_type": "custom",
+      "license_spdx_id": null,
+      "categories": [
+        "photos-galleries"
+      ],
+      "data_source_urls": [
+        "https://smichalczyk.github.io/framewrk/",
+        "https://github.com/smichalczyk/framewrk",
+        "https://raw.githubusercontent.com/smichalczyk/framewrk/main/README.md",
+        "https://github.com/users/smichalczyk/packages/container/package/framewrk"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The publisher says the repository contains documentation only, the software source is not public, and the custom terms prohibit redistribution. The closed-source label is correct; license and category data were incomplete.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "databases",
+          "storage-backup"
+        ],
+        "data_source_urls": [
+          "https://github.com/users/smichalczyk/packages/container/package/framewrk",
+          "https://raw.githubusercontent.com/smichalczyk/framewrk/main/icon.png",
+          "https://raw.githubusercontent.com/smichalczyk/framewrk/main/README.md",
+          "https://raw.githubusercontent.com/smichalczyk/unraid-templates/main/templates/framewrk.xml",
+          "https://smichalczyk.github.io/framewrk/"
+        ]
+      }
+    },
+    {
+      "slug": "freefilesync-vnc-v2",
+      "source_model": "unknown",
+      "license": "GPL-3.0-or-later source; standard editions have extra terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "file-sharing-sync",
+        "storage-backup"
+      ],
+      "data_source_urls": [
+        "https://freefilesync.org/",
+        "https://freefilesync.org/faq.php",
+        "https://freefilesync.org/forum/viewtopic.php?t=12553",
+        "https://hub.docker.com/r/kilrah/freefilesync-vnc-v2"
+      ],
+      "review_scope": "partial",
+      "confidence": "medium",
+      "review_note": "FreeFileSync source files are described as GPL-3.0-or-later, while the official FAQ restricts the standard binary edition and its distribution. The bundled edition in this community VNC image is not identified, so the source model remains unknown.",
+      "expected": {
+        "source_model": "closed_source",
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "knowledge-notes",
+          "storage-backup"
+        ],
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/126600-support-freefilesync-vnc/",
+          "https://freefilesync.org/",
+          "https://github.com/kilrah/unraid-docker-templates/raw/main/icons/FreeFileSync.png",
+          "https://hub.docker.com/r/kilrah/freefilesync-vnc-v2",
+          "https://raw.githubusercontent.com/kilrah/unraid-docker-templates/main/templates/freefilesync-vnc-v2.xml"
+        ]
+      }
+    },
+    {
+      "slug": "ftb-direwolf20-1-19",
+      "license": "Mixed: FTB mods are All Rights Reserved; third-party mods have separate terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "games"
+      ],
+      "data_source_urls": [
+        "https://www.feed-the-beast.com/modpacks/101-ftb-presents-direwolf20-1-19",
+        "https://www.feed-the-beast.com/raw/docs/mod-license",
+        "https://hub.docker.com/repository/docker/goobaroo/ftbdirewolf20_119",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbdirewolf201.19_server.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official FTB license reserves FTB mod rights and limits modpack distribution to CurseForge; third-party mods have separate terms. The closed-source label is retained, with license and category fields corrected.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "games",
+          "project-task-management"
+        ],
+        "data_source_urls": [
+          "https://apps.modpacks.ch/modpacks/art/97/DW20%201024%20x%201024.png",
+          "https://feed-the-beast.com/modpack/101-ftb_presents_direwolf20_1_19",
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/ftbdirewolf20_119",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbdirewolf201.19_server.xml"
+        ],
+        "website_url": "https://feed-the-beast.com/modpack/101-ftb_presents_direwolf20_1_19"
+      },
+      "website_url": "https://www.feed-the-beast.com/modpacks/101-ftb-presents-direwolf20-1-19"
+    },
+    {
+      "slug": "ftb-direwolf20-1-20",
+      "license": "Mixed: FTB mods are All Rights Reserved; third-party mods have separate terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "games"
+      ],
+      "data_source_urls": [
+        "https://www.feed-the-beast.com/modpacks/119-modpack",
+        "https://www.feed-the-beast.com/raw/docs/mod-license",
+        "https://hub.docker.com/repository/docker/goobaroo/ftbdirewolf20_120",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbdirewolf201.20_server.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official FTB license reserves FTB mod rights and limits modpack distribution to CurseForge; third-party mods have separate terms. The closed-source label is retained, with license and category fields corrected.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "documents-pdfs",
+          "games"
+        ],
+        "data_source_urls": [
+          "https://cdn.feed-the-beast.com/blob/a0/a0a831f952e8222168f7bd13e250f9f6229486b8662e1326cbc78b85551f7a75.png",
+          "https://feed-the-beast.com/modpack/119-ftb_presents_direwolf20_1_20",
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/ftbdirewolf20_120",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbdirewolf201.20_server.xml"
+        ],
+        "website_url": "https://feed-the-beast.com/modpack/119-ftb_presents_direwolf20_1_20"
+      },
+      "website_url": "https://www.feed-the-beast.com/modpacks/119-modpack"
+    },
+    {
+      "slug": "ftb-direwolf20-1-21",
+      "license": "Mixed: FTB mods are All Rights Reserved; third-party mods have separate terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "games"
+      ],
+      "data_source_urls": [
+        "https://www.feed-the-beast.com/modpacks/126-modpack",
+        "https://www.feed-the-beast.com/raw/docs/mod-license",
+        "https://hub.docker.com/repository/docker/goobaroo/ftbdirewolf20_121",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbdirewolf201.21_server.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official FTB license reserves FTB mod rights and limits modpack distribution to CurseForge; third-party mods have separate terms. The closed-source label is retained, with license and category fields corrected.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "documents-pdfs",
+          "games"
+        ],
+        "data_source_urls": [
+          "https://cdn.feed-the-beast.com/blob/d9/d9e1ac17b1232176575ee10154dddea0110a26cc2f048c461a1ef288931624c5.png",
+          "https://feed-the-beast.com/modpack/126-ftb_presents_direwolf20_1_21",
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/ftbdirewolf20_121",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbdirewolf201.21_server.xml"
+        ],
+        "website_url": "https://feed-the-beast.com/modpack/126-ftb_presents_direwolf20_1_21"
+      },
+      "website_url": "https://www.feed-the-beast.com/modpacks/126-modpack"
+    },
+    {
+      "slug": "ftb-evolution",
+      "license": "Mixed: FTB mods are All Rights Reserved; third-party mods have separate terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "games"
+      ],
+      "data_source_urls": [
+        "https://www.feed-the-beast.com/modpacks/125-ftb-evo",
+        "https://www.feed-the-beast.com/raw/docs/mod-license",
+        "https://hub.docker.com/repository/docker/goobaroo/ftbevolution",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbevolution_server.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official FTB license reserves FTB mod rights and limits modpack distribution to CurseForge; third-party mods have separate terms. The closed-source label is retained, with license and category fields corrected.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "games",
+          "project-task-management"
+        ],
+        "data_source_urls": [
+          "https://cdn.feed-the-beast.com/blob/a3/a3716bf4fbab2a80750a32b74ed1d64201d8bdeaecece0f3caa20cb9b5d95d30.png",
+          "https://feed-the-beast.com/modpack/125-ftb_evolution",
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/ftbevolution",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbevolution_server.xml"
+        ],
+        "website_url": "https://feed-the-beast.com/modpack/125-ftb_evolution"
+      },
+      "website_url": "https://www.feed-the-beast.com/modpacks/125-ftb-evo"
+    },
+    {
+      "slug": "ftb-genesis",
+      "license": "Mixed: FTB mods are All Rights Reserved; third-party mods have separate terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "games"
+      ],
+      "data_source_urls": [
+        "https://www.feed-the-beast.com/modpacks/120-modpack",
+        "https://www.feed-the-beast.com/raw/docs/mod-license",
+        "https://hub.docker.com/repository/docker/goobaroo/ftbgenesis",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbgenesis_server.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official FTB license reserves FTB mod rights and limits modpack distribution to CurseForge; third-party mods have separate terms. The closed-source label is retained, with license and category fields corrected.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "games",
+          "project-task-management"
+        ],
+        "data_source_urls": [
+          "https://cdn.feed-the-beast.com/blob/7b/7b0240be5ab726c06865ea4f7c412e795540b9e408e9eda834031e82e3fd0d6e.png",
+          "https://feed-the-beast.com/modpack/120-ftb_genesis",
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/ftbgenesis",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbgenesis_server.xml"
+        ],
+        "website_url": "https://feed-the-beast.com/modpack/120-ftb_genesis"
+      },
+      "website_url": "https://www.feed-the-beast.com/modpacks/120-modpack"
+    },
+    {
+      "slug": "ftb-interactions-remastered",
+      "license": "Mixed: FTB mods are All Rights Reserved; third-party mods have separate terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "games"
+      ],
+      "data_source_urls": [
+        "https://www.feed-the-beast.com/modpacks/111-modpack",
+        "https://www.feed-the-beast.com/raw/docs/mod-license",
+        "https://hub.docker.com/repository/docker/goobaroo/ftbinteractionsremastered",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbinteractionsremastered_server.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official FTB license reserves FTB mod rights and limits modpack distribution to CurseForge; third-party mods have separate terms. The closed-source label is retained, with license and category fields corrected.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "games",
+          "system-admin-hosting"
+        ],
+        "data_source_urls": [
+          "https://cdn.feed-the-beast.com/blob/01/0144097bf4b6da506e72cdad785c719da1b70ed59bf65535fab71a53a23a0281.png",
+          "https://feed-the-beast.com/modpack/111-ftb_interactions_remastered",
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/ftbinteractionsremastered",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbinteractionsremastered_server.xml"
+        ],
+        "website_url": "https://feed-the-beast.com/modpack/111-ftb_interactions_remastered"
+      },
+      "website_url": "https://www.feed-the-beast.com/modpacks/111-modpack"
+    },
+    {
+      "slug": "ftb-ocean-block-2",
+      "license": "Mixed: FTB mods are All Rights Reserved; third-party mods have separate terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "games"
+      ],
+      "data_source_urls": [
+        "https://www.feed-the-beast.com/modpacks/128-modpack",
+        "https://www.feed-the-beast.com/raw/docs/mod-license",
+        "https://hub.docker.com/repository/docker/goobaroo/ftboceanblock2",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftboceanblock2_server.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official FTB license reserves FTB mod rights and limits modpack distribution to CurseForge; third-party mods have separate terms. The closed-source label is retained, with license and category fields corrected.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "games",
+          "system-admin-hosting"
+        ],
+        "data_source_urls": [
+          "https://cdn.feed-the-beast.com/blob/fa/fae647b9fa950ab09081ca6b395ea02dd06c7532b09b22fc3eb035b3092f7f78.png",
+          "https://feed-the-beast.com/modpack/128-ftb_oceanblock_2",
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/ftboceanblock2",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftboceanblock2_server.xml"
+        ],
+        "website_url": "https://feed-the-beast.com/modpack/128-ftb_oceanblock_2"
+      },
+      "website_url": "https://www.feed-the-beast.com/modpacks/128-modpack"
+    },
+    {
+      "slug": "ftb-one",
+      "license": "Mixed: FTB mods are All Rights Reserved; third-party mods have separate terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "games"
+      ],
+      "data_source_urls": [
+        "https://www.feed-the-beast.com/modpacks/97-ftb-one",
+        "https://www.feed-the-beast.com/raw/docs/mod-license",
+        "https://hub.docker.com/repository/docker/goobaroo/ftbone",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbone_server.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official FTB license reserves FTB mod rights and limits modpack distribution to CurseForge; third-party mods have separate terms. The closed-source label is retained, with license and category fields corrected.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "games",
+          "system-admin-hosting"
+        ],
+        "data_source_urls": [
+          "https://cdn.feed-the-beast.com/blob/46/466b13d50a20638e690f4b9823370682ee59b693501b2b1649db79fcb9c05f3a.png",
+          "https://feed-the-beast.com/modpack/97-ftb_one",
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/ftbone",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbone_server.xml"
+        ],
+        "website_url": "https://feed-the-beast.com/modpack/97-ftb_one"
+      },
+      "website_url": "https://www.feed-the-beast.com/modpacks/97-ftb-one"
+    },
+    {
+      "slug": "ftb-revelation",
+      "license": "Mixed: FTB mods are All Rights Reserved; third-party mods have separate terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "games"
+      ],
+      "data_source_urls": [
+        "https://www.feed-the-beast.com/modpacks/35-modpack",
+        "https://www.feed-the-beast.com/raw/docs/mod-license",
+        "https://hub.docker.com/repository/docker/goobaroo/ftbrevelation",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbrevelation_server.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official FTB license reserves FTB mod rights and limits modpack distribution to CurseForge; third-party mods have separate terms. The closed-source label is retained, with license and category fields corrected.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "games",
+          "system-admin-hosting"
+        ],
+        "data_source_urls": [
+          "https://cdn.feed-the-beast.com/blob/55/5580d403cda892c044d771fa2f1da6295478883f70ae3075e085a9ba317f4e76.png",
+          "https://feed-the-beast.com/modpack/35-ftb_revelation",
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/ftbrevelation",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbrevelation_server.xml"
+        ],
+        "website_url": "https://feed-the-beast.com/modpack/35-ftb_revelation"
+      },
+      "website_url": "https://www.feed-the-beast.com/modpacks/35-modpack"
+    },
+    {
+      "slug": "ftb-skies-2",
+      "license": "Mixed: FTB mods are All Rights Reserved; third-party mods have separate terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "games"
+      ],
+      "data_source_urls": [
+        "https://www.feed-the-beast.com/modpacks/129-ftb-skies-2",
+        "https://www.feed-the-beast.com/raw/docs/mod-license",
+        "https://hub.docker.com/repository/docker/goobaroo/ftbskies2",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbskies2_server.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official FTB pack page provides server files for self-hosting. FTB terms reserve FTB mod rights and limit modpack distribution to CurseForge; third-party mods have their own terms. The closed-source label is retained, with license and category fields corrected.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "games",
+          "system-admin-hosting"
+        ],
+        "data_source_urls": [
+          "https://cdn.feed-the-beast.com/blob/49/4951517d1bd2376e48d280427f95fd313c7aa778bddff582296651cfae7d7a9a.png",
+          "https://feed-the-beast.com/modpack/129-ftb_skies_2",
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/ftbskies2",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbskies2_server.xml"
+        ],
+        "website_url": "https://feed-the-beast.com/modpack/129-ftb_skies_2"
+      },
+      "website_url": "https://www.feed-the-beast.com/modpacks/129-ftb-skies-2"
+    },
+    {
+      "slug": "ftb-stoneblock-4",
+      "license": "Mixed: FTB mods are All Rights Reserved; third-party mods have separate terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "games"
+      ],
+      "data_source_urls": [
+        "https://www.feed-the-beast.com/modpacks/130-ftb-stoneblock-4",
+        "https://www.feed-the-beast.com/raw/docs/mod-license",
+        "https://hub.docker.com/repository/docker/goobaroo/ftbstoneblock4",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbstoneblock4_server.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official FTB pack page provides server files for self-hosting. FTB terms reserve FTB mod rights and limit modpack distribution to CurseForge; third-party mods have their own terms. The closed-source label is retained, with license and category fields corrected.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "games",
+          "password-managers"
+        ],
+        "data_source_urls": [
+          "https://cdn.feed-the-beast.com/blob/5b/5b10fbf6e78546a5a4be81a2d311718cc24d29e4277e747028d787d6fec0be46.webp",
+          "https://feed-the-beast.com/modpack/130-ftb_stoneblock_4",
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/ftbstoneblock4",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbstoneblock4_server.xml"
+        ],
+        "website_url": "https://feed-the-beast.com/modpack/130-ftb_stoneblock_4"
+      },
+      "website_url": "https://www.feed-the-beast.com/modpacks/130-ftb-stoneblock-4"
+    },
+    {
+      "slug": "ftb-unstable-1-20-forge",
+      "license": "Mixed: FTB mods are All Rights Reserved; third-party mods have separate terms",
+      "license_type": "mixed",
+      "license_spdx_id": null,
+      "categories": [
+        "games"
+      ],
+      "data_source_urls": [
+        "https://www.feed-the-beast.com/modpacks/110-ftb-unstable-120-forge",
+        "https://www.feed-the-beast.com/raw/docs/mod-license",
+        "https://hub.docker.com/repository/docker/goobaroo/ftbunstable120",
+        "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbunstable1.20forge_server.xml"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The official FTB pack page provides server files for self-hosting. FTB terms reserve FTB mod rights and limit modpack distribution to CurseForge; third-party mods have their own terms. The closed-source label is retained, with license and category fields corrected.",
+      "expected": {
+        "license": null,
+        "license_type": "unknown",
+        "license_spdx_id": null,
+        "categories": [
+          "ai-ml",
+          "games",
+          "system-admin-hosting"
+        ],
+        "data_source_urls": [
+          "https://cdn.feed-the-beast.com/blob/be/be5012594f6922fc863978827bf9a09342d03d3df4f3c653072207d3d42ff81f.png",
+          "https://feed-the-beast.com/modpack/110-ftb_unstable_1_20:_forge",
+          "https://forums.unraid.net/topic/115033-support-goobaroo-game-server-dockers/",
+          "https://hub.docker.com/repository/docker/goobaroo/ftbunstable120",
+          "https://raw.githubusercontent.com/Goobaroo/unraid-templates/main/ftbunstable1.20forge_server.xml"
+        ],
+        "website_url": "https://feed-the-beast.com/modpack/110-ftb_unstable_1_20:_forge"
+      },
+      "website_url": "https://www.feed-the-beast.com/modpacks/110-ftb-unstable-120-forge"
+    }
+  ],
+  "reviewed_apps": [
+    {
+      "slug": "elastic-selfhosted",
+      "result": "unresolved",
+      "review_note": "The Docker Hub name and description do not establish an exact product identity or license. The label says Elastic Selfhosted while the image description says team communication; do not retain a closed-source claim without resolving the mismatch.",
+      "sources": [
+        "https://hub.docker.com/r/simplygoodsoftware/elastic-selfhosted"
+      ]
+    }
+  ]
+}

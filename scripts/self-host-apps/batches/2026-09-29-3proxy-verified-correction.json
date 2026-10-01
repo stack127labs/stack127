@@ -1,0 +1,97 @@
+{
+  "apps": [
+    {
+      "slug": "3proxy",
+      "review_scope": "partial",
+      "expected": {
+        "name": "3proxy",
+        "summary": "3proxy is a and lightweight HTTP/SOCKS proxy server.",
+        "website_url": "https://github.com/3proxy/3proxy",
+        "source_code_url": "https://github.com/3proxy/3proxy",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "docker_support": "none",
+        "docker_image": null,
+        "compose_support": false,
+        "requires_database": null,
+        "persistent_storage": null,
+        "surfaces": ["web"],
+        "categories": ["networking-dns", "system-admin-hosting"]
+      },
+      "name": "3proxy",
+      "summary": "3proxy runs HTTP, SOCKS, and other network proxy services.",
+      "website_url": "https://3proxy.org/",
+      "source_code_url": "https://github.com/3proxy/3proxy",
+      "docs_url": "https://github.com/3proxy/3proxy/wiki",
+      "install_docs_url": "https://github.com/3proxy/3proxy#docker-images",
+      "docker_url": "https://hub.docker.com/r/3proxy/3proxy",
+      "license": "3proxy Public License Agreement (BSD-style)",
+      "license_type": "permissive",
+      "license_spdx_id": null,
+      "source_model": "open_source",
+      "publisher_name": "Vladimir Dubrovin (3APA3A)",
+      "publisher_type": "individual",
+      "publisher_url": "https://3proxy.org/",
+      "pricing_model": "free",
+      "docker_support": "official",
+      "docker_image": "3proxy/3proxy:latest",
+      "compose_support": null,
+      "compose_url": null,
+      "requires_database": false,
+      "database_types": [],
+      "ram_min_mb": null,
+      "storage_min_gb": null,
+      "resource_requirement_kind": "unknown",
+      "storage_profile": "low",
+      "persistent_storage": true,
+      "deployment_methods": ["binary", "docker", "native", "package", "truenas_scale"],
+      "surfaces": ["cli", "web"],
+      "summary_source": "https://github.com/3proxy/3proxy",
+      "summary_confidence": "high",
+      "categories": ["networking-dns", "security-privacy"],
+      "data_source_urls": [
+        "https://3proxy.org/",
+        "https://3proxy.org/repo/",
+        "https://github.com/3proxy/3proxy",
+        "https://github.com/3proxy/3proxy/blob/master/copying",
+        "https://github.com/3proxy/3proxy/wiki",
+        "https://github.com/3proxy/3proxy/releases",
+        "https://hub.docker.com/r/3proxy/3proxy",
+        "https://apps.truenas.com/catalog/three-proxy_community/"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "resources": [
+    {
+      "slug": "3proxy",
+      "expected": {
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 2048,
+        "ram_estimate_basis": "Typical small self-hosted instance; workload and stored data vary.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_basis": "Typical small self-hosted instance; workload and stored data vary."
+      },
+      "ram_estimate_min_mb": 64,
+      "ram_estimate_max_mb": 256,
+      "ram_estimate_kind": "estimated",
+      "ram_estimate_confidence": "low",
+      "ram_estimate_basis": "A small proxy can use little memory; active connections, enabled services, and plugins increase use.",
+      "ram_source_urls": [
+        "https://github.com/3proxy/3proxy",
+        "https://hub.docker.com/r/3proxy/3proxy"
+      ],
+      "storage_estimate_min_gb": 1,
+      "storage_estimate_max_gb": 10,
+      "storage_estimate_kind": "estimated",
+      "storage_estimate_confidence": "low",
+      "storage_estimate_basis": "The proxy needs a configuration file; optional log files can grow with traffic and retention.",
+      "storage_source_urls": [
+        "https://github.com/3proxy/3proxy#docker-images",
+        "https://github.com/3proxy/3proxy#building-and-installation"
+      ]
+    }
+  ]
+}

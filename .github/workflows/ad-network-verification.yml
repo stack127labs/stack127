@@ -1,0 +1,42 @@
+name: Preview ad network publisher verification
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: Maximum domains to check without saving results
+        required: false
+        default: "100"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ad-network-verification
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Preview verification without database writes
+        env:
+          VERIFICATION_LIMIT: ${{ inputs.limit || '100' }}
+        run: npm run ad-networks:verify -- --store postgres --limit "$VERIFICATION_LIMIT" --concurrency 16 --time-budget-minutes 95 --lease-minutes 110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ad-network-verification-${{ github.run_id }}
+          path: tmp/ad-networks/verification-summary.json
+          if-no-files-found: warn
+          retention-days: 30

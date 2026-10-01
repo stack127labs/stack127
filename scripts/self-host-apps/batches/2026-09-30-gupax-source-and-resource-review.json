@@ -1,0 +1,309 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "2026-09-08 static inventory; expected values must be refreshed against current records before applying.",
+  "scope": "Correct the Gupax app source and license; add reviewed Est. RAM and Est. Storage values. Proposal only; no database access.",
+  "apps": [
+    {
+      "slug": "gupax",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "website_url": "https://gupax.io/",
+      "source_code_url": "https://github.com/gupax-io/gupax",
+      "docs_url": "https://gupax.io/",
+      "install_docs_url": "https://github.com/libre-7/gupax-docker#readme",
+      "docker_url": "https://github.com/libre-7/gupax-docker",
+      "publisher_name": "Gupax project",
+      "publisher_type": "community",
+      "publisher_url": "https://github.com/gupax-io",
+      "github_owner": "gupax-io",
+      "github_repo": "gupax",
+      "github_full_name": "gupax-io/gupax",
+      "source_full_name": "gupax-io/gupax",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://ghcr.io/",
+            "https://github.com/libre-7/gupax-docker",
+            "https://raw.githubusercontent.com/gupax-io/gupax/main/assets/images/icons/icon.png",
+            "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md",
+            "https://raw.githubusercontent.com/libre-7/gupax-docker/main/templates/gupax-docker.xml"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://ghcr.io/",
+            "https://github.com/libre-7/gupax-docker",
+            "https://raw.githubusercontent.com/gupax-io/gupax/main/assets/images/icons/icon.png",
+            "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md",
+            "https://raw.githubusercontent.com/libre-7/gupax-docker/main/templates/gupax-docker.xml"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://ghcr.io/",
+            "https://github.com/libre-7/gupax-docker",
+            "https://raw.githubusercontent.com/gupax-io/gupax/main/assets/images/icons/icon.png",
+            "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md",
+            "https://raw.githubusercontent.com/libre-7/gupax-docker/main/templates/gupax-docker.xml"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://ghcr.io/",
+            "https://github.com/libre-7/gupax-docker",
+            "https://raw.githubusercontent.com/gupax-io/gupax/main/assets/images/icons/icon.png",
+            "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md",
+            "https://raw.githubusercontent.com/libre-7/gupax-docker/main/templates/gupax-docker.xml"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://ghcr.io/",
+            "https://github.com/libre-7/gupax-docker",
+            "https://raw.githubusercontent.com/gupax-io/gupax/main/assets/images/icons/icon.png",
+            "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md",
+            "https://raw.githubusercontent.com/libre-7/gupax-docker/main/templates/gupax-docker.xml"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://ghcr.io/",
+            "https://github.com/libre-7/gupax-docker",
+            "https://raw.githubusercontent.com/gupax-io/gupax/main/assets/images/icons/icon.png",
+            "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md",
+            "https://raw.githubusercontent.com/libre-7/gupax-docker/main/templates/gupax-docker.xml"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official Gupax site and repository identify GPL v3.0.",
+          "source_urls": [
+            "https://gupax.io/",
+            "https://github.com/gupax-io/gupax"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "website_url": "https://raw.githubusercontent.com/libre-7/gupax-docker/main/templates/gupax-docker.xml",
+        "source_code_url": "https://github.com/libre-7/gupax-docker",
+        "docs_url": "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md",
+        "install_docs_url": "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md",
+        "docker_url": "https://ghcr.io/",
+        "publisher_name": "libre-7",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/libre-7",
+        "github_owner": "libre-7",
+        "github_repo": "gupax-docker",
+        "github_full_name": "libre-7/gupax-docker",
+        "source_full_name": "libre-7/gupax-docker",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://ghcr.io/",
+              "https://github.com/libre-7/gupax-docker",
+              "https://raw.githubusercontent.com/gupax-io/gupax/main/assets/images/icons/icon.png",
+              "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md",
+              "https://raw.githubusercontent.com/libre-7/gupax-docker/main/templates/gupax-docker.xml"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://ghcr.io/",
+              "https://github.com/libre-7/gupax-docker",
+              "https://raw.githubusercontent.com/gupax-io/gupax/main/assets/images/icons/icon.png",
+              "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md",
+              "https://raw.githubusercontent.com/libre-7/gupax-docker/main/templates/gupax-docker.xml"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://ghcr.io/",
+              "https://github.com/libre-7/gupax-docker",
+              "https://raw.githubusercontent.com/gupax-io/gupax/main/assets/images/icons/icon.png",
+              "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md",
+              "https://raw.githubusercontent.com/libre-7/gupax-docker/main/templates/gupax-docker.xml"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://ghcr.io/",
+              "https://github.com/libre-7/gupax-docker",
+              "https://raw.githubusercontent.com/gupax-io/gupax/main/assets/images/icons/icon.png",
+              "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md",
+              "https://raw.githubusercontent.com/libre-7/gupax-docker/main/templates/gupax-docker.xml"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://ghcr.io/",
+              "https://github.com/libre-7/gupax-docker",
+              "https://raw.githubusercontent.com/gupax-io/gupax/main/assets/images/icons/icon.png",
+              "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md",
+              "https://raw.githubusercontent.com/libre-7/gupax-docker/main/templates/gupax-docker.xml"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://ghcr.io/",
+              "https://github.com/libre-7/gupax-docker",
+              "https://raw.githubusercontent.com/gupax-io/gupax/main/assets/images/icons/icon.png",
+              "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md",
+              "https://raw.githubusercontent.com/libre-7/gupax-docker/main/templates/gupax-docker.xml"
+            ]
+          }
+        }
+      },
+      "data_source_urls": [
+        "https://gupax.io/",
+        "https://github.com/gupax-io/gupax",
+        "https://github.com/libre-7/gupax-docker#readme",
+        "https://github.com/SChernykh/p2pool/blob/master/docs/html/index.html",
+        "https://github.com/xmrig/xmrig/blob/master/doc/CPU.md"
+      ],
+      "confidence": "high",
+      "review_note": "The old source URL and publisher details point to a community Docker wrapper. The official app is Gupax; the wrapper remains linked as the community Docker install source."
+    }
+  ],
+  "estimates": [
+    {
+      "slug": "gupax",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 6144,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Estimate for the community Docker setup running Gupax, P2Pool, and XMRig. P2Pool lists 0.6 GB in light mode and 2.6 GB in standard mode; XMRig lists a 2 GB RandomX fast dataset. Assumes a remote Monero node.",
+      "source_urls": [
+        "https://gupax.io/",
+        "https://github.com/gupax-io/gupax",
+        "https://github.com/libre-7/gupax-docker#readme",
+        "https://github.com/SChernykh/p2pool/blob/master/docs/html/index.html",
+        "https://github.com/xmrig/xmrig/blob/master/doc/CPU.md"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "note": "Assumes a remote Monero node.",
+      "expected": {
+        "checked_at": "2026-09-02T14:13:16.047+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    },
+    {
+      "slug": "gupax",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 1,
+      "estimate_max": 5,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Estimate includes the app, bundled mining components, and P2Pool data. P2Pool lists 0.5 GB disk use. Excludes the optional local Monero blockchain.",
+      "source_urls": [
+        "https://gupax.io/",
+        "https://github.com/gupax-io/gupax",
+        "https://github.com/libre-7/gupax-docker#readme",
+        "https://github.com/SChernykh/p2pool/blob/master/docs/html/index.html"
+      ],
+      "review": {
+        "method": "app_estimate"
+      },
+      "note": "Assumes a remote Monero node; a local node needs additional storage.",
+      "expected": {
+        "checked_at": "2026-09-02T14:13:16.047+00:00",
+        "ram_estimate_min_mb": 256,
+        "ram_estimate_max_mb": 1024,
+        "ram_estimate_kind": "estimated",
+        "ram_estimate_confidence": "low",
+        "ram_estimate_basis": "deployment-shape-v1: database services, retained-data profile, and deployment shape",
+        "ram_source_urls": [
+          "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md"
+        ],
+        "ram_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features.",
+        "storage_estimate_min_gb": 1,
+        "storage_estimate_max_gb": 20,
+        "storage_estimate_kind": "estimated",
+        "storage_estimate_confidence": "low",
+        "storage_estimate_basis": "deployment-shape-v1: persistent-storage and database signals",
+        "storage_source_urls": [
+          "https://raw.githubusercontent.com/libre-7/gupax-docker/main/README.md"
+        ],
+        "storage_note": "Editorial planning range, not a publisher requirement. Actual usage depends on workload, concurrency, retained data, and enabled features."
+      }
+    }
+  ]
+}

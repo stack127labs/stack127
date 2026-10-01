@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import { collectAllowedDevOrigins } from "./lib/allowed-dev-origins";
 import { legacyShortcutRedirects } from "./lib/legacy-shortcut-redirects";
+import { platformFeeRedirects } from "./lib/platform-fees/section-routes";
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: collectAllowedDevOrigins(),
@@ -14,13 +15,13 @@ const nextConfig: NextConfig = {
         pathname: "/storage/v1/object/public/stack127-media/directories/**",
         search: "",
       },
-      {
+      ...(process.env.SUPABASE_URL ? [{
         protocol: "https",
-        hostname: "phhrfvmncpqqmmgruktx.supabase.co",
+        hostname: new URL(process.env.SUPABASE_URL).hostname,
         port: "",
         pathname: "/storage/v1/object/public/stack127-media/directories/**",
         search: "",
-      },
+      } as const] : []),
     ],
   },
   output: "standalone",
@@ -43,6 +44,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       ...legacyShortcutRedirects,
+      ...platformFeeRedirects,
       { source: "/dns-tools/caa-checker", destination: "/caa-checker", permanent: true },
       { source: "/dns-tools/dns-change-checker", destination: "/dns-change-checker", permanent: true },
       { source: "/dns-tools/dns-lookup", destination: "/dns-lookup", permanent: true },

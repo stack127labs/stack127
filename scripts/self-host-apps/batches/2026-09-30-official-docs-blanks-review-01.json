@@ -1,0 +1,263 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are offline comparison guards and must be refreshed before any apply.",
+  "scope": "Fill blank docs_url values only where an official, distinct, useful documentation page was verified. Proposal only.",
+  "apps": [
+    {
+      "slug": "comfyui",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.comfy.org/",
+      "data_source_urls": [
+        "https://docs.comfy.org/",
+        "https://github.com/Comfy-Org/docs",
+        "https://github.com/Comfy-Org/ComfyUI"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "elasticsearch",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://www.elastic.co/docs",
+      "data_source_urls": [
+        "https://www.elastic.co/docs",
+        "https://www.elastic.co/docs/deploy-manage/deploy/self-managed/installing-elasticsearch",
+        "https://github.com/elastic/elasticsearch"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "private-gpt",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.privategpt.dev/introduction",
+      "data_source_urls": [
+        "https://docs.privategpt.dev/introduction",
+        "https://docs.privategpt.dev/getting-started/quickstart",
+        "https://github.com/zylon-ai/private-gpt"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "text-generation-webui",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/oobabooga/textgen/wiki",
+      "data_source_urls": [
+        "https://github.com/oobabooga/textgen/wiki",
+        "https://github.com/oobabooga/textgen"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "mindsdb",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.mindshub.ai/cowork/index.html",
+      "data_source_urls": [
+        "https://docs.mindshub.ai/",
+        "https://docs.mindshub.ai/cowork/index.html",
+        "https://docs.mindshub.ai/cowork/setup.html",
+        "https://github.com/mindsdb/mindshub"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "open-notebook",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://github.com/lfnovo/open-notebook/blob/main/docs/0-START-HERE/index.md",
+      "data_source_urls": [
+        "https://www.open-notebook.ai/get-started",
+        "https://github.com/lfnovo/open-notebook/blob/main/docs/0-START-HERE/index.md",
+        "https://github.com/lfnovo/open-notebook/tree/main/docs"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "sillytavern",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.sillytavern.app/",
+      "data_source_urls": [
+        "https://docs.sillytavern.app/",
+        "https://github.com/SillyTavern/SillyTavern"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "picoclaw",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.picoclaw.io/docs/",
+      "data_source_urls": [
+        "https://docs.picoclaw.io/docs/",
+        "https://docs.picoclaw.io/docs/installation/",
+        "https://github.com/sipeed/picoclaw"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "sim-studio",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.sim.ai/introduction",
+      "data_source_urls": [
+        "https://docs.sim.ai/introduction",
+        "https://docs.sim.ai/platform/self-hosting",
+        "https://github.com/simstudioai/sim"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "jina",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://jina.ai/serve/",
+      "data_source_urls": [
+        "https://jina.ai/serve/",
+        "https://github.com/jina-ai/serve"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "livekit",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.livekit.io/intro/overview/",
+      "data_source_urls": [
+        "https://docs.livekit.io/intro/overview/",
+        "https://docs.livekit.io/transport/self-hosting/",
+        "https://github.com/livekit/livekit"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "kortix",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://kortix.com/docs/",
+      "data_source_urls": [
+        "https://kortix.com/docs/",
+        "https://kortix.com/self-hosted",
+        "https://github.com/kortix-ai/suna"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "weaviate",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://docs.weaviate.io/weaviate",
+      "data_source_urls": [
+        "https://docs.weaviate.io/weaviate",
+        "https://docs.weaviate.io/deploy/installation-guides/docker-installation",
+        "https://github.com/weaviate/weaviate"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "trigger-dev",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://trigger.dev/docs/introduction",
+      "data_source_urls": [
+        "https://trigger.dev/docs/introduction",
+        "https://trigger.dev/docs/self-hosting/overview",
+        "https://github.com/triggerdotdev/trigger.dev"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "surfsense",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null
+      },
+      "docs_url": "https://www.surfsense.com/docs/legacy",
+      "data_source_urls": [
+        "https://www.surfsense.com/docs/legacy",
+        "https://www.surfsense.com/docs/v2",
+        "https://github.com/MODSetter/SurfSense"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "skipped": [
+    {
+      "slug": "odysseus",
+      "field": "docs_url",
+      "reason": "The official project page is a product overview and the repository links to setup instructions, but I found no separate official documentation section.",
+      "data_source_urls": [
+        "https://odysseus-dev.github.io/odysseus/",
+        "https://github.com/odysseus-dev/odysseus/blob/HEAD/docs/setup.md"
+      ]
+    },
+    {
+      "slug": "daytona",
+      "field": "docs_url",
+      "reason": "Current official docs cover the managed Daytona platform, and the publisher says v0.190.0 removed OSS and on-prem deployment. No current docs for a self-hosted Daytona app were verified; this conflicts with the snapshot status and needs a separate eligibility review.",
+      "data_source_urls": [
+        "https://www.daytona.io/docs/",
+        "https://www.daytona.io/docs/en/bring-your-own-compute/",
+        "https://github.com/daytonaio/daytona/releases/tag/v0.190.0"
+      ]
+    },
+    {
+      "slug": "open-lovable",
+      "field": "docs_url",
+      "reason": "The official repository provides setup instructions in its README, but I found no distinct official documentation page.",
+      "data_source_urls": [
+        "https://github.com/firecrawl/open-lovable",
+        "https://github.com/firecrawl/open-lovable/blob/main/README.md"
+      ]
+    },
+    {
+      "slug": "llamafile",
+      "field": "docs_url",
+      "reason": "The existing install_docs_url already points to the official documentation home, so there is no distinct documentation URL to add.",
+      "data_source_urls": [
+        "https://docs.mozilla.ai/llamafile/",
+        "https://github.com/mozilla-ai/llamafile"
+      ]
+    },
+    {
+      "slug": "bolt-diy",
+      "field": "docs_url",
+      "reason": "The existing install_docs_url already points to the official documentation home, which also contains setup and feature guides.",
+      "data_source_urls": [
+        "https://stackblitz-labs.github.io/bolt.diy/",
+        "https://github.com/stackblitz-labs/bolt.diy"
+      ]
+    }
+  ]
+}

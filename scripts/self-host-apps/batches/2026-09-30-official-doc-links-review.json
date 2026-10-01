@@ -1,0 +1,257 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; expected values are offline comparison guards and must be refreshed before any apply.",
+  "scope": "Fill verified official website and documentation links, correct docs links stored as websites, and repair Harness's dead install link. Proposal only.",
+  "apps": [
+    {
+      "slug": "dify",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.dify.ai/en/home",
+      "data_source_urls": ["https://docs.dify.ai/en/home", "https://docs.dify.ai/getting-started/install-self-hosted"]
+    },
+    {
+      "slug": "autogpt",
+      "review_scope": "partial",
+      "expected": { "website_url": null, "docs_url": null },
+      "website_url": "https://agpt.co/",
+      "docs_url": "https://docs.agpt.co/",
+      "data_source_urls": ["https://github.com/Significant-Gravitas/AutoGPT", "https://agpt.co/", "https://docs.agpt.co/"]
+    },
+    {
+      "slug": "nextchat",
+      "review_scope": "partial",
+      "expected": { "website_url": null, "docs_url": null },
+      "website_url": "https://nextchat.club/",
+      "docs_url": "https://github.com/ChatGPTNextWeb/NextChat/tree/main/docs",
+      "data_source_urls": ["https://github.com/ChatGPTNextWeb/NextChat", "https://nextchat.club/", "https://github.com/ChatGPTNextWeb/NextChat/tree/main/docs"]
+    },
+    {
+      "slug": "odysseus",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://odysseus-dev.github.io/odysseus/",
+      "data_source_urls": ["https://github.com/odysseus-dev/odysseus", "https://odysseus-dev.github.io/odysseus/"]
+    },
+    {
+      "slug": "lobehub",
+      "review_scope": "partial",
+      "expected": { "website_url": null, "docs_url": null },
+      "website_url": "https://lobehub.com/",
+      "docs_url": "https://lobehub.com/docs",
+      "data_source_urls": ["https://github.com/lobehub/lobehub", "https://lobehub.com/", "https://lobehub.com/docs"]
+    },
+    {
+      "slug": "firecrawl",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.firecrawl.dev/introduction",
+      "data_source_urls": ["https://docs.firecrawl.dev/introduction", "https://docs.firecrawl.dev/contributing/self-host"]
+    },
+    {
+      "slug": "hermes-agent",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://hermes-agent.nousresearch.com/docs/",
+      "data_source_urls": ["https://hermes-agent.nousresearch.com/docs/", "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart"]
+    },
+    {
+      "slug": "langflow",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.langflow.org/",
+      "data_source_urls": ["https://docs.langflow.org/", "https://docs.langflow.org/deployment-docker"]
+    },
+    {
+      "slug": "rustdesk",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://rustdesk.com/docs/en/",
+      "data_source_urls": ["https://rustdesk.com/docs/en/", "https://rustdesk.com/docs/en/self-host/"]
+    },
+    {
+      "slug": "flowise-ai",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.flowiseai.com/",
+      "data_source_urls": ["https://docs.flowiseai.com/", "https://docs.flowiseai.com/configuration/deployment"]
+    },
+    {
+      "slug": "maybe",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/maybe-finance/maybe/tree/main/docs",
+      "data_source_urls": ["https://github.com/maybe-finance/maybe/tree/main/docs", "https://github.com/maybe-finance/maybe/blob/main/docs/hosting/docker.md"]
+    },
+    {
+      "slug": "openbb",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.openbb.co/",
+      "data_source_urls": ["https://docs.openbb.co/", "https://docs.openbb.co/python/installation"]
+    },
+    {
+      "slug": "openhands",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.openhands.dev/overview/introduction",
+      "data_source_urls": ["https://docs.openhands.dev/overview/introduction", "https://docs.openhands.dev/openhands/usage/run-openhands/local-setup"]
+    },
+    {
+      "slug": "pi",
+      "review_scope": "partial",
+      "expected": { "website_url": null, "docs_url": null },
+      "website_url": "https://pi.dev/",
+      "docs_url": "https://pi.dev/docs/latest",
+      "data_source_urls": ["https://pi.dev/", "https://pi.dev/docs/latest", "https://github.com/earendil-works/pi"]
+    },
+    {
+      "slug": "airbyte",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.airbyte.com/",
+      "data_source_urls": ["https://docs.airbyte.com/", "https://docs.airbyte.com/platform/deploying-airbyte"]
+    },
+    {
+      "slug": "cap",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://cap.so/docs",
+      "data_source_urls": ["https://cap.so/docs", "https://cap.so/docs/self-hosting"]
+    },
+    {
+      "slug": "chroma",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.trychroma.com/docs/overview/introduction",
+      "data_source_urls": ["https://docs.trychroma.com/docs/overview/introduction", "https://docs.trychroma.com/docs/run-chroma/client-server"]
+    },
+    {
+      "slug": "clickhouse",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://clickhouse.com/docs/",
+      "data_source_urls": ["https://clickhouse.com/docs/", "https://clickhouse.com/docs/install"]
+    },
+    {
+      "slug": "focalboard",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/mattermost-community/focalboard/tree/main/docs",
+      "data_source_urls": ["https://github.com/mattermost-community/focalboard/tree/main/docs", "https://github.com/mattermost-community/focalboard"]
+    },
+    {
+      "slug": "harness",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null,
+        "install_docs_url": "https://developer.harness.io/docs/open-source/"
+      },
+      "docs_url": "https://github.com/harness/harness#readme",
+      "install_docs_url": "https://github.com/harness/harness#readme",
+      "data_source_urls": ["https://github.com/harness/harness#readme"]
+    },
+    {
+      "slug": "jan",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://jan.ai/docs",
+      "data_source_urls": ["https://jan.ai/docs", "https://jan.ai/docs/desktop"]
+    },
+    {
+      "slug": "meetily",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://docs.meetily.ai/",
+      "data_source_urls": ["https://docs.meetily.ai/", "https://github.com/Zackriya-Solutions/meetily#installation"]
+    },
+    {
+      "slug": "multica",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/multica-ai/multica/blob/main/SELF_HOSTING.md",
+      "data_source_urls": ["https://github.com/multica-ai/multica/blob/main/SELF_HOSTING.md"]
+    },
+    {
+      "slug": "supermemory",
+      "review_scope": "partial",
+      "expected": { "website_url": "https://supermemory.ai/docs", "docs_url": null },
+      "website_url": "https://supermemory.ai/",
+      "docs_url": "https://supermemory.ai/docs",
+      "data_source_urls": ["https://supermemory.ai/", "https://supermemory.ai/docs", "https://supermemory.ai/docs/self-hosting"]
+    },
+    {
+      "slug": "tabby",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://tabby.tabbyml.com/docs/",
+      "data_source_urls": ["https://tabby.tabbyml.com/docs/", "https://tabby.tabbyml.com/docs/installation/"]
+    },
+    {
+      "slug": "temporal",
+      "review_scope": "partial",
+      "expected": { "website_url": "https://docs.temporal.io", "docs_url": null },
+      "website_url": "https://temporal.io/",
+      "docs_url": "https://docs.temporal.io/",
+      "data_source_urls": ["https://temporal.io/", "https://docs.temporal.io/", "https://docs.temporal.io/self-hosted-guide"]
+    },
+    {
+      "slug": "zeroclaw",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://github.com/zeroclaw-labs/zeroclaw/tree/master/docs/book",
+      "data_source_urls": ["https://github.com/zeroclaw-labs/zeroclaw/tree/master/docs/book", "https://github.com/zeroclaw-labs/zeroclaw/blob/master/docs/book/src/getting-started/quickstart.md"]
+    },
+    {
+      "slug": "apache-answer",
+      "review_scope": "partial",
+      "expected": { "docs_url": null },
+      "docs_url": "https://answer.apache.org/docs/",
+      "data_source_urls": ["https://answer.apache.org/docs/", "https://answer.apache.org/docs/installation"]
+    },
+    {
+      "slug": "arize-phoenix",
+      "review_scope": "partial",
+      "expected": { "website_url": "https://arize.com/docs/phoenix", "docs_url": null },
+      "website_url": "https://arize.com/phoenix/",
+      "docs_url": "https://arize.com/docs/phoenix/",
+      "data_source_urls": ["https://arize.com/phoenix/", "https://arize.com/docs/phoenix/", "https://github.com/Arize-ai/phoenix"]
+    },
+    {
+      "slug": "comfyui",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.comfy.org/",
+      "data_source_urls": ["https://github.com/Comfy-Org/ComfyUI", "https://www.comfy.org/"]
+    },
+    {
+      "slug": "daytona",
+      "review_scope": "partial",
+      "expected": { "website_url": null, "maintenance_status": "active" },
+      "website_url": "https://www.daytona.io/",
+      "maintenance_status": "stale",
+      "data_source_urls": ["https://github.com/daytonaio", "https://github.com/daytonaio/daytona", "https://www.daytona.io/"]
+    },
+    {
+      "slug": "elasticsearch",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.elastic.co/elasticsearch",
+      "data_source_urls": ["https://github.com/elastic/elasticsearch", "https://www.elastic.co/elasticsearch"]
+    },
+    {
+      "slug": "mindsdb",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://mindshub.ai/",
+      "data_source_urls": ["https://github.com/mindsdb/mindshub", "https://mindshub.ai/"]
+    },
+    {
+      "slug": "open-notebook",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.open-notebook.ai/",
+      "data_source_urls": ["https://github.com/lfnovo/open-notebook", "https://www.open-notebook.ai/"]
+    }
+  ]
+}

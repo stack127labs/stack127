@@ -1,0 +1,63 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "Static inventory captured 2026-09-08; refresh current values before applying.",
+  "scope": "Repair Highlight's retired install guide and incorrect native install option. The current GitHub README and hobby Compose files are the official self-hosting path.",
+  "apps": [
+    {
+      "slug": "highlight",
+      "review_scope": "partial",
+      "expected": {
+        "docs_url": null,
+        "install_docs_url": "https://www.highlight.io/docs/general/company/open-source/hosting/self-host-hobby",
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ],
+        "compose_support": null
+      },
+      "docs_url": "https://docs.highlight.io/docs/general/getting-started",
+      "install_docs_url": "https://github.com/highlight/highlight#hobby-self-hosted",
+      "compose_url": "https://github.com/highlight/highlight/blob/main/docker/compose.hobby.yml",
+      "deployment_methods": [
+        "docker",
+        "compose"
+      ],
+      "compose_support": true,
+      "reviewed_install_methods": [
+        "native",
+        "compose"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://www.highlight.io/docs/general/company/open-source/hosting/self-host-hobby",
+          "note": "Publisher installation documentation; verify dependencies and platform support.",
+          "image": null,
+          "label": "Native installation",
+          "method": "native",
+          "sort_order": 60,
+          "source_url": "https://www.highlight.io/docs/general/company/open-source/hosting/self-host-hobby",
+          "support_level": "official"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/highlight/highlight#hobby-self-hosted",
+          "support_level": "official",
+          "source_url": "https://github.com/highlight/highlight/blob/main/docker/run-hobby.sh",
+          "image": null,
+          "note": "The official hobby script starts the app with docker compose and compose.hobby.yml.",
+          "sort_order": 20
+        }
+      ],
+      "data_source_urls": [
+        "https://github.com/highlight/highlight",
+        "https://github.com/highlight/highlight/blob/main/LICENSE",
+        "https://docs.highlight.io/docs/general/getting-started",
+        "https://github.com/highlight/highlight/blob/main/docker/run-hobby.sh",
+        "https://github.com/highlight/highlight/blob/main/docker/compose.hobby.yml"
+      ]
+    }
+  ]
+}

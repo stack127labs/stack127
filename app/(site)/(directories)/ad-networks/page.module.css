@@ -1,0 +1,233 @@
+.content {
+  display: grid;
+  gap: var(--space-9);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.sidebarCopy {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+}
+
+.search {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 620px;
+  min-width: 0;
+}
+
+.search label {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+}
+
+.searchRow {
+  align-items: center;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  display: flex;
+  gap: var(--space-3);
+  min-width: 0;
+  padding-inline-start: var(--space-4);
+}
+
+.searchRow svg {
+  color: var(--color-text-muted);
+  flex: none;
+}
+
+.searchRow input {
+  background: transparent;
+  border: 0;
+  color: var(--color-text);
+  flex: 1;
+  font: inherit;
+  min-width: 0;
+  padding: var(--space-4) 0;
+}
+
+.searchRow input:focus {
+  outline: none;
+}
+
+.searchRow:focus-within {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+.searchRow button {
+  align-self: stretch;
+  background: var(--color-accent);
+  border: 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--color-accent-contrast);
+  cursor: pointer;
+  font: inherit;
+  font-weight: var(--weight-bold);
+  padding-inline: var(--space-5);
+}
+
+.searchRow button:focus-visible,
+.card a:focus-visible,
+.siteList a:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+.results {
+  align-items: baseline;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+  padding-bottom: var(--space-4);
+}
+
+.results h2 {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  margin: 0;
+}
+
+.results p,
+.cardFoot,
+.domain,
+.siteMeta,
+.method {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+.results p {
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cardMain {
+  flex: 1;
+  padding: var(--space-6);
+}
+
+.card h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  line-height: var(--line-heading);
+  margin: 0 0 var(--space-3);
+}
+
+.card h3 a,
+.cardFoot a,
+.siteList a,
+.official a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.card h3 a:hover,
+.cardFoot a:hover,
+.siteList a:hover,
+.official a:hover {
+  text-decoration: underline;
+}
+
+.cardMain p {
+  color: var(--color-text-muted);
+  line-height: var(--line-body);
+  margin: 0;
+}
+
+.cardFoot {
+  align-items: center;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+}
+
+.official {
+  margin: 0;
+}
+
+.siteList {
+  border-top: 1px solid var(--color-border);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.siteList li {
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+  padding: var(--space-5) 0;
+}
+
+.siteList li > div:first-child {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.siteList a {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  overflow-wrap: anywhere;
+}
+
+.domain {
+  overflow-wrap: anywhere;
+}
+
+.siteMeta {
+  display: grid;
+  flex: none;
+  gap: var(--space-2);
+  text-align: right;
+}
+
+.method {
+  border-top: 1px solid var(--color-border);
+  line-height: var(--line-body);
+  margin: var(--space-7) 0 0;
+  max-width: var(--measure-prose);
+  padding-top: var(--space-5);
+}
+
+@media (max-width: 680px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .siteList li {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .siteMeta {
+    text-align: left;
+  }
+}

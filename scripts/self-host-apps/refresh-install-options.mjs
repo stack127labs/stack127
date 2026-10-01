@@ -57,6 +57,8 @@ async function main() {
           app.docker_url,
           app.install_docs_url,
           app.website_url,
+          app.source_code_url,
+          app.publisher_url,
           app.compose_url,
           coalesce(project.owner, app.github_owner) as github_owner,
           coalesce(project.repo, app.github_repo) as github_repo,

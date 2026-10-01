@@ -1,0 +1,86 @@
+/* Each card spans four rows of the section grid, so logos, rates, and tear lines line up across a row. */
+.card {
+  display: grid;
+  grid-row: span 4;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  min-width: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  scroll-margin-top: calc(var(--top-bar-height) + var(--space-14) + var(--space-7));
+  transition: border-color var(--motion-fast);
+}
+.card:hover { border-color: var(--color-border-strong); }
+.card:target { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+.card > .identity { padding: var(--space-9) var(--space-9) var(--space-7); }
+.card > .top { padding: 0 var(--space-9) var(--space-9); }
+
+.identity { display: flex; gap: var(--space-5); align-items: center; min-width: 0; }
+.identityText { display: grid; gap: 2px; min-width: 0; }
+.identity h2 { margin: 0; font-family: var(--font-display); font-size: var(--text-h3); line-height: var(--line-heading); letter-spacing: var(--tracking-display); }
+.identity h2 a { display: inline-flex; gap: var(--space-3); align-items: center; color: var(--color-text); }
+.identity h2 a svg { flex: none; color: var(--color-text-muted); }
+.identity p { margin: 0; color: var(--color-text-muted); font-size: var(--text-small); line-height: var(--line-ui); }
+.logo { flex: none; display: grid; place-items: center; width: 40px; height: 40px; overflow: hidden; background: var(--color-surface-2); border-radius: var(--radius); color: var(--color-text-muted); font-family: var(--font-display); font-weight: var(--weight-bold); }
+.logo img { width: 30px; height: 30px; object-fit: contain; }
+
+.top { display: grid; align-content: start; gap: var(--space-8); }
+.rates { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--space-5) var(--space-10); }
+.rates > div { display: grid; gap: var(--space-2); min-width: 0; max-width: 100%; }
+.rates strong { font-family: var(--font-display); font-weight: var(--weight-bold); line-height: 1; letter-spacing: -0.03em; }
+.take strong { font-size: 2.6rem; }
+.take strong.reason { font-size: var(--text-h2); line-height: 1.1; overflow-wrap: anywhere; }
+.second strong { font-size: 1.45rem; line-height: 1.15; overflow-wrap: anywhere; color: var(--color-text-muted); }
+.rates strong small { font-size: 0.45em; letter-spacing: 0; color: var(--color-text-muted); }
+.rates span { color: var(--color-text-muted); font-size: var(--text-small); line-height: var(--line-ui); }
+
+.split { display: grid; gap: var(--space-2); }
+.splitBar { display: flex; height: 8px; overflow: hidden; background: var(--color-surface-2); border-radius: var(--radius); }
+.keep { background: var(--color-data-chartreuse); }
+.cut { background: var(--color-border-strong); }
+.splitLegend { margin: 0; color: var(--color-text-muted); font-family: var(--font-mono); font-size: var(--text-small); }
+.splitLegend b { color: var(--color-text); font-weight: var(--weight-regular); }
+
+/* Torn receipt edge: dashed line with a half circle cut into each side. */
+.tear { position: relative; height: 0; margin: 0 var(--space-9); border-top: 2px dashed var(--color-border-strong); }
+.tear::before, .tear::after { content: ""; position: absolute; top: -11px; width: 20px; height: 20px; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 50%; }
+.tear::before { left: calc(-1 * var(--space-9) - 11px); clip-path: inset(0 0 0 50%); }
+.tear::after { right: calc(-1 * var(--space-9) - 11px); clip-path: inset(0 50% 0 0); }
+
+.body { display: grid; align-content: start; gap: var(--space-5); padding: var(--space-9); }
+.lines { display: grid; gap: var(--space-3); margin: 0; font-family: var(--font-mono); font-size: var(--text-small); }
+.lines div { display: flex; align-items: baseline; gap: var(--space-3); min-width: 0; }
+.lines dt { flex: none; color: var(--color-text-muted); }
+.lines div::after { content: ""; order: 1; flex: 1; min-width: var(--space-5); border-bottom: 1px dotted var(--color-border-strong); transform: translateY(-4px); }
+.lines dd { order: 2; margin: 0; text-align: right; }
+
+.more summary { width: fit-content; cursor: pointer; list-style: none; color: var(--color-link); font-size: var(--text-small); font-weight: var(--weight-semibold); }
+.more summary::-webkit-details-marker { display: none; }
+.more summary:hover, .more summary:focus-visible { text-decoration: underline; }
+.more summary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.more[open] summary { margin-bottom: var(--space-5); }
+
+.allRates { display: grid; gap: var(--space-7); }
+.rateTable { width: 100%; border-collapse: collapse; font-size: var(--text-small); }
+.rateTable caption { margin-bottom: var(--space-2); text-align: left; font-family: var(--font-display); font-size: var(--text-h3); font-weight: var(--weight-bold); }
+.rateTable thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.rateGroup th { padding: var(--space-6) 0 var(--space-2); color: var(--color-text-muted); font-weight: var(--weight-semibold); text-align: left; }
+.rateTable td, .rateTable th[scope=row] { padding: var(--space-3) 0; border-bottom: 1px dotted var(--color-border-strong); vertical-align: top; }
+.rateTable th[scope=row] { font-weight: var(--weight-regular); line-height: 1.35; text-align: left; }
+.rateValue { width: 5rem; padding-right: var(--space-4) !important; font-family: var(--font-display); font-size: var(--text-body); font-weight: var(--weight-bold); line-height: 1.25; white-space: nowrap; }
+.reasonValue { white-space: normal; overflow-wrap: anywhere; }
+.rateExtra { display: block; color: var(--color-text-muted); font-family: var(--font-sans); font-size: var(--text-small); font-weight: var(--weight-regular); }
+.rateNote { display: block; margin-top: 2px; color: var(--color-text-muted); font-family: var(--font-mono); font-size: var(--text-small); }
+.note { margin: 0; font-size: var(--text-small); }
+.sources { display: grid; gap: var(--space-2); padding-top: var(--space-6); border-top: 1px dashed var(--color-border); color: var(--color-text-muted); font-size: var(--text-small); }
+.sources p { margin: 0; font-family: var(--font-mono); }
+.sources h3 { margin: var(--space-3) 0 0; font-family: var(--font-sans); font-size: var(--text-small); font-weight: var(--weight-semibold); }
+.sources ul { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); margin: 0; padding: 0; list-style: none; }
+.sources a { display: inline-flex; gap: var(--space-1); align-items: center; }
+
+/* Side panel content. The panel itself comes from the shared DetailDialog. */
+.panel { display: grid; gap: var(--space-9); }
+.panelHeading { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-5); }
+.panelHeading .identity h2 { font-size: var(--text-h2); }
+.panel .lines { padding-top: var(--space-7); border-top: 2px dashed var(--color-border-strong); }

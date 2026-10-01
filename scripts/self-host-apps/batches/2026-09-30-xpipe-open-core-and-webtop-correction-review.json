@@ -1,0 +1,81 @@
+{
+  "reviewed_at": "2026-09-30",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "XPipe open-core classification and official Webtop self-host install details",
+  "apps": [
+    {
+      "slug": "xpipe",
+      "review_scope": "partial",
+      "expected": {
+        "name": "XPipe",
+        "summary": "Access your entire server infrastructure from your local desktop.",
+        "summary_source": "stack127_enriched",
+        "summary_confidence": "medium",
+        "source_model": "open_source",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "pricing_model": "free",
+        "docs_url": "https://github.com/xpipe-io/xpipe#readme",
+        "install_docs_url": "https://github.com/xpipe-io/xpipe#readme",
+        "compose_support": null,
+        "compose_url": null,
+        "deployment_methods": [
+          "docker"
+        ]
+      },
+      "name": "XPipe Webtop",
+      "summary": "Runs the XPipe desktop app in a browser-accessible container so you can manage servers remotely.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "source_model": "source_available",
+      "license": "Apache-2.0 open-source core; proprietary extensions",
+      "license_type": "mixed",
+      "license_spdx_id": "Apache-2.0",
+      "pricing_model": "freemium",
+      "docs_url": "https://docs.xpipe.io/guide/webtop",
+      "install_docs_url": "https://docs.xpipe.io/guide/webtop",
+      "compose_support": true,
+      "compose_url": "https://docs.xpipe.io/guide/webtop",
+      "deployment_methods": [
+        "docker",
+        "compose"
+      ],
+      "reviewed_install_methods": [
+        "native",
+        "compose"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://github.com/xpipe-io/xpipe#readme",
+          "note": "Publisher installation documentation; verify dependencies and platform support.",
+          "image": null,
+          "label": "Native installation",
+          "method": "native",
+          "sort_order": 60,
+          "source_url": "https://github.com/xpipe-io/xpipe#readme",
+          "support_level": "official"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://docs.xpipe.io/guide/webtop",
+          "support_level": "official",
+          "source_url": "https://docs.xpipe.io/guide/webtop",
+          "image": "ghcr.io/xpipe-io/xpipe-webtop:ptb",
+          "note": "Official XPipe Webtop container; the deployment guide recommends Compose.",
+          "sort_order": 20
+        }
+      ],
+      "data_source_urls": [
+        "https://github.com/xpipe-io/xpipe",
+        "https://github.com/xpipe-io/xpipe/blob/master/LICENSE",
+        "https://docs.xpipe.io/guide/webtop",
+        "https://github.com/xpipe-io/xpipe-webtop",
+        "https://xpipe.io/pricing"
+      ]
+    }
+  ]
+}

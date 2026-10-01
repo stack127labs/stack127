@@ -1,0 +1,51 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Separate offline source and license correction for Bitwarden Export. Proposal only; guarded against the saved snapshot.",
+  "apps": [
+    {
+      "slug": "bitwarden-export",
+      "website_url": "https://hub.docker.com/r/0netx/bw-export",
+      "docs_url": "https://hub.docker.com/r/0netx/bw-export",
+      "install_docs_url": "https://hub.docker.com/r/0netx/bw-export",
+      "source_code_url": "https://github.com/0neTX/Bitwarden_Export",
+      "source_code_host": "github",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "data_source_urls": [
+        "https://forums.unraid.net/topic/127999-support-onetx-teledock-bot-docker-control-template-support",
+        "https://github.com/0netx/bitwarden_export",
+        "https://github.com/0neTX/UnRAID_Template/blob/main/bw-export/icon.png?raw=true",
+        "https://hub.docker.com/r/0netx/bw-export",
+        "https://raw.githubusercontent.com/0neTX/UnRAID_Template/main/bw-export/bw-export.xml",
+        "https://github.com/0neTX/Bitwarden_Export",
+        "https://bitwarden.com/help/cli/",
+        "https://bitwarden.com/help/personal-api-key/"
+      ],
+      "review_scope": "partial",
+      "confidence": "high",
+      "review_note": "The Docker Hub page links this exact image to the 0neTX repository and explicitly declares GPL-3.0. It is an independent Bitwarden/Vaultwarden backup script built around Bitwarden CLI, not an official Bitwarden server.",
+      "expected": {
+        "website_url": "https://raw.githubusercontent.com/0neTX/UnRAID_Template/main/bw-export/bw-export.xml",
+        "docs_url": "https://forums.unraid.net/topic/127999-support-onetx-teledock-bot-docker-control-template-support",
+        "install_docs_url": "https://forums.unraid.net/topic/127999-support-onetx-teledock-bot-docker-control-template-support",
+        "source_code_url": "https://github.com/0netx/bitwarden_export",
+        "source_code_host": "github",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "data_source_urls": [
+          "https://forums.unraid.net/topic/127999-support-onetx-teledock-bot-docker-control-template-support",
+          "https://github.com/0netx/bitwarden_export",
+          "https://github.com/0neTX/UnRAID_Template/blob/main/bw-export/icon.png?raw=true",
+          "https://hub.docker.com/r/0netx/bw-export",
+          "https://raw.githubusercontent.com/0neTX/UnRAID_Template/main/bw-export/bw-export.xml"
+        ]
+      }
+    }
+  ],
+  "reviewed_apps": []
+}

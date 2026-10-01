@@ -1,0 +1,292 @@
+{
+  "reviewed_at": "2026-10-01",
+  "snapshot_source": "scripts/stack127/directory-quality/temp/2026-09-08-production-inventory-full.json",
+  "scope": "Review the final 36 assigned saved-inventory apps with blank website_url. Add only verified official project or publisher sites. Proposal only.",
+  "apps": [
+    {
+      "slug": "pi",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://pi.dev/",
+      "data_source_urls": [
+        "https://github.com/earendil-works/pi",
+        "https://pi.dev/",
+        "https://pi.dev/changelog/2026/5/7/pi-has-a-new-home"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "picoclaw",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://picoclaw.io/",
+      "data_source_urls": [
+        "https://github.com/sipeed/picoclaw",
+        "https://picoclaw.io/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "piku",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://piku.github.io/",
+      "data_source_urls": [
+        "https://github.com/piku/piku",
+        "https://piku.github.io/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "plunk",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.useplunk.com/",
+      "data_source_urls": [
+        "https://github.com/useplunk/plunk",
+        "https://www.useplunk.com/",
+        "https://docs.useplunk.com/self-hosting/introduction"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "private-gpt",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.zylon.ai/private-gpt",
+      "data_source_urls": [
+        "https://github.com/zylon-ai/private-gpt",
+        "https://www.zylon.ai/private-gpt",
+        "https://docs.privategpt.dev/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "rudderstack",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.rudderstack.com/",
+      "data_source_urls": [
+        "https://github.com/rudderlabs/rudder-server",
+        "https://www.rudderstack.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "sentry-self-hosted",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://sentry.io/",
+      "data_source_urls": [
+        "https://github.com/getsentry/self-hosted",
+        "https://sentry.io/",
+        "https://develop.sentry.dev/self-hosted/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "sillytavern",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://sillytavern.app/",
+      "data_source_urls": [
+        "https://github.com/SillyTavern/SillyTavern",
+        "https://sillytavern.app/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "sim-studio",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://www.sim.ai/",
+      "data_source_urls": [
+        "https://github.com/simstudioai/sim",
+        "https://www.sim.ai/",
+        "https://docs.sim.ai/self-hosting/docker"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "tiddlypwa",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://tiddly.packett.cool/",
+      "data_source_urls": [
+        "https://codeberg.org/valpackett/tiddlypwa",
+        "https://tiddly.packett.cool/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "trigger-dev",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://trigger.dev/",
+      "data_source_urls": [
+        "https://github.com/triggerdotdev/trigger.dev",
+        "https://trigger.dev/",
+        "https://trigger.dev/docs/self-hosting/overview"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "tsuru",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://tsuru.io/",
+      "data_source_urls": [
+        "https://github.com/tsuru/tsuru",
+        "https://tsuru.io/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "tuxseo",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://tuxseo.com/",
+      "data_source_urls": [
+        "https://github.com/LVTD-LLC/TuxSEO",
+        "https://tuxseo.com/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "slug": "twake-chat",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://twake-chat.com/",
+      "data_source_urls": [
+        "https://github.com/linagora/twake-on-matrix",
+        "https://twake-chat.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "unopim",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://unopim.com/",
+      "data_source_urls": [
+        "https://github.com/unopim/unopim",
+        "https://unopim.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "webstudio",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://webstudio.is/",
+      "data_source_urls": [
+        "https://github.com/webstudio-is/webstudio",
+        "https://webstudio.is/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "will-be-done",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://will-be-done.app/",
+      "data_source_urls": [
+        "https://github.com/will-be-done/will-be-done",
+        "https://will-be-done.app/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "writer-computer",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://writer.computer/",
+      "data_source_urls": [
+        "https://github.com/joelbqz/writer-computer",
+        "https://writer.computer/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "yaade",
+      "review_scope": "partial",
+      "expected": { "website_url": null },
+      "website_url": "https://docs.yaade.io/",
+      "data_source_urls": [
+        "https://github.com/EsperoTech/yaade",
+        "https://docs.yaade.io/"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "skipped": [
+    {
+      "slug": "seppo",
+      "reason": "The official Codeberg repository points to seppo.mro.name/downloads, but the site could not be opened to verify a current project homepage; no alternative official homepage was confirmed."
+    },
+    {
+      "slug": "svg-edit",
+      "reason": "The official SVG-Edit repository links to a Netlify V7 editor build to try the app, but no distinct official project or publisher homepage was verified."
+    },
+    {
+      "slug": "text-generation-webui",
+      "reason": "The official oobabooga/textgen repository now presents TextGen as a desktop app, and no distinct homepage for the saved Text Generation WebUI identity was verified."
+    },
+    {
+      "slug": "tonkatsu-box",
+      "reason": "The official repository provides the product README and self-hosting instructions, but no separate project homepage was found."
+    },
+    {
+      "slug": "traceway",
+      "reason": "The official Traceway repository provides the project and setup documentation, but no distinct project or publisher homepage was verified."
+    },
+    {
+      "slug": "tsbridge",
+      "reason": "The official tsbridge repository contains the project and setup guide, but no separate project homepage was found."
+    },
+    {
+      "slug": "txtdot",
+      "reason": "The official TempoWorks/txtdot repository provides the app and deployment instructions, but no separate project homepage was found."
+    },
+    {
+      "slug": "uploady",
+      "reason": "The official Uploady repository describes deployment on a user-owned domain, but no separate project or publisher homepage was verified."
+    },
+    {
+      "slug": "vino",
+      "reason": "GNOME's official Vino repository is archived under the Archive group and marks the project as unmaintained; no current homepage for this archived app was verified."
+    },
+    {
+      "slug": "vixipy",
+      "reason": "The official Codeberg project could not be opened during review, and its saved source links contain no independently verifiable homepage."
+    },
+    {
+      "slug": "wachd",
+      "reason": "The official wachd repository documents the app and its deployment, but no distinct project homepage was verified."
+    },
+    {
+      "slug": "warpdrive",
+      "reason": "The official warpdrive repository provides the app README and setup details, but no separate project homepage was found."
+    },
+    {
+      "slug": "warpdrv",
+      "reason": "The official warpdrv repository provides the app, releases, and guide, but no distinct project homepage was found."
+    },
+    {
+      "slug": "webarchive",
+      "reason": "The official webarchive repository contains the project and setup information, but no separate project homepage was verified."
+    },
+    {
+      "slug": "word-mastermind",
+      "reason": "The official word-mastermind repository contains the game, but no project or publisher homepage was found."
+    },
+    {
+      "slug": "youtube-dl-nas",
+      "reason": "The official repository's GitHub Pages link serves its manual and import files; no separate product or publisher homepage was verified."
+    },
+    {
+      "slug": "zotseek",
+      "reason": "The official ZotSeek repository provides the project and setup information, but no separate project homepage was found."
+    }
+  ]
+}

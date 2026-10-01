@@ -1,0 +1,3376 @@
+{
+  "reviewed_at": "2026-09-30",
+  "baseline": "Static inventory captured 2026-09-08; refresh expected values before applying.",
+  "scope": "Official-source license and source-model corrections for G-L app records; proposals only.",
+  "apps": [
+    {
+      "slug": "gantry",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/smidley/gantry",
+            "https://github.com/smidley/gantry/issues",
+            "https://github.com/smidley/gantry/pkgs/container/gantry",
+            "https://raw.githubusercontent.com/smidley/gantry/main/template/gantry-icon.png",
+            "https://raw.githubusercontent.com/smidley/gantry/main/templates/gantry.xml"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/smidley/gantry",
+            "https://github.com/smidley/gantry/issues",
+            "https://github.com/smidley/gantry/pkgs/container/gantry",
+            "https://raw.githubusercontent.com/smidley/gantry/main/template/gantry-icon.png",
+            "https://raw.githubusercontent.com/smidley/gantry/main/templates/gantry.xml"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/smidley/gantry",
+            "https://github.com/smidley/gantry/issues",
+            "https://github.com/smidley/gantry/pkgs/container/gantry",
+            "https://raw.githubusercontent.com/smidley/gantry/main/template/gantry-icon.png",
+            "https://raw.githubusercontent.com/smidley/gantry/main/templates/gantry.xml"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/smidley/gantry",
+            "https://github.com/smidley/gantry/issues",
+            "https://github.com/smidley/gantry/pkgs/container/gantry",
+            "https://raw.githubusercontent.com/smidley/gantry/main/template/gantry-icon.png",
+            "https://raw.githubusercontent.com/smidley/gantry/main/templates/gantry.xml"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/smidley/gantry",
+            "https://github.com/smidley/gantry/issues",
+            "https://github.com/smidley/gantry/pkgs/container/gantry",
+            "https://raw.githubusercontent.com/smidley/gantry/main/template/gantry-icon.png",
+            "https://raw.githubusercontent.com/smidley/gantry/main/templates/gantry.xml"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/smidley/gantry",
+            "https://github.com/smidley/gantry/issues",
+            "https://github.com/smidley/gantry/pkgs/container/gantry",
+            "https://raw.githubusercontent.com/smidley/gantry/main/template/gantry-icon.png",
+            "https://raw.githubusercontent.com/smidley/gantry/main/templates/gantry.xml"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies MIT License.",
+          "source_urls": [
+            "https://github.com/smidley/gantry"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/smidley/gantry",
+              "https://github.com/smidley/gantry/issues",
+              "https://github.com/smidley/gantry/pkgs/container/gantry",
+              "https://raw.githubusercontent.com/smidley/gantry/main/template/gantry-icon.png",
+              "https://raw.githubusercontent.com/smidley/gantry/main/templates/gantry.xml"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/smidley/gantry",
+              "https://github.com/smidley/gantry/issues",
+              "https://github.com/smidley/gantry/pkgs/container/gantry",
+              "https://raw.githubusercontent.com/smidley/gantry/main/template/gantry-icon.png",
+              "https://raw.githubusercontent.com/smidley/gantry/main/templates/gantry.xml"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/smidley/gantry",
+              "https://github.com/smidley/gantry/issues",
+              "https://github.com/smidley/gantry/pkgs/container/gantry",
+              "https://raw.githubusercontent.com/smidley/gantry/main/template/gantry-icon.png",
+              "https://raw.githubusercontent.com/smidley/gantry/main/templates/gantry.xml"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/smidley/gantry",
+              "https://github.com/smidley/gantry/issues",
+              "https://github.com/smidley/gantry/pkgs/container/gantry",
+              "https://raw.githubusercontent.com/smidley/gantry/main/template/gantry-icon.png",
+              "https://raw.githubusercontent.com/smidley/gantry/main/templates/gantry.xml"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/smidley/gantry",
+              "https://github.com/smidley/gantry/issues",
+              "https://github.com/smidley/gantry/pkgs/container/gantry",
+              "https://raw.githubusercontent.com/smidley/gantry/main/template/gantry-icon.png",
+              "https://raw.githubusercontent.com/smidley/gantry/main/templates/gantry.xml"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/smidley/gantry",
+              "https://github.com/smidley/gantry/issues",
+              "https://github.com/smidley/gantry/pkgs/container/gantry",
+              "https://raw.githubusercontent.com/smidley/gantry/main/template/gantry-icon.png",
+              "https://raw.githubusercontent.com/smidley/gantry/main/templates/gantry.xml"
+            ]
+          }
+        },
+        "categories": [
+          "ai-ml",
+          "databases",
+          "monitoring-status"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/smidley/gantry"
+      ],
+      "confidence": "high",
+      "categories": [
+        "monitoring-status",
+        "system-admin-hosting"
+      ]
+    },
+    {
+      "slug": "garage-s3-webui",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://discord.gg/p9xkjEw8ts",
+            "https://git.deuxfleurs.fr/ragazenta/garage/media/tag/v0.4.0/doc/logo/garage.png",
+            "https://github.com/khairul169/garage-webui",
+            "https://raw.githubusercontent.com/waazaa-fr/unraid-templates/main/my-garage-s3-webui.xml",
+            "https://registry.hub.docker.com/r/khairul169/garage-webui"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://discord.gg/p9xkjEw8ts",
+            "https://git.deuxfleurs.fr/ragazenta/garage/media/tag/v0.4.0/doc/logo/garage.png",
+            "https://github.com/khairul169/garage-webui",
+            "https://raw.githubusercontent.com/waazaa-fr/unraid-templates/main/my-garage-s3-webui.xml",
+            "https://registry.hub.docker.com/r/khairul169/garage-webui"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://discord.gg/p9xkjEw8ts",
+            "https://git.deuxfleurs.fr/ragazenta/garage/media/tag/v0.4.0/doc/logo/garage.png",
+            "https://github.com/khairul169/garage-webui",
+            "https://raw.githubusercontent.com/waazaa-fr/unraid-templates/main/my-garage-s3-webui.xml",
+            "https://registry.hub.docker.com/r/khairul169/garage-webui"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://discord.gg/p9xkjEw8ts",
+            "https://git.deuxfleurs.fr/ragazenta/garage/media/tag/v0.4.0/doc/logo/garage.png",
+            "https://github.com/khairul169/garage-webui",
+            "https://raw.githubusercontent.com/waazaa-fr/unraid-templates/main/my-garage-s3-webui.xml",
+            "https://registry.hub.docker.com/r/khairul169/garage-webui"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://discord.gg/p9xkjEw8ts",
+            "https://git.deuxfleurs.fr/ragazenta/garage/media/tag/v0.4.0/doc/logo/garage.png",
+            "https://github.com/khairul169/garage-webui",
+            "https://raw.githubusercontent.com/waazaa-fr/unraid-templates/main/my-garage-s3-webui.xml",
+            "https://registry.hub.docker.com/r/khairul169/garage-webui"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://discord.gg/p9xkjEw8ts",
+            "https://git.deuxfleurs.fr/ragazenta/garage/media/tag/v0.4.0/doc/logo/garage.png",
+            "https://github.com/khairul169/garage-webui",
+            "https://raw.githubusercontent.com/waazaa-fr/unraid-templates/main/my-garage-s3-webui.xml",
+            "https://registry.hub.docker.com/r/khairul169/garage-webui"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies MIT License.",
+          "source_urls": [
+            "https://github.com/khairul169/garage-webui"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://discord.gg/p9xkjEw8ts",
+              "https://git.deuxfleurs.fr/ragazenta/garage/media/tag/v0.4.0/doc/logo/garage.png",
+              "https://github.com/khairul169/garage-webui",
+              "https://raw.githubusercontent.com/waazaa-fr/unraid-templates/main/my-garage-s3-webui.xml",
+              "https://registry.hub.docker.com/r/khairul169/garage-webui"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://discord.gg/p9xkjEw8ts",
+              "https://git.deuxfleurs.fr/ragazenta/garage/media/tag/v0.4.0/doc/logo/garage.png",
+              "https://github.com/khairul169/garage-webui",
+              "https://raw.githubusercontent.com/waazaa-fr/unraid-templates/main/my-garage-s3-webui.xml",
+              "https://registry.hub.docker.com/r/khairul169/garage-webui"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://discord.gg/p9xkjEw8ts",
+              "https://git.deuxfleurs.fr/ragazenta/garage/media/tag/v0.4.0/doc/logo/garage.png",
+              "https://github.com/khairul169/garage-webui",
+              "https://raw.githubusercontent.com/waazaa-fr/unraid-templates/main/my-garage-s3-webui.xml",
+              "https://registry.hub.docker.com/r/khairul169/garage-webui"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://discord.gg/p9xkjEw8ts",
+              "https://git.deuxfleurs.fr/ragazenta/garage/media/tag/v0.4.0/doc/logo/garage.png",
+              "https://github.com/khairul169/garage-webui",
+              "https://raw.githubusercontent.com/waazaa-fr/unraid-templates/main/my-garage-s3-webui.xml",
+              "https://registry.hub.docker.com/r/khairul169/garage-webui"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://discord.gg/p9xkjEw8ts",
+              "https://git.deuxfleurs.fr/ragazenta/garage/media/tag/v0.4.0/doc/logo/garage.png",
+              "https://github.com/khairul169/garage-webui",
+              "https://raw.githubusercontent.com/waazaa-fr/unraid-templates/main/my-garage-s3-webui.xml",
+              "https://registry.hub.docker.com/r/khairul169/garage-webui"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://discord.gg/p9xkjEw8ts",
+              "https://git.deuxfleurs.fr/ragazenta/garage/media/tag/v0.4.0/doc/logo/garage.png",
+              "https://github.com/khairul169/garage-webui",
+              "https://raw.githubusercontent.com/waazaa-fr/unraid-templates/main/my-garage-s3-webui.xml",
+              "https://registry.hub.docker.com/r/khairul169/garage-webui"
+            ]
+          }
+        },
+        "categories": [
+          "storage-backup"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/khairul169/garage-webui"
+      ],
+      "confidence": "high",
+      "categories": [
+        "storage-backup"
+      ]
+    },
+    {
+      "slug": "gbrain-aio",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/wgross19/gbrain-aio",
+            "https://github.com/wgross19/gbrain-aio/issues",
+            "https://hub.docker.com/r/dub19/gbrain-aio",
+            "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/gbrain-aio.xml",
+            "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/icons/gbrain.png"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/wgross19/gbrain-aio",
+            "https://github.com/wgross19/gbrain-aio/issues",
+            "https://hub.docker.com/r/dub19/gbrain-aio",
+            "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/gbrain-aio.xml",
+            "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/icons/gbrain.png"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/wgross19/gbrain-aio",
+            "https://github.com/wgross19/gbrain-aio/issues",
+            "https://hub.docker.com/r/dub19/gbrain-aio",
+            "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/gbrain-aio.xml",
+            "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/icons/gbrain.png"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/wgross19/gbrain-aio",
+            "https://github.com/wgross19/gbrain-aio/issues",
+            "https://hub.docker.com/r/dub19/gbrain-aio",
+            "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/gbrain-aio.xml",
+            "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/icons/gbrain.png"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/wgross19/gbrain-aio",
+            "https://github.com/wgross19/gbrain-aio/issues",
+            "https://hub.docker.com/r/dub19/gbrain-aio",
+            "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/gbrain-aio.xml",
+            "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/icons/gbrain.png"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/wgross19/gbrain-aio",
+            "https://github.com/wgross19/gbrain-aio/issues",
+            "https://hub.docker.com/r/dub19/gbrain-aio",
+            "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/gbrain-aio.xml",
+            "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/icons/gbrain.png"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies MIT License.",
+          "source_urls": [
+            "https://github.com/wgross19/gbrain-aio"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/wgross19/gbrain-aio",
+              "https://github.com/wgross19/gbrain-aio/issues",
+              "https://hub.docker.com/r/dub19/gbrain-aio",
+              "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/gbrain-aio.xml",
+              "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/icons/gbrain.png"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/wgross19/gbrain-aio",
+              "https://github.com/wgross19/gbrain-aio/issues",
+              "https://hub.docker.com/r/dub19/gbrain-aio",
+              "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/gbrain-aio.xml",
+              "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/icons/gbrain.png"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/wgross19/gbrain-aio",
+              "https://github.com/wgross19/gbrain-aio/issues",
+              "https://hub.docker.com/r/dub19/gbrain-aio",
+              "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/gbrain-aio.xml",
+              "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/icons/gbrain.png"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/wgross19/gbrain-aio",
+              "https://github.com/wgross19/gbrain-aio/issues",
+              "https://hub.docker.com/r/dub19/gbrain-aio",
+              "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/gbrain-aio.xml",
+              "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/icons/gbrain.png"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/wgross19/gbrain-aio",
+              "https://github.com/wgross19/gbrain-aio/issues",
+              "https://hub.docker.com/r/dub19/gbrain-aio",
+              "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/gbrain-aio.xml",
+              "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/icons/gbrain.png"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/wgross19/gbrain-aio",
+              "https://github.com/wgross19/gbrain-aio/issues",
+              "https://hub.docker.com/r/dub19/gbrain-aio",
+              "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/gbrain-aio.xml",
+              "https://raw.githubusercontent.com/wgross19/awesome-unraid/main/icons/gbrain.png"
+            ]
+          }
+        },
+        "categories": [
+          "ai-ml",
+          "communication",
+          "databases"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/wgross19/gbrain-aio"
+      ],
+      "confidence": "high",
+      "categories": [
+        "ai-ml",
+        "databases"
+      ]
+    },
+    {
+      "slug": "ghorg",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/gabrie30/ghorg",
+            "https://github.com/gabrie30/ghorg/issues",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ghorg.xml",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ghorg-icon.png",
+            "https://registry.hub.docker.com/r/ghcr.io/gabrie30/ghorg"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/gabrie30/ghorg",
+            "https://github.com/gabrie30/ghorg/issues",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ghorg.xml",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ghorg-icon.png",
+            "https://registry.hub.docker.com/r/ghcr.io/gabrie30/ghorg"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/gabrie30/ghorg",
+            "https://github.com/gabrie30/ghorg/issues",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ghorg.xml",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ghorg-icon.png",
+            "https://registry.hub.docker.com/r/ghcr.io/gabrie30/ghorg"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/gabrie30/ghorg",
+            "https://github.com/gabrie30/ghorg/issues",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ghorg.xml",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ghorg-icon.png",
+            "https://registry.hub.docker.com/r/ghcr.io/gabrie30/ghorg"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/gabrie30/ghorg",
+            "https://github.com/gabrie30/ghorg/issues",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ghorg.xml",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ghorg-icon.png",
+            "https://registry.hub.docker.com/r/ghcr.io/gabrie30/ghorg"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/gabrie30/ghorg",
+            "https://github.com/gabrie30/ghorg/issues",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ghorg.xml",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ghorg-icon.png",
+            "https://registry.hub.docker.com/r/ghcr.io/gabrie30/ghorg"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies Apache License 2.0.",
+          "source_urls": [
+            "https://github.com/gabrie30/ghorg"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/gabrie30/ghorg",
+              "https://github.com/gabrie30/ghorg/issues",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ghorg.xml",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ghorg-icon.png",
+              "https://registry.hub.docker.com/r/ghcr.io/gabrie30/ghorg"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/gabrie30/ghorg",
+              "https://github.com/gabrie30/ghorg/issues",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ghorg.xml",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ghorg-icon.png",
+              "https://registry.hub.docker.com/r/ghcr.io/gabrie30/ghorg"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/gabrie30/ghorg",
+              "https://github.com/gabrie30/ghorg/issues",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ghorg.xml",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ghorg-icon.png",
+              "https://registry.hub.docker.com/r/ghcr.io/gabrie30/ghorg"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/gabrie30/ghorg",
+              "https://github.com/gabrie30/ghorg/issues",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ghorg.xml",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ghorg-icon.png",
+              "https://registry.hub.docker.com/r/ghcr.io/gabrie30/ghorg"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/gabrie30/ghorg",
+              "https://github.com/gabrie30/ghorg/issues",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ghorg.xml",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ghorg-icon.png",
+              "https://registry.hub.docker.com/r/ghcr.io/gabrie30/ghorg"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/gabrie30/ghorg",
+              "https://github.com/gabrie30/ghorg/issues",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/ghorg.xml",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/ghorg-icon.png",
+              "https://registry.hub.docker.com/r/ghcr.io/gabrie30/ghorg"
+            ]
+          }
+        },
+        "categories": [
+          "developer-tools",
+          "system-admin-hosting"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/gabrie30/ghorg"
+      ],
+      "confidence": "high",
+      "categories": [
+        "developer-tools"
+      ]
+    },
+    {
+      "slug": "gitproxy",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://git-proxy.finos.org/",
+            "https://github.com/finos/git-proxy",
+            "https://github.com/finos/git-proxy#readme",
+            "https://opengraph.githubassets.com/1/finos/git-proxy",
+            "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+            "https://selfhostedworld.com/software/gitproxy"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://git-proxy.finos.org/",
+            "https://github.com/finos/git-proxy",
+            "https://github.com/finos/git-proxy#readme",
+            "https://opengraph.githubassets.com/1/finos/git-proxy",
+            "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+            "https://selfhostedworld.com/software/gitproxy"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://git-proxy.finos.org/",
+            "https://github.com/finos/git-proxy",
+            "https://github.com/finos/git-proxy#readme",
+            "https://opengraph.githubassets.com/1/finos/git-proxy",
+            "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+            "https://selfhostedworld.com/software/gitproxy"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://git-proxy.finos.org/",
+            "https://github.com/finos/git-proxy",
+            "https://github.com/finos/git-proxy#readme",
+            "https://opengraph.githubassets.com/1/finos/git-proxy",
+            "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+            "https://selfhostedworld.com/software/gitproxy"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://git-proxy.finos.org/",
+            "https://github.com/finos/git-proxy",
+            "https://github.com/finos/git-proxy#readme",
+            "https://opengraph.githubassets.com/1/finos/git-proxy",
+            "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+            "https://selfhostedworld.com/software/gitproxy"
+          ]
+        },
+        "docker_image": {
+          "note": "Primary sources checked; no prebuilt image was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://git-proxy.finos.org/",
+            "https://github.com/finos/git-proxy",
+            "https://github.com/finos/git-proxy#readme",
+            "https://opengraph.githubassets.com/1/finos/git-proxy",
+            "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+            "https://selfhostedworld.com/software/gitproxy"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies Apache License 2.0.",
+          "source_urls": [
+            "https://github.com/finos/git-proxy"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://git-proxy.finos.org/",
+              "https://github.com/finos/git-proxy",
+              "https://github.com/finos/git-proxy#readme",
+              "https://opengraph.githubassets.com/1/finos/git-proxy",
+              "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+              "https://selfhostedworld.com/software/gitproxy"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://git-proxy.finos.org/",
+              "https://github.com/finos/git-proxy",
+              "https://github.com/finos/git-proxy#readme",
+              "https://opengraph.githubassets.com/1/finos/git-proxy",
+              "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+              "https://selfhostedworld.com/software/gitproxy"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://git-proxy.finos.org/",
+              "https://github.com/finos/git-proxy",
+              "https://github.com/finos/git-proxy#readme",
+              "https://opengraph.githubassets.com/1/finos/git-proxy",
+              "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+              "https://selfhostedworld.com/software/gitproxy"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://git-proxy.finos.org/",
+              "https://github.com/finos/git-proxy",
+              "https://github.com/finos/git-proxy#readme",
+              "https://opengraph.githubassets.com/1/finos/git-proxy",
+              "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+              "https://selfhostedworld.com/software/gitproxy"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://git-proxy.finos.org/",
+              "https://github.com/finos/git-proxy",
+              "https://github.com/finos/git-proxy#readme",
+              "https://opengraph.githubassets.com/1/finos/git-proxy",
+              "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+              "https://selfhostedworld.com/software/gitproxy"
+            ]
+          },
+          "docker_image": {
+            "note": "Primary sources checked; no prebuilt image was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://git-proxy.finos.org/",
+              "https://github.com/finos/git-proxy",
+              "https://github.com/finos/git-proxy#readme",
+              "https://opengraph.githubassets.com/1/finos/git-proxy",
+              "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+              "https://selfhostedworld.com/software/gitproxy"
+            ]
+          }
+        },
+        "categories": [
+          "networking-dns",
+          "project-task-management",
+          "security-privacy"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/finos/git-proxy"
+      ],
+      "confidence": "high",
+      "categories": [
+        "developer-tools",
+        "security-privacy"
+      ]
+    },
+    {
+      "slug": "gimp",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-gimp",
+            "https://github.com/linuxserver/docker-gimp#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/gimp",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gimp-logo.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gimp.xml"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-gimp",
+            "https://github.com/linuxserver/docker-gimp#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/gimp",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gimp-logo.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gimp.xml"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-gimp",
+            "https://github.com/linuxserver/docker-gimp#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/gimp",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gimp-logo.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gimp.xml"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-gimp",
+            "https://github.com/linuxserver/docker-gimp#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/gimp",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gimp-logo.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gimp.xml"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-gimp",
+            "https://github.com/linuxserver/docker-gimp#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/gimp",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gimp-logo.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gimp.xml"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-gimp",
+            "https://github.com/linuxserver/docker-gimp#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/gimp",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gimp-logo.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gimp.xml"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies GNU General Public License v3.0.",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-gimp",
+            "https://www.gimp.org/"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-gimp",
+              "https://github.com/linuxserver/docker-gimp#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/gimp",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gimp-logo.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gimp.xml"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-gimp",
+              "https://github.com/linuxserver/docker-gimp#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/gimp",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gimp-logo.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gimp.xml"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-gimp",
+              "https://github.com/linuxserver/docker-gimp#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/gimp",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gimp-logo.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gimp.xml"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-gimp",
+              "https://github.com/linuxserver/docker-gimp#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/gimp",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gimp-logo.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gimp.xml"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-gimp",
+              "https://github.com/linuxserver/docker-gimp#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/gimp",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gimp-logo.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gimp.xml"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-gimp",
+              "https://github.com/linuxserver/docker-gimp#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/gimp",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gimp-logo.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gimp.xml"
+            ]
+          }
+        },
+        "categories": [
+          "photos-galleries",
+          "project-task-management"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/linuxserver/docker-gimp",
+        "https://www.gimp.org/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "slug": "github-desktop",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/desktop/desktop",
+      "source_code_host": "github",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-github-desktop",
+            "https://github.com/linuxserver/docker-github-desktop#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/github-desktop",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/github-desktop.xml"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-github-desktop",
+            "https://github.com/linuxserver/docker-github-desktop#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/github-desktop",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/github-desktop.xml"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-github-desktop",
+            "https://github.com/linuxserver/docker-github-desktop#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/github-desktop",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/github-desktop.xml"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-github-desktop",
+            "https://github.com/linuxserver/docker-github-desktop#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/github-desktop",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/github-desktop.xml"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-github-desktop",
+            "https://github.com/linuxserver/docker-github-desktop#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/github-desktop",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/github-desktop.xml"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-github-desktop",
+            "https://github.com/linuxserver/docker-github-desktop#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/github-desktop",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/github-desktop.xml"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies MIT License.",
+          "source_urls": [
+            "https://github.com/desktop/desktop",
+            "https://github.com/linuxserver/docker-github-desktop"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/linuxserver/docker-github-desktop",
+        "source_code_host": "github",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-github-desktop",
+              "https://github.com/linuxserver/docker-github-desktop#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/github-desktop",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/github-desktop.xml"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-github-desktop",
+              "https://github.com/linuxserver/docker-github-desktop#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/github-desktop",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/github-desktop.xml"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-github-desktop",
+              "https://github.com/linuxserver/docker-github-desktop#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/github-desktop",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/github-desktop.xml"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-github-desktop",
+              "https://github.com/linuxserver/docker-github-desktop#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/github-desktop",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/github-desktop.xml"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-github-desktop",
+              "https://github.com/linuxserver/docker-github-desktop#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/github-desktop",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/github-desktop.xml"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-github-desktop",
+              "https://github.com/linuxserver/docker-github-desktop#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/github-desktop",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/github-desktop.xml"
+            ]
+          }
+        },
+        "categories": [
+          "developer-tools",
+          "remote-access"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/desktop/desktop",
+        "https://github.com/linuxserver/docker-github-desktop"
+      ],
+      "confidence": "high",
+      "categories": [
+        "developer-tools"
+      ]
+    },
+    {
+      "slug": "gitqlient",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Lesser General Public License v2.1",
+      "license_type": "copyleft",
+      "license_spdx_id": "LGPL-2.1",
+      "source_code_url": "https://github.com/francescmaestre/GitQlient",
+      "source_code_host": "github",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-gitqlient",
+            "https://github.com/linuxserver/docker-gitqlient#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/gitqlient",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gitqlient.xml"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-gitqlient",
+            "https://github.com/linuxserver/docker-gitqlient#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/gitqlient",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gitqlient.xml"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-gitqlient",
+            "https://github.com/linuxserver/docker-gitqlient#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/gitqlient",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gitqlient.xml"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-gitqlient",
+            "https://github.com/linuxserver/docker-gitqlient#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/gitqlient",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gitqlient.xml"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-gitqlient",
+            "https://github.com/linuxserver/docker-gitqlient#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/gitqlient",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gitqlient.xml"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/linuxserver/docker-gitqlient",
+            "https://github.com/linuxserver/docker-gitqlient#readme",
+            "https://github.com/orgs/linuxserver/packages/container/package/gitqlient",
+            "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png",
+            "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gitqlient.xml"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies GNU Lesser General Public License v2.1.",
+          "source_urls": [
+            "https://github.com/francescmaestre/GitQlient",
+            "https://github.com/linuxserver/docker-gitqlient"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_code_url": "https://github.com/linuxserver/docker-gitqlient",
+        "source_code_host": "github",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-gitqlient",
+              "https://github.com/linuxserver/docker-gitqlient#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/gitqlient",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gitqlient.xml"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-gitqlient",
+              "https://github.com/linuxserver/docker-gitqlient#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/gitqlient",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gitqlient.xml"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-gitqlient",
+              "https://github.com/linuxserver/docker-gitqlient#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/gitqlient",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gitqlient.xml"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-gitqlient",
+              "https://github.com/linuxserver/docker-gitqlient#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/gitqlient",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gitqlient.xml"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-gitqlient",
+              "https://github.com/linuxserver/docker-gitqlient#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/gitqlient",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gitqlient.xml"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/linuxserver/docker-gitqlient",
+              "https://github.com/linuxserver/docker-gitqlient#readme",
+              "https://github.com/orgs/linuxserver/packages/container/package/gitqlient",
+              "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png",
+              "https://raw.githubusercontent.com/linuxserver/templates/main/unraid/gitqlient.xml"
+            ]
+          }
+        },
+        "categories": [
+          "developer-tools"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/francescmaestre/GitQlient",
+        "https://github.com/linuxserver/docker-gitqlient"
+      ],
+      "confidence": "high",
+      "categories": [
+        "developer-tools"
+      ]
+    },
+    {
+      "slug": "gluetunvpn",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "source_code_url": "https://github.com/passteque/gluetun",
+      "source_code_host": "github",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://forums.unraid.net/topic/111725-support-diamondprecisioncomputing-all-images-and-files",
+            "https://github.com/qdm12/gluetun",
+            "https://github.com/qdm12/gluetun/issues",
+            "https://github.com/qdm12/gluetun/pkgs/container/gluetun",
+            "https://hub.docker.com/r/qmcgaw/gluetun",
+            "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/official-gluetun.xml",
+            "https://raw.githubusercontent.com/DiamondPrecisionComputing/unraid-templates/master/templates/GluetunVPN.xml",
+            "https://raw.githubusercontent.com/qdm12/gluetun/master/doc/logo_256.png"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://forums.unraid.net/topic/111725-support-diamondprecisioncomputing-all-images-and-files",
+            "https://github.com/qdm12/gluetun",
+            "https://github.com/qdm12/gluetun/issues",
+            "https://github.com/qdm12/gluetun/pkgs/container/gluetun",
+            "https://hub.docker.com/r/qmcgaw/gluetun",
+            "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/official-gluetun.xml",
+            "https://raw.githubusercontent.com/DiamondPrecisionComputing/unraid-templates/master/templates/GluetunVPN.xml",
+            "https://raw.githubusercontent.com/qdm12/gluetun/master/doc/logo_256.png"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://forums.unraid.net/topic/111725-support-diamondprecisioncomputing-all-images-and-files",
+            "https://github.com/qdm12/gluetun",
+            "https://github.com/qdm12/gluetun/issues",
+            "https://github.com/qdm12/gluetun/pkgs/container/gluetun",
+            "https://hub.docker.com/r/qmcgaw/gluetun",
+            "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/official-gluetun.xml",
+            "https://raw.githubusercontent.com/DiamondPrecisionComputing/unraid-templates/master/templates/GluetunVPN.xml",
+            "https://raw.githubusercontent.com/qdm12/gluetun/master/doc/logo_256.png"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://forums.unraid.net/topic/111725-support-diamondprecisioncomputing-all-images-and-files",
+            "https://github.com/qdm12/gluetun",
+            "https://github.com/qdm12/gluetun/issues",
+            "https://github.com/qdm12/gluetun/pkgs/container/gluetun",
+            "https://hub.docker.com/r/qmcgaw/gluetun",
+            "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/official-gluetun.xml",
+            "https://raw.githubusercontent.com/DiamondPrecisionComputing/unraid-templates/master/templates/GluetunVPN.xml",
+            "https://raw.githubusercontent.com/qdm12/gluetun/master/doc/logo_256.png"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://forums.unraid.net/topic/111725-support-diamondprecisioncomputing-all-images-and-files",
+            "https://github.com/qdm12/gluetun",
+            "https://github.com/qdm12/gluetun/issues",
+            "https://github.com/qdm12/gluetun/pkgs/container/gluetun",
+            "https://hub.docker.com/r/qmcgaw/gluetun",
+            "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/official-gluetun.xml",
+            "https://raw.githubusercontent.com/DiamondPrecisionComputing/unraid-templates/master/templates/GluetunVPN.xml",
+            "https://raw.githubusercontent.com/qdm12/gluetun/master/doc/logo_256.png"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://forums.unraid.net/topic/111725-support-diamondprecisioncomputing-all-images-and-files",
+            "https://github.com/qdm12/gluetun",
+            "https://github.com/qdm12/gluetun/issues",
+            "https://github.com/qdm12/gluetun/pkgs/container/gluetun",
+            "https://hub.docker.com/r/qmcgaw/gluetun",
+            "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/official-gluetun.xml",
+            "https://raw.githubusercontent.com/DiamondPrecisionComputing/unraid-templates/master/templates/GluetunVPN.xml",
+            "https://raw.githubusercontent.com/qdm12/gluetun/master/doc/logo_256.png"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies MIT License.",
+          "source_urls": [
+            "https://github.com/passteque/gluetun"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "https://img.shields.io/github/license/qdm12/gluetun",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_code_url": "https://github.com/qdm12/gluetun",
+        "source_code_host": "github",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://forums.unraid.net/topic/111725-support-diamondprecisioncomputing-all-images-and-files",
+              "https://github.com/qdm12/gluetun",
+              "https://github.com/qdm12/gluetun/issues",
+              "https://github.com/qdm12/gluetun/pkgs/container/gluetun",
+              "https://hub.docker.com/r/qmcgaw/gluetun",
+              "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/official-gluetun.xml",
+              "https://raw.githubusercontent.com/DiamondPrecisionComputing/unraid-templates/master/templates/GluetunVPN.xml",
+              "https://raw.githubusercontent.com/qdm12/gluetun/master/doc/logo_256.png"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://forums.unraid.net/topic/111725-support-diamondprecisioncomputing-all-images-and-files",
+              "https://github.com/qdm12/gluetun",
+              "https://github.com/qdm12/gluetun/issues",
+              "https://github.com/qdm12/gluetun/pkgs/container/gluetun",
+              "https://hub.docker.com/r/qmcgaw/gluetun",
+              "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/official-gluetun.xml",
+              "https://raw.githubusercontent.com/DiamondPrecisionComputing/unraid-templates/master/templates/GluetunVPN.xml",
+              "https://raw.githubusercontent.com/qdm12/gluetun/master/doc/logo_256.png"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://forums.unraid.net/topic/111725-support-diamondprecisioncomputing-all-images-and-files",
+              "https://github.com/qdm12/gluetun",
+              "https://github.com/qdm12/gluetun/issues",
+              "https://github.com/qdm12/gluetun/pkgs/container/gluetun",
+              "https://hub.docker.com/r/qmcgaw/gluetun",
+              "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/official-gluetun.xml",
+              "https://raw.githubusercontent.com/DiamondPrecisionComputing/unraid-templates/master/templates/GluetunVPN.xml",
+              "https://raw.githubusercontent.com/qdm12/gluetun/master/doc/logo_256.png"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://forums.unraid.net/topic/111725-support-diamondprecisioncomputing-all-images-and-files",
+              "https://github.com/qdm12/gluetun",
+              "https://github.com/qdm12/gluetun/issues",
+              "https://github.com/qdm12/gluetun/pkgs/container/gluetun",
+              "https://hub.docker.com/r/qmcgaw/gluetun",
+              "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/official-gluetun.xml",
+              "https://raw.githubusercontent.com/DiamondPrecisionComputing/unraid-templates/master/templates/GluetunVPN.xml",
+              "https://raw.githubusercontent.com/qdm12/gluetun/master/doc/logo_256.png"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://forums.unraid.net/topic/111725-support-diamondprecisioncomputing-all-images-and-files",
+              "https://github.com/qdm12/gluetun",
+              "https://github.com/qdm12/gluetun/issues",
+              "https://github.com/qdm12/gluetun/pkgs/container/gluetun",
+              "https://hub.docker.com/r/qmcgaw/gluetun",
+              "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/official-gluetun.xml",
+              "https://raw.githubusercontent.com/DiamondPrecisionComputing/unraid-templates/master/templates/GluetunVPN.xml",
+              "https://raw.githubusercontent.com/qdm12/gluetun/master/doc/logo_256.png"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://forums.unraid.net/topic/111725-support-diamondprecisioncomputing-all-images-and-files",
+              "https://github.com/qdm12/gluetun",
+              "https://github.com/qdm12/gluetun/issues",
+              "https://github.com/qdm12/gluetun/pkgs/container/gluetun",
+              "https://hub.docker.com/r/qmcgaw/gluetun",
+              "https://raw.githubusercontent.com/binhex/templates/main/unraid/binhex/templates/official-gluetun.xml",
+              "https://raw.githubusercontent.com/DiamondPrecisionComputing/unraid-templates/master/templates/GluetunVPN.xml",
+              "https://raw.githubusercontent.com/qdm12/gluetun/master/doc/logo_256.png"
+            ]
+          }
+        },
+        "categories": [
+          "ai-ml",
+          "email-newsletters",
+          "photos-galleries"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/passteque/gluetun"
+      ],
+      "confidence": "high",
+      "categories": [
+        "networking-dns",
+        "security-privacy"
+      ]
+    },
+    {
+      "slug": "gluster-server",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://forums.unraid.net/topic/96233-support-testdasi-repo/",
+            "https://github.com/testdasi/gluster-server",
+            "https://github.com/testdasi/gluster-server/raw/main/gluster.png",
+            "https://raw.githubusercontent.com/testdasi/testdasi-unraid-repo/master/gluster-server.xml",
+            "https://registry.hub.docker.com/r/testdasi/gluster-server/"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://forums.unraid.net/topic/96233-support-testdasi-repo/",
+            "https://github.com/testdasi/gluster-server",
+            "https://github.com/testdasi/gluster-server/raw/main/gluster.png",
+            "https://raw.githubusercontent.com/testdasi/testdasi-unraid-repo/master/gluster-server.xml",
+            "https://registry.hub.docker.com/r/testdasi/gluster-server/"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://forums.unraid.net/topic/96233-support-testdasi-repo/",
+            "https://github.com/testdasi/gluster-server",
+            "https://github.com/testdasi/gluster-server/raw/main/gluster.png",
+            "https://raw.githubusercontent.com/testdasi/testdasi-unraid-repo/master/gluster-server.xml",
+            "https://registry.hub.docker.com/r/testdasi/gluster-server/"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://forums.unraid.net/topic/96233-support-testdasi-repo/",
+            "https://github.com/testdasi/gluster-server",
+            "https://github.com/testdasi/gluster-server/raw/main/gluster.png",
+            "https://raw.githubusercontent.com/testdasi/testdasi-unraid-repo/master/gluster-server.xml",
+            "https://registry.hub.docker.com/r/testdasi/gluster-server/"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://forums.unraid.net/topic/96233-support-testdasi-repo/",
+            "https://github.com/testdasi/gluster-server",
+            "https://github.com/testdasi/gluster-server/raw/main/gluster.png",
+            "https://raw.githubusercontent.com/testdasi/testdasi-unraid-repo/master/gluster-server.xml",
+            "https://registry.hub.docker.com/r/testdasi/gluster-server/"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://forums.unraid.net/topic/96233-support-testdasi-repo/",
+            "https://github.com/testdasi/gluster-server",
+            "https://github.com/testdasi/gluster-server/raw/main/gluster.png",
+            "https://raw.githubusercontent.com/testdasi/testdasi-unraid-repo/master/gluster-server.xml",
+            "https://registry.hub.docker.com/r/testdasi/gluster-server/"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies GNU General Public License v3.0.",
+          "source_urls": [
+            "https://github.com/testdasi/gluster-server"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://forums.unraid.net/topic/96233-support-testdasi-repo/",
+              "https://github.com/testdasi/gluster-server",
+              "https://github.com/testdasi/gluster-server/raw/main/gluster.png",
+              "https://raw.githubusercontent.com/testdasi/testdasi-unraid-repo/master/gluster-server.xml",
+              "https://registry.hub.docker.com/r/testdasi/gluster-server/"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://forums.unraid.net/topic/96233-support-testdasi-repo/",
+              "https://github.com/testdasi/gluster-server",
+              "https://github.com/testdasi/gluster-server/raw/main/gluster.png",
+              "https://raw.githubusercontent.com/testdasi/testdasi-unraid-repo/master/gluster-server.xml",
+              "https://registry.hub.docker.com/r/testdasi/gluster-server/"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://forums.unraid.net/topic/96233-support-testdasi-repo/",
+              "https://github.com/testdasi/gluster-server",
+              "https://github.com/testdasi/gluster-server/raw/main/gluster.png",
+              "https://raw.githubusercontent.com/testdasi/testdasi-unraid-repo/master/gluster-server.xml",
+              "https://registry.hub.docker.com/r/testdasi/gluster-server/"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://forums.unraid.net/topic/96233-support-testdasi-repo/",
+              "https://github.com/testdasi/gluster-server",
+              "https://github.com/testdasi/gluster-server/raw/main/gluster.png",
+              "https://raw.githubusercontent.com/testdasi/testdasi-unraid-repo/master/gluster-server.xml",
+              "https://registry.hub.docker.com/r/testdasi/gluster-server/"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://forums.unraid.net/topic/96233-support-testdasi-repo/",
+              "https://github.com/testdasi/gluster-server",
+              "https://github.com/testdasi/gluster-server/raw/main/gluster.png",
+              "https://raw.githubusercontent.com/testdasi/testdasi-unraid-repo/master/gluster-server.xml",
+              "https://registry.hub.docker.com/r/testdasi/gluster-server/"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://forums.unraid.net/topic/96233-support-testdasi-repo/",
+              "https://github.com/testdasi/gluster-server",
+              "https://github.com/testdasi/gluster-server/raw/main/gluster.png",
+              "https://raw.githubusercontent.com/testdasi/testdasi-unraid-repo/master/gluster-server.xml",
+              "https://registry.hub.docker.com/r/testdasi/gluster-server/"
+            ]
+          }
+        },
+        "categories": [
+          "ai-ml",
+          "networking-dns",
+          "system-admin-hosting"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/testdasi/gluster-server"
+      ],
+      "confidence": "high",
+      "categories": [
+        "storage-backup",
+        "system-admin-hosting"
+      ]
+    },
+    {
+      "slug": "goaccess-npmlogs",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager",
+            "https://hub.docker.com/r/xavierh/goaccess-for-nginxproxymanager",
+            "https://raw.githubusercontent.com/ItJustFox/unraidtemplate/main/GoAccess-NPMLogs/goaccess-npmlogs.xml",
+            "https://raw.githubusercontent.com/xavier-hernandez/unraid-templates/master/resources/goaccess-npm.png",
+            "https://wiki.unraid.kalifondation.fr/en/home"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager",
+            "https://hub.docker.com/r/xavierh/goaccess-for-nginxproxymanager",
+            "https://raw.githubusercontent.com/ItJustFox/unraidtemplate/main/GoAccess-NPMLogs/goaccess-npmlogs.xml",
+            "https://raw.githubusercontent.com/xavier-hernandez/unraid-templates/master/resources/goaccess-npm.png",
+            "https://wiki.unraid.kalifondation.fr/en/home"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager",
+            "https://hub.docker.com/r/xavierh/goaccess-for-nginxproxymanager",
+            "https://raw.githubusercontent.com/ItJustFox/unraidtemplate/main/GoAccess-NPMLogs/goaccess-npmlogs.xml",
+            "https://raw.githubusercontent.com/xavier-hernandez/unraid-templates/master/resources/goaccess-npm.png",
+            "https://wiki.unraid.kalifondation.fr/en/home"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager",
+            "https://hub.docker.com/r/xavierh/goaccess-for-nginxproxymanager",
+            "https://raw.githubusercontent.com/ItJustFox/unraidtemplate/main/GoAccess-NPMLogs/goaccess-npmlogs.xml",
+            "https://raw.githubusercontent.com/xavier-hernandez/unraid-templates/master/resources/goaccess-npm.png",
+            "https://wiki.unraid.kalifondation.fr/en/home"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager",
+            "https://hub.docker.com/r/xavierh/goaccess-for-nginxproxymanager",
+            "https://raw.githubusercontent.com/ItJustFox/unraidtemplate/main/GoAccess-NPMLogs/goaccess-npmlogs.xml",
+            "https://raw.githubusercontent.com/xavier-hernandez/unraid-templates/master/resources/goaccess-npm.png",
+            "https://wiki.unraid.kalifondation.fr/en/home"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager",
+            "https://hub.docker.com/r/xavierh/goaccess-for-nginxproxymanager",
+            "https://raw.githubusercontent.com/ItJustFox/unraidtemplate/main/GoAccess-NPMLogs/goaccess-npmlogs.xml",
+            "https://raw.githubusercontent.com/xavier-hernandez/unraid-templates/master/resources/goaccess-npm.png",
+            "https://wiki.unraid.kalifondation.fr/en/home"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies MIT License.",
+          "source_urls": [
+            "https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager",
+              "https://hub.docker.com/r/xavierh/goaccess-for-nginxproxymanager",
+              "https://raw.githubusercontent.com/ItJustFox/unraidtemplate/main/GoAccess-NPMLogs/goaccess-npmlogs.xml",
+              "https://raw.githubusercontent.com/xavier-hernandez/unraid-templates/master/resources/goaccess-npm.png",
+              "https://wiki.unraid.kalifondation.fr/en/home"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager",
+              "https://hub.docker.com/r/xavierh/goaccess-for-nginxproxymanager",
+              "https://raw.githubusercontent.com/ItJustFox/unraidtemplate/main/GoAccess-NPMLogs/goaccess-npmlogs.xml",
+              "https://raw.githubusercontent.com/xavier-hernandez/unraid-templates/master/resources/goaccess-npm.png",
+              "https://wiki.unraid.kalifondation.fr/en/home"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager",
+              "https://hub.docker.com/r/xavierh/goaccess-for-nginxproxymanager",
+              "https://raw.githubusercontent.com/ItJustFox/unraidtemplate/main/GoAccess-NPMLogs/goaccess-npmlogs.xml",
+              "https://raw.githubusercontent.com/xavier-hernandez/unraid-templates/master/resources/goaccess-npm.png",
+              "https://wiki.unraid.kalifondation.fr/en/home"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager",
+              "https://hub.docker.com/r/xavierh/goaccess-for-nginxproxymanager",
+              "https://raw.githubusercontent.com/ItJustFox/unraidtemplate/main/GoAccess-NPMLogs/goaccess-npmlogs.xml",
+              "https://raw.githubusercontent.com/xavier-hernandez/unraid-templates/master/resources/goaccess-npm.png",
+              "https://wiki.unraid.kalifondation.fr/en/home"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager",
+              "https://hub.docker.com/r/xavierh/goaccess-for-nginxproxymanager",
+              "https://raw.githubusercontent.com/ItJustFox/unraidtemplate/main/GoAccess-NPMLogs/goaccess-npmlogs.xml",
+              "https://raw.githubusercontent.com/xavier-hernandez/unraid-templates/master/resources/goaccess-npm.png",
+              "https://wiki.unraid.kalifondation.fr/en/home"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager",
+              "https://hub.docker.com/r/xavierh/goaccess-for-nginxproxymanager",
+              "https://raw.githubusercontent.com/ItJustFox/unraidtemplate/main/GoAccess-NPMLogs/goaccess-npmlogs.xml",
+              "https://raw.githubusercontent.com/xavier-hernandez/unraid-templates/master/resources/goaccess-npm.png",
+              "https://wiki.unraid.kalifondation.fr/en/home"
+            ]
+          }
+        },
+        "categories": [
+          "ai-ml",
+          "identity-access",
+          "networking-dns"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager"
+      ],
+      "confidence": "high",
+      "categories": [
+        "monitoring-status"
+      ]
+    },
+    {
+      "slug": "govee2mqtt",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/wez/govee2mqtt",
+            "https://github.com/wez/govee2mqtt/blob/main/docs/CONFIG.md",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/govee_2_mqtt.xml",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/govee2mqtt-icon.png",
+            "https://registry.hub.docker.com/r/ghcr.io/wez/govee2mqtt"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/wez/govee2mqtt",
+            "https://github.com/wez/govee2mqtt/blob/main/docs/CONFIG.md",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/govee_2_mqtt.xml",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/govee2mqtt-icon.png",
+            "https://registry.hub.docker.com/r/ghcr.io/wez/govee2mqtt"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/wez/govee2mqtt",
+            "https://github.com/wez/govee2mqtt/blob/main/docs/CONFIG.md",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/govee_2_mqtt.xml",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/govee2mqtt-icon.png",
+            "https://registry.hub.docker.com/r/ghcr.io/wez/govee2mqtt"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/wez/govee2mqtt",
+            "https://github.com/wez/govee2mqtt/blob/main/docs/CONFIG.md",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/govee_2_mqtt.xml",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/govee2mqtt-icon.png",
+            "https://registry.hub.docker.com/r/ghcr.io/wez/govee2mqtt"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/wez/govee2mqtt",
+            "https://github.com/wez/govee2mqtt/blob/main/docs/CONFIG.md",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/govee_2_mqtt.xml",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/govee2mqtt-icon.png",
+            "https://registry.hub.docker.com/r/ghcr.io/wez/govee2mqtt"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/wez/govee2mqtt",
+            "https://github.com/wez/govee2mqtt/blob/main/docs/CONFIG.md",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/govee_2_mqtt.xml",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/govee2mqtt-icon.png",
+            "https://registry.hub.docker.com/r/ghcr.io/wez/govee2mqtt"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies MIT License.",
+          "source_urls": [
+            "https://github.com/wez/govee2mqtt",
+            "https://github.com/wez/govee2mqtt/blob/main/LICENSE.md"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/wez/govee2mqtt",
+              "https://github.com/wez/govee2mqtt/blob/main/docs/CONFIG.md",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/govee_2_mqtt.xml",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/govee2mqtt-icon.png",
+              "https://registry.hub.docker.com/r/ghcr.io/wez/govee2mqtt"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/wez/govee2mqtt",
+              "https://github.com/wez/govee2mqtt/blob/main/docs/CONFIG.md",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/govee_2_mqtt.xml",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/govee2mqtt-icon.png",
+              "https://registry.hub.docker.com/r/ghcr.io/wez/govee2mqtt"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/wez/govee2mqtt",
+              "https://github.com/wez/govee2mqtt/blob/main/docs/CONFIG.md",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/govee_2_mqtt.xml",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/govee2mqtt-icon.png",
+              "https://registry.hub.docker.com/r/ghcr.io/wez/govee2mqtt"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/wez/govee2mqtt",
+              "https://github.com/wez/govee2mqtt/blob/main/docs/CONFIG.md",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/govee_2_mqtt.xml",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/govee2mqtt-icon.png",
+              "https://registry.hub.docker.com/r/ghcr.io/wez/govee2mqtt"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/wez/govee2mqtt",
+              "https://github.com/wez/govee2mqtt/blob/main/docs/CONFIG.md",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/govee_2_mqtt.xml",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/govee2mqtt-icon.png",
+              "https://registry.hub.docker.com/r/ghcr.io/wez/govee2mqtt"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/wez/govee2mqtt",
+              "https://github.com/wez/govee2mqtt/blob/main/docs/CONFIG.md",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/govee_2_mqtt.xml",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/master/images/govee2mqtt-icon.png",
+              "https://registry.hub.docker.com/r/ghcr.io/wez/govee2mqtt"
+            ]
+          }
+        },
+        "categories": [
+          "home-automation-iot"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/wez/govee2mqtt",
+        "https://github.com/wez/govee2mqtt/blob/main/LICENSE.md"
+      ],
+      "confidence": "high",
+      "categories": [
+        "home-automation-iot"
+      ]
+    },
+    {
+      "slug": "gpu-hot",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/psalias2006/gpu-hot",
+            "https://github.com/psalias2006/gpu-hot/issues",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/gpu_hot.xml",
+            "https://raw.githubusercontent.com/psalias2006/gpu-hot/main/static/favicon.svg",
+            "https://registry.hub.docker.com/r/ghcr.io/psalias2006/gpu-hot"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/psalias2006/gpu-hot",
+            "https://github.com/psalias2006/gpu-hot/issues",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/gpu_hot.xml",
+            "https://raw.githubusercontent.com/psalias2006/gpu-hot/main/static/favicon.svg",
+            "https://registry.hub.docker.com/r/ghcr.io/psalias2006/gpu-hot"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/psalias2006/gpu-hot",
+            "https://github.com/psalias2006/gpu-hot/issues",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/gpu_hot.xml",
+            "https://raw.githubusercontent.com/psalias2006/gpu-hot/main/static/favicon.svg",
+            "https://registry.hub.docker.com/r/ghcr.io/psalias2006/gpu-hot"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/psalias2006/gpu-hot",
+            "https://github.com/psalias2006/gpu-hot/issues",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/gpu_hot.xml",
+            "https://raw.githubusercontent.com/psalias2006/gpu-hot/main/static/favicon.svg",
+            "https://registry.hub.docker.com/r/ghcr.io/psalias2006/gpu-hot"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/psalias2006/gpu-hot",
+            "https://github.com/psalias2006/gpu-hot/issues",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/gpu_hot.xml",
+            "https://raw.githubusercontent.com/psalias2006/gpu-hot/main/static/favicon.svg",
+            "https://registry.hub.docker.com/r/ghcr.io/psalias2006/gpu-hot"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/psalias2006/gpu-hot",
+            "https://github.com/psalias2006/gpu-hot/issues",
+            "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/gpu_hot.xml",
+            "https://raw.githubusercontent.com/psalias2006/gpu-hot/main/static/favicon.svg",
+            "https://registry.hub.docker.com/r/ghcr.io/psalias2006/gpu-hot"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies MIT License.",
+          "source_urls": [
+            "https://github.com/psalias2006/gpu-hot"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/psalias2006/gpu-hot",
+              "https://github.com/psalias2006/gpu-hot/issues",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/gpu_hot.xml",
+              "https://raw.githubusercontent.com/psalias2006/gpu-hot/main/static/favicon.svg",
+              "https://registry.hub.docker.com/r/ghcr.io/psalias2006/gpu-hot"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/psalias2006/gpu-hot",
+              "https://github.com/psalias2006/gpu-hot/issues",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/gpu_hot.xml",
+              "https://raw.githubusercontent.com/psalias2006/gpu-hot/main/static/favicon.svg",
+              "https://registry.hub.docker.com/r/ghcr.io/psalias2006/gpu-hot"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/psalias2006/gpu-hot",
+              "https://github.com/psalias2006/gpu-hot/issues",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/gpu_hot.xml",
+              "https://raw.githubusercontent.com/psalias2006/gpu-hot/main/static/favicon.svg",
+              "https://registry.hub.docker.com/r/ghcr.io/psalias2006/gpu-hot"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/psalias2006/gpu-hot",
+              "https://github.com/psalias2006/gpu-hot/issues",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/gpu_hot.xml",
+              "https://raw.githubusercontent.com/psalias2006/gpu-hot/main/static/favicon.svg",
+              "https://registry.hub.docker.com/r/ghcr.io/psalias2006/gpu-hot"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/psalias2006/gpu-hot",
+              "https://github.com/psalias2006/gpu-hot/issues",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/gpu_hot.xml",
+              "https://raw.githubusercontent.com/psalias2006/gpu-hot/main/static/favicon.svg",
+              "https://registry.hub.docker.com/r/ghcr.io/psalias2006/gpu-hot"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/psalias2006/gpu-hot",
+              "https://github.com/psalias2006/gpu-hot/issues",
+              "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/gpu_hot.xml",
+              "https://raw.githubusercontent.com/psalias2006/gpu-hot/main/static/favicon.svg",
+              "https://registry.hub.docker.com/r/ghcr.io/psalias2006/gpu-hot"
+            ]
+          }
+        },
+        "categories": [
+          "monitoring-status"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/psalias2006/gpu-hot"
+      ],
+      "confidence": "high",
+      "categories": [
+        "monitoring-status"
+      ]
+    },
+    {
+      "slug": "grabarr",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "GPL-3.0",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://discord.gg/jZWZh5CS6c",
+            "https://github.com/mtrogman/grabarr",
+            "https://hub.docker.com/r/mtrogman/grabarr",
+            "https://raw.githubusercontent.com/mtrogman/grabarr/master/logo.png",
+            "https://raw.githubusercontent.com/mtrogman/unraid_templates/main/templates/grabarr.xml"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://discord.gg/jZWZh5CS6c",
+            "https://github.com/mtrogman/grabarr",
+            "https://hub.docker.com/r/mtrogman/grabarr",
+            "https://raw.githubusercontent.com/mtrogman/grabarr/master/logo.png",
+            "https://raw.githubusercontent.com/mtrogman/unraid_templates/main/templates/grabarr.xml"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://discord.gg/jZWZh5CS6c",
+            "https://github.com/mtrogman/grabarr",
+            "https://hub.docker.com/r/mtrogman/grabarr",
+            "https://raw.githubusercontent.com/mtrogman/grabarr/master/logo.png",
+            "https://raw.githubusercontent.com/mtrogman/unraid_templates/main/templates/grabarr.xml"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://discord.gg/jZWZh5CS6c",
+            "https://github.com/mtrogman/grabarr",
+            "https://hub.docker.com/r/mtrogman/grabarr",
+            "https://raw.githubusercontent.com/mtrogman/grabarr/master/logo.png",
+            "https://raw.githubusercontent.com/mtrogman/unraid_templates/main/templates/grabarr.xml"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://discord.gg/jZWZh5CS6c",
+            "https://github.com/mtrogman/grabarr",
+            "https://hub.docker.com/r/mtrogman/grabarr",
+            "https://raw.githubusercontent.com/mtrogman/grabarr/master/logo.png",
+            "https://raw.githubusercontent.com/mtrogman/unraid_templates/main/templates/grabarr.xml"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://discord.gg/jZWZh5CS6c",
+            "https://github.com/mtrogman/grabarr",
+            "https://hub.docker.com/r/mtrogman/grabarr",
+            "https://raw.githubusercontent.com/mtrogman/grabarr/master/logo.png",
+            "https://raw.githubusercontent.com/mtrogman/unraid_templates/main/templates/grabarr.xml"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies GNU General Public License v3.0.",
+          "source_urls": [
+            "https://github.com/mtrogman/grabarr"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://discord.gg/jZWZh5CS6c",
+              "https://github.com/mtrogman/grabarr",
+              "https://hub.docker.com/r/mtrogman/grabarr",
+              "https://raw.githubusercontent.com/mtrogman/grabarr/master/logo.png",
+              "https://raw.githubusercontent.com/mtrogman/unraid_templates/main/templates/grabarr.xml"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://discord.gg/jZWZh5CS6c",
+              "https://github.com/mtrogman/grabarr",
+              "https://hub.docker.com/r/mtrogman/grabarr",
+              "https://raw.githubusercontent.com/mtrogman/grabarr/master/logo.png",
+              "https://raw.githubusercontent.com/mtrogman/unraid_templates/main/templates/grabarr.xml"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://discord.gg/jZWZh5CS6c",
+              "https://github.com/mtrogman/grabarr",
+              "https://hub.docker.com/r/mtrogman/grabarr",
+              "https://raw.githubusercontent.com/mtrogman/grabarr/master/logo.png",
+              "https://raw.githubusercontent.com/mtrogman/unraid_templates/main/templates/grabarr.xml"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://discord.gg/jZWZh5CS6c",
+              "https://github.com/mtrogman/grabarr",
+              "https://hub.docker.com/r/mtrogman/grabarr",
+              "https://raw.githubusercontent.com/mtrogman/grabarr/master/logo.png",
+              "https://raw.githubusercontent.com/mtrogman/unraid_templates/main/templates/grabarr.xml"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://discord.gg/jZWZh5CS6c",
+              "https://github.com/mtrogman/grabarr",
+              "https://hub.docker.com/r/mtrogman/grabarr",
+              "https://raw.githubusercontent.com/mtrogman/grabarr/master/logo.png",
+              "https://raw.githubusercontent.com/mtrogman/unraid_templates/main/templates/grabarr.xml"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://discord.gg/jZWZh5CS6c",
+              "https://github.com/mtrogman/grabarr",
+              "https://hub.docker.com/r/mtrogman/grabarr",
+              "https://raw.githubusercontent.com/mtrogman/grabarr/master/logo.png",
+              "https://raw.githubusercontent.com/mtrogman/unraid_templates/main/templates/grabarr.xml"
+            ]
+          }
+        },
+        "categories": [
+          "communication",
+          "search",
+          "system-admin-hosting"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/mtrogman/grabarr"
+      ],
+      "confidence": "high",
+      "categories": [
+        "media-servers"
+      ]
+    },
+    {
+      "slug": "grafana-mcp",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/grafana/mcp-grafana",
+            "https://github.com/paulmeier/mcp-grafana-unraid/issues",
+            "https://hub.docker.com/r/grafana/mcp-grafana",
+            "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/icons/mcp-grafana.png",
+            "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/templates/mcp-grafana.xml"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/grafana/mcp-grafana",
+            "https://github.com/paulmeier/mcp-grafana-unraid/issues",
+            "https://hub.docker.com/r/grafana/mcp-grafana",
+            "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/icons/mcp-grafana.png",
+            "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/templates/mcp-grafana.xml"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/grafana/mcp-grafana",
+            "https://github.com/paulmeier/mcp-grafana-unraid/issues",
+            "https://hub.docker.com/r/grafana/mcp-grafana",
+            "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/icons/mcp-grafana.png",
+            "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/templates/mcp-grafana.xml"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/grafana/mcp-grafana",
+            "https://github.com/paulmeier/mcp-grafana-unraid/issues",
+            "https://hub.docker.com/r/grafana/mcp-grafana",
+            "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/icons/mcp-grafana.png",
+            "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/templates/mcp-grafana.xml"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/grafana/mcp-grafana",
+            "https://github.com/paulmeier/mcp-grafana-unraid/issues",
+            "https://hub.docker.com/r/grafana/mcp-grafana",
+            "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/icons/mcp-grafana.png",
+            "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/templates/mcp-grafana.xml"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/grafana/mcp-grafana",
+            "https://github.com/paulmeier/mcp-grafana-unraid/issues",
+            "https://hub.docker.com/r/grafana/mcp-grafana",
+            "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/icons/mcp-grafana.png",
+            "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/templates/mcp-grafana.xml"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies Apache License 2.0.",
+          "source_urls": [
+            "https://github.com/grafana/mcp-grafana"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/grafana/mcp-grafana",
+              "https://github.com/paulmeier/mcp-grafana-unraid/issues",
+              "https://hub.docker.com/r/grafana/mcp-grafana",
+              "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/icons/mcp-grafana.png",
+              "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/templates/mcp-grafana.xml"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/grafana/mcp-grafana",
+              "https://github.com/paulmeier/mcp-grafana-unraid/issues",
+              "https://hub.docker.com/r/grafana/mcp-grafana",
+              "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/icons/mcp-grafana.png",
+              "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/templates/mcp-grafana.xml"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/grafana/mcp-grafana",
+              "https://github.com/paulmeier/mcp-grafana-unraid/issues",
+              "https://hub.docker.com/r/grafana/mcp-grafana",
+              "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/icons/mcp-grafana.png",
+              "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/templates/mcp-grafana.xml"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/grafana/mcp-grafana",
+              "https://github.com/paulmeier/mcp-grafana-unraid/issues",
+              "https://hub.docker.com/r/grafana/mcp-grafana",
+              "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/icons/mcp-grafana.png",
+              "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/templates/mcp-grafana.xml"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/grafana/mcp-grafana",
+              "https://github.com/paulmeier/mcp-grafana-unraid/issues",
+              "https://hub.docker.com/r/grafana/mcp-grafana",
+              "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/icons/mcp-grafana.png",
+              "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/templates/mcp-grafana.xml"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/grafana/mcp-grafana",
+              "https://github.com/paulmeier/mcp-grafana-unraid/issues",
+              "https://hub.docker.com/r/grafana/mcp-grafana",
+              "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/icons/mcp-grafana.png",
+              "https://raw.githubusercontent.com/paulmeier/mcp-grafana-unraid/main/templates/mcp-grafana.xml"
+            ]
+          }
+        },
+        "categories": [
+          "ai-ml",
+          "identity-access",
+          "monitoring-status"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/grafana/mcp-grafana"
+      ],
+      "confidence": "high",
+      "categories": [
+        "developer-tools",
+        "monitoring-status"
+      ]
+    },
+    {
+      "slug": "graph-node",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "Apache License 2.0 or MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "Apache-2.0 OR MIT",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/graphprotocol/graph-node",
+            "https://hub.docker.com/r/graphprotocol/graph-node/",
+            "https://raw.githubusercontent.com/zgorizzo69/unraid-templates/master/graph-node/graph-node.xml",
+            "https://storage.googleapis.com/graph-web/favicon.png"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/graphprotocol/graph-node",
+            "https://hub.docker.com/r/graphprotocol/graph-node/",
+            "https://raw.githubusercontent.com/zgorizzo69/unraid-templates/master/graph-node/graph-node.xml",
+            "https://storage.googleapis.com/graph-web/favicon.png"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/graphprotocol/graph-node",
+            "https://hub.docker.com/r/graphprotocol/graph-node/",
+            "https://raw.githubusercontent.com/zgorizzo69/unraid-templates/master/graph-node/graph-node.xml",
+            "https://storage.googleapis.com/graph-web/favicon.png"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/graphprotocol/graph-node",
+            "https://hub.docker.com/r/graphprotocol/graph-node/",
+            "https://raw.githubusercontent.com/zgorizzo69/unraid-templates/master/graph-node/graph-node.xml",
+            "https://storage.googleapis.com/graph-web/favicon.png"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/graphprotocol/graph-node",
+            "https://hub.docker.com/r/graphprotocol/graph-node/",
+            "https://raw.githubusercontent.com/zgorizzo69/unraid-templates/master/graph-node/graph-node.xml",
+            "https://storage.googleapis.com/graph-web/favicon.png"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/graphprotocol/graph-node",
+            "https://hub.docker.com/r/graphprotocol/graph-node/",
+            "https://raw.githubusercontent.com/zgorizzo69/unraid-templates/master/graph-node/graph-node.xml",
+            "https://storage.googleapis.com/graph-web/favicon.png"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies Apache License 2.0 or MIT License.",
+          "source_urls": [
+            "https://github.com/graphprotocol/graph-node",
+            "https://github.com/graphprotocol/graph-node/blob/master/LICENSE-APACHE",
+            "https://github.com/graphprotocol/graph-node/blob/master/LICENSE-MIT"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/graphprotocol/graph-node",
+              "https://hub.docker.com/r/graphprotocol/graph-node/",
+              "https://raw.githubusercontent.com/zgorizzo69/unraid-templates/master/graph-node/graph-node.xml",
+              "https://storage.googleapis.com/graph-web/favicon.png"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/graphprotocol/graph-node",
+              "https://hub.docker.com/r/graphprotocol/graph-node/",
+              "https://raw.githubusercontent.com/zgorizzo69/unraid-templates/master/graph-node/graph-node.xml",
+              "https://storage.googleapis.com/graph-web/favicon.png"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/graphprotocol/graph-node",
+              "https://hub.docker.com/r/graphprotocol/graph-node/",
+              "https://raw.githubusercontent.com/zgorizzo69/unraid-templates/master/graph-node/graph-node.xml",
+              "https://storage.googleapis.com/graph-web/favicon.png"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/graphprotocol/graph-node",
+              "https://hub.docker.com/r/graphprotocol/graph-node/",
+              "https://raw.githubusercontent.com/zgorizzo69/unraid-templates/master/graph-node/graph-node.xml",
+              "https://storage.googleapis.com/graph-web/favicon.png"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/graphprotocol/graph-node",
+              "https://hub.docker.com/r/graphprotocol/graph-node/",
+              "https://raw.githubusercontent.com/zgorizzo69/unraid-templates/master/graph-node/graph-node.xml",
+              "https://storage.googleapis.com/graph-web/favicon.png"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/graphprotocol/graph-node",
+              "https://hub.docker.com/r/graphprotocol/graph-node/",
+              "https://raw.githubusercontent.com/zgorizzo69/unraid-templates/master/graph-node/graph-node.xml",
+              "https://storage.googleapis.com/graph-web/favicon.png"
+            ]
+          }
+        },
+        "categories": [
+          "ai-ml",
+          "games",
+          "project-task-management"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/graphprotocol/graph-node",
+        "https://github.com/graphprotocol/graph-node/blob/master/LICENSE-APACHE",
+        "https://github.com/graphprotocol/graph-node/blob/master/LICENSE-MIT"
+      ],
+      "confidence": "high",
+      "categories": [
+        "databases",
+        "developer-tools"
+      ]
+    },
+    {
+      "slug": "groly",
+      "review_scope": "partial",
+      "source_model": "open_source",
+      "license": "GNU Affero General Public License v3.0",
+      "license_type": "copyleft",
+      "license_spdx_id": "AGPL-3.0",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://ghcr.io/peterthepeter/groly",
+            "https://github.com/peterthepeter/groly",
+            "https://github.com/peterthepeter/groly/issues",
+            "https://raw.githubusercontent.com/peterthepeter/groly/main/static/icons/icon-512.png",
+            "https://raw.githubusercontent.com/peterthepeter/groly/main/unraid/groly.xml"
+          ]
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://ghcr.io/peterthepeter/groly",
+            "https://github.com/peterthepeter/groly",
+            "https://github.com/peterthepeter/groly/issues",
+            "https://raw.githubusercontent.com/peterthepeter/groly/main/static/icons/icon-512.png",
+            "https://raw.githubusercontent.com/peterthepeter/groly/main/unraid/groly.xml"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://ghcr.io/peterthepeter/groly",
+            "https://github.com/peterthepeter/groly",
+            "https://github.com/peterthepeter/groly/issues",
+            "https://raw.githubusercontent.com/peterthepeter/groly/main/static/icons/icon-512.png",
+            "https://raw.githubusercontent.com/peterthepeter/groly/main/unraid/groly.xml"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://ghcr.io/peterthepeter/groly",
+            "https://github.com/peterthepeter/groly",
+            "https://github.com/peterthepeter/groly/issues",
+            "https://raw.githubusercontent.com/peterthepeter/groly/main/static/icons/icon-512.png",
+            "https://raw.githubusercontent.com/peterthepeter/groly/main/unraid/groly.xml"
+          ]
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://ghcr.io/peterthepeter/groly",
+            "https://github.com/peterthepeter/groly",
+            "https://github.com/peterthepeter/groly/issues",
+            "https://raw.githubusercontent.com/peterthepeter/groly/main/static/icons/icon-512.png",
+            "https://raw.githubusercontent.com/peterthepeter/groly/main/unraid/groly.xml"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://ghcr.io/peterthepeter/groly",
+            "https://github.com/peterthepeter/groly",
+            "https://github.com/peterthepeter/groly/issues",
+            "https://raw.githubusercontent.com/peterthepeter/groly/main/static/icons/icon-512.png",
+            "https://raw.githubusercontent.com/peterthepeter/groly/main/unraid/groly.xml"
+          ]
+        },
+        "license": {
+          "status": "published",
+          "checked_at": "2026-09-30",
+          "confidence": "high",
+          "note": "The official project source identifies GNU Affero General Public License v3.0.",
+          "source_urls": [
+            "https://github.com/peterthepeter/groly"
+          ]
+        }
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://ghcr.io/peterthepeter/groly",
+              "https://github.com/peterthepeter/groly",
+              "https://github.com/peterthepeter/groly/issues",
+              "https://raw.githubusercontent.com/peterthepeter/groly/main/static/icons/icon-512.png",
+              "https://raw.githubusercontent.com/peterthepeter/groly/main/unraid/groly.xml"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://ghcr.io/peterthepeter/groly",
+              "https://github.com/peterthepeter/groly",
+              "https://github.com/peterthepeter/groly/issues",
+              "https://raw.githubusercontent.com/peterthepeter/groly/main/static/icons/icon-512.png",
+              "https://raw.githubusercontent.com/peterthepeter/groly/main/unraid/groly.xml"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://ghcr.io/peterthepeter/groly",
+              "https://github.com/peterthepeter/groly",
+              "https://github.com/peterthepeter/groly/issues",
+              "https://raw.githubusercontent.com/peterthepeter/groly/main/static/icons/icon-512.png",
+              "https://raw.githubusercontent.com/peterthepeter/groly/main/unraid/groly.xml"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://ghcr.io/peterthepeter/groly",
+              "https://github.com/peterthepeter/groly",
+              "https://github.com/peterthepeter/groly/issues",
+              "https://raw.githubusercontent.com/peterthepeter/groly/main/static/icons/icon-512.png",
+              "https://raw.githubusercontent.com/peterthepeter/groly/main/unraid/groly.xml"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://ghcr.io/peterthepeter/groly",
+              "https://github.com/peterthepeter/groly",
+              "https://github.com/peterthepeter/groly/issues",
+              "https://raw.githubusercontent.com/peterthepeter/groly/main/static/icons/icon-512.png",
+              "https://raw.githubusercontent.com/peterthepeter/groly/main/unraid/groly.xml"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://ghcr.io/peterthepeter/groly",
+              "https://github.com/peterthepeter/groly",
+              "https://github.com/peterthepeter/groly/issues",
+              "https://raw.githubusercontent.com/peterthepeter/groly/main/static/icons/icon-512.png",
+              "https://raw.githubusercontent.com/peterthepeter/groly/main/unraid/groly.xml"
+            ]
+          }
+        },
+        "categories": [
+          "ai-ml",
+          "password-managers",
+          "recipes-food"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/peterthepeter/groly"
+      ],
+      "confidence": "high",
+      "categories": [
+        "health-fitness",
+        "recipes-food"
+      ]
+    }
+  ]
+}

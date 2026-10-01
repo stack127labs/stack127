@@ -4,7 +4,7 @@ This is the secret-free index of every active Stack127 environment surface. It
 records names, owners, and consumers only. Never add credential values, token
 fragments, database hosts, project references, or passwords to this document.
 
-Last reconciled: 5 September 2026.
+Last reconciled: 28 September 2026.
 
 ## Rules
 
@@ -32,6 +32,7 @@ Last reconciled: 5 September 2026.
 | `.env.homelab` | `.env.homelab.example` | Homelab host identity and local administration. |
 | `.env.repos` | `.env.repos.example` | Local GitHub CLI and stack127 repo automation. |
 | `.env.affiliate` | `.env.affiliate.example` | Amazon Associates settings and future Creators API credentials. |
+| `.env.search` | `.env.search.example` | Homelab agent access to the stack127 Bing Webmaster, Search Console, and Google Analytics properties. |
 
 The first six populated files were verified as mode `0600` on 20 August 2026.
 `.env.affiliate` was verified as mode `0600` on 4 September 2026.
@@ -57,6 +58,20 @@ Data API and Postgres on connection errors. `SUPABASE_URL` and
 `SUPABASE_SECRET_KEY` are also required by media upload scripts. The
 publishable key is safe for the public reads allowed by existing RLS policies.
 
+### Supabase Management API Tokens
+
+The homelab uses separate `SUPABASE_ACCESS_TOKEN` values for development and
+production. `.env.local` holds `stack127-dev-homelab`, scoped to the managed
+development project. `.env.deploy` holds `stack127-prod-homelab`, scoped to the
+managed production project. Both tokens allow project read/write access and
+expire on 29 September 2027. Organization settings, membership changes,
+organization webhooks, and account-wide SQL snippets are excluded.
+
+These are administrative Management API credentials, separate from project
+publishable and secret API keys. Load the file for the intended project when
+running the Supabase CLI or management scripts. Scripts must load `.env.deploy`
+explicitly. Keep both tokens out of browser bundles and public output.
+
 ### Deployment And Infrastructure
 
 `.env.deploy` contains:
@@ -81,6 +96,7 @@ OVH_DOKPLOY_PASSWORD
 OVH_VPS_Password
 HOSTINGER_Token
 Google_Search_Console
+SUPABASE_ACCESS_TOKEN
 ```
 
 The `STACK127_PRODUCTION_*` values are checked against
@@ -110,6 +126,25 @@ On 20 August 2026, the existing Stack127 and BaseBuddy website records were
 renamed in place to track `stack127.com` and `basebuddy.stack127.com`. Their
 website IDs were preserved so analytics history remains continuous and no
 duplicate property can double-count the redirected domains.
+
+### Search and analytics API access
+
+`.env.search` is an ignored, owner-only homelab file. It records the
+`stack127@proton.me` identity and only these targets: Bing
+`https://stack127.com/`, Search Console `sc-domain:stack127.com`, and
+Google Analytics account `408759499` / property `555030542`. The Bing API key was generated for this account and verified against the
+listed site on 28 September 2026. The Google Cloud OAuth client is configured
+under the same account, its app is in production for personal use, and the
+account-owned offline refresh token was stored on the homelab on 28 September
+2026. The app is unverified, so Google shows a warning during new grants; the
+owner explicitly approved this grant. Google verification is not required for
+this personal-use integration with fewer than 100 users. Bing keys belong to the user, not one
+site; Google OAuth scopes apply to the account, not one property. Agents
+must target only the listed properties and must not enumerate or modify
+other sites. The intended Google scopes are Search Console read/write and
+Analytics read-only. Load this file explicitly for agent tasks; never pass
+its secrets to the public site runtime. Validate the exact property access
+with `node --env-file=.env.search scripts/stack127/search-services/check.mjs`.
 
 ### Homelab
 

@@ -1,11 +1,11 @@
 ---
 name: marker-art-draw
-description: Produce approved marker art figures for stack127 pages, end to end. Writes the *.spec.json files, runs the generator, embeds figures with the MarkerArt component, and verifies the rendered result in both themes. Use when the user approves art proposals or asks to draw, build, add, or update marker art on a page.
+description: Produce marker art for stack127 pages and new tool catalog cards. Writes the *.spec.json files, runs the generator, embeds or registers figures, and verifies the rendered result in both themes. Use when the user approves or requests marker art, or the tool creation pipeline requires card art.
 ---
 
 # Marker Art Draw
 
-Use this skill in the current stack127 workspace to turn approved marker art proposals into live figures. The pipeline is spec first: author the meaning and composition in a spec file, let the generator draw it, and never hand-tune a generated SVG.
+Use this skill in the current stack127 workspace to turn approved marker art proposals or a new tool's Product card art brief into live figures. The tool creation request authorizes its standard card art; use the Product brief without a separate approval pause. The pipeline is spec first: author the meaning and composition in a spec file, let the generator draw it, and never hand-tune a generated SVG.
 
 ## First Checks
 
@@ -40,3 +40,7 @@ Use this skill in the current stack127 workspace to turn approved marker art pro
 ## Homepage card artwork
 
 Every homepage card must have a spec-backed marker drawing in the homepage art registry. Never substitute an enlarged Lucide icon, another interface icon, a traced icon, or an ad hoc SVG for marker art. Small identity icons beside titles are separate and may remain. Add missing hardware subjects to the shared marker icon library, generate the spec artifacts, and inspect them at card size in both themes. The homepage art coverage test must pass before handoff.
+
+## New tool catalog card artwork
+
+Use the Product section of `content_docs/<slug>/tool-spec.md` as the brief. Write a `toolSpot` spec in `app/(site)/(catalogs)/_components/art/` with a tool-specific id and conceptual source, generate the `.svg` and `.ts`, and register its key in `lib/tool-catalog-art.ts`. The integration worker applies that key to the development card and checks the real catalog card at desktop and mobile size in dark and light themes. A new tool is not complete with the `icon` fallback. Article figures are optional and separate from this card drawing.

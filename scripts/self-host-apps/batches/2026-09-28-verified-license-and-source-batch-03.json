@@ -1,0 +1,195 @@
+{
+  "reviewed_at": "2026-09-28",
+  "scope": "Corrected license, source model, publisher, official documentation, and selected install links after checking each official project repository and documentation site.",
+  "apps": [
+    {
+      "slug": "frp",
+      "review_scope": "partial",
+      "changes": {
+        "summary": "FRP forwards traffic to services behind NAT or a firewall.",
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "website_url": "https://gofrp.org/en/",
+        "docs_url": "https://gofrp.org/en/docs/",
+        "install_docs_url": "https://gofrp.org/en/docs/setup/",
+        "publisher_name": "fatedier",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/fatedier/frp",
+        "pricing_model": "free"
+      },
+      "expected": {
+        "summary": "FRP client and server for creating reverse proxies across network boundaries.",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "website_url": null,
+        "docs_url": "https://github.com/fatedier/frp#readme",
+        "install_docs_url": "https://github.com/fatedier/frp#readme",
+        "publisher_name": "井沢川秃顶版",
+        "publisher_type": "community",
+        "publisher_url": "https://hub.docker.com/u/homelabo",
+        "pricing_model": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/fatedier/frp",
+        "https://github.com/fatedier/frp/blob/dev/LICENSE",
+        "https://gofrp.org/en/",
+        "https://gofrp.org/en/docs/",
+        "https://gofrp.org/en/docs/setup/"
+      ]
+    },
+    {
+      "slug": "homebridge",
+      "review_scope": "partial",
+      "changes": {
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "docs_url": "https://github.com/homebridge/homebridge/wiki",
+        "install_docs_url": "https://github.com/homebridge/homebridge/wiki/Install-Homebridge-on-Docker",
+        "pricing_model": "free"
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "docs_url": "https://github.com/homebridge/homebridge/issues",
+        "install_docs_url": "https://github.com/homebridge/homebridge/issues",
+        "pricing_model": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/homebridge/homebridge",
+        "https://github.com/homebridge/homebridge/blob/latest/LICENSE",
+        "https://github.com/homebridge/homebridge/wiki",
+        "https://github.com/homebridge/homebridge/wiki/Install-Homebridge-on-Docker",
+        "https://homebridge.io/"
+      ]
+    },
+    {
+      "slug": "llama-cpp",
+      "review_scope": "partial",
+      "changes": {
+        "summary": "Runs large language and vision-language models across a wide range of hardware.",
+        "source_model": "open_source",
+        "license": "MIT License",
+        "license_spdx_id": "MIT",
+        "license_type": "permissive",
+        "website_url": "https://llama.app/",
+        "docs_url": "https://github.com/ggml-org/llama.cpp#documentation",
+        "install_docs_url": "https://github.com/ggml-org/llama.cpp/blob/master/docs/docker.md",
+        "docker_url": "https://github.com/ggml-org/llama.cpp/pkgs/container/llama.cpp",
+        "docker_image": "ghcr.io/ggml-org/llama.cpp:server",
+        "docker_support": "official",
+        "pricing_model": "free"
+      },
+      "expected": {
+        "summary": "Inference of Meta's LLaMA model (and others) in pure C/C++.",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "MIT",
+        "license_type": "permissive",
+        "website_url": null,
+        "docs_url": "https://github.com/ggml-org/llama.cpp/issues",
+        "install_docs_url": "https://github.com/ggml-org/llama.cpp/issues",
+        "docker_url": "https://registry.hub.docker.com/r/ghcr.io/ggml-org/llama.cpp",
+        "docker_image": "ghcr.io/ggml-org/llama.cpp:full",
+        "docker_support": "community",
+        "pricing_model": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/ggml-org/llama.cpp",
+        "https://github.com/ggml-org/llama.cpp/blob/master/LICENSE",
+        "https://github.com/ggml-org/llama.cpp/blob/master/docs/docker.md",
+        "https://github.com/ggml-org/llama.cpp/pkgs/container/llama.cpp",
+        "https://llama.app/"
+      ]
+    },
+    {
+      "slug": "rancher",
+      "review_scope": "partial",
+      "changes": {
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "website_url": "https://www.rancher.com/",
+        "docs_url": "https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade/",
+        "install_docs_url": "https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade/other-installation-methods/rancher-on-a-single-node-with-docker/",
+        "docker_support": "official",
+        "publisher_name": "SUSE",
+        "publisher_type": "company",
+        "publisher_url": "https://www.suse.com/"
+      },
+      "expected": {
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "website_url": null,
+        "docs_url": "https://rancher.com/docs/rancher/v2.x/en/installation/other-installation-methods/single-node-docker/",
+        "install_docs_url": "https://rancher.com/docs/rancher/v2.x/en/installation/other-installation-methods/single-node-docker/",
+        "docker_support": "community",
+        "publisher_name": "rancher",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/rancher"
+      },
+      "data_source_urls": [
+        "https://github.com/rancher/rancher",
+        "https://github.com/rancher/rancher/blob/main/LICENSE",
+        "https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade/",
+        "https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade/installation-requirements/",
+        "https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade/other-installation-methods/rancher-on-a-single-node-with-docker/",
+        "https://www.rancher.com/",
+        "https://www.suse.com/"
+      ]
+    },
+    {
+      "slug": "vllm",
+      "review_scope": "partial",
+      "changes": {
+        "summary": "Serves large language models through a high-throughput, OpenAI-compatible API.",
+        "source_model": "open_source",
+        "license": "Apache License 2.0",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "website_url": "https://vllm.ai/",
+        "docs_url": "https://docs.vllm.ai/en/latest/",
+        "install_docs_url": "https://docs.vllm.ai/en/latest/getting_started/installation/",
+        "docker_url": "https://hub.docker.com/r/vllm/vllm-openai",
+        "docker_image": "vllm/vllm-openai:latest",
+        "docker_support": "official",
+        "publisher_name": "vLLM Project",
+        "pricing_model": "free"
+      },
+      "expected": {
+        "summary": "VLLM is a high-throughput and memory-efficient inference and serving engine for LLMs with an OpenAI-compatible API.",
+        "source_model": "source_available",
+        "license": "No license file declared (all rights reserved by default)",
+        "license_spdx_id": "Apache-2.0",
+        "license_type": "permissive",
+        "website_url": "https://github.com/vllm-project/vllm",
+        "docs_url": "https://apps.truenas.com/catalog/vllm_community/",
+        "install_docs_url": "https://apps.truenas.com/catalog/vllm_community/",
+        "docker_url": null,
+        "docker_image": null,
+        "docker_support": "none",
+        "publisher_name": "vllm-project",
+        "pricing_model": "unknown"
+      },
+      "data_source_urls": [
+        "https://github.com/vllm-project/vllm",
+        "https://github.com/vllm-project/vllm/blob/main/LICENSE",
+        "https://docs.vllm.ai/en/latest/",
+        "https://docs.vllm.ai/en/latest/deployment/docker/",
+        "https://docs.vllm.ai/en/latest/getting_started/installation/",
+        "https://hub.docker.com/r/vllm/vllm-openai",
+        "https://vllm.ai/"
+      ]
+    }
+  ]
+}
