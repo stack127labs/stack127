@@ -19,7 +19,7 @@ node scripts/stack127/database/rebuild-development.mjs --apply --copy --verify
 node scripts/stack127/database/rebuild-development.mjs --apply --migrate
 ```
 
-The copy keeps development-only registry rows and the publication flags for
+The copy keeps development-only registry rows and the publication flags and dates for
 `platform-fees`, `ad-networks`, their child routes, and `launch-directories`.
 These routes can stay visible in development while unpublished in production.
 The six draft directory tables are left alone, so unfinished directory records
@@ -70,7 +70,7 @@ Production history is never changed by this script.
 
 The import preserves production IDs and timestamps. It compares counts and
 complete row content before committing. Only the draft routes' publication
-flags are allowed to differ. Their original preview flags are also checked
+flags, publication dates, and update dates are allowed to differ. Their original preview settings are also checked
 before commit. Development-only registry rows remain intact.
 
 Foreign keys are checked against the complete imported dataset. Trigger states,

@@ -5,22 +5,27 @@ import { planForwardMigrations, preserveDevelopmentPublication } from './rebuild
 
 test('development previews survive production introducing unpublished draft registry rows', () => {
   const production = [
-    { slug: 'platform-fees', is_published: false, published_at: null, label: 'Current fee directory' },
+    { slug: 'platform-fees', is_published: false, published_at: null, updated_at: null, label: 'Current fee directory' },
     { slug: 'platform-fees/app-stores', is_published: false, published_at: null },
     { slug: 'launch-directories', is_published: false, published_at: null },
     { slug: 'ad-networks', is_published: false, published_at: null },
     { slug: 'ad-networks/google-adsense', is_published: false, published_at: null },
     { slug: 'self-host-apps', is_published: true, published_at: 'production-date' },
   ];
-  const development = production.map((row) => ({ ...row, is_published: row.slug !== 'self-host-apps', published_at: 'preview-date', label: 'Outdated local title' }));
+  const development = production.map((row) => ({ ...row, is_published: row.slug !== 'self-host-apps', published_at: '2026-09-28T17:07:36Z', updated_at: '2026-10-01T04:54:10Z', label: 'Outdated local title' }));
   const result = preserveDevelopmentPublication(production, development);
   for (const row of result.slice(0, 5)) {
     assert.equal(row.is_published, true);
-    assert.equal(row.published_at, 'preview-date');
+    assert.equal(row.published_at, '2026-09-28T17:07:36Z');
+    assert.equal(row.updated_at, '2026-10-01T04:54:10Z');
+    assert.ok(row.updated_at >= row.published_at);
   }
   assert.equal(result[0].label, 'Current fee directory');
   assert.deepEqual(result[5], production[5]);
   assert.equal(production[0].is_published, false);
+  const unpublished = preserveDevelopmentPublication(production, [{ slug: 'platform-fees', is_published: false, published_at: null, updated_at: null }]);
+  assert.equal(unpublished[0].published_at, null);
+  assert.equal(unpublished[0].updated_at, null);
 });
 
 test('old missing production migrations and retired development versions stop migration before SQL replay', () => {

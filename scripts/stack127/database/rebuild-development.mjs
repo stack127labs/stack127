@@ -11,7 +11,7 @@ export function preserveDevelopmentPublication(productionRows, developmentRows) 
   const previews = new Map(developmentRows.filter((row) => isDraftRoute(row.slug)).map((row) => [row.slug, row]));
   return productionRows.map((row) => {
     const preview = previews.get(row.slug);
-    return preview ? { ...row, is_published: preview.is_published, published_at: preview.published_at } : row;
+    return preview ? { ...row, is_published: preview.is_published, published_at: preview.published_at, updated_at: preview.updated_at } : row;
   });
 }
 
@@ -271,7 +271,7 @@ async function main() {
 
   function verificationPayload(name) {
     return name === 'stack127_pages'
-      ? "case when slug in ('ad-networks','launch-directories','platform-fees') or slug like 'platform-fees/%' or slug like 'ad-networks/%' then to_jsonb(record)-'is_published'-'published_at' else to_jsonb(record) end"
+      ? "case when slug in ('ad-networks','launch-directories','platform-fees') or slug like 'platform-fees/%' or slug like 'ad-networks/%' then to_jsonb(record)-'is_published'-'published_at'-'updated_at' else to_jsonb(record) end"
       : 'to_jsonb(record)';
   }
 
@@ -280,7 +280,7 @@ async function main() {
       const current = new Map((await target.query('select to_jsonb(record) payload from public.stack127_pages record where slug=any($1::text[])', [expectedDraftPages.map((row) => row.slug)])).rows.map(({payload}) => [payload.slug,payload]));
       for (const expected of expectedDraftPages) {
         const actual = current.get(expected.slug);
-        if (!actual || actual.is_published !== expected.is_published || actual.published_at !== expected.published_at) throw new Error(`Development preview was not preserved: ${expected.slug}`);
+        if (!actual || actual.is_published !== expected.is_published || actual.published_at !== expected.published_at || actual.updated_at !== expected.updated_at) throw new Error(`Development preview was not preserved: ${expected.slug}`);
       }
     }
     const productionSlugs = (await source.query('select slug from public.stack127_pages')).rows.map((row) => row.slug);
