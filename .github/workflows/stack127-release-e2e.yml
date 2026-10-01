@@ -145,7 +145,11 @@ jobs:
             ${{ steps.image.outputs.image }}:${{ env.RELEASE_SHA }}
             ${{ steps.image.outputs.image }}:production
           secret-files: stack127-database-env=.env.database
-          build-args: STACK127_BUILD_SHA=${{ env.RELEASE_SHA }}
+          build-args: |
+            STACK127_BUILD_SHA=${{ env.RELEASE_SHA }}
+            GOOGLE_ANALYTICS_ID=${{ vars.GOOGLE_ANALYTICS_ID || 'G-ZJNG8SCGE1' }}
+            UMAMI_URL=${{ vars.UMAMI_URL || 'https://umami.ravitejaknts.com' }}
+            UMAMI_WEBSITE_ID=${{ vars.UMAMI_WEBSITE_ID || 'ff47ea40-04e6-4a74-b4cc-e420d28433d3' }}
           cache-from: type=gha,scope=stack127-production-web
           cache-to: type=gha,mode=min,scope=stack127-production-web
 

@@ -122,6 +122,10 @@ Google Analytics tag and needs only the Umami URL and website ID for self-hosted
 analytics. The Google measurement ID is public configuration, not a credential.
 The Umami username and password are administrative credentials and must not be
 passed to the app.
+The production workflow also passes `GOOGLE_ANALYTICS_ID`, `UMAMI_URL`, and
+`UMAMI_WEBSITE_ID` to the Docker builder as public configuration. Static pages
+need these values when their HTML is built. Repository variables can override
+the workflow defaults. Administrative analytics credentials stay out of builds.
 On 20 August 2026, the existing Stack127 and BaseBuddy website records were
 renamed in place to track `stack127.com` and `basebuddy.stack127.com`. Their
 website IDs were preserved so analytics history remains continuous and no

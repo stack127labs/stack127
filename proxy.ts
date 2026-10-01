@@ -10,6 +10,11 @@ export async function proxy(request: NextRequest) {
   const userQuery = new URLSearchParams(request.nextUrl.search);
   userQuery.delete("_rsc");
 
+  // Analytics collection is an API endpoint, not a published page.
+  if (pathname === "/vitals/api/send") {
+    return NextResponse.next();
+  }
+
   if (!pathname.startsWith("/api/") && pathname !== "/sitemap.xml" && pathname !== "/robots.txt" && pathname !== "/publication-not-found" &&
     !(process.env.NODE_ENV === "development" && pathname === "/components-ui")) {
     const published = await getExactPublishedPage(slugFromPathname(pathname));

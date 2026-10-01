@@ -21,14 +21,17 @@ type Gtag = (...args: unknown[]) => void;
 
 declare global {
   interface Window {
-    dataLayer?: unknown[][];
+    dataLayer?: unknown[];
     gtag?: Gtag;
   }
 }
 
 function getGtag() {
   window.dataLayer = window.dataLayer ?? [];
-  window.gtag = window.gtag ?? ((...args: unknown[]) => window.dataLayer?.push(args));
+  // Google reads gtag commands as Arguments objects rather than arrays.
+  window.gtag = window.gtag ?? function gtag() {
+    window.dataLayer?.push(arguments);
+  };
   return window.gtag;
 }
 
