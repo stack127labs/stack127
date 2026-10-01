@@ -3,10 +3,10 @@ import { notFound } from 'next/navigation';
 import { StatePanel } from '@/app/ui/state-panel';
 import { getRequiredPublishedPage } from '@/lib/page-registry';
 import { getFeeDirectory } from '@/lib/platform-fees/queries';
-import { filterDirectory, sectionCheckedAt, type FeeDirectory } from '@/lib/platform-fees/model';
+import { filterDirectory, sectionCheckedAt } from '@/lib/platform-fees/model';
 import { sectionPath, sectionSlug } from '@/lib/platform-fees/section-routes';
 import { FeeFilters } from '../filters';
-import { FeeShell, FeeUnavailable, FeeSourceList, SectionTile } from '../components';
+import { FeeShell, FeeSourceList, SectionTile } from '../components';
 import { FeeSources } from '../sources';
 import { FeeCard } from '../fee-card';
 import styles from '../page.module.css';
@@ -21,12 +21,8 @@ export default async function FeeSectionPage({ params, searchParams }: {
 }) {
   const { section: slug } = await params;
   await getRequiredPublishedPage(`platform-fees/${slug}`);
-  let directory: FeeDirectory;
-  try {
-    directory = await getFeeDirectory();
-  } catch {
-    return <FeeUnavailable />;
-  }
+  // A failed load must surface as an error, never as a cacheable page.
+  const directory = await getFeeDirectory();
   const section = directory.sections.find(section => sectionSlug(section.id) === slug);
   if (!section) notFound();
   const parameters = await searchParams;

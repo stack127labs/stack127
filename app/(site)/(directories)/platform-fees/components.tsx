@@ -11,7 +11,6 @@ import { PageCanvas } from '@/app/ui/site/page-canvas';
 import { EntryHero } from '@/app/ui/site/entry-hero';
 import { PageHeader } from '@/app/ui/site/page-header';
 import { PageTitleIcon } from '@/app/ui/site/page-title-icon';
-import { StatePanel } from '@/app/ui/state-panel';
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from '@/app/ui/site/sidebar-panel';
 import { sectionGroups, sectionFeeRange, type FeeEntry, type FeeSection } from '@/lib/platform-fees/model';
 import { sectionPath } from '@/lib/platform-fees/section-routes';
@@ -78,14 +77,6 @@ export function SectionTile({ section, entries }: { section: FeeSection; entries
     </span>}
     <span className={styles.arrow} aria-hidden="true">→</span>
   </Link>;
-}
-
-export function FeeUnavailable() {
-  return <AppShell mainLabel="Platform fees"><PageCanvas flow>
-    <StatePanel state="error" title="Platform fees are temporarily unavailable" action={<Link href="/platform-fees">Try again</Link>}>
-      <p>Please try again in a moment.</p>
-    </StatePanel>
-  </PageCanvas></AppShell>;
 }
 
 export function FeeSourceList({ entries, section }: { entries: FeeEntry[]; section: FeeSection }) {

@@ -1,9 +1,11 @@
 import 'server-only';
-import { cache } from 'react';
+import { unstable_cache } from 'next/cache';
 import { getPool } from '@/lib/db';
 import { validateDirectory, type FeeDirectory, type FeeEntry, type FeeSection } from './model';
 
-export const getFeeDirectory = cache(async (): Promise<FeeDirectory> => {
+// Cached across requests so a visit does not reload all 543 entries. Next skips
+// caching entries over 2 MB, so keep the directory data below that size.
+export const getFeeDirectory = unstable_cache(async (): Promise<FeeDirectory> => {
   const pool = getPool();
   const [sections, entries] = await Promise.all([
     pool.query<FeeSection>('select * from public.platform_fee_sections order by sort_order'),
@@ -15,4 +17,4 @@ export const getFeeDirectory = cache(async (): Promise<FeeDirectory> => {
   };
   validateDirectory(data);
   return data;
-});
+}, ['stack127-platform-fees'], { revalidate: 86400, tags: ['stack127-platform-fees'] });

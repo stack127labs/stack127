@@ -3,10 +3,10 @@ import { redirect } from 'next/navigation';
 import { StatePanel } from '@/app/ui/state-panel';
 import { getRequiredPublishedPage } from '@/lib/page-registry';
 import { getFeeDirectory } from '@/lib/platform-fees/queries';
-import { filterDirectory, sectionGroups, type FeeDirectory } from '@/lib/platform-fees/model';
+import { filterDirectory, sectionGroups } from '@/lib/platform-fees/model';
 import { sectionPath, sectionSlug } from '@/lib/platform-fees/section-routes';
 import { FeeFilters } from './filters';
-import { FeeShell, FeeUnavailable, SectionTile } from './components';
+import { FeeShell, SectionTile } from './components';
 import styles from './page.module.css';
 
 export default async function PlatformFeesPage({ searchParams }: {
@@ -15,12 +15,8 @@ export default async function PlatformFeesPage({ searchParams }: {
   await getRequiredPublishedPage('platform-fees');
   const params = await searchParams;
   const query = typeof params.q === 'string' ? params.q.trim().slice(0, 160) : '';
-  let directory: FeeDirectory;
-  try {
-    directory = await getFeeDirectory();
-  } catch {
-    return <FeeUnavailable />;
-  }
+  // A failed load must surface as an error, never as a cacheable page.
+  const directory = await getFeeDirectory();
   const selected = directory.sections.find(section => section.id === params.section || sectionSlug(section.id) === params.section);
   if (selected) redirect(`${sectionPath(selected.id)}${query ? `?q=${encodeURIComponent(query)}` : ''}`);
   const matches = query ? filterDirectory(directory, query, '') : null;
