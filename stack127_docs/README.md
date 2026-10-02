@@ -1,23 +1,22 @@
 # stack127 docs
 
-This folder is the current operating truth for the repository. Change these documents when the
-system changes. Do not preserve a diary inside them.
+This folder describes how the repository works today. When the system changes, change these docs. Don't keep a diary in them.
 
-Keep current decisions in the relevant operating doc. Page-specific plans belong in `content_docs/<slug>/`.
+Keep each current decision in the operating doc it belongs to. Page-specific plans and docs go in `content_docs/<page-slug>/`, not here.
 
-- [product-direction.md](product-direction.md): agreed audience, offerings, revenue model, URL structure, and future work for the broader tools and directories website.
-- `design-system.md`: visual tokens and UI rules.
-- [shared-ui.md](shared-ui.md): shared components, the development-only Components UI gallery at `/components-ui`, and Markdown syntax for content blocks and charts.
-- `page-families.md`: the shared structure for catalogs, courses, tools, references, info pages, and legal pages.
-- `tool-pages.md`: tool-page tables, Markdown ownership, public dates, versions, and reviewed update commands.
-- `stack127-repos.md`: boundaries, inventory, automation, and revision tracking for repositories owned by stack127.
-- `brand-assets.md`: preserved logo originals, production variants, favicon choice, and regeneration workflow.
-- [writing-style.md](writing-style.md): the only writing style guide, including visual choices, SEO wording, and editing.
-- `repo-structure.md`: docs, scripts, page ownership, and environment conventions.
-- `homelab-development.md`: local development and remote Tailscale previews from the homelab.
-- `seo.md`: canonicals, sitemap, robots, structured data, and indexing rules.
-- `rdap.md`: shared registration-data engine contract for the planned `/domain-tools` pages.
-- `ovh-vps-migration.md`: isolated Stack127 VPS migration, IPv6, acceptance, cutover, and rollback runbook.
-- `production-deployment.md`: active production target, preflight, deployment, and verification runbook.
-
-Page-specific docs belong in `content_docs/<page-slug>/`, not here.
+| Doc | What it covers |
+| --- | --- |
+| [product-direction.md](product-direction.md) | Audience, offerings, revenue model, URL structure, and future work for the tools and directories site. |
+| `design-system.md` | Visual tokens and UI rules. |
+| [shared-ui.md](shared-ui.md) | Shared components, the development-only Components UI gallery at `/components-ui`, and Markdown syntax for content blocks and charts. |
+| `page-families.md` | Shared structure for catalogs, courses, tools, references, info pages, and legal pages. |
+| `tool-pages.md` | Tool page tables, Markdown ownership, public dates, versions, and reviewed update commands. |
+| `stack127-repos.md` | Boundaries, inventory, automation, and revision tracking for repositories stack127 owns. |
+| `brand-assets.md` | Logo originals, production variants, favicon choice, and how to regenerate them. |
+| [writing-style.md](writing-style.md) | The only writing style guide, including visual choices, SEO wording, and editing. |
+| `repo-structure.md` | Docs, scripts, page ownership, and environment conventions. |
+| `homelab-development.md` | Local development and remote Tailscale previews from the homelab. |
+| `seo.md` | Canonicals, sitemap, robots, structured data, and indexing rules. |
+| `rdap.md` | Shared registration data engine contract for the planned `/domain-tools` pages. |
+| `ovh-vps-migration.md` | Runbook for moving stack127 to its own OVH VPS: IPv6, acceptance, cutover, and rollback. |
+| `production-deployment.md` | Active production target, preflight, deployment, and verification runbook. |

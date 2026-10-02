@@ -5,6 +5,7 @@ export const homePageSlugs = [
   "epp-status-codes",
   "keyboard-shortcuts",
   "labs",
+  "platform-fees",
   "privacy",
   "self-host-apps",
   "self-hosting-for-beginners",

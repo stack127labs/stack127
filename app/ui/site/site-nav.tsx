@@ -17,18 +17,18 @@ export function SiteNav() {
           <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
             ·
           </span>
-          <Link className={styles.secondaryLink} href="/dns-tools">dns tools</Link>
+          <Link className={styles.secondaryLink} href="/kdp-tools">kdp tools</Link>
+          <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
+            ·
+          </span>
+          <Link className={styles.secondaryLink} href="/saas-tools">
+            saas tools
+          </Link>
           <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
             ·
           </span>
           <Link className={styles.secondaryLink} href="/domain-tools">
             domain tools
-          </Link>
-          <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
-            ·
-          </span>
-          <Link className={styles.secondaryLink} href="/storage-tools">
-            storage tools
           </Link>
           <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
             ·

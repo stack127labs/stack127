@@ -1,17 +1,16 @@
-# Stack127 Repo Structure
+# stack127 repo structure
 
-Stack127 is organized by page so the site can grow without mixing docs, scripts, and data workflows.
+The repo is organized by page. That way the site can grow without mixing docs, scripts, and data workflows.
 
 ## Pages
 
-All normal pages are repo-owned Next.js routes under `app/`.
+Every normal page is a repo-owned Next.js route under `app/`.
 
-Routes remain repo-owned. `stack127_pages` controls publication and SEO, while family tables may own
-structured page data. Interactive tool code stays under `app/(site)/(tools)/`; tool titles,
-introductions, supporting Markdown, and version records live in `stack127_tool_pages`. See
-`stack127_docs/tool-pages.md` for the ownership boundary and update commands.
+Routes stay in the repo. `stack127_pages` controls publication and SEO. Family tables may own structured page data.
 
-Page source is grouped by job without changing URLs:
+Interactive tool code stays under `app/(site)/(tools)/`. Tool titles, introductions, supporting Markdown, and version records live in `stack127_tool_pages`. See `stack127_docs/tool-pages.md` for who owns what and the update commands.
+
+Page source is grouped by job. The groups don't change URLs.
 
 ```text
 app/(site)/(catalogs)/    # collections of stack127-owned pages
@@ -22,22 +21,19 @@ app/(site)/(references)/  # stable facts, codes, and comparisons
 app/(site)/(tools)/       # calculators, lookups, and generators
 ```
 
-Shared components live in `app/ui/`, grouped by use. Page data and one-off interactions stay with
-their route. Generated page art stays beside its page.
+Shared components live in `app/ui/`, grouped by use. Page data and one-off interactions stay with their route. Generated page art stays beside its page.
 
-Catalogs contain links to stack127-owned pages. Directories contain third-party software and
-hardware records. References contain stable facts, codes, and comparisons. Do not place
-`/epp-status-codes`, `/tld-directory`, or another reference under `(tools)`.
+| Group | Contains |
+| --- | --- |
+| Catalogs | Links to stack127-owned pages. |
+| Directories | Third-party software and hardware records. |
+| References | Stable facts, codes, and comparisons. |
 
-## Page Docs
+Don't put `/epp-status-codes`, `/tld-directory`, or any other reference under `(tools)`.
 
-Page docs live at:
+## Page docs
 
-```text
-content_docs/<page-slug>/
-```
-
-Examples:
+Page docs live in `content_docs/<page-slug>/`. For example:
 
 ```text
 content_docs/self-host-apps/
@@ -45,48 +41,35 @@ content_docs/kdp-payment-date-calculator/
 content_docs/self-hosting-for-beginners/
 ```
 
-The folder name should match the page slug so related docs are easy to find.
-Older tool folders may still contain research and handoff plans from before the single
-`tool-spec.md` workflow. Use the current source and [shared-ui.md](shared-ui.md) for component paths.
+Match the folder name to the page slug, so related docs are easy to find.
 
-## Sitewide Docs
+Older tool folders may still hold research and handoff plans from before the single `tool-spec.md` workflow. For component paths, use the current source and [shared-ui.md](shared-ui.md).
 
-Sitewide docs live at:
+## Sitewide docs
 
-```text
-stack127_docs/
-```
+Sitewide docs live in `stack127_docs/`.
 
-Use this folder for design, structure, brand, SEO rules, environment notes, deployment notes, and other global decisions. Keep launch SEO rules in `stack127_docs/seo.md`.
+Use this folder for design, structure, brand, SEO rules, environment notes, deployment notes, and other global decisions. Launch SEO rules go in `stack127_docs/seo.md`.
 
-Update the relevant operating doc when a decision changes. Git history holds past versions.
+When a decision changes, update the operating doc it belongs to. Git history keeps past versions.
 
-The live Cloudflare, DNS, caching, and origin-safety setup is recorded in `stack127_docs/cloudflare.md`.
+The live Cloudflare, DNS, caching, and origin safety setup is in `stack127_docs/cloudflare.md`.
 
 ## Scripts
 
-Page scripts live at:
+| Kind | Location |
+| --- | --- |
+| Page scripts | `scripts/<page-slug>/` |
+| Sitewide scripts | `scripts/stack127/` |
+| Reviewed tool page database changes | `scripts/stack127/tool-pages/` |
+| stack127-owned repository automation | `scripts/stack127/repos/`, with its scaffold in `templates/stack127-tool-repo/` |
+| Throwaway scripts and generated review files | `/tmp/stack127/` |
 
-```text
-scripts/<page-slug>/
-```
+Keep only durable scripts and reviewed source data in the repo. Third-party GitHub project data is a separate database concern.
 
-Put throwaway scripts and generated review files under `/tmp/stack127/`. Keep only durable scripts
-and reviewed source data in the repository.
+List only durable scripts in `package.json`. Don't add one-off scripts there.
 
-Sitewide scripts live at:
-
-```text
-scripts/stack127/
-```
-
-Reviewed tool-page database mutations live under `scripts/stack127/tool-pages/`. stack127-owned
-repository automation lives under `scripts/stack127/repos/`; its scaffold is
-`templates/stack127-tool-repo/`. Third-party GitHub project data remains a separate database concern.
-
-Only durable scripts should be listed in `package.json`. Avoid adding one-off scripts there.
-
-Package script names should include the page slug where possible:
+Include the page slug in package script names where you can:
 
 ```text
 self-host-apps:refresh-github
@@ -103,47 +86,36 @@ skills/self-host-apps/<skill-name>/
 skills/stack127/tools/<skill-name>/
 ```
 
-Examples:
+For example:
 
 ```text
 skills/self-host-apps/enrichment/
 skills/stack127/tools/stack127-tool-backend/
 ```
 
-Sitewide skills live at:
+Sitewide skills live in `skills/stack127/<skill-name>/`.
 
-```text
-skills/stack127/<skill-name>/
-```
+The repo copy is canonical. If a skill also needs global Codex discovery, install, copy, or symlink it from the repo version. Don't edit the global copy directly.
 
-The repo copy is canonical. If a skill also needs to be available through global Codex discovery, install, copy, or symlink the global skill from the repo version instead of editing the global copy directly.
+## Environment files
 
-## Environment Files
+Split env files by concern:
 
-Use split env files by concern:
+| File | Holds |
+| --- | --- |
+| `.env.local` | Managed development Supabase values. It must not point to a local Docker Supabase stack. |
+| `.env.database` | Production database values. Include the production `DATABASE_URL`. Supabase URL and key values can live here too if a feature uses Supabase APIs. |
+| `.env.deploy` | The explicit OVH production identity, plus Cloudflare, Dokploy, SSH, and deploy automation values. It must not contain generic legacy `VPS_*` keys or the Hostinger Dokploy URL. |
+| `.env.analytics` | Analytics values, such as the self-hosted Umami URL and website ID. |
+| `.env.homelab` | Homelab host and local administration values. |
+| `.env.repos` | Local GitHub CLI and stack127 repo automation values. |
 
-```text
-.env.local
-.env.database
-.env.deploy
-.env.analytics
-.env.homelab
-.env.repos
-```
+Next.js reads its standard env files automatically, including `.env.local`. It doesn't read custom split files such as `.env.database` or `.env.deploy`. Production deploy tooling has to pass those values into the runtime.
 
-- `.env.local`: managed development Supabase values. It must not point to a local Docker Supabase stack.
-- `.env.database`: production database values. It should include the production `DATABASE_URL`; Supabase URL/key values can also live here if a feature uses Supabase APIs.
-- `.env.deploy`: the explicit OVH production identity plus Cloudflare, Dokploy, SSH, and deploy automation values. It must not contain generic legacy `VPS_*` keys or the Hostinger Dokploy URL.
-- `.env.analytics`: analytics values such as self-hosted Umami URL and website ID.
-- `.env.homelab`: homelab host and local administration values.
-- `.env.repos`: local GitHub CLI and stack127 repo automation values.
+The machine-readable infrastructure identity is `scripts/stack127/deployment/targets.json`. Run `npm run stack127:deploy:preflight` before every production deployment.
 
-Next.js reads standard Next env files automatically, including `.env.local`. It does not automatically read custom split files such as `.env.database` or `.env.deploy`; production deploy tooling must pass those values into the runtime environment.
+Edit `.env.deploy` one key at a time, using its secret-free example as the schema. Never replace a populated env file wholesale.
 
-The machine-readable infrastructure identity is `scripts/stack127/deployment/targets.json`. Run `npm run stack127:deploy:preflight` before every production deployment. Edit `.env.deploy` surgically and use its secret-free example as the schema; never replace a populated environment file wholesale.
+Every real file has a tracked `*.example` schema. The full key inventory, GitHub Actions scopes, Dokploy runtime lists, and rotation steps are in `stack127_docs/environment-inventory.md`.
 
-Every real file has a tracked `*.example` schema. The complete key inventory,
-GitHub Actions scopes, Dokploy runtime lists, and rotation procedure are in
-`stack127_docs/environment-inventory.md`.
-
-Self-host app scripts load `.env.local` by default for local work. When running production data jobs, run with `NODE_ENV=production` and provide `.env.database`, pass `DATABASE_URL`, or pass `--database-url`.
+Self-host app scripts load `.env.local` by default for local work. For production data jobs, run with `NODE_ENV=production` and either provide `.env.database`, pass `DATABASE_URL`, or pass `--database-url`.

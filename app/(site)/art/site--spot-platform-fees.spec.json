@@ -1,0 +1,11 @@
+{
+  "id": "site--spot-platform-fees",
+  "type": "toolSpot",
+  "takeaway": "A price tag splits two ways: the platform's cut and what you keep.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-02",
+  "width": 140,
+  "height": 120,
+  "seed": 47,
+  "data": { "icon": "tag", "motif": "expand" }
+}

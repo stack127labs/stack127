@@ -1,29 +1,62 @@
 # Tool catalogs
 
-Tool catalogs are server-rendered at `/<slug>` by one route. Notion is a planning space only. The site never reads or syncs Notion for catalog content or tool membership.
+One route server-renders every tool catalog at `/<slug>`.
+
+Notion is only a planning space. The site never reads or syncs Notion for catalog content or tool membership.
 
 ## Data ownership
 
-- `public.stack127_pages` is the only URL, publication, SEO, social image, and public date registry. Set `page_family = 'catalog'` for a tool catalog. A catalog is public only when `is_published = true`.
-- `public.stack127_tool_catalogs` holds the visible heading, introduction, section heading, catalog navigation order, icon key, and approved marker-art keys. Its `page_id` refers to the registry row.
-- `public.stack127_tool_pages` holds each tool's short card name and description plus icon and marker-art keys. These fields work in every catalog that includes the tool.
-- `public.stack127_tool_catalog_memberships` links tools to any number of catalogs. `catalog_rank = 1` is the tool's primary catalog. Use `2`, `3`, and so on for secondary catalogs. `display_order` is the tool's position inside that catalog. Each rank is unique per tool, and each display order is unique per catalog.
+| Table | Owns |
+| --- | --- |
+| `public.stack127_pages` | The only registry for URL, publication, SEO, social image, and public dates. Set `page_family = 'catalog'` for a tool catalog. A catalog is public only when `is_published = true`. |
+| `public.stack127_tool_catalogs` | The visible heading, introduction, section heading, catalog navigation order, icon key, and approved marker art keys. Its `page_id` points to the registry row. |
+| `public.stack127_tool_pages` | Each tool's short card name and description, plus icon and marker art keys. These fields apply in every catalog that includes the tool. |
+| `public.stack127_tool_catalog_memberships` | Links tools to any number of catalogs. |
 
-Only published tool rows render as cards. An unpublished tool may have memberships ready for launch. Publishing it in `stack127_pages` makes its card visible in all assigned catalogs. Keep published catalogs populated with at least one published tool.
+In memberships, `catalog_rank = 1` is the tool's primary catalog. Use `2`, `3`, and so on for secondary catalogs. `display_order` is the tool's position inside that catalog. Each rank is unique per tool, and each display order is unique per catalog.
+
+Only published tool rows render as cards. An unpublished tool can have its memberships ready for launch. Publishing it in `stack127_pages` makes its card show in every assigned catalog.
+
+Keep each published catalog populated with at least one published tool.
 
 ## Navigation
 
-Catalog sidebars list every published catalog in navigation order and highlight the current catalog with the shared active row style and `aria-current="page"`. Every tool page resolves its `catalog_rank = 1` membership and lists all published tools in that catalog, using the same `display_order` as the catalog cards. The current tool uses the same active row style. Secondary memberships add cards to those catalogs but do not change the tool page's sidebar. A published tool should have one primary membership before launch; a tool without one falls back to the catalog list.
+Catalog sidebars list every published catalog in navigation order. They highlight the current catalog with the shared active row style and `aria-current="page"`.
+
+Each tool page finds its `catalog_rank = 1` membership. It lists every published tool in that catalog, in the same `display_order` as the catalog cards. The current tool uses the same active row style.
+
+Secondary memberships add cards to those catalogs, but they don't change the tool page's sidebar.
+
+Give a published tool one primary membership before launch. A tool without one falls back to the catalog list.
 
 ## Editing
 
-1. Create the `stack127_pages` row first. Use a flat unique slug, `page_family = 'catalog'`, a short `label`, reviewed `meta_title` and `meta_description`, appropriate `page_type` such as `CollectionPage`, and public dates when publishing. Do not put SEO metadata in route files.
-2. Add a `stack127_tool_catalogs` row for that page ID. Write a heading in three parts so `heading_mark` gets the site accent. Add the intro, section heading, `home_order` for the homepage catalog section, and approved icon/art keys. See `lib/tool-catalog-icons.ts` and `lib/tool-catalog-art.ts` for supported keys. Use `none` when the catalog has no reviewed marker drawing; its icon remains visible. Unknown art keys show no drawing. The homepage lists every published catalog first in `home_order`, followed by other resource cards. The sidebar uses the registry's `sitemap_priority`.
-3. Add at least one `stack127_tool_catalog_memberships` row. Select the tool's `page_id` from `stack127_tool_pages`, set its next catalog rank, and choose its display order. To move a tool, edit its membership rows. Do not add tool cards to the route code.
-4. Review the tool's `card_name`, `card_description`, `card_icon_key`, and `card_art_key` in `stack127_tool_pages`. New tool rows inherit the registry label and search description until the card is edited. Every new tool gets its own spec-backed `toolSpot` marker drawing, generated before integration and registered in `lib/tool-catalog-art.ts`. Use `icon` only as a temporary fallback for an existing card awaiting reviewed art. Keep card copy short and task focused.
-5. Publish the catalog registry row after its copy and visible tools are ready. It then enters the homepage and sitemap automatically. Check its desktop and mobile page, links, title, canonical, and public dates.
+1. Create the `stack127_pages` row first. Use a flat unique slug, `page_family = 'catalog'`, a short `label`, reviewed `meta_title` and `meta_description`, a fitting `page_type` such as `CollectionPage`, and public dates when publishing. Don't put SEO metadata in route files.
+2. Add a `stack127_tool_catalogs` row for that page ID.
+   - Write the heading in three parts, so `heading_mark` gets the site accent.
+   - Add the intro, section heading, `home_order` for the homepage catalog section, and approved icon and art keys. Supported keys are in `lib/tool-catalog-icons.ts` and `lib/tool-catalog-art.ts`.
+   - Use `none` when the catalog has no reviewed marker drawing. Its icon still shows. Unknown art keys show no drawing.
+   - The homepage lists every published catalog first, in `home_order`, then other resource cards. The sidebar uses the registry's `sitemap_priority`.
+3. Add at least one `stack127_tool_catalog_memberships` row. Pick the tool's `page_id` from `stack127_tool_pages`, set its next catalog rank, and choose its display order. To move a tool, edit its membership rows. Don't add tool cards to the route code.
+4. Review the tool's `card_name`, `card_description`, `card_icon_key`, and `card_art_key` in `stack127_tool_pages`.
+   - New tool rows use the registry label and search description until someone edits the card.
+   - Every new tool gets its own spec-backed `toolSpot` marker drawing. Generate it before integration and register it in `lib/tool-catalog-art.ts`.
+   - Use `icon` only as a temporary fallback for an existing card waiting for reviewed art.
+   - Keep card copy short and focused on the task.
+5. Publish the catalog registry row once its copy and visible tools are ready. It then joins the homepage and sitemap automatically. Check the page at desktop and mobile width, plus its links, title, canonical, and public dates.
 
-For a new tool, the product plan names its primary catalog, any secondary catalogs, and a specific card art brief. The Opus frontend step generates and registers the drawing. The Opus writing session supplies one card name and description shared across catalogs. The integration worker applies the card fields and memberships to development together:
+### Adding a new tool to catalogs
+
+Each step has an owner:
+
+| Step | Owner |
+| --- | --- |
+| Name the primary catalog, any secondary catalogs, and a specific card art brief | Product plan |
+| Generate and register the drawing | Opus frontend step |
+| Write one card name and description, shared across catalogs | Opus writing session |
+| Apply the card fields and memberships to development together | Integration worker |
+
+The integration worker runs:
 
 ```bash
 npm run stack127:tool-page:catalogs:update -- \
@@ -35,16 +68,37 @@ npm run stack127:tool-page:catalogs:update -- \
   --card-art-key dns-lookup
 ```
 
-Review the dry-run result, then add `--apply`. The catalog list is the complete desired list, in rank order. The first entry becomes the primary catalog. An existing catalog keeps its display order; a new placement appends unless `catalog-slug:order` specifies an unused position. Omitting an existing catalog removes that membership, so inspect the full list before applying. The command rejects duplicate or missing catalogs and occupied positions. It reads `.env.local` by default, checks that it differs from production, and rolls back dry runs. Production use is a separate authorized action with `--environment production --confirm stack127-production --apply` after the schema migration exists there. Inspect the actual catalog cards and links after applying.
+Review the dry-run result, then add `--apply`.
 
-The domain catalog has a separate explanatory reference article. EPP status codes and the TLD directory remain reference pages in the publication registry, not tool rows.
+How the command treats the catalog list:
+
+- The list is the complete list you want, in rank order. The first entry becomes the primary catalog.
+- An existing catalog keeps its display order. A new placement goes at the end, unless `catalog-slug:order` names an unused position.
+- Leaving out an existing catalog removes that membership. Check the full list before you apply.
+- It rejects duplicate or missing catalogs and taken positions.
+- It reads `.env.local` by default, checks that it differs from production, and rolls back dry runs.
+
+Production use is a separate authorized action. Run it with `--environment production --confirm stack127-production --apply`, and only after the schema migration exists in production.
+
+After applying, look at the actual catalog cards and links.
+
+The domain catalog has a separate reference article that explains it. EPP status codes and the TLD directory stay reference pages in the publication registry. They aren't tool rows.
 
 ## Freshness
 
-Catalog content edits, membership changes, tool card edits, and tool publication changes touch the catalog's public `updated_at`. The existing database revalidation queue receives the catalog slug as a page event. The cache worker invalidates the catalog page, catalog data tags, homepage, and sitemap. A new catalog needs no route or homepage code change.
+These changes touch the catalog's public `updated_at`:
 
-Catalog page events also invalidate the primary-catalog lookup and every published tool page, because changing one catalog can change many tool sidebars. The tool pages are invalidated without warming them all at once. The revalidation endpoint receives paths in batches of at most 200.
+- Catalog content edits.
+- Membership changes.
+- Tool card edits.
+- Tool publication changes.
 
-The development project can lag the repo's migration history. Apply the catalog migration only to the intended managed project, and verify the tool count, primary membership count, visible catalog cards, homepage cards, and cache events before sharing a preview. Production migration and deployment are separate release work.
+The database revalidation queue gets the catalog slug as a page event. The cache worker then invalidates the catalog page, catalog data tags, homepage, and sitemap. A new catalog needs no route or homepage code change.
 
-For a local preview, run `npm run dev` and `npm run stack127:cache:watch:local` as separate background services. The watcher accepts only the managed development project, revalidates through the local signed endpoint every five seconds, and never calls Cloudflare. Stop both services when the preview is no longer needed.
+Catalog page events also invalidate the primary catalog lookup and every published tool page. That's because one catalog change can change many tool sidebars. Tool pages are invalidated without warming them all at once. The revalidation endpoint takes paths in batches of at most 200.
+
+The development project can fall behind the repo's migration history. Apply the catalog migration only to the managed project you mean to change.
+
+Before sharing a preview, check the tool count, primary membership count, visible catalog cards, homepage cards, and cache events. Production migration and deployment are separate release work.
+
+For a local preview, run `npm run dev` and `npm run stack127:cache:watch:local` as separate background services. The watcher only accepts the managed development project. It revalidates through the local signed endpoint every five seconds and never calls Cloudflare. Stop both services when you're done with the preview.

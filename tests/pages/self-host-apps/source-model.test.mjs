@@ -27,7 +27,7 @@ test("self-host apps include open, source-available, and closed-source software"
 test("self-host app data and drawer expose the source model", async () => {
   const data = await read("lib/apps.ts");
   const page = await read("app/(site)/(directories)/self-host-apps/page.tsx");
-  const drawer = await read("app/(site)/(directories)/self-host-apps/directory-app-browser.tsx");
+  const drawer = await read("app/(site)/(directories)/self-host-apps/app-details.tsx");
 
   assert.match(data, /source_model/);
   assert.match(page, /<DirectoryAppBrowser/);

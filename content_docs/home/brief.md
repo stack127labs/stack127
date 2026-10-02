@@ -2,15 +2,15 @@
 
 ## Who is here
 
-A solo builder, indie hacker, content creator, or tech tinkerer has landed without a specific tool in mind, or has heard about stack127 and wants to see what is available. They may be exploring a project, solving a work problem, or learning something new. They should not need a homelab background to understand the site.
+An indie hacker, solo developer, or digital creator has landed without a specific tool in mind, or has heard about stack127 and wants to see what's available. They may be starting a project, pricing a product, or fixing a problem with a site they run.
 
 ## The job
 
-They should identify a useful resource for their current task and reach it in one click. The opening uses the line, "A toolbox and reference hub for indie hackers," followed by a short description of the site's free tools, calculators, directories, and reference data. Start here offers existing paths into domain tools, CLI apps, keyboard shortcuts, and the self-hosting course.
+They should identify a useful resource for their current task and reach it in one click. The opening uses the line, "A toolbox and reference hub for indie hackers," followed by a short description of the site's free tools, calculators, directories, and reference data. Start here offers short questions that link to KDP tools, SaaS tools, platform fees, domain tools, and CLI apps. Each item shows only when its page is on the homepage.
 
 ## Show vs say
 
-Keep the current layout and generated artwork. Use a short introduction and existing published links. Describe the broader audience without presenting future paid tools, ads, or topic landing pages as available.
+Keep the current layout and generated artwork. Use a short introduction and existing published links. Describe the indie hacker audience without presenting future paid tools, ads, or topic landing pages as available.
 
 List every published tool catalog first, then the selected software directories and reference pages. Keep self-host apps, CLI apps, the self-hosting course, and Labs. Hardware directories remain published at their existing URLs, but stay off the homepage cards and sidebar. Do not feature individual tools or individual shortcut reference sheets. Publication still comes from the central registry, not this navigation list. Catalog order comes from `stack127_tool_catalogs.home_order`.
 

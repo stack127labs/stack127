@@ -32,4 +32,4 @@ List every existing shared component the frontend will use. When no shared compo
 
 Name each new or improved component in the Interface section with its import path and what it is for.
 
-Use `stack127_docs/writing-style.md` for interface wording. Do not build the tool route, backend, or tool-specific components yet. Luna builds the backend next, then you build the frontend with `$stack127-tool-frontend` in this same session. Do not create a separate interface contract.
+Use `stack127_docs/writing-style.md` for interface wording. Do not build the tool route, backend, or tool-specific components yet. Sol builds the backend next, then you build the frontend with `$stack127-tool-frontend` in this same session. Do not create a separate interface contract.

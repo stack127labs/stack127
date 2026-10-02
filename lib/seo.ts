@@ -1,6 +1,6 @@
 export const siteName = "stack127";
 export const siteUrl = new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://stack127.com");
-export const defaultDescription = "A toolbox and reference hub for solo builders, indie hackers, content creators, and tinkerers creating things online. Find practical tools, directories, references, courses, and software projects from stack127.";
+export const defaultDescription = "Free tools, calculators, directories, and reference data for indie hackers, solo developers, and digital creators who build and run projects online.";
 
 export function absoluteUrl(path = "/") {
   return new URL(path, siteUrl).toString();

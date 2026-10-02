@@ -22,6 +22,7 @@ test("missing required registry pages resolve through the 404 boundary", () => {
 test("isMainPageSlug accepts only published root pages", () => {
   assert.equal(isMainPageSlug(""), false);
   assert.equal(isMainPageSlug("self-host-apps"), true);
+  assert.equal(isMainPageSlug("platform-fees"), true);
   assert.equal(isMainPageSlug("software-licenses-for-self-hosting"), true);
   assert.equal(isMainPageSlug("self-hosting-for-beginners"), true);
   assert.equal(isMainPageSlug("self-hosting-for-beginners/install-docker"), false);
@@ -113,6 +114,7 @@ test("hardware directories stay off homepage navigation and cards", () => {
   for (const [slug, page_type] of [
     ["self-host-apps", "CollectionPage"],
     ["cli-apps", "CollectionPage"],
+    ["platform-fees", "CollectionPage"],
     ["self-hosting-for-beginners", "Course"],
   ]) {
     assert.equal(isHomeVisiblePage({ slug }), true, slug);

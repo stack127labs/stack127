@@ -1,196 +1,160 @@
 # Product direction
 
-## Status and purpose
+This is what stack127 is, who it's for, and how it grows. Use it to judge new pages, tools, and business choices. The linked operating docs hold the exact rules for building them.
 
-This is the agreed direction for stack127. It guides future website, product, and business changes. It records the intended model; it does not mean the website already implements every part of it.
+## Who stack127 is for
 
-The current implementation rules remain in the linked operating docs until the relevant work updates them. The future work section identifies what needs to be aligned with this direction.
+stack127 is a toolbox and reference hub for indie hackers.
 
-## Positioning and audience
+That means solo developers and digital creators who build and run projects online. They ship apps and websites, sell books and digital products, and run small online businesses, mostly on their own.
 
-stack127 is a toolbox and reference hub for solo builders, indie hackers, content creators, and tinkerers creating things online.
+The byline:
 
-The agreed byline is:
+> A toolbox and reference hub for indie hackers.
 
-> A toolbox and reference hub for solo builders and tinkerers creating things online.
+When a page needs the longer version, use "indie hackers, solo developers, and digital creators".
 
-The audience includes solo builders, indie hackers, content creators, and tinkerers who explore technology, solve practical problems, build their own systems, automate work, and experiment with ways to earn money. Earning money is one motivation, not a requirement for using the site.
+Earning money is a common goal, but not a requirement. A visitor might be building a side project, testing an idea, or running a business that already pays.
 
-Homelab users belong within the tinkerer audience. They remain welcome and their resources remain part of stack127, but they no longer define the whole website's audience or business choices.
+### What changed
 
-The brand can cover several subjects. Each subject needs useful resources for its own visitors. Someone using KDP tools does not need to be interested in DNS or storage tools, and a homelab visitor does not need to use the business-oriented resources.
+stack127 started with a broad scope: smart home, homelab, self-hosting, open source, and indie hackers. That was too wide to serve well. In October 2026 the focus narrowed to indie hackers.
 
-Use concrete titles and descriptions on individual pages so people understand what they can do there. The byline gives the brand its identity; it does not need to appear on every page.
-
-## Why the commercial approach is changing
-
-Earlier, stack127 held back from Google Analytics and advertising because of expected preferences within its homelab audience. Those were deliberate audience and product choices, not technical restrictions. They left the business leaning heavily toward sponsorships.
-
-That audience assumption no longer sets sitewide policy. Google Analytics and advertising are acceptable options for the broader website. Future work should not reject either merely because some homelab users may dislike them.
-
-The working business assumption is that useful tools can earn repeat use while carrying reasonable advertising and analytics. This is a direction to implement and measure, not a claim that every solo builder, indie hacker, content creator, or tinkerer shares the same preferences.
-
-Sponsorship remains available when it fits a resource or subject. It is one revenue option, not a prerequisite for building or sustaining a section.
-
-## What stack127 will build
-
-The core offering has five forms:
-
-| Offering | Purpose |
+| Area | Status |
 | --- | --- |
-| Tools | Help someone calculate, check, generate, convert, plan, or complete a concrete task. Tools may be free or paid and may use AI where it helps. |
-| Directories | Help someone discover and compare relevant third-party software, hardware, services, or other resources using useful, maintained facts. |
-| Reference pages | Make facts, specifications, rules, and other lookup information easy to find and understand. |
-| Courses | Teach a subject or process through a connected sequence of lessons. |
-| Software and other digital products | Provide a larger product with its own experience and commercial model, such as BaseBuddy. |
+| Home automation tools | Removed. |
+| Smart home and hardware directories | Still published, but off the homepage. No new work. |
+| Self-host apps and CLI apps directories | Kept. Solo developers use both. |
+| Self-hosting course and self-hosting references | Kept. They serve developers who run their own apps. |
 
-These are available formats, not a quota. A subject may need only tools. Another may justify a directory, references, a course, and a product. There is no fixed number of tools or directories per subject, and a substantial product does not have to be reduced to a small utility.
+Don't plan new smart home or homelab resources. Before adding to the hardware directories, ask whether they should stay published at all.
 
-Tools, directories, and references remain central. Supporting explanations and course lessons should have the depth needed to help the reader. The growth model does not depend on long informational articles, unrelated posts, or a constant publishing schedule designed to fill a content feed.
+## What stack127 builds
 
-## Subject selection and depth
+| Offering | What it does |
+| --- | --- |
+| Tools | Help someone calculate, check, generate, convert, or plan one task. Tools can be free or paid and can use AI where it helps. |
+| Directories | Help someone find and compare third-party software, services, or other resources, using facts we keep up to date. |
+| Reference pages | Make facts, specs, and rules easy to look up. |
+| Courses | Teach a subject through lessons in order. |
+| Software and digital products | Bigger products with their own experience and pricing, such as BaseBuddy. |
 
-Grow into subjects the founder actively explores and understands. Existing areas include self-hosting, homelabs, DNS, domains, storage, and home automation. KDP is a discussed expansion area. Trading automation is an example of a possible later area, not a committed launch.
+These are formats to choose from, not a quota. One subject may need only tools. Another may need a directory, references, a course, and a product.
 
-New subjects do not need an artificial connection to homelabs. They need a clear fit with practical exploration, technology, building, or earning, and identifiable tasks that stack127 can help with.
+Tools, directories, and references come first. Guides and lessons should be as long as the reader needs, and no longer. stack127 doesn't publish a stream of articles to fill a feed.
 
-The intent is to cover chosen subjects deeply. Build connected resources around meaningful user needs instead of publishing a few basic pages and abandoning the subject. Depth means useful coverage, accurate behavior, and maintained facts. It does not require separate pages for every keyword variation or all five offering types.
+## Choosing subjects
 
-Personal experience helps identify problems and judge solutions. Research, sources, testing, and user feedback remain necessary. A new area also creates ongoing maintenance work after attention moves to another subject.
+Pick subjects the founder knows and uses, where indie hackers have a real, repeated task. Current subjects:
+
+- Self-publishing on Amazon KDP
+- SaaS metrics, such as MRR, churn, and margins
+- Platform fees and payouts
+- Domains and DNS
+- Developer, hosting, and storage tools, such as CLI apps, self-hosted apps, and config checkers
+
+Launch directories and ad networks are in progress and not published yet.
+
+A new subject fits when indie hackers need it to build, launch, sell, or run a project, and stack127 can help with a specific task.
+
+Cover a subject well instead of starting many. That means useful coverage, correct behavior, and facts kept current. It doesn't mean a page for every keyword or all five offering types.
+
+Personal experience helps spot problems. Research, sources, testing, and feedback still have to back every page. Each new subject also adds upkeep after attention moves on.
 
 ## Revenue and analytics
 
-| Resource or capability | Agreed direction |
+| Resource | Plan |
 | --- | --- |
-| Free tools | Advertising can support free use. Add it as needed while keeping the tool usable. |
-| Free directories and reference pages | Advertising can help fund research and maintenance. Sponsorship is optional. |
-| Paid tools | Provide paid access or capabilities with an ad-free paid tool experience. |
-| AI tools | Support paid AI credits or usage-based access where appropriate. |
-| Courses, software, and other digital products | Allow their own free or paid models according to the offering. |
-| Sponsorships | Use selectively, including sponsorship of a particular subject or resource. |
-| Google Analytics | Allowed as an analytics option. The earlier homelab-driven objection is no longer a sitewide restriction. |
+| Free tools | Ads can pay for free use. The tool must stay easy to use. |
+| Free directories and reference pages | Ads can pay for research and upkeep. Sponsors are optional. |
+| Paid tools | Paid access or features, with no ads. |
+| AI tools | Paid credits or usage-based pricing where it makes sense. |
+| Courses, software, and products | Each can be free or paid. |
+| Sponsorships | Used selectively, such as a sponsor for one subject or resource. |
+| Affiliate links | Allowed with a clear disclosure. They never change rankings or placement. |
 
-The free and paid distinction should be understandable. Free resources may carry ads; paid tools should not. This does not require ads on every free page from the first release. Whether a purchase removes ads elsewhere on stack127 remains a pricing and account-design decision.
+Keep free and paid easy to tell apart. Free pages may show ads. Paid tools don't. Not every free page needs ads from day one. Whether a purchase removes ads elsewhere is still open.
 
-Google Analytics measures use. Advertising services such as AdSense provide ad monetization. Both can be considered independently. No ad provider, placement system, pricing schedule, credit package, subscription structure, or billing provider has been selected by this direction document.
+No ad provider, prices, credit packages, subscriptions, or billing provider have been chosen yet.
 
-Ads should fit the existing performance and interface standards. They should not obscure controls, look like tool results, or make completing a task difficult. Paid capabilities should have a clear purpose and price. For AI usage, define what consumes credits and how failed work is handled before launch.
+Ads must not hide controls, look like tool results, or get in the way of the task. Paid features need a clear purpose and price. For AI credits, decide what uses credits and what happens when a request fails before launch.
 
-Track whether revenue supports the cost of running and maintaining each offering. Advertising income is a possible funding source, not an assumed guarantee that every directory pays for itself. Paid AI usage also needs to account for the cost of providing the result.
+Track whether each offering earns enough to cover its running and upkeep costs. Don't assume ads will pay for every directory. AI features also need to cover their own costs.
 
-stack127 uses self-hosted Umami for aggregate analytics and optional Google Analytics after visitor consent. Google Analytics complements Umami. The privacy policy and environment inventory must stay aligned with any change in data collection.
+stack127 uses self-hosted Umami for aggregate analytics. Google Analytics runs only after a visitor agrees. Keep the privacy policy and [environment inventory](environment-inventory.md) up to date whenever data collection changes.
 
-## Site structure and URLs
+## URLs and site structure
 
-### Root-level resources
+### Root URLs
 
-Standalone tools, directories, references, and course entry pages keep short root-level URLs.
+Tools, directories, references, and course entry pages get short root URLs.
 
 | Resource | Example |
 | --- | --- |
 | Tool | `/dns-lookup` |
-| Directory | `/self-host-apps` |
+| Directory | `/platform-fees` |
 | Reference | `/epp-status-codes` |
-| Course entry | `/self-hosting-for-beginners` |
+| Course | `/self-hosting-for-beginners` |
 
-Do not require `/tools/`, `/directories/`, `/references/`, or `/courses/` prefixes. Source route groups can continue to organize the repository without changing public URLs.
+Don't add `/tools/`, `/directories/`, `/references/`, or `/courses/` prefixes. Route groups organize the code without changing public URLs.
 
-A resource keeps one canonical address even when several indexes or topic landing pages link to it. Creating a topic landing page does not move existing tools beneath that topic's URL.
+Each resource has one canonical URL, even when several pages link to it.
 
 ### Child pages
 
-Use `/<main-page>/<sub-page>` when the child belongs to the main resource. Course lessons and reference subpages commonly need this structure. Directories and tools may also have genuine child pages when their task requires them.
+Use `/<main-page>/<sub-page>` when the page belongs to the main resource. Course lessons and reference sections often need this. For example, `/self-hosting-for-beginners/install-docker` is a lesson in the course.
 
-For example, `/self-hosting-for-beginners/install-docker` is a lesson within the course. A standalone DNS tool linked from `/dns-tools` still keeps its own root URL.
-
-Child routes are allowed by this direction. They are different from nesting every independent tool beneath a collection.
+An independent tool listed in a catalog keeps its own root URL. `/dns-lookup` stays at the root even though `/dns-tools` lists it.
 
 ### Pagination
 
-Keep the existing query-parameter pagination style. For example, the second page of the self-host apps listing is `/self-host-apps?page=2`. Filtered listings retain their filter parameters alongside `page`. Page one uses the listing URL without a `page` parameter.
+Listings use query pagination, such as `/self-host-apps?page=2`. Filters stay in the query next to `page`. Page one has no `page` parameter.
 
-Each pagination sequence belongs to its listing. Implement pagination where it is useful rather than requiring it everywhere. Changing the pagination URL format is not part of this transition.
+Paginated and filtered URLs are `noindex, follow`, stay out of the sitemap, and point their canonical at the clean listing URL. See [seo.md](seo.md).
 
-Keep the current policy in [seo.md](seo.md): paginated query variants remain `noindex, follow`, stay out of the sitemap, and use the clean listing URL as their canonical. Genuine child pages still follow the central publication rules; pagination does not require new child routes.
+### Catalogs and topic pages
 
-### Index pages
+A catalog groups related stack127 tools, such as `/kdp-tools`, `/saas-tools`, or `/dns-tools`. A tool can appear in several catalogs. The catalog doesn't own the tool's URL. In this repo, catalogs list our tools and directories list third-party entries.
 
-Index pages group related stack127 resources so people can find them together. Examples include `/dns-tools`, `/domain-tools`, and a future `/kdp-tools`.
+Later, a topic page such as `/kdp` can bring together everything stack127 offers on one subject: tools, references, courses, and products. Build one only when there's enough useful material, and keep both `/kdp` and `/kdp-tools` only if each has its own job. Topic pages use the shared stack127 design, not a separate brand.
 
-An index can link to a tool also listed elsewhere. It organizes discovery and does not own the tool's URL. In the current repository vocabulary, tool index pages are catalogs; directories describe third-party entries.
+### Products on subdomains
 
-There is no need to create a dedicated topic area before enough useful resources exist. An index such as `/kdp-tools` can be the first entry point.
+Software products can live on subdomains, such as `basebuddy.stack127.com`. Link to them from relevant pages and present them as part of stack127. A product that proves its demand and revenue can move to its own domain later. That's a business decision, not an automatic step.
 
-### Topic landing pages
+## Standards
 
-Later, broader landing pages such as `/kdp` and `/homelab` can bring together everything stack127 offers for a subject. They may include tools, directories, references, courses, and links to products.
+Move fast, but keep these:
 
-These pages have a broader job than a tool index. `/kdp-tools` helps visitors find KDP tools; `/kdp` can introduce the whole KDP offering. Keep both only when each has a useful purpose.
+- Pages are fast, small, responsive, accessible, and follow the shared design system. Dark mode is the default.
+- Important content is server-rendered, so search engines and AI agents can read it.
+- Tools have clear labels, useful results, and a way to recover from errors.
+- Directory and reference facts come from verified sources. Unknown beats fake precision.
+- Test calculations and behavior, look at the real page, and pass the quality checks before publishing.
+- All writing follows [writing-style.md](writing-style.md).
+- Keep old resources accurate as the site grows. Free and paid work meet the same bar.
 
-Topic landing pages should use the shared stack127 identity. Their precise layout, navigation, and repository ownership will be planned when they are needed. The discussion did not approve separate mini-brands for each subject.
+AI helps with research, drafts, code, checks, and upkeep. Its output still needs sources, tests, and review. AI makes the work faster. It doesn't make it correct.
 
-### Software and digital products
+The five offering types are a business view. They don't replace the page families in [page-families.md](page-families.md).
 
-Software products and other digital products can use their own subdomains. The agreed example is `basebuddy.stack127.com`.
+## Later work
 
-Present products consistently as part of the stack127 offering and link to them from relevant pages. Their application experiences can operate separately from the main resource website.
-
-Products start under the shared domain. Once demand and revenue are proven, a product may justify its own domain. A move is a deliberate business decision, not an automatic requirement for a successful product.
-
-This is a branding and operating model. It makes no promise about automatic search authority sharing between the main site and product subdomains.
-
-## Standards that continue to apply
-
-Move fast and update fast while keeping the existing standards:
-
-- Keep pages fast, small, responsive, accessible, and consistent with the shared design system. Dark mode remains the default feel.
-- Keep important page content server-rendered and readable by search crawlers and AI agents.
-- Preserve clear labels, useful results, recovery from errors, and the shared tool interface patterns.
-- Use verified sources for directory facts and reference material. Keep uncertainty explicit; an unknown value is better than invented precision.
-- Test calculations and behavior, inspect rendered interfaces, and apply the existing quality gates before publication.
-- Follow [writing-style.md](writing-style.md) for all writing and visual choices.
-- Maintain existing resources as the site expands. Free and paid offerings share the same accuracy standard.
-
-AI should help with research, drafting, implementation, checks, and maintenance. Generated output still needs source verification, meaningful tests, and review appropriate to the work. AI makes the process faster; it does not establish correctness by itself.
-
-The five commercial offering types do not replace the repository's page-family taxonomy. Catalogs, info pages, legal pages, and the other implementation families continue to serve their existing structural purposes.
-
-## Current implementation scope
-
-The first pass updates the existing website code and development metadata for this direction. Production release is a separate step.
-
-This pass covers:
-
-- Update the homepage byline, introduction, and recommendations using existing published destinations.
-- Update About while preserving the founder's history, name origin, and current affiliate disclosures.
-- Make the homepage the general discovery destination in shared navigation and missing-page recovery.
-- Align the shared site description and homepage, About, and Terms metadata.
-- Describe the existing offering accurately in the Terms introduction and scope.
-- Update agent guidance, topic-research criteria, page briefs, and relevant tests.
-
-Keep the existing page layouts, collection grid, generated artwork, specialist content, canonical resource URLs, and query-parameter pagination. Advertising, paid tools, AI credits, new product listings, and broad topic landing pages are later work. This scope does not introduce those features or describe them as already available.
-
-## Future implementation work
-
-The remaining work builds on the first pass. This document does not schedule or execute it.
-
-| Area | Work to plan |
+| Area | What to plan |
 | --- | --- |
-| Navigation and discovery | Make resource types and subject indexes easy to find. Add broad topic landing pages when there is enough material to justify them. |
-| Page architecture | Document ownership for broad topic landing pages and any new child-page patterns. Preserve canonical URLs, central publication rules, and route coverage. |
-| Advertising | Select a provider and placements, define eligible free pages, and verify performance and the ad-free paid experience. |
-| Analytics | Review page-view reports before adding events. Keep tool inputs and query strings out of analytics data. |
-| Paid tools and credits | Define pricing, accounts, payments, access, usage accounting, and failure handling for the first paid offering. |
-| Product discovery | Decide how subdomain products appear alongside relevant resources and how users recognize them as stack127 products. |
-| Growth and maintenance | Track use, revenue, running costs, and freshness by offering or subject. Use those results to choose what to improve and expand. |
+| Smart home directories | Decide whether to unpublish them, based on traffic. |
+| Navigation | Make resource types and catalogs easy to find. Add topic pages when there's enough material. |
+| Ads | Pick a provider and placements, choose which free pages get ads, and check speed and the ad-free paid experience. |
+| Analytics | Review page-view reports before adding events. Keep tool inputs and query strings out of analytics. |
+| Paid tools and credits | Decide pricing, accounts, payments, access, usage tracking, and failure handling for the first paid tool. |
+| Products | Decide how subdomain products appear next to related resources. |
+| Growth | Track use, revenue, costs, and freshness per offering. Use that to choose what to improve next. |
 
-Specific providers, prices, launch order, paid entitlements, credit rules, layouts, and the next subject's exact resource list remain open. These are implementation decisions, not reasons to revisit the agreed audience or return to a sponsor-dependent model.
+## Related docs
 
-## Related operating docs
-
-- [Page families](page-families.md) describes current page ownership and shared structure.
-- [Design system](design-system.md) and [tool interface](tool-interface.md) govern appearance and interaction.
-- [Writing style](writing-style.md) governs writing, visual choices, SEO wording, and editing.
-- [SEO](seo.md) and [tool pages](tool-pages.md) govern publication, metadata, and content ownership.
-- [Environment inventory](environment-inventory.md) records the current runtime configuration.
-- [Repository structure](repo-structure.md) and [stack127 repos](stack127-repos.md) govern file and repository ownership.
+- [Page families](page-families.md): page types and shared structure.
+- [Design system](design-system.md) and [tool interface](tool-interface.md): look and interaction.
+- [Writing style](writing-style.md): writing, visuals, and search wording.
+- [SEO](seo.md) and [tool pages](tool-pages.md): publication, metadata, and tool content.
+- [Environment inventory](environment-inventory.md): runtime configuration.
+- [Repository structure](repo-structure.md) and [stack127 repos](stack127-repos.md): files and repositories.

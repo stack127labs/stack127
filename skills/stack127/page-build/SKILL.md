@@ -11,9 +11,10 @@ Read `AGENTS.md`, `stack127_docs/writing-style.md`, `stack127_docs/shared-ui.md`
 
 1. Confirm the route family, flat public URL, publication state, and data source.
 2. Check the shared components and `/components-ui` gallery in development before creating local UI. Implement the page with the shared shell, `PageCanvas`, tokens, components, metadata system, and server-rendered content. Use `ContentMarkdown` for pages that render Markdown.
-3. Keep page styles beside the page or component. Do not add page selectors to `app/globals.css`.
-4. Add a focused test only for calculations, parsers, data transforms, or a failure that could return a wrong answer. Do not test prose, documentation, skill wording, hashes, file inventories, or incidental markup.
-5. Open the real page at desktop and mobile width. Use the headless fallback in `skills/stack127/references/homelab-browser-and-search.md` if the in-app browser is unavailable. Confirm it loads, the main task works, links work, and there is no obvious overflow or browser error.
-6. When code, routes, SEO, or production configuration changed, run `npm run test:core` and `npm run build` once. The build already checks TypeScript. For a change that needs no build, run `npm run quality` only when TypeScript changed.
+3. Keep the page static and on-demand revalidated, as `stack127_docs/caching.md` describes. No `force-dynamic`, no timed `revalidate`, and no server `searchParams`, `headers()`, or `cookies()`. URL-dependent parts are client components. A new data source gets a cache tag and pipeline coverage.
+4. Keep page styles beside the page or component. Do not add page selectors to `app/globals.css`.
+5. Add a focused test only for calculations, parsers, data transforms, or a failure that could return a wrong answer. Do not test prose, documentation, skill wording, hashes, file inventories, or incidental markup.
+6. Open the real page at desktop and mobile width. Use the headless fallback in `skills/stack127/references/homelab-browser-and-search.md` if the in-app browser is unavailable. Confirm it loads, the main task works, links work, and there is no obvious overflow or browser error.
+7. When code, routes, SEO, or production configuration changed, run `npm run test:core` and `npm run build` once, and confirm the route list shows the page as static (`○` or `●`). The build already checks TypeScript. For a change that needs no build, run `npm run quality` only when TypeScript changed.
 
 Use the production registry for publication decisions. Do not write production data, publish, commit, push, or deploy without authorization.

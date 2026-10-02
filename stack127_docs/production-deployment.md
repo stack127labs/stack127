@@ -13,7 +13,7 @@ The old Hostinger application is not a deployment or rollback target.
 
 ## Release
 
-A production-relevant push to `main` starts `.github/workflows/stack127-release-e2e.yml` directly.
+A push to `main` that affects production starts `.github/workflows/stack127-release-e2e.yml` directly.
 
 The workflow:
 
@@ -21,15 +21,15 @@ The workflow:
 2. Runs the four core release-safety tests.
 3. Applies Supabase migrations only when migration files changed.
 4. Runs the OVH and Cloudflare preflight.
-5. Builds and pushes one immutable GHCR image. The production database environment is a BuildKit secret mount during prerendering; environment files are removed from standalone output.
+5. Builds and pushes one immutable GHCR image. Prerendering reads the production database environment through a BuildKit secret mount. Environment files are removed from standalone output.
 6. Deploys that image through the Dokploy API.
 7. Confirms the live health endpoint reports the exact commit.
 8. Confirms the homepage, `robots.txt`, and `sitemap.xml` return valid responses.
-9. Purges public Cloudflare cache tags and warms primary routes. Database edits between releases are handled by the `cache-worker` Supabase Edge Function described in `cloudflare.md`. The workflow deploys that function after the app when it or its shared cache scripts change.
+9. Purges public Cloudflare cache tags and warms primary routes. The `cache-worker` Supabase Edge Function handles database edits between releases. See `cloudflare.md`. When the function or its shared cache scripts change, the workflow deploys it after the app.
 
-Normal releases should finish in about three to five minutes when GitHub, GHCR, and Dokploy caches are warm. Provider queue and image-transfer time can extend that.
+Normal releases should take about three to five minutes with warm GitHub, GHCR, and Dokploy caches. Provider queues and image transfers can take longer.
 
-Documentation, skill, record, and test-only pushes do not deploy. Use the manual workflow with the exact current main SHA when a deliberate release is needed.
+Pushes that change only documentation, skills, records, or tests do not deploy. For a deliberate release, run the manual workflow with the exact current main SHA.
 
 ## Local handoff
 
@@ -51,4 +51,4 @@ Release is complete only when:
 local HEAD = origin/main = deployed image SHA = live health SHA
 ```
 
-Deployment credentials and their locations are listed in `stack127_docs/environment-inventory.md`. Never print or commit them.
+See `stack127_docs/environment-inventory.md` for deployment credentials and their locations. Never print or commit them.

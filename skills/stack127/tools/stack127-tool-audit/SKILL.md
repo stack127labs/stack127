@@ -5,7 +5,7 @@ description: Independently check one complete stack127 tool for correct answers,
 
 # stack127 tool audit
 
-Audit-only requests are read-only. In the tool pipeline, report confirmed defects with their owner (backend, frontend, or copy) and do not fix them; the main agent sends backend defects to Luna, frontend defects to the Opus planning session, and copy to the Opus writing session.
+Audit-only requests are read-only. In the tool pipeline, report confirmed defects with their owner (backend, frontend, or copy) and do not fix them; the main agent sends backend defects to Sol, data defects to Luna, frontend defects to the Opus planning session, and copy to the Opus writing session.
 
 1. Read the tool spec, engine, route, focused tests, styles, scripts, and development content. Use `stack127_docs/writing-style.md` when reviewing copy and `stack127_docs/shared-ui.md` when checking components.
 2. Check several independent normal, boundary, and invalid examples against primary sources or hand calculations.

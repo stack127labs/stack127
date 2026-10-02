@@ -6,6 +6,7 @@ import {
   Keyboard,
   FlaskConical,
   ListChecks,
+  Receipt,
   Scale,
   SquareTerminal,
   type LucideIcon,
@@ -18,6 +19,7 @@ import { siteSpotCourseArt } from "../art/site--spot-course";
 import { siteSpotLicensesArt } from "../art/site--spot-licenses";
 import { siteSpotLabsArt } from "../art/site--spot-labs";
 import { siteSpotKeyboardShortcutsArt } from "../art/site--spot-keyboard-shortcuts";
+import { siteSpotPlatformFeesArt } from "../art/site--spot-platform-fees";
 import { siteSpotSelfHostAppsArt } from "../art/site--spot-self-host-apps";
 import { eppStatusArt } from "../(catalogs)/_components/art/epp-status";
 import { tldDirectoryArt } from "../(catalogs)/_components/art/tld-directory";
@@ -30,6 +32,7 @@ import { getPublishedToolCatalogs, type ToolCatalogSummary } from "@/lib/tool-ca
 import { toolCatalogIcon } from "@/lib/tool-catalog-icons";
 import { ToolCatalogCard } from "@/app/ui/catalogs/tool-catalog-card";
 import { getSelfHostAppsStats } from "@/lib/apps";
+import { getFeeDirectory } from "@/lib/platform-fees/queries";
 import {
   getMainPublishedPages,
   getRequiredPublishedPage,
@@ -64,6 +67,7 @@ const pageIcons: Record<string, LucideIcon> = {
   "cli-apps": SquareTerminal,
   "epp-status-codes": ListChecks,
   "labs": FlaskConical,
+  "platform-fees": Receipt,
   "self-host-apps": HardDrive,
   "keyboard-shortcuts": Keyboard,
   "self-hosting-for-beginners": BookOpen,
@@ -77,6 +81,7 @@ const pageArt: Record<string, string> = {
   "epp-status-codes": eppStatusArt,
   "keyboard-shortcuts": siteSpotKeyboardShortcutsArt,
   "labs": siteSpotLabsArt,
+  "platform-fees": siteSpotPlatformFeesArt,
   "self-host-apps": siteSpotSelfHostAppsArt,
   "self-hosting-for-beginners": siteSpotCourseArt,
   "software-licenses-for-self-hosting": siteSpotLicensesArt,
@@ -120,6 +125,10 @@ async function buildCardStats(
     case "epp-status-codes": return [metric("status codes", STATUS_CODES.length)];
     case "tld-directory": return [metric("domain extensions", tldDirectory.rows.length)];
     case "labs": return [metric("projects", labProjects.length)];
+    case "platform-fees": {
+      const directory = await getFeeDirectory();
+      return [metric("platforms", directory.entries.length), metric("categories", directory.sections.length)];
+    }
   }
   if (page.slug === "self-host-apps") {
     return [{ label: "apps", value: appStats.appCount.toLocaleString("en-US") }];
@@ -178,54 +187,25 @@ function HomePageCard({
   );
 }
 
+const startHereLinks = [
+  { slug: "kdp-tools", question: "Publishing on Amazon KDP?", action: "Work out your royalties" },
+  { slug: "saas-tools", question: "Running a SaaS?", action: "Check your MRR and churn" },
+  { slug: "platform-fees", question: "Choosing where to sell?", action: "Compare platform fees" },
+  { slug: "domain-tools", question: "Working on a website?", action: "Check its domain" },
+  { slug: "cli-apps", question: "Looking for a terminal app?", action: "Browse CLI apps" },
+];
+
 function startHereItems(featureSlugs: Set<string>): { key: string; node: ReactNode }[] {
-  const items: { key: string; node: ReactNode }[] = [];
-
-  if (featureSlugs.has("domain-tools")) {
-    items.push({
-      key: "domains",
+  return startHereLinks
+    .filter((item) => featureSlugs.has(item.slug))
+    .map((item) => ({
+      key: item.slug,
       node: (
         <>
-          Working on a website? <Link href="/domain-tools">Check its domain</Link>.
+          {item.question} <Link href={`/${item.slug}`}>{item.action}</Link>.
         </>
       ),
-    });
-  }
-
-  if (featureSlugs.has("cli-apps")) {
-    items.push({
-      key: "apps",
-      node: (
-        <>
-          Looking for a terminal app? <Link href="/cli-apps">Browse CLI apps</Link>.
-        </>
-      ),
-    });
-  }
-
-  if (featureSlugs.has("keyboard-shortcuts")) {
-    items.push({
-      key: "shortcuts",
-      node: (
-        <>
-          Learning an app? <Link href="/keyboard-shortcuts">Find its shortcuts</Link>.
-        </>
-      ),
-    });
-  }
-
-  if (featureSlugs.has("self-hosting-for-beginners")) {
-    items.push({
-      key: "course",
-      node: (
-        <>
-          Setting up a home server? <Link href="/self-hosting-for-beginners">Start the course</Link>.
-        </>
-      ),
-    });
-  }
-
-  return items;
+    }));
 }
 
 export default async function Home() {

@@ -1,6 +1,6 @@
 ---
 name: stack127-topic-research
-description: Find evidence-backed resource and product ideas for stack127's solo builders, indie hackers, content creators, and tech tinkerers. Use for topic ideas, market gaps, underserved user tasks, and resource roadmaps across subjects the founder explores, including homelabs, developer tools, automation, and digital businesses.
+description: Find evidence-backed resource and product ideas for stack127's indie hackers, solo developers, and digital creators. Use for topic ideas, market gaps, underserved user tasks, and resource roadmaps across subjects such as KDP, SaaS, selling online, domains, and developer tools.
 ---
 
 # stack127 topic research
@@ -22,16 +22,16 @@ Use this skill from the stack127 repository root when researching resources or p
 
 ## Research Workflow
 
-Read `stack127_docs/product-direction.md` before choosing subjects or scoring audience fit. Homelabs are one subject, not a limit on the site. Use the user's current interests and practical experience to frame the research. KDP and other digital-business subjects can fit without an infrastructure connection. Ads, analytics, and paid offerings are allowed by the strategy; their implementation timing remains separate from topic research.
+Read `stack127_docs/product-direction.md` before choosing subjects or scoring audience fit. stack127 serves indie hackers: solo developers and digital creators who build and run projects online. Don't propose smart home, home automation, or homelab hardware resources. Use the user's current interests and experience to frame the research. Ads, analytics, and paid offerings are allowed; when to add them is a separate decision.
 
 1. Define the subjects and user tasks for the request. The user may choose a new subject beyond existing coverage. Current areas to consider when relevant include:
-   - self-host apps and operations
-   - self-hosting learning paths
-   - homelab networking, storage, backup, monitoring, and deploys
-   - home automation and local-first smart home
-   - local AI, agents, and self-hosted model tooling
-   - open-source developer/admin utilities
-   - calculators, compatibility checkers, and reference pages
+   - Amazon KDP and self-publishing
+   - SaaS metrics, pricing, and subscriptions
+   - selling online: platform fees, payouts, and launch channels
+   - domains and DNS
+   - developer tools: CLI apps, self-hosted apps, config checkers, and deploys
+   - AI tools and agents for solo builders
+   - calculators, checkers, and reference pages for any of the above
 
    Treat this list as existing coverage, not an exhaustive scope. Propose tools, directories, references, courses, or software and digital products according to the job. Do not force every format into every subject or recommend unrelated articles just to expand a keyword list.
 
@@ -57,7 +57,7 @@ Read `stack127_docs/product-direction.md` before choosing subjects or scoring au
 5. Score and rank:
    - Demand: are people visibly asking or searching?
    - Gap: are current answers absent, scattered, outdated, or not tool-shaped?
-   - stack127 fit: does it help solo builders, indie hackers, content creators, or tech tinkerers with a concrete task, and can the team build and maintain it credibly?
+   - stack127 fit: does it help indie hackers, solo developers, or digital creators with a concrete task, and can the team build and maintain it credibly?
    - Feasibility: can we build a credible MVP with official sources?
    - Moat: can structured data, calculators, or repeated updates make it hard to copy?
 

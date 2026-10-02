@@ -30,6 +30,8 @@ import { EntryHero } from "@/app/ui/site/entry-hero";
 import { siteSpotCliAppsArt } from "../../art/site--spot-cli-apps";
 import { SortDropdown } from "../../../ui/directories/directory-sort-dropdown";
 import { CliAppBrowser } from "./cli-app-browser";
+import { CliAppDetailsBody } from "./cli-app-details";
+import { HiddenDetails } from "@/app/ui/directories/hidden-details";
 import { DirectoryFilterController } from "../../../ui/directories/directory-filter-controller";
 import {
   filterApps,
@@ -435,6 +437,7 @@ export default async function CliAppsPage({
         {paginatedApps.length > 0 ? (
           <>
             <CliAppBrowser apps={paginatedApps} />
+            <HiddenDetails prefix="cli-app" items={paginatedApps.map((app) => ({ slug: app.slug, name: app.name, body: <CliAppDetailsBody app={app} /> }))} />
             {totalPages > 1 ? (
               <Pagination ariaLabel="Terminal app pages" currentPage={currentPage} hrefForPage={(page) => pageHref(params, page)} totalPages={totalPages} />
             ) : null}

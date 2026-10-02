@@ -1,0 +1,25 @@
+{
+  "$schema": "https://t3.codes/schema/t3.json",
+  "scripts": [
+    {
+      "name": "Build and run",
+      "command": "node scripts/stack127/homelab-preview.mjs build"
+    },
+    {
+      "name": "Rebuild and run",
+      "command": "node scripts/stack127/homelab-preview.mjs rebuild"
+    },
+    {
+      "name": "Dev and run",
+      "command": "node scripts/stack127/homelab-preview.mjs dev"
+    },
+    {
+      "name": "Stop preview",
+      "command": "node scripts/stack127/homelab-preview.mjs stop"
+    },
+    {
+      "name": "Check quality",
+      "command": "node scripts/stack127/homelab-preview.mjs quality"
+    }
+  ]
+}

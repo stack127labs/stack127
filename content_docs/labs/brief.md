@@ -2,7 +2,7 @@
 
 ## Who is here
 
-A tinkerer has found stack127 and wants to see the projects behind the site, including tools they can inspect, use, or self-host.
+A developer or indie hacker has found stack127 and wants to see the projects behind the site, including tools they can inspect, use, or self-host.
 
 ## The job
 

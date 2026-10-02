@@ -8,7 +8,7 @@ Score each candidate from 1 to 5:
 
 - Demand: visible search/community pain.
 - Gap: lack of a clear existing easy-reference answer.
-- Fit: practical value for solo builders, indie hackers, content creators, or tech tinkerers, informed by the founder's interests and experience. Follow `stack127_docs/product-direction.md`; a subject does not need a homelab connection.
+- Fit: practical value for indie hackers, solo developers, or digital creators, informed by the founder's interests and experience. Follow `stack127_docs/product-direction.md`.
 - Feasibility: ability to build a credible MVP with official sources and repo-owned pages.
 - Moat: advantage from structured data, useful tooling, repeated updates, or source-backed depth.
 
@@ -51,7 +51,7 @@ Apply the surface decision rule from `SKILL.md` before scoring. Quick version:
 - Compatibility matrix for proxy, backup, database, storage, mobile, local/cloud, or hardware support.
 - Analyzer that accepts user input and computes its report live from that input, not from a curated dataset.
 - Calculator over inputs only the user knows, such as their hardware or their planned stack.
-- Buyer/setup decision aid for local-first smart home or local AI.
+- Decision aid for choosing a platform, service, or pricing setup.
 - Data report or trend page generated from Stack127's own databases.
 
 ## Rejection Patterns

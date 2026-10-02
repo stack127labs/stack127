@@ -6,7 +6,7 @@ import { HardDrive, Search } from "lucide-react";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { FaGithub } from "react-icons/fa6";
-import { getDirectoryAppIndex, type DirectoryAppIndex } from "@/lib/apps";
+import { getDirectoryAppIndex, getDirectoryAppsBySlugs, type DirectoryAppIndex } from "@/lib/apps";
 import { directoryAppCard } from "@/lib/apps-card";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import {
@@ -33,6 +33,8 @@ import {
   hasMobileApp,
 } from "@/app/ui/directories/directory-app-card";
 import { DirectoryAppBrowser } from "./directory-app-browser";
+import { AppDetailsBody } from "./app-details";
+import { HiddenDetails } from "@/app/ui/directories/hidden-details";
 import { DirectoryFilterController } from "../../../ui/directories/directory-filter-controller";
 import { SortDropdown } from "../../../ui/directories/directory-sort-dropdown";
 import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
@@ -558,6 +560,7 @@ export default async function SelfHostAppsPage({
   const currentPage = Math.min(getPage(params), totalPages);
   const startIndex = (currentPage - 1) * pageSize;
   const paginatedIndexApps = filteredApps.slice(startIndex, startIndex + pageSize);
+  const detailApps = await getDirectoryAppsBySlugs(paginatedIndexApps.map((app) => app.slug));
   const categoryOptions = [...new Map(
     indexApps
       .flatMap((app) => app.categories)
@@ -736,6 +739,7 @@ export default async function SelfHostAppsPage({
           {paginatedIndexApps.length > 0 ? (
             <>
               <DirectoryAppBrowser apps={paginatedIndexApps.map(directoryAppCard)} />
+              <HiddenDetails prefix="self-host-app" items={detailApps.map((app) => ({ slug: app.slug, name: app.name, body: <AppDetailsBody app={app} /> }))} />
               {totalPages > 1 ? (
                 <Pagination ariaLabel="Self-hosted app pages" currentPage={currentPage} hrefForPage={(page) => pageHref(params, page)} totalPages={totalPages} />
               ) : null}

@@ -39,7 +39,7 @@ test("summary utilities cannot manufacture or truncate editorial copy", () => {
 });
 
 test("repository refresh is not described as a general fact review", () => {
-  const code = readFileSync("app/(site)/(directories)/self-host-apps/directory-app-browser.tsx", "utf8");
+  const code = readFileSync("app/(site)/(directories)/self-host-apps/app-details.tsx", "utf8");
   assert.doesNotMatch(code, /\["facts checked"/);
   assert.match(code, /\["repository checked", formatDate\(app.github_checked_at\)/);
 });

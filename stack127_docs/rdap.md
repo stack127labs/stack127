@@ -1,46 +1,62 @@
-# RDAP And Registration Data
+# RDAP and registration data
 
-This is the shared engine contract for every stack127 tool that reads domain, IP, or ASN registration data. Page-specific behavior lives in `content_docs/<tool-slug>/README.md`. This file owns the parts they all depend on.
+This is the shared engine contract for every stack127 tool that reads domain, IP, or ASN registration data. Page-specific behavior lives in `content_docs/<tool-slug>/README.md`. This file owns the parts every tool depends on.
 
-Status: plan. Update this file to describe the implemented engine once `lib/domain/` exists.
+Status: plan. Once `lib/domain/` exists, update this file to describe the built engine.
 
-Every fact below was verified against a primary source on 28 July 2026. Where a value can drift, the source and check date are recorded so the next person can re-verify rather than trust.
+Every fact below was checked against a primary source on 28 July 2026. Where a value can drift, the source and check date are recorded. Re-verify them instead of trusting them.
 
-## Why RDAP And Not WHOIS
+## Why RDAP and not WHOIS
 
-ICANN sunset the port 43 WHOIS requirement for gTLD registries and registrars on 28 January 2025. RDAP is the successor: structured JSON over HTTPS, defined by RFC 7480 through RFC 7484, RFC 9082, and RFC 9083, with redaction signalling in RFC 9537.
+ICANN ended the port 43 WHOIS requirement for gTLD registries and registrars on 28 January 2025. RDAP replaces it: structured JSON over HTTPS.
 
-Port 43 has not disappeared. Verisign committed to running `.com` WHOIS alongside RDAP under the November 2024 registry agreement, and many ccTLDs still only offer port 43. So WHOIS is a documented fallback, not the primary path, and never the source we quote when RDAP answered.
+RDAP is defined by RFC 7480 through RFC 7484, RFC 9082, and RFC 9083. RFC 9537 covers redaction signals.
 
-## Endpoint Discovery
+Port 43 hasn't gone away. Verisign committed to running `.com` WHOIS alongside RDAP under the November 2024 registry agreement. Many ccTLDs still offer only port 43.
 
-Three layers, in order:
+So WHOIS is a documented fallback, not the main path. Never quote WHOIS when RDAP answered.
 
-1. **IANA bootstrap.** `https://data.iana.org/rdap/dns.json` maps a TLD to one or more RDAP base URLs. Checked 28 July 2026: publication `2026-07-23`, 590 service entries, 1,200 distinct TLDs.
-2. **Reviewed overrides.** The root zone had 1,438 TLDs on 27 July 2026 (`https://data.iana.org/TLD/tlds-alpha-by-domain.txt`, version `2026072601`), so 238 have no bootstrap entry. Some of those still run RDAP. `.io` is the important one: no bootstrap entry, but `https://rdap.identitydigital.services/rdap/domain/github.io` returned 200. Overrides are a hand reviewed file in the repo, not something discovered at request time.
-3. **Nothing.** If neither layer knows the TLD, the answer is unknown. Do not guess a URL from the registry name and do not fall back to a third-party aggregator to make the page look complete.
+## Endpoint discovery
 
-Do not route lookups through `rdap.org` or any other public redirector. It adds a dependency we do not control, it sees every domain our visitors type, and its coverage is not better than ours: it returned 404 for both `github.io` and `example.de` when tested. Resolving the bootstrap ourselves matches the fixed reviewed endpoint rule already used in `lib/dns/resolvers.ts`.
+Find the endpoint in three layers, in order:
 
-Refresh the bootstrap and TLD list with a script under `scripts/domain-tools/`, commit the result, and never fetch either file during a page request.
+1. IANA bootstrap. `https://data.iana.org/rdap/dns.json` maps a TLD to one or more RDAP base URLs. Checked 28 July 2026: publication `2026-07-23`, 590 service entries, 1,200 distinct TLDs.
+2. Reviewed overrides. The root zone had 1,438 TLDs on 27 July 2026 (`https://data.iana.org/TLD/tlds-alpha-by-domain.txt`, version `2026072601`). So 238 have no bootstrap entry, and some of those still run RDAP. `.io` is the important one: no bootstrap entry, but `https://rdap.identitydigital.services/rdap/domain/github.io` returned 200. Overrides are a hand-reviewed file in the repo, never discovered at request time.
+3. Nothing. If neither layer knows the TLD, the answer is unknown. Don't guess a URL from the registry name. Don't fall back to a third-party aggregator to make the page look complete.
 
-### Coverage is derived, never a constant
+Don't route lookups through `rdap.org` or any other public redirector, for three reasons:
 
-Bootstrap coverage and real coverage are different numbers, and the difference grows every time we add an override. `.io` is in the 238 without a bootstrap entry and is also checkable. Both statements are true, and a page that prints "we cannot check 238 TLDs" while successfully checking `.io` is contradicting itself.
+- It adds a dependency we don't control.
+- It sees every domain our visitors type.
+- Its coverage isn't better than ours. It returned 404 for both `github.io` and `example.de` when tested.
 
-So there is exactly one function, `coverageSummary()` in `lib/domain/bootstrap.ts`, that returns the covered count, the uncovered count, and the check date, computed from the committed bootstrap plus the committed overrides. Every page reads it. No page hardcodes a number, and no page-owned doc should be quoted as the source of one.
+Resolving the bootstrap ourselves matches the fixed, reviewed endpoint rule already used in `lib/dns/resolvers.ts`.
 
-Per TLD, the engine returns one of three states, and page copy is written against these rather than against a count:
+Refresh the bootstrap and TLD list with a script under `scripts/domain-tools/` and commit the result. Never fetch either file during a page request.
 
-- `bootstrap`, covered by the IANA file
-- `override`, covered by our reviewed override with the operator named
-- `none`, no known RDAP service
+### Coverage is computed, never a constant
+
+Bootstrap coverage and real coverage are different numbers. The gap grows each time we add an override.
+
+`.io` is one of the 238 without a bootstrap entry, and it's also checkable. Both are true. A page that says "we cannot check 238 TLDs" while it checks `.io` contradicts itself.
+
+So exactly one function, `coverageSummary()` in `lib/domain/bootstrap.ts`, returns the covered count, the uncovered count, and the check date. It computes them from the committed bootstrap plus the committed overrides.
+
+Every page reads that function. No page hardcodes a number, and no page-owned doc should be quoted as the source of one.
+
+For each TLD, the engine returns one of three states. Write page copy against these states, not against a count:
+
+| State | Meaning |
+| --- | --- |
+| `bootstrap` | Covered by the IANA file. |
+| `override` | Covered by our reviewed override, with the operator named. |
+| `none` | No known RDAP service. |
 
 Add a test that fails if any route source contains a hardcoded coverage number.
 
-## Event Actions
+## Event actions
 
-RDAP event actions come from the IANA RDAP JSON Values registry, not from a free-text field. The complete registered set, fetched from `https://www.iana.org/assignments/rdap-json-values/rdap-json-values.xml` on 28 July 2026, is twelve values:
+RDAP event actions come from the IANA RDAP JSON Values registry, not a free-text field. The full registered set, fetched from `https://www.iana.org/assignments/rdap-json-values/rdap-json-values.xml` on 28 July 2026, has twelve values:
 
 ```
 registration        reregistration      last changed        expiration
@@ -49,19 +65,29 @@ unlocked            last update of RDAP database
 registrar expiration                    enum validation expiration
 ```
 
-Three of these change how the tools should be built, and all three were previously assumed absent:
+Three of these change how the tools should be built. We used to assume all three were absent.
 
-- **`transfer` exists.** Some registries publish it. When present it is the date the domain last moved between registrars, which is directly useful to Transfer Readiness and Registrar Lookup. It is optional, so absence means unknown and never "no transfer has happened".
-- **`reregistration` exists.** When present it distinguishes a name that was dropped and registered again from one held continuously, which is the central caveat on Domain Age Checker. Absence still means unknown.
-- **`locked` and `unlocked` exist** and can date a registry lock.
+| Event | What it means for the tools |
+| --- | --- |
+| `transfer` | Some registries publish it. When present, it's the date the domain last moved between registrars. That's directly useful to Transfer Readiness and Registrar Lookup. It's optional, so absence means unknown, never "no transfer has happened". |
+| `reregistration` | When present, it separates a name that was dropped and registered again from one held the whole time. That's the main caveat on Domain Age Checker. Absence still means unknown. |
+| `locked` and `unlocked` | They can date a registry lock. |
 
-Handle every action as optional. Never default a missing event to a value, and never infer one event from another.
+Treat every action as optional. Never default a missing event to a value, and never infer one event from another.
 
-## Registry Expiry And Registrar Expiry Are Two Different Fields
+## Registry expiry and registrar expiry are two different fields
 
-`expiration` and `registrar expiration` are separately registered values in the IANA registry above. They are not the same fact under two names. ICANN's RDAP Response Profile maps `expiration` to the Registry Expiry Date and `registrar expiration` to the Registrar Registration Expiration Date, and the two can legitimately differ, most often when a renewal has been processed at one party and not yet reflected at the other.
+`expiration` and `registrar expiration` are registered separately in the IANA registry above. They aren't the same fact under two names.
 
-Keep them as two independently sourced fields all the way through the engine and into the UI. Never coalesce them into one value. When only one is available, label which one it is. When both are available and they differ, show both and say which the registry will act on, because that is the one that governs deletion.
+ICANN's RDAP Response Profile maps `expiration` to the Registry Expiry Date. It maps `registrar expiration` to the Registrar Registration Expiration Date.
+
+The two can differ for real reasons. Most often, a renewal has been processed at one party and hasn't reached the other yet.
+
+Keep them as two separately sourced fields, all the way through the engine and into the UI:
+
+- Never merge them into one value.
+- When only one is available, label which one it is.
+- When both are available and differ, show both. Say which one the registry will act on, because that one governs deletion.
 
 Measured against `stack127.com` on 28 July 2026:
 
@@ -74,104 +100,147 @@ Measured against `stack127.com` on 28 July 2026:
 | registrant entity | absent | present, redacted |
 | `redacted` block | absent | present |
 
-That is one domain at one registrar and it must not be treated as the shape of RDAP. See the fixtures section.
+That's one domain at one registrar. Don't treat it as the shape of RDAP. See the fixtures section.
 
-## Registry And Registrar Are Two Different Answers
+## Registry and registrar are two different answers
 
-A gTLD RDAP response from the registry carries a `links` entry with `rel: "related"` pointing at the registrar's own RDAP service. Rules that follow:
+A gTLD RDAP response from the registry has a `links` entry with `rel: "related"`. It points at the registrar's own RDAP service. These rules follow:
 
 - The registry is authoritative for the registry expiry date, status codes, nameservers, and DNSSEC delegation. Quote it for those.
-- The registrar hop is the only place contact structure, RFC 9537 redaction metadata, and the registrar expiry date appear. It is optional, slower, and less reliable than the registry, so it must never block or change the registry answer.
-- Thin versus thick registries are a real difference, not a bug. `.com` is thin and holds no contact data at all.
-- Never merge the two into one flattened object that hides which server said what.
+- Contact structure, RFC 9537 redaction metadata, and the registrar expiry date appear only at the registrar hop. That hop is optional, slower, and less reliable than the registry. It must never block or change the registry answer.
+- Thin and thick registries really are different. It's not a bug. `.com` is thin and holds no contact data at all.
+- Never merge the two into one flat object that hides which server said what.
 
-## Name Normalization And The Public Suffix List
+## Name normalization and the Public Suffix List
 
-Reducing an input to the name we query is a shared-engine problem, not a per-tool detail, and getting it wrong produces confidently wrong answers. `www.example.co.uk` reduces to `example.co.uk`, not `co.uk`. There is no algorithm for this; it requires the Public Suffix List.
+Reducing an input to the name we query is a shared engine problem, not a per-tool detail. Getting it wrong gives confidently wrong answers.
 
-The decisions, all of which must be settled before the first tool ships:
+`www.example.co.uk` reduces to `example.co.uk`, not `co.uk`. No algorithm can work this out. It needs the Public Suffix List.
 
-**Dataset.** `https://publicsuffix.org/list/public_suffix_list.dat`, verified 28 July 2026 at 332 KB and 14,346 lines. Pin a committed copy with its fetch date. Never fetch it at request time.
+Settle all of these decisions before the first tool ships.
 
-**Update process.** A script under `scripts/domain-tools/` refreshes it, and the diff is reviewed rather than merged blind. A committed list that silently drifts is worse than one that is knowingly six months old, because registrable-domain behavior changes underneath every tool at once.
+### Dataset
 
-**ICANN section only.** The list has an `===BEGIN PRIVATE DOMAINS===` section, at line 11,277 of the current file, covering things like `github.io` and `s3.amazonaws.com`. Use the ICANN section only. The private section would make `github.io` a suffix, so `myproject.github.io` would reduce to itself and we would query a registry for a name that has no registration. That is exactly the wrong answer. Record this choice in code with a comment, because it looks like a bug to anyone who does not know why.
+Use `https://publicsuffix.org/list/public_suffix_list.dat`, checked 28 July 2026 at 332 KB and 14,346 lines. Pin a committed copy with its fetch date. Never fetch it at request time.
 
-**Unknown suffixes.** A TLD absent from the list is not automatically invalid. Fall back to treating the last label as the suffix, and flag the result as a lower-confidence reduction rather than failing.
+### Update process
 
-**IDN.** Convert to A-label form before matching, since the list stores both forms inconsistently. Use the same RFC 3492 and UTS-46 path as the Punycode Converter, so there is one implementation and one Unicode version across the site.
+A script under `scripts/domain-tools/` refreshes the list. Review the diff instead of merging it blind.
 
-**Show the reduction.** When we reduce an input, say so on the result. A reader who typed a hostname and gets registration data for a different name must be able to see why.
+A committed list that drifts silently is worse than one that's knowingly six months old. Registrable domain behavior changes under every tool at once.
 
-## Availability Signalling
+### ICANN section only
 
-HTTP status is the signal. Response bodies are not consistent:
+The list has an `===BEGIN PRIVATE DOMAINS===` section, at line 11,277 of the current file. It covers names like `github.io` and `s3.amazonaws.com`. Use only the ICANN section.
 
-- `rdap.verisign.com` returned 404 with a completely empty body.
-- `rdap.publicinterestregistry.org` returned 404 with a full RDAP error object.
-- `rdap.centralnic.com` returned 404 with `objectClassName: "error"`.
+The private section would make `github.io` a suffix. Then `myproject.github.io` would reduce to itself, and we'd query a registry for a name that has no registration. That's exactly the wrong answer.
 
-So parse the status first, treat a missing or unparseable body on a 404 as normal, and never require an error object to conclude the name is not registered.
+Record this choice in a code comment. Anyone who doesn't know why will think it's a bug.
 
-Map statuses explicitly: 200 registered, 404 not in this registry, 429 rate limited, 403 blocked, 5xx registry problem, timeout unknown. Rate limited and blocked are not availability answers and must never render as available.
+### Unknown suffixes
+
+A TLD missing from the list isn't automatically invalid. Fall back to treating the last label as the suffix, and flag the result as a lower-confidence reduction instead of failing.
+
+### IDN
+
+Convert to A-label form before matching, because the list stores both forms inconsistently. Use the same RFC 3492 and UTS-46 path as the Punycode Converter. That keeps one implementation and one Unicode version across the site.
+
+### Show the reduction
+
+When we reduce an input, say so on the result. A reader who typed a hostname and gets registration data for a different name must be able to see why.
+
+## Availability signals
+
+The HTTP status is the signal. Response bodies aren't consistent:
+
+| Server | 404 response |
+| --- | --- |
+| `rdap.verisign.com` | Completely empty body. |
+| `rdap.publicinterestregistry.org` | Full RDAP error object. |
+| `rdap.centralnic.com` | `objectClassName: "error"`. |
+
+So read the status first. Treat a missing or unparseable body on a 404 as normal. Never require an error object to decide the name isn't registered.
+
+Map statuses explicitly:
+
+| Status | Meaning |
+| --- | --- |
+| 200 | Registered |
+| 404 | Not in this registry |
+| 429 | Rate limited |
+| 403 | Blocked |
+| 5xx | Registry problem |
+| Timeout | Unknown |
+
+Rate limited and blocked aren't availability answers. They must never render as available.
 
 ## Caching
 
-The DNS tools deliberately cache nothing and send `cache-control: no-store`. RDAP has to be different, because registry servers throttle by source IP and our entire site leaves the OVH VPS through one address.
+The DNS tools cache nothing on purpose and send `cache-control: no-store`. RDAP has to be different. Registry servers throttle by source IP, and the whole site leaves the OVH VPS through one address.
 
 Store responses in Postgres through `lib/db.ts`:
 
-- Key on normalized lowercase domain, object type, and which server answered.
+- Key on the normalized lowercase domain, object type, and which server answered.
 - Store the raw response, the HTTP status, and the fetch time.
 - Suggested freshness: 24 hours for a registered domain, 1 hour for a not-registered answer, 5 minutes for an error.
-- Never cache 429 or 403 as a result. Cache only that we were throttled, so we back off.
-- Show the reader the fetch time when the answer came from cache.
+- Never cache 429 or 403 as a result. Cache only the fact that we were throttled, so we back off.
+- When the answer came from cache, show the reader the fetch time.
 
-## Throttling, Globally
+## Global throttling
 
-Per-visitor rate limiting is not sufficient. The limiter in `lib/dns/rate-limit.ts` stops one visitor from hammering us; it does nothing about a hundred visitors each making one legitimate request to Verisign in the same minute. The shared resource being protected is our single outbound IP address, so the limiter that matters is global and per registry.
+Per-visitor rate limiting isn't enough.
 
-Required before any tool that fans out across registries goes live:
+The limiter in `lib/dns/rate-limit.ts` stops one visitor from hammering us. It does nothing about a hundred visitors each making one fair request to Verisign in the same minute. The shared resource is our single outbound IP address, so the limiter that matters is global and per registry.
 
-- A global per-registry-endpoint budget, shared across all visitors and all tools, not keyed by client.
-- A circuit breaker per endpoint. On repeated 429 or 403, open the circuit, serve cache only, and return "check failed" for uncached rows until a cooldown expires.
-- Backoff that is per endpoint, so a throttled Verisign never blocks a `.dev` query.
-- Visibility, so we can tell that a registry has cut us off rather than discovering it from user reports.
+Before any tool that fans out across registries goes live, it needs:
 
-Both limiters run. The per-visitor one prevents abuse; the global one prevents us becoming the abuser.
+- A global budget per registry endpoint, shared across all visitors and tools, not keyed by client.
+- A circuit breaker per endpoint. On repeated 429 or 403, open the circuit, serve cache only, and return "check failed" for uncached rows until a cooldown ends.
+- Backoff per endpoint, so a throttled Verisign never blocks a `.dev` query.
+- Visibility, so we know a registry has cut us off before users report it.
 
-## Privacy, Stated Accurately
+Both limiters run. The per-visitor one stops abuse. The global one stops us from becoming the abuser.
 
-The DNS pages say Stack127 does not store lookup history. Do not copy that sentence here, and do not replace it with an equally absolute claim in the other direction.
+## Privacy, stated accurately
 
-What is actually true, and what pages should say:
+The DNS pages say stack127 doesn't store lookup history. Don't copy that sentence here. Don't replace it with an equally absolute claim the other way either.
 
-- The queried name is sent to the registry and registrar that operate the TLD. That is unavoidable and should be stated plainly.
-- Registration facts are cached on our server, keyed by domain name. So the domain names people look up are stored, for a bounded time, without any requester attached.
-- Requester identifiers are processed transiently for abuse prevention. `dnsClientKey` derives a client key from the forwarded IP headers, and `lib/dns/rate-limit.ts` holds it in an in-memory map with a five minute window. It is never written to the cache, never joined to a lookup, and never persisted.
-- We do not build lookup history, do not associate lookups with visitors, and do not sell or share registration data.
+Here's what's true, and what pages should say:
 
-The accurate promise is that requester identifiers are used temporarily for rate limiting and are never persistently associated with cached lookups. Write that, not "we do not store who asked". Update `/privacy` when the first tool ships rather than only the tool pages.
+- The queried name goes to the registry and registrar that run the TLD. That can't be avoided, so say it plainly.
+- Registration facts are cached on our server, keyed by domain name. So the domain names people look up are stored for a limited time, with no requester attached.
+- Requester identifiers are used briefly for abuse prevention. `dnsClientKey` derives a client key from the forwarded IP headers. `lib/dns/rate-limit.ts` keeps it in an in-memory map with a five-minute window. It's never written to the cache, never joined to a lookup, and never persisted.
+- We don't build lookup history, don't link lookups to visitors, and don't sell or share registration data.
 
-## Request Discipline
+The accurate promise: requester identifiers are used briefly for rate limiting and are never stored alongside cached lookups. Write that, not "we do not store who asked".
 
-- `readDnsJsonBody` for the bounded request body, or its `lib/domain/` equivalent with the same 4096 byte cap.
-- `isSameOriginDnsRequest` and `dnsClientKey` for origin and client identity.
-- Both limiters described above.
-- Send `Accept: application/rdap+json` and a Stack127 user agent with a contact URL.
-- Bound response size, timeout, and redirect depth. Never follow a redirect to a host outside the reviewed set.
+When the first tool ships, update `/privacy`, not only the tool pages.
+
+## Request discipline
+
+- Use `readDnsJsonBody` for the bounded request body, or a `lib/domain/` equivalent with the same 4096-byte cap.
+- Use `isSameOriginDnsRequest` and `dnsClientKey` for origin and client identity.
+- Run both limiters described above.
+- Send `Accept: application/rdap+json` and a stack127 user agent with a contact URL.
+- Limit response size, timeout, and redirect depth. Never follow a redirect to a host outside the reviewed set.
 - Reject non-public and malformed hostnames before any outbound call.
 - Never return upstream stack traces, socket details, or filesystem paths.
 
-## IP And ASN
+## IP and ASN
 
-The same bootstrap mechanism covers network objects: `ipv4.json`, `ipv6.json`, `asn.json`, and `object-tags.json` under `https://data.iana.org/rdap/`. All four returned 200 when checked. A query for `1.1.1.1` returns handle `1.1.1.0 - 1.1.1.255`, name `APNIC-LABS`, country `AU`, type `ASSIGNED PORTABLE`.
+The same bootstrap mechanism covers network objects: `ipv4.json`, `ipv6.json`, `asn.json`, and `object-tags.json` under `https://data.iana.org/rdap/`. All four returned 200 when checked.
 
-This is registration and allocation data. It is not geolocation, and the country field is the registered country of the allocation holder. The existing Team Cymru ASN enrichment in `lib/dns/network-enrichment.ts` answers a different question, BGP origin, and the two stay separate.
+A query for `1.1.1.1` returns handle `1.1.1.0 - 1.1.1.255`, name `APNIC-LABS`, country `AU`, type `ASSIGNED PORTABLE`.
 
-## Test Fixtures
+This is registration and allocation data, not geolocation. The country field is the registered country of whoever holds the allocation.
 
-The specification above leans heavily on one domain at one registrar. That is enough to prove the shape exists and nowhere near enough to build against. Capture a committed fixture set under `tests/pages/domain-tools/shared/fixtures/` before implementation, with each response recorded verbatim alongside its fetch date.
+The existing Team Cymru ASN enrichment in `lib/dns/network-enrichment.ts` answers a different question: BGP origin. Keep the two separate.
+
+## Test fixtures
+
+The spec above leans hard on one domain at one registrar. That proves the shape exists, but it's nowhere near enough to build against.
+
+Before implementation, capture a committed fixture set under `tests/pages/domain-tools/shared/fixtures/`. Record each response exactly, with its fetch date.
 
 Required coverage:
 
@@ -195,17 +264,29 @@ Required coverage:
 | one allocation per RIR, all five | IP lookup field variation |
 | ASN response | ASN path |
 
-Tests run against fixtures, not the live network. Add one separate, clearly marked contract test that hits real endpoints on demand, so drift is detectable without making the suite depend on five registries being up.
+Tests run against fixtures, not the live network. Add one separate, clearly marked contract test that hits real endpoints on demand. That catches drift without making the suite depend on five registries being up.
 
-## Positioning, Stated Honestly
+## Positioning, stated honestly
 
-Stack127 is not first here and page copy must not imply otherwise. Tools with overlapping intent already exist, checked 28 July 2026: `query.domains/tools` publishes a similar intent-separated set, `rdap.com` offers direct registry lookups, ICANN publishes a good EPP status code explainer, and `deployment.rdap.org` tracks RDAP deployment across TLDs, which overlaps the TLD Directory.
+stack127 isn't first here, and page copy must not suggest it is. Tools with overlapping goals already exist (checked 28 July 2026):
 
-Do not write "nobody else", "every other tool", "the only tool that", or "no one maintains". Those claims are not defensible, they age badly, and `stack127_docs/writing-style.md` already forbids claims stronger than the source proves.
+- `query.domains/tools` publishes a similar set split by intent.
+- `rdap.com` offers direct registry lookups.
+- ICANN publishes a good EPP status code explainer.
+- `deployment.rdap.org` tracks RDAP deployment across TLDs, which overlaps the TLD Directory.
 
-What we can say, because it is true and checkable: we separate registry evidence from registrar evidence, we report unknown as unknown, we combine registration data with our own DNS engine, and we explain the result rather than printing fields. Let the pages demonstrate that instead of claiming it.
+Don't write "nobody else", "every other tool", "the only tool that", or "no one maintains". Those claims can't be defended, and they age badly. `stack127_docs/writing-style.md` already forbids claims stronger than the source proves.
 
-## Files This Engine Will Own
+Here's what we can say, because it's true and checkable:
+
+- We separate registry evidence from registrar evidence.
+- We report unknown as unknown.
+- We combine registration data with our own DNS engine.
+- We explain the result instead of printing fields.
+
+Let the pages show that instead of claiming it.
+
+## Files this engine will own
 
 ```
 lib/domain/bootstrap.ts        parsed IANA bootstrap, overrides, coverageSummary()

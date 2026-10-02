@@ -14,9 +14,7 @@ The main stack127 workspace is `/home/teja/projects/stack127` on `teja-homelab`.
 Do not start a local Supabase Docker stack. Do not print, copy, or commit secrets.
 
 For a replacement development project, follow [development database recovery](development-database.md).
-Production supplies the published website records. Platform fees, launch
-directories, and ad networks have private draft data in both databases and stay
-unpublished in production. Keep development previews when refreshing records.
+Production supplies the published website records. Both databases hold private drafts for platform fees, launch directories, and ad networks. These drafts stay unpublished in production. Keep development previews when refreshing records.
 
 ## Development server
 
@@ -31,26 +29,42 @@ Treat the server as a background service:
 
 Do not run a development server as a blocking test and wait for it to exit.
 
+### T3 Code actions
+
+Import the five actions from the root `t3.json` in T3 Code's project settings:
+
+- **Build and run** builds and serves the current chat's checkout.
+- **Rebuild and run** removes that checkout's `.next` output before building and serving it.
+- **Dev and run** starts Next.js with automatic refresh as files change.
+- **Stop preview** stops only the preview managed by these actions for that checkout.
+- **Check quality** runs `npm run quality` in that checkout.
+
+Starting a preview stops the previous preview managed by these actions in the same checkout. Other checkouts and servers stay running. The main checkout prefers port 3333. Worktrees choose separate ports and skip occupied ports. Once the site responds, each preview prints its checkout, branch, and current Tailscale link. Leave the action's terminal running while using the preview.
+
+The actions install dependencies with `npm ci` if Next.js is missing. They use the checkout's `.env.local`. Worktrees without that file use the main checkout's development environment. Environment values are never printed or copied. Production deployment is separate.
+
 ## Remote link
 
-The user's Mac reaches the homelab through Tailscale. Run `tailscale status`, find the current IPv4 address for `teja-homelab`, and return:
+The user's Mac reaches the homelab through Tailscale. Run `tailscale status` and find the current IPv4 address for `teja-homelab`. Return:
 
 ```text
 http://<tailscale-ip>:3333/<route>
 ```
 
+For a T3 action, use the port printed by the action instead of assuming 3333.
+
 Do not give the user `localhost` or `127.0.0.1`. Do not expose port 3333 to the public internet.
 
 ## Browser checks over SSH
 
-Codex CLI runs on the homelab while the Codex app may run on the user's Mac. The app's in-app browser may not be available to the CLI. Use a local headless browser for the actual page check instead of waiting for browser access. This homelab has Google Chrome at `/usr/bin/google-chrome`; `skills/stack127/references/homelab-browser-and-search.md` gives the browser workflow. Use `http://127.0.0.1:3333/<route>` inside the homelab browser, then give the user the Tailscale link above.
+Codex CLI runs on the homelab. The Codex app may run on the user's Mac. The app's in-app browser may be unavailable to the CLI. Use a local headless browser to check the page without waiting for browser access. Google Chrome is at `/usr/bin/google-chrome`. Follow `skills/stack127/references/homelab-browser-and-search.md`. Open `http://127.0.0.1:3333/<route>` in the homelab browser. Give the user the Tailscale link above.
 
 ## Minimum local check
 
-Run a focused calculation or parser test when relevant. Check the real changed page at desktop and mobile width. For route, shared runtime, SEO, or production configuration changes, run `npm run test:core` and `npm run build` once; the build already checks TypeScript. Use `npm run quality` only when TypeScript changed and no build is needed.
+Run a focused calculation or parser test when relevant. Check the real changed page at desktop and mobile width. For route, shared runtime, SEO, or production configuration changes, run `npm run test:core` and `npm run build` once. The build already checks TypeScript. Use `npm run quality` only when TypeScript changed and no build is needed.
 
-Build output such as `.next`, `.next-*`, `test-results`, and temporary logs is disposable and must not be committed.
+Build output such as `.next`, `.next-*`, `test-results`, and temporary logs is disposable. Do not commit it.
 
 ## Other repositories
 
-Independent stack127 repositories live in separate checkouts under `/home/teja/projects/`. They are not nested dependencies of this repository. Read `stack127_docs/stack127-repos.md` before editing one.
+Independent stack127 repositories have separate checkouts under `/home/teja/projects/`. They are not nested dependencies of this repository. Read `stack127_docs/stack127-repos.md` before editing one.

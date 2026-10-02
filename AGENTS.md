@@ -1,6 +1,38 @@
 # stack127 agent guide
 
-stack127 publishes tools, directories, references, courses, and useful content for solo builders, indie hackers, content creators, and tech tinkerers. Read `stack127_docs/product-direction.md` for product scope.
+stack127 publishes tools, directories, references, courses, and useful content for indie hackers, solo developers, and digital creators. Read `stack127_docs/product-direction.md` for product scope.
+
+## Agent roles
+
+Work is split into three lanes. Always follow them, whether you are Claude Code or Codex.
+
+| Lane | Model | Effort | Work |
+| --- | --- | --- | --- |
+| Opus | Newest Claude Opus | `medium`, `high` for frontend builds | Writing, design, components, frontend, site content, SEO planning, and planning how to do the work |
+| Sol | Newest GPT Sol | `high`, `xhigh` for hard or risky work | Code review, backend changes, infra planning, and pushes or deploys the user asked for |
+| Luna | Newest GPT Luna | `xhigh`, `max` for deep research | Research, mass data gathering, and data work |
+
+Claude Code sessions are the Opus lane. Codex sessions are Sol by default and Luna when started for research or data.
+
+The agent the user talks to is the coordinator:
+
+1. Do the work in your own lane.
+2. Send every other lane's work with `node scripts/stack127/agents/delegate.mjs <opus|sol|luna> "<task>"`. Give the worker the goal, relevant files, constraints, and what to return. Use `--resume <session>` for follow-ups to the same worker. Claude runs delegation in the background and keeps working.
+3. Review what comes back and check the diff. Send gaps back to the same worker.
+4. Report to the user what each lane did.
+
+Rules:
+
+- Your lane is fixed when your session starts. Don't switch lanes mid-task.
+- Delegated workers never delegate again. If a task needs another lane, the worker does its part and lists the rest under "Needs other lanes". The script refuses nested delegation. Workers don't start other CLIs or agents directly, and never turn off a guard.
+- Any lane may read files, run checks, and look things up. Changing files in another lane's area is not allowed. `scripts/stack127/agents/lanes.mjs` defines who owns which files, and the lane guard hook blocks edits outside your lane. If the guard blocks you, delegate the work. Don't work around it with scripts or other tools.
+- A "shared" file, such as a skill or a general doc, doesn't make another lane's task yours. The task decides the lane: SEO planning and copy go to Opus, SEO runtime code goes to Sol, and research deliverables go to Luna.
+- The guard is a safety net, not a wall. Following these rules is what keeps the lanes clean.
+- Delegated Claude workers run with full permissions. Pass long or sensitive task text with `--prompt-file`, not on the command line.
+- Opus owns pages, components, styles, card art, and copy. Sol and Luna own `lib/`, API routes, scripts, migrations, tests, data, infra, and release.
+- Every code change gets a Sol review before it is pushed. Only Sol pushes or deploys, and only when the user asks.
+- Give one lane one set of files at a time, so two agents never edit the same file.
+- The delegate script picks the newest Sol and Luna. Claude uses the `opus` alias. Never pin a model version in docs or skills.
 
 ## Work clearly
 
@@ -31,6 +63,7 @@ stack127 publishes tools, directories, references, courses, and useful content f
 - `public.stack127_pages` is the only publication registry.
 - Exact published slugs are indexable and enter the sitemap. Unpublished routes return 404.
 - Do not add route-owned metadata, robots, canonicals, sitemap dates, or JSON-LD to page files.
+- New pages must be static and refreshed only by on-demand revalidation. The conversion of existing pages is pending. Read `stack127_docs/caching.md` before adding a page, route, or data source.
 - Tool content and versions live in `public.stack127_tool_pages`. Read `stack127_docs/tool-pages.md` before changing them.
 
 ## Files

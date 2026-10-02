@@ -8,7 +8,7 @@ async function read(relativePath) {
   return readFile(new URL(relativePath, root), "utf8");
 }
 
-test("the directory loads its index in bounded batches and fetches details on demand", async () => {
+test("the directory loads its index in bounded batches and details only for the visible page", async () => {
   const apps = await read("lib/apps.ts");
   const page = await read("app/(site)/(directories)/self-host-apps/page.tsx");
   const route = await read("app/api/self-host-apps/[slug]/route.ts");
@@ -24,7 +24,7 @@ test("the directory loads its index in bounded batches and fetches details on de
   assert.match(apps, /Math\.ceil\(count \/ DIRECTORY_APP_INDEX_BATCH_SIZE\)/);
   assert.match(page, /getDirectoryAppIndex\(\)/);
   assert.match(page, /DirectoryAppBrowser apps=\{paginatedIndexApps\.map\(directoryAppCard\)\}/);
-  assert.doesNotMatch(page, /getDirectoryAppsBySlugs/);
+  assert.match(page, /getDirectoryAppsBySlugs\(paginatedIndexApps\.map\(\(app\) => app\.slug\)\)/);
   assert.doesNotMatch(page, /getDirectoryApps\(\)/);
   assert.match(route, /getDirectoryAppsBySlugs\(\[slug\]\)/);
 });

@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node \"$(git rev-parse --show-toplevel)/scripts/stack127/agents/models.mjs\" sync --quiet" }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          { "type": "command", "command": "node \"$(git rev-parse --show-toplevel)/scripts/stack127/agents/lane-guard.mjs\" codex" }
+        ]
+      }
+    ]
+  }
+}

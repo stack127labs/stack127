@@ -1,36 +1,20 @@
 "use client";
 
 import { DetailDialog, DetailDialogClose } from "@/app/ui/detail-dialog";
-
-
 import {
-  Activity,
-  ArrowRight,
-  CalendarClock,
-  Code2,
-  Download,
-  Globe,
   GitCommitHorizontal,
-  WalletCards,
-  Languages,
   Monitor,
   Package,
   Scale,
   Star,
-  Tag,
-  Terminal,
-  type LucideIcon,
+  WalletCards,
 } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { FaGithub } from "react-icons/fa6";
+import { useEffect, useRef, useState } from "react";
 import type { TerminalApp } from "@/lib/terminal-apps";
-import {
-  terminalAppCategories,
-  terminalAppCategoryBySlug,
-  terminalAppTypeLabels,
-} from "@/lib/terminal-app-taxonomy";
-import { CategoryIcon } from "@/app/ui/site/category-icon";
+import { terminalAppCategoryBySlug } from "@/lib/terminal-app-taxonomy";
 import { AppFactCardContent, appFactCardClassName } from "../../../ui/directories/app-fact-card";
+import { formatDate, formatList, formatStars, labelForPricing } from "./cli-app-format";
+import { hiddenDetailsHtml } from "@/app/ui/directories/hidden-details";
 
 const generatedIconColors = [
   "#2563eb",
@@ -66,50 +50,6 @@ function generatedIconUrl(name: string, slug: string) {
   `.trim();
 
   return `data:image/svg+xml,${encodeURIComponent(svg)}`;
-}
-
-function formatStars(value: number | null) {
-  if (value === null) {
-    return "unknown";
-  }
-
-  return new Intl.NumberFormat("en", {
-    maximumFractionDigits: 1,
-    notation: value > 9999 ? "compact" : "standard",
-  }).format(value);
-}
-
-function formatDate(value: Date | string | null) {
-  if (!value) {
-    return "unknown";
-  }
-
-  return new Intl.DateTimeFormat("en", {
-    timeZone: "UTC",
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  }).format(new Date(value));
-}
-
-function labelForType(value: string) {
-  return terminalAppTypeLabels.get(value) ?? value.replaceAll("_", " ");
-}
-
-function labelForPricing(value: TerminalApp["pricing_model"]) {
-  return value.replaceAll("_", " ");
-}
-
-function labelForSource(value: TerminalApp["source_model"]) {
-  return value.replaceAll("_", " ");
-}
-
-function formatList(values: string[], labels?: Map<string, string>) {
-  if (values.length === 0) {
-    return "unknown";
-  }
-
-  return values.map((value) => labels?.get(value) ?? value.replaceAll("_", " ")).join(", ");
 }
 
 function AppIcon({ app, detail = false }: { app: TerminalApp; detail?: boolean }) {
@@ -161,92 +101,6 @@ function AppIcon({ app, detail = false }: { app: TerminalApp; detail?: boolean }
   );
 }
 
-type Fact = [label: string, value: string, Icon: LucideIcon];
-
-function AppDetailsPanel({ app, onClose }: { app: TerminalApp; onClose: () => void }) {
-  const categoryLabels = new Map(
-    terminalAppCategories.map((category) => [category.slug, category.name]),
-  );
-  const facts: Fact[] = [
-    ["type", labelForType(app.primary_type), Terminal],
-    ["categories", formatList(app.categories, categoryLabels), Tag],
-    ["platforms", formatList(app.platforms), Monitor],
-    ["install", formatList(app.install_methods), Download],
-    ["language", app.language ?? "unknown", Languages],
-    ["pricing", labelForPricing(app.pricing_model), Package],
-    ["source model", labelForSource(app.source_model), Code2],
-    ["license", app.license ?? "unknown", Scale],
-    ["latest version", app.latest_version ?? "unknown", Activity],
-    ["latest release", formatDate(app.latest_release_at), CalendarClock],
-    ["stars", formatStars(app.stars), Star],
-    ["last commit", formatDate(app.last_commit_at), CalendarClock],
-    ["verified", formatDate(app.last_verified_at), Scale],
-  ];
-
-
-
-  return (
-    <DetailDialog ariaLabel={`${app.name} details`} onClose={onClose}>
-        <div className="app-detail-heading">
-          <AppIcon app={app} detail />
-          <div>
-            <h2>{app.name}</h2>
-          </div>
-          <DetailDialogClose ariaLabel="Close app details" onClose={onClose} />
-        </div>
-
-        <div className="app-detail-categories">
-          <span className="category-badge">{labelForType(app.primary_type)}</span>
-          {app.categories.map((category) => {
-            const metadata = terminalAppCategoryBySlug.get(category);
-
-            return (
-              <span className="category-badge" key={category}>
-                <CategoryIcon iconKey={metadata?.icon_key} />
-                {metadata?.name ?? category}
-              </span>
-            );
-          })}
-        </div>
-
-        <p className="app-detail-summary">{app.summary}</p>
-
-        <div className="app-detail-primary-links">
-          {app.website_url ? (
-            <a className="secondary" href={app.website_url} rel="noreferrer" target="_blank">
-              <span><Globe aria-hidden="true" /> website</span>
-              <ArrowRight aria-hidden="true" size={14} strokeWidth={2.2} />
-            </a>
-          ) : null}
-          {app.repository_url ? (
-            <a className="primary" href={app.repository_url} rel="noreferrer" target="_blank">
-              <span><FaGithub aria-hidden="true" /> source</span>
-              <ArrowRight aria-hidden="true" size={14} strokeWidth={2.2} />
-            </a>
-          ) : null}
-        </div>
-
-        <div className="app-detail-facts">
-          {facts.map(([label, value, Icon]) => (
-            <div key={label}>
-              <span><Icon aria-hidden="true" size={15} strokeWidth={2.2} /> {label}</span>
-              <strong>{value}</strong>
-            </div>
-          ))}
-        </div>
-
-        {app.docs_url ? (
-          <div className="app-detail-docs-link">
-            <a href={app.docs_url} rel="noreferrer" target="_blank">
-              Read docs and usage
-              <ArrowRight aria-hidden="true" size={14} strokeWidth={2.2} />
-            </a>
-          </div>
-        ) : null}
-      </DetailDialog>
-  );
-}
-
 function TerminalAppCard({ app, onSelect }: { app: TerminalApp; onSelect: () => void }) {
   return (
     <button
@@ -280,14 +134,12 @@ function TerminalAppCard({ app, onSelect }: { app: TerminalApp; onSelect: () => 
   );
 }
 
+// Each app's panel body is server-rendered into hidden HTML by the page, so search
+// engines can read it. Opening a card shows that same HTML in the side panel.
 export function CliAppBrowser({ apps }: { apps: TerminalApp[] }) {
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const selectedApp = useMemo(
-    () => apps.find((app) => app.slug === selectedSlug),
-    [apps, selectedSlug],
-  );
-
-
+  const selectedApp = apps.find((app) => app.slug === selectedSlug);
+  const close = () => setSelectedSlug(null);
 
   return (
     <>
@@ -296,7 +148,24 @@ export function CliAppBrowser({ apps }: { apps: TerminalApp[] }) {
           <TerminalAppCard app={app} key={app.slug} onSelect={() => setSelectedSlug(app.slug)} />
         ))}
       </div>
-      {selectedApp ? <AppDetailsPanel app={selectedApp} onClose={() => setSelectedSlug(null)} /> : null}
+      {selectedApp ? (
+        <DetailDialog ariaLabel={`${selectedApp.name} details`} onClose={close}>
+          <div className="app-detail-heading">
+            <AppIcon app={selectedApp} detail />
+            <div>
+              <h2>{selectedApp.name}</h2>
+            </div>
+            <DetailDialogClose ariaLabel="Close app details" onClose={close} />
+          </div>
+          <DetailBody slug={selectedApp.slug} />
+        </DetailDialog>
+      ) : null}
     </>
   );
+}
+
+function DetailBody({ slug }: { slug: string }) {
+  const html = hiddenDetailsHtml("cli-app", slug);
+  if (html === null) return <p role="alert">App details could not be loaded. Close this panel and try again.</p>;
+  return <div dangerouslySetInnerHTML={{ __html: html }} style={{ display: "contents" }} />;
 }
