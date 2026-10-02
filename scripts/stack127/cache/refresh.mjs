@@ -1,3 +1,12 @@
+// Keep related updates together so shared pages rebuild once. A catalog batch
+// also refreshes tool sidebars, so it has a smaller event limit.
+export function selectRevalidationBatch(events) {
+  if (!events.length) return [];
+  const type = events[0].entity_type;
+  const limit = type === "page" ? 8 : 20;
+  return events.filter(event => event.entity_type === type).slice(0, limit);
+}
+
 /** Keep invalidation, verified origin rebuilds, edge purge, and public warming in order. */
 export async function refreshTargets(targets, { invalidate, rebuild, purge, warm }) {
   await invalidate(targets);

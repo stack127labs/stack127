@@ -2,7 +2,7 @@
 // wakes this function when a change is queued and every 30 seconds after that.
 import postgres from "npm:postgres@3.4.7";
 import { targetsForEvents } from "../../../scripts/stack127/cache/targets.mjs";
-import { refreshTargets, cacheBodyDigest } from "../../../scripts/stack127/cache/refresh.mjs";
+import { refreshTargets, cacheBodyDigest, selectRevalidationBatch } from "../../../scripts/stack127/cache/refresh.mjs";
 
 declare const EdgeRuntime: { waitUntil(promise: Promise<unknown>): void };
 
@@ -84,23 +84,24 @@ const ready = () => sql`
 `;
 
 async function readyEvents(): Promise<QueueEvent[]> {
-  // Up to 2,000 app changes are taken at once so large imports collapse into
-  // one catalog refresh. Other changes are taken one at a time, oldest first.
-  const apps = await sql<QueueEvent[]>`
+  // Related directory and page updates share one refresh. Keep app batches
+  // separate because either batch can use most of the worker's time limit.
+  const others = await sql<QueueEvent[]>`
+    select id::text, entity_type, slug, created_at::text as created_at
+    from public.stack127_revalidation_events
+    where entity_type <> 'self_host_app' and ${ready()}
+    order by first_queued_at, id
+    limit 80
+  `;
+  if (others.length) return selectRevalidationBatch(others);
+  // Large app imports still collapse into one catalog refresh.
+  return await sql<QueueEvent[]>`
     select id::text, entity_type, slug, created_at::text as created_at
     from public.stack127_revalidation_events
     where entity_type = 'self_host_app' and ${ready()}
     order by first_queued_at, id
     limit 2000
   `;
-  const others = await sql<QueueEvent[]>`
-    select id::text, entity_type, slug, created_at::text as created_at
-    from public.stack127_revalidation_events
-    where entity_type <> 'self_host_app' and ${ready()}
-    order by first_queued_at, id
-    limit 1
-  `;
-  return [...others, ...apps];
 }
 
 async function secondsUntilNextReady(): Promise<number | null> {
@@ -338,7 +339,9 @@ async function run() {
           console.error(`Cache refresh failed: ${lastError}`);
           break;
         }
-        continue;
+        // A second catalog refresh can exceed the remaining run budget. The
+        // database wakes another run for updates left in the queue.
+        break;
       }
       // Old warm-only rows come from the manual backup. They never acknowledge changes.
       // Wait for changes that are still settling, if they are close.

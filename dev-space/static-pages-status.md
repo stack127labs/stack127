@@ -2,7 +2,7 @@
 
 Status on 2 Oct 2026. The plan is in [static-pages-and-on-demand-revalidation-plan.md](static-pages-and-on-demand-revalidation-plan.md). The rules are in [stack127_docs/caching.md](../stack127_docs/caching.md).
 
-Local acceptance is complete. The user authorized the static-page release, production database migration, and cache configuration on 2 Oct 2026, with unpublished pages kept unpublished. The release uses `.github/workflows/stack127-release-e2e.yml`. Check its latest result and `/api/health?scope=deploy` for the production revision.
+The static pages and production database migration are live. Desktop and mobile live checks passed, and all 47 unpublished routes remain unpublished and absent from the sitemap. The user authorized the static-page release, production database migration, and cache configuration on 2 Oct 2026, with unpublished pages kept unpublished. The release uses `.github/workflows/stack127-release-e2e.yml`. Check its latest result and `/api/health?scope=deploy` for the production revision.
 
 ---
 
@@ -21,7 +21,7 @@ Local acceptance is complete. The user authorized the static-page release, produ
 - Codex rechecked the last four fixes at 1440 px and 390 px, with no script errors or sideways overflow. The self-host facet check used a controlled API response with a new facet to verify that the browser keeps a value absent from the initial facets.
 - Additional checks at both widths passed for launch-directory search results, RAID valid and invalid shared state, and shortcuts shared loading, manual choices during loading, clean-URL reset, failed loading, and retry.
 - RAID drive-removal tooltips and the shortcuts shared selection also passed light-mode checks at both widths.
-- The isolated production release passed 54 core tests and 62 focused directory and caching tests. Agent-routing changes are outside this release.
+- The isolated static release passed 54 core tests and 62 focused directory and caching tests. After preserving an upstream agent-policy commit, the combined core suite passed 87 tests. No unrelated local changes were released.
 - All 11 changed storage tools passed valid shared-state, invalid-state recovery, and browser back checks at both widths.
 - Unpublished ad-network and launch-directory pages returned 404 in the release preview. Ad-network components passed search, empty results, pagination, and page-clamping checks without publication changes.
 - The OVH, Git, Cloudflare DNS, and strict static-route preflight passed for the isolated release.
@@ -111,8 +111,8 @@ Local acceptance is complete. The user authorized the static-page release, produ
 ### Release steps
 Items 1 and 2 are complete. Codex reviewed the four files and checked tool back/forward, platform-fees reset, filtered self-host facets, and directory index refetch in a browser at desktop and mobile widths.
 
-3. **Production database migration.** The release workflow applies `20261002143000_directory_revalidation_coverage.sql`. It is the only pending production migration. It adds directory refresh triggers without publishing pages.
-4. **Release scope.** An isolated checkout contains the static conversion, browser fixes, shared data caches, directory APIs, database migration, cache rules, release checks, and related docs. Agent-routing changes and unrelated skill edits stay in the original workspace.
+3. **Production database migration.** The release workflow applies `20261002143000_directory_revalidation_coverage.sql`. It has been applied to production. It adds directory refresh triggers without publishing pages.
+4. **Release scope.** An isolated checkout contains the static conversion, browser fixes, shared data caches, directory APIs, database migration, cache rules, release checks, and related docs. An agent-policy commit that reached main during the build was preserved. Unrelated local changes stay in the original workspace.
 
 ### After release
 5. **Apply the Cloudflare cache rules**, after the app, migration, and worker are live. Seven-day page caching still requires the existing seven-day worker health gate. The first production check on 2 Oct found only a few healthy hours, so the longer TTL was not ready:
@@ -144,3 +144,11 @@ Items 1 and 2 are complete. Codex reviewed the four files and checked tool back/
 19. **Matter index:** search terms over 160 characters are dropped, so long product descriptions are no longer searchable.
 20. **Category pages,** such as `/self-host-apps/categories/<name>`, are not built yet. They will be static and published one by one.
 21. **The plan doc:** corrected. It now records the completed implementation and pending production rollout.
+
+### Live cache checks
+
+- The release workflow passed and the live health revision matched the deployed image.
+- All 47 unpublished routes returned uncached 404s and stayed out of the sitemap. Production publication flags match the pre-release snapshot.
+- All 11 storage tools passed shared-state loading, invalid-state recovery, and browser back checks at desktop and mobile widths. Directory controls, tool history, and shortcuts recovery also passed.
+- The first refresh exposed a worker scheduling bug. It could start another catalog refresh near the end of its 90-second budget. The worker now groups related updates and completes one batch per run. The manual backup also stops after one complete refresh.
+- Updated Cloudflare rules use one-day page caching, long JSON caching, and uncached errors. The existing maintenance workflow will enable seven-day page caching automatically after seven consecutive healthy days.

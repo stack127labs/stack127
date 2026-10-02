@@ -69,6 +69,8 @@ try {
             on conflict(entity_type,slug) do update set fingerprint=excluded.fingerprint,processed_at=now()`,[event.entity_type,event.slug,versions[0]?.fingerprint??'deleted']);
           await client.query('commit'); processed += removed.rowCount;
         } catch(error) { await client.query('rollback'); throw error; } finally {client.release();}
+        // Leave another full refresh to the next run, with a fresh time budget.
+        break;
       } catch(error) {
         const event=events[0];
         await pool.query(`update public.stack127_revalidation_events set attempts=attempts+1,last_error=$1,next_attempt_at=now()+case attempts when 0 then interval '15 seconds' when 1 then interval '1 minute' else interval '5 minutes' end

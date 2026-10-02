@@ -1,7 +1,31 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { refreshTargets } from "../../scripts/stack127/cache/refresh.mjs";
+import { refreshTargets, selectRevalidationBatch } from "../../scripts/stack127/cache/refresh.mjs";
 import { targetsForEvents } from "../../scripts/stack127/cache/targets.mjs";
+
+test("related catalog updates rebuild their shared tool sidebars once", () => {
+  const catalogs = ["saas-tools", "dns-tools", "storage-tools"];
+  const queued = catalogs.map(slug => ({ entity_type: "page", slug }));
+  queued.splice(1, 0, { entity_type: "platform_fees", slug: "courses" });
+  const batch = selectRevalidationBatch(queued);
+  assert.deepEqual(batch.map(event => event.slug), catalogs);
+  const targets = targetsForEvents(batch, catalogs, ["raid-calculator", "dns-lookup"]);
+  assert.equal(targets.verifyPaths.filter(path => path === "/raid-calculator").length, 1);
+  assert.equal(targets.verifyPaths.filter(path => path === "/").length, 1);
+});
+
+test("the oldest ready source determines a bounded refresh batch", () => {
+  for (const [entity_type, limit] of [["page", 8], ["platform_fees", 20], ["ad_networks", 20]]) {
+    const events = Array.from({ length: 40 }, (_, index) => ({ entity_type, slug: String(index) }));
+    events.splice(2, 0, { entity_type: "cli_apps", slug: "cli-apps" });
+    const batch = selectRevalidationBatch(events);
+    assert.equal(batch.length, limit);
+    assert.equal(batch[0].slug, "0");
+    assert.equal(batch.at(-1).slug, String(limit - 1));
+    assert.ok(batch.every(event => event.entity_type === entity_type));
+  }
+  assert.deepEqual(selectRevalidationBatch([]), []);
+});
 
 test("a changed app refreshes its facts, planner, license counts, and homepage", () => {
   const t = targetsForEvents([{ entity_type: "self_host_app", slug: "immich" }]);
