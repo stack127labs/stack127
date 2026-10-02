@@ -31,7 +31,11 @@ Do not run a development server as a blocking test and wait for it to exit.
 
 ### T3 Code actions
 
-Import the five actions from the root `t3.json` in T3 Code's project settings:
+Import the actions from the root `t3.json` in T3 Code's project settings. **Setup worktree** runs automatically when a new worktree is created. Its `async: false` setting makes T3 wait for setup to finish before the first agent turn. It links the main checkout's available split environment files, installs dependencies with `npm ci`, creates an empty `tmp/` folder, and generates Next.js types. `.env.local` is required; missing optional files are reported. Setup errors appear in T3. Fix them and rerun setup before working in that checkout.
+
+Existing checkout-specific environment files are preserved. An existing link to a different source is an error. Environment files must stay private at mode `0600`. The setup action can also be rerun manually. Outside T3, run `node scripts/stack127/setup-worktree.mjs` from the checkout; it finds the main checkout through Git.
+
+The preview and quality actions are:
 
 - **Build and run** builds and serves the current chat's checkout.
 - **Rebuild and run** removes that checkout's `.next` output before building and serving it.
@@ -42,6 +46,8 @@ Import the five actions from the root `t3.json` in T3 Code's project settings:
 Starting a preview stops the previous preview managed by these actions in the same checkout. Other checkouts and servers stay running. The main checkout prefers port 3333. Worktrees choose separate ports and skip occupied ports. Once the site responds, each preview prints its checkout, branch, and current Tailscale link. Leave the action's terminal running while using the preview.
 
 The actions install dependencies with `npm ci` if Next.js is missing. They use the checkout's `.env.local`. Worktrees without that file use the main checkout's development environment. Environment values are never printed or copied. Production deployment is separate.
+
+Each worktree owns its `node_modules`, `.next`, temporary files, and preview state. Setup does not copy old build output, backups, logs, discovery progress, or preview PID records. Shared planning files, agent configuration, hooks, and skills come from Git. Machine-level provider logins stay on the homelab. The linked environment files share the same managed development database; worktrees do not create separate databases.
 
 ## Remote link
 
