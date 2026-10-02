@@ -3,14 +3,10 @@ import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { ClipboardList } from "lucide-react";
-import { DomainReportTool } from "./domain-report-tool";
+import { DomainReportFromUrl } from "./domain-report-from-url";
 
-type SearchParams = Record<string, string | string[] | undefined>;
-const first = (value: string | string[] | undefined) => (Array.isArray(value) ? (value[0] ?? "") : (value ?? ""));
-
-export default async function DomainReportPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+export default async function DomainReportPage() {
   const toolPage = await getRequiredToolPage("domain-report");
-  const params = await searchParams;
 
   return (
     <ToolPageShell toolPage={toolPage}>
@@ -20,7 +16,7 @@ export default async function DomainReportPage({ searchParams }: { searchParams:
           toolPage={toolPage}
         />
 
-        <DomainReportTool initialName={first(params.name)} />
+        <DomainReportFromUrl />
 
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>

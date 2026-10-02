@@ -1,34 +1,27 @@
 import type { HardwareDirectoryRecord } from "@/lib/hardware-directories";
 import { hardwareCardName } from "@/lib/hardware-directories/card-name";
+import { pageParamHref, paramPage, paramString, paramValues, type DirectoryParams } from "./directory-params";
 
-export type HardwareDirectorySearchParams = Record<string, string | string[] | undefined>;
+export const hardwarePageSize = 30;
+
+export type HardwareDirectorySearchParams = DirectoryParams;
 export type HardwareDirectorySort = "name" | "vendor";
 
-export function getDirectoryValues(params: HardwareDirectorySearchParams, key: string) {
-  const value = params[key];
-  if (!value) return [];
-  return Array.isArray(value) ? value.filter(Boolean) : [value];
-}
+type FilterableRecord = Pick<HardwareDirectoryRecord, "name" | "vendor" | "model" | "category" | "search_terms" | "features">;
+type SortableRecord = Pick<HardwareDirectoryRecord, "name" | "vendor" | "model">;
 
-export function getDirectoryString(params: HardwareDirectorySearchParams, key: string) {
-  const value = params[key];
-  return Array.isArray(value) ? value[0] ?? "" : value ?? "";
-}
+export { hardwareIndexRecord, type HardwareIndexRecord } from "@/lib/hardware-directories/search-index";
+
+export const getDirectoryValues = paramValues;
+export const getDirectoryString = paramString;
+export const getDirectoryPage = paramPage;
 
 export function getDirectorySort(params: HardwareDirectorySearchParams): HardwareDirectorySort {
   const value = getDirectoryString(params, "sort");
   return value === "vendor" ? value : "name";
 }
 
-export function getDirectoryPage(params: HardwareDirectorySearchParams) {
-  const page = Number.parseInt(getDirectoryString(params, "page"), 10);
-  return Number.isFinite(page) && page > 0 ? page : 1;
-}
-
-export function filterHardwareRecords(
-  records: HardwareDirectoryRecord[],
-  params: HardwareDirectorySearchParams,
-) {
+export function filterHardwareRecords<T extends FilterableRecord>(records: T[], params: HardwareDirectorySearchParams) {
   const query = getDirectoryString(params, "q").trim().toLocaleLowerCase();
   const categories = new Set(getDirectoryValues(params, "category"));
   const vendors = new Set(getDirectoryValues(params, "vendor"));
@@ -47,7 +40,7 @@ export function filterHardwareRecords(
   });
 }
 
-export function sortHardwareRecords(records: HardwareDirectoryRecord[], sort: HardwareDirectorySort) {
+export function sortHardwareRecords<T extends SortableRecord>(records: T[], sort: HardwareDirectorySort) {
   return [...records].sort((left, right) => {
     if (sort === "vendor") {
       return left.vendor.localeCompare(right.vendor) || left.model.localeCompare(right.model);
@@ -57,17 +50,6 @@ export function sortHardwareRecords(records: HardwareDirectoryRecord[], sort: Ha
   });
 }
 
-export function hardwareDirectoryPageHref(
-  route: string,
-  params: HardwareDirectorySearchParams,
-  page: number,
-) {
-  const next = new URLSearchParams();
-  for (const [key, value] of Object.entries(params)) {
-    if (key === "page") continue;
-    for (const item of Array.isArray(value) ? value : value ? [value] : []) next.append(key, item);
-  }
-  if (page > 1) next.set("page", String(page));
-  const query = next.toString();
-  return query ? `${route}?${query}` : route;
+export function hardwareDirectoryPageHref(route: string, params: HardwareDirectorySearchParams, page: number) {
+  return pageParamHref(route, params, page);
 }

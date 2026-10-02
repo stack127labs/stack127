@@ -227,7 +227,7 @@ Announce status changes to assistive technology. A failure names the problem and
 
 The canonical route is the initial state, not a blank query string waiting to be filled. A clean tool URL must stay unchanged through server render and hydration. Never call `replaceState` or `pushState` on mount to write defaults, derived values, or a first result into the URL.
 
-The page stays static, so the server page never reads `searchParams`. The client tool reads the query with `useSearchParams()` inside a `<Suspense>` boundary. The first render shows the default state, then fills in from the URL. A tool that runs from a shared link starts after hydration. See `stack127_docs/caching.md`.
+The page stays static, so the server page never reads `searchParams`. A small client wrapper, `<slug>-from-url.tsx`, reads the query with `useInitialQuery()` from `app/ui/tools/use-initial-query.ts` and renders the tool with `key={query.key}`. `dns-lookup` is the reference. The first render shows the default state, then fills in from the URL. A tool that runs from a shared link starts after hydration. See `stack127_docs/caching.md`.
 
 A tool may restore state from a query string the person opened on purpose. When shareable state helps, prefer an explicit Share action that creates or copies the URL. If a tool updates the URL as the person edits, that must be part of the documented task, and it must start only after a deliberate change by the person.
 

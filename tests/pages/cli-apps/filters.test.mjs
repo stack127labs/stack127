@@ -1,10 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { paginationPages } from "../../../lib/pagination.ts";
 import {
   filterApps,
   getPage,
   getValues,
-  paginationPages,
   sortApps,
 } from "../../../app/(site)/(directories)/cli-apps/filters.ts";
 

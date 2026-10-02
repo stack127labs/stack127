@@ -3,21 +3,10 @@ import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-conten
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { HardDrive } from "lucide-react";
 import { PageCanvas } from "../../../../ui/site/page-canvas";
-import { StorageLayoutAdvisor } from "./storage-layout-advisor";
+import { StorageLayoutAdvisorFromUrl } from "./storage-layout-advisor-from-url";
 
-type SearchParams = Record<string, string | string[] | undefined>;
-
-function firstValue(value: string | string[] | undefined) {
-  return Array.isArray(value) ? value[0] ?? "" : value ?? "";
-}
-
-export default async function StorageLayoutAdvisorPage({
-  searchParams,
-}: {
-  searchParams: Promise<SearchParams>;
-}) {
+export default async function StorageLayoutAdvisorPage() {
   const toolPage = await getRequiredToolPage("storage-layout-advisor");
-  const params = await searchParams;
   return (
     <ToolPageShell toolPage={toolPage}>
       <PageCanvas>
@@ -25,7 +14,7 @@ export default async function StorageLayoutAdvisorPage({
           icon={<HardDrive strokeWidth={2.2} />}
           toolPage={toolPage}
         />
-        <StorageLayoutAdvisor initialState={firstValue(params.state)} />
+        <StorageLayoutAdvisorFromUrl />
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </ToolPageShell>

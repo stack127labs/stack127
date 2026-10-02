@@ -1,6 +1,6 @@
 import { registryLayout } from "@/lib/registry-layout";
 
-const registry = registryLayout("/mrr-calculator", false);
+const registry = registryLayout("/mrr-calculator");
 export const generateMetadata = registry.generateMetadata;
-export const revalidate = 604800;
+export const revalidate = false;
 export default registry.Layout;

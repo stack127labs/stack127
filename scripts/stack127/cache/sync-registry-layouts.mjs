@@ -14,11 +14,11 @@ async function walk(directory) {
       try { previous = await readFile(target, "utf8"); } catch(error) { if(error.code !== "ENOENT") throw error; }
       if (previous && !previous.includes("registryLayout") && !/return children;/.test(previous)) throw new Error(`Review the existing layout before registering ${route}`);
       const css = previous.split("\n").filter(line => /^import ["'].*\.css["'];$/.test(line)).join("\n");
-      const requestAware = source.includes("searchParams");
+      const readsQuery = source.includes("searchParams");
       const dynamicRoute = route.includes("[")
-        ? requestAware ? 'export const dynamic = "force-dynamic";\n' : "export function generateStaticParams() { return []; }\n"
+        ? readsQuery ? 'export const dynamic = "force-dynamic";\n' : "export function generateStaticParams() { return []; }\n"
         : "";
-      const content = `${css ? css+"\n" : ""}import { registryLayout } from "@/lib/registry-layout";\n\nconst registry = registryLayout(${JSON.stringify(route)}, ${requestAware});\nexport const generateMetadata = registry.generateMetadata;\n${dynamicRoute}export const revalidate = ${route === "/" ? 86400 : 604800};\nexport default registry.Layout;\n`;
+      const content = `${css ? css+"\n" : ""}import { registryLayout } from "@/lib/registry-layout";\n\nconst registry = registryLayout(${JSON.stringify(route)});\nexport const generateMetadata = registry.generateMetadata;\n${dynamicRoute}export const revalidate = false;\nexport default registry.Layout;\n`;
       if (previous !== content) await writeFile(target, content);
     }
   }

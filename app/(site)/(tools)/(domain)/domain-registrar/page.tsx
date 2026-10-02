@@ -3,14 +3,10 @@ import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { Building2 } from "lucide-react";
-import { DomainRegistrarTool } from "./domain-registrar-tool";
+import { DomainRegistrarFromUrl } from "./domain-registrar-from-url";
 
-type SearchParams = Record<string, string | string[] | undefined>;
-const first = (value: string | string[] | undefined) => (Array.isArray(value) ? (value[0] ?? "") : (value ?? ""));
-
-export default async function DomainRegistrarPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+export default async function DomainRegistrarPage() {
   const toolPage = await getRequiredToolPage("domain-registrar");
-  const params = await searchParams;
 
   return (
     <ToolPageShell toolPage={toolPage}>
@@ -20,7 +16,7 @@ export default async function DomainRegistrarPage({ searchParams }: { searchPara
           toolPage={toolPage}
         />
 
-        <DomainRegistrarTool initialName={first(params.name)} />
+        <DomainRegistrarFromUrl />
 
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>

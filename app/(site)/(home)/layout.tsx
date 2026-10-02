@@ -1,6 +1,6 @@
 import { registryLayout } from "@/lib/registry-layout";
 
-const registry = registryLayout("/", false);
+const registry = registryLayout("/");
 export const generateMetadata = registry.generateMetadata;
-export const revalidate = 86400;
+export const revalidate = false;
 export default registry.Layout;

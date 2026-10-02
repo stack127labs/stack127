@@ -1,46 +1,37 @@
-import Link from 'next/link';
-import { redirect } from 'next/navigation';
-import { StatePanel } from '@/app/ui/state-panel';
 import { getRequiredPublishedPage } from '@/lib/page-registry';
 import { getFeeDirectory } from '@/lib/platform-fees/queries';
-import { filterDirectory, sectionGroups } from '@/lib/platform-fees/model';
-import { sectionPath, sectionSlug } from '@/lib/platform-fees/section-routes';
-import { FeeFilters } from './filters';
+import { sectionGroups } from '@/lib/platform-fees/model';
+import { sectionPath } from '@/lib/platform-fees/section-routes';
+import { FeeFilters, FeeHubResults, FeeSearch } from './filters';
 import { FeeShell, SectionTile } from './components';
 import styles from './page.module.css';
 
-export default async function PlatformFeesPage({ searchParams }: {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
+export default async function PlatformFeesPage() {
   await getRequiredPublishedPage('platform-fees');
-  const params = await searchParams;
-  const query = typeof params.q === 'string' ? params.q.trim().slice(0, 160) : '';
   // A failed load must surface as an error, never as a cacheable page.
   const directory = await getFeeDirectory();
-  const selected = directory.sections.find(section => section.id === params.section || sectionSlug(section.id) === params.section);
-  if (selected) redirect(`${sectionPath(selected.id)}${query ? `?q=${encodeURIComponent(query)}` : ''}`);
-  const matches = query ? filterDirectory(directory, query, '') : null;
+  const sectionNames = new Map(directory.sections.map(section => [section.id, section.name]));
+  const items = directory.entries.map(entry => ({
+    id: entry.id,
+    text: `${entry.name} ${entry.card.tag} ${entry.summary}`.toLocaleLowerCase('en-US'),
+    name: entry.name,
+    section: sectionNames.get(entry.section_id) ?? '',
+    href: `${sectionPath(entry.section_id)}#${entry.id}`,
+  }));
+  const sectionRedirects = Object.fromEntries(directory.sections.map(section => [section.id, sectionPath(section.id)]));
 
   return <FeeShell sections={directory.sections} title={`Platform fees compared: ${directory.entries.length} platforms across ${directory.sections.length} categories`} overview>
-    <FeeFilters key={query} query={query} />
-    {matches ? <>
-      <p className={styles.count}>{matches.entries.length} results</p>
-      {!matches.entries.length && <StatePanel title="No platforms match" action={<Link href="/platform-fees">All sections</Link>} />}
-      <div className={styles.results}>{matches.entries.map(entry =>
-        <Link className={styles.result} key={entry.id} href={`${sectionPath(entry.section_id)}#${entry.id}`}>
-          <strong>{entry.name}</strong>
-          <span>{directory.sections.find(section => section.id === entry.section_id)?.name}</span>
-          <span aria-hidden="true">→</span>
-        </Link>,
-      )}</div>
-    </> : <>
-      <p className={styles.count}>{directory.sections.length} sections · {directory.entries.length} listings</p>
-      {sectionGroups.map(group => <section key={group} className={styles.sectionGroup}>
-        <h2>{group}</h2>
-        <div className={styles.tiles}>{directory.sections.filter(section => section.group_name === group).map(section =>
-          <SectionTile key={section.id} section={section} entries={directory.entries.filter(entry => entry.section_id === section.id)} />,
-        )}</div>
-      </section>)}
-    </>}
+    <FeeSearch sectionRedirects={sectionRedirects}>
+      <FeeFilters />
+      <FeeHubResults items={items}>
+        <p className={styles.count}>{directory.sections.length} sections · {directory.entries.length} listings</p>
+        {sectionGroups.map(group => <section key={group} className={styles.sectionGroup}>
+          <h2>{group}</h2>
+          <div className={styles.tiles}>{directory.sections.filter(section => section.group_name === group).map(section =>
+            <SectionTile key={section.id} section={section} entries={directory.entries.filter(entry => entry.section_id === section.id)} />,
+          )}</div>
+        </section>)}
+      </FeeHubResults>
+    </FeeSearch>
   </FeeShell>;
 }

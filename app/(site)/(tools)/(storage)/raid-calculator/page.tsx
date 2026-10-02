@@ -4,21 +4,10 @@ import { getRequiredToolPage } from "@/lib/tool-pages";
 import { HardDrive } from "lucide-react";
 import { PageCanvas } from "../../../../ui/site/page-canvas";
 import styles from "../../../(catalogs)/storage-tools/storage-tools.module.css";
-import { RaidCalculator } from "./raid-calculator";
+import { RaidCalculatorFromUrl } from "./raid-calculator-from-url";
 
-type SearchParams = Record<string, string | string[] | undefined>;
-
-function firstValue(value: string | string[] | undefined) {
-  return Array.isArray(value) ? value[0] ?? "" : value ?? "";
-}
-
-export default async function RaidCalculatorPage({
-  searchParams,
-}: {
-  searchParams: Promise<SearchParams>;
-}) {
+export default async function RaidCalculatorPage() {
   const toolPage = await getRequiredToolPage("raid-calculator");
-  const params = await searchParams;
 
   return (
     <ToolPageShell toolPage={toolPage}>
@@ -28,7 +17,7 @@ export default async function RaidCalculatorPage({
           toolPage={toolPage}
         />
 
-        <RaidCalculator initialState={firstValue(params.state)} />
+        <RaidCalculatorFromUrl />
 
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>

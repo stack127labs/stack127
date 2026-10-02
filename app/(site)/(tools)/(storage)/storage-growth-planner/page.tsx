@@ -3,21 +3,10 @@ import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-conten
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { Calculator } from "lucide-react";
 import { PageCanvas } from "../../../../ui/site/page-canvas";
-import { StorageGrowthPlanner } from "./storage-growth-planner";
+import { StorageGrowthPlannerFromUrl } from "./storage-growth-planner-from-url";
 
-type SearchParams = Record<string, string | string[] | undefined>;
-
-function firstValue(value: string | string[] | undefined) {
-  return Array.isArray(value) ? value[0] ?? "" : value ?? "";
-}
-
-export default async function StorageGrowthPlannerPage({
-  searchParams,
-}: {
-  searchParams: Promise<SearchParams>;
-}) {
+export default async function StorageGrowthPlannerPage() {
   const toolPage = await getRequiredToolPage("storage-growth-planner");
-  const params = await searchParams;
   return (
     <ToolPageShell toolPage={toolPage}>
       <PageCanvas>
@@ -25,7 +14,7 @@ export default async function StorageGrowthPlannerPage({
           icon={<Calculator strokeWidth={2.2} />}
           toolPage={toolPage}
         />
-        <StorageGrowthPlanner initialState={firstValue(params.state)} />
+        <StorageGrowthPlannerFromUrl />
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </ToolPageShell>

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { useOptionalDirectoryQuery } from "./directory-query";
 
 function appendUniqueParam(
   params: URLSearchParams,
@@ -157,6 +158,8 @@ function updateStorageSlider(slider: HTMLInputElement) {
 export function DirectoryFilterController() {
   const pathname = usePathname();
   const router = useRouter();
+  // Static directories filter in the browser. Others still reload the page.
+  const replace = useOptionalDirectoryQuery()?.replace;
 
   useEffect(() => {
     const form = document.querySelector<HTMLFormElement>("[data-live-filter-form]");
@@ -170,8 +173,13 @@ export function DirectoryFilterController() {
     let searchTimer: ReturnType<typeof setTimeout> | undefined;
     let rangeTimer: ReturnType<typeof setTimeout> | undefined;
 
+    const navigate = (href: string) => {
+      if (replace) replace(href);
+      else router.replace(href, { scroll: false });
+    };
+
     const applyFilters = () => {
-      router.replace(buildFilterHref(form, pathname), { scroll: false });
+      navigate(buildFilterHref(form, pathname));
     };
 
     const scheduleSearch = () => {
@@ -297,7 +305,7 @@ export function DirectoryFilterController() {
 
         if (root && name && value) {
           setFilterSelectOpen(root, false);
-          router.replace(buildTagFilterHref(form, pathname, name, value, "add"), { scroll: false });
+          navigate(buildTagFilterHref(form, pathname, name, value, "add"));
         }
 
         return;
@@ -313,7 +321,7 @@ export function DirectoryFilterController() {
 
         if (root && name && value) {
           setFilterOptionActive(root, value, false);
-          router.replace(buildTagFilterHref(form, pathname, name, value, "remove"), { scroll: false });
+          navigate(buildTagFilterHref(form, pathname, name, value, "remove"));
         }
 
         return;
@@ -369,7 +377,7 @@ export function DirectoryFilterController() {
       document.removeEventListener("click", handleClick);
       document.removeEventListener("keydown", handleKeydown);
     };
-  }, [pathname, router]);
+  }, [pathname, replace, router]);
 
   return null;
 }

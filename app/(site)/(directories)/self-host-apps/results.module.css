@@ -1,0 +1,5 @@
+/* Older results stay visible, dimmed, while the next ones load. */
+.results[aria-busy="true"] > * {
+  opacity: 0.55;
+  transition: opacity var(--motion-fast);
+}

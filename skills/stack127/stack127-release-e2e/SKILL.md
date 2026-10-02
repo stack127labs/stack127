@@ -11,7 +11,8 @@ Read `AGENTS.md`, `stack127_docs/production-deployment.md`, and `scripts/stack12
 
 - Confirm the user authorized publication, commit, push, and deployment.
 - Confirm the intended changes are on `main` and preserve unrelated work.
-- Reuse passing core-test and production-build results for the same commit. If either is missing, run `npm run test:core` and `npm run build` once. Run `npm run stack127:deploy:preflight`.
+- Reuse passing core-test and production-build results for the same commit. If either is missing, run `npm run test:core` and `npm run build` once. The build runs `npm run check:static -- --strict` through `postbuild`. Run `npm run stack127:deploy:preflight`, which repeats that strict check against the existing manifests.
+- CI runs preflight with `--static-source-only` before its image build. The image build checks the generated manifests through `postbuild`. A source-only check does not replace the manifest check.
 - Stop on a real build, target, DNS, credential, or live-site failure.
 
 ## Release

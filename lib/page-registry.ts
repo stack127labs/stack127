@@ -6,6 +6,7 @@ import { getPool } from "./db";
 import { readPublicData, selectPublicRows } from "./public-data-api";
 import { absoluteUrl, siteName, siteUrl } from "./seo";
 import { homePageSlugs } from "./page-registry-helpers";
+import { PAGE_REGISTRY_TAG, HOME_PAGES_TAG, SITEMAP_TAG } from "./cache-tags";
 
 export type Stack127Page = {
   id: number | string;
@@ -68,7 +69,7 @@ const flatToolSlugByLegacySlug = new Map(
 export type PagePublicationState =
   | {
       kind: "exact";
-      index: boolean;
+      index: true;
       page: Stack127Page;
       pathname: string;
       slug: string;
@@ -147,8 +148,8 @@ async function queryPublishedPage(slug: string) {
 
 function cachedPublishedPage(slug: string) {
   return unstable_cache(() => queryPublishedPage(slug), ["stack127-published-page", slug], {
-    revalidate: 604800,
-    tags: [`stack127-page:${slug || "home"}`],
+    revalidate: false,
+    tags: [`${PAGE_REGISTRY_TAG}:${slug || "home"}`],
   })();
 }
 
@@ -203,7 +204,7 @@ export const getRequiredPublishedPage = cache(async (slug: string) => {
 });
 
 export const getPagePublicationState = cache(
-  async (pathname: string, hasQueryParams = false): Promise<PagePublicationState> => {
+  async (pathname: string): Promise<PagePublicationState> => {
     const cleanedPathname = cleanPathname(pathname);
     const slug = slugFromPathname(cleanedPathname);
     const exact = await getPublishedPage(slug);
@@ -211,7 +212,7 @@ export const getPagePublicationState = cache(
     if (exact) {
       return {
         kind: "exact",
-        index: !hasQueryParams,
+        index: true,
         page: exact,
         pathname: cleanedPathname,
         slug,
@@ -272,7 +273,7 @@ export const getPublishedSitemapPages = cache(unstable_cache(async () => {
   return [...pagesBySlug.values()].sort((left, right) =>
     left.slug.localeCompare(right.slug),
   );
-}, ["stack127-sitemap-pages"], { revalidate: 3600, tags: ["stack127-sitemap-pages"] }));
+}, [SITEMAP_TAG], { revalidate: false, tags: [SITEMAP_TAG] }));
 
 /**
  * Curated published pages for site-wide home navigation. URL depth is not
@@ -298,7 +299,7 @@ export const getMainPublishedPages = cache(unstable_cache(async () => {
       return result.rows;
     },
   });
-}, ["stack127-home-pages"], { revalidate: 86400, tags: ["stack127-home-pages"] }));
+}, [HOME_PAGES_TAG], { revalidate: false, tags: [HOME_PAGES_TAG] }));
 
 export function buildRegistryMetadata(state: PagePublicationState): Metadata {
   if (state.kind === "missing") {
@@ -373,8 +374,7 @@ export function buildRegistryPageStructuredData(state: PagePublicationState) {
   };
 }
 
-// Directory structured data belongs to the same publication boundary as all
-// other page metadata. Query variants and unpublished pages never get a list.
+// Directory structured data uses the same publication boundary as page metadata.
 export async function getRegistryPageStructuredData(state: PagePublicationState) {
   const page = buildRegistryPageStructuredData(state);
   if (!page || state.kind !== "exact" || !state.page.slug.startsWith("platform-fees/")) return page;

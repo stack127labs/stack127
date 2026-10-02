@@ -2,7 +2,7 @@
 
 Goal: every public page is a finished, cached page. Nothing renders per request. Pages change only when their data changes, through the existing revalidation pipeline. Navigation feels instant.
 
-Nothing below is built yet.
+The static conversion is implemented and passes the strict build check. Production rollout is still pending. See [static-pages-status.md](static-pages-status.md) for completed checks and remaining work. The inventory and proposals below describe the starting point and plan.
 
 ---
 
@@ -18,7 +18,7 @@ Nothing below is built yet.
 
 ---
 
-## What is dynamic today
+## What was dynamic before the conversion
 
 The last build has **42 dynamic pages** (`ƒ`). The other 287 pages are static but refresh on a timer.
 

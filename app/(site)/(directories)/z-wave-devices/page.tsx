@@ -1,9 +1,8 @@
 import { Waves } from "lucide-react";
 import { HardwareDirectoryPage } from "../../../ui/directories/hardware-directory-page";
-import type { HardwareDirectorySearchParams } from "../../../ui/directories/hardware-directory-filters";
 import { getHardwareDirectorySnapshot } from "@/lib/hardware-directories";
 
-export default async function ZWaveDevicesPage({ searchParams }: { searchParams: Promise<HardwareDirectorySearchParams> }) {
+export default async function ZWaveDevicesPage() {
   return <HardwareDirectoryPage config={{
     detailFilterLabel: "Region or software support",
     heading: "Z-Wave devices with",
@@ -15,5 +14,5 @@ export default async function ZWaveDevicesPage({ searchParams }: { searchParams:
     sidebarLabel: "Z-Wave devices",
     buyingNote: "Check the product ID, radio region, and firmware against your device before buying or pairing it.",
     title: "Z-Wave devices directory",
-  }} params={await searchParams} snapshot={await getHardwareDirectorySnapshot("z-wave-devices")} />;
+  }} snapshot={await getHardwareDirectorySnapshot("z-wave-devices")} />;
 }

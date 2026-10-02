@@ -18,15 +18,15 @@ export function Pagination({
   return (
     <nav aria-label={ariaLabel} className={styles.pagination}>
       {current > 1
-        ? <Link aria-label="Previous page" href={hrefForPage(current - 1)}>‹</Link>
+        ? <Link aria-label="Previous page" prefetch={false} href={hrefForPage(current - 1)}>‹</Link>
         : <span aria-disabled="true" aria-label="Previous page">‹</span>}
       {paginationPages(current, totalPages).map((page, index) => page === null
         ? <span aria-hidden="true" className={styles.gap} key={`gap-${index}`}>…</span>
         : page === current
           ? <span aria-current="page" key={page}>{page}</span>
-          : <Link href={hrefForPage(page)} key={page}>{page}</Link>)}
+          : <Link href={hrefForPage(page)} key={page} prefetch={false}>{page}</Link>)}
       {current < totalPages
-        ? <Link aria-label="Next page" href={hrefForPage(current + 1)}>›</Link>
+        ? <Link aria-label="Next page" prefetch={false} href={hrefForPage(current + 1)}>›</Link>
         : <span aria-disabled="true" aria-label="Next page">›</span>}
     </nav>
   );

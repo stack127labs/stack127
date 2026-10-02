@@ -1,7 +1,7 @@
 import { registryLayout } from "@/lib/registry-layout";
 
-const registry = registryLayout("/ad-networks/[slug]", true);
+const registry = registryLayout("/ad-networks/[slug]");
 export const generateMetadata = registry.generateMetadata;
-export const dynamic = "force-dynamic";
-export const revalidate = 604800;
+export function generateStaticParams() { return []; }
+export const revalidate = false;
 export default registry.Layout;

@@ -1,3 +1,4 @@
+import { SELF_HOST_INDEX_TAG, SELF_HOST_DETAILS_TAG, SELF_HOST_APP_TAG } from "@/lib/cache-tags";
 import { plannerSearchPattern } from "@/lib/planner-search";
 import { boundedCache } from "@/lib/bounded-cache";
 import { unstable_cache } from "next/cache";
@@ -45,7 +46,7 @@ async function loadSelfHostedAppResourcePlannerIndex(query: string): Promise<Res
 }
 
 export const getSelfHostedAppResourcePlannerIndex = (query: string) => boundedCache(
-  "resource-planner-search", query, () => loadSelfHostedAppResourcePlannerIndex(query), ["stack127-self-host-apps"],
+  "resource-planner-search", query, () => loadSelfHostedAppResourcePlannerIndex(query), [SELF_HOST_INDEX_TAG],
 );
 
 const plannerFields = `
@@ -109,7 +110,7 @@ async function loadSelfHostedAppResourcePlannerCatalogue(): Promise<ResourcePlan
 
 export const getSelfHostedAppResourcePlannerEntry = (slug: string) => unstable_cache(
   () => loadSelfHostedAppResourcePlannerEntry(slug), ["stack127-resource-planner-app", slug],
-  { revalidate: 86400, tags: ["stack127-self-host-details", `stack127-self-host-app:${slug}`] },
+  { revalidate: false, tags: [SELF_HOST_DETAILS_TAG, `${SELF_HOST_APP_TAG}:${slug}`] },
 )();
 export const getSelfHostedAppResourcePlannerCatalogue = unstable_cache(loadSelfHostedAppResourcePlannerCatalogue,
-  ["stack127-resource-planner-catalogue"], { revalidate: 86400, tags: ["stack127-self-host-apps"] });
+  ["stack127-resource-planner-catalogue"], { revalidate: false, tags: [SELF_HOST_INDEX_TAG] });

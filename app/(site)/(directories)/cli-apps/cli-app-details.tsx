@@ -22,7 +22,8 @@ import { formatDate, formatList, formatStars, labelForPricing, labelForSource, l
 
 type Fact = [label: string, value: string, Icon: LucideIcon];
 
-// The panel body is server-rendered so each visible app's details are in the page HTML.
+// The server renders this for the default page, so those details are in the page HTML.
+// The browser renders it for apps that only appear after filtering.
 export function CliAppDetailsBody({ app }: { app: TerminalApp }) {
   const categoryLabels = new Map(
     terminalAppCategories.map((category) => [category.slug, category.name]),

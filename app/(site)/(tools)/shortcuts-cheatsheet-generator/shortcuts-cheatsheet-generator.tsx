@@ -1,7 +1,7 @@
 "use client";
 
 import { Printer } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { UiButton, UiCheckbox, UiChoiceGroup, UiSearchField, uiOption } from "@/app/ui/controls";
 import { UiStatus } from "@/app/ui/display";
 import { buildCheatSheet, type CheatSheetAppSelection, type CheatSheetAppSection } from "@/lib/shortcuts/cheatsheet";
@@ -9,7 +9,15 @@ import { platformLabels, type AppShortcuts, type PlatformId } from "@/lib/shortc
 import type { ShortcutAppSummary } from "@/lib/shortcuts";
 import styles from "./shortcuts-cheatsheet-generator.module.css";
 
-type Props = { catalog: readonly ShortcutAppSummary[]; initialApps: AppShortcuts[] };
+type Props = { catalog: readonly ShortcutAppSummary[]; initialSlugs: readonly string[] };
+
+async function loadApp(slug: string, signal?: AbortSignal): Promise<AppShortcuts> {
+  const response = await fetch(`/api/shortcuts/${encodeURIComponent(slug)}`, { signal });
+  if (!response.ok) throw new Error("App shortcuts could not be loaded.");
+  const app = await response.json() as AppShortcuts;
+  if (app.slug !== slug) throw new Error("App shortcuts could not be loaded.");
+  return app;
+}
 
 function SheetTable({ entry }: { entry: CheatSheetAppSection }) {
   return <table className={styles.sheetTable}>
@@ -28,16 +36,34 @@ function SheetSource({ app }: { app: AppShortcuts }) {
   return <p className={styles.sheetSource}>Source: <a href={app.sourceUrl}>{app.sourceLabel}</a> · <span>{app.sourceUrl}</span> · Verified <time dateTime={app.lastVerified}>{app.lastVerified}</time></p>;
 }
 
-export function ShortcutsCheatSheetGenerator({ catalog, initialApps }: Props) {
-  const [loadedApps, setLoadedApps] = useState<Record<string, AppShortcuts>>(() =>
-    Object.fromEntries(initialApps.map((app) => [app.slug, app])),
-  );
-  const [selected, setSelected] = useState<Set<string>>(() => new Set(initialApps.map((app) => app.slug)));
-  const [loadingSlugs, setLoadingSlugs] = useState<Set<string>>(() => new Set());
+export function ShortcutsCheatSheetGenerator({ catalog, initialSlugs }: Props) {
+  const [loadedApps, setLoadedApps] = useState<Record<string, AppShortcuts>>({});
+  const [selected, setSelected] = useState<Set<string>>(() => new Set(initialSlugs));
+  const [loadingSlugs, setLoadingSlugs] = useState<Set<string>>(() => new Set(initialSlugs));
   const [loadError, setLoadError] = useState<string | null>(null);
   const [filter, setFilter] = useState("");
   const [platformChoice, setPlatformChoice] = useState<Record<string, "all" | PlatformId>>({});
   const [excludedGroups, setExcludedGroups] = useState<Record<string, Set<string>>>({});
+
+  // Loading a shared selection adds records without replacing choices made meanwhile.
+  useEffect(() => {
+    const controller = new AbortController();
+    for (const slug of initialSlugs) {
+      void loadApp(slug, controller.signal)
+        .then((app) => {
+          if (!controller.signal.aborted) setLoadedApps((current) => ({ ...current, [slug]: app }));
+        })
+        .catch(() => {
+          if (controller.signal.aborted) return;
+          setSelected((current) => { const next = new Set(current); next.delete(slug); return next; });
+          setLoadError("The app shortcuts could not be loaded. Try selecting the app again.");
+        })
+        .finally(() => {
+          if (!controller.signal.aborted) setLoadingSlugs((current) => { const next = new Set(current); next.delete(slug); return next; });
+        });
+    }
+    return () => controller.abort();
+  }, [initialSlugs]);
   const selectedApps = catalog.flatMap((summary) => {
     const app = loadedApps[summary.slug];
     return selected.has(summary.slug) && app ? [app] : [];
@@ -63,10 +89,7 @@ export function ShortcutsCheatSheetGenerator({ catalog, initialApps }: Props) {
 
     setLoadingSlugs((current) => new Set(current).add(slug));
     try {
-      const response = await fetch(`/api/shortcuts/${encodeURIComponent(slug)}`);
-      if (!response.ok) throw new Error("App shortcuts could not be loaded.");
-      const app = await response.json() as AppShortcuts;
-      if (app.slug !== slug) throw new Error("App shortcuts could not be loaded.");
+      const app = await loadApp(slug);
       setLoadedApps((current) => ({ ...current, [slug]: app }));
       setSelected((current) => new Set(current).add(slug));
     } catch {
@@ -93,7 +116,7 @@ export function ShortcutsCheatSheetGenerator({ catalog, initialApps }: Props) {
         {selectedApps.map((app) => { const hasNoGroups = app.groups.every((group) => (excludedGroups[app.slug] ?? new Set()).has(group.id)); const groupErrorId = `groups-${app.slug}-error`; return <section className={styles.appOptions} key={app.slug} aria-labelledby={`options-${app.slug}`}>
           <h3 id={`options-${app.slug}`}>{app.name}</h3>
           {app.platforms.length > 1 ? <UiChoiceGroup label="Platform" onChange={(choice) => setPlatformChoice((current) => ({ ...current, [app.slug]: choice as "all" | PlatformId }))} options={[uiOption("all", "All platforms"), ...app.platforms.map((platform) => uiOption(platform, platformLabels[platform]))]} value={platformChoice[app.slug] ?? "all"} /> : null}
-          <fieldset aria-describedby={hasNoGroups ? groupErrorId : undefined} aria-invalid={hasNoGroups || undefined} className={styles.groups}><legend>Groups</legend>{app.groups.map((group) => <UiCheckbox isSelected={!(excludedGroups[app.slug] ?? new Set()).has(group.id)} key={group.id} onChange={(checked) => toggleGroup(app.slug, group.id, checked)}>{group.title}</UiCheckbox>)}{hasNoGroups ? <p className={styles.groupError} id={groupErrorId}>UiSelect at least one group for {app.name}.</p> : null}</fieldset>
+          <fieldset aria-describedby={hasNoGroups ? groupErrorId : undefined} aria-invalid={hasNoGroups || undefined} className={styles.groups}><legend>Groups</legend>{app.groups.map((group) => <UiCheckbox isSelected={!(excludedGroups[app.slug] ?? new Set()).has(group.id)} key={group.id} onChange={(checked) => toggleGroup(app.slug, group.id, checked)}>{group.title}</UiCheckbox>)}{hasNoGroups ? <p className={styles.groupError} id={groupErrorId}>Select at least one group for {app.name}.</p> : null}</fieldset>
         </section>; })}
       </div>
     </div>

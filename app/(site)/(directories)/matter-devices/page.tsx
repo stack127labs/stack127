@@ -1,9 +1,8 @@
 import { Network } from "lucide-react";
 import { HardwareDirectoryPage } from "../../../ui/directories/hardware-directory-page";
-import type { HardwareDirectorySearchParams } from "../../../ui/directories/hardware-directory-filters";
 import { getHardwareDirectorySnapshot } from "@/lib/hardware-directories";
 
-export default async function MatterDevicesPage({ searchParams }: { searchParams: Promise<HardwareDirectorySearchParams> }) {
+export default async function MatterDevicesPage() {
   return <HardwareDirectoryPage config={{
     detailFilterLabel: "Transport or version",
     heading: "Matter devices with",
@@ -15,5 +14,5 @@ export default async function MatterDevicesPage({ searchParams }: { searchParams
     sidebarLabel: "Matter devices",
     buyingNote: "Matter certification confirms the product is certified. Home Assistant may still expose fewer features than another controller.",
     title: "Matter devices directory",
-  }} params={await searchParams} snapshot={await getHardwareDirectorySnapshot("matter-devices")} />;
+  }} snapshot={await getHardwareDirectorySnapshot("matter-devices")} />;
 }

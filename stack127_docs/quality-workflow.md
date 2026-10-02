@@ -10,7 +10,7 @@ Run:
 npm run quality
 ```
 
-This runs TypeScript and a small core suite. The suite checks database error handling, publication boundaries, and production deployment safety. Use it when no production build is required.
+This runs TypeScript and a small core suite. The suite checks database error handling, publication boundaries, the static release gate, and production deployment safety. Use it when no production build is required.
 
 Run a focused test only when code calculates, parses, transforms, imports, or resolves data:
 
@@ -31,12 +31,12 @@ Before handoff:
 3. For an interactive tool, run one correct example and one invalid-input example.
 4. Confirm the title, main content, links, and primary action are usable.
 5. For route, shared runtime code, SEO code, or production configuration changes, run `npm run test:core` and `npm run build`. Use these instead of `npm run quality`. The Next.js build already checks TypeScript.
-6. In the build route list, new and converted pages must be static (`○` or `●`). Report existing dynamic routes against the pending rollout in [caching.md](caching.md). Once that rollout is complete, only API routes, `/vitals`, and `/publication-not-found` may be dynamic (`ƒ`).
+6. In the build route list, public pages must be static (`○` or `●`). The build's `postbuild` hook runs `npm run check:static -- --strict`. Only API routes, `/vitals`, and `/publication-not-found` may be dynamic. See [caching.md](caching.md).
 
 Do not run a full-site browser suite for one page. Recheck only the changed page and shared behavior it affects.
 
 ## Release check
 
-The production workflow runs the four core tests, builds one immutable image, and deploys it. It checks the live revision, homepage, robots file, and sitemap. The image build checks TypeScript and compiles routes. The workflow does not make a separate database connection, run Playwright, repeat TypeScript, or build a second time.
+The production workflow runs the core tests, builds one immutable image, and deploys it. It checks the live revision, homepage, robots file, and sitemap. The image build checks TypeScript, compiles routes, and runs the strict static route check. The workflow does not make a separate database connection, run Playwright, repeat TypeScript, or build a second time.
 
 Documentation, skills, records, and tests do not trigger a production release by themselves.

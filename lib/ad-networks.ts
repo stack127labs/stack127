@@ -1,4 +1,6 @@
 import { getPool } from "./db";
+import { unstable_cache } from "next/cache";
+import { AD_NETWORKS_TAG } from "./cache-tags";
 
 export type AdNetwork = {
   id: string;
@@ -36,53 +38,77 @@ export function directoryPageHref(route: string, query: string, page: number) {
   return suffix ? `${route}?${suffix}` : route;
 }
 
-export async function listAdNetworks(query: string): Promise<AdNetwork[]> {
+async function loadAdNetworks(): Promise<AdNetwork[]> {
   const result = await getPool().query<AdNetwork & { verified_count: string }>(`
     select n.id, n.slug, n.name, n.official_url, n.summary,
       count(r.publisher_id) filter (where r.status = 'confirmed')::text as verified_count
     from public.ad_networks n
     left join public.ad_network_publisher_relationships r on r.ad_network_id = n.id
-    where position(lower($1) in lower(n.name)) > 0
-      or position(lower($1) in lower(n.slug)) > 0
     group by n.id
     order by n.name, n.id
-  `, [query]);
+  `);
   return result.rows.map((row) => ({ ...row, verified_count: Number(row.verified_count) }));
 }
 
-export async function getAdNetwork(slug: string): Promise<AdNetwork | null> {
-  const result = await getPool().query<AdNetwork & { verified_count: string }>(`
-    select n.id, n.slug, n.name, n.official_url, n.summary,
-      count(r.publisher_id) filter (where r.status = 'confirmed')::text as verified_count
-    from public.ad_networks n
-    left join public.ad_network_publisher_relationships r on r.ad_network_id = n.id
-    where n.slug = $1
-    group by n.id
-  `, [slug]);
-  const row = result.rows[0];
-  return row ? { ...row, verified_count: Number(row.verified_count) } : null;
+const cachedAdNetworks = unstable_cache(loadAdNetworks, ["stack127-ad-networks"], {
+  revalidate: false, tags: [AD_NETWORKS_TAG],
+});
+
+export async function listAdNetworks(query: string): Promise<AdNetwork[]> {
+  const needle = query.toLowerCase();
+  return (await cachedAdNetworks()).filter(network =>
+    network.name.toLowerCase().includes(needle) || network.slug.toLowerCase().includes(needle));
 }
 
-export async function listVerifiedPublishers(networkId: string, query: string, page: number) {
-  const count = await getPool().query<{ total: string }>(`
-    select count(*)::text as total
-    from public.ad_network_publisher_relationships r
-    join public.ad_network_publishers p on p.id = r.publisher_id
-    where r.ad_network_id = $1 and r.status = 'confirmed'
-      and position(lower($2) in lower(p.normalized_domain)) > 0
-  `, [networkId, query]);
-  const total = Number(count.rows[0]?.total ?? 0);
-  const totalPages = Math.max(1, Math.ceil(total / publisherPageSize));
-  const currentPage = Math.min(page, totalPages);
+export async function getAdNetwork(slug: string): Promise<AdNetwork | null> {
+  return (await cachedAdNetworks()).find(network => network.slug === slug) ?? null;
+}
+
+const publisherBatchSize = 750;
+
+async function loadVerifiedPublishersBatch(networkId: string, offset: number): Promise<VerifiedPublisher[]> {
   const result = await getPool().query<VerifiedPublisher>(`
     select p.normalized_domain, p.display_domain,
       r.relationship_type, r.last_confirmed_at
     from public.ad_network_publisher_relationships r
     join public.ad_network_publishers p on p.id = r.publisher_id
     where r.ad_network_id = $1 and r.status = 'confirmed'
-      and position(lower($2) in lower(p.normalized_domain)) > 0
     order by p.normalized_domain, p.id
-    limit $3 offset $4
-  `, [networkId, query, publisherPageSize, (currentPage - 1) * publisherPageSize]);
-  return { currentPage, rows: result.rows, total, totalPages };
+    limit $2 offset $3
+  `, [networkId, publisherBatchSize, offset]);
+  return result.rows;
+}
+
+const cachedVerifiedPublishersBatch = unstable_cache(loadVerifiedPublishersBatch, ["stack127-ad-network-publishers-batch"], {
+  revalidate: false, tags: [AD_NETWORKS_TAG],
+});
+
+const cachedVerifiedPublisherCount = unstable_cache(async (networkId: string) => {
+  const result = await getPool().query<{ total: string }>(`
+    select count(*)::text as total
+    from public.ad_network_publisher_relationships r
+    join public.ad_network_publishers p on p.id = r.publisher_id
+    where r.ad_network_id = $1 and r.status = 'confirmed'
+  `, [networkId]);
+  return Number(result.rows[0]?.total ?? 0);
+}, ["stack127-ad-network-publisher-count"], {
+  revalidate: false, tags: [AD_NETWORKS_TAG],
+});
+
+export async function listAllVerifiedPublishers(networkId: string): Promise<VerifiedPublisher[]> {
+  const count = await cachedVerifiedPublisherCount(networkId);
+  const batches = await Promise.all(Array.from({ length: Math.ceil(count / publisherBatchSize) }, (_, batch) =>
+    cachedVerifiedPublishersBatch(networkId, batch * publisherBatchSize)));
+  return batches.flat();
+}
+
+export async function listVerifiedPublishers(networkId: string, query: string, page: number) {
+  const needle = query.toLowerCase();
+  const publishers = (await listAllVerifiedPublishers(networkId)).filter(publisher =>
+    publisher.normalized_domain.toLowerCase().includes(needle));
+  const total = publishers.length;
+  const totalPages = Math.max(1, Math.ceil(total / publisherPageSize));
+  const currentPage = Math.max(1, Math.min(page, totalPages));
+  const rows = publishers.slice((currentPage - 1) * publisherPageSize, currentPage * publisherPageSize);
+  return { currentPage, rows, total, totalPages };
 }

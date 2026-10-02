@@ -12,23 +12,25 @@ test("cli-apps is registered as a home feature page", async () => {
 });
 
 test("the home page exposes a cli-apps card with an icon", async () => {
-  const home = await read("app/(site)/page.tsx");
+  const home = await read("app/(site)/(home)/page.tsx");
   assert.match(home, /"cli-apps": SquareTerminal/);
   assert.match(home, /SquareTerminal/);
 });
 
 test("the site navigation leads to home, where Start here links to cli-apps", async () => {
-  const nav = await read("app/site-nav.tsx");
-  const home = await read("app/(site)/page.tsx");
+  const nav = await read("app/ui/site/site-nav.tsx");
+  const home = await read("app/(site)/(home)/page.tsx");
   assert.match(nav, /href="\/"[^>]*>\s*explore/);
-  assert.match(home, /href="\/cli-apps"/);
+  assert.match(home, /slug: "cli-apps"[^\n]+action: "Browse CLI apps"/);
+  assert.match(home, /href=\{`\/\$\{item.slug\}`\}/);
   assert.match(home, /Browse CLI apps/);
 });
 
 test("the cli-apps page exposes language and license filters", async () => {
   const page = await read("app/(site)/(directories)/cli-apps/page.tsx");
-  assert.match(page, /name="language"/);
-  assert.match(page, /name="license"/);
+  const view = await read("app/(site)/(directories)/cli-apps/cli-app-view.tsx");
+  assert.match(view, /name="language"/);
+  assert.match(view, /name="license"/);
   assert.match(page, /languageOptions/);
   assert.match(page, /licenseOptions/);
 });

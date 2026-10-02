@@ -196,7 +196,7 @@ test("every physical directory record has one explicit Amazon review state", asy
 });
 
 test("directory details show only confirmed sponsored Amazon links", async () => {
-  const shared = await readFile(new URL("app/(site)/(directories)/_components/hardware-directory-browser.tsx", root), "utf8");
+  const shared = await readFile(new URL("app/ui/directories/hardware-directory-browser.tsx", root), "utf8");
   const zigbee = await readFile(new URL("app/(site)/(directories)/zigbee-devices/zigbee-device-browser.tsx", root), "utf8");
   for (const source of [shared, zigbee]) {
     assert.match(source, /Check price on Amazon/);

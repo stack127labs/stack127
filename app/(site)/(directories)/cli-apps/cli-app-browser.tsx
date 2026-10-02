@@ -15,6 +15,7 @@ import { terminalAppCategoryBySlug } from "@/lib/terminal-app-taxonomy";
 import { AppFactCardContent, appFactCardClassName } from "../../../ui/directories/app-fact-card";
 import { formatDate, formatList, formatStars, labelForPricing } from "./cli-app-format";
 import { hiddenDetailsHtml } from "@/app/ui/directories/hidden-details";
+import { CliAppDetailsBody } from "./cli-app-details";
 
 const generatedIconColors = [
   "#2563eb",
@@ -134,8 +135,9 @@ function TerminalAppCard({ app, onSelect }: { app: TerminalApp; onSelect: () => 
   );
 }
 
-// Each app's panel body is server-rendered into hidden HTML by the page, so search
-// engines can read it. Opening a card shows that same HTML in the side panel.
+// The default page's panel bodies are server-rendered into hidden HTML, so search
+// engines can read them. Opening a card shows that HTML in the side panel. Apps
+// that only appear after filtering render the same panel in the browser.
 export function CliAppBrowser({ apps }: { apps: TerminalApp[] }) {
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const selectedApp = apps.find((app) => app.slug === selectedSlug);
@@ -157,15 +159,15 @@ export function CliAppBrowser({ apps }: { apps: TerminalApp[] }) {
             </div>
             <DetailDialogClose ariaLabel="Close app details" onClose={close} />
           </div>
-          <DetailBody slug={selectedApp.slug} />
+          <DetailBody app={selectedApp} />
         </DetailDialog>
       ) : null}
     </>
   );
 }
 
-function DetailBody({ slug }: { slug: string }) {
-  const html = hiddenDetailsHtml("cli-app", slug);
-  if (html === null) return <p role="alert">App details could not be loaded. Close this panel and try again.</p>;
+function DetailBody({ app }: { app: TerminalApp }) {
+  const html = hiddenDetailsHtml("cli-app", app.slug);
+  if (html === null) return <CliAppDetailsBody app={app} />;
   return <div dangerouslySetInnerHTML={{ __html: html }} style={{ display: "contents" }} />;
 }

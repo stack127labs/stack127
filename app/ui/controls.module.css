@@ -840,13 +840,6 @@
   visibility: visible;
 }
 
-@media (max-width: 760px) {
-  .repeatableRow > button[aria-label]::after {
-    left: 0;
-    right: auto;
-  }
-}
-
 .repeatableContent {
   min-width: 0;
 }

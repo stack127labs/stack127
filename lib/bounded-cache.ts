@@ -29,10 +29,3 @@ export function invalidateBoundedCaches(tags: readonly string[]) {
 export function filterCacheKey(params: Record<string, string | string[] | undefined>) {
   return JSON.stringify(Object.entries(params).filter(([, value]) => value !== undefined).sort(([a], [b]) => a.localeCompare(b)));
 }
-
-/** All normal numbered pages share one filtered index; only query variants use the 500-slot limit. */
-export function directoryResultCache<T>(namespace: string, params: Record<string, string | string[] | undefined>, load: () => Promise<T>, tags: readonly string[]) {
-  const filters = Object.entries(params).some(([key, value]) => key !== "page" && key !== "app" && Boolean(Array.isArray(value) ? value.length : value));
-  return filters ? boundedCache(namespace, filterCacheKey(params), load, tags)
-    : boundedCache(`${namespace}:numbered`, "all", load, tags, 86_400_000, 1);
-}

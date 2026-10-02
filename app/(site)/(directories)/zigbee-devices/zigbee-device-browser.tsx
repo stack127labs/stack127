@@ -1,14 +1,12 @@
 "use client";
 
 import { DetailDialog, DetailDialogClose } from "@/app/ui/detail-dialog";
-
-
 import { ExternalLink, RadioTower } from "lucide-react";
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import type { ZigbeeDevice } from "@/lib/zigbee-devices";
-import { zigbeeCategoryLabels } from "@/lib/zigbee-devices";
 import { hardwareCardName } from "@/lib/hardware-directories/card-name";
+import type { ZigbeeIndexRecord } from "./filters";
 import styles from "./zigbee-devices.module.css";
 import { HardwareFactCardContent, hardwareFactCardClassName } from "../../../ui/directories/hardware-fact-card";
 
@@ -27,28 +25,9 @@ function readerFactValue(value: string) {
   return value;
 }
 
-function categoryLabel(value: string) {
-  return zigbeeCategoryLabels.get(value) ?? "Other";
-}
-
-function compatibility(device: ZigbeeDevice) {
-  if (device.card?.compatibility) return device.card.compatibility;
-  return { label: "Works with", status: "confirmed", value: "Zigbee2MQTT + ZHA" } as const;
-}
-
-function cardFacts(device: ZigbeeDevice) {
-  return device.card?.facts ?? [
-    { label: "Type", value: categoryLabel(device.category) },
-    { label: "Capabilities", value: formatList(device.zigbee2mqtt_capabilities.slice(0, 4)) },
-  ];
-}
-
-function DeviceDetails({ device, onClose }: { device: ZigbeeDevice; onClose: () => void }) {
-
-
-
-
-  const support = compatibility(device);
+function DeviceDetails({ categoryLabels, device, onClose }: { categoryLabels: Record<string, string>; device: ZigbeeDevice; onClose: () => void }) {
+  const categoryLabel = (value: string) => categoryLabels[value] ?? "Other";
+  const support = device.card?.compatibility ?? { label: "Works with", status: "confirmed", value: "Zigbee2MQTT + ZHA" };
   const sections = device.detail_sections ?? [
     { heading: "Exact device", facts: [{ label: "Manufacturer", value: device.vendor }, { label: "Retail model", value: device.model }, { label: "Category", value: categoryLabel(device.category) }] },
     { heading: "Platform compatibility", facts: [{ label: "Zigbee2MQTT", value: device.zigbee2mqtt_url ? "Support record available" : "Not listed" }, { label: "ZHA", value: device.blakadder_url ? "Community record available" : "Not listed" }] },
@@ -114,26 +93,53 @@ function DeviceDetails({ device, onClose }: { device: ZigbeeDevice; onClose: () 
   );
 }
 
-function DeviceCard({ device, onSelect }: { device: ZigbeeDevice; onSelect: () => void }) {
-  const support = compatibility(device);
+function DeviceCard({ device, onSelect }: { device: ZigbeeIndexRecord; onSelect: () => void }) {
+  const support = device.compatibility;
   return (
     <button aria-label={`View details for ${device.vendor} ${device.model}`} aria-haspopup="dialog" className={`directory-card ${hardwareFactCardClassName}`} onClick={onSelect} type="button">
       <HardwareFactCardContent name={hardwareCardName(device.name, device.vendor, device.model)} image={device.image_path}
-        facts={[{ label: support.label, value: support.value }, ...cardFacts(device)]} />
+        facts={[{ label: support.label, value: support.value }, ...device.cardFacts]} />
     </button>
   );
 }
 
-export function ZigbeeDeviceBrowser({ devices }: { devices: ZigbeeDevice[] }) {
+// The first page ships its full device records. Cards that only appear after
+// filtering load their details when opened.
+export function ZigbeeDeviceBrowser({ categoryLabels, details, devices }: {
+  categoryLabels: Record<string, string>;
+  details: ZigbeeDevice[];
+  devices: ZigbeeIndexRecord[];
+}) {
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const selectedDevice = useMemo(() => devices.find((device) => device.slug === selectedSlug), [devices, selectedSlug]);
-  const close = () => setSelectedSlug(null);
+  const [loadedBySlug, setLoadedBySlug] = useState<Record<string, ZigbeeDevice>>({});
+  const [loadError, setLoadError] = useState(false);
+  const selectedDevice = selectedSlug ? details.find((device) => device.slug === selectedSlug) ?? loadedBySlug[selectedSlug] : undefined;
+
+  useEffect(() => {
+    if (!selectedSlug || selectedDevice) return;
+    const controller = new AbortController();
+    setLoadError(false);
+    fetch(`/api/hardware-directory/zigbee-devices/${encodeURIComponent(selectedSlug)}`, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error("Device details could not be loaded.");
+        return response.json() as Promise<ZigbeeDevice>;
+      })
+      .then((device) => setLoadedBySlug((current) => ({ ...current, [device.slug]: device })))
+      .catch(() => { if (!controller.signal.aborted) setLoadError(true); });
+    return () => controller.abort();
+  }, [selectedDevice, selectedSlug]);
+
+  const close = () => { setSelectedSlug(null); setLoadError(false); };
   return (
     <>
       <div className="directory-card-grid">
         {devices.map((device) => <DeviceCard device={device} key={device.slug} onSelect={() => setSelectedSlug(device.slug)} />)}
       </div>
-      {selectedDevice ? <DeviceDetails device={selectedDevice} onClose={close} /> : null}
+      {selectedDevice ? <DeviceDetails categoryLabels={categoryLabels} device={selectedDevice} onClose={close} /> : null}
+      {selectedSlug && !selectedDevice ? <DetailDialog ariaLabel="Device details" onClose={close}>
+        <div className="app-detail-heading"><h2>Device details</h2><DetailDialogClose ariaLabel="Close device details" onClose={close} /></div>
+        <p role={loadError ? "alert" : "status"}>{loadError ? "Device details could not be loaded. Close this panel and try again." : "Loading device details…"}</p>
+      </DetailDialog> : null}
     </>
   );
 }

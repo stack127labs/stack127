@@ -1,33 +1,32 @@
 import type { ZigbeeDevice } from "@/lib/zigbee-devices";
 import { hardwareCardName } from "@/lib/hardware-directories/card-name";
+import { pageParamHref, paramPage, paramString, paramValues, type DirectoryParams } from "@/app/ui/directories/directory-params";
 
-export type ZigbeeSearchParams = Record<string, string | string[] | undefined>;
+export const zigbeePageSize = 30;
+
+export type ZigbeeSearchParams = DirectoryParams;
 
 export const zigbeeSortValues = ["name", "vendor", "capabilities", "newest"] as const;
 export type ZigbeeSort = (typeof zigbeeSortValues)[number];
 
-export function getValues(params: ZigbeeSearchParams, key: string) {
-  const value = params[key];
-  if (!value) return [];
-  return Array.isArray(value) ? value : [value];
-}
+type FilterableDevice = Pick<ZigbeeDevice,
+  | "vendor" | "name" | "model" | "category" | "zigbee_models" | "fingerprints"
+  | "zigbee2mqtt_capabilities" | "zha_reported_capabilities" | "ota" | "battery_reporting">;
+type SortableDevice = Pick<ZigbeeDevice, "vendor" | "name" | "model" | "zigbee2mqtt_capabilities" | "date_added">;
 
-export function getString(params: ZigbeeSearchParams, key: string) {
-  const value = params[key];
-  return Array.isArray(value) ? value[0] ?? "" : value ?? "";
-}
 
-export function getPage(params: ZigbeeSearchParams) {
-  const value = Number(getString(params, "page"));
-  return Number.isInteger(value) && value > 1 ? value : 1;
-}
+export { zigbeeIndexRecord, type ZigbeeIndexRecord } from "@/lib/zigbee-devices/search-index";
+
+export const getValues = paramValues;
+export const getString = paramString;
+export const getPage = paramPage;
 
 export function getSort(params: ZigbeeSearchParams): ZigbeeSort {
   const value = getString(params, "sort");
   return zigbeeSortValues.includes(value as ZigbeeSort) ? value as ZigbeeSort : "name";
 }
 
-function matchesSearch(device: ZigbeeDevice, query: string) {
+function matchesSearch(device: FilterableDevice, query: string) {
   if (!query) return true;
 
   const haystack = [
@@ -49,7 +48,7 @@ function matchesSearch(device: ZigbeeDevice, query: string) {
   return haystack.includes(query.toLowerCase());
 }
 
-export function filterDevices(devices: ZigbeeDevice[], params: ZigbeeSearchParams) {
+export function filterDevices<T extends FilterableDevice>(devices: T[], params: ZigbeeSearchParams) {
   const query = getString(params, "q").trim();
   const categories = new Set(getValues(params, "category"));
   const vendors = new Set(getValues(params, "vendor"));
@@ -73,7 +72,7 @@ export function filterDevices(devices: ZigbeeDevice[], params: ZigbeeSearchParam
   });
 }
 
-export function sortDevices(devices: ZigbeeDevice[], sort: ZigbeeSort | string) {
+export function sortDevices<T extends SortableDevice>(devices: T[], sort: ZigbeeSort | string) {
   return [...devices].sort((left, right) => {
     if (sort === "vendor") {
       return left.vendor.localeCompare(right.vendor)
@@ -97,19 +96,8 @@ export function sortDevices(devices: ZigbeeDevice[], sort: ZigbeeSort | string) 
   });
 }
 
-
-
 export function pageHref(params: ZigbeeSearchParams, page: number) {
-  const next = new URLSearchParams();
-
-  for (const [key, value] of Object.entries(params)) {
-    if (key === "page") continue;
-    for (const current of Array.isArray(value) ? value : value ? [value] : []) {
-      next.append(key, current);
-    }
-  }
-
-  if (page > 1) next.set("page", String(page));
-  const query = next.toString();
-  return query ? `/zigbee-devices?${query}` : "/zigbee-devices";
+  return pageParamHref("/zigbee-devices", params, page);
 }
+
+/** Builds the compact record. Category labels come from the server so the browser never loads the device file. */

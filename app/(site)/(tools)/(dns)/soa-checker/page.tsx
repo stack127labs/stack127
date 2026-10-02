@@ -3,15 +3,11 @@ import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { FileClock } from "lucide-react";
-import { SoaChecker } from "./soa-checker";
+import { SoaCheckerFromUrl } from "./soa-checker-from-url";
 import styles from "./soa-checker.module.css";
 
-type SearchParams = Record<string, string | string[] | undefined>;
-const first = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] ?? "" : value ?? "";
-
-export default async function SoaCheckerPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+export default async function SoaCheckerPage() {
   const toolPage = await getRequiredToolPage("soa-checker");
-  const params = await searchParams;
   return (
     <ToolPageShell toolPage={toolPage}>
       <PageCanvas as="main" className={styles.main}>
@@ -19,7 +15,7 @@ export default async function SoaCheckerPage({ searchParams }: { searchParams: P
           icon={<FileClock strokeWidth={2.2} />}
           toolPage={toolPage}
         />
-        <SoaChecker initialName={first(params.name)} />
+        <SoaCheckerFromUrl />
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </ToolPageShell>

@@ -1,11 +1,9 @@
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { StatePanel } from '@/app/ui/state-panel';
 import { getRequiredPublishedPage } from '@/lib/page-registry';
 import { getFeeDirectory } from '@/lib/platform-fees/queries';
-import { filterDirectory, sectionCheckedAt } from '@/lib/platform-fees/model';
+import { sectionCheckedAt } from '@/lib/platform-fees/model';
 import { sectionPath, sectionSlug } from '@/lib/platform-fees/section-routes';
-import { FeeFilters } from '../filters';
+import { FeeFilters, FeeMatchCount, FeeSearch, FeeSectionGrid } from '../filters';
 import { FeeShell, FeeSourceList, SectionTile } from '../components';
 import { FeeSources } from '../sources';
 import { FeeCard } from '../fee-card';
@@ -15,36 +13,41 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
   day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
 });
 
-export default async function FeeSectionPage({ params, searchParams }: {
-  params: Promise<{ section: string }>;
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
+// Build every section during the release. Unpublished sections still return 404.
+export async function generateStaticParams() {
+  const directory = await getFeeDirectory();
+  return directory.sections.map(section => ({ section: sectionSlug(section.id) }));
+}
+
+export default async function FeeSectionPage({ params }: { params: Promise<{ section: string }> }) {
   const { section: slug } = await params;
   await getRequiredPublishedPage(`platform-fees/${slug}`);
   // A failed load must surface as an error, never as a cacheable page.
   const directory = await getFeeDirectory();
   const section = directory.sections.find(section => sectionSlug(section.id) === slug);
   if (!section) notFound();
-  const parameters = await searchParams;
-  const query = typeof parameters.q === 'string' ? parameters.q.trim().slice(0, 160) : '';
   const sectionEntries = directory.entries.filter(entry => entry.section_id === section.id);
-  const entries = filterDirectory(directory, query, section.id).entries;
+  const items = sectionEntries.map(entry => ({
+    id: entry.id,
+    text: `${entry.name} ${entry.card.tag} ${entry.summary}`.toLocaleLowerCase('en-US'),
+  }));
   const checkedAt = sectionCheckedAt(sectionEntries);
   const related = section.related_sections.map(id => directory.sections.find(section => section.id === id)!).filter(Boolean);
   const path = sectionPath(section.id);
 
   return <FeeShell sections={directory.sections} selected={section.id} title={section.meta_title}>
-    <FeeFilters key={query} action={path} query={query} />
-    <div className={styles.overview}>
-      <p>{entries.length} platforms</p>
-      <div className={styles.overviewActions}>
-        <p>US / USD unless labelled</p>
-        {checkedAt && <p>Last checked <time dateTime={checkedAt}>{dateFormat.format(new Date(checkedAt))}</time></p>}
-        <FeeSources><FeeSourceList entries={sectionEntries} section={section} /></FeeSources>
+    <FeeSearch>
+      <FeeFilters action={path} />
+      <div className={styles.overview}>
+        <p><FeeMatchCount items={items} label="platforms" /></p>
+        <div className={styles.overviewActions}>
+          <p>US / USD unless labelled</p>
+          {checkedAt && <p>Last checked <time dateTime={checkedAt}>{dateFormat.format(new Date(checkedAt))}</time></p>}
+          <FeeSources><FeeSourceList entries={sectionEntries} section={section} /></FeeSources>
+        </div>
       </div>
-    </div>
-    {!entries.length && <StatePanel title="No platforms match" action={<Link href={path}>Show all platforms</Link>} />}
-    <div className={styles.grid}>{entries.map(entry => <FeeCard key={entry.id} entry={entry} />)}</div>
+      <FeeSectionGrid path={path} items={sectionEntries.map((entry, index) => ({ ...items[index], card: <FeeCard entry={entry} /> }))} />
+    </FeeSearch>
     {related.length > 0 && <section className={styles.sectionGroup} aria-labelledby="related-sections">
       <h2 id="related-sections">Related sections</h2>
       <div className={styles.tiles}>{related.map(section =>

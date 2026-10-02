@@ -1,9 +1,8 @@
 import { Cctv } from "lucide-react";
 import { HardwareDirectoryPage } from "../../../ui/directories/hardware-directory-page";
-import type { HardwareDirectorySearchParams } from "../../../ui/directories/hardware-directory-filters";
 import { getHardwareDirectorySnapshot } from "@/lib/hardware-directories";
 
-export default async function LocalSecurityCamerasPage({ searchParams }: { searchParams: Promise<HardwareDirectorySearchParams> }) {
+export default async function LocalSecurityCamerasPage() {
   return <HardwareDirectoryPage config={{
     detailFilterLabel: "Protocol or connection",
     heading: "Local security cameras for",
@@ -15,5 +14,5 @@ export default async function LocalSecurityCamerasPage({ searchParams }: { searc
     sidebarLabel: "Local cameras",
     buyingNote: "Some camera details come from published records and have not been tested on our own camera. Check the Frigate status and exact stream details before setup.",
     title: "Local security cameras directory",
-  }} params={await searchParams} snapshot={await getHardwareDirectorySnapshot("local-security-cameras")} />;
+  }} snapshot={await getHardwareDirectorySnapshot("local-security-cameras")} />;
 }

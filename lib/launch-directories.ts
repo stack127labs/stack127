@@ -1,4 +1,6 @@
 import { getPool } from "./db";
+import { unstable_cache } from "next/cache";
+import { LAUNCH_DIRECTORIES_TAG } from "./cache-tags";
 
 export type LaunchDirectory = {
   slug: string;
@@ -30,7 +32,7 @@ export const launchCategories = [
   { value: "community-posts", label: "Community posts", iconKey: "message" },
 ] as const;
 
-export async function getPublishedLaunchDirectories(): Promise<LaunchDirectory[]> {
+async function loadPublishedLaunchDirectories(): Promise<LaunchDirectory[]> {
   const result = await getPool().query<LaunchDirectory>(`
     select slug, name, website_url, submit_url, submission_status, categories, summary, best_for,
       cost_kind, cost_label, review_time_label, link_type_kind,
@@ -41,3 +43,7 @@ export async function getPublishedLaunchDirectories(): Promise<LaunchDirectory[]
   `);
   return result.rows;
 }
+
+export const getPublishedLaunchDirectories = unstable_cache(loadPublishedLaunchDirectories, ["stack127-launch-directories"], {
+  revalidate: false, tags: [LAUNCH_DIRECTORIES_TAG],
+});

@@ -100,7 +100,7 @@ jobs:
             echo 'run=true' >> "$GITHUB_OUTPUT"
           fi
           # The cache worker bundles the shared cache target rules.
-          if git diff --quiet "$base" "$RELEASE_SHA" -- supabase/functions scripts/stack127/cache/targets.mjs scripts/stack127/cache/refresh.mjs; then
+          if git diff --quiet "$base" "$RELEASE_SHA" -- supabase/functions scripts/stack127/cache/targets.mjs scripts/stack127/cache/refresh.mjs lib/cache-tags.ts lib/platform-fees/section-routes.ts; then
             echo 'functions=false' >> "$GITHUB_OUTPUT"
           else
             echo 'functions=true' >> "$GITHUB_OUTPUT"
@@ -119,7 +119,8 @@ jobs:
         run: supabase --yes db push --db-url "$DATABASE_URL" --include-all
 
       - name: Run production target preflight
-        run: npm run stack127:deploy:preflight -- --env-file "$RUNNER_TEMP/stack127-deploy.env"
+        # npm postbuild checks the generated manifests inside the only image build.
+        run: npm run stack127:deploy:preflight -- --static-source-only --env-file "$RUNNER_TEMP/stack127-deploy.env"
 
       - uses: docker/setup-buildx-action@v3
 

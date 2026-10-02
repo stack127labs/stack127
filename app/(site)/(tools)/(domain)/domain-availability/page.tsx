@@ -3,14 +3,10 @@ import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { BadgeCheck } from "lucide-react";
-import { DomainAvailabilityTool } from "./domain-availability-tool";
+import { DomainAvailabilityFromUrl } from "./domain-availability-from-url";
 
-type SearchParams = Record<string, string | string[] | undefined>;
-const first = (value: string | string[] | undefined) => (Array.isArray(value) ? (value[0] ?? "") : (value ?? ""));
-
-export default async function DomainAvailabilityPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+export default async function DomainAvailabilityPage() {
   const toolPage = await getRequiredToolPage("domain-availability");
-  const params = await searchParams;
 
   return (
     <ToolPageShell toolPage={toolPage}>
@@ -20,7 +16,7 @@ export default async function DomainAvailabilityPage({ searchParams }: { searchP
           toolPage={toolPage}
         />
 
-        <DomainAvailabilityTool initialName={first(params.name)} />
+        <DomainAvailabilityFromUrl />
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </ToolPageShell>

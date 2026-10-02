@@ -1,6 +1,6 @@
 import { registryLayout } from "@/lib/registry-layout";
 
-const registry = registryLayout("/keyboard-shortcuts/github-copilot", false);
+const registry = registryLayout("/keyboard-shortcuts/github-copilot");
 export const generateMetadata = registry.generateMetadata;
-export const revalidate = 604800;
+export const revalidate = false;
 export default registry.Layout;

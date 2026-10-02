@@ -3,16 +3,24 @@ import { getExactPublishedPage, slugFromPathname } from "@/lib/page-registry";
 import { getPublishedToolCatalogs } from "@/lib/tool-catalogs";
 import { getPublishedToolPage } from "@/lib/tool-pages";
 import { sitePageAvailable } from "@/lib/page-source";
+import { absoluteUrl } from "@/lib/seo";
 
 export async function proxy(request: NextRequest) {
   const headers = new Headers(request.headers);
   const pathname = request.nextUrl.pathname;
   const userQuery = new URLSearchParams(request.nextUrl.search);
   userQuery.delete("_rsc");
+  const withQueryIndexing = (response: NextResponse) => {
+    if (request.nextUrl.search) {
+      response.headers.set("X-Robots-Tag", "noindex, follow");
+      response.headers.append("Link", `<${absoluteUrl(pathname)}>; rel="canonical"`);
+    }
+    return response;
+  };
 
   // Analytics collection is an API endpoint, not a published page.
   if (pathname === "/vitals/api/send") {
-    return NextResponse.next();
+    return withQueryIndexing(NextResponse.next());
   }
 
   if (!pathname.startsWith("/api/") && pathname !== "/sitemap.xml" && pathname !== "/robots.txt" && pathname !== "/publication-not-found" &&
@@ -30,12 +38,11 @@ export async function proxy(request: NextRequest) {
       target.pathname = "/publication-not-found";
       const missing = NextResponse.rewrite(target, { status: 404 });
       missing.headers.set("Cache-Control", "no-store");
-      return missing;
+      return withQueryIndexing(missing);
     }
   }
 
   headers.set("x-stack127-pathname", pathname);
-  headers.set("x-stack127-has-query", userQuery.size ? "1" : "0");
 
   const response = NextResponse.next({
     request: {
@@ -46,15 +53,21 @@ export async function proxy(request: NextRequest) {
   const tags = ["stack127-public", `page:${slug}`];
   if (pathname === "/") tags.push("home");
   if (pathname === "/sitemap.xml") tags.push("sitemap");
-  if (pathname === "/self-host-apps" || pathname === "/self-hosted-app-resource-planner" || pathname === "/api/resource-planner-index") tags.push("self-host-catalog");
-  if (pathname.startsWith("/api/self-host-apps/") || pathname.startsWith("/api/resource-planner-app/")) tags.push("self-host-detail");
+  if (pathname === "/self-host-apps" || pathname === "/self-hosted-app-resource-planner" || pathname === "/api/resource-planner-index" || pathname === "/api/self-host-apps/search") tags.push("self-host-catalog");
+  if ((pathname.startsWith("/api/self-host-apps/") && pathname !== "/api/self-host-apps/search") || pathname.startsWith("/api/resource-planner-app/")) tags.push("self-host-detail");
+  if (pathname === "/cli-apps" || pathname === "/api/cli-apps/index") tags.push("cli-apps-catalog");
+  if (pathname === "/platform-fees" || pathname.startsWith("/platform-fees/")) tags.push("platform-fees-catalog");
+  if (pathname === "/ad-networks" || pathname.startsWith("/ad-networks/")) tags.push("ad-networks-catalog");
+  if (pathname.startsWith("/api/hardware-directory/")) {
+    const directorySlug = pathname.split("/")[3];
+    tags.push(`page:${directorySlug}`);
+  }
   response.headers.set("Cache-Tag", tags.join(","));
   const filterQuery = new URLSearchParams(userQuery);
   filterQuery.delete("page");
   const directory = new Set(["self-host-apps", "cli-apps", "zigbee-devices", "zigbee-coordinators", "matter-devices", "z-wave-devices", "nut-compatible-ups", "local-security-cameras"]);
   response.headers.set("X-Stack127-Cache-Class", pathname === "/sitemap.xml" ? "sitemap" : filterQuery.size ? "filters" : pathname === "/" || directory.has(pathname.slice(1)) ? "directory" : "content");
-  if (userQuery.size && !pathname.startsWith("/api/")) response.headers.set("X-Robots-Tag", "noindex, follow");
-  return response;
+  return withQueryIndexing(response);
 }
 
 export const config = {

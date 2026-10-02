@@ -88,7 +88,7 @@ Tool routes live under `app/(site)/(tools)/`. The interactive part stays in code
 
 DNS, domain, and storage tools sit under route groups inside `(tools)`. Each group layout owns its sidebar and shell, so moving between tools in that family replaces only the page content.
 
-The tool page is static. Values from a shared link are read in the client tool with `useSearchParams()` inside `<Suspense>`, never from the server page. Read `stack127_docs/caching.md`.
+The tool page is static. Values from a shared link are read in a small client wrapper with `useInitialQuery()` from `app/ui/tools/use-initial-query.ts`, never from the server page. Read `stack127_docs/caching.md`.
 
 Use neutral borders, calm background changes, and useful diagrams. Don't scatter inputs or results across unrelated cards. Don't show runtime, fixture, crawler, draft, registry, or deployment terms unless the tool is about those things.
 

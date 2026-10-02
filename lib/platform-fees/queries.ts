@@ -1,3 +1,4 @@
+import { PLATFORM_FEES_TAG } from "@/lib/cache-tags";
 import 'server-only';
 import { unstable_cache } from 'next/cache';
 import { getPool } from '@/lib/db';
@@ -17,4 +18,4 @@ export const getFeeDirectory = unstable_cache(async (): Promise<FeeDirectory> =>
   };
   validateDirectory(data);
   return data;
-}, ['stack127-platform-fees'], { revalidate: 86400, tags: ['stack127-platform-fees'] });
+}, [PLATFORM_FEES_TAG], { revalidate: false, tags: [PLATFORM_FEES_TAG] });

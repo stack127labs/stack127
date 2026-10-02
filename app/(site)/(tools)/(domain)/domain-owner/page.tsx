@@ -3,14 +3,10 @@ import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { UserSearch } from "lucide-react";
-import { DomainOwnerTool } from "./domain-owner-tool";
+import { DomainOwnerFromUrl } from "./domain-owner-from-url";
 
-type SearchParams = Record<string, string | string[] | undefined>;
-const first = (value: string | string[] | undefined) => (Array.isArray(value) ? (value[0] ?? "") : (value ?? ""));
-
-export default async function DomainOwnerPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+export default async function DomainOwnerPage() {
   const toolPage = await getRequiredToolPage("domain-owner");
-  const params = await searchParams;
 
   return (
     <ToolPageShell toolPage={toolPage}>
@@ -20,7 +16,7 @@ export default async function DomainOwnerPage({ searchParams }: { searchParams: 
           toolPage={toolPage}
         />
 
-        <DomainOwnerTool initialName={first(params.name)} />
+        <DomainOwnerFromUrl />
 
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>

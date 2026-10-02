@@ -3,21 +3,10 @@ import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-conten
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { ShieldCheck } from "lucide-react";
 import { PageCanvas } from "../../../../ui/site/page-canvas";
-import { Backup321Calculator } from "./backup-321-calculator";
+import { Backup321CalculatorFromUrl } from "./backup-321-calculator-from-url";
 
-type SearchParams = Record<string, string | string[] | undefined>;
-
-function firstValue(value: string | string[] | undefined) {
-  return Array.isArray(value) ? value[0] ?? "" : value ?? "";
-}
-
-export default async function Backup321CalculatorPage({
-  searchParams,
-}: {
-  searchParams: Promise<SearchParams>;
-}) {
+export default async function Backup321CalculatorPage() {
   const toolPage = await getRequiredToolPage("backup-321-calculator");
-  const params = await searchParams;
 
   return (
     <ToolPageShell toolPage={toolPage}>
@@ -26,7 +15,7 @@ export default async function Backup321CalculatorPage({
           icon={<ShieldCheck strokeWidth={2.2} />}
           toolPage={toolPage}
         />
-        <Backup321Calculator initialState={firstValue(params.state)} />
+        <Backup321CalculatorFromUrl />
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </ToolPageShell>

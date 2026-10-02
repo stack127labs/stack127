@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/seo";
 
-export const revalidate = 3600;
+export const revalidate = false;
 
 export default function robots(): MetadataRoute.Robots {
   return {

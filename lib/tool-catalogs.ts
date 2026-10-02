@@ -1,3 +1,4 @@
+import { TOOL_CATALOGS_TAG, TOOL_CATALOG_TAG, TOOL_PRIMARY_CATALOGS_TAG } from "./cache-tags";
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
 import { getPool } from "./db";
@@ -101,9 +102,9 @@ export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<T
       return result.rows;
     },
   });
-}, ["stack127-tool-catalogs"], {
-  revalidate: 604800,
-  tags: ["stack127-tool-catalogs"],
+}, [TOOL_CATALOGS_TAG], {
+  revalidate: false,
+  tags: [TOOL_CATALOGS_TAG],
 }));
 
 export const getPublishedToolCatalog = cache(async (slug: string) => unstable_cache(async (): Promise<PublishedToolCatalog | null> => {
@@ -151,8 +152,8 @@ export const getPublishedToolCatalog = cache(async (slug: string) => unstable_ca
   });
   return { ...summary, tools };
 }, ["stack127-tool-catalog", slug], {
-  revalidate: 604800,
-  tags: [`stack127-tool-catalog:${slug}`],
+  revalidate: false,
+  tags: [`${TOOL_CATALOG_TAG}:${slug}`],
 })());
 
 /** Resolve a tool's rank-one catalog. A tool may also appear in other catalogs. */
@@ -179,8 +180,8 @@ export const getPrimaryToolCatalog = cache(async (toolPageId: number | string) =
       },
     });
   }, ["stack127-tool-primary-catalog", String(toolPageId)], {
-    revalidate: 604800,
-    tags: ["stack127-tool-primary-catalogs"],
+    revalidate: false,
+    tags: [TOOL_PRIMARY_CATALOGS_TAG],
   })();
 
   if (catalogPageId === null) return null;

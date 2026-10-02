@@ -2,9 +2,18 @@ import { cacheBodyDigest } from "@/scripts/stack127/cache/refresh.mjs";
 import { NextResponse } from "next/server";
 import { cacheAuthorized } from "@/lib/cache-auth";
 import { loadDirectoryAppsBySlugs } from "@/lib/apps";
+import { loadTerminalApps } from "@/lib/terminal-apps";
+import { getHardwareDirectorySnapshot, isHardwareDirectorySlug } from "@/lib/hardware-directories";
+import { hardwareIndexRecord } from "@/lib/hardware-directories/search-index";
+import { getZigbeeDevices, zigbeeCategoryLabels } from "@/lib/zigbee-devices";
+import { zigbeeIndexRecord } from "@/lib/zigbee-devices/search-index";
+import { addAmazonMatches } from "@/lib/amazon-affiliate/server";
+import { loadSelfHostAppsSearch } from "@/lib/self-host-apps-search-data";
+import { parseSelfHostAppsSearchParams } from "@/lib/self-host-apps-search";
 import { loadSelfHostedAppResourcePlannerEntry } from "@/lib/self-hosted-app-resource-planner/data";
 import { getPool } from "@/lib/db";
 import { sitePageAvailable } from "@/lib/page-source";
+import { sectionSlugs } from "@/lib/platform-fees/section-routes";
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 const noStore = { "Cache-Control": "no-store" };
@@ -36,15 +45,25 @@ export async function POST(request: Request) {
         let contentRevision: string | null = null;
         if (path.startsWith("/api/")) {
           const slug = path.split("/").at(-1)!;
-          const parent = path.startsWith("/api/self-host-apps/") ? "self-host-apps" : "self-hosted-app-resource-planner";
+          const hardwareDirectory = path.startsWith("/api/hardware-directory/") ? slug : null;
+          const parent = hardwareDirectory ?? (path === "/api/cli-apps/index" ? "cli-apps"
+            : path.startsWith("/api/self-host-apps/") ? "self-host-apps" : "self-hosted-app-resource-planner");
           const visible = (await getPool().query("select is_published from public.stack127_pages where slug=$1", [parent])).rows[0]?.is_published;
-          const expected = !visible ? null : path.startsWith("/api/self-host-apps/")
-            ? (await loadDirectoryAppsBySlugs([slug]))[0] ?? null
-            : path.startsWith("/api/resource-planner-app/")
-              ? await loadSelfHostedAppResourcePlannerEntry(slug) : undefined;
+          let expected: unknown;
+          if (!visible) expected = null;
+          else if (hardwareDirectory === "zigbee-devices") {
+            expected = (await addAmazonMatches(hardwareDirectory, getZigbeeDevices()))
+              .map(device => zigbeeIndexRecord(device, zigbeeCategoryLabels));
+          } else if (hardwareDirectory && isHardwareDirectorySlug(hardwareDirectory)) {
+            expected = (await getHardwareDirectorySnapshot(hardwareDirectory)).records.map(hardwareIndexRecord);
+          } else if (path === "/api/cli-apps/index") expected = await loadTerminalApps();
+          else if (path === "/api/self-host-apps/search") {
+            expected = await loadSelfHostAppsSearch(parseSelfHostAppsSearchParams(new URLSearchParams()));
+          } else if (path.startsWith("/api/self-host-apps/")) expected = (await loadDirectoryAppsBySlugs([slug]))[0] ?? null;
+          else if (path.startsWith("/api/resource-planner-app/")) expected = await loadSelfHostedAppResourcePlannerEntry(slug);
           if (expected === undefined) throw new Error("Unsupported API refresh");
           if (!expected) {
-            if (response.status !== 404) throw new Error(`${path}: removed app is still served`);
+            if (response.status !== 404) throw new Error(`${path}: removed data is still served`);
           } else {
             if (response.status !== 200 || !response.headers.get("content-type")?.includes("application/json")) throw new Error(`${path}: invalid API response`);
             if (JSON.stringify(JSON.parse(html)) !== JSON.stringify(expected)) throw new Error(`${path}: stale API content`);
@@ -59,7 +78,16 @@ export async function POST(request: Request) {
               exists(select 1 from public.stack127_tool_catalogs content where content.page_id=page.id) as has_catalog_content
               from public.stack127_pages page where slug=$1`, [slug],
           );
-          const published = sitePageAvailable(path, rows[0]);
+          let published = sitePageAvailable(path, rows[0]);
+          if (published && path.startsWith("/ad-networks/")) {
+            const source = await getPool().query("select 1 from public.ad_networks where slug=$1", [path.slice("/ad-networks/".length)]);
+            published = source.rows.length > 0;
+          } else if (published && path.startsWith("/platform-fees/")) {
+            const section = path.slice("/platform-fees/".length);
+            const id = Object.keys(sectionSlugs).find(id => sectionSlugs[id] === section) ?? section;
+            const source = await getPool().query("select 1 from public.platform_fee_sections where id=$1", [id]);
+            published = source.rows.length > 0;
+          }
           if (!published) {
             if (response.status !== 404) throw new Error(`${path}: removed page is still served`);
           } else {

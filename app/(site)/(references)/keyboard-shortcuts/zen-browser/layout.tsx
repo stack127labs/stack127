@@ -1,6 +1,6 @@
 import { registryLayout } from "@/lib/registry-layout";
 
-const registry = registryLayout("/keyboard-shortcuts/zen-browser", false);
+const registry = registryLayout("/keyboard-shortcuts/zen-browser");
 export const generateMetadata = registry.generateMetadata;
-export const revalidate = 604800;
+export const revalidate = false;
 export default registry.Layout;

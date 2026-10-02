@@ -66,10 +66,18 @@ responseRules = await save(responseSet.id, responseRules, {
   action_parameters: htmlParameters,
 }, "Public successful document HTML") ?? responseRules;
 
-const detailExpression = detailRequest.expression.includes('"/api/resource-planner-index"') ? detailRequest.expression : detailRequest.expression.replace(
-  'starts_with(http.request.uri.path, "/api/self-host-apps/")',
-  'starts_with(http.request.uri.path, "/api/self-host-apps/") or http.request.uri.path eq "/api/resource-planner-index"',
-);
+let detailExpression = detailRequest.expression;
+const detailAnchor = 'starts_with(http.request.uri.path, "/api/self-host-apps/")';
+const jsonRoutes = [
+  ['"/api/resource-planner-index"', 'http.request.uri.path eq "/api/resource-planner-index"'],
+  ['"/api/cli-apps/index"', 'http.request.uri.path eq "/api/cli-apps/index"'],
+  ['"/api/hardware-directory/"', 'starts_with(http.request.uri.path, "/api/hardware-directory/")'],
+];
+for (const [marker, expression] of jsonRoutes) {
+  if (detailExpression.includes(marker)) continue;
+  if (!detailExpression.includes(detailAnchor)) throw new Error("The public JSON cache rule is missing its self-host API condition.");
+  detailExpression = detailExpression.replace(detailAnchor, `(${detailAnchor} or ${expression})`);
+}
 requestRules = await save(requestSet.id, requestRules, {
   action: detailRequest.action,
   expression: detailExpression,
@@ -123,8 +131,8 @@ responseRules = await save(responseSet.id, responseRules, {
 
 // Later response rules override the content default with the actual route class.
 for (const [name, expression, ttl] of [
-  ["Public directory responses", 'any(http.response.headers["x-stack127-cache-class"][*] eq "directory")', 86400],
-  ["Public filtered responses", 'any(http.response.headers["x-stack127-cache-class"][*] eq "filters")', 900],
+  ["Public directory responses", 'any(http.response.headers["x-stack127-cache-class"][*] eq "directory")', longer ? 604800 : 86400],
+  ["Public filtered responses", 'any(http.response.headers["x-stack127-cache-class"][*] eq "filters")', longer ? 604800 : 900],
 ]) {
   responseRules = await save(responseSet.id, responseRules, {
     action: "set_cache_control", expression: `(${sharedRequest.slice(1, -1)} and http.response.code eq 200 and not any(http.response.headers.names[*] eq "set-cookie") and not starts_with(http.request.uri.path, "/api/") and not starts_with(http.request.uri.path, "/_next/") and (any(http.response.headers["content-type"][*] contains "text/html") or any(http.response.headers["content-type"][*] contains "text/x-component")) and ${expression})`,

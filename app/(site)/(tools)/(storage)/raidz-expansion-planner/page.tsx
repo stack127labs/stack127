@@ -3,14 +3,10 @@ import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-conten
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { ChevronsRight } from "lucide-react";
 import { PageCanvas } from "../../../../ui/site/page-canvas";
-import { RaidzExpansionPlanner } from "./raidz-expansion-planner";
+import { RaidzExpansionPlannerFromUrl } from "./raidz-expansion-planner-from-url";
 
-type SearchParams = Record<string, string | string[] | undefined>;
-
-export default async function RaidzExpansionPlannerPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+export default async function RaidzExpansionPlannerPage() {
   const toolPage = await getRequiredToolPage("raidz-expansion-planner");
-  const params = await searchParams;
-  const state = Array.isArray(params.state) ? params.state[0] ?? "" : params.state ?? "";
   return (
     <ToolPageShell toolPage={toolPage}>
       <PageCanvas>
@@ -18,7 +14,7 @@ export default async function RaidzExpansionPlannerPage({ searchParams }: { sear
           icon={<ChevronsRight strokeWidth={2.2} />}
           toolPage={toolPage}
         />
-        <RaidzExpansionPlanner initialState={state} />
+        <RaidzExpansionPlannerFromUrl />
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </ToolPageShell>

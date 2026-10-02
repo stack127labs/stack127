@@ -3,14 +3,10 @@ import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { FileSearch } from "lucide-react";
-import { DomainLookupTool } from "./domain-lookup-tool";
+import { DomainLookupFromUrl } from "./domain-lookup-from-url";
 
-type SearchParams = Record<string, string | string[] | undefined>;
-const first = (value: string | string[] | undefined) => (Array.isArray(value) ? (value[0] ?? "") : (value ?? ""));
-
-export default async function DomainLookupPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+export default async function DomainLookupPage() {
   const toolPage = await getRequiredToolPage("domain-lookup");
-  const params = await searchParams;
 
   return (
     <ToolPageShell toolPage={toolPage}>
@@ -20,7 +16,7 @@ export default async function DomainLookupPage({ searchParams }: { searchParams:
           toolPage={toolPage}
         />
 
-        <DomainLookupTool initialName={first(params.name)} />
+        <DomainLookupFromUrl />
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </ToolPageShell>

@@ -151,6 +151,19 @@ function argumentValue(argumentsList, name, fallback) {
   return index >= 0 ? argumentsList[index + 1] : fallback;
 }
 
+export function verifyStaticRoutes({ sourceOnly = false, environment = process.env } = {}) {
+  try {
+    const output = execFileSync(process.execPath, [
+      path.join(repositoryRoot, "scripts/stack127/check-static-routes.mjs"), "--strict",
+      ...(sourceOnly ? ["--source-only"] : []),
+    ], { cwd: repositoryRoot, env: environment, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
+    console.log(output.trim());
+    return [];
+  } catch (error) {
+    return [`Static route check failed. ${String(error.stdout || error.message).trim()}`];
+  }
+}
+
 async function main() {
   const argumentsList = process.argv.slice(2);
   const manifestPath = path.resolve(
@@ -168,6 +181,8 @@ async function main() {
   const manifest = JSON.parse(manifestText);
   const environment = parseEnvText(environmentText);
   const errors = validateDeploymentEnvironment(environment, manifest);
+
+  errors.push(...verifyStaticRoutes({ sourceOnly: argumentsList.includes("--static-source-only") }));
 
   if (argumentsList.includes("--check-git")) errors.push(...verifyGit(manifest));
   if (argumentsList.includes("--check-cloudflare")) {

@@ -1,3 +1,4 @@
+import { TOOL_PAGES_TAG } from "./cache-tags";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
@@ -89,7 +90,7 @@ export const getPublishedToolPage = cache(async (slug: string) => unstable_cache
       return result.rows[0] ?? null;
     },
   });
-}, ["stack127-tool-page", slug], { revalidate: 604800, tags: [`stack127-tool-page:${slug}`] })());
+}, ["stack127-tool-page", slug], { revalidate: false, tags: [`${TOOL_PAGES_TAG}:${slug}`] })());
 
 export const getRequiredToolPage = cache(async (slug: string) => {
   const page = await getPublishedToolPage(slug);

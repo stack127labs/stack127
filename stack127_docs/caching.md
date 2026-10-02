@@ -1,10 +1,10 @@
 # Caching and revalidation
 
-This is the target contract for new pages and the planned conversion of existing pages. The conversion is not complete. Existing directories and some tools still render per request, and static pages still use timed revalidation. Track that work in [the rollout plan](../dev-space/static-pages-and-on-demand-revalidation-plan.md).
+Public page routes now build as static pages with no timed revalidation. The release gate enforces this contract. The directory trigger migration and cache-worker changes must ship with the converted pages. Track the rollout in [the plan](../dev-space/static-pages-and-on-demand-revalidation-plan.md).
 
-After conversion, every public page is built and cached. A page changes when its data changes, and the revalidation pipeline refreshes it. A release rebuilds every page.
+Every public page is built and cached. A page changes when its data changes, and the revalidation pipeline refreshes it. A release rebuilds every page.
 
-This keeps pages fast. Links can prefetch whole pages for fast navigation. A slow or failed database call can never become the page a visitor sees.
+Links can prefetch whole pages for fast navigation. A failed database call throws, so it cannot become a cached error panel with status 200.
 
 ## Rules for every page
 
@@ -29,7 +29,7 @@ Server-rendered from the registry, Markdown, or repository data. Static by defau
 
 ### Tools
 
-The page is static. The interactive tool is a client component. Read shared-link values, such as `?name=example.com` or `?state=…`, in the browser. Use `useSearchParams()` inside a `<Suspense>` boundary. Never pass these values from the server page. The first render shows the default state, then fills from the URL. A tool that runs automatically from a shared link starts after hydration.
+The page is static. The interactive tool is a client component. Read shared-link values, such as `?name=example.com` or `?state=…`, in the browser. Use a small client wrapper named `<slug>-from-url.tsx` with `useInitialQuery()` from `app/ui/tools/use-initial-query.ts`. Key the tool component with `query.key`, as `dns-lookup` does. Do not use `useSearchParams()` or pass these values from the server page. The first render shows the default state, then fills from the URL. A tool that runs automatically from a shared link starts after hydration.
 
 ### Directories
 
@@ -38,6 +38,7 @@ The static page shows the default view: first page, default sort, no filters. Th
 Filters, search, sort, and pagination are a client component:
 
 - Small directories ship a compact index with the page, or as one cached JSON route, and filter in the browser.
+- Large directories backed by repo files load their compact index from a static JSON route and filter in the browser. The release builds the route alongside the page.
 - Large directories, such as self-host apps, fetch filtered results from a cached API route. Data changes purge that cache by tag.
 - The URL keeps filter state such as `?category=…&page=2` so links can be shared. These URLs stay `noindex`.
 
@@ -45,7 +46,7 @@ Without JavaScript, visitors and crawlers see the default static page.
 
 ## Cache layers
 
-1. **Cloudflare edge.** Caches successful HTML and RSC responses. The proxy adds a `Cache-Tag` header: `stack127-public`, `page:<slug>`, and family tags such as `home`, `sitemap`, `self-host-catalog`, and `self-host-detail`. Errors are never cached.
+1. **Cloudflare edge.** Caches successful HTML and RSC responses. The proxy adds a `Cache-Tag` header: `stack127-public`, `page:<slug>`, and family tags such as `home`, `sitemap`, `self-host-catalog`, and `self-host-detail`. API indexes share their directory's purge tags. Errors are never cached.
 2. **Next.js page cache.** Static pages built at release time and kept until revalidated.
 3. **Next.js data cache.** Shared data loaded with `unstable_cache`, using `revalidate: false` and a named tag. Next.js does not cache an entry over 2 MB. Split large sources into smaller entries, as the self-host index does.
 
@@ -54,9 +55,33 @@ Without JavaScript, visitors and crawlers see the default static page.
 1. A source-table trigger calls `stack127_enqueue_revalidation(entity_type, slug, source)`. This adds a row to `public.stack127_revalidation_events`.
 2. The Supabase `cache-worker` function claims events. It uses `scripts/stack127/cache/targets.mjs` to map them to Next.js tags, paths, Cloudflare tags, and pages to warm.
 3. It calls `POST /api/cache/revalidate`, which runs `revalidateTag` and `revalidatePath`.
-4. It purges Cloudflare by tag and warms the changed pages.
+4. It verifies origin pages and the self-host search, CLI index, and hardware index against their sources before purging Cloudflare. It then warms the verified responses. A stale response leaves the event queued for retry.
 
 A release purges `stack127-public` and `stack127-assets`, then warms the main pages.
+
+The source tags live in `lib/cache-tags.ts`. `scripts/stack127/cache/targets.mjs` imports the same constants. The directory entities map as follows:
+
+| Entity | Next.js data tag | Cloudflare family tag |
+| --- | --- | --- |
+| `platform_fees` | `stack127-platform-fees` | `platform-fees-catalog` |
+| `ad_networks` | `stack127-ad-networks` | `ad-networks-catalog` |
+| `launch_directories` | `stack127-launch-directories` | `page:launch-directories` |
+| `cli_apps` | `stack127-terminal-apps` | `cli-apps-catalog` |
+| `self_host_app`, `self_host_catalog` | `stack127-self-host-apps` and app detail tags | `self-host-catalog` and app detail tags |
+
+Hardware data ships from repository files. Releases refresh it. Each hardware JSON response also carries `page:<directory>` so publication changes purge its index and details.
+
+## Cloudflare cache times
+
+`configure-cloudflare.mjs --long-ttl` sets seven-day edge TTLs for successful HTML and RSC, including directory and query views. Browsers still revalidate each time. JSON routes use their origin TTLs. The rule covers self-host search, the CLI index, and hardware indexes and details. Errors keep `no-store`.
+
+The existing seven-day worker health gate still applies. Apply this only after the migration, app, and cache worker are live:
+
+```bash
+node --env-file=.env.database --env-file=.env.deploy scripts/stack127/cache/configure-cloudflare.mjs --long-ttl --apply
+```
+
+This command changes Cloudflare rules and records when long TTLs were enabled. Without `--apply`, it checks readiness and reads Cloudflare rules without changing them. Without `--long-ttl`, the shorter TTLs remain.
 
 ## Adding a data source or page family
 
@@ -65,10 +90,12 @@ A release purges `stack127-public` and `stack127-assets`, then warms the main pa
 3. In a migration, add the entity type to the `stack127_revalidation_events` check constraint. Add triggers on every source table.
 4. Map the entity type in `scripts/stack127/cache/targets.mjs` to its Next.js tags, paths, Cloudflare tags, and warm paths.
 5. If the family needs a group purge, add its Cloudflare tag in `proxy.ts`.
-6. Run `npm run build` and confirm the route list shows the page as static (`○` or `●`), never dynamic (`ƒ`).
+6. Run `npm run build`. Its `postbuild` hook runs `npm run check:static -- --strict` and rejects dynamic public pages or timed revalidation.
 
 ## Checking a change
 
-- New and converted page routes must build as `○` (static) or `●` (built from `generateStaticParams`). Until the rollout is complete, report existing dynamic routes and timed refreshes against the rollout plan. Once complete, every page route must pass this gate. API routes, `/vitals`, and `/publication-not-found` may be `ƒ`.
+- Every public page must build as `○` or `●`. API routes, `/vitals`, and `/publication-not-found` may be dynamic.
+- `npm run check:static -- --strict` reads the build manifests and checks server source for query reads, `headers()`, `cookies()`, and dynamic or timed route settings. A missing build fails the check.
+- `npm run stack127:deploy:preflight` runs the same strict check. CI uses `--static-source-only` before the image exists; the image build's `postbuild` hook checks the generated manifests. Source-only success is not a completed build check.
 - Load the page twice. The second load must not query the database for page data.
 - Change a source row in development and confirm the page updates after the worker runs.

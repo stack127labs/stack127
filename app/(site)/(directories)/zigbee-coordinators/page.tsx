@@ -1,9 +1,8 @@
 import { RadioTower } from "lucide-react";
 import { HardwareDirectoryPage } from "../../../ui/directories/hardware-directory-page";
-import type { HardwareDirectorySearchParams } from "../../../ui/directories/hardware-directory-filters";
 import { getHardwareDirectorySnapshot } from "@/lib/hardware-directories";
 
-export default async function ZigbeeCoordinatorsPage({ searchParams }: { searchParams: Promise<HardwareDirectorySearchParams> }) {
+export default async function ZigbeeCoordinatorsPage() {
   return <HardwareDirectoryPage config={{
     detailFilterLabel: "Connection or radio",
     heading: "Zigbee coordinators for",
@@ -15,5 +14,5 @@ export default async function ZigbeeCoordinatorsPage({ searchParams }: { searchP
     sidebarLabel: "Zigbee coordinators",
     buyingNote: "Check that the firmware supports your exact adapter before switching. Some changes require pairing your devices again.",
     title: "Zigbee coordinators directory",
-  }} params={await searchParams} snapshot={await getHardwareDirectorySnapshot("zigbee-coordinators")} />;
+  }} snapshot={await getHardwareDirectorySnapshot("zigbee-coordinators")} />;
 }

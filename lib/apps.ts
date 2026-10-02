@@ -1,3 +1,4 @@
+import { SELF_HOST_INDEX_TAG, SELF_HOST_DETAILS_TAG, SELF_HOST_APP_TAG } from "./cache-tags";
 import { unstable_cache } from "next/cache";
 import { getPool } from "./db";
 
@@ -58,12 +59,12 @@ export type DirectoryApp = {
   github_forks: number | null;
   github_primary_language: string | null;
   github_topics: string[];
-  github_created_at: Date | null;
-  github_pushed_at: Date | null;
+  github_created_at: Date | string | null;
+  github_pushed_at: Date | string | null;
   github_latest_release: string | null;
-  github_latest_release_at: Date | null;
-  github_last_commit_at: Date | null;
-  github_checked_at: Date | null;
+  github_latest_release_at: Date | string | null;
+  github_last_commit_at: Date | string | null;
+  github_checked_at: Date | string | null;
   docker_support: string;
   deployment_methods: string[];
   docker_image: string | null;
@@ -85,15 +86,15 @@ export type DirectoryApp = {
   docker_image_researched: boolean;
   compose_researched: boolean;
   resource_requirement_kind: string;
-  technical_facts_checked_at: Date | null;
+  technical_facts_checked_at: Date | string | null;
   resource_estimates: Record<string, DirectoryResourceEstimate>;
   install_options: DirectoryInstallOption[];
   popularity_score: number;
   popularity_basis: string[];
-  popularity_checked_at: Date | null;
+  popularity_checked_at: Date | string | null;
   release_version: string | null;
-  release_published_at: Date | null;
-  release_checked_at: Date | null;
+  release_published_at: Date | string | null;
+  release_checked_at: Date | string | null;
   release_url: string | null;
   surfaces: string[];
   summary_source: string;
@@ -359,8 +360,8 @@ async function loadSelfHostAppsStats(): Promise<SelfHostAppsStats> {
 }
 
 export const getSelfHostAppsStats = unstable_cache(loadSelfHostAppsStats, ["stack127-self-host-app-stats"], {
-  revalidate: 86400,
-  tags: ["stack127-self-host-apps"],
+  revalidate: false,
+  tags: [SELF_HOST_INDEX_TAG],
 });
 
 export async function getSelfHostAppsModifiedAt(): Promise<Date | null> {
@@ -527,20 +528,22 @@ async function loadDirectoryAppIndexBatch(offset: number): Promise<DirectoryAppI
 }
 
 const getDirectoryAppIndexBatch = unstable_cache(loadDirectoryAppIndexBatch, ["stack127-directory-app-index-batch"], {
-  revalidate: 86400,
-  tags: ["stack127-self-host-apps"],
+  revalidate: false,
+  tags: [SELF_HOST_INDEX_TAG],
 });
 
-const getDirectoryAppIndexCount = unstable_cache(async () => {
+async function loadDirectoryAppIndexCount() {
   const result = await getPool().query<{ app_count: number | string }>(`
     select count(*) as app_count
     from public.self_host_apps app
     where app.published = true and app.self_hosting_status = 'self_hostable'
   `);
   return Number(result.rows[0]?.app_count ?? 0);
-}, ["stack127-directory-app-index-count"], {
-  revalidate: 86400,
-  tags: ["stack127-self-host-apps"],
+}
+
+const getDirectoryAppIndexCount = unstable_cache(loadDirectoryAppIndexCount, ["stack127-directory-app-index-count"], {
+  revalidate: false,
+  tags: [SELF_HOST_INDEX_TAG],
 });
 
 export async function getDirectoryAppIndex(): Promise<DirectoryAppIndex[]> {
@@ -548,6 +551,16 @@ export async function getDirectoryAppIndex(): Promise<DirectoryAppIndex[]> {
   const batches = await Promise.all(
     Array.from({ length: Math.ceil(count / DIRECTORY_APP_INDEX_BATCH_SIZE) }, (_, batch) =>
       getDirectoryAppIndexBatch(batch * DIRECTORY_APP_INDEX_BATCH_SIZE)),
+  );
+  return batches.flat();
+}
+
+// The cache worker compares API output with the source after invalidation.
+export async function loadDirectoryAppIndex(): Promise<DirectoryAppIndex[]> {
+  const count = await loadDirectoryAppIndexCount();
+  const batches = await Promise.all(
+    Array.from({ length: Math.ceil(count / DIRECTORY_APP_INDEX_BATCH_SIZE) }, (_, batch) =>
+      loadDirectoryAppIndexBatch(batch * DIRECTORY_APP_INDEX_BATCH_SIZE)),
   );
   return batches.flat();
 }
@@ -676,7 +689,7 @@ export async function getDirectoryAppsBySlugs(slugs: string[]): Promise<Director
   const apps = await Promise.all(slugs.map(slug => unstable_cache(
     async () => (await loadDirectoryAppsBySlugs([slug]))[0] ?? null,
     ["stack127-self-host-app", slug],
-    { revalidate: 86400, tags: ["stack127-self-host-details", `stack127-self-host-app:${slug}`] },
+    { revalidate: false, tags: [SELF_HOST_DETAILS_TAG, `${SELF_HOST_APP_TAG}:${slug}`] },
   )()));
   const appsBySlug = new Map(apps.filter((app): app is DirectoryApp => Boolean(app)).map((app) => [app.slug, app]));
 
@@ -712,5 +725,5 @@ async function loadDirectoryLicenseCounts(): Promise<DirectoryLicenseCount[]> {
 }
 
 export const getDirectoryLicenseCounts = unstable_cache(loadDirectoryLicenseCounts, ["stack127-directory-license-counts"], {
-  revalidate: 86400, tags: ["stack127-self-host-apps"],
+  revalidate: false, tags: [SELF_HOST_INDEX_TAG],
 });

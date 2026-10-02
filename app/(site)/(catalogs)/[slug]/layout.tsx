@@ -1,7 +1,7 @@
 import { registryLayout } from "@/lib/registry-layout";
 
-const registry = registryLayout("/[slug]", false);
+const registry = registryLayout("/[slug]");
 export const generateMetadata = registry.generateMetadata;
 export function generateStaticParams() { return []; }
-export const revalidate = 604800;
+export const revalidate = false;
 export default registry.Layout;

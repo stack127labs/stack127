@@ -1,3 +1,4 @@
+import { CLI_APPS_TAG } from "./cache-tags";
 import { unstable_cache } from "next/cache";
 import { getPool } from "./db";
 import {
@@ -45,7 +46,7 @@ export type TerminalApp = {
   last_verified_at: Date | null;
 };
 
-async function loadTerminalApps(): Promise<TerminalApp[]> {
+export async function loadTerminalApps(): Promise<TerminalApp[]> {
   const result = await getPool().query<TerminalApp>(
     `
       select
@@ -83,7 +84,7 @@ async function loadTerminalApps(): Promise<TerminalApp[]> {
   return result.rows;
 }
 
-export const getTerminalApps = unstable_cache(loadTerminalApps, ["stack127-terminal-apps"], {
-  revalidate: 86400,
-  tags: ["stack127-terminal-apps"],
+export const getTerminalApps = unstable_cache(loadTerminalApps, [CLI_APPS_TAG], {
+  revalidate: false,
+  tags: [CLI_APPS_TAG],
 });

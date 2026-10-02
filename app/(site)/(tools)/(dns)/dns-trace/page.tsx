@@ -3,26 +3,11 @@ import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { Route } from "lucide-react";
-import { DnsTraceTool } from "./dns-trace-tool";
-import { TRACE_RECORD_TYPES, type DnsTraceRecordType } from "@/lib/dns/trace-types.ts";
+import { DnsTraceFromUrl } from "./dns-trace-from-url";
 import styles from "./dns-trace.module.css";
 
-type SearchParams = Record<string, string | string[] | undefined>;
-
-function firstValue(value: string | string[] | undefined) {
-  return Array.isArray(value) ? value[0] ?? "" : value ?? "";
-}
-
-function initialRecordType(value: string): DnsTraceRecordType {
-  const normalized = value.toUpperCase();
-  return TRACE_RECORD_TYPES.includes(normalized as DnsTraceRecordType)
-    ? normalized as DnsTraceRecordType
-    : "A";
-}
-
-export default async function DnsTracePage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+export default async function DnsTracePage() {
   const toolPage = await getRequiredToolPage("dns-trace");
-  const params = await searchParams;
   return (
     <ToolPageShell toolPage={toolPage}>
       <PageCanvas as="main" className={styles.main}>
@@ -31,10 +16,7 @@ export default async function DnsTracePage({ searchParams }: { searchParams: Pro
           toolPage={toolPage}
         />
 
-        <DnsTraceTool
-          initialName={firstValue(params.name)}
-          initialRecordType={initialRecordType(firstValue(params.type))}
-        />
+        <DnsTraceFromUrl />
 
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>

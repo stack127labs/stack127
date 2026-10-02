@@ -159,7 +159,8 @@ function installSupportLabel(level: DirectoryApp["install_options"][number]["sup
   return "third party";
 }
 
-// The panel body is server-rendered so each visible app's details are in the page HTML.
+// The panel body. The static page server-renders it into hidden HTML, and the
+// browser renders it for results loaded from the search API.
 export function AppDetailsBody({ app }: { app: DirectoryApp }) {
   const factSections: Array<{ heading: string; facts: AppFact[] }> = [
     { heading: "Project and license", facts: [

@@ -1,11 +1,12 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import {
+import "../../helpers/register-repo-imports.mjs";
+import { paginationPages } from "../../../lib/pagination.ts";
+const {
   filterDevices,
   getPage,
-  paginationPages,
   sortDevices,
-} from "../../../app/(site)/(directories)/zigbee-devices/filters.ts";
+} = await import("../../../app/(site)/(directories)/zigbee-devices/filters.ts");
 
 function device(overrides = {}) {
   return {

@@ -1,6 +1,6 @@
 import { registryLayout } from "@/lib/registry-layout";
 
-const registry = registryLayout("/self-hosting-for-beginners/pick-your-first-server", false);
+const registry = registryLayout("/self-hosting-for-beginners/pick-your-first-server");
 export const generateMetadata = registry.generateMetadata;
-export const revalidate = 604800;
+export const revalidate = false;
 export default registry.Layout;

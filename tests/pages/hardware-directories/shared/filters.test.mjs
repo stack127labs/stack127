@@ -1,13 +1,14 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import "../../../helpers/register-repo-imports.mjs";
 import { paginationPages } from "../../../../lib/pagination.ts";
-import {
+const {
   filterHardwareRecords,
   getDirectoryPage,
   getDirectorySort,
   hardwareDirectoryPageHref,
   sortHardwareRecords,
-} from "../../../../app/ui/directories/hardware-directory-filters.ts";
+} = await import("../../../../app/ui/directories/hardware-directory-filters.ts");
 
 const records = [
   { added: "2026-01-01", category: "Sensors", features: ["Thread", "Battery"], model: "A1", name: "Alpha sensor", search_terms: ["contact"], vendor: "Acme" },
@@ -24,7 +25,9 @@ test("hardware directory filters combine exact facets and broad search", () => {
 test("hardware directory sorting and pagination are deterministic", () => {
   assert.equal(getDirectorySort({ sort: "unknown" }), "name");
   assert.equal(getDirectoryPage({ page: "0" }), 1);
-  assert.deepEqual(sortHardwareRecords(records, "newest").map((record) => record.model), ["B2", "A1", "C3"]);
+  assert.equal(getDirectorySort({ sort: "newest" }), "name");
+  assert.deepEqual(sortHardwareRecords(records, "name").map((record) => record.model), ["A1", "C3", "B2"]);
+  assert.deepEqual(sortHardwareRecords(records, "vendor").map((record) => record.model), ["A1", "C3", "B2"]);
   assert.deepEqual(paginationPages(5, 10), [1, null, 4, 5, 6, null, 10]);
   assert.equal(hardwareDirectoryPageHref("/matter-devices", { q: "plug", page: "7" }, 2), "/matter-devices?q=plug&page=2");
 });

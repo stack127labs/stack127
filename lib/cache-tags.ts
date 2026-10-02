@@ -1,0 +1,14 @@
+export const PAGE_REGISTRY_TAG = "stack127-page";
+export const HOME_PAGES_TAG = "stack127-home-pages";
+export const TOOL_PAGES_TAG = "stack127-tool-page";
+export const TOOL_CATALOGS_TAG = "stack127-tool-catalogs";
+export const TOOL_CATALOG_TAG = "stack127-tool-catalog";
+export const TOOL_PRIMARY_CATALOGS_TAG = "stack127-tool-primary-catalogs";
+export const SELF_HOST_INDEX_TAG = "stack127-self-host-apps";
+export const SELF_HOST_DETAILS_TAG = "stack127-self-host-details";
+export const SELF_HOST_APP_TAG = "stack127-self-host-app";
+export const CLI_APPS_TAG = "stack127-terminal-apps";
+export const PLATFORM_FEES_TAG = "stack127-platform-fees";
+export const AD_NETWORKS_TAG = "stack127-ad-networks";
+export const LAUNCH_DIRECTORIES_TAG = "stack127-launch-directories";
+export const SITEMAP_TAG = "stack127-sitemap-pages";

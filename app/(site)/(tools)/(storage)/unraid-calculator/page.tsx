@@ -3,21 +3,10 @@ import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-conten
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { HardDrive } from "lucide-react";
 import { PageCanvas } from "../../../../ui/site/page-canvas";
-import { UnraidCalculator } from "./unraid-calculator";
+import { UnraidCalculatorFromUrl } from "./unraid-calculator-from-url";
 
-type SearchParams = Record<string, string | string[] | undefined>;
-
-function firstValue(value: string | string[] | undefined) {
-  return Array.isArray(value) ? value[0] ?? "" : value ?? "";
-}
-
-export default async function UnraidCalculatorPage({
-  searchParams,
-}: {
-  searchParams: Promise<SearchParams>;
-}) {
+export default async function UnraidCalculatorPage() {
   const toolPage = await getRequiredToolPage("unraid-calculator");
-  const params = await searchParams;
 
   return (
     <ToolPageShell toolPage={toolPage}>
@@ -26,7 +15,7 @@ export default async function UnraidCalculatorPage({
           icon={<HardDrive strokeWidth={2.2} />}
           toolPage={toolPage}
         />
-        <UnraidCalculator initialState={firstValue(params.state)} />
+        <UnraidCalculatorFromUrl />
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </ToolPageShell>

@@ -3,17 +3,11 @@ import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { ShieldCheck } from "lucide-react";
-import { DnssecChecker } from "./dnssec-checker";
-import { DNSSEC_RECORD_TYPES, type DnssecRecordType } from "@/lib/dns/dnssec-types.ts";
+import { DnssecCheckerFromUrl } from "./dnssec-checker-from-url";
 import styles from "./dnssec-checker.module.css";
 
-type SearchParams = Record<string, string | string[] | undefined>;
-const first = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] ?? "" : value ?? "";
-function initialType(value: string): DnssecRecordType { const upper = value.toUpperCase(); return DNSSEC_RECORD_TYPES.includes(upper as DnssecRecordType) ? upper as DnssecRecordType : "A"; }
-
-export default async function DnssecCheckerPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+export default async function DnssecCheckerPage() {
   const toolPage = await getRequiredToolPage("dnssec-checker");
-  const params = await searchParams;
   return (
     <ToolPageShell toolPage={toolPage}>
       <PageCanvas as="main" className={styles.main}>
@@ -22,10 +16,7 @@ export default async function DnssecCheckerPage({ searchParams }: { searchParams
           toolPage={toolPage}
         />
 
-        <DnssecChecker
-          initialName={first(params.name)}
-          initialRecordType={initialType(first(params.type))}
-        />
+        <DnssecCheckerFromUrl />
 
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
