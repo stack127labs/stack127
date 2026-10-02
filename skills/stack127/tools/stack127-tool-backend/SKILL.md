@@ -16,6 +16,6 @@ Build exactly what the spec's Backend contract describes: the same function name
 5. For a new route that needs a database row to render, create a development-only preview row with the required title and plainly marked placeholder intro and content. Guard the development database and preserve any existing row. The placeholder is preview scaffolding, not the page copy.
 6. Check one correct and one invalid example directly against the backend, such as through the test or a request to the API route.
 
-Do not build the page, client components, styles, or card art. Do not write page content, create manifests or evidence files, run the whole repository test collection, publish production data, commit, push, or deploy.
+Do not build the page, client components, styles, or card art. Do not write page content, create manifests or evidence files, or run the whole repository test collection. This backend task does not authorize production data, commits, pushes, or deployment. A separate coordinator-approved production task follows the approval rules in `AGENTS.md` and the release skill.
 
 Return the files you built, the exported functions or endpoints, the test result, and any contract gap.

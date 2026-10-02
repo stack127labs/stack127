@@ -160,3 +160,5 @@ You can publish a development preview inside an authorized tool pipeline, so the
 After the audit, give the user the complete spec, the verified development preview, and the release verdict. Production data, commits, pushes, and deployment still need authorization.
 
 When release is authorized, use the approved production content workflow and `$stack127-release-e2e`. The release workflow runs the minimum gate, builds one image, deploys it, and checks the live revision and core public endpoints.
+
+The coordinator may do the release or approve a worker using the rules in `AGENTS.md`. Pass `--approve-release <full-reviewed-commit-sha>` to `delegate.mjs` for a worker release. Production content updates also need `--approve-production-data` and an exact task scope. Ordinary pipeline workers may apply guarded development updates without either production approval flag.

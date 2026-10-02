@@ -9,6 +9,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
 const codexHome = process.env.CODEX_HOME || path.join(os.homedir(), ".codex");
@@ -25,6 +26,29 @@ function compareVersions(a, b) {
     if (diff !== 0) return diff;
   }
   return 0;
+}
+
+// Only main Grok and Gemini Flash High slugs qualify. Ignore variants and labels.
+export function newestCliModel(tool, output) {
+  const pattern = tool === "grok" ? /^grok-(\d+(?:\.\d+)*)$/ : tool === "agy" ? /^gemini-(\d+(?:\.\d+)*)-flash-high$/ : null;
+  if (!pattern) return null;
+  let best = null;
+  for (const line of output.split(/\r?\n/)) {
+    const slug = line.trim().replace(/^[*-]\s+/, "").split(/\s/)[0];
+    const match = slug.match(pattern);
+    if (!match) continue;
+    const version = match[1].split(".").map(Number);
+    if (!best || compareVersions(version, best.version) > 0) best = { slug, version };
+  }
+  return best?.slug ?? null;
+}
+
+export function cliModel(tool, executable, { spawn = spawnSync, env = process.env, cwd = repoRoot } = {}) {
+  const run = spawn(executable, ["models"], { cwd, env, encoding: "utf8", timeout: 30000, maxBuffer: 4 * 1024 * 1024 });
+  if (run.error || run.status !== 0) throw new Error(`${tool} model list failed: ${run.error?.message ?? run.stderr ?? `exit ${run.status}`}`);
+  const model = newestCliModel(tool, run.stdout ?? "");
+  if (!model) throw new Error(`No ${tool === "grok" ? "main Grok" : "Gemini Flash High"} model in ${tool}'s model list.`);
+  return model;
 }
 
 export function newestModel(family, { cachePath = path.join(codexHome, "models_cache.json") } = {}) {
