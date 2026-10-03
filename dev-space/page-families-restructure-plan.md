@@ -67,7 +67,7 @@ This plan joins directories and references, makes page family names match across
 
 ### Phase 7: Release.
 
-- [ ] 26. Sol review, then apply the migration in development and check the pages.
+- [x] 26. Sol review, then apply the migration in development and check the pages.
 - [ ] 27. Production migration and deploy, after the user approves them.
   - The release workflow applies the migration, then builds and deploys the new image, then updates the `cache-worker` function. This release changes `supabase/functions` and `lib/cache-tags.ts`, so the worker update runs automatically.
   - Between the migration and the new image going live, the old app still serves the site. Normally that's a few minutes. If the build or deploy fails, the migration stays applied and the old app keeps serving until the release is fixed and redeployed, so be ready to repair and rerun it right away. Pages it already cached keep working. Uncached catalog and homepage requests fail, and page edit events fail in the old worker.
