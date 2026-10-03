@@ -1,5 +1,5 @@
 import { AppShell } from "@/app/ui/site/app-shell";
-import { KeyboardShortcutsSidebar } from "../../../../ui/references/keyboard-shortcuts-sidebar";
+import { KeyboardShortcutsSidebar } from "@/app/ui/directories/keyboard-shortcuts-sidebar";
 import { KeyboardShortcutsDirectory } from "../keyboard-shortcuts-directory";
 
 export default function KeyboardShortcutsDirectoryPage() {

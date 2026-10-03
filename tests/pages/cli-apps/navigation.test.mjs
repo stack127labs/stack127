@@ -12,14 +12,14 @@ test("cli-apps is registered as a home feature page", async () => {
 });
 
 test("the home page exposes a cli-apps card with an icon", async () => {
-  const home = await read("app/(site)/(home)/page.tsx");
+  const home = await read("app/(site)/(site-pages)/(home)/page.tsx");
   assert.match(home, /"cli-apps": SquareTerminal/);
   assert.match(home, /SquareTerminal/);
 });
 
 test("the site navigation leads to home, where Start here links to cli-apps", async () => {
   const nav = await read("app/ui/site/site-nav.tsx");
-  const home = await read("app/(site)/(home)/page.tsx");
+  const home = await read("app/(site)/(site-pages)/(home)/page.tsx");
   assert.match(nav, /href="\/"[^>]*>\s*explore/);
   assert.match(home, /slug: "cli-apps"[^\n]+action: "Browse CLI apps"/);
   assert.match(home, /href=\{`\/\$\{item.slug\}`\}/);

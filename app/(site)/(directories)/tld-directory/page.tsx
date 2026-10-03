@@ -1,9 +1,9 @@
 import { PageCanvas } from "@/app/ui/site/page-canvas";
-import "../../(catalogs)/domain-tools/domain-tools.css";
+import "@/app/(site)/(tools)/(domain)/domain-tools.css";
 import { Globe } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../ui/site/app-shell";
-import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
+import { DomainToolsSidebar } from "@/app/(site)/(tools)/(domain)/domain-tools-sidebar";
 import { TldTable, type TldRow } from "./tld-table";
 import directory from "@/lib/domain/data/tld-directory.json" with { type: "json" };
 import { PageTitleIcon } from "../../../ui/site/page-title-icon";

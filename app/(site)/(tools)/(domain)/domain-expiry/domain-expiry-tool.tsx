@@ -11,7 +11,7 @@ import {
   humanDuration,
   reportJson,
   useDomainLookup,
-} from "../../../(catalogs)/domain-tools/domain-lookup-client";
+} from "@/app/(site)/(tools)/(domain)/domain-lookup-client";
 import styles from "./domain-expiry-tool.module.css";
 
 const EXPIRY_PATH = [

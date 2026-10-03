@@ -9,7 +9,7 @@ import { DirectoryCheckboxGroup, DirectoryRadioGroup, DirectoryTagSelectGroup } 
 import { DirectoryFilterController } from "@/app/ui/directories/directory-filter-controller";
 import { SortDropdown } from "@/app/ui/directories/directory-sort-dropdown";
 import { ToolCatalog } from "@/app/ui/catalogs/tool-catalog";
-import { backup321Art } from "@/app/(site)/(catalogs)/_components/art/backup-321";
+import { backup321Art } from "@/app/ui/art/backup-321";
 import { BrandWordmark } from "@/app/ui/site/brand-wordmark";
 import { CodeBlock } from "@/app/ui/site/code-block";
 import { MarkerArt } from "@/app/ui/site/marker-art";

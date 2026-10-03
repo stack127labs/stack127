@@ -10,7 +10,7 @@ import {
   humanDuration,
   reportJson,
   useDomainLookup,
-} from "../../../(catalogs)/domain-tools/domain-lookup-client";
+} from "@/app/(site)/(tools)/(domain)/domain-lookup-client";
 import styles from "./domain-age-tool.module.css";
 
 function sourceHost(fetch: RdapFetch | null) {

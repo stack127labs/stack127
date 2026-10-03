@@ -203,6 +203,20 @@ Results read like an answer, in this order:
 
 ### Sidebars
 
+Every page keeps the sidebar. It holds the page's side space, so the main column stays at a readable width instead of stretching across the screen.
+
+A sidebar has one of three jobs:
+
+| Job | Examples |
+| --- | --- |
+| Options | Directory filters, sort, and view controls |
+| Moving between related pages | Tool family lists, catalog lists, course lessons, shortcut apps |
+| Jumping to page sections | Anchored sections of a long directory page |
+
+Don't put reading content in the sidebar. That includes "about this page" paragraphs, method notes, disclaimers, and summaries. Those belong in the main column. If a page has nothing for these jobs, link to related pages instead of adding filler.
+
+On small screens, the sidebar opens from the existing drawer. Its label names the job, for example "Filters", "Lessons", or "Sections".
+
 Sidebars that list things use `SidebarList` from `app/ui/site/sidebar-list.tsx`. It has small rows, optional mono numbers and counts, and a `--color-surface-2` active fill with an accent-ink leading cell.
 
 | List type | Leading cell |

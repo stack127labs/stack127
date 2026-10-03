@@ -1,6 +1,6 @@
 import { AppShell } from "@/app/ui/site/app-shell";
 import type { AppShortcuts } from "@/lib/shortcuts/types";
-import { KeyboardShortcutsSidebar } from "../../../ui/references/keyboard-shortcuts-sidebar";
+import { KeyboardShortcutsSidebar } from "@/app/ui/directories/keyboard-shortcuts-sidebar";
 import { KeyboardShortcutsReference } from "./keyboard-shortcuts-reference";
 
 export function KeyboardShortcutsAppPage({ app }: { app: AppShortcuts }) {

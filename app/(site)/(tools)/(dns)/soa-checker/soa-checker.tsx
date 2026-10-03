@@ -4,7 +4,7 @@ import { useRef, useState, type FormEvent, type ReactNode } from "react";
 import { UiButton, UiDisclosure, UiDownloadAction, UiRawOutput, UiTextField } from "@/app/ui/controls";
 import { UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";
 import { groupSoaObservations, negativeCacheTtlSeconds } from "@/lib/dns/diagnostic-presentation.ts";
-import { diagnosticReportJson } from "../../../(catalogs)/dns-tools/diagnostic-result-ui";
+import { diagnosticReportJson } from "@/app/(site)/(tools)/(dns)/diagnostic-result-ui";
 import {
   buildSoaComparison,
   soaDifferenceLabels,

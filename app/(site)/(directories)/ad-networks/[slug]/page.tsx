@@ -1,16 +1,15 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Network } from "lucide-react";
 import { DirectoryQueryProvider } from "@/app/ui/directories/directory-query";
 import type { DirectoryIndexSource } from "@/app/ui/directories/directory-index";
-import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
+import { AppShell } from "@/app/ui/site/app-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
-import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/ui/site/sidebar-panel";
 import { getAdNetwork, listAdNetworks, listAllVerifiedPublishers, publisherPageSize, type VerifiedPublisher } from "@/lib/ad-networks";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { PublisherList } from "../ad-network-view";
+import { AdNetworksSidebar } from "../ad-networks-sidebar";
 import styles from "../page.module.css";
 
 // Build every network during the release. Unpublished networks still return 404.
@@ -21,7 +20,7 @@ export async function generateStaticParams() {
 export default async function AdNetworkPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   await getRequiredPublishedPage(`ad-networks/${slug}`);
-  const network = await getAdNetwork(slug);
+  const [network, networks] = await Promise.all([getAdNetwork(slug), listAdNetworks("")]);
   if (!network) notFound();
   const route = `/ad-networks/${slug}`;
   // The full list ships with the page for search and paging. A network with
@@ -29,14 +28,8 @@ export default async function AdNetworkPage({ params }: { params: Promise<{ slug
   const rows = await listAllVerifiedPublishers(network.id);
   const index: DirectoryIndexSource<VerifiedPublisher> = { records: rows };
 
-  const sidebar = <div className={sidebarPanelClassName}>
-    <div className={sidebarPanelHeadingClassName}><SidebarLabel>Ad networks</SidebarLabel></div>
-    <Link href="/ad-networks">All ad networks</Link>
-    <p className={styles.sidebarCopy}>Listed sites have a confirmed relationship. The label on each row says what the check supports.</p>
-  </div>;
-
   return <DirectoryQueryProvider route={route}>
-    <AppShell mainLabel={`${network.name} publisher sites`} sidebar={sidebar} sidebarLabel="Directory guide">
+    <AppShell mainLabel={`${network.name} publisher sites`} menuLabel="Networks" sidebar={<AdNetworksSidebar networks={networks} current={slug} />} sidebarLabel="Ad networks">
       <PageCanvas flow className={styles.content}>
         <PageHeader bordered>
           <h1><PageTitleIcon><Network strokeWidth={2.2} /></PageTitleIcon>{" "}{network.name} publisher websites</h1>

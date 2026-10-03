@@ -14,17 +14,17 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import "../home.css";
-import { siteSpotCliAppsArt } from "../art/site--spot-cli-apps";
-import { siteSpotCourseArt } from "../art/site--spot-course";
-import { siteSpotLicensesArt } from "../art/site--spot-licenses";
-import { siteSpotLabsArt } from "../art/site--spot-labs";
-import { siteSpotKeyboardShortcutsArt } from "../art/site--spot-keyboard-shortcuts";
-import { siteSpotLaunchDirectoriesArt } from "../art/site--spot-launch-directories";
-import { siteSpotPlatformFeesArt } from "../art/site--spot-platform-fees";
-import { siteSpotSelfHostAppsArt } from "../art/site--spot-self-host-apps";
-import { eppStatusArt } from "../(catalogs)/_components/art/epp-status";
-import { tldDirectoryArt } from "../(catalogs)/_components/art/tld-directory";
+import "@/app/(site)/home.css";
+import { siteSpotCliAppsArt } from "@/app/(site)/art/site--spot-cli-apps";
+import { siteSpotCourseArt } from "@/app/(site)/art/site--spot-course";
+import { siteSpotLicensesArt } from "@/app/(site)/art/site--spot-licenses";
+import { siteSpotLabsArt } from "@/app/(site)/art/site--spot-labs";
+import { siteSpotKeyboardShortcutsArt } from "@/app/(site)/art/site--spot-keyboard-shortcuts";
+import { siteSpotLaunchDirectoriesArt } from "@/app/(site)/art/site--spot-launch-directories";
+import { siteSpotPlatformFeesArt } from "@/app/(site)/art/site--spot-platform-fees";
+import { siteSpotSelfHostAppsArt } from "@/app/(site)/art/site--spot-self-host-apps";
+import { eppStatusArt } from "@/app/ui/art/epp-status";
+import { tldDirectoryArt } from "@/app/ui/art/tld-directory";
 import { getTerminalApps } from "@/lib/terminal-apps";
 import { shortcutAppCatalog } from "@/lib/shortcuts/catalog.generated";
 import { STATUS_CODES } from "@/lib/domain/status-codes";
@@ -46,15 +46,15 @@ import {
 } from "@/lib/page-registry";
 import { lessons } from "@/lib/self-hosting-for-beginners";
 import { licenses } from "@/lib/software-licenses";
-import { AppShell, SidebarLabel } from "../../ui/site/app-shell";
-import { Doodle } from "../../ui/site/doodle";
-import { EntryHero } from "../../ui/site/entry-hero";
-import { SidebarList } from "../../ui/site/sidebar-list";
+import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
+import { Doodle } from "@/app/ui/site/doodle";
+import { EntryHero } from "@/app/ui/site/entry-hero";
+import { SidebarList } from "@/app/ui/site/sidebar-list";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
-} from "../../ui/site/sidebar-panel";
-import { siteHeroStack127Art } from "../art/site--hero-stack127";
+} from "@/app/ui/site/sidebar-panel";
+import { siteHeroStack127Art } from "@/app/(site)/art/site--hero-stack127";
 
 
 type HomeStat = {

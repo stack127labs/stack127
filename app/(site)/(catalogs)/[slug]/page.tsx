@@ -6,7 +6,7 @@ import { PageHeader } from "@/app/ui/site/page-header";
 import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
 import { ToolCatalog } from "@/app/ui/catalogs/tool-catalog";
 import { ToolCatalogSidebar } from "@/app/ui/catalogs/tool-catalog-sidebar";
-import { DomainCatalogReference } from "../domain-tools/domain-catalog-reference";
+import { DomainCatalogReference } from "./domain-catalog-reference";
 import { toolCatalogArt } from "@/lib/tool-catalog-art";
 import { toolCatalogIcon } from "@/lib/tool-catalog-icons";
 import { getPublishedToolCatalog } from "@/lib/tool-catalogs";

@@ -201,7 +201,7 @@ Common fields for every spec:
 }
 ```
 
-For live examples, see `app/(site)/(courses)/self-hosting-for-beginners/basic-setup/art/five-pieces.spec.json` (a flow figure) and `app/(site)/(catalogs)/_components/art/` (tool spots).
+For live examples, see `app/(site)/(courses)/self-hosting-for-beginners/basic-setup/art/five-pieces.spec.json` (a flow figure) and `app/ui/art/` (tool spots).
 
 To build a browsable showcase of a draft folder, run `node scripts/stack127/marker-art/generate.mjs --index <dir>`.
 

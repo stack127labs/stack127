@@ -9,7 +9,7 @@ import type {
   NameserverAddressObservation,
   NameserverReachability,
 } from "@/lib/dns/diagnostic-types.ts";
-import { diagnosticReportJson } from "../../../(catalogs)/dns-tools/diagnostic-result-ui";
+import { diagnosticReportJson } from "@/app/(site)/(tools)/(dns)/diagnostic-result-ui";
 import {
   checkedAddressCount,
   delegationContextNotes,

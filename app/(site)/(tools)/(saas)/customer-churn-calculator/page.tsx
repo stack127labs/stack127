@@ -1,5 +1,5 @@
 import { UsersRound } from "lucide-react";
-import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
+import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { getRequiredToolPage } from "@/lib/tool-pages";

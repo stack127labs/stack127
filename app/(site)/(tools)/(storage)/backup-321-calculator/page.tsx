@@ -1,4 +1,4 @@
-import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
+import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { ShieldCheck } from "lucide-react";

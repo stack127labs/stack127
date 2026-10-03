@@ -1,6 +1,6 @@
-import { cephArt } from "./(site)/(catalogs)/_components/art/ceph";
-import { raidArt } from "./(site)/(catalogs)/_components/art/raid";
-import { zfsCapacityArt } from "./(site)/(catalogs)/_components/art/zfs-capacity";
+import { cephArt } from "@/app/ui/art/ceph";
+import { raidArt } from "@/app/ui/art/raid";
+import { zfsCapacityArt } from "@/app/ui/art/zfs-capacity";
 import registry from "./marker-art-registry.json";
 
 const markerArtAssets = {

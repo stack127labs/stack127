@@ -5,7 +5,7 @@ import test from "node:test";
 
 const root = new URL("../../../../", import.meta.url);
 const appRoot = new URL("lib/shortcuts/apps/", root);
-const routeRoot = new URL("app/(site)/(references)/keyboard-shortcuts/", root);
+const routeRoot = new URL("app/(site)/(directories)/keyboard-shortcuts/", root);
 
 function appSlugs() {
   return readdirSync(appRoot)

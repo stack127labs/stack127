@@ -1,10 +1,10 @@
-import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
+import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { FileKey } from "lucide-react";
 import { CaaCheckerFromUrl } from "./caa-checker-from-url";
-import styles from "../../../(catalogs)/dns-tools/dns-diagnostics.module.css";
+import styles from "@/app/(site)/(tools)/(dns)/dns-diagnostics.module.css";
 
 export default async function CaaCheckerPage() {
   const toolPage = await getRequiredToolPage("caa-checker");

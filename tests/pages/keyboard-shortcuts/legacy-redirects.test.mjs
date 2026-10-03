@@ -11,7 +11,7 @@ test("every original shortcut reference redirects permanently to its replacement
     assert.deepEqual(legacyShortcutRedirects.find(r => r.source === `/shortcuts${suffix}`), {
       source: `/shortcuts${suffix}`, destination: `/keyboard-shortcuts${suffix}`, permanent: true,
     });
-    assert.ok(existsSync(`app/(site)/(references)/keyboard-shortcuts${suffix}/page.tsx`));
+    assert.ok(existsSync(`app/(site)/(directories)/keyboard-shortcuts${suffix || "/(index)"}/page.tsx`));
   }
   assert.ok(!legacyShortcutRedirects.some(r => r.source.includes(":")));
 });

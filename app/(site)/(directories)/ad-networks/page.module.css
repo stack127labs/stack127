@@ -4,13 +4,6 @@
   grid-template-columns: minmax(0, 1fr);
 }
 
-.sidebarCopy {
-  color: var(--color-text-muted);
-  font-size: var(--text-small);
-  line-height: var(--line-body);
-  margin: 0;
-}
-
 .search {
   display: grid;
   gap: var(--space-3);

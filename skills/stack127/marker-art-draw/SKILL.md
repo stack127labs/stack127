@@ -11,7 +11,7 @@ Use this skill in the current stack127 workspace to turn approved marker art pro
 
 - Read `stack127_docs/marker-art.md` in full. Semantic color, data accuracy, the one takeaway rule, and the no overlap rule all bind here.
 - Identify the role first: spot, hero, explainer, or doodle. Each role has a different composition and rendered-size test in `stack127_docs/marker-art.md`.
-- Look at an existing spec that matches the role. Use `app/(site)/(courses)/self-hosting-for-beginners/basic-setup/art/five-pieces.spec.json` for a flow and `app/(site)/(catalogs)/_components/art/` for tool spots.
+- Look at an existing spec that matches the role. Use `app/(site)/(courses)/self-hosting-for-beginners/basic-setup/art/five-pieces.spec.json` for a flow and `app/ui/art/` for tool spots.
 - Read `stack127_docs/writing-style.md` for figure labels, captions, and alt text.
 
 ## Workflow
@@ -43,4 +43,4 @@ Every homepage card must have a spec-backed marker drawing in the homepage art r
 
 ## New tool catalog card artwork
 
-Use the Product section of `content_docs/<slug>/tool-spec.md` as the brief. Write a `toolSpot` spec in `app/(site)/(catalogs)/_components/art/` with a tool-specific id and conceptual source, generate the `.svg` and `.ts`, and register its key in `lib/tool-catalog-art.ts`. The integration worker applies that key to the development card and checks the real catalog card at desktop and mobile size in dark and light themes. A new tool is not complete with the `icon` fallback. Article figures are optional and separate from this card drawing.
+Use the Product section of `content_docs/<slug>/tool-spec.md` as the brief. Write a `toolSpot` spec in `app/ui/art/` with a tool-specific id and conceptual source, generate the `.svg` and `.ts`, and register its key in `lib/tool-catalog-art.ts`. The integration worker applies that key to the development card and checks the real catalog card at desktop and mobile size in dark and light themes. A new tool is not complete with the `icon` fallback. Article figures are optional and separate from this card drawing.

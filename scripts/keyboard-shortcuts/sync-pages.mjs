@@ -5,7 +5,7 @@ import { pathToFileURL } from "node:url";
 
 const root = path.resolve(import.meta.dirname, "../..");
 const appRoot = path.join(root, "lib/shortcuts/apps");
-const routeRoot = path.join(root, "app/(site)/(references)/keyboard-shortcuts");
+const routeRoot = path.join(root, "app/(site)/(directories)/keyboard-shortcuts");
 const checkOnly = process.argv.includes("--check");
 const changed = [];
 

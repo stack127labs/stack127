@@ -27,7 +27,7 @@ Sidebar titles use the shared `SidebarLabel` component from `app/ui/site/app-she
 
 A route family with several components that work together may use one family stylesheet. It sits with the family and is imported by the family's layout. Current examples:
 
-- `app/(site)/(catalogs)/dns-tools/dns-tools.css`
+- `app/(site)/(tools)/(dns)/dns-tools.css`
 - `app/ui/directories/directory.css`
 - `app/(site)/(courses)/self-hosting-for-beginners/course.css`
 - `app/(site)/(references)/software-licenses-for-self-hosting/software-licenses.css`

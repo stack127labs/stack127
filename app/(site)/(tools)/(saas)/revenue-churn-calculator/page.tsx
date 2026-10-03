@@ -1,6 +1,6 @@
 import { TrendingDown } from "lucide-react";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
-import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
+import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { RevenueChurnCalculator } from "./revenue-churn-calculator";

@@ -5,7 +5,7 @@ import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/ui/si
 import { getPrimaryToolCatalog, type PublishedToolCatalog } from "@/lib/tool-catalogs";
 import { toolCatalogIcon } from "@/lib/tool-catalog-icons";
 import type { Stack127ToolPage } from "@/lib/tool-pages";
-import { ToolCatalogSidebar } from "./tool-catalog-sidebar";
+import { ToolCatalogSidebar } from "@/app/ui/catalogs/tool-catalog-sidebar";
 
 function ToolPageSidebar({ catalog, toolSlug }: { catalog: PublishedToolCatalog; toolSlug: string }) {
   return (

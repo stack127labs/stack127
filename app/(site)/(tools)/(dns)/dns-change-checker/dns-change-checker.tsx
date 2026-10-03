@@ -5,7 +5,7 @@ import { UiButton, UiDownloadAction, UiRawOutput, UiSelect, UiTextField, type Ui
 import { UiActionRow, UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";
 import { CHANGE_RECORD_TYPES, type ChangeRecordType, type DnsSourceAnswer } from "@/lib/dns/diagnostic-types.ts";
 import { groupDnsSources } from "@/lib/dns/diagnostic-presentation.ts";
-import { diagnosticReportJson } from "../../../(catalogs)/dns-tools/diagnostic-result-ui";
+import { diagnosticReportJson } from "@/app/(site)/(tools)/(dns)/diagnostic-result-ui";
 import styles from "./dns-change-checker.module.css";
 
 type Result = {

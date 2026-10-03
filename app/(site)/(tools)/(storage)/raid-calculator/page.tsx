@@ -1,9 +1,9 @@
-import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
+import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { HardDrive } from "lucide-react";
 import { PageCanvas } from "../../../../ui/site/page-canvas";
-import styles from "../../../(catalogs)/storage-tools/storage-tools.module.css";
+import styles from "@/app/(site)/(tools)/(storage)/storage-tools.module.css";
 import { RaidCalculatorFromUrl } from "./raid-calculator-from-url";
 
 export default async function RaidCalculatorPage() {

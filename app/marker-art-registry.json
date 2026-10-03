@@ -1,17 +1,17 @@
 {
   "catalog/ceph": {
     "asset": "ceph",
-    "specPath": "app/(site)/(catalogs)/_components/art/ceph.spec.json",
-    "artifactPath": "app/(site)/(catalogs)/_components/art/ceph.ts"
+    "specPath": "app/ui/art/ceph.spec.json",
+    "artifactPath": "app/ui/art/ceph.ts"
   },
   "catalog/raid": {
     "asset": "raid",
-    "specPath": "app/(site)/(catalogs)/_components/art/raid.spec.json",
-    "artifactPath": "app/(site)/(catalogs)/_components/art/raid.ts"
+    "specPath": "app/ui/art/raid.spec.json",
+    "artifactPath": "app/ui/art/raid.ts"
   },
   "catalog/zfs-capacity": {
     "asset": "zfs-capacity",
-    "specPath": "app/(site)/(catalogs)/_components/art/zfs-capacity.spec.json",
-    "artifactPath": "app/(site)/(catalogs)/_components/art/zfs-capacity.ts"
+    "specPath": "app/ui/art/zfs-capacity.spec.json",
+    "artifactPath": "app/ui/art/zfs-capacity.ts"
   }
 }

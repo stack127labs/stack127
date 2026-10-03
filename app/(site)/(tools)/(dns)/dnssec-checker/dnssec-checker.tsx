@@ -6,7 +6,7 @@ import { UiButton, UiChoiceGroup, UiDisclosure, UiDownloadAction, UiRawOutput, U
 import { UiActionRow, UiDataTable, UiKeyValueList, UiResultLead, UiStatus } from "@/app/ui/display";
 import { DNSSEC_RECORD_TYPES, type DnssecRecordType, type DnssecSignature, type DnssecVerdict } from "@/lib/dns/dnssec-types.ts";
 import type { NormalizedDnsRecord } from "@/lib/dns/types.ts";
-import { diagnosticReportJson } from "../../../(catalogs)/dns-tools/diagnostic-result-ui";
+import { diagnosticReportJson } from "@/app/(site)/(tools)/(dns)/diagnostic-result-ui";
 import styles from "./dnssec-checker.module.css";
 
 type Evidence = {

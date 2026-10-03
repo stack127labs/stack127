@@ -4,7 +4,7 @@ import { useMemo, useRef, useState, type FormEvent } from "react";
 import { UiButton, UiDownloadAction, UiRawOutput, UiTextField } from "@/app/ui/controls";
 import { UiActionRow, UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";
 import type { CaaRecord } from "@/lib/dns/diagnostic-types.ts";
-import { diagnosticReportJson } from "../../../(catalogs)/dns-tools/diagnostic-result-ui";
+import { diagnosticReportJson } from "@/app/(site)/(tools)/(dns)/diagnostic-result-ui";
 import styles from "./caa-checker.module.css";
 
 type SearchReason = "requested" | "alias" | "parent";

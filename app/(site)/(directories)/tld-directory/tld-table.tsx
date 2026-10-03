@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { StatePill } from "../../(catalogs)/domain-tools/domain-lookup-client";
+import { StatePill } from "@/app/(site)/(tools)/(domain)/domain-lookup-client";
 
 export type TldRow = {
   tld: string;

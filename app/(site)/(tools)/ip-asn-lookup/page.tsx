@@ -1,4 +1,4 @@
-import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
+import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { Network } from "lucide-react";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
