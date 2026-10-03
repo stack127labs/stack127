@@ -33,6 +33,8 @@ Pushes that change only documentation, skills, records, or tests do not deploy. 
 
 ## Local handoff
 
+Use the workspace T3 assigned. Do not create a local release branch or switch branches. Agents already in worktrees work there without adding another branch. The coordinator integrates the reviewed work onto `main` and pushes it to `origin/main`. T3 auto-pull updates the main checkout when enabled. Preserve branches attached to other agents' active worktrees.
+
 Before pushing production code:
 
 ```bash

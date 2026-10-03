@@ -33,6 +33,7 @@ Rules:
 - Give one agent one set of files at a time, so two agents never edit the same file.
 - Every code change gets a Sol review before it is pushed, unless the user says otherwise.
 - Only the coordinator pushes, deploys, or writes production data, after the user authorizes it and the review passes. A worker may do it only when the coordinator's task says so explicitly and names the reviewed commit or the exact data changes.
+- Use the workspace T3 assigned. Do not create local branches or switch branches for a task. An agent already in a worktree does its work there, without adding another branch. The coordinator releases the reviewed work to `origin/main`; T3 auto-pull updates the main checkout when enabled. Preserve branches attached to other agents' active worktrees.
 - Workers may dry-run and apply development tool-page updates through the content, catalog, version, and repository-sync commands. Use `--environment development` and verify the result.
 - Never pin a default model version in docs or skills.
 
