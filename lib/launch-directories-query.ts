@@ -2,6 +2,30 @@ import type { LaunchDirectory } from "./launch-directories";
 
 export const LAUNCH_DIRECTORY_PAGE_SIZE = 24;
 
+// A short editorial list of long-running launch sites most makers start with.
+const recommendedPins = new Map([
+  ["product-hunt", 0], ["betalist", 1], ["devhunt", 2],
+  ["peerlist-launchpad", 3], ["alternativeto", 4], ["saashub", 5],
+]);
+const categoryTiers = new Map([
+  ["launch-boards", 0], ["prelaunch-beta", 0],
+  ["startup-software", 1], ["software-reviews-alternatives", 1],
+  ["ai-tools", 2], ["developer-open-source", 2],
+  ["design-nocode-creator", 2], ["specialist-regional", 2],
+]);
+const costRanks: Record<LaunchDirectory["cost_kind"], number> = {
+  free: 0, free_and_paid: 0, paid: 1, unknown: 2,
+};
+const linkRanks: Record<LaunchDirectory["link_type_kind"], number> = {
+  dofollow: 0, varies: 1, multiple: 1,
+  nofollow: 2, ugc: 2, sponsored: 2, estimated_nofollow: 2, none: 2,
+  unknown: 3,
+};
+
+function categoryTier(directory: LaunchDirectory) {
+  return directory.categories.reduce((tier, category) => Math.min(tier, categoryTiers.get(category) ?? 3), 3);
+}
+
 export type LaunchDirectoryQuery = {
   q?: string;
   categories?: string[];
@@ -40,9 +64,21 @@ export function filterLaunchDirectories(
   });
 }
 
-export function sortLaunchDirectories(directories: LaunchDirectory[], sort = "ready") {
+export function sortLaunchDirectories(directories: LaunchDirectory[], sort = "recommended") {
   return [...directories].sort((left, right) => {
-    if (sort !== "name") {
+    if (sort === "recommended") {
+      const pinned = (recommendedPins.get(left.slug) ?? recommendedPins.size) - (recommendedPins.get(right.slug) ?? recommendedPins.size);
+      if (pinned) return pinned;
+      const ready = (directory: LaunchDirectory) => Number(directory.submission_status === "verified" && Boolean(directory.submit_url));
+      const availability = ready(right) - ready(left);
+      if (availability) return availability;
+      const tier = categoryTier(left) - categoryTier(right);
+      if (tier) return tier;
+      const cost = costRanks[left.cost_kind] - costRanks[right.cost_kind];
+      if (cost) return cost;
+      const link = linkRanks[left.link_type_kind] - linkRanks[right.link_type_kind];
+      if (link) return link;
+    } else if (sort !== "name") {
       const ready = (directory: LaunchDirectory) => Number(directory.submission_status === "verified" && Boolean(directory.submit_url));
       const availability = ready(right) - ready(left);
       if (availability) return availability;

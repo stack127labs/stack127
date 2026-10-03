@@ -19,6 +19,24 @@ test("a record date cannot predate newer source observations", async () => {
   await assert.rejects(applyLaunchDirectoryUpdates(client, [{ slug: "a", changes: { evidence: { cost: { observations: [{ source_url: "https://example.com/pricing", checked_at: "2026-10-02" }] } } } }]), /older than its evidence/);
 });
 
+test("card cost fields accept short trimmed labels and a nullable note", () => {
+  for (const changes of [
+    { cost_tag: "Free", cost_note: "Paid from $14.99 once" },
+    { cost_tag: "Couldn't verify", cost_note: null },
+    { cost_tag: "a".repeat(20), cost_note: "b".repeat(40) },
+    { cost_tag: "💵".repeat(20), cost_note: "💵".repeat(40) },
+  ]) {
+    const updates = [{ slug: "product-hunt", changes }];
+    assert.equal(validateLaunchDirectoryUpdates(updates), updates);
+  }
+  for (const [field, limit] of [["cost_tag", 20], ["cost_note", 40]]) {
+    for (const value of ["", " ", " Free", "Free ", "Free\n", "\tFree", "a".repeat(limit + 1), "💵".repeat(limit + 1), 1]) {
+      assert.throws(() => validateLaunchDirectoryUpdates([{ slug: "product-hunt", changes: { [field]: value } }]), new RegExp(`Invalid ${field}`));
+    }
+  }
+  assert.throws(() => validateLaunchDirectoryUpdates([{ slug: "product-hunt", changes: { cost_tag: null } }]), /Invalid cost_tag/);
+});
+
 test("bulk updates reject a listing changed since editorial review", async () => {
   let calls = 0;
   const client = { query: async () => {
@@ -39,17 +57,25 @@ test("database version checks reject timestamps that differ below millisecond pr
   await assert.rejects(applyLaunchDirectoryUpdates(client, [{ slug: "a", expected_updated_at: "2026-10-02T12:00:00.000999Z", changes: { summary: "Changed" } }]), /update count changed/);
 });
 
-test("publication rejects partial data, community posts and missing public evidence", () => {
-  const rows = Array.from({ length: 165 }, (_, index) => ({
+test("publication rejects partial data, excluded catalogs and missing public evidence", () => {
+  const rows = Array.from({ length: 142 }, (_, index) => ({
     slug: `site-${index}`, name: `Site ${index}`, is_published: true, categories: ["launch-boards"],
     website_url: "https://example.com/", summary: "Product listings", best_for: "Makers",
-    cost_label: "Couldn't verify", review_time_label: "Not stated", link_type_label: "Couldn't verify",
+    cost_label: "Couldn't verify", cost_tag: "Couldn't verify", cost_note: null, review_time_label: "Not stated", link_type_label: "Couldn't verify",
     eligibility_label: "Live products", checked_on: "2026-10-02", sources: ["https://example.com/terms"], evidence: {},
     submission_status: "not_found", submit_url: null,
   }));
-  assert.equal(validateLaunchPublication(rows), 165);
-  assert.throws(() => validateLaunchPublication(rows.slice(1)), /Expected 165/);
+  assert.equal(validateLaunchPublication(rows), 142);
+  for (const cost_tag of [undefined, null, "", " "]) {
+    assert.throws(() => validateLaunchPublication(rows.map((row, i) => i ? row : { ...row, cost_tag })), /Missing cost_tag/);
+  }
+  assert.equal(validateLaunchPublication([...rows, { slug: "hidden", is_published: false, cost_tag: null }]), 142);
+  assert.throws(() => validateLaunchPublication(rows.slice(1)), /Expected 142/);
   assert.throws(() => validateLaunchPublication(rows.map((row, i) => i ? row : { ...row, categories: ["community-posts"] })), /Community post/);
+  assert.throws(() => validateLaunchPublication(rows.map((row, i) => i ? row : { ...row, categories: ["app-stores-integrations"] })), /App store/);
+  for (const slug of ["official-mcp-registry", "docker-mcp-catalog", "cline-mcp-marketplace", "lobehub-mcp-marketplace", "mcpservers-org", "rapidapi-hub", "api-list"]) {
+    assert.throws(() => validateLaunchPublication(rows.map((row, i) => i ? row : { ...row, slug, categories: ["developer-open-source"] })), /Developer catalog/);
+  }
   assert.throws(() => validateLaunchPublication(rows.map((row, i) => i ? row : { ...row, sources: [] })), /No usable public sources/);
   assert.throws(() => validateLaunchPublication(rows.map((row, i) => i ? row : { ...row, checked_on: null })), /record check date/);
 });

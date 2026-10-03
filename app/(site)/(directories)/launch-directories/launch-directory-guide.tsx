@@ -14,9 +14,9 @@ const linkTypes: MeaningRow[] = [
   { id: "nofollow", label: "Nofollow", meaning: <>The link asks search engines not to follow it. It doesn&apos;t stop them finding your site through other links. See <a href={googleLinkGuide} rel="noopener noreferrer" target="_blank">Google&apos;s definition</a>.</> },
   { id: "ugc", label: "UGC", meaning: "The link is marked as user-generated content." },
   { id: "sponsored", label: "Sponsored", meaning: "The link is marked as paid." },
-  { id: "multiple", label: "More than one type", meaning: "The sampled link carried more than one value, such as ugc and nofollow together. The card names them." },
-  { id: "varies", label: "Varies by plan or listing", meaning: "Free, paid, or top-ranked listings get different links. The card says which." },
-  { id: "none", label: "No maker website link", meaning: "The sampled listing doesn't link to the maker's own site." },
+  { id: "multiple", label: "Mixed", meaning: "The sampled link carried more than one value, such as ugc and nofollow together. The details name them." },
+  { id: "varies", label: "Varies", meaning: "Free, paid, or top-ranked listings get different links. The details say which." },
+  { id: "none", label: "No link", meaning: "The sampled listing doesn't link to the maker's own site." },
 ];
 
 // No confirmed result. Keep these apart from the sampled findings above.
@@ -28,7 +28,7 @@ const unconfirmedLinkTypes: MeaningRow[] = [
 const missingLabels: MeaningRow[] = [
   { id: "not-stated", label: "Not stated on their site", meaning: "The site's own pages don't publish this detail." },
   { id: "unverified", label: "Couldn't verify", meaning: "A page was blocked, needed a login, or didn't load. It doesn't mean the site has closed." },
-  { id: "conflicting", label: "Conflicting info", meaning: "Two of the site's own pages disagree. The card's sources link both." },
+  { id: "conflicting", label: "Conflicting info", meaning: "Two of the site's own pages disagree. The sources in the details link both." },
   { id: "unavailable", label: "Submission page unavailable", meaning: "We found a submission page, but it didn't load when we checked." },
   { id: "not-found", label: "Submission page not found", meaning: "We couldn't find where submissions start. Check the site itself before you give up on it." },
 ];
@@ -50,10 +50,22 @@ export function LaunchDirectoryGuide() {
       could open. Those details stay marked Couldn&apos;t verify or Not stated on their site. We don&apos;t guess them.
     </p>
     <p>
-      Open Sources on a card to see each page we used. A source shows its own check date when we have one. The record date is the
-      last time we checked anything on the card, so some sources can be older.
+      Open a card to see its full details and each page we used. A source shows its own check date when we have one. The record date is the
+      last time we checked anything on that place, so some sources can be older.
+    </p>
+    <p>
+      Cost on a card shows the lowest price we found. &quot;From&quot; means higher plans exist, and &quot;once&quot; means a one-time fee.
+      Open a card to see every price. When a site doesn&apos;t publish a price, the card says Not stated. When we couldn&apos;t check it, the card says Couldn&apos;t verify.
     </p>
     <p>Prices, review times, and link rules change. Check the site&apos;s own page before you pay.</p>
+
+    <h3 id="recommended-order">How is the recommended order chosen?</h3>
+    <p>
+      A few long-running launch sites come first: Product Hunt, BetaList, DevHunt, Peerlist Launchpad, AlternativeTo, and SaaSHub.
+      After those, places with a working submission page come before places without one. Launch boards and beta sites come before
+      broader listings, and niche directories come last. Within each group, a free option comes first, then a dofollow link.
+    </p>
+    <p>The order doesn&apos;t mean one site will bring you more traffic than another. Use the category filter to see the places that fit your product.</p>
 
     <h3>What do the link types mean?</h3>
     <MeaningTable ariaLabel="Link types" rows={linkTypes} />
@@ -64,16 +76,10 @@ export function LaunchDirectoryGuide() {
     <h3>What do the missing-detail labels mean?</h3>
     <MeaningTable ariaLabel="Missing-detail labels" rows={missingLabels} />
 
-    <h3>How are app stores different?</h3>
-    <p>
-      App stores and integration catalogs list software built for their platform, such as a Chrome extension or a Shopify app.
-      You register as a developer, accept the platform&apos;s terms, and pass its review. They aren&apos;t a form for an ordinary website.
-    </p>
-
     <h3>Found something wrong?</h3>
     <p>
       Email <a href={`mailto:${correctionEmail}`}>{correctionEmail}</a> with the site name and the page that shows the right answer.
-      Each card&apos;s sources list also has a correction link.
+      Each place&apos;s details also have a correction link.
     </p>
   </section>;
 }

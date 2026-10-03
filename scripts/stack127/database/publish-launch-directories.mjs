@@ -6,13 +6,20 @@ import { parseArgs, printResult, runMutation } from "../tool-pages/lib.mjs";
 import { launchDirectoryDate, launchDirectorySources, latestLaunchEvidenceDate } from "../../../lib/launch-directories-data.ts";
 
 const cover = "/launch-directories/launch-directories-cover.jpg";
+const excludedDeveloperCatalogs = new Set([
+  "official-mcp-registry", "docker-mcp-catalog", "cline-mcp-marketplace",
+  "lobehub-mcp-marketplace", "mcpservers-org", "rapidapi-hub", "api-list",
+]);
 
 export function validateLaunchPublication(records) {
   const visible = records.filter((record) => record.is_published);
-  if (visible.length !== 165) throw new Error(`Expected 165 public listings, found ${visible.length}`);
+  if (visible.length !== 142) throw new Error(`Expected 142 public listings, found ${visible.length}`);
   for (const row of visible) {
     if (row.categories?.includes("community-posts")) throw new Error(`Community post cannot publish: ${row.slug}`);
-    for (const field of ["slug", "name", "website_url", "summary", "best_for", "cost_label", "review_time_label", "link_type_label", "eligibility_label"]) {
+    // App stores and integration catalogs need a platform build, so they aren't launch directories.
+    if (row.categories?.includes("app-stores-integrations")) throw new Error(`App store or integration catalog cannot publish: ${row.slug}`);
+    if (excludedDeveloperCatalogs.has(row.slug)) throw new Error(`Developer catalog cannot publish: ${row.slug}`);
+    for (const field of ["slug", "name", "website_url", "summary", "best_for", "cost_label", "cost_tag", "review_time_label", "link_type_label", "eligibility_label"]) {
       if (typeof row[field] !== "string" || !row[field].trim()) throw new Error(`Missing ${field} for ${row.slug}`);
     }
     if (!launchDirectorySources(null, [row.website_url]).length) throw new Error(`Invalid website URL for ${row.slug}`);

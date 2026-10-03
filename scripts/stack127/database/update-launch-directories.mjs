@@ -7,10 +7,11 @@ import { launchDirectoryDate, latestLaunchEvidenceDate } from "../../../lib/laun
 
 const fields = new Set([
   "website_url", "submit_url", "submission_status", "summary", "best_for", "cost_kind",
-  "cost_label", "review_time_label", "link_type_kind", "link_type_label", "eligibility_label",
+  "cost_label", "cost_tag", "cost_note", "review_time_label", "link_type_kind", "link_type_label", "eligibility_label",
   "example_listing_url", "sources", "research_notes", "evidence", "checked_on",
 ]);
-const nullable = new Set(["submit_url", "example_listing_url", "checked_on"]);
+const nullable = new Set(["submit_url", "example_listing_url", "checked_on", "cost_note"]);
+const shortTextLimits = { cost_tag: 20, cost_note: 40 };
 
 function https(value) {
   try {
@@ -49,6 +50,10 @@ export function validateLaunchDirectoryUpdates(updates) {
       } else if (typeof value !== "string" || (!value.trim() && key !== "research_notes")) {
         throw new Error(`Invalid ${key} for ${update.slug}`);
       }
+      if (Object.hasOwn(shortTextLimits, key)
+        && (value !== value.trim() || [...value].length > shortTextLimits[key])) {
+        throw new Error(`Invalid ${key} for ${update.slug}: must be trimmed and at most ${shortTextLimits[key]} characters`);
+      }
       if (["website_url", "submit_url", "example_listing_url"].includes(key) && !https(value)) throw new Error(`Invalid ${key} URL for ${update.slug}`);
       if (key === "checked_on" && (!/^\d{4}-\d{2}-\d{2}$/.test(value) || new Date(`${value}T00:00:00Z`).toISOString().slice(0, 10) !== value)) throw new Error(`Invalid check date for ${update.slug}`);
     }
@@ -83,7 +88,7 @@ export async function applyLaunchDirectoryUpdates(client, updates) {
     proposed.push({
       slug: row.slug, name: row.name, fields: changed.map(([key]) => key),
       submission_status: next.submission_status, submit_url: next.submit_url,
-      cost_label: next.cost_label, link_type_label: next.link_type_label,
+      cost_label: next.cost_label, cost_tag: next.cost_tag, cost_note: next.cost_note, link_type_label: next.link_type_label,
     });
   }
   if (patches.length) {

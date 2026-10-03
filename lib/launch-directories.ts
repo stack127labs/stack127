@@ -15,6 +15,8 @@ export type LaunchDirectory = {
   best_for: string;
   cost_kind: "free" | "free_and_paid" | "paid" | "unknown";
   cost_label: string;
+  cost_tag: string | null;
+  cost_note: string | null;
   review_time_label: string;
   link_type_kind: "dofollow" | "nofollow" | "ugc" | "sponsored" | "multiple" | "varies" | "estimated_nofollow" | "none" | "unknown";
   link_type_label: string;
@@ -32,7 +34,6 @@ export const launchCategories = [
   { value: "software-reviews-alternatives", label: "Reviews and alternatives", iconKey: "bookmark" },
   { value: "ai-tools", label: "AI tools", iconKey: "bot" },
   { value: "developer-open-source", label: "Developer and open source", iconKey: "code-2" },
-  { value: "app-stores-integrations", label: "App stores and integrations", iconKey: "box" },
   { value: "design-nocode-creator", label: "Design, no-code, and creator", iconKey: "pen-tool" },
   { value: "specialist-regional", label: "Specialist and regional", iconKey: "map" },
   { value: "community-posts", label: "Community posts", iconKey: "message" },
@@ -45,7 +46,7 @@ async function loadLaunchDirectorySnapshot(): Promise<{ directories: LaunchDirec
     await client.query("begin isolation level repeatable read read only");
     const result = await client.query<Row>(`
       select slug, name, website_url, submit_url, submission_status, categories, summary, best_for,
-        cost_kind, cost_label, review_time_label, link_type_kind,
+        cost_kind, cost_label, cost_tag, cost_note, review_time_label, link_type_kind,
         link_type_label, eligibility_label, example_listing_url,
         to_char(checked_on, 'YYYY-MM-DD') as checked_on, sources, evidence
       from public.launch_directories

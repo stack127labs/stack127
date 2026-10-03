@@ -50,7 +50,10 @@
           "source_url": "https://aeotools.mihirnaik.com/submit-tool"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AEO and AI search tools",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -105,7 +108,10 @@
           "source_url": "https://aiagentstore.ai/new-agent"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI agent makers",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -163,7 +169,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI agent makers",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $19"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -218,7 +227,10 @@
           "source_url": "https://aidepot.co/submit/start"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tool makers",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -283,7 +295,10 @@
       },
       "checked_on": "2026-10-03",
       "summary": "The listed domain currently redirects to a HugeDomains sale page; the former directory status is unknown.",
-      "research_notes": "A browser GET on 2026-10-03 redirected ai-finder.net to a HugeDomains domain sale page. That sale page does not establish the former directory's history or whether it permanently closed. No official pricing, eligibility, review schedule, listing sample, or submission route was visible. The parked-domain favicon was not used."
+      "research_notes": "A browser GET on 2026-10-03 redirected ai-finder.net to a HugeDomains domain sale page. That sale page does not establish the former directory's history or whether it permanently closed. No official pricing, eligibility, review schedule, listing sample, or submission route was visible. The parked-domain favicon was not used.",
+      "best_for": "AI tool makers",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -345,7 +360,10 @@
       },
       "submission_status": "verified",
       "submit_url": "https://aihubs.ai/submit",
-      "checked_on": "2026-10-03"
+      "checked_on": "2026-10-03",
+      "best_for": "AI tool makers",
+      "cost_tag": "From $4.90",
+      "cost_note": "Billing not stated"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -402,7 +420,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tools that want a lasting listing",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $6.90"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -459,7 +480,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in the 10Web sample"
+      "link_type_label": "Dofollow in the 10Web sample",
+      "best_for": "AI tools wanting a curated listing",
+      "cost_tag": "From $39",
+      "cost_note": "Once"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -514,7 +538,10 @@
           "source_url": "https://aiscout.net/solutions/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tool makers",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -581,12 +608,14 @@
       "submit_url": "https://aitools.inc/submit",
       "checked_on": "2026-10-03",
       "summary": "An AI tools directory with free listings and a paid Fast Lane.",
-      "best_for": "AI tool makers seeking a free listing or faster paid placement",
+      "best_for": "AI tool makers",
       "cost_kind": "free_and_paid",
       "cost_label": "Free ($0/month, 30 to 90 day queue); Fast Lane $129 once (24 to 48 hours)",
       "review_time_label": "Free queue 30 to 90 days; Fast Lane 24 to 48 hours",
       "eligibility_label": "Fast Lane placement is guaranteed, or refunded if the tool fails listing standards",
-      "research_notes": "The current official submit page offers a free listing with a 30 to 90 day queue and no guaranteed placement, or a $129 one-time Fast Lane with 24 to 48 hour placement. Fast Lane promises placement or a full refund if the tool does not meet listing standards. The page links to Typeform; the form was not filled and no purchase was made."
+      "research_notes": "The current official submit page offers a free listing with a 30 to 90 day queue and no guaranteed placement, or a $129 one-time Fast Lane with 24 to 48 hour placement. Fast Lane promises placement or a full refund if the tool does not meet listing standards. The page links to Typeform; the form was not filled and no purchase was made.",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $129"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -647,7 +676,10 @@
       "submission_status": "unavailable",
       "submit_url": null,
       "checked_on": "2026-10-02",
-      "review_time_label": "Standard: 5 to 7 business days; Fast Track: within 24 hours"
+      "review_time_label": "Standard: 5 to 7 business days; Fast Track: within 24 hours",
+      "best_for": "Working AI tools",
+      "cost_tag": "Not stated",
+      "cost_note": "Fast Track $99"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -702,7 +734,10 @@
           "source_url": "https://aitoolscorner.com/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tool makers",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -761,7 +796,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in VideoGen sample via a tracking redirect"
+      "link_type_label": "Dofollow in VideoGen sample via a tracking redirect",
+      "best_for": "AI tools with public pricing",
+      "cost_tag": "Not stated",
+      "cost_note": "Fast Track $99"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -816,7 +854,10 @@
           "source_url": "https://aitoolslist.io/submit-ai-tool/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tool makers",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -871,7 +912,10 @@
           "source_url": "https://aitools.love/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tool makers",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -928,7 +972,10 @@
       },
       "submission_status": "unavailable",
       "submit_url": null,
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tool makers",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -985,7 +1032,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in the Kane CLI sample"
+      "link_type_label": "Dofollow in the Kane CLI sample",
+      "best_for": "Working AI software, including early MVPs",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $5"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -1043,7 +1093,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in MenuForma sample"
+      "link_type_label": "Dofollow in MenuForma sample",
+      "best_for": "AI tools and agents",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $75"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -1101,7 +1154,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in Atoms sample; site advertises Dofollow"
+      "link_type_label": "Dofollow in Atoms sample; site advertises Dofollow",
+      "best_for": "AI tools with a live website",
+      "cost_tag": "From $59",
+      "cost_note": "Once"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -1154,7 +1210,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tools ready for editorial review",
+      "cost_tag": "From $99",
+      "cost_note": "Once"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -1209,7 +1268,10 @@
           "source_url": "https://alltopstartups.com/directory/submit-startup/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Startups wanting a lasting paid listing",
+      "cost_tag": "Paid",
+      "cost_note": "Price not stated"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -1267,7 +1329,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Software of any kind",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -1325,120 +1390,10 @@
       },
       "checked_on": "2026-10-02",
       "link_type_label": "Dofollow in the Obsidian sample",
-      "review_time_label": "Free can take months; $5 priority review is usually 1 to 2 business days"
-    },
-    "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
-  },
-  {
-    "slug": "api-list",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official form",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://apilist.fun/new"
-        },
-        "link_type": {
-          "rel": [
-            "nofollow"
-          ],
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://apilist.fun/api/the-cat-api",
-          "sampled_tier": "standard listing"
-        },
-        "eligibility": {
-          "method": "official form",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://apilist.fun/new"
-        },
-        "review_time": {
-          "method": "official form",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://apilist.fun/new"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://apilist.fun/new",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "method": "browser GET",
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://apilist.fun/new"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02"
-    },
-    "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
-  },
-  {
-    "slug": "apple-app-store",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official terms",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developer.apple.com/programs/enroll/"
-        },
-        "link_type": {
-          "rel": [
-            "nofollow",
-            "noopener",
-            "noreferrer"
-          ],
-          "href": "https://www.notion.com/",
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://apps.apple.com/us/app/notion-notes-tasks-ai/id1232780281",
-          "sampled_tier": "standard app listing"
-        },
-        "eligibility": {
-          "method": "official terms",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developer.apple.com/programs/enroll/"
-        },
-        "review_time": {
-          "method": "official terms",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developer.apple.com/app-store/review/"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://developer.apple.com/programs/enroll/",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "method": "browser GET",
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://developer.apple.com/programs/enroll/"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02"
+      "review_time_label": "Free can take months; $5 priority review is usually 1 to 2 business days",
+      "best_for": "Established public software",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $5"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -1497,62 +1452,12 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Web, desktop, and mobile apps",
+      "cost_tag": "Not stated",
+      "cost_note": "Optional $5 bid"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
-  },
-  {
-    "slug": "atlassian-marketplace",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developer.atlassian.com/platform/marketplace/pricing-payment-and-billing/"
-        },
-        "link_type": {
-          "note": "Sampled app page has no vendor website link.",
-          "method": "public listing inspection",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://marketplace.atlassian.com/apps/1216863/jira-cloud-for-slack-official?tab=overview"
-        },
-        "eligibility": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developer.atlassian.com/platform/marketplace/app-approval-security-workflow/"
-        },
-        "review_time": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developer.atlassian.com/platform/marketplace/creating-a-marketplace-listing/"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://developer.atlassian.com/platform/marketplace/creating-a-marketplace-listing/",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "method": "browser GET",
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://developer.atlassian.com/platform/marketplace/creating-a-marketplace-listing/"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02",
-      "review_time_label": "Atlassian usually starts review within 5 to 10 business days"
-    },
-    "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
   {
     "slug": "awesome-self-hosted",
@@ -1610,7 +1515,10 @@
         "https://github.com/awesome-selfhosted/awesome-selfhosted-data/blob/master/CONTRIBUTING.md",
         "https://awesome-selfhosted.net/#audiobookshelf",
         "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted-data/master/CONTRIBUTING.md"
-      ]
+      ],
+      "best_for": "Free self-hosted software over four months old",
+      "cost_tag": "Free",
+      "cost_note": "By pull request"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -1699,12 +1607,14 @@
       "submit_url": "https://betabound.com/announce/",
       "checked_on": "2026-10-03",
       "summary": "A service for product teams to request free beta announcements; posting is selective.",
-      "best_for": "Product teams recruiting beta testers",
+      "best_for": "Products looking for beta testers",
       "cost_kind": "free",
       "cost_label": "Free beta announcement request",
       "review_time_label": "No ETA; not all requests are posted or answered",
       "eligibility_label": "Beta opportunities; the form collects product type and tester audience. Further criteria are not stated.",
-      "research_notes": "The current official form requests a free announcement for a beta-testing opportunity. It offers product-type choices and asks for the target tester audience, access method, and timeframe. The page says not all requests will be posted or answered. It does not publish a review ETA or further eligibility criteria. Historical listing samples do not establish current link policy."
+      "research_notes": "The current official form requests a free announcement for a beta-testing opportunity. It offers product-type choices and asks for the target tester audience, access method, and timeframe. The page says not all requests will be posted or answered. It does not publish a review ETA or further eligibility criteria. Historical listing samples do not establish current link policy.",
+      "cost_tag": "Free",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -1757,7 +1667,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Startups before or just after launch",
+      "cost_tag": "Paid",
+      "cost_note": "Price at checkout"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -1814,123 +1727,10 @@
       },
       "submission_status": "unavailable",
       "submit_url": null,
-      "checked_on": "2026-10-02"
-    },
-    "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
-  },
-  {
-    "slug": "chrome-web-store",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official terms",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developer.chrome.com/docs/webstore/register"
-        },
-        "link_type": {
-          "rel": [
-            "ugc",
-            "nofollow"
-          ],
-          "href": "https://bitwarden.com/",
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://chromewebstore.google.com/detail/bitwarden-password-manager/nngceckbapebfimnlniiiahkandclblb",
-          "sampled_tier": "standard listing"
-        },
-        "eligibility": {
-          "method": "official terms",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developer.chrome.com/docs/webstore/register"
-        },
-        "review_time": {
-          "method": "official terms",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developer.chrome.com/docs/webstore/review-process"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://chrome.google.com/webstore/devconsole",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "method": "browser GET",
-          "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://accounts.google.com/v3/signin/identifier. Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://accounts.google.com/v3/signin/identifier. Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://chrome.google.com/webstore/devconsole"
-            }
-          ]
-        }
-      },
       "checked_on": "2026-10-02",
-      "link_type_label": "UGC + Nofollow in the Bitwarden sample"
-    },
-    "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
-  },
-  {
-    "slug": "cline-mcp-marketplace",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "note": "No listing fee is listed; this is not a stated free plan.",
-          "method": "official contribution guide",
-          "status": "not_published",
-          "checked_at": "2026-09-29",
-          "source_url": "https://github.com/cline/mcp-marketplace"
-        },
-        "link_type": {
-          "rel": [
-            "noopener",
-            "noreferrer"
-          ],
-          "href": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
-          "method": "public marketplace HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://cline.bot/mcp-marketplace",
-          "sampled_tier": "marketplace entry"
-        },
-        "eligibility": {
-          "method": "official contribution guide",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://github.com/cline/mcp-marketplace"
-        },
-        "review_time": {
-          "method": "official contribution guide",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://github.com/cline/mcp-marketplace"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://github.com/cline/mcp-marketplace/issues/new?template=mcp-server-submission.yml",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "method": "browser GET",
-          "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://github.com/login. Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://github.com/login. Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://github.com/cline/mcp-marketplace/issues/new?template=mcp-server-submission.yml"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02"
+      "best_for": "Established B2B or B2C software",
+      "cost_tag": "Free",
+      "cost_note": "Paid ads by quote"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -1985,7 +1785,10 @@
           "source_url": "https://coglist.com/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tool makers",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -2101,7 +1904,10 @@
       },
       "submission_status": "verified",
       "submit_url": "https://www.comingup.io/submit",
-      "checked_on": "2026-10-03"
+      "checked_on": "2026-10-03",
+      "best_for": "Products that haven't launched yet",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -2156,7 +1962,10 @@
           "source_url": "https://comparecamp.com/request-a-review/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Software vendors wanting a review",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -2211,7 +2020,10 @@
           "source_url": "https://coolstartups.io/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Couldn't verify",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -2266,7 +2078,10 @@
           "source_url": "https://crozdesk.com/claims/new"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Business software vendors",
+      "cost_tag": "Free",
+      "cost_note": "Promotion by quote"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -2321,7 +2136,10 @@
           "source_url": "https://support.crunchbase.com/hc/en-us/articles/115011823988-How-do-I-create-a-Crunchbase-profile"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Companies wanting a public profile",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -2442,73 +2260,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
-    },
-    "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
-  },
-  {
-    "slug": "docker-mcp-catalog",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "note": "No listing fee is listed.",
-          "method": "official contribution guide",
-          "status": "not_published",
-          "checked_at": "2026-09-29",
-          "source_url": "https://github.com/docker/mcp-registry/blob/main/CONTRIBUTING.md"
-        },
-        "link_type": {
-          "rel": [
-            "noopener",
-            "noreferrer"
-          ],
-          "href": "https://github.com/docker/hub-mcp",
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://hub.docker.com/mcp/server/dockerhub/overview",
-          "sampled_tier": "catalog entry"
-        },
-        "eligibility": {
-          "method": "official contribution guide",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://github.com/docker/mcp-registry/blob/main/CONTRIBUTING.md"
-        },
-        "review_time": {
-          "note": "Approval is required; approved entries appear within 24 hours, with no review SLA.",
-          "method": "official contribution guide",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://github.com/docker/mcp-registry/blob/main/CONTRIBUTING.md"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://raw.githubusercontent.com/docker/mcp-registry/main/CONTRIBUTING.md",
-          "checked_at": "2026-10-02T18:37:20.944Z",
-          "method": "official raw GitHub GET",
-          "note": "Official raw CONTRIBUTING.md returned HTTP 200 and documents adding a local or remote MCP server entry in a fork and opening a pull request. The rendered GitHub page returned 503 during the browser check; the raw source confirms the current workflow.",
-          "date": "2026-10-03",
-          "observations": [
-            {
-              "date": "2026-10-03",
-              "note": "Official raw CONTRIBUTING.md returned HTTP 200 and documents adding a local or remote MCP server entry in a fork and opening a pull request. The rendered GitHub page returned 503 during the browser check; the raw source confirms the current workflow.",
-              "method": "official raw GitHub GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T18:37:20.944Z",
-              "source_url": "https://raw.githubusercontent.com/docker/mcp-registry/main/CONTRIBUTING.md"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-03",
-      "research_notes": "The official guide documents local and remote MCP server entries, a fork, and a pull request. The exact raw guide returned HTTP 200 while the rendered GitHub page returned 503. Local entries need a working container, Dockerfile, and suitable license; remote entries need a public supported endpoint and documentation.",
-      "sources": [
-        "https://github.com/docker/mcp-registry/blob/main/CONTRIBUTING.md",
-        "https://hub.docker.com/mcp/server/dockerhub/overview",
-        "https://github.com/docker/hub-mcp",
-        "https://raw.githubusercontent.com/docker/mcp-registry/main/CONTRIBUTING.md"
-      ]
+      "checked_on": "2026-10-02",
+      "best_for": "Developer tools, APIs, and SDKs",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $49"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -2561,7 +2316,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "The site promises a Dofollow link for every listed tool"
+      "link_type_label": "The site promises a Dofollow link for every listed tool",
+      "best_for": "AI tools",
+      "cost_tag": "$125",
+      "cost_note": "Some tools free"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -2616,7 +2374,10 @@
           "source_url": "https://eliteai.tools/tool/submit-new-tool"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tool makers",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -2723,7 +2484,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Couldn't verify",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -2778,7 +2542,10 @@
           "source_url": "https://www.everydev.ai/create/tool"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Developer tool makers",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -2843,7 +2610,10 @@
       },
       "checked_on": "2026-10-03",
       "summary": "Browser extension directory candidate; current site status is unverified.",
-      "research_notes": "An earlier browser check redirected extensionboss.com to a HugeDomains sale page. A later check did not reproduce that redirect and found no usable site icon; /logo.svg returned HTTP 200 but did not decode as an image. The current site and the former directory's status remain unverified. No current listing terms or submission route could be checked."
+      "research_notes": "An earlier browser check redirected extensionboss.com to a HugeDomains sale page. A later check did not reproduce that redirect and found no usable site icon; /logo.svg returned HTTP 200 but did not decode as an image. The current site and the former directory's status remain unverified. No current listing terms or submission route could be checked.",
+      "best_for": "Browser extension makers",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -2898,7 +2668,10 @@
           "source_url": "https://www.f6s.com/software"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Startups wanting a company profile",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -2950,7 +2723,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Makers planning a launch day",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $9.90"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -3007,7 +2783,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in sample; plan and rank terms vary"
+      "link_type_label": "Dofollow in sample; plan and rank terms vary",
+      "best_for": "Indie products",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $29"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -3062,61 +2841,10 @@
           "source_url": "https://www.featuredcustomers.com/vendor-solutions"
         }
       },
-      "checked_on": "2026-10-02"
-    },
-    "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
-  },
-  {
-    "slug": "figma-community",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "note": "Publishing is available on any plan; Figma takes 15% of sales through its payment platform.",
-          "method": "official plugin guide",
-          "status": "not_published",
-          "checked_at": "2026-09-29",
-          "source_url": "https://www.figma.com/community/plugin/747985167520967365/slack"
-        },
-        "link_type": {
-          "note": "Sample plugin page was blocked; maker href and raw rel could not be checked.",
-          "method": "public listing check",
-          "status": "unverified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://www.figma.com/community/plugin/747985167520967365/slack"
-        },
-        "submission": {
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "method": "browser GET",
-          "status": "verified",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "source_url": "https://help.figma.com/hc/en-us/articles/360042293394-Publish-classic-plugins-to-the-Figma-Community",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://help.figma.com/hc/en-us/articles/360042293394-Publish-classic-plugins-to-the-Figma-Community"
-            }
-          ]
-        },
-        "eligibility": {
-          "method": "official publishing guide",
-          "status": "verified",
-          "checked_at": "2026-09-30",
-          "source_url": "https://help.figma.com/hc/en-us/articles/360042293394-Publish-classic-plugins-to-the-Figma-Community"
-        },
-        "review_time": {
-          "note": "Review is required and can take a variable amount of time.",
-          "method": "official plugin guide",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://www.figma.com/community/plugin/747985167520967365/slack"
-        }
-      },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "B2B vendors with customer stories",
+      "cost_tag": "Free",
+      "cost_note": "Paid price unlisted"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -3168,7 +2896,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "B2B and SaaS products",
+      "cost_tag": "Free",
+      "cost_note": "Promotion by quote"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -3227,64 +2958,12 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tools ready for a paid listing",
+      "cost_tag": "From $79.99",
+      "cost_note": "Billing not stated"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
-  },
-  {
-    "slug": "firefox-add-ons",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official developer hub",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://addons.mozilla.org/developers/"
-        },
-        "link_type": {
-          "rel": [
-            "nofollow"
-          ],
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/",
-          "sampled_tier": "standard listing"
-        },
-        "eligibility": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Build_a_cross_browser_extension"
-        },
-        "review_time": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/What_next"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://addons.mozilla.org/developers/",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "method": "browser GET",
-          "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://addons.mozilla.org/en-US/developers/. Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://addons.mozilla.org/en-US/developers/. Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://addons.mozilla.org/developers/"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02"
-    },
-    "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
   {
     "slug": "free-for-dev",
@@ -3344,7 +3023,10 @@
         "https://github.com/ripienaar/free-for-dev/blob/master/README.md",
         "https://github.com/ripienaar/free-for-dev/blob/master/README.md#paas",
         "https://raw.githubusercontent.com/ripienaar/free-for-dev/master/CONTRIBUTING.md"
-      ]
+      ],
+      "best_for": "Developer services with a real free tier",
+      "cost_tag": "Free",
+      "cost_note": "By pull request"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -3399,7 +3081,10 @@
           "source_url": "https://directory.fsf.org/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Software under a free software license",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -3455,7 +3140,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tools for work",
+      "cost_tag": "From $497",
+      "cost_note": "Once"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -3515,7 +3203,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Public AI tools, no waitlists",
+      "cost_tag": "Free",
+      "cost_note": "Featured by quote"
     },
     "expected_updated_at": "2026-09-29T07:04:36.453591+00:00"
   },
@@ -3570,7 +3261,10 @@
           "source_url": "https://sell.g2.com/create-a-profile"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Public B2B software",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $299/mo"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -3625,7 +3319,10 @@
           "source_url": "https://www.softwareadvice.com/vendor-listing-faq/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Established packaged software",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -3685,64 +3382,12 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "B2B software and service firms",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $49/mo"
     },
     "expected_updated_at": "2026-09-29T07:03:12.905873+00:00"
-  },
-  {
-    "slug": "google-play",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official terms",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://support.google.com/googleplay/android-developer/answer/6112435?hl=en"
-        },
-        "link_type": {
-          "rel": [],
-          "href": "https://www.notion.so/mobile",
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://play.google.com/store/apps/details?id=notion.id",
-          "sampled_tier": "standard app listing"
-        },
-        "eligibility": {
-          "method": "official terms",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://support.google.com/googleplay/android-developer/answer/14151465?hl=en"
-        },
-        "review_time": {
-          "method": "official terms",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://support.google.com/googleplay/android-developer/answer/9859751?hl=en"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://play.google.com/console/signup",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "method": "browser GET",
-          "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://accounts.google.com/v3/signin/identifier. Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://accounts.google.com/v3/signin/identifier. Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://play.google.com/console/signup"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in the Notion Google Play sample"
-    },
-    "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
   {
     "slug": "hype-desk",
@@ -3847,7 +3492,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Couldn't verify",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -3902,7 +3550,10 @@
           "source_url": "https://indieextensions.com/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Browser extension makers",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -3956,7 +3607,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Free: Nofollow by default; paid and top-three may be Dofollow"
+      "link_type_label": "Free: Nofollow by default; paid and top-three may be Dofollow",
+      "best_for": "Indie AI and software products",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $19"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -4079,7 +3733,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Indie SaaS, apps, and extensions",
+      "cost_tag": "From $9.99",
+      "cost_note": "Free tier unclear"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -4134,7 +3791,10 @@
           "source_url": "https://www.insidr.ai/submit-tools/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tool makers",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -4189,66 +3849,12 @@
           "source_url": "https://www.itqlick.com/Terms"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Couldn't verify",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
-  },
-  {
-    "slug": "jetbrains-marketplace",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official fees page",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://plugins.jetbrains.com/docs/marketplace/revenue-sharing-and-fees.html"
-        },
-        "link_type": {
-          "rel": [
-            "noopener",
-            "noreferrer"
-          ],
-          "href": "https://gittoolbox.lukasz-zielinski.com/",
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://plugins.jetbrains.com/plugin/7499-gittoolbox",
-          "sampled_tier": "public plugin listing"
-        },
-        "eligibility": {
-          "method": "official upload requirements",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://plugins.jetbrains.com/docs/marketplace/uploading-a-new-plugin.html"
-        },
-        "review_time": {
-          "method": "official release review guide",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://plugins.jetbrains.com/docs/marketplace/release-plugin.html"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://plugins.jetbrains.com/docs/marketplace/uploading-a-new-plugin.html",
-          "checked_at": "2026-10-02T16:45:47.591Z",
-          "method": "browser GET retry",
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET retry",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:45:47.591Z",
-              "source_url": "https://plugins.jetbrains.com/docs/marketplace/uploading-a-new-plugin.html"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02"
-    },
-    "expected_updated_at": "2026-09-29T07:03:12.905873+00:00"
   },
   {
     "slug": "kick-product",
@@ -4361,7 +3967,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "SaaS products",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -4416,7 +4025,10 @@
           "source_url": "https://killerstartups.com/finalize-payment/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Founders pitching a startup story",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -4472,7 +4084,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Sites with a polished landing page",
+      "cost_tag": "Free",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -4529,7 +4144,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Sites with a polished landing page",
+      "cost_tag": "Free",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-29T07:03:12.905873+00:00"
   },
@@ -4673,7 +4291,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Paid and weekly #1: Dofollow; other free listings not stated"
+      "link_type_label": "Paid and weekly #1: Dofollow; other free listings not stated",
+      "best_for": "Indie makers and SaaS founders",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $19"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -4828,7 +4449,10 @@
       },
       "submission_status": "verified",
       "submit_url": "https://bigideasdb.com/launchdb/submit",
-      "checked_on": "2026-10-03"
+      "checked_on": "2026-10-03",
+      "best_for": "Makers wanting a weekly launch",
+      "cost_tag": "Conflicting",
+      "cost_note": "Their pages disagree"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -4979,7 +4603,10 @@
       },
       "checked_on": "2026-10-02",
       "link_type_label": "Paid: Dofollow; free: Not stated on their site",
-      "review_time_label": "Free submissions reviewed daily; $99 upgrade considered within 1 business day"
+      "review_time_label": "Free submissions reviewed daily; $99 upgrade considered within 1 business day",
+      "best_for": "Startups with their own website",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $99"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -5032,7 +4659,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Free link type not stated; Premium promises permanent Dofollow"
+      "link_type_label": "Free link type not stated; Premium promises permanent Dofollow",
+      "best_for": "Indie makers with a working product",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $9.99"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -5089,118 +4719,10 @@
       },
       "submission_status": "unavailable",
       "submit_url": null,
-      "checked_on": "2026-10-02"
-    },
-    "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
-  },
-  {
-    "slug": "lobehub-mcp-marketplace",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "note": "No listing fee is listed; this is not a stated free plan.",
-          "method": "official publishing instructions",
-          "status": "not_published",
-          "checked_at": "2026-09-29",
-          "source_url": "https://lobehub.com/publish-mcp/skill.md"
-        },
-        "link_type": {
-          "rel": [],
-          "href": "https://github.com/lobehub/mcp-hello-world",
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://lobehub.com/mcp/lobehub-mcp-hello-world",
-          "sampled_tier": "marketplace entry"
-        },
-        "eligibility": {
-          "method": "official publishing instructions",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://lobehub.com/publish-mcp/skill.md"
-        },
-        "review_time": {
-          "note": "Import is asynchronous and takes a few minutes; there is no review SLA.",
-          "method": "official CLI guide and current maintainer response",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://lobehub.com/publish-mcp/skill.md"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://lobehub.com/publish-mcp/skill.md",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "method": "browser GET",
-          "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://market.lobehub.com/s/publish-mcp. Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://market.lobehub.com/s/publish-mcp. Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://lobehub.com/publish-mcp/skill.md"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02"
-    },
-    "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
-  },
-  {
-    "slug": "make-integrations",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "note": "No listing price is published.",
-          "method": "official submission form",
-          "status": "not_published",
-          "checked_at": "2026-09-29",
-          "source_url": "https://f.make.com/submit-your-app"
-        },
-        "link_type": {
-          "note": "Read sample links to maker's site, but raw rel inspection was blocked.",
-          "method": "public listing check",
-          "status": "unverified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://www.make.com/en/integrations/read"
-        },
-        "submission": {
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "method": "browser GET",
-          "status": "verified",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "source_url": "https://f.make.com/submit-your-app",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://f.make.com/submit-your-app"
-            }
-          ]
-        },
-        "eligibility": {
-          "note": "Only official Make partners with a signed agreement may submit.",
-          "method": "official submission form",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://f.make.com/submit-your-app"
-        },
-        "review_time": {
-          "note": "Form says there is no technical review; official terms say submissions are reviewed before listing. No turnaround is published.",
-          "method": "official form and terms",
-          "status": "conflicting",
-          "checked_at": "2026-09-29",
-          "source_url": "https://f.make.com/submit-your-app"
-        }
-      },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Open-source projects on GitHub or GitLab",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -5255,7 +4777,10 @@
           "source_url": "https://makerlist.io/terms"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Product makers",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -5311,7 +4836,10 @@
         }
       },
       "submission_status": "unavailable",
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Marketing tool makers",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -5377,60 +4905,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Firecrawl sample is UGC + Nofollow; paid plan promises Dofollow"
-    },
-    "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
-  },
-  {
-    "slug": "mcpservers-org",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official submission form",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://mcpservers.org/submit"
-        },
-        "link_type": {
-          "note": "Premium promises dofollow; free plan link type is not stated. Sample raw rel was unavailable.",
-          "method": "official plan promise",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://mcpservers.org/submit"
-        },
-        "eligibility": {
-          "method": "official submission form",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://mcpservers.org/submit"
-        },
-        "review_time": {
-          "method": "official submission form",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://mcpservers.org/submit"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://mcpservers.org/submit",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "method": "browser GET",
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://mcpservers.org/submit"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02",
-      "link_type_label": "Premium promises Dofollow; free plan link type is not stated"
+      "link_type_label": "Firecrawl sample is UGC + Nofollow; paid plan promises Dofollow",
+      "best_for": "MCP servers, clients, and AI agents",
+      "cost_tag": "$39",
+      "cost_note": "Once"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -5570,118 +5048,12 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Premium promises Dofollow; basic link type not stated"
+      "link_type_label": "Premium promises Dofollow; basic link type not stated",
+      "best_for": "Makers wanting a month of exposure",
+      "cost_tag": "Not stated",
+      "cost_note": "Paid from $39"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
-  },
-  {
-    "slug": "microsoft-edge-addons",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official developer account guide",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://learn.microsoft.com/en-us/microsoft-edge/extensions/publish/create-dev-account"
-        },
-        "link_type": {
-          "rel": [],
-          "href": "https://github.com/uBlockOrigin/uBOL-home",
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn?hl=en-US",
-          "sampled_tier": "public extension listing"
-        },
-        "eligibility": {
-          "method": "official policies and publisher setup",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://learn.microsoft.com/en-us/legal/microsoft-edge/extensions/developer-policies"
-        },
-        "review_time": {
-          "method": "official publishing guide",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://learn.microsoft.com/en-us/microsoft-edge/extensions/publish/publish-extension"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://learn.microsoft.com/en-us/microsoft-edge/extensions/publish/create-dev-account",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "method": "browser GET",
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://learn.microsoft.com/en-us/microsoft-edge/extensions/publish/create-dev-account"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02"
-    },
-    "expected_updated_at": "2026-09-29T07:03:12.905873+00:00"
-  },
-  {
-    "slug": "microsoft-marketplace",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "note": "Microsoft charges 3% on sales transacted through Marketplace; publishing is free.",
-          "method": "official publisher fee guide",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://learn.microsoft.com/en-us/partner-center/marketplace-offers/marketplace-faq-publisher-guide"
-        },
-        "link_type": {
-          "note": "No maker-site anchor found in the loaded Details and Support content; support and privacy anchors are present.",
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://marketplace.microsoft.com/en-us/product/office/WA200002564?embedHost=dynamics-365&tab=DetailsAndSupport",
-          "sampled_tier": "Microsoft 365 marketplace listing"
-        },
-        "eligibility": {
-          "method": "official publisher setup and certification guidance",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://learn.microsoft.com/en-us/partner-center/marketplace-offers/add-in-submission-guide"
-        },
-        "review_time": {
-          "note": "The step-by-step guide says typically 4–6 weeks; the checklist says up to 4 weeks.",
-          "method": "official submission guide and checklist",
-          "status": "conflicting",
-          "checked_at": "2026-09-29",
-          "source_url": "https://learn.microsoft.com/en-us/partner-center/marketplace-offers/add-in-submission-guide"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://learn.microsoft.com/en-us/partner-center/marketplace-offers/add-in-submission-guide",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "method": "browser GET",
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://learn.microsoft.com/en-us/partner-center/marketplace-offers/add-in-submission-guide"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02"
-    },
-    "expected_updated_at": "2026-09-29T07:03:12.905873+00:00"
   },
   {
     "slug": "nextbigwhat",
@@ -5734,7 +5106,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Startup, SaaS, and AI launches",
+      "cost_tag": "From $39",
+      "cost_note": "Once"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -5872,7 +5247,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Paid: Dofollow; free badge condition: Conflicting info"
+      "link_type_label": "Paid: Dofollow; free badge condition: Conflicting info",
+      "best_for": "Early-stage startups",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $49"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -5927,7 +5305,10 @@
           "source_url": "https://www.nocode.tech/contact"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "No-code tool makers",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -5983,7 +5364,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "No-code tools",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -6036,123 +5420,12 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "No-code tools and resources",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
-  },
-  {
-    "slug": "notion-integrations",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official listing guide",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developers.notion.com/guides/get-started/marketplace-listing"
-        },
-        "link_type": {
-          "rel": [],
-          "href": "https://withpanorama.com/",
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://www.notion.com/connections/panorama",
-          "sampled_tier": "public integration"
-        },
-        "eligibility": {
-          "method": "official listing guide",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developers.notion.com/guides/get-started/marketplace-listing"
-        },
-        "review_time": {
-          "method": "official listing guide",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developers.notion.com/guides/get-started/marketplace-listing"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://developers.notion.com/guides/get-started/marketplace-listing",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "method": "browser GET",
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://developers.notion.com/guides/get-started/marketplace-listing"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in the Panorama sample",
-      "review_time_label": "Notion says to expect a reply within 5 to 10 business days"
-    },
-    "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
-  },
-  {
-    "slug": "official-mcp-registry",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://github.com/modelcontextprotocol/registry/blob/main/docs/reference/cli/commands.md"
-        },
-        "link_type": {
-          "note": "Project URLs are metadata; there is no standard HTML listing backlink.",
-          "method": "registry API",
-          "status": "not_applicable",
-          "checked_at": "2026-09-29",
-          "source_url": "https://registry.modelcontextprotocol.io/?q=filesystem"
-        },
-        "eligibility": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://github.com/modelcontextprotocol/registry/blob/main/docs/reference/cli/commands.md"
-        },
-        "review_time": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://github.com/modelcontextprotocol/registry/blob/main/docs/reference/cli/commands.md"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://raw.githubusercontent.com/modelcontextprotocol/registry/main/docs/reference/cli/commands.md",
-          "checked_at": "2026-10-02T18:38:13.183Z",
-          "method": "official raw GitHub GET",
-          "note": "Official raw CLI reference returned HTTP 200 and documents mcp-publisher init, login, validate, and publish. It links the publishing guide. The rendered GitHub page returned 503 during the browser check; this workflow is CLI-based and requires namespace authentication.",
-          "date": "2026-10-03",
-          "observations": [
-            {
-              "date": "2026-10-03",
-              "note": "Official raw CLI reference returned HTTP 200 and documents mcp-publisher init, login, validate, and publish. It links the publishing guide. The rendered GitHub page returned 503 during the browser check; this workflow is CLI-based and requires namespace authentication.",
-              "method": "official raw GitHub GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T18:38:13.183Z",
-              "source_url": "https://raw.githubusercontent.com/modelcontextprotocol/registry/main/docs/reference/cli/commands.md"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-03",
-      "research_notes": "The official CLI reference documents the mcp-publisher workflow, including login, validation, and publish. It requires control of the relevant namespace. The exact raw guide returned HTTP 200 while the rendered GitHub page returned 503; no form or account flow was used.",
-      "sources": [
-        "https://github.com/modelcontextprotocol/registry/blob/main/docs/reference/cli/commands.md",
-        "https://registry.modelcontextprotocol.io/?q=filesystem",
-        "https://raw.githubusercontent.com/modelcontextprotocol/registry/main/docs/reference/cli/commands.md"
-      ]
-    },
-    "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
   {
     "slug": "omr-reviews",
@@ -6208,7 +5481,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "B2B software for German-speaking markets",
+      "cost_tag": "Free",
+      "cost_note": "Paid from €575/mo"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -6264,7 +5540,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "One-page websites",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -6321,7 +5600,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in the Fider sample"
+      "link_type_label": "Dofollow in the Fider sample",
+      "best_for": "Self-hosted open-source alternatives",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $29"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -6376,7 +5658,10 @@
           "source_url": "https://opensourcesoftwaredirectory.com/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Open-source software",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -6433,7 +5718,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Nofollow in sample; higher paid packages promise Dofollow"
+      "link_type_label": "Nofollow in sample; higher paid packages promise Dofollow",
+      "best_for": "Open-source alternatives to paid software",
+      "cost_tag": "From $97",
+      "cost_note": "Once"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -6488,7 +5776,10 @@
           "source_url": "https://openfuture.ai/submit-tool"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tool makers",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -6542,7 +5833,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow depends on rank or paid plan"
+      "link_type_label": "Dofollow depends on rank or paid plan",
+      "best_for": "Products ready for a ranked launch",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $9.90"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -6597,7 +5891,10 @@
           "source_url": "https://opentools.ai/friends/launch-tool"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tool makers",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -6712,7 +6009,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Individual makers on Peerlist",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -6772,7 +6072,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Working products",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $39"
     },
     "expected_updated_at": "2026-09-29T07:03:12.905873+00:00"
   },
@@ -6825,7 +6128,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Working AI, SaaS, and tech products",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $49"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -6932,7 +6238,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Couldn't verify",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -6990,7 +6299,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "New tech products",
+      "cost_tag": "Free",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -7046,7 +6358,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Productivity apps",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -7180,7 +6495,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Startups wanting more visibility",
+      "cost_tag": "Not stated",
+      "cost_note": "Featured from $0.99"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -7237,66 +6555,12 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI products with their own website",
+      "cost_tag": "Free",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
-  },
-  {
-    "slug": "rapidapi-hub",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "note": "No fee to add an API; 25% marketplace fee applies to payments made through API Hub.",
-          "method": "official publisher documentation",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://docs.rapidapi.com/docs/what-is-rapidapi"
-        },
-        "link_type": {
-          "rel": [],
-          "href": "https://setalabs.com/api/",
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "final_href": "https://setalabs.com/api/",
-          "source_url": "https://rapidapi.com/open-trade-commerce-open-trade-commerce-default/api/aliexpress-open-api",
-          "http_status": 200,
-          "sampled_tier": "public API listing"
-        },
-        "eligibility": {
-          "method": "official publisher documentation",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://docs.rapidapi.com/docs/add-api-getting-started"
-        },
-        "review_time": {
-          "method": "official publisher documentation",
-          "status": "not_published",
-          "checked_at": "2026-09-29",
-          "source_url": "https://docs.rapidapi.com/docs/add-api-getting-started"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://rapidapi.com/studio",
-          "checked_at": "2026-10-02T16:45:47.591Z",
-          "method": "browser GET retry",
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET retry",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:45:47.591Z",
-              "source_url": "https://rapidapi.com/studio"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02"
-    },
-    "expected_updated_at": "2026-09-29T07:03:12.905873+00:00"
   },
   {
     "slug": "saas-ai-tools",
@@ -7351,7 +6615,10 @@
       },
       "submission_status": "unavailable",
       "submit_url": null,
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tool makers",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -7406,7 +6673,10 @@
           "source_url": "https://help.saasbrowser.com/portal/en/kb/articles/how"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Cloud software with a live signup or demo",
+      "cost_tag": "Free",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -7466,7 +6736,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "SaaS products wanting paid exposure",
+      "cost_tag": "$500/mo",
+      "cost_note": "or $550 once"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -7519,7 +6792,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Live SaaS, AI, and web products",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $19.99"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -7574,7 +6850,10 @@
           "source_url": "https://www.saasgenius.com/get-listed/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "B2B desktop software with US customers",
+      "cost_tag": "Paid",
+      "cost_note": "Price not stated"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -7631,7 +6910,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Live software and SaaS",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $99/mo"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -7686,7 +6968,10 @@
           "source_url": "https://www.saasworthy.com/offerings"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "SaaS products",
+      "cost_tag": "Free",
+      "cost_note": "Paid price unlisted"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -7741,7 +7026,10 @@
           "source_url": "https://www.selecthub.com/seller/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Business software vendors",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -7798,7 +7086,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Self-hosted software and companion apps",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -7853,7 +7144,10 @@
           "source_url": "https://selljam.ai/conditions"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Tools for online sellers and creators",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -7913,65 +7207,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
-    },
-    "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
-  },
-  {
-    "slug": "shopify-app-store",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official terms",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://shopify.dev/docs/apps/launch/distribution/revenue-share"
-        },
-        "link_type": {
-          "rel": [
-            "noopener",
-            "noreferrer"
-          ],
-          "href": "https://developers.klaviyo.com/",
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://apps.shopify.com/klaviyo-email-marketing",
-          "sampled_tier": "standard app listing"
-        },
-        "eligibility": {
-          "method": "official terms",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://shopify.dev/docs/apps/launch/app-store-review"
-        },
-        "review_time": {
-          "method": "official terms",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://shopify.dev/docs/apps/launch/app-store-review/review-process"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://shopify.dev/docs/apps/launch/app-store-review",
-          "checked_at": "2026-10-02T16:45:47.591Z",
-          "method": "browser GET retry",
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET retry",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:45:47.591Z",
-              "source_url": "https://shopify.dev/docs/apps/launch/app-store-review"
-            }
-          ]
-        }
-      },
       "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in the Klaviyo sample"
+      "best_for": "Business software companies",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $49.95"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -8031,7 +7270,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "UGC + Nofollow in the Where to Post sample"
+      "link_type_label": "UGC + Nofollow in the Where to Post sample",
+      "best_for": "Side projects to show or sell",
+      "cost_tag": "Free",
+      "cost_note": "Paid price unlisted"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -8086,61 +7328,12 @@
           "source_url": "https://www.siteinspire.com/submit"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Well-designed websites",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
-  },
-  {
-    "slug": "slack-marketplace",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://api.slack.com/slack-marketplace/review-guide"
-        },
-        "link_type": {
-          "note": "No maker website link appears on sampled listing.",
-          "method": "public listing inspection",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://slack.com/marketplace/A0F81R7U7-github"
-        },
-        "eligibility": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://docs.slack.dev/changelog/2026/09/01/slack-marketplace-install-requirement/"
-        },
-        "review_time": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://api.slack.com/slack-marketplace/review-guide"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://api.slack.com/apps",
-          "checked_at": "2026-10-02T16:45:47.591Z",
-          "method": "browser GET retry",
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET retry",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:45:47.591Z",
-              "source_url": "https://api.slack.com/apps"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02"
-    },
-    "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
   {
     "slug": "smol-launch",
@@ -8191,7 +7384,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Free is Nofollow; badge-verified or paid plans promise Dofollow"
+      "link_type_label": "Free is Nofollow; badge-verified or paid plans promise Dofollow",
+      "best_for": "Indie products with a working demo",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $19"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -8246,7 +7442,10 @@
           "source_url": "https://www.softpedia.com/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Downloadable software",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -8301,7 +7500,10 @@
           "source_url": "https://www.softwareadvice.com/vendor-listing-faq/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Business software vendors",
+      "cost_tag": "Free",
+      "cost_note": "Paid ads by quote"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -8358,7 +7560,10 @@
       },
       "submission_status": "unavailable",
       "submit_url": null,
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Software and service companies",
+      "cost_tag": "$99",
+      "cost_note": "Once; free to claim"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -8414,7 +7619,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Open-source software",
+      "cost_tag": "Free",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -8469,7 +7677,10 @@
           "source_url": "https://stackshare.io/docs/tools/verification"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Developer and tech tools",
+      "cost_tag": "Not stated",
+      "cost_note": "Claiming is free"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -8576,7 +7787,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Couldn't verify",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -8693,7 +7907,10 @@
       },
       "submission_status": "unavailable",
       "submit_url": null,
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Startups",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -8746,7 +7963,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Startups and side projects",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $19/mo"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -8805,7 +8025,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Startups wanting a ranked profile",
+      "cost_tag": "Not stated",
+      "cost_note": "Paid review from $49"
     },
     "expected_updated_at": "2026-09-29T07:03:12.905873+00:00"
   },
@@ -8860,7 +8083,10 @@
           "source_url": "https://startupstash.com/add-listing/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Startup tools and products",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -8914,7 +8140,10 @@
       },
       "checked_on": "2026-10-02",
       "link_type_label": "Paid plans promise permanent Dofollow; free listing type is not stated",
-      "review_time_label": "Free queue: 10+ weeks; badge queue: 4 to 5 weeks; paid plans choose a date within 30 days"
+      "review_time_label": "Free queue: 10+ weeks; badge queue: 4 to 5 weeks; paid plans choose a date within 30 days",
+      "best_for": "Working software products",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $39"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -8969,7 +8198,10 @@
           "source_url": "https://www.startupblink.com/startups/add"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Startups wanting a city profile",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -9024,7 +8256,10 @@
           "source_url": "https://startuplift.com/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Couldn't verify",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -9079,7 +8314,10 @@
           "source_url": "https://startuplist.in/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Couldn't verify",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -9134,7 +8372,10 @@
           "source_url": "https://tally.so/r/3lOGLk"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Startup products",
+      "cost_tag": "Conflicting",
+      "cost_note": "Their pages disagree"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -9188,7 +8429,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Free: top-three may be Dofollow; paid plan guarantees Dofollow"
+      "link_type_label": "Free: top-three may be Dofollow; paid plan guarantees Dofollow",
+      "best_for": "Live web products",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $9"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -9246,7 +8490,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Early-stage startups",
+      "cost_tag": "Not stated",
+      "cost_note": "No paid features"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -9307,7 +8554,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in the Aevral sample; paid plans promise Dofollow"
+      "link_type_label": "Dofollow in the Aevral sample; paid plans promise Dofollow",
+      "best_for": "Startups wanting a public profile",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $11"
     },
     "expected_updated_at": "2026-09-29T07:03:12.905873+00:00"
   },
@@ -9444,7 +8694,10 @@
       },
       "checked_on": "2026-10-02",
       "link_type_label": "Varies by plan; Premium Dofollow; free Dofollow if Top 3 or badge",
-      "research_notes": "Pricing content lists Free and Premium $5 per launch once, but home/submission flow did not load reliably so live checkout unconfirmed. Free: 25 slots/week, schedule four weeks ahead; Premium: 10 slots/week, schedule up to 30 days. Monday 08:00 UTC; review ETA unstated. About targets indie hackers, solo founders, early startups. Current pricing and About pages agree that free dofollow requires Top 3 or badge. Premium guarantees dofollow. Stable Commerce raw page timed out; earlier reader stablecommerce.ai not confirmed in raw href/rel/redirect. Submit continues to sign-in. Held for unconfirmed checkout and sample link."
+      "research_notes": "Pricing content lists Free and Premium $5 per launch once, but home/submission flow did not load reliably so live checkout unconfirmed. Free: 25 slots/week, schedule four weeks ahead; Premium: 10 slots/week, schedule up to 30 days. Monday 08:00 UTC; review ETA unstated. About targets indie hackers, solo founders, early startups. Current pricing and About pages agree that free dofollow requires Top 3 or badge. Premium guarantees dofollow. Stable Commerce raw page timed out; earlier reader stablecommerce.ai not confirmed in raw href/rel/redirect. Submit continues to sign-in. Held for unconfirmed checkout and sample link.",
+      "best_for": "Indie hackers and solo founders",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $5"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -9578,7 +8831,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Startups and AI products",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -9727,7 +8983,10 @@
       },
       "checked_on": "2026-10-02",
       "cost_label": "Free; Launch Plus $49 once",
-      "research_notes": "Pricing lists Free and Launch Plus at $49 once. Submit page says free listings last 7 days; How It Works lists 7/15/30-day windows; pricing calls listings permanent. Unclear if permanent means product page while board exposure ends. Submit says reviewed/shown within hours. Pricing advertises dofollow including free, but tier scope is unclear. AI positioning, no firm eligibility. Prodigent page exposed no maker-site href/rel in raw HTML. Held for conflicting duration claims and incomplete tier rules."
+      "research_notes": "Pricing lists Free and Launch Plus at $49 once. Submit page says free listings last 7 days; How It Works lists 7/15/30-day windows; pricing calls listings permanent. Unclear if permanent means product page while board exposure ends. Submit says reviewed/shown within hours. Pricing advertises dofollow including free, but tier scope is unclear. AI positioning, no firm eligibility. Prodigent page exposed no maker-site href/rel in raw HTML. Held for conflicting duration claims and incomplete tier rules.",
+      "best_for": "AI products",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $49"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -9782,7 +9041,10 @@
           "source_url": "https://nextaitool.com/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tool makers",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -9837,7 +9099,10 @@
           "source_url": "https://theresanaiforthat.com/launch"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "AI tool makers",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -9894,7 +9159,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Indie products",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $39"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -10030,7 +9298,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Sponsored + Nofollow in the Pop Site sample; paid upgrade promises Dofollow"
+      "link_type_label": "Sponsored + Nofollow in the Pop Site sample; paid upgrade promises Dofollow",
+      "best_for": "Working products",
+      "cost_tag": "Conflicting",
+      "cost_note": "Their pages disagree"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -10085,7 +9356,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in One Wish Willow sample; paid listing also promises Dofollow"
+      "link_type_label": "Dofollow in One Wish Willow sample; paid listing also promises Dofollow",
+      "best_for": "Software and SaaS products",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $9.99"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -10138,7 +9412,10 @@
           ]
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Software makers who own their domain",
+      "cost_tag": "Free",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -10192,7 +9469,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Toolify promises at least 6 Dofollow links with the paid listing"
+      "link_type_label": "Toolify promises at least 6 Dofollow links with the paid listing",
+      "best_for": "Finished AI tools",
+      "cost_tag": "$99",
+      "cost_note": "Once"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -10248,7 +9528,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in the Sunoh.ai sample"
+      "link_type_label": "Dofollow in the Sunoh.ai sample",
+      "best_for": "AI tool makers",
+      "cost_tag": "Free",
+      "cost_note": "Needs a badge"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -10303,7 +9586,10 @@
           "source_url": "https://toolsforcreators.com/"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Creator tool makers",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -10358,7 +9644,10 @@
           "source_url": "https://topai.tools/submit"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Working AI tools",
+      "cost_tag": "From $47",
+      "cost_note": "Once"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -10413,7 +9702,10 @@
           "source_url": "https://about.trustradius.com/contact-us"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Business software vendors",
+      "cost_tag": "Free",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   },
@@ -10470,7 +9762,10 @@
         }
       },
       "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in sample; plan and score rules apply"
+      "link_type_label": "Dofollow in sample; plan and score rules apply",
+      "best_for": "Indie tech products",
+      "cost_tag": "Free",
+      "cost_note": "Paid from $14.99"
     },
     "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
@@ -10525,126 +9820,12 @@
           "source_url": "https://webcurate.co/submit"
         }
       },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Software products",
+      "cost_tag": "Couldn't verify",
+      "cost_note": null
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
-  },
-  {
-    "slug": "webflow-apps",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developers.webflow.com/apps/data/docs/register-an-app"
-        },
-        "link_type": {
-          "rel": [
-            "noopener",
-            "noreferrer"
-          ],
-          "href": "https://finsweet.com/extension",
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://webflow.com/apps/detail/finsweet-extension",
-          "sampled_tier": "standard app listing"
-        },
-        "eligibility": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developers.webflow.com/apps/docs/marketplace-guidelines"
-        },
-        "review_time": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developers.webflow.com/apps/docs/marketplace-guidelines"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://developers.webflow.com/submit",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "method": "browser GET",
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://developers.webflow.com/submit"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02",
-      "link_type_label": "Dofollow in the Finsweet Extension sample",
-      "review_time_label": "Webflow aims to decide within 10 to 15 business days"
-    },
-    "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
-  },
-  {
-    "slug": "wordpress-plugin-directory",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official submission route",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://wordpress.org/plugins/developers/add/"
-        },
-        "link_type": {
-          "rel": [
-            "nofollow",
-            "ugc"
-          ],
-          "href": "https://woocommerce.com/",
-          "method": "public listing HTML",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://wordpress.org/plugins/woocommerce/",
-          "sampled_tier": "standard plugin listing"
-        },
-        "eligibility": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developer.wordpress.org/plugins/wordpress-org/planning-submitting-and-maintaining-plugins/"
-        },
-        "review_time": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://developer.wordpress.org/plugins/wordpress-org/plugin-developer-faq/"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://wordpress.org/plugins/developers/add/",
-          "checked_at": "2026-10-02T16:37:02.336Z",
-          "method": "browser GET",
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:37:02.336Z",
-              "source_url": "https://wordpress.org/plugins/developers/add/"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02",
-      "link_type_label": "UGC + Nofollow in the WooCommerce sample"
-    },
-    "expected_updated_at": "2026-09-29T05:57:19.003027+00:00"
   },
   {
     "slug": "yourstory",
@@ -10697,59 +9878,10 @@
           "source_url": "https://yourstory.com/companies"
         }
       },
-      "checked_on": "2026-10-02"
-    },
-    "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
-  },
-  {
-    "slug": "zapier-app-directory",
-    "changes": {
-      "evidence": {
-        "cost": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://zapier.com/developer-platform/integrations"
-        },
-        "link_type": {
-          "note": "No maker website link appears on sampled integration page.",
-          "method": "public listing inspection",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://zapier.com/apps/slack/integrations"
-        },
-        "eligibility": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://help.zapier.com/hc/en-us/articles/8496275663501-Request-to-add-a-new-app-to-Zapier"
-        },
-        "review_time": {
-          "method": "official docs",
-          "status": "verified",
-          "checked_at": "2026-09-29",
-          "source_url": "https://help.zapier.com/hc/en-us/articles/8496275663501-Request-to-add-a-new-app-to-Zapier"
-        },
-        "submission": {
-          "status": "verified",
-          "source_url": "https://developer.zapier.com/",
-          "checked_at": "2026-10-02T16:45:47.591Z",
-          "method": "browser GET retry",
-          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-          "date": "2026-10-02",
-          "observations": [
-            {
-              "date": "2026-10-02",
-              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
-              "method": "browser GET retry",
-              "status": "verified",
-              "checked_at": "2026-10-02T16:45:47.591Z",
-              "source_url": "https://developer.zapier.com/"
-            }
-          ]
-        }
-      },
-      "checked_on": "2026-10-02"
+      "checked_on": "2026-10-02",
+      "best_for": "Indian startups and companies",
+      "cost_tag": "Not stated",
+      "cost_note": "On their site"
     },
     "expected_updated_at": "2026-09-30T08:47:14.77346+00:00"
   }

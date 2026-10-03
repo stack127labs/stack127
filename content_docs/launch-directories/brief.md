@@ -1,6 +1,6 @@
 # Launch directories
 
-The directory has 165 public cards in nine categories. Six more rows describe community-post destinations (Show HN, Indie Hackers, DEV, and three subreddits). They stay unpublished because they take posts, not listings. `/launch-directories` goes live in production when the reviewed release publishes its registry row. Until then, the route returns 404 in production.
+The directory has 142 public cards in eight categories. It lists places that promote a product that already exists. Six more rows describe community-post destinations (Show HN, Indie Hackers, DEV, and three subreddits). They stay unpublished because they take posts, not listings. Another 23 rows stay unpublished because they need a platform-specific build, not a listing: 16 app stores and integration catalogs, five MCP server catalogs, RapidAPI Hub, and API List. Self-hosted and open-source directories stay in scope. `/launch-directories` goes live in production when the reviewed release publishes its registry row. Until then, the route returns 404 in production.
 
 ## Reader and task
 
@@ -17,9 +17,9 @@ They should leave with a few submission pages open in new tabs. The page doesn't
 ## Route and behavior
 
 - Route: `/launch-directories`. It's a static page. The first page of the default view is server-rendered and indexable.
-- It follows the self-host apps card and sidebar pattern. There's no details drawer and no page per site.
+- It follows the self-host apps card and sidebar pattern. Each card opens a details side panel. There's no page per site.
 - Sidebar filters: search, category, submission page, cost, and link type. Search matches the name, domain, description, best-for, eligibility, and category text. Filters run in the browser through `DirectoryQueryProvider`. The URL keeps them, so links can be shared. Query URLs stay `noindex`.
-- Default order ("Ready to submit first"): sites with a checked submission page come first. Within each of those two groups, sites with a known price come before sites with an unknown price, and each of those is A to Z. Sites with an unknown price or no checked submission page stay in the list, lower down. A sort control also offers plain name order. There's no popularity or traffic ranking.
+- Default order ("Recommended"): six pinned long-running launch sites first (Product Hunt, BetaList, DevHunt, Peerlist Launchpad, AlternativeTo, SaaSHub). Then a checked submission page before none, launch boards and beta sites before broad listings before niche directories, a free option before paid before unknown, and dofollow before mixed before other link types. Ties go A to Z. The pinned list is an editorial choice, not traffic data, and the guide says so. The sidebar sort also offers "Ready to submit first" (checked submission page, then known price, then A to Z) and plain name order.
 - A submission page filter shows all sites, only sites with a checked submission page, or only those without one. Unknown entries stay in the default view.
 - 24 cards per page with the shared `Pagination`. A filter change returns to page one. An out-of-range page shows the last page.
 - The results header shows the range and total, active filter chips, and a polite live announcement when the count changes. No results shows a `StatePanel` with a reset link.
@@ -29,23 +29,25 @@ They should leave with a few submission pages open in new tabs. The page doesn't
 | Part | What it does |
 | --- | --- |
 | Logo | The site's own icon from `icon_url`, at a fixed size, lazy-loaded below the first row. A missing or failed image shows the first letter. |
-| Name and domain | The whole card opens the official website in a new tab. The domain shows under the name, so the destination is visible. |
-| Category badge | One primary category. |
-| Summary | One sentence on what the site is. |
-| Five fact rows | Best for, cost, review time, link type, and eligibility. Full values stay visible. Nothing is clipped. |
+| Name and category | The name, with the primary category under it and +N for extra categories. |
+| Best for | One short plain line on who or what the place suits. Caveats live in the panel's "Who can submit" row. |
+| Cost | A short label from `cost_tag` (Free, a price such as From $497, Paid, Not stated, Couldn't verify, or Conflicting) with an optional one-line note from `cost_note` (such as Paid from $14.99 or Once). It shows the lowest price; the panel lists every price. Unknown prices say why instead of a generic "not known". |
+| Link | A short label from `link_type_kind`. |
+| Details | Opens the side panel. A click anywhere on the card does the same. |
 | Submit action | **Submit** opens the checked submission page. Its accessible name is "Submit to {name}". Without a checked page, the footer says **Submission page unavailable** or **Submission page not found**, with no guessed link. |
-| Sources | A closed disclosure. Its summary shows the record check date, the last time anything on the card was checked. Inside: the official pages behind each fact, each with its own check date when one exists, the sample listing when there is one, and a link to report a correction. An undated source shows no date. It never borrows the record date. |
 
-The footer sits above the card's website link, so its links and disclosure never nest inside another link.
+Cost and Link labels and the cost note each fit on one line from 320px to 1920px. Phones at 480px and below stack Cost and Link.
+
+The side panel shows all categories, the summary, a submit button, the website link, the full cost, review time, link type, and who can submit, then the sources with their check dates and a correction link. Its content is server-rendered inside a `<details>` element in each card, like platform fees, so search engines read it. Without JavaScript the details expand inline. An undated source shows no date. It never borrows the record date.
 
 ## Help text on the page
 
 Keep it short. The cards come first. One section under the results answers the questions a reader has while scanning:
 
-- **How we check a listing.** We look for the site's official submission page, pricing, and rules, and use the ones that load. When a published listing opens, we check the link it gives the maker's site. Some sites blocked access, needed a login, or had no listing we could open, so 32 public cards have no sample listing. Those details stay marked Couldn't verify or Not stated on their site. The record date can be newer than some sources, for example when only the submission page was rechecked, so each source shows its own date.
-- **Link types.** One table defines results from a sampled listing or the site's terms: Dofollow, Nofollow (with a link to Google's definition), UGC, Sponsored, More than one type, Varies by plan or listing, and No maker website link. A separate table covers labels with no confirmed result: Likely nofollow, which is an estimate and not a checked result, and Couldn't verify.
+- **How we check a listing.** We look for the site's official submission page, pricing, and rules, and use the ones that load. When a published listing opens, we check the link it gives the maker's site. Some sites blocked access, needed a login, or had no listing we could open, so some public cards have no sample listing. Those details stay marked Couldn't verify or Not stated on their site. The record date can be newer than some sources, for example when only the submission page was rechecked, so each source shows its own date.
+- **Link types.** One table defines results from a sampled listing or the site's terms: Dofollow, Nofollow (with a link to Google's definition), UGC, Sponsored, Mixed, Varies, and No link. These are the short labels the cards show. A separate table covers labels with no confirmed result: Likely nofollow, which is an estimate and not a checked result, and Couldn't verify.
 - **Missing details.** Not stated on their site, Couldn't verify, and Conflicting info each mean something different.
-- **App stores and integrations.** Publishing there means building for the platform, accepting its developer terms, and passing its review. It isn't a form for an ordinary website.
+- **Recommended order.** Explains the pinned sites and the ordering rules, and says the order doesn't predict traffic.
 - **Corrections.** Email `stack127@proton.me` with the site name and the page that shows the right answer.
 
 Terms to keep stable:
@@ -54,7 +56,7 @@ Terms to keep stable:
 - A link observation applies only to the named sample or the tier the site's terms describe. Free and paid listings can differ.
 - **Not stated on their site**: the official pages don't publish this detail.
 - **Couldn't verify**: a source was blocked, needed a login, or didn't load. It isn't proof the site is closed.
-- **Conflicting info**: two official pages disagree. The sources disclosure links both.
+- **Conflicting info**: two official pages disagree. The sources in the side panel link both.
 
 ## Visual choices
 
@@ -70,9 +72,8 @@ Terms to keep stable:
 4. Reviews and alternatives
 5. AI tools
 6. Developer and open source
-7. App stores and integrations
-8. Design, no-code, and creator
-9. Specialist and regional
+7. Design, no-code, and creator
+8. Specialist and regional
 
 Each site has one primary category. Community posts are outside this directory's scope.
 

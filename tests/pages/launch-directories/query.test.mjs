@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { queryLaunchDirectories } from "../../../lib/launch-directories-query.ts";
+import { queryLaunchDirectories, sortLaunchDirectories } from "../../../lib/launch-directories-query.ts";
 import { launchDirectorySources, launchDirectoryRevisionMatches } from "../../../lib/launch-directories-data.ts";
 
 const row = (slug, changes = {}) => ({
@@ -23,6 +23,68 @@ test("verified submission paths come before unavailable sites without hiding unk
   assert.deepEqual(queryLaunchDirectories(rows, { submission: "unverified" }).items.map((item) => item.slug), ["A"]);
   assert.deepEqual(queryLaunchDirectories(rows, { sort: "name" }).items.map((item) => item.slug), ["A", "B", "Z"]);
   assert.deepEqual(rows.map((item) => item.slug), ["A", "Z", "B"]);
+});
+
+test("recommended pins come first in editorial order regardless of other ranks", () => {
+  const pins = ["product-hunt", "betalist", "devhunt", "peerlist-launchpad", "alternativeto", "saashub"];
+  const rows = [row("a-unpinned"), ...pins.toReversed().map((slug) => row(slug, {
+    submission_status: "unavailable", submit_url: null, categories: [], cost_kind: "unknown", link_type_kind: "unknown",
+  }))];
+  assert.deepEqual(sortLaunchDirectories(rows, "recommended").map((item) => item.slug), [...pins, "a-unpinned"]);
+});
+
+test("recommended working submit pages beat tier-zero rows without a verified URL", () => {
+  const rows = [
+    row("a-no-url", { submit_url: null }),
+    row("b-unverified", { submission_status: "not_found" }),
+    row("z-working", { categories: ["specialist-regional"], cost_kind: "unknown", link_type_kind: "unknown" }),
+  ];
+  assert.deepEqual(sortLaunchDirectories(rows, "recommended").map((item) => item.slug), ["z-working", "a-no-url", "b-unverified"]);
+});
+
+test("recommended category tiers use the best category and take priority over cost", () => {
+  const rows = [
+    row("a-other", { categories: ["community-posts"] }),
+    row("b-specialist", { categories: ["specialist-regional"] }),
+    row("c-startup", { categories: ["startup-software"], cost_kind: "paid" }),
+    row("d-beta", { categories: ["ai-tools", "unrecognized", "prelaunch-beta"], cost_kind: "unknown" }),
+    row("e-empty", { categories: [] }),
+  ];
+  assert.deepEqual(sortLaunchDirectories(rows, "recommended").map((item) => item.slug), ["d-beta", "c-startup", "b-specialist", "a-other", "e-empty"]);
+});
+
+test("recommended cost ranks take priority over link ranks", () => {
+  const rows = [
+    row("a-unknown", { cost_kind: "unknown" }),
+    row("b-paid", { cost_kind: "paid" }),
+    row("c-free-and-paid", { cost_kind: "free_and_paid", link_type_kind: "unknown" }),
+    row("d-free", { link_type_kind: "unknown" }),
+  ];
+  assert.deepEqual(sortLaunchDirectories(rows, "recommended").map((item) => item.slug), ["c-free-and-paid", "d-free", "b-paid", "a-unknown"]);
+});
+
+test("recommended link ranks put unknown last and use name then slug to break ties", () => {
+  const rows = [
+    row("a-unknown", { link_type_kind: "unknown" }),
+    ...["none", "estimated_nofollow", "sponsored", "ugc", "nofollow"].map((link_type_kind) => row(`b-${link_type_kind}`, { link_type_kind })),
+    row("c-varies", { name: "Same name", link_type_kind: "varies" }),
+    row("c-multiple", { name: "same NAME", link_type_kind: "multiple" }),
+    row("z-dofollow"),
+  ];
+  assert.deepEqual(sortLaunchDirectories(rows, "recommended").map((item) => item.slug), [
+    "z-dofollow", "c-multiple", "c-varies", "b-estimated_nofollow", "b-nofollow", "b-none", "b-sponsored", "b-ugc", "a-unknown",
+  ]);
+});
+
+test("recommended is the default sort while ready and name retain their ordering", () => {
+  const rows = [row("a-free"), row("z-paid-pin", { slug: "saashub", cost_kind: "paid" })];
+  assert.deepEqual(sortLaunchDirectories(rows).map((item) => item.slug), ["saashub", "a-free"]);
+  assert.deepEqual(queryLaunchDirectories(rows).items.map((item) => item.slug), ["saashub", "a-free"]);
+  for (const sort of ["ready", "name"]) {
+    assert.deepEqual(sortLaunchDirectories(rows, sort).map((item) => item.slug), ["a-free", "saashub"]);
+  }
+  const readyRows = [row("a-paid", { cost_kind: "paid" }), row("b-free"), row("c-unknown", { cost_kind: "unknown" }), row("d-unavailable", { submission_status: "unavailable" })];
+  assert.deepEqual(sortLaunchDirectories(readyRows, "ready").map((item) => item.slug), ["a-paid", "b-free", "c-unknown", "d-unavailable"]);
 });
 
 test("pagination recovers from invalid and out-of-range URLs and empty results", () => {
