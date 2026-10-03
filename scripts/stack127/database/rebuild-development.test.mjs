@@ -1,7 +1,102 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { planForwardMigrations, preserveDevelopmentPublication } from './rebuild-development.mjs';
+import { planForwardMigrations, preserveDevelopmentPublication, verifyPageFamilyRestore } from './rebuild-development.mjs';
+
+const pageTables = ['stack127_pages', 'stack127_tool_pages', 'stack127_catalog_pages', 'stack127_directory_pages', 'stack127_tool_catalog_memberships'];
+const rowsByTable = overrides => new Map(pageTables.map(name => [name, overrides[name] ?? []]));
+
+function directoryRestore() {
+  const sourcePage = { id: 1, slug: 'self-host-apps', page_family: 'directory', is_published: true };
+  const developmentPage = { id: 2, slug: 'development-directory', page_family: 'directory', is_published: true };
+  const sourceCopy = { page_id: 1, title: 'Source directory', content_markdown: null, card_name: 'Source card' };
+  const savedCopy = { page_id: 2, title: 'Edited directory', content_markdown: 'Saved content.', card_name: 'Edited card' };
+  return {
+    production: rowsByTable({ stack127_pages: [sourcePage], stack127_directory_pages: [sourceCopy] }),
+    restored: rowsByTable({ stack127_pages: [{ ...sourcePage }, { ...developmentPage, id: 4 }],
+      stack127_directory_pages: [{ ...sourceCopy }, { ...savedCopy, page_id: 4 }] }),
+    preserved: { pages: [sourcePage, developmentPage], rows: rowsByTable({ stack127_pages: [developmentPage], stack127_directory_pages: [savedCopy] }) },
+  };
+}
+
+test('verification accepts the larger directory copy count after preserving an extra development page', () => {
+  const { production, restored, preserved } = directoryRestore();
+  assert.equal(production.get('stack127_directory_pages').length, 1);
+  assert.equal(restored.get('stack127_directory_pages').length, 2);
+  const result = verifyPageFamilyRestore(production, restored, preserved);
+  assert.deepEqual(result.find(row => row.table === 'stack127_directory_pages'), {
+    table: 'stack127_directory_pages', source: 1, development: 2, contentMatches: true,
+    preservedDevelopmentRows: 1, preservedRowsVerified: true,
+  });
+});
+
+test('verification detects missing and changed production-owned directory rows among preserved rows', () => {
+  const fixture = directoryRestore();
+  const rows = fixture.restored.get('stack127_directory_pages');
+  rows[0].title = 'Corrupted source copy';
+  assert.throws(() => verifyPageFamilyRestore(fixture.production, fixture.restored, fixture.preserved), /Content mismatch for stack127_directory_pages/);
+  rows.shift();
+  assert.throws(() => verifyPageFamilyRestore(fixture.production, fixture.restored, fixture.preserved), /Count mismatch for stack127_directory_pages/);
+});
+
+test('verification detects missing and changed preserved directory copy after ID remapping', () => {
+  const fixture = directoryRestore();
+  const rows = fixture.restored.get('stack127_directory_pages');
+  rows[1].card_name = 'Lost edited card';
+  assert.throws(() => verifyPageFamilyRestore(fixture.production, fixture.restored, fixture.preserved), /Content mismatch for stack127_directory_pages/);
+  rows.pop();
+  assert.throws(() => verifyPageFamilyRestore(fixture.production, fixture.restored, fixture.preserved), /Count mismatch for stack127_directory_pages/);
+});
+
+test('verification remaps tool, catalog, and mixed membership IDs through their page slugs', () => {
+  const sourcePages = [{ id: 1, slug: 'source-tool' }, { id: 2, slug: 'source-catalog' }];
+  const extraPages = [{ id: 3, slug: 'development-tool' }, { id: 4, slug: 'development-catalog' }];
+  const tool = { page_id: 3, title: 'Saved tool', content_revision: 5 };
+  const catalog = { page_id: 4, card_name: 'Saved catalog' };
+  const memberships = [
+    { catalog_page_id: 2, tool_page_id: 3, display_order: 1 },
+    { catalog_page_id: 4, tool_page_id: 1, display_order: 2 },
+    { catalog_page_id: 4, tool_page_id: 3, display_order: 3 },
+  ];
+  const production = rowsByTable({ stack127_pages: sourcePages,
+    stack127_tool_pages: [{ page_id: 1, title: 'Source tool' }],
+    stack127_catalog_pages: [{ page_id: 2, card_name: 'Source catalog' }],
+    stack127_tool_catalog_memberships: [{ catalog_page_id: 2, tool_page_id: 1, display_order: 1 }],
+  });
+  const restored = new Map([...production].map(([name, rows]) => [name, structuredClone(rows)]));
+  restored.get('stack127_pages').push({ ...extraPages[0], id: 7 }, { ...extraPages[1], id: 8 });
+  restored.get('stack127_tool_pages').push({ ...tool, page_id: '7' });
+  restored.get('stack127_catalog_pages').push({ ...catalog, page_id: '8' });
+  restored.get('stack127_tool_catalog_memberships').push(...memberships.map(row => ({
+    ...row, catalog_page_id: row.catalog_page_id === 4 ? 8 : row.catalog_page_id,
+    tool_page_id: row.tool_page_id === 3 ? 7 : row.tool_page_id,
+  })));
+  const preserved = { pages: [...sourcePages, ...extraPages], rows: rowsByTable({ stack127_pages: extraPages,
+    stack127_tool_pages: [tool], stack127_catalog_pages: [catalog], stack127_tool_catalog_memberships: memberships }) };
+  const result = verifyPageFamilyRestore(production, restored, preserved);
+  assert.equal(result.find(row => row.table === 'stack127_tool_pages').preservedDevelopmentRows, 1);
+  assert.equal(result.find(row => row.table === 'stack127_catalog_pages').preservedDevelopmentRows, 1);
+  assert.equal(result.find(row => row.table === 'stack127_tool_catalog_memberships').preservedDevelopmentRows, 3);
+  restored.get('stack127_tool_catalog_memberships')[1].tool_page_id = 8;
+  assert.throws(() => verifyPageFamilyRestore(production, restored, preserved), /Content mismatch for stack127_tool_catalog_memberships/);
+});
+
+test('preserved draft publication flags and dates are checked exactly after remapping', () => {
+  const fixture = directoryRestore();
+  for (const page of [fixture.preserved.pages[1], fixture.preserved.rows.get('stack127_pages')[0], fixture.restored.get('stack127_pages')[1]]) {
+    page.slug = 'platform-fees/development-section';
+    page.published_at = '2026-10-01';
+  }
+  verifyPageFamilyRestore(fixture.production, fixture.restored, fixture.preserved);
+  fixture.restored.get('stack127_pages')[1].is_published = false;
+  assert.throws(() => verifyPageFamilyRestore(fixture.production, fixture.restored, fixture.preserved), /Content mismatch for stack127_pages/);
+});
+
+test('standalone verification compares production content without claiming to verify preserved copy', () => {
+  const fixture = directoryRestore();
+  const result = verifyPageFamilyRestore(fixture.production, fixture.restored);
+  assert.ok(result.every(row => row.contentMatches && !row.preservedRowsVerified));
+});
 
 test('development previews survive production introducing unpublished draft registry rows', () => {
   const production = [

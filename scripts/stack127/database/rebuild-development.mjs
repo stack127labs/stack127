@@ -3,7 +3,7 @@
 // The source connection is read-only. Only the database in .env.local is written.
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
-import { parseArgs, parseEnv } from 'node:util';
+import { isDeepStrictEqual, parseArgs, parseEnv } from 'node:util';
 import pg from 'pg';
 import { parse as parseConnectionString } from 'pg-connection-string';
 
@@ -27,6 +27,60 @@ export function remapDevelopmentPageIds(rows, fields, developmentPages, restored
     }
     return restored;
   });
+}
+
+const pageTableIds = {
+  stack127_pages: ['id'],
+  stack127_tool_pages: ['page_id'],
+  stack127_catalog_pages: ['page_id'],
+  stack127_directory_pages: ['page_id'],
+  stack127_tool_catalog_memberships: ['catalog_page_id', 'tool_page_id'],
+};
+
+function comparablePageRow(name, row, ignoreDraftPublication) {
+  const copy = { ...row };
+  for (const field of pageTableIds[name]) copy[field] = String(copy[field]);
+  if (ignoreDraftPublication && name === 'stack127_pages' && isDraftRoute(row.slug)) {
+    delete copy.is_published;
+    delete copy.published_at;
+    delete copy.updated_at;
+  }
+  return copy;
+}
+
+function verifyPageRows(name, expected, actual, ignoreDraftPublication = true) {
+  if (expected.length !== actual.length) throw new Error(`Count mismatch for ${name}`);
+  const key = row => JSON.stringify(pageTableIds[name].map(field => String(row[field])));
+  const byKey = new Map(actual.map(row => [key(row), row]));
+  for (const row of expected) {
+    const restored = byKey.get(key(row));
+    if (!restored || !isDeepStrictEqual(comparablePageRow(name, row, ignoreDraftPublication),
+      comparablePageRow(name, restored, ignoreDraftPublication))) throw new Error(`Content mismatch for ${name}`);
+  }
+}
+
+export function verifyPageFamilyRestore(production, restored, preserved) {
+  const sourcePages = production.get('stack127_pages');
+  const restoredPages = restored.get('stack127_pages');
+  const productionSlugs = new Set(sourcePages.map(page => page.slug));
+  const productionIds = new Set(restoredPages.filter(page => productionSlugs.has(page.slug)).map(page => String(page.id)));
+  const results = [];
+  for (const [name, fields] of Object.entries(pageTableIds)) {
+    const rows = restored.get(name);
+    const owned = row => name === 'stack127_pages' ? productionSlugs.has(row.slug)
+      : fields.every(field => productionIds.has(String(row[field])));
+    const sourceRows = production.get(name);
+    const productionRows = rows.filter(owned);
+    const developmentRows = rows.filter(row => !owned(row));
+    verifyPageRows(name, sourceRows, productionRows);
+    if (preserved) {
+      const expected = remapDevelopmentPageIds(preserved.rows.get(name) ?? [], fields, preserved.pages, restoredPages);
+      verifyPageRows(name, expected, developmentRows, false);
+    }
+    results.push({ table: name, source: sourceRows.length, development: rows.length, contentMatches: true,
+      preservedDevelopmentRows: developmentRows.length, preservedRowsVerified: Boolean(preserved) });
+  }
+  return results;
 }
 
 function isDraftRoute(slug) {
@@ -282,7 +336,10 @@ async function main() {
       }
       await target.query('truncate public.stack127_revalidation_events, public.stack127_cache_warm_events');
       await target.query("notify pgrst,'reload schema'");
-      if (values.verify) await verify(snapshot.get('stack127_pages').rows.filter((row) => isDraftRoute(row.slug)));
+      if (values.verify) await verify(snapshot.get('stack127_pages').rows.filter((row) => isDraftRoute(row.slug)), {
+        pages: developmentPages,
+        rows: new Map([...extraContent, ['stack127_pages', extraPages], ['stack127_tool_catalog_memberships', extraMemberships]]),
+      });
       if (values['align-history']) { await verifySchema(); await alignHistory(); }
       await target.query('commit');
       console.log(JSON.stringify({ preservedDevelopmentPages: extraPages.length, preservedDraftPreviewFlags: developmentPages.filter((row) => isDraftRoute(row.slug) && row.is_published).length }));
@@ -303,13 +360,7 @@ async function main() {
     }
   }
 
-  function verificationPayload(name) {
-    return name === 'stack127_pages'
-      ? "case when slug in ('ad-networks','launch-directories','platform-fees') or slug like 'platform-fees/%' or slug like 'ad-networks/%' then to_jsonb(record)-'is_published'-'published_at'-'updated_at' else to_jsonb(record) end"
-      : 'to_jsonb(record)';
-  }
-
-  async function verify(expectedDraftPages) {
+  async function verify(expectedDraftPages, preserved) {
     if (expectedDraftPages) {
       const current = new Map((await target.query('select to_jsonb(record) payload from public.stack127_pages record where slug=any($1::text[])', [expectedDraftPages.map((row) => row.slug)])).rows.map(({payload}) => [payload.slug,payload]));
       for (const expected of expectedDraftPages) {
@@ -317,17 +368,23 @@ async function main() {
         if (!actual || actual.is_published !== expected.is_published || actual.published_at !== expected.published_at || actual.updated_at !== expected.updated_at) throw new Error(`Development preview was not preserved: ${expected.slug}`);
       }
     }
-    const productionSlugs = (await source.query('select slug from public.stack127_pages')).rows.map((row) => row.slug);
+    const productionPages = new Map();
+    const restoredPages = new Map();
+    for (const name of Object.keys(pageTableIds)) {
+      const query = `select to_jsonb(record) payload from ${tableName(name)} record`;
+      productionPages.set(name, (await source.query(query)).rows.map(row => row.payload));
+      restoredPages.set(name, (await target.query(query)).rows.map(row => row.payload));
+    }
+    for (const result of verifyPageFamilyRestore(productionPages, restoredPages, preserved)) console.log(JSON.stringify(result));
     for (const name of tables) {
+      if (name in pageTableIds) continue;
       const count = (await target.query(`select count(*)::int count from ${tableName(name)}`)).rows[0].count;
       const original = (await source.query(`select count(*)::int count from ${tableName(name)}`)).rows[0].count;
-      if (name !== 'stack127_pages' && count !== original) throw new Error(`Count mismatch for ${name}`);
+      if (count !== original) throw new Error(`Count mismatch for ${name}`);
       const sourceHash = (await source.query(`select md5(coalesce(string_agg(payload::text,'' order by payload::text),'')) digest
-        from (select ${verificationPayload(name)} payload from ${tableName(name)} record) records`)).rows[0].digest;
+        from (select to_jsonb(record) payload from ${tableName(name)} record) records`)).rows[0].digest;
       const targetHash = (await target.query(`select md5(coalesce(string_agg(payload::text,'' order by payload::text),'')) digest
-        from (select ${verificationPayload(name)} payload from ${tableName(name)} record
-        ${name === 'stack127_pages' ? 'where slug=any($1::text[])' : ''}) records`,
-        name === 'stack127_pages' ? [productionSlugs] : [])).rows[0].digest;
+        from (select to_jsonb(record) payload from ${tableName(name)} record) records`)).rows[0].digest;
       if (sourceHash !== targetHash) throw new Error(`Content mismatch for ${name}`);
       console.log(JSON.stringify({ table: name, source: original, development: count, contentMatches: true }));
     }
