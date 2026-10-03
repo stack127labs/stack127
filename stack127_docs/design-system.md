@@ -231,7 +231,7 @@ Tool catalog sidebars link between published tool catalogs and mark the current 
 
 ### Homepage
 
-The homepage lists published tool catalogs, selected software directories and references, the self-hosting course, and Labs. Hardware directories stay published but are off the homepage cards and sidebar. The homepage doesn't list individual tools or individual reference sheets.
+The homepage lists published tool catalogs, selected directories, the self-hosting course, and Labs. Hardware directories stay published but are off the homepage cards and sidebar. The homepage doesn't list individual tools or directory child pages. Card names and descriptions come from each family's page table.
 
 Each card shows a meaningful count from its destination's data. A new homepage collection needs an identity icon, a metric, and a marker spot.
 

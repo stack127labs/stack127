@@ -71,15 +71,17 @@ Reporting:
 - Site routes live under `app/`.
 - Tools and references use flat public URLs.
 - Catalog source lives in `app/(site)/(catalogs)/`.
-- Directory source lives in `app/(site)/(directories)/`.
-- Reference source lives in `app/(site)/(references)/`.
+- Directory source lives in `app/(site)/(directories)/`, including stable fact pages such as `/tld-directory`.
 - Course source lives in `app/(site)/(courses)/`.
+- Home, about, privacy, terms, and labs live in `app/(site)/(site-pages)/`.
 - Tool source lives in `app/(site)/(tools)/`. DNS, domain, and storage tools use a shared route-group layout before `<slug>/`.
 - `public.stack127_pages` is the only publication registry.
 - Exact published slugs are indexable and enter the sitemap. Unpublished routes return 404.
 - Do not add route-owned metadata, robots, canonicals, sitemap dates, or JSON-LD to page files.
 - New pages must be static and refreshed only by on-demand revalidation. The conversion of existing pages is pending. Read `stack127_docs/caching.md` before adding a page, route, or data source.
+- Page families are `tool`, `directory`, `course`, `catalog`, and `site`. Use the same words in the database and code. Read `stack127_docs/page-families.md`.
 - Tool content and versions live in `public.stack127_tool_pages`. Read `stack127_docs/tool-pages.md` before changing them.
+- Directory page copy lives in `public.stack127_directory_pages`. Read `stack127_docs/directory-pages.md` before changing it.
 
 ## Files
 

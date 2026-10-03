@@ -10,26 +10,27 @@ Routes stay in the repo. `stack127_pages` controls publication and SEO. Family t
 
 Interactive tool code stays under `app/(site)/(tools)/`. Tool titles, introductions, supporting Markdown, and version records live in `stack127_tool_pages`. See `stack127_docs/tool-pages.md` for who owns what and the update commands.
 
+Directory routes stay under `app/(site)/(directories)/`. Directory titles, introductions, Markdown, and card text live in `stack127_directory_pages`. See `stack127_docs/directory-pages.md`.
+
 Page source is grouped by job. The groups don't change URLs.
 
 ```text
-app/(site)/(catalogs)/    # collections of stack127-owned pages
+app/(site)/(catalogs)/    # collections of stack127-owned tool pages
 app/(site)/(courses)/     # ordered teaching paths
-app/(site)/(directories)/ # third-party software and hardware directories
-app/(site)/(legal)/       # about, privacy, and terms
-app/(site)/(references)/  # stable facts, codes, and comparisons
+app/(site)/(directories)/ # software, hardware, platforms, and stable facts
+app/(site)/(site-pages)/  # home, about, privacy, terms, and labs
 app/(site)/(tools)/       # calculators, lookups, and generators
 ```
 
-Shared components live in `app/ui/`, grouped by use. Page data and one-off interactions stay with their route. Generated page art stays beside its page.
+Shared components live in `app/ui/`, grouped by use. Page data and one-off interactions stay with their route. Generated page art stays beside its page. Tool and catalog card art lives in `app/ui/art/`.
 
 | Group | Contains |
 | --- | --- |
-| Catalogs | Links to stack127-owned pages. |
-| Directories | Third-party software and hardware records. |
-| References | Stable facts, codes, and comparisons. |
+| Catalogs | Only the catalog route. Tool code never lives here. |
+| Directories | Directory routes, including stable fact pages such as `/epp-status-codes` and `/tld-directory`. |
+| Tools | Tool routes. Code shared by one tool group lives in that group folder, such as `(tools)/(dns)/`. |
 
-Don't put `/epp-status-codes`, `/tld-directory`, or any other reference under `(tools)`.
+See [page-families.md](page-families.md) for each family's page table.
 
 ## Page docs
 

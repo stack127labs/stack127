@@ -4,7 +4,7 @@ Tool routes and tool copy have separate owners. The Next.js route owns the inter
 
 Follow [writing-style.md](writing-style.md) when writing. This document covers content storage, rendering, and updates.
 
-This split applies only to interactive tools. References and directories such as `/epp-status-codes` and `/tld-directory` are catalogs. They do not get rows in `stack127_tool_pages`.
+This split applies only to interactive tools. Directories such as `/epp-status-codes` and `/tld-directory` use `stack127_directory_pages` instead. See [directory-pages.md](directory-pages.md).
 
 ## Tables
 
@@ -14,7 +14,7 @@ This split applies only to interactive tools. References and directories such as
 | --- | --- |
 | `id` | Internal identity and primary key. Family tables refer to this value. |
 | `slug` | Unique URL path without a leading slash. |
-| `page_family` | One of `tool`, `catalog`, `course`, `info`, or `legal`. |
+| `page_family` | One of `tool`, `directory`, `course`, `catalog`, or `site`. |
 | `label` | Short navigation or card label. |
 | `meta_title` | Browser and search title. |
 | `meta_description` | Search description. |

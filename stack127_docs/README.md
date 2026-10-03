@@ -9,7 +9,7 @@ Keep each current decision in the operating doc it belongs to. Page-specific pla
 | [product-direction.md](product-direction.md) | Audience, offerings, revenue model, URL structure, and future work for the tools and directories site. |
 | `design-system.md` | Visual tokens and UI rules. |
 | [shared-ui.md](shared-ui.md) | Shared components, the development-only Components UI gallery at `/components-ui`, and Markdown syntax for content blocks and charts. |
-| `page-families.md` | Shared structure for catalogs, courses, tools, references, info pages, and legal pages. |
+| `page-families.md` | The five page families (tool, directory, course, catalog, site) and their shared structure. |
 | `tool-pages.md` | Tool page tables, Markdown ownership, public dates, versions, and reviewed update commands. |
 | `stack127-repos.md` | Boundaries, inventory, automation, and revision tracking for repositories stack127 owns. |
 | `brand-assets.md` | Logo originals, production variants, favicon choice, and how to regenerate them. |

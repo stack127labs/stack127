@@ -1,6 +1,6 @@
 ---
 name: stack127-page-build
-description: Create or change a stack127 content, directory, reference, course, legal, catalog, or tool route and verify the real page with minimum useful checks.
+description: Create or change a stack127 tool, directory, course, catalog, or site page route and verify the real page with minimum useful checks.
 ---
 
 # stack127 page build

@@ -20,7 +20,7 @@ Fields:
 | --- | --- |
 | `id` | Internal page identity and primary key |
 | `slug` | URL path without leading slash, for example `self-host-apps` or `self-hosting-for-beginners/linux-ssh-basics` |
-| `page_family` | Page ownership family: `tool`, `catalog`, `course`, `info`, or `legal` |
+| `page_family` | Page ownership family: `tool`, `directory`, `course`, `catalog`, or `site` |
 | `label` | Compact UI label for sidebars, home cards, and other chrome |
 | `meta_title` | Full browser/search title |
 | `meta_description` | Search description |

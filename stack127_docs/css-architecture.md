@@ -30,7 +30,7 @@ A route family with several components that work together may use one family sty
 - `app/(site)/(tools)/(dns)/dns-tools.css`
 - `app/ui/directories/directory.css`
 - `app/(site)/(courses)/self-hosting-for-beginners/course.css`
-- `app/(site)/(references)/software-licenses-for-self-hosting/software-licenses.css`
+- `app/(site)/(directories)/software-licenses-for-self-hosting/software-licenses.css`
 
 Prefer CSS Modules for new components and new single-page work. Use a family stylesheet when several files in the same route family share selectors on purpose. Don't move a family stylesheet into `globals.css` for convenience.
 
