@@ -69,5 +69,8 @@ This plan joins directories and references, makes page family names match across
 
 - [ ] 26. Sol review, then apply the migration in development and check the pages.
 - [ ] 27. Production migration and deploy, after the user approves them.
+  - The release workflow applies the migration, then builds and deploys the new image, then updates the `cache-worker` function. This release changes `supabase/functions` and `lib/cache-tags.ts`, so the worker update runs automatically.
+  - For the few minutes between the migration and the new image going live, the old app still serves the site. Pages it already cached keep working. Uncached catalog and homepage requests fail, and page edit events fail in the old worker.
+  - Release at a quiet time, and don't edit page data during the release. Once the release finishes, check the homepage, one catalog, one directory, and one tool page, and confirm the purge and warm step passed.
 
 Phases 1 to 3 are low-risk and can ship first. Phases 4 and 5 should go out together, because the code and the database have to agree on the family names.

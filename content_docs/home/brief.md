@@ -12,7 +12,7 @@ They should identify a useful resource for their current task and reach it in on
 
 Keep the current layout and generated artwork. Use a short introduction and existing published links. Describe the indie hacker audience without presenting future paid tools, ads, or topic landing pages as available.
 
-List every published tool catalog first, then the selected software directories and reference pages. Keep self-host apps, CLI apps, the self-hosting course, and Labs. Hardware directories remain published at their existing URLs, but stay off the homepage cards and sidebar. Do not feature individual tools or individual shortcut reference sheets. Publication still comes from the central registry, not this navigation list. Catalog order comes from `stack127_tool_catalogs.home_order`.
+List every published tool catalog first, then the selected directories. Keep self-host apps, CLI apps, the self-hosting course, and Labs. Hardware directories remain published at their existing URLs, but stay off the homepage cards and sidebar. Do not feature individual tools or individual keyboard shortcut pages. Publication still comes from the central registry, not this navigation list. Catalog order comes from `stack127_catalog_pages.home_order`.
 
 Every card has a meaningful count from the same data used by its destination. Count apps, tools, licenses, status codes, domain extensions, lessons, or projects as appropriate. Domain tools and references have separate counts. Keep the existing card layout. Every featured page needs its own generated marker spot. A missing spot is an error, never a reason to enlarge the title's interface icon.
 

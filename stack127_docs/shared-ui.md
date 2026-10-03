@@ -23,7 +23,7 @@ The Components UI gallery is at `/components-ui` in development. That route retu
 | Page shell, headings, prose, media, code, and navigation | `app/ui/site/` |
 | Software, hardware, and directory cards and filters | `app/ui/directories/` |
 | Tool catalog cards and navigation | `app/ui/catalogs/` |
-| Course and reference layouts | `app/ui/courses/` and `app/ui/references/` |
+| Course and directory layouts | `app/ui/courses/` and `app/ui/directories/` |
 | Shared tool layouts and styles | `app/ui/tools/` |
 
 `app/ui/site/` holds the shared shell, `PageCanvas`, `PageHeader`, `EntryHero`, `InfoPage`, prose classes, `MediaFigure`, `CodeBlock`, `Chart`, and `MarkerArt`. Next.js route files, the global stylesheet, and the marker-art registry stay directly under `app/`.

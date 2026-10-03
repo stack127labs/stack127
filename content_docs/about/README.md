@@ -8,4 +8,4 @@ Preserve Teja's personal history and the name's origin. Connect localhost with b
 
 Keep the `how-we-earn-money` section anchor, current affiliate disclosure, and Amazon Associate statement. Describe possible future ads, paid tools, and sponsorships as plans. Direct visitors to Labs for the named public projects.
 
-The route source belongs to `app/(site)/(legal)/about/`. Keep the existing InfoPage reading layout and generated artwork. Registry metadata must match the broader scope.
+The route source belongs to `app/(site)/(site-pages)/about/`. Keep the existing InfoPage reading layout and generated artwork. Registry metadata must match the broader scope.

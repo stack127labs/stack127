@@ -14,6 +14,6 @@ The catalog hero and homepage card use one wordless marker drawing: a starting r
 
 ## Source of truth and launch
 
-`public.stack127_pages` owns the flat `/saas-tools` URL, publication and SEO. `public.stack127_tool_catalogs` owns the heading, intro, section heading, order, and art keys. `public.stack127_tool_catalog_memberships` owns card placement; `public.stack127_tool_pages` owns each tool's card copy and art.
+`public.stack127_pages` owns the flat `/saas-tools` URL, publication and SEO. `public.stack127_catalog_pages` owns the heading, intro, section heading, order, and art keys. `public.stack127_tool_catalog_memberships` owns card placement; `public.stack127_tool_pages` owns each tool's card copy and art.
 
 Create the catalog registry and content rows unpublished. The first tool integration adds its tool row and primary membership at display order 1. Review the real desktop and mobile page with that card, its link, title, canonical, both themes, and homepage art before publishing the catalog. Never publish an empty catalog.
