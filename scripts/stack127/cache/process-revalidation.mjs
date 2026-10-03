@@ -2,6 +2,7 @@ import { createHmac, randomUUID } from "node:crypto";
 import pg from "pg";
 import { targetsForEvents } from "./targets.mjs";
 import { refreshTargets, cacheBodyDigest } from "./refresh.mjs";
+import { launchDirectoryRevisionMatches } from "../../../lib/launch-directories-data.ts";
 
 const { CLOUDFLARE_API_TOKEN, CLOUDFLARE_ZONE_ID } = process.env;
 const DATABASE_URL = process.env.DATABASE_POOLER_URL || process.env.DATABASE_URL;
@@ -57,6 +58,7 @@ try {
             const response = await request(`${site}${proof.path}`, {}, true);
             const body = await response.text();
             if (proof.digest && await cacheBodyDigest(body) !== proof.digest) throw new Error("Public API is stale");
+            if (proof.sourceRevision && !launchDirectoryRevisionMatches(body, proof.sourceRevision)) throw new Error("Public launch directory data is stale");
             if (response.status !== proof.status || (proof.revision && !body.includes(`name="stack127-content-revision" content="${proof.revision}"`))) throw new Error('Public warm returned stale content');
           })),
         });

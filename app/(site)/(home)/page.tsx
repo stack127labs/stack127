@@ -7,6 +7,7 @@ import {
   FlaskConical,
   ListChecks,
   Receipt,
+  Rocket,
   Scale,
   SquareTerminal,
   type LucideIcon,
@@ -19,6 +20,7 @@ import { siteSpotCourseArt } from "../art/site--spot-course";
 import { siteSpotLicensesArt } from "../art/site--spot-licenses";
 import { siteSpotLabsArt } from "../art/site--spot-labs";
 import { siteSpotKeyboardShortcutsArt } from "../art/site--spot-keyboard-shortcuts";
+import { siteSpotLaunchDirectoriesArt } from "../art/site--spot-launch-directories";
 import { siteSpotPlatformFeesArt } from "../art/site--spot-platform-fees";
 import { siteSpotSelfHostAppsArt } from "../art/site--spot-self-host-apps";
 import { eppStatusArt } from "../(catalogs)/_components/art/epp-status";
@@ -33,6 +35,7 @@ import { toolCatalogIcon } from "@/lib/tool-catalog-icons";
 import { ToolCatalogCard } from "@/app/ui/catalogs/tool-catalog-card";
 import { getSelfHostAppsStats } from "@/lib/apps";
 import { getFeeDirectory } from "@/lib/platform-fees/queries";
+import { getLaunchDirectorySnapshot, type LaunchDirectory } from "@/lib/launch-directories";
 import {
   getMainPublishedPages,
   getRequiredPublishedPage,
@@ -67,6 +70,7 @@ const pageIcons: Record<string, LucideIcon> = {
   "cli-apps": SquareTerminal,
   "epp-status-codes": ListChecks,
   "labs": FlaskConical,
+  "launch-directories": Rocket,
   "platform-fees": Receipt,
   "self-host-apps": HardDrive,
   "keyboard-shortcuts": Keyboard,
@@ -81,6 +85,7 @@ const pageArt: Record<string, string> = {
   "epp-status-codes": eppStatusArt,
   "keyboard-shortcuts": siteSpotKeyboardShortcutsArt,
   "labs": siteSpotLabsArt,
+  "launch-directories": siteSpotLaunchDirectoriesArt,
   "platform-fees": siteSpotPlatformFeesArt,
   "self-host-apps": siteSpotSelfHostAppsArt,
   "self-hosting-for-beginners": siteSpotCourseArt,
@@ -117,6 +122,7 @@ function HomeSidebar({ pages, catalogs }: { pages: Stack127Page[]; catalogs: Map
 async function buildCardStats(
   page: Stack127Page,
   appStats: Awaited<ReturnType<typeof getSelfHostAppsStats>>,
+  launchDirectories: LaunchDirectory[] | null,
 ): Promise<HomeStat[]> {
   const metric = (label: string, count: number): HomeStat => ({ label, value: count.toLocaleString("en-US") });
   switch (page.slug) {
@@ -125,6 +131,10 @@ async function buildCardStats(
     case "epp-status-codes": return [metric("status codes", STATUS_CODES.length)];
     case "tld-directory": return [metric("domain extensions", tldDirectory.rows.length)];
     case "labs": return [metric("projects", labProjects.length)];
+    case "launch-directories": {
+      if (!launchDirectories) throw new Error("Home card metric is missing its launch directory snapshot");
+      return [metric("places", launchDirectories.length), metric("categories", new Set(launchDirectories.flatMap((directory) => directory.categories)).size)];
+    }
     case "platform-fees": {
       const directory = await getFeeDirectory();
       return [metric("platforms", directory.entries.length), metric("categories", directory.sections.length)];
@@ -221,7 +231,9 @@ export default async function Home() {
     ...toolCatalogs.map((catalog) => catalog.page),
   ].sort((left, right) => Number(right.sitemap_priority) - Number(left.sitemap_priority) || left.label.localeCompare(right.label));
   const featurePages = mainPages.filter((page) => isHomeVisiblePage(page) && isHomeFeaturePage(page));
-  const cardStats = await Promise.all(featurePages.map((page) => buildCardStats(page, appStats)));
+  // One snapshot feeds both the card counts and the freshness marker, so they can't straddle a refresh.
+  const launchSnapshot = featurePages.some((page) => page.slug === "launch-directories") ? await getLaunchDirectorySnapshot() : null;
+  const cardStats = await Promise.all(featurePages.map((page) => buildCardStats(page, appStats, launchSnapshot?.directories ?? null)));
   const startItems = startHereItems(new Set([...featurePages.map((page) => page.slug), ...toolCatalogs.map((catalog) => catalog.page.slug)]));
 
   return (
@@ -241,6 +253,7 @@ export default async function Home() {
           </p>
         </header>
       </EntryHero>
+      {launchSnapshot ? <span data-launch-directories-revision={launchSnapshot.revision} hidden /> : null}
       <PageCanvas as="section" flow className="home-main" aria-labelledby="home-title">
         {toolCatalogs.length > 0 ? (
           <section className="home-catalogs" aria-labelledby="home-catalogs-title">

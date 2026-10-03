@@ -3,6 +3,7 @@
 import postgres from "npm:postgres@3.4.7";
 import { targetsForEvents } from "../../../scripts/stack127/cache/targets.mjs";
 import { refreshTargets, cacheBodyDigest, selectRevalidationBatch } from "../../../scripts/stack127/cache/refresh.mjs";
+import { launchDirectoryRevisionMatches } from "../../../lib/launch-directories-data.ts";
 
 declare const EdgeRuntime: { waitUntil(promise: Promise<unknown>): void };
 
@@ -178,7 +179,7 @@ async function processBatch(events: QueueEvent[], key: string) {
         return result.verified;
       },
       purge: purgeCloudflare,
-      warm: async (proofs: Array<{ path: string; status: number; revision: string | null; digest: string | null }>) => {
+      warm: async (proofs: Array<{ path: string; status: number; revision: string | null; digest: string | null; sourceRevision?: string | null }>) => {
         await Promise.all(proofs.map(async proof => {
           const response = await fetch(`${siteUrl}${proof.path}`, {
             signal: AbortSignal.timeout(Math.max(1, Math.min(20_000, deadline - Date.now()))),
@@ -186,6 +187,7 @@ async function processBatch(events: QueueEvent[], key: string) {
           const body = await response.text();
           if (response.status !== proof.status) throw new Error(`Public warm failed for ${proof.path}: HTTP ${response.status}`);
           if (proof.digest && await cacheBodyDigest(body) !== proof.digest) throw new Error(`Public API is stale: ${proof.path}`);
+          if (proof.sourceRevision && !launchDirectoryRevisionMatches(body, proof.sourceRevision)) throw new Error(`Public launch directory data is stale: ${proof.path}`);
           if (proof.revision && !body.includes(`name="stack127-content-revision" content="${proof.revision}"`)) throw new Error(`Public content is stale: ${proof.path}`);
         }));
       },

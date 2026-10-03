@@ -233,6 +233,15 @@
   }
 }
 
+@media (max-width: 960px) and (prefers-reduced-motion: reduce) {
+  .backdrop,
+  .backdrop.open,
+  .sidebar,
+  .sidebar.open {
+    transition: none;
+  }
+}
+
 @media print {
   .page {
     display: block;

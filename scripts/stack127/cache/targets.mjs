@@ -88,6 +88,7 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
     } else if (event.entity_type === "launch_directories") {
       nextTags.add(LAUNCH_DIRECTORIES_TAG);
       addPage("/launch-directories");
+      addPage("/");
     } else {
       throw new Error(`Unknown cache event type: ${event.entity_type}`);
     }

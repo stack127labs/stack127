@@ -1,0 +1,77 @@
+<!doctype html>
+<!--
+  Source for public/launch-directories/launch-directories-cover.jpg (1200 x 675).
+  It reuses the homepage spot art and the site fonts. To rebuild, from the repository root:
+
+  google-chrome --headless=new --no-sandbox --hide-scrollbars --force-device-scale-factor=1 \
+    --user-data-dir=/tmp/stack127/cover-chrome --window-size=1200,675 \
+    --screenshot=/tmp/stack127/launch-directories-cover.png \
+    "file://$PWD/app/(site)/art/site--spot-launch-directories-cover.html"
+
+  Then convert the PNG to a progressive JPG at about quality 82 with sharp, and keep it under 100 KB.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Launch directories cover</title>
+<style>
+  @font-face { font-family: "Space Grotesk"; src: url("../../fonts/space.woff2") format("woff2"); font-weight: 500 700; }
+  @font-face { font-family: "Inter"; src: url("../../fonts/inter.woff2") format("woff2"); font-weight: 400 600; }
+  @font-face { font-family: "IBM Plex Mono"; src: url("../../fonts/plex-400.woff2") format("woff2"); font-weight: 400; }
+
+  html, body { margin: 0; width: 1200px; height: 675px; overflow: hidden; }
+  body {
+    background-color: #101010;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Ccircle cx='1.5' cy='1.5' r='1.2' fill='%23f2f2ee2e'/%3E%3C/svg%3E");
+    background-size: 26px 26px;
+    color: #f2f2ee;
+    font-family: "Inter", sans-serif;
+  }
+  .frame {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    align-items: center;
+    gap: 40px;
+    height: 100%;
+    padding: 64px 72px 60px;
+  }
+  .copy { display: grid; align-content: space-between; height: 100%; }
+  .copy > * { background: #101010; width: fit-content; }
+  .wordmark { display: block; height: 34px; padding: 6px 8px 6px 0; }
+  h1 {
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    padding: 4px 8px 4px 0;
+  }
+  mark {
+    background: #bafc3c;
+    border-radius: 2px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    color: #141414;
+    padding: 0 0.14em;
+  }
+  .lede { margin: 26px 0 0; font-size: 27px; line-height: 1.4; max-width: 520px; padding: 4px 8px 4px 0; }
+  .url { margin: 0; color: #9d9c95; font-family: "IBM Plex Mono", monospace; font-size: 22px; padding: 4px 8px 4px 0; }
+  .art { width: 360px; height: auto; display: block; }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="copy">
+      <img alt="stack127" class="wordmark" src="../../../public/logos/stack127-wordmark-on-dark.png">
+      <div style="background: transparent">
+        <h1>Find the right place to <mark>launch your product</mark></h1>
+        <p class="lede">Compare cost, review time, link type, and who can submit.</p>
+      </div>
+      <p class="url">stack127.com/launch-directories</p>
+    </div>
+    <img alt="" class="art" src="site--spot-launch-directories.svg">
+  </div>
+</body>
+</html>

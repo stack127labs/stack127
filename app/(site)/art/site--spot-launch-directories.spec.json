@@ -1,0 +1,11 @@
+{
+  "id": "site--spot-launch-directories",
+  "type": "toolSpot",
+  "takeaway": "A product box rises along a launch path.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-02",
+  "width": 160,
+  "height": 120,
+  "seed": 12,
+  "data": { "icon": "box", "motif": "path" }
+}

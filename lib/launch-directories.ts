@@ -1,6 +1,8 @@
 import { getPool } from "./db";
 import { unstable_cache } from "next/cache";
 import { LAUNCH_DIRECTORIES_TAG } from "./cache-tags";
+import { LAUNCH_DIRECTORY_REVISION_SQL, launchDirectorySources, type LaunchDirectorySource } from "./launch-directories-data";
+import directoryIcons from "./launch-directory-icons.json";
 
 export type LaunchDirectory = {
   slug: string;
@@ -17,6 +19,10 @@ export type LaunchDirectory = {
   link_type_kind: "dofollow" | "nofollow" | "ugc" | "sponsored" | "multiple" | "varies" | "estimated_nofollow" | "none" | "unknown";
   link_type_label: string;
   eligibility_label: string;
+  icon_url: string | null;
+  checked_on: string | null;
+  example_listing_url: string | null;
+  source_links: LaunchDirectorySource[];
 };
 
 export const launchCategories = [
@@ -32,18 +38,41 @@ export const launchCategories = [
   { value: "community-posts", label: "Community posts", iconKey: "message" },
 ] as const;
 
-async function loadPublishedLaunchDirectories(): Promise<LaunchDirectory[]> {
-  const result = await getPool().query<LaunchDirectory>(`
-    select slug, name, website_url, submit_url, submission_status, categories, summary, best_for,
-      cost_kind, cost_label, review_time_label, link_type_kind,
-      link_type_label, eligibility_label
-    from public.launch_directories
-    where is_published = true
-    order by name
-  `);
-  return result.rows;
+async function loadLaunchDirectorySnapshot(): Promise<{ directories: LaunchDirectory[]; revision: string }> {
+  type Row = Omit<LaunchDirectory, "icon_url" | "source_links"> & { sources: string[]; evidence: unknown };
+  const client = await getPool().connect();
+  try {
+    await client.query("begin isolation level repeatable read read only");
+    const result = await client.query<Row>(`
+      select slug, name, website_url, submit_url, submission_status, categories, summary, best_for,
+        cost_kind, cost_label, review_time_label, link_type_kind,
+        link_type_label, eligibility_label, example_listing_url,
+        to_char(checked_on, 'YYYY-MM-DD') as checked_on, sources, evidence
+      from public.launch_directories
+      where is_published = true
+      order by name
+    `);
+    const versions = await client.query<{ fingerprint: string }>(LAUNCH_DIRECTORY_REVISION_SQL);
+    const revision = versions.rows[0]?.fingerprint;
+    if (!revision || !/^[a-f0-9]{32}$/.test(revision)) throw new Error("Launch directory source revision is missing");
+    await client.query("commit");
+    const icons: Record<string, string> = directoryIcons;
+    const directories = result.rows.map(({ sources, evidence, ...row }) => ({
+      ...row,
+      icon_url: icons[row.slug] ?? null,
+      source_links: launchDirectorySources(evidence, sources),
+    }));
+    return { directories, revision };
+  } catch (error) {
+    await client.query("rollback").catch(() => {});
+    throw error;
+  } finally { client.release(); }
 }
 
-export const getPublishedLaunchDirectories = unstable_cache(loadPublishedLaunchDirectories, ["stack127-launch-directories"], {
+export const getLaunchDirectorySnapshot = unstable_cache(loadLaunchDirectorySnapshot, ["stack127-launch-directories-snapshot"], {
   revalidate: false, tags: [LAUNCH_DIRECTORIES_TAG],
 });
+
+export async function getPublishedLaunchDirectories(): Promise<LaunchDirectory[]> {
+  return (await getLaunchDirectorySnapshot()).directories;
+}

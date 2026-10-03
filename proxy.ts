@@ -65,7 +65,7 @@ export async function proxy(request: NextRequest) {
   response.headers.set("Cache-Tag", tags.join(","));
   const filterQuery = new URLSearchParams(userQuery);
   filterQuery.delete("page");
-  const directory = new Set(["self-host-apps", "cli-apps", "zigbee-devices", "zigbee-coordinators", "matter-devices", "z-wave-devices", "nut-compatible-ups", "local-security-cameras"]);
+  const directory = new Set(["self-host-apps", "cli-apps", "launch-directories", "zigbee-devices", "zigbee-coordinators", "matter-devices", "z-wave-devices", "nut-compatible-ups", "local-security-cameras"]);
   response.headers.set("X-Stack127-Cache-Class", pathname === "/sitemap.xml" ? "sitemap" : filterQuery.size ? "filters" : pathname === "/" || directory.has(pathname.slice(1)) ? "directory" : "content");
   return withQueryIndexing(response);
 }

@@ -345,7 +345,7 @@ export function buildRegistryMetadata(state: PagePublicationState): Metadata {
     title: state.page.meta_title,
     other: { "stack127-content-revision": new Date(state.page.row_updated_at).toISOString() },
     twitter: {
-      card: "summary",
+      card: state.page.cover_image_url ? "summary_large_image" : "summary",
       description: state.page.meta_description,
       images: [image],
       title: state.page.meta_title,

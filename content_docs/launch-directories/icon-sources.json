@@ -1,0 +1,2221 @@
+{
+  "aeo-tools-space": {
+    "status": "unavailable",
+    "source_url": "https://aeotools.mihirnaik.com/",
+    "page_url": "https://aeotools.mihirnaik.com/",
+    "checked_at": "2026-10-02T19:05:14.765Z",
+    "note": "No valid brand image was found among the official page metadata and checked same-origin image paths (homepage HTTP 503).",
+    "alternatives_attempted": [
+      {
+        "url": "https://aeotools.mihirnaik.com/favicon.ico",
+        "status": 503,
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://aeotools.mihirnaik.com/favicon.png",
+        "status": 503,
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://aeotools.mihirnaik.com/apple-touch-icon.png",
+        "status": 503,
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://aeotools.mihirnaik.com/icon.png",
+        "status": 503,
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://aeotools.mihirnaik.com/logo.svg",
+        "status": 503,
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://aeotools.mihirnaik.com/logo.png",
+        "status": 503,
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "ai-agent-store": {
+    "status": "usable",
+    "source_url": "https://aiagentstore.ai/logo.png",
+    "page_url": "https://aiagentstore.ai/",
+    "checked_at": "2026-10-02T16:07:23.071Z",
+    "kind": "favicon",
+    "source_dimensions": "969x969",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "ai-agents-directory": {
+    "status": "usable",
+    "source_url": "https://aiagentsdirectory.com/favicon.ico",
+    "page_url": "https://aiagentsdirectory.com/",
+    "checked_at": "2026-10-02T16:07:29.539Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "ai-depot": {
+    "status": "usable",
+    "source_url": "https://aidepot.co/icon.png",
+    "page_url": "https://aidepot.co/",
+    "checked_at": "2026-10-02T16:07:30.941Z",
+    "kind": "favicon",
+    "source_dimensions": "200x200",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "ai-finder": {
+    "status": "unavailable",
+    "source_url": "https://ai-finder.net/",
+    "page_url": "https://www.hugedomains.com/domain_profile.cfm?d=ai-finder.net",
+    "checked_at": "2026-10-02T19:05:14.771Z",
+    "note": "The current domain redirects to a parked sales page (www.hugedomains.com); that page's icon was not used.",
+    "alternatives_attempted": []
+  },
+  "ai-hubs": {
+    "status": "usable",
+    "source_url": "https://aihubs.ai/favicon.ico",
+    "page_url": "https://aihubs.ai/",
+    "checked_at": "2026-10-02T16:07:41.209Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "ai-hunt-list": {
+    "status": "usable",
+    "source_url": "https://aihuntlist.com/icon-192.png",
+    "page_url": "https://aihuntlist.com/",
+    "checked_at": "2026-10-02T16:07:46.319Z",
+    "kind": "favicon",
+    "source_dimensions": "192x192",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "ai-parabellum": {
+    "status": "usable",
+    "source_url": "https://aiparabellum.com/wp-content/uploads/2026/07/cropped-aip512-32x32.png",
+    "page_url": "https://aiparabellum.com/",
+    "checked_at": "2026-10-02T16:07:48.357Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "ai-scout": {
+    "status": "unavailable",
+    "source_url": "https://aiscout.net/",
+    "page_url": "https://aiscout.net/",
+    "checked_at": "2026-10-02T19:05:14.772Z",
+    "note": "The official page and checked same-origin image paths did not provide a valid brand image.",
+    "alternatives_attempted": [
+      {
+        "url": "https://aiscout.net/favicon.ico",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://aiscout.net/favicon.png",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://aiscout.net/apple-touch-icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://aiscout.net/icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://aiscout.net/logo.svg",
+        "status": "request-failed",
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://aiscout.net/logo.png",
+        "status": "request-failed",
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "ai-tools-aitools-inc": {
+    "status": "usable",
+    "source_url": "https://aitools.inc/icon-512.png",
+    "page_url": "https://aitools.inc/",
+    "checked_at": "2026-10-02T16:08:13.724Z",
+    "kind": "favicon",
+    "source_dimensions": "512x512",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "ai-tools-board": {
+    "status": "usable",
+    "source_url": "https://aitoolsboard.com/favicon.ico",
+    "page_url": "https://aitoolsboard.com/",
+    "checked_at": "2026-10-02T16:08:15.160Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 403."
+  },
+  "ai-tools-corner": {
+    "status": "unavailable",
+    "source_url": "https://aitoolscorner.com/",
+    "page_url": "https://aitoolscorner.com/",
+    "checked_at": "2026-10-02T20:52:34.946Z",
+    "note": "No valid brand image was found among the official page metadata and checked same-origin image paths (homepage HTTP 200).",
+    "alternatives_attempted": [
+      {
+        "url": "https://aitoolscorner.com/favicon.ico",
+        "status": 404,
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://aitoolscorner.com/favicon.png",
+        "status": 404,
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://aitoolscorner.com/apple-touch-icon.png",
+        "status": 404,
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://aitoolscorner.com/icon.png",
+        "status": 404,
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://aitoolscorner.com/logo.svg",
+        "status": 404,
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://aitoolscorner.com/logo.png",
+        "status": 404,
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "ai-tools-directory": {
+    "status": "usable",
+    "source_url": "https://aitoolsdirectory.com/favicon-32x32.png?v=2",
+    "page_url": "https://aitoolsdirectory.com/",
+    "checked_at": "2026-10-02T16:08:18.547Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "ai-tools-list": {
+    "status": "usable",
+    "source_url": "https://aitoolslist.io/wp-content/uploads/2023/01/cropped-AI-Tools-List-1-32x32.png",
+    "page_url": "https://aitoolslist.io/",
+    "checked_at": "2026-10-02T16:08:22.589Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "ai-tools-love": {
+    "status": "unavailable",
+    "source_url": "https://aitools.love/",
+    "page_url": "https://aitools.love/",
+    "checked_at": "2026-10-02T19:05:23.111Z",
+    "note": "The official page and checked same-origin image paths did not provide a valid brand image.",
+    "alternatives_attempted": [
+      {
+        "url": "https://aitools.love/favicon.ico",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://aitools.love/favicon.png",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://aitools.love/apple-touch-icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://aitools.love/icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://aitools.love/logo.svg",
+        "status": "request-failed",
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://aitools.love/logo.png",
+        "status": "request-failed",
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "ai-valley": {
+    "status": "unavailable",
+    "source_url": "https://aivalley.ai/",
+    "page_url": "https://aivalley.ai/",
+    "checked_at": "2026-10-02T19:05:24.181Z",
+    "note": "The homepage presented a browser or CAPTCHA challenge; its challenge assets were not used.",
+    "alternatives_attempted": [
+      {
+        "url": "https://aivalley.ai/favicon.ico",
+        "status": 404,
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://aivalley.ai/favicon.png",
+        "status": 404,
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://aivalley.ai/apple-touch-icon.png",
+        "status": 404,
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://aivalley.ai/icon.png",
+        "status": 404,
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://aivalley.ai/logo.svg",
+        "status": 404,
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://aivalley.ai/logo.png",
+        "status": 404,
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "ainave": {
+    "status": "usable",
+    "source_url": "https://ainave.com/img/icon.svg",
+    "page_url": "https://ainave.com/",
+    "checked_at": "2026-10-02T16:08:27.043Z",
+    "kind": "favicon",
+    "source_dimensions": "4145x4140",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "aitoolboard": {
+    "status": "usable",
+    "source_url": "https://aitoolboard.com/favicon.ico",
+    "page_url": "https://aitoolboard.com/",
+    "checked_at": "2026-10-02T16:08:30.167Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "aitoptools": {
+    "status": "usable",
+    "source_url": "https://aitoptools.com/favicon-white-precise.png",
+    "page_url": "https://aitoptools.com/",
+    "checked_at": "2026-10-02T16:08:35.364Z",
+    "kind": "apple-touch-icon",
+    "source_dimensions": "1254x1254",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "aixploria": {
+    "status": "usable",
+    "source_url": "https://www.aixploria.com/wp-content/uploads/2023/09/aixploria-favicon-25.webp",
+    "page_url": "https://www.aixploria.com/en/",
+    "checked_at": "2026-10-02T16:08:37.948Z",
+    "kind": "favicon",
+    "source_dimensions": "512x512",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "alltopstartups": {
+    "status": "usable",
+    "source_url": "https://alltopstartups.com/wp-content/uploads/2018/11/cropped-Alltopstartups-32x32.png",
+    "page_url": "https://alltopstartups.com/",
+    "checked_at": "2026-10-02T16:08:40.300Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "alternative-me": {
+    "status": "usable",
+    "source_url": "https://alternative.me/apple-touch-icon.png",
+    "page_url": "https://alternative.me/",
+    "checked_at": "2026-10-02T16:08:45.122Z",
+    "kind": "apple-touch-icon",
+    "source_dimensions": "120x120",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "alternativeto": {
+    "status": "usable",
+    "source_url": "https://alternativeto.net/static/icons/a2/favicon.ico",
+    "page_url": "https://alternativeto.net/",
+    "checked_at": "2026-10-02T16:08:47.751Z",
+    "kind": "favicon",
+    "source_dimensions": "64x64",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "api-list": {
+    "status": "usable",
+    "source_url": "https://apilist.fun/images/favicon.png",
+    "page_url": "https://apilist.fun/",
+    "checked_at": "2026-10-02T16:08:51.024Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "apple-app-store": {
+    "status": "usable",
+    "source_url": "https://www.apple.com/favicon.ico",
+    "page_url": "https://www.apple.com/app-store/",
+    "checked_at": "2026-10-02T16:08:52.743Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "64x64",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "apprater": {
+    "status": "usable",
+    "source_url": "https://apprater.net/icon.svg?icon.3-e7-6m1s3_pf.svg",
+    "page_url": "https://apprater.net/",
+    "checked_at": "2026-10-02T16:08:54.334Z",
+    "kind": "favicon",
+    "source_dimensions": "512x512",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "atlassian-marketplace": {
+    "status": "usable",
+    "source_url": "https://marketplace.atlassian.com/amkt-frontend-static/public/favicon.ico",
+    "page_url": "https://marketplace.atlassian.com/",
+    "checked_at": "2026-10-02T16:08:58.860Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "awesome-self-hosted": {
+    "status": "usable",
+    "source_url": "https://awesome-selfhosted.net/_static/favicon.ico",
+    "page_url": "https://awesome-selfhosted.net/",
+    "checked_at": "2026-10-02T16:09:04.978Z",
+    "kind": "favicon",
+    "source_dimensions": "64x64",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "betabound": {
+    "status": "usable",
+    "source_url": "https://betabound.com/wp-content/themes/betabound-2018/library/images/touch-icon-iphone.png",
+    "page_url": "https://betabound.com/",
+    "checked_at": "2026-10-02T16:09:09.592Z",
+    "kind": "apple-touch-icon",
+    "source_dimensions": "60x60",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "betalist": {
+    "status": "usable",
+    "source_url": "https://betalist.com/assets/favicon-fb6ee938.png",
+    "page_url": "https://betalist.com/",
+    "checked_at": "2026-10-02T16:09:11.101Z",
+    "kind": "favicon",
+    "source_dimensions": "256x256",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "capterra": {
+    "status": "usable",
+    "source_url": "https://www.capterra.com/favicon.ico?favicon.1vc087w-3u32w.ico",
+    "page_url": "https://www.capterra.com/",
+    "checked_at": "2026-10-02T16:09:14.200Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "chrome-web-store": {
+    "status": "usable",
+    "source_url": "https://ssl.gstatic.com/chrome/webstore/images/icon_48px.png",
+    "page_url": "https://chromewebstore.google.com/",
+    "checked_at": "2026-10-02T16:09:16.683Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "cline-mcp-marketplace": {
+    "status": "usable",
+    "source_url": "https://cline.bot/assets/branding/favicons/favicon-16x16.png",
+    "page_url": "https://cline.bot/mcp-marketplace",
+    "checked_at": "2026-10-02T16:09:22.851Z",
+    "kind": "favicon",
+    "source_dimensions": "16x16",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "coglist-ai": {
+    "status": "unavailable",
+    "source_url": "https://coglist.com/",
+    "page_url": "https://coglist.com/",
+    "checked_at": "2026-10-02T19:05:26.576Z",
+    "note": "The official page and checked same-origin image paths did not provide a valid brand image.",
+    "alternatives_attempted": [
+      {
+        "url": "https://coglist.com/favicon.ico",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://coglist.com/favicon.png",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://coglist.com/apple-touch-icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://coglist.com/icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://coglist.com/logo.svg",
+        "status": "request-failed",
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://coglist.com/logo.png",
+        "status": "request-failed",
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "comingup": {
+    "status": "usable",
+    "source_url": "https://www.comingup.io/logo.png",
+    "page_url": "https://www.comingup.io/",
+    "checked_at": "2026-10-02T16:09:31.375Z",
+    "kind": "twitter:image",
+    "source_dimensions": "512x512",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "comparecamp": {
+    "status": "usable",
+    "source_url": "https://comparecamp.com/favicon.ico",
+    "page_url": "https://comparecamp.com/",
+    "checked_at": "2026-10-02T16:09:35.411Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "80x80",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "cool-startups": {
+    "status": "unavailable",
+    "source_url": "https://coolstartups.io/",
+    "page_url": "https://coolstartups.io/",
+    "checked_at": "2026-10-02T19:05:28.323Z",
+    "note": "The official page and checked same-origin image paths did not provide a valid brand image.",
+    "alternatives_attempted": [
+      {
+        "url": "https://coolstartups.io/favicon.ico",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://coolstartups.io/favicon.png",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://coolstartups.io/apple-touch-icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://coolstartups.io/icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://coolstartups.io/logo.svg",
+        "status": "request-failed",
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://coolstartups.io/logo.png",
+        "status": "request-failed",
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "crozdesk": {
+    "status": "usable",
+    "source_url": "https://assets.crozdesk.com/assets/favicon-d78d66a9d814d4c4ec75a1e794895d9e5542b2c750fa1621d87d6522f767ff28.ico",
+    "page_url": "https://crozdesk.com/",
+    "checked_at": "2026-10-02T16:09:39.601Z",
+    "kind": "favicon",
+    "source_dimensions": "256x256",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "crunchbase": {
+    "status": "usable",
+    "source_url": "https://www.crunchbase.com/favicon.ico",
+    "page_url": "https://www.crunchbase.com/",
+    "checked_at": "2026-10-02T16:09:41.984Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "devhunt": {
+    "status": "usable",
+    "source_url": "https://devhunt.org/favicon.ico",
+    "page_url": "https://devhunt.org/",
+    "checked_at": "2026-10-02T16:09:43.747Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "docker-mcp-catalog": {
+    "status": "usable",
+    "source_url": "https://hub.docker.com/favicon.ico",
+    "page_url": "https://hub.docker.com/mcp",
+    "checked_at": "2026-10-02T16:09:46.891Z",
+    "kind": "favicon",
+    "source_dimensions": "65x65",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "easy-with-ai": {
+    "status": "usable",
+    "source_url": "https://easywithai.com/storage/2023/01/Favicon-49x49.png",
+    "page_url": "https://easywithai.com/",
+    "checked_at": "2026-10-02T16:09:49.843Z",
+    "kind": "favicon",
+    "source_dimensions": "49x49",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "eliteai-tools": {
+    "status": "usable",
+    "source_url": "https://eliteai.tools/favicon.ico",
+    "page_url": "https://eliteai.tools/",
+    "checked_at": "2026-10-02T16:09:52.068Z",
+    "kind": "favicon",
+    "source_dimensions": "512x512",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "erli-bird": {
+    "status": "usable",
+    "source_url": "https://erlibird.com/favicon.ico",
+    "page_url": "https://erlibird.com/",
+    "checked_at": "2026-10-02T16:58:00Z",
+    "kind": "original-domain-favicon",
+    "source_dimensions": "48x48",
+    "note": "Official asset fetched from the inventoried domain even though the homepage was unavailable."
+  },
+  "everydev-ai": {
+    "status": "usable",
+    "source_url": "https://www.everydev.ai/favicon.ico",
+    "page_url": "https://www.everydev.ai/",
+    "checked_at": "2026-10-02T16:10:10.496Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "extensionboss": {
+    "status": "unavailable",
+    "source_url": "https://extensionboss.com/",
+    "page_url": "https://extensionboss.com/",
+    "checked_at": "2026-10-02T19:05:29.246Z",
+    "note": "No usable brand image was found during this pass. An earlier browser check redirected to HugeDomains, but this repeat did not confirm the parked-page redirect; current site status remains uncertain.",
+    "alternatives_attempted": [
+      {
+        "url": "https://extensionboss.com/favicon.ico",
+        "status": 404,
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://extensionboss.com/favicon.png",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://extensionboss.com/apple-touch-icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://extensionboss.com/icon.png",
+        "status": 404,
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://extensionboss.com/logo.svg",
+        "status": 200,
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://extensionboss.com/logo.png",
+        "status": 404,
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "f6s": {
+    "status": "usable",
+    "source_url": "https://www.f6s.com/favicon.ico",
+    "page_url": "https://www.f6s.com/",
+    "checked_at": "2026-10-02T16:10:20.011Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "fastlaunch": {
+    "status": "usable",
+    "source_url": "https://fastlaunch.io/favicon.ico",
+    "page_url": "https://fastlaunch.io/",
+    "checked_at": "2026-10-02T16:10:21.686Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200."
+  },
+  "fazier": {
+    "status": "usable",
+    "source_url": "https://fazier.com/favicon.ico",
+    "page_url": "https://fazier.com/",
+    "checked_at": "2026-10-02T16:10:25.178Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "192x192",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "featuredcustomers": {
+    "status": "usable",
+    "source_url": "https://www.featuredcustomers.com/sstat/website/images/favicon.ico",
+    "page_url": "https://www.featuredcustomers.com/",
+    "checked_at": "2026-10-02T16:10:30.760Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "figma-community": {
+    "status": "usable",
+    "source_url": "https://static.figma.com/uploads/1a667ef53b7c4837049399d0593ffca39e0bec9e",
+    "page_url": "https://www.figma.com/community",
+    "checked_at": "2026-10-02T16:10:34.672Z",
+    "kind": "favicon",
+    "source_dimensions": "192x192",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "financesonline": {
+    "status": "unavailable",
+    "source_url": "https://www.financesonline.com/",
+    "page_url": "https://www.financesonline.com/",
+    "checked_at": "2026-10-02T19:05:29.812Z",
+    "note": "The official page and checked same-origin image paths did not provide a valid brand image.",
+    "alternatives_attempted": [
+      {
+        "url": "https://www.financesonline.com/favicon.ico",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://www.financesonline.com/favicon.png",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://www.financesonline.com/apple-touch-icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://www.financesonline.com/icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://www.financesonline.com/logo.svg",
+        "status": "request-failed",
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://www.financesonline.com/logo.png",
+        "status": "request-failed",
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "findmyaitool": {
+    "status": "usable",
+    "source_url": "https://findmyaitool.com/favicon.ico",
+    "page_url": "https://findmyaitool.com/",
+    "checked_at": "2026-10-02T16:11:51.268Z",
+    "kind": "favicon",
+    "source_dimensions": "234x234",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "firefox-add-ons": {
+    "status": "usable",
+    "source_url": "https://addons.mozilla.org/favicon.ico",
+    "page_url": "https://addons.mozilla.org/en-US/firefox/",
+    "checked_at": "2026-10-02T16:11:55.154Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "free-for-dev": {
+    "status": "usable",
+    "source_url": "https://free-for.dev/logo.webp",
+    "page_url": "https://free-for.dev/#/",
+    "checked_at": "2026-10-02T16:11:55.964Z",
+    "kind": "favicon",
+    "source_dimensions": "250x250",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "free-software-directory": {
+    "status": "usable",
+    "source_url": "https://directory.fsf.org/favicon.ico",
+    "page_url": "https://directory.fsf.org/wiki/Main_Page",
+    "checked_at": "2026-10-02T16:12:01.663Z",
+    "kind": "favicon",
+    "source_dimensions": "16x16",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "futurepedia": {
+    "status": "usable",
+    "source_url": "https://www.futurepedia.io/favicon.ico?favicon.0gt653o.60x8s.ico",
+    "page_url": "https://www.futurepedia.io/",
+    "checked_at": "2026-10-02T16:12:06.554Z",
+    "kind": "favicon",
+    "source_dimensions": "256x256",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "futuretools": {
+    "status": "usable",
+    "source_url": "https://futuretools.io/favicon.ico?favicon.2vob68tjqpejf.ico",
+    "page_url": "https://futuretools.io/",
+    "checked_at": "2026-10-02T16:12:13.436Z",
+    "kind": "favicon",
+    "source_dimensions": "256x256",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "g2": {
+    "status": "usable",
+    "source_url": "https://www.g2.com/favicon.ico",
+    "page_url": "https://www.g2.com/",
+    "checked_at": "2026-10-02T16:12:17.050Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 403."
+  },
+  "getapp": {
+    "status": "usable",
+    "source_url": "https://www.getapp.com/apple-touch-icon.png",
+    "page_url": "https://www.getapp.com/",
+    "checked_at": "2026-10-02T16:12:31.563Z",
+    "kind": "apple-touch-icon",
+    "source_dimensions": "180x180",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "goodfirms": {
+    "status": "usable",
+    "source_url": "https://www.goodfirms.co/favicon.ico",
+    "page_url": "https://www.goodfirms.co/",
+    "checked_at": "2026-10-02T16:12:36.834Z",
+    "kind": "favicon",
+    "source_dimensions": "16x16",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "google-play": {
+    "status": "usable",
+    "source_url": "https://www.gstatic.com/android/market_images/web/favicon_v3.ico",
+    "page_url": "https://play.google.com/store/games",
+    "checked_at": "2026-10-02T16:12:41.437Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "hype-desk": {
+    "status": "unavailable",
+    "source_url": "https://hypedesk.com/",
+    "page_url": "https://hypedesk.com/",
+    "checked_at": "2026-10-02T19:05:32.089Z",
+    "note": "No valid brand image was found among the official page metadata and checked same-origin image paths (homepage HTTP 200).",
+    "alternatives_attempted": [
+      {
+        "url": "https://hypedesk.com/favicon.ico",
+        "status": 204,
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://hypedesk.com/favicon.png",
+        "status": 200,
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://hypedesk.com/apple-touch-icon.png",
+        "status": 200,
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://hypedesk.com/icon.png",
+        "status": 200,
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://hypedesk.com/logo.svg",
+        "status": 200,
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://hypedesk.com/logo.png",
+        "status": 200,
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "indieextensions": {
+    "status": "unavailable",
+    "source_url": "https://indieextensions.com/",
+    "page_url": "https://indieextensions.com/",
+    "checked_at": "2026-10-02T19:05:42.004Z",
+    "note": "The official page and checked same-origin image paths did not provide a valid brand image.",
+    "alternatives_attempted": [
+      {
+        "url": "https://indieextensions.com/favicon.ico",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://indieextensions.com/favicon.png",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://indieextensions.com/apple-touch-icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://indieextensions.com/icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://indieextensions.com/logo.svg",
+        "status": "request-failed",
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://indieextensions.com/logo.png",
+        "status": "request-failed",
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "indiehunt": {
+    "status": "usable",
+    "source_url": "https://indiehunt.io/favicon.ico",
+    "page_url": "https://indiehunt.io/",
+    "checked_at": "2026-10-02T16:12:48.614Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "indieproducts": {
+    "status": "usable",
+    "source_url": "https://www.indieproducts.io/favicon.ico",
+    "page_url": "https://www.indieproducts.io/",
+    "checked_at": "2026-10-02T16:12:52.387Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "insidr-ai": {
+    "status": "usable",
+    "source_url": "https://usercontent.one/wp/www.insidr.ai/wp-content/uploads/2023/01/insidr-ai_logo_small_gradient-white-2-100x100.png",
+    "page_url": "https://www.insidr.ai/",
+    "checked_at": "2026-10-02T16:13:07.044Z",
+    "kind": "favicon",
+    "source_dimensions": "100x100",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "itqlick": {
+    "status": "usable",
+    "source_url": "https://www.itqlick.com/favicon.ico",
+    "page_url": "https://www.itqlick.com/",
+    "checked_at": "2026-10-02T16:13:12.472Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "jetbrains-marketplace": {
+    "status": "usable",
+    "source_url": "https://resources.jetbrains.com/storage/ui/favicons/favicon.ico",
+    "page_url": "https://plugins.jetbrains.com/",
+    "checked_at": "2026-10-02T16:13:15.919Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "kick-product": {
+    "status": "usable",
+    "source_url": "https://www.kickproduct.com/favicon.ico",
+    "page_url": "https://www.kickproduct.com/",
+    "checked_at": "2026-10-02T16:13:19.813Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "killerstartups": {
+    "status": "usable",
+    "source_url": "https://killerstartups.com/wp-content/uploads/2023/01/cropped-KS-Square-1-32x32.png",
+    "page_url": "https://killerstartups.com/",
+    "checked_at": "2026-10-02T16:13:23.553Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "land-book": {
+    "status": "usable",
+    "source_url": "https://land-book.com/images/favicon.png",
+    "page_url": "https://land-book.com/",
+    "checked_at": "2026-10-02T16:13:26.001Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "lapa-ninja": {
+    "status": "usable",
+    "source_url": "https://www.lapa.ninja/favicon.ico",
+    "page_url": "https://www.lapa.ninja/",
+    "checked_at": "2026-10-02T16:13:29.673Z",
+    "kind": "favicon",
+    "source_dimensions": "64x64",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "launchboard": {
+    "status": "usable",
+    "source_url": "https://www.launchboard.dev/favicon.ico",
+    "page_url": "https://www.launchboard.dev/",
+    "checked_at": "2026-10-02T16:13:39.706Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 429, homepage HTTP 200."
+  },
+  "launchdb": {
+    "status": "usable",
+    "source_url": "https://bigideasdb.com/favicon.ico",
+    "page_url": "https://bigideasdb.com/launchdb",
+    "checked_at": "2026-10-02T16:13:42.397Z",
+    "kind": "favicon",
+    "source_dimensions": "500x500",
+    "note": "Official site asset; HTTP 429, homepage HTTP 200."
+  },
+  "launching-next": {
+    "status": "usable",
+    "source_url": "https://www.launchingnext.com/images/favicon.ico",
+    "page_url": "https://www.launchingnext.com/",
+    "checked_at": "2026-10-02T16:13:51.528Z",
+    "kind": "favicon",
+    "source_dimensions": "16x16",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "launchvault": {
+    "status": "usable",
+    "source_url": "https://www.launchvault.dev/favicon.ico",
+    "page_url": "https://www.launchvault.dev/",
+    "checked_at": "2026-10-02T16:13:55.428Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "libhunt": {
+    "status": "unavailable",
+    "source_url": "https://www.libhunt.com/",
+    "page_url": "https://www.libhunt.com/?__cf_chl_rt_tk=.pF77cFRWDsBs8tg5g5pzVMsUsFCD4TRffZTQGu4qXE-1790967946-1.0.1.1-4Okj_94IiE09E6AY9PsWuLFYTrHFuTNeneUrzlpCYj4",
+    "checked_at": "2026-10-02T19:05:44.256Z",
+    "note": "The homepage presented a browser or CAPTCHA challenge; its challenge assets were not used.",
+    "alternatives_attempted": [
+      {
+        "url": "https://www.libhunt.com/favicon.ico",
+        "status": 403,
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://www.libhunt.com/favicon.png",
+        "status": 403,
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://www.libhunt.com/apple-touch-icon.png",
+        "status": 403,
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://www.libhunt.com/icon.png",
+        "status": 403,
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://www.libhunt.com/logo.svg",
+        "status": 403,
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://www.libhunt.com/logo.png",
+        "status": 403,
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "lobehub-mcp-marketplace": {
+    "status": "usable",
+    "source_url": "https://lobehub.com/apple-touch-icon.png",
+    "page_url": "https://lobehub.com/mcp",
+    "checked_at": "2026-10-02T16:13:58.482Z",
+    "kind": "apple-touch-icon",
+    "source_dimensions": "180x180",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "make-integrations": {
+    "status": "usable",
+    "source_url": "https://www.make.com/en/favicon-32x32.png",
+    "page_url": "https://www.make.com/en/integrations",
+    "checked_at": "2026-10-02T16:14:00.694Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "makerlist": {
+    "status": "usable",
+    "source_url": "https://makerlist.io/assets/img/logo.png?v=2",
+    "page_url": "https://makerlist.io/",
+    "checked_at": "2026-10-02T16:14:05.411Z",
+    "kind": "favicon",
+    "source_dimensions": "100x100",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "marketingtools-com": {
+    "status": "unavailable",
+    "source_url": "https://marketingtools.com/",
+    "page_url": "https://marketingtools.com/",
+    "checked_at": "2026-10-02T19:05:49.203Z",
+    "note": "The official page and checked same-origin image paths did not provide a valid brand image.",
+    "alternatives_attempted": [
+      {
+        "url": "https://marketingtools.com/favicon.ico",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://marketingtools.com/favicon.png",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://marketingtools.com/apple-touch-icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://marketingtools.com/icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://marketingtools.com/logo.svg",
+        "status": "request-failed",
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://marketingtools.com/logo.png",
+        "status": "request-failed",
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "mcp-so": {
+    "status": "usable",
+    "source_url": "https://mcp.so/favicon.ico",
+    "page_url": "https://mcp.so/",
+    "checked_at": "2026-10-02T16:15:17.223Z",
+    "kind": "favicon",
+    "source_dimensions": "478x480",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "mcpservers-org": {
+    "status": "usable",
+    "source_url": "https://mcpservers.org/icon.png",
+    "page_url": "https://mcpservers.org/",
+    "checked_at": "2026-10-02T16:15:19.933Z",
+    "kind": "favicon",
+    "source_dimensions": "387x387",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "micro-launch": {
+    "status": "usable",
+    "source_url": "https://microlaunch.net/favicon.ico",
+    "page_url": "https://microlaunch.net/",
+    "checked_at": "2026-10-02T16:15:25.223Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "microsoft-edge-addons": {
+    "status": "usable",
+    "source_url": "https://microsoftedge.microsoft.com/favicon.ico",
+    "page_url": "https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home",
+    "checked_at": "2026-10-02T16:15:34.070Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "16x16",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "microsoft-marketplace": {
+    "status": "usable",
+    "source_url": "https://marketplace.microsoft.com/favicon.ico",
+    "page_url": "https://marketplace.microsoft.com/en-us/",
+    "checked_at": "2026-10-02T16:15:40.183Z",
+    "kind": "favicon",
+    "source_dimensions": "128x128",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "nextbigwhat": {
+    "status": "unavailable",
+    "source_url": "https://nextbigwhat.com/favicon.ico",
+    "page_url": "https://nextbigwhat.com/",
+    "checked_at": "2026-10-02T16:15:44.227Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "16x16",
+    "note": "The fetched official favicon was a blank, opaque white 16x16 image and is not usable."
+  },
+  "nick-launches": {
+    "status": "usable",
+    "source_url": "https://nicklaunches.com/favicon.ico",
+    "page_url": "https://nicklaunches.com/",
+    "checked_at": "2026-10-02T16:16:00.705Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "100x100",
+    "note": "Official site asset; HTTP 200."
+  },
+  "nocode-tech": {
+    "status": "usable",
+    "source_url": "https://www.nocode.tech/favicon.ico?favicon.0x3dzn~oxb6tn.ico",
+    "page_url": "https://www.nocode.tech/",
+    "checked_at": "2026-10-02T16:16:04.579Z",
+    "kind": "favicon",
+    "source_dimensions": "256x256",
+    "note": "Official site asset; HTTP 429, homepage HTTP 200."
+  },
+  "nocodefinder": {
+    "status": "usable",
+    "source_url": "https://cdn.prod.website-files.com/6340206aa5e5eb7c36a242a9/668408192ac40a15f47aa242_favicon_32x32.webp",
+    "page_url": "https://www.nocodefinder.com/",
+    "checked_at": "2026-10-02T16:16:07.000Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "nocodelist": {
+    "status": "usable",
+    "source_url": "https://3cc61b509a1e91861ba8aeeffdbf8a17.cdn.bubble.io/cdn-cgi/image/w=128,h=,f=auto,dpr=1,fit=contain/f1637734581141x777866946441778700/NoCodeList_favicon.png",
+    "page_url": "https://nocodelist.co/",
+    "checked_at": "2026-10-02T16:16:15.956Z",
+    "kind": "favicon",
+    "source_dimensions": "128x128",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "notion-integrations": {
+    "status": "usable",
+    "source_url": "https://www.notion.com/front-static/shared/templates/favicon.ico",
+    "page_url": "https://www.notion.com/connections",
+    "checked_at": "2026-10-02T16:16:21.018Z",
+    "kind": "favicon",
+    "source_dimensions": "40x40",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "official-mcp-registry": {
+    "status": "usable",
+    "source_url": "https://avatars.githubusercontent.com/u/182288589?s=200&v=4",
+    "page_url": "https://github.com/modelcontextprotocol",
+    "checked_at": "2026-10-02T19:14:56.339Z",
+    "kind": "verified official organization avatar",
+    "source_dimensions": "200x200",
+    "note": "The official Model Context Protocol GitHub organization profile links this avatar and verifies control of modelcontextprotocol.io. No registry-specific icon was found."
+  },
+  "omr-reviews": {
+    "status": "usable",
+    "source_url": "https://storage.googleapis.com/reviews-api-production/OMR_Square.png",
+    "page_url": "https://omr.com/en/reviews",
+    "checked_at": "2026-10-02T16:16:32.856Z",
+    "kind": "favicon",
+    "source_dimensions": "1080x1080",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "one-page-love": {
+    "status": "usable",
+    "source_url": "https://onepagelove.com/wp-content/themes/onepagelove/frontend/img/favicon/favicon-32x32.png",
+    "page_url": "https://onepagelove.com/",
+    "checked_at": "2026-10-02T16:16:35.218Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "open-source-alternative": {
+    "status": "usable",
+    "source_url": "https://opensourcealternative.to/favicon.ico",
+    "page_url": "https://opensourcealternative.to/",
+    "checked_at": "2026-10-02T16:16:38.620Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "open-source-software-directory": {
+    "status": "usable",
+    "source_url": "https://opensourcesoftwaredirectory.com/assets/images/favicon.ico?v=5",
+    "page_url": "https://opensourcesoftwaredirectory.com/",
+    "checked_at": "2026-10-02T19:05:52.597Z",
+    "kind": "favicon",
+    "source_dimensions": "15x16",
+    "note": "Official site image returned HTTP 200; homepage returned HTTP 200."
+  },
+  "openalternative": {
+    "status": "usable",
+    "source_url": "https://openalternative.co/favicon.ico",
+    "page_url": "https://openalternative.co/",
+    "checked_at": "2026-10-02T16:16:50.708Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "openfuture-ai": {
+    "status": "usable",
+    "source_url": "https://openfuture.ai/assets/img/favicon.ico",
+    "page_url": "https://openfuture.ai/",
+    "checked_at": "2026-10-02T16:16:53.754Z",
+    "kind": "favicon",
+    "source_dimensions": "82x82",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "openhunts": {
+    "status": "usable",
+    "source_url": "https://openhunts.com/favicon.ico?favicon.32cnp5yc60r24.ico",
+    "page_url": "https://openhunts.com/",
+    "checked_at": "2026-10-02T16:17:02.597Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "opentools": {
+    "status": "usable",
+    "source_url": "https://opentools.ai/favicon.ico",
+    "page_url": "https://opentools.ai/",
+    "checked_at": "2026-10-02T16:17:08.789Z",
+    "kind": "favicon",
+    "source_dimensions": "532x531",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "peerlist-launchpad": {
+    "status": "usable",
+    "source_url": "https://peerlist.io/favicon.ico",
+    "page_url": "https://peerlist.io/",
+    "checked_at": "2026-10-02T16:17:20.992Z",
+    "kind": "favicon",
+    "source_dimensions": "256x256",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "peerpush": {
+    "status": "usable",
+    "source_url": "https://peerpush.com/favicon-16x16.png",
+    "page_url": "https://peerpush.com/",
+    "checked_at": "2026-10-02T16:17:27.906Z",
+    "kind": "favicon",
+    "source_dimensions": "16x16",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "pitchwall": {
+    "status": "usable",
+    "source_url": "https://pitchwall.co/apple-icon-57x57.png",
+    "page_url": "https://pitchwall.co/",
+    "checked_at": "2026-10-02T16:17:31.947Z",
+    "kind": "apple-touch-icon",
+    "source_dimensions": "57x57",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "product-fifty-one": {
+    "status": "unavailable",
+    "source_url": "https://productfiftyone.com/",
+    "page_url": "https://www.productfiftyone.com/",
+    "checked_at": "2026-10-02T19:06:01.436Z",
+    "note": "No valid brand image was found among the official page metadata and checked same-origin image paths (homepage HTTP 402).",
+    "alternatives_attempted": [
+      {
+        "url": "https://www.productfiftyone.com/favicon.ico",
+        "status": 402,
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://www.productfiftyone.com/favicon.png",
+        "status": 402,
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://www.productfiftyone.com/apple-touch-icon.png",
+        "status": 402,
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://www.productfiftyone.com/icon.png",
+        "status": 402,
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://www.productfiftyone.com/logo.svg",
+        "status": 402,
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://www.productfiftyone.com/logo.png",
+        "status": 402,
+        "kind": "same-origin /logo.png"
+      },
+      {
+        "url": "https://productfiftyone.com/favicon.ico",
+        "status": 402,
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://productfiftyone.com/favicon.png",
+        "status": 402,
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://productfiftyone.com/apple-touch-icon.png",
+        "status": 402,
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://productfiftyone.com/icon.png",
+        "status": 402,
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://productfiftyone.com/logo.svg",
+        "status": 402,
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://productfiftyone.com/logo.png",
+        "status": 402,
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "product-hunt": {
+    "status": "usable",
+    "source_url": "https://ph-static.imgix.net/ph-favicon-brand-500.ico",
+    "page_url": "https://www.producthunt.com/",
+    "checked_at": "2026-10-02T16:17:41.324Z",
+    "kind": "favicon",
+    "source_dimensions": "240x240",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "productivity-directory": {
+    "status": "usable",
+    "source_url": "https://productivity.directory/assets/favicon.png",
+    "page_url": "https://productivity.directory/",
+    "checked_at": "2026-10-02T16:17:45.995Z",
+    "kind": "favicon",
+    "source_dimensions": "447x512",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "promoteproject": {
+    "status": "usable",
+    "source_url": "https://www.promoteproject.com/img/favicon/apple-touch-icon.png",
+    "page_url": "https://www.promoteproject.com/",
+    "checked_at": "2026-10-02T16:17:52.946Z",
+    "kind": "apple-touch-icon",
+    "source_dimensions": "180x180",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "rankmyai": {
+    "status": "usable",
+    "source_url": "https://www.rankmyai.com/apple-touch-icon.png",
+    "page_url": "https://www.rankmyai.com/",
+    "checked_at": "2026-10-02T16:17:56.981Z",
+    "kind": "apple-touch-icon",
+    "source_dimensions": "180x180",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "rapidapi-hub": {
+    "status": "usable",
+    "source_url": "https://rapidapi.com/static-assets/default/favicon-8e7d522e-653f-4edd-ac27-3f6ed950e45d.png",
+    "page_url": "https://rapidapi.com/hub",
+    "checked_at": "2026-10-02T16:18:00.997Z",
+    "kind": "favicon",
+    "source_dimensions": "512x512",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "saas-ai-tools": {
+    "status": "usable",
+    "source_url": "https://saasaitools.com/wp-content/uploads/2024/03/cropped-favicon-32x32.png",
+    "page_url": "https://saasaitools.com/",
+    "checked_at": "2026-10-02T16:18:09.870Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "saas-browser": {
+    "status": "unavailable",
+    "source_url": "https://saasbrowser.com/",
+    "page_url": "https://saasbrowser.com/?__cf_chl_rt_tk=TakZvAnZvOP3lmQWJTgSs7k0jaqEzhvn0zlGRzRhds8-1790967964-1.0.1.1-gmP1jYxQCVypQLds4kg_JjAZUPnsRvlyxZBs8pgSwpo",
+    "checked_at": "2026-10-02T19:06:04.032Z",
+    "note": "The homepage presented a browser or CAPTCHA challenge; its challenge assets were not used.",
+    "alternatives_attempted": [
+      {
+        "url": "https://saasbrowser.com/favicon.ico",
+        "status": 403,
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://saasbrowser.com/favicon.png",
+        "status": 403,
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://saasbrowser.com/apple-touch-icon.png",
+        "status": 403,
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://saasbrowser.com/icon.png",
+        "status": 403,
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://saasbrowser.com/logo.svg",
+        "status": 403,
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://saasbrowser.com/logo.png",
+        "status": 403,
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "saas-landing-page": {
+    "status": "usable",
+    "source_url": "https://saaslandingpage.com/wp-content/themes/saaslandingpage/dist/images/apple-touch-icon.png",
+    "page_url": "https://saaslandingpage.com/",
+    "checked_at": "2026-10-02T16:18:19.121Z",
+    "kind": "apple-touch-icon",
+    "source_dimensions": "180x180",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "saascity": {
+    "status": "usable",
+    "source_url": "https://saascity.io/favicon.ico?favicon.2vob68tjqpejf.ico",
+    "page_url": "https://saascity.io/",
+    "checked_at": "2026-10-02T16:18:25.207Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "saasgenius": {
+    "status": "usable",
+    "source_url": "https://www.saasgenius.com/wp-content/uploads/2022/12/cropped-sg-favicon-32x32.png",
+    "page_url": "https://www.saasgenius.com/",
+    "checked_at": "2026-10-02T16:18:29.158Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "saashub": {
+    "status": "usable",
+    "source_url": "https://cdn-b.saashub.com/assets/logo-favicon-1a390b4cc3b50656a95567df376acd51d82a6f33bb04094c5d2f913173b28ac5.png",
+    "page_url": "https://www.saashub.com/",
+    "checked_at": "2026-10-02T16:18:33.597Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "saasworthy": {
+    "status": "usable",
+    "source_url": "https://www.91-cdn.com/saasworthy-cdn/saasworthy-new/public/images/web/logo/site-favicon.ico",
+    "page_url": "https://www.saasworthy.com/",
+    "checked_at": "2026-10-02T16:18:36.362Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "selecthub": {
+    "status": "usable",
+    "source_url": "https://www.selecthub.com/wp-content/uploads/2019/10/favicon-45x45.png",
+    "page_url": "https://www.selecthub.com/",
+    "checked_at": "2026-10-02T16:18:39.041Z",
+    "kind": "favicon",
+    "source_dimensions": "45x45",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "selfhst-apps": {
+    "status": "usable",
+    "source_url": "https://selfh.st/content/images/size/w256h256/2023/09/favicon-1.png",
+    "page_url": "https://selfh.st/apps/",
+    "checked_at": "2026-10-02T16:18:41.724Z",
+    "kind": "favicon",
+    "source_dimensions": "256x256",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "selljam": {
+    "status": "usable",
+    "source_url": "https://selljam.ai/assets/apple-touch-icon.png",
+    "page_url": "https://selljam.ai/",
+    "checked_at": "2026-10-02T16:18:43.497Z",
+    "kind": "apple-touch-icon",
+    "source_dimensions": "180x180",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "serchen": {
+    "status": "usable",
+    "source_url": "https://images.serchen.com/serchen-brand/ser%20favicon.png?v=20260509",
+    "page_url": "https://www.serchen.com/",
+    "checked_at": "2026-10-02T16:18:46.313Z",
+    "kind": "apple-touch-icon",
+    "source_dimensions": "31x31",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "shopify-app-store": {
+    "status": "usable",
+    "source_url": "https://apps.shopify.com/cdn/shopifycloud/shopify_app_store/assets/favicon-3d790b3e382c5c5d7167509177c07784a9b8324b90473d7eb43c83dc1967b97d.png",
+    "page_url": "https://apps.shopify.com/",
+    "checked_at": "2026-10-02T16:18:49.394Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "sideprojectors": {
+    "status": "usable",
+    "source_url": "https://www.sideprojectors.com/img/logo.png",
+    "page_url": "https://www.sideprojectors.com/",
+    "checked_at": "2026-10-02T16:18:54.202Z",
+    "kind": "favicon",
+    "source_dimensions": "128x128",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "siteinspire": {
+    "status": "unavailable",
+    "source_url": "https://www.siteinspire.com/",
+    "page_url": "https://www.siteinspire.com/",
+    "checked_at": "2026-10-02T19:06:06.664Z",
+    "note": "No valid brand image was found among the official page metadata and checked same-origin image paths (homepage HTTP 200).",
+    "alternatives_attempted": [
+      {
+        "url": "https://www.siteinspire.com/favicon.svg",
+        "status": 429,
+        "kind": "favicon"
+      },
+      {
+        "url": "https://www.siteinspire.com/icon-xg4ifa.svg?icon.3c-gaes4ll2ou.svg",
+        "status": 429,
+        "kind": "favicon"
+      },
+      {
+        "url": "https://www.siteinspire.com/apple-icon-xg4ifa.png?apple-icon.184tuhtn1o13k.png",
+        "status": 429,
+        "kind": "apple-touch-icon"
+      },
+      {
+        "url": "https://www.siteinspire.com/favicon.ico",
+        "status": 429,
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://www.siteinspire.com/favicon.png",
+        "status": 429,
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://www.siteinspire.com/apple-touch-icon.png",
+        "status": 429,
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://www.siteinspire.com/icon.png",
+        "status": 429,
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://www.siteinspire.com/logo.svg",
+        "status": 429,
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://www.siteinspire.com/logo.png",
+        "status": 429,
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "slack-marketplace": {
+    "status": "usable",
+    "source_url": "https://slack.com/favicon.ico",
+    "page_url": "https://slack.com/marketplace",
+    "checked_at": "2026-10-02T16:19:02.082Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "256x256",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "smol-launch": {
+    "status": "usable",
+    "source_url": "https://smollaunch.com/android-chrome-192x192.png",
+    "page_url": "https://smollaunch.com/",
+    "checked_at": "2026-10-02T16:19:07.036Z",
+    "kind": "favicon",
+    "source_dimensions": "192x192",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "softpedia": {
+    "status": "usable",
+    "source_url": "https://cdnssl.softpedia.com/_img/favicon.ico",
+    "page_url": "https://www.softpedia.com/",
+    "checked_at": "2026-10-02T16:19:13.760Z",
+    "kind": "favicon",
+    "source_dimensions": "64x64",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "software-advice": {
+    "status": "usable",
+    "source_url": "https://software-advice.imgix.net/favicons/favicon-16x16.png",
+    "page_url": "https://www.softwareadvice.com/",
+    "checked_at": "2026-10-02T16:19:16.752Z",
+    "kind": "favicon",
+    "source_dimensions": "16x16",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "softwareworld": {
+    "status": "unavailable",
+    "source_url": "https://softwareworld.co/",
+    "page_url": "https://www.softwareworld.co/?__cf_chl_rt_tk=QwmiPZzebT1CBNFk1FSItQemBXx5_1.xzqn2ao13bgw-1790967987-1.0.1.1-TeD2A92IR4MWCWIaB84PlLf49IUiQx9Jgw.KwZU8IHc",
+    "checked_at": "2026-10-02T19:06:26.958Z",
+    "note": "The homepage presented a browser or CAPTCHA challenge; its challenge assets were not used.",
+    "alternatives_attempted": [
+      {
+        "url": "https://www.softwareworld.co/favicon.ico",
+        "status": 200,
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://www.softwareworld.co/favicon.png",
+        "status": 403,
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://www.softwareworld.co/apple-touch-icon.png",
+        "status": 403,
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://www.softwareworld.co/icon.png",
+        "status": 403,
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://www.softwareworld.co/logo.svg",
+        "status": 403,
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://www.softwareworld.co/logo.png",
+        "status": 403,
+        "kind": "same-origin /logo.png"
+      },
+      {
+        "url": "https://softwareworld.co/favicon.ico",
+        "status": 200,
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://softwareworld.co/favicon.png",
+        "status": 403,
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://softwareworld.co/apple-touch-icon.png",
+        "status": 403,
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://softwareworld.co/icon.png",
+        "status": 403,
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://softwareworld.co/logo.svg",
+        "status": 403,
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://softwareworld.co/logo.png",
+        "status": 403,
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "sourceforge": {
+    "status": "usable",
+    "source_url": "https://sourceforge.net/favicon.ico",
+    "page_url": "https://sourceforge.net/",
+    "checked_at": "2026-10-02T16:19:21.875Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "180x180",
+    "note": "Official site asset; HTTP 200, homepage HTTP 403."
+  },
+  "stackshare": {
+    "status": "usable",
+    "source_url": "https://stackshare.io/favicon.ico?favicon.0b3bf435.ico",
+    "page_url": "https://stackshare.io/",
+    "checked_at": "2026-10-02T16:19:25.460Z",
+    "kind": "favicon",
+    "source_dimensions": "256x256",
+    "note": "Official site asset; HTTP 429, homepage HTTP 200."
+  },
+  "starthq": {
+    "status": "unavailable",
+    "source_url": "https://starthq.com/",
+    "page_url": "https://starthq.com/",
+    "checked_at": "2026-10-02T19:06:29.557Z",
+    "note": "The official page and checked same-origin image paths did not provide a valid brand image.",
+    "alternatives_attempted": [
+      {
+        "url": "https://starthq.com/favicon.ico",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://starthq.com/favicon.png",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://starthq.com/apple-touch-icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://starthq.com/icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://starthq.com/logo.svg",
+        "status": "request-failed",
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://starthq.com/logo.png",
+        "status": "request-failed",
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "startup-buffer": {
+    "status": "unavailable",
+    "source_url": "https://startupbuffer.com/",
+    "page_url": "https://startupbuffer.com/?__cf_chl_rt_tk=EhT9WZZlUtW.SbolXS6WR5tjmyljjdK5wri2QsFXIuE-1790967990-1.0.1.1-_cB5W3SGk4fnE7OyoenxoUuIEYmOc8jbI3DvnKrqGj8",
+    "checked_at": "2026-10-02T19:06:30.063Z",
+    "note": "The homepage presented a browser or CAPTCHA challenge; its challenge assets were not used.",
+    "alternatives_attempted": [
+      {
+        "url": "https://startupbuffer.com/favicon.ico",
+        "status": 403,
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://startupbuffer.com/favicon.png",
+        "status": 403,
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://startupbuffer.com/apple-touch-icon.png",
+        "status": 403,
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://startupbuffer.com/icon.png",
+        "status": 403,
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://startupbuffer.com/logo.svg",
+        "status": 403,
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://startupbuffer.com/logo.png",
+        "status": 403,
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "startup-fame": {
+    "status": "usable",
+    "source_url": "https://startupfa.me/favicon.ico?favicon.2c6l24olnz2n4.ico",
+    "page_url": "https://startupfa.me/",
+    "checked_at": "2026-10-02T16:21:17.406Z",
+    "kind": "favicon",
+    "source_dimensions": "384x384",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "startup-ranking": {
+    "status": "usable",
+    "source_url": "https://www.startupranking.com/favicon.ico",
+    "page_url": "https://www.startupranking.com/",
+    "checked_at": "2026-10-02T16:30:06.490Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "16x16",
+    "note": "Official site asset; HTTP 200."
+  },
+  "startup-stash": {
+    "status": "usable",
+    "source_url": "https://startupstash.com/wp-content/uploads/2018/06/startupstash-icon-90x90-100x100.png",
+    "page_url": "https://startupstash.com/",
+    "checked_at": "2026-10-02T16:30:15.121Z",
+    "kind": "favicon",
+    "source_dimensions": "100x100",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "startupbase": {
+    "status": "usable",
+    "source_url": "https://startupbase.io/img/ico/favicon-96x96.png",
+    "page_url": "https://startupbase.io/",
+    "checked_at": "2026-10-02T16:30:22.036Z",
+    "kind": "favicon",
+    "source_dimensions": "96x96",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "startupblink": {
+    "status": "usable",
+    "source_url": "https://www.startupblink.com/favicon.ico",
+    "page_url": "https://www.startupblink.com/",
+    "checked_at": "2026-10-02T16:30:53.772Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "16x16",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "startuplift": {
+    "status": "unavailable",
+    "source_url": "https://startuplift.com/",
+    "page_url": "https://startuplift.com/",
+    "checked_at": "2026-10-02T19:06:32.609Z",
+    "note": "No valid brand image was found among the official page metadata and checked same-origin image paths (homepage HTTP 200).",
+    "alternatives_attempted": [
+      {
+        "url": "https://startuplift.com/favicon.ico",
+        "status": 441,
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://startuplift.com/favicon.png",
+        "status": 441,
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://startuplift.com/apple-touch-icon.png",
+        "status": 441,
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://startuplift.com/icon.png",
+        "status": 441,
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://startuplift.com/logo.svg",
+        "status": 441,
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://startuplift.com/logo.png",
+        "status": 441,
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "startuplist-in": {
+    "status": "unavailable",
+    "source_url": "https://startuplist.in/",
+    "page_url": "https://startuplist.in/",
+    "checked_at": "2026-10-02T19:06:34.173Z",
+    "note": "The official page and checked same-origin image paths did not provide a valid brand image.",
+    "alternatives_attempted": [
+      {
+        "url": "https://startuplist.in/favicon.ico",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://startuplist.in/favicon.png",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://startuplist.in/apple-touch-icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://startuplist.in/icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://startuplist.in/logo.svg",
+        "status": "request-failed",
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://startuplist.in/logo.png",
+        "status": "request-failed",
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "startups-fyi": {
+    "status": "usable",
+    "source_url": "https://cdn.prod.website-files.com/62780358b9ccf88491b6167e/63b85ebf21417773c5440954_unnamed.png",
+    "page_url": "https://www.startups.fyi/",
+    "checked_at": "2026-10-02T16:31:15.641Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "startups-lab": {
+    "status": "usable",
+    "source_url": "https://startupslab.site/favicon.ico?favicon.30o4-6z019cin.ico",
+    "page_url": "https://startupslab.site/",
+    "checked_at": "2026-10-02T16:31:22.303Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "startups-gallery": {
+    "status": "usable",
+    "source_url": "https://framerusercontent.com/images/rbdjjtIXIpdKXKkLAjFaYIIXeA.svg",
+    "page_url": "https://startups.gallery/",
+    "checked_at": "2026-10-02T16:31:26.310Z",
+    "kind": "favicon",
+    "source_dimensions": "64x64",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "startuptrusted": {
+    "status": "usable",
+    "source_url": "https://startuptrusted.com/icon.svg?icon.f891ed2c.svg",
+    "page_url": "https://startuptrusted.com/",
+    "checked_at": "2026-10-02T16:31:30.360Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "startuups": {
+    "status": "usable",
+    "source_url": "https://startuups.com/favicon.ico",
+    "page_url": "https://startuups.com/",
+    "checked_at": "2026-10-02T16:31:54.702Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "256x256",
+    "note": "Official site asset; HTTP 200."
+  },
+  "submithunt": {
+    "status": "usable",
+    "source_url": "https://www.submithunt.com/src/favicon_io/favicon.ico",
+    "page_url": "https://www.submithunt.com/",
+    "checked_at": "2026-10-02T16:31:59.629Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "superlaunch": {
+    "status": "usable",
+    "source_url": "https://superlaunch.io/favicon.ico",
+    "page_url": "https://superlaunch.io/",
+    "checked_at": "2026-10-02T16:32:21.464Z",
+    "kind": "favicon",
+    "source_dimensions": "64x64",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "the-next-ai-tool": {
+    "status": "usable",
+    "source_url": "https://nextaitool.com/logo-100.png",
+    "page_url": "https://nextaitool.com/",
+    "checked_at": "2026-10-02T16:32:29.939Z",
+    "kind": "favicon",
+    "source_dimensions": "100x100",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "theres-an-ai-for-that": {
+    "status": "usable",
+    "source_url": "https://theresanaiforthat.com/apple-touch-icon.png",
+    "page_url": "https://theresanaiforthat.com/",
+    "checked_at": "2026-10-02T16:32:47.542Z",
+    "kind": "apple-touch-icon",
+    "source_dimensions": "512x512",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "tinylaunch": {
+    "status": "usable",
+    "source_url": "https://www.tinylaunch.com/favicon-96x96.png",
+    "page_url": "https://www.tinylaunch.com/",
+    "checked_at": "2026-10-02T16:32:53.119Z",
+    "kind": "favicon",
+    "source_dimensions": "96x96",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "tinystartups": {
+    "status": "usable",
+    "source_url": "https://www.tinystartups.com/icon.svg?f7b5e2a806cafab2",
+    "page_url": "https://www.tinystartups.com/",
+    "checked_at": "2026-10-02T16:32:57.358Z",
+    "kind": "favicon",
+    "source_dimensions": "64x64",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "tooldirs": {
+    "status": "usable",
+    "source_url": "https://tooldirs.com/favicon.ico",
+    "page_url": "https://tooldirs.com/",
+    "checked_at": "2026-10-02T16:33:00.774Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "toolfound": {
+    "status": "usable",
+    "source_url": "https://toolfound.com/favicon.ico?favicon.1j_k4x0jua7l4.ico",
+    "page_url": "https://toolfound.com/",
+    "checked_at": "2026-10-02T16:33:07.838Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "toolify": {
+    "status": "usable",
+    "source_url": "https://www.toolify.ai/favicon.ico",
+    "page_url": "https://www.toolify.ai/",
+    "checked_at": "2026-10-02T16:33:19.377Z",
+    "kind": "favicon",
+    "source_dimensions": "128x128",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "toolpilot-ai": {
+    "status": "usable",
+    "source_url": "https://www.toolpilot.ai/cdn/shop/files/tp-favicon.png?crop=center&amp;height=32&amp;v=1694519285&amp;width=32",
+    "page_url": "https://www.toolpilot.ai/",
+    "checked_at": "2026-10-02T16:33:26.367Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "toolsforcreators": {
+    "status": "unavailable",
+    "source_url": "https://toolsforcreators.com/",
+    "page_url": "https://toolsforcreators.com/",
+    "checked_at": "2026-10-02T19:06:37.084Z",
+    "note": "The official page and checked same-origin image paths did not provide a valid brand image.",
+    "alternatives_attempted": [
+      {
+        "url": "https://toolsforcreators.com/favicon.ico",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.ico"
+      },
+      {
+        "url": "https://toolsforcreators.com/favicon.png",
+        "status": "request-failed",
+        "kind": "same-origin /favicon.png"
+      },
+      {
+        "url": "https://toolsforcreators.com/apple-touch-icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /apple-touch-icon.png"
+      },
+      {
+        "url": "https://toolsforcreators.com/icon.png",
+        "status": "request-failed",
+        "kind": "same-origin /icon.png"
+      },
+      {
+        "url": "https://toolsforcreators.com/logo.svg",
+        "status": "request-failed",
+        "kind": "same-origin /logo.svg"
+      },
+      {
+        "url": "https://toolsforcreators.com/logo.png",
+        "status": "request-failed",
+        "kind": "same-origin /logo.png"
+      }
+    ]
+  },
+  "topai-tools": {
+    "status": "usable",
+    "source_url": "https://statics.topai.tools/img/favicon.png",
+    "page_url": "https://topai.tools/",
+    "checked_at": "2026-10-02T16:34:39.840Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "trustradius": {
+    "status": "usable",
+    "source_url": "https://www.trustradius.com/ico/next/favicon.ico",
+    "page_url": "https://www.trustradius.com/",
+    "checked_at": "2026-10-02T16:34:42.269Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "uneed": {
+    "status": "usable",
+    "source_url": "https://www.uneed.best/favicon-32x32.png",
+    "page_url": "https://www.uneed.best/",
+    "checked_at": "2026-10-02T16:34:46.789Z",
+    "kind": "mask-icon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "webcurate": {
+    "status": "usable",
+    "source_url": "https://webcurate.co/assets/images/favicon/apple-touch-icon.png?v.8",
+    "page_url": "https://webcurate.co/",
+    "checked_at": "2026-10-02T16:35:00.320Z",
+    "kind": "apple-touch-icon",
+    "source_dimensions": "180x180",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "webflow-apps": {
+    "status": "usable",
+    "source_url": "https://webflow.com/favicon.ico",
+    "page_url": "https://webflow.com/apps",
+    "checked_at": "2026-10-02T16:35:20.361Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200."
+  },
+  "wordpress-plugin-directory": {
+    "status": "usable",
+    "source_url": "https://s.w.org/images/wmark.png",
+    "page_url": "https://wordpress.org/plugins/",
+    "checked_at": "2026-10-02T16:35:25.178Z",
+    "kind": "apple-touch-icon",
+    "source_dimensions": "1000x1000",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "yourstory": {
+    "status": "usable",
+    "source_url": "https://yourstory.com/favicon.ico",
+    "page_url": "https://yourstory.com/companies",
+    "checked_at": "2026-10-02T16:35:31.232Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "16x16",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "zapier-app-directory": {
+    "status": "usable",
+    "source_url": "https://cdn.zapier.com/zapier/images/favicon.ico",
+    "page_url": "https://zapier.com/apps",
+    "checked_at": "2026-10-02T16:35:36.731Z",
+    "kind": "favicon",
+    "source_dimensions": "192x192",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  }
+}

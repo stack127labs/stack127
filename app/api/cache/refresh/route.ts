@@ -14,6 +14,7 @@ import { loadSelfHostedAppResourcePlannerEntry } from "@/lib/self-hosted-app-res
 import { getPool } from "@/lib/db";
 import { sitePageAvailable } from "@/lib/page-source";
 import { sectionSlugs } from "@/lib/platform-fees/section-routes";
+import { LAUNCH_DIRECTORY_REVISION_SQL, launchDirectoryRevisionMatches } from "@/lib/launch-directories-data";
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 const noStore = { "Cache-Control": "no-store" };
@@ -27,7 +28,7 @@ export async function POST(request: Request) {
     if (!Array.isArray(paths) || paths.length > 20 || paths.some(path => typeof path !== "string" || !/^\/[a-z0-9/_-]*(?:\.xml)?$/.test(path))) {
       return NextResponse.json({ error: "Invalid paths" }, { status: 400, headers: noStore });
     }
-    const verified: Array<{ path: string; status: number; revision: string | null; digest: string | null }> = [];
+    const verified: Array<{ path: string; status: number; revision: string | null; digest: string | null; sourceRevision: string | null }> = [];
     for (let i = 0; i < paths.length; i += 4) {
       await Promise.all(paths.slice(i, i + 4).map(async (path: string) => {
         const hosts = [...new Set(["127.0.0.1", process.env.HOSTNAME].filter(Boolean))];
@@ -43,6 +44,7 @@ export async function POST(request: Request) {
         if (!response) throw new Error(`Origin unavailable for ${path}`);
         const html = await response.text();
         let contentRevision: string | null = null;
+        let sourceRevision: string | null = null;
         if (path.startsWith("/api/")) {
           const slug = path.split("/").at(-1)!;
           const hardwareDirectory = path.startsWith("/api/hardware-directory/") ? slug : null;
@@ -95,9 +97,20 @@ export async function POST(request: Request) {
             const revision = rows[0].row_updated_at.toISOString();
             contentRevision = revision;
             if (!html.includes(`name="stack127-content-revision" content="${revision}"`)) throw new Error(`${path}: rebuilt content is stale`);
+            if (path === "/launch-directories" || path === "/") {
+              const launchPublished = path === "/launch-directories" || (await getPool().query("select is_published from public.stack127_pages where slug = 'launch-directories'")).rows[0]?.is_published;
+              if (launchPublished) {
+                const versions = await getPool().query(LAUNCH_DIRECTORY_REVISION_SQL);
+                sourceRevision = versions.rows[0]?.fingerprint ?? null;
+                if (!sourceRevision || !launchDirectoryRevisionMatches(html, sourceRevision)) throw new Error(`${path}: launch directory data is stale`);
+              } else {
+                sourceRevision = "unpublished";
+                if (!launchDirectoryRevisionMatches(html, sourceRevision)) throw new Error(`${path}: unpublished launch directory is still displayed`);
+              }
+            }
           }
         }
-        verified.push({ path, status: response.status, revision: contentRevision, digest: path.startsWith("/api/") && response.status === 200 ? await cacheBodyDigest(html) : null });
+        verified.push({ path, status: response.status, revision: contentRevision, digest: path.startsWith("/api/") && response.status === 200 ? await cacheBodyDigest(html) : null, sourceRevision });
       }));
     }
     return NextResponse.json({ verified }, { headers: noStore });
