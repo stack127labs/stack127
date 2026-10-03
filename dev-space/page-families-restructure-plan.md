@@ -60,10 +60,10 @@ This plan joins directories and references, makes page family names match across
 
 ### Phase 6: Docs and skills. Opus writes, Sol checks the tables.
 
-- [ ] 22. `page-families.md`: four content families plus `site`, the sidebar rule, and the code-or-table rule for directory records.
-- [ ] 23. `tool-pages.md` and `tool-catalogs.md`: new family names and the renamed catalog table.
-- [ ] 24. Add a new `directory-pages.md`, shaped like `tool-pages.md`.
-- [ ] 25. Update `CLAUDE.md`, `AGENTS.md`, `repo-structure.md`, `caching.md`, `seo.md`, and the `page-build` skill to remove `(references)` and the old family names.
+- [x] 22. `page-families.md`: four content families plus `site`, the sidebar rule, and the code-or-table rule for directory records.
+- [x] 23. `tool-pages.md` and `tool-catalogs.md`: new family names and the renamed catalog table.
+- [x] 24. Add a new `directory-pages.md`, shaped like `tool-pages.md`.
+- [x] 25. Update `CLAUDE.md`, `AGENTS.md`, `repo-structure.md`, `caching.md`, `seo.md`, and the `page-build` skill to remove `(references)` and the old family names.
 
 ### Phase 7: Release.
 

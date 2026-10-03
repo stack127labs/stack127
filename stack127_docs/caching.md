@@ -63,6 +63,7 @@ The source tags live in `lib/cache-tags.ts`. `scripts/stack127/cache/targets.mjs
 
 | Entity | Next.js data tag | Cloudflare family tag |
 | --- | --- | --- |
+| Directory page copy (a `page` event) | `stack127-directory-page:<slug>` | The page tag, such as `page:ad-networks:adapex` |
 | `platform_fees` | `stack127-platform-fees` | `platform-fees-catalog` |
 | `ad_networks` | `stack127-ad-networks` | `ad-networks-catalog` |
 | `launch_directories` | `stack127-launch-directories` | `page:launch-directories` |

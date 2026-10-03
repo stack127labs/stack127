@@ -9,7 +9,7 @@ Notion is only a planning space. The site never reads or syncs Notion for catalo
 | Table | Owns |
 | --- | --- |
 | `public.stack127_pages` | The only registry for URL, publication, SEO, social image, and public dates. Set `page_family = 'catalog'` for a tool catalog. A catalog is public only when `is_published = true`. |
-| `public.stack127_tool_catalogs` | The visible heading, introduction, section heading, catalog navigation order, icon key, and approved marker art keys. Its `page_id` points to the registry row. |
+| `public.stack127_catalog_pages` | The visible heading, introduction, section heading, homepage order, icon key, approved marker art keys, and the catalog's `card_name` and `card_description`. Its `page_id` points to a registry row whose family is `catalog`. |
 | `public.stack127_tool_pages` | Each tool's short card name and description, plus icon and marker art keys. These fields apply in every catalog that includes the tool. |
 | `public.stack127_tool_catalog_memberships` | Links tools to any number of catalogs. |
 
@@ -32,7 +32,7 @@ Give a published tool one primary membership before launch. A tool without one f
 ## Editing
 
 1. Create the `stack127_pages` row first. Use a flat unique slug, `page_family = 'catalog'`, a short `label`, reviewed `meta_title` and `meta_description`, a fitting `page_type` such as `CollectionPage`, and public dates when publishing. Don't put SEO metadata in route files.
-2. Add a `stack127_tool_catalogs` row for that page ID.
+2. Add a `stack127_catalog_pages` row for that page ID, with its card name and description.
    - Write the heading in three parts, so `heading_mark` gets the site accent.
    - Add the intro, section heading, `home_order` for the homepage catalog section, and approved icon and art keys. Supported keys are in `lib/tool-catalog-icons.ts` and `lib/tool-catalog-art.ts`.
    - Use `none` when the catalog has no reviewed marker drawing. Its icon still shows. Unknown art keys show no drawing.

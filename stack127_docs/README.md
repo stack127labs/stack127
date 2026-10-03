@@ -11,6 +11,7 @@ Keep each current decision in the operating doc it belongs to. Page-specific pla
 | [shared-ui.md](shared-ui.md) | Shared components, the development-only Components UI gallery at `/components-ui`, and Markdown syntax for content blocks and charts. |
 | `page-families.md` | The five page families (tool, directory, course, catalog, site) and their shared structure. |
 | `tool-pages.md` | Tool page tables, Markdown ownership, public dates, versions, and reviewed update commands. |
+| `directory-pages.md` | Where directory titles, intros, Markdown, and card text live, and how to edit them. |
 | `stack127-repos.md` | Boundaries, inventory, automation, and revision tracking for repositories stack127 owns. |
 | `brand-assets.md` | Logo originals, production variants, favicon choice, and how to regenerate them. |
 | [writing-style.md](writing-style.md) | The only writing style guide, including visual choices, SEO wording, and editing. |
