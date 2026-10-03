@@ -1,4 +1,4 @@
-import { PAGE_REGISTRY_TAG, HOME_PAGES_TAG, TOOL_PAGES_TAG, TOOL_CATALOGS_TAG, TOOL_CATALOG_TAG, TOOL_PRIMARY_CATALOGS_TAG, SELF_HOST_INDEX_TAG, SELF_HOST_DETAILS_TAG, SELF_HOST_APP_TAG, CLI_APPS_TAG, SITEMAP_TAG, PLATFORM_FEES_TAG, AD_NETWORKS_TAG, LAUNCH_DIRECTORIES_TAG } from "../../../lib/cache-tags.ts";
+import { PAGE_REGISTRY_TAG, HOME_PAGES_TAG, TOOL_PAGES_TAG, DIRECTORY_PAGES_TAG, TOOL_CATALOGS_TAG, TOOL_CATALOG_TAG, TOOL_PRIMARY_CATALOGS_TAG, SELF_HOST_INDEX_TAG, SELF_HOST_DETAILS_TAG, SELF_HOST_APP_TAG, CLI_APPS_TAG, SITEMAP_TAG, PLATFORM_FEES_TAG, AD_NETWORKS_TAG, LAUNCH_DIRECTORIES_TAG } from "../../../lib/cache-tags.ts";
 import { sectionPath } from "../../../lib/platform-fees/section-routes.ts";
 const clean = (value) => String(value ?? "").replace(/^\/+|\/+$/g, "").toLowerCase();
 const pageTag = (path) => `page:${clean(path).replaceAll("/", ":") || "home"}`;
@@ -20,6 +20,7 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
       addPage(slug ? `/${slug}` : "/");
       nextTags.add(`${PAGE_REGISTRY_TAG}:${slug || "home"}`);
       nextTags.add(`${TOOL_PAGES_TAG}:${slug}`);
+      nextTags.add(`${DIRECTORY_PAGES_TAG}:${slug}`);
       nextTags.add(`${TOOL_CATALOG_TAG}:${slug}`);
       nextTags.add(TOOL_CATALOGS_TAG);
       nextTags.add(TOOL_PRIMARY_CATALOGS_TAG);

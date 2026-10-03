@@ -46,7 +46,7 @@ const result = await runMutation(args, async (client) => {
   const catalogResult = await client.query(`
     select page.id, page.slug
     from public.stack127_pages page
-    join public.stack127_tool_catalogs catalog on catalog.page_id = page.id
+    join public.stack127_catalog_pages catalog on catalog.page_id = page.id
     where page.slug = any($1::text[]) and page.page_family = 'catalog'
     order by page.id
     for update of page, catalog

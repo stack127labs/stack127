@@ -45,7 +45,7 @@ async function main() {
   printResult(await runMutation(args, async (client) => {
     const { rows } = await client.query("select * from public.stack127_pages where slug = $1 for update", ["launch-directories"]);
     const page = rows[0];
-    if (!page || page.page_family !== "catalog") throw new Error("Launch directory registry entry is missing or has the wrong family");
+    if (!page || page.page_family !== "directory") throw new Error("Launch directory registry entry is missing or has the wrong family");
     const records = (await client.query("select to_jsonb(directory) as record from public.launch_directories directory for share")).rows.map((row) => row.record);
     const count = args.publish ? validateLaunchPublication(records) : records.filter((row) => row.is_published).length;
     const publish = Boolean(args.publish || page.is_published);

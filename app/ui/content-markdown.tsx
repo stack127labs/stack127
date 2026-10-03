@@ -186,6 +186,6 @@ function transformUrl(url: string) {
   return url.startsWith("marker-art://") ? url : defaultUrlTransform(url);
 }
 
-export function ContentMarkdown({ markdown }: { markdown: string }): ReactNode {
-  return <ReactMarkdown components={components} remarkPlugins={[remarkGfm, remarkContentBlocks, remarkDefinitionLists]} urlTransform={transformUrl}>{markdown}</ReactMarkdown>;
+export function ContentMarkdown({ markdown, components: overrides }: { markdown: string; components?: Components }): ReactNode {
+  return <ReactMarkdown components={overrides ? { ...components, ...overrides } : components} remarkPlugins={[remarkGfm, remarkContentBlocks, remarkDefinitionLists]} urlTransform={transformUrl}>{markdown}</ReactMarkdown>;
 }

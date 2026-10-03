@@ -1,3 +1,6 @@
+import { getRequiredDirectoryPage } from "@/lib/directory-pages";
+import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { HardDrive } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
@@ -26,6 +29,7 @@ import { siteSpotSelfHostAppsArt } from "../../art/site--spot-self-host-apps";
 // The static page is the default view: most popular first, no filters, page 1.
 // Filters, search, sort, and other pages load in the browser from the search API.
 export default async function SelfHostAppsPage() {
+  const directoryPage = await getRequiredDirectoryPage("self-host-apps");
   const [{ detailApps, ...initial }, registryPage] = await Promise.all([
     getSelfHostAppsSearch(parseSelfHostAppsSearchParams(new URLSearchParams())),
     getRequiredPublishedPage("self-host-apps"),
@@ -57,21 +61,16 @@ export default async function SelfHostAppsPage() {
         >
           <EntryHero art={siteSpotSelfHostAppsArt}>
             <PageHeader>
-              <h1>
-                <PageTitleIcon>
+              <h1><PageTitleIcon>
                   <HardDrive strokeWidth={2.2} />
-                </PageTitleIcon>{" "}
-                Self-host <mark>apps that fit</mark> your server, storage, and setup comfort
-              </h1>
-              <p>
-                Browse open-source, source-available, and closed-source apps by purpose, setup,
-                resource needs, price, and maintenance.
-              </p>
+                </PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+              <ContentMarkdown markdown={directoryPage.intro_markdown} />
             </PageHeader>
           </EntryHero>
           <PageCanvas as="div" flow className="directory-results">
             <SelfHostAppResults emptyVisual={<Doodle svg={siteDoodleSparkArt} />} />
             <HiddenDetails prefix="self-host-app" items={detailApps.map((app) => ({ slug: app.slug, name: app.name, body: <AppDetailsBody app={app} /> }))} />
+          <DirectoryPageContent page={directoryPage} />
           </PageCanvas>
         </AppShell>
       </SelfHostAppsSearchProvider>

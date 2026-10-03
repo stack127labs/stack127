@@ -3,10 +3,14 @@ import { mkdir } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
+import { parseArgs, runMutation, printResult } from "../stack127/tool-pages/lib.mjs";
+import { keyboardShortcutPageCopy, upsertDirectoryPage } from "../stack127/directory-pages/lib.mjs";
+
 const root = path.resolve(import.meta.dirname, "../..");
 const appRoot = path.join(root, "lib/shortcuts/apps");
 const routeRoot = path.join(root, "app/(site)/(directories)/keyboard-shortcuts");
 const checkOnly = process.argv.includes("--check");
+if (checkOnly && process.argv.includes("--apply")) throw new Error("--check and --apply cannot be combined");
 const changed = [];
 
 function read(file) {
@@ -115,4 +119,12 @@ if (changed.length > 0) {
   }
 } else {
   console.log("Keyboard shortcut pages are in sync.");
+}
+
+if (process.argv.includes("--apply")) {
+  printResult(await runMutation(parseArgs(), async client => {
+    let changed = 0;
+    for (const app of apps) changed += await upsertDirectoryPage(client, keyboardShortcutPageCopy(app));
+    return { pages: apps.length, changed };
+  }));
 }

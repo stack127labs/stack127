@@ -1,3 +1,6 @@
+import { getRequiredDirectoryPage } from "@/lib/directory-pages";
+import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { SquareTerminal } from "lucide-react";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
@@ -25,6 +28,7 @@ const typeLabels = new Map<string, string>(terminalAppTypeLabels);
 
 // Static page: the default view (most popular, page 1). Filters run in the browser.
 export default async function CliAppsPage() {
+  const directoryPage = await getRequiredDirectoryPage("cli-apps");
   const [apps, registryPage] = await Promise.all([
     getTerminalApps(),
     getRequiredPublishedPage("cli-apps"),
@@ -131,22 +135,17 @@ export default async function CliAppsPage() {
       >
         <EntryHero art={siteSpotCliAppsArt}>
           <PageHeader>
-            <h1>
-              <PageTitleIcon>
+            <h1><PageTitleIcon>
                 <SquareTerminal strokeWidth={2.2} />
-              </PageTitleIcon>{" "}
-              A directory of <mark>terminal apps</mark> worth knowing
-            </h1>
-            <p>
-              Command-line tools, TUI apps, shells, prompts, and AI agents that run in or beside a
-              terminal. The list includes open-source and closed tools, free and paid ones.
-            </p>
+              </PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+            <ContentMarkdown markdown={directoryPage.intro_markdown} />
           </PageHeader>
         </EntryHero>
         <PageCanvas as="div" flow className="directory-results">
           <CliAppResults firstPage={defaultApps} total={apps.length} categoryLabels={categoryLabels} emptyVisual={<Doodle svg={siteDoodleStarArt} />} />
           <HiddenDetails prefix="cli-app" items={defaultApps.map((app) => ({ slug: app.slug, name: app.name, body: <CliAppDetailsBody app={app} /> }))} />
-        </PageCanvas>
+        <DirectoryPageContent page={directoryPage} />
+          </PageCanvas>
       </AppShell>
     </DirectoryQueryProvider>
   );

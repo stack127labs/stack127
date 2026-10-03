@@ -1,3 +1,6 @@
+import type { Stack127DirectoryPage } from "@/lib/directory-pages";
+import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { Fragment } from "react";
 import { groupedBindings, keycapParts } from "@/lib/shortcuts/presentation";
@@ -52,15 +55,15 @@ function ShortcutRow({ shortcut, platforms }: { shortcut: Shortcut; platforms: A
   );
 }
 
-export function KeyboardShortcutsReference({ app }: { app: AppShortcuts }) {
+export function KeyboardShortcutsReference({ app, directoryPage }: { app: AppShortcuts; directoryPage: Stack127DirectoryPage }) {
   return (
     <PageCanvas className={styles.page} flow>
       <PageHeader>
         <h1>
           <PageTitleIcon><Keyboard strokeWidth={2.2} /></PageTitleIcon>{" "}
-          <mark>{app.name}</mark> keyboard shortcuts
+          <DirectoryPageTitle title={directoryPage.title} />
         </h1>
-        <p>{app.intro}</p>
+        <ContentMarkdown markdown={directoryPage.intro_markdown} />
         <small>
           {app.platforms.map((platform) => platformLabels[platform]).join(", ")} · {shortcutCount(app)} shortcuts
         </small>
@@ -94,12 +97,7 @@ export function KeyboardShortcutsReference({ app }: { app: AppShortcuts }) {
       ))}
 
       <section className={styles.nextStep} aria-labelledby="print-title">
-        <h2 id="print-title">Print the shortcuts you use</h2>
-        <p>
-          <Link href={"/shortcuts-cheatsheet-generator?apps=" + app.slug}>
-            Make a printable {app.name} sheet
-          </Link>
-        </p>
+        <DirectoryPageContent page={directoryPage} section="print" components={{ h2: ({ children }) => <h2 id="print-title">{children}</h2> }} />
       </section>
     </PageCanvas>
   );

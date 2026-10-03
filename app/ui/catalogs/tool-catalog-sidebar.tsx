@@ -14,7 +14,7 @@ export async function ToolCatalogSidebar({ active }: { active: string }) {
           const Icon = toolCatalogIcon(catalog.icon_key);
           return {
             href: `/${catalog.page.slug}`,
-            label: catalog.page.label,
+            label: catalog.card_name,
             active: catalog.page.slug === active,
             icon: <Icon size={15} strokeWidth={2.2} />,
           };

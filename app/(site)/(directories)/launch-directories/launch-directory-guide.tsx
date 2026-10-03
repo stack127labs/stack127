@@ -1,7 +1,9 @@
+import { DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import type { Stack127DirectoryPage } from "@/lib/directory-pages";
 import type { ReactNode } from "react";
+import type { Components } from "react-markdown";
 import { UiDataTable } from "@/app/ui/display";
 import { proseClassName, proseFlowClassName } from "@/app/ui/site/prose";
-import { correctionEmail } from "./launch-directory-options";
 import styles from "./launch-directories.module.css";
 
 type MeaningRow = { id: string; label: string; meaning: ReactNode };
@@ -41,45 +43,21 @@ function MeaningTable({ ariaLabel, rows }: { ariaLabel: string; rows: MeaningRow
   />;
 }
 
-export function LaunchDirectoryGuide() {
+const guideHeadingComponents: Components = {
+  h2: ({ children }) => <h2 id="how-we-check">{children}</h2>,
+  h3: ({ children }) => <h3 id={typeof children === "string" && children.includes("recommended order") ? "recommended-order" : undefined}>{children}</h3>,
+};
+
+export function LaunchDirectoryGuide({ directoryPage }: { directoryPage: Stack127DirectoryPage }) {
   return <section aria-labelledby="how-we-check" className={`${proseClassName} ${proseFlowClassName} ${styles.guide}`}>
-    <h2 id="how-we-check">How we check each listing</h2>
-    <p>
-      For each site, we look for its official submission page, pricing, and rules, and use the ones that load. When we can open a
-      published listing, we check the link it gives the maker&apos;s site. Some sites blocked us, needed a login, or had no listing we
-      could open. Those details stay marked Couldn&apos;t verify or Not stated on their site. We don&apos;t guess them.
-    </p>
-    <p>
-      Open a card to see its full details and each page we used. A source shows its own check date when we have one. The record date is the
-      last time we checked anything on that place, so some sources can be older.
-    </p>
-    <p>
-      Cost on a card shows the lowest price we found. &quot;From&quot; means higher plans exist, and &quot;once&quot; means a one-time fee.
-      Open a card to see every price. When a site doesn&apos;t publish a price, the card says Not stated. When we couldn&apos;t check it, the card says Couldn&apos;t verify.
-    </p>
-    <p>Prices, review times, and link rules change. Check the site&apos;s own page before you pay.</p>
-
-    <h3 id="recommended-order">How is the recommended order chosen?</h3>
-    <p>
-      A few long-running launch sites come first: Product Hunt, BetaList, DevHunt, Peerlist Launchpad, AlternativeTo, and SaaSHub.
-      After those, places with a working submission page come before places without one. Launch boards and beta sites come before
-      broader listings, and niche directories come last. Within each group, a free option comes first, then a dofollow link.
-    </p>
-    <p>The order doesn&apos;t mean one site will bring you more traffic than another. Use the category filter to see the places that fit your product.</p>
-
-    <h3>What do the link types mean?</h3>
+    <DirectoryPageContent page={directoryPage} section="guide-1" components={guideHeadingComponents} />
     <MeaningTable ariaLabel="Link types" rows={linkTypes} />
-    <p>A link result only covers the named sample listing, or the plan the site&apos;s terms describe. Free and paid listings can differ.</p>
-    <p>Two labels mean we have no confirmed link result:</p>
+    <DirectoryPageContent page={directoryPage} section="guide-2" />
     <MeaningTable ariaLabel="Unconfirmed link types" rows={unconfirmedLinkTypes} />
 
-    <h3>What do the missing-detail labels mean?</h3>
+    <DirectoryPageContent page={directoryPage} section="guide-3" />
     <MeaningTable ariaLabel="Missing-detail labels" rows={missingLabels} />
 
-    <h3>Found something wrong?</h3>
-    <p>
-      Email <a href={`mailto:${correctionEmail}`}>{correctionEmail}</a> with the site name and the page that shows the right answer.
-      Each place&apos;s details also have a correction link.
-    </p>
+    <DirectoryPageContent page={directoryPage} section="guide-4" />
   </section>;
 }

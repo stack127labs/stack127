@@ -1,3 +1,6 @@
+import { getRequiredDirectoryPage } from "@/lib/directory-pages";
+import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import "@/app/(site)/(tools)/(domain)/domain-tools.css";
 import { Globe } from "lucide-react";
@@ -10,7 +13,8 @@ import { PageTitleIcon } from "../../../ui/site/page-title-icon";
 import { PageHeader } from "../../../ui/site/page-header";
 import { proseSectionFlowClassName } from "../../../ui/site/prose";
 
-export default function TldDirectoryPage() {
+export default async function TldDirectoryPage() {
+  const directoryPage = await getRequiredDirectoryPage("tld-directory");
   const rows = directory.rows as TldRow[];
   const counts = directory.counts;
 
@@ -23,19 +27,10 @@ export default function TldDirectoryPage() {
     >
       <PageCanvas as="main" className="domain-tool-main">
         <PageHeader>
-          <h1>
-            <PageTitleIcon>
+          <h1><PageTitleIcon>
               <Globe strokeWidth={2.2} />
-            </PageTitleIcon>{" "}
-            TLD <mark>directory</mark>: every domain extension, its operator, and DNSSEC
-          </h1>
-          <p>
-            Every top-level domain that exists, with the organisation that operates
-            it, whether it is signed with DNSSEC, and whether registration data can be
-            looked up under it. Built directly from IANA&apos;s own records and the
-            published root zone rather than copied from another list, and it tells you
-            when it was last refreshed.
-          </p>
+            </PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+          <ContentMarkdown markdown={directoryPage.intro_markdown} />
         </PageHeader>
 
         <TldTable rows={rows} />
@@ -44,7 +39,7 @@ export default function TldDirectoryPage() {
 
           <article className={`domain-reference-content ${proseSectionFlowClassName}`}>
           <section>
-            <h2>How many domain extensions are there?</h2>
+            <DirectoryPageContent page={directoryPage} section="copy-1" />
             <p>
               {counts.total.toLocaleString("en-US")} of them exist right now. Of those,{" "}
               {counts.signed.toLocaleString("en-US")} are signed with DNSSEC and{" "}
@@ -56,7 +51,7 @@ export default function TldDirectoryPage() {
           </section>
 
           <section>
-            <h2>What are the different types of domain extension?</h2>
+            <DirectoryPageContent page={directoryPage} section="copy-2" />
             <div className="domain-table-scroll">
               <table className="domain-table">
                 <tbody>
@@ -98,86 +93,23 @@ export default function TldDirectoryPage() {
           </section>
 
           <section>
-            <h2>Why can some domain extensions not be looked up?</h2>
-            <p>
-              Modern registration data is published over a protocol called RDAP, and not
-              every registry offers it. Where an ending has no RDAP service, no tool can
-              answer questions about names under it, including the ones on this site. That
-              is a gap in what the ending publishes rather than a limitation of any
-              particular lookup.
-            </p>
-            <p>
-              A few endings run RDAP without appearing in the official IANA directory.
-              Those are marked separately in the table, and each one was verified against a
-              real domain by hand before being added. It is a short list because every entry
-              has to be checked rather than guessed at.
-            </p>
+            <DirectoryPageContent page={directoryPage} section="copy-3" />
           </section>
 
           <section>
-            <h2>Does DNSSEC on an extension mean my domain is secure?</h2>
-            <p>
-              This column says whether the ending itself is signed in the root zone, which
-              is measured directly from its DS records. That is a prerequisite for domains
-              under it to use DNSSEC, and it is not the same thing as any particular domain
-              being signed. Nearly every ending is signed now; most individual domains are
-              not.
-            </p>
-            <p>
-              To check one domain, the{" "}
-              <Link href="/dnssec-checker">DNSSEC chain checker</Link> validates
-              it properly rather than reading a flag.
-            </p>
+            <DirectoryPageContent page={directoryPage} section="copy-4" />
           </section>
 
           <section>
-            <h2>Where does this data come from?</h2>
-            <ul>
-              <li>
-                Type and operator: <a href="https://www.iana.org/domains/root/db">IANA&apos;s root zone database</a>.
-              </li>
-              <li>
-                DNSSEC: DS records in the published root zone, so it is measured rather than
-                claimed.
-              </li>
-              <li>
-                Lookups: the IANA RDAP directory, plus a short hand-verified list of registries that run RDAP without appearing in it.
-              </li>
-            </ul>
-            <p>
-              The table is rebuilt from those sources rather than maintained by hand, and
-              the rebuild stops rather than saving a partial result if IANA changes its page
-              structure. That means rows can go out of date, but they will not quietly go
-              wrong, and the refresh date above tells you which you are looking at.
-            </p>
+            <DirectoryPageContent page={directoryPage} section="copy-5" />
           </section>
 
           <section>
-            <h2>Why are domain prices not listed?</h2>
-            <p>
-              Because any price shown here would be wrong. Registry wholesale pricing is not
-              public for most endings, and retail pricing changes constantly with the
-              registrar, the promotion and whether the specific name is classed as premium. A
-              stale price is more misleading than no price, so check at a registrar when you
-              are ready to buy.
-            </p>
-            <p>
-              Registration counts are missing for a similar reason: registry reporting is
-              inconsistent and delayed. There are also no rankings, because which ending suits
-              you depends entirely on what you are building and where.
-            </p>
+            <DirectoryPageContent page={directoryPage} section="copy-6" />
           </section>
 
           <section>
-            <h2>Related tools</h2>
-            <p>
-              To check whether a specific name is free under one of these endings, use the{" "}
-              <Link href="/domain-availability">domain availability checker</Link>,
-              or try one name across several at once with{" "}
-              <Link href="/multi-tld-availability">multi-TLD availability</Link>.
-              For the full record on a registered domain, use the{" "}
-              <Link href="/domain-lookup">domain registration lookup</Link>.
-            </p>
+            <DirectoryPageContent page={directoryPage} section="copy-7" />
           </section>
         </article>
       </PageCanvas>

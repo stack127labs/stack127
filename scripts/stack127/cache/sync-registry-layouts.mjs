@@ -8,7 +8,7 @@ async function walk(directory) {
     else if (entry.name === "page.tsx") {
       const source = await readFile(path.join(directory, entry.name), "utf8");
       const route = "/" + path.relative(site, directory).split(path.sep).filter(part => !part.startsWith("(")).join("/");
-      if (!route.includes("[") || (route.split("/").filter(Boolean).length > 1 && !route.includes("[..."))) staticPaths.push(route);
+      if (!route.includes("[...")) staticPaths.push(route);
       const target = path.join(directory, "layout.tsx");
       let previous = "";
       try { previous = await readFile(target, "utf8"); } catch(error) { if(error.code !== "ENOENT") throw error; }

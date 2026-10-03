@@ -1,3 +1,6 @@
+import { getRequiredDirectoryPage } from "@/lib/directory-pages";
+import { ContentMarkdown } from "../content-markdown";
+import { DirectoryPageTitle, DirectoryPageContent } from "./directory-page-content";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import type { ReactNode } from "react";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
@@ -14,14 +17,10 @@ import styles from "./hardware-directory-page.module.css";
 
 export type HardwareDirectoryConfig = {
   detailFilterLabel: string;
-  heading: string;
-  highlightedHeading: string;
   icon: ReactNode;
-  intro: string;
   route: string;
   searchPlaceholder: string;
   sidebarLabel: string;
-  buyingNote: string;
   title: string;
 };
 
@@ -29,7 +28,8 @@ export type HardwareDirectoryConfig = {
 // the first time someone filters, so the default page stays light.
 const inlineIndexLimit = 300;
 
-export function HardwareDirectoryPage({ config, snapshot }: { config: HardwareDirectoryConfig; snapshot: HardwareDirectorySnapshot }) {
+export async function HardwareDirectoryPage({ config, snapshot }: { config: HardwareDirectoryConfig; snapshot: HardwareDirectorySnapshot }) {
+  const directoryPage = await getRequiredDirectoryPage(config.route.slice(1));
   const records = snapshot.records;
   const firstPage = sortHardwareRecords(records, "name").slice(0, hardwarePageSize).map(hardwareIndexRecord);
   const index: DirectoryIndexSource<HardwareIndexRecord> = records.length <= inlineIndexLimit
@@ -63,8 +63,8 @@ export function HardwareDirectoryPage({ config, snapshot }: { config: HardwareDi
       <AppShell mainLabel={config.title} menuLabel="Filters" sidebar={sidebar} sidebarLabel={`${config.sidebarLabel} filters`}>
         <PageCanvas as="div" flow className="directory-results">
           <PageHeader bordered>
-            <h1><PageTitleIcon>{config.icon}</PageTitleIcon>{" "}{config.heading} <mark>{config.highlightedHeading}</mark></h1>
-            <p>{config.intro}</p>
+            <h1><PageTitleIcon>{config.icon}</PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+            <ContentMarkdown markdown={directoryPage.intro_markdown} />
           </PageHeader>
 
           <HardwareDirectoryResults
@@ -78,8 +78,7 @@ export function HardwareDirectoryPage({ config, snapshot }: { config: HardwareDi
           />
 
           <section className={`${proseClassName} ${proseFlowClassName} ${styles.guide}`}>
-            <h2>Before you buy</h2>
-            <p>{config.buyingNote}</p>
+            <DirectoryPageContent page={directoryPage} />
           </section>
         </PageCanvas>
       </AppShell>

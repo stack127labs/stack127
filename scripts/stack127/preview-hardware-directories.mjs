@@ -60,7 +60,7 @@ try {
         `insert into public.stack127_pages (
           slug, label, meta_title, meta_description, is_published,
           published_at, updated_at, cover_image_url, page_type, sitemap_priority, page_family
-        ) values ($1, $2, $3, $4, true, now(), now(), null, 'CollectionPage', 0.5, 'catalog')`,
+        ) values ($1, $2, $3, $4, true, now(), now(), null, 'CollectionPage', 0.5, 'directory')`,
         [page.slug, page.label, page.title, page.description],
       );
     }

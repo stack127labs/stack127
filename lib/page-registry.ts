@@ -1,3 +1,4 @@
+import { readPageCards } from "./page-cards";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
@@ -11,8 +12,8 @@ import { PAGE_REGISTRY_TAG, HOME_PAGES_TAG, SITEMAP_TAG } from "./cache-tags";
 export type Stack127Page = {
   id: number | string;
   slug: string;
-  page_family: "tool" | "catalog" | "course" | "info" | "legal";
-  /** Compact UI label for sidebars, home cards, and other chrome. */
+  page_family: "tool" | "catalog" | "course" | "directory" | "site";
+  /** Compact navigation label; family page tables own card copy. */
   label: string;
   meta_title: string;
   meta_description: string;
@@ -32,39 +33,6 @@ export {
   isHomeVisiblePage,
   isMainPageSlug,
 } from "./page-registry-helpers";
-
-// Keep flat routes live while the registry migration and application release
-// roll out independently. Remove this compatibility map after production has
-// been verified on the flat slugs.
-const legacyToolSlugByFlatSlug = new Map<string, string>([
-  ...[
-    "caa-checker",
-    "dns-change-checker",
-    "dns-lookup",
-    "dns-trace",
-    "dnssec-checker",
-    "nameserver-checker",
-    "soa-checker",
-  ].map((slug) => [slug, `dns-tools/${slug}`] as const),
-  ...[
-    "domain-age",
-    "domain-availability",
-    "domain-expiry",
-    "domain-lookup",
-    "domain-owner",
-    "domain-registrar",
-    "domain-report",
-    "epp-status-codes",
-    "multi-tld-availability",
-    "punycode-converter",
-    "tld-directory",
-    "transfer-readiness",
-  ].map((slug) => [slug, `domain-tools/${slug}`] as const),
-]);
-
-const flatToolSlugByLegacySlug = new Map(
-  [...legacyToolSlugByFlatSlug].map(([flat, legacy]) => [legacy, flat]),
-);
 
 export type PagePublicationState =
   | {
@@ -181,17 +149,7 @@ function ancestorSlugs(slug: string) {
 
 export const getExactPublishedPage = cache(cachedPublishedPage);
 
-export const getPublishedPage = cache(async (slug: string) => {
-  const page = await getExactPublishedPage(slug);
-  if (page) return page;
-
-  const legacySlug = legacyToolSlugByFlatSlug.get(slug);
-  if (!legacySlug) return null;
-
-  const legacyPage = await getExactPublishedPage(legacySlug);
-
-  return legacyPage ? { ...legacyPage, slug } : null;
-});
+export const getPublishedPage = getExactPublishedPage;
 
 export const getRequiredPublishedPage = cache(async (slug: string) => {
   const page = await getPublishedPage(slug);
@@ -257,22 +215,7 @@ export const getPublishedSitemapPages = cache(unstable_cache(async () => {
     },
   });
 
-  const pagesBySlug = new Map<string, Stack127Page>();
-
-  for (const page of rows) {
-    const slug = flatToolSlugByLegacySlug.get(page.slug) ?? page.slug;
-    const normalizedPage = { ...page, slug };
-    const currentPage = pagesBySlug.get(slug);
-
-    // Prefer an already-migrated canonical row if both rollout states exist.
-    if (!currentPage || page.slug === slug) {
-      pagesBySlug.set(slug, normalizedPage);
-    }
-  }
-
-  return [...pagesBySlug.values()].sort((left, right) =>
-    left.slug.localeCompare(right.slug),
-  );
+  return rows;
 }, [SITEMAP_TAG], { revalidate: false, tags: [SITEMAP_TAG] }));
 
 /**
@@ -280,7 +223,7 @@ export const getPublishedSitemapPages = cache(unstable_cache(async () => {
  * navigation metadata because tool pages intentionally use flat routes.
  */
 export const getMainPublishedPages = cache(unstable_cache(async () => {
-  return readPublicData<Stack127Page[]>({
+  const pages = await readPublicData<Stack127Page[]>({
     dataApiRead: () => selectPublicRows<Stack127Page>("stack127_pages", {
       is_published: "eq.true",
       order: "sitemap_priority.desc,label.asc",
@@ -298,6 +241,14 @@ export const getMainPublishedPages = cache(unstable_cache(async () => {
       );
       return result.rows;
     },
+  });
+  const cards = await readPageCards(pages);
+  return pages.map(page => {
+    const card = cards.get(String(page.id));
+    if (["tool", "directory", "catalog"].includes(page.page_family) && !card) {
+      throw new Error(`Page card is missing: ${page.slug}`);
+    }
+    return { ...page, card_name: card?.card_name ?? page.label, card_description: card?.card_description ?? page.meta_description };
   });
 }, [HOME_PAGES_TAG], { revalidate: false, tags: [HOME_PAGES_TAG] }));
 

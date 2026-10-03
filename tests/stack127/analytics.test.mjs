@@ -22,9 +22,10 @@ function publicationProxy({ published = false } = {}) {
       };
       if (name === "@/lib/page-registry") return {
         slugFromPathname: pathname => pathname.slice(1),
-        getExactPublishedPage: async slug => { lookups.push(slug); return published ? { slug, page_family: "info" } : null; },
+        getExactPublishedPage: async slug => { lookups.push(slug); return published ? { slug, page_family: "site" } : null; },
       };
-      if (name === "@/lib/tool-catalogs") return { getPublishedToolCatalogs: async () => [] };
+      if (name === "@/lib/tool-catalogs") return { getPublishedToolCatalog: async () => null };
+      if (name === "@/lib/directory-pages") return { getPublishedDirectoryPage: async () => null };
       if (name === "@/lib/tool-pages") return { getPublishedToolPage: async () => null };
       if (name === "@/lib/page-source") return { sitePageAvailable: () => published };
       if (name === "@/lib/seo") return { absoluteUrl: pathname => new URL(pathname, "https://stack127.com").toString() };

@@ -10,6 +10,8 @@ export type Stack127ToolPage = {
   page_id: number | string;
   slug: string;
   title: string;
+  card_name: string;
+  card_description: string;
   intro_markdown: string;
   usage_markdown: string | null;
   content_markdown: string;
@@ -29,6 +31,8 @@ type Stack127ToolContentRow = Omit<Stack127ToolPage, "published_at" | "slug" | "
 const toolContentColumns = [
   "page_id",
   "title",
+  "card_name",
+  "card_description",
   "intro_markdown",
   "usage_markdown",
   "content_markdown",
@@ -66,6 +70,8 @@ export const getPublishedToolPage = cache(async (slug: string) => unstable_cache
             tool.page_id,
             page.slug,
             tool.title,
+            tool.card_name,
+            tool.card_description,
             tool.intro_markdown,
             tool.usage_markdown,
             tool.content_markdown,

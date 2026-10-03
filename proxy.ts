@@ -1,7 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getExactPublishedPage, slugFromPathname } from "@/lib/page-registry";
-import { getPublishedToolCatalogs } from "@/lib/tool-catalogs";
+import { getPublishedToolCatalog } from "@/lib/tool-catalogs";
 import { getPublishedToolPage } from "@/lib/tool-pages";
+import { getPublishedDirectoryPage } from "@/lib/directory-pages";
 import { sitePageAvailable } from "@/lib/page-source";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -30,8 +31,9 @@ export async function proxy(request: NextRequest) {
     // need a compiled page; a registry row alone cannot create that route.
     const contentAvailable = published && sitePageAvailable(pathname, {
       is_published: true, page_family: published.page_family,
-      has_catalog_content: published.page_family === "catalog" && (await getPublishedToolCatalogs()).some(catalog => catalog.page.slug === published.slug),
-      has_tool_content: published.page_family === "tool" && Boolean(await getPublishedToolPage(published.slug)),
+      has_page_content: published.page_family === "tool" ? Boolean(await getPublishedToolPage(published.slug))
+        : published.page_family === "directory" ? Boolean(await getPublishedDirectoryPage(published.slug))
+        : published.page_family === "catalog" ? Boolean(await getPublishedToolCatalog(published.slug)) : true,
     });
     if (!contentAvailable) {
       const target = request.nextUrl.clone();

@@ -32,7 +32,7 @@ try {
         where next_attempt_at<=now() and (created_at<=now()-interval '10 seconds' or first_queued_at<=now()-interval '60 seconds')
         order by first_queued_at,id limit 1`);
       if (!events.length) break;
-      const { rows: catalogs } = await pool.query(`select page.slug from public.stack127_pages page join public.stack127_tool_catalogs catalog on catalog.page_id=page.id where page.page_family='catalog' and page.is_published`);
+      const { rows: catalogs } = await pool.query(`select page.slug from public.stack127_pages page join public.stack127_catalog_pages catalog on catalog.page_id=page.id where page.page_family='catalog' and page.is_published`);
       const tools = events[0].entity_type === 'page' && catalogs.some(row => row.slug === events[0].slug)
         ? (await pool.query("select slug from public.stack127_pages where page_family='tool' and is_published")).rows.map(row => row.slug) : [];
       const targets = targetsForEvents(events, catalogs.map(row => row.slug), tools);

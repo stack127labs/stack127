@@ -128,12 +128,12 @@ async function targetsFor(events: QueueEvent[]) {
   let toolSlugs: string[] = [];
   if (targetEvents.some((event) => event.entity_type === "page")) {
     const catalogs = await sql`
-      select page.slug, page.is_published, catalog.page_id is not null as has_catalog_content
+      select page.slug, page.is_published, catalog.page_id is not null as has_content
       from public.stack127_pages page
-      left join public.stack127_tool_catalogs catalog on catalog.page_id = page.id
+      left join public.stack127_catalog_pages catalog on catalog.page_id = page.id
       where page.page_family = 'catalog'
     `;
-    catalogSlugs = catalogs.filter((row) => row.is_published && row.has_catalog_content).map((row) => row.slug);
+    catalogSlugs = catalogs.filter((row) => row.is_published && row.has_content).map((row) => row.slug);
     const catalogNames = new Set(catalogs.map((row) => row.slug));
     if (targetEvents.some((event) => event.entity_type === "page" && catalogNames.has(event.slug))) {
       const tools = await sql`select slug from public.stack127_pages where page_family = 'tool' and is_published`;

@@ -15,6 +15,20 @@ export function preserveDevelopmentPublication(productionRows, developmentRows) 
   });
 }
 
+export function remapDevelopmentPageIds(rows, fields, developmentPages, restoredPages) {
+  const slugById = new Map(developmentPages.map(row => [String(row.id), row.slug]));
+  const idBySlug = new Map(restoredPages.map(row => [row.slug, row.id]));
+  return rows.map(row => {
+    const restored = { ...row };
+    for (const field of fields) {
+      const id = idBySlug.get(slugById.get(String(row[field])));
+      if (id === undefined) throw new Error(`Cannot restore ${field}: its registry page is missing`);
+      restored[field] = id;
+    }
+    return restored;
+  });
+}
+
 function isDraftRoute(slug) {
   return ['ad-networks', 'launch-directories', 'platform-fees'].includes(slug) || slug.startsWith('platform-fees/') || slug.startsWith('ad-networks/');
 }
@@ -57,7 +71,7 @@ async function main() {
     'self_host_app_resource_estimates', 'self_host_app_install_options',
     'terminal_app_import_runs', 'terminal_apps', 'terminal_app_candidates',
     'terminal_app_field_sources', 'stack127_pages', 'stack127_tool_pages',
-    'stack127_tool_catalogs', 'stack127_tool_catalog_memberships',
+    'stack127_catalog_pages', 'stack127_directory_pages', 'stack127_tool_catalog_memberships',
   ];
   const sourceEnv = parseEnv(await readFile('.env.database', 'utf8'));
   const targetEnv = parseEnv(await readFile('.env.local', 'utf8'));
@@ -204,6 +218,15 @@ async function main() {
       await target.query(`lock table ${tables.map(tableName).join(', ')} in share row exclusive mode`);
       const developmentPages = (await target.query('select to_jsonb(record) payload from public.stack127_pages record')).rows.map((row) => row.payload);
       const extraPages = developmentPages.filter((row) => !prodSlugs.has(row.slug));
+      const extraPageIds = new Set(extraPages.map(row => String(row.id)));
+      const extraContent = new Map();
+      for (const name of ['stack127_tool_pages', 'stack127_catalog_pages', 'stack127_directory_pages']) {
+        const rows = (await target.query(`select to_jsonb(record) payload from ${tableName(name)} record
+          where page_id=any($1::bigint[])`, [[...extraPageIds]])).rows.map(row => row.payload);
+        extraContent.set(name, rows);
+      }
+      const extraMemberships = (await target.query(`select * from public.stack127_tool_catalog_memberships
+        where catalog_page_id=any($1::bigint[]) or tool_page_id=any($1::bigint[])`, [[...extraPageIds]])).rows;
       snapshot.get('stack127_pages').rows = preserveDevelopmentPublication(snapshot.get('stack127_pages').rows, developmentPages);
       const triggerStates = (await target.query(`select c.relname,t.tgname,t.tgenabled from pg_trigger t
         join pg_class c on c.oid=t.tgrelid join pg_namespace n on n.oid=c.relnamespace
@@ -238,6 +261,17 @@ async function main() {
       const names = pageFields.map((column) => identifier(column.column_name)).join(', ');
       if (extraPages.length) await target.query(`insert into public.stack127_pages (${names})
         select ${names} from jsonb_populate_recordset(null::public.stack127_pages,$1::jsonb)`, [JSON.stringify(extraPages)]);
+      const currentPages = (await target.query('select id,slug from public.stack127_pages')).rows;
+      for (const [name, rows] of extraContent) {
+        if (!rows.length) continue;
+        const remapped = remapDevelopmentPageIds(rows, ['page_id'], developmentPages, currentPages);
+        const fields = snapshot.get(name).columns.map(column => identifier(column.column_name)).join(', ');
+        await target.query(`insert into ${tableName(name)} (${fields})
+          select ${fields} from jsonb_populate_recordset(null::${tableName(name)},$1::jsonb)`, [JSON.stringify(remapped)]);
+      }
+      if (extraMemberships.length) await target.query(`insert into public.stack127_tool_catalog_memberships
+        select * from jsonb_populate_recordset(null::public.stack127_tool_catalog_memberships,$1::jsonb)`,
+        [JSON.stringify(remapDevelopmentPageIds(extraMemberships, ['catalog_page_id', 'tool_page_id'], developmentPages, currentPages))]);
       await target.query('set constraints all immediate');
       for (const key of foreignKeys) await target.query(`alter table ${tableName(key.table_name)}
         alter constraint ${identifier(key.conname)} ${key.condeferrable

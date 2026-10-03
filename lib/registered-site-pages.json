@@ -1,5 +1,6 @@
 [
   "/",
+  "/[slug]",
   "/about",
   "/ad-networks",
   "/ad-networks/[slug]",

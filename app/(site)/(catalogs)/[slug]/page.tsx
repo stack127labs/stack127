@@ -19,7 +19,7 @@ export default async function ToolCatalogPage({ params }: { params: Promise<{ sl
 
   return (
     <AppShell
-      mainLabel={catalog.page.label}
+      mainLabel={catalog.card_name}
       menuLabel="Tool catalogs"
       sidebar={<ToolCatalogSidebar active={slug} />}
       sidebarLabel="Tool catalogs sidebar"

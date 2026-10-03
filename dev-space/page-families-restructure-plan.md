@@ -44,19 +44,19 @@ This plan joins directories and references, makes page family names match across
 
 ### Phase 4: Database. Sol, with a migration and backfill.
 
-- [ ] 12. Change the `page_family` check to `tool`, `directory`, `course`, `catalog`, `site`. Move existing rows over: directories and references go from `catalog` to `directory`, and `info` and `legal` go to `site`.
-- [ ] 13. Rename `stack127_tool_catalogs` to `stack127_catalog_pages`, and add `card_name` and `card_description`.
-- [ ] 14. Create `stack127_directory_pages` with `page_id`, `title`, `intro_markdown`, `content_markdown`, `content_revision`, `card_name`, `card_description`, and a row-update time.
-- [ ] 15. Backfill directory rows from the copy currently in code, including rows for published child pages.
-- [ ] 16. Keep `stack127_pages` as only the registry: slug, published flag, SEO, and dates. Check that no family-specific column is left in it.
+- [x] 12. Change the `page_family` check to `tool`, `directory`, `course`, `catalog`, `site`. Move existing rows over: directories and references go from `catalog` to `directory`, and `info` and `legal` go to `site`.
+- [x] 13. Rename `stack127_tool_catalogs` to `stack127_catalog_pages`, and add `card_name` and `card_description`.
+- [x] 14. Create `stack127_directory_pages` with `page_id`, `title`, `intro_markdown`, `content_markdown`, `content_revision`, `card_name`, `card_description`, and a row-update time.
+- [x] 15. Backfill directory rows from the copy currently in code, including rows for published child pages.
+- [x] 16. Keep `stack127_pages` as only the registry: slug, published flag, SEO, and dates. Check that no family-specific column is left in it.
 
 ### Phase 5: Code that reads families and content. Sol.
 
-- [ ] 17. Update `lib/page-registry.ts`, `lib/page-source.ts`, `lib/tool-catalogs.ts`, `lib/tool-pages.ts`, and `app/api/cache/refresh/route.ts` for the new family names and tables. That also removes the `has_catalog_content` workaround.
-- [ ] 18. Add a `lib/directory-pages.ts` reader. Directory pages render their title, intro, and Markdown from the database, and their records from code or a table.
-- [ ] 19. Make the homepage read card names and descriptions from the three page tables.
-- [ ] 20. Update scripts that write `page_family`, such as `scripts/platform-fees/sync-development.mjs` and the `preview-local-page.mjs` scripts. Update the development database rebuild too.
-- [ ] 21. Add a cache tag and revalidation for directory page edits.
+- [x] 17. Update `lib/page-registry.ts`, `lib/page-source.ts`, `lib/tool-catalogs.ts`, `lib/tool-pages.ts`, and `app/api/cache/refresh/route.ts` for the new family names and tables. That also removes the `has_catalog_content` workaround.
+- [x] 18. Add a `lib/directory-pages.ts` reader. Directory pages render their title, intro, and Markdown from the database, and their records from code or a table.
+- [x] 19. Make the homepage read card names and descriptions from the three page tables.
+- [x] 20. Update scripts that write `page_family`, such as `scripts/platform-fees/sync-development.mjs` and the `preview-local-page.mjs` scripts. Update the development database rebuild too.
+- [x] 21. Add a cache tag and revalidation for directory page edits.
 
 ### Phase 6: Docs and skills. Opus writes, Sol checks the tables.
 

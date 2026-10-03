@@ -57,6 +57,8 @@ import {
 import { siteHeroStack127Art } from "@/app/(site)/art/site--hero-stack127";
 
 
+type HomePageCardRecord = Stack127Page & { card_name: string; card_description: string };
+
 type HomeStat = {
   label: string;
   value: string;
@@ -93,7 +95,7 @@ const pageArt: Record<string, string> = {
   "tld-directory": tldDirectoryArt,
 };
 
-function HomeSidebar({ pages, catalogs }: { pages: Stack127Page[]; catalogs: Map<string, ToolCatalogSummary> }) {
+function HomeSidebar({ pages, catalogs }: { pages: HomePageCardRecord[]; catalogs: Map<string, ToolCatalogSummary> }) {
   return (
     <div className={`${sidebarPanelClassName} home-sidebar-panel`}>
       <div className={sidebarPanelHeadingClassName}>
@@ -110,7 +112,7 @@ function HomeSidebar({ pages, catalogs }: { pages: Stack127Page[]; catalogs: Map
               return {
                 href: pathFromSlug(page.slug),
                 icon: Icon ? <Icon size={15} strokeWidth={2.2} /> : undefined,
-                label: page.label,
+                label: page.card_name,
               };
             })}
         />
@@ -160,7 +162,7 @@ function HomePageCard({
   page,
   stats,
 }: {
-  page: Stack127Page;
+  page: HomePageCardRecord;
   stats: HomeStat[];
 }) {
   const Icon = pageIcons[page.slug];
@@ -179,12 +181,12 @@ function HomePageCard({
               <Icon size={18} strokeWidth={2.2} />
             </span>
           ) : null}
-          {page.label}
+          {page.card_name}
         </h2>
-        <p>{page.meta_description}</p>
+        <p>{page.card_description}</p>
       </div>
       {stats.length > 0 ? (
-        <dl className="home-page-card-stats" aria-label={`${page.label} stats`}>
+        <dl className="home-page-card-stats" aria-label={`${page.card_name} stats`}>
           {stats.map((stat) => (
             <div key={stat.label}>
               <dt>{stat.label}</dt>
@@ -228,7 +230,7 @@ export default async function Home() {
   const catalogBySlug = new Map(toolCatalogs.map((catalog) => [catalog.page.slug, catalog]));
   const visibleMainPages = [
     ...mainPages.filter(isHomeVisiblePage),
-    ...toolCatalogs.map((catalog) => catalog.page),
+    ...toolCatalogs.map((catalog) => ({ ...catalog.page, card_name: catalog.card_name, card_description: catalog.card_description })),
   ].sort((left, right) => Number(right.sitemap_priority) - Number(left.sitemap_priority) || left.label.localeCompare(right.label));
   const featurePages = mainPages.filter((page) => isHomeVisiblePage(page) && isHomeFeaturePage(page));
   // One snapshot feeds both the card counts and the freshness marker, so they can't straddle a refresh.

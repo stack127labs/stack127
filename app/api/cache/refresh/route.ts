@@ -74,10 +74,13 @@ export async function POST(request: Request) {
           if (!response.ok || !html.includes("<urlset")) throw new Error("Invalid origin sitemap");
         } else {
           const slug = path.replace(/^\//, "");
-          const { rows } = await getPool().query<{ is_published: boolean; row_updated_at: Date; page_family: string; has_tool_content: boolean; has_catalog_content: boolean }>(
+          const { rows } = await getPool().query<{ is_published: boolean; row_updated_at: Date; page_family: string; has_page_content: boolean }>(
             `select is_published,row_updated_at,page_family,
-              exists(select 1 from public.stack127_tool_pages content where content.page_id=page.id) as has_tool_content,
-              exists(select 1 from public.stack127_tool_catalogs content where content.page_id=page.id) as has_catalog_content
+              case page_family
+                when 'tool' then exists(select 1 from public.stack127_tool_pages content where content.page_id=page.id)
+                when 'directory' then exists(select 1 from public.stack127_directory_pages content where content.page_id=page.id)
+                when 'catalog' then exists(select 1 from public.stack127_catalog_pages content where content.page_id=page.id)
+                else true end as has_page_content
               from public.stack127_pages page where slug=$1`, [slug],
           );
           let published = sitePageAvailable(path, rows[0]);

@@ -1,3 +1,6 @@
+import { getRequiredDirectoryPage } from "@/lib/directory-pages";
+import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { Rocket } from "lucide-react";
 import { DirectoryQueryProvider } from "@/app/ui/directories/directory-query";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
@@ -12,6 +15,7 @@ import { costOptions, linkOptions } from "./launch-directory-options";
 import { LaunchDirectoryFilters, LaunchDirectoryResults } from "./launch-directory-view";
 
 export default async function LaunchDirectoriesPage() {
+  const directoryPage = await getRequiredDirectoryPage("launch-directories");
   const registryPage = await getRequiredPublishedPage("launch-directories");
   const snapshot = await getLaunchDirectorySnapshot();
   const directories = snapshot.directories;
@@ -32,15 +36,15 @@ export default async function LaunchDirectoriesPage() {
     <AppShell mainLabel="Launch directory results" menuLabel="Filters" sidebar={sidebar} sidebarLabel="Launch directory filters">
       <EntryHero art={null}>
         <PageHeader>
-          <h1><PageTitleIcon><Rocket strokeWidth={2.2} /></PageTitleIcon>{" "}Find the right place to <mark>launch your product</mark></h1>
-          <p>Compare cost, review time, link type, and who can submit. Then open the site&apos;s own submission page.</p>
+          <h1><PageTitleIcon><Rocket strokeWidth={2.2} /></PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+          <ContentMarkdown markdown={directoryPage.intro_markdown} />
         </PageHeader>
       </EntryHero>
       {/* Data freshness marker for the cache verifier, not page metadata. */}
       <span data-launch-directories-revision={snapshot.revision} hidden />
       <PageCanvas as="div" className="directory-results">
         <LaunchDirectoryResults categories={[...launchCategories]} directories={directories} />
-        <LaunchDirectoryGuide />
+        <LaunchDirectoryGuide directoryPage={directoryPage} />
       </PageCanvas>
     </AppShell>
   </DirectoryQueryProvider>;

@@ -1,3 +1,6 @@
+import type { Stack127DirectoryPage } from "@/lib/directory-pages";
+import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { ContentMarkdown } from "@/app/ui/content-markdown";
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import {
@@ -31,10 +34,10 @@ export function SectionIcon({ section }: { section: FeeSection }) {
   return <Icon aria-hidden="true" size={22} />;
 }
 
-export function FeeShell({ sections, selected, title, children, overview = false }: {
+export function FeeShell({ sections, selected, directoryPage, children, overview = false }: {
   sections: FeeSection[];
   selected?: string;
-  title: string;
+  directoryPage: Stack127DirectoryPage;
   children: ReactNode;
   overview?: boolean;
 }) {
@@ -54,15 +57,15 @@ export function FeeShell({ sections, selected, title, children, overview = false
     </nav>
   </div>;
 
-  return <AppShell mainLabel={title} sidebar={sidebar} sidebarLabel="Fee sections" menuLabel="Sections">
+  return <AppShell mainLabel={directoryPage.title} sidebar={sidebar} sidebarLabel="Fee sections" menuLabel="Sections">
     <EntryHero art={null}>
       <PageHeader>
         {!overview && <Link href="/platform-fees" className={styles.back}>Platform fees</Link>}
-        <h1><PageTitleIcon>{current ? <SectionIcon section={current} /> : <ReceiptText />}</PageTitleIcon>{' '}{title}</h1>
-        {overview ? <p>Choose what you sell, then compare fees and start costs. Open a card for other rates and official sources. Ranges use headline percentages before fixed charges and other deductions.</p> : current && <p>{current.intro}</p>}
+        <h1><PageTitleIcon>{current ? <SectionIcon section={current} /> : <ReceiptText />}</PageTitleIcon>{' '}<DirectoryPageTitle title={directoryPage.title} /></h1>
+        <ContentMarkdown markdown={directoryPage.intro_markdown} />
       </PageHeader>
     </EntryHero>
-    <PageCanvas flow className={styles.content}>{children}</PageCanvas>
+    <PageCanvas flow className={styles.content}>{children}<DirectoryPageContent page={directoryPage} /></PageCanvas>
   </AppShell>;
 }
 

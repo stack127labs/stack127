@@ -18,9 +18,9 @@ export function ToolCatalogCard({ catalog }: { catalog: ToolCatalogSummary }) {
       <span className={styles.copy}>
         <h3 className={styles.title}>
           <Icon aria-hidden="true" size={18} strokeWidth={2.2} />
-          {page.label}
+          {catalog.card_name}
         </h3>
-        <p className={styles.description}>{page.meta_description}</p>
+        <p className={styles.description}>{catalog.card_description}</p>
       </span>
       <span className={styles.count}>{tool_count.toLocaleString("en-US")} {tool_count === 1 ? "tool" : "tools"}</span>
     </Link>

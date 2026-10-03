@@ -1,3 +1,6 @@
+import { getRequiredDirectoryPage } from "@/lib/directory-pages";
+import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import Link from "next/link";
 import { Keyboard } from "lucide-react";
@@ -13,19 +16,16 @@ function categoryId(category: string) {
   return "category-" + category.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 }
 
-export function KeyboardShortcutsDirectory() {
+export async function KeyboardShortcutsDirectory() {
+  const directoryPage = await getRequiredDirectoryPage("keyboard-shortcuts");
   const totalShortcuts = shortcutAppCatalog.reduce((total, app) => total + app.shortcutCount, 0);
 
   return (
     <>
       <EntryHero art={siteSpotKeyboardShortcutsArt}>
       <PageHeader>
-        <h1>
-          <PageTitleIcon><Keyboard strokeWidth={2.2} /></PageTitleIcon> <mark>Keyboard shortcuts</mark> for your daily tools
-        </h1>
-        <p>
-          Choose an app, check its platforms, and open a printable sheet with the shortcuts already selected.
-        </p>
+        <h1><PageTitleIcon><Keyboard strokeWidth={2.2} /></PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+        <ContentMarkdown markdown={directoryPage.intro_markdown} />
         <small>{shortcutAppCatalog.length} apps · {totalShortcuts} shortcuts · Windows, macOS, and Linux</small>
       </PageHeader>
 
@@ -67,8 +67,7 @@ export function KeyboardShortcutsDirectory() {
       })}
 
       <section className={styles.nextStep} aria-labelledby="generator-title">
-        <h2 id="generator-title">Print the shortcuts you need</h2>
-        <p><Link href="/shortcuts-cheatsheet-generator">Build a printable sheet from the reference</Link></p>
+        <DirectoryPageContent page={directoryPage} section="copy-1" />
       </section>
       </PageCanvas>
     </>

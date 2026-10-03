@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getRequiredPublishedPage } from '@/lib/page-registry';
+import { getRequiredDirectoryPage } from '@/lib/directory-pages';
 import { getFeeDirectory } from '@/lib/platform-fees/queries';
 import { sectionCheckedAt } from '@/lib/platform-fees/model';
 import { sectionPath, sectionSlug } from '@/lib/platform-fees/section-routes';
@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 
 export default async function FeeSectionPage({ params }: { params: Promise<{ section: string }> }) {
   const { section: slug } = await params;
-  await getRequiredPublishedPage(`platform-fees/${slug}`);
+  const directoryPage = await getRequiredDirectoryPage(`platform-fees/${slug}`);
   // A failed load must surface as an error, never as a cacheable page.
   const directory = await getFeeDirectory();
   const section = directory.sections.find(section => sectionSlug(section.id) === slug);
@@ -35,7 +35,7 @@ export default async function FeeSectionPage({ params }: { params: Promise<{ sec
   const related = section.related_sections.map(id => directory.sections.find(section => section.id === id)!).filter(Boolean);
   const path = sectionPath(section.id);
 
-  return <FeeShell sections={directory.sections} selected={section.id} title={section.meta_title}>
+  return <FeeShell sections={directory.sections} selected={section.id} directoryPage={directoryPage}>
     <FeeSearch>
       <FeeFilters action={path} />
       <div className={styles.overview}>

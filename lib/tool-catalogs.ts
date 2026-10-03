@@ -6,6 +6,8 @@ import type { Stack127Page } from "./page-registry";
 import { readPublicData, selectPublicRows } from "./public-data-api";
 
 type CatalogContent = {
+  card_name: string;
+  card_description: string;
   page_id: number | string;
   heading_before: string;
   heading_mark: string;
@@ -48,7 +50,7 @@ export type PublishedToolCatalog = ToolCatalogSummary & {
   tools: ToolCatalogCard[];
 };
 
-const catalogColumns = "page_id,heading_before,heading_mark,heading_after,intro,section_heading,icon_key,hero_art_key,home_art_key,home_order";
+const catalogColumns = "card_name,card_description,page_id,heading_before,heading_mark,heading_after,intro,section_heading,icon_key,hero_art_key,home_art_key,home_order";
 const pageColumns = "id,slug,page_family,label,meta_title,meta_description,is_published,row_created_at,published_at,updated_at,row_updated_at,cover_image_url,page_type,sitemap_priority";
 const membershipColumns = "catalog_page_id,tool_page_id,catalog_rank,display_order";
 const cardColumns = "page_id,card_name,card_description,card_icon_key,card_art_key";
@@ -60,7 +62,7 @@ function ids(values: Array<number | string>) {
 export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<ToolCatalogSummary[]> => {
   return readPublicData({
     dataApiRead: async () => {
-      const contents = await selectPublicRows<CatalogContent>("stack127_tool_catalogs", {
+      const contents = await selectPublicRows<CatalogContent>("stack127_catalog_pages", {
         select: catalogColumns,
         order: "home_order.asc",
       });
@@ -89,7 +91,7 @@ export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<T
       const result = await getPool().query<ToolCatalogSummary & Stack127Page>(`
         select catalog.*, to_jsonb(page.*) as page,
           count(tool_page.id)::integer as tool_count
-        from public.stack127_tool_catalogs catalog
+        from public.stack127_catalog_pages catalog
         join public.stack127_pages page on page.id = catalog.page_id
           and page.page_family = 'catalog' and page.is_published
         left join public.stack127_tool_catalog_memberships member

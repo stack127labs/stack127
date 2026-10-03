@@ -12,3 +12,4 @@ export const PLATFORM_FEES_TAG = "stack127-platform-fees";
 export const AD_NETWORKS_TAG = "stack127-ad-networks";
 export const LAUNCH_DIRECTORIES_TAG = "stack127-launch-directories";
 export const SITEMAP_TAG = "stack127-sitemap-pages";
+export const DIRECTORY_PAGES_TAG = "stack127-directory-page";

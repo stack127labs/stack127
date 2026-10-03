@@ -84,7 +84,7 @@ try {
       `insert into public.stack127_pages (
         slug, label, meta_title, meta_description, is_published,
         published_at, updated_at, cover_image_url, page_type, sitemap_priority, page_family
-      ) values ($1, $2, $3, $4, true, now(), now(), null, $5, $6, 'catalog')`,
+      ) values ($1, $2, $3, $4, true, now(), now(), null, $5, $6, 'directory')`,
       [
         PREVIEW_ROW.slug,
         PREVIEW_ROW.label,

@@ -1,4 +1,4 @@
-import { getRequiredPublishedPage } from '@/lib/page-registry';
+import { getRequiredDirectoryPage } from '@/lib/directory-pages';
 import { getFeeDirectory } from '@/lib/platform-fees/queries';
 import { sectionGroups } from '@/lib/platform-fees/model';
 import { sectionPath } from '@/lib/platform-fees/section-routes';
@@ -7,7 +7,7 @@ import { FeeShell, SectionTile } from './components';
 import styles from './page.module.css';
 
 export default async function PlatformFeesPage() {
-  await getRequiredPublishedPage('platform-fees');
+  const directoryPage = await getRequiredDirectoryPage('platform-fees');
   // A failed load must surface as an error, never as a cacheable page.
   const directory = await getFeeDirectory();
   const sectionNames = new Map(directory.sections.map(section => [section.id, section.name]));
@@ -20,7 +20,7 @@ export default async function PlatformFeesPage() {
   }));
   const sectionRedirects = Object.fromEntries(directory.sections.map(section => [section.id, sectionPath(section.id)]));
 
-  return <FeeShell sections={directory.sections} title={`Platform fees compared: ${directory.entries.length} platforms across ${directory.sections.length} categories`} overview>
+  return <FeeShell sections={directory.sections} directoryPage={directoryPage} overview>
     <FeeSearch sectionRedirects={sectionRedirects}>
       <FeeFilters />
       <FeeHubResults items={items}>

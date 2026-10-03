@@ -75,3 +75,11 @@ test("a failed public refresh cannot be acknowledged as a successful update", as
     purge: async () => {}, warm: async () => { throw new Error("public response is stale"); },
   }), /public response is stale/);
 });
+
+test("directory copy changes invalidate the page reader and homepage cards", () => {
+  const targets = targetsForEvents([{ entity_type: "page", slug: "keyboard-shortcuts/vscode" }]);
+  assert.ok(targets.nextTags.includes("stack127-directory-page:keyboard-shortcuts/vscode"));
+  assert.ok(targets.nextTags.includes("stack127-home-pages"));
+  assert.ok(targets.paths.includes("/keyboard-shortcuts/vscode"));
+  assert.ok(targets.paths.includes("/"));
+});

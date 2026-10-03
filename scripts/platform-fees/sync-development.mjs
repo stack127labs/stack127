@@ -5,6 +5,7 @@ import { parseEnv, parseArgs } from 'node:util';
 import pg from 'pg';
 import { validateDirectory } from '../../lib/platform-fees/model.ts';
 import { sectionPath } from '../../lib/platform-fees/section-routes.ts';
+import { upsertDirectoryPage, platformFeeSectionCopy, platformFeeOverviewCopy } from '../stack127/directory-pages/lib.mjs';
 const { values } = parseArgs({ options: { apply: { type: 'boolean', default: false }, migrate: { type: 'boolean', default: false }, preview: { type: 'boolean', default: false } } });
 const data = JSON.parse(await readFile(new URL('./data/directory.json', import.meta.url), 'utf8'));
 validateDirectory(data);
@@ -45,16 +46,18 @@ try {
         await client.query('update public.stack127_pages set is_published=false where slug=$1', [oldSlug]);
       }
       await client.query(`insert into public.stack127_pages (slug,page_family,label,meta_title,meta_description,is_published,page_type,sitemap_priority)
-        values ($1,'catalog',$2,$3,$4,false,'CollectionPage',0.6)
-        on conflict (slug) do update set label=excluded.label, meta_title=excluded.meta_title, meta_description=excluded.meta_description,
+        values ($1,'directory',$2,$3,$4,false,'CollectionPage',0.6)
+        on conflict (slug) do update set page_family=excluded.page_family, label=excluded.label, meta_title=excluded.meta_title, meta_description=excluded.meta_description,
           page_type=excluded.page_type, updated_at=case when stack127_pages.is_published then now() else stack127_pages.updated_at end`,
         [slug, section.name, section.meta_title, section.meta_description]);
+      await upsertDirectoryPage(client, platformFeeSectionCopy(section, slug));
     }
     await client.query(`update public.stack127_pages set
       meta_title=$1,
       meta_description='Compare selling fees, start costs and payment charges across app stores, digital products and creator platforms. Choose a category and compare sourced rates.',
       updated_at=case when is_published then now() else updated_at end
       where slug='platform-fees'`, [`Platform fees compared: ${data.entries.length} platforms across ${data.sections.length} categories`]);
+    await upsertDirectoryPage(client, platformFeeOverviewCopy(data.sections.length, data.entries.length));
     if (values.preview) await client.query("update public.stack127_pages set is_published=true,published_at=coalesce(published_at,now()),updated_at=now() where slug='platform-fees' or slug=any($1::text[])", [data.sections.map(section => sectionPath(section.id).slice(1))]);
     await client.query('commit');
   } catch(error) { await client.query('rollback'); throw error; }
