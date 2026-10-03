@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import pg from "pg";
+import { previewDirectoryPages } from "./directory-pages/lib.mjs";
 
 const MANAGED_DEVELOPMENT_PROJECT_REF = "phhrfvmncpqqmmgruktx";
 const PRODUCTION_PROJECT_REF = "tulgfrqamtcshdtmhvpx";
@@ -35,37 +36,8 @@ const refresh = process.argv.includes("--refresh");
 const pool = new pg.Pool({ connectionString: databaseUrl(), connectionTimeoutMillis: 15_000, idleTimeoutMillis: 10_000, max: 1, query_timeout: 15_000 });
 
 try {
-  if (remove) {
-    await pool.query("delete from public.stack127_pages where slug = any($1::text[])", [pages.map((page) => page.slug)]);
-    console.log(`Removed ${pages.length} managed-development hardware directory preview rows.`);
-  } else if (refresh) {
-    const existing = await pool.query("select slug from public.stack127_pages where slug = any($1::text[])", [pages.map((page) => page.slug)]);
-    const existingSlugs = new Set(existing.rows.map((row) => row.slug));
-    const missing = pages.filter((page) => !existingSlugs.has(page.slug)).map((page) => page.slug);
-    if (missing.length > 0) fail(`refusing to refresh because preview rows are missing: ${missing.join(", ")}`);
-    for (const page of pages) {
-      await pool.query(
-        `update public.stack127_pages
-         set label = $2, meta_title = $3, meta_description = $4
-         where slug = $1`,
-        [page.slug, page.label, page.title, page.description],
-      );
-    }
-    console.log(`Refreshed metadata for ${pages.length} managed-development hardware directory preview rows.`);
-  } else {
-    const existing = await pool.query("select slug from public.stack127_pages where slug = any($1::text[])", [pages.map((page) => page.slug)]);
-    if (existing.rows.length > 0) fail(`refusing to overwrite existing rows: ${existing.rows.map((row) => row.slug).join(", ")}`);
-    for (const page of pages) {
-      await pool.query(
-        `insert into public.stack127_pages (
-          slug, label, meta_title, meta_description, is_published,
-          published_at, updated_at, cover_image_url, page_type, sitemap_priority, page_family
-        ) values ($1, $2, $3, $4, true, now(), now(), null, 'CollectionPage', 0.5, 'directory')`,
-        [page.slug, page.label, page.title, page.description],
-      );
-    }
-    console.log(`Added ${pages.length} managed-development hardware directory preview rows.`);
-  }
+  const count = await previewDirectoryPages(pool, pages, { remove, refresh });
+  console.log(`${remove ? "Unpublished" : refresh ? "Refreshed metadata for" : "Published"} ${count} managed-development hardware directory preview rows.`);
 } finally {
   await pool.end();
 }

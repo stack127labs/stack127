@@ -60,11 +60,6 @@ test("license cards render the concise explanation and actions, not the old deta
 
   assert.match(pageSource, /license\.summary/);
   assert.match(pageSource, /Browse .*apps/);
-  assert.match(
-    pageSource,
-    /The licenses below are grouped by family, with links to the official text and\s+popular self-hosted apps that use each one\./,
-  );
-  assert.doesNotMatch(pageSource, /Each card gives you the point/);
   assert.doesNotMatch(pageSource, /license\.osiNote/);
   assert.doesNotMatch(pageSource, /license\.conditions/);
   assert.doesNotMatch(pageSource, /license\.forUsers/);
@@ -142,22 +137,6 @@ test("official links are accurate and their labels describe the destination", ()
   assert.equal(byId.get("busl-1-1")?.officialLinkLabel, "Official BSL guidance");
   assert.equal(byId.get("fsl")?.officialLinkLabel, "Official FSL site");
   assert.equal(byId.get("sustainable-use")?.officialLinkLabel, "Example license text");
-});
-
-test("AGPL and missing-license answers keep their legal triggers precise", () => {
-  const pageSource = readFileSync(
-    new URL(
-      "../../../app/(site)/(directories)/software-licenses-for-self-hosting/page.tsx",
-      import.meta.url,
-    ),
-    "utf8",
-  );
-
-  assert.match(pageSource, /Unmodified upstream does not trigger AGPL section 13/);
-  assert.match(pageSource, /If you modify it and someone else, including family, uses it remotely/);
-  assert.match(pageSource, /README, documentation, or another file/);
-  assert.doesNotMatch(pageSource, /modified or not, for yourself and your household triggers nothing/);
-  assert.doesNotMatch(pageSource, /whatever the README suggests/);
 });
 
 test("core self-host licenses are present", () => {

@@ -21,6 +21,51 @@ export async function upsertDirectoryPage(client, row) {
   return result.rowCount;
 }
 
+export async function previewDirectoryPages(pool, pages, { remove = false, refresh = false, matchesRemoval } = {}) {
+  if (remove && refresh) throw new Error('Choose --remove or --refresh');
+  const client = await pool.connect();
+  try {
+    await client.query('begin');
+    const { rows } = await client.query(`
+      select page.*, exists (
+        select 1 from public.stack127_directory_pages content where content.page_id=page.id
+      ) as has_directory_copy
+      from public.stack127_pages page where slug=any($1::text[]) for update of page
+    `, [pages.map(page => page.slug)]);
+    const bySlug = new Map(rows.map(row => [row.slug, row]));
+    for (const page of pages) {
+      const row = bySlug.get(page.slug);
+      if (row && row.page_family !== 'directory') throw new Error(`Wrong page family for ${page.slug}; refusing to change it`);
+      if (remove) {
+        if (row && matchesRemoval && !matchesRemoval(row)) throw new Error(`Refusing to remove ${page.slug}: its metadata does not match the preview contract`);
+      } else {
+        if (!row?.has_directory_copy) throw new Error(`Directory page copy is missing for ${page.slug}; refusing to publish or refresh it`);
+        if (!refresh && row.is_published) throw new Error(`A published registry row already exists for ${page.slug}; refusing to overwrite it`);
+      }
+    }
+    for (const page of pages) {
+      const row = bySlug.get(page.slug);
+      if (remove) {
+        if (row) await client.query(`update public.stack127_pages
+          set is_published=false,published_at=null,updated_at=null where id=$1`, [row.id]);
+      } else {
+        await client.query(`update public.stack127_pages set label=$2,meta_title=$3,meta_description=$4,
+          is_published=case when $5::boolean then is_published else true end,
+          published_at=case when $5::boolean then published_at else coalesce(published_at,now()) end,
+          updated_at=case when is_published or not $5::boolean then now() else null end
+          where id=$1`, [row.id, page.label, page.title, page.description, refresh]);
+      }
+    }
+    await client.query('commit');
+    return rows.length;
+  } catch (error) {
+    await client.query('rollback').catch(() => {});
+    throw error;
+  } finally {
+    client.release();
+  }
+}
+
 export function keyboardShortcutPageCopy(app) {
   return {
     slug: `keyboard-shortcuts/${app.slug}`,

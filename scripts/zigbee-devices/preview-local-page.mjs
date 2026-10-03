@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import pg from "pg";
+import { previewDirectoryPages } from "../stack127/directory-pages/lib.mjs";
 
 const MANAGED_DEVELOPMENT_PROJECT_REF = "phhrfvmncpqqmmgruktx";
 const PRODUCTION_PROJECT_REF = "tulgfrqamtcshdtmhvpx";
@@ -49,7 +50,7 @@ function matchesPreview(row) {
     && row.label === PREVIEW_ROW.label
     && row.meta_title === PREVIEW_ROW.title
     && row.meta_description === PREVIEW_ROW.description
-    && row.is_published === true
+    && row.page_family === "directory"
     && row.page_type === PREVIEW_ROW.pageType
     && Number(row.sitemap_priority) === PREVIEW_ROW.priority;
 }
@@ -64,38 +65,8 @@ const pool = new pg.Pool({
 });
 
 try {
-  const existing = await pool.query(
-    `select slug, label, meta_title, meta_description, is_published, page_type, sitemap_priority
-     from public.stack127_pages where slug = $1 limit 1`,
-    [PREVIEW_ROW.slug],
-  );
-
-  if (remove) {
-    if (existing.rows[0] && !matchesPreview(existing.rows[0])) {
-      fail("refusing to remove a row that does not match the preview contract.");
-    }
-
-    await pool.query("delete from public.stack127_pages where slug = $1", [PREVIEW_ROW.slug]);
-    console.log("Removed the managed-development Zigbee directory preview row.");
-  } else {
-    if (existing.rows.length > 0) fail("a registry row already exists; refusing to overwrite it.");
-
-    await pool.query(
-      `insert into public.stack127_pages (
-        slug, label, meta_title, meta_description, is_published,
-        published_at, updated_at, cover_image_url, page_type, sitemap_priority, page_family
-      ) values ($1, $2, $3, $4, true, now(), now(), null, $5, $6, 'directory')`,
-      [
-        PREVIEW_ROW.slug,
-        PREVIEW_ROW.label,
-        PREVIEW_ROW.title,
-        PREVIEW_ROW.description,
-        PREVIEW_ROW.pageType,
-        PREVIEW_ROW.priority,
-      ],
-    );
-    console.log("Added the managed-development Zigbee directory preview row.");
-  }
+  await previewDirectoryPages(pool, [PREVIEW_ROW], { remove, matchesRemoval: matchesPreview });
+  console.log(`${remove ? "Unpublished" : "Published"} the managed-development Zigbee directory preview row.`);
 } finally {
   await pool.end();
 }
