@@ -8,7 +8,7 @@ The pipeline runs from a working tool through writing, development integration, 
 
 ## Order and models
 
-Lanes and models follow "Agent roles" in `AGENTS.md`. The main agent is the coordinator, whether it's Claude Code or Codex. It starts each round with `node scripts/stack127/agents/delegate.mjs`, unless the round is in its own lane.
+Lanes and models follow "Agent roles" in `AGENTS.md`. The main agent is the coordinator, whether it's Claude Code or Codex. It starts each round with T3's `delegate_task`, unless the round is in its own lane, so the user can watch each worker.
 
 | Round | Work | Lane | Effort | Output |
 | --- | --- | --- | --- | --- |
@@ -28,14 +28,11 @@ Once the Content section and copy are ready, pass the draft to integration. Don'
 
 ## Sessions
 
-Each round's worker keeps its session, so follow-ups go back to the worker that did the work. The delegate script prints the session ID.
+Each round's worker keeps its session, so follow-ups go back to the worker that did the work.
 
-```sh
-node scripts/stack127/agents/delegate.mjs opus --label kdp-plan --prompt-file plan.md
-node scripts/stack127/agents/delegate.mjs opus --effort high --resume <session> "Build the frontend with the stack127-tool-frontend skill."
-```
+`delegate_task` returns a `childThreadId`. Send follow-ups to that thread with `t3_thread_send`, wait for them with `t3_thread_wait`, then read the reply with `task_status`.
 
-Planning and frontend share one Opus session. Writing gets its own. Keep the session IDs until the audit passes.
+Planning and frontend share one Opus session. Writing gets its own. Keep the thread IDs until the audit passes.
 
 The prompt names the skill files to follow, the tool, route, spec path, allowed files, and stop condition.
 
@@ -161,4 +158,4 @@ After the audit, give the user the complete spec, the verified development previ
 
 When release is authorized, use the approved production content workflow and `$stack127-release-e2e`. The release workflow runs the minimum gate, builds one image, deploys it, and checks the live revision and core public endpoints.
 
-The coordinator may do the release or approve a worker using the rules in `AGENTS.md`. Pass `--approve-release <full-reviewed-commit-sha>` to `delegate.mjs` for a worker release. Production content updates also need `--approve-production-data` and an exact task scope. Ordinary pipeline workers may apply guarded development updates without either production approval flag.
+The coordinator does the release, or names the reviewed commit or exact production data changes in a worker's task, as described in `AGENTS.md`. Ordinary pipeline workers may apply development updates without that.

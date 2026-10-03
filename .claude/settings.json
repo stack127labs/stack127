@@ -7,11 +7,11 @@
         ]
       }
     ],
-    "PreToolUse": [
+    "PostToolUse": [
       {
-        "matcher": "Edit|MultiEdit|Write|NotebookEdit|Bash|Agent|Task",
+        "matcher": "Edit|MultiEdit|Write|NotebookEdit",
         "hooks": [
-          { "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/scripts/stack127/agents/lane-guard.mjs\" claude" }
+          { "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/scripts/stack127/agents/lane-note.mjs\" claude" }
         ]
       }
     ]

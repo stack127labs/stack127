@@ -9,9 +9,9 @@
     ],
     "PreToolUse": [
       {
-        "matcher": ".*",
+        "matcher": "apply_patch|Edit|Write",
         "hooks": [
-          { "type": "command", "command": "node \"$(git rev-parse --show-toplevel)/scripts/stack127/agents/lane-guard.mjs\" codex" }
+          { "type": "command", "command": "node \"$(git rev-parse --show-toplevel)/scripts/stack127/agents/lane-note.mjs\" codex" }
         ]
       }
     ]

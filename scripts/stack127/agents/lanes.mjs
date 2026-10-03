@@ -1,6 +1,6 @@
-// Which lane owns which files. The lane guard hooks and AGENTS.md both follow this.
+// Which lane usually owns which files. The lane note hook and AGENTS.md both follow this.
 // Opus: writing, design, frontend, site content, and planning.
-// Codex (Sol and Luna): backend, data, infra, tests, and release.
+// Codex (Sol and Luna): backend, data, infra, and tests.
 
 import path from "node:path";
 
@@ -49,5 +49,5 @@ export function ownerOf(relativePath) {
 
 export const laneNames = {
   opus: "Opus (writing, design, frontend, site content, planning)",
-  codex: "Sol or Luna (backend, data, infra, tests, release)",
+  codex: "Sol or Luna (backend, data, infra, tests)",
 };

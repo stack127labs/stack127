@@ -5,7 +5,7 @@ description: Run a stack127 tool from research through writing, development inte
 
 # stack127 tool orchestrator
 
-Read `AGENTS.md` and `stack127_docs/tool-pipeline.md`. The main agent starts each worker, checks its result, returns real gaps to the same worker, and moves on. Follow "Agent roles" in `AGENTS.md`. Luna researches and integrates data. Sol builds the backend and audits. Opus plans, builds the frontend, and writes. Start each round with `node scripts/stack127/agents/delegate.mjs` unless it is in your own lane, as described in the pipeline's Sessions section. Do not repeat specialist work or load every worker skill into the main context.
+Read `AGENTS.md` and `stack127_docs/tool-pipeline.md`. The main agent starts each worker, checks its result, returns real gaps to the same worker, and moves on. Follow "Agent roles" in `AGENTS.md`. Luna researches and integrates data. Sol builds the backend and audits. Opus plans, builds the frontend, and writes. Start each round with T3's `delegate_task` unless it is in your own lane, as described in the pipeline's Sessions section. Do not repeat specialist work or load every worker skill into the main context.
 
 ## Run the pipeline
 
