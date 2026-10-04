@@ -62,6 +62,11 @@ import { transferReadinessArt } from "@/app/ui/art/transfer-readiness";
 import { unraidArt } from "@/app/ui/art/unraid";
 import { zfsCapacityArt } from "@/app/ui/art/zfs-capacity";
 import { zfsPaddingArt } from "@/app/ui/art/zfs-padding";
+import { breakEvenMrrCalculatorArt } from "@/app/(site)/(tools)/(saas)/break-even-mrr-calculator/art/break-even-mrr-calculator";
+import { cacPaybackCalculatorArt } from "@/app/(site)/(tools)/(saas)/cac-payback-calculator/art/cac-payback-calculator";
+import { customerAcquisitionCostCalculatorArt } from "@/app/(site)/(tools)/(saas)/customer-acquisition-cost-calculator/art/customer-acquisition-cost-calculator";
+import { customerLifetimeValueCalculatorArt } from "@/app/(site)/(tools)/(saas)/customer-lifetime-value-calculator/art/customer-lifetime-value-calculator";
+import { ltvCacCalculatorArt } from "@/app/(site)/(tools)/(saas)/ltv-cac-calculator/art/ltv-cac-calculator";
 import { saasGrossMarginCalculatorArt } from "@/app/(site)/(tools)/(saas)/saas-gross-margin-calculator/art/saas-gross-margin-calculator";
 import { saasMetricsCalculatorArt } from "@/app/(site)/(tools)/(saas)/saas-metrics-calculator/art/saas-metrics-calculator";
 import { siteSpotDnsToolsArt } from "@/app/(site)/art/site--spot-dns-tools";
@@ -80,11 +85,15 @@ const art: Record<string, string> = {
   "arpu-arpa-calculator": arpuArpaCalculatorArt,
   "arr-calculator": arrCalculatorArt,
   "backup-321": backup321Art,
+  "break-even-mrr-calculator": breakEvenMrrCalculatorArt,
   "burn-multiple-calculator": burnMultipleCalculatorArt,
+  "cac-payback-calculator": cacPaybackCalculatorArt,
   "caa": caaArt,
   "ceph": cephArt,
   "chmod-calculator": chmodCalculatorArt,
+  "customer-acquisition-cost-calculator": customerAcquisitionCostCalculatorArt,
   "customer-churn-calculator": customerChurnCalculatorArt,
+  "customer-lifetime-value-calculator": customerLifetimeValueCalculatorArt,
   "developer-tools": siteSpotLabsArt,
   "dns-change": dnsChangeArt,
   "dns-lookup": dnsLookupArt,
@@ -121,6 +130,7 @@ const art: Record<string, string> = {
   "kdp-tools": kdpToolsArt,
   "kindle-unlimited-kenp-earnings-calculator": kindleUnlimitedKenpEarningsCalculatorArt,
   "lxc-idmap-checker": lxcIdmapCheckerArt,
+  "ltv-cac-calculator": ltvCacCalculatorArt,
   "mrr-calculator": mrrCalculatorArt,
   "mrr-waterfall-calculator": mrrWaterfallCalculatorArt,
   "multi-tld": multiTldArt,

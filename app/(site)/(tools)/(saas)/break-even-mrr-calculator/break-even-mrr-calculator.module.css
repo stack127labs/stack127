@@ -1,0 +1,202 @@
+.workbench {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-border-strong);
+  grid-column: 1 / -1;
+  margin-inline: calc(-1 * var(--container-gutter));
+  min-width: 0;
+  padding: var(--space-7) var(--container-gutter);
+  width: calc(100% + var(--container-gutter) + var(--container-gutter));
+}
+
+.content,
+.form,
+.results,
+.answer {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.content {
+  gap: var(--space-7);
+  margin-inline: auto;
+  max-width: 66rem;
+}
+
+.group,
+.resultGroup {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.group h2,
+.resultGroup h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.groupHeader {
+  align-items: start;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: minmax(0, 1fr) minmax(8rem, 10rem);
+}
+
+.groupTitle {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.helper,
+.note {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+}
+
+.note {
+  font-size: var(--text-body);
+}
+
+.lineList :global([data-repeatable-row]) {
+  align-items: start;
+}
+
+/* The shared tooltip uses max-content. A long cost name then widens the page. */
+.lineList :global([data-repeatable-row]) > :global(button[aria-label])::after {
+  content: none;
+  overflow: hidden;
+  white-space: normal;
+  width: 16rem;
+}
+
+.lineList :global([data-repeatable-row]) > :global(button[aria-label]):hover::after,
+.lineList :global([data-repeatable-row]) > :global(button[aria-label]):focus-visible::after {
+  content: attr(aria-label);
+}
+
+/* The remove action lines up with the inputs, below the visible labels. */
+.lineList :global([data-repeatable-row]) > :global(button) {
+  margin-top: calc(var(--text-body) * var(--line-ui) + var(--space-2));
+}
+
+.line {
+  align-items: start;
+  border: 0;
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: minmax(0, 1fr) minmax(10rem, 13rem) minmax(8rem, 10rem);
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.line > * {
+  min-width: 0;
+}
+
+.visuallyHidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.fieldGrid {
+  align-items: start;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.fieldGrid > * {
+  min-width: 0;
+}
+
+.results {
+  border-top: 1px solid var(--color-border);
+  overflow-wrap: anywhere;
+  padding-top: var(--space-6);
+}
+
+.results :global(th),
+.results :global(td) {
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 761px) {
+  .results :global(table) {
+    table-layout: fixed;
+    width: 100%;
+  }
+}
+
+.detailLines {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.formula {
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .workbench {
+    padding-block: var(--space-5);
+  }
+
+  .content {
+    gap: var(--space-6);
+  }
+
+  .groupHeader,
+  .fieldGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .currency {
+    max-width: 12rem;
+  }
+
+  .groupHeader .currency {
+    grid-row: 1;
+  }
+
+  .lineList :global([data-repeatable-row]) {
+    align-items: start;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-4);
+  }
+
+  .lineList :global([data-repeatable-row]:last-child) {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .lineList :global([data-repeatable-row]) > :global(button) {
+    margin-top: 0;
+  }
+
+  .line {
+    grid-template-columns: minmax(0, 1fr) minmax(7rem, 9rem);
+  }
+
+  .lineName {
+    grid-column: 1 / -1;
+  }
+}

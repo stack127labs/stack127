@@ -1,0 +1,13 @@
+{
+  "id": "customer-acquisition-cost-calculator--tool-spot",
+  "type": "toolSpot",
+  "takeaway": "Several kinds of cost add up under one new customer.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-04",
+  "width": 140,
+  "height": 110,
+  "seed": 321,
+  "data": {
+    "motif": "acquisitionCost"
+  }
+}

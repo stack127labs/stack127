@@ -1,0 +1,13 @@
+{
+  "id": "break-even-mrr-calculator--tool-spot",
+  "type": "toolSpot",
+  "takeaway": "Enough small paying accounts balance one fixed block of monthly costs.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-04",
+  "width": 140,
+  "height": 110,
+  "seed": 313,
+  "data": {
+    "motif": "breakEvenBalance"
+  }
+}
