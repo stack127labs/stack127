@@ -159,9 +159,9 @@ export function calculateKdpSetup(input: KdpSetupInput): KdpSetupResult {
   }
   const effectivePageCount = pageCount + (pageCount % 2);
   const eligible = effectivePageCount >= pageLimit.min && effectivePageCount <= pageLimit.max;
-  if (!eligible || pageCount < pageLimit.min || pageCount > pageLimit.max) {
+  if (!eligible) {
     add(issue(
-      pageCount < pageLimit.min || effectivePageCount < pageLimit.min ? "page-count-too-low" : "page-count-too-high",
+      effectivePageCount < pageLimit.min ? "page-count-too-low" : "page-count-too-high",
       `${bindingLabel(binding)} supports ${pageLimit.min} to ${pageLimit.max} effective pages for this setup.`,
       "warning",
       "pageCount",

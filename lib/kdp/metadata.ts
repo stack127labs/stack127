@@ -1,3 +1,4 @@
+import { decodeKdpCharacterReferences } from "./character-references.ts";
 import { isKdpDescriptionTag, isKdpDescriptionVoidTag, KDP_DESCRIPTION_LIMIT } from "./description-rules.ts";
 
 export { KDP_DESCRIPTION_LIMIT } from "./description-rules.ts";
@@ -78,7 +79,7 @@ export function tokenizeKdpDescription(value: string): KdpDescriptionToken[] {
   let cursor = 0;
   for (const match of value.matchAll(tagPattern)) {
     const index = match.index ?? cursor;
-    if (index > cursor) tokens.push({ type: "text", value: value.slice(cursor, index) });
+    if (index > cursor) tokens.push({ type: "text", value: decodeKdpCharacterReferences(value.slice(cursor, index)) });
     const raw = match[0];
     const tail = match[2] ?? "";
     tokens.push({
@@ -89,7 +90,7 @@ export function tokenizeKdpDescription(value: string): KdpDescriptionToken[] {
     });
     cursor = index + raw.length;
   }
-  if (cursor < value.length) tokens.push({ type: "text", value: value.slice(cursor) });
+  if (cursor < value.length) tokens.push({ type: "text", value: decodeKdpCharacterReferences(value.slice(cursor)) });
   return tokens;
 }
 
@@ -104,9 +105,9 @@ function checkDescription(value: string, findings: KdpMetadataFinding[]) {
     const tail = (match[2] ?? "").replace(/\/\s*$/, "").trim();
     const closing = raw.startsWith("</");
     const selfClosing = /\/\s*>$/.test(raw) || isKdpDescriptionVoidTag(name);
-    if (!isKdpDescriptionTag(name)) {
+    if (!isKdpDescriptionTag(name) && !closing) {
       findings.push(finding("description-unsupported-tag", "description", `Unsupported HTML tag <${name}>.`, "error", index));
-    } else {
+    } else if (isKdpDescriptionTag(name)) {
       supportedTagCount += 1;
       if (tail) findings.push(finding("description-tag-attributes", "description", `Remove attributes from <${name}>.`, "error", index));
     }
@@ -119,6 +120,9 @@ function checkDescription(value: string, findings: KdpMetadataFinding[]) {
     } else if (!selfClosing) {
       stack.push(name);
     }
+  }
+  for (const match of value.matchAll(/<\/?[a-z][a-z0-9-]*(?=[\s/<]|$)[^<>]*(?=<|$)/gi)) {
+    findings.push(finding("description-incomplete-tag", "description", "An HTML tag is missing its closing >. Close or remove it.", "error", match.index));
   }
   for (const name of stack.reverse()) {
     findings.push(finding("description-unclosed-tag", "description", `HTML tag <${name}> is not closed.`, "error"));
@@ -133,7 +137,7 @@ function checkRestrictedDescriptionText(value: string, findings: KdpMetadataFind
     ["description-phone", /\+?\d[\d\s().-]{6,}\d/, "Review phone-like contact details in the description."],
     ["description-price", /(?:[$€£]\s?\d+(?:[.,]\d{2})?|\b(?:USD|EUR|GBP)\s?\d+)/i, "Review price claims in the description."],
     ["description-review-request", /\b(?:please\s+)?(?:review|rate|leave\s+(?:a\s+)?review|feedback)\b/i, "Remove review requests from the description."],
-    ["description-promotion", /\b(?:buy\s+now|free|sale|discount|best\s*seller|#1|limited\s+time|available\s+now)\b/i, "Check promotional wording against KDP metadata rules."],
+    ["description-promotion", /(?<![\p{L}\p{N}])(?:buy\s+now|free|sale|discount|best\s*seller|#1|limited\s+time|available\s+now)(?![\p{L}\p{N}])/iu, "Check promotional wording against KDP metadata rules."],
     ["description-emoji", /\p{Extended_Pictographic}/u, "Remove emoji from the description."],
   ];
   for (const [code, pattern, message] of checks) {
@@ -149,7 +153,7 @@ function checkRestrictedFieldText(value: string, field: string, findings: KdpMet
     ["phone", /\+?\d[\d\s().-]{6,}\d/, "Review the phone-like text in this field."],
     ["price", /(?:[$€£]\s?\d+(?:[.,]\d{2})?|\b(?:USD|EUR|GBP)\s?\d+)/i, "Review the price-like text in this field."],
     ["review", /\b(?:please\s+)?(?:review|rate|leave\s+(?:a\s+)?review|feedback)\b/i, "Review the request for ratings or reviews in this field."],
-    ["promotion", /\b(?:buy\s+now|free|sale|discount|best\s*seller|#1|limited\s+time|available\s+now)\b/i, "Review the promotional wording in this field."],
+    ["promotion", /(?<![\p{L}\p{N}])(?:buy\s+now|free|sale|discount|best\s*seller|#1|limited\s+time|available\s+now)(?![\p{L}\p{N}])/iu, "Review the promotional wording in this field."],
   ];
   for (const [code, pattern, message] of checks) {
     const match = pattern.exec(value);

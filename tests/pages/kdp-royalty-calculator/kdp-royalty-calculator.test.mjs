@@ -1,6 +1,49 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { calculateKdpRoyalty } from "../../../lib/kdp/royalty.ts";
+import { calculateKdpRoyalty, parseKdpRoyaltyMoney } from "../../../lib/kdp/royalty.ts";
+
+test("accepts one optional leading dollar sign for price and target", () => {
+  for (const text of ["19.99", "$19.99", " $19.99 "]) {
+    assert.equal(parseKdpRoyaltyMoney(text), 19.99);
+  }
+  assert.equal(parseKdpRoyaltyMoney("$0"), 0);
+  for (const text of ["", "$", "$$19.99", "19.99$", "$ 19.99", "1,000", "1e2", "-1", "1.009"]) {
+    assert.ok(Number.isNaN(parseKdpRoyaltyMoney(text)), text);
+  }
+  const result = calculateKdpRoyalty({
+    format: "paperback", trimId: "6x9", pageCount: 300, interior: "black-white", paper: "white",
+    listPrice: parseKdpRoyaltyMoney("$14.99"), monthlyTarget: parseKdpRoyaltyMoney("$500"),
+  });
+  assert.equal(result.status, "valid");
+  assert.equal(result.values?.royaltyCents, 439);
+  assert.equal(result.values?.copiesForMonthlyTarget, 114);
+});
+
+test("reports only the applied ebook delivery deduction at 35 percent", () => {
+  for (const [listPrice, ebookRoyaltyOption] of [[12.99, 35], [13, 70], [1.99, 70]]) {
+    const result = calculateKdpRoyalty({ format: "ebook", ebookFileSizeMB: 5, ebookRoyaltyOption, listPrice });
+    assert.equal(result.status, "valid");
+    assert.equal(result.values?.effectiveRoyaltyRate, 35);
+    assert.equal(result.values?.deliveryCostCents, 0);
+    assert.equal(result.values?.royaltyCents, Math.round(listPrice * 100 * 0.35));
+    assert.equal(result.values?.pricePoints.find((point) => point.listPriceCents === Math.round(listPrice * 100))?.deductionCents, 0);
+  }
+});
+
+test("explains a negative ebook royalty without treating it as invalid", () => {
+  const base = { format: "ebook", ebookFileSizeMB: 20, ebookRoyaltyOption: 70, listPrice: 2.99, monthlyTarget: 100 };
+  const result = calculateKdpRoyalty(base);
+  assert.equal(result.status, "valid");
+  assert.equal(result.values?.royaltyCents, -1);
+  assert.equal(result.values?.deliveryCostCents, 300);
+  assert.equal(result.values?.breakEvenAdSpendCents, 0);
+  assert.equal(result.values?.breakEvenAcosBasisPoints, null);
+  assert.equal(result.values?.monthlyTargetStatus, "unavailable");
+  assert.ok(result.issues.some((issue) => issue.code === "ebook-negative-royalty" && issue.severity === "warning"));
+  for (const overrides of [{ listPrice: 3 }, { listPrice: 3.01 }, { ebookRoyaltyOption: 35 }]) {
+    assert.ok(!calculateKdpRoyalty({ ...base, ...overrides }).issues.some((issue) => issue.code === "ebook-negative-royalty"));
+  }
+});
 
 test("FF-010 calculates current US paperback print cost and 60 percent royalty", () => {
   const result = calculateKdpRoyalty({

@@ -21,13 +21,13 @@ Follow [writing-style.md](writing-style.md) when writing. This document covers s
 | `card_description` | Short summary on homepage cards. |
 | `row_updated_at` | Automatic internal time for any row write. Don't set it by hand. |
 
-A published directory page with no row returns 404. Create the row before you publish the page.
+A published directory page with no row returns 404. The directory publisher creates the row unpublished, then publishes the page last. See [page-publishing.md](page-publishing.md).
 
 ## Child pages
 
 Every published, indexable child page gets its own row, for example `/ad-networks/<slug>` or `/keyboard-shortcuts/<app>`.
 
-When child copy comes from records, a script writes the rows. Don't edit those rows by hand, because the next sync will overwrite them. Change the records or the script instead.
+When child copy comes from records, a script writes the rows. Don't edit those rows by hand, because the next sync will overwrite them. Change the records or the script instead. The publisher doesn't run these scripts. Run the sync in development, review the pages, then publish them with `"source": "development"` in the manifest. That freezes the reviewed copy into the plan. Production needs only the directory's dataset import, not the copy sync. See [page-publishing.md](page-publishing.md).
 
 | Directory | Script |
 | --- | --- |
@@ -44,7 +44,7 @@ The table holds page copy only. Directory records live in one of two places:
 | Small, edited by hand, rarely change | Code, next to the route or in `lib/` |
 | Large, or updated by a script | A database table for that directory |
 
-Decide which in the directory's brief when you create it.
+Decide which in the directory's brief when you create it. The publish manifest must say which one in `requirements.records`. Code records list their files. Database records list read-only SQL checks that confirm the data is loaded. Load database records with the directory's own import command before you publish. The publisher doesn't import data or change schema.
 
 ## Rendering
 
@@ -52,7 +52,9 @@ Pages read their row with `getRequiredDirectoryPage(slug)` from `lib/directory-p
 
 ## Editing copy
 
-The command previews and rolls back by default. Add `--apply` to save.
+Use the directory publisher for a new directory, child pages going public, and production changes. See [page-publishing.md](page-publishing.md).
+
+For a small copy edit in development, use the single-page command. It previews and rolls back by default. Add `--apply` to save.
 
 ```bash
 node scripts/stack127/directory-pages/update-content.mjs \

@@ -101,6 +101,11 @@ function dollarsToCents(value: number): number | null {
   return cents >= 1 ? cents : null;
 }
 
+export function parseKdpRoyaltyMoney(raw: string): number {
+  const value = raw.trim();
+  return /^\$?\d+(?:\.\d{1,2})?$/.test(value) ? Number(value.replace(/^\$/, "")) : Number.NaN;
+}
+
 function printCost(format: KdpBinding, trimId: string, pageCount: number, interior: KdpInterior, paper: KdpPaper): KdpPrintCost | null {
   const trim = findKdpTrim(trimId);
   if (!trim) return null;
@@ -228,9 +233,11 @@ export function calculateKdpRoyalty(input: KdpRoyaltyInput): KdpRoyaltyResult {
     const eligibleFor70 = (listPriceCents as number) >= EBOOK_SEVENTY_MIN_CENTS && (listPriceCents as number) <= EBOOK_SEVENTY_MAX_CENTS;
     if (selectedRate === 70 && !eligibleFor70 && !issues.some((next) => next.severity === "error")) issues.push(issue("ebook-70-price-band", "This price uses the 35% rate instead of the selected 70% band.", "warning", "listPrice"));
     if (issues.some((next) => next.severity === "error")) return { status: "invalid", values: null, issues };
-    const deliveryCents = ebookDeliveryCostCents(size);
-    const effectiveRate = selectedRate === 70 && eligibleFor70 ? 70 : 35;
-    const royaltyCents = getKdpEbookPricePoint(listPriceCents as number, selectedRate, size).royaltyCents;
+    const currentPoint = getKdpEbookPricePoint(listPriceCents as number, selectedRate, size);
+    const deliveryCents = currentPoint.deductionCents;
+    const effectiveRate = currentPoint.royaltyRate;
+    const royaltyCents = currentPoint.royaltyCents;
+    if (royaltyCents < 0) issues.push(issue("ebook-negative-royalty", "The delivery cost exceeds this price. This negative estimate does not mean KDP will charge you. Compare 35% or raise the price.", "warning"));
     const pointPrices = uniquePricePoints([minimumPriceCents, 299, 1_299, 1_300, listPriceCents as number, (listPriceCents as number) + 100], minimumPriceCents, EBOOK_MAX_PRICE_CENTS);
     const pricePoints = pointPrices.map((price) => getKdpEbookPricePoint(price, selectedRate, size));
     return {
@@ -282,7 +289,7 @@ export function calculateKdpRoyalty(input: KdpRoyaltyInput): KdpRoyaltyResult {
   const printingCents = printingCostCents(print as KdpPrintCost, effectivePageCount);
   const minimumPriceCents = minimumPrintPriceCents(printingCents);
   if ((listPriceCents as number) > PRINT_MAX_PRICE_CENTS) issues.push(issue("print-price-too-high", "Print list price cannot exceed $250.", "error", "listPrice"));
-  if ((listPriceCents as number) < minimumPriceCents) issues.push(issue("below-print-cost-floor", `Set the list price to at least $${(minimumPriceCents / 100).toFixed(2)} to cover printing cost at its eligible rate.`, "error", "listPrice"));
+  if ((listPriceCents as number) < minimumPriceCents) issues.push(issue("below-print-cost-floor", `Set the list price to at least $${(minimumPriceCents / 100).toFixed(2)} so your share of the price covers printing.`, "error", "listPrice"));
   if (issues.some((next) => next.severity === "error")) return { status: "invalid", values: null, issues };
   const pointPrices = uniquePricePoints([minimumPriceCents, 998, 999, listPriceCents as number, (listPriceCents as number) + 100], minimumPriceCents, PRINT_MAX_PRICE_CENTS);
   const pricePoints = pointPrices.map((price) => getKdpPrintPricePoint(price, printingCents));

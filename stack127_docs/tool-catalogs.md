@@ -31,6 +31,8 @@ Give a published tool one primary membership before launch. A tool without one f
 
 ## Editing
 
+The tools publisher creates and publishes catalogs. Add a new catalog to the same batch as the first tool that needs it, with `family: "catalog"`. See [page-publishing.md](page-publishing.md). The steps below say what a catalog needs, whichever command writes it.
+
 1. Create the `stack127_pages` row first. Use a flat unique slug, `page_family = 'catalog'`, a short `label`, reviewed `meta_title` and `meta_description`, a fitting `page_type` such as `CollectionPage`, and public dates when publishing. Don't put SEO metadata in route files.
 2. Add a `stack127_catalog_pages` row for that page ID, with its card name and description.
    - Write the heading in three parts, so `heading_mark` gets the site accent.
@@ -78,7 +80,7 @@ How the command treats the catalog list:
 - It rejects duplicate or missing catalogs and taken positions.
 - It reads `.env.local` by default, checks that it differs from production, and rolls back dry runs.
 
-Production use is a separate authorized action. Run it with `--environment production --confirm stack127-production --apply`, and only after the schema migration exists in production.
+For production, put the same card fields and catalog list in the tool's publisher manifest. Its `catalogs` list follows the same rules: complete, in rank order, first entry primary. The catalogs command still accepts `--environment production --confirm stack127-production --apply` for a small fix to a live tool's cards.
 
 After applying, look at the actual catalog cards and links.
 
@@ -99,6 +101,6 @@ Catalog page events also invalidate the primary catalog lookup and every publish
 
 The development project can fall behind the repo's migration history. Apply the catalog migration only to the managed project you mean to change.
 
-Before sharing a preview, check the tool count, primary membership count, visible catalog cards, homepage cards, and cache events. Production migration and deployment are separate release work.
+Before sharing a preview, check the tool count, primary membership count, visible catalog cards, homepage cards, and cache events. Production migrations ship through a pull request. Production catalog data goes through the publisher after that release is live.
 
 For a local preview, run `npm run dev` and `npm run stack127:cache:watch:local` as separate background services. The watcher only accepts the managed development project. It revalidates through the local signed endpoint every five seconds and never calls Cloudflare. Stop both services when you're done with the preview.

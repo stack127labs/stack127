@@ -98,3 +98,41 @@ test("FF-012 treats the 50-character keyword boundary as a local Unicode advisor
     }
   }
 });
+
+
+test("flags unfinished tag starts without flagging comparison signs", () => {
+  for (const description of ["<p", "Text <strong", "<p class='x'", "<p>Text</p", "<p <b>Text</b>"]) {
+    const result = checkKdpMetadata(validInput({ description }));
+    assert.ok(result.findings.some((item) => item.code === "description-incomplete-tag"), description);
+  }
+  for (const description of ["A < B", "A < 3", "Use < and > to compare values."]) {
+    assert.equal(checkKdpMetadata(validInput({ description })).status, "clean");
+  }
+});
+
+test("reports an unsupported element once and keeps unmatched closing findings", () => {
+  const result = checkKdpMetadata(validInput({ description: "<p>Use <strong>bold</strong>.</p>" }));
+  assert.equal(result.findings.filter((item) => item.code === "description-unsupported-tag").length, 1);
+  assert.ok(checkKdpMetadata(validInput({ description: "</strong>" })).findings.some((item) => item.code === "description-mismatched-tag"));
+});
+
+test("matches #1 promotions with Unicode word boundaries in all listing fields", () => {
+  for (const value of ["#1", "Herbs #1", "We are #1"]) {
+    const result = checkKdpMetadata(validInput({ title: value, description: value, keywords: [value, "", "", "", "", "", ""] }));
+    for (const code of ["title-promotion", "description-promotion", "keyword-1-promotion"]) {
+      assert.ok(result.findings.some((item) => item.code === code), code);
+    }
+  }
+  for (const value of ["é#1", "#12", "#1é", "bestselling"]) {
+    assert.ok(!checkKdpMetadata(validInput({ description: value })).findings.some((item) => item.code === "description-promotion"));
+  }
+});
+
+test("decodes text references once for visible counts and safe preview tokens", () => {
+  const description = "<p>A &amp; B</p>";
+  const result = checkKdpMetadata(validInput({ description }));
+  assert.equal(result.values.descriptionCharacters, description.length);
+  assert.equal(result.values.descriptionVisibleCharacters, 5);
+  assert.deepEqual(tokenizeKdpDescription("&lt;b&gt;&#x1F4D8;&#65;&amp;lt;"), [{ type: "text", value: "<b>📘A&lt;" }]);
+  assert.deepEqual(tokenizeKdpDescription("&#0;&#xD800;&#x110000;&unknown;&constructor;"), [{ type: "text", value: "&#0;&#xD800;&#x110000;&unknown;&constructor;" }]);
+});

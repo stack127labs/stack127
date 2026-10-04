@@ -1,0 +1,166 @@
+export const REGISTRY_FIELDS = Object.freeze([
+  "label", "meta_title", "meta_description", "is_published", "cover_image_url",
+  "page_type", "sitemap_priority",
+]);
+
+export const CONTENT_FIELDS = Object.freeze({
+  tool: Object.freeze([
+    "title", "intro_markdown", "usage_markdown", "content_markdown", "tool_version",
+    "stack127_repo_url", "stack127_repo_version", "stack127_repo_commit_sha",
+    "card_name", "card_description", "card_icon_key", "card_art_key",
+  ]),
+  directory: Object.freeze([
+    "title", "intro_markdown", "content_markdown", "card_name", "card_description",
+  ]),
+  catalog: Object.freeze([
+    "heading_before", "heading_mark", "heading_after", "intro", "section_heading",
+    "icon_key", "hero_art_key", "home_art_key", "home_order", "card_name", "card_description",
+  ]),
+});
+
+function exactFields(value, fields, name) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    throw new Error(`${name} must be an object`);
+  }
+  for (const field of Object.keys(value)) {
+    if (!fields.includes(field)) throw new Error(`Unknown ${name} field: ${field}`);
+  }
+  for (const field of fields) {
+    if (!Object.hasOwn(value, field)) throw new Error(`Missing ${name} field: ${field}`);
+  }
+}
+
+export function validateRef(ref) {
+  exactFields(ref, ["slug", "family"], "page reference");
+  if (!Object.hasOwn(CONTENT_FIELDS, ref.family)) throw new Error(`Unsupported page family: ${ref.family}`);
+  if (typeof ref.slug !== "string" || ref.slug.length > 240
+    || !/^[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*$/.test(ref.slug)) {
+    throw new Error(`Invalid page slug: ${ref.slug}`);
+  }
+  if (ref.family !== "directory" && ref.slug.includes("/")) {
+    throw new Error(`${ref.family} pages must use a root slug: ${ref.slug}`);
+  }
+  return { slug: ref.slug, family: ref.family };
+}
+
+function textField(value, name, { nullable = false, empty = false, trimmed = true } = {}) {
+  if (nullable && value === null) return null;
+  if (typeof value !== "string" || (trimmed && value !== value.trim()) || (!empty && !value.trim().length)) {
+    throw new Error(`${name} must be ${nullable ? "null or " : ""}${trimmed ? "trimmed " : ""}${empty ? "text" : "nonempty text"}`);
+  }
+  return value;
+}
+
+function integer(value, name, positive = false) {
+  if (!Number.isInteger(value) || value < (positive ? 1 : -2147483648) || value > 2147483647) {
+    throw new Error(`${name} must be ${positive ? "a positive" : "an"} integer within PostgreSQL's integer range`);
+  }
+  return value;
+}
+
+// A missing family row is a valid snapshot of an unfinished registry draft.
+export function validateState(state, family = state?.family) {
+  if (!Object.hasOwn(CONTENT_FIELDS, family)) throw new Error(`Unsupported page family: ${family}`);
+  exactFields(state, ["slug", "family", "registry", "content", ...(family === "tool" ? ["catalogs"] : [])], "state");
+  const ref = validateRef({ slug: state.slug, family: state.family });
+  if (state.family !== family) throw new Error(`Wrong page family for ${state.slug}: expected ${family}`);
+  exactFields(state.registry, REGISTRY_FIELDS, "registry");
+  const registry = {};
+  for (const field of REGISTRY_FIELDS) {
+    const value = state.registry[field];
+    if (field === "is_published") {
+      if (typeof value !== "boolean") throw new Error("registry.is_published must be a boolean");
+      registry[field] = value;
+    } else if (field === "sitemap_priority") {
+      if (typeof value !== "number" || !Number.isFinite(value) || value < 0 || value > 1
+        || Math.abs(value * 100 - Math.round(value * 100)) > 1e-8) {
+        throw new Error("registry.sitemap_priority must be a number from 0 to 1 with at most two decimal places");
+      }
+      registry[field] = value;
+    } else {
+      registry[field] = textField(value, `registry.${field}`, { nullable: field === "cover_image_url" });
+    }
+  }
+
+  let content = null;
+  if (state.content !== null) {
+    exactFields(state.content, CONTENT_FIELDS[family], `${family} content`);
+    content = {};
+    for (const field of CONTENT_FIELDS[family]) {
+      content[field] = field === "home_order"
+        ? integer(state.content[field], `content.${field}`)
+        : textField(state.content[field], `content.${field}`, {
+          nullable: field.startsWith("stack127_repo_") || field === "usage_markdown"
+            || (family === "directory" && field === "content_markdown"),
+          empty: field === "heading_before" || field === "heading_after",
+          trimmed: !(family === "catalog" && ["heading_before", "heading_mark", "heading_after", "intro", "section_heading"].includes(field))
+            && !(family === "tool" && ["card_name", "card_description"].includes(field)),
+        });
+      if ((field.endsWith("_key")) && !/^[a-z0-9-]+$/.test(content[field])) {
+        throw new Error(`content.${field} must use lowercase letters, numbers, and hyphens`);
+      }
+    }
+    if (family === "tool") {
+      if (!/^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/.test(content.tool_version)) {
+        throw new Error("content.tool_version must be a semantic version");
+      }
+      if (content.stack127_repo_url !== null
+        && !/^https:\/\/github\.com\/stack127labs\/[A-Za-z0-9._-]+\/?$/.test(content.stack127_repo_url)) {
+        throw new Error("content.stack127_repo_url must identify a stack127labs GitHub repository");
+      }
+      if (content.stack127_repo_url === null
+        && (content.stack127_repo_version !== null || content.stack127_repo_commit_sha !== null)) {
+        throw new Error("Repository version and commit require content.stack127_repo_url");
+      }
+      if (content.stack127_repo_commit_sha !== null
+        && !/^[0-9a-f]{40}(?:[0-9a-f]{24})?$/.test(content.stack127_repo_commit_sha)) {
+        throw new Error("content.stack127_repo_commit_sha must be a full lowercase commit SHA");
+      }
+    }
+  }
+
+  const result = { ...ref, registry, content };
+  if (family === "tool") {
+    if (!Array.isArray(state.catalogs)) throw new Error("state.catalogs must be an array");
+    const slugs = new Set();
+    result.catalogs = state.catalogs.map(catalog => {
+      exactFields(catalog, ["slug", "display_order"], "catalog membership");
+      validateRef({ slug: catalog.slug, family: "catalog" });
+      if (slugs.has(catalog.slug)) throw new Error(`Duplicate catalog membership: ${catalog.slug}`);
+      slugs.add(catalog.slug);
+      return { slug: catalog.slug, display_order: integer(catalog.display_order, "catalog.display_order", true) };
+    });
+    if (content === null && result.catalogs.length) throw new Error("A tool without content cannot have catalog memberships");
+  }
+  return result;
+}
+
+export function desiredStates(entries, { restore = false } = {}) {
+  if (!Array.isArray(entries)) throw new Error("Batch entries must be an array");
+  if (typeof restore !== "boolean") throw new Error("restore must be a boolean");
+  const seen = new Set();
+  const pages = entries.map(entry => {
+    const ref = validateRef({ slug: entry?.slug, family: entry?.family });
+    if (seen.has(ref.slug)) throw new Error(`Duplicate batch page: ${ref.slug}`);
+    seen.add(ref.slug);
+    const before = entry.before === null ? null : validateState(entry.before, ref.family);
+    const after = validateState(entry.after, ref.family);
+    if ((before && before.slug !== ref.slug) || after.slug !== ref.slug) {
+      throw new Error(`State slug does not match batch entry: ${ref.slug}`);
+    }
+    if (after.content === null) throw new Error(`Desired ${ref.family} content is missing for ${ref.slug}`);
+    return { ...ref, before, after };
+  });
+  const removedCatalogs = new Set(restore ? pages.filter(page => page.family === "catalog"
+    && page.before?.content === null).map(page => page.slug) : []);
+  return pages.map(page => {
+    if (!restore) return page.after;
+    if (page.before !== null) return page.before;
+    // Keep new tools as drafts without links to catalog content removed by this restore.
+    return validateState({ ...page.after, registry: { ...page.after.registry, is_published: false },
+      ...(page.family === "tool" ? {
+        catalogs: page.after.catalogs.filter(catalog => !removedCatalogs.has(catalog.slug)),
+      } : {}),
+    });
+  });
+}
