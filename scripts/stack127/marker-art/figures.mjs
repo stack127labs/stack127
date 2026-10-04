@@ -1015,6 +1015,28 @@ function doodle(spec, A) {
   draw(A);
 }
 
+/** Short marker dashes. Rough.js output drops stroke-dasharray, so gaps are separate lines. */
+function markerDash(A, x1, y1, x2, y2, tone, dash = 7, gap = 5) {
+  const len = Math.hypot(x2 - x1, y2 - y1);
+  if (len < 3) return;
+  const ux = (x2 - x1) / len;
+  const uy = (y2 - y1) / len;
+  const stroke = { stroke: tone, strokeWidth: 1.55, roughness: 0.5, bowing: 0.25 };
+  const inset = Math.min(1.5, len / 8);
+  for (let t = inset; t < len - inset - 1; t += dash + gap) {
+    const end = Math.min(t + dash, len - inset);
+    if (end - t < 2.4) continue;
+    A.line(x1 + ux * t, y1 + uy * t, x1 + ux * end, y1 + uy * end, stroke);
+  }
+}
+
+function dashedRect(A, x, y, w, h, tone) {
+  markerDash(A, x, y, x + w, y, tone, 6, 4);
+  markerDash(A, x + w, y, x + w, y + h, tone, 6, 4);
+  markerDash(A, x + w, y + h, x, y + h, tone, 6, 4);
+  markerDash(A, x, y + h, x, y, tone, 6, 4);
+}
+
 /* ---------------- tool-spot: small semantic art for scan cards ---------------- */
 function toolSpot(spec, A) {
   const d = spec.data;
@@ -1271,6 +1293,134 @@ function toolSpot(spec, A) {
     A.line(68, 36, 132, 36, { stroke: "@ink" });
     for (const x of [81, 100, 119]) {
       drawIcon(A, "user", x, 63, 10, "@primary");
+    }
+    return;
+  } else if (d.motif === "paybackStaircase") {
+    // Equal monthly steps climb until they first reach the dashed cost level.
+    const baseline = 92;
+    const stepWidth = 20;
+    const stepRise = 12;
+    const steps = 5;
+    const left = 20;
+    const points = [[left, baseline]];
+    for (let index = 0; index < steps; index += 1) {
+      const top = baseline - stepRise * (index + 1);
+      points.push([left + index * stepWidth, top], [left + (index + 1) * stepWidth, top]);
+    }
+    points.push([left + steps * stepWidth, baseline]);
+    A.polygon(points, {
+      stroke: "@ink",
+      fill: "@primary",
+      fillStyle: "solid",
+      roughness: 1.15,
+      strokeWidth: 1.8,
+    });
+    const level = baseline - stepRise * steps;
+    const touchX = left + (steps - 1) * stepWidth;
+    for (let x = 8; x < touchX - 6; x += 12) {
+      A.line(x, level, Math.min(x + 7, touchX - 6), level, { stroke: "@sub", strokeWidth: 1.6, roughness: 0.6 });
+    }
+    A.dot(touchX, level, 3.6, "@ink");
+    return;
+  } else if (d.motif === "breakEvenBalance") {
+    // One hatched fixed-cost block balances a neat stack of small equal account tiles.
+    const beamY = 64;
+    A.polygon([[70, beamY + 1], [56, 92], [84, 92]], { stroke: "@ink", strokeWidth: 1.8, roughness: 1.1 });
+    A.line(12, beamY, 128, beamY, { stroke: "@ink", strokeWidth: 2.4, roughness: 0.8 });
+    A.rect(16, 30, 34, beamY - 32, {
+      stroke: "@ink",
+      fill: "@sub",
+      fillStyle: "hachure",
+      hachureAngle: -45,
+      hachureGap: 6,
+      roughness: 1.15,
+      strokeWidth: 1.8,
+    });
+    const tile = 9;
+    const gap = 2;
+    for (let row = 0; row < 3; row += 1) {
+      for (let column = 0; column < 3; column += 1) {
+        A.rect(92 + column * (tile + gap), beamY - 2 - (row + 1) * tile - row * gap, tile, tile, {
+          stroke: "@ink",
+          fill: "@primary",
+          fillStyle: "solid",
+          roughness: 0.9,
+          strokeWidth: 1.3,
+        });
+      }
+    }
+    return;
+  } else if (d.motif === "acquisitionCost") {
+    // Three cost rows of different heights sit under one customer. The dashed top row is counted time, not cash.
+    const left = 40;
+    const rowWidth = 60;
+    const row = { roughness: 1.05, strokeWidth: 1.65 };
+    A.rect(left, 84, rowWidth, 14, {
+      ...row,
+      stroke: "@ink",
+      fill: "@primary",
+      fillStyle: "solid",
+    });
+    A.rect(left, 68, rowWidth, 11, {
+      ...row,
+      stroke: "@ink",
+      fill: "@primary",
+      fillStyle: "hachure",
+      hachureAngle: -45,
+      hachureGap: 4.5,
+    });
+    dashedRect(A, left, 56, rowWidth, 8, "@sub");
+    drawIcon(A, "user", cx, 36, 40, "@ink");
+    return;
+  } else if (d.motif === "lifetimeValue") {
+    // Shrinking horizontal layers build one column. A dashed ceiling stays above the top layer.
+    const left = 46;
+    const columnWidth = 48;
+    const gap = 3;
+    const heights = [20, 14, 10, 7, 6];
+    let bottom = 96;
+    for (const height of heights) {
+      bottom -= height;
+      A.rect(left, bottom, columnWidth, height, {
+        stroke: "@ink",
+        fill: "@primary",
+        fillStyle: "solid",
+        roughness: 1.05,
+        strokeWidth: 1.55,
+      });
+      bottom -= gap;
+    }
+    markerDash(A, 20, 16, 120, 16, "@sub", 7, 5);
+    return;
+  } else if (d.motif === "valueToCost") {
+    // A tall hatched value bar beside a narrow stack of equal cost tiles. The stack stops short of the bar.
+    const baseline = 96;
+    A.line(12, baseline, 128, baseline, { stroke: "@sub", strokeWidth: 1.45, roughness: 0.55 });
+    A.rect(16, 18, 42, baseline - 18, {
+      stroke: "@ink",
+      fill: "@primary",
+      fillStyle: "hachure",
+      hachureAngle: -45,
+      hachureGap: 7,
+      roughness: 1.1,
+      strokeWidth: 1.7,
+    });
+    const tile = 16;
+    const tileGap = 7;
+    const tileX = 82;
+    for (let index = 0; index < 3; index += 1) {
+      const y = baseline - (index + 1) * tile - index * tileGap;
+      if (index === 0) {
+        A.rect(tileX, y, tile, tile, {
+          stroke: "@ink",
+          fill: "@sub",
+          fillStyle: "solid",
+          roughness: 0.75,
+          strokeWidth: 1.45,
+        });
+      } else {
+        dashedRect(A, tileX, y, tile, tile, "@ink");
+      }
     }
     return;
   } else {

@@ -3,6 +3,16 @@ import pg from "pg";
 import { targetsForEvents } from "./targets.mjs";
 import { selectRevalidationBatch } from "./refresh.mjs";
 
+const siteFlag = process.argv.indexOf("--site");
+const localSite = new URL(siteFlag === -1 ? "http://127.0.0.1:3333" : process.argv[siteFlag + 1]);
+if (localSite.protocol !== "http:"
+  || localSite.hostname !== "127.0.0.1"
+  || !localSite.port
+  || localSite.username || localSite.password
+  || localSite.pathname !== "/" || localSite.search || localSite.hash) {
+  throw new Error("--site must be an HTTP origin at 127.0.0.1 with the local preview port.");
+}
+
 const developmentRef = "yzasonowwlvritqicatj";
 const direct = new URL(process.env.DATABASE_URL ?? "postgresql://invalid:invalid@invalid/invalid");
 const api = new URL(process.env.SUPABASE_URL ?? "https://invalid/");
@@ -68,7 +78,7 @@ async function revalidatePending() {
     .digest("hex");
   const paths = targets.paths.filter((path) => !path.endsWith(".xml"));
   for (let index = 0; index < Math.max(paths.length, 1); index += 200) {
-    const response = await fetch("http://127.0.0.1:3333/api/cache/revalidate", {
+    const response = await fetch(new URL("/api/cache/revalidate", localSite), {
       method: "POST",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
       body: JSON.stringify({ paths: paths.slice(index, index + 200), tags: index === 0 ? targets.nextTags : [] }),
@@ -96,7 +106,7 @@ async function revalidatePending() {
   console.log(`Revalidated ${events.length} development changes.`);
 }
 
-console.log("Watching managed-development cache changes for the local preview.");
+console.log(`Watching managed-development cache changes for ${localSite.origin}.`);
 try {
   while (!stopping) {
     try {

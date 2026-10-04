@@ -1,0 +1,13 @@
+{
+  "id": "cac-payback-calculator--tool-spot",
+  "type": "toolSpot",
+  "takeaway": "Monthly gross profit adds up until it reaches the cost of winning the customer.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-04",
+  "width": 140,
+  "height": 110,
+  "seed": 311,
+  "data": {
+    "motif": "paybackStaircase"
+  }
+}

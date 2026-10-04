@@ -1,0 +1,13 @@
+{
+  "id": "customer-lifetime-value-calculator--tool-spot",
+  "type": "toolSpot",
+  "takeaway": "Each month adds a thinner layer of gross profit, and the total approaches a limit without reaching it.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-04",
+  "width": 140,
+  "height": 110,
+  "seed": 323,
+  "data": {
+    "motif": "lifetimeValue"
+  }
+}

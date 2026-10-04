@@ -45,6 +45,8 @@ The preview and quality actions are:
 
 Starting a preview stops the previous preview managed by these actions in the same checkout. Other checkouts and servers stay running. The main checkout prefers port 3333. Worktrees choose separate ports and skip occupied ports. Once the site responds, each preview prints its checkout, branch, and current Tailscale link. Leave the action's terminal running while using the preview.
 
+For a worktree preview, point the local cache watcher at its port with `npm run stack127:cache:watch:local -- --site http://127.0.0.1:<port>`. Without `--site`, the watcher uses port 3333.
+
 The actions install dependencies with `npm ci` if Next.js is missing. They use the checkout's `.env.local`. Worktrees without that file use the main checkout's development environment. Environment values are never printed or copied. Production deployment is separate.
 
 Each worktree owns its `node_modules`, `.next`, temporary files, and preview state. Setup does not copy old build output, backups, logs, discovery progress, or preview PID records. Shared planning files, agent configuration, hooks, and skills come from Git. Machine-level provider logins stay on the homelab. The linked environment files share the same managed development database; worktrees do not create separate databases.

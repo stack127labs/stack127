@@ -1,0 +1,175 @@
+.workbench {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-border-strong);
+  grid-column: 1 / -1;
+  margin-inline: calc(-1 * var(--container-gutter));
+  min-width: 0;
+  padding: var(--space-7) var(--container-gutter);
+  width: calc(100% + var(--container-gutter) + var(--container-gutter));
+}
+
+.content,
+.form,
+.results,
+.scenarioSingle {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.content {
+  gap: var(--space-7);
+  margin-inline: auto;
+  max-width: 66rem;
+}
+
+.settings {
+  align-items: start;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: minmax(8rem, 10rem) minmax(0, 1fr);
+  min-width: 0;
+}
+
+.settings > *,
+.scenarioSingle > *,
+.scenario > * {
+  min-width: 0;
+}
+
+.scenarioSingle {
+  gap: var(--space-5);
+  max-width: 32rem;
+}
+
+.scenarioPair {
+  column-gap: var(--space-7);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+  row-gap: var(--space-5);
+}
+
+.scenario {
+  border: 0;
+  display: grid;
+  gap: var(--space-5);
+  grid-row: var(--scenario-span);
+  grid-template-rows: subgrid;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.scenario legend {
+  float: left;
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.scenarioField {
+  align-content: start;
+}
+
+.toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
+}
+
+.results {
+  border-top: 1px solid var(--color-border);
+  overflow-wrap: anywhere;
+  padding-top: var(--space-6);
+}
+
+.leadSingle,
+.leadPair {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.leadPair {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.leadPair > *,
+.leadSingle > * {
+  min-width: 0;
+}
+
+.detailLines {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.cellStack {
+  display: grid;
+  gap: var(--space-1);
+  justify-items: end;
+}
+
+.cellNote {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+}
+
+.formula {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.formula p {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+}
+
+.formula p:first-child {
+  color: var(--color-text);
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 760px) {
+  .workbench {
+    padding-block: var(--space-5);
+  }
+
+  .content {
+    gap: var(--space-6);
+  }
+
+  .settings,
+  .scenarioPair,
+  .leadPair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .currency {
+    max-width: 12rem;
+  }
+
+  .scenarioPair {
+    row-gap: var(--space-6);
+  }
+
+  .scenario {
+    grid-row: auto;
+    grid-template-rows: none;
+  }
+
+  .scenarioSingle {
+    max-width: none;
+  }
+
+  .cellStack {
+    justify-items: start;
+  }
+}
