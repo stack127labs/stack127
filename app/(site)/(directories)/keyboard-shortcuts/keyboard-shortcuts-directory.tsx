@@ -3,10 +3,9 @@ import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/d
 import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import Link from "next/link";
-import { Keyboard } from "lucide-react";
 import { appsInCategory, shortcutAppCatalog, shortcutCategories } from "@/lib/shortcuts";
 import { platformLabels } from "@/lib/shortcuts/types";
-import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { EntryHero } from "@/app/ui/site/entry-hero";
 import { siteSpotKeyboardShortcutsArt } from "../../art/site--spot-keyboard-shortcuts";
@@ -24,7 +23,7 @@ export async function KeyboardShortcutsDirectory() {
     <>
       <EntryHero art={siteSpotKeyboardShortcutsArt}>
       <PageHeader>
-        <h1><PageTitleIcon><Keyboard strokeWidth={2.2} /></PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+        <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
         <ContentMarkdown markdown={directoryPage.intro_markdown} />
         <small>{shortcutAppCatalog.length} apps · {totalShortcuts} shortcuts · Windows, macOS, and Linux</small>
       </PageHeader>

@@ -70,6 +70,8 @@ The source tags live in `lib/cache-tags.ts`. `scripts/stack127/cache/targets.mjs
 | `cli_apps` | `stack127-terminal-apps` | `cli-apps-catalog` |
 | `self_host_app`, `self_host_catalog` | `stack127-self-host-apps` and app detail tags | `self-host-catalog` and app detail tags |
 
+Keyboard-shortcut and ad-network child headings can inherit their parent directory icon. A parent `page` event also purges `keyboard-shortcuts-catalog` or `ad-networks-catalog`, shared by the parent and child responses. A child-only edit keeps its page-specific purge.
+
 Hardware data ships from repository files. Releases refresh it. Each hardware JSON response also carries `page:<directory>` so publication changes purge its index and details.
 
 ## Cloudflare cache times

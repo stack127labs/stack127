@@ -153,11 +153,16 @@ For components across all page types, use [shared-ui.md](shared-ui.md) and the C
 
 ### Cards
 
-Cards use `--color-surface` on a 1px `--color-border`, with `--radius`. A dashed `--color-border` divider sits above the mono metadata row. On hover, the border turns `--color-accent`.
+Tool, catalog, directory, course, and Labs cards all use `PageCard` in `app/ui/cards/page-card.tsx`. It has marker art, an icon, a name, a description, and an optional count footer. When a card has no drawing, its icon shows large in the art spot.
 
-Titles use `--font-display`. Descriptions use `--text-small` with `--color-text`.
+Cards use `--color-surface` on a 1px `--color-border`, with `--radius`. Titles use `--font-display`. Descriptions use `--text-small` with `--color-text`.
 
-Tool catalogs use the shared three-column `ToolCatalog` grid. It drops to two columns, then one. Each card has one simple tool name, one sentence, and one semantic marker spot.
+| Size | Used for | Look |
+| --- | --- | --- |
+| `feature` | Homepage catalogs, directories, the course, and Labs | Lowercase title with a small icon. A dashed `--color-border` divider sits above the mono count row. On hover, the border turns `--color-accent`. |
+| `tool` | Tool cards in a catalog | Plain title and an arrow. On hover, the background turns `--color-surface-2`. |
+
+The thin `ToolCard`, `CatalogCard`, and `DirectoryCard` wrappers turn a database row's `card_icon_key` and `card_art_key` into a card. Tool catalogs use the shared three-column `ToolCatalog` grid. It drops to two columns, then one. Each card has one simple tool name, one sentence, and one semantic marker spot.
 
 ### Tables
 

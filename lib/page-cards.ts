@@ -1,8 +1,15 @@
 import type { Stack127Page } from "./page-registry";
 import { getPool } from "./db";
-import { readPublicData, selectPublicRows } from "./public-data-api";
+import { readPublicData } from "./public-data-api";
+import { normalizeCardAssets, selectCardRows } from "./card-data";
 
-export type PageCardCopy = { page_id: number | string; card_name: string; card_description: string };
+export type PageCardCopy = {
+  page_id: number | string;
+  card_name: string;
+  card_description: string;
+  card_icon_key: string | null;
+  card_art_key: string | null;
+};
 
 /** The caller caches these cards with the homepage publication list. */
 export async function readPageCards(pages: Stack127Page[]) {
@@ -16,18 +23,34 @@ export async function readPageCards(pages: Stack127Page[]) {
       ] as const;
       return (await Promise.all(groups.map(async ([family, table]) => {
         const ids = pages.filter(page => page.page_family === family).map(page => page.id);
-        return ids.length ? selectPublicRows<PageCardCopy>(table, {
-          page_id: `in.(${ids.join(",")})`, select: "page_id,card_name,card_description",
+        return ids.length ? selectCardRows<PageCardCopy>(table, {
+          page_id: `in.(${ids.join(",")})`, select: "page_id,card_name,card_description,card_icon_key,card_art_key",
         }) : [];
       }))).flat();
     },
     postgresRead: async () => (await getPool().query<PageCardCopy>(`
-      select page_id,card_name,card_description from public.stack127_tool_pages where page_id=any($1::bigint[])
+      select page_id,card_name,card_description,
+        coalesce(to_jsonb(content)->>'card_icon_key', to_jsonb(content)->>'icon_key') as card_icon_key,
+        coalesce(to_jsonb(content)->>'card_art_key', to_jsonb(content)->>'home_art_key') as card_art_key,
+        not (to_jsonb(content) ? 'card_icon_key') as legacy_card_assets
+      from public.stack127_tool_pages content where page_id=any($1::bigint[])
       union all
-      select page_id,card_name,card_description from public.stack127_directory_pages where page_id=any($1::bigint[])
+      select page_id,card_name,card_description,
+        coalesce(to_jsonb(content)->>'card_icon_key', to_jsonb(content)->>'icon_key') as card_icon_key,
+        coalesce(to_jsonb(content)->>'card_art_key', to_jsonb(content)->>'home_art_key') as card_art_key,
+        not (to_jsonb(content) ? 'card_icon_key') as legacy_card_assets
+      from public.stack127_directory_pages content where page_id=any($1::bigint[])
       union all
-      select page_id,card_name,card_description from public.stack127_catalog_pages where page_id=any($1::bigint[])
+      select page_id,card_name,card_description,
+        coalesce(to_jsonb(content)->>'card_icon_key', to_jsonb(content)->>'icon_key') as card_icon_key,
+        coalesce(to_jsonb(content)->>'card_art_key', to_jsonb(content)->>'home_art_key') as card_art_key,
+        not (to_jsonb(content) ? 'card_icon_key') as legacy_card_assets
+      from public.stack127_catalog_pages content where page_id=any($1::bigint[])
     `, [pages.map(page => page.id)])).rows,
   });
-  return new Map(rows.map(row => [String(row.page_id), row]));
+  const pagesById = new Map(pages.map(page => [String(page.id), page]));
+  return new Map(rows.map(row => {
+    const page = pagesById.get(String(row.page_id))!;
+    return [String(row.page_id), normalizeCardAssets(row, page.page_family, page.slug)];
+  }));
 }

@@ -3,7 +3,7 @@ import { SidebarLabel } from "@/app/ui/site/app-shell";
 import { PathnameSidebarList } from "@/app/ui/site/pathname-sidebar-list";
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/ui/site/sidebar-panel";
 import { getPublishedToolCatalog } from "@/lib/tool-catalogs";
-import { toolCatalogIcon } from "@/lib/tool-catalog-icons";
+import { cardIcon } from "@/lib/card-icons";
 
 export async function ToolFamilySidebar({
   catalogSlug,
@@ -16,7 +16,7 @@ export async function ToolFamilySidebar({
 }) {
   const catalog = await getPublishedToolCatalog(catalogSlug);
   const items = catalog?.tools.map((tool) => {
-    const Icon = toolCatalogIcon(tool.card_icon_key);
+    const Icon = cardIcon(tool.card_icon_key);
     return {
       href: `/${tool.slug}`,
       label: tool.card_name,

@@ -21,8 +21,9 @@ The Components UI gallery is at `/components-ui` in development. That route retu
 | Scrollable table region | `TableFrame` in `app/ui/table-frame.tsx` |
 | Markdown content | `ContentMarkdown` in `app/ui/content-markdown.tsx` |
 | Page shell, headings, prose, media, code, and navigation | `app/ui/site/` |
-| Software, hardware, and directory cards and filters | `app/ui/directories/` |
-| Tool catalog cards and navigation | `app/ui/catalogs/` |
+| Linked page cards for tools, catalogs, directories, the course, and Labs | `PageCard`, `ToolCard`, `CatalogCard`, `DirectoryCard` in `app/ui/cards/` |
+| Software and hardware record cards, and directory filters | `app/ui/directories/` |
+| Tool catalog grid and navigation | `app/ui/catalogs/` |
 | Course and directory layouts | `app/ui/courses/` and `app/ui/directories/` |
 | Shared tool layouts and styles | `app/ui/tools/` |
 

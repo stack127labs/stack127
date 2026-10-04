@@ -4,7 +4,7 @@ import { ContentMarkdown } from "@/app/ui/content-markdown";
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import {
-  ReceiptText, CreditCard, ShoppingCart, Files, Cpu, ExternalLink, Smartphone,
+  CreditCard, ShoppingCart, Files, Cpu, ExternalLink, Smartphone,
   Monitor, Watch, Gamepad2, Headset, Puzzle, Cloud, Database, Download,
   Palette, Type, LayoutTemplate, Code, Box, Camera, Video, Music, BookOpen,
   GraduationCap, Calendar, Users, Heart, Mail, Mic, Coffee, Briefcase, Shirt,
@@ -14,6 +14,7 @@ import { PageCanvas } from '@/app/ui/site/page-canvas';
 import { EntryHero } from '@/app/ui/site/entry-hero';
 import { PageHeader } from '@/app/ui/site/page-header';
 import { PageTitleIcon } from '@/app/ui/site/page-title-icon';
+import { DirectoryTitleIcon } from '@/app/ui/directories/directory-title-icon';
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from '@/app/ui/site/sidebar-panel';
 import { sectionGroups, sectionFeeRange, type FeeEntry, type FeeSection } from '@/lib/platform-fees/model';
 import { sectionPath } from '@/lib/platform-fees/section-routes';
@@ -61,7 +62,8 @@ export function FeeShell({ sections, selected, directoryPage, children, overview
     <EntryHero art={null}>
       <PageHeader>
         {!overview && <Link href="/platform-fees" className={styles.back}>Platform fees</Link>}
-        <h1><PageTitleIcon>{current ? <SectionIcon section={current} /> : <ReceiptText />}</PageTitleIcon>{' '}<DirectoryPageTitle title={directoryPage.title} /></h1>
+        {/* Section pages keep their own section icon. */}
+        <h1>{current ? <PageTitleIcon><SectionIcon section={current} /></PageTitleIcon> : <DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />}{' '}<DirectoryPageTitle title={directoryPage.title} /></h1>
         <ContentMarkdown markdown={directoryPage.intro_markdown} />
       </PageHeader>
     </EntryHero>

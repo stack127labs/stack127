@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { planForwardMigrations, preserveDevelopmentPublication, verifyPageFamilyRestore } from './rebuild-development.mjs';
+import { planForwardMigrations, preserveDevelopmentPublication, verifyPageFamilyRestore, normalizeCardSnapshot, compatibleCardColumns } from './rebuild-development.mjs';
 
 const pageTables = ['stack127_pages', 'stack127_tool_pages', 'stack127_catalog_pages', 'stack127_directory_pages', 'stack127_tool_catalog_memberships'];
 const rowsByTable = overrides => new Map(pageTables.map(name => [name, overrides[name] ?? []]));
@@ -9,8 +9,8 @@ const rowsByTable = overrides => new Map(pageTables.map(name => [name, overrides
 function directoryRestore() {
   const sourcePage = { id: 1, slug: 'self-host-apps', page_family: 'directory', is_published: true };
   const developmentPage = { id: 2, slug: 'development-directory', page_family: 'directory', is_published: true };
-  const sourceCopy = { page_id: 1, title: 'Source directory', content_markdown: null, card_name: 'Source card' };
-  const savedCopy = { page_id: 2, title: 'Edited directory', content_markdown: 'Saved content.', card_name: 'Edited card' };
+  const sourceCopy = { page_id: 1, title: 'Source directory', content_markdown: null, card_name: 'Source card', card_icon_key: 'self-host-apps', card_art_key: 'self-host-apps' };
+  const savedCopy = { page_id: 2, title: 'Edited directory', content_markdown: 'Saved content.', card_name: 'Edited card', card_icon_key: 'terminal', card_art_key: 'labs' };
   return {
     production: rowsByTable({ stack127_pages: [sourcePage], stack127_directory_pages: [sourceCopy] }),
     restored: rowsByTable({ stack127_pages: [{ ...sourcePage }, { ...developmentPage, id: 4 }],
@@ -137,4 +137,44 @@ test('history alignment requires data copy, verification and a backup before rea
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /requires --apply --copy --verify --history-backup/);
   assert.doesNotMatch(result.stderr, /\.env\.database/);
+});
+
+
+test('legacy catalog snapshots preserve icon, card art, and hero art through renames', () => {
+  const row = { page_id: 1, icon_key: 'network', home_art_key: 'dns-tools', hero_art_key: 'dns-lookup' };
+  assert.deepEqual(normalizeCardSnapshot('stack127_catalog_pages', [row], [])[0], {
+    page_id: 1, card_icon_key: 'network', card_art_key: 'dns-tools', hero_art_key: 'dns-lookup',
+  });
+  assert.equal(row.icon_key, 'network');
+  assert.throws(() => normalizeCardSnapshot('stack127_catalog_pages', [{ ...row, card_icon_key: 'globe' }], []), /Conflicting card columns/);
+});
+
+test('legacy directory snapshots backfill homepage cards and leave child assets null', () => {
+  const pages = [{ id: 1, slug: 'self-host-apps' }, { id: 2, slug: 'platform-fees/books' }];
+  assert.deepEqual(normalizeCardSnapshot('stack127_directory_pages', [{ page_id: 1 }, { page_id: 2 }], pages), [
+    { page_id: 1, card_icon_key: 'self-host-apps', card_art_key: 'self-host-apps' },
+    { page_id: 2, card_icon_key: null, card_art_key: null },
+  ]);
+  const edited = { page_id: 1, card_icon_key: 'terminal', card_art_key: null };
+  assert.deepEqual(normalizeCardSnapshot('stack127_directory_pages', [edited], pages), [edited]);
+});
+
+test('copy accepts only the known card schema transition', () => {
+  const column = column_name => ({ column_name, data_type: 'text', udt_name: 'text' });
+  assert.ok(compatibleCardColumns('stack127_catalog_pages', [column('icon_key'), column('home_art_key'), column('hero_art_key')],
+    [column('card_icon_key'), column('card_art_key'), column('hero_art_key')]));
+  assert.ok(compatibleCardColumns('stack127_directory_pages', [column('title')],
+    [column('title'), column('card_icon_key'), column('card_art_key')]));
+  assert.ok(!compatibleCardColumns('stack127_directory_pages', [column('title')],
+    [column('title'), column('card_icon_key'), column('card_art_key'), column('unexpected')]));
+  assert.ok(!compatibleCardColumns('stack127_directory_pages', [column('title')],
+    [column('title'), { ...column('card_icon_key'), udt_name: 'int4' }, column('card_art_key')]));
+});
+
+test('restore verification detects a changed card icon or art after ID remapping', () => {
+  for (const field of ['card_icon_key', 'card_art_key']) {
+    const fixture = directoryRestore();
+    fixture.restored.get('stack127_directory_pages')[1][field] = 'globe';
+    assert.throws(() => verifyPageFamilyRestore(fixture.production, fixture.restored, fixture.preserved), /Content mismatch/);
+  }
 });

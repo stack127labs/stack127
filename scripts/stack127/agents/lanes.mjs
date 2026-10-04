@@ -5,7 +5,7 @@
 import path from "node:path";
 
 // Exceptions must precede the broad lib/ rule.
-const opusExceptions = [/^lib\/tool-catalog-art\.ts$/];
+const opusExceptions = [/^lib\/card-art\.ts$/];
 
 const opusPatterns = [
   /^app\/(?!api\/).*/,

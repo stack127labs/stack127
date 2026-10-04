@@ -111,3 +111,14 @@ test("app, shared catalog, and publication edits purge every search query varian
     assert.ok(!targets.warmPaths.includes("/api/self-host-apps/search"));
   }
 });
+
+
+test("parent directory copy changes purge inherited child icons at the edge", () => {
+  for (const slug of ["keyboard-shortcuts", "ad-networks"]) {
+    const targets = targetsForEvents([{ entity_type: "page", slug }]);
+    assert.ok(targets.edgeTags.includes(`${slug}-catalog`));
+    assert.ok(targets.nextTags.includes(`stack127-directory-page:${slug}`));
+    const childOnly = targetsForEvents([{ entity_type: "page", slug: `${slug}/example` }]);
+    assert.equal(childOnly.edgeTags.includes(`${slug}-catalog`), false);
+  }
+});

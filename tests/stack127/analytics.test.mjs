@@ -95,3 +95,17 @@ test("query responses send noindex and a clean canonical on every proxy response
     }
   }
 });
+
+
+test("directory parent and child documents share the inherited-icon purge tag", async () => {
+  const { proxy } = publicationProxy({ published: true });
+  for (const [parent, tag] of [["keyboard-shortcuts", "keyboard-shortcuts-catalog"], ["ad-networks", "ad-networks-catalog"]]) {
+    for (const path of [`/${parent}`, `/${parent}/example`, `/${parent}/example?_rsc=payload`]) {
+      const response = await proxy(request(path));
+      assert.equal(response.status, 200);
+      assert.ok(response.headers.get("Cache-Tag").split(",").includes(tag), path);
+    }
+    const unrelated = await proxy(request(`/${parent}-other/example`));
+    assert.equal(unrelated.headers.get("Cache-Tag").split(",").includes(tag), false);
+  }
+});

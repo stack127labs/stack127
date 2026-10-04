@@ -142,12 +142,11 @@ The `doodle` figure type is the one exception to "every figure has data." It dec
 
 ## Homepage card artwork
 
-Every homepage card needs a spec-backed marker drawing in the homepage art registry.
+Every homepage card needs a spec-backed marker drawing registered in `lib/card-art.ts`. Directories and catalogs store its key in `card_art_key`. The course and Labs keep their keys in the homepage code.
 
 - Never swap in an enlarged Lucide icon, another interface icon, a traced icon, or a one-off SVG for marker art.
 - Small identity icons beside titles are separate and may stay.
 - Add missing subjects to the shared marker icon library, generate the spec files, and check them at card size in both themes.
-- The homepage art coverage test must pass before handoff.
 
 ## Data accuracy
 

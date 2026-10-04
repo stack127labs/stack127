@@ -5,7 +5,7 @@ import { PageCanvas } from "@/app/ui/site/page-canvas";
 import type { ReactNode } from "react";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
 import { PageHeader } from "@/app/ui/site/page-header";
-import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { DirectoryTitleIcon } from "./directory-title-icon";
 import { proseClassName, proseFlowClassName } from "@/app/ui/site/prose";
 import type { HardwareDirectorySnapshot } from "@/lib/hardware-directories";
 import type { DirectoryFilterOption as FilterOption } from "./directory-filters";
@@ -63,7 +63,7 @@ export async function HardwareDirectoryPage({ config, snapshot }: { config: Hard
       <AppShell mainLabel={config.title} menuLabel="Filters" sidebar={sidebar} sidebarLabel={`${config.sidebarLabel} filters`}>
         <PageCanvas as="div" flow className="directory-results">
           <PageHeader bordered>
-            <h1><PageTitleIcon>{config.icon}</PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+            <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} fallback={config.icon} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
             <ContentMarkdown markdown={directoryPage.intro_markdown} />
           </PageHeader>
 

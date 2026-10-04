@@ -2,12 +2,23 @@ import {
   Activity, ArrowLeftRight, BadgeCheck, BookOpen, Building2, CalendarClock, Calculator,
   CalendarX, ChevronsRight, ClipboardList, Columns3, Database, FileClock,
   FileKey, FileSearch, GitBranch, Globe, HardDrive, HouseWifi, Image, Keyboard,
-  Languages, Layers3, LayoutGrid, Network, RefreshCw, Route, Search,
+  FlaskConical, ListChecks, Receipt, Rocket, Scale, Languages, Layers3, LayoutGrid, Network, RefreshCw, Route, Search,
   Server, ServerCog, ShieldCheck, SquareTerminal, TrendingDown, TrendingUp, UserSearch,
   Users, Wrench, type LucideIcon,
 } from "lucide-react";
 
 const icons: Record<string, LucideIcon> = {
+  "cli-apps": SquareTerminal,
+  "epp-status-codes": ListChecks,
+  "keyboard-shortcuts": Keyboard,
+  "labs": FlaskConical,
+  "launch-directories": Rocket,
+  "platform-fees": Receipt,
+  "self-host-apps": HardDrive,
+  "self-hosting-for-beginners": BookOpen,
+  "software-licenses-for-self-hosting": Scale,
+  "tld-directory": Globe,
+
   activity: Activity,
   "arrow-left-right": ArrowLeftRight,
   "badge-check": BadgeCheck,
@@ -47,6 +58,6 @@ const icons: Record<string, LucideIcon> = {
   wrench: Wrench,
 };
 
-export function toolCatalogIcon(key: string | null | undefined) {
+export function cardIcon(key: string | null | undefined) {
   return (key && icons[key]) || Wrench;
 }
