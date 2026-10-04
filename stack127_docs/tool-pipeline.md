@@ -17,7 +17,7 @@ Lanes and models follow "Agent roles" in `AGENTS.md`. The main agent is the coor
 | 3 | Backend build | Sol | `high`, or `xhigh` for risky logic | Engine, API routes, data scripts, development preview row, and focused correctness test. No UI. |
 | 4 | Frontend build | Opus, same planning session | `high` | Route page, interface, tool components, styles, card art, and desktop and mobile checks |
 | 5 | Content plan and writing | Opus, writing session | `medium` | Content section, title, page copy, interface words, SEO text, and catalog card copy |
-| 6 | Development content integration | Luna | `xhigh` | Integrated development page and catalog memberships |
+| 6 | Development content integration | Luna | `xhigh` | Publish manifest, integrated development page, and catalog memberships |
 | 7 | Independent audit | Sol | `high` | Release verdict and defects routed to their owner |
 
 Sol builds the backend. Opus builds everything people see: the page, interface, components, styles, card art, and copy.
@@ -87,7 +87,7 @@ Keep useful source links in the page. Research notes and citation markers belong
 
 ### What the main agent doesn't redo
 
-The main agent doesn't rerun research or repeat browser work. It checks the tool, runs the core tests, and runs one production build after route and runtime work.
+The main agent doesn't rerun research or repeat browser work. It checks the tool and runs the core tests. Pull request CI runs the build.
 
 If integration or audit later changes code, rerun only the checks that change affects.
 
@@ -138,11 +138,13 @@ Writing hands integration its final plain-language title, SEO text, interface wo
 
 Before integration, the main agent confirms every planned catalog exists. A new catalog needs its own registry row, content, art, and page review.
 
-Integration does this in development with `npm run stack127:tool-page:catalogs:update`:
+Integration writes one publish manifest for the tool, as [page-publishing.md](page-publishing.md) describes. It holds the registry fields, content Markdown files, card fields, tool-specific art key, full ordered catalog list, and readiness requirements. A new catalog the tool needs goes in the same manifest. Integration then works in development:
 
-1. Dry-run, then apply, the card fields, tool-specific art key, and full ordered membership list.
+1. With the dev server and local cache watcher running, run the tools publisher's `prepare`, `preview`, and `apply` against development. `apply` also checks the public page.
 2. Check the actual tool and each assigned catalog card at desktop and mobile width in both themes.
 3. Run a new build only if integration or audit changes route, runtime, or SEO code.
+
+Copy and card fixes after integration update the manifest's files, then run the publisher in development again. That keeps the manifest ready for production. The single-purpose tool-page commands are fine for a quick development check, but the manifest must end with the same values.
 
 The auditor checks accuracy, content, catalog cards and placement, and the common user flow. That includes whether the new tool's marker drawing reads clearly at its rendered size in both themes.
 
@@ -154,8 +156,8 @@ Don't run a full-site browser suite for one tool.
 
 You can publish a development preview inside an authorized tool pipeline, so the real database-backed route can be reviewed. Memberships can be set up before publication. Catalog cards appear only for published tools.
 
-After the audit, give the user the complete spec, the verified development preview, and the release verdict. Production data, commits, pushes, and deployment still need authorization.
+After the audit, give the user the complete spec, the verified development preview, the publish manifest location, and the release verdict. Production data, commits, pushes, and deployment still need authorization.
 
-When release is authorized, use the approved production content workflow and `$stack127-release-e2e`. The release workflow runs the minimum gate, builds one image, deploys it, and checks the live revision and core public endpoints.
+When release is authorized, follow `$stack127-release-e2e`. The code ships first: pull request, CI, merge, and the release workflow, which builds one image, deploys it, and checks the live revision and core public endpoints. Then the coordinator publishes the tool's production data with the tools publisher and its page publication workflow, as [page-publishing.md](page-publishing.md) describes. "Push to prod" covers both steps.
 
 The coordinator does the release, or names the reviewed commit or exact production data changes in a worker's task, as described in `AGENTS.md`. Ordinary pipeline workers may apply development updates without that.

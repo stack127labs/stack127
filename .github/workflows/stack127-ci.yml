@@ -30,6 +30,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run test:core
+      - name: Check page publishing and recovery
+        run: npm run test:focused -- tests/stack127/page-publishing.test.mjs tests/stack127/page-publishing-database.test.mjs
 
   verify-production-build:
     needs: verify

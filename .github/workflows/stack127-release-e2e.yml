@@ -24,7 +24,8 @@ permissions:
 
 concurrency:
   group: stack127-production
-  cancel-in-progress: true
+  cancel-in-progress: false
+  queue: max
 
 jobs:
   release:

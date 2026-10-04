@@ -11,7 +11,7 @@ Read `stack127_docs/writing-style.md` for how to write and search wording, and `
 
 In the tool pipeline, Opus runs this skill in its own Claude Code writing session after the tool is built. Plan the Content section first, then write in the same session.
 
-It also handles rewrites of live tool pages. Read the current title, intro, usage, and content from `public.stack127_tool_pages`. Use the tool once and read its code for the exact rules and messages. Keep every fact, limit, and useful source. Write drafts to temporary files outside the repo unless the user asks to apply them. Skip the spec step for a rewrite.
+It also handles rewrites of live tool pages. Read the current title, intro, usage, and content from `public.stack127_tool_pages`. Use the tool once and read its code for the exact rules and messages. Keep every fact, limit, and useful source. Write drafts to `tmp/page-publishing/<slug>/` unless the user asks to apply them. Git ignores `tmp/`, and the files stay there through release. Skip the spec step for a rewrite.
 
 ## Win the search
 
@@ -90,7 +90,7 @@ If the main agent finds a problem on the rendered page, fix it in the same sessi
 
 ## Hand off the copy
 
-Put the intro, usage, and content in separate temporary Markdown files outside the repo. In the pipeline, apply interface-word changes in the frontend code yourself, since Opus owns the frontend. For a standalone rewrite, list suggested interface words instead.
+Put the intro, usage, and content in separate Markdown files in `tmp/page-publishing/<slug>/`. Integration builds the publish manifest beside them. In the pipeline, apply interface-word changes in the frontend code yourself, since Opus owns the frontend. For a standalone rewrite, list suggested interface words instead.
 
 Return:
 

@@ -43,11 +43,31 @@ When the user says to push to prod, the coordinator:
 2. Pushes the branch and opens a pull request against `main`.
 3. Waits for PR CI. On failure, fixes the branch and pushes again. Code fixes get a Sol review.
 4. Merges with a merge commit (`gh pr merge <number> --merge`). The merge starts the release.
-5. After deploy, applies the release's production data steps and checks the changed pages.
+5. After deploy, publishes the release's pages with the publisher and checks the changed pages. See Page publication below.
 
 PR CI doesn't run migrations. Apply and check them on the development database before the pull request. The release workflow applies them to production.
 
 Follow `skills/stack127/stack127-release-e2e/SKILL.md`.
+
+## Page publication
+
+Page data reaches production after the code that renders it is live. The tools and directories publishers write the registry rows, family rows, cards, catalog memberships, and publication in one transaction. See [page-publishing.md](page-publishing.md).
+
+The coordinator prepares and previews the plan against production from a clean checkout of the release commit, then runs `dispatch`. The `--release-sha` must be the full current `origin/main` commit, equal the local `HEAD`, and contain the plan's source commit. That creates a GitHub deployment with task `page-publication` in the `stack127-page-publication` environment. `.github/workflows/stack127-publish-pages.yml` then:
+
+1. Checks that the sender has write, maintain, or admin access, and that the SHA is still the current `main` commit.
+2. Waits up to 10 minutes for the live health SHA to match. It stops without writing if the release never goes live.
+3. Joins the `stack127-production` concurrency group. Release and publication jobs queue there and don't cancel each other.
+4. Applies the plan as one transaction.
+5. Checks the public pages and sitemap after the cache worker revalidates them, and records the result on the GitHub deployment.
+
+It doesn't build, deploy, or purge caches.
+
+The reviewed plan is the publishing input and the recovery data. It holds the exact desired values and the production values from before. Keep it until the pages are checked. Don't commit it.
+
+If the live check fails after the transaction commits, the data is saved. Run `verify` again. Running `apply` again is safe too.
+
+Schema migrations still ship through a pull request and the release workflow. Dataset imports keep their own reviewed commands.
 
 After the static-page app, directory trigger migration, and cache worker are live, the coordinator can apply seven-day HTML/RSC edge TTLs:
 
