@@ -91,8 +91,8 @@ export function platformFeeSectionCopy(section, slug) {
 export function platformFeeOverviewCopy(sectionCount, entryCount) {
   return {
     slug: 'platform-fees',
-    title: `Platform fees compared: ${entryCount} platforms across ${sectionCount} categories`,
-    intro_markdown: 'Choose what you sell, then compare fees and start costs. Open a card for other rates and official sources. Ranges use headline percentages before fixed charges and other deductions.',
+    title: `Platform fees compared: ${entryCount} listings across ${sectionCount} categories`,
+    intro_markdown: 'Choose what you sell, then compare fees and start costs. Each category has sections for different products and services. Open a card for other rates and official sources.',
     content_markdown: null,
   };
 }

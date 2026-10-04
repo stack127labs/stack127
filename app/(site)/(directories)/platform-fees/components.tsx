@@ -15,9 +15,11 @@ import { EntryHero } from '@/app/ui/site/entry-hero';
 import { PageHeader } from '@/app/ui/site/page-header';
 import { PageTitleIcon } from '@/app/ui/site/page-title-icon';
 import { DirectoryTitleIcon } from '@/app/ui/directories/directory-title-icon';
+import { SidebarList } from '@/app/ui/site/sidebar-list';
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from '@/app/ui/site/sidebar-panel';
-import { sectionGroups, sectionFeeRange, type FeeEntry, type FeeSection } from '@/lib/platform-fees/model';
-import { sectionPath } from '@/lib/platform-fees/section-routes';
+import { feeGroups, groupPath, type FeeGroup } from '@/lib/platform-fees/groups';
+import type { FeeEntry, FeeSection } from '@/lib/platform-fees/model';
+import { FeeSearch, FeeSidebarAnchors, type FeeAnchor } from './filters';
 import styles from './page.module.css';
 
 const icons = {
@@ -30,56 +32,51 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
   day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
 });
 
-export function SectionIcon({ section }: { section: FeeSection }) {
-  const Icon = icons[section.icon];
-  return <Icon aria-hidden="true" size={22} />;
+export function SectionIcon({ icon, size = 22 }: { icon: FeeSection['icon']; size?: number }) {
+  const Icon = icons[icon];
+  return <Icon aria-hidden="true" size={size} />;
 }
 
-export function FeeShell({ sections, selected, directoryPage, children, overview = false }: {
-  sections: FeeSection[];
-  selected?: string;
+export function FeeShell({ directoryPage, children, overview = false, group, anchors = [] }: {
   directoryPage: Stack127DirectoryPage;
   children: ReactNode;
   overview?: boolean;
+  group?: FeeGroup;
+  anchors?: FeeAnchor[];
 }) {
-  const current = sections.find(section => section.id === selected);
   const sidebar = <div className={sidebarPanelClassName}>
     <div className={sidebarPanelHeadingClassName}><SidebarLabel>Platform fees</SidebarLabel></div>
-    <nav aria-label="Fee sections" className={styles.sectionLinks}>
-      <Link href="/platform-fees" aria-current={overview ? 'page' : undefined}>All sections</Link>
-      {sectionGroups.map(group => <details key={group} open={current?.group_name === group}>
-        <summary>{group}</summary>
-        <div>{sections.filter(section => section.group_name === group).map(section =>
-          <Link key={section.id} href={sectionPath(section.id)} aria-current={selected === section.id ? 'page' : undefined}>
-            {section.name}
-          </Link>,
-        )}</div>
-      </details>)}
+    <nav aria-label="Fee categories">
+      <SidebarList items={feeGroups.map(item => ({
+        href: groupPath(item.name),
+        label: item.name,
+        active: group?.slug === item.slug,
+        icon: <SectionIcon icon={item.icon} size={15} />,
+      }))} />
     </nav>
+    {anchors.length > 0 && <FeeSidebarAnchors anchors={anchors} />}
   </div>;
 
-  return <AppShell mainLabel={directoryPage.title} sidebar={sidebar} sidebarLabel="Fee sections" menuLabel="Sections">
-    <EntryHero art={null}>
-      <PageHeader>
-        {!overview && <Link href="/platform-fees" className={styles.back}>Platform fees</Link>}
-        {/* Section pages keep their own section icon. */}
-        <h1>{current ? <PageTitleIcon><SectionIcon section={current} /></PageTitleIcon> : <DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />}{' '}<DirectoryPageTitle title={directoryPage.title} /></h1>
-        <ContentMarkdown markdown={directoryPage.intro_markdown} />
-      </PageHeader>
-    </EntryHero>
-    <PageCanvas flow className={styles.content}>{children}<DirectoryPageContent page={directoryPage} /></PageCanvas>
-  </AppShell>;
+  return <FeeSearch>
+    <AppShell mainLabel={directoryPage.title} sidebar={sidebar} sidebarLabel="Fee categories" menuLabel="Categories">
+      <EntryHero art={null}>
+        <PageHeader>
+          {!overview && <Link href="/platform-fees" className={styles.back}>Platform fees</Link>}
+          <h1>{group ? <PageTitleIcon><SectionIcon icon={group.icon} /></PageTitleIcon> : <DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />}{' '}<DirectoryPageTitle title={directoryPage.title} /></h1>
+          <ContentMarkdown markdown={directoryPage.intro_markdown} />
+        </PageHeader>
+      </EntryHero>
+      <PageCanvas flow className={styles.content}>{children}<DirectoryPageContent page={directoryPage} /></PageCanvas>
+    </AppShell>
+  </FeeSearch>;
 }
 
-export function SectionTile({ section, entries }: { section: FeeSection; entries: FeeEntry[] }) {
-  const range = sectionFeeRange(entries);
-  return <Link className={styles.tile} href={sectionPath(section.id)}>
-    <SectionIcon section={section} />
-    <h3>{section.name}</h3>
-    <span>{entries.length} platforms</span>
-    {range && <span>Headline fees: {range.min === range.max ? `${range.min}%` : `${range.min}% to ${range.max}%`}
-      {range.count < entries.length && <> ({range.count} percentage rate{range.count === 1 ? '' : 's'})</>}
-    </span>}
+export function CategoryTile({ group, sections, listings }: { group: FeeGroup; sections: number; listings: number }) {
+  return <Link className={styles.tile} href={groupPath(group.name)}>
+    <SectionIcon icon={group.icon} />
+    <h2>{group.name}</h2>
+    <span>{sections} {sections === 1 ? 'section' : 'sections'}</span>
+    <span>{listings} {listings === 1 ? 'listing' : 'listings'}</span>
     <span className={styles.arrow} aria-hidden="true">→</span>
   </Link>;
 }

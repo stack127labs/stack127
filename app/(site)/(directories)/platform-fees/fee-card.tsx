@@ -11,7 +11,7 @@ function Identity({ entry, tag }: { entry: FeeEntry; tag: string }) {
       {entry.icon_path ? <img src={entry.icon_path} alt="" width={30} height={30} loading="lazy" /> : <span aria-hidden="true">{entry.name.slice(0, 2)}</span>}
     </span>
     <div className={styles.identityText}>
-      <h2><a href={entry.website_url} target="_blank" rel="noopener noreferrer">{entry.name}<ExternalLink size={14} aria-hidden="true" /></a></h2>
+      <h3><a href={entry.website_url} target="_blank" rel="noopener noreferrer">{entry.name}<ExternalLink size={14} aria-hidden="true" /></a></h3>
       <p>{tag}</p>
     </div>
   </div>;
@@ -62,7 +62,7 @@ function AllRates({ entry, receipt }: { entry: FeeEntry; receipt: ReceiptCard })
     {receipt.note && <p className={styles.note}>{receipt.note}</p>}
     <div className={styles.sources}>
       <p>{entry.checked_at ? <>Checked <time dateTime={entry.checked_at}>{dateFormat.format(new Date(entry.checked_at))}</time></> : 'Not checked'}</p>
-      <h3>Sources</h3>
+      <p className={styles.sourcesLabel}>Sources</p>
       <ul>{sources.map(source => <li key={source.url}>
         <a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}<ExternalLink size={12} aria-hidden="true" /></a>
       </li>)}</ul>

@@ -4,7 +4,7 @@ import { getFeeDirectory } from "@/lib/platform-fees/queries";
 export async function cardCounts(): Promise<PageCardCount[]> {
   const directory = await getFeeDirectory();
   return [
-    { label: "platforms", value: directory.entries.length },
-    { label: "categories", value: directory.sections.length },
+    { label: "listings", value: directory.entries.length },
+    { label: "categories", value: new Set(directory.sections.map(section => section.group_name)).size },
   ];
 }

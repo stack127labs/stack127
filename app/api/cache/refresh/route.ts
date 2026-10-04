@@ -13,7 +13,7 @@ import { parseSelfHostAppsSearchParams } from "@/lib/self-host-apps-search";
 import { loadSelfHostedAppResourcePlannerEntry } from "@/lib/self-hosted-app-resource-planner/data";
 import { getPool } from "@/lib/db";
 import { sitePageAvailable } from "@/lib/page-source";
-import { sectionSlugs } from "@/lib/platform-fees/section-routes";
+import { getFeeGroup } from "@/lib/platform-fees/groups";
 import { LAUNCH_DIRECTORY_REVISION_SQL, launchDirectoryRevisionMatches } from "@/lib/launch-directories-data";
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -88,10 +88,12 @@ export async function POST(request: Request) {
             const source = await getPool().query("select 1 from public.ad_networks where slug=$1", [path.slice("/ad-networks/".length)]);
             published = source.rows.length > 0;
           } else if (published && path.startsWith("/platform-fees/")) {
-            const section = path.slice("/platform-fees/".length);
-            const id = Object.keys(sectionSlugs).find(id => sectionSlugs[id] === section) ?? section;
-            const source = await getPool().query("select 1 from public.platform_fee_sections where id=$1", [id]);
-            published = source.rows.length > 0;
+            const group = getFeeGroup(path.slice("/platform-fees/".length));
+            if (!group) published = false;
+            else {
+              const source = await getPool().query("select 1 from public.platform_fee_sections where group_name=$1 limit 1", [group.name]);
+              published = source.rows.length > 0;
+            }
           }
           if (!published) {
             if (response.status !== 404) throw new Error(`${path}: removed page is still served`);
