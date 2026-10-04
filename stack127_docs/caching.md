@@ -91,12 +91,12 @@ This command changes Cloudflare rules and records when long TTLs were enabled. W
 3. In a migration, add the entity type to the `stack127_revalidation_events` check constraint. Add triggers on every source table.
 4. Map the entity type in `scripts/stack127/cache/targets.mjs` to its Next.js tags, paths, Cloudflare tags, and warm paths.
 5. If the family needs a group purge, add its Cloudflare tag in `proxy.ts`.
-6. Run `npm run build`. Its `postbuild` hook runs `npm run check:static -- --strict` and rejects dynamic public pages or timed revalidation.
+6. Open a pull request. Its CI runs `npm run build`, whose `postbuild` hook runs `npm run check:static -- --strict` and rejects dynamic public pages or timed revalidation. Don't build on the homelab.
 
 ## Checking a change
 
 - Every public page must build as `○` or `●`. API routes, `/vitals`, and `/publication-not-found` may be dynamic.
 - `npm run check:static -- --strict` reads the build manifests and checks server source for query reads, `headers()`, `cookies()`, and dynamic or timed route settings. A missing build fails the check.
-- `npm run stack127:deploy:preflight` runs the same strict check. CI uses `--static-source-only` before the image exists; the image build's `postbuild` hook checks the generated manifests. Source-only success is not a completed build check.
+- `npm run stack127:deploy:preflight` runs the same strict check in the release workflow. It uses `--static-source-only` before the image exists; the image build's `postbuild` hook checks the generated manifests. Source-only success is not a completed build check.
 - Load the page twice. The second load must not query the database for page data.
 - Change a source row in development and confirm the page updates after the worker runs.

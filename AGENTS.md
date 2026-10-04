@@ -33,7 +33,7 @@ Rules:
 - Give one agent one set of files at a time, so two agents never edit the same file.
 - Every code change gets a Sol review before it is pushed, unless the user says otherwise.
 - Only the coordinator pushes, deploys, or writes production data, after the user authorizes it and the review passes. A worker may do it only when the coordinator's task says so explicitly and names the reviewed commit or the exact data changes.
-- Use the workspace T3 assigned. Do not create local branches or switch branches for a task. An agent already in a worktree does its work there, without adding another branch. The coordinator releases the reviewed work to `origin/main`; T3 auto-pull updates the main checkout when enabled. Preserve branches attached to other agents' active worktrees.
+- Use the workspace T3 assigned. Do not create local branches or switch branches for a task. An agent already in a worktree does its work there, without adding another branch. The coordinator releases reviewed code through a pull request merged into `main`. Docs-only changes may go straight to `main`. T3 auto-pull updates the main checkout when enabled. Preserve branches attached to other agents' active worktrees.
 - Workers may dry-run and apply development tool-page updates through the content, catalog, version, and repository-sync commands. Use `--environment development` and verify the result.
 - Never pin a default model version in docs or skills.
 
@@ -100,7 +100,7 @@ Read `stack127_docs/quality-workflow.md`.
 - Check the real changed page at desktop and mobile width.
 - Codex CLI on the homelab may not have the Mac app's in-app browser. Use a local headless browser for page and interaction checks when that happens. Do not stop to ask for in-app browser access. See `skills/stack127/references/homelab-browser-and-search.md`.
 - For a tool, run one correct example and one invalid-input example.
-- Run `npm run build` once for route, shared runtime, SEO, or production configuration changes.
+- Route, shared runtime, SEO, or production configuration changes get their build from pull request CI on GitHub. Don't build locally.
 - Do not run a full-site browser suite for ordinary page work.
 - Do not test documentation, skill wording, hashes, receipts, exact copy, or internal file structure.
 
@@ -129,8 +129,9 @@ Read `stack127_docs/quality-workflow.md`.
 - The only production target is the OVH application in `scripts/stack127/deployment/targets.json`.
 - The only production Dokploy dashboard is `https://dokploy.stack127.com`.
 - The Hostinger target and `https://dokploy.ravitejaknts.com` are retired for stack127.
-- Run `npm run stack127:deploy:preflight` before a release.
-- A release is complete only when `HEAD`, `origin/main`, the deployed image SHA, and live health SHA match.
+- Builds and release checks run on GitHub, not on the homelab. Don't run `npm run build` locally. Code goes through a pull request, where CI runs the core tests and the build. Merging it deploys.
+- "Push to prod" means the whole release: pull request, CI fixes, merge, deploy, and production data steps such as registry rows.
+- A release is complete only when the merge commit, `origin/main`, the deployed image SHA, and live health SHA match.
 - Read `stack127_docs/production-deployment.md` and the release skill before deployment work.
 
 ## Data and repositories

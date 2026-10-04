@@ -113,7 +113,7 @@ Split env files by concern:
 
 Next.js reads its standard env files automatically, including `.env.local`. It doesn't read custom split files such as `.env.database` or `.env.deploy`. Production deploy tooling has to pass those values into the runtime.
 
-The machine-readable infrastructure identity is `scripts/stack127/deployment/targets.json`. Run `npm run stack127:deploy:preflight` before every production deployment.
+The machine-readable infrastructure identity is `scripts/stack127/deployment/targets.json`. The release workflow runs `npm run stack127:deploy:preflight` before every production deployment.
 
 Edit `.env.deploy` one key at a time, using its secret-free example as the schema. Never replace a populated env file wholesale.
 

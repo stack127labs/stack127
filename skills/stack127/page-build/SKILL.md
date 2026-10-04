@@ -15,6 +15,6 @@ Read `AGENTS.md`, `stack127_docs/writing-style.md`, `stack127_docs/shared-ui.md`
 4. Keep page styles beside the page or component. Do not add page selectors to `app/globals.css`.
 5. Add a focused test only for calculations, parsers, data transforms, or a failure that could return a wrong answer. Do not test prose, documentation, skill wording, hashes, file inventories, or incidental markup.
 6. Open the real page at desktop and mobile width. Use the headless fallback in `skills/stack127/references/homelab-browser-and-search.md` if the in-app browser is unavailable. Confirm it loads, the main task works, links work, and there is no obvious overflow or browser error.
-7. When code, routes, SEO, or production configuration changed, run `npm run test:core` and `npm run build` once, and confirm the route list shows the page as static (`○` or `●`). The build already checks TypeScript. For a change that needs no build, run `npm run quality` only when TypeScript changed.
+7. When code changed, run `npm run quality`. Don't build on the homelab. At release, pull request CI on GitHub runs the full build. Confirm there that the route list shows the page as static (`○` or `●`).
 
 Use the production registry for publication decisions. Do not write production data, publish, commit, push, or deploy without authorization.

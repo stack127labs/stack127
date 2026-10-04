@@ -132,7 +132,7 @@ When the in-app browser isn't available over SSH, use the local headless browser
 
 A new database-backed route needs a development preview row to render. Until writing supplies final copy, put only minimal, clearly marked placeholder intro and content in that row. Keep any existing row, and don't treat the placeholder as finished writing.
 
-After the backend and frontend are both done, the main agent runs `npm run test:core` and `npm run build` once. The build already checks TypeScript.
+After the backend and frontend are both done, the main agent runs `npm run quality`. The full build runs in pull request CI on GitHub when the user asks to push to prod. Don't build on the homelab.
 
 Writing hands integration its final plain-language title, SEO text, interface words, catalog card name and description, and temporary Markdown files. The live copy belongs in the database, not in the spec or route.
 

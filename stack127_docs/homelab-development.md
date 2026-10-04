@@ -67,7 +67,7 @@ Codex CLI runs on the homelab. The Codex app may run on the user's Mac. The app'
 
 ## Minimum local check
 
-Run a focused calculation or parser test when relevant. Check the real changed page at desktop and mobile width. For route, shared runtime, SEO, or production configuration changes, run `npm run test:core` and `npm run build` once. The build already checks TypeScript. Use `npm run quality` only when TypeScript changed and no build is needed.
+Run a focused calculation or parser test when relevant. Check the real changed page at desktop and mobile width. Run `npm run quality` when code changed. Don't run `npm run build` here. Pull request CI on GitHub runs the full build at release, to keep load off the homelab.
 
 Build output such as `.next`, `.next-*`, `test-results`, and temporary logs is disposable. Do not commit it.
 

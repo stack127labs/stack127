@@ -54,7 +54,8 @@ npm run self-host-apps:qa-gate
 npm run self-host-apps:audit-summaries
 npm run self-host-apps:icon-integrity
 npm run typecheck
-npm run build
 ```
+
+Don't build locally. If the batch changes code, the pull request CI runs the build.
 
 Report claimed, published, duplicate, rejected, needs-review, and failed counts.

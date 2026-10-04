@@ -13,7 +13,9 @@ The old Hostinger application is not a deployment or rollback target.
 
 ## Release
 
-A push to `main` that affects production starts `.github/workflows/stack127-release-e2e.yml` directly.
+Code reaches `main` through a merged pull request. Docs-only changes may be pushed to `main` directly, because they don't deploy. Any push to `main` that affects production, including a merge, starts `.github/workflows/stack127-release-e2e.yml`.
+
+Pull requests run `.github/workflows/stack127-ci.yml` first: the core tests and one full build with the strict static check. That's where the build is checked before release. Don't build on the homelab.
 
 The workflow:
 
@@ -31,19 +33,21 @@ Normal releases should take about three to five minutes with warm GitHub, GHCR, 
 
 Pushes that change only documentation, skills, records, or tests do not deploy. For a deliberate release, run the manual workflow with the exact current main SHA.
 
-## Local handoff
+## Handoff
 
-Use the workspace T3 assigned. Do not create a local release branch or switch branches. Agents already in worktrees work there without adding another branch. The coordinator integrates the reviewed work onto `main` and pushes it to `origin/main`. T3 auto-pull updates the main checkout when enabled. Preserve branches attached to other agents' active worktrees.
+Use the workspace T3 assigned. Do not create a local release branch or switch branches. Agents already in worktrees work there without adding another branch. Preserve branches attached to other agents' active worktrees.
 
-Before pushing production code:
+When the user says to push to prod, the coordinator:
 
-```bash
-npm run test:core
-npm run build
-npm run stack127:deploy:preflight
-```
+1. Brings the worktree branch up to date with `origin/main`.
+2. Pushes the branch and opens a pull request against `main`.
+3. Waits for PR CI. On failure, fixes the branch and pushes again. Code fixes get a Sol review.
+4. Merges with a merge commit (`gh pr merge <number> --merge`). The merge starts the release.
+5. After deploy, applies the release's production data steps and checks the changed pages.
 
-Reuse a passing build for the same commit. The build's `postbuild` hook and deployment preflight both run `npm run check:static -- --strict`. Missing manifests fail local preflight. Do not run TypeScript separately when the Next.js build already checked it.
+PR CI doesn't run migrations. Apply and check them on the development database before the pull request. The release workflow applies them to production.
+
+Follow `skills/stack127/stack127-release-e2e/SKILL.md`.
 
 After the static-page app, directory trigger migration, and cache worker are live, the coordinator can apply seven-day HTML/RSC edge TTLs:
 
@@ -53,12 +57,12 @@ node --env-file=.env.database --env-file=.env.deploy scripts/stack127/cache/conf
 
 The command keeps the existing worker health gate and browser revalidation. It also covers the new JSON routes with origin TTLs. See [caching.md](caching.md) for the purge contract.
 
-Do not deploy from a dirty or stale branch. Do not bypass a failed target, DNS, build, or live revision check.
+Do not merge a dirty or stale branch. Do not bypass a failed target, DNS, build, or live revision check.
 
 Release is complete only when:
 
 ```text
-local HEAD = origin/main = deployed image SHA = live health SHA
+merge commit = origin/main = deployed image SHA = live health SHA
 ```
 
 See `stack127_docs/environment-inventory.md` for deployment credentials and their locations. Never print or commit them.

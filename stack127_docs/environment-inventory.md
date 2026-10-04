@@ -336,7 +336,7 @@ When a credential changes:
 2. Update the right local ignored file, GitHub scope, or Dokploy app. Don't spread the value to every surface.
 3. Keep the old value until the new credential passes a read-only check.
 4. Check that local secret files are still `0600`.
-5. For deployment or Cloudflare changes, run `npm run stack127:deploy:preflight`.
+5. For deployment or Cloudflare changes, run `npm run stack127:deploy:preflight -- --static-source-only`. The release workflow runs the full check.
 6. Run the relevant GitHub workflow and confirm its environment or repository secret lookup works.
 7. When the production site changes, check the affected live app and `/api/health?scope=deploy`.
 8. Revoke the old credential only after the new one is proven.
