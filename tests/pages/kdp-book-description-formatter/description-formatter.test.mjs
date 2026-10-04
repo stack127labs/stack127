@@ -27,7 +27,7 @@ test("unwraps unsupported wrappers, strips attributes, and retains ordinary text
   });
   assert.equal(result.status, "formatted");
   if (result.status !== "formatted") return;
-  assert.equal(result.html, "Start<p>Use <b>bold</b> and this.</p>");
+  assert.equal(result.html, "<h4>Start</h4><p>Use <b>bold</b> and this.</p>");
   assert.ok(result.changes.some((change) => change.type === "unsupported-tags"));
   assert.ok(result.changes.some((change) => change.type === "attributes"));
   assert.equal(JSON.stringify(result.tree).includes("https://example.test"), false);
@@ -83,4 +83,31 @@ test("rejects blank, oversized, and malformed source without truncating it", () 
   if (tooLarge.status === "invalid") assert.match(tooLarge.message, /64 KiB/u);
   const unclosed = formatKdpDescription({ source: "<p>text", mode: "html-source" });
   assert.equal(unclosed.status, "invalid");
+});
+
+
+test("converts bold and unsupported headings while keeping their boundaries", () => {
+  const result = formatKdpDescription({ source: "<h1>One</h1><h2>Two</h2><h3>Three</h3><strong>Bold</strong>", mode: "html-source" });
+  assert.equal(result.status, "formatted");
+  assert.equal(result.html, "<h4>One</h4><h4>Two</h4><h4>Three</h4><b>Bold</b>");
+  assert.equal(result.changes.find((change) => change.type === "converted-tags").count, 4);
+  assert.equal(formatKdpDescription({ source: "<strong>Bold</b>", mode: "html-source" }).status, "invalid");
+});
+
+test("cleans selected invisible characters and prevents copying invisible-only output", () => {
+  for (const mode of ["plain-text", "html-source"]) {
+    for (const source of ["\u200b", "\u2060", "\ufeff\u200b"]) {
+      const result = formatKdpDescription({ source, mode });
+      assert.equal(result.status, "no-output");
+      assert.ok(result.changes.some((change) => change.type === "invisible-characters"));
+    }
+  }
+  for (const source of ["<p>&#8203;&#x2060;&#65279;</p>", "&#8203;"]) {
+    assert.equal(formatKdpDescription({ source, mode: "html-source" }).status, "no-output");
+  }
+  const result = formatKdpDescription({ source: "<p>A&#8203;B 👩‍💻</p>", mode: "html-source" });
+  assert.equal(result.status, "formatted");
+  assert.equal(result.html, "<p>AB 👩‍💻</p>");
+  assert.equal(result.visibleTextCharacters, 6);
+  assert.ok(result.changes.find((change) => change.type === "invisible-characters").details.includes("Removed invisible U+200B."));
 });

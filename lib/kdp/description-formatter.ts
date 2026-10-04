@@ -4,6 +4,8 @@ import {
   KDP_DESCRIPTION_LIMIT,
 } from "./description-rules.ts";
 
+import { decodeKdpCharacterReferences } from "./character-references.ts";
+
 export type KdpDescriptionMode = "plain-text" | "html-source";
 export type KdpDescriptionInput = Readonly<{ source: string; mode: KdpDescriptionMode }>;
 
@@ -12,7 +14,7 @@ export type KdpDescriptionTreeNode =
   | Readonly<{ type: "element"; tag: string; children: readonly KdpDescriptionTreeNode[] }>;
 
 export type KdpDescriptionChange = Readonly<{
-  type: "whitespace" | "unsupported-tags" | "attributes" | "dropped-content" | "entities" | "comments" | "declarations";
+  type: "whitespace" | "unsupported-tags" | "converted-tags" | "invisible-characters" | "attributes" | "dropped-content" | "entities" | "comments" | "declarations";
   count: number;
   details: readonly string[];
 }>;
@@ -40,24 +42,9 @@ export type KdpDescriptionFormatResult =
 const MAX_INPUT_BYTES = 64 * 1024;
 const DROP_CONTENT_TAGS = new Set(["script", "style", "iframe", "object", "embed", "svg", "math", "template"]);
 const VOID_HTML_TAGS = new Set(["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"]);
-const NAMED_ENTITIES: Readonly<Record<string, string>> = {
-  amp: "&",
-  apos: "'",
-  copy: "©",
-  gt: ">",
-  ldquo: "“",
-  lsquo: "‘",
-  lt: "<",
-  mdash: "—",
-  nbsp: "\u00a0",
-  ndash: "–",
-  quot: '"',
-  rdquo: "”",
-  rsquo: "’",
-};
 
 type MutableNode = { type: "text"; value: string } | { type: "element"; tag: string; children: MutableNode[] };
-type Frame = { tag: string; supported: boolean; children: MutableNode[] };
+type Frame = { tag: string; outputTag: string; supported: boolean; children: MutableNode[] };
 type ParsedTag = { end: number; name: string; closing: boolean; selfClosing: boolean; attributes: string };
 
 class UnsafeMarkupError extends Error {}
@@ -75,25 +62,8 @@ function escapeText(value: string): string {
 }
 
 function decodeText(value: string): { value: string; changed: boolean } {
-  let changed = false;
-  const decoded = value.replace(/&(#x[\da-f]+|#\d+|[a-z][a-z\d]+);/giu, (entity, body: string) => {
-    let replacement: string | undefined;
-    if (body[0] === "#") {
-      const hexadecimal = body[1]?.toLowerCase() === "x";
-      const number = Number.parseInt(body.slice(hexadecimal ? 2 : 1), hexadecimal ? 16 : 10);
-      if (Number.isInteger(number) && number > 0 && number <= 0x10ffff && !(number >= 0xd800 && number <= 0xdfff)) {
-        replacement = String.fromCodePoint(number);
-      }
-    } else {
-      replacement = NAMED_ENTITIES[body.toLowerCase()];
-    }
-    if (replacement === undefined) return entity;
-    changed = true;
-    return replacement;
-  });
-  const normalized = decoded.replace(/\u00a0/gu, " ");
-  if (normalized !== decoded) changed = true;
-  return { value: normalized, changed };
+  const normalized = decodeKdpCharacterReferences(value).replace(/\u00a0/gu, " ");
+  return { value: normalized, changed: normalized !== value };
 }
 
 function scanThroughTagEnd(source: string, start: number): number {
@@ -244,7 +214,7 @@ function htmlSourceTree(source: string, changes: Map<KdpDescriptionChange["type"
         throw new UnsafeMarkupError(`The closing tag </${tag.name}> does not match the open tags. Fix the nesting, then format again.`);
       }
       stack.pop();
-      append(frame.supported ? [{ type: "element", tag: frame.tag, children: frame.children }] : frame.children);
+      append(frame.supported ? [{ type: "element", tag: frame.outputTag, children: frame.children }] : frame.children);
       continue;
     }
 
@@ -262,12 +232,14 @@ function htmlSourceTree(source: string, changes: Map<KdpDescriptionChange["type"
       continue;
     }
     if (tag.attributes) addChange(changes, "attributes", `Removed attributes from <${tag.name}>.`);
-    const supported = isKdpDescriptionTag(tag.name);
+    const outputTag = tag.name === "strong" ? "b" : /^h[1-3]$/u.test(tag.name) ? "h4" : tag.name;
+    const supported = isKdpDescriptionTag(outputTag);
+    if (outputTag !== tag.name) addChange(changes, "converted-tags", `Converted <${tag.name}> to <${outputTag}> to keep its formatting.`);
     if (!supported) addChange(changes, "unsupported-tags", `Unwrapped the unsupported <${tag.name}> element.`);
     if (tag.selfClosing) {
-      if (supported) append([{ type: "element", tag: tag.name, children: [] }]);
+      if (supported) append([{ type: "element", tag: outputTag, children: [] }]);
     } else {
-      stack.push({ tag: tag.name, supported, children: [] });
+      stack.push({ tag: tag.name, outputTag, supported, children: [] });
     }
   }
 
@@ -276,6 +248,17 @@ function htmlSourceTree(source: string, changes: Map<KdpDescriptionChange["type"
     throw new UnsafeMarkupError(`The <${unclosed}> tag is not closed. Close it, then format again.`);
   }
   return roots;
+}
+
+function cleanInvisibleCharacters(nodes: MutableNode[], changes: Map<KdpDescriptionChange["type"], { count: number; details: Set<string> }>) {
+  for (const node of nodes) {
+    if (node.type === "element") cleanInvisibleCharacters(node.children, changes);
+    else node.value = node.value.replace(/[\u200b\u2060\ufeff]/gu, (character) => {
+      const code = character.codePointAt(0)!.toString(16).toUpperCase().padStart(4, "0");
+      addChange(changes, "invisible-characters", `Removed invisible U+${code}.`);
+      return "";
+    });
+  }
 }
 
 function freezeTree(nodes: readonly MutableNode[]): KdpDescriptionTreeNode[] {
@@ -296,6 +279,7 @@ export function formatKdpDescription(input: KdpDescriptionInput): KdpDescription
     const tree = input.mode === "plain-text"
       ? plainTextTree(input.source, mutableChanges)
       : htmlSourceTree(input.source, mutableChanges);
+    cleanInvisibleCharacters(tree, mutableChanges);
     const html = serialize(tree);
     const visibleTextCharacters = characterCount(visibleText(tree));
     const changes = finishChanges(mutableChanges);

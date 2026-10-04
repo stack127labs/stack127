@@ -4,7 +4,7 @@ import { CircleDollarSign, RotateCcw } from "lucide-react";
 import { useRef, useState, type FormEvent } from "react";
 import { UiButton, UiChoiceGroup, UiCopyAction, UiDisclosure, UiNumberField, UiSelect, UiTextField, uiOption } from "@/app/ui/controls";
 import { UiActionRow, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
-import { calculateKdpRoyalty, formatKdpMoney, formatKdpPercent, type KdpRoyaltyFormat, type KdpRoyaltyInput, type KdpRoyaltyResult } from "@/lib/kdp/royalty.ts";
+import { calculateKdpRoyalty, formatKdpMoney, formatKdpPercent, parseKdpRoyaltyMoney, type KdpRoyaltyFormat, type KdpRoyaltyInput, type KdpRoyaltyResult } from "@/lib/kdp/royalty.ts";
 import { getKdpInteriorOptions, getKdpPaperOptions, getKdpTrimOptions, interiorLabel, paperLabel, type KdpBinding, type KdpInterior } from "@/lib/kdp/specs.ts";
 import styles from "../../../ui/tools/kdp-tool.module.css";
 
@@ -66,9 +66,8 @@ export function KdpRoyaltyCalculator() {
 
   function submit(event?: FormEvent) {
     event?.preventDefault();
-    const moneyPattern = /^\d+(?:\.\d{1,2})?$/;
-    const listPrice = moneyPattern.test(listPriceText.trim()) ? Number(listPriceText) : Number.NaN;
-    const monthlyTarget = monthlyTargetText.trim() === "" ? undefined : moneyPattern.test(monthlyTargetText.trim()) ? Number(monthlyTargetText) : Number.NaN;
+    const listPrice = parseKdpRoyaltyMoney(listPriceText);
+    const monthlyTarget = monthlyTargetText.trim() === "" ? undefined : parseKdpRoyaltyMoney(monthlyTargetText);
     const next = calculateKdpRoyalty({ ...input, listPrice, monthlyTarget });
     setResult(next);
     setStatus(next.status === "invalid" ? "Fix highlighted fields." : next.issues.length ? "Royalty calculated; review possible issues." : "Royalty calculated.");

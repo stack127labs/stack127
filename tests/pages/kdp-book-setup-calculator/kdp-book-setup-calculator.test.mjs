@@ -78,11 +78,27 @@ test("FF-004 rejects unsupported combinations and out-of-range page counts", () 
   assert.equal(invalidColor.status, "invalid");
   assert.ok(invalidColor.issues.some((issue) => issue.code === "paper-not-supported"));
 
-  const invalidPages = calculateKdpSetup(paperbackInput({ pageCount: 23 }));
+  const invalidPages = calculateKdpSetup(paperbackInput({ pageCount: 21 }));
   assert.equal(invalidPages.status, "valid");
   assert.ok(invalidPages.values);
-  assert.equal(invalidPages.values.eligibility, "eligible");
+  assert.equal(invalidPages.values.eligibility, "ineligible");
   assert.ok(invalidPages.issues.some((issue) => issue.code === "page-count-too-low"));
+});
+
+test("page-range warnings agree with eligibility after even-page rounding", () => {
+  for (const overrides of [
+    { pageCount: 23 },
+    { pageCount: 71, interior: "standard-color" },
+    { pageCount: 75, binding: "hardcover" },
+  ]) {
+    const result = calculateKdpSetup(paperbackInput(overrides));
+    assert.equal(result.values?.eligibility, "eligible");
+    assert.equal(result.issues.some((issue) => issue.code === "page-count-too-low"), false);
+    assert.ok(result.issues.some((issue) => issue.code === "odd-page-count"));
+  }
+  const tooHigh = calculateKdpSetup(paperbackInput({ pageCount: 551, binding: "hardcover" }));
+  assert.equal(tooHigh.values?.eligibility, "ineligible");
+  assert.ok(tooHigh.issues.some((issue) => issue.code === "page-count-too-high"));
 });
 
 test("FF-006 uses effective even pages for spine and keeps cover bleed independent of interior bleed", () => {
