@@ -14,9 +14,9 @@ type CatalogContent = {
   heading_after: string;
   intro: string;
   section_heading: string;
-  icon_key: string;
+  card_icon_key: string;
   hero_art_key: string;
-  home_art_key: string;
+  card_art_key: string;
   home_order: number;
 };
 
@@ -50,7 +50,7 @@ export type PublishedToolCatalog = ToolCatalogSummary & {
   tools: ToolCatalogCard[];
 };
 
-const catalogColumns = "card_name,card_description,page_id,heading_before,heading_mark,heading_after,intro,section_heading,icon_key,hero_art_key,home_art_key,home_order";
+const catalogColumns = "card_name,card_description,page_id,heading_before,heading_mark,heading_after,intro,section_heading,card_icon_key,hero_art_key,card_art_key,home_order";
 const pageColumns = "id,slug,page_family,label,meta_title,meta_description,is_published,row_created_at,published_at,updated_at,row_updated_at,cover_image_url,page_type,sitemap_priority";
 const membershipColumns = "catalog_page_id,tool_page_id,catalog_rank,display_order";
 const cardColumns = "page_id,card_name,card_description,card_icon_key,card_art_key";

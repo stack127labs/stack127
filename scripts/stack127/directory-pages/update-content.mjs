@@ -1,4 +1,5 @@
 import { parseArgs, requireArg, readRequiredText, runMutation, printResult } from '../tool-pages/lib.mjs';
+import { validateCardKey } from '../card-keys.mjs';
 
 const args = parseArgs();
 const slug = requireArg(args, 'slug');
@@ -10,6 +11,12 @@ if (args['clear-content']) fields.content_markdown = null;
 if (args['content-file'] && args['clear-content']) throw new Error('Choose --content-file or --clear-content');
 for (const field of ['card-name', 'card-description']) {
   if (args[field] !== undefined) fields[field.replace('-', '_')] = requireArg(args, field).trim();
+}
+for (const flag of ['card-icon-key', 'card-art-key']) {
+  if (args[flag] !== undefined) {
+    const field = flag.replaceAll('-', '_');
+    fields[field] = validateCardKey(field, requireArg(args, flag).trim());
+  }
 }
 if (!Object.keys(fields).length || Object.values(fields).some(value => value === '')) throw new Error('Provide nonempty page copy to update');
 

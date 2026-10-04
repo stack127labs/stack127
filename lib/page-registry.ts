@@ -248,7 +248,13 @@ export const getMainPublishedPages = cache(unstable_cache(async () => {
     if (["tool", "directory", "catalog"].includes(page.page_family) && !card) {
       throw new Error(`Page card is missing: ${page.slug}`);
     }
-    return { ...page, card_name: card?.card_name ?? page.label, card_description: card?.card_description ?? page.meta_description };
+    return {
+      ...page,
+      card_name: card?.card_name ?? page.label,
+      card_description: card?.card_description ?? page.meta_description,
+      card_icon_key: card?.card_icon_key ?? null,
+      card_art_key: card?.card_art_key ?? null,
+    };
   });
 }, [HOME_PAGES_TAG], { revalidate: false, tags: [HOME_PAGES_TAG] }));
 

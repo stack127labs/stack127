@@ -4,6 +4,7 @@ import {
   requireArg,
   runMutation,
 } from "./lib.mjs";
+import { validateCardKey } from "../card-keys.mjs";
 
 const args = parseArgs();
 const slug = requireArg(args, "slug");
@@ -18,6 +19,8 @@ if (!cardName || !cardDescription) throw new Error("Card name and description mu
 if (!keyPattern.test(cardIconKey) || !keyPattern.test(cardArtKey)) {
   throw new Error("Card icon and art keys must use lowercase letters, numbers, and hyphens");
 }
+validateCardKey("card_icon_key", cardIconKey);
+validateCardKey("card_art_key", cardArtKey);
 
 const requestedCatalogs = catalogArg.split(",").map((part, index) => {
   const match = /^([a-z0-9]+(?:-[a-z0-9]+)*)(?::([1-9][0-9]*))?$/.exec(part.trim());
@@ -132,10 +135,10 @@ const result = await runMutation(args, async (client) => {
     card_changed: cardChanged,
     memberships_changed: membershipsChanged,
     card: {
-      name: cardName,
-      description: cardDescription,
-      icon_key: cardIconKey,
-      art_key: cardArtKey,
+      card_name: cardName,
+      card_description: cardDescription,
+      card_icon_key: cardIconKey,
+      card_art_key: cardArtKey,
     },
     catalogs: desired.map(({ slug: catalogSlug, catalog_rank, display_order }) => ({
       slug: catalogSlug, catalog_rank, display_order,

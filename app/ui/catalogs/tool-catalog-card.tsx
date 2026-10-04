@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { Doodle } from "@/app/ui/site/doodle";
-import { toolCatalogArt } from "@/lib/tool-catalog-art";
-import { toolCatalogIcon } from "@/lib/tool-catalog-icons";
+import { cardArt } from "@/lib/card-art";
+import { cardIcon } from "@/lib/card-icons";
 import type { ToolCatalogSummary } from "@/lib/tool-catalogs";
 import styles from "./tool-catalog-card.module.css";
 
 export function ToolCatalogCard({ catalog }: { catalog: ToolCatalogSummary }) {
-  const Icon = toolCatalogIcon(catalog.icon_key);
-  const art = toolCatalogArt(catalog.home_art_key);
+  const Icon = cardIcon(catalog.card_icon_key);
+  const art = cardArt(catalog.card_art_key);
   const { page, tool_count } = catalog;
 
   return (

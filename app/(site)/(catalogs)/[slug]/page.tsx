@@ -7,15 +7,15 @@ import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
 import { ToolCatalog } from "@/app/ui/catalogs/tool-catalog";
 import { ToolCatalogSidebar } from "@/app/ui/catalogs/tool-catalog-sidebar";
 import { DomainCatalogReference } from "./domain-catalog-reference";
-import { toolCatalogArt } from "@/lib/tool-catalog-art";
-import { toolCatalogIcon } from "@/lib/tool-catalog-icons";
+import { cardArt } from "@/lib/card-art";
+import { cardIcon } from "@/lib/card-icons";
 import { getPublishedToolCatalog } from "@/lib/tool-catalogs";
 
 export default async function ToolCatalogPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const catalog = await getPublishedToolCatalog(slug);
   if (!catalog) notFound();
-  const Icon = toolCatalogIcon(catalog.icon_key);
+  const Icon = cardIcon(catalog.card_icon_key);
 
   return (
     <AppShell
@@ -24,7 +24,7 @@ export default async function ToolCatalogPage({ params }: { params: Promise<{ sl
       sidebar={<ToolCatalogSidebar active={slug} />}
       sidebarLabel="Tool catalogs sidebar"
     >
-      <EntryHero art={toolCatalogArt(catalog.hero_art_key)}>
+      <EntryHero art={cardArt(catalog.hero_art_key)}>
         <PageHeader>
           <h1>
             <PageTitleIcon><Icon strokeWidth={2.2} /></PageTitleIcon>{" "}
@@ -40,8 +40,8 @@ export default async function ToolCatalogPage({ params }: { params: Promise<{ sl
             href: `/${tool.slug}`,
             name: tool.card_name,
             description: tool.card_description,
-            art: toolCatalogArt(tool.card_art_key),
-            icon: toolCatalogIcon(tool.card_icon_key),
+            art: cardArt(tool.card_art_key),
+            icon: cardIcon(tool.card_icon_key),
           }))}
         />
         {slug === "domain-tools" ? <DomainCatalogReference /> : null}

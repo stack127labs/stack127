@@ -31,7 +31,7 @@ import { STATUS_CODES } from "@/lib/domain/status-codes";
 import tldDirectory from "@/lib/domain/data/tld-directory.json";
 import { labProjects } from "../labs/projects";
 import { getPublishedToolCatalogs, type ToolCatalogSummary } from "@/lib/tool-catalogs";
-import { toolCatalogIcon } from "@/lib/tool-catalog-icons";
+import { cardIcon } from "@/lib/card-icons";
 import { ToolCatalogCard } from "@/app/ui/catalogs/tool-catalog-card";
 import { getSelfHostAppsStats } from "@/lib/apps";
 import { getFeeDirectory } from "@/lib/platform-fees/queries";
@@ -107,7 +107,7 @@ function HomeSidebar({ pages, catalogs }: { pages: HomePageCardRecord[]; catalog
             .filter((page) => !legalSlugs.has(page.slug))
             .map((page) => {
               const catalog = catalogs.get(page.slug);
-              const Icon = catalog ? toolCatalogIcon(catalog.icon_key) : pageIcons[page.slug];
+              const Icon = catalog ? cardIcon(catalog.card_icon_key) : pageIcons[page.slug];
 
               return {
                 href: pathFromSlug(page.slug),

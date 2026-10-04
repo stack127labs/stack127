@@ -1,3 +1,8 @@
+import { siteSpotPlatformFeesArt } from "@/app/(site)/art/site--spot-platform-fees";
+import { siteSpotLaunchDirectoriesArt } from "@/app/(site)/art/site--spot-launch-directories";
+import { siteSpotLicensesArt } from "@/app/(site)/art/site--spot-licenses";
+import { siteSpotCourseArt } from "@/app/(site)/art/site--spot-course";
+import { siteSpotCliAppsArt } from "@/app/(site)/art/site--spot-cli-apps";
 import { arpuArpaCalculatorArt } from "@/app/ui/art/arpu-arpa-calculator";
 import { arrCalculatorArt } from "@/app/ui/art/arr-calculator";
 import { backup321Art } from "@/app/ui/art/backup-321";
@@ -77,6 +82,16 @@ import { siteSpotStorageToolsArt } from "@/app/(site)/art/site--spot-storage-too
 
 /** Approved generated SVGs keyed by references stored in the content tables. */
 const art: Record<string, string> = {
+  "cli-apps": siteSpotCliAppsArt,
+  "epp-status-codes": eppStatusArt,
+  "keyboard-shortcuts": siteSpotKeyboardShortcutsArt,
+  "labs": siteSpotLabsArt,
+  "launch-directories": siteSpotLaunchDirectoriesArt,
+  "platform-fees": siteSpotPlatformFeesArt,
+  "self-host-apps": siteSpotSelfHostAppsArt,
+  "self-hosting-for-beginners": siteSpotCourseArt,
+  "software-licenses-for-self-hosting": siteSpotLicensesArt,
+
   "arpu-arpa-calculator": arpuArpaCalculatorArt,
   "arr-calculator": arrCalculatorArt,
   "backup-321": backup321Art,
@@ -155,6 +170,6 @@ const art: Record<string, string> = {
   "zfs-padding": zfsPaddingArt,
 };
 
-export function toolCatalogArt(key: string | null | undefined) {
+export function cardArt(key: string | null | undefined) {
   return (key && art[key]) || null;
 }
