@@ -5,7 +5,7 @@ description: Release stack127 to the OVH Dokploy production target through a Git
 
 # stack127 release
 
-Read `AGENTS.md`, `stack127_docs/production-deployment.md`, and `scripts/stack127/deployment/targets.json`.
+Read `AGENTS.md`, `stack127_docs/production-deployment.md`, `stack127_docs/page-publishing.md`, and `scripts/stack127/deployment/targets.json`.
 
 Builds and release checks run on GitHub, not on the homelab. Don't run `npm run build` or `npm run stack127:deploy:preflight` locally for a release.
 
@@ -21,12 +21,13 @@ Builds and release checks run on GitHub, not on the homelab. Don't run `npm run 
 - Confirm the user authorized the release ("push to prod"). That covers the PR, the merge, the deploy, and the production data steps of the reviewed work.
 - Confirm the Sol review passed and the worktree is clean.
 - Confirm migrations were applied and checked on the development database. PR CI doesn't run migrations.
+- For pages going public or changing data, confirm each publish manifest ran cleanly in development through `prepare`, `preview`, and `apply`.
 
 ## Pull request
 
 1. Bring the worktree branch up to date with `origin/main` without switching branches, for example `git merge origin/main`. Resolve conflicts and keep other agents' work.
 2. Push the worktree branch and open a pull request against `main` with `gh pr create`. Link it to the thread with `link_pull_request`.
-3. Wait for `stack127-ci.yml`, which runs the core tests and the full build with its strict static check. Use `gh pr checks <number> --watch`.
+3. Wait for `stack127-ci.yml`, which runs the core tests and the full build with its strict static check. When T3's `watch_pull_request` is available, call it for the PR and end the turn. T3 wakes you when checks finish. Use `gh pr checks <number> --watch` only when the native watch isn't available.
 4. If CI fails or the review asks for changes, fix the problem on the same branch and push. CI runs again. Get a Sol review of any code fix.
 5. When CI passes, merge with `gh pr merge <number> --merge`. A merge commit keeps the worktree branch able to fast-forward to `main` afterward.
 
@@ -36,14 +37,27 @@ The merge starts `.github/workflows/stack127-release-e2e.yml`. It runs the core 
 
 Watch it with `gh run watch <run-id> --exit-status`. Don't rebuild the image or rerun checks the workflow already ran.
 
+## Publish pages
+
+Do this after the release workflow passes and the live health SHA matches the merge commit. "Push to prod" already covers it. Don't ask again.
+
+1. From a clean checkout of the exact merge commit, which must be the current `origin/main`, run the publisher's `prepare` for each manifest with `--environment production` and a new `--out` file. It reads the current production rows into the plan and records the source commit.
+2. Run `preview` with `--environment production`. Read the result and confirm only the intended pages change.
+3. Run `dispatch` with `--environment production`, `--confirm stack127-production`, and the full current `origin/main` SHA as `--release-sha`.
+4. Watch `.github/workflows/stack127-publish-pages.yml` until it finishes. It waits up to 10 minutes for the live SHA, joins the production concurrency group, applies the plan in one transaction, checks the public pages and sitemap, and records the result on the GitHub deployment.
+5. If it reports that the batch committed but the public check failed, the data is saved. Run `verify` with the same plan and `--release-sha`. `apply` is safe to repeat.
+6. If `main` moves before the workflow runs, it refuses the stale SHA. Dispatch again with the new `origin/main` SHA once that release is live.
+7. Keep each plan file until the pages are checked. It holds the before values `restore` needs.
+
+Use the single-purpose tool-page commands in production only for a small fix to one live page.
+
 ## After deploy
 
-- Do the production data steps of the release, such as registry rows and publication, with the reviewed commands.
-- Check the changed pages on `https://stack127.com`, and confirm unpublished pages still return 404.
+- Check the changed pages on `https://stack127.com` at desktop and mobile width. For a tool, run one correct and one invalid example. Confirm unpublished pages still return 404.
 - Stop on a real build, target, DNS, credential, or live-site failure.
 
 ## Complete
 
-Report the PR, the merge commit, the workflow result, the live SHA, the public smoke result, and the elapsed time. Don't call the release complete unless `origin/main`, the deployed image, and the live health SHA all match the merge commit.
+Report the PR, the merge commit, the workflow result, the live SHA, the page publication result, the public smoke result, and the elapsed time. Don't call the release complete unless `origin/main`, the deployed image, and the live health SHA all match the merge commit.
 
 Never deploy to the removed Hostinger target, expose secrets, bypass Cloudflare Access, automate dashboard credentials, or change DNS to hide a failed deployment.

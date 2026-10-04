@@ -1,0 +1,98 @@
+name: Stack127 page publication
+
+on:
+  deployment:
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  wait-for-deployment:
+    if: github.event.deployment.environment == 'stack127-page-publication' && github.event.deployment.task == 'page-publication'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Validate request and wait for its code
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/stack127/publishing/github.mjs extract "$RUNNER_TEMP/page-plan.json"
+          node --input-type=module <<'NODE'
+          import { readFile } from 'node:fs/promises';
+          import { publicationEvent } from './scripts/stack127/publishing/github.mjs';
+          import { checkLiveRelease } from './scripts/stack127/publishing/verify.mjs';
+          const publication = publicationEvent(JSON.parse(await readFile(process.env.GITHUB_EVENT_PATH, 'utf8')));
+          await checkLiveRelease('https://stack127.com', publication.releaseSha, { waitSeconds: 600 });
+          NODE
+      - name: Record failed deployment check
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/stack127/publishing/github.mjs failure
+  publish:
+    needs: wait-for-deployment
+    if: github.event.deployment.environment == 'stack127-page-publication' && github.event.deployment.task == 'page-publication'
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 20
+    concurrency:
+      group: stack127-production
+      cancel-in-progress: false
+      queue: max
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Validate publication request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/stack127/publishing/github.mjs extract "$RUNNER_TEMP/page-plan.json"
+      - name: Prepare production database connection
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        run: |
+          umask 077
+          printf 'DATABASE_URL=%s\n' "$DATABASE_URL" > .env.database
+          printf 'SUPABASE_URL=%s\n' "$SUPABASE_URL" >> .env.database
+      - name: Publish and verify selected pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFile } from 'node:fs/promises';
+          import { publishingMain } from './scripts/stack127/publishing/cli.mjs';
+          import { publicationEvent } from './scripts/stack127/publishing/github.mjs';
+          const publication = publicationEvent(JSON.parse(await readFile(process.env.GITHUB_EVENT_PATH, 'utf8')));
+          await publishingMain(publication.plan.kind, ['apply', '--plan', `${process.env.RUNNER_TEMP}/page-plan.json`, '--environment', 'production', '--confirm', 'stack127-production', '--release-sha', publication.releaseSha]);
+          NODE
+      - name: Record publication result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PUBLICATION_STATUS: ${{ job.status }}
+        run: |
+          if [ "$PUBLICATION_STATUS" = "success" ]; then
+            node scripts/stack127/publishing/github.mjs success
+          else
+            node scripts/stack127/publishing/github.mjs failure
+          fi
+      - name: Remove credentials
+        if: always()
+        run: rm -f .env.database

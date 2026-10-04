@@ -4,6 +4,8 @@ Tool routes and tool copy have separate owners. The Next.js route owns the inter
 
 Follow [writing-style.md](writing-style.md) when writing. This document covers content storage, rendering, and updates.
 
+New tools, tools going public, and changes that touch several tables go through the tool publisher. See [page-publishing.md](page-publishing.md). The single-purpose commands below stay for development and small edits.
+
 This split applies only to interactive tools. Directories such as `/epp-status-codes` and `/tld-directory` use `stack127_directory_pages` instead. See [directory-pages.md](directory-pages.md).
 
 ## Tables
@@ -57,7 +59,7 @@ The `stack127_repo_*` fields describe repositories owned by stack127. They are u
 See [tool-catalogs.md](tool-catalogs.md) for tool catalog content and memberships. A tool may appear in several catalogs. Its rank-1 membership is the primary one. Card edits update every linked catalog's public date and queue those pages for revalidation.
 Card edits also update the tool's public date because its name appears in tool navigation. They do not change `content_revision`, which tracks the tool page heading and Markdown.
 
-Tool integration updates shared card fields and the complete ordered catalog list with `npm run stack127:tool-page:catalogs:update`. The command defaults to a dry run and uses `.env.local` for development. Add `--apply` to write. The first catalog has rank 1. If display orders are omitted, new tools are appended and existing memberships keep their positions. See [tool-catalogs.md](tool-catalogs.md) for the command and checks.
+In development, tool integration updates shared card fields and the complete ordered catalog list with `npm run stack127:tool-page:catalogs:update`. The command defaults to a dry run and uses `.env.local` for development. Add `--apply` to write. The first catalog has rank 1. If display orders are omitted, new tools are appended and existing memberships keep their positions. See [tool-catalogs.md](tool-catalogs.md) for the command and checks.
 
 ## Markdown boundary
 
@@ -79,7 +81,7 @@ Preserve readable words and code identifiers. Wide comparison tables may scroll 
 
 A content-only change edits the visible title, introduction, or supporting Markdown. It leaves the tool's inputs, calculations, data sources, results, and behavior unchanged.
 
-When correcting claims about tool coverage, data handling, accuracy, or limits, check the search title and description too. A corrected guide must not leave the old promise in a search snippet. Metadata stays in `stack127_pages` and follows `stack127_docs/seo.md`. Editing it does not require changes to publication flags or route-level SEO code. Tool writing supplies the search title and description. Integration applies them to the development registry and checks the rendered metadata. Production metadata changes wait for the authorized publication workflow.
+When correcting claims about tool coverage, data handling, accuracy, or limits, check the search title and description too. A corrected guide must not leave the old promise in a search snippet. Metadata stays in `stack127_pages` and follows `stack127_docs/seo.md`. Editing it does not require changes to publication flags or route-level SEO code. Tool writing supplies the search title and description. Integration applies them to the development registry and checks the rendered metadata. Production metadata changes go through the publisher as part of an authorized release.
 
 1. Prepare reviewed introduction and content Markdown in temporary files outside the live route. Planning and evidence may stay under `content_docs/<slug>/`. The database remains the live copy.
 2. Run a dry run against the development database:
@@ -96,17 +98,7 @@ When correcting claims about tool coverage, data handling, accuracy, or limits, 
 
 3. Add `--usage-file /tmp/dns-lookup-usage.md` when reviewed usage guidance is available. Omitting it preserves the existing value, including `null`. The file must contain meaningful nonempty Markdown. Add `--title "DNS lookup"` only when the visible heading changes. Pass `--meta-title` and `--meta-description` together when search metadata changes. This updates only those registry fields and the public `updated_at` date. It does not increment `content_revision`. Add `--apply` after reviewing the dry-run result.
 4. Render and test the page from the development database.
-5. Apply the same reviewed files to production only as a separate authorized operation:
-
-   ```bash
-   npm run stack127:tool-page:content:update -- \
-     --environment production \
-     --confirm stack127-production \
-     --slug dns-lookup \
-     --intro-file /tmp/dns-lookup-intro.md \
-     --content-file /tmp/dns-lookup-content.md \
-     --apply
-   ```
+5. For production, put the same reviewed files in a publisher manifest and follow [page-publishing.md](page-publishing.md). The content command also accepts `--environment production --confirm stack127-production --apply` for a small fix to one live page.
 
 The command increments `content_revision`. It leaves `tool_version` and `tool_version_updated_at` unchanged. For a published row, it updates the public `stack127_pages.updated_at`. For an unpublished row, that date stays `null`.
 
@@ -125,7 +117,7 @@ A functional change affects inputs, validation, formulas, resolution behavior, d
      --apply
    ```
 
-4. Check the rendered page and pass the full quality gate. Apply the same version to production only as a separate authorized operation. Use `--environment production --confirm stack127-production --apply`.
+4. Check the rendered page and pass the full quality gate. Set the same version in the publisher manifest for production, after the release that ships the code is live.
 
 The command changes `tool_version` and `tool_version_updated_at`. It does not change `content_revision`. For a published row it updates the public `stack127_pages.updated_at`.
 
@@ -146,10 +138,10 @@ npm run stack127:tool-page:repo:sync -- \
 
 This command updates only the `stack127_repo_*` fields and their internal row timestamp. It does not change `content_revision`, `tool_version`, or the public `updated_at`. If the sync also changes the hosted tool, complete the functional version workflow separately.
 
-All three commands default to a dry run. They read `.env.local` for development or `.env.database` for production. They reject `--database-url` overrides. Production writes require an explicit production environment, confirmation phrase, and `--apply`. Development mode also stops if `.env.local` and `.env.database` contain the same database URL.
+All three commands default to a dry run. The publisher can set the version and repository fields too, in the same batch as content. They read `.env.local` for development or `.env.database` for production. They reject `--database-url` overrides. Production writes require an explicit production environment, confirmation phrase, and `--apply`. Development mode also stops if `.env.local` and `.env.database` contain the same database URL.
 
 ## Publication and access
 
-Only `stack127_pages.is_published` controls publication. A tool content row does not publish its route.
+Only `stack127_pages.is_published` controls publication. A tool content row does not publish its route. The publisher turns publication on last, after the page's rows and readiness checks are in place.
 
 Row-level security lets anonymous and authenticated readers see a tool row only when its parent is a published tool. Server rendering still uses the joined registry check in `lib/tool-pages.ts`. Normal routes stay flat and live in the repo.

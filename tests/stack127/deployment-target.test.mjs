@@ -86,7 +86,7 @@ test("deployment preflight reports a Cloudflare connection failure cleanly", asy
 test("the release workflow runs the small gate, builds once, and verifies the live revision", async () => {
   const workflow = await readFile(".github/workflows/stack127-release-e2e.yml", "utf8");
 
-  assert.match(workflow, /cancel-in-progress: true/);
+  assert.match(workflow, /cancel-in-progress: false/);
   assert.match(workflow, /push:/);
   assert.doesNotMatch(workflow, /workflow_run:/);
   assert.match(workflow, /npm run test:core/);
