@@ -19,6 +19,8 @@ Follow [writing-style.md](writing-style.md) when writing. This document covers s
 | `content_revision` | Internal revision number. It goes up on its own when the title or Markdown changes. |
 | `card_name` | Short name on homepage cards and sidebars. |
 | `card_description` | Short summary on homepage cards. |
+| `card_icon_key` | Optional icon key from `lib/card-icons.ts`. The h1, the homepage sidebar row, and the homepage card all use it. |
+| `card_art_key` | Optional marker art key from `lib/card-art.ts` for the homepage card. |
 | `row_updated_at` | Automatic internal time for any row write. Don't set it by hand. |
 
 A published directory page with no row returns 404. The directory publisher creates the row unpublished, then publishes the page last. See [page-publishing.md](page-publishing.md).
@@ -34,6 +36,23 @@ When child copy comes from records, a script writes the rows. Don't edit those r
 | Keyboard shortcuts | `scripts/keyboard-shortcuts/sync-pages.mjs` |
 | Ad networks | `scripts/ad-networks/sync-page-copy.mjs` |
 | Platform fees, including the overview | `scripts/platform-fees/sync-development.mjs` |
+
+## Card icon and art
+
+A directory on the homepage needs both card keys, and both must be in the registries. The directory publisher checks this. Leave the keys empty on child pages and on directories that aren't on the homepage.
+
+| Page | Icon |
+| --- | --- |
+| A directory with `card_icon_key` | That key, in the h1, homepage sidebar, and homepage card. |
+| A child page with no key, such as `/keyboard-shortcuts/<app>` | The parent directory's key. |
+| A platform fees section page | Its own section icon. |
+| A directory with no key yet | The route's own icon. |
+
+`DirectoryTitleIcon` in `app/ui/directories/directory-title-icon.tsx` renders the h1 icon.
+
+## Card counts
+
+Homepage cards show live counts, such as apps and categories. Each directory computes its own in `card-counts.ts` beside its route, for example `app/(site)/(directories)/cli-apps/card-counts.ts`. Register it in `app/(site)/(directories)/card-counts.ts`. Counts stay in code, not in the table.
 
 ## Records
 
@@ -64,6 +83,6 @@ node scripts/stack127/directory-pages/update-content.mjs \
   --content-file /tmp/content.md
 ```
 
-Optional flags: `--title`, `--card-name`, `--card-description`, and `--clear-content`.
+Optional flags: `--title`, `--card-name`, `--card-description`, `--card-icon-key`, `--card-art-key`, and `--clear-content`. The command rejects keys that aren't in the registries.
 
 A saved edit queues revalidation for that page's `stack127-directory-page:<slug>` tag and its path.

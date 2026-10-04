@@ -2,7 +2,6 @@ import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
 import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
-import { SquareTerminal } from "lucide-react";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import {
   terminalAppCategories,
@@ -14,7 +13,7 @@ import type { DirectoryFilterOption as FilterOption } from "../../../ui/director
 import { DirectoryQueryProvider } from "../../../ui/directories/directory-query";
 import { Doodle } from "@/app/ui/site/doodle";
 import { siteDoodleStarArt } from "../../art/site--doodle-star";
-import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { EntryHero } from "@/app/ui/site/entry-hero";
 import { siteSpotCliAppsArt } from "../../art/site--spot-cli-apps";
@@ -135,9 +134,7 @@ export default async function CliAppsPage() {
       >
         <EntryHero art={siteSpotCliAppsArt}>
           <PageHeader>
-            <h1><PageTitleIcon>
-                <SquareTerminal strokeWidth={2.2} />
-              </PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+            <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
             <ContentMarkdown markdown={directoryPage.intro_markdown} />
           </PageHeader>
         </EntryHero>

@@ -126,7 +126,7 @@ Keep the spec short. Add detail only when it changes the product or prevents a w
 | Backend | One focused test, plus a direct check of one correct and one invalid example. |
 | Frontend | The actual page at desktop and mobile width in both themes, with one correct and one invalid example. |
 
-The frontend step also makes the card art. It uses `$marker-art-draw` to create a spec-backed `toolSpot`, generates its SVG and TypeScript export, and registers a tool-specific key in `lib/tool-catalog-art.ts` before the main build. The drawing must be recognizable at card size. A generic icon isn't finished art for a new tool.
+The frontend step also makes the card art. It uses `$marker-art-draw` to create a spec-backed `toolSpot`, generates its SVG and TypeScript export, and registers a tool-specific key in `lib/card-art.ts` before the main build. The drawing must be recognizable at card size. A generic icon isn't finished art for a new tool.
 
 When the in-app browser isn't available over SSH, use the local headless browser in `skills/stack127/references/homelab-browser-and-search.md`. That applies to these checks and the later audit.
 

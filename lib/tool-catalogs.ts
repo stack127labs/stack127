@@ -4,6 +4,7 @@ import { unstable_cache } from "next/cache";
 import { getPool } from "./db";
 import type { Stack127Page } from "./page-registry";
 import { readPublicData, selectPublicRows } from "./public-data-api";
+import { normalizeCardAssets, selectCardRows } from "./card-data";
 
 type CatalogContent = {
   card_name: string;
@@ -62,7 +63,7 @@ function ids(values: Array<number | string>) {
 export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<ToolCatalogSummary[]> => {
   return readPublicData({
     dataApiRead: async () => {
-      const contents = await selectPublicRows<CatalogContent>("stack127_catalog_pages", {
+      const contents = await selectCardRows<CatalogContent>("stack127_catalog_pages", {
         select: catalogColumns,
         order: "home_order.asc",
       });
@@ -84,7 +85,7 @@ export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<T
       }
       return contents.flatMap((content) => {
         const page = pageById.get(String(content.page_id));
-        return page ? [{ ...content, page, tool_count: counts.get(String(content.page_id)) ?? 0 }] : [];
+        return page ? [{ ...(normalizeCardAssets(content, "catalog", page.slug) as CatalogContent), page, tool_count: counts.get(String(content.page_id)) ?? 0 }] : [];
       });
     },
     postgresRead: async () => {
@@ -101,7 +102,7 @@ export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<T
         group by catalog.page_id, page.id
         order by catalog.home_order, page.label
       `);
-      return result.rows;
+      return result.rows.map(row => normalizeCardAssets(row, "catalog", row.page.slug) as ToolCatalogSummary);
     },
   });
 }, [TOOL_CATALOGS_TAG], {

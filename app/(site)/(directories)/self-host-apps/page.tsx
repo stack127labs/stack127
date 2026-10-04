@@ -2,7 +2,6 @@ import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
 import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
-import { HardDrive } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { getSelfHostAppsSearch } from "@/lib/self-host-apps-search-data";
@@ -21,7 +20,7 @@ import { SelfHostAppFilters } from "./filters";
 import { route } from "./options";
 import { SelfHostAppResults } from "./results";
 import { SelfHostAppsSearchProvider } from "./search";
-import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { EntryHero } from "@/app/ui/site/entry-hero";
 import { siteSpotSelfHostAppsArt } from "../../art/site--spot-self-host-apps";
@@ -61,9 +60,7 @@ export default async function SelfHostAppsPage() {
         >
           <EntryHero art={siteSpotSelfHostAppsArt}>
             <PageHeader>
-              <h1><PageTitleIcon>
-                  <HardDrive strokeWidth={2.2} />
-                </PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+              <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
               <ContentMarkdown markdown={directoryPage.intro_markdown} />
             </PageHeader>
           </EntryHero>

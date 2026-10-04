@@ -68,7 +68,7 @@ A manifest describes one batch of pages. All pages in a batch succeed or fail to
       ],
       "requirements": {
         "route": "app/(site)/(tools)/(dns)/dns-lookup/page.tsx",
-        "assets": ["lib/tool-catalog-art.ts"],
+        "assets": ["lib/card-art.ts"],
         "checks": [],
         "smoke": [{ "path": "/dns-lookup", "text": "DNS lookup" }]
       }
@@ -92,9 +92,19 @@ Each page takes only these keys:
 | --- | --- |
 | `tool` | `title`, `intro_markdown`, `usage_markdown`, `content_markdown`, `tool_version`, `stack127_repo_url`, `stack127_repo_version`, `stack127_repo_commit_sha`, `card_name`, `card_description`, `card_icon_key`, `card_art_key` |
 | `catalog` | `heading_before`, `heading_mark`, `heading_after`, `intro`, `section_heading`, `icon_key`, `hero_art_key`, `home_art_key`, `home_order`, `card_name`, `card_description` |
-| `directory` | `title`, `intro_markdown`, `content_markdown`, `card_name`, `card_description` |
+| `directory` | `title`, `intro_markdown`, `content_markdown`, `card_name`, `card_description`, `card_icon_key`, `card_art_key` |
 
-These are the plan's field names, and they stay the same across schema versions. The catalog table's columns are being renamed, so the publisher maps the plan's `icon_key` to `icon_key` or `card_icon_key`, and `home_art_key` to `home_art_key` or `card_art_key`, whichever the target database has. Directory tables may have extra art or icon columns. This version of the publisher doesn't manage them. Existing rows keep their values, and new rows get the column defaults.
+These are the plan's field names, and they stay the same across schema versions.
+
+Catalog manifests keep `icon_key` and `home_art_key`, even though the table now calls them `card_icon_key` and `card_art_key`. The publisher writes them to whichever columns the target database has. Use the old names in catalog manifests and the new names everywhere else.
+
+Directory card keys are nullable:
+
+- A published directory on the homepage needs both `card_icon_key` and `card_art_key`. The homepage list is `homePageSlugs` in `lib/page-registry-helpers.ts`.
+- Child pages and directories that aren't on the homepage may leave both `null`. A child page then shows its parent's icon.
+- A key that isn't `null` must be registered.
+
+Every directory plan carries both keys, even when they're `null`. A directory plan made by an older publisher has no card keys, and the publisher rejects it. Run `prepare` again to make a new plan.
 
 A `*_markdown` field can be `{ "$file": "path.md" }`. The path must be relative and stay inside the manifest's folder after symlinks are resolved. Both the requested path and its resolved target must end in `.md` or `.markdown`. `prepare` reads the file, trims it, and copies the text into the plan. Later edits to the file don't change a prepared plan.
 
@@ -113,11 +123,11 @@ A new page needs every required field, because there is nothing to merge into. T
 | `sitemap_priority` | `0.5` |
 | `cover_image_url`, `usage_markdown`, repository fields | `null` |
 | `tool_version` | `1.0.0` |
-| Directory `content_markdown` | `null` |
+| Directory `content_markdown`, `card_icon_key`, `card_art_key` | `null` |
 | Catalog `heading_before`, `heading_after` | Empty |
 | Catalog `icon_key`, `home_order` | `layers`, `100` |
 
-A new catalog must set `hero_art_key` and `home_art_key` to keys registered in `lib/tool-catalog-art.ts`. There is no default art.
+A new catalog must set `hero_art_key` and `home_art_key` to keys registered in `lib/card-art.ts`. There is no default art.
 
 The batch must also make sense as a whole, or nothing is written:
 
@@ -156,7 +166,7 @@ Many directory child pages get their copy from records, through the sync scripts
 | --- | --- |
 | `route` | Required. A `page.tsx` under the family's route group, such as `app/(site)/(tools)/`. Its path must match the slug, and dynamic segments are allowed for directory children. The `layout.tsx` beside it must use `registryLayout`. |
 | `assets` | Each listed repository file must exist. |
-| Icon and art keys | Tool and catalog keys must be registered in `lib/tool-catalog-icons.ts` and `lib/tool-catalog-art.ts`. |
+| Icon and art keys | Tool and catalog keys, and any directory key that isn't `null`, must be registered in `lib/card-icons.ts` and `lib/card-art.ts`. Homepage directories need both keys. |
 | Markdown | Every Markdown field must pass the shared Markdown validator. |
 | `checks` | Each `{ "name", "sql_file", "params" }` points to a repository SQL file holding one `SELECT` or `WITH` query. It runs in a read-only transaction and must return exactly one row, `{ "ready": true }`. |
 | `smoke` | Each `{ "path", "text" }` is a path under the page's own slug and text that must appear on it. The public check uses these. |

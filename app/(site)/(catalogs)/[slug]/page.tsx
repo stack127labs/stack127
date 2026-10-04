@@ -34,16 +34,7 @@ export default async function ToolCatalogPage({ params }: { params: Promise<{ sl
         </PageHeader>
       </EntryHero>
       <PageCanvas>
-        <ToolCatalog
-          heading={catalog.section_heading}
-          tools={catalog.tools.map((tool) => ({
-            href: `/${tool.slug}`,
-            name: tool.card_name,
-            description: tool.card_description,
-            art: cardArt(tool.card_art_key),
-            icon: cardIcon(tool.card_icon_key),
-          }))}
-        />
+        <ToolCatalog heading={catalog.section_heading} tools={catalog.tools} />
         {slug === "domain-tools" ? <DomainCatalogReference /> : null}
       </PageCanvas>
     </AppShell>

@@ -7,9 +7,9 @@ import type { DirectoryIndexSource } from "@/app/ui/directories/directory-index"
 import { AppShell } from "@/app/ui/site/app-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { PageHeader } from "@/app/ui/site/page-header";
-import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { getAdNetwork, listAdNetworks, listAllVerifiedPublishers, publisherPageSize, type VerifiedPublisher } from "@/lib/ad-networks";
-import { getRequiredDirectoryPage } from "@/lib/directory-pages";
+import { getPublishedDirectoryPage, getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { PublisherList } from "../ad-network-view";
 import { AdNetworksSidebar } from "../ad-networks-sidebar";
 import styles from "../page.module.css";
@@ -22,7 +22,7 @@ export async function generateStaticParams() {
 export default async function AdNetworkPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const directoryPage = await getRequiredDirectoryPage(`ad-networks/${slug}`);
-  const [network, networks] = await Promise.all([getAdNetwork(slug), listAdNetworks("")]);
+  const [network, networks, parentPage] = await Promise.all([getAdNetwork(slug), listAdNetworks(""), getPublishedDirectoryPage("ad-networks")]);
   if (!network) notFound();
   const route = `/ad-networks/${slug}`;
   // The full list ships with the page for search and paging. A network with
@@ -34,7 +34,7 @@ export default async function AdNetworkPage({ params }: { params: Promise<{ slug
     <AppShell mainLabel={`${network.name} publisher sites`} menuLabel="Networks" sidebar={<AdNetworksSidebar networks={networks} current={slug} />} sidebarLabel="Ad networks">
       <PageCanvas flow className={styles.content}>
         <PageHeader bordered>
-          <h1><PageTitleIcon><Network strokeWidth={2.2} /></PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+          <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key ?? parentPage?.card_icon_key} fallback={<Network strokeWidth={2.2} />} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <ContentMarkdown markdown={directoryPage.intro_markdown} />
         </PageHeader>
         {network.official_url ? <p className={styles.official}><a href={network.official_url} rel="noopener noreferrer" target="_blank">Official {network.name} website ↗</a></p> : null}

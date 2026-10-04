@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import { DIRECTORY_PAGES_TAG } from "./cache-tags";
 import { getPool } from "./db";
 import { getPublishedPage } from "./page-registry";
-import { readPublicData, selectPublicRows } from "./public-data-api";
+import { readPublicData } from "./public-data-api";
+import { normalizeCardAssets, selectCardRows } from "./card-data";
 
 export type Stack127DirectoryPage = {
   page_id: number | string;
@@ -27,10 +28,10 @@ export const getPublishedDirectoryPage = cache(async (slug: string) => unstable_
     dataApiRead: async () => {
       const page = await getPublishedPage(slug);
       if (!page || page.page_family !== "directory") return null;
-      const rows = await selectPublicRows<Omit<Stack127DirectoryPage, "slug">>("stack127_directory_pages", {
+      const rows = await selectCardRows<Omit<Stack127DirectoryPage, "slug">>("stack127_directory_pages", {
         page_id: `eq.${page.id}`, select: columns, limit: "1",
       });
-      return rows[0] ? { ...rows[0], slug: page.slug } : null;
+      return rows[0] ? { ...normalizeCardAssets(rows[0], "directory", page.slug), slug: page.slug } : null;
     },
     postgresRead: async () => {
       const result = await getPool().query<Stack127DirectoryPage>(`
@@ -40,7 +41,7 @@ export const getPublishedDirectoryPage = cache(async (slug: string) => unstable_
         where page.slug = $1 and page.page_family = 'directory' and page.is_published
         limit 1
       `, [slug]);
-      return result.rows[0] ?? null;
+      return result.rows[0] ? normalizeCardAssets(result.rows[0], "directory", slug) : null;
     },
   });
 }, ["stack127-directory-page", slug], { revalidate: false, tags: [`${DIRECTORY_PAGES_TAG}:${slug}`] })());

@@ -8,7 +8,7 @@ import { HardwareFactCardContent, hardwareFactCardClassName } from "@/app/ui/dir
 import { DirectoryCheckboxGroup, DirectoryRadioGroup, DirectoryTagSelectGroup } from "@/app/ui/directories/directory-filters";
 import { DirectoryFilterController } from "@/app/ui/directories/directory-filter-controller";
 import { SortDropdown } from "@/app/ui/directories/directory-sort-dropdown";
-import { ToolCatalog } from "@/app/ui/catalogs/tool-catalog";
+import { PageCard, PageCardCounts } from "@/app/ui/cards/page-card";
 import { backup321Art } from "@/app/ui/art/backup-321";
 import { BrandWordmark } from "@/app/ui/site/brand-wordmark";
 import { CodeBlock } from "@/app/ui/site/code-block";
@@ -141,7 +141,7 @@ export function ComponentGallery() {
 
       <section className={styles.section}>
         <h2>Cards</h2>
-        <p>The live directories and catalogs use these cards. Each page supplies its own content.</p>
+        <p>The live directories use these record cards. Each page supplies its own content.</p>
         <div className={styles.cardGrid}>
           <Link className={appFactCardClassName} href="/self-host-apps">
             <AppFactCardContent
@@ -166,9 +166,18 @@ export function ComponentGallery() {
             />
           </Link>
         </div>
-        <ToolCatalog heading="Tool catalog cards" tools={[
-          { art: backup321Art, description: "Estimate local and off-site backup capacity from your data and retention plan.", href: "/backup-321-calculator", name: "3-2-1 backup calculator" },
-        ]} />
+        <p>Tools, catalogs, directories, the course, and Labs share <code>PageCard</code>. The tool size fills catalog grids. The feature size leads the homepage, with a count footer.</p>
+        <div className={styles.cardGrid}>
+          <PageCard art={backup321Art} description="Estimate local and off-site backup capacity from your data and retention plan." href="/backup-321-calculator" icon={HardDrive} name="3-2-1 backup calculator" size="tool" />
+          <PageCard
+            art={null}
+            count={<PageCardCounts counts={[{ label: "apps", value: 1240 }, { label: "categories", value: 18 }]} label="Example directory stats" />}
+            description="Without approved art, the card shows its icon large."
+            href="/self-host-apps"
+            icon={HardDrive}
+            name="Example directory"
+          />
+        </div>
       </section>
 
       <section className={styles.section}>

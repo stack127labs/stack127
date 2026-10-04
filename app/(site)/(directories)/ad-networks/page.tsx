@@ -7,7 +7,7 @@ import { AppShell } from "@/app/ui/site/app-shell";
 import { EntryHero } from "@/app/ui/site/entry-hero";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { PageHeader } from "@/app/ui/site/page-header";
-import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { listAdNetworks } from "@/lib/ad-networks";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { AdNetworkList } from "./ad-network-view";
@@ -23,7 +23,7 @@ export default async function AdNetworksPage() {
     <AppShell mainLabel="Ad networks directory" menuLabel="Networks" sidebar={<AdNetworksSidebar networks={networks} />} sidebarLabel="Ad networks">
       <EntryHero art={null}>
         <PageHeader>
-          <h1><PageTitleIcon><Network strokeWidth={2.2} /></PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+          <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} fallback={<Network strokeWidth={2.2} />} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <ContentMarkdown markdown={directoryPage.intro_markdown} />
         </PageHeader>
       </EntryHero>

@@ -3,13 +3,12 @@ import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/d
 import { ContentMarkdown } from "@/app/ui/content-markdown";
 import type { Components } from "react-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
-import { Scale } from "lucide-react";
 import Link from "next/link";
 import { getDirectoryLicenseCounts } from "@/lib/apps";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
 import { MarkerArt } from "@/app/ui/site/marker-art";
-import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { proseClassName, proseFlowClassName, proseLedeClassName } from "@/app/ui/site/prose";
 import { SidebarList } from "@/app/ui/site/sidebar-list";
@@ -191,9 +190,7 @@ export default async function SoftwareLicensesPage() {
     >
       <PageCanvas as="div" flow className="license-page">
         <PageHeader bordered className={proseClassName}>
-          <h1><PageTitleIcon>
-              <Scale strokeWidth={2.2} />
-            </PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+          <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <ContentMarkdown markdown={directoryPage.intro_markdown} components={{ p: ({ children }) => <p className={proseLedeClassName}>{children}</p> }} />
           <DirectoryPageContent page={directoryPage} section="disclaimer" components={{ p: ({ children }) => <p className="license-disclaimer">{children}</p> }} />
         </PageHeader>

@@ -32,6 +32,9 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
         addPage("/api/self-host-apps/search", false);
         edgeTags.add("self-host-catalog");
       }
+      // Child headings inherit these parent directory icons.
+      if (slug === "keyboard-shortcuts") edgeTags.add("keyboard-shortcuts-catalog");
+      if (slug === "ad-networks") edgeTags.add("ad-networks-catalog");
       if (slug === "cli-apps") {
         addPage("/api/cli-apps/index", false);
         edgeTags.add("cli-apps-catalog");

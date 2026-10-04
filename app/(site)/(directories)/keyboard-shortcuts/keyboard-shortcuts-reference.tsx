@@ -5,9 +5,8 @@ import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { Fragment } from "react";
 import { groupedBindings, keycapParts } from "@/lib/shortcuts/presentation";
 import Link from "next/link";
-import { Keyboard } from "lucide-react";
 import { PageHeader } from "@/app/ui/site/page-header";
-import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { platformLabels, shortcutCount, type AppShortcuts, type Shortcut } from "@/lib/shortcuts/types";
 import styles from "./keyboard-shortcuts.module.css";
 
@@ -55,12 +54,13 @@ function ShortcutRow({ shortcut, platforms }: { shortcut: Shortcut; platforms: A
   );
 }
 
-export function KeyboardShortcutsReference({ app, directoryPage }: { app: AppShortcuts; directoryPage: Stack127DirectoryPage }) {
+/** `iconKey` is the page's own card icon key, or the keyboard shortcuts directory's when it has none. */
+export function KeyboardShortcutsReference({ app, directoryPage, iconKey }: { app: AppShortcuts; directoryPage: Stack127DirectoryPage; iconKey: string | null }) {
   return (
     <PageCanvas className={styles.page} flow>
       <PageHeader>
         <h1>
-          <PageTitleIcon><Keyboard strokeWidth={2.2} /></PageTitleIcon>{" "}
+          <DirectoryTitleIcon iconKey={iconKey} />{" "}
           <DirectoryPageTitle title={directoryPage.title} />
         </h1>
         <ContentMarkdown markdown={directoryPage.intro_markdown} />
