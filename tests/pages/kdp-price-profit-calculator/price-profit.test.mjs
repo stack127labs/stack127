@@ -128,7 +128,10 @@ test("allows a negative projected profit and rejects blank enabled costs", () =>
 test("strict parsers and setup validation reject malformed inputs", () => {
   assert.equal(parseKdpPriceProfitMoneyCents(" 19.99 "), 1_999);
   assert.equal(parseKdpPriceProfitMoneyCents("1.009"), null);
-  assert.equal(parseKdpPriceProfitMoneyCents("$19.99"), null);
+  assert.equal(parseKdpPriceProfitMoneyCents("$19.99"), 1_999);
+  for (const text of ["$$19.99", "19.99$", "$ 19.99", "$", "1,000", "-1"]) {
+    assert.equal(parseKdpPriceProfitMoneyCents(text), null, text);
+  }
   assert.equal(parseKdpPriceProfitMoneyCents("1e2"), null);
   assert.equal(parseKdpPriceProfitWholeNumber("1,000"), null);
   assert.equal(parseKdpPriceProfitWholeNumber("301.5"), null);
@@ -150,4 +153,13 @@ test("strict parsers and setup validation reject malformed inputs", () => {
   const tooManyPages = calculateKdpPriceProfit(input({ options: [option("paper", "paperback", { pageCountText: "829" }), option("hardcover", "hardcover")] }));
   assert.equal(tooManyPages.status, "invalid");
   if (tooManyPages.status === "invalid") assert.ok(tooManyPages.fieldErrors["option.paper.pageCount"]);
+});
+
+test("accepts a leading dollar sign for list price and every enabled cost", () => {
+  const options = [option("paper", "paperback", { otherCostPerSaleText: " $1.00 ", oneTimeCostText: "$100.00" }), option("hardcover", "hardcover", { otherCostPerSaleText: "$1.00", oneTimeCostText: "$250" })];
+  const values = valuesFor(calculateKdpPriceProfit(input({ listPriceText: "$19.99", includeCosts: true, plannedCopiesText: "100", options })));
+  assert.equal(values.listPriceCents, 1_999);
+  assert.deepEqual(values.rows.map((row) => [row.otherCostPerSaleCents, row.oneTimeCostCents, row.profitCents]), [
+    [100, 10_000, 53_900], [100, 25_000, -7_600],
+  ]);
 });

@@ -131,6 +131,11 @@ export function KdpPdfPreflightChecker() {
       bleed: kind === "cover" ? true : input.bleed,
       expectedPageCount: kind === "cover" ? 1 : undefined,
       pageLimit,
+      coverSetup: kind === "cover" ? {
+        pageCount: values.pageCount,
+        effectivePageCount: values.effectivePageCount,
+        issues: setup.issues,
+      } : undefined,
     };
     setBusy(true);
     setFileState("checking");
@@ -233,6 +238,7 @@ export function KdpPdfPreflightChecker() {
           <h3 className={styles.sectionTitle}>PDF diagnostics</h3>
           <UiKeyValueList rows={[
             { label: "Page count", value: result.pageCount },
+            ...(expected.coverSetup ? [{ label: "Book pages used for spine", value: expected.coverSetup.effectivePageCount }] : []),
             { label: "Font embedding", value: `${result.fonts.embedded} embedded · ${result.fonts.unembedded} not embedded · ${result.fonts.unknown} unknown` },
             { label: "Image DPI", value: result.images.total ? `${result.images.measurable} of ${result.images.total} measured${result.images.minimumDpi === null ? "" : ` · minimum ${result.images.minimumDpi} DPI`}` : "No placed images found" },
             { label: "Content operators", value: result.pages.every((page) => page.hasContents) ? "Measured on every page" : "Possible empty or unreadable page" },

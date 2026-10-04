@@ -104,7 +104,7 @@ export function parseKdpPriceProfitWholeNumber(raw: string): number | null {
 
 export function parseKdpPriceProfitMoneyCents(raw: string): number | null {
   const value = raw.trim();
-  const match = /^(\d+)(?:\.(\d{1,2}))?$/.exec(value);
+  const match = /^\$?(\d+)(?:\.(\d{1,2}))?$/.exec(value);
   if (!match) return null;
   const dollars = Number(match[1]);
   const cents = Number((match[2] ?? "").padEnd(2, "0") || "0");

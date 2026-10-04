@@ -51,7 +51,7 @@ function ChangeList({ result }: { result: Exclude<KdpDescriptionFormatResult, { 
     <ul className={styles.plainList}>
       {result.changes.map((change) => (
         <li key={change.type}>
-          <strong>{change.type === "whitespace" ? "Whitespace normalized" : change.type === "unsupported-tags" ? "Unsupported tags unwrapped" : change.type === "attributes" ? "Attributes stripped" : change.type === "dropped-content" ? "Content dropped" : change.type === "entities" ? "Entities or spaces normalized" : change.type === "comments" ? "Comments removed" : "Declarations removed"}:</strong> {change.details.join(" ")}
+          <strong>{change.type === "whitespace" ? "Whitespace normalized" : change.type === "unsupported-tags" ? "Unsupported tags unwrapped" : change.type === "converted-tags" ? "Formatting tags converted" : change.type === "invisible-characters" ? "Invisible characters removed" : change.type === "attributes" ? "Attributes stripped" : change.type === "dropped-content" ? "Content dropped" : change.type === "entities" ? "Entities or spaces normalized" : change.type === "comments" ? "Comments removed" : "Declarations removed"}:</strong> {change.details.join(" ")}
           {change.count > 1 ? ` (${change.count} occurrences)` : ""}
         </li>
       ))}

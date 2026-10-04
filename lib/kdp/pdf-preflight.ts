@@ -1,6 +1,7 @@
 import { PDFDocument } from "pdf-lib";
 import { GlobalWorkerOptions, OPS, getDocument, type PDFPageProxy } from "pdfjs-dist/legacy/build/pdf.mjs";
 import { KDP_MAX_FILE_MB, round } from "./specs.ts";
+import type { KdpIssue } from "./setup.ts";
 
 if (typeof window !== "undefined" && !GlobalWorkerOptions.workerSrc) {
   GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/legacy/build/pdf.worker.min.mjs", import.meta.url).toString();
@@ -16,6 +17,7 @@ export type KdpPdfExpected = Readonly<{
   bleed: boolean;
   expectedPageCount?: number;
   pageLimit?: Readonly<{ min: number; max: number }>;
+  coverSetup?: Readonly<{ pageCount: number; effectivePageCount: number; issues: readonly KdpIssue[] }>;
 }>;
 
 export type KdpPdfInput = Readonly<{ fileName: string; bytes: Uint8Array; expected?: KdpPdfExpected }>;
@@ -57,17 +59,17 @@ function finding(code: string, message: string, severity: KdpPdfFinding["severit
   return { code, severity, message: `Possible issue: ${message}`, ...(pageNumber === undefined ? {} : { pageNumber }) };
 }
 
-function boxFromRectangle(rectangle: { x: number; y: number; width: number; height: number }): KdpPdfBox | null {
+function boxFromRectangle(rectangle: { x: number; y: number; width: number; height: number }, userUnit: number): KdpPdfBox | null {
   if (![rectangle.x, rectangle.y, rectangle.width, rectangle.height].every(Number.isFinite) || rectangle.width <= 0 || rectangle.height <= 0) return null;
   return {
-    x0: rectangle.x,
-    y0: rectangle.y,
-    x1: rectangle.x + rectangle.width,
-    y1: rectangle.y + rectangle.height,
-    widthPoints: rectangle.width,
-    heightPoints: rectangle.height,
-    widthInches: round(rectangle.width / POINTS_PER_INCH, 4),
-    heightInches: round(rectangle.height / POINTS_PER_INCH, 4),
+    x0: rectangle.x * userUnit,
+    y0: rectangle.y * userUnit,
+    x1: (rectangle.x + rectangle.width) * userUnit,
+    y1: (rectangle.y + rectangle.height) * userUnit,
+    widthPoints: rectangle.width * userUnit,
+    heightPoints: rectangle.height * userUnit,
+    widthInches: round(rectangle.width * userUnit / POINTS_PER_INCH, 4),
+    heightInches: round(rectangle.height * userUnit / POINTS_PER_INCH, 4),
   };
 }
 
@@ -104,7 +106,7 @@ function multiply(first: readonly number[], second: readonly number[]): number[]
   ];
 }
 
-type ImageMeasurement = Readonly<{ dpi: number | null }>;
+type ImageMeasurement = Readonly<{ dpiX: number | null; dpiY: number | null }>;
 
 async function inspectPageOperators(page: PDFPageProxy): Promise<{ hasContents: boolean; images: ImageMeasurement[]; fontIds: string[] }> {
   const operators = await page.getOperatorList();
@@ -130,7 +132,7 @@ async function inspectPageOperators(page: PDFPageProxy): Promise<{ hasContents: 
       const placedHeightPoints = Math.hypot(transform[2], transform[3]) * page.userUnit;
       const dpiX = width > 0 && placedWidthPoints > 0 ? width / (placedWidthPoints / POINTS_PER_INCH) : null;
       const dpiY = height > 0 && placedHeightPoints > 0 ? height / (placedHeightPoints / POINTS_PER_INCH) : null;
-      images.push({ dpi: dpiX !== null && dpiY !== null ? Math.min(dpiX, dpiY) : null });
+      images.push({ dpiX, dpiY });
     }
   }
   return { hasContents, images, fontIds: [...fontIds] };
@@ -171,6 +173,18 @@ export async function analyzeKdpPdf(input: KdpPdfInput): Promise<KdpPdfResult> {
   const tail = new TextDecoder("latin1").decode(bytes.slice(Math.max(0, bytes.byteLength - 2_048)));
   const eofPresent = tail.includes("%%EOF");
   const findings: KdpPdfFinding[] = eofPresent ? [] : [finding("eof-missing", "The PDF does not end with an EOF marker.")];
+  if (input.expected?.kind === "paperback-cover" && input.expected.coverSetup) {
+    const { pageCount, effectivePageCount, issues } = input.expected.coverSetup;
+    if (pageCount !== effectivePageCount) findings.push({
+      code: "odd-page-count", severity: "warning",
+      message: `Spine uses ${effectivePageCount} pages, rounded up from ${pageCount}.`,
+    });
+    for (const issue of issues) {
+      if (issue.code === "page-count-too-low" || issue.code === "page-count-too-high") {
+        findings.push(finding(issue.code, issue.message, issue.severity));
+      }
+    }
+  }
   const loadingTask = getDocument({ data: bytes.slice(), fontExtraProperties: true });
   let pdfJsDocument;
   let pdfLibDocument;
@@ -203,13 +217,13 @@ export async function analyzeKdpPdf(input: KdpPdfInput): Promise<KdpPdfResult> {
       let trimState: KdpPdfPage["boxStates"]["trim"] = "unknown";
       let bleedState: KdpPdfPage["boxStates"]["bleed"] = "unknown";
       try {
-        mediaBox = boxFromRectangle(pdfLibPage.getMediaBox());
+        mediaBox = boxFromRectangle(pdfLibPage.getMediaBox(), pdfJsPage.userUnit);
         const declaredCrop = pdfLibPage.node.CropBox();
         const declaredTrim = pdfLibPage.node.TrimBox();
         const declaredBleed = pdfLibPage.node.BleedBox();
-        cropBox = boxFromRectangle(pdfLibPage.getCropBox());
-        trimBox = boxFromRectangle(pdfLibPage.getTrimBox());
-        bleedBox = boxFromRectangle(pdfLibPage.getBleedBox());
+        cropBox = boxFromRectangle(pdfLibPage.getCropBox(), pdfJsPage.userUnit);
+        trimBox = boxFromRectangle(pdfLibPage.getTrimBox(), pdfJsPage.userUnit);
+        bleedBox = boxFromRectangle(pdfLibPage.getBleedBox(), pdfJsPage.userUnit);
         cropState = declaredCrop ? "declared" : "defaulted";
         trimState = declaredTrim ? "declared" : "defaulted";
         bleedState = declaredBleed ? "declared" : "defaulted";
@@ -245,17 +259,19 @@ export async function analyzeKdpPdf(input: KdpPdfInput): Promise<KdpPdfResult> {
     const first = pages.find((page) => page.mediaBox !== null);
     if (first && pages.some((page) => page.mediaBox && (!pointsClose(page.widthInches, first.widthInches) || !pointsClose(page.heightInches, first.heightInches)))) findings.push(finding("mixed-page-sizes", "The PDF contains mixed page sizes."));
     if (input.expected?.expectedPageCount !== undefined && pages.length !== input.expected.expectedPageCount) findings.push(finding("page-count-mismatch", `The PDF has ${pages.length} pages; expected ${input.expected.expectedPageCount}.`));
-    if (input.expected?.kind === "interior" && input.expected.pageLimit && (pages.length < input.expected.pageLimit.min || pages.length > input.expected.pageLimit.max)) findings.push(finding("page-count-out-of-range", `The PDF has ${pages.length} pages; this setup uses ${input.expected.pageLimit.min} to ${input.expected.pageLimit.max}.`));
-    if (input.expected?.kind === "interior" && pages.length % 2 !== 0) findings.push(finding("odd-page-count", `The PDF has ${pages.length} pages; KDP rounds paperback page counts up to an even number.`));
+    const effectivePageCount = pages.length + pages.length % 2;
+    if (input.expected?.kind === "interior" && input.expected.pageLimit && (effectivePageCount < input.expected.pageLimit.min || effectivePageCount > input.expected.pageLimit.max)) findings.push(finding("page-count-out-of-range", `The PDF has ${pages.length} pages, ${effectivePageCount} after rounding. This setup uses ${input.expected.pageLimit.min} to ${input.expected.pageLimit.max} effective pages.`));
+    if (input.expected?.kind === "interior" && pages.length % 2 !== 0) findings.push(finding("odd-page-count", `The PDF has ${pages.length} pages. KDP rounds print page counts up to an even number.`));
     const fontStates = [...fonts.values()];
     const embedded = fontStates.filter((state) => state === true).length;
     const unembedded = fontStates.filter((state) => state === false).length;
     const unknownFonts = fontStates.filter((state) => state === null).length;
     if (unembedded) findings.push(finding("fonts-not-embedded", `${unembedded} used font${unembedded === 1 ? " is" : "s are"} not embedded.`));
     if (unknownFonts) findings.push(finding("font-embedding-unknown", `Embedding could not be measured for ${unknownFonts} used font${unknownFonts === 1 ? "" : "s"}.`));
-    const measuredDpi = imageMeasurements.flatMap((image) => image.dpi === null ? [] : [image.dpi]);
+    const measuredImages = imageMeasurements.filter((image): image is { dpiX: number; dpiY: number } => image.dpiX !== null && image.dpiY !== null);
+    const measuredDpi = measuredImages.map((image) => Math.min(image.dpiX, image.dpiY));
     const lowResolution = measuredDpi.filter((dpi) => dpi < 300).length;
-    const above600Dpi = measuredDpi.filter((dpi) => dpi > 600).length;
+    const above600Dpi = measuredImages.filter((image) => Math.max(image.dpiX, image.dpiY) > 600).length;
     if (lowResolution) findings.push(finding("image-low-resolution", `${lowResolution} placed image${lowResolution === 1 ? " is" : "s are"} below 300 DPI.`));
     if (above600Dpi) findings.push(finding("image-above-600-dpi", `${above600Dpi} placed image${above600Dpi === 1 ? " is" : "s are"} above 600 DPI.`));
     if (imageMeasurements.length > measuredDpi.length) findings.push(finding("image-resolution-unmeasured", "Image resolution could not be measured for every placed image."));
@@ -289,4 +305,4 @@ export function formatKdpPdfReport(result: KdpPdfResult): string {
   return lines.join("\n");
 }
 
-export const KDP_PDF_PREFLIGHT_VERSION = "kdp-pdf-preflight-1.1.0";
+export const KDP_PDF_PREFLIGHT_VERSION = "kdp-pdf-preflight-1.1.1";
