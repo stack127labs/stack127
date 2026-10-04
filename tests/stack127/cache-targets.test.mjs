@@ -69,15 +69,19 @@ test("a catalog change refreshes navigation on every catalog page", () => {
   assert.ok(targets.warmPaths.includes("/kdp-royalty-calculator"));
 });
 
-test("platform fees refresh the hub and the public section slug", () => {
+test("platform fee changes refresh all categories, including when a section moves", () => {
   const targets = targetsForEvents([{ entity_type: "platform_fees", slug: "paid-communities-and-memberships" }]);
-  assert.deepEqual(targets.paths, ["/platform-fees", "/platform-fees/communities"]);
+  assert.equal(targets.paths.length, 9);
+  assert.ok(targets.paths.includes('/platform-fees'));
+  assert.ok(targets.paths.includes('/platform-fees/creators-and-communities'));
   assert.ok(targets.nextTags.includes("stack127-platform-fees"));
   assert.ok(targets.edgeTags.includes("platform-fees-catalog"));
-  assert.ok(targets.warmPaths.includes("/platform-fees/communities"));
-  assert.ok(targets.verifyPaths.includes("/platform-fees/communities"));
+  assert.ok(targets.warmPaths.includes("/platform-fees/creators-and-communities"));
+  assert.ok(targets.verifyPaths.includes("/platform-fees/creators-and-communities"));
   const unchangedSlug = targetsForEvents([{ entity_type: "platform_fees", slug: "game-assets" }]);
-  assert.ok(unchangedSlug.paths.includes("/platform-fees/game-assets"));
+  assert.deepEqual(unchangedSlug.paths, targets.paths);
+  assert.deepEqual(targetsForEvents([{ entity_type: 'platform_fees', slug: 'all' }]).paths, targets.paths);
+  assert.ok(targets.paths.every(path => !path.includes('#')));
 });
 
 test("ad network edits refresh their list and details by group and page tags", () => {
@@ -109,5 +113,16 @@ test("app, shared catalog, and publication edits purge every search query varian
     assert.ok(targets.edgeTags.includes("self-host-catalog"));
     assert.ok(targets.verifyPaths.includes("/api/self-host-apps/search"));
     assert.ok(!targets.warmPaths.includes("/api/self-host-apps/search"));
+  }
+});
+
+
+test("parent directory copy changes purge inherited child icons at the edge", () => {
+  for (const slug of ["keyboard-shortcuts", "ad-networks"]) {
+    const targets = targetsForEvents([{ entity_type: "page", slug }]);
+    assert.ok(targets.edgeTags.includes(`${slug}-catalog`));
+    assert.ok(targets.nextTags.includes(`stack127-directory-page:${slug}`));
+    const childOnly = targetsForEvents([{ entity_type: "page", slug: `${slug}/example` }]);
+    assert.equal(childOnly.edgeTags.includes(`${slug}-catalog`), false);
   }
 });

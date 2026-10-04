@@ -7,6 +7,53 @@ import { isDeepStrictEqual, parseArgs, parseEnv } from 'node:util';
 import pg from 'pg';
 import { parse as parseConnectionString } from 'pg-connection-string';
 
+const legacyDirectoryCards = new Set([
+  'cli-apps', 'epp-status-codes', 'keyboard-shortcuts', 'launch-directories',
+  'platform-fees', 'self-host-apps', 'software-licenses-for-self-hosting', 'tld-directory',
+]);
+
+// Accept snapshots from before the card migration while development is ahead.
+export function normalizeCardSnapshot(name, rows, pages) {
+  const slugById = new Map(pages.map(page => [String(page.id), page.slug]));
+  return rows.map(row => {
+    const copy = { ...row };
+    if (name === 'stack127_catalog_pages') {
+      for (const [oldKey, newKey] of [['icon_key', 'card_icon_key'], ['home_art_key', 'card_art_key']]) {
+        if (!(oldKey in copy)) continue;
+        if (newKey in copy) throw new Error(`Conflicting card columns in ${name}`);
+        copy[newKey] = copy[oldKey];
+        delete copy[oldKey];
+      }
+    }
+    if (name === 'stack127_directory_pages') {
+      const slug = slugById.get(String(row.page_id));
+      const key = legacyDirectoryCards.has(slug) ? slug : null;
+      if (!('card_icon_key' in copy)) copy.card_icon_key = key;
+      if (!('card_art_key' in copy)) copy.card_art_key = key;
+    }
+    return copy;
+  });
+}
+
+export function compatibleCardColumns(name, source, target) {
+  const shape = columns => columns.map(({ column_name, data_type, udt_name }) => ({ column_name, data_type, udt_name }));
+  const original = shape(source);
+  if (name === 'stack127_catalog_pages') {
+    for (const column of original) {
+      if (column.column_name === 'icon_key') column.column_name = 'card_icon_key';
+      if (column.column_name === 'home_art_key') column.column_name = 'card_art_key';
+    }
+  }
+  if (name === 'stack127_directory_pages') {
+    for (const key of ['card_icon_key', 'card_art_key']) {
+      if (!original.some(column => column.column_name === key)) {
+        original.push({ column_name: key, data_type: 'text', udt_name: 'text' });
+      }
+    }
+  }
+  return isDeepStrictEqual(original, shape(target));
+}
+
 export function preserveDevelopmentPublication(productionRows, developmentRows) {
   const previews = new Map(developmentRows.filter((row) => isDraftRoute(row.slug)).map((row) => [row.slug, row]));
   return productionRows.map((row) => {
@@ -69,7 +116,7 @@ export function verifyPageFamilyRestore(production, restored, preserved) {
     const rows = restored.get(name);
     const owned = row => name === 'stack127_pages' ? productionSlugs.has(row.slug)
       : fields.every(field => productionIds.has(String(row[field])));
-    const sourceRows = production.get(name);
+    const sourceRows = normalizeCardSnapshot(name, production.get(name), sourcePages);
     const productionRows = rows.filter(owned);
     const developmentRows = rows.filter(row => !owned(row));
     verifyPageRows(name, sourceRows, productionRows);
@@ -258,10 +305,8 @@ async function main() {
     for (const name of tables) {
         const sourceColumns = await columns(source, name);
         const targetColumns = await columns(target, name);
-        const sourceShape = sourceColumns.map(({column_name,data_type,udt_name}) => ({column_name,data_type,udt_name}));
-        const targetShape = targetColumns.map(({column_name,data_type,udt_name}) => ({column_name,data_type,udt_name}));
-        if (JSON.stringify(sourceShape) !== JSON.stringify(targetShape)) throw new Error(`Schema mismatch for ${name}`);
-        const rows = await snapshotRows(name);
+        if (!compatibleCardColumns(name, sourceColumns, targetColumns)) throw new Error(`Schema mismatch for ${name}`);
+        const rows = normalizeCardSnapshot(name, await snapshotRows(name), snapshot.get('stack127_pages')?.rows ?? []);
         snapshot.set(name, { rows, columns: targetColumns.filter((column) => column.is_generated === 'NEVER') });
         console.log(JSON.stringify({ table: name, snapshotRows: rows.length }));
       }

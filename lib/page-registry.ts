@@ -248,7 +248,13 @@ export const getMainPublishedPages = cache(unstable_cache(async () => {
     if (["tool", "directory", "catalog"].includes(page.page_family) && !card) {
       throw new Error(`Page card is missing: ${page.slug}`);
     }
-    return { ...page, card_name: card?.card_name ?? page.label, card_description: card?.card_description ?? page.meta_description };
+    return {
+      ...page,
+      card_name: card?.card_name ?? page.label,
+      card_description: card?.card_description ?? page.meta_description,
+      card_icon_key: card?.card_icon_key ?? null,
+      card_art_key: card?.card_art_key ?? null,
+    };
   });
 }, [HOME_PAGES_TAG], { revalidate: false, tags: [HOME_PAGES_TAG] }));
 
@@ -330,15 +336,16 @@ export async function getRegistryPageStructuredData(state: PagePublicationState)
   const page = buildRegistryPageStructuredData(state);
   if (!page || state.kind !== "exact" || !state.page.slug.startsWith("platform-fees/")) return page;
 
-  const [{ getFeeDirectory }, { sectionPath }] = await Promise.all([
+  const [{ getFeeDirectory }, { getFeeGroup, groupPath }] = await Promise.all([
     import("./platform-fees/queries"),
-    import("./platform-fees/section-routes"),
+    import("./platform-fees/groups"),
   ]);
   try {
     const directory = await getFeeDirectory();
-    const section = directory.sections.find(section => sectionPath(section.id) === `/${state.page.slug}`);
-    if (!section) return page;
-    const entries = directory.entries.filter(entry => entry.section_id === section.id);
+    const group = getFeeGroup(state.page.slug.slice('platform-fees/'.length));
+    if (!group) return page;
+    const sections = new Set(directory.sections.filter(section => section.group_name === group.name).map(section => section.id));
+    const entries = directory.entries.filter(entry => sections.has(entry.section_id));
     return {
       ...page,
       mainEntity: {
@@ -347,7 +354,7 @@ export async function getRegistryPageStructuredData(state: PagePublicationState)
         itemListElement: entries.map((entry, index) => ({
           "@type": "ListItem",
           position: index + 1,
-          url: absoluteUrl(`${sectionPath(section.id)}#${entry.id}`),
+          url: absoluteUrl(`${groupPath(group.name)}#${entry.id}`),
           item: { "@type": "Thing", name: entry.name, url: entry.website_url },
         })),
       },

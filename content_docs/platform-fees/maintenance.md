@@ -18,7 +18,7 @@ node scripts/platform-fees/sync-development.mjs --apply --preview
 
 The script targets the managed development project in `.env.local` and rejects the production project. Run the canonical database migration workflow before syncing if the current tables are missing. Do not run retired SQL files by hand.
 
-Review `/platform-fees` and at least one changed section. Check search, official links, sources, extra rates, icons, and the small-screen layout. Production publication remains a separate registry change.
+Review `/platform-fees` and at least one category page, such as `/platform-fees/apps-and-software`. Check search on the index and on the category page, section anchors, the source list for that section's own fields, official links, extra rates, icons, and the small-screen layout. A search with no matches needs a way back to the full category. Old section URLs, such as `/platform-fees/communities`, should 404. Do not add redirects. Production publication remains a separate registry change.
 
 ## Icons
 

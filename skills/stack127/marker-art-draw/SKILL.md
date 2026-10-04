@@ -43,4 +43,4 @@ Every homepage card must have a spec-backed marker drawing in the homepage art r
 
 ## New tool catalog card artwork
 
-Use the Product section of `content_docs/<slug>/tool-spec.md` as the brief. Write a `toolSpot` spec in `app/ui/art/` with a tool-specific id and conceptual source, generate the `.svg` and `.ts`, and register its key in `lib/tool-catalog-art.ts`. The integration worker applies that key to the development card and checks the real catalog card at desktop and mobile size in dark and light themes. A new tool is not complete with the `icon` fallback. Article figures are optional and separate from this card drawing.
+Use the Product section of `content_docs/<slug>/tool-spec.md` as the brief. Write a `toolSpot` spec in `app/ui/art/` with a tool-specific id and conceptual source, generate the `.svg` and `.ts`, and register its key in `lib/card-art.ts`. The integration worker applies that key to the development card and checks the real catalog card at desktop and mobile size in dark and light themes. A new tool is not complete with the `icon` fallback. Article figures are optional and separate from this card drawing.

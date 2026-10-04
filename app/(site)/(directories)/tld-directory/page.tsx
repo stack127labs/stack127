@@ -3,13 +3,12 @@ import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/d
 import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import "@/app/(site)/(tools)/(domain)/domain-tools.css";
-import { Globe } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../ui/site/app-shell";
 import { DomainToolsSidebar } from "@/app/(site)/(tools)/(domain)/domain-tools-sidebar";
 import { TldTable, type TldRow } from "./tld-table";
 import directory from "@/lib/domain/data/tld-directory.json" with { type: "json" };
-import { PageTitleIcon } from "../../../ui/site/page-title-icon";
+import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { PageHeader } from "../../../ui/site/page-header";
 import { proseSectionFlowClassName } from "../../../ui/site/prose";
 
@@ -27,9 +26,7 @@ export default async function TldDirectoryPage() {
     >
       <PageCanvas as="main" className="domain-tool-main">
         <PageHeader>
-          <h1><PageTitleIcon>
-              <Globe strokeWidth={2.2} />
-            </PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+          <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <ContentMarkdown markdown={directoryPage.intro_markdown} />
         </PageHeader>
 

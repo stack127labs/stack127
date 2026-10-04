@@ -1,12 +1,17 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { mkdtemp, mkdir, readFile, writeFile, rm } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
+import { preparePlan } from "../../scripts/stack127/publishing/cli.mjs";
+import { checkRepositoryRequirements } from "../../scripts/stack127/publishing/readiness.mjs";
 import { executeBatch, readStates } from "../../scripts/stack127/publishing/database.mjs";
 import { CONTENT_FIELDS, REGISTRY_FIELDS, desiredStates, validateState } from "../../scripts/stack127/publishing/model.mjs";
 
 function state(slug, family = "directory", published = false) {
   const content = {
     directory: { title: "Page title", intro_markdown: "Page introduction", content_markdown: null,
-      card_name: "Page", card_description: "Page description" },
+      card_name: "Page", card_description: "Page description", card_icon_key: null, card_art_key: null },
     tool: { title: "Tool title", intro_markdown: "Tool introduction", usage_markdown: null,
       content_markdown: "Tool instructions", tool_version: "1.0.0", stack127_repo_url: null,
       stack127_repo_version: null, stack127_repo_commit_sha: null, card_name: "Tool",
@@ -33,7 +38,7 @@ function create(after) {
 
 // This client models transactional persistence and the constraints used by the publisher.
 // The development integration checks the same operations against PostgreSQL's real triggers.
-function database(initial = [], { catalogSchema = "original", catalogColumns, directoryCards = {} } = {}) {
+function database(initial = [], { catalogSchema = "original", catalogColumns } = {}) {
   const catalogFields = schema => CONTENT_FIELDS.catalog.map(field => schema === "renamed"
     ? { icon_key: "card_icon_key", home_art_key: "card_art_key" }[field] ?? field : field);
   let physicalCatalogFields = catalogFields(catalogSchema);
@@ -49,7 +54,6 @@ function database(initial = [], { catalogSchema = "original", catalogColumns, di
       const fields = item.family === "catalog" ? physicalCatalogFields : CONTENT_FIELDS[item.family];
       const content = Object.fromEntries(CONTENT_FIELDS[item.family].map((field, index) => [fields[index], item.content[field]]));
       store.content[item.family].push({ page_id: id, ...content,
-        ...(item.family === "directory" ? directoryCards : {}),
         content_revision: 1, row_updated_at: "old", tool_version_updated_at: "old" });
     }
   }
@@ -587,18 +591,93 @@ for (const invalid of [
   });
 }
 
-test("directory card fields outside the canonical contract remain untouched", async () => {
-  const directory = state("directory");
-  const extraCards = { card_icon_key: "book", card_art_key: "directory-art" };
-  const db = database([directory], { catalogSchema: "renamed", directoryCards: extraCards });
+test("directory assets are complete managed state and restore exactly without writes on retries", async () => {
+  const directory = state("directory", "directory", true);
+  directory.content.card_icon_key = "book";
+  directory.content.card_art_key = "cli-apps";
+  const db = database([directory]);
   const refs = [{ slug: directory.slug, family: directory.family }];
   assert.deepEqual(await readStates(db.client, refs), [directory]);
-  const updated = change(directory, after => { after.content.title = "Updated directory"; });
+  const updated = change(directory, after => {
+    after.content.card_icon_key = "globe";
+    after.content.card_art_key = "dns-tools";
+  });
+  const original = db.store;
+  await executeBatch(db.pool, [updated]);
+  assert.deepEqual(db.store, original);
   await executeBatch(db.pool, [updated], { apply: true });
   assert.deepEqual(await readStates(db.client, refs), [updated.after]);
-  assert.equal(db.store.content.directory[0].card_icon_key, extraCards.card_icon_key);
-  assert.equal(db.store.content.directory[0].card_art_key, extraCards.card_art_key);
+  assert.equal(db.store.content.directory[0].card_icon_key, "globe");
+  assert.equal(db.store.content.directory[0].card_art_key, "dns-tools");
+  assert.equal(db.store.content.directory[0].content_revision, 1);
+  const applied = db.store;
+  let writes = db.writes().length;
+  assert.equal((await executeBatch(db.pool, [updated], { apply: true })).pages[0].changed, false);
+  assert.equal(db.writes().length, writes);
+  assert.deepEqual(db.store, applied);
+  await executeBatch(db.pool, [updated], { apply: true, restore: true });
+  assert.deepEqual(await readStates(db.client, refs), [directory]);
+  const restored = db.store;
+  writes = db.writes().length;
+  assert.equal((await executeBatch(db.pool, [updated], { apply: true, restore: true })).pages[0].changed, false);
+  assert.equal(db.writes().length, writes);
+  assert.deepEqual(db.store, restored);
   assert.equal(db.calls.filter(call => call.sql.includes("information_schema.columns")).length, 0);
+});
+
+test("restore returns directory assets to null and retries without writes", async () => {
+  const before = state("directory", "directory", true);
+  const entry = change(before, after => {
+    after.content.card_icon_key = "book";
+    after.content.card_art_key = "cli-apps";
+  });
+  const db = database([before]);
+  await executeBatch(db.pool, [entry], { apply: true });
+  await executeBatch(db.pool, [entry], { apply: true, restore: true });
+  assert.deepEqual(await readStates(db.client, [{ slug: before.slug, family: before.family }]), [before]);
+  const restored = db.store;
+  const writes = db.writes().length;
+  await executeBatch(db.pool, [entry], { apply: true, restore: true });
+  assert.equal(db.writes().length, writes);
+  assert.deepEqual(db.store, restored);
+});
+
+test("directory asset edits after prepare prevent apply and restore from overwriting them", async () => {
+  const before = state("directory");
+  const entry = change(before, after => { after.content.card_art_key = "cli-apps"; });
+  for (const restore of [false, true]) {
+    const current = structuredClone(restore ? entry.after : before);
+    current.content.card_icon_key = "book";
+    const db = database([current]);
+    await assert.rejects(executeBatch(db.pool, [entry], { apply: true, restore }), /Publishing conflict/);
+    assert.equal(db.writes().length, 0);
+    assert.deepEqual(await readStates(db.client, [{ slug: current.slug, family: current.family }]), [current]);
+  }
+});
+
+test("directory assets accept null, reject invalid keys and timestamps, and require complete snapshots", async () => {
+  const directory = state("directory");
+  assert.deepEqual(validateState(directory), directory);
+  for (const field of CONTENT_FIELDS.directory) {
+    const incomplete = structuredClone(directory);
+    delete incomplete.content[field];
+    assert.throws(() => validateState(incomplete), /Missing directory content field/);
+  }
+  for (const field of ["card_icon_key", "card_art_key"]) {
+    for (const value of ["", "Unknown", "bad/key", 1]) {
+      assert.throws(() => validateState({ ...directory, content: { ...directory.content, [field]: value } }));
+    }
+    const db = database([directory]);
+    const entry = change(directory, after => { after.content[field] = "cli-apps"; });
+    entry.before = structuredClone(entry.before);
+    delete entry.before.content[field];
+    await assert.rejects(executeBatch(db.pool, [entry], { apply: true }), /Regenerate the plan/);
+    assert.equal(db.calls.length, 0);
+  }
+  for (const field of ["published_at", "updated_at", "row_created_at", "row_updated_at"]) {
+    assert.throws(() => validateState({ ...directory, registry: { ...directory.registry, [field]: "old" } }), /Unknown registry field/);
+  }
+  assert.throws(() => validateState({ ...directory, content: { ...directory.content, row_updated_at: "old" } }), /Unknown directory content field/);
 });
 
 test("shared targets preserve saved states and remove only invalid memberships from new tools", () => {
@@ -747,3 +826,155 @@ for (const published of [false, true]) {
     assert.deepEqual(await readStates(db.client, [{ slug: tool.slug, family: "tool" }]), [link.after]);
   });
 }
+
+
+async function repositoryFixture(t) {
+  const root = await mkdtemp(path.join(os.tmpdir(), "page-publishing-"));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const routes = { directory: "app/(site)/(directories)/[...slug]/page.tsx",
+    catalog: "app/(site)/(catalogs)/[slug]/page.tsx", tool: "app/(site)/(tools)/[slug]/page.tsx" };
+  for (const route of Object.values(routes)) {
+    await mkdir(path.dirname(path.join(root, route)), { recursive: true });
+    await writeFile(path.join(root, route), "export default function Page() {}\n");
+    await writeFile(path.join(root, path.dirname(route), "layout.tsx"), "export default registryLayout;\n");
+  }
+  await mkdir(path.join(root, "lib"));
+  for (const file of ["card-icons.ts", "card-art.ts", "page-registry-helpers.ts"]) {
+    await writeFile(path.join(root, "lib", file), await readFile(new URL(`../../lib/${file}`, import.meta.url)));
+  }
+  await writeFile(path.join(root, "app/marker-art-registry.json"), "{}\n");
+  return { root, requirements(family = "directory") {
+    return { route: routes[family], assets: ["lib/card-icons.ts", "lib/card-art.ts"], checks: [], smoke: [],
+      ...(family === "directory" ? { records: { kind: "code", files: ["lib/card-icons.ts"] } } : {}) };
+  } };
+}
+
+const prepareOptions = root => ({ kind: "directories", environment: "development", root, sourceCommit: "a".repeat(40) });
+const directoryManifest = (page, requirements) => ({ schema_version: 1, kind: "directories",
+  pages: [{ ...page, family: "directory", requirements }] });
+
+test("prepare freezes directory assets, preserves omitted values and supports explicit null restore", async t => {
+  const fixture = await repositoryFixture(t);
+  const before = state("directory", "directory", true);
+  before.content.card_icon_key = "book";
+  before.content.card_art_key = "cli-apps";
+  const db = database([before]);
+  const manifest = directoryManifest({ slug: before.slug, content: { intro_markdown: "Reviewed introduction" } }, fixture.requirements());
+  const plan = await preparePlan(db.pool, manifest, prepareOptions(fixture.root));
+  assert.deepEqual(plan.pages[0].before, before);
+  assert.equal(plan.pages[0].after.content.card_icon_key, "book");
+  assert.equal(plan.pages[0].after.content.card_art_key, "cli-apps");
+  manifest.pages[0].content = { card_icon_key: null, card_art_key: null };
+  const cleared = await preparePlan(db.pool, manifest, prepareOptions(fixture.root));
+  assert.equal(cleared.pages[0].after.content.card_icon_key, null);
+  assert.equal(cleared.pages[0].after.content.card_art_key, null);
+  const { requirements, ...entry } = cleared.pages[0];
+  await executeBatch(db.pool, [entry], { apply: true });
+  assert.deepEqual(await readStates(db.client, [{ slug: before.slug, family: before.family }]), [entry.after]);
+  await executeBatch(db.pool, [entry], { apply: true, restore: true });
+  assert.deepEqual(await readStates(db.client, [{ slug: before.slug, family: before.family }]), [before]);
+  assert.equal(plan.pages[0].after.content.card_icon_key, "book");
+});
+
+test("new directory plans carry nullable asset defaults and persist explicit registered assets", async t => {
+  const fixture = await repositoryFixture(t);
+  for (const assets of [{}, { card_icon_key: "book", card_art_key: "cli-apps" }]) {
+    const after = state("new-directory", "directory", true);
+    const content = { ...after.content, ...assets };
+    if (!Object.keys(assets).length) {
+      delete content.card_icon_key;
+      delete content.card_art_key;
+    }
+    const db = database();
+    const plan = await preparePlan(db.pool, directoryManifest({ slug: after.slug, registry: after.registry, content }, fixture.requirements()), prepareOptions(fixture.root));
+    const entry = plan.pages[0];
+    assert.equal(entry.before, null);
+    assert.equal(entry.after.content.card_icon_key, assets.card_icon_key ?? null);
+    assert.equal(entry.after.content.card_art_key, assets.card_art_key ?? null);
+    const batch = [{ slug: entry.slug, family: entry.family, before: entry.before, after: entry.after }];
+    await executeBatch(db.pool, batch, { apply: true });
+    assert.deepEqual(await readStates(db.client, [{ slug: entry.slug, family: entry.family }]), [entry.after]);
+    const written = db.store;
+    const writes = db.writes().length;
+    await executeBatch(db.pool, batch, { apply: true });
+    assert.equal(db.writes().length, writes);
+    assert.deepEqual(db.store, written);
+    await executeBatch(db.pool, batch, { apply: true, restore: true });
+    assert.deepEqual(await readStates(db.client, [{ slug: entry.slug, family: entry.family }]),
+      [{ ...entry.after, registry: { ...entry.after.registry, is_published: false } }]);
+  }
+});
+
+test("development-sourced prepare freezes reviewed directory assets and target before values", async t => {
+  const fixture = await repositoryFixture(t);
+  const target = state("directory");
+  target.content.card_icon_key = "book";
+  target.content.card_art_key = "cli-apps";
+  const reviewed = structuredClone(target);
+  reviewed.content.card_icon_key = "globe";
+  reviewed.content.card_art_key = "dns-tools";
+  const db = database([target]);
+  const development = database([reviewed]);
+  const plan = await preparePlan(db.pool, directoryManifest({ slug: target.slug, source: "development", registry: { is_published: true } }, fixture.requirements()),
+    { ...prepareOptions(fixture.root), environment: "production", developmentPool: development.pool });
+  assert.deepEqual(plan.pages[0].before.content, target.content);
+  assert.deepEqual(plan.pages[0].after.content, reviewed.content);
+  await executeBatch(development.pool, [change(reviewed, after => { after.content.card_art_key = "domain-tools"; })], { apply: true });
+  assert.equal(plan.pages[0].after.content.card_art_key, "dns-tools");
+  assert.equal(db.writes().length, 0);
+});
+
+test("readiness checks shared registry keys for directories, catalogs and tools", async t => {
+  const fixture = await repositoryFixture(t);
+  for (const family of ["directory", "catalog", "tool"]) {
+    const page = state("example", family, true);
+    if (family === "catalog") {
+      page.content.hero_art_key = "dns-tools";
+      page.content.home_art_key = "cli-apps";
+    } else {
+      page.content.card_icon_key = "book";
+      page.content.card_art_key = "cli-apps";
+    }
+    await checkRepositoryRequirements(fixture.requirements(family), page, fixture.root);
+    const fields = family === "catalog" ? ["icon_key", "hero_art_key", "home_art_key"] : ["card_icon_key", "card_art_key"];
+    for (const field of fields) {
+      for (const key of ["unregistered-key", "constructor", "tostring"]) {
+        const invalid = structuredClone(page);
+        invalid.content[field] = key;
+        await assert.rejects(checkRepositoryRequirements(fixture.requirements(family), invalid, fixture.root), /Unregistered icon or card art/);
+      }
+    }
+  }
+});
+
+test("homepage directories require both registered assets while children can inherit null assets", async t => {
+  const fixture = await repositoryFixture(t);
+  const page = state("cli-apps", "directory", true);
+  for (const field of ["card_icon_key", "card_art_key"]) {
+    const invalid = structuredClone(page);
+    invalid.content[field === "card_icon_key" ? "card_art_key" : "card_icon_key"] = "cli-apps";
+    await assert.rejects(checkRepositoryRequirements(fixture.requirements(), invalid, fixture.root), /Homepage directory.*requires registered/);
+  }
+  page.content.card_icon_key = "cli-apps";
+  page.content.card_art_key = "cli-apps";
+  await checkRepositoryRequirements(fixture.requirements(), page, fixture.root);
+  const child = state("cli-apps/item", "directory", true);
+  await checkRepositoryRequirements(fixture.requirements(), child, fixture.root);
+  const db = database([page]);
+  await executeBatch(db.pool, [create(child)], { apply: true });
+  assert.deepEqual(await readStates(db.client, [{ slug: child.slug, family: child.family }]), [child]);
+  const draft = state("cli-apps");
+  await checkRepositoryRequirements(fixture.requirements(), draft, fixture.root);
+});
+
+test("prepare rejects invalid directory registry keys without writing pages", async t => {
+  const fixture = await repositoryFixture(t);
+  for (const field of ["card_icon_key", "card_art_key"]) {
+    const after = state("directory", "directory", true);
+    after.content[field] = "unregistered-key";
+    const db = database();
+    await assert.rejects(preparePlan(db.pool, directoryManifest({ slug: after.slug, registry: after.registry, content: after.content }, fixture.requirements()), prepareOptions(fixture.root)), /Unregistered icon or card art/);
+    assert.equal(db.writes().length, 0);
+    assert.equal(db.store.pages.length, 0);
+  }
+});

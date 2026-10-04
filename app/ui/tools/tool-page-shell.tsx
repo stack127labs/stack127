@@ -3,7 +3,7 @@ import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
 import { SidebarList } from "@/app/ui/site/sidebar-list";
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/ui/site/sidebar-panel";
 import { getPrimaryToolCatalog, type PublishedToolCatalog } from "@/lib/tool-catalogs";
-import { toolCatalogIcon } from "@/lib/tool-catalog-icons";
+import { cardIcon } from "@/lib/card-icons";
 import type { Stack127ToolPage } from "@/lib/tool-pages";
 import { ToolCatalogSidebar } from "@/app/ui/catalogs/tool-catalog-sidebar";
 
@@ -13,7 +13,7 @@ function ToolPageSidebar({ catalog, toolSlug }: { catalog: PublishedToolCatalog;
       <div className={sidebarPanelHeadingClassName}><SidebarLabel>{catalog.page.label}</SidebarLabel></div>
       <nav aria-label={catalog.page.label}>
         <SidebarList items={catalog.tools.map((tool) => {
-          const Icon = toolCatalogIcon(tool.card_icon_key);
+          const Icon = cardIcon(tool.card_icon_key);
           return {
             href: `/${tool.slug}`,
             label: tool.card_name,

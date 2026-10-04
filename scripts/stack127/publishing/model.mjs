@@ -11,6 +11,7 @@ export const CONTENT_FIELDS = Object.freeze({
   ]),
   directory: Object.freeze([
     "title", "intro_markdown", "content_markdown", "card_name", "card_description",
+    "card_icon_key", "card_art_key",
   ]),
   catalog: Object.freeze([
     "heading_before", "heading_mark", "heading_after", "intro", "section_heading",
@@ -84,6 +85,13 @@ export function validateState(state, family = state?.family) {
 
   let content = null;
   if (state.content !== null) {
+    if (family === "directory" && typeof state.content === "object" && !Array.isArray(state.content)) {
+      for (const field of ["card_icon_key", "card_art_key"]) {
+        if (!Object.hasOwn(state.content, field)) {
+          throw new Error(`Missing directory content field: ${field}. Regenerate the plan with the current publisher to preserve directory card assets.`);
+        }
+      }
+    }
     exactFields(state.content, CONTENT_FIELDS[family], `${family} content`);
     content = {};
     for (const field of CONTENT_FIELDS[family]) {
@@ -91,12 +99,12 @@ export function validateState(state, family = state?.family) {
         ? integer(state.content[field], `content.${field}`)
         : textField(state.content[field], `content.${field}`, {
           nullable: field.startsWith("stack127_repo_") || field === "usage_markdown"
-            || (family === "directory" && field === "content_markdown"),
+            || (family === "directory" && ["content_markdown", "card_icon_key", "card_art_key"].includes(field)),
           empty: field === "heading_before" || field === "heading_after",
           trimmed: !(family === "catalog" && ["heading_before", "heading_mark", "heading_after", "intro", "section_heading"].includes(field))
             && !(family === "tool" && ["card_name", "card_description"].includes(field)),
         });
-      if ((field.endsWith("_key")) && !/^[a-z0-9-]+$/.test(content[field])) {
+      if (field.endsWith("_key") && content[field] !== null && !/^[a-z0-9-]+$/.test(content[field])) {
         throw new Error(`content.${field} must use lowercase letters, numbers, and hyphens`);
       }
     }

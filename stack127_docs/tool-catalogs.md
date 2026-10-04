@@ -9,7 +9,7 @@ Notion is only a planning space. The site never reads or syncs Notion for catalo
 | Table | Owns |
 | --- | --- |
 | `public.stack127_pages` | The only registry for URL, publication, SEO, social image, and public dates. Set `page_family = 'catalog'` for a tool catalog. A catalog is public only when `is_published = true`. |
-| `public.stack127_catalog_pages` | The visible heading, introduction, section heading, homepage order, icon key, approved marker art keys, and the catalog's `card_name` and `card_description`. Its `page_id` points to a registry row whose family is `catalog`. |
+| `public.stack127_catalog_pages` | The visible heading, introduction, section heading, homepage order, `hero_art_key`, and the catalog's card: `card_name`, `card_description`, `card_icon_key`, and `card_art_key`. Its `page_id` points to a registry row whose family is `catalog`. |
 | `public.stack127_tool_pages` | Each tool's short card name and description, plus icon and marker art keys. These fields apply in every catalog that includes the tool. |
 | `public.stack127_tool_catalog_memberships` | Links tools to any number of catalogs. |
 
@@ -18,6 +18,10 @@ In memberships, `catalog_rank = 1` is the tool's primary catalog. Use `2`, `3`, 
 Only published tool rows render as cards. An unpublished tool can have its memberships ready for launch. Publishing it in `stack127_pages` makes its card show in every assigned catalog.
 
 Keep each published catalog populated with at least one published tool.
+
+## Cards
+
+Every card on the site uses `PageCard` from `app/ui/cards/page-card.tsx`: art, icon, name, description, and an optional count. Catalog pages render `ToolCard` through the `ToolCatalog` grid. The homepage renders `CatalogCard` with the tool count. Don't build a card inside a route.
 
 ## Navigation
 
@@ -36,13 +40,13 @@ The tools publisher creates and publishes catalogs. Add a new catalog to the sam
 1. Create the `stack127_pages` row first. Use a flat unique slug, `page_family = 'catalog'`, a short `label`, reviewed `meta_title` and `meta_description`, a fitting `page_type` such as `CollectionPage`, and public dates when publishing. Don't put SEO metadata in route files.
 2. Add a `stack127_catalog_pages` row for that page ID, with its card name and description.
    - Write the heading in three parts, so `heading_mark` gets the site accent.
-   - Add the intro, section heading, `home_order` for the homepage catalog section, and approved icon and art keys. Supported keys are in `lib/tool-catalog-icons.ts` and `lib/tool-catalog-art.ts`.
-   - Use `none` when the catalog has no reviewed marker drawing. Its icon still shows. Unknown art keys show no drawing.
+   - Add the intro, section heading, `home_order` for the homepage catalog section, and approved icon and art keys. Supported keys are in `lib/card-icons.ts` and `lib/card-art.ts`. The publisher manifest still names the card keys `icon_key` and `home_art_key`, and writes them to `card_icon_key` and `card_art_key`.
+   - The writers reject keys that aren't registered. A card with no drawing shows its icon large instead.
    - The homepage lists every published catalog first, in `home_order`, then other resource cards. The sidebar uses the registry's `sitemap_priority`.
 3. Add at least one `stack127_tool_catalog_memberships` row. Pick the tool's `page_id` from `stack127_tool_pages`, set its next catalog rank, and choose its display order. To move a tool, edit its membership rows. Don't add tool cards to the route code.
 4. Review the tool's `card_name`, `card_description`, `card_icon_key`, and `card_art_key` in `stack127_tool_pages`.
    - New tool rows use the registry label and search description until someone edits the card.
-   - Every new tool gets its own spec-backed `toolSpot` marker drawing. Generate it before integration and register it in `lib/tool-catalog-art.ts`.
+   - Every new tool gets its own spec-backed `toolSpot` marker drawing. Generate it before integration and register it in `lib/card-art.ts`.
    - Use `icon` only as a temporary fallback for an existing card waiting for reviewed art.
    - Keep card copy short and focused on the task.
 5. Publish the catalog registry row once its copy and visible tools are ready. It then joins the homepage and sitemap automatically. Check the page at desktop and mobile width, plus its links, title, canonical, and public dates.

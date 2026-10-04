@@ -12,7 +12,7 @@ const sha = 'a'.repeat(40);
 const state = {
   slug: 'example', family: 'directory',
   registry: { label: 'Example', meta_title: 'Example directory', meta_description: 'Compare examples & choices.', is_published: true, cover_image_url: null, page_type: 'CollectionPage', sitemap_priority: 0.5 },
-  content: { title: 'Find <mark>examples</mark>', intro_markdown: 'Choose an example.', content_markdown: null, card_name: 'Examples', card_description: 'Compare examples.' },
+  content: { title: 'Find <mark>examples</mark>', intro_markdown: 'Choose an example.', content_markdown: null, card_name: 'Examples', card_description: 'Compare examples.', card_icon_key: null, card_art_key: null },
 };
 const revision = '2026-10-04T00:00:00.000Z';
 const requirements = { route: 'app/(site)/(directories)/example/page.tsx', assets: [], checks: [], smoke: [], records: { kind: 'code', files: ['lib/examples.ts'] } };
@@ -135,4 +135,18 @@ test('restore verifies saved before copy without requiring after-state smoke tex
   const page = { ...plan().pages[0], before: old, requirements: { ...requirements, smoke: [{ path: '/example', text: 'New heading' }] } };
   const pool = { query: async () => ({ rows: [{ slug: 'example', row_updated_at: revision }] }) };
   await verifyPublicPages(pool, [page], { site: 'https://stack127.com', restore: true, waitSeconds: 0, fetchImplementation: async url => new Response(url.endsWith('sitemap.xml') ? '<urlset><url><loc>https://stack127.com/example</loc></url></urlset>' : html().replace('Find <mark>examples</mark>', 'Old heading')) });
+});
+
+test('older directory plans must be regenerated when either snapshot omits a card asset field', () => {
+  for (const snapshot of ['before', 'after']) {
+    for (const field of ['card_icon_key', 'card_art_key']) {
+      const older = plan();
+      older.pages[0].before = structuredClone(state);
+      delete older.pages[0][snapshot].content[field];
+      assert.throws(() => validatePlan(older, 'directories', 'production'), /Missing directory content field:.*Regenerate the plan/);
+    }
+  }
+  const missingContent = plan();
+  missingContent.pages[0].before = { ...structuredClone(state), content: null };
+  assert.equal(validatePlan(missingContent, 'directories', 'production').schema_version, 1);
 });

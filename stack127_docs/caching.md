@@ -18,7 +18,7 @@ Links can prefetch whole pages for fast navigation. A failed database call throw
 ## Indexing
 
 - A URL with a query string (`?…`) is never indexed. This includes search, filters, sort, and `?page=`. The proxy sends `X-Robots-Tag: noindex, follow` for these, and the canonical link points to the clean URL.
-- A page we want indexed gets its own path, such as `/platform-fees/communities` or later `/self-host-apps/categories/<name>`. It is indexed only after its row is published in `public.stack127_pages`.
+- A page we want indexed gets its own path, such as `/platform-fees/creators-and-communities` or later `/self-host-apps/categories/<name>`. It is indexed only after its row is published in `public.stack127_pages`.
 - See [seo.md](seo.md) for the registry and sitemap rules.
 
 ## Page patterns
@@ -69,6 +69,8 @@ The source tags live in `lib/cache-tags.ts`. `scripts/stack127/cache/targets.mjs
 | `launch_directories` | `stack127-launch-directories` | `page:launch-directories` |
 | `cli_apps` | `stack127-terminal-apps` | `cli-apps-catalog` |
 | `self_host_app`, `self_host_catalog` | `stack127-self-host-apps` and app detail tags | `self-host-catalog` and app detail tags |
+
+Keyboard-shortcut and ad-network child headings can inherit their parent directory icon. A parent `page` event also purges `keyboard-shortcuts-catalog` or `ad-networks-catalog`, shared by the parent and child responses. A child-only edit keeps its page-specific purge.
 
 Hardware data ships from repository files. Releases refresh it. Each hardware JSON response also carries `page:<directory>` so publication changes purge its index and details.
 

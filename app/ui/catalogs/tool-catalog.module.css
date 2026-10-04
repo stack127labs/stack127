@@ -19,81 +19,6 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  color: var(--color-text);
-  display: grid;
-  gap: var(--space-5);
-  grid-template-rows: auto 1fr auto;
-  min-height: 286px;
-  padding: var(--space-7);
-  text-decoration: none;
-  transition: background var(--motion-fast), border-color var(--motion-fast);
-}
-
-.card:hover {
-  background: var(--color-surface-2);
-  border-color: var(--color-accent-text);
-}
-
-.card:focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: 2px;
-}
-
-.art {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  min-height: 112px;
-}
-
-.art svg {
-  height: auto;
-  max-width: 140px;
-  width: 100%;
-}
-
-.icon svg {
-  color: var(--color-accent-text);
-  width: 64px;
-  height: 64px;
-}
-
-.copy {
-  align-content: start;
-  display: grid;
-  gap: var(--space-3);
-}
-
-.copy h3 {
-  color: var(--color-link);
-  font-family: var(--font-display);
-  font-size: var(--text-h3);
-  font-weight: var(--weight-bold);
-  letter-spacing: var(--tracking-display);
-  line-height: var(--line-heading);
-  margin: 0;
-}
-
-.copy p {
-  color: var(--color-text);
-  font-size: var(--text-small);
-  line-height: var(--line-body);
-  margin: 0;
-}
-
-.arrow {
-  color: var(--color-text-muted);
-  justify-self: end;
-}
-
-.card:hover .arrow {
-  color: var(--color-accent-text);
-}
-
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -104,13 +29,4 @@
   .grid {
     grid-template-columns: 1fr;
   }
-
-  .card {
-    min-height: 0;
-  }
 }
-
-.card[href]:hover,
-.card[href]:focus-visible { text-decoration: none; }
-.card[href]:hover h3,
-.card[href]:focus-visible h3 { text-decoration: underline; text-underline-offset: 3px; }

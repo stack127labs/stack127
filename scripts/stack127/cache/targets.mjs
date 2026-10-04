@@ -1,5 +1,5 @@
 import { PAGE_REGISTRY_TAG, HOME_PAGES_TAG, TOOL_PAGES_TAG, DIRECTORY_PAGES_TAG, TOOL_CATALOGS_TAG, TOOL_CATALOG_TAG, TOOL_PRIMARY_CATALOGS_TAG, SELF_HOST_INDEX_TAG, SELF_HOST_DETAILS_TAG, SELF_HOST_APP_TAG, CLI_APPS_TAG, SITEMAP_TAG, PLATFORM_FEES_TAG, AD_NETWORKS_TAG, LAUNCH_DIRECTORIES_TAG } from "../../../lib/cache-tags.ts";
-import { sectionPath } from "../../../lib/platform-fees/section-routes.ts";
+import { feeGroups, groupPath } from "../../../lib/platform-fees/groups.ts";
 const clean = (value) => String(value ?? "").replace(/^\/+|\/+$/g, "").toLowerCase();
 const pageTag = (path) => `page:${clean(path).replaceAll("/", ":") || "home"}`;
 
@@ -32,6 +32,9 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
         addPage("/api/self-host-apps/search", false);
         edgeTags.add("self-host-catalog");
       }
+      // Child headings inherit these parent directory icons.
+      if (slug === "keyboard-shortcuts") edgeTags.add("keyboard-shortcuts-catalog");
+      if (slug === "ad-networks") edgeTags.add("ad-networks-catalog");
       if (slug === "cli-apps") {
         addPage("/api/cli-apps/index", false);
         edgeTags.add("cli-apps-catalog");
@@ -80,7 +83,8 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
       nextTags.add(PLATFORM_FEES_TAG);
       edgeTags.add("platform-fees-catalog");
       addPage("/platform-fees");
-      if (slug && slug !== "all") addPage(sectionPath(slug));
+      // Refresh both the old and new category when a section moves.
+      for (const group of feeGroups) addPage(groupPath(group.name));
     } else if (event.entity_type === "ad_networks") {
       nextTags.add(AD_NETWORKS_TAG);
       edgeTags.add("ad-networks-catalog");

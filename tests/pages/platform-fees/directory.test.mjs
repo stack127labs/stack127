@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { validateDirectory, filterDirectory, hiddenRateCount, sectionFeeRange, sectionCheckedAt } from '../../../lib/platform-fees/model.ts';
+import { readFile } from 'node:fs/promises';
+import { feeGroups, groupPath, getFeeGroup } from '../../../lib/platform-fees/groups.ts';
+import { sectionPath, sectionSlug } from '../../../lib/platform-fees/section-routes.ts';
 const fields = ['Plan cost', 'Platform fee', 'Processing', 'Availability'].map((label, i) => ({ key: `f${i}`, label, icon: 'ReceiptText' }));
 const presentation = { icon: 'Download', group_name: 'Digital products and stores', intro: 'Compare download fees.', meta_title: 'Download fees compared', meta_description: 'Compare download fees and start costs.', related_sections: [] };
 const rate = (value, percent, label, fact_key = 'f1') => ({ value, percent, label, fact_key });
@@ -126,4 +129,27 @@ test('rate counting consumes each shown row once and respects fixed fees', () =>
   assert.equal(hiddenRateCount(receipt), 2);
   receipt.groups[0].rates[0].extra = '+ 50¢';
   assert.equal(hiddenRateCount(receipt), 3);
+});
+
+test('every reviewed listing belongs to one category and keeps its section and card destination', async () => {
+  const data = JSON.parse(await readFile(new URL('../../../scripts/platform-fees/data/directory.json', import.meta.url), 'utf8'));
+  validateDirectory(data);
+  const sections = new Map(data.sections.map(section => [section.id, section]));
+  const destinations = new Set();
+  for (const entry of data.entries) {
+    const section = sections.get(entry.section_id);
+    const path = groupPath(section.group_name);
+    const group = getFeeGroup(path.split('/').at(-1));
+    assert.ok(group, entry.name);
+    assert.equal(group.name, section.group_name);
+    assert.equal(sectionPath(section), `${path}#${sectionSlug(section.id)}`);
+    const destination = `${path}#${entry.id}`;
+    assert.ok(!destinations.has(destination), destination);
+    destinations.add(destination);
+  }
+  assert.equal(destinations.size, data.entries.length);
+  assert.deepEqual(new Set(data.sections.map(section => section.group_name)), new Set(feeGroups.map(group => group.name)));
+  assert.equal(getFeeGroup('desktop-apps'), undefined);
+  assert.equal(getFeeGroup('communities'), undefined);
+  assert.throws(() => groupPath('Unknown'), /Unknown platform fee group/);
 });

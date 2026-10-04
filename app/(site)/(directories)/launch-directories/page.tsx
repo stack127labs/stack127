@@ -1,13 +1,12 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
 import { ContentMarkdown } from "@/app/ui/content-markdown";
-import { Rocket } from "lucide-react";
 import { DirectoryQueryProvider } from "@/app/ui/directories/directory-query";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
 import { EntryHero } from "@/app/ui/site/entry-hero";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { PageHeader } from "@/app/ui/site/page-header";
-import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { getLaunchDirectorySnapshot, launchCategories } from "@/lib/launch-directories";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { LaunchDirectoryGuide } from "./launch-directory-guide";
@@ -36,7 +35,7 @@ export default async function LaunchDirectoriesPage() {
     <AppShell mainLabel="Launch directory results" menuLabel="Filters" sidebar={sidebar} sidebarLabel="Launch directory filters">
       <EntryHero art={null}>
         <PageHeader>
-          <h1><PageTitleIcon><Rocket strokeWidth={2.2} /></PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+          <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <ContentMarkdown markdown={directoryPage.intro_markdown} />
         </PageHeader>
       </EntryHero>

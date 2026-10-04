@@ -94,15 +94,30 @@ export async function checkRepositoryRequirements(requirements, state, root = pr
   if (state.content) {
     const markdown = Object.fromEntries(Object.entries(state.content).filter(([key, value]) => key.endsWith('_markdown') && typeof value === 'string'));
     validateToolMarkdown(markdown, { repositoryRoot: root });
-    if (state.family !== 'directory') {
-      const icons = await readFile(path.join(root, 'lib/tool-catalog-icons.ts'), 'utf8');
-      const arts = await readFile(path.join(root, 'lib/tool-catalog-art.ts'), 'utf8');
-      const keys = (source, name) => new Set([...source.split(`const ${name}:`)[1].split('};')[0].matchAll(/^\s*(?:"([a-z0-9-]+)"|([a-z0-9]+))\s*:/gm)].map(match => match[1] ?? match[2]));
-      const iconKeys = keys(icons, 'icons');
-      const artKeys = keys(arts, 'art');
-      const icon = state.family === 'tool' ? state.content.card_icon_key : state.content.icon_key;
-      const art = state.family === 'tool' ? [state.content.card_art_key] : [state.content.hero_art_key, state.content.home_art_key];
-      if (!iconKeys.has(icon) || art.some(key => !artKeys.has(key))) throw new Error(`Unregistered icon or card art for ${state.slug}`);
+    const keys = async (file, name) => {
+      const source = await readFile(await repositoryFile(file, root), 'utf8');
+      const entries = source.match(new RegExp(`\\bconst ${name}\\s*:[^=]+=[ \\t\\r\\n]*\\{([\\s\\S]*?)^\\s*\\};`, 'm'))?.[1];
+      if (entries === undefined) throw new Error(`Cannot read ${name} registry in ${file}`);
+      return new Set([...entries.matchAll(/^\s*(?:["']([a-z0-9-]+)["']|([a-z0-9]+(?:-[a-z0-9]+)*))\s*:/gm)]
+        .map(match => match[1] ?? match[2]));
+    };
+    const iconKeys = await keys('lib/card-icons.ts', 'icons');
+    const artKeys = await keys('lib/card-art.ts', 'art');
+    const icon = state.family === 'catalog' ? state.content.icon_key : state.content.card_icon_key;
+    const art = state.family === 'catalog' ? [state.content.hero_art_key, state.content.home_art_key] : [state.content.card_art_key];
+    if (state.family === 'directory' && state.registry.is_published) {
+      const source = await readFile(await repositoryFile('lib/page-registry-helpers.ts', root), 'utf8');
+      const homeSlugs = source.match(/\bexport const homePageSlugs\s*=\s*\[([\s\S]*?)\] as const;/)?.[1];
+      if (homeSlugs === undefined) throw new Error('Cannot read homepage slugs in lib/page-registry-helpers.ts');
+      const isHomePage = [...homeSlugs.matchAll(/["']([^"']+)["']/g)].some(match => match[1] === state.slug);
+      if (isHomePage && (icon == null || art.some(key => key == null))) {
+        throw new Error(`Homepage directory ${state.slug} requires registered card_icon_key and card_art_key`);
+      }
+    }
+    const nullable = state.family === 'directory';
+    if ((!nullable || icon != null) && !iconKeys.has(icon)
+      || art.some(key => (!nullable || key != null) && !artKeys.has(key))) {
+      throw new Error(`Unregistered icon or card art for ${state.slug}`);
     }
   }
 }

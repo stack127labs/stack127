@@ -1,6 +1,7 @@
 import { createHmac } from "node:crypto";
 import pg from "pg";
 import { targetsForEvents } from "./targets.mjs";
+import { selectRevalidationBatch } from "./refresh.mjs";
 
 const siteFlag = process.argv.indexOf("--site");
 const localSite = new URL(siteFlag === -1 ? "http://127.0.0.1:3333" : process.argv[siteFlag + 1]);
@@ -44,7 +45,7 @@ async function revalidatePending() {
     order by created_at, id
     limit 50
   `);
-  const events = result.rows;
+  const events = selectRevalidationBatch(result.rows);
   if (!events.length) return;
 
   let catalogSlugs = [];

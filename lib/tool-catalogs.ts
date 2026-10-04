@@ -4,6 +4,7 @@ import { unstable_cache } from "next/cache";
 import { getPool } from "./db";
 import type { Stack127Page } from "./page-registry";
 import { readPublicData, selectPublicRows } from "./public-data-api";
+import { normalizeCardAssets, selectCardRows } from "./card-data";
 
 type CatalogContent = {
   card_name: string;
@@ -14,9 +15,9 @@ type CatalogContent = {
   heading_after: string;
   intro: string;
   section_heading: string;
-  icon_key: string;
+  card_icon_key: string;
   hero_art_key: string;
-  home_art_key: string;
+  card_art_key: string;
   home_order: number;
 };
 
@@ -50,7 +51,7 @@ export type PublishedToolCatalog = ToolCatalogSummary & {
   tools: ToolCatalogCard[];
 };
 
-const catalogColumns = "card_name,card_description,page_id,heading_before,heading_mark,heading_after,intro,section_heading,icon_key,hero_art_key,home_art_key,home_order";
+const catalogColumns = "card_name,card_description,page_id,heading_before,heading_mark,heading_after,intro,section_heading,card_icon_key,hero_art_key,card_art_key,home_order";
 const pageColumns = "id,slug,page_family,label,meta_title,meta_description,is_published,row_created_at,published_at,updated_at,row_updated_at,cover_image_url,page_type,sitemap_priority";
 const membershipColumns = "catalog_page_id,tool_page_id,catalog_rank,display_order";
 const cardColumns = "page_id,card_name,card_description,card_icon_key,card_art_key";
@@ -62,7 +63,7 @@ function ids(values: Array<number | string>) {
 export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<ToolCatalogSummary[]> => {
   return readPublicData({
     dataApiRead: async () => {
-      const contents = await selectPublicRows<CatalogContent>("stack127_catalog_pages", {
+      const contents = await selectCardRows<CatalogContent>("stack127_catalog_pages", {
         select: catalogColumns,
         order: "home_order.asc",
       });
@@ -84,7 +85,7 @@ export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<T
       }
       return contents.flatMap((content) => {
         const page = pageById.get(String(content.page_id));
-        return page ? [{ ...content, page, tool_count: counts.get(String(content.page_id)) ?? 0 }] : [];
+        return page ? [{ ...(normalizeCardAssets(content, "catalog", page.slug) as CatalogContent), page, tool_count: counts.get(String(content.page_id)) ?? 0 }] : [];
       });
     },
     postgresRead: async () => {
@@ -101,7 +102,7 @@ export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<T
         group by catalog.page_id, page.id
         order by catalog.home_order, page.label
       `);
-      return result.rows;
+      return result.rows.map(row => normalizeCardAssets(row, "catalog", row.page.slug) as ToolCatalogSummary);
     },
   });
 }, [TOOL_CATALOGS_TAG], {

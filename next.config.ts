@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 import { collectAllowedDevOrigins } from "./lib/allowed-dev-origins";
 import { legacyShortcutRedirects } from "./lib/legacy-shortcut-redirects";
-import { platformFeeRedirects } from "./lib/platform-fees/section-routes";
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: collectAllowedDevOrigins(),
@@ -44,7 +43,6 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       ...legacyShortcutRedirects,
-      ...platformFeeRedirects,
       { source: "/dns-tools/caa-checker", destination: "/caa-checker", permanent: true },
       { source: "/dns-tools/dns-change-checker", destination: "/dns-change-checker", permanent: true },
       { source: "/dns-tools/dns-lookup", destination: "/dns-lookup", permanent: true },
