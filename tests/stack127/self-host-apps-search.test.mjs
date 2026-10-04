@@ -177,7 +177,8 @@ test("origin verification checks search against the source and rejects a stale r
     "@/lib/self-hosted-app-resource-planner/data": {},
     "@/lib/db": { getPool: () => ({ query: async () => ({ rows: [{ is_published: published }] }) }) },
     "@/lib/page-source": {},
-    "@/lib/platform-fees/section-routes": {},
+    "@/lib/platform-fees/groups": {},
+    "@/lib/launch-directories-data": {},
   }, { fetch: async () => published ? Response.json(served) : Response.json({ error: "Directory not found." }, { status: 404 }) });
   const request = () => new Request("https://stack127.com/api/cache/refresh", {
     method: "POST", body: JSON.stringify({ paths: ["/api/self-host-apps/search"] }),
@@ -225,7 +226,8 @@ test("origin verification rejects stale CLI and hardware indexes and verifies un
         return { rows: [{ is_published: published }] };
       } }) },
       "@/lib/page-source": {},
-      "@/lib/platform-fees/section-routes": {},
+      "@/lib/platform-fees/groups": {},
+      "@/lib/launch-directories-data": {},
     }, { fetch: async () => Response.json(served, { status }) });
     const request = () => new Request("https://stack127.com/api/cache/refresh", {
       method: "POST", body: JSON.stringify({ paths: [path] }),
@@ -243,10 +245,10 @@ test("origin verification rejects stale CLI and hardware indexes and verifies un
 });
 
 test("deleted directory detail sources accept only 404s even when their registry rows remain published", async () => {
-  const { sectionSlugs } = await import("../../lib/platform-fees/section-routes.ts");
+  const { getFeeGroup } = await import("../../lib/platform-fees/groups.ts");
   for (const [path, sourceId] of [
     ["/ad-networks/mediavine", "mediavine"],
-    ["/platform-fees/communities", "paid-communities-and-memberships"],
+    ["/platform-fees/creators-and-communities", "Creators and communities"],
   ]) {
     let exists = true;
     let status = 200;
@@ -261,7 +263,8 @@ test("deleted directory detail sources accept only 404s even when their registry
       "@/lib/self-host-apps-search-data": {}, "@/lib/self-host-apps-search": {},
       "@/lib/self-hosted-app-resource-planner/data": {},
       "@/lib/page-source": { sitePageAvailable: () => true },
-      "@/lib/platform-fees/section-routes": { sectionSlugs },
+      "@/lib/platform-fees/groups": { getFeeGroup },
+      "@/lib/launch-directories-data": {},
       "@/lib/db": { getPool: () => ({ query: async (sql, values) => {
         if (sql.includes("public.stack127_pages")) return { rows: [{ is_published: true, row_updated_at: new Date(revision) }] };
         assert.equal(values[0], sourceId);

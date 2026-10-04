@@ -2,9 +2,10 @@ import { notFound } from 'next/navigation';
 import { getRequiredDirectoryPage } from '@/lib/directory-pages';
 import { getFeeDirectory } from '@/lib/platform-fees/queries';
 import { sectionCheckedAt } from '@/lib/platform-fees/model';
+import { feeGroups, getFeeGroup, groupPath } from '@/lib/platform-fees/groups';
 import { sectionPath, sectionSlug } from '@/lib/platform-fees/section-routes';
-import { FeeFilters, FeeMatchCount, FeeSearch, FeeSectionGrid } from '../filters';
-import { FeeShell, FeeSourceList, SectionTile } from '../components';
+import { FeeCategoryBody, FeeFilters, FeeMatchCount } from '../filters';
+import { FeeShell, FeeSourceList, SectionIcon } from '../components';
 import { FeeSources } from '../sources';
 import { FeeCard } from '../fee-card';
 import styles from '../page.module.css';
@@ -13,46 +14,56 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
   day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
 });
 
-// Build every section during the release. Unpublished sections still return 404.
-export async function generateStaticParams() {
-  const directory = await getFeeDirectory();
-  return directory.sections.map(section => ({ section: sectionSlug(section.id) }));
+// Build every category during the release. Unpublished categories still return 404.
+export function generateStaticParams() {
+  return feeGroups.map(group => ({ section: group.slug }));
 }
 
-export default async function FeeSectionPage({ params }: { params: Promise<{ section: string }> }) {
+export default async function FeeCategoryPage({ params }: { params: Promise<{ section: string }> }) {
   const { section: slug } = await params;
+  const group = getFeeGroup(slug);
+  if (!group) notFound();
   const directoryPage = await getRequiredDirectoryPage(`platform-fees/${slug}`);
   // A failed load must surface as an error, never as a cacheable page.
   const directory = await getFeeDirectory();
-  const section = directory.sections.find(section => sectionSlug(section.id) === slug);
-  if (!section) notFound();
-  const sectionEntries = directory.entries.filter(entry => entry.section_id === section.id);
-  const items = sectionEntries.map(entry => ({
-    id: entry.id,
-    text: `${entry.name} ${entry.card.tag} ${entry.summary}`.toLocaleLowerCase('en-US'),
-  }));
-  const checkedAt = sectionCheckedAt(sectionEntries);
-  const related = section.related_sections.map(id => directory.sections.find(section => section.id === id)!).filter(Boolean);
-  const path = sectionPath(section.id);
+  const sections = directory.sections.filter(section => section.group_name === group.name);
+  if (!sections.length) notFound();
+  const path = groupPath(group.name);
+  const blocks = sections.map(section => {
+    const sectionEntries = directory.entries.filter(entry => entry.section_id === section.id);
+    const checkedAt = sectionCheckedAt(sectionEntries);
+    const items = sectionEntries.map(entry => ({
+      id: entry.id,
+      text: `${entry.name} ${entry.card.tag} ${entry.summary}`.toLocaleLowerCase('en-US'),
+      card: <FeeCard key={entry.id} entry={entry} />,
+    }));
+    return {
+      anchor: sectionSlug(section.id),
+      href: sectionPath(section),
+      name: section.name,
+      intro: section.intro,
+      icon: section.icon,
+      checkedLabel: checkedAt ? <p key={`${section.id}-checked`} className={styles.checked}>Last checked <time dateTime={checkedAt}>{dateFormat.format(new Date(checkedAt))}</time></p> : null,
+      sources: <FeeSources key={`${section.id}-sources`}><FeeSourceList entries={sectionEntries} section={section} /></FeeSources>,
+      items,
+    };
+  });
 
-  return <FeeShell sections={directory.sections} selected={section.id} directoryPage={directoryPage}>
-    <FeeSearch>
-      <FeeFilters action={path} />
-      <div className={styles.overview}>
-        <p><FeeMatchCount items={items} label="platforms" /></p>
-        <div className={styles.overviewActions}>
-          <p>US / USD unless labelled</p>
-          {checkedAt && <p>Last checked <time dateTime={checkedAt}>{dateFormat.format(new Date(checkedAt))}</time></p>}
-          <FeeSources><FeeSourceList entries={sectionEntries} section={section} /></FeeSources>
-        </div>
-      </div>
-      <FeeSectionGrid path={path} items={sectionEntries.map((entry, index) => ({ ...items[index], card: <FeeCard entry={entry} /> }))} />
-    </FeeSearch>
-    {related.length > 0 && <section className={styles.sectionGroup} aria-labelledby="related-sections">
-      <h2 id="related-sections">Related sections</h2>
-      <div className={styles.tiles}>{related.map(section =>
-        <SectionTile key={section.id} section={section} entries={directory.entries.filter(entry => entry.section_id === section.id)} />,
-      )}</div>
-    </section>}
+  return <FeeShell
+    directoryPage={directoryPage}
+    group={group}
+    anchors={blocks.map(block => ({
+      href: block.href,
+      label: block.name,
+      icon: <SectionIcon key={block.anchor} icon={block.icon} size={15} />,
+      text: block.items.map(item => item.text).join('\n'),
+    }))}
+  >
+    <FeeFilters action={path} />
+    <div className={styles.overview}>
+      <p aria-live="polite"><FeeMatchCount items={blocks.flatMap(block => block.items)} label="platforms" /></p>
+      <p>US / USD unless labelled</p>
+    </div>
+    <FeeCategoryBody path={path} sections={blocks} />
   </FeeShell>;
 }

@@ -71,7 +71,7 @@
   margin-top: var(--space-1);
 }
 
-.tile h3 {
+.tile h2 {
   margin: 0;
   padding-right: var(--space-7);
   font-size: var(--text-h3);
@@ -192,20 +192,37 @@
   font-size: var(--text-small);
 }
 
-.sectionLinks {
-  display: grid;
-  gap: var(--space-1);
+.jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.sectionLinks a {
-  padding: var(--space-3) 0;
+.jump a {
+  color: var(--color-link);
+  font-size: var(--text-small);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.jump a:focus-visible {
+  box-shadow: var(--focus-ring);
+  outline: 2px solid transparent;
+}
+
+.sidebarAnchors {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.sidebarAnchorLabel {
+  margin: 0;
   color: var(--color-text-muted);
   font-size: var(--text-small);
-  text-decoration: none;
-}
-
-.sectionLinks a:hover, .sectionLinks a[aria-current=page] {
-  color: var(--color-text);
 }
 
 .results {
@@ -283,34 +300,37 @@
 .sectionGroup {
   display: grid;
   gap: var(--space-7);
+  scroll-margin-top: calc(var(--top-bar-height) + var(--space-6));
 }
 
-.sectionGroup > h2 {
+.sectionHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.sectionHeading h2 {
   margin: 0;
   font-family: var(--font-display);
   font-size: var(--text-h2);
   line-height: var(--line-heading);
 }
 
-.sectionLinks details {
-  border-top: 1px solid var(--color-border);
-}
-
-.sectionLinks summary {
-  padding: var(--space-4) 0;
+.checked {
+  margin: 0;
+  color: var(--color-text-muted);
   font-size: var(--text-small);
-  cursor: pointer;
-  color: var(--color-text);
 }
 
-.sectionLinks summary:focus-visible {
-  box-shadow: var(--focus-ring);
-  outline: none;
+.sectionIntro {
+  max-width: var(--measure-prose);
+  margin: 0;
 }
 
-.sectionLinks details > div {
-  display: grid;
-  padding-left: var(--space-4);
+.resetLine {
+  margin: 0;
 }
 
 .fullFacts {

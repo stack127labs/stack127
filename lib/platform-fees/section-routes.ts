@@ -1,4 +1,7 @@
-// Keep database section IDs stable while giving public pages shorter addresses.
+import type { FeeSection } from './model.ts';
+import { groupPath } from './groups.ts';
+
+// Keep section anchors stable when categories combine several sections.
 export const sectionSlugs: Record<string, string> = {
   'watch-apps-watch-faces-and-device-themes': 'watch-apps-and-themes',
   'apps-plugins-and-integrations': 'app-marketplaces',
@@ -44,12 +47,6 @@ export function sectionSlug(id: string): string {
   return sectionSlugs[id] ?? id;
 }
 
-export function sectionPath(id: string): string {
-  return `/platform-fees/${sectionSlug(id)}`;
+export function sectionPath(section: Pick<FeeSection, 'id' | 'group_name'>): string {
+  return `${groupPath(section.group_name)}#${sectionSlug(section.id)}`;
 }
-
-export const platformFeeRedirects = Object.entries(sectionSlugs).map(([id, slug]) => ({
-  source: `/platform-fees/${id}`,
-  destination: `/platform-fees/${slug}`,
-  permanent: true,
-}));

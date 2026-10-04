@@ -1,6 +1,7 @@
 import { createHmac } from "node:crypto";
 import pg from "pg";
 import { targetsForEvents } from "./targets.mjs";
+import { selectRevalidationBatch } from "./refresh.mjs";
 
 const developmentRef = "yzasonowwlvritqicatj";
 const direct = new URL(process.env.DATABASE_URL ?? "postgresql://invalid:invalid@invalid/invalid");
@@ -34,7 +35,7 @@ async function revalidatePending() {
     order by created_at, id
     limit 50
   `);
-  const events = result.rows;
+  const events = selectRevalidationBatch(result.rows);
   if (!events.length) return;
 
   let catalogSlugs = [];

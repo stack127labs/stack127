@@ -101,7 +101,7 @@ jobs:
             echo 'run=true' >> "$GITHUB_OUTPUT"
           fi
           # The cache worker bundles the shared cache target rules.
-          if git diff --quiet "$base" "$RELEASE_SHA" -- supabase/functions scripts/stack127/cache/targets.mjs scripts/stack127/cache/refresh.mjs lib/cache-tags.ts lib/platform-fees/section-routes.ts; then
+          if git diff --quiet "$base" "$RELEASE_SHA" -- supabase/functions scripts/stack127/cache/targets.mjs scripts/stack127/cache/refresh.mjs lib/cache-tags.ts lib/platform-fees/section-routes.ts lib/platform-fees/groups.ts; then
             echo 'functions=false' >> "$GITHUB_OUTPUT"
           else
             echo 'functions=true' >> "$GITHUB_OUTPUT"

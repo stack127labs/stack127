@@ -18,7 +18,7 @@ Links can prefetch whole pages for fast navigation. A failed database call throw
 ## Indexing
 
 - A URL with a query string (`?…`) is never indexed. This includes search, filters, sort, and `?page=`. The proxy sends `X-Robots-Tag: noindex, follow` for these, and the canonical link points to the clean URL.
-- A page we want indexed gets its own path, such as `/platform-fees/communities` or later `/self-host-apps/categories/<name>`. It is indexed only after its row is published in `public.stack127_pages`.
+- A page we want indexed gets its own path, such as `/platform-fees/creators-and-communities` or later `/self-host-apps/categories/<name>`. It is indexed only after its row is published in `public.stack127_pages`.
 - See [seo.md](seo.md) for the registry and sitemap rules.
 
 ## Page patterns
