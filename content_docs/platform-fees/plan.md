@@ -2,7 +2,7 @@
 
 ## Current state
 
-The current draft is 543 listings in 49 sections on 8 category pages, plus the index at `/platform-fees`. Its code, icons, source data, and docs can ship while its production registry rows remain unpublished. Development keeps the index and the category pages available for review.
+The current draft is 542 listings in 49 sections on 8 category pages, plus the index at `/platform-fees`. Its code, icons, source data, and docs can ship while its production registry rows remain unpublished. Development keeps the index and the category pages available for review.
 
 A section is an anchor on its category page. The old public section URLs are removed. Nothing redirects them to the category pages.
 

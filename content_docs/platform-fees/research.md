@@ -1,6 +1,6 @@
 # Platform fee research notes
 
-Historical research for the retired 15-platform reference. The current directory has 543 entries across 49 sections. Use [brief.md](brief.md) for its design and [directory.json](../../scripts/platform-fees/data/directory.json) for its editable draft. Recheck these historical claims before reuse.
+Historical research for the retired 15-platform reference. The current directory has 542 entries across 49 sections. Use [brief.md](brief.md) for its design and [directory.json](../../scripts/platform-fees/data/directory.json) for its editable draft. Recheck these historical claims before reuse.
 
 Gathered: 2026-09-25, during phase 1. These notes shape the fields, page structure, and data model. They are not publication data. Every figure must be rechecked against the official source in phase 3 before it enters the database.
 
