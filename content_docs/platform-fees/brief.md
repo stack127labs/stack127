@@ -6,7 +6,7 @@ Help makers compare what platforms charge for selling apps, software, digital pr
 
 ## Current scope
 
-The draft has 543 listings in 49 sections, grouped into 8 category pages.
+The draft has 542 listings in 49 sections, grouped into 8 category pages.
 
 `/platform-fees` is the category index. Each category has its own page under `/platform-fees/<category>`. A section is a heading on its category page, with its own anchor. These pages list platforms. They are not one page per platform.
 
@@ -28,7 +28,7 @@ The current draft includes payment processors and checkout services. The old 15-
 ## Page behavior
 
 - The index shows eight category cards. A card shows its section count and listing count. It does not merge fees from different sections into one range.
-- Search on the index covers all 543 listings. A result opens that listing on its category page: `/platform-fees/<category>#<listing-id>`.
+- Search on the index covers all 542 listings. A result opens that listing on its category page: `/platform-fees/<category>#<listing-id>`.
 - A category page server-renders every section in that category, in the directory order. Each section has an h2, its introduction, its fee cards, and its own source list. The source list uses that section's field labels.
 - Search on a category page hides cards that do not match. A section with no matching cards is hidden too. Clear the search to show the whole category again.
 - Section links use the stable section anchor, such as `/platform-fees/apps-and-software#app-marketplaces`. The anchor comes from `sectionSlug`.
