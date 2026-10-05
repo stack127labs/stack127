@@ -2217,5 +2217,122 @@
     "kind": "favicon",
     "source_dimensions": "192x192",
     "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "launchfree": {
+    "status": "usable",
+    "source_url": "https://launchfree.io/icon-512.png",
+    "page_url": "https://launchfree.io/",
+    "checked_at": "2026-10-05T10:29:27.679Z",
+    "kind": "favicon",
+    "source_dimensions": "512x512",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "ignlab-launch": {
+    "status": "usable",
+    "source_url": "https://launch.ignlab.net/",
+    "page_url": "https://launch.ignlab.net/",
+    "checked_at": "2026-10-05T10:29:27.679Z",
+    "kind": "favicon",
+    "source_dimensions": "100x100",
+    "note": "Official inline SVG favicon from homepage HTTP 200; it renders a rocket glyph."
+  },
+  "indieneed": {
+    "status": "usable",
+    "source_url": "https://www.indieneed.com/favicon-48.png?v=20260824",
+    "page_url": "https://www.indieneed.com/",
+    "checked_at": "2026-10-05T10:29:27.679Z",
+    "kind": "favicon",
+    "source_dimensions": "48x48",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "favors-dev": {
+    "status": "usable",
+    "source_url": "https://favors.dev/icon.png?icon.2sxoyt867npjy.png",
+    "page_url": "https://favors.dev/",
+    "checked_at": "2026-10-05T10:29:27.679Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "betterlaunch": {
+    "status": "usable",
+    "source_url": "https://www.betterlaunch.co/img/logos/favicon.png",
+    "page_url": "https://www.betterlaunch.co/",
+    "checked_at": "2026-10-05T10:29:27.679Z",
+    "kind": "favicon",
+    "source_dimensions": "144x144",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "scrolllaunch": {
+    "status": "usable",
+    "source_url": "https://www.scrolllaunch.com/favicon_io/android-chrome-512x512.png",
+    "page_url": "https://www.scrolllaunch.com/",
+    "checked_at": "2026-10-05T10:29:27.679Z",
+    "kind": "mask-icon",
+    "source_dimensions": "512x512",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "aura-plus-plus": {
+    "status": "usable",
+    "source_url": "https://auraplusplus.com/icons/icon-192.png",
+    "page_url": "https://auraplusplus.com/",
+    "checked_at": "2026-10-05T10:29:27.679Z",
+    "kind": "favicon",
+    "source_dimensions": "192x192",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "launchit": {
+    "status": "usable",
+    "source_url": "https://launchit.fast/img/favicon-32x32.png",
+    "page_url": "https://launchit.fast/",
+    "checked_at": "2026-10-05T10:29:27.679Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "launchigniter": {
+    "status": "usable",
+    "source_url": "https://launchigniter.com/favicon-32x32.png",
+    "page_url": "https://launchigniter.com/",
+    "checked_at": "2026-10-05T10:29:27.679Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "letslaunch": {
+    "status": "usable",
+    "source_url": "https://letslaunch.today/icon.png?icon.097pmuhs5ffj2.png?dpl=b93de4c",
+    "page_url": "https://letslaunch.today/",
+    "checked_at": "2026-10-05T10:29:27.679Z",
+    "kind": "favicon",
+    "source_dimensions": "192x192",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "kittylaunch": {
+    "status": "usable",
+    "source_url": "https://kittylaunch.com/favicon.ico",
+    "page_url": "https://kittylaunch.com/",
+    "checked_at": "2026-10-05T10:29:27.679Z",
+    "kind": "favicon-fallback",
+    "source_dimensions": "192x192",
+    "note": "Official same-origin favicon returned HTTP 200; homepage request timed out."
+  },
+  "saasgrow": {
+    "status": "usable",
+    "source_url": "https://saasgrow.app/icon.svg?icon.25e81301.svg",
+    "page_url": "https://saasgrow.app/",
+    "checked_at": "2026-10-05T10:29:27.679Z",
+    "kind": "favicon",
+    "source_dimensions": "32x32",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
+  },
+  "firsto": {
+    "status": "usable",
+    "source_url": "https://firsto.co/favicon.ico?favicon.3w43idtmciv-r.ico",
+    "page_url": "https://firsto.co/",
+    "checked_at": "2026-10-05T10:29:27.679Z",
+    "kind": "favicon",
+    "source_dimensions": "256x256",
+    "note": "Official site asset; HTTP 200, homepage HTTP 200."
   }
 }

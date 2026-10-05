@@ -70,7 +70,8 @@ test("publication rejects partial data, excluded catalogs and missing public evi
     assert.throws(() => validateLaunchPublication(rows.map((row, i) => i ? row : { ...row, cost_tag })), /Missing cost_tag/);
   }
   assert.equal(validateLaunchPublication([...rows, { slug: "hidden", is_published: false, cost_tag: null }]), 142);
-  assert.throws(() => validateLaunchPublication(rows.slice(1)), /Expected 142/);
+  assert.equal(validateLaunchPublication(rows.slice(1)), 141);
+  assert.throws(() => validateLaunchPublication([]), /No public launch listings/);
   assert.throws(() => validateLaunchPublication(rows.map((row, i) => i ? row : { ...row, categories: ["community-posts"] })), /Community post/);
   assert.throws(() => validateLaunchPublication(rows.map((row, i) => i ? row : { ...row, categories: ["app-stores-integrations"] })), /App store/);
   for (const slug of ["official-mcp-registry", "docker-mcp-catalog", "cline-mcp-marketplace", "lobehub-mcp-marketplace", "mcpservers-org", "rapidapi-hub", "api-list"]) {
