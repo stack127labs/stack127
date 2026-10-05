@@ -186,13 +186,27 @@ export async function exportProofs(snapshot, directory) {
   return proofs;
 }
 
-export async function verifyPublicAssets(snapshot, directory, { site = "https://stack127.com", fetchImplementation = fetch } = {}) {
+export async function verifyPublicAssets(snapshot, directory, { site = "https://stack127.com", fetchImplementation = fetch,
+  attempts = 1, delayMs = 5000, waitImplementation = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds)) } = {}) {
+  if (!Number.isInteger(attempts) || attempts < 1) throw new Error("Public asset verification needs at least one attempt.");
   const proofs = await exportProofs(snapshot, directory);
   for (let index = 0; index < proofs.length; index += 8) {
     await Promise.all(proofs.slice(index, index + 8).map(async proof => {
-      const response = await siteRequest(site, proof.path, {}, fetchImplementation);
-      if (response.status !== proof.status || response.headers.get("x-stack127-frontend-sha") !== snapshot.sha ||
-          await bytesDigest(await response.arrayBuffer()) !== proof.digest) throw new Error(`Public frontend differs from the deployed export: ${proof.path}`);
+      for (let attempt = 1; ; attempt++) {
+        try {
+          const response = await siteRequest(site, proof.path, {}, fetchImplementation);
+          const observedSha = response.headers.get("x-stack127-frontend-sha");
+          const contentMatches = await bytesDigest(await response.arrayBuffer()) === proof.digest;
+          if (response.status !== proof.status || observedSha !== snapshot.sha || !contentMatches) {
+            throw new Error(`Public frontend differs from the deployed export: ${proof.path}, status ${response.status}, SHA ${observedSha ?? "missing"}, content matches ${contentMatches}.`);
+          }
+          return;
+        } catch (error) {
+          if (attempt >= attempts) throw error;
+          console.log(`Waiting for Cloudflare content propagation, attempt ${attempt}/${attempts}: ${error.message}`);
+          await waitImplementation(delayMs);
+        }
+      }
     }));
   }
   return proofs;
@@ -360,7 +374,7 @@ export async function completeRefresh(client, snapshot, directory, options = {})
   validateSnapshot(snapshot);
   if (options.dryRun) return { acknowledged: 0, captured: snapshot.events.length, dryRun: true };
   await checkCurrentRelease({ ...options, sha: snapshot.sha });
-  await verifyPublicAssets(snapshot, directory, options);
+  await verifyPublicAssets(snapshot, directory, { ...options, attempts: options.assetVerificationAttempts ?? 12 });
   const { rows } = await client.query("select signing_key from public.stack127_cache_credentials where id");
   await refreshApiRecords(snapshot, rows[0]?.signing_key, options);
   await verifyResourcePlannerQueries(client, snapshot, options);

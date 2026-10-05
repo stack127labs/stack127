@@ -208,6 +208,61 @@ test("public verification catches stale content from an earlier build of the sam
   } finally { await files.close(); }
 });
 
+test("public asset retries wait for the exact release bytes after status and SHA recover", async () => {
+  const files = await fixture();
+  let requests = 0;
+  const waits = [];
+  try {
+    assert.equal((await verifyPublicAssets(snapshot(), files.directory, { attempts: 4, delayMs: 123,
+      waitImplementation: async milliseconds => { waits.push(milliseconds); },
+      fetchImplementation: async (url, init) => {
+        if (new URL(url).pathname === "/frontend-release.json") {
+          requests++;
+          if (requests === 1) return new Response("not ready", { status: 503 });
+          if (requests === 2) return new Response(files.bodies.get("/frontend-release.json"), { headers: { "x-stack127-frontend-sha": "d".repeat(40) } });
+          if (requests === 3) return new Response(JSON.stringify({ sha, builtAt: "earlier build" }), { headers: { "x-stack127-frontend-sha": sha } });
+        }
+        return files.fetchImplementation(url, init);
+      },
+    })).length, 5);
+    assert.equal(requests, 4);
+    assert.deepEqual(waits, [123, 123, 123]);
+  } finally { await files.close(); }
+});
+
+test("stale same-commit content exhausts retries before any API refresh or acknowledgement", async () => {
+  const files = await fixture();
+  const queries = [];
+  let waits = 0;
+  try {
+    files.bodies.set("/about", "<main>Old content at the current SHA</main>");
+    await assert.rejects(completeRefresh({ async query(text) { queries.push(text); return { rows: [] }; } }, snapshot(), files.directory, {
+      token: "read", assetVerificationAttempts: 2, fetchImplementation: files.fetchImplementation,
+      waitImplementation: async () => { waits++; },
+    }), /content matches false/);
+    assert.equal(waits, 1);
+    assert.deepEqual(queries, []);
+  } finally { await files.close(); }
+});
+
+test("retries cannot accept a removed page served with status 200", async () => {
+  const files = await fixture();
+  const captured = snapshot([{ ...event, slug: "removed", fingerprint: "deleted" }]);
+  let requests = 0;
+  try {
+    await assert.rejects(verifyPublicAssets(captured, files.directory, { attempts: 2, waitImplementation: async () => {},
+      fetchImplementation: (url, init) => {
+        if (new URL(url).pathname === "/removed") {
+          requests++;
+          return new Response("<main>Page not found</main>", { headers: { "x-stack127-frontend-sha": sha } });
+        }
+        return files.fetchImplementation(url, init);
+      },
+    }), /status 200/);
+    assert.equal(requests, 2);
+  } finally { await files.close(); }
+});
+
 test("deleted pages require the exported 404 rather than an old static page", async () => {
   const files = await fixture();
   const captured = snapshot([{ ...event, slug: "removed", fingerprint: "deleted" }]);
