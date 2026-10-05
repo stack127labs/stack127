@@ -13,7 +13,7 @@ const excludedDeveloperCatalogs = new Set([
 
 export function validateLaunchPublication(records) {
   const visible = records.filter((record) => record.is_published);
-  if (visible.length !== 142) throw new Error(`Expected 142 public listings, found ${visible.length}`);
+  if (!visible.length) throw new Error("No public launch listings found");
   for (const row of visible) {
     if (row.categories?.includes("community-posts")) throw new Error(`Community post cannot publish: ${row.slug}`);
     // App stores and integration catalogs need a platform build, so they aren't launch directories.

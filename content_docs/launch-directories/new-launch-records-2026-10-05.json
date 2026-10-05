@@ -1,0 +1,1026 @@
+[
+  {
+    "slug": "launchfree",
+    "name": "LaunchFree.io",
+    "website_url": "https://launchfree.io/",
+    "submit_url": "https://launchfree.io/submit.html",
+    "categories": [
+      "launch-boards",
+      "prelaunch-beta"
+    ],
+    "summary": "A free launch directory with permanent listings and manual review.",
+    "best_for": "SaaS, developer and creator tools, newsletters, and prelaunch projects.",
+    "cost_kind": "free",
+    "cost_label": "Free forever for listings; optional sponsored-placement price is not posted.",
+    "cost_tag": "Free",
+    "cost_note": "Optional sponsorship available",
+    "review_time_label": "Manual review, usually within 24 hours, according to the FAQ.",
+    "link_type_kind": "dofollow",
+    "link_type_label": "Dofollow in the Intakio sample; the FAQ says every approved listing gets one.",
+    "eligibility_label": "Legal products, services, and ideas at any stage, including prelaunch; adult, gambling, weapons, scams, and similar listings are excluded.",
+    "example_listing_url": "https://launchfree.io/listings/intakio.html",
+    "sources": [
+      "https://launchfree.io/faq.html",
+      "https://launchfree.io/submit.html",
+      "https://launchfree.io/listings/intakio.html"
+    ],
+    "research_notes": "The official form is public and does not require an account. The listing page has a permanent product link. The badge is optional. The FAQ says optional sponsored placements fund the service, but does not publish their price. Optional sponsored-placement pricing could not be verified because the FAQ gives no amount.",
+    "evidence": {
+      "cost": {
+        "source_url": "https://launchfree.io/faq.html",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official FAQ",
+        "note": "Listings are free forever with no listing or approval fee. Couldn’t verify optional sponsored-placement pricing: the FAQ mentions sponsorship but publishes no price."
+      },
+      "review_time": {
+        "source_url": "https://launchfree.io/faq.html",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official FAQ",
+        "note": "Manual review is usually within 24 hours; this is the operator's estimate."
+      },
+      "eligibility": {
+        "source_url": "https://launchfree.io/faq.html",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official FAQ",
+        "note": "Accepts legal products, services, ideas, and prelaunch work. The FAQ lists excluded categories."
+      },
+      "submission": {
+        "source_url": "https://launchfree.io/submit.html",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTTP GET",
+        "note": "HTTP 200. The official multi-step form loaded; no account gate appeared. No form was submitted."
+      },
+      "link_type": {
+        "source_url": "https://launchfree.io/listings/intakio.html",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTML GET; raw anchor inspection",
+        "href": "https://intakio.online/",
+        "rel": [
+          "noopener"
+        ],
+        "sampled_tier": "public listing; tier not displayed",
+        "note": "Intakio's maker-site anchor has rel=noopener only, so this sample is followable."
+      },
+      "link_policy": {
+        "source_url": "https://launchfree.io/faq.html",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official operator policy",
+        "note": "The FAQ says every approved listing receives a permanent dofollow link; the badge is optional."
+      }
+    },
+    "checked_on": "2026-10-05",
+    "is_published": true,
+    "submission_status": "verified"
+  },
+  {
+    "slug": "ignlab-launch",
+    "name": "Ignlab Launch",
+    "website_url": "https://launch.ignlab.net/",
+    "submit_url": "https://launch.ignlab.net/submit.html",
+    "categories": [
+      "startup-software"
+    ],
+    "summary": "A free directory for SaaS tools and web products, with review before publication.",
+    "best_for": "SaaS and web tools, including developer utilities.",
+    "cost_kind": "free",
+    "cost_label": "Free; no paid submission tier is listed.",
+    "cost_tag": "Free",
+    "cost_note": null,
+    "review_time_label": "Every submission is reviewed before publication; no review time is stated.",
+    "link_type_kind": "ugc",
+    "link_type_label": "UGC and nofollow in the SchemaExtract sample.",
+    "eligibility_label": "SaaS tools and web products. The form asks for a product site, name, tagline, and category.",
+    "example_listing_url": "https://launch.ignlab.net/t/schemaextract",
+    "sources": [
+      "https://launch.ignlab.net/",
+      "https://launch.ignlab.net/submit.html",
+      "https://launch.ignlab.net/t/schemaextract"
+    ],
+    "research_notes": "The homepage says the directory is free and needs no sign-up. The linked /submit path returns 404; the working official form is /submit.html. The sample link is marked nofollow and ugc.",
+    "evidence": {
+      "cost": {
+        "source_url": "https://launch.ignlab.net/submit.html",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official submission page",
+        "note": "The form says submissions are free; the homepage says free forever. No paid submission tier is listed."
+      },
+      "review_time": {
+        "source_url": "https://launch.ignlab.net/submit.html",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official submission page",
+        "note": "Every submission is reviewed before going live. Couldn’t verify an exact review time: the official submission page gives no ETA."
+      },
+      "eligibility": {
+        "source_url": "https://launch.ignlab.net/submit.html",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official submission form",
+        "note": "The form is for SaaS or AI tools and asks for the product homepage and category. No account is required."
+      },
+      "submission": {
+        "source_url": "https://launch.ignlab.net/submit.html",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTTP GET",
+        "note": "HTTP 200 and the official form loaded. The homepage links here. The separate /submit route returned 404. No form was submitted."
+      },
+      "link_type": {
+        "source_url": "https://launch.ignlab.net/t/schemaextract",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTML GET; raw anchor inspection",
+        "href": "https://schemaextract.shop",
+        "rel": [
+          "noopener",
+          "nofollow",
+          "ugc"
+        ],
+        "sampled_tier": "public tool listing",
+        "note": "SchemaExtract's maker-site link has both nofollow and ugc rel values."
+      }
+    },
+    "checked_on": "2026-10-05",
+    "is_published": true,
+    "submission_status": "verified"
+  },
+  {
+    "slug": "indieneed",
+    "name": "IndieNeed",
+    "website_url": "https://www.indieneed.com/",
+    "submit_url": "https://www.indieneed.com/submit",
+    "categories": [
+      "launch-boards"
+    ],
+    "summary": "An indie product launch board with free staff review and paid featured plans.",
+    "best_for": "Indie makers launching SaaS, AI tools, apps, or early-stage products.",
+    "cost_kind": "free_and_paid",
+    "cost_label": "Free Basic; Starter $15/7 days, Pro $30/14 days, Premium $60/14 days, Ultimate $120/30 days; sidebar ad $21/week. Paid launch plans are one-time payments, not subscriptions.",
+    "cost_tag": "Free",
+    "cost_note": "Paid from $15 once",
+    "review_time_label": "Free listings get staff review with no ETA; paid plans skip review and use the chosen launch date.",
+    "link_type_kind": "varies",
+    "link_type_label": "Varies by plan. The Peregrine OS sample is followed, while Free Basic is described as nofollow.",
+    "eligibility_label": "For independent products, SaaS, AI tools, apps, and startups; the site lists no other formal criteria.",
+    "example_listing_url": "https://www.indieneed.com/products/Peregrine-OS",
+    "sources": [
+      "https://www.indieneed.com/pricing",
+      "https://www.indieneed.com/submit",
+      "https://www.indieneed.com/products/Peregrine-OS"
+    ],
+    "research_notes": "Pricing lists Free Basic with a nofollow website link. The public Peregrine OS sample has a followable anchor, but its plan is not identified. Starter calls its website link sponsored. Paid plans are one-time, not subscriptions.",
+    "evidence": {
+      "cost": {
+        "source_url": "https://www.indieneed.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free Basic; Starter $15 for 7 days, Pro $30 for 14 days, Premium $60 for 14 days, Ultimate $120 for 30 days. A right-sidebar ad costs $21/week. Paid launch prices are one-time."
+      },
+      "review_time": {
+        "source_url": "https://www.indieneed.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page and FAQ",
+        "note": "Free listings are reviewed by staff. Couldn’t verify an exact review time: the official pricing page gives no ETA. Paid plans skip review and publish on the chosen date."
+      },
+      "eligibility": {
+        "source_url": "https://www.indieneed.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "The site describes itself as a launch directory for independent makers and lists SaaS, AI tools, apps, and startups."
+      },
+      "submission": {
+        "source_url": "https://www.indieneed.com/submit",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTTP GET",
+        "note": "HTTP 200. The official start page says to add product details and choose a listing option; the form content remained at a loading message. No form was submitted."
+      },
+      "link_type": {
+        "source_url": "https://www.indieneed.com/products/Peregrine-OS",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTML GET; raw anchor inspection",
+        "href": "https://www.peregrineintell.com",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ],
+        "sampled_tier": "unknown",
+        "note": "The public sample's maker-site anchor has no nofollow, ugc, or sponsored rel value. Couldn't verify its tier: the public listing does not show the plan."
+      },
+      "link_policy": {
+        "source_url": "https://www.indieneed.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free Basic is listed as nofollow. Starter lists a sponsored website link. The sample's tier is unclear, so its followable link does not establish the free-tier policy."
+      }
+    },
+    "checked_on": "2026-10-05",
+    "is_published": true,
+    "submission_status": "verified"
+  },
+  {
+    "slug": "favors-dev",
+    "name": "Favors.dev",
+    "website_url": "https://favors.dev/",
+    "submit_url": "https://favors.dev/projects/new",
+    "categories": [
+      "startup-software",
+      "launch-boards"
+    ],
+    "summary": "A project directory and launch calendar with a free listing path.",
+    "best_for": "Founders who can wait two weeks or trade a favor or badge for instant listing.",
+    "cost_kind": "free",
+    "cost_label": "Free; instant listing requires one founder favor or a verified badge.",
+    "cost_tag": "Free",
+    "cost_note": "Instant with a favor or badge",
+    "review_time_label": "Two-week review; instant once you complete one favor or verify the badge.",
+    "link_type_kind": "nofollow",
+    "link_type_label": "Nofollow in the VOKO sample's Website link.",
+    "eligibility_label": "A project website and a description of at least 40 characters; register for an account at the final step.",
+    "example_listing_url": "https://favors.dev/apps/voko",
+    "sources": [
+      "https://favors.dev/apps",
+      "https://favors.dev/projects/new",
+      "https://favors.dev/apps/voko"
+    ],
+    "research_notes": "The form says no account is needed to start, but registration is required at the last step. The listing includes a launch-calendar spot. VOKO's Website anchor has rel=nofollow noopener noreferrer.",
+    "evidence": {
+      "cost": {
+        "source_url": "https://favors.dev/projects/new",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official submission page",
+        "note": "The page says the directory listing and launch-calendar spot are free. Instant publication requires one completed founder favor or a verified site badge."
+      },
+      "review_time": {
+        "source_url": "https://favors.dev/projects/new",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official submission page",
+        "note": "New listings go live after a two-week review, or instantly after one favor or badge verification."
+      },
+      "eligibility": {
+        "source_url": "https://favors.dev/projects/new",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official submission form",
+        "note": "A project website is required and the directory description must have at least 40 characters. Account registration is deferred to the final step."
+      },
+      "submission": {
+        "source_url": "https://favors.dev/projects/new",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTTP GET",
+        "note": "HTTP 200. The official project form loaded and says no account is needed until the last step. No form was submitted."
+      },
+      "link_type": {
+        "source_url": "https://favors.dev/apps/voko",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTML GET; raw anchor inspection",
+        "href": "https://voko.world",
+        "rel": [
+          "nofollow",
+          "noopener",
+          "noreferrer"
+        ],
+        "sampled_tier": "public directory listing",
+        "note": "The Website anchor on the VOKO sample is explicitly nofollow."
+      }
+    },
+    "checked_on": "2026-10-05",
+    "is_published": true,
+    "submission_status": "verified"
+  },
+  {
+    "slug": "betterlaunch",
+    "name": "BetterLaunch",
+    "website_url": "https://www.betterlaunch.co/",
+    "submit_url": "https://www.betterlaunch.co/submit",
+    "categories": [
+      "launch-boards"
+    ],
+    "summary": "A weekly product launch board with free Monday slots and one-time featured plans.",
+    "best_for": "Products that can schedule a Monday launch at least 30 days ahead.",
+    "cost_kind": "free_and_paid",
+    "cost_label": "Free; queue skip $9 once, Starter $19 once, Pro $49 once, Ultra $119 once, Launch Bundle $219 once.",
+    "cost_tag": "Free",
+    "cost_note": "Queue skip $9 once",
+    "review_time_label": "Free launch: choose a Monday at least 30 days ahead. Paid plans can launch instantly or on a chosen date.",
+    "link_type_kind": "varies",
+    "link_type_label": "Varies by plan or badge. Prepstate sample is nofollow+UGC; free plan says nofollow.",
+    "eligibility_label": "One free product submission; a badge is optional for listing but changes the free link to dofollow.",
+    "example_listing_url": "https://www.betterlaunch.co/product/prepstate",
+    "sources": [
+      "https://www.betterlaunch.co/pricing",
+      "https://www.betterlaunch.co/submit",
+      "https://www.betterlaunch.co/product/prepstate"
+    ],
+    "research_notes": "The submit route redirects to sign-in. The free plan schedules a Monday at least 30 days out and includes seven homepage days. Adding the badge or buying a paid plan changes the maker link to dofollow.",
+    "evidence": {
+      "cost": {
+        "source_url": "https://www.betterlaunch.co/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free; $9 queue skip, Starter $19, Pro $49, Ultra $119, and Launch Bundle $219. Paid launch options are one-time."
+      },
+      "review_time": {
+        "source_url": "https://www.betterlaunch.co/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free products launch on a Monday selected at least 30 days ahead. Paid tiers allow instant launch or a chosen date."
+      },
+      "eligibility": {
+        "source_url": "https://www.betterlaunch.co/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "The free tier includes one product submission. Its badge condition applies to the link type, not submission eligibility."
+      },
+      "submission": {
+        "source_url": "https://www.betterlaunch.co/submit",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTTP GET",
+        "note": "HTTP 200 after redirect to the official sign-in page with the submit path as the return target. No account was created."
+      },
+      "link_type": {
+        "source_url": "https://www.betterlaunch.co/product/prepstate",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTML GET; raw anchor inspection",
+        "href": "https://prepstate.dev/?utm_source=betterlaunch.co&utm_medium=referral",
+        "rel": [
+          "noopener",
+          "noreferrer",
+          "nofollow",
+          "ugc"
+        ],
+        "sampled_tier": "unknown",
+        "note": "Prepstate's maker-site anchor has nofollow and ugc. Couldn't verify its tier: the public listing does not show the plan."
+      },
+      "link_policy": {
+        "source_url": "https://www.betterlaunch.co/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free links are nofollow by default. Adding the badge or choosing any paid launch gives a dofollow link."
+      }
+    },
+    "checked_on": "2026-10-05",
+    "is_published": true,
+    "submission_status": "verified"
+  },
+  {
+    "slug": "scrolllaunch",
+    "name": "ScrollLaunch",
+    "website_url": "https://www.scrolllaunch.com/",
+    "submit_url": "https://www.scrolllaunch.com/dashboard/products/new",
+    "categories": [
+      "launch-boards"
+    ],
+    "summary": "A weekly SaaS and AI launch board with free listings and paid launch tiers.",
+    "best_for": "SaaS and AI makers willing to keep the board badge for a free followed link.",
+    "cost_kind": "free_and_paid",
+    "cost_label": "Free; Premium $19/product, Premium+ $39/product; sidebar ad $29/week or $149/6 weeks; newsletter from $49/issue. Product Center Ad price not shown.",
+    "cost_tag": "Free",
+    "cost_note": "Paid from $19/product",
+    "review_time_label": "Up to 25 free listings per week; no review or queue ETA is stated.",
+    "link_type_kind": "varies",
+    "link_type_label": "Varies by plan. GetBirthChart sample is followed; free link requires a live badge, while Premium is always followed.",
+    "eligibility_label": "SaaS or AI product; keep a live ScrollLaunch badge for the free listing's dofollow link.",
+    "example_listing_url": "https://www.scrolllaunch.com/products/getbirthchart",
+    "sources": [
+      "https://www.scrolllaunch.com/pricing",
+      "https://www.scrolllaunch.com/dashboard/products/new",
+      "https://www.scrolllaunch.com/products/getbirthchart"
+    ],
+    "research_notes": "The free page stays live. Its maker link remains followable only while the badge stays on the maker site. Premium and Premium+ remove that condition. Pricing also shows ad options; the Product Center Ad amount did not render. The Product Center Ad amount could not be verified because the official pricing page showed no price.",
+    "evidence": {
+      "cost": {
+        "source_url": "https://www.scrolllaunch.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free Launch; Premium $19 per product and Premium+ $39 per product. Sidebar ad is $29/week or $149 for six weeks. Newsletter sponsorship starts at $49/issue. Couldn’t verify the Product Center Ad price: the official pricing page showed no amount."
+      },
+      "review_time": {
+        "source_url": "https://www.scrolllaunch.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "The site limits free launches to 25 per week. Couldn’t verify an exact review time: the official pricing page gives no review or queue ETA."
+      },
+      "eligibility": {
+        "source_url": "https://www.scrolllaunch.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free links stay dofollow while the badge is on the maker's site. The page supports SaaS and AI products."
+      },
+      "submission": {
+        "source_url": "https://www.scrolllaunch.com/dashboard/products/new",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTTP GET",
+        "note": "HTTP 200 after redirect to the official sign-in page with the new-product path as the return target. No account was created."
+      },
+      "link_type": {
+        "source_url": "https://www.scrolllaunch.com/products/getbirthchart",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTML GET; raw anchor inspection",
+        "href": "https://getbirthchart.com/?utm_source=scrolllaunch&utm_medium=product_page&utm_campaign=getbirthchart&utm_content=visit_website_button",
+        "rel": [
+          "noopener"
+        ],
+        "sampled_tier": "unknown",
+        "note": "The maker-site anchor has rel=noopener only, so this sample is followable. Couldn’t verify its tier: the public listing does not show the plan."
+      },
+      "link_policy": {
+        "source_url": "https://www.scrolllaunch.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free listing link is dofollow only while the badge remains on the maker site. Premium is always dofollow; Premium+ includes four or more dofollow links."
+      }
+    },
+    "checked_on": "2026-10-05",
+    "is_published": true,
+    "submission_status": "verified"
+  },
+  {
+    "slug": "aura-plus-plus",
+    "name": "Aura++",
+    "website_url": "https://auraplusplus.com/",
+    "submit_url": "https://auraplusplus.com/projects/submit",
+    "categories": [
+      "launch-boards"
+    ],
+    "summary": "A daily product launch board with scheduled slots and link rules tied to badges and rank.",
+    "best_for": "Founders who want a daily launch slot and accept a badge or paid-link condition.",
+    "cost_kind": "free_and_paid",
+    "cost_label": "Free; Premium $29/launch; Premium Plus $69 (billing interval not stated). A current banner says Premium launches are temporarily free; offer conditions could not be verified.",
+    "cost_tag": "Free",
+    "cost_note": "Premium promo; see details",
+    "review_time_label": "Free: five daily slots, standard queue, and scheduling up to 365 days ahead. Launches go live at 08:00 UTC.",
+    "link_type_kind": "varies",
+    "link_type_label": "Varies by plan and rank. Polytender sample is followed; free dofollow needs a top-three finish plus badge.",
+    "eligibility_label": "Submit a product that fits its launch categories; free dofollow requires top-three daily ranking and an Aura++ badge.",
+    "example_listing_url": "https://auraplusplus.com/projects/polytender",
+    "sources": [
+      "https://auraplusplus.com/pricing",
+      "https://auraplusplus.com/projects/submit",
+      "https://auraplusplus.com/projects/polytender"
+    ],
+    "research_notes": "The pricing page lists Premium at $29/launch and Premium Plus at $69, while a current banner says Premium launches are free during a special offer. The interval for Premium Plus is not stated. Submission route loaded without an authentication redirect. Premium Plus billing interval could not be verified because the pricing page does not state one.",
+    "evidence": {
+      "cost": {
+        "source_url": "https://auraplusplus.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free is $0/launch; Premium is $29/launch; Premium Plus is $69. Couldn’t verify Premium Plus billing interval: the official pricing page gives no interval. A banner also says Premium launches are temporarily free."
+      },
+      "review_time": {
+        "source_url": "https://auraplusplus.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free has five slots daily, standard queue, and up to 365 days of scheduling. Paid plans offer priority scheduling. All launches go live at 08:00 UTC."
+      },
+      "eligibility": {
+        "source_url": "https://auraplusplus.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free dofollow requires a top-three daily ranking and the site badge."
+      },
+      "submission": {
+        "source_url": "https://auraplusplus.com/projects/submit",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTTP GET",
+        "note": "HTTP 200 on the official Submit Project page. No form was submitted."
+      },
+      "link_type": {
+        "source_url": "https://auraplusplus.com/projects/polytender",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTML GET; raw anchor inspection",
+        "href": "https://polytender.com/?utm_source=auraplusplus&utm_medium=project_page&utm_campaign=project_launch&ref=auraplusplus&source=auraplusplus",
+        "rel": [
+          "noopener"
+        ],
+        "sampled_tier": "unknown",
+        "note": "The maker-site anchor has rel=noopener only, so this sample is followable. Couldn’t verify its tier: the public listing does not show the plan."
+      },
+      "link_policy": {
+        "source_url": "https://auraplusplus.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free requires top-three daily rank and badge for a dofollow link. Premium guarantees one; Premium Plus adds a dofollow blog link."
+      }
+    },
+    "checked_on": "2026-10-05",
+    "is_published": true,
+    "submission_status": "verified"
+  },
+  {
+    "slug": "launchit",
+    "name": "LaunchIt",
+    "website_url": "https://launchit.fast/",
+    "submit_url": "https://launchit.fast/submit",
+    "categories": [
+      "launch-boards"
+    ],
+    "summary": "A startup launch board with a free review queue, paid dates, and permanent product pages.",
+    "best_for": "Makers who can wait in a free queue or want a paid launch date.",
+    "cost_kind": "free_and_paid",
+    "cost_label": "Free Basic; Premium Launch $14.99 once (regular $19). Featured $39/month, newsletter $29/issue, review $49 once, billboard from $15 once. Directory packs show $99/$149 for 30+, $149/$199 for 60+, and $199/$249 for 100+, all one-time; sale formatting is unclear.",
+    "cost_tag": "Free",
+    "cost_note": "Paid from $14.99 once",
+    "review_time_label": "Free queue: roughly two months to the next slot; Premium launches on the date selected.",
+    "link_type_kind": "dofollow",
+    "link_type_label": "Dofollow in the Posterly sample; LaunchIt says every listing uses a standard link.",
+    "eligibility_label": "Free Basic requires a reciprocal LaunchIt badge and link before review; free placement is not guaranteed. Paid launch needs no badge.",
+    "example_listing_url": "https://launchit.fast/tools/posterly",
+    "sources": [
+      "https://launchit.fast/pricing",
+      "https://launchit.fast/submit",
+      "https://launchit.fast/tools/posterly"
+    ],
+    "research_notes": "Pricing currently shows Premium Launch at $14.99, crossed from $19. The page also advertises paid promotion and directory-submission services. Directory package prices show current and crossed amounts without a clear text distinction. The free path requires a reciprocal link and badge. The current versus crossed amounts for directory packages could not be distinguished because the pricing page does not explain its formatting.",
+    "evidence": {
+      "cost": {
+        "source_url": "https://launchit.fast/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free Basic; Premium Launch $14.99 once, shown against $19. Other paid placements include Featured $39/month, newsletter $29/issue, review $49 once, billboard from $15 once. Directory packages display $99/$149, $149/$199, and $199/$249 for 30+, 60+, and 100+ submissions; couldn’t verify which amounts are current because the page does not explain the crossed-price formatting."
+      },
+      "review_time": {
+        "source_url": "https://launchit.fast/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page and submission page",
+        "note": "Free Basic uses a review queue and does not guarantee the date. The current free queue estimate is roughly two months. Premium uses a chosen date."
+      },
+      "eligibility": {
+        "source_url": "https://launchit.fast/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page FAQ",
+        "note": "Free Basic requires a LaunchIt badge and reciprocal link before approval. Paid launch needs no badge."
+      },
+      "submission": {
+        "source_url": "https://launchit.fast/submit",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTTP GET",
+        "note": "HTTP 200 on the official launch form/board page. Login and sign-up links are present; no form was submitted."
+      },
+      "link_type": {
+        "source_url": "https://launchit.fast/tools/posterly",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTML GET; raw anchor inspection",
+        "href": "https://poster.ly",
+        "rel": [
+          "noopener"
+        ],
+        "sampled_tier": "unknown",
+        "note": "Posterly's Open Website anchor has rel=noopener only, so this sample is followable. Couldn't verify its plan: the public listing does not identify it."
+      },
+      "link_policy": {
+        "source_url": "https://launchit.fast/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page FAQ",
+        "note": "The FAQ says every listing has a permanent standard link. Free Basic still requires a reciprocal badge and link before approval."
+      }
+    },
+    "checked_on": "2026-10-05",
+    "is_published": true,
+    "submission_status": "verified"
+  },
+  {
+    "slug": "launchigniter",
+    "name": "LaunchIgniter",
+    "website_url": "https://launchigniter.com/",
+    "submit_url": "https://launchigniter.com/submit",
+    "categories": [
+      "launch-boards"
+    ],
+    "summary": "A weekly launch board with manual review for free entries and paid launch dates.",
+    "best_for": "Unique products that can wait for review or use a paid launch date.",
+    "cost_kind": "free_and_paid",
+    "cost_label": "Free; Basic $12 one-time; Pro $15 one-time; featured sidebar $30/month.",
+    "cost_tag": "Free",
+    "cost_note": "Paid from $12 once",
+    "review_time_label": "Free launches get manual review; wait time is not stated and dates can shift if slots fill.",
+    "link_type_kind": "varies",
+    "link_type_label": "Varies by tier and weekly rank. GoBiz SaaS sample is followed; only top-three free launches get dofollow.",
+    "eligibility_label": "Account required; unique, high-quality product. Free launch requires a verified badge. Each product may launch once.",
+    "example_listing_url": "https://launchigniter.com/product/gobiz-saas",
+    "sources": [
+      "https://launchigniter.com/pricing",
+      "https://launchigniter.com/featured-placement",
+      "https://launchigniter.com/submit",
+      "https://launchigniter.com/product/gobiz-saas"
+    ],
+    "research_notes": "Free launches need a badge and manual approval; only the top three of a week receive dofollow links. Basic and Pro skip the queue. Submitting requires an account. A permanent featured sidebar spot costs $30/month. LaunchIgniter and SaaSGrow are related: Pro Launch includes a SaaSGrow listing, and SaaSGrow free listings post on LaunchIgniter.",
+    "evidence": {
+      "cost": {
+        "source_url": "https://launchigniter.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "related_source_urls": [
+          "https://launchigniter.com/featured-placement"
+        ],
+        "note": "Free; Basic Launch $12 one-time; Pro Launch $15 one-time. Pro includes StartupTrusted and SaaSGrow listings. The featured sidebar spot is $30/month."
+      },
+      "review_time": {
+        "source_url": "https://launchigniter.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free launches receive manual review and their selected week can move if slots are full. Couldn’t verify an exact wait time: the official pricing page gives no ETA. Paid tiers have no review queue."
+      },
+      "eligibility": {
+        "source_url": "https://launchigniter.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "The site says it approves unique, high-quality products. Free launches require a verified badge. Each product can launch once."
+      },
+      "submission": {
+        "source_url": "https://launchigniter.com/submit",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTTP GET",
+        "note": "Headless GET loaded the official sign-in start page and stated that an account is required to submit. No account was created."
+      },
+      "link_type": {
+        "source_url": "https://launchigniter.com/product/gobiz-saas",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTML GET; raw anchor inspection",
+        "href": "https://gobizsaas.com?ref=launchigniter",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ],
+        "sampled_tier": "unknown",
+        "note": "The maker-site anchor has no nofollow, ugc, or sponsored value. Couldn't verify the product's tier or weekly rank: neither appears on the public listing."
+      },
+      "link_policy": {
+        "source_url": "https://launchigniter.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Only top-three free products receive dofollow. Basic and Pro include dofollow and need no badge."
+      }
+    },
+    "checked_on": "2026-10-05",
+    "is_published": true,
+    "submission_status": "verified"
+  },
+  {
+    "slug": "letslaunch",
+    "name": "LetsLaunch",
+    "website_url": "https://letslaunch.today/",
+    "submit_url": "https://letslaunch.today/submit",
+    "categories": [
+      "launch-boards"
+    ],
+    "summary": "A weekly product launch board with Monday cohorts and a free path requiring a site badge.",
+    "best_for": "SaaS and tool makers ready to add a badge and join a Monday cohort.",
+    "cost_kind": "free_and_paid",
+    "cost_label": "Free; Premium $9/launch (promo from $19), Premium+ $29/launch (promo from $49); Starter Ad $19/month, Product Center $19/week, Right Sidebar $29/week, newsletter from $299/issue.",
+    "cost_tag": "Free",
+    "cost_note": "Paid from $9/launch (promo)",
+    "review_time_label": "Free launches go live Mondays at 08:00 UTC, up to 20 per week; paid tiers can launch any day.",
+    "link_type_kind": "varies",
+    "link_type_label": "Varies by status and tier. FormSubmit sample is followed; hidden listings switch to nofollow. The survival rule is paused now.",
+    "eligibility_label": "Account and reciprocal badge required for a free launch to publish; 20 free spots per Monday cohort.",
+    "example_listing_url": "https://letslaunch.today/product/formsubmit",
+    "sources": [
+      "https://letslaunch.today/submit-your-startup",
+      "https://letslaunch.today/how-it-works",
+      "https://letslaunch.today/pricing",
+      "https://letslaunch.today/submit",
+      "https://letslaunch.today/product/formsubmit"
+    ],
+    "research_notes": "The /submit path redirects to sign-in. Free listings need a verified reciprocal badge and a Monday slot. A five-upvote survival rule can switch hidden listings to nofollow, but the operator says the rule is currently paused. Premium and Premium+ show promotional prices crossed against higher prices.",
+    "evidence": {
+      "cost": {
+        "source_url": "https://letslaunch.today/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free; Premium $9/launch shown against $19; Premium+ $29/launch shown against $49. Optional ads: Starter $19/month for 30 days with one payment, Product Center $19/week, Right Sidebar $29/week, newsletter from $299/issue."
+      },
+      "review_time": {
+        "source_url": "https://letslaunch.today/how-it-works",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official terms and help page",
+        "note": "Free cohorts go live Mondays at 08:00 UTC with up to 20 listings. The next open Monday is selected; no editor review is described. Paid launches can go any day."
+      },
+      "eligibility": {
+        "source_url": "https://letslaunch.today/submit-your-startup",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official submission terms",
+        "note": "A reciprocal badge is checked by script before publication. The official FAQ says an account is required to submit."
+      },
+      "submission": {
+        "source_url": "https://letslaunch.today/submit",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTTP GET",
+        "note": "HTTP 200 after redirect to the official sign-in page with /submit as the return target. No account was created."
+      },
+      "link_type": {
+        "source_url": "https://letslaunch.today/product/formsubmit",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTML GET; raw anchor inspection",
+        "href": "https://formsubmit.app/",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ],
+        "sampled_tier": "unknown",
+        "note": "The FormSubmit maker-site anchor has no nofollow, ugc, or sponsored value. Couldn't verify the listing's plan: the public page does not display it."
+      },
+      "link_policy": {
+        "source_url": "https://letslaunch.today/how-it-works",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official operator policy",
+        "note": "Free listings get a dofollow link while public. If the five-upvote survival rule hides a listing, its link changes to nofollow. The operator says that rule is currently disabled."
+      }
+    },
+    "checked_on": "2026-10-05",
+    "is_published": true,
+    "submission_status": "verified"
+  },
+  {
+    "slug": "kittylaunch",
+    "name": "KittyLaunch",
+    "website_url": "https://kittylaunch.com/",
+    "submit_url": "https://kittylaunch.com/new/product",
+    "categories": [
+      "launch-boards"
+    ],
+    "summary": "An indie product launch directory with a free queue and paid launch-date skips.",
+    "best_for": "Indie makers willing to wait for a badge-verified queue slot.",
+    "cost_kind": "free_and_paid",
+    "cost_label": "Free; Skip the Line $9 once; SuperKitty $29 once; Spotlight $15/7 days or $49/30 days; Highlight $9/month; website report $19 once; review article $29 once.",
+    "cost_tag": "Free",
+    "cost_note": "Queue skip $9 once",
+    "review_time_label": "Free launches use a queue with no ETA; Skip the Line offers any date or launch today.",
+    "link_type_kind": "dofollow",
+    "link_type_label": "Dofollow in the FunParty sample. Free links need badge verification; paid plans include three or seven links.",
+    "eligibility_label": "Account required. Free queue needs badge verification; Skip the Line removes the badge gate. SuperKitty includes seven dofollow links.",
+    "example_listing_url": "https://kittylaunch.com/p/funparty",
+    "sources": [
+      "https://kittylaunch.com/pricing",
+      "https://kittylaunch.com/new/product",
+      "https://kittylaunch.com/p/funparty"
+    ],
+    "research_notes": "The free plan includes a permanent page, seven homepage days, and three dofollow links after badge verification. Submitting redirects to sign-in. Skip the Line is $9 once; SuperKitty is $29 once. The pricing page lists separate visibility and review services.",
+    "evidence": {
+      "cost": {
+        "source_url": "https://kittylaunch.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Launch plans: free, Skip the Line $9 once, SuperKitty $29 once. Add-ons: Spotlight $15/7 days or $49/30 days, Highlight $9/month, website report $19 once, review article $29 once."
+      },
+      "review_time": {
+        "source_url": "https://kittylaunch.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free Launch is queue-based. Couldn’t verify a wait estimate: the official pricing page gives no ETA. Skip the Line launches on any selected date or today."
+      },
+      "eligibility": {
+        "source_url": "https://kittylaunch.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free queue requires badge verification. Skip the Line removes badge verification. Free and Skip include three dofollow backlinks; SuperKitty includes seven."
+      },
+      "submission": {
+        "source_url": "https://kittylaunch.com/new/product",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTTP GET",
+        "note": "The official route returned HTTP 200, then the app redirected to the sign-in page. No account was created."
+      },
+      "link_type": {
+        "source_url": "https://kittylaunch.com/p/funparty",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTML GET; raw anchor inspection",
+        "href": "https://funpartyapp.com/?ref=kittylaunch",
+        "rel": [
+          "noopener"
+        ],
+        "sampled_tier": "unknown",
+        "note": "FunParty's maker-site anchor has rel=noopener only, so this sample is followable. Couldn't verify its plan: the public listing does not show it."
+      },
+      "link_policy": {
+        "source_url": "https://kittylaunch.com/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free and Skip the Line include three dofollow links; the free tier requires badge verification. SuperKitty includes seven."
+      }
+    },
+    "checked_on": "2026-10-05",
+    "is_published": true,
+    "submission_status": "verified"
+  },
+  {
+    "slug": "saasgrow",
+    "name": "SaaSGrow",
+    "website_url": "https://saasgrow.app/",
+    "submit_url": "https://saasgrow.app/submit",
+    "categories": [
+      "startup-software"
+    ],
+    "summary": "A SaaS directory with project timelines and free listings after badge verification. Free profiles also post on the related LaunchIgniter board.",
+    "best_for": "SaaS founders who want a persistent profile and project timeline.",
+    "cost_kind": "free_and_paid",
+    "cost_label": "Free with badge; Basic $9/listing once; Pro $9/month for up to 10 listings.",
+    "cost_tag": "Free",
+    "cost_note": "Paid from $9 once",
+    "review_time_label": "Free listing is approved after badge verification; no ETA is stated. Basic is instant.",
+    "link_type_kind": "varies",
+    "link_type_label": "VoxScreen sample is followed; Basic confirms dofollow, but the free-tier link policy is not stated.",
+    "eligibility_label": "SaaS or startup project; free listing requires a verified SaaSGrow badge. Basic removes the badge requirement.",
+    "example_listing_url": "https://saasgrow.app/saas/voxscreen/timeline",
+    "sources": [
+      "https://saasgrow.app/pricing",
+      "https://saasgrow.app/submit",
+      "https://saasgrow.app/saas/voxscreen/timeline",
+      "https://launchigniter.com/pricing"
+    ],
+    "research_notes": "Free profiles include a timeline and changelog widget, and post on LaunchIgniter. Basic is a one-time $9 listing with an explicit dofollow link. Pro is $9/month for up to ten listings. LaunchIgniter is a related platform, not an independent audience.",
+    "evidence": {
+      "cost": {
+        "source_url": "https://saasgrow.app/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page and FAQ",
+        "note": "Free listing with badge verification; Basic $9 one-time per listing; Pro $9/month for up to 10 listings."
+      },
+      "review_time": {
+        "source_url": "https://saasgrow.app/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "The free listing is approved after badge verification. Couldn’t verify an approval ETA: the official pricing page gives none. Basic advertises instant approval."
+      },
+      "eligibility": {
+        "source_url": "https://saasgrow.app/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free listing requires a verified SaaSGrow badge. Basic removes badge verification. The product is listed as a SaaS/startup project."
+      },
+      "submission": {
+        "source_url": "https://saasgrow.app/submit",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTTP GET",
+        "note": "HTTP 200 after redirect to the official login page with /submit as the return target. No account was created."
+      },
+      "link_type": {
+        "source_url": "https://saasgrow.app/saas/voxscreen/timeline",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTML GET; raw anchor inspection",
+        "href": "https://voxscreen.com?ref=saasgrow.app",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ],
+        "sampled_tier": "unknown",
+        "note": "VoxScreen's maker-site anchor has no nofollow, ugc, or sponsored value. Couldn't verify the sampled tier: the public page does not show it."
+      },
+      "link_policy": {
+        "source_url": "https://saasgrow.app/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Basic explicitly includes a dofollow backlink. Free requires a badge, but the pricing page does not state its link type. SaaSGrow free projects post on LaunchIgniter."
+      }
+    },
+    "checked_on": "2026-10-05",
+    "is_published": true,
+    "submission_status": "verified"
+  },
+  {
+    "slug": "firsto",
+    "name": "Firsto",
+    "website_url": "https://firsto.co/",
+    "submit_url": "https://firsto.co/projects/submit",
+    "categories": [
+      "launch-boards"
+    ],
+    "summary": "A product launch board with a free queue estimated at about 180 days.",
+    "best_for": "Makers who can wait about 180 days or pay for a launch within 24 hours.",
+    "cost_kind": "free_and_paid",
+    "cost_label": "Free; Premium Launch $19.90/launch; Pro Launch $59.90/launch. Product reviews: public $199, private $299, full $399 (billing interval not stated).",
+    "cost_tag": "Free",
+    "cost_note": "Paid from $19.90/launch",
+    "review_time_label": "Free queue is about 180 days, with five slots daily. Premium Launch says 24-hour turnaround.",
+    "link_type_kind": "varies",
+    "link_type_label": "Varies by tier and rank. Seed Audio sample is followed; free top-three links require a badge.",
+    "eligibility_label": "Product listing; free dofollow is limited to top-three launches with a badge. Five free queue slots are offered daily.",
+    "example_listing_url": "https://firsto.co/projects/seed-audio-1-5",
+    "sources": [
+      "https://firsto.co/pricing",
+      "https://firsto.co/projects/submit",
+      "https://firsto.co/",
+      "https://firsto.co/projects/seed-audio-1-5"
+    ],
+    "research_notes": "The free queue estimate is about 180 days. Premium Launch says 24 hours, and Pro adds two weeks of homepage placement and a mini review. The sample is currently a top-ranked listing; its maker link is followable. Separate review products list prices but no billing interval. The billing interval for separate review products could not be verified because the pricing page lists no interval.",
+    "evidence": {
+      "cost": {
+        "source_url": "https://firsto.co/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free Launch; Premium Launch $19.90/launch; Pro Launch $59.90/launch. Separate reviews: public $199, private $299, full package $399. Couldn’t verify a billing interval for review products: the pricing page does not state one."
+      },
+      "review_time": {
+        "source_url": "https://firsto.co/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free queue is estimated at about 180 days with five daily slots. Premium Launch says it launches within 24 hours."
+      },
+      "eligibility": {
+        "source_url": "https://firsto.co/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free dofollow backlink is limited to the top three and requires a badge. This is a link condition, not a free-listing submission gate."
+      },
+      "submission": {
+        "source_url": "https://firsto.co/projects/submit",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTTP GET",
+        "note": "HTTP 200 after redirect to the official sign-in page with the submit route as the return target. No account was created."
+      },
+      "link_type": {
+        "source_url": "https://firsto.co/projects/seed-audio-1-5",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "public HTML GET; raw anchor inspection",
+        "href": "https://seedaudio15.org/",
+        "rel": [
+          "noopener"
+        ],
+        "sampled_tier": "unknown; listing was ranked first on the public home page",
+        "related_source_urls": [
+          "https://firsto.co/"
+        ],
+        "note": "The maker-site anchor has rel=noopener only, so this sample is followable. The listing ranked first on the public home page. Couldn’t verify its paid tier or badge status: the listing does not state either."
+      },
+      "link_policy": {
+        "source_url": "https://firsto.co/pricing",
+        "checked_at": "2026-10-05",
+        "status": "verified",
+        "method": "official pricing page",
+        "note": "Free follow links go only to the top three and require the badge. Premium and Pro advertise guaranteed follow backlinks."
+      }
+    },
+    "checked_on": "2026-10-05",
+    "is_published": true,
+    "submission_status": "verified"
+  }
+]

@@ -1,6 +1,6 @@
 # Launch directories
 
-The directory has 142 public cards in eight categories. It lists places that promote a product that already exists. Six more rows describe community-post destinations (Show HN, Indie Hackers, DEV, and three subreddits). They stay unpublished because they take posts, not listings. Another 23 rows stay unpublished because they need a platform-specific build, not a listing: 16 app stores and integration catalogs, five MCP server catalogs, RapidAPI Hub, and API List. Self-hosted and open-source directories stay in scope. `/launch-directories` goes live in production when the reviewed release publishes its registry row. Until then, the route returns 404 in production.
+The directory has 155 public cards in eight categories, including 13 free launch options checked on October 5, 2026. It lists places that promote a product that already exists. Six more rows describe community-post destinations (Show HN, Indie Hackers, DEV, and three subreddits). They stay unpublished because they take posts, not listings. Another 23 rows stay unpublished because they need a platform-specific build, not a listing: 16 app stores and integration catalogs, five MCP server catalogs, RapidAPI Hub, and API List. Self-hosted and open-source directories stay in scope. `/launch-directories` is published in production through its registry row.
 
 ## Reader and task
 
@@ -90,3 +90,5 @@ Keep known prices, timing, conditions, and links next to the missing-detail labe
 Use the site's own form, policy, pricing, and published listing as the main sources. Keep the check date with each source. Recheck prices, form paths, availability, and a sample listing before each data release. Never use a dead submission URL, and never call a listing free because a form shows no price.
 
 The `public.stack127_pages` row controls publication. Data changes refresh the page through the `launch_directories` revalidation trigger.
+
+New reviewed records use `node scripts/stack127/database/import-launch-directories.mjs --input-file <records.json> --environment development`. This previews the insert and rolls it back. Add `--apply` to insert the selected records. The importer rejects slug and website collisions, leaves existing records untouched, and skips an identical record on retry. Production uses the same reviewed file with `--environment production --apply --confirm stack127-production`, after the supporting code and icons are deployed. Then prepare, preview, and dispatch the directory publication plan with the selected slugs and expected public count in `scripts/launch-directories/ready.sql`.
