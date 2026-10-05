@@ -4,6 +4,10 @@ import { targetsForEvents } from "./targets.mjs";
 import { refreshTargets, cacheBodyDigest } from "./refresh.mjs";
 import { launchDirectoryRevisionMatches } from "../../../lib/launch-directories-data.ts";
 
+if (process.env.STACK127_FRONTEND_HOSTING === "cloudflare") {
+  throw new Error("Legacy cache processing cannot acknowledge static frontend events. Run stack127-frontend-refresh.yml instead.");
+}
+
 const { CLOUDFLARE_API_TOKEN, CLOUDFLARE_ZONE_ID } = process.env;
 const DATABASE_URL = process.env.DATABASE_POOLER_URL || process.env.DATABASE_URL;
 if (!DATABASE_URL || !CLOUDFLARE_API_TOKEN || !CLOUDFLARE_ZONE_ID) throw new Error("Database and Cloudflare credentials are required.");

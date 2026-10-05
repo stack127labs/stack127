@@ -1,0 +1,100 @@
+name: Stack127 frontend content refresh
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Rebuild current main even with an empty queue, and retry delayed events."
+        type: boolean
+        default: false
+      dry_run:
+        description: "Check current main, backend health, and the queue without changing them."
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: stack127-production
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  refresh:
+    if: github.ref == 'refs/heads/main' && vars.STACK127_FRONTEND_HOSTING == 'cloudflare'
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 35
+    env:
+      STACK127_FRONTEND_HOSTING: cloudflare
+      STACK127_SITE_URL: https://stack127.com
+      GITHUB_TOKEN: ${{ github.token }}
+      DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID || secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID || secrets.CLOUDFLARE_ZONE_ID }}
+    steps:
+      - name: Checkout current main after the production lock
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Record checkout SHA
+        shell: bash
+        run: echo "STACK127_BUILD_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Preview the queue
+        if: inputs.dry_run == true
+        run: |
+          flags=()
+          if [ "$FORCE_REFRESH" = "true" ]; then flags+=(--force); fi
+          node scripts/stack127/frontend/content-queue.mjs snapshot --sha "$STACK127_BUILD_SHA" --dry-run "${flags[@]}"
+        env:
+          FORCE_REFRESH: ${{ inputs.force }}
+      - name: Capture event versions and source fingerprints
+        if: inputs.dry_run != true
+        id: snapshot
+        shell: bash
+        run: |
+          flags=()
+          if [ "$FORCE_REFRESH" = "true" ]; then flags+=(--force); fi
+          node scripts/stack127/frontend/content-queue.mjs snapshot --sha "$STACK127_BUILD_SHA" --output "$RUNNER_TEMP/frontend-queue.json" "${flags[@]}"
+        env:
+          FORCE_REFRESH: ${{ inputs.force }}
+      - name: Build the Next.js static export
+        if: steps.snapshot.outputs.build_required == 'true'
+        run: node scripts/stack127/frontend/build.mjs --output "$RUNNER_TEMP/frontend-assets"
+        env:
+          STACK127_RELEASE_SHA: ${{ env.STACK127_BUILD_SHA }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          GOOGLE_ANALYTICS_ID: ${{ vars.GOOGLE_ANALYTICS_ID || 'G-ZJNG8SCGE1' }}
+          UMAMI_URL: ${{ vars.UMAMI_URL || 'https://umami.ravitejaknts.com' }}
+          UMAMI_WEBSITE_ID: ${{ vars.UMAMI_WEBSITE_ID || 'ff47ea40-04e6-4a74-b4cc-e420d28433d3' }}
+      - name: Check main and backend again before deployment
+        if: steps.snapshot.outputs.build_required == 'true'
+        run: node scripts/stack127/frontend/content-queue.mjs check --sha "$STACK127_BUILD_SHA"
+      - name: Preview the static frontend
+        if: steps.snapshot.outputs.build_required == 'true'
+        run: node scripts/stack127/frontend/deploy.mjs --directory "$RUNNER_TEMP/frontend-assets" --preview
+      - name: Publish the static frontend to the existing route
+        if: steps.snapshot.outputs.build_required == 'true'
+        run: |
+          node scripts/stack127/frontend/content-queue.mjs check --sha "$STACK127_BUILD_SHA"
+          node scripts/stack127/frontend/deploy.mjs --directory "$RUNNER_TEMP/frontend-assets"
+      - name: Verify public content, refresh APIs, and acknowledge captured versions
+        if: steps.snapshot.outputs.build_required == 'true'
+        run: node scripts/stack127/frontend/content-queue.mjs complete --snapshot "$RUNNER_TEMP/frontend-queue.json" --directory "$RUNNER_TEMP/frontend-assets"
+      - name: Preserve failed event versions for retry
+        if: failure() && inputs.dry_run != true && steps.snapshot.outcome == 'success'
+        run: node scripts/stack127/frontend/content-queue.mjs fail --snapshot "$RUNNER_TEMP/frontend-queue.json" --error "Frontend refresh failed in GitHub run $GITHUB_RUN_ID."
+      - name: Remove the private queue snapshot
+        if: always()
+        run: rm -f "$RUNNER_TEMP/frontend-queue.json"

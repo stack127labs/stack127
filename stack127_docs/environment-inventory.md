@@ -246,6 +246,24 @@ None of these optional repository-level secrets were set at the time of the audi
 
 GitHub Actions issues `GITHUB_TOKEN` automatically. It isn't a stored secret, so it never needs manual rotation.
 
+### Cloudflare static frontend keys
+
+Cloudflare frontend mode uses these keys:
+
+| Key | Where | Use |
+| --- | --- | --- |
+| `STACK127_FRONTEND_HOSTING` | GitHub repository variable and matching `production` environment variable | `cloudflare` turns on the frontend refresh workflow and the Cloudflare release steps. Unset or anything else means legacy. Keep both scopes equal. |
+| `CLOUDFLARE_ACCOUNT_ID` | GitHub `production` environment, as a variable or secret | Deploys the `stack127-frontend` Workers services. |
+| `STACK127_FRONTEND_HOSTING` | Supabase `cache-worker` function secret | `cloudflare` makes the worker dispatch the frontend workflow instead of refreshing pages. |
+| `GITHUB_FRONTEND_TOKEN` | Supabase `cache-worker` function secret | Lets the worker check for active runs and dispatch `stack127-frontend-refresh.yml`. |
+| `GITHUB_FRONTEND_REPO` | Supabase `cache-worker` function secret, optional | Defaults to `stack127labs/stack127`. |
+
+`GITHUB_FRONTEND_TOKEN` needs Actions read and write on `stack127labs/stack127`. On 5 October 2026, it was set to the replacement repository-scoped `stack127 hosting automation` token used by local release automation. That token also has the repository permissions required to push, manage pull requests, and configure deployment secrets and variables. The alert token is separate.
+
+Keep the GitHub repository and environment variables equal. Enable their Cloudflare release steps after the isolated preview passes. Set the Supabase hosting secret after the production route and refresh workflow are ready. Reset all three settings on rollback.
+
+The frontend workflow uses the automatic `GITHUB_TOKEN`, the database URL, the Supabase keys, and the existing production Cloudflare keys. They stay on the GitHub runner. Next.js inlines only `NEXT_PUBLIC_*` values into the exported files, so never give a secret that prefix.
+
 ## Dokploy runtime
 
 The stack127 app has:
@@ -300,12 +318,13 @@ During the audit, these apps inherited no project-level or environment-level Dok
 
 ## Cloudflare tokens
 
-There are two Cloudflare credentials, on purpose:
+Local infrastructure administration uses the active Account API token named `stack127-infrastructure`, from `.env.deploy`. It covers the `stack127.com`, `version127.com`, and `basebuddycms.com` zones, with the existing DNS, redirects, Access, Tunnel, cache, WAF, TLS, and maintenance permissions.
 
-1. Local infrastructure administration uses the active Account API token named `stack127-infrastructure`, from `.env.deploy`. It was renamed and expanded in place on 20 August 2026, so no new secret value was created. It covers the `stack127.com`, `version127.com`, and `basebuddycms.com` zones. Its account permissions cover DNS, redirects, Access, Tunnel, cache, WAF, TLS, and related maintenance.
-2. GitHub's `production` environment uses a separate token for release preflight and cache purge. It needs Zone Read, DNS Read, and Cache Purge for `stack127.com`. On 24 September 2026, the owner expanded its permissions across three zones, so it now has broader access than the release needs.
+On 5 October 2026, the owner authorized updating existing credentials and preserving existing keys. The token gained Workers Scripts Write on the Stack127 account, plus Workers Routes Write and Zone Transform Rules Write on `stack127.com` only. Its value and existing permissions stayed intact. GitHub's `production` environment now uses this same token for release and static asset deployment. The previously stored CI credential was replaced in GitHub, without revoking any Cloudflare token.
 
-Don't replace the CI token with the local admin token. Narrow the CI token when you can. Don't use Cloudflare User API tokens for either job.
+The static frontend also needs Zone Read, DNS Read, Cache Purge, and access to the account's `workers.dev` subdomain. Subdomain and route reads passed after the permission update. A separate, narrower CI token would require a new credential; it was not created for this migration.
+
+Don't commit token values or print them in logs.
 
 ## Amazon Associates
 
@@ -337,7 +356,7 @@ When a credential changes:
 3. Keep the old value until the new credential passes a read-only check.
 4. Check that local secret files are still `0600`.
 5. For deployment or Cloudflare changes, run `npm run stack127:deploy:preflight -- --static-source-only`. The release workflow runs the full check.
-6. Run the relevant GitHub workflow and confirm its environment or repository secret lookup works.
+6. Run the relevant GitHub workflow and confirm its environment or repository secret lookup works. For `GITHUB_FRONTEND_TOKEN`, run the frontend refresh workflow with `dry_run`, then confirm the next worker dispatch succeeds in the function logs.
 7. When the production site changes, check the affected live app and `/api/health?scope=deploy`.
 8. Revoke the old credential only after the new one is proven.
 9. Update the reconciliation date and any changed key list in this doc.

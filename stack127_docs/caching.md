@@ -4,7 +4,9 @@ Public page routes now build as static pages with no timed revalidation. The rel
 
 Every public page is built and cached. A page changes when its data changes, and the revalidation pipeline refreshes it. A release rebuilds every page.
 
-Links can prefetch whole pages for fast navigation. A failed database call throws, so it cannot become a cached error panel with status 200.
+Cloudflare hosting mode serves public pages as free static assets. See [Static frontend on Cloudflare](#static-frontend-on-cloudflare). The rules below apply in both modes.
+
+Shared links prefetch a page only when a reader shows intent, such as hovering or focusing the link. A failed database call throws, so it cannot become a cached error panel with status 200.
 
 ## Rules for every page
 
@@ -17,7 +19,7 @@ Links can prefetch whole pages for fast navigation. A failed database call throw
 
 ## Indexing
 
-- A URL with a query string (`?…`) is never indexed. This includes search, filters, sort, and `?page=`. The proxy sends `X-Robots-Tag: noindex, follow` for these, and the canonical link points to the clean URL.
+- A URL with a query string (`?…`) is never indexed. This includes search, filters, sort, and `?page=`. The proxy sends `X-Robots-Tag: noindex, follow` for these, and the canonical link points to the clean URL. On the static frontend, a Cloudflare response header rule sends the same header.
 - A page we want indexed gets its own path, such as `/platform-fees/creators-and-communities` or later `/self-host-apps/categories/<name>`. It is indexed only after its row is published in `public.stack127_pages`.
 - See [seo.md](seo.md) for the registry and sitemap rules.
 
@@ -59,6 +61,8 @@ Without JavaScript, visitors and crawlers see the default static page.
 
 A release purges `stack127-public` and `stack127-assets`, then warms the main pages.
 
+This is legacy mode. In Cloudflare mode, the worker dispatches a GitHub workflow that rebuilds and deploys the static export instead. See below.
+
 The source tags live in `lib/cache-tags.ts`. `scripts/stack127/cache/targets.mjs` imports the same constants. The directory entities map as follows:
 
 | Entity | Next.js data tag | Cloudflare family tag |
@@ -85,6 +89,20 @@ node --env-file=.env.database --env-file=.env.deploy scripts/stack127/cache/conf
 ```
 
 This command changes Cloudflare rules and records when long TTLs were enabled. Without `--apply`, it checks readiness and reads Cloudflare rules without changing them. Without `--long-ttl`, the shorter TTLs remain.
+
+## Static frontend on Cloudflare
+
+[cloudflare.md](cloudflare.md#static-frontend-on-cloudflare) has the hosting switches, setup, release checks, and rollback.
+
+In Cloudflare mode, public pages are files in Cloudflare's static storage. OVH still serves `/api/*` and `/vitals/*`.
+
+- **Pages are a static export.** A GitHub workflow builds every published page, with exact registry parameters for dynamic routes. Unpublished pages aren't in the export, so they return 404.
+- **Edits rebuild the export.** A queued event makes the worker dispatch `stack127-frontend-refresh.yml`. That run builds, deploys, checks the public files, refreshes the OVH API responses, and then removes only the captured event versions. A newer edit stays queued. This takes several minutes, not two.
+- **Cache layers change.** Next.js page and data caches don't serve pages. Cloudflare serves the files. `/_next/static/*` is immutable for a year. Other files revalidate.
+- **Cookies.** Static files are public whatever cookies the request carries. JSON on OVH keeps its cookie bypass. If analytics cookies need to be cached past, use a strict allowlist of cookie names. Don't remove the cookie checks.
+- **Navigation reuse.** The static build keeps a prefetched page for 300 seconds. The OVH build keeps 30, which is what a rollback uses.
+
+The rules for adding a page or data source don't change. The export reads the same registry and source tables, and the same triggers queue the events.
 
 ## Adding a data source or page family
 

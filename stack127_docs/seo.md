@@ -46,12 +46,22 @@ Follow these route rules:
 | request | behavior |
 | --- | --- |
 | Exact published slug, for example `/self-host-apps` | Render, `index, follow`, sitemap included |
-| Exact published slug with query params, for example `/self-host-apps?page=2` | Render the same static page, `noindex, follow` through the proxy header, sitemap excluded |
+| Exact published slug with query params, for example `/self-host-apps?page=2` | Render the same static page, `noindex, follow` through the proxy header (or the Cloudflare header rule on the static frontend), sitemap excluded |
 | Child route under a published root, for example `/self-host-apps/page/2` | Render if code exists, `noindex, follow`, sitemap excluded |
 | Exact child slug later added to `stack127_pages` | Render, `index, follow`, sitemap included |
 | Route outside a published root, for example `/random-test-page` | `404`, even if code exists |
 
 A URL with a query string is never indexed. Search, filters, sort, and `?page=` stay out of the index. To index a category or other view, give it its own path, such as `/self-host-apps/categories/<name>`. Publish that exact slug. See [caching.md](caching.md) for why pages never read the query on the server.
+
+## Static frontend
+
+Cloudflare hosting mode uses the SEO behavior below. See [cloudflare.md](cloudflare.md#static-frontend-on-cloudflare) for its activation and release checks.
+
+- The export holds only published pages, so the registry still decides what is public. Anything else returns the static 404 with `noindex`.
+- Titles, descriptions, canonicals, robots meta tags, and JSON-LD come from the registry, written into the exported HTML at build time.
+- `proxy.ts` doesn't run. A free Cloudflare response header transform rule sends `X-Robots-Tag: noindex, follow` on query URLs. It doesn't add the proxy's canonical `Link` header. The HTML canonical covers that.
+- RSC `.txt` files, `/frontend-release.json`, and the `workers.dev` preview send `noindex`.
+- A registry change reaches the public HTML only after the frontend workflow rebuilds and deploys the export.
 
 ## Current sitemap routes
 

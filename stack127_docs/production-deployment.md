@@ -2,7 +2,7 @@
 
 ## Target
 
-The only production target is the OVH Dokploy application in `scripts/stack127/deployment/targets.json`.
+The production backend target is the OVH Dokploy application in `scripts/stack127/deployment/targets.json`.
 
 - Site: `https://stack127.com`
 - Dokploy: `https://dokploy.stack127.com`
@@ -10,6 +10,8 @@ The only production target is the OVH Dokploy application in `scripts/stack127/d
 - Branch: `main`
 
 The old Hostinger application is not a deployment or rollback target.
+
+In Cloudflare hosting mode, the `stack127-frontend` service serves public pages as free static assets. OVH keeps `/api/*` and `/vitals/*` and stays the rollback site. See [Cloudflare static frontend](#cloudflare-static-frontend) and [cloudflare.md](cloudflare.md#static-frontend-on-cloudflare).
 
 ## Release
 
@@ -30,6 +32,25 @@ The workflow:
 9. Purges public Cloudflare cache tags and warms primary routes. The `cache-worker` Supabase Edge Function handles database edits between releases. See `cloudflare.md`. When the function, shared cache scripts, cache tags, or platform-fee section mapping change, the workflow deploys it after the app.
 
 Normal releases should take about three to five minutes with warm GitHub, GHCR, and Dokploy caches. Provider queues and image transfers can take longer.
+
+## Cloudflare static frontend
+
+The GitHub repository and production environment variables `STACK127_FRONTEND_HOSTING` choose the release mode. Enable Cloudflare release mode after the isolated preview passes. Enable the matching Supabase secret after the production route passes its checks. A cutover is complete only when the release verifies the backend, static frontend, and content refresh path. See the activation and rollback steps in [cloudflare.md](cloudflare.md#static-frontend-on-cloudflare).
+
+In Cloudflare mode, a release runs in this order:
+
+1. Builds the static export from the merge commit on GitHub and checks it on the `stack127-frontend-preview` service, before the backend changes.
+2. Deploys the backend image and confirms the health SHA.
+3. Deploys the static frontend to `stack127-frontend`. The first release also writes the Workers routes and the query `noindex` header rule.
+4. Checks `/frontend-release.json` and the `X-Stack127-Frontend-SHA` header on the main routes, and that a missing path returns 404.
+
+Then the release is complete only when:
+
+```text
+merge commit = origin/main = deployed image SHA = backend health SHA = frontend-release.json SHA
+```
+
+Rollback to OVH: run `node scripts/stack127/frontend/deploy.mjs --rollback-to-origin`, which removes only the `stack127.com/*` route. Then set both hosting switches back to legacy. Every release still deploys the OVH standalone app, so it can serve pages right away. A Workers version rollback is riskier: open tabs can lose client navigation, because the old version doesn't have the newer scripts. Test that before you use it.
 
 Pushes that change only documentation, skills, records, or tests do not deploy. For a deliberate release, run the manual workflow with the exact current main SHA.
 
@@ -61,7 +82,7 @@ The coordinator prepares and previews the plan against production from a clean c
 4. Applies the plan as one transaction.
 5. Checks the public pages and sitemap after the cache worker revalidates them, and records the result on the GitHub deployment.
 
-It doesn't build, deploy, or purge caches.
+In legacy mode it doesn't build, deploy, or purge caches. In Cloudflare mode it rebuilds and deploys the static frontend after the commit and before the public check, inside the same concurrency group. See [page-publishing.md](page-publishing.md).
 
 The reviewed plan is the publishing input and the recovery data. It holds the exact desired values and the production values from before. Keep it until the pages are checked. Don't commit it.
 

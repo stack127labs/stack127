@@ -37,6 +37,19 @@ The merge starts `.github/workflows/stack127-release-e2e.yml`. It runs the core 
 
 Watch it with `gh run watch <run-id> --exit-status`. Don't rebuild the image or rerun checks the workflow already ran.
 
+### Cloudflare static frontend
+
+Read the static frontend section of `stack127_docs/cloudflare.md` and check the hosting switches before release. Enable Cloudflare release mode only after the isolated preview passes. Enable the Supabase hosting secret after the production route and content refresh path are ready. Don't report a cutover as done before its release checks pass.
+
+When `vars.STACK127_FRONTEND_HOSTING` is `cloudflare`, the release also:
+
+1. Builds the static export and checks it on the `stack127-frontend-preview` service before the backend changes.
+2. Deploys the backend image and confirms its health SHA.
+3. Deploys the static frontend. The first release writes the Workers routes and the query `noindex` header rule.
+4. Checks `/frontend-release.json` and the `X-Stack127-Frontend-SHA` header, and that a missing path returns 404.
+
+If the frontend fails after the backend is live, run `node scripts/stack127/frontend/deploy.mjs --rollback-to-origin` and set both hosting switches back to legacy. OVH then serves pages again. Ask the user before you roll back, unless the live site is broken.
+
 ## Publish pages
 
 Do this after the release workflow passes and the live health SHA matches the merge commit. "Push to prod" already covers it. Don't ask again.
@@ -44,7 +57,7 @@ Do this after the release workflow passes and the live health SHA matches the me
 1. From a clean checkout of the exact merge commit, which must be the current `origin/main`, run the publisher's `prepare` for each manifest with `--environment production` and a new `--out` file. It reads the current production rows into the plan and records the source commit.
 2. Run `preview` with `--environment production`. Read the result and confirm only the intended pages change.
 3. Run `dispatch` with `--environment production`, `--confirm stack127-production`, and the full current `origin/main` SHA as `--release-sha`.
-4. Watch `.github/workflows/stack127-publish-pages.yml` until it finishes. It waits up to 10 minutes for the live SHA, joins the production concurrency group, applies the plan in one transaction, checks the public pages and sitemap, and records the result on the GitHub deployment.
+4. Watch `.github/workflows/stack127-publish-pages.yml` until it finishes. It waits up to 10 minutes for the live SHA, joins the production concurrency group, applies the plan in one transaction, checks the public pages and sitemap, and records the result on the GitHub deployment. In Cloudflare mode it also rebuilds and deploys the static frontend between the commit and the public check, which adds several minutes.
 5. If it reports that the batch committed but the public check failed, the data is saved. Run `verify` with the same plan and `--release-sha`. `apply` is safe to repeat.
 6. If `main` moves before the workflow runs, it refuses the stale SHA. Dispatch again with the new `origin/main` SHA once that release is live.
 7. Keep each plan file until the pages are checked. It holds the before values `restore` needs.
@@ -58,6 +71,6 @@ Use the single-purpose tool-page commands in production only for a small fix to 
 
 ## Complete
 
-Report the PR, the merge commit, the workflow result, the live SHA, the page publication result, the public smoke result, and the elapsed time. Don't call the release complete unless `origin/main`, the deployed image, and the live health SHA all match the merge commit.
+Report the PR, the merge commit, the workflow result, the live SHA, the page publication result, the public smoke result, and the elapsed time. Don't call the release complete unless `origin/main`, the deployed image, and the live health SHA all match the merge commit. In Cloudflare mode, `/frontend-release.json` must match it too.
 
 Never deploy to the removed Hostinger target, expose secrets, bypass Cloudflare Access, automate dashboard credentials, or change DNS to hide a failed deployment.

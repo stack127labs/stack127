@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { setTimeout as sleep } from "node:timers/promises";
+import { verifyFrontend } from "../frontend/deploy.mjs";
 
 const defaultDeployTimeoutSeconds = 15 * 60;
 const defaultDeployPollSeconds = 10;
@@ -52,6 +53,7 @@ function configFromEnvironment() {
     ghcrToken: requiredEnvironment("GHCR_DOKPLOY_TOKEN"),
     siteUrl: optionalEnvironment("STACK127_SITE_URL", "https://stack127.com").replace(/\/$/u, ""),
     releaseSha: requiredEnvironment("STACK127_RELEASE_SHA"),
+    frontendHosting: optionalEnvironment("STACK127_FRONTEND_HOSTING", "legacy"),
     accessClientId: optionalEnvironment("CF_ACCESS_CLIENT_ID"),
     accessClientSecret: optionalEnvironment("CF_ACCESS_CLIENT_SECRET"),
     deployTimeoutSeconds: numberEnvironment("DOKPLOY_DEPLOY_TIMEOUT_SECONDS", defaultDeployTimeoutSeconds),
@@ -60,6 +62,9 @@ function configFromEnvironment() {
 
   if ((config.accessClientId && !config.accessClientSecret) || (!config.accessClientId && config.accessClientSecret)) {
     throw new Error("CF_ACCESS_CLIENT_ID and CF_ACCESS_CLIENT_SECRET must be provided together.");
+  }
+  if (!/^[a-f0-9]{40}$/.test(config.releaseSha) || !config.dockerImage.endsWith(`:${config.releaseSha}`)) {
+    throw new Error("The Dokploy image must use the exact release SHA tag.");
   }
 
   return config;
@@ -239,10 +244,10 @@ async function waitForDeployment(config, expectedId) {
   throw new Error(`Timed out waiting for Dokploy deployment (${lastDescription}).`);
 }
 
-async function siteRequest(url, headers = {}) {
+async function siteRequest(url, headers = {}, fetchImplementation = fetch) {
   let response;
   try {
-    response = await fetch(url, {
+    response = await fetchImplementation(url, {
       redirect: "follow",
       signal: AbortSignal.timeout(defaultSiteTimeoutMs),
       headers: { accept: "text/html,application/json,text/plain,application/xml", ...headers },
@@ -290,14 +295,14 @@ export function assertBrowserRevalidation({ status, cacheControl, edgeCache, nav
   }
 }
 
-async function verifyLiveSite(config) {
+export async function verifyBackendHealth(config, { fetchImplementation = fetch, sleepImplementation = sleep } = {}) {
   const deadline = Date.now() + config.deployTimeoutSeconds * 1_000;
   let lastHealthError = "live health has not responded";
   let payload = null;
 
-  while (Date.now() < deadline) {
+  do {
     try {
-      const health = await siteRequest(`${config.siteUrl}/api/health?scope=deploy`);
+      const health = await siteRequest(`${config.siteUrl}/api/health?scope=deploy`, {}, fetchImplementation);
       if (health.response.status !== 200) {
         lastHealthError = `HTTP ${health.response.status}`;
       } else {
@@ -319,11 +324,24 @@ async function verifyLiveSite(config) {
     } catch (error) {
       lastHealthError = error instanceof Error ? error.message : String(error);
     }
-    await sleep(config.deployPollSeconds * 1_000);
-  }
+    if (Date.now() >= deadline) break;
+    await sleepImplementation(config.deployPollSeconds * 1_000);
+  } while (Date.now() < deadline);
 
   if (!payload || payload.ok !== true || payload.build?.sha !== config.releaseSha) {
     throw new Error(`Live health did not reach ${config.releaseSha} before timeout (${lastHealthError}).`);
+  }
+  return payload;
+}
+
+export async function verifyLiveSite(config, { backendOnly = false, fetchImplementation = fetch, sleepImplementation = sleep } = {}) {
+  await verifyBackendHealth(config, { fetchImplementation, sleepImplementation });
+  // The old static frontend stays live until the new backend is ready.
+  if (backendOnly) return;
+  if (config.frontendHosting === "cloudflare") {
+    await verifyFrontend(config.siteUrl, config.releaseSha, { fetchImplementation });
+    console.log(`Live static frontend passed with build ${config.releaseSha}.`);
+    return;
   }
 
   const smokeChecks = [
@@ -332,12 +350,12 @@ async function verifyLiveSite(config) {
     { pathname: "/sitemap.xml", requiredAny: ["<urlset", "<sitemapindex"] },
   ];
   for (const { pathname, requiredAll, requiredAny } of smokeChecks) {
-    const result = await siteRequest(`${config.siteUrl}${pathname}?__stack127_release=${config.releaseSha.slice(0, 12)}`);
+    const result = await siteRequest(`${config.siteUrl}${pathname}?__stack127_release=${config.releaseSha.slice(0, 12)}`, {}, fetchImplementation);
     assertLiveSmokeResponse({ pathname, status: result.response.status, body: result.body, requiredAll, requiredAny });
     console.log(`Live smoke passed: ${pathname}.`);
   }
   for (let attempt = 0; attempt < 2; attempt += 1) {
-    const missing = await siteRequest(`${config.siteUrl}/stack127-release-missing-${config.releaseSha.slice(0, 12)}`);
+    const missing = await siteRequest(`${config.siteUrl}/stack127-release-missing-${config.releaseSha.slice(0, 12)}`, {}, fetchImplementation);
     assertUncachedNotFound({ status: missing.response.status,
       cacheControl: missing.response.headers.get("cache-control"),
       edgeCache: missing.response.headers.get("cf-cache-status"),
@@ -345,9 +363,9 @@ async function verifyLiveSite(config) {
   }
   console.log("Live smoke passed: repeated missing pages are not cached.");
   const cookieHeaders = { cookie: "stack127_release_check=1" };
-  const document = await siteRequest(`${config.siteUrl}/about`, cookieHeaders);
+  const document = await siteRequest(`${config.siteUrl}/about`, cookieHeaders, fetchImplementation);
   const etag = document.response.headers.get("etag");
-  const documents = [document, await siteRequest(`${config.siteUrl}/about`, { ...cookieHeaders, "if-none-match": etag || "*" })];
+  const documents = [document, await siteRequest(`${config.siteUrl}/about`, { ...cookieHeaders, "if-none-match": etag || "*" }, fetchImplementation)];
   for (const result of documents) assertBrowserRevalidation({ status: result.response.status,
     cacheControl: result.response.headers.get("cache-control"), edgeCache: result.response.headers.get("cf-cache-status"),
     navigationTtl: result.response.headers.get("x-nextjs-stale-time") });
@@ -378,7 +396,7 @@ async function main() {
     await configureImage(config);
     const deploymentIdValue = await triggerDeployment(config);
     await waitForDeployment(config, deploymentIdValue);
-    await verifyLiveSite(config);
+    await verifyLiveSite(config, { backendOnly: config.frontendHosting === "cloudflare" });
     return;
   }
 

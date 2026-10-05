@@ -4,6 +4,7 @@ import { getGoogleAnalyticsConfig } from "@/lib/google-analytics";
 import { AnalyticsSettingsButton } from "./google-analytics-consent";
 import { AppSidebar } from "./app-sidebar";
 import { BrandWordmark } from "./brand-wordmark";
+import { intentPrefetch } from "./intent-prefetch";
 import styles from "./app-shell.module.css";
 import { sidebarPanelTitleClassName } from "./sidebar-panel";
 
@@ -43,15 +44,15 @@ export function AppShell({
           <div className={styles.content}>{children}</div>
           <footer className={styles.footer} aria-label="Site footer">
             <div className={styles.footerTop}>
-              <Link className={styles.footerBrand} href="/" aria-label="stack127 home">
+              <Link {...intentPrefetch} className={styles.footerBrand} href="/" aria-label="stack127 home">
                 <BrandWordmark />
               </Link>
               <nav className={styles.footerLinks} aria-label="Legal pages">
-                <Link href="/privacy">privacy</Link>
+                <Link {...intentPrefetch} href="/privacy">privacy</Link>
                 {googleAnalytics ? <AnalyticsSettingsButton /> : null}
-                <Link href="/terms">terms</Link>
-                <Link href="/about">about</Link>
-                <Link href="/labs">labs</Link>
+                <Link {...intentPrefetch} href="/terms">terms</Link>
+                <Link {...intentPrefetch} href="/about">about</Link>
+                <Link {...intentPrefetch} href="/labs">labs</Link>
               </nav>
               <p>2026 stack127. all rights reserved.</p>
             </div>

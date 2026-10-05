@@ -127,12 +127,13 @@ Read `stack127_docs/quality-workflow.md`.
 
 ## Production
 
-- The only production target is the OVH application in `scripts/stack127/deployment/targets.json`.
+- The production backend target is the OVH application in `scripts/stack127/deployment/targets.json`.
 - The only production Dokploy dashboard is `https://dokploy.stack127.com`.
 - The Hostinger target and `https://dokploy.ravitejaknts.com` are retired for stack127.
 - Builds and release checks run on GitHub, not on the homelab. Don't run `npm run build` locally. Code goes through a pull request, where CI runs the core tests and the build. Merging it deploys.
 - "Push to prod" means the whole release: pull request, CI fixes, merge, deploy, and production data steps such as registry rows.
 - A release is complete only when the merge commit, `origin/main`, the deployed image SHA, and live health SHA match.
+- In Cloudflare hosting mode, free static assets serve public pages. OVH keeps the API and stays the rollback site. Read the hosting switches and cutover sequence in `stack127_docs/cloudflare.md` before release, cache, or SEO work. A Cloudflare release is complete only when `/frontend-release.json` also shows the merge commit.
 - Read `stack127_docs/production-deployment.md` and the release skill before deployment work.
 
 ## Data and repositories

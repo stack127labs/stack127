@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { intentPrefetch } from "./intent-prefetch";
 import styles from "./sidebar-list.module.css";
 
 export type SidebarListItem = {
@@ -85,7 +86,7 @@ export function SidebarList({
                 {content}
               </a>
             ) : (
-              <Link aria-current={item.active ? "page" : undefined} href={item.href}>
+              <Link {...intentPrefetch} aria-current={item.active ? "page" : undefined} href={item.href}>
                 {content}
               </Link>
             )}
