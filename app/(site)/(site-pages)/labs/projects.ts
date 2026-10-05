@@ -1,12 +1,13 @@
-import { Binary, Database, Network } from "lucide-react";
+import { Database, FilePenLine, Network } from "lucide-react";
 
 /** Shared with the homepage so its count follows the displayed project list. */
 export const labProjects = [
   {
     name: "BaseBuddy",
-    kind: "learning tool",
-    description: "A visual base-conversion tool for learning and checking number systems.",
-    icon: Binary,
+    kind: "Supabase CMS",
+    description:
+      "An open-source CMS with a WordPress-like editor for your existing Supabase or Postgres database.",
+    icon: FilePenLine,
     website: "https://basebuddy.stack127.com",
     repository: "https://github.com/stack127labs/basebuddy",
   },
