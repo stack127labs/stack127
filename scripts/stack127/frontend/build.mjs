@@ -32,8 +32,9 @@ export async function buildFrontend({ output, environment = process.env } = {}) 
     const config = await loadConfig("phase-production-build", process.cwd());
     const redirects = await config.redirects();
     await prepareFrontend(process.cwd(), target, pages);
+    // Use the copied Next runtime so rendering shares its request context.
     // The temporary project never loads local .env files.
-    await run(process.execPath, [path.join(process.cwd(), "node_modules/next/dist/bin/next"), "build"], {
+    await run(process.execPath, [path.join(target, "node_modules/next/dist/bin/next"), "build"], {
       cwd: target, env: { ...environment, NODE_ENV: "production", NEXT_TELEMETRY_DISABLED: "1", STACK127_BUILD_TARGET: "frontend", STACK127_BUILD_SHA: sha },
       maxBuffer: 32 * 1024 * 1024,
     }).then(result => console.log(result.stdout)).catch(error => {
