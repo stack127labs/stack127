@@ -308,7 +308,7 @@ The owner authorized moving public pages to Cloudflare's free static hosting. Th
 | Routes | `stack127.com/api/*` and `stack127.com/vitals/*` have no Worker, so they go to OVH. `stack127.com/*` goes to `stack127-frontend`. The script writes the two exclusions before the catch-all, and refuses to replace a route another Worker owns. |
 | DNS | Unchanged. The proxied apex record still points to OVH, which the API routes need. Hostinger stays the registrar. No custom domain is needed. |
 | Preview | `stack127-frontend-preview` on `workers.dev`. Every run checks it before production. `workers.dev` responses send `noindex`. |
-| Missing pages | The exported `404.html`, with status 404 and `no-store`. |
+| Missing pages | The exported `404.html`, with status 404 and browser revalidation. Cloudflare can cache that file at the edge. |
 | Version | Every response sends `X-Stack127-Frontend-SHA`. `/frontend-release.json` holds the commit, page count, and build time. |
 
 ### What the export holds
