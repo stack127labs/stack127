@@ -1,5 +1,6 @@
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
+import { setTimeout as delay } from "node:timers/promises";
 import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import os from "node:os";
@@ -8,11 +9,13 @@ import { activateFrontend, deactivateFrontend, cloudflare, frontendService } fro
 
 const run = promisify(execFile);
 
-export async function verifyFrontend(site, sha, { fetchImplementation = fetch } = {}) {
+async function verifyFrontendOnce(site, sha, fetchImplementation) {
   for (const route of ["/", "/robots.txt", "/sitemap.xml", "/frontend-release.json"]) {
     const response = await fetchImplementation(`${site}${route}`, { signal: AbortSignal.timeout(20000) });
     const body = await response.text();
-    if (response.status !== 200 || response.headers.get("x-stack127-frontend-sha") !== sha) throw new Error(`Static frontend verification failed: ${route}`);
+    if (response.status !== 200 || response.headers.get("x-stack127-frontend-sha") !== sha) {
+      throw new Error(`Static frontend verification failed: ${route}, status ${response.status}, expected SHA ${sha}, received ${response.headers.get("x-stack127-frontend-sha") ?? "no SHA"}.`);
+    }
     if (route === "/frontend-release.json" && JSON.parse(body).sha !== sha) throw new Error("Frontend release differs from the expected commit.");
     if (route === "/sitemap.xml" && !body.includes("<urlset")) throw new Error("Static sitemap is invalid.");
     if (route === "/robots.txt" && !body.includes("Sitemap:")) throw new Error("Static robots file is invalid.");
@@ -20,6 +23,20 @@ export async function verifyFrontend(site, sha, { fetchImplementation = fetch } 
   }
   const missing = await fetchImplementation(`${site}/stack127-static-missing-${sha.slice(0, 12)}`, { signal: AbortSignal.timeout(20000) });
   if (missing.status !== 404) throw new Error("Static hosting must return a real 404 for missing routes.");
+}
+
+export async function verifyFrontend(site, sha, { fetchImplementation = fetch, attempts = 1, delayMs = 5000, waitImplementation = delay } = {}) {
+  if (!Number.isInteger(attempts) || attempts < 1) throw new Error("Frontend verification needs at least one attempt.");
+  for (let attempt = 1; ; attempt++) {
+    try {
+      await verifyFrontendOnce(site, sha, fetchImplementation);
+      return;
+    } catch (error) {
+      if (attempt >= attempts) throw error;
+      console.log(`Waiting for Cloudflare propagation, attempt ${attempt}/${attempts}: ${error.message}`);
+      await waitImplementation(delayMs);
+    }
+  }
 }
 
 export async function deployFrontend({ directory, preview = false, activate = false, environment = process.env } = {}) {
@@ -40,12 +57,12 @@ export async function deployFrontend({ directory, preview = false, activate = fa
     if (preview) {
       const subdomain = await cloudflare(`/accounts/${environment.CLOUDFLARE_ACCOUNT_ID}/workers/subdomain`, { environment });
       const site = `https://${name}.${subdomain.subdomain}.workers.dev`;
-      await verifyFrontend(site, release.sha);
+      await verifyFrontend(site, release.sha, { attempts: 12 });
       console.log(JSON.stringify({ preview: site, sha: release.sha, ...limits }));
       return { site, sha: release.sha };
     }
     if (activate) await activateFrontend({ environment });
-    await verifyFrontend("https://stack127.com", release.sha);
+    await verifyFrontend("https://stack127.com", release.sha, { attempts: 12 });
     console.log(JSON.stringify({ deployed: true, sha: release.sha, ...limits }));
     return { site: "https://stack127.com", sha: release.sha };
   } finally { await rm(temporary, { recursive: true, force: true }); }

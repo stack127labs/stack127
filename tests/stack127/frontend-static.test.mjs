@@ -82,3 +82,68 @@ test("live verification rejects a fallback homepage for a missing URL", async ()
   const fetchImplementation = async url => new Response(url.endsWith("/frontend-release.json") ? JSON.stringify({ sha }) : url.endsWith("/robots.txt") ? "Sitemap: https://stack127.com/sitemap.xml" : url.endsWith("/sitemap.xml") ? "<urlset>" : "<main>page</main>", { status: 200, headers: { "x-stack127-frontend-sha": sha } });
   await assert.rejects(verifyFrontend("https://stack127.com", sha, { fetchImplementation }), /real 404/);
 });
+
+function frontendResponse(url, sha) {
+  const route = new URL(url).pathname;
+  const body = route === "/frontend-release.json" ? JSON.stringify({ sha })
+    : route === "/robots.txt" ? "Sitemap: https://stack127.com/sitemap.xml"
+    : route === "/sitemap.xml" ? "<urlset></urlset>" : "<main>page</main>";
+  return new Response(body, { status: route.startsWith("/stack127-static-missing-") ? 404 : 200,
+    headers: { "x-stack127-frontend-sha": sha } });
+}
+
+test("deployment verification waits for unavailable and stale edges to serve the current release", async () => {
+  const sha = "a".repeat(40);
+  let homepageRequests = 0;
+  const waits = [];
+  const routes = [];
+  await verifyFrontend("https://stack127.com", sha, {
+    attempts: 4, delayMs: 123,
+    waitImplementation: async milliseconds => { waits.push(milliseconds); },
+    fetchImplementation: async url => {
+      routes.push(new URL(url).pathname);
+      if (new URL(url).pathname === "/") {
+        homepageRequests++;
+        if (homepageRequests === 1) return new Response("not ready", { status: 503 });
+        if (homepageRequests === 2) return frontendResponse(url, "b".repeat(40));
+        if (homepageRequests === 3) throw new Error("temporary network failure");
+      }
+      return frontendResponse(url, sha);
+    },
+  });
+  assert.equal(homepageRequests, 4);
+  assert.deepEqual(waits, [123, 123, 123]);
+  assert.deepEqual(routes.slice(-5), ["/", "/robots.txt", "/sitemap.xml", "/frontend-release.json", `/stack127-static-missing-${sha.slice(0, 12)}`]);
+});
+
+test("deployment verification stops at its retry limit when the release never arrives", async () => {
+  const sha = "a".repeat(40);
+  let requests = 0;
+  let waits = 0;
+  await assert.rejects(verifyFrontend("https://stack127.com", sha, {
+    attempts: 2, waitImplementation: async () => { waits++; },
+    fetchImplementation: async url => { requests++; return frontendResponse(url, "b".repeat(40)); },
+  }), /expected SHA a{40}, received b{40}/);
+  assert.equal(requests, 2);
+  assert.equal(waits, 1);
+});
+
+test("deployment retries preserve release-body, document and missing-page checks", async () => {
+  const sha = "a".repeat(40);
+  const invalid = [
+    ["/", "invalid page", /homepage is invalid/],
+    ["/robots.txt", "invalid robots", /robots file is invalid/],
+    ["/sitemap.xml", "invalid sitemap", /sitemap is invalid/],
+    ["/frontend-release.json", JSON.stringify({ sha: "b".repeat(40) }), /release differs/],
+    [`/stack127-static-missing-${sha.slice(0, 12)}`, "<main>fallback homepage</main>", /real 404/],
+  ];
+  for (const [route, body, error] of invalid) {
+    let waits = 0;
+    await assert.rejects(verifyFrontend("https://stack127.com", sha, {
+      attempts: 2, waitImplementation: async () => { waits++; },
+      fetchImplementation: async url => new URL(url).pathname === route
+        ? new Response(body, { headers: { "x-stack127-frontend-sha": sha } }) : frontendResponse(url, sha),
+    }), error);
+    assert.equal(waits, 1);
+  }
+});
