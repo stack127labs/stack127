@@ -200,6 +200,8 @@ After `restore`, and with `verify --restored`, the check compares against the be
 
 The publisher doesn't purge caches itself. Database triggers queue revalidation, and the cache worker processes it. See [caching.md](caching.md).
 
+In Cloudflare mode, the production publication workflow rebuilds and deploys the static export right after the transaction commits, before the public check, while it still holds the production concurrency group. The rebuild captures the queued events and acknowledges only their exact versions, so a newer edit stays queued. This adds several minutes. Legacy mode is the default until both `vars.STACK127_FRONTEND_HOSTING` and the Supabase `cache-worker` secret are set to `cloudflare`. See [cloudflare.md](cloudflare.md#static-frontend-on-cloudflare).
+
 In development, the public check needs `npm run dev` and `npm run stack127:cache:watch:local` running as background services.
 
 These HTTP checks confirm the data is live. They don't replace looking at the page in a browser.
@@ -253,7 +255,7 @@ The page publication workflow, `.github/workflows/stack127-publish-pages.yml`:
 4. Runs `apply` with the plan. It repeats the SQL readiness checks after the live release wait, commits the batch, and runs the public check.
 5. Records success or failure on the GitHub deployment.
 
-The workflow doesn't build or deploy the app. It finishes and records its result even if the agent's session ends. Watch the run and read its result.
+In legacy mode the workflow doesn't build or deploy the app. In Cloudflare mode, step 4 also rebuilds and deploys the static frontend after the commit and before the public check. It finishes and records its result even if the agent's session ends. Watch the run and read its result.
 
 A direct production `apply` from the homelab runs the same gates. Use `dispatch` for normal releases.
 
@@ -271,7 +273,7 @@ After publication, check the changed pages on `https://stack127.com` at desktop 
 | --- | --- | --- |
 | `prepare` or `preview` fails | Nothing was written. | Fix the manifest, page, or data, then prepare a new plan. |
 | `apply` fails before commit | The transaction rolled back. | Fix the cause and run `apply` again. |
-| `apply` says the batch committed, then the public check fails | The data is saved. The pages haven't been confirmed. | Check the cache worker, then run `verify` with the same plan. Running `apply` again is also safe. |
+| `apply` says the batch committed, then the public check fails | The data is saved. The pages haven't been confirmed. | Check the cache worker, then run `verify` with the same plan. Running `apply` again is also safe. In Cloudflare mode, check the frontend rebuild in the workflow log first. A failed rebuild leaves the events queued for `stack127-frontend-refresh.yml`. |
 | `apply` reports a publishing conflict | Someone changed a page after `prepare`. | Prepare a new plan from the current rows. |
 | The published data is wrong | The batch saved what it was given. | Publish a corrected plan, or run `restore` with the same plan. |
 

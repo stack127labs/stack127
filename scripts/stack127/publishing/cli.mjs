@@ -148,7 +148,16 @@ async function verifyDatabase(pool, plan, restore) {
   finally { client.release(); }
 }
 
-export async function publishingMain(kind, argv = process.argv.slice(2)) {
+export async function verifyPublication(pool, plan, { restore = false, site, canonicalOrigin, waitSeconds = 180,
+  releaseSha, afterCommit, fetchImplementation = fetch } = {}) {
+  await verifyDatabase(pool, plan, restore);
+  // A static export must include the committed rows before public checks start.
+  if (afterCommit) await afterCommit({ pool, plan, restore, releaseSha, site });
+  return await verifyPublicPages(pool, plan.pages, { site, canonicalOrigin, restore, waitSeconds, fetchImplementation });
+}
+
+export async function publishingMain(kind, argv = process.argv.slice(2), { afterCommit } = {}) {
+  if (afterCommit !== undefined && typeof afterCommit !== 'function') throw new Error('afterCommit must be a function');
   const args = publishingArgs(argv);
   const site = (args.site ?? (args.environment === 'production' ? 'https://stack127.com' : 'http://127.0.0.1:3333')).replace(/\/$/, '');
   const siteUrl = new URL(site);
@@ -198,8 +207,9 @@ export async function publishingMain(kind, argv = process.argv.slice(2)) {
       if (args.command === 'preview') return;
       applied = true;
     }
-    await verifyDatabase(pool, plan, restore);
-    const verification = await verifyPublicPages(pool, plan.pages, { site, canonicalOrigin, restore, waitSeconds: Number(args['wait-seconds'] ?? 180) });
+    const verification = await verifyPublication(pool, plan, { site, canonicalOrigin, restore,
+      waitSeconds: Number(args['wait-seconds'] ?? 180), releaseSha: args['release-sha'],
+      afterCommit: applied ? afterCommit : undefined });
     if (args.environment === 'production') await checkLiveRelease(site, args['release-sha']);
     console.log(JSON.stringify({ ...verification, complete: true, restored: restore }));
   } catch (error) {

@@ -44,7 +44,20 @@ jobs:
     if: github.event.deployment.environment == 'stack127-page-publication' && github.event.deployment.task == 'page-publication'
     runs-on: ubuntu-latest
     environment: production
-    timeout-minutes: 20
+    timeout-minutes: 45
+    env:
+      STACK127_FRONTEND_HOSTING: ${{ vars.STACK127_FRONTEND_HOSTING || 'legacy' }}
+      STACK127_SITE_URL: https://stack127.com
+      DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID || secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID || secrets.CLOUDFLARE_ZONE_ID }}
+      GOOGLE_ANALYTICS_ID: ${{ vars.GOOGLE_ANALYTICS_ID || 'G-ZJNG8SCGE1' }}
+      UMAMI_URL: ${{ vars.UMAMI_URL || 'https://umami.ravitejaknts.com' }}
+      UMAMI_WEBSITE_ID: ${{ vars.UMAMI_WEBSITE_ID || 'ff47ea40-04e6-4a74-b4cc-e420d28433d3' }}
     concurrency:
       group: stack127-production
       cancel-in-progress: false
@@ -69,18 +82,51 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
         run: |
           umask 077
+          test -n "$DATABASE_URL"
           printf 'DATABASE_URL=%s\n' "$DATABASE_URL" > .env.database
           printf 'SUPABASE_URL=%s\n' "$SUPABASE_URL" >> .env.database
       - name: Publish and verify selected pages
         env:
           GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           node --input-type=module <<'NODE'
           import { readFile } from 'node:fs/promises';
           import { publishingMain } from './scripts/stack127/publishing/cli.mjs';
           import { publicationEvent } from './scripts/stack127/publishing/github.mjs';
+          import { refreshCommittedContent, checkCurrentRelease } from './scripts/stack127/frontend/content-queue.mjs';
+          import { buildFrontend } from './scripts/stack127/frontend/build.mjs';
+          import { deployFrontend, verifyFrontend } from './scripts/stack127/frontend/deploy.mjs';
           const publication = publicationEvent(JSON.parse(await readFile(process.env.GITHUB_EVENT_PATH, 'utf8')));
-          await publishingMain(publication.plan.kind, ['apply', '--plan', `${process.env.RUNNER_TEMP}/page-plan.json`, '--environment', 'production', '--confirm', 'stack127-production', '--release-sha', publication.releaseSha]);
+          process.env.STACK127_RELEASE_SHA = publication.releaseSha;
+          const options = {
+            sha: publication.releaseSha, directory: `${process.env.RUNNER_TEMP}/frontend-assets`,
+            hosting: process.env.STACK127_FRONTEND_HOSTING, site: process.env.STACK127_SITE_URL,
+            token: process.env.GITHUB_TOKEN, repo: process.env.GITHUB_REPOSITORY,
+            zone: process.env.CLOUDFLARE_ZONE_ID, cloudflareToken: process.env.CLOUDFLARE_API_TOKEN,
+          };
+          if (options.hosting === 'cloudflare') {
+            await checkCurrentRelease(options);
+            await verifyFrontend(options.site, options.sha);
+          }
+          await publishingMain(publication.plan.kind, ['apply', '--plan', `${process.env.RUNNER_TEMP}/page-plan.json`, '--environment', 'production', '--confirm', 'stack127-production', '--release-sha', publication.releaseSha], {
+            afterCommit: async ({ pool }) => {
+              if (options.hosting !== 'cloudflare') return;
+              const client = await pool.connect();
+              try {
+                await refreshCommittedContent(client, {
+                  ...options,
+                  buildDeploy: async () => {
+                    await buildFrontend({ output: options.directory });
+                    await checkCurrentRelease(options);
+                    await deployFrontend({ directory: options.directory, preview: true });
+                    await checkCurrentRelease(options);
+                    await deployFrontend({ directory: options.directory });
+                  },
+                });
+              } finally { client.release(); }
+            },
+          });
           NODE
       - name: Record publication result
         if: always()

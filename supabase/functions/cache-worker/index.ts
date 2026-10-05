@@ -4,6 +4,7 @@ import postgres from "npm:postgres@3.4.7";
 import { targetsForEvents } from "../../../scripts/stack127/cache/targets.mjs";
 import { refreshTargets, cacheBodyDigest, selectRevalidationBatch } from "../../../scripts/stack127/cache/refresh.mjs";
 import { launchDirectoryRevisionMatches } from "../../../lib/launch-directories-data.ts";
+import { dispatchFrontendRefresh, frontendLatencyMinutes } from "../../../scripts/stack127/frontend/content-queue.mjs";
 
 declare const EdgeRuntime: { waitUntil(promise: Promise<unknown>): void };
 
@@ -14,11 +15,12 @@ const env = (name: string) => Deno.env.get(name) ?? "";
 const dryRun = env("CACHE_WORKER_DRY_RUN") === "1";
 const siteUrl = (env("STACK127_SITE_URL") || "https://stack127.com").replace(/\/$/, "");
 const alertRepo = env("GITHUB_ALERT_REPO") || "stack127labs/stack127";
+const cloudflareFrontend = env("STACK127_FRONTEND_HOSTING") === "cloudflare";
 
 const runBudgetMs = 90_000;
 let deadline = Infinity;
 const leaseSeconds = 150;
-const alertAfterMinutes = 5;
+const alertAfterMinutes = cloudflareFrontend ? frontendLatencyMinutes : 5;
 
 const sql = postgres(env("SUPABASE_DB_URL"), { max: 1, prepare: false, idle_timeout: 20, connection: { statement_timeout: 15000 } });
 
@@ -77,11 +79,12 @@ async function purgeCloudflare(tags: string[]) {
   }
 }
 
-// A change is ready once it has been quiet for 10 seconds, so repeated changes
-// during an import are grouped. No change waits more than 60 seconds.
+// Legacy refresh settles for 10 seconds with a 60-second maximum. A frontend
+// build settles for a minute with a five-minute maximum to coalesce imports.
 const ready = () => sql`
   next_attempt_at <= now()
-  and (created_at <= now() - interval '10 seconds' or first_queued_at <= now() - interval '60 seconds')
+  and (created_at <= now() - ${cloudflareFrontend ? 60 : 10} * interval '1 second'
+    or first_queued_at <= now() - ${cloudflareFrontend ? 300 : 60} * interval '1 second')
 `;
 
 async function readyEvents(): Promise<QueueEvent[]> {
@@ -247,6 +250,17 @@ async function reconcile() {
 }
 
 async function observe(lastError: string | null) {
+  if (cloudflareFrontend) {
+    // A dispatch is not content verification. Clear the legacy health clock so
+    // its two-minute and seven-day gates cannot describe the static frontend.
+    await sql`update public.stack127_cache_observation set
+      healthy_since = null, last_check_at = now(), last_error = ${lastError},
+      last_failure_at = case when ${lastError}::text is not null or exists (
+        select 1 from public.stack127_revalidation_events
+        where first_queued_at <= now() - ${frontendLatencyMinutes} * interval '1 minute'
+      ) then now() else last_failure_at end where id`;
+    return;
+  }
   // A late update, an error, or a gap in checks resets the seven-day clock.
   await sql`update public.stack127_cache_observation set
     healthy_since = case when ${lastError}::text is not null or
@@ -312,6 +326,12 @@ async function checkQueueAge(lastError: string | null) {
 }
 
 async function run() {
+  // A preview must not take a lease, change retry state, reconcile, or alert.
+  if (dryRun) {
+    const events = await readyEvents();
+    console.log(JSON.stringify({ dryRun: true, hosting: cloudflareFrontend ? "cloudflare" : "legacy", events: events.length }));
+    return;
+  }
   const leaseId = crypto.randomUUID();
   const lease = await sql`
     update public.stack127_cache_worker_state
@@ -324,10 +344,41 @@ async function run() {
   const started = Date.now();
   let processed = 0;
   let lastError: string | null = null;
+  let keepDispatchLease = false;
   try {
     deadline = started + runBudgetMs;
     const key = await signingKey();
     if (!dryRun) await reconcile();
+    if (cloudflareFrontend) {
+      const events = await readyEvents();
+      if (events.length) {
+        try {
+          const result = await dispatchFrontendRefresh({
+            repo: env("GITHUB_FRONTEND_REPO") || "stack127labs/stack127",
+            token: env("GITHUB_FRONTEND_TOKEN"),
+          });
+          keepDispatchLease = result.dispatched || result.active === true;
+          console.log(JSON.stringify({ hosting: "cloudflare", ...result, acknowledged: 0 }));
+        } catch (error) {
+          // A failed dispatch never removes work or penalizes a newer edit.
+          lastError = String(error).slice(0, 500);
+          await sql`
+            update public.stack127_revalidation_events event set
+              attempts = event.attempts + 1, last_error = ${String(error).slice(0, 500)},
+              next_attempt_at = now() + case event.attempts
+                when 0 then interval '15 seconds' when 1 then interval '1 minute' else interval '5 minutes' end
+            from ${processedRows(events)}
+            where event.id = done.id and event.created_at = done.created_at
+          `;
+          await checkQueueAge(lastError);
+          throw error;
+        }
+      }
+      // GitHub owns API refresh, deployment verification, and acknowledgement.
+      // Keep the existing alert path; dispatch does not open another alert.
+      await checkQueueAge(null);
+      return;
+    }
     while (Date.now() - started < runBudgetMs) {
       const events = await readyEvents();
       if (events.length) {
@@ -356,14 +407,14 @@ async function run() {
     lastError = String(error).slice(0, 500);
     console.error(`Cache worker failed: ${lastError}`);
   } finally {
-    if (!dryRun) await observe(lastError);
+    await observe(lastError);
     deadline = Infinity;
     await sql`
       update public.stack127_cache_worker_state set
         lease_id = null,
-        lease_until = null,
+        lease_until = case when ${keepDispatchLease} then lease_until else null end,
         last_error = ${lastError},
-        last_success_at = case when ${lastError}::text is null then now() else last_success_at end
+        last_success_at = case when ${lastError}::text is null and not ${cloudflareFrontend} then now() else last_success_at end
       where id = true and lease_id = ${leaseId}
     `;
   }

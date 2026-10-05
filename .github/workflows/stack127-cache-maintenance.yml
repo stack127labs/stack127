@@ -3,6 +3,7 @@ name: Stack127 Cache Maintenance
 on:
   schedule:
     - cron: "*/5 * * * *"
+    - cron: "17 * * * *"
   workflow_dispatch:
     inputs:
       configure_cache_policy:
@@ -12,6 +13,7 @@ on:
 
 permissions:
   contents: read
+  actions: write
 
 concurrency:
   group: stack127-cache-maintenance
@@ -19,9 +21,16 @@ concurrency:
 
 jobs:
   process:
+    # Repository variables are available before the production environment loads.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (vars.STACK127_FRONTEND_HOSTING == 'cloudflare' && github.event.schedule == '17 * * * *') ||
+      (vars.STACK127_FRONTEND_HOSTING != 'cloudflare' && github.event.schedule == '*/5 * * * *')
     runs-on: ubuntu-latest
     environment: production
     timeout-minutes: 10
+    env:
+      STACK127_FRONTEND_HOSTING: ${{ vars.STACK127_FRONTEND_HOSTING || 'legacy' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -30,26 +39,61 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Check worker reliability
+        if: env.STACK127_FRONTEND_HOSTING != 'cloudflare'
         id: reliability
         run: node scripts/stack127/cache/status.mjs
         env:
           DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
       - name: Scheduled fallback during the first reliable day, or manual backup
-        if: github.event_name == 'workflow_dispatch' || steps.reliability.outputs.backup_needed == 'true'
+        if: env.STACK127_FRONTEND_HOSTING != 'cloudflare' && (github.event_name == 'workflow_dispatch' || steps.reliability.outputs.backup_needed == 'true')
         run: npm run stack127:cache:process
         env:
           DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID || secrets.CLOUDFLARE_ZONE_ID }}
           STACK127_SITE_URL: https://stack127.com
+      - name: Dispatch a static refresh only when events are pending
+        if: env.STACK127_FRONTEND_HOSTING == 'cloudflare'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { randomUUID } from 'node:crypto';
+          import pg from 'pg';
+          import { dispatchFrontendRefresh } from './scripts/stack127/frontend/content-queue.mjs';
+          const client = new pg.Client({ connectionString: process.env.DATABASE_URL, connectionTimeoutMillis: 15000, statement_timeout: 15000 });
+          const lease = randomUUID();
+          let leased = false;
+          let dispatched = false;
+          try {
+            await client.connect();
+            const pending = await client.query('select exists(select 1 from public.stack127_revalidation_events where next_attempt_at <= now()) as pending');
+            if (!pending.rows[0]?.pending) {
+              console.log('No due static frontend events.');
+            } else {
+              leased = (await client.query(`update public.stack127_cache_worker_state set lease_id=$1, lease_until=now()+interval '150 seconds'
+                where id and (lease_until is null or lease_until<now()) returning id`, [lease])).rowCount > 0;
+              if (leased) {
+                const result = await dispatchFrontendRefresh({ repo: process.env.GITHUB_REPOSITORY, token: process.env.GITHUB_TOKEN });
+                dispatched = result.dispatched;
+                console.log(JSON.stringify(result));
+              } else console.log('The cache worker already holds the dispatch lease.');
+            }
+          } finally {
+            try {
+              if (leased && !dispatched) await client.query('update public.stack127_cache_worker_state set lease_id=null, lease_until=null where id and lease_id=$1', [lease]);
+            } finally { await client.end(); }
+          }
+          NODE
       - name: Apply the initial cache policy when requested
-        if: inputs.configure_cache_policy == true && steps.reliability.outputs.long_ttl_enabled == 'false'
+        if: env.STACK127_FRONTEND_HOSTING != 'cloudflare' && inputs.configure_cache_policy == true && steps.reliability.outputs.long_ttl_enabled == 'false'
         run: node scripts/stack127/cache/configure-cloudflare.mjs --apply
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID || secrets.CLOUDFLARE_ZONE_ID }}
       - name: Enable longer cache times after seven reliable days
-        if: steps.reliability.outputs.long_ttl_ready == 'true'
+        if: env.STACK127_FRONTEND_HOSTING != 'cloudflare' && steps.reliability.outputs.long_ttl_ready == 'true'
         run: node scripts/stack127/cache/configure-cloudflare.mjs --long-ttl --apply
         env:
           DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}

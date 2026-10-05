@@ -3,7 +3,7 @@ import test from 'node:test';
 import { mkdtemp, writeFile, symlink, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { publishingArgs, resolveCopy, validatePlan } from '../../scripts/stack127/publishing/cli.mjs';
+import { publishingArgs, resolveCopy, validatePlan, verifyPublication } from '../../scripts/stack127/publishing/cli.mjs';
 import { checkDatabaseRequirements, readinessSql, routeMatches } from '../../scripts/stack127/publishing/readiness.mjs';
 import { checkLiveRelease, inspectPublishedHtml, verifyPublicPages } from '../../scripts/stack127/publishing/verify.mjs';
 import { publicationEvent } from '../../scripts/stack127/publishing/github.mjs';
@@ -18,6 +18,69 @@ const revision = '2026-10-04T00:00:00.000Z';
 const requirements = { route: 'app/(site)/(directories)/example/page.tsx', assets: [], checks: [], smoke: [], records: { kind: 'code', files: ['lib/examples.ts'] } };
 const plan = () => ({ schema_version: 1, kind: 'directories', environment: 'production', source_commit: sha, pages: [{ slug: 'example', family: 'directory', before: null, after: structuredClone(state), requirements }] });
 const html = () => `<html><head><title>Example directory | stack127</title><meta name="description" content="Compare examples &amp; choices."><meta name="robots" content="index, follow"><meta name="stack127-content-revision" content="${revision}"><link rel="canonical" href="https://stack127.com/example"></head><body><h1>Find <mark>examples</mark></h1></body></html>`;
+
+function committedPool(current = state) {
+  let released = false;
+  const client = {
+    query: async sql => ({ rows: sql.includes('from public.stack127_pages')
+      ? [{ id: 1, slug: current.slug, page_family: current.family, ...current.registry }]
+      : sql.includes('from public.stack127_directory_pages') ? [{ page_id: 1, ...current.content }] : [] }),
+    release: () => { released = true; },
+  };
+  return { connect: async () => client, query: async () => ({ rows: [{ slug: current.slug, row_updated_at: revision }] }), get released() { return released; } };
+}
+
+test('publication waits for the committed-content callback before checking public pages', async () => {
+  const pool = committedPool();
+  let refreshed = false;
+  const result = await verifyPublication(pool, plan(), {
+    site: 'https://stack127.com', releaseSha: sha, waitSeconds: 0,
+    afterCommit: async context => {
+      assert.equal(context.pool, pool);
+      assert.equal(context.releaseSha, sha);
+      assert.equal(context.restore, false);
+      assert.equal(pool.released, true);
+      await new Promise(resolve => setImmediate(resolve));
+      refreshed = true;
+    },
+    fetchImplementation: async url => {
+      assert.equal(refreshed, true);
+      return new Response(url.endsWith('sitemap.xml') ? '<urlset><url><loc>https://stack127.com/example</loc></url></urlset>' : html());
+    },
+  });
+  assert.equal(result.verified, true);
+});
+
+test('a failed static refresh cannot report publication complete or start public checks', async () => {
+  let requests = 0;
+  await assert.rejects(verifyPublication(committedPool(), plan(), {
+    site: 'https://stack127.com', waitSeconds: 0,
+    afterCommit: async () => { throw new Error('Static refresh failed'); },
+    fetchImplementation: async () => { requests++; return new Response(html()); },
+  }), /Static refresh failed/);
+  assert.equal(requests, 0);
+});
+
+test('database verification rejects a conflicting commit before rebuilding static content', async () => {
+  let callbacks = 0;
+  const conflicting = structuredClone(state);
+  conflicting.content.title = 'Another edit';
+  await assert.rejects(verifyPublication(committedPool(conflicting), plan(), {
+    site: 'https://stack127.com', waitSeconds: 0,
+    afterCommit: async () => { callbacks++; },
+  }), /Database verification failed/);
+  assert.equal(callbacks, 0);
+});
+
+test('public verification remains required after a successful refresh', async () => {
+  let callbacks = 0;
+  await assert.rejects(verifyPublication(committedPool(), plan(), {
+    site: 'https://stack127.com', waitSeconds: 0,
+    afterCommit: async () => { callbacks++; },
+    fetchImplementation: async () => new Response('<urlset/>'),
+  }), /public verification is incomplete/);
+  assert.equal(callbacks, 1);
+});
 
 test('production mutations require explicit environment, confirmation, and exact release SHA', () => {
   assert.throws(() => publishingArgs(['apply', '--plan', 'p', '--environment', 'production']), /confirmation|confirm/);

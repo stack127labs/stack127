@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: collectAllowedDevOrigins(),
   distDir: process.env.STACK127_TEST_DIST_DIR ?? ".next",
   images: {
+    unoptimized: process.env.STACK127_BUILD_TARGET === "frontend",
     remotePatterns: [
       {
         protocol: "https",
@@ -23,8 +24,8 @@ const nextConfig: NextConfig = {
       } as const] : []),
     ],
   },
-  output: "standalone",
-  experimental: { staleTimes: { dynamic: 0, static: 30 } },
+  output: process.env.STACK127_BUILD_TARGET === "frontend" ? "export" : "standalone",
+  experimental: { staleTimes: { dynamic: 0, static: process.env.STACK127_BUILD_TARGET === "frontend" ? 300 : 30 } },
   outputFileTracingIncludes: {
     "/api/hardware-directory/[directory]/[record]": ["./lib/hardware-directories/data/*.json"],
     "/local-security-cameras": ["./lib/hardware-directories/data/local-security-cameras.json"],
@@ -34,6 +35,7 @@ const nextConfig: NextConfig = {
     "/zigbee-coordinators": ["./lib/hardware-directories/data/zigbee-coordinators.json"],
   },
   async headers() {
+    if (process.env.STACK127_BUILD_TARGET === "frontend") return [];
     const assets = ["/app-icons/:path*", "/logos/:path*", "/favicon.ico", "/favicon-:size.png", "/apple-touch-icon.png", "/android-chrome-:size.png"];
     return assets.map(source => ({ source, headers: [
       { key: "Cache-Control", value: "public, max-age=0, must-revalidate" },
@@ -41,6 +43,7 @@ const nextConfig: NextConfig = {
     ] }));
   },
   async redirects() {
+    if (process.env.STACK127_BUILD_TARGET === "frontend") return [];
     return [
       ...legacyShortcutRedirects,
       { source: "/dns-tools/caa-checker", destination: "/caa-checker", permanent: true },

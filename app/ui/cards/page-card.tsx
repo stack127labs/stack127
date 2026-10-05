@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { Doodle } from "@/app/ui/site/doodle";
+import { intentPrefetch } from "@/app/ui/site/intent-prefetch";
 import styles from "./page-card.module.css";
 
 export type PageCardCount = { label: string; value: number };
@@ -23,7 +24,7 @@ export type PageCardProps = {
 export function PageCard({ href, name, description, art, icon: Icon, count, size = "feature" }: PageCardProps) {
   const feature = size === "feature";
   return (
-    <Link className={`${styles.card} ${feature ? styles.feature : styles.tool}`} href={href} prefetch={feature ? false : undefined}>
+    <Link {...intentPrefetch} className={`${styles.card} ${feature ? styles.feature : styles.tool}`} href={href}>
       <span aria-hidden="true" className={styles.art}>
         {art ? <Doodle className={styles.doodle} svg={art} /> : Icon ? <Icon className={styles.artIcon} strokeWidth={1.4} /> : null}
       </span>
