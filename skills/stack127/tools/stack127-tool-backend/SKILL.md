@@ -19,3 +19,5 @@ Build exactly what the spec's Backend contract describes: the same function name
 Do not build the page, client components, styles, or card art. Do not write page content, create manifests or evidence files, or run the whole repository test collection. This backend task does not authorize production data, commits, pushes, or deployment. A separate coordinator-approved production task follows the approval rules in `AGENTS.md` and the release skill.
 
 Return the files you built, the exported functions or endpoints, the test result, and any contract gap.
+
+For an existing tool, a change to inputs, results, calculations, validation, or other user-visible behavior needs a `tool_version` increase. Use a patch for a compatible fix, a minor version for compatible new behavior, and a major version for an incompatible contract change. Confirm the version with the coordinator before integration. The database moves the public date when the version changes. Copy-only edits move the date without changing the version. Card-only edits refresh catalogs and keep the tool date unchanged. See `stack127_docs/tool-pages.md`.

@@ -21,3 +21,5 @@ Read `AGENTS.md`, `stack127_docs/writing-style.md`, `stack127_docs/shared-ui.md`
 This skill builds the page. The publisher checks readiness and turns publication on. Production publication runs through the release skill after the code is live. Do not write production data, publish, commit, push, or deploy without authorization.
 
 Check published noindex pages for their own canonical, `noindex, follow`, no JSON-LD, and absence from the sitemap. They can still appear in sidebars, catalogs, and homepage lists.
+
+For directory facts, check the date coverage in `stack127_docs/directory-pages.md`. Covered database records and keyboard shortcut syncs move public dates only when visible records change. Touch code-only or uncovered directories after meaningful fact or entry changes with `scripts/stack127/pages/touch.mjs --environment development --slug <slug> --reason "<change>" --apply`. Put `touch_reason` in the reviewed publication manifest too. Skip explicit touches for typos and formatting.

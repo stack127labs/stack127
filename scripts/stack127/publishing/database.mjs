@@ -1,5 +1,5 @@
 import { isDeepStrictEqual } from "node:util";
-import { CONTENT_FIELDS, REGISTRY_FIELDS, desiredStates, validateRef, validateState } from "./model.mjs";
+import { CONTENT_FIELDS, REGISTRY_FIELDS, desiredStates, validateRef, validateState, validateTouch } from "./model.mjs";
 
 const TABLES = Object.freeze({
   tool: "public.stack127_tool_pages",
@@ -50,7 +50,7 @@ function references(refs) {
 async function readManaged(client, refs, lock = false, columns = contentColumnResolver(client)) {
   if (!refs.length) return { states: [], rows: new Map() };
   const { rows: pages } = await client.query(`
-    select id, slug, page_family, ${REGISTRY_FIELDS.join(", ")}
+    select id, slug, page_family, updated_at::text as public_updated_at, ${REGISTRY_FIELDS.join(", ")}
     from public.stack127_pages where slug = any($1::text[])
     order by slug ${lock ? "for update" : ""}
   `, [[...new Set(refs.map(ref => ref.slug))]]);
@@ -113,7 +113,7 @@ function batchEntries(entries, restore) {
   const seen = new Set();
   const batch = entries.map(entry => {
     if (!entry || typeof entry !== "object" || Array.isArray(entry)
-      || Object.keys(entry).some(key => !["slug", "family", "before", "after"].includes(key))
+      || Object.keys(entry).some(key => !["slug", "family", "before", "after", "touch"].includes(key))
       || !Object.hasOwn(entry, "before") || !Object.hasOwn(entry, "after")) {
       throw new Error("Each batch entry must contain slug, family, before, and after only");
     }
@@ -126,7 +126,7 @@ function batchEntries(entries, restore) {
       throw new Error(`State slug does not match batch entry: ${ref.slug}`);
     }
     if (after.content === null) throw new Error(`Desired ${ref.family} content is missing for ${ref.slug}`);
-    return { ...ref, before, after };
+    return { ...ref, before, after, touch:validateTouch(entry.touch,ref.family) };
   });
   const targets = desiredStates(batch, { restore });
   return batch.map((entry, index) => ({ ...entry, desired: targets[index] }));
@@ -290,7 +290,7 @@ async function writeRegistry(client, id, before, after, touch = false) {
     if (touch) await client.query("update public.stack127_pages set row_updated_at = now() where id = $1", [id]);
     return;
   }
-  // Family triggers own revisions. Registry publication needs explicit public dates.
+  // Family triggers own public content dates. Registry publication needs explicit public dates.
   await client.query(`
     update public.stack127_pages set
       ${REGISTRY_FIELDS.map((field, index) => `${field} = $${index + 2}`).join(", ")},
@@ -313,9 +313,11 @@ export async function executeBatch(pool, entries, { apply = false, restore = fal
     await client.query("select pg_advisory_xact_lock(hashtextextended($1, 0))", ["stack127-page-publishing"]);
     const columns = contentColumnResolver(client);
     const current = await readManaged(client, refs, true, columns);
+    const touchNeeded = batch.map(entry => !restore && entry.touch !== undefined
+      && (current.rows.get(entry.slug)?.public_updated_at ?? current.rows.get(entry.slug)?.updated_at ?? null) === entry.touch.expected_updated_at);
     const changed = batch.map((entry, index) => {
       const state = current.states[index];
-      if (isDeepStrictEqual(state, entry.desired)) return false;
+      if (isDeepStrictEqual(state, entry.desired)) return touchNeeded[index];
       const expected = restore ? entry.after : entry.before;
       if (!isDeepStrictEqual(state, expected)) {
         throw new Error(`Publishing conflict for ${entry.slug}: current managed state differs from the frozen plan`);
@@ -357,6 +359,7 @@ export async function executeBatch(pool, entries, { apply = false, restore = fal
         && REPO_FIELDS.some(field => (current.states[index].content?.[field] ?? null)
           !== (batch[index].desired.content?.[field] ?? null));
       await writeRegistry(client, ids.get(batch[index].slug), before, batch[index].desired.registry, repoChanged);
+      if (touchNeeded[index]) await client.query('select public.stack127_touch_page($1,$2)',[batch[index].slug,batch[index].touch.reason]);
     }
     await client.query(apply ? "commit" : "rollback");
     return { applied: apply, restored: restore,

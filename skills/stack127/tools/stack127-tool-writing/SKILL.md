@@ -125,3 +125,5 @@ Return:
 - sources for factual claims.
 
 Keep the spec as planning, not a second live copy.
+
+Copy edits move a published tool's public date without changing `tool_version`. Card-only edits refresh catalogs and keep the tool date unchanged. Functional tool changes use the version workflow in `stack127_docs/tool-pages.md`.

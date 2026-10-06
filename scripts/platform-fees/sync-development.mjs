@@ -4,8 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { parseEnv, parseArgs } from 'node:util';
 import pg from 'pg';
 import { validateDirectory } from '../../lib/platform-fees/model.ts';
-import { feeGroups, groupPath } from '../../lib/platform-fees/groups.ts';
-import { upsertDirectoryPage, platformFeeSectionCopy, platformFeeOverviewCopy } from '../stack127/directory-pages/lib.mjs';
+import { syncPlatformFeeRecords, ensurePlatformFeePages } from './sync-records.mjs';
 const { values } = parseArgs({ options: { apply: { type: 'boolean', default: false }, migrate: { type: 'boolean', default: false }, preview: { type: 'boolean', default: false } } });
 const data = JSON.parse(await readFile(new URL('./data/directory.json', import.meta.url), 'utf8'));
 validateDirectory(data);
@@ -32,28 +31,10 @@ try {
   if (values.migrate) console.log(JSON.stringify({ schemaReady: true, migrate: 'validated only; use the canonical recovery script for migrations' }));
   await client.query('begin');
   try {
-    // Reload this directory alone; unrelated directory and registry data is preserved.
-    await client.query('delete from public.platform_fee_entries');
-    await client.query('delete from public.platform_fee_sections');
-    await client.query('insert into public.platform_fee_sections select * from jsonb_populate_recordset(null::public.platform_fee_sections, $1::jsonb)', [JSON.stringify(data.sections)]);
-    await client.query('insert into public.platform_fee_entries select * from jsonb_populate_recordset(null::public.platform_fee_entries, $1::jsonb)', [JSON.stringify(data.entries)]);
-    const groupSlugs = feeGroups.map(group => groupPath(group.name).slice(1));
-    await client.query("update public.stack127_pages set is_published=false where slug like 'platform-fees/%' and not(slug=any($1::text[])) and is_published", [groupSlugs]);
-    for (const group of feeGroups) {
-      const slug = groupPath(group.name).slice(1);
-      await client.query(`insert into public.stack127_pages (slug,page_family,label,meta_title,meta_description,is_published,page_type,sitemap_priority)
-        values ($1,'directory',$2,$3,$4,false,'CollectionPage',0.6)
-        on conflict (slug) do update set page_family=excluded.page_family, label=excluded.label, meta_title=excluded.meta_title, meta_description=excluded.meta_description,
-          page_type=excluded.page_type, updated_at=case when stack127_pages.is_published then now() else stack127_pages.updated_at end`,
-        [slug, group.name, group.meta_title, group.meta_description]);
-      await upsertDirectoryPage(client, platformFeeSectionCopy(group, slug));
-    }
-    const overview = platformFeeOverviewCopy();
-    await client.query(`update public.stack127_pages set meta_title=$1, meta_description=$2,
-      updated_at=case when is_published then now() else updated_at end
-      where slug='platform-fees'`, [overview.meta_title, overview.meta_description]);
-    await upsertDirectoryPage(client, overview);
-    if (values.preview) await client.query("update public.stack127_pages set is_published=true,published_at=coalesce(published_at,now()),updated_at=now() where slug='platform-fees' or slug=any($1::text[])", [groupSlugs]);
+    const changes = await syncPlatformFeeRecords(client,data);
+    const groupSlugs = await ensurePlatformFeePages(client);
+    console.log(JSON.stringify({changes}));
+    if (values.preview) await client.query("update public.stack127_pages set is_published=true,published_at=coalesce(published_at,now()),updated_at=now() where (slug='platform-fees' or slug=any($1::text[])) and not is_published", [groupSlugs]);
     await client.query('commit');
   } catch(error) { await client.query('rollback'); throw error; }
   console.log((await client.query('select (select count(*) from public.platform_fee_sections) sections, (select count(*) from public.platform_fee_entries) entries')).rows[0]);

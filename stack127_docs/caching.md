@@ -55,7 +55,7 @@ Without JavaScript, visitors and crawlers see the default static page.
 
 ## The revalidation pipeline
 
-1. A source-table trigger calls `stack127_enqueue_revalidation(entity_type, slug, source)`. This adds a row to `public.stack127_revalidation_events`.
+1. A source-table trigger calls `stack127_touch_page(slug, reason)` for a meaningful public change, then queues its dataset event with `stack127_enqueue_revalidation(entity_type, slug, source)`. This adds a row to `public.stack127_revalidation_events`.
 2. The Supabase `cache-worker` function claims events. It uses `scripts/stack127/cache/targets.mjs` to map them to Next.js tags, paths, Cloudflare tags, and pages to warm.
 3. It calls `POST /api/cache/revalidate`, which runs `revalidateTag` and `revalidatePath`.
 4. It verifies origin pages and the self-host search, CLI index, and hardware index against their sources before purging Cloudflare. It then warms the verified responses. A stale response leaves the event queued for retry.
@@ -65,6 +65,12 @@ A release purges `stack127-public` and `stack127-assets`, then warms the main pa
 `stack127_queue_page_change` compares the whole registry row apart from its internal write timestamp. Changing `is_indexable` queues a `page` event. That event refreshes the registry cache, page HTML, and sitemap. In Cloudflare mode it rebuilds the export, including public noindex pages, before acknowledging the event.
 
 This is legacy mode. In Cloudflare mode, the worker dispatches a GitHub workflow that rebuilds and deploys the static export instead. See below.
+
+`stack127_touch_page` sets published pages' `updated_at` to the transaction time and queues page refreshes. Directory children also touch their registered directory ancestors. Unpublished dates stay null. Statement triggers compare visible records before and after a write, so identical reloads and bookkeeping leave dates alone.
+
+Tool cards still refresh every linked catalog and tool sidebar. They do not change the tool's public date. Tool copy and version changes do. Code directory facts need the development touch command or a publisher `touch_reason`; see [directory-pages.md](directory-pages.md).
+
+Origin refreshes and static export checks must verify canonical and indexing metadata, plus sitemap inclusion, with the helpers in `scripts/stack127/publishing/verify.mjs`.
 
 The source tags live in `lib/cache-tags.ts`. `scripts/stack127/cache/targets.mjs` imports the same constants. The directory entities map as follows:
 

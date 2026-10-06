@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import { changedColumns } from '../stack127/database/sync-records.mjs';
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { buildInstallOptions } from "./lib/install-options.mjs";
@@ -35,6 +36,7 @@ async function upsertRows(client, rows) {
       on conflict (app_id) do update set
         ${updates},
         updated_at = now()
+      where ${changedColumns('self_host_app_install_options',columns,{exclude:['app_id','checked_at']})}
     `,
     [JSON.stringify(rows)],
   );

@@ -143,12 +143,23 @@ export function validateState(state, family = state?.family) {
   return result;
 }
 
+export function validateTouch(touch, family) {
+  if (touch === undefined) return undefined;
+  if (family !== 'directory') throw new Error('Only directory records use an explicit page touch');
+  exactFields(touch,['reason','expected_updated_at'],'page touch');
+  textField(touch.reason,'touch.reason');
+  if (touch.expected_updated_at !== null && (typeof touch.expected_updated_at !== 'string'
+    || !Number.isFinite(Date.parse(touch.expected_updated_at)))) throw new Error('Invalid expected page date');
+  return {...touch};
+}
+
 export function desiredStates(entries, { restore = false } = {}) {
   if (!Array.isArray(entries)) throw new Error("Batch entries must be an array");
   if (typeof restore !== "boolean") throw new Error("restore must be a boolean");
   const seen = new Set();
   const pages = entries.map(entry => {
     const ref = validateRef({ slug: entry?.slug, family: entry?.family });
+    validateTouch(entry.touch,ref.family);
     if (seen.has(ref.slug)) throw new Error(`Duplicate batch page: ${ref.slug}`);
     seen.add(ref.slug);
     const before = entry.before === null ? null : validateState(entry.before, ref.family);

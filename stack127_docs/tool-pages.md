@@ -56,7 +56,7 @@ This split applies only to interactive tools. Directories such as `/epp-status-c
 The `stack127_repo_*` fields describe repositories owned by stack127. They are unrelated to `public.github_projects`. That table stores third-party repository facts used by directories.
 
 See [tool-catalogs.md](tool-catalogs.md) for tool catalog content and memberships. A tool may appear in several catalogs. Its rank-1 membership is the primary one. Card edits update every linked catalog's public date and queue those pages for revalidation.
-Card edits also update the tool's public date because its name appears in tool navigation.
+Card-only edits leave the tool's public date alone. Their internal registry timestamp still advances so cache checks can reject an older render. Title, introduction, usage, supporting content, and `tool_version` changes move the public date. No-op writes and repository-only updates keep it unchanged.
 
 In development, tool integration updates shared card fields and the complete ordered catalog list with `npm run stack127:tool-page:catalogs:update`. The command defaults to a dry run and uses `.env.local` for development. Add `--apply` to write. The first catalog has rank 1. If display orders are omitted, new tools are appended and existing memberships keep their positions. See [tool-catalogs.md](tool-catalogs.md) for the command and checks.
 
@@ -106,7 +106,7 @@ The command leaves `tool_version` and `tool_version_updated_at` unchanged. For a
 A functional change affects inputs, validation, formulas, resolution behavior, data-source interpretation, results, interactive visuals, or privacy behavior. Any other change a user can observe in the tool also counts.
 
 1. Change the route, engine, fixtures, and tests through the normal test-first tool workflow.
-2. Choose the next semantic version. Use a patch for a compatible correction. Use a minor version for compatible new behavior and a major version for an incompatible contract change.
+2. Raise `tool_version` when shipped inputs, outputs, calculations, validation, or other user-visible tool behavior changes. Keep it unchanged for copy, cards, styling, and repository metadata. Choose the next semantic version. Use a patch for a compatible correction. Use a minor version for compatible new behavior and a major version for an incompatible contract change.
 3. Dry-run the version update against development, then apply it after the implementation and tests pass:
 
    ```bash

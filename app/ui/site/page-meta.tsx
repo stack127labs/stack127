@@ -35,47 +35,49 @@ export function PageMeta({
 
   return (
     <div className={styles.meta}>
-      {author ? (
-        <span className={styles.item}>
-          {author.avatarUrl ? (
-            <img
-              alt=""
-              className={styles.avatar}
-              decoding="async"
-              height="20"
-              loading="lazy"
-              referrerPolicy="no-referrer"
-              src={author.avatarUrl}
-              width="20"
-            />
-          ) : null}
-          By {author.name}
-        </span>
-      ) : null}
-      {githubUrl ? (
-        <a
-          aria-label="GitHub repository"
-          className={styles.item}
-          href={githubUrl}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <FaGithub aria-hidden="true" size={15} />
-          GitHub
-        </a>
-      ) : null}
-      {version ? (
-        <span className={styles.item}>
-          <Tag aria-hidden="true" size={15} strokeWidth={1.8} />
-          Version {version}
-        </span>
-      ) : null}
-      {hasUpdated ? (
-        <span className={styles.item}>
-          <CalendarDays aria-hidden="true" size={15} strokeWidth={1.8} />
-          <time dateTime={updated.toISOString()}>Updated {updatedDateFormatter.format(updated)}</time>
-        </span>
-      ) : null}
+      <div className={styles.row}>
+        {author ? (
+          <span className={styles.item}>
+            {author.avatarUrl ? (
+              <img
+                alt=""
+                className={styles.avatar}
+                decoding="async"
+                height="20"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+                src={author.avatarUrl}
+                width="20"
+              />
+            ) : null}
+            By {author.name}
+          </span>
+        ) : null}
+        {githubUrl ? (
+          <a
+            aria-label="GitHub repository"
+            className={styles.item}
+            href={githubUrl}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <FaGithub aria-hidden="true" size={15} />
+            GitHub
+          </a>
+        ) : null}
+        {version ? (
+          <span className={styles.item}>
+            <Tag aria-hidden="true" size={15} strokeWidth={1.8} />
+            Version {version}
+          </span>
+        ) : null}
+        {hasUpdated ? (
+          <span className={styles.item}>
+            <CalendarDays aria-hidden="true" size={15} strokeWidth={1.8} />
+            <time dateTime={updated.toISOString()}>Updated {updatedDateFormatter.format(updated)}</time>
+          </span>
+        ) : null}
+      </div>
     </div>
   );
 }

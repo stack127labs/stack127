@@ -87,6 +87,7 @@ Each page takes only these keys:
 | `content` | Family table fields to set. See the table below. |
 | `catalogs` | Tools only. The full ordered catalog list. The first entry is the primary catalog. Each entry needs `slug` and a positive `display_order`. |
 | `requirements` | What must already exist before the page can publish. See Readiness. |
+| `touch_reason` | Directories only. Explain a meaningful change to code records or records without automatic date coverage. |
 
 | Family | Content fields |
 | --- | --- |
@@ -141,9 +142,11 @@ The batch must also make sense as a whole, or nothing is written:
 - Display orders can't collide with another tool in the same catalog.
 - A published directory child page needs a published parent directory.
 
-The publisher keeps the existing revision rules. Database triggers raise `content_revision` when the title or Markdown changes, and set `tool_version_updated_at` when `tool_version` changes. Card and membership changes don't change either. Setting the repository fields also sets `stack127_repo_synced_at`, so set them only after a real comparison, as [tool-pages.md](tool-pages.md) describes. A repository-only change updates the registry's internal `row_updated_at` but keeps the public dates.
+Database triggers move public dates for tool title, Markdown, and version changes, and for directory copy and records. Tool card-only changes refresh catalogs without moving the tool date. Repository-only edits keep public dates unchanged. Set repository fields only after a real comparison, as [tool-pages.md](tool-pages.md) describes.
 
-A page whose rows already match the plan is left alone. Retrying a plan doesn't bump any revision or date.
+A directory manifest can include `"touch_reason": "Corrected TLD registry facts"` after a meaningful code record change. Don't use it for typos or formatting. `prepare` freezes the reason and current public date. `apply` calls `stack127_touch_page` only if that date has not already moved. Retrying the plan leaves dates alone. `restore` restores managed copy, not code records or old dates. Revert code separately and prepare a new touch when needed.
+
+A page whose rows already match the plan is left alone, unless its pending record touch still applies.
 
 ### Development source
 

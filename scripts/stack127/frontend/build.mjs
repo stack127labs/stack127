@@ -5,6 +5,7 @@ import path from "node:path";
 import os from "node:os";
 import pg from "pg";
 import loadNextConfig from "next/dist/server/config.js";
+import { inspectIndexingHtml, inspectSitemap } from '../publishing/verify.mjs';
 import { prepareFrontend } from "./prepare.mjs";
 import { inspectAssets, staticHeaders, assertNoPrivateCredentials } from "./assets.mjs";
 
@@ -18,7 +19,7 @@ export async function buildFrontend({ output, environment = process.env } = {}) 
   const pool = new pg.Pool({ connectionString: environment.DATABASE_POOLER_URL || environment.DATABASE_URL, max: 1, connectionTimeoutMillis: 15000 });
   const target = await mkdtemp(path.join(os.tmpdir(), "stack127-frontend-"));
   try {
-    const { rows: pages } = await pool.query(`select page.slug, page.page_family, page.row_updated_at::text as revision
+    const { rows: pages } = await pool.query(`select page.slug, page.page_family, page.is_indexable, page.row_updated_at::text as revision
       from public.stack127_pages page
       left join public.stack127_tool_pages tool on tool.page_id = page.id
       left join public.stack127_directory_pages directory on directory.page_id = page.id
@@ -26,6 +27,8 @@ export async function buildFrontend({ output, environment = process.env } = {}) 
       where page.is_published and case page.page_family
         when 'tool' then tool.page_id is not null when 'directory' then directory.page_id is not null
         when 'catalog' then catalog.page_id is not null else true end order by page.slug`);
+    const indexingPages = (await pool.query('select slug,is_published,is_indexable from public.stack127_pages')).rows;
+    const canonicalOrigin = environment.NEXT_PUBLIC_SITE_URL || 'https://stack127.com';
     const revisions = async () => JSON.stringify((await pool.query("select * from public.stack127_cache_source_revisions() order by entity_type, slug")).rows);
     const before = await revisions();
     const loadConfig = loadNextConfig.default ?? loadNextConfig;
@@ -47,9 +50,11 @@ export async function buildFrontend({ output, environment = process.env } = {}) 
     const exported = path.join(target, "out");
     for (const page of pages) {
       const html = await readFile(path.join(exported, page.slug ? `${page.slug}.html` : "index.html"), "utf8");
+      inspectIndexingHtml(html,page,canonicalOrigin);
       if (!html.includes('name="stack127-content-revision"')) throw new Error(`Publication metadata missing: ${page.slug}`);
       if (!html.includes(`content="${new Date(page.revision).toISOString()}"`)) throw new Error(`Stale exported registry metadata: ${page.slug}`);
     }
+    inspectSitemap(await readFile(path.join(exported,'sitemap.xml'),'utf8'),indexingPages,canonicalOrigin);
     await writeFile(path.join(exported, "_headers"), staticHeaders(sha));
     await writeFile(path.join(exported, "_redirects"), redirects.map(({ source, destination, permanent }) => {
       if (source.includes(":") || source.includes("*")) throw new Error(`Review non-exact redirect: ${source}`);

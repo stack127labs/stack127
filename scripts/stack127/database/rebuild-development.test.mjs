@@ -7,8 +7,8 @@ const pageTables = ['stack127_pages', 'stack127_tool_pages', 'stack127_catalog_p
 const rowsByTable = overrides => new Map(pageTables.map(name => [name, overrides[name] ?? []]));
 
 function directoryRestore() {
-  const sourcePage = { id: 1, slug: 'self-host-apps', page_family: 'directory', is_published: true };
-  const developmentPage = { id: 2, slug: 'development-directory', page_family: 'directory', is_published: true };
+  const sourcePage = { id: 1, slug: 'self-host-apps', page_family: 'directory', is_indexable: true, is_published: true };
+  const developmentPage = { id: 2, slug: 'development-directory', page_family: 'directory', is_indexable: true, is_published: true };
   const sourceCopy = { page_id: 1, title: 'Source directory', content_markdown: null, card_name: 'Source card', card_icon_key: 'self-host-apps', card_art_key: 'self-host-apps' };
   const savedCopy = { page_id: 2, title: 'Edited directory', content_markdown: 'Saved content.', card_name: 'Edited card', card_icon_key: 'terminal', card_art_key: 'labs' };
   return {
@@ -49,8 +49,8 @@ test('verification detects missing and changed preserved directory copy after ID
 });
 
 test('verification remaps tool, catalog, and mixed membership IDs through their page slugs', () => {
-  const sourcePages = [{ id: 1, slug: 'source-tool' }, { id: 2, slug: 'source-catalog' }];
-  const extraPages = [{ id: 3, slug: 'development-tool' }, { id: 4, slug: 'development-catalog' }];
+  const sourcePages = [{ id: 1, slug: 'source-tool', is_indexable: true }, { id: 2, slug: 'source-catalog', is_indexable: true }];
+  const extraPages = [{ id: 3, slug: 'development-tool', is_indexable: true }, { id: 4, slug: 'development-catalog', is_indexable: true }];
   const tool = { page_id: 3, title: 'Saved tool', tool_version: '1.0.0' };
   const catalog = { page_id: 4, card_name: 'Saved catalog' };
   const memberships = [
@@ -100,12 +100,12 @@ test('standalone verification compares production content without claiming to ve
 
 test('development previews survive production introducing unpublished draft registry rows', () => {
   const production = [
-    { slug: 'platform-fees', is_published: false, published_at: null, updated_at: null, label: 'Current fee directory' },
-    { slug: 'platform-fees/app-stores', is_published: false, published_at: null },
-    { slug: 'launch-directories', is_published: false, published_at: null },
-    { slug: 'ad-networks', is_published: false, published_at: null },
-    { slug: 'ad-networks/google-adsense', is_published: false, published_at: null },
-    { slug: 'self-host-apps', is_published: true, published_at: 'production-date' },
+    { slug: 'platform-fees', is_published: false, published_at: null, updated_at: null, label: 'Current fee directory', is_indexable: true },
+    { slug: 'platform-fees/app-stores', is_published: false, published_at: null, is_indexable: true },
+    { slug: 'launch-directories', is_published: false, published_at: null, is_indexable: true },
+    { slug: 'ad-networks', is_published: false, published_at: null, is_indexable: true },
+    { slug: 'ad-networks/google-adsense', is_published: false, published_at: null, is_indexable: true },
+    { slug: 'self-host-apps', is_published: true, published_at: 'production-date', is_indexable: true },
   ];
   const development = production.map((row) => ({ ...row, is_published: row.slug !== 'self-host-apps', published_at: '2026-09-28T17:07:36Z', updated_at: '2026-10-01T04:54:10Z', label: 'Outdated local title' }));
   const result = preserveDevelopmentPublication(production, development);
@@ -118,7 +118,7 @@ test('development previews survive production introducing unpublished draft regi
   assert.equal(result[0].label, 'Current fee directory');
   assert.deepEqual(result[5], production[5]);
   assert.equal(production[0].is_published, false);
-  const unpublished = preserveDevelopmentPublication(production, [{ slug: 'platform-fees', is_published: false, published_at: null, updated_at: null }]);
+  const unpublished = preserveDevelopmentPublication(production, [{ slug: 'platform-fees', is_published: false, published_at: null, updated_at: null, is_indexable: true }]);
   assert.equal(unpublished[0].published_at, null);
   assert.equal(unpublished[0].updated_at, null);
 });
@@ -150,7 +150,7 @@ test('legacy catalog snapshots preserve icon, card art, and hero art through ren
 });
 
 test('legacy directory snapshots backfill homepage cards and leave child assets null', () => {
-  const pages = [{ id: 1, slug: 'self-host-apps' }, { id: 2, slug: 'platform-fees/books' }];
+  const pages = [{ id: 1, slug: 'self-host-apps', is_indexable: true }, { id: 2, slug: 'platform-fees/books', is_indexable: true }];
   assert.deepEqual(normalizeCardSnapshot('stack127_directory_pages', [{ page_id: 1 }, { page_id: 2 }], pages), [
     { page_id: 1, card_icon_key: 'self-host-apps', card_art_key: 'self-host-apps' },
     { page_id: 2, card_icon_key: null, card_art_key: null },
@@ -177,4 +177,16 @@ test('restore verification detects a changed card icon or art after ID remapping
     fixture.restored.get('stack127_directory_pages')[1][field] = 'globe';
     assert.throws(() => verifyPageFamilyRestore(fixture.production, fixture.restored, fixture.preserved), /Content mismatch/);
   }
+});
+
+test('copy and verification accept only the reviewed indexing and revision schema changes', () => {
+  const column = (column_name, data_type = 'text', udt_name = 'text') => ({column_name, data_type, udt_name});
+  const legacy = [column('title'), column('content_revision', 'integer', 'int4')];
+  assert.equal(compatibleCardColumns('stack127_tool_pages', legacy, [column('title')]), true);
+  assert.equal(compatibleCardColumns('stack127_tool_pages', [column('title'), column('content_revision')], [column('title')]), false);
+  assert.equal(compatibleCardColumns('stack127_pages', [column('slug')], [column('slug'), column('is_indexable', 'boolean', 'bool')]), true);
+  assert.equal(compatibleCardColumns('stack127_pages', [column('slug')], [column('slug'), column('is_indexable')]), false);
+  assert.equal(compatibleCardColumns('stack127_pages', [column('slug')], [column('slug'), column('is_indexable', 'boolean', 'bool'), column('unknown')]), false);
+  assert.deepEqual(normalizeCardSnapshot('stack127_tool_pages', [{page_id: 1, title: 'Tool', content_revision: 7}], []), [{page_id: 1, title: 'Tool'}]);
+  assert.deepEqual(normalizeCardSnapshot('stack127_pages', [{slug: 'old'}, {slug: 'hidden', is_indexable: false}], []), [{slug: 'old', is_indexable: true}, {slug: 'hidden', is_indexable: false}]);
 });

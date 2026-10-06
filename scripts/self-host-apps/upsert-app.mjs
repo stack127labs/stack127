@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import { changedColumns } from '../stack127/database/sync-records.mjs';
 import { parseArgs } from "./lib/args.mjs";
 import { getSelfHostAppCategory } from "./lib/categories.mjs";
 import { withClient } from "./lib/db.mjs";
@@ -73,6 +74,7 @@ async function ensureCategories(client, categories) {
           name = excluded.name,
           icon_key = excluded.icon_key,
           sort_order = excluded.sort_order
+        where ${changedColumns('self_host_app_categories',['name','icon_key','sort_order'])}
       `,
       [category.slug, category.name ?? slugToName(slug), category.icon_key, category.sort_order],
     );
@@ -80,7 +82,7 @@ async function ensureCategories(client, categories) {
 }
 
 async function replaceCategoryLinks(client, appId, categories) {
-  await client.query("delete from public.self_host_app_category_links where app_id = $1", [appId]);
+  await client.query("delete from public.self_host_app_category_links link where app_id=$1 and not exists(select 1 from public.self_host_app_categories category where category.id=link.category_id and category.slug=any($2::text[]))", [appId,categories]);
   if (categories.length === 0) return;
 
   const result = await client.query(
@@ -141,12 +143,13 @@ async function main() {
         on conflict (slug) do update set
           ${updates},
           updated_at = now()
+        where ${changedColumns('self_host_apps',appColumns,{preserveOnNull:preserveOnNullColumns,exclude:['slug']})}
         returning id
       `,
       values,
     );
 
-    const appId = result.rows[0].id;
+    const appId = result.rows[0]?.id ?? (await client.query('select id from public.self_host_apps where slug=$1',[record.slug])).rows[0].id;
     await replaceCategoryLinks(client, appId, record.categories);
 
     if (args["dry-run"]) {

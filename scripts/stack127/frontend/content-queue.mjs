@@ -1,3 +1,4 @@
+import { inspectIndexingHtml, inspectSitemap } from '../publishing/verify.mjs';
 import { targetsForEvents } from "../cache/targets.mjs";
 import { refreshTargets, cacheBodyDigest } from "../cache/refresh.mjs";
 import { LAUNCH_DIRECTORY_REVISION_SQL, launchDirectoryRevisionMatches } from "../../../lib/launch-directories-data.ts";
@@ -94,7 +95,7 @@ export async function snapshotQueue(client, { sha, force = false, now = () => ne
       [[...new Set(events.map(event => event.entity_type))], events.map(event => event.slug)],
     ) : { rows: [] };
     const fingerprints = new Map(sources.map(row => [eventKey(row), row.fingerprint]));
-    const { rows: pages } = await client.query(`select slug, is_published, page_family, row_updated_at,
+    const { rows: pages } = await client.query(`select slug, is_published, is_indexable, page_family, row_updated_at,
       case page_family
         when 'tool' then exists(select 1 from public.stack127_tool_pages content where content.page_id=page.id)
         when 'directory' then exists(select 1 from public.stack127_directory_pages content where content.page_id=page.id)
@@ -149,7 +150,7 @@ async function bytesDigest(bytes) {
   return [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, "0")).join("");
 }
 
-export async function exportProofs(snapshot, directory) {
+export async function exportProofs(snapshot, directory, {canonicalOrigin='https://stack127.com'} = {}) {
   validateSnapshot(snapshot);
   const { readFile } = await import("node:fs/promises");
   const path = await import("node:path");
@@ -175,6 +176,8 @@ export async function exportProofs(snapshot, directory) {
     }
     if ((page && !published) || removedPages.has(relative)) throw new Error(`Static export still serves unpublished ${pathname}.`);
     const body = bytes.toString("utf8");
+    if (published) inspectIndexingHtml(body,page,canonicalOrigin);
+    if (pathname === '/sitemap.xml') inspectSitemap(body,snapshot.pages.map(page=>({...page,is_published:page.is_published && page.has_content})),canonicalOrigin);
     if (published && !body.includes(`name="stack127-content-revision" content="${page.revision}"`)) throw new Error(`Exported content revision differs from the snapshot: ${pathname}`);
     if (pathname === "/frontend-release.json" && JSON.parse(body).sha !== snapshot.sha) throw new Error("Exported frontend release SHA differs from main.");
     if (pathname === "/" || pathname === "/launch-directories") {
@@ -189,7 +192,7 @@ export async function exportProofs(snapshot, directory) {
 export async function verifyPublicAssets(snapshot, directory, { site = "https://stack127.com", fetchImplementation = fetch,
   attempts = 1, delayMs = 5000, waitImplementation = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds)) } = {}) {
   if (!Number.isInteger(attempts) || attempts < 1) throw new Error("Public asset verification needs at least one attempt.");
-  const proofs = await exportProofs(snapshot, directory);
+  const proofs = await exportProofs(snapshot, directory,{canonicalOrigin:site});
   for (let index = 0; index < proofs.length; index += 8) {
     await Promise.all(proofs.slice(index, index + 8).map(async proof => {
       for (let attempt = 1; ; attempt++) {

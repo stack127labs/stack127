@@ -90,7 +90,7 @@ async function repairIcon(client, row) {
   const iconUrl = await uploadMediaObject({ bytes: png, contentType: "image/png", objectPath });
   await verifyMediaObject(iconUrl);
   await client.query(
-    `update public.self_host_apps set icon_url = $2, updated_at = now() where id = $1`,
+    `update public.self_host_apps set icon_url = $2, updated_at = now() where id = $1 and icon_url is distinct from $2`,
     [row.id, iconUrl],
   );
 }

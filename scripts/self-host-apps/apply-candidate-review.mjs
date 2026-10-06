@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+import { changedColumns } from '../stack127/database/sync-records.mjs';
+import { pathToFileURL } from 'node:url';
 import { parseArgs } from "./lib/args.mjs";
 import { getSelfHostAppCategory } from "./lib/categories.mjs";
 import { withClient } from "./lib/db.mjs";
@@ -91,13 +93,14 @@ async function ensureCategories(client, categories) {
           icon_key = excluded.icon_key,
           sort_order = excluded.sort_order,
           updated_at = now()
+        where ${changedColumns('self_host_app_categories',['name','icon_key','sort_order'])}
       `,
       [category.slug, category.name, category.icon_key, category.sort_order],
     );
   }
 }
 
-async function upsertApp(client, record, expectedAppId) {
+export async function upsertApp(client, record, expectedAppId) {
   const existing = await client.query("select id from public.self_host_apps where slug = $1", [record.slug]);
   if (existing.rows[0] && expectedAppId && existing.rows[0].id !== expectedAppId) {
     throw new Error(`${record.slug} belongs to a different app than app_id`);
@@ -120,15 +123,16 @@ async function upsertApp(client, record, expectedAppId) {
       on conflict (slug) do update set
         ${updates},
         updated_at = now()
+      where ${changedColumns('self_host_apps',appColumns,{preserveOnNull:new Set(['github_project_id']),exclude:['slug']})}
       returning id
     `,
     values,
   );
-  return result.rows[0].id;
+  return result.rows[0]?.id ?? existing.rows[0].id;
 }
 
 async function replaceCategoryLinks(client, appId, categories) {
-  await client.query("delete from public.self_host_app_category_links where app_id = $1", [appId]);
+  await client.query("delete from public.self_host_app_category_links link where app_id=$1 and not exists(select 1 from public.self_host_app_categories category where category.id=link.category_id and category.slug=any($2::text[]))", [appId,categories]);
   const result = await client.query(
     "select id, slug from public.self_host_app_categories where slug = any($1::text[])",
     [categories],
@@ -173,6 +177,10 @@ async function preserveCandidateSources(client, candidate, appId) {
       data_confidence = case when data_confidence = 'unknown' then 'medium' else data_confidence end,
       updated_at = now()
       where id = $1
+        and (data_confidence='unknown' or data_checked_at is null or data_source_urls is distinct from (
+          select array_agg(distinct url order by url)
+          from unnest(coalesce(data_source_urls, '{}') || $2::text[]) as values(url)
+        ))
     `,
     [appId, sourceUrls],
   );
@@ -193,6 +201,10 @@ async function upsertExtraSources(client, appId, sources) {
       data_checked_at = now(),
       updated_at = now()
       where id = $1
+        and data_source_urls is distinct from (
+          select array_agg(distinct url order by url)
+          from unnest(coalesce(data_source_urls, '{}') || $2::text[]) as values(url)
+        )
     `,
     [appId, sourceUrls],
   );
@@ -240,7 +252,7 @@ function catalogSourceRows(candidate, review) {
   }];
 }
 
-async function upsertInstallOptions(client, appId, options, catalogSources, checkedAt) {
+export async function upsertInstallOptions(client, appId, options, catalogSources, checkedAt) {
   if (!Array.isArray(options) || options.length === 0) return;
   const stored = installOptionsToRow(options, { catalogSources, checkedAt });
   const columns = [
@@ -263,6 +275,7 @@ async function upsertInstallOptions(client, appId, options, catalogSources, chec
       on conflict (app_id) do update set
         ${updates},
         updated_at = now()
+      where ${changedColumns('self_host_app_install_options', columns, { exclude: ['app_id', 'checked_at'] })}
     `,
     [JSON.stringify({ app_id: appId, ...stored })],
   );
@@ -370,7 +383,7 @@ async function main() {
   console.log(JSON.stringify({ dry_run: Boolean(args["dry-run"]), results }, null, 2));
 }
 
-main().catch((error) => {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((error) => {
   console.error(error);
   process.exit(1);
 });

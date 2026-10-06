@@ -17,6 +17,8 @@ export function normalizeCardSnapshot(name, rows, pages) {
   const slugById = new Map(pages.map(page => [String(page.id), page.slug]));
   return rows.map(row => {
     const copy = { ...row };
+    if (['stack127_tool_pages','stack127_directory_pages'].includes(name)) delete copy.content_revision;
+    if (name === 'stack127_pages' && !('is_indexable' in copy)) copy.is_indexable = true;
     if (name === 'stack127_catalog_pages') {
       for (const [oldKey, newKey] of [['icon_key', 'card_icon_key'], ['home_art_key', 'card_art_key']]) {
         if (!(oldKey in copy)) continue;
@@ -51,7 +53,19 @@ export function compatibleCardColumns(name, source, target) {
       }
     }
   }
-  return isDeepStrictEqual(original, shape(target));
+  if (['stack127_tool_pages','stack127_directory_pages'].includes(name)) {
+    const legacy = original.find(column=>column.column_name==='content_revision');
+    if (legacy && (legacy.data_type!=='integer' || legacy.udt_name!=='int4')) return false;
+    if (!target.some(column=>column.column_name==='content_revision')) {
+      const index = original.findIndex(column=>column.column_name==='content_revision');
+      if (index>=0) original.splice(index,1);
+    }
+  }
+  if (name==='stack127_pages' && !original.some(column=>column.column_name==='is_indexable')) {
+    original.push({column_name:'is_indexable',data_type:'boolean',udt_name:'bool'});
+  }
+  const sorted = columns=>columns.sort((left,right)=>left.column_name.localeCompare(right.column_name));
+  return isDeepStrictEqual(sorted(original),sorted(shape(target)));
 }
 
 export function preserveDevelopmentPublication(productionRows, developmentRows) {
@@ -323,6 +337,8 @@ async function main() {
     try {
       await target.query(`lock table ${tables.map(tableName).join(', ')} in share row exclusive mode`);
       const developmentPages = (await target.query('select to_jsonb(record) payload from public.stack127_pages record')).rows.map((row) => row.payload);
+      const hasRecordState = (await target.query("select to_regclass('public.stack127_directory_record_state') is not null present")).rows[0].present;
+      const recordState = hasRecordState ? (await target.query('select page_id,records from public.stack127_directory_record_state')).rows : [];
       const extraPages = developmentPages.filter((row) => !prodSlugs.has(row.slug));
       const extraPageIds = new Set(extraPages.map(row => String(row.id)));
       const extraContent = new Map();
@@ -351,7 +367,7 @@ async function main() {
       await target.query('set constraints all deferred');
       for (const name of tables) await target.query(`alter table ${tableName(name)} disable trigger user`);
       // No CASCADE: fail if an unexpected dependent table would be affected.
-      await target.query(`truncate table ${tables.map(tableName).join(', ')} restart identity`);
+      await target.query(`truncate table ${[...tables,...(hasRecordState ? ['stack127_directory_record_state'] : [])].map(tableName).join(', ')} restart identity`);
       for (const name of tables) {
         const { rows, columns: fields } = snapshot.get(name);
         const names = fields.map((column) => identifier(column.column_name)).join(', ');
@@ -378,6 +394,11 @@ async function main() {
       if (extraMemberships.length) await target.query(`insert into public.stack127_tool_catalog_memberships
         select * from jsonb_populate_recordset(null::public.stack127_tool_catalog_memberships,$1::jsonb)`,
         [JSON.stringify(remapDevelopmentPageIds(extraMemberships, ['catalog_page_id', 'tool_page_id'], developmentPages, currentPages))]);
+      if (recordState.length) {
+        const remapped = remapDevelopmentPageIds(recordState,['page_id'],developmentPages,currentPages);
+        await target.query(`insert into public.stack127_directory_record_state(page_id,records)
+          select page_id,records from jsonb_populate_recordset(null::public.stack127_directory_record_state,$1::jsonb)`,[JSON.stringify(remapped)]);
+      }
       await target.query('set constraints all immediate');
       for (const key of foreignKeys) await target.query(`alter table ${tableName(key.table_name)}
         alter constraint ${identifier(key.conname)} ${key.condeferrable

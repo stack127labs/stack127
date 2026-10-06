@@ -3,7 +3,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import pg from 'pg';
 import { resolveDatabaseUrl } from '../tool-pages/lib.mjs';
-import { CONTENT_FIELDS, REGISTRY_FIELDS, desiredStates, validateState } from './model.mjs';
+import { CONTENT_FIELDS, REGISTRY_FIELDS, desiredStates, validateState, validateTouch } from './model.mjs';
 import { executeBatch, readStates } from './database.mjs';
 import { checkDatabaseRequirements, checkRepositoryRequirements, freezeRequirements, onlyKeys } from './readiness.mjs';
 import { checkLiveRelease, verifyPublicPages } from './verify.mjs';
@@ -58,13 +58,14 @@ export async function resolveCopy(content, base) {
   return result;
 }
 
-async function readSnapshot(pool, refs) {
+async function readSnapshot(pool, refs, { dates = false } = {}) {
   const client = await pool.connect();
   try {
     await client.query('begin transaction isolation level repeatable read read only');
     const states = await readStates(client, refs);
+    const publicDates = dates ? (await client.query('select slug,updated_at::text as updated_at from public.stack127_pages where slug=any($1::text[])',[refs.map(ref=>ref.slug)])).rows : [];
     await client.query('rollback');
-    return states;
+    return dates ? {states,dates:new Map(publicDates.map(row=>[row.slug,row.updated_at]))} : states;
   } catch (error) { await client.query('rollback').catch(() => {}); throw error; }
   finally { client.release(); }
 }
@@ -74,8 +75,9 @@ export async function preparePlan(pool, manifest, { kind, environment, base = pr
   if (manifest.schema_version !== 1 || manifest.kind !== kind || !Array.isArray(manifest.pages) || !manifest.pages.length) throw new Error('Manifest needs schema_version 1, the command kind, and selected pages');
   const seen = new Set();
   for (const page of manifest.pages) {
-    onlyKeys(page, ['slug', 'family', 'source', 'registry', 'content', 'catalogs', 'requirements'], 'Selected page');
+    onlyKeys(page, ['slug', 'family', 'source', 'registry', 'content', 'catalogs', 'requirements', 'touch_reason'], 'Selected page');
     familyKind(kind, page.family);
+    if (page.touch_reason !== undefined) validateTouch({reason:page.touch_reason,expected_updated_at:null},page.family);
     if (page.source !== undefined && page.source !== 'development') throw new Error('The only supported page source is development');
     if (page.source && typeof page.registry?.is_published !== 'boolean') throw new Error('A development-sourced page needs an explicit registry.is_published');
     if (page.catalogs !== undefined && page.family !== 'tool') throw new Error('Only tools have catalog memberships');
@@ -85,7 +87,8 @@ export async function preparePlan(pool, manifest, { kind, environment, base = pr
     onlyKeys(page.content ?? {}, CONTENT_FIELDS[page.family], 'Content patch');
   }
   const refs = manifest.pages.map(({ slug, family }) => ({ slug, family }));
-  const before = await readSnapshot(pool, refs);
+  const snapshot = await readSnapshot(pool, refs,{dates:manifest.pages.some(page=>page.touch_reason!==undefined)});
+  const before = snapshot.states ?? snapshot;
   const developmentRefs = manifest.pages.filter(page => page.source).map(({ slug, family }) => ({ slug, family }));
   if (developmentRefs.length && environment !== 'development' && !developmentPool) throw new Error('A development source connection is required');
   const developmentStates = developmentRefs.length ? await readSnapshot(developmentPool ?? pool, developmentRefs) : [];
@@ -99,7 +102,8 @@ export async function preparePlan(pool, manifest, { kind, environment, base = pr
     const defaults = page.family === 'tool' ? { usage_markdown: null, tool_version: '1.0.0', stack127_repo_url: null, stack127_repo_version: null, stack127_repo_commit_sha: null } : page.family === 'directory' ? { content_markdown: null, card_icon_key: null, card_art_key: null } : { heading_before: '', heading_after: '', icon_key: 'layers', home_order: 100 };
     const after = validateState({ slug: page.slug, family: page.family, registry: { is_published: false, is_indexable: true, cover_image_url: null, page_type: page.family === 'tool' ? 'SoftwareApplication' : 'CollectionPage', sitemap_priority: 0.5, ...source?.registry, ...page.registry }, content: { ...defaults, ...source?.content, ...await resolveCopy(page.content, base) }, ...(page.family === 'tool' ? { catalogs: page.catalogs ?? source?.catalogs ?? [] } : {}) });
     const requirements = await freezeRequirements(page.requirements, after, root);
-    pages.push({ slug: page.slug, family: page.family, before: current, after, requirements });
+    pages.push({ slug: page.slug, family: page.family, before: current, after, requirements,
+      ...(page.touch_reason !== undefined ? {touch:{reason:page.touch_reason,expected_updated_at:snapshot.dates.get(page.slug) ?? null}} : {}) });
   }
   await checkDatabaseRequirements(pool, pages);
   return { schema_version: 1, kind, environment, source_commit: sourceCommit, pages };
@@ -110,8 +114,9 @@ export function validatePlan(plan, kind, environment) {
   if (plan.schema_version !== 1 || plan.kind !== kind || plan.environment !== environment || !/^[a-f0-9]{40}$/.test(plan.source_commit ?? '') || !Array.isArray(plan.pages) || !plan.pages.length) throw new Error('Plan version, kind, environment, or source commit is invalid');
   const slugs = new Set();
   for (const page of plan.pages) {
-    onlyKeys(page, ['slug', 'family', 'before', 'after', 'requirements'], 'Frozen page');
+    onlyKeys(page, ['slug', 'family', 'before', 'after', 'requirements', 'touch'], 'Frozen page');
     familyKind(kind, page.family);
+    validateTouch(page.touch,page.family);
     if (slugs.has(page.slug)) throw new Error(`Duplicate selected page: ${page.slug}`);
     slugs.add(page.slug);
     page.after = validateState(page.after);
@@ -202,7 +207,7 @@ export async function publishingMain(kind, argv = process.argv.slice(2), { after
     }
     if (!restore && args.environment === 'production') await checkDatabaseRequirements(pool, plan.pages);
     if (['apply', 'restore', 'preview'].includes(args.command)) {
-      const result = await executeBatch(pool, plan.pages.map(({ slug, family, before, after }) => ({ slug, family, before, after })), { apply: args.command !== 'preview', restore });
+      const result = await executeBatch(pool, plan.pages.map(({ slug, family, before, after, touch }) => ({ slug, family, before, after, ...(touch ? {touch} : {}) })), { apply: args.command !== 'preview', restore });
       console.log(JSON.stringify(result));
       if (args.command === 'preview') return;
       applied = true;

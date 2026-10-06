@@ -15,7 +15,7 @@ Hand-written directory copy lives in the database. The title, intro, content, an
 
 Code holds copy only when a sync script fills a template for many child pages from records, such as one page per app. Change that template in the script. See the table in `directory-pages.md`.
 
-If a sync script overwrites hand-written copy, don't work around it. Report it, so the script can be changed to leave existing copy alone.
+Platform fee hub and category copy stays in the database. The fee sync creates missing rows only and never replaces reviewed words or SEO fields.
 
 Section or group intros may live in the directory's data files. Check that the route renders `content_markdown` and that it renders well: with the shared prose styles, normal spacing, and tables that fit on a phone.
 
@@ -92,9 +92,9 @@ When child pages share a template, such as one page per app or per section, writ
 
 ## Apply and check in development
 
-Apply the copy to development with `scripts/stack127/directory-pages/update-content.mjs --environment development`. It previews and rolls back unless you add `--apply`, and it also sets the SEO title and description. Don't rerun a directory's full sync just to change copy, because it may reload records in the shared development database. For a child page template, run the sync only when the brief allows it, and check that rows outside your change stay the same.
+Apply the copy to development with `scripts/stack127/directory-pages/update-content.mjs --environment development`. It previews and rolls back unless you add `--apply`. Use `--meta-title` and `--meta-description` for SEO fields. Don't rerun a directory's full sync just to change copy, because it may reload records in the shared development database. For a child page template, run the sync only when the brief allows it, and check that rows outside your change stay the same.
 
-A saved edit queues a cache refresh. A worktree preview needs the local cache watcher pointed at its port; see `homelab-development.md`. The watcher clears the events it handles from the shared queue, so run it only for as long as you need.
+A changed copy or SEO field moves the public date and queues a cache refresh. A child edit also moves its directory ancestors' dates. Record imports do this automatically where covered. For meaningful code record changes, use the development touch command or `touch_reason` in a reviewed publisher batch. Skip explicit touches for typo fixes. See `directory-pages.md`. A worktree preview needs the local cache watcher pointed at its port; see `homelab-development.md`. The watcher clears the events it handles from the shared queue, so run it only for as long as you need.
 
 Open the real page at desktop and mobile width in both themes. Read it as a first-time visitor. Check that the title, intro, listing, and content work together and that nothing repeats.
 

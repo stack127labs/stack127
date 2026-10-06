@@ -1,5 +1,3 @@
-import { readFileSync } from 'node:fs';
-
 export async function upsertDirectoryPage(client, row) {
   const result = await client.query(`
     insert into public.stack127_directory_pages
@@ -48,9 +46,11 @@ export async function previewDirectoryPages(pool, pages, { remove = false, refre
     for (const page of pages) {
       const row = bySlug.get(page.slug);
       if (remove) {
-        if (row) await client.query(`update public.stack127_pages
+        if (row && (row.is_published || row.published_at || row.updated_at)) await client.query(`update public.stack127_pages
           set is_published=false,published_at=null,updated_at=null where id=$1`, [row.id]);
       } else {
+        if (row.label === page.label && row.meta_title === page.title && row.meta_description === page.description
+          && (refresh || row.is_published)) continue;
         await client.query(`update public.stack127_pages set label=$2,meta_title=$3,meta_description=$4,
           is_published=case when $5::boolean then is_published else true end,
           published_at=case when $5::boolean then published_at else coalesce(published_at,now()) end,
@@ -83,38 +83,5 @@ export function adNetworkPageCopy(network) {
     title: `${network.name} publisher websites`,
     intro_markdown: `${network.summary ?? `Browse publisher websites with a verified ${network.name} relationship.`} A site can use more than one ad network.`,
     content_markdown: 'A site appears here only when its current ads.txt or live configuration supports the stated relationship. A seller authorization alone does not establish active use.',
-  };
-}
-
-// Longer platform fee copy is optional Markdown in scripts/platform-fees/copy/<slug>.md.
-export function platformFeeContent(name) {
-  try {
-    return readFileSync(new URL(`../../platform-fees/copy/${name}.md`, import.meta.url), 'utf8').trim() || null;
-  } catch (error) {
-    if (error.code === 'ENOENT') return null;
-    throw error;
-  }
-}
-
-export function platformFeeSectionCopy(group, slug) {
-  return {
-    slug,
-    title: group.title ?? group.name,
-    intro_markdown: group.intro,
-    content_markdown: platformFeeContent(group.slug),
-    card_name: group.name,
-    card_description: group.meta_description,
-  };
-}
-
-export function platformFeeOverviewCopy() {
-  return {
-    slug: 'platform-fees',
-    title: 'Compare <mark>platform fees</mark> before you choose where to sell',
-    meta_title: 'Platform fees compared: App Store, Gumroad, Etsy, Patreon',
-    meta_description: 'See what app stores, download shops, course sites, and creator platforms take from each sale, with plan costs, card fees, and official sources.',
-    intro_markdown: 'See what app stores, download shops, course sites, and creator platforms take from each sale, and what you pay to start. Pick what you sell below, or search for a platform by name. Every rate links to the platform\'s own pricing page or terms.',
-    content_markdown: platformFeeContent('platform-fees'),
-    card_description: 'What app stores, download shops, and creator platforms take from each sale.',
   };
 }

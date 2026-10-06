@@ -21,3 +21,5 @@ Build the interface you planned. Call the backend only through its contract. If 
 Leave the production build to the main agent. Do not write page content, publish production data, commit, push, or deploy.
 
 Return the files you built, what you checked, and any backend problem you found.
+
+For an existing tool, a change to inputs, results, calculations, validation, or other user-visible behavior needs a `tool_version` increase. Use a patch for a compatible fix, a minor version for compatible new behavior, and a major version for an incompatible contract change. Confirm the version with the coordinator before integration. The database moves the public date when the version changes. Copy-only edits move the date without changing the version. Card-only edits refresh catalogs and keep the tool date unchanged. See `stack127_docs/tool-pages.md`.

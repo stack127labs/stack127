@@ -14,6 +14,7 @@
 // - last_verified_at is required and comes from the verification pass
 // - candidates move to 'published' (linked) or 'excluded'/'needs_review'
 
+import { changedColumns } from '../stack127/database/sync-records.mjs';
 import { parseArgs } from "./lib/args.mjs";
 import { slugify } from "./lib/normalize.mjs";
 import { withClient } from "./lib/db.mjs";
@@ -114,6 +115,11 @@ async function publishRecord(client, record) {
         last_verified_at = excluded.last_verified_at,
         published = true,
         updated_at = now()
+      where ${changedColumns('terminal_apps',[
+        'name','aliases','summary','primary_type','additional_types','categories','platforms','language',
+        'install_methods','website_url','docs_url','repository_url','source_model','pricing_model','license',
+        'latest_version','latest_release_at','stars','last_commit_at','maintenance_status','icon_url','last_verified_at','published',
+      ],{preserveOnNull:new Set(['latest_version','latest_release_at','stars','last_commit_at'])})}
       returning id, (xmax = 0) as inserted
     `,
     [
@@ -143,7 +149,7 @@ async function publishRecord(client, record) {
     ],
   );
 
-  const appId = upsert.rows[0].id;
+  const appId = upsert.rows[0]?.id ?? (await client.query('select id from public.terminal_apps where slug=$1',[slug])).rows[0].id;
 
   // Provenance for every imported fact.
   const provenance = [
@@ -192,6 +198,7 @@ async function publishRecord(client, record) {
         confidence = excluded.confidence,
         checked_at = now(),
         note = excluded.note
+      where ${changedColumns('terminal_app_field_sources',['source','source_url','confidence','note'])}
     `,
     [
       appId,
@@ -208,12 +215,12 @@ async function publishRecord(client, record) {
     `
       update public.terminal_app_candidates
       set status = 'published', linked_app_id = $2, updated_at = now()
-      where dedupe_key = $1
+      where dedupe_key = $1 and (status,linked_app_id) is distinct from ('published',$2::uuid)
     `,
     [record.dedupe_key, appId],
   );
 
-  return { slug, app_id: appId, inserted: Boolean(upsert.rows[0].inserted) };
+  return { slug, app_id: appId, inserted: Boolean(upsert.rows[0]?.inserted) };
 }
 
 async function main() {

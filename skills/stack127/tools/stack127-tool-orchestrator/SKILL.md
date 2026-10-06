@@ -25,3 +25,5 @@ The local tool is complete when its known examples are correct, the actual page 
 Do not create acceptance receipts, evidence folders, file hashes, ownership manifests, stage validators, or a full browser suite.
 
 If production publication, commit, push, and deployment are already authorized after the final audit, invoke `$stack127-release-e2e`. It ships the code first, then publishes the tool with its manifest through the page publication workflow. Otherwise stop after the integrated development preview, give the manifest location, and ask once for release authorization.
+
+For an existing tool, a change to inputs, results, calculations, validation, or other user-visible behavior needs a `tool_version` increase. Use a patch for a compatible fix, a minor version for compatible new behavior, and a major version for an incompatible contract change. Confirm the version with the coordinator before integration. The database moves the public date when the version changes. Copy-only edits move the date without changing the version. Card-only edits refresh catalogs and keep the tool date unchanged. See `stack127_docs/tool-pages.md`.

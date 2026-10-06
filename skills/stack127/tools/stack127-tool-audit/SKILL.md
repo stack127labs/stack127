@@ -15,3 +15,5 @@ Audit-only requests are read-only. In the tool pipeline, report confirmed defect
 6. List wrong answers, broken common flows, accessibility failures, and responsive failures with their owner. After the owners fix them, rerun only the affected focused test or interaction.
 
 Return the verdict, real defects and their owners, focused rechecks, and anything still blocking release. Do not create evidence folders, screenshots by default, hashes, receipts, or a second full test run.
+
+For an existing tool, a change to inputs, results, calculations, validation, or other user-visible behavior needs a `tool_version` increase. Use a patch for a compatible fix, a minor version for compatible new behavior, and a major version for an incompatible contract change. Confirm the version with the coordinator before integration. The database moves the public date when the version changes. Copy-only edits move the date without changing the version. Card-only edits refresh catalogs and keep the tool date unchanged. See `stack127_docs/tool-pages.md`.

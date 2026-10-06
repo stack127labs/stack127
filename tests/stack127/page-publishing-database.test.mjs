@@ -53,8 +53,7 @@ function database(initial = [], { catalogSchema = "original", catalogColumns } =
     if (item.content) {
       const fields = item.family === "catalog" ? physicalCatalogFields : CONTENT_FIELDS[item.family];
       const content = Object.fromEntries(CONTENT_FIELDS[item.family].map((field, index) => [fields[index], item.content[field]]));
-      store.content[item.family].push({ page_id: id, ...content,
-        content_revision: 1, row_updated_at: "old", tool_version_updated_at: "old" });
+      store.content[item.family].push({ page_id: id, ...content, row_updated_at: "old", tool_version_updated_at: "old" });
     }
   }
   for (const item of initial.filter(item => item.family === "tool")) {
@@ -142,7 +141,6 @@ function database(initial = [], { catalogSchema = "original", catalogColumns } =
           throw new Error("Catalog insert used a missing physical column");
         }
         if (store.content[family].some(content => content.page_id === row.page_id)) throw new Error("Duplicate family content");
-        row.content_revision = 1;
         row.row_updated_at = `tick-${++ticks}`;
         if (family === "tool") {
           row.tool_version_updated_at = row.row_updated_at;
@@ -185,9 +183,6 @@ function database(initial = [], { catalogSchema = "original", catalogColumns } =
             row.updated_at = row.is_published ? row.row_updated_at : null;
           }
         } else {
-          if (["title", "intro_markdown", "usage_markdown", "content_markdown"].some(field => before[field] !== row[field])) {
-            row.content_revision++;
-          }
           if (before.tool_version !== row.tool_version) row.tool_version_updated_at = row.row_updated_at;
           if (sql.includes("stack127_repo_synced_at = now()")) row.stack127_repo_synced_at = row.row_updated_at;
           if (sql.includes("stack127_repo_synced_at = null")) row.stack127_repo_synced_at = null;
@@ -249,7 +244,7 @@ test("full states require all managed fields and reject unknown or schema-invali
     assert.throws(() => validateState(incomplete), /Missing tool content field/);
   }
   assert.throws(() => validateState({ ...tool, extra: true }), /Unknown state field/);
-  assert.throws(() => validateState({ ...tool, content: { ...tool.content, content_revision: 4 } }), /Unknown tool content field/);
+  assert.throws(() => validateState({ ...tool, content: { ...tool.content, unexpected: 1 } }), /Unknown tool content field/);
   assert.throws(() => validateState({ ...tool, registry: { ...tool.registry, sitemap_priority: 0.555 } }), /two decimal places/);
   assert.throws(() => validateState({ ...tool, content: { ...tool.content, content_markdown: null } }), /nonempty text/);
   assert.throws(() => validateState({ ...tool, catalogs: [{ slug: "tools", display_order: 2147483648 }] }), /integer range/);
@@ -304,7 +299,6 @@ test("dry runs validate writes and roll back, and a successful retry writes noth
   assert.equal(preview.pages[0].changed, true);
   assert.deepEqual(db.store, original);
   await executeBatch(db.pool, [entry], { apply: true });
-  assert.equal(db.store.content.directory[0].content_revision, 2);
   const applied = db.store;
   const writeCount = db.writes().length;
   const retry = await executeBatch(db.pool, [entry], { apply: true });
@@ -322,7 +316,6 @@ test("new pages enter as drafts and get family content and memberships before pu
   assert.deepEqual(result.states, [tool, catalog]);
   assert.deepEqual(await readStates(db.client, [{ slug: tool.slug, family: "tool" },
     { slug: catalog.slug, family: "catalog" }]), [tool, catalog]);
-  assert.equal(db.store.content.tool[0].content_revision, 1);
   assert.match(db.store.content.tool[0].tool_version_updated_at, /^tick-/);
 });
 
@@ -351,7 +344,6 @@ test("selected tools can swap orders without duplicate memberships or writes on 
   await executeBatch(db.pool, entries, { apply: true });
   assert.equal(db.writes().length, count);
   assert.equal(db.store.members.length, 2);
-  assert.ok(db.store.content.tool.every(row => row.content_revision === 1));
 });
 
 test("orders held by unselected tools cannot be overwritten", async () => {
@@ -609,7 +601,6 @@ test("directory assets are complete managed state and restore exactly without wr
   assert.deepEqual(await readStates(db.client, refs), [updated.after]);
   assert.equal(db.store.content.directory[0].card_icon_key, "globe");
   assert.equal(db.store.content.directory[0].card_art_key, "dns-tools");
-  assert.equal(db.store.content.directory[0].content_revision, 1);
   const applied = db.store;
   let writes = db.writes().length;
   assert.equal((await executeBatch(db.pool, [updated], { apply: true })).pages[0].changed, false);
@@ -797,7 +788,6 @@ for (const published of [false, true]) {
     assert.notEqual(linkedPage.row_updated_at, initialPage.row_updated_at);
     assert.equal(linkedPage.published_at, initialPage.published_at);
     assert.equal(linkedPage.updated_at, initialPage.updated_at);
-    assert.equal(linkedContent.content_revision, initialContent.content_revision);
     assert.equal(linkedContent.tool_version_updated_at, initialContent.tool_version_updated_at);
     assert.equal(linkedContent.stack127_repo_synced_at, null);
     const verified = change(link.after, after => {
@@ -810,7 +800,6 @@ for (const published of [false, true]) {
     assert.notEqual(verifiedPage.row_updated_at, linkedPage.row_updated_at);
     assert.equal(verifiedPage.published_at, initialPage.published_at);
     assert.equal(verifiedPage.updated_at, initialPage.updated_at);
-    assert.equal(verifiedContent.content_revision, initialContent.content_revision);
     assert.equal(verifiedContent.tool_version_updated_at, initialContent.tool_version_updated_at);
     assert.match(verifiedContent.stack127_repo_synced_at, /^tick-/);
     const beforeRetry = db.store;

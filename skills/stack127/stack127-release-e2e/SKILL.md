@@ -76,3 +76,5 @@ Use the single-purpose tool-page commands in production only for a small fix to 
 Report the PR, the merge commit, the workflow result, the live SHA, the page publication result, the public smoke result, and the elapsed time. Don't call the release complete unless `origin/main`, the deployed image, and the live health SHA all match the merge commit. In Cloudflare mode, `/frontend-release.json` must match it too.
 
 Never deploy to the removed Hostinger target, expose secrets, bypass Cloudflare Access, automate dashboard credentials, or change DNS to hide a failed deployment.
+
+For meaningful code directory facts, include `touch_reason` in the reviewed directory publication manifest. Skip it for typo fixes. Copy and covered database records move dates automatically. Tool card edits leave tool dates alone; shipped behavior changes require the next `tool_version`. See `stack127_docs/page-publishing.md` and `stack127_docs/tool-pages.md`.
