@@ -11,7 +11,7 @@ Read `stack127_docs/writing-style.md` for how to write and search wording, and `
 
 In the tool pipeline, Opus runs this skill in its own Claude Code writing session after the tool is built. Plan the Content section first, then write in the same session.
 
-It also handles rewrites of live tool pages. Read the current title, intro, usage, and content from `public.stack127_tool_pages`. Use the tool once and read its code for the exact rules and messages. Keep every fact, limit, and useful source. Write drafts to `tmp/page-publishing/<slug>/` unless the user asks to apply them. Git ignores `tmp/`, and the files stay there through release. Skip the spec step for a rewrite.
+It also handles rewrites of live tool pages. Read the current title, intro, usage, and content from `public.stack127_tool_pages`. Use the tool once and read its code for the exact rules and messages. Keep the facts, limits, and sources a reader needs, and cut what goes beyond the core of the tool. Write drafts to `tmp/page-publishing/<slug>/` unless the user asks to apply them. Git ignores `tmp/`, and the files stay there through release. Skip the spec step for a rewrite.
 
 ## Win the search
 
@@ -24,21 +24,44 @@ The page should be the best answer for the searcher. Before planning, answer thr
 Then:
 
 - Put the tool and its answer before explanations.
-- Cover what others skip: edge cases, wrong inputs, data dates, and "People also ask" questions no one answers well.
+- Answer the questions people really ask that the top results answer badly.
 - Show a worked example with real numbers.
 - Be honest about limits. Say what the tool can't tell you and when a result is an estimate.
 - Use primary sources and say when the data was checked.
 - Add at least one useful thing the top results don't have.
+
+## Stay on the core
+
+A tool page has two jobs: help the reader understand the idea behind the tool, and help them use it and trust the result. Write only what serves those jobs. Typical topics:
+
+- what the thing is and why it matters;
+- what to enter and where to find each number;
+- how to read the result, with one worked example;
+- the formula or rule;
+- the few questions people search and ask about it.
+
+There is no fixed list of sections. Judge each one by asking whether a typical reader of this tool would want it. If not, cut it.
+
+Leave out:
+
+- How the tool handles rare inputs, such as calculation limits, very small amounts, rounding, or extreme values. The result messages and the spec cover these. Explain an unusual result only when ordinary readers often see it.
+- Input format rules. These belong in field hints and error messages.
+- Tables or walkthroughs of special cases that exist to show the tool is correct.
+- Second sections that repeat a rule already given.
+- Background that doesn't help the reader use the tool or understand the result.
+
+Longer is not better. A focused page that answers the searcher quickly beats a long page that covers everything.
 
 ## Plan first
 
 In the pipeline, write the plan in the Content section of `content_docs/<slug>/tool-spec.md`.
 
 1. Use the finished tool once with a real example. Note what the result shows and what a reader might misread.
-2. List the questions searchers ask, from research. Drop ones that don't help this reader.
+2. List the questions searchers ask, from research. Keep only the ones a typical reader of this tool would ask. Drop rare cases and questions that only matter for testing the tool.
 3. Map each question to where it is answered: the tool result, intro, usage, or content.
 4. Outline the page with the structure below. Name each content heading as the question it answers, and pick a format for each from `writing-style.md`.
-5. Note the facts the page states, their sources, claims to avoid, and the next stack127 pages to link.
+5. List what you left out on purpose, and say where it is handled instead, such as a result message, a field hint, or the spec.
+6. Note the facts the page states, their sources, claims to avoid, and the next stack127 pages to link.
 
 Refer to facts in the research instead of copying them.
 
@@ -62,13 +85,13 @@ Beginners should be able to follow along without reading steps that only name bu
 
 ### Content sections
 
-Pick only what this tool's readers need, roughly in this order:
+Pick only what this tool's readers need. This order is a guide, not a checklist:
 
 1. How it works: the rule or formula, with an example. For lookups and checks, what is checked and where the data comes from.
-2. What the result means, including good, bad, and unusual results. Use benchmarks only with a source.
-3. Common mistakes and edge cases.
+2. What the result means, including good and bad results. Use benchmarks only with a source.
+3. Common mistakes people actually make.
 4. Related questions people search, from research.
-5. What the tool doesn't cover, and next stack127 tools.
+5. What the tool doesn't cover, in a line or two, and next stack127 tools.
 
 Keep each section to 1 to 3 short paragraphs, or one table, list, or visual with a line or two around it.
 
@@ -84,7 +107,7 @@ Keep each section to 1 to 3 short paragraphs, or one table, list, or visual with
 
 ## Final pass
 
-After corrections, reread everything as a first-time visitor. Cut repetition, padding, and steps that only name buttons. Keep every useful detail and limit. Remove research notes, source labels, citation markers, and insider wording. Keep source links that help the reader.
+After corrections, reread everything as a first-time visitor. Cut repetition, padding, steps that only name buttons, and any section that goes beyond the core of the tool. Keep the details and limits a typical reader needs. Remove research notes, source labels, citation markers, and insider wording. Keep source links that help the reader.
 
 If the main agent finds a problem on the rendered page, fix it in the same session and return the corrected words.
 

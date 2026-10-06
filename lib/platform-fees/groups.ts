@@ -3,6 +3,8 @@ import type { FeeSection } from './model.ts';
 export type FeeGroup = {
   slug: string;
   name: FeeSection['group_name'];
+  // Visible h1. Without it the page uses the group name.
+  title?: string;
   icon: FeeSection['icon'];
   intro: string;
   meta_title: string;
@@ -18,9 +20,10 @@ export const feeGroups: FeeGroup[] = [
   },
   {
     slug: 'digital-products-and-stores', name: 'Digital products and stores', icon: 'ShoppingCart',
-    intro: 'Compare platforms for selling downloads, videos, AI creations and merchandise. Check plan costs, transaction charges and payment fees in each section.',
-    meta_title: 'Digital product and online store fees compared',
-    meta_description: 'Compare selling fees for digital downloads, online stores, videos, AI creations and print on demand. Check start costs and official sources.',
+    title: '<mark>Digital product</mark> selling fees: Gumroad, Etsy, Shopify and more',
+    intro: 'Compare what it costs to sell downloads, run an online store, sell video, charge for AI tools, or sell merch. Each card shows the platform\'s cut, what you pay to start, and card fees, with links to official sources. Pick a section below, or search for a platform by name.',
+    meta_title: 'Digital product selling fees: Gumroad, Etsy, Shopify and more',
+    meta_description: 'Compare what Gumroad, Payhip, Etsy, Shopify, and Printful charge to sell downloads, video, AI tools, and merch, with card fees, tax handling, and sources.',
   },
   {
     slug: 'creative-assets', name: 'Creative assets', icon: 'Palette',

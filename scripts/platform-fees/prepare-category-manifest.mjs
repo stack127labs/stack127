@@ -6,7 +6,7 @@ import pg from 'pg';
 import { feeGroups, groupPath } from '../../lib/platform-fees/groups.ts';
 import { validateDirectory } from '../../lib/platform-fees/model.ts';
 import { resolveDatabaseUrl } from '../stack127/tool-pages/lib.mjs';
-import { platformFeeOverviewCopy } from '../stack127/directory-pages/lib.mjs';
+import { platformFeeOverviewCopy, platformFeeSectionCopy } from '../stack127/directory-pages/lib.mjs';
 
 const { values } = parseArgs({ options: {
   environment: { type: 'string', default: 'development' },
@@ -25,11 +25,12 @@ try {
     name: 'Reviewed platform fee records loaded', sql_file: 'scripts/platform-fees/records-ready.sql',
     params: [group, sections, entries],
   }] });
-  const overview = platformFeeOverviewCopy(feeGroups.length, data.entries.length);
+  const overview = platformFeeOverviewCopy();
   const pages = [{
     slug: overview.slug, family: 'directory',
-    registry: { is_published: true, meta_title: overview.title },
-    content: { title: overview.title, intro_markdown: overview.intro_markdown },
+    registry: { is_published: true, meta_title: overview.meta_title, meta_description: overview.meta_description },
+    content: { title: overview.title, intro_markdown: overview.intro_markdown, content_markdown: overview.content_markdown,
+      card_description: overview.card_description },
     requirements: { route: `${route}/page.tsx`, assets: ['lib/platform-fees/groups.ts'],
       records: records(null, data.sections.length, data.entries.length),
       smoke: [{ path: '/platform-fees', text: 'Apps and software' }],
@@ -39,12 +40,13 @@ try {
     const sections = data.sections.filter(section => section.group_name === group.name);
     const sectionIds = new Set(sections.map(section => section.id));
     const entries = data.entries.filter(entry => sectionIds.has(entry.section_id));
+    const copy = platformFeeSectionCopy(group, groupPath(group.name).slice(1));
     pages.push({
-      slug: groupPath(group.name).slice(1), family: 'directory',
+      slug: copy.slug, family: 'directory',
       registry: { label: group.name, meta_title: group.meta_title, meta_description: group.meta_description,
         is_published: true, page_type: 'CollectionPage', sitemap_priority: 0.6 },
-      content: { title: group.name, intro_markdown: group.intro, content_markdown: null,
-        card_name: group.name, card_description: group.meta_description, card_icon_key: null, card_art_key: null },
+      content: { title: copy.title, intro_markdown: copy.intro_markdown, content_markdown: copy.content_markdown,
+        card_name: copy.card_name, card_description: copy.card_description, card_icon_key: null, card_art_key: null },
       requirements: { route: `${route}/[section]/page.tsx`, assets: ['lib/platform-fees/groups.ts'],
         records: records(group.name, sections.length, entries.length),
         smoke: [{ path: groupPath(group.name), text: sections[0].name }],

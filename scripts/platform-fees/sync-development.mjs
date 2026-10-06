@@ -48,12 +48,11 @@ try {
         [slug, group.name, group.meta_title, group.meta_description]);
       await upsertDirectoryPage(client, platformFeeSectionCopy(group, slug));
     }
-    await client.query(`update public.stack127_pages set
-      meta_title=$1,
-      meta_description='Compare selling fees, start costs and payment charges across app stores, digital products and creator platforms. Choose a category and compare sourced rates.',
+    const overview = platformFeeOverviewCopy();
+    await client.query(`update public.stack127_pages set meta_title=$1, meta_description=$2,
       updated_at=case when is_published then now() else updated_at end
-      where slug='platform-fees'`, [`Platform fees compared: ${data.entries.length} listings across ${feeGroups.length} categories`]);
-    await upsertDirectoryPage(client, platformFeeOverviewCopy(feeGroups.length, data.entries.length));
+      where slug='platform-fees'`, [overview.meta_title, overview.meta_description]);
+    await upsertDirectoryPage(client, overview);
     if (values.preview) await client.query("update public.stack127_pages set is_published=true,published_at=coalesce(published_at,now()),updated_at=now() where slug='platform-fees' or slug=any($1::text[])", [groupSlugs]);
     await client.query('commit');
   } catch(error) { await client.query('rollback'); throw error; }

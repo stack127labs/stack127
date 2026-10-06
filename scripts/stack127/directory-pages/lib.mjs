@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+
 export async function upsertDirectoryPage(client, row) {
   const result = await client.query(`
     insert into public.stack127_directory_pages
@@ -84,15 +86,35 @@ export function adNetworkPageCopy(network) {
   };
 }
 
-export function platformFeeSectionCopy(section, slug) {
-  return { slug, title: section.meta_title, intro_markdown: section.intro, content_markdown: null };
+// Longer platform fee copy is optional Markdown in scripts/platform-fees/copy/<slug>.md.
+export function platformFeeContent(name) {
+  try {
+    return readFileSync(new URL(`../../platform-fees/copy/${name}.md`, import.meta.url), 'utf8').trim() || null;
+  } catch (error) {
+    if (error.code === 'ENOENT') return null;
+    throw error;
+  }
 }
 
-export function platformFeeOverviewCopy(sectionCount, entryCount) {
+export function platformFeeSectionCopy(group, slug) {
+  return {
+    slug,
+    title: group.title ?? group.name,
+    intro_markdown: group.intro,
+    content_markdown: platformFeeContent(group.slug),
+    card_name: group.name,
+    card_description: group.meta_description,
+  };
+}
+
+export function platformFeeOverviewCopy() {
   return {
     slug: 'platform-fees',
-    title: `Platform fees compared: ${entryCount} listings across ${sectionCount} categories`,
-    intro_markdown: 'Choose what you sell, then compare fees and start costs. Each category has sections for different products and services. Open a card for other rates and official sources.',
-    content_markdown: null,
+    title: 'Compare <mark>platform fees</mark> before you choose where to sell',
+    meta_title: 'Platform fees compared: App Store, Gumroad, Etsy, Patreon',
+    meta_description: 'See what app stores, download shops, course sites, and creator platforms take from each sale, with plan costs, card fees, and official sources.',
+    intro_markdown: 'See what app stores, download shops, course sites, and creator platforms take from each sale, and what you pay to start. Pick what you sell below, or search for a platform by name. Every rate links to the platform\'s own pricing page or terms.',
+    content_markdown: platformFeeContent('platform-fees'),
+    card_description: 'What app stores, download shops, and creator platforms take from each sale.',
   };
 }

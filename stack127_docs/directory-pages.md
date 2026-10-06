@@ -2,7 +2,7 @@
 
 Directory routes and directory copy have separate owners. The Next.js route owns the layout, sidebar, filters, and record views. PostgreSQL owns the visible title, introduction, Markdown content, and card text. This matches the split for tools in [tool-pages.md](tool-pages.md).
 
-Follow [writing-style.md](writing-style.md) when writing. This document covers storage, rendering, and updates.
+Follow [writing-style.md](writing-style.md) when writing, and use the [directory writing skill](../skills/stack127/stack127-directory-writing/SKILL.md) to plan and write directory copy. This document covers storage, rendering, and updates.
 
 ## Tables
 
