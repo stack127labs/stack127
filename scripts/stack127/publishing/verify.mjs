@@ -22,7 +22,10 @@ export function inspectIndexingHtml(html, { slug, is_indexable = true }, site) {
   const indexingCorrect = is_indexable
     ? robots.includes('index') && !robots.includes('noindex') && !robots.includes('none')
     : robotsTag.includes('noindex') && !robots.includes('index');
-  if (canonical !== expectedCanonical || !indexingCorrect) throw new Error(`Public indexing metadata is incorrect: ${slug}`);
+  // URL parsing treats https://stack127.com and https://stack127.com/ as the same root.
+  let canonicalHref = null;
+  try { canonicalHref = canonical ? new URL(canonical).href : null; } catch { canonicalHref = null; }
+  if (canonicalHref !== expectedCanonical || !indexingCorrect) throw new Error(`Public indexing metadata is incorrect: ${slug}`);
   const structuredData = [...html.matchAll(/<script\b[^>]*>/gi)]
     .some(match => attributes(match[0]).type?.toLowerCase() === 'application/ld+json');
   if (!is_indexable && structuredData) throw new Error(`Noindex page sends structured data: ${slug}`);

@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { publishingArgs, resolveCopy, validatePlan, verifyPublication } from '../../scripts/stack127/publishing/cli.mjs';
 import { checkDatabaseRequirements, readinessSql, routeMatches } from '../../scripts/stack127/publishing/readiness.mjs';
-import { checkLiveRelease, inspectPublishedHtml, verifyPublicPages } from '../../scripts/stack127/publishing/verify.mjs';
+import { checkLiveRelease, inspectIndexingHtml, inspectPublishedHtml, verifyPublicPages } from '../../scripts/stack127/publishing/verify.mjs';
 import { publicationEvent } from '../../scripts/stack127/publishing/github.mjs';
 
 const sha = 'a'.repeat(40);
@@ -245,4 +245,13 @@ test('older directory plans must be regenerated when either snapshot omits a car
   const missingContent = plan();
   missingContent.pages[0].before = { ...structuredClone(state), content: null };
   assert.equal(validatePlan(missingContent, 'directories', 'production').schema_version, 1);
+});
+
+test('the root canonical passes with or without a trailing slash, and wrong paths still fail', () => {
+  const page = canonical => `<link rel="canonical" href="${canonical}"><meta name="robots" content="index, follow">`;
+  const site = 'https://stack127.com';
+  inspectIndexingHtml(page('https://stack127.com'), { slug: '' }, site);
+  inspectIndexingHtml(page('https://stack127.com/'), { slug: '' }, site);
+  assert.throws(() => inspectIndexingHtml(page('https://stack127.com/about'), { slug: '' }, site), /indexing metadata/);
+  assert.throws(() => inspectIndexingHtml(page('not a url'), { slug: '' }, site), /indexing metadata/);
 });
