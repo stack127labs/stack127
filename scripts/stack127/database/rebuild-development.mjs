@@ -7,162 +7,63 @@ import { isDeepStrictEqual, parseArgs, parseEnv } from 'node:util';
 import pg from 'pg';
 import { parse as parseConnectionString } from 'pg-connection-string';
 
-const legacyDirectoryCards = new Set([
-  'cli-apps', 'epp-status-codes', 'keyboard-shortcuts', 'launch-directories',
-  'platform-fees', 'self-host-apps', 'software-licenses-for-self-hosting', 'tld-directory',
-]);
+// Production may still have Release A columns while development has Release C.
+// Require the current schema; never reconstruct missing content from retired fields.
+const retiredPageColumns = {
+  stack127_catalog_pages: {
+    heading_before: 'text', heading_mark: 'text', heading_after: 'text', intro: 'text',
+    section_heading: 'text', hero_art_key: 'text', home_order: 'int4',
+  },
+  stack127_tool_pages: { content_revision: 'int4' },
+  stack127_directory_pages: { content_revision: 'int4' },
+};
+const catalogContentColumns = ['title', 'intro_markdown', 'content_markdown',
+  'display_order', 'card_icon_key', 'card_art_key'];
 
-// Accept the reviewed schema transitions while development is ahead.
-export function normalizeCardSnapshot(name, rows, pages) {
-  const slugById = new Map(pages.map(page => [String(page.id), page.slug]));
+export function normalizeCardSnapshot(name, rows) {
+  const retired = retiredPageColumns[name] ?? {};
   return rows.map(row => {
-    const copy = { ...row };
-    if (['stack127_tool_pages','stack127_directory_pages'].includes(name)) delete copy.content_revision;
-    if (name === 'stack127_pages' && !('is_indexable' in copy)) copy.is_indexable = true;
-    if (name === 'stack127_catalog_pages') {
-      for (const [oldKey, newKey] of [['icon_key', 'card_icon_key'], ['home_art_key', 'card_art_key']]) {
-        if (!(oldKey in copy)) continue;
-        if (newKey in copy) throw new Error(`Conflicting card columns in ${name}`);
-        copy[newKey] = copy[oldKey];
-        delete copy[oldKey];
-      }
-      if (['heading_before', 'heading_mark', 'heading_after'].some(key => key in copy)) {
-        if (!['heading_before', 'heading_mark', 'heading_after'].every(key => typeof copy[key] === 'string')) {
-          throw new Error(`Conflicting or incomplete catalog heading in ${name}`);
-        }
-        const title = copy.heading_before + (copy.heading_mark ? '<mark>' + copy.heading_mark + '</mark>' : '') + copy.heading_after;
-        if ('title' in copy && copy.title !== title) throw new Error(`Conflicting catalog title in ${name}`);
-        copy.title = title;
-        for (const key of ['heading_before', 'heading_mark', 'heading_after']) delete copy[key];
-      }
-      for (const [oldKey, newKey] of [['intro', 'intro_markdown'], ['home_order', 'display_order']]) {
-        if (!(oldKey in copy)) continue;
-        if (newKey in copy && copy[newKey] !== copy[oldKey]) throw new Error(`Conflicting catalog columns in ${name}`);
-        copy[newKey] = copy[oldKey];
-        delete copy[oldKey];
-      }
-      if ('hero_art_key' in copy && copy.hero_art_key !== copy.card_art_key) {
-        throw new Error(`Catalog hero art differs from card art in ${name}`);
-      }
-      delete copy.hero_art_key;
-      delete copy.section_heading;
-      if (!('content_markdown' in copy)) copy.content_markdown = null;
+    if (name === 'stack127_catalog_pages' && Object.keys(retired).some(key => key in row)
+      && !catalogContentColumns.every(key => key in row)) {
+      throw new Error('Apply Release A before restoring catalog content');
     }
-    if (name === 'stack127_directory_pages') {
-      const slug = slugById.get(String(row.page_id));
-      const key = legacyDirectoryCards.has(slug) ? slug : null;
-      if (!('card_icon_key' in copy)) copy.card_icon_key = key;
-      if (!('card_art_key' in copy)) copy.card_art_key = key;
-    }
-    return copy;
+    return Object.fromEntries(Object.entries(row).filter(([key]) => !(key in retired)));
   });
 }
 
-// Insert all target columns while triggers are disabled during recovery.
-// Preserve legacy values until Release C, including the old revision counters.
+// Copy existing values when both databases still have the expanded schema.
 export function snapshotForTarget(name, rows, pages, targetColumns) {
-  const normalized = normalizeCardSnapshot(name, rows, pages);
+  const normalized = normalizeCardSnapshot(name, rows);
   const fields = new Set(targetColumns.map(column => column.column_name));
   return normalized.map((row, index) => {
-    const original = rows[index];
     const copy = { ...row };
-    if (fields.has('content_revision')) {
-      if (!Number.isInteger(original.content_revision) || original.content_revision < 1) {
-        throw new Error(`Missing valid content_revision in ${name}`);
-      }
-      copy.content_revision = original.content_revision;
-    }
-    if (name === 'stack127_catalog_pages') {
-      for (const key of ['heading_before', 'heading_mark', 'heading_after', 'intro', 'section_heading', 'hero_art_key', 'home_order']) {
-        if (!fields.has(key)) continue;
-        if (!(key in original)) throw new Error(`Missing legacy catalog column: ${key}`);
-        copy[key] = original[key];
-      }
+    for (const key of Object.keys(retiredPageColumns[name] ?? {})) {
+      if (!fields.has(key)) continue;
+      if (!(key in rows[index])) throw new Error(`Missing source column: ${name}.${key}`);
+      copy[key] = rows[index][key];
     }
     return copy;
   });
 }
 
 export function compatibleCardColumns(name, source, target) {
-  const shape = columns => columns.map(({ column_name, data_type, udt_name }) => ({ column_name, data_type, udt_name }));
-  // Compare canonical shapes when both old and new columns coexist.
-  if (name === 'stack127_catalog_pages') {
-    const canonical = columns => {
-      const result = shape(columns);
-      const headings = ['heading_before', 'heading_mark', 'heading_after'];
-      if (headings.some(key => result.some(column => column.column_name === key))
-        && !headings.every(key => result.some(column => column.column_name === key))) return null;
-      for (const [oldKey, newKey, data_type, udt_name] of [
-        ['heading_before', 'title', 'text', 'text'], ['heading_mark', 'title', 'text', 'text'],
-        ['heading_after', 'title', 'text', 'text'], ['intro', 'intro_markdown', 'text', 'text'],
-        ['home_order', 'display_order', 'integer', 'int4'],
-      ]) {
-        const legacy = result.find(column => column.column_name === oldKey);
-        const modern = result.find(column => column.column_name === newKey);
-        if (legacy && modern) {
-          if (legacy.data_type !== data_type || legacy.udt_name !== udt_name
-            || modern.data_type !== data_type || modern.udt_name !== udt_name) return null;
-          result.splice(result.indexOf(legacy), 1);
-        }
-      }
-      return result;
-    };
-    const from = canonical(source); const to = canonical(target);
-    if (!from || !to) return false;
-    source = from; target = to;
-    // Remove optional legacy-only columns from both compared shapes below.
-    target = target.filter(column => !['section_heading', 'hero_art_key'].includes(column.column_name)
-      || column.data_type !== 'text' || column.udt_name !== 'text');
-  }
-  const original = shape(source);
-  if (name === 'stack127_catalog_pages') {
-    for (const column of original) {
-      if (column.column_name === 'icon_key') column.column_name = 'card_icon_key';
-      if (column.column_name === 'home_art_key') column.column_name = 'card_art_key';
+  const canonical = columns => {
+    if (name === 'stack127_catalog_pages'
+      && !catalogContentColumns.every(key => columns.some(column => column.column_name === key))) return null;
+    const result = [];
+    for (const { column_name, data_type, udt_name } of columns) {
+      const retiredType = retiredPageColumns[name]?.[column_name];
+      if (retiredType) {
+        if (udt_name !== retiredType || data_type !== (retiredType === 'int4' ? 'integer' : 'text')) return null;
+      } else result.push({ column_name, data_type, udt_name });
     }
-    const headings = ['heading_before', 'heading_mark', 'heading_after'];
-    if (original.some(column => headings.includes(column.column_name))) {
-      if (original.some(column => column.column_name === 'title')
-        || !headings.every(key => original.some(column => column.column_name === key && column.data_type === 'text' && column.udt_name === 'text'))) return false;
-      for (const key of headings) original.splice(original.findIndex(column => column.column_name === key), 1);
-      original.push({ column_name: 'title', data_type: 'text', udt_name: 'text' });
-    }
-    for (const [oldKey, newKey] of [['intro', 'intro_markdown'], ['home_order', 'display_order']]) {
-      const column = original.find(column => column.column_name === oldKey);
-      if (!column) continue;
-      if (original.some(column => column.column_name === newKey)) return false;
-      column.column_name = newKey;
-    }
-    for (const key of ['section_heading', 'hero_art_key']) {
-      const index = original.findIndex(column => column.column_name === key);
-      if (index < 0) continue;
-      if (original[index].data_type !== 'text' || original[index].udt_name !== 'text') return false;
-      original.splice(index, 1);
-    }
-    if (!original.some(column => column.column_name === 'content_markdown')) {
-      original.push({ column_name: 'content_markdown', data_type: 'text', udt_name: 'text' });
-    }
-  }
-  if (name === 'stack127_directory_pages') {
-    for (const key of ['card_icon_key', 'card_art_key']) {
-      if (!original.some(column => column.column_name === key)) {
-        original.push({ column_name: key, data_type: 'text', udt_name: 'text' });
-      }
-    }
-  }
-  if (['stack127_tool_pages','stack127_directory_pages'].includes(name)) {
-    const legacy = original.find(column=>column.column_name==='content_revision');
-    if (legacy && (legacy.data_type!=='integer' || legacy.udt_name!=='int4')) return false;
-    if (!target.some(column=>column.column_name==='content_revision')) {
-      const index = original.findIndex(column=>column.column_name==='content_revision');
-      if (index>=0) original.splice(index,1);
-    }
-  }
-  if (name==='stack127_pages' && !original.some(column=>column.column_name==='is_indexable')) {
-    original.push({column_name:'is_indexable',data_type:'boolean',udt_name:'bool'});
-  }
-  const sorted = columns=>columns.sort((left,right)=>left.column_name.localeCompare(right.column_name));
-  return isDeepStrictEqual(sorted(original),sorted(shape(target)));
+    return result.sort((left, right) => left.column_name.localeCompare(right.column_name));
+  };
+  const from = canonical(source); const to = canonical(target);
+  // Recovery cannot synthesize legacy target columns once production has contracted.
+  if (target.some(column => column.column_name in (retiredPageColumns[name] ?? {})
+    && !source.some(original => original.column_name === column.column_name))) return false;
+  return from !== null && to !== null && isDeepStrictEqual(from, to);
 }
 
 export function preserveDevelopmentPublication(productionRows, developmentRows) {
@@ -227,16 +128,10 @@ export function verifyPageFamilyRestore(production, restored, preserved) {
   const productionIds = new Set(restoredPages.filter(page => productionSlugs.has(page.slug)).map(page => String(page.id)));
   const results = [];
   for (const [name, fields] of Object.entries(pageTableIds)) {
-    if (!restored.has(name) && courseTables.includes(name)) continue;
+    if (!production.has(name) || !restored.has(name)) throw new Error(`Missing page family table: ${name}`);
     const rows = restored.get(name);
     const owned = row => name === 'stack127_pages' ? productionSlugs.has(row.slug)
       : fields.every(field => productionIds.has(String(row[field])));
-    // Before the course migration releases, preserve all development definitions.
-    if (!production.has(name) && courseTables.includes(name)) {
-      if (preserved) verifyPageRows(name, remapDevelopmentPageIds(preserved.rows.get(name) ?? [], fields, preserved.pages, restoredPages), rows, false);
-      results.push({table:name,development:rows.length,sourceTableAbsent:true,preservedRowsVerified:Boolean(preserved)});
-      continue;
-    }
     const sourceRows = normalizeCardSnapshot(name, production.get(name), sourcePages);
     const productionRows = normalizeCardSnapshot(name, rows.filter(owned), restoredPages);
     const developmentRows = normalizeCardSnapshot(name, rows.filter(row => !owned(row)), restoredPages);
@@ -293,7 +188,7 @@ async function main() {
     'self_host_app_resource_estimates', 'self_host_app_install_options',
     'terminal_app_import_runs', 'terminal_apps', 'terminal_app_candidates',
     'terminal_app_field_sources', 'stack127_pages', 'stack127_tool_pages',
-    'stack127_catalog_pages', 'stack127_directory_pages', 'stack127_tool_catalog_memberships',
+    'stack127_catalog_pages', 'stack127_directory_pages', 'stack127_tool_catalog_memberships', ...courseTables,
   ];
   const sourceEnv = parseEnv(await readFile('.env.database', 'utf8'));
   const targetEnv = parseEnv(await readFile('.env.local', 'utf8'));
@@ -433,11 +328,6 @@ async function main() {
     for (const name of tables) {
         const sourceColumns = await columns(source, name);
         const targetColumns = await columns(target, name);
-        if (courseTables.includes(name) && !sourceColumns.length) {
-          snapshot.set(name,{rows:[],columns:targetColumns.filter(column=>column.is_generated==='NEVER'),developmentOnly:true});
-          console.log(JSON.stringify({table:name,sourceTableAbsent:true,preserveDevelopment:true}));
-          continue;
-        }
         if (!compatibleCardColumns(name, sourceColumns, targetColumns)) throw new Error(`Schema mismatch for ${name}`);
         const rows = snapshotForTarget(name, await snapshotRows(name), snapshot.get('stack127_pages')?.rows ?? [], targetColumns);
         snapshot.set(name, { rows, columns: targetColumns.filter((column) => column.is_generated === 'NEVER') });
@@ -454,9 +344,9 @@ async function main() {
       const extraPages = developmentPages.filter((row) => !prodSlugs.has(row.slug));
       const extraPageIds = new Set(extraPages.map(row => String(row.id)));
       const extraContent = new Map();
-      for (const name of ['stack127_tool_pages', 'stack127_catalog_pages', 'stack127_directory_pages', ...courseTables.filter(name=>snapshot.has(name))]) {
+      for (const name of ['stack127_tool_pages', 'stack127_catalog_pages', 'stack127_directory_pages', ...courseTables]) {
         const rows = (await target.query(`select to_jsonb(record) payload from ${tableName(name)} record
-          where ${snapshot.get(name).developmentOnly ? 'true' : 'page_id=any($1::bigint[])'}`, snapshot.get(name).developmentOnly ? [] : [[...extraPageIds]])).rows.map(row => row.payload);
+          where page_id=any($1::bigint[])`, [[...extraPageIds]])).rows.map(row => row.payload);
         extraContent.set(name, rows);
       }
       const extraMemberships = (await target.query(`select * from public.stack127_tool_catalog_memberships
@@ -557,8 +447,7 @@ async function main() {
     const restoredPages = new Map();
     for (const name of Object.keys(pageTableIds)) {
       const query = `select to_jsonb(record) payload from ${tableName(name)} record`;
-      if (courseTables.includes(name) && !(await columns(target,name)).length) continue;
-      if (!courseTables.includes(name) || (await columns(source,name)).length) productionPages.set(name, (await source.query(query)).rows.map(row => row.payload));
+      productionPages.set(name, (await source.query(query)).rows.map(row => row.payload));
       restoredPages.set(name, (await target.query(query)).rows.map(row => row.payload));
     }
     for (const result of verifyPageFamilyRestore(productionPages, restoredPages, preserved)) console.log(JSON.stringify(result));
@@ -584,14 +473,6 @@ async function main() {
     }
     await target.connect();
     if (values.apply && values.migrate) await migrate();
-    if (values.copy || values.verify) {
-      for (const name of courseTables) {
-        const targetExists=(await columns(target,name)).length>0;
-        const sourceExists=(await columns(source,name)).length>0;
-        if (sourceExists && !targetExists) throw new Error(`Schema mismatch for ${name}: apply the course migration to development first`);
-        if (targetExists) tables.push(name);
-      }
-    }
     if (values.apply && values.copy) await copy();
     if (values.verify && !(values.apply && values.copy)) await verify();
     if (!values.apply && !values.verify) console.log(JSON.stringify({mode:'dry_run',tables,excluded:['ads publishers','platform fee data','RDAP cache','cache queue','production cache signing key']}));

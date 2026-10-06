@@ -24,18 +24,19 @@ test('course publisher accepts lesson-only children and rejects wrong course own
 });
 
 const {remapDevelopmentPageIds,verifyPageFamilyRestore}=await import('../../scripts/stack127/database/rebuild-development.mjs');
-test('recovery preserves all course definitions when production has no course tables',()=>{
-  const original=[{id:2,slug:'example'},{id:3,slug:'example/lesson'}];
+test('recovery preserves development-only courses and remaps both lesson IDs',()=>{
+  const original=[{id:2,slug:'example',is_indexable:true},{id:3,slug:'example/lesson',is_indexable:true}];
   const restored=[{id:20,slug:'example',is_indexable:true},{id:30,slug:'example/lesson',is_indexable:true}];
   const rootRows=[{page_id:2,title:'Course'}];
   const lessonRows=[{page_id:3,course_page_id:2,title:'Lesson',display_order:2}];
-  const tables=['stack127_pages','stack127_tool_pages','stack127_catalog_pages','stack127_directory_pages','stack127_tool_catalog_memberships'];
-  const source=new Map(tables.map(name=>[name,[]]));source.set('stack127_pages',restored);
+  const tables=['stack127_pages','stack127_tool_pages','stack127_catalog_pages','stack127_directory_pages','stack127_tool_catalog_memberships','stack127_course_pages','stack127_course_lessons'];
+  const source=new Map(tables.map(name=>[name,[]]));
   const target=new Map(tables.map(name=>[name,[]]));target.set('stack127_pages',restored);
   target.set('stack127_course_pages',remapDevelopmentPageIds(rootRows,['page_id'],original,restored));
   target.set('stack127_course_lessons',remapDevelopmentPageIds(lessonRows,['page_id','course_page_id'],original,restored));
-  const preserved={pages:original,rows:new Map([['stack127_course_pages',rootRows],['stack127_course_lessons',lessonRows]])};
-  assert.ok(verifyPageFamilyRestore(source,target,preserved).filter(row=>row.sourceTableAbsent).every(row=>row.preservedRowsVerified));
+  const preserved={pages:original,rows:new Map([['stack127_pages',original],['stack127_course_pages',rootRows],['stack127_course_lessons',lessonRows]])};
+  const result=verifyPageFamilyRestore(source,target,preserved).filter(row=>row.table.startsWith('stack127_course_'));
+  assert.equal(result.length,2);assert.ok(result.every(row=>row.preservedRowsVerified && row.preservedDevelopmentRows===1));
   target.get('stack127_course_lessons')[0].title='Changed unexpectedly';
   assert.throws(()=>verifyPageFamilyRestore(source,target,preserved),/Content mismatch/);
 });

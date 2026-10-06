@@ -33,7 +33,7 @@ export const getPublishedDirectoryPage = cache(async (slug: string) => unstable_
         page_id: `eq.${page.id}`, select: columns, limit: "1",
       });
       return rows[0] ? {
-        ...normalizeCardAssets(rows[0], "directory", page.slug), slug: page.slug,
+        ...normalizeCardAssets(rows[0]), slug: page.slug,
         published_at: page.published_at, updated_at: page.updated_at,
       } : null;
     },
@@ -45,7 +45,7 @@ export const getPublishedDirectoryPage = cache(async (slug: string) => unstable_
         where page.slug = $1 and page.page_family = 'directory' and page.is_published
         limit 1
       `, [slug]);
-      return result.rows[0] ? normalizeCardAssets(result.rows[0], "directory", slug) : null;
+      return result.rows[0] ? normalizeCardAssets(result.rows[0]) : null;
     },
   });
 }, ["stack127-directory-page", slug], { revalidate: false, tags: [`${DIRECTORY_PAGES_TAG}:${slug}`] })());
