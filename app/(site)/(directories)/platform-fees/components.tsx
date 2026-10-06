@@ -1,6 +1,7 @@
 import type { Stack127DirectoryPage } from "@/lib/directory-pages";
 import { directoryTitleParts } from "@/lib/directory-page-content";
 import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { PageMeta } from "@/app/ui/site/page-meta";
 import { ContentMarkdown } from "@/app/ui/content-markdown";
 import Link from 'next/link';
 import type { ReactNode } from 'react';
@@ -65,6 +66,7 @@ export function FeeShell({ directoryPage, children, overview = false, group, anc
         <PageHeader>
           {!overview && <Link href="/platform-fees" className={styles.back}>Platform fees</Link>}
           <h1>{group ? <PageTitleIcon><SectionIcon icon={group.icon} /></PageTitleIcon> : <DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />}{' '}<DirectoryPageTitle title={directoryPage.title} /></h1>
+          <PageMeta updatedAt={directoryPage.updated_at} />
           <ContentMarkdown markdown={directoryPage.intro_markdown} />
         </PageHeader>
       </EntryHero>

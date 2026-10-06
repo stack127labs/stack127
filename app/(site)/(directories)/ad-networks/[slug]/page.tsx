@@ -1,4 +1,5 @@
 import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { PageMeta } from "@/app/ui/site/page-meta";
 import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { notFound } from "next/navigation";
 import { Network } from "lucide-react";
@@ -35,6 +36,7 @@ export default async function AdNetworkPage({ params }: { params: Promise<{ slug
       <PageCanvas flow className={styles.content}>
         <PageHeader bordered>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key ?? parentPage?.card_icon_key} fallback={<Network strokeWidth={2.2} />} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+          <PageMeta updatedAt={directoryPage.updated_at} />
           <ContentMarkdown markdown={directoryPage.intro_markdown} />
         </PageHeader>
         {network.official_url ? <p className={styles.official}><a href={network.official_url} rel="noopener noreferrer" target="_blank">Official {network.name} website ↗</a></p> : null}

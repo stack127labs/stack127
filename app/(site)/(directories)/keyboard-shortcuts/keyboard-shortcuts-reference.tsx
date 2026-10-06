@@ -1,5 +1,6 @@
 import type { Stack127DirectoryPage } from "@/lib/directory-pages";
 import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { PageMeta } from "@/app/ui/site/page-meta";
 import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { Fragment } from "react";
@@ -63,6 +64,7 @@ export function KeyboardShortcutsReference({ app, directoryPage, iconKey }: { ap
           <DirectoryTitleIcon iconKey={iconKey} />{" "}
           <DirectoryPageTitle title={directoryPage.title} />
         </h1>
+        <PageMeta updatedAt={directoryPage.updated_at} />
         <ContentMarkdown markdown={directoryPage.intro_markdown} />
         <small>
           {app.platforms.map((platform) => platformLabels[platform]).join(", ")} · {shortcutCount(app)} shortcuts
