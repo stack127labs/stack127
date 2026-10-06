@@ -3,6 +3,7 @@ import { AppShell } from "@/app/ui/site/app-shell";
 import { EntryHero } from "@/app/ui/site/entry-hero";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { PageHeader } from "@/app/ui/site/page-header";
+import { PageMeta } from "@/app/ui/site/page-meta";
 import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
 import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
@@ -33,6 +34,7 @@ export default async function ToolCatalogPage({ params }: { params: Promise<{ sl
             <PageTitleIcon><Icon strokeWidth={2.2} /></PageTitleIcon>{" "}
             <DirectoryPageTitle title={catalog.title} />
           </h1>
+          <PageMeta updatedAt={catalog.updated_at} />
           <ContentMarkdown markdown={catalog.intro_markdown} />
         </PageHeader>
       </EntryHero>
