@@ -30,31 +30,18 @@ export async function readPageCards(pages: Stack127Page[]) {
       }))).flat();
     },
     postgresRead: async () => (await getPool().query<PageCardCopy>(`
-      select page_id,card_name,card_description,
-        coalesce(to_jsonb(content)->>'card_icon_key', to_jsonb(content)->>'icon_key') as card_icon_key,
-        coalesce(to_jsonb(content)->>'card_art_key', to_jsonb(content)->>'home_art_key') as card_art_key,
-        not (to_jsonb(content) ? 'card_icon_key') as legacy_card_assets
+      select page_id,card_name,card_description,card_icon_key,card_art_key
       from public.stack127_tool_pages content where page_id=any($1::bigint[])
       union all
-      select page_id,card_name,card_description,
-        coalesce(to_jsonb(content)->>'card_icon_key', to_jsonb(content)->>'icon_key') as card_icon_key,
-        coalesce(to_jsonb(content)->>'card_art_key', to_jsonb(content)->>'home_art_key') as card_art_key,
-        not (to_jsonb(content) ? 'card_icon_key') as legacy_card_assets
+      select page_id,card_name,card_description,card_icon_key,card_art_key
       from public.stack127_directory_pages content where page_id=any($1::bigint[])
       union all
-      select page_id,card_name,card_description,
-        coalesce(to_jsonb(content)->>'card_icon_key', to_jsonb(content)->>'icon_key') as card_icon_key,
-        coalesce(to_jsonb(content)->>'card_art_key', to_jsonb(content)->>'home_art_key') as card_art_key,
-        not (to_jsonb(content) ? 'card_icon_key') as legacy_card_assets
+      select page_id,card_name,card_description,card_icon_key,card_art_key
       from public.stack127_catalog_pages content where page_id=any($1::bigint[])
       union all
-      select page_id,card_name,card_description,card_icon_key,card_art_key,false as legacy_card_assets
+      select page_id,card_name,card_description,card_icon_key,card_art_key
       from public.stack127_course_pages content where page_id=any($1::bigint[])
     `, [pages.map(page => page.id)])).rows,
   });
-  const pagesById = new Map(pages.map(page => [String(page.id), page]));
-  return new Map(rows.map(row => {
-    const page = pagesById.get(String(row.page_id))!;
-    return [String(row.page_id), normalizeCardAssets(row, page.page_family, page.slug)];
-  }));
+  return new Map(rows.map(row => [String(row.page_id), normalizeCardAssets(row)]));
 }

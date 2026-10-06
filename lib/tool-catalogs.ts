@@ -84,7 +84,7 @@ export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<T
       }
       return contents.flatMap((content) => {
         const page = pageById.get(String(content.page_id));
-        return page ? [{ ...(normalizeCardAssets(content, "catalog", page.slug) as CatalogContent), page,
+        return page ? [{ ...(normalizeCardAssets(content) as CatalogContent), page,
           published_at: page.published_at, updated_at: page.updated_at,
           tool_count: counts.get(String(content.page_id)) ?? 0 }] : [];
       });
@@ -103,7 +103,7 @@ export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<T
         group by catalog.page_id, page.id
         order by catalog.display_order, page.label
       `);
-      return result.rows.map(row => normalizeCardAssets(row, "catalog", row.page.slug) as ToolCatalogSummary);
+      return result.rows.map(row => normalizeCardAssets(row) as ToolCatalogSummary);
     },
   });
 }, [TOOL_CATALOGS_TAG], {

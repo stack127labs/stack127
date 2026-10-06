@@ -106,7 +106,7 @@ For an unchanged development preview, use a manifest with the course slug, `fami
 
 Different course or lesson copy calls `stack127_touch_page` for that row's registry page. Identical plans and updates leave public dates alone. Registry dates supply the visible Updated line. Course definitions refresh every lesson route's shared author and navigation.
 
-Catalog manifests use the same `card_icon_key` and `card_art_key` names as tools, directories, and the database. Prepare new plans after Release A adds the new catalog schema. Older plans use legacy fields that Release C removes.
+Catalog manifests use the same `card_icon_key` and `card_art_key` names as tools, directories, and the database. Use plans prepared with Release B or later. Retire older plans that contain fields removed by Release C.
 
 Directory card keys are nullable:
 

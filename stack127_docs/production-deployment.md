@@ -39,7 +39,7 @@ PR CI builds against the current production database. It does not apply migratio
 
 1. Release A is a migrations-only PR based on `origin/main`. It adds registry indexability, meaningful date functions and triggers, catalog columns, and course definitions. It keeps the old tool and directory revision counters and every old catalog column. Its CI builds current main against the current production schema. After merge, the existing workflow applies the migrations before rebuilding and deploying current main.
 2. Release B ships the app and scripts that read and write the new columns. Its PR build can run after Release A is live. Keep the compatibility columns for rollback during this release.
-3. Release C removes the legacy columns and catalog sync trigger. Its SQL is parked in `supabase/pending`, outside `supabase db push`. Move it into migrations with a fresh timestamp only after all legacy readers and writers are retired and rollback no longer needs them.
+3. Release C is `supabase/migrations/20261006185439_contract_legacy_page_columns.sql`. Merge it only after Release B is verified on OVH and Cloudflare and rollback no longer needs the old schema. It removes the seven legacy catalog columns, the sync trigger and function, and both content revision columns and their checks. It drops the directory revision trigger and function, retains the tool version timestamp guard, and keeps the existing date, cache, and validation functions.
 
 Release A contains exactly these files:
 
@@ -57,7 +57,7 @@ supabase/migrations/20261006155027_course_page_definitions.sql
 
 The catalog sync trigger changes `NEW` before constraints run. Old heading writes update `title`. New title writes split the optional `<mark>` accent into the old heading fields. A plain title uses an empty accent. Introductions, ordering, and hero/card artwork synchronize in both directions. Conflicting updates to both representations fail. Existing section headings remain, and new catalogs get the legacy default "Tools". This avoids a second update and duplicate date changes.
 
-Legacy tool content scripts still explicitly increment `content_revision`. The retained preparation triggers compute the same next value, so old and new writers increment once and identical content keeps the counter. Release C removes those guards with the columns.
+Before Release C, the retained preparation triggers accept explicit legacy revision increments and compute the same next value for new writers. Release B writers use the new fields and registry timestamps. Release C removes revision handling with the columns. Whole-row cache fingerprints change once when those fields disappear, then continue tracking retained content. The migration does not write page rows or move public dates.
 
 ## Cloudflare static frontend
 

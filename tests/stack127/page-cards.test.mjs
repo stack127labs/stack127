@@ -97,61 +97,25 @@ test('writers reject unknown card keys before opening a database connection', ()
 });
 
 
-test('card reads normalize old catalog columns and seed only old parent directory assets', () => {
+test('card reads preserve explicit nulls and changed assets', () => {
   const { normalizeCardAssets } = load('card-data', { './public-data-api': {} });
-  const catalog = normalizeCardAssets({ icon_key: 'network', home_art_key: 'dns-tools' }, 'catalog', 'dns-tools');
-  assert.equal(catalog.card_icon_key, 'network');
-  assert.equal(catalog.card_art_key, 'dns-tools');
-  assert.equal('icon_key' in catalog, false);
-  const parent = normalizeCardAssets({}, 'directory', 'self-host-apps');
-  assert.equal(parent.card_icon_key, 'self-host-apps');
-  assert.equal(parent.card_art_key, 'self-host-apps');
-  const child = normalizeCardAssets({}, 'directory', 'keyboard-shortcuts/vscode');
-  assert.equal(child.card_icon_key, null);
-  assert.equal(child.card_art_key, null);
-});
-
-test('migrated directory reads preserve explicit nulls and changed assets', () => {
-  const { normalizeCardAssets } = load('card-data', { './public-data-api': {} });
-  const empty = normalizeCardAssets({ card_icon_key: null, card_art_key: null }, 'directory', 'self-host-apps');
+  const empty = normalizeCardAssets({ card_icon_key: null, card_art_key: null });
   assert.equal(empty.card_icon_key, null);
   assert.equal(empty.card_art_key, null);
-  const changed = normalizeCardAssets({ card_icon_key: 'server', card_art_key: 'labs' }, 'directory', 'self-host-apps');
+  const changed = normalizeCardAssets({ card_icon_key: 'server', card_art_key: 'labs' });
   assert.equal(changed.card_icon_key, 'server');
   assert.equal(changed.card_art_key, 'labs');
-  const oldSql = normalizeCardAssets({ card_icon_key: null, card_art_key: null, legacy_card_assets: true }, 'directory', 'self-host-apps');
-  assert.equal(oldSql.card_icon_key, 'self-host-apps');
-  assert.equal('legacy_card_assets' in oldSql, false);
 });
 
-test('Data API reads retry legacy card selections while preserving filters and order', async () => {
-  for (const table of ['stack127_directory_pages', 'stack127_catalog_pages']) {
-    const calls = [];
-    const { selectCardRows } = load('card-data', { './public-data-api': {
-      selectPublicRows: async (name, parameters) => {
-        calls.push(parameters);
-        assert.equal(name, table);
-        if (calls.length === 1) throw new Error('Supabase public Data API read failed with status 400.');
-        return [{ page_id: 1, card_name: 'Card', card_description: 'Description' }];
-      },
-    } });
-    const rows = await selectCardRows(table, { select: 'page_id,card_name,card_description,card_icon_key,card_art_key', page_id: 'eq.1', order: 'page_id.asc' });
-    assert.equal(rows[0].legacy_card_assets, true);
-    assert.equal(calls[1].page_id, 'eq.1');
-    assert.equal(calls[1].order, 'page_id.asc');
-    assert.equal(calls[1].select, table === 'stack127_directory_pages'
-      ? 'page_id,card_name,card_description'
-      : 'page_id,card_name,card_description,card_icon_key:icon_key,card_art_key:home_art_key');
-  }
-});
-
-test('card compatibility reads do not hide network errors or tool read failures', async () => {
-  for (const [table, message] of [['stack127_directory_pages', 'network unavailable'], ['stack127_tool_pages', 'Supabase public Data API read failed with status 400.']]) {
-    let calls = 0;
-    const { selectCardRows } = load('card-data', { './public-data-api': {
-      selectPublicRows: async () => { calls++; throw new Error(message); },
-    } });
-    await assert.rejects(selectCardRows(table, { select: 'card_icon_key,card_art_key' }), error => error.message === message);
-    assert.equal(calls, 1);
+test('card reads propagate database and network failures without retrying another schema', async () => {
+  for (const table of ['stack127_directory_pages', 'stack127_catalog_pages', 'stack127_tool_pages', 'stack127_course_pages']) {
+    for (const message of ['network unavailable', 'Supabase public Data API read failed with status 400.']) {
+      let calls = 0;
+      const { selectCardRows } = load('card-data', { './public-data-api': {
+        selectPublicRows: async () => { calls++; throw new Error(message); },
+      } });
+      await assert.rejects(selectCardRows(table, { select: 'card_icon_key,card_art_key' }), error => error.message === message);
+      assert.equal(calls, 1);
+    }
   }
 });
