@@ -3,11 +3,10 @@ import { MarkerArt } from "@/app/ui/site/marker-art";
 import { Callout, LessonLink, LessonPage } from "../course";
 import { containerDataSplitArt } from "./art/container-data-split";
 
-const lesson = getLesson("storage-and-volumes");
-
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("storage-and-volumes");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           This is the lesson that saves you from the worst beginner mistake: wiping data you can't
           get back. The rule is simple once it clicks. The container is disposable. Your data is

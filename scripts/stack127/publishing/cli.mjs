@@ -3,7 +3,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import pg from 'pg';
 import { resolveDatabaseUrl } from '../tool-pages/lib.mjs';
-import { CONTENT_FIELDS, REGISTRY_FIELDS, desiredStates, validateState, validateTouch } from './model.mjs';
+import { CONTENT_FIELDS, REGISTRY_FIELDS, desiredStates, validateState, validateTouch, LESSON_FIELDS, hasRequiredContent } from './model.mjs';
 import { executeBatch, readStates } from './database.mjs';
 import { checkDatabaseRequirements, checkRepositoryRequirements, freezeRequirements, onlyKeys } from './readiness.mjs';
 import { checkLiveRelease, verifyPublicPages } from './verify.mjs';
@@ -39,7 +39,7 @@ function cleanCode(plan) {
   if (git('status', '--porcelain', '--', 'app', 'lib', 'scripts', '.github', 'supabase', 'public', 'next.config.*', 'tsconfig.json', 'package.json', 'package-lock.json', ...files)) throw new Error('Commit the reviewed code and required assets before preparing or applying a production batch');
 }
 function familyKind(kind, family) {
-  if (!(kind === 'tools' ? ['tool', 'catalog'] : ['directory']).includes(family)) throw new Error(`${kind} batch cannot contain ${family}`);
+  if (!(kind === 'tools' ? ['tool', 'catalog'] : kind === 'courses' ? ['course'] : ['directory']).includes(family)) throw new Error(`${kind} batch cannot contain ${family}`);
 }
 async function loadJson(file) { return JSON.parse(await readFile(file, 'utf8')); }
 export async function resolveCopy(content, base) {
@@ -75,7 +75,7 @@ export async function preparePlan(pool, manifest, { kind, environment, base = pr
   if (manifest.schema_version !== 1 || manifest.kind !== kind || !Array.isArray(manifest.pages) || !manifest.pages.length) throw new Error('Manifest needs schema_version 1, the command kind, and selected pages');
   const seen = new Set();
   for (const page of manifest.pages) {
-    onlyKeys(page, ['slug', 'family', 'source', 'registry', 'content', 'catalogs', 'requirements', 'touch_reason'], 'Selected page');
+    onlyKeys(page, ['slug', 'family', 'source', 'registry', 'content', 'catalogs', 'requirements', 'touch_reason', 'lesson'], 'Selected page');
     familyKind(kind, page.family);
     if (page.touch_reason !== undefined) validateTouch({reason:page.touch_reason,expected_updated_at:null},page.family);
     if (page.source !== undefined && page.source !== 'development') throw new Error('The only supported page source is development');
@@ -85,6 +85,11 @@ export async function preparePlan(pool, manifest, { kind, environment, base = pr
     seen.add(page.slug);
     onlyKeys(page.registry ?? {}, REGISTRY_FIELDS, 'Registry patch');
     onlyKeys(page.content ?? {}, CONTENT_FIELDS[page.family], 'Content patch');
+    if (page.family === 'course' && page.slug.includes('/') && Object.keys(page.content ?? {}).length) throw new Error('Course child copy belongs in lesson, not content');
+    if (page.lesson !== undefined) {
+      if (page.family !== 'course') throw new Error('Only courses have lesson definitions');
+      onlyKeys(page.lesson, LESSON_FIELDS, 'Lesson patch');
+    }
   }
   const refs = manifest.pages.map(({ slug, family }) => ({ slug, family }));
   const snapshot = await readSnapshot(pool, refs,{dates:manifest.pages.some(page=>page.touch_reason!==undefined)});
@@ -98,9 +103,9 @@ export async function preparePlan(pool, manifest, { kind, environment, base = pr
     const page = manifest.pages[index];
     const current = before[index];
     const source = page.source ? development.get(page.slug) : current;
-    if (page.source && !source?.content) throw new Error(`Reviewed development page is missing: ${page.slug}`);
-    const defaults = page.family === 'tool' ? { usage_markdown: null, tool_version: '1.0.0', stack127_repo_url: null, stack127_repo_version: null, stack127_repo_commit_sha: null } : page.family === 'directory' ? { content_markdown: null, card_icon_key: null, card_art_key: null } : { content_markdown: null, card_icon_key: 'layers', display_order: 100 };
-    const after = validateState({ slug: page.slug, family: page.family, registry: { is_published: false, is_indexable: true, cover_image_url: null, page_type: page.family === 'tool' ? 'SoftwareApplication' : 'CollectionPage', sitemap_priority: 0.5, ...source?.registry, ...page.registry }, content: { ...defaults, ...source?.content, ...await resolveCopy(page.content, base) }, ...(page.family === 'tool' ? { catalogs: page.catalogs ?? source?.catalogs ?? [] } : {}) });
+    if (page.source && (!source || !hasRequiredContent(source))) throw new Error(`Reviewed development page is missing: ${page.slug}`);
+    const defaults = page.family === 'tool' ? { usage_markdown: null, tool_version: '1.0.0', stack127_repo_url: null, stack127_repo_version: null, stack127_repo_commit_sha: null } : ['directory','course'].includes(page.family) ? { content_markdown: null, card_icon_key: null, card_art_key: null } : { content_markdown: null, card_icon_key: 'layers', display_order: 100 };
+    const after = validateState({ slug: page.slug, family: page.family, registry: { is_published: false, is_indexable: true, cover_image_url: null, page_type: page.family === 'tool' ? 'SoftwareApplication' : 'CollectionPage', sitemap_priority: 0.5, ...source?.registry, ...page.registry }, content: page.family === 'course' && page.slug.includes('/') ? null : { ...defaults, ...source?.content, ...await resolveCopy(page.content, base) }, ...(page.family === 'course' ? { lesson: page.lesson || source?.lesson ? { ...source?.lesson, ...page.lesson } : null } : {}), ...(page.family === 'tool' ? { catalogs: page.catalogs ?? source?.catalogs ?? [] } : {}) });
     const requirements = await freezeRequirements(page.requirements, after, root);
     pages.push({ slug: page.slug, family: page.family, before: current, after, requirements,
       ...(page.touch_reason !== undefined ? {touch:{reason:page.touch_reason,expected_updated_at:snapshot.dates.get(page.slug) ?? null}} : {}) });
@@ -120,7 +125,7 @@ export function validatePlan(plan, kind, environment) {
     if (slugs.has(page.slug)) throw new Error(`Duplicate selected page: ${page.slug}`);
     slugs.add(page.slug);
     page.after = validateState(page.after);
-    if (page.after.slug !== page.slug || page.after.family !== page.family || page.after.content === null) throw new Error('Desired page identity or content is invalid');
+    if (page.after.slug !== page.slug || page.after.family !== page.family || !hasRequiredContent(page.after)) throw new Error('Desired page identity or content is invalid');
     if (page.before !== null) {
       page.before = validateState(page.before);
       if (page.before.slug !== page.slug || page.before.family !== page.family) throw new Error('Before state identity is invalid');

@@ -13,6 +13,10 @@ export const CONTENT_FIELDS = Object.freeze({
     "title", "intro_markdown", "content_markdown", "card_name", "card_description",
     "card_icon_key", "card_art_key",
   ]),
+  course: Object.freeze([
+    "title", "intro_markdown", "content_markdown", "card_name", "card_description",
+    "card_icon_key", "card_art_key", "author_name", "author_avatar_url", "navigation_label",
+  ]),
   catalog: Object.freeze([
     "title", "intro_markdown", "content_markdown", "card_name", "card_description",
     "card_icon_key", "card_art_key", "display_order",
@@ -38,7 +42,7 @@ export function validateRef(ref) {
     || !/^[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*$/.test(ref.slug)) {
     throw new Error(`Invalid page slug: ${ref.slug}`);
   }
-  if (ref.family !== "directory" && ref.slug.includes("/")) {
+  if (!["directory", "course"].includes(ref.family) && ref.slug.includes("/")) {
     throw new Error(`${ref.family} pages must use a root slug: ${ref.slug}`);
   }
   return { slug: ref.slug, family: ref.family };
@@ -62,7 +66,7 @@ function integer(value, name, positive = false) {
 // A missing family row is a valid snapshot of an unfinished registry draft.
 export function validateState(state, family = state?.family) {
   if (!Object.hasOwn(CONTENT_FIELDS, family)) throw new Error(`Unsupported page family: ${family}`);
-  exactFields(state, ["slug", "family", "registry", "content", ...(family === "tool" ? ["catalogs"] : [])], "state");
+  exactFields(state, ["slug", "family", "registry", "content", ...(family === "tool" ? ["catalogs"] : []), ...(family === "course" ? ["lesson"] : [])], "state");
   const ref = validateRef({ slug: state.slug, family: state.family });
   if (state.family !== family) throw new Error(`Wrong page family for ${state.slug}: expected ${family}`);
   exactFields(state.registry, REGISTRY_FIELDS, "registry");
@@ -100,7 +104,7 @@ export function validateState(state, family = state?.family) {
         : textField(state.content[field], `content.${field}`, {
           nullable: field.startsWith("stack127_repo_") || field === "usage_markdown"
             || (family !== "tool" && field === "content_markdown")
-            || (family === "directory" && ["card_icon_key", "card_art_key"].includes(field)),
+            || (["directory", "course"].includes(family) && ["card_icon_key", "card_art_key"].includes(field)),
           trimmed: !(family === "tool" && ["card_name", "card_description"].includes(field)),
         });
       if (field.endsWith("_key") && content[field] !== null && !/^[a-z0-9-]+$/.test(content[field])) {
@@ -126,7 +130,9 @@ export function validateState(state, family = state?.family) {
     }
   }
 
+  if (family === "course" && ref.slug.includes("/") && content !== null) throw new Error("Course child pages use lesson content only");
   const result = { ...ref, registry, content };
+  if (family === "course") result.lesson = validateLesson(state.lesson, ref.slug);
   if (family === "tool") {
     if (!Array.isArray(state.catalogs)) throw new Error("state.catalogs must be an array");
     const slugs = new Set();
@@ -166,7 +172,7 @@ export function desiredStates(entries, { restore = false } = {}) {
     if ((before && before.slug !== ref.slug) || after.slug !== ref.slug) {
       throw new Error(`State slug does not match batch entry: ${ref.slug}`);
     }
-    if (after.content === null) throw new Error(`Desired ${ref.family} content is missing for ${ref.slug}`);
+    if (!hasRequiredContent(after)) throw new Error(`Desired ${ref.family} content is missing for ${ref.slug}`);
     return { ...ref, before, after };
   });
   const removedCatalogs = new Set(restore ? pages.filter(page => page.family === "catalog"
@@ -181,4 +187,20 @@ export function desiredStates(entries, { restore = false } = {}) {
       } : {}),
     });
   });
+}
+
+export const LESSON_FIELDS = Object.freeze(["course_slug", "title", "sidebar_label", "display_order"]);
+export function validateLesson(lesson, slug) {
+  if (lesson === null) return null;
+  exactFields(lesson, LESSON_FIELDS, "lesson");
+  validateRef({ slug: lesson.course_slug, family: "course" });
+  if (lesson.course_slug.includes("/") || !(slug === lesson.course_slug || slug.startsWith(lesson.course_slug + "/"))) {
+    throw new Error("Lesson slug must belong to its root course");
+  }
+  return { course_slug: lesson.course_slug, title: textField(lesson.title, "lesson.title"),
+    sidebar_label: textField(lesson.sidebar_label, "lesson.sidebar_label"),
+    display_order: integer(lesson.display_order, "lesson.display_order", true) };
+}
+export function hasRequiredContent(state) {
+  return state.family === "course" ? Boolean(state.lesson && (state.slug.includes("/") || state.content)) : state.content !== null;
 }

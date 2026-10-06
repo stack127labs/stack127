@@ -1,6 +1,6 @@
 type PublicDataEnvironment = Readonly<Record<string, string | undefined>>;
 
-type PublicDataTable = "stack127_pages" | "stack127_tool_pages" | "stack127_catalog_pages" | "stack127_directory_pages" | "stack127_tool_catalog_memberships";
+type PublicDataTable = "stack127_pages" | "stack127_tool_pages" | "stack127_catalog_pages" | "stack127_directory_pages" | "stack127_tool_catalog_memberships" | "stack127_course_pages" | "stack127_course_lessons";
 
 type PublicReadOptions<T> = Readonly<{
   dataApiRead: () => Promise<T>;

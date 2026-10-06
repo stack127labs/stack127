@@ -1,10 +1,11 @@
 import { isDeepStrictEqual } from "node:util";
-import { CONTENT_FIELDS, REGISTRY_FIELDS, desiredStates, validateRef, validateState, validateTouch } from "./model.mjs";
+import { CONTENT_FIELDS, REGISTRY_FIELDS, desiredStates, validateRef, validateState, validateTouch, LESSON_FIELDS, hasRequiredContent } from "./model.mjs";
 
 const TABLES = Object.freeze({
   tool: "public.stack127_tool_pages",
   directory: "public.stack127_directory_pages",
   catalog: "public.stack127_catalog_pages",
+  course: "public.stack127_course_pages",
 });
 const REPO_FIELDS = ["stack127_repo_url", "stack127_repo_version", "stack127_repo_commit_sha"];
 function project(row, fields) {
@@ -44,6 +45,16 @@ async function readManaged(client, refs, lock = false) {
     `, [ids]);
     for (const row of rows) contents.set(String(row.page_id), project(row, CONTENT_FIELDS[family]));
   }
+  const lessons = new Map();
+  const courseIds = refs.filter(ref => ref.family === "course").map(ref => bySlug.get(ref.slug)?.id).filter(id => id !== undefined);
+  if (courseIds.length) {
+    const { rows } = await client.query(`
+      select lesson.page_id,course.slug as course_slug,lesson.title,lesson.sidebar_label,lesson.display_order
+      from public.stack127_course_lessons lesson join public.stack127_pages course on course.id=lesson.course_page_id
+      where lesson.page_id=any($1::bigint[]) order by lesson.page_id ${lock ? "for update of lesson" : ""}
+    `, [courseIds]);
+    for (const row of rows) lessons.set(String(row.page_id), project(row, LESSON_FIELDS));
+  }
   const memberships = new Map();
   const toolIds = [...new Set(refs.filter(ref => ref.family === "tool")
     .map(ref => bySlug.get(ref.slug)?.id).filter(id => id !== undefined))];
@@ -67,6 +78,7 @@ async function readManaged(client, refs, lock = false) {
     return validateState({
       ...ref, registry: project(page, REGISTRY_FIELDS), content: contents.get(String(page.id)) ?? null,
       ...(ref.family === "tool" ? { catalogs: memberships.get(String(page.id)) ?? [] } : {}),
+      ...(ref.family === "course" ? { lesson: lessons.get(String(page.id)) ?? null } : {}),
     });
   });
   return { states, rows: bySlug };
@@ -93,7 +105,7 @@ function batchEntries(entries, restore) {
     if ((before && before.slug !== ref.slug) || after.slug !== ref.slug) {
       throw new Error(`State slug does not match batch entry: ${ref.slug}`);
     }
-    if (after.content === null) throw new Error(`Desired ${ref.family} content is missing for ${ref.slug}`);
+    if (!hasRequiredContent(after)) throw new Error(`Desired ${ref.family} content is missing for ${ref.slug}`);
     return { ...ref, before, after, touch:validateTouch(entry.touch,ref.family) };
   });
   const targets = desiredStates(batch, { restore });
@@ -129,24 +141,29 @@ async function readDependencies(client, entries, current) {
         }
       }
     }
+    if (entry.family === "course") {
+      for (const state of [entry.before, entry.after, entry.desired, current[index]]) {
+        if (state?.lesson) add(state.lesson.course_slug, "course");
+      }
+    }
     if (entry.family === "directory") {
       for (let parent = parentSlug(entry.slug); parent; parent = parentSlug(parent)) add(parent, "directory");
     }
   });
 
   // Include published descendants so unpublishing a parent cannot orphan them.
-  const prefixes = entries.filter(entry => entry.family === "directory").map(entry => `${entry.slug}/`);
+  const prefixes = entries.filter(entry => ["directory", "course"].includes(entry.family)).map(entry => `${entry.slug}/`);
   if (prefixes.length) {
     const { rows } = await client.query(`
-      select slug from public.stack127_pages page
-      where page_family = 'directory' and is_published
+      select slug,page_family from public.stack127_pages page
+      where page_family in ('directory','course') and is_published
         and exists (select 1 from unnest($1::text[]) as prefix(value)
           where left(page.slug, length(prefix.value)) = prefix.value)
       order by slug for update of page
     `, [prefixes]);
     for (const row of rows) {
-      add(row.slug, "directory");
-      for (let parent = parentSlug(row.slug); parent; parent = parentSlug(parent)) add(parent, "directory");
+      add(row.slug, row.page_family);
+      for (let parent = parentSlug(row.slug); parent; parent = parentSlug(parent)) add(parent, row.page_family);
     }
   }
   const dependencyRefs = [...refs.values()].sort((a, b) => a.slug.localeCompare(b.slug));
@@ -204,7 +221,11 @@ function checkFinalState(entries, current, { final, members, catalogs }) {
   }
   for (const [slug, state] of final) {
     if (!state?.registry.is_published) continue;
-    if (!state.content) throw new Error(`Published ${state.family} content is missing for ${slug}`);
+    if (!hasRequiredContent(state)) throw new Error(`Published ${state.family} content is missing for ${slug}`);
+    if (state.family === "course") {
+      const parent = final.get(state.lesson.course_slug);
+      if (!parent?.registry.is_published || !parent.content) throw new Error(`Published lesson ${slug} requires its published course`);
+    }
     if (state.family === "directory" && parentSlug(slug)) {
       const parent = final.get(parentSlug(slug));
       if (parent?.family !== "directory" || !parent.content || !parent.registry.is_published) {
@@ -304,9 +325,21 @@ export async function executeBatch(pool, entries, { apply = false, restore = fal
       await client.query("delete from public.stack127_tool_catalog_memberships where tool_page_id = any($1::bigint[])",
         [membershipChanges.map(entry => ids.get(entry.slug))]);
     }
-    for (let index = 0; index < batch.length; index++) {
+    const contentOrder = batch.map((entry,index)=>index).sort((a,b)=>
+      Number(batch[b].family==='course' && !batch[b].slug.includes('/')) - Number(batch[a].family==='course' && !batch[a].slug.includes('/')));
+    for (const index of contentOrder) {
       if (changed[index]) await writeContent(client, ids.get(batch[index].slug), batch[index].family,
         current.states[index]?.content ?? null, batch[index].desired.content);
+    }
+    for (let index = 0; index < batch.length; index++) {
+      const entry = batch[index];
+      if (!changed[index] || entry.family !== "course" || isDeepStrictEqual(current.states[index]?.lesson ?? null, entry.desired.lesson)) continue;
+      const lesson = entry.desired.lesson;
+      if (lesson === null) await client.query("delete from public.stack127_course_lessons where page_id=$1", [ids.get(entry.slug)]);
+      else await client.query(`insert into public.stack127_course_lessons(page_id,course_page_id,title,sidebar_label,display_order)
+        values($1,$2,$3,$4,$5) on conflict(page_id) do update set course_page_id=excluded.course_page_id,
+        title=excluded.title,sidebar_label=excluded.sidebar_label,display_order=excluded.display_order`,
+        [ids.get(entry.slug),ids.get(lesson.course_slug),lesson.title,lesson.sidebar_label,lesson.display_order]);
     }
     for (const entry of membershipChanges) {
       for (const [index, catalog] of entry.desired.catalogs.entries()) {
@@ -326,6 +359,7 @@ export async function executeBatch(pool, entries, { apply = false, restore = fal
       await writeRegistry(client, ids.get(batch[index].slug), before, batch[index].desired.registry, repoChanged);
       if (touchNeeded[index]) await client.query('select public.stack127_touch_page($1,$2)',[batch[index].slug,batch[index].touch.reason]);
     }
+    await client.query("set constraints all immediate");
     await client.query(apply ? "commit" : "rollback");
     return { applied: apply, restored: restore,
       pages: batch.map((entry, index) => ({ slug: entry.slug, family: entry.family, changed: changed[index] })),

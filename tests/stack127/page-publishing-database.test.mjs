@@ -75,7 +75,7 @@ function database(initial = []) {
       if (sql.startsWith("begin")) { snapshot = structuredClone(store); return result([]); }
       if (sql === "rollback") { if (snapshot) store = snapshot; snapshot = undefined; return result([]); }
       if (sql === "commit") { snapshot = undefined; return result([]); }
-      if (sql.startsWith("set local") || sql.includes("pg_advisory_xact_lock")) return result([]);
+      if (sql === "set constraints all immediate" || sql.startsWith("set local") || sql.includes("pg_advisory_xact_lock")) return result([]);
       if (sql.startsWith("select")) {
         if (sql.includes("information_schema.columns")) {
           assert.deepEqual(values.slice(0, 2), ["public", "stack127_catalog_pages"]);

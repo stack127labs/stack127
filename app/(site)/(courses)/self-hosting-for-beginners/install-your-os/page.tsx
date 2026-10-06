@@ -5,11 +5,10 @@ import { Callout, LessonLink, LessonPage } from "../course";
 import { osOnlineChecklistArt } from "./art/os-online-checklist";
 import { CodeBlock } from "@/app/ui/site/code-block";
 
-const lesson = getLesson("install-your-os");
-
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("install-your-os");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           You've picked a machine and picked an OS. Now the part most guides skip straight over:
           actually getting that OS onto the machine, onto your network, and reachable.

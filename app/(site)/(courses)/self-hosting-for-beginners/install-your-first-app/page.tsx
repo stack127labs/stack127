@@ -5,8 +5,6 @@ import { Callout, LessonLink, LessonPage } from "../course";
 import { firstAppLoopArt } from "./art/first-app-loop";
 import { CodeBlock } from "@/app/ui/site/code-block";
 
-const lesson = getLesson("install-your-first-app");
-
 const compose = `services:
   excalidraw:
     image: excalidraw/excalidraw:latest
@@ -15,9 +13,10 @@ const compose = `services:
       - "3030:80"
     restart: unless-stopped`;
 
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("install-your-first-app");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           This is the one. Everything so far has been setup; now you run a real app on your own
           server and open it in your browser. We'll use{" "}

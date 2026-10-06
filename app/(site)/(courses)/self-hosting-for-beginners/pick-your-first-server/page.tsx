@@ -3,8 +3,6 @@ import { MarkerArt } from "@/app/ui/site/marker-art";
 import { Faq, LessonLink, LessonPage } from "../course";
 import { firstServerChoiceArt } from "./art/first-server-choice";
 
-const lesson = getLesson("pick-your-first-server");
-
 const options = [
   {
     option: "A laptop or PC you already own",
@@ -28,9 +26,10 @@ const options = [
   },
 ];
 
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("pick-your-first-server");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           If you're just starting out, the best server is one you already own: an old laptop, or a
           desktop you don't use much. Self-hosting runs on almost any machine with a decent

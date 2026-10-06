@@ -131,11 +131,14 @@ export function remapDevelopmentPageIds(rows, fields, developmentPages, restored
   });
 }
 
+const courseTables = ['stack127_course_pages', 'stack127_course_lessons'];
 const pageTableIds = {
   stack127_pages: ['id'],
   stack127_tool_pages: ['page_id'],
   stack127_catalog_pages: ['page_id'],
   stack127_directory_pages: ['page_id'],
+  stack127_course_pages: ['page_id'],
+  stack127_course_lessons: ['page_id', 'course_page_id'],
   stack127_tool_catalog_memberships: ['catalog_page_id', 'tool_page_id'],
 };
 
@@ -168,9 +171,16 @@ export function verifyPageFamilyRestore(production, restored, preserved) {
   const productionIds = new Set(restoredPages.filter(page => productionSlugs.has(page.slug)).map(page => String(page.id)));
   const results = [];
   for (const [name, fields] of Object.entries(pageTableIds)) {
+    if (!restored.has(name) && courseTables.includes(name)) continue;
     const rows = restored.get(name);
     const owned = row => name === 'stack127_pages' ? productionSlugs.has(row.slug)
       : fields.every(field => productionIds.has(String(row[field])));
+    // Before the course migration releases, preserve all development definitions.
+    if (!production.has(name) && courseTables.includes(name)) {
+      if (preserved) verifyPageRows(name, remapDevelopmentPageIds(preserved.rows.get(name) ?? [], fields, preserved.pages, restoredPages), rows, false);
+      results.push({table:name,development:rows.length,sourceTableAbsent:true,preservedRowsVerified:Boolean(preserved)});
+      continue;
+    }
     const sourceRows = normalizeCardSnapshot(name, production.get(name), sourcePages);
     const productionRows = rows.filter(owned);
     const developmentRows = rows.filter(row => !owned(row));
@@ -367,6 +377,11 @@ async function main() {
     for (const name of tables) {
         const sourceColumns = await columns(source, name);
         const targetColumns = await columns(target, name);
+        if (courseTables.includes(name) && !sourceColumns.length) {
+          snapshot.set(name,{rows:[],columns:targetColumns.filter(column=>column.is_generated==='NEVER'),developmentOnly:true});
+          console.log(JSON.stringify({table:name,sourceTableAbsent:true,preserveDevelopment:true}));
+          continue;
+        }
         if (!compatibleCardColumns(name, sourceColumns, targetColumns)) throw new Error(`Schema mismatch for ${name}`);
         const rows = normalizeCardSnapshot(name, await snapshotRows(name), snapshot.get('stack127_pages')?.rows ?? []);
         snapshot.set(name, { rows, columns: targetColumns.filter((column) => column.is_generated === 'NEVER') });
@@ -383,9 +398,9 @@ async function main() {
       const extraPages = developmentPages.filter((row) => !prodSlugs.has(row.slug));
       const extraPageIds = new Set(extraPages.map(row => String(row.id)));
       const extraContent = new Map();
-      for (const name of ['stack127_tool_pages', 'stack127_catalog_pages', 'stack127_directory_pages']) {
+      for (const name of ['stack127_tool_pages', 'stack127_catalog_pages', 'stack127_directory_pages', ...courseTables.filter(name=>snapshot.has(name))]) {
         const rows = (await target.query(`select to_jsonb(record) payload from ${tableName(name)} record
-          where page_id=any($1::bigint[])`, [[...extraPageIds]])).rows.map(row => row.payload);
+          where ${snapshot.get(name).developmentOnly ? 'true' : 'page_id=any($1::bigint[])'}`, snapshot.get(name).developmentOnly ? [] : [[...extraPageIds]])).rows.map(row => row.payload);
         extraContent.set(name, rows);
       }
       const extraMemberships = (await target.query(`select * from public.stack127_tool_catalog_memberships
@@ -427,7 +442,7 @@ async function main() {
       const currentPages = (await target.query('select id,slug from public.stack127_pages')).rows;
       for (const [name, rows] of extraContent) {
         if (!rows.length) continue;
-        const remapped = remapDevelopmentPageIds(rows, ['page_id'], developmentPages, currentPages);
+        const remapped = remapDevelopmentPageIds(rows, pageTableIds[name], developmentPages, currentPages);
         const fields = snapshot.get(name).columns.map(column => identifier(column.column_name)).join(', ');
         await target.query(`insert into ${tableName(name)} (${fields})
           select ${fields} from jsonb_populate_recordset(null::${tableName(name)},$1::jsonb)`, [JSON.stringify(remapped)]);
@@ -486,7 +501,8 @@ async function main() {
     const restoredPages = new Map();
     for (const name of Object.keys(pageTableIds)) {
       const query = `select to_jsonb(record) payload from ${tableName(name)} record`;
-      productionPages.set(name, (await source.query(query)).rows.map(row => row.payload));
+      if (courseTables.includes(name) && !(await columns(target,name)).length) continue;
+      if (!courseTables.includes(name) || (await columns(source,name)).length) productionPages.set(name, (await source.query(query)).rows.map(row => row.payload));
       restoredPages.set(name, (await target.query(query)).rows.map(row => row.payload));
     }
     for (const result of verifyPageFamilyRestore(productionPages, restoredPages, preserved)) console.log(JSON.stringify(result));
@@ -512,6 +528,14 @@ async function main() {
     }
     await target.connect();
     if (values.apply && values.migrate) await migrate();
+    if (values.copy || values.verify) {
+      for (const name of courseTables) {
+        const targetExists=(await columns(target,name)).length>0;
+        const sourceExists=(await columns(source,name)).length>0;
+        if (sourceExists && !targetExists) throw new Error(`Schema mismatch for ${name}: apply the course migration to development first`);
+        if (targetExists) tables.push(name);
+      }
+    }
     if (values.apply && values.copy) await copy();
     if (values.verify && !(values.apply && values.copy)) await verify();
     if (!values.apply && !values.verify) console.log(JSON.stringify({mode:'dry_run',tables,excluded:['ads publishers','platform fee data','RDAP cache','cache queue','production cache signing key']}));

@@ -29,13 +29,13 @@ export function normalizeCardAssets<T extends CardAssets>(row: T, family: string
 }
 
 export async function selectCardRows<T>(
-  table: "stack127_tool_pages" | "stack127_directory_pages" | "stack127_catalog_pages",
+  table: "stack127_tool_pages" | "stack127_directory_pages" | "stack127_catalog_pages" | "stack127_course_pages",
   parameters: Readonly<Record<string, string>>,
 ): Promise<T[]> {
   try {
     return await selectPublicRows<T>(table, parameters);
   } catch (error) {
-    if (table === "stack127_tool_pages" || !(error instanceof Error)
+    if (["stack127_tool_pages", "stack127_course_pages"].includes(table) || !(error instanceof Error)
       || error.message !== "Supabase public Data API read failed with status 400.") throw error;
     const select = parameters.select.split(",").flatMap(column => {
       if (!["card_icon_key", "card_art_key"].includes(column)) return [column];

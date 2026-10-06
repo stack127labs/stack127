@@ -65,7 +65,7 @@ export async function freezeRequirements(requirements, state, root = process.cwd
 
 export async function checkRepositoryRequirements(requirements, state, root = process.cwd()) {
   onlyKeys(requirements, ['route', 'assets', 'checks', 'records', 'smoke'], 'Frozen requirements');
-  const group = { tool: '(tools)', catalog: '(catalogs)', directory: '(directories)' }[state.family];
+  const group = { tool: '(tools)', catalog: '(catalogs)', directory: '(directories)', course: '(courses)' }[state.family];
   if (typeof requirements.route !== 'string' || !requirements.route.startsWith(`app/(site)/${group}/`) || !requirements.route.endsWith('/page.tsx') || !routeMatches(requirements.route, state.slug)) {
     throw new Error(`Route does not match ${state.family} /${state.slug}`);
   }
@@ -91,6 +91,7 @@ export async function checkRepositoryRequirements(requirements, state, root = pr
     const pathname = new URL(smoke.path, 'https://stack127.com').pathname;
     if (pathname !== `/${state.slug}` && !pathname.startsWith(`/${state.slug}/`)) throw new Error('Smoke checks must belong to the selected page');
   }
+  if (state.family === 'course' && !state.lesson) throw new Error(`Course lesson definition is missing: ${state.slug}`);
   if (state.content) {
     const markdown = Object.fromEntries(Object.entries(state.content).filter(([key, value]) => key.endsWith('_markdown') && typeof value === 'string'));
     validateToolMarkdown(markdown, { repositoryRoot: root });
@@ -105,16 +106,16 @@ export async function checkRepositoryRequirements(requirements, state, root = pr
     const artKeys = await keys('lib/card-art.ts', 'art');
     const icon = state.content.card_icon_key;
     const art = [state.content.card_art_key];
-    if (state.family === 'directory' && state.registry.is_published) {
+    if (['directory','course'].includes(state.family) && state.registry.is_published) {
       const source = await readFile(await repositoryFile('lib/page-registry-helpers.ts', root), 'utf8');
       const homeSlugs = source.match(/\bexport const homePageSlugs\s*=\s*\[([\s\S]*?)\] as const;/)?.[1];
       if (homeSlugs === undefined) throw new Error('Cannot read homepage slugs in lib/page-registry-helpers.ts');
       const isHomePage = [...homeSlugs.matchAll(/["']([^"']+)["']/g)].some(match => match[1] === state.slug);
       if (isHomePage && (icon == null || art.some(key => key == null))) {
-        throw new Error(`Homepage directory ${state.slug} requires registered card_icon_key and card_art_key`);
+        throw new Error(`Homepage ${state.family} ${state.slug} requires registered card_icon_key and card_art_key`);
       }
     }
-    const nullable = state.family === 'directory';
+    const nullable = ['directory','course'].includes(state.family);
     if ((!nullable || icon != null) && !iconKeys.has(icon)
       || art.some(key => (!nullable || key != null) && !artKeys.has(key))) {
       throw new Error(`Unregistered icon or card art for ${state.slug}`);

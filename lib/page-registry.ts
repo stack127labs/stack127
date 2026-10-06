@@ -193,7 +193,7 @@ export const getMainPublishedPages = cache(unstable_cache(async () => {
   const cards = await readPageCards(pages);
   return pages.map(page => {
     const card = cards.get(String(page.id));
-    if (["tool", "directory", "catalog"].includes(page.page_family) && !card) {
+    if (["tool", "directory", "catalog", "course"].includes(page.page_family) && !card) {
       throw new Error(`Page card is missing: ${page.slug}`);
     }
     return {

@@ -6,7 +6,7 @@ stack127 has four content families and one family for the site's own pages. They
 | --- | --- | --- | --- |
 | Tool | `tool` | `(tools)` | `stack127_tool_pages` |
 | Directory | `directory` | `(directories)` | `stack127_directory_pages` |
-| Course | `course` | `(courses)` | Course definitions in `lib/courses.ts` |
+| Course | `course` | `(courses)` | `stack127_course_pages` and `stack127_course_lessons` |
 | Catalog | `catalog` | `(catalogs)` | `stack127_catalog_pages` |
 | Site page | `site` | `(site-pages)` | None |
 
@@ -91,10 +91,16 @@ Courses teach a path in a fixed order.
 
 | Part | Lives in |
 | --- | --- |
-| Course definitions | `lib/courses.ts` |
+| Course copy and author | `public.stack127_course_pages` |
+| Lesson titles, sidebar labels, and order | `public.stack127_course_lessons` |
+| Cached server reader | `lib/course-pages.ts` |
 | Visible lesson shell | `app/ui/courses/course-shell.tsx` |
 
-A course owns its title, base path, author, lesson list, and navigation label. Each lesson file owns only its lesson content and the visuals it needs.
+The course registry slug supplies its base path. Its content row holds `title`, `intro_markdown`, optional `content_markdown`, the four shared card fields, `author_name`, `author_avatar_url`, and `navigation_label`. Each lesson row links its registry page to the course with `course_page_id` and holds `title`, `sidebar_label`, and `display_order`. Titles use `<mark>` for an accent. The landing page is also the first lesson.
+
+Registry `is_published` controls lesson links. Unpublished lessons stay in the sidebar with a "soon" label. Each lesson file keeps its JSX body and visuals. `getRequiredCourse` reads one cached snapshot with the `stack127-course-pages` tag. Course and lesson changes queue all course routes because their headers and navigation share those definitions.
+
+The shell uses each lesson's registry `updated_at`. Different course copy moves the course date. Different lesson copy moves that lesson's date. Identical updates leave public dates alone. Initial migration seeds preserve existing dates; any missing registry rows start unpublished with null dates.
 
 The sidebar shows the path. The footer shows the previous and next published lessons. A lesson must still make sense to someone who arrives from search without reading the earlier lessons.
 

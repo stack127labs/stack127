@@ -4,11 +4,10 @@ import { Callout, Faq, LessonLink, LessonPage } from "../course";
 import { privateRemoteAccessArt } from "./art/private-remote-access";
 import { CodeBlock } from "@/app/ui/site/code-block";
 
-const lesson = getLesson("access-apps-remotely-with-tailscale");
-
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("access-apps-remotely-with-tailscale");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           The obvious way to reach your apps from outside, opening a hole in your router to the
           internet, is also the one most likely to get you hacked. There's a far easier and safer

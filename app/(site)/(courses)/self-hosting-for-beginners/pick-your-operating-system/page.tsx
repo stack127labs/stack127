@@ -3,11 +3,10 @@ import { MarkerArt } from "@/app/ui/site/marker-art";
 import { LessonLink, LessonPage } from "../course";
 import { calmOsPathArt } from "./art/calm-os-path";
 
-const lesson = getLesson("pick-your-operating-system");
-
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("pick-your-operating-system");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           The safe pick for almost everyone starting out is boring on purpose: a plain Linux, Ubuntu
           Server or Debian, with Docker on top. It runs every app in this guide, and when something

@@ -4,8 +4,6 @@ import { Callout, LessonLink, LessonPage } from "../course";
 import { composePartsArt } from "./art/compose-parts";
 import { CodeBlock } from "@/app/ui/site/code-block";
 
-const lesson = getLesson("understand-docker-compose");
-
 const compose = `services:
   excalidraw:                            # a name you choose for this app
     image: excalidraw/excalidraw:latest  # which image to run
@@ -19,9 +17,10 @@ const extras = `    volumes:
     environment:
       - TZ=Europe/London       # a setting the app reads on startup`;
 
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("understand-docker-compose");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           You ran an app from a file you didn't fully understand. Let's fix that. Once you can read
           a compose file, you can install almost anything, because nearly every self-hosted project

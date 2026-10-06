@@ -83,6 +83,8 @@ export async function POST(request: Request) {
                 when 'tool' then exists(select 1 from public.stack127_tool_pages content where content.page_id=page.id)
                 when 'directory' then exists(select 1 from public.stack127_directory_pages content where content.page_id=page.id)
                 when 'catalog' then exists(select 1 from public.stack127_catalog_pages content where content.page_id=page.id)
+                when 'course' then exists(select 1 from public.stack127_course_lessons content where content.page_id=page.id)
+                  and (position('/' in page.slug)>0 or exists(select 1 from public.stack127_course_pages content where content.page_id=page.id))
                 else true end as has_page_content
               from public.stack127_pages page where slug=$1`, [slug],
           );

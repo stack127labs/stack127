@@ -5,11 +5,10 @@ import { MarkerArt } from "@/app/ui/site/marker-art";
 import { LessonLink, LessonPage } from "../course";
 import { startLowStakesArt } from "./art/start-low-stakes";
 
-const lesson = getLesson("what-you-can-host");
-
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("what-you-can-host");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           The fastest way to get what self-hosting is for is to see what someone actually runs. So
           instead of a giant list of everything that exists, here's what's on my server right now,

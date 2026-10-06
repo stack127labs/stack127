@@ -20,14 +20,14 @@ function load(file, imports) {
 }
 
 test('homepage card reads return all four fields for each family through both transports', async () => {
-  const families = ['tool', 'directory', 'catalog'];
+  const families = ['tool', 'directory', 'catalog', 'course'];
   const pages = families.map((page_family, id) => ({ id: id + 1, page_family }));
   const rows = pages.map(page => ({ page_id: page.id, card_name: page.page_family,
     card_description: 'Card description', card_icon_key: 'network', card_art_key: 'dns-tools' }));
   for (const transport of ['dataApiRead', 'postgresRead']) {
     const { readPageCards } = load('page-cards', {
       './db': { getPool: () => ({ query: async (sql, [ids]) => {
-        assert.deepEqual(Array.from(ids), [1, 2, 3]);
+        assert.deepEqual(Array.from(ids), [1, 2, 3, 4]);
         assert.ok(sql.includes('stack127_directory_pages'));
         return { rows };
       } }) },

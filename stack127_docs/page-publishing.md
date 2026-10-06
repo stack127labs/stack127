@@ -1,6 +1,6 @@
 # Page publishing
 
-Two commands publish tools and directories. In one database transaction, they write the registry row, family row, search metadata, card fields, catalog memberships, content, tool version, and repository fields. They check that each page is ready first, and check the public pages afterward.
+Shared commands publish tools, directories, and courses. In one database transaction, they write the registry row, family row, search metadata, card fields, catalog memberships, content, tool version, and repository fields. They check that each page is ready first, and check the public pages afterward.
 
 Building and publishing are separate jobs. The research, build, writing, and audit skills create the page. The publisher checks that the finished page is ready, writes its data, and turns publication on.
 
@@ -19,9 +19,10 @@ Read [tool-pages.md](tool-pages.md), [directory-pages.md](directory-pages.md), a
 ```bash
 npm run stack127:tools:publish -- <command> [flags]
 npm run stack127:directories:publish -- <command> [flags]
+node scripts/self-hosting-for-beginners/publish-pages.mjs <command> [flags]
 ```
 
-The tools command takes tool and catalog pages. The directories command takes directory pages, including child pages such as `ad-networks/<slug>`. Both share one implementation. `--environment` defaults to `development`.
+The tools command takes tool and catalog pages. The directories command takes directory pages, including child pages such as `ad-networks/<slug>`. The course command takes `kind: "courses"` and `family: "course"` for the root and its lessons. All commands share one implementation. `--environment` defaults to `development`.
 
 | Command | Flags | What it does | Writes |
 | --- | --- | --- | --- |
@@ -81,10 +82,11 @@ Each page takes only these keys:
 
 | Key | Meaning |
 | --- | --- |
-| `slug`, `family` | The page. `family` is `tool` or `catalog` in a tools batch, and `directory` in a directories batch. |
+| `slug`, `family` | The page. `family` is `tool` or `catalog` in a tools batch, `directory` in a directories batch, and `course` in a courses batch. |
 | `source` | Optional. `development` starts the page from its reviewed development rows instead of the target's rows. See Development source. |
 | `registry` | `stack127_pages` fields to set: `label`, `meta_title`, `meta_description`, `is_published`, `is_indexable`, `cover_image_url`, `page_type`, `sitemap_priority`. |
-| `content` | Family table fields to set. See the table below. |
+| `content` | Family table fields to set. See the table below. Course child pages omit this. |
+| `lesson` | Course pages only. Patch `course_slug`, `title`, `sidebar_label`, and positive `display_order` in the linked lesson row. The root also has a lesson row. |
 | `catalogs` | Tools only. The full ordered catalog list. The first entry is the primary catalog. Each entry needs `slug` and a positive `display_order`. |
 | `requirements` | What must already exist before the page can publish. See Readiness. |
 | `touch_reason` | Directories only. Explain a meaningful change to code records or records without automatic date coverage. |
@@ -93,9 +95,16 @@ Each page takes only these keys:
 | --- | --- |
 | `tool` | `title`, `intro_markdown`, `usage_markdown`, `content_markdown`, `tool_version`, `stack127_repo_url`, `stack127_repo_version`, `stack127_repo_commit_sha`, `card_name`, `card_description`, `card_icon_key`, `card_art_key` |
 | `catalog` | `title`, `intro_markdown`, `content_markdown`, `card_name`, `card_description`, `card_icon_key`, `card_art_key`, `display_order` |
+| `course` root | `title`, `intro_markdown`, `content_markdown`, `card_name`, `card_description`, `card_icon_key`, `card_art_key`, `author_name`, `author_avatar_url`, `navigation_label` |
 | `directory` | `title`, `intro_markdown`, `content_markdown`, `card_name`, `card_description`, `card_icon_key`, `card_art_key` |
 
 These are the plan's field names, and they stay the same across schema versions.
+
+Course plans freeze the course content and selected lesson rows together. Root pages need both rows. Child pages need their lesson row and published parent course. Course readiness checks the registry layout, JSX route, Markdown, card assets, and declared smoke checks. Public verification compares the H1 against `lesson.title`, since the root's course title names the whole course.
+
+For an unchanged development preview, use a manifest with the course slug, `family: "course"`, and its route requirements. Include child slugs to review their definitions too. `prepare` keeps omitted fields and `preview` must report `changed: false`. To publish reviewed development copy later, use `source: "development"` and set `registry.is_published` explicitly. There is no direct registry upsert command for courses.
+
+Different course or lesson copy calls `stack127_touch_page` for that row's registry page. Identical plans and updates leave public dates alone. Registry dates supply the visible Updated line. Course definitions refresh every lesson route's shared author and navigation.
 
 Catalog manifests use the same `card_icon_key` and `card_art_key` names as tools, directories, and the database. Prepare new plans after the catalog schema migration; older plans use removed fields.
 

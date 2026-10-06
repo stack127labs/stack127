@@ -6,11 +6,10 @@ import { sshKeyPathArt } from "./art/ssh-key-path";
 import { sshRunsThereArt } from "./art/ssh-runs-there";
 import { CodeBlock } from "@/app/ui/site/code-block";
 
-const lesson = getLesson("linux-ssh-basics");
-
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("linux-ssh-basics");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           You'll connect to your server over SSH and control it by typing commands into a terminal.
           That's why Linux commands and SSH basics are worth learning: not to become a pro, but

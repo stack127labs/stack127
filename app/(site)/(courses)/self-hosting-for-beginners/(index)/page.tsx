@@ -3,11 +3,10 @@ import { MarkerArt } from "@/app/ui/site/marker-art";
 import { Callout, Faq, LessonLink, LessonPage } from "../course";
 import { cloudOrHomeArt } from "../art/cloud-or-home";
 
-const lesson = getLesson("");
-
-export default function SelfHostingCoursePage() {
+export default async function SelfHostingCoursePage() {
+  const lesson = await getLesson("");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           Normally, the apps you use are connected to the cloud, a.k.a somebody else's server.
           Your notes stay on Notion's servers, your passwords stay on Apple's, and so on. That's

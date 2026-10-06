@@ -1,9 +1,12 @@
+import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
+import { notFound } from "next/navigation";
+import { directoryTitleParts } from "@/lib/directory-page-content";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { CourseDefinition } from "@/lib/courses";
 import { courseLessonHref, courseLessonNeighbors } from "@/lib/courses";
-import { getPublishedPage, getRequiredPublishedPage } from "@/lib/page-registry";
+import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { buildBreadcrumbStructuredData } from "@/lib/seo";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
 import { JsonLd } from "@/app/ui/site/json-ld";
@@ -13,6 +16,10 @@ import { proseClassName, proseFlowClassName } from "@/app/ui/site/prose";
 import { SidebarList } from "@/app/ui/site/sidebar-list";
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/ui/site/sidebar-panel";
 import { EntryHero } from "@/app/ui/site/entry-hero";
+
+function courseName(course: CourseDefinition) {
+  return directoryTitleParts(course.title).map(part => part.text).join("");
+}
 
 function CourseSidebar({ course, currentSlug, label }: {
   course: CourseDefinition;
@@ -24,7 +31,7 @@ function CourseSidebar({ course, currentSlug, label }: {
       <div className={sidebarPanelHeadingClassName}>
         <SidebarLabel>{label}</SidebarLabel>
       </div>
-      <nav aria-label={`${course.title} lessons`}>
+      <nav aria-label={`${courseName(course)} lessons`}>
         <SidebarList
           ordered
           items={course.lessons.map((lesson) => {
@@ -70,31 +77,20 @@ function LessonNavigation({ course, currentSlug }: {
   );
 }
 
-function renderHeading(heading: string, mark?: string) {
-  if (!mark) return heading;
-  const index = heading.indexOf(mark);
-  if (index === -1) return heading;
-
-  return <>{heading.slice(0, index)}<mark>{mark}</mark>{heading.slice(index + mark.length)}</>;
-}
-
-export async function CourseLessonPage({ children, course, currentSlug, entryHeroArt, heading }: {
+export async function CourseLessonPage({ children, course, currentSlug, entryHeroArt, title }: {
   children: ReactNode;
   course: CourseDefinition;
   currentSlug: string;
   entryHeroArt?: string;
-  heading: string;
+  title: string;
 }) {
   const lesson = course.lessons.find((entry) => entry.slug === currentSlug);
-  const pageSlug = lesson ? courseLessonHref(course, lesson).slice(1) : null;
-  const [page, coursePage] = await Promise.all([
-    pageSlug ? getPublishedPage(pageSlug).catch(() => null) : Promise.resolve(null),
-    getRequiredPublishedPage(course.registrySlug),
-  ]);
-  const updatedAt = page?.updated_at ?? course.fallbackUpdatedAt;
+  if (!lesson?.published) notFound();
+  const coursePage = await getRequiredPublishedPage(course.registrySlug);
+  const heading = directoryTitleParts(title).map(part => part.text).join("");
   const crumbs = [
     { name: "stack127", path: "/" },
-    { name: course.title, path: course.basePath },
+    { name: courseName(course), path: course.basePath },
   ];
   if (lesson?.slug) {
     crumbs.push({ name: lesson.sidebarLabel, path: courseLessonHref(course, lesson) });
@@ -102,8 +98,8 @@ export async function CourseLessonPage({ children, course, currentSlug, entryHer
 
   const headingBlock = (
     <PageHeader>
-      <h1>{renderHeading(heading, lesson?.headingMark)}</h1>
-      <PageMeta author={course.author} updatedAt={updatedAt} />
+      <h1><DirectoryPageTitle title={title} /></h1>
+      <PageMeta author={course.author} updatedAt={lesson.updatedAt} />
     </PageHeader>
   );
 
@@ -112,7 +108,7 @@ export async function CourseLessonPage({ children, course, currentSlug, entryHer
       mainLabel={heading}
       menuLabel={course.navigationLabel}
       sidebar={<CourseSidebar course={course} currentSlug={currentSlug} label={coursePage.label} />}
-      sidebarLabel={`${course.title} sidebar`}
+      sidebarLabel={`${courseName(course)} sidebar`}
     >
       <JsonLd data={buildBreadcrumbStructuredData(crumbs)} />
       {entryHeroArt ? <EntryHero art={entryHeroArt}>{headingBlock}</EntryHero> : null}

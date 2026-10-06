@@ -20,6 +20,7 @@ export async function readPageCards(pages: Stack127Page[]) {
         ["tool", "stack127_tool_pages"],
         ["directory", "stack127_directory_pages"],
         ["catalog", "stack127_catalog_pages"],
+        ["course", "stack127_course_pages"],
       ] as const;
       return (await Promise.all(groups.map(async ([family, table]) => {
         const ids = pages.filter(page => page.page_family === family).map(page => page.id);
@@ -46,6 +47,9 @@ export async function readPageCards(pages: Stack127Page[]) {
         coalesce(to_jsonb(content)->>'card_art_key', to_jsonb(content)->>'home_art_key') as card_art_key,
         not (to_jsonb(content) ? 'card_icon_key') as legacy_card_assets
       from public.stack127_catalog_pages content where page_id=any($1::bigint[])
+      union all
+      select page_id,card_name,card_description,card_icon_key,card_art_key,false as legacy_card_assets
+      from public.stack127_course_pages content where page_id=any($1::bigint[])
     `, [pages.map(page => page.id)])).rows,
   });
   const pagesById = new Map(pages.map(page => [String(page.id), page]));
