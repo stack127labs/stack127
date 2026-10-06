@@ -18,7 +18,9 @@ async function walk(directory) {
       const dynamicRoute = route.includes("[")
         ? readsQuery ? 'export const dynamic = "force-dynamic";\n' : "export function generateStaticParams() { return []; }\n"
         : "";
-      const content = `${css ? css+"\n" : ""}import { registryLayout } from "@/lib/registry-layout";\n\nconst registry = registryLayout(${JSON.stringify(route)});\nexport const generateMetadata = registry.generateMetadata;\n${dynamicRoute}export const revalidate = false;\nexport default registry.Layout;\n`;
+      // Parent layouts with child pages keep page-level structured data; their index page renders it.
+      const options = /structuredData: "page"/.test(previous) ? ', { structuredData: "page" }' : "";
+      const content = `${css ? css+"\n" : ""}import { registryLayout } from "@/lib/registry-layout";\n\nconst registry = registryLayout(${JSON.stringify(route)}${options});\nexport const generateMetadata = registry.generateMetadata;\n${dynamicRoute}export const revalidate = false;\nexport default registry.Layout;\n`;
       if (previous !== content) await writeFile(target, content);
     }
   }

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { cache } from "react";
 import { buildRegistryMetadata, getRegistryPageStructuredData, getPagePublicationState } from "./page-registry";
 import { JsonLd } from "@/app/ui/site/json-ld";
+import { siteStructuredData } from "./seo";
 
 type Props = { children?: ReactNode; params?: Promise<Record<string, string | string[]>> };
 const stateForPath = cache(async (pathname: string) => {
@@ -15,7 +16,7 @@ const stateForPath = cache(async (pathname: string) => {
 export async function RegistryStructuredData({ path }: { path: string }) {
   const state = await stateForPath(path);
   const data = state ? await getRegistryPageStructuredData(state) : null;
-  return data ? <JsonLd data={data} /> : null;
+  return data ? <><JsonLd data={siteStructuredData} /><JsonLd data={data} /></> : null;
 }
 
 /**
@@ -41,7 +42,7 @@ export function registryLayout(template: string, { structuredData = "layout" }: 
       if (state.kind === "missing") notFound();
       if (structuredData === "page") return props.children;
       const data = await getRegistryPageStructuredData(state);
-      return <>{data ? <JsonLd data={data} /> : null}{props.children}</>;
+      return <>{data ? <><JsonLd data={siteStructuredData} /><JsonLd data={data} /></> : null}{props.children}</>;
     },
   };
 }

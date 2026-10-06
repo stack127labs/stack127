@@ -39,3 +39,27 @@ export function buildBreadcrumbStructuredData(
     })),
   };
 }
+
+// Site-wide WebSite and Organization data. Registry layouts emit it only on indexable pages.
+export const siteStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    description: defaultDescription,
+    name: siteName,
+    publisher: {
+      "@type": "Organization",
+      name: siteName,
+      url: absoluteUrl("/"),
+    },
+    url: absoluteUrl("/"),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    email: "stack127@proton.me",
+    logo: absoluteUrl("/android-chrome-512x512.png"),
+    name: siteName,
+    url: absoluteUrl("/"),
+  },
+];
