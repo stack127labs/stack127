@@ -43,7 +43,7 @@ export function inspectPublishedHtml(html, state, revision, site) {
   const value = name => meta.find(item => item.name === name)?.content;
   const title = htmlText(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? '');
   const heading = htmlText(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? '');
-  const expectedHeading = state.family === 'catalog' ? `${state.content.heading_before}${state.content.heading_mark}${state.content.heading_after}` : state.content.title;
+  const expectedHeading = state.content.title;
   if (![state.registry.meta_title, `${state.registry.meta_title} | stack127`].includes(title) || value('description') !== state.registry.meta_description || heading !== htmlText(expectedHeading)) throw new Error(`Public title, heading, or description is stale: ${state.slug}`);
   inspectIndexingHtml(html, { slug: state.slug, ...state.registry }, site);
   if (state.family === 'tool' && state.content.stack127_repo_url) {

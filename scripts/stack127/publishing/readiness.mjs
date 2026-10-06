@@ -103,8 +103,8 @@ export async function checkRepositoryRequirements(requirements, state, root = pr
     };
     const iconKeys = await keys('lib/card-icons.ts', 'icons');
     const artKeys = await keys('lib/card-art.ts', 'art');
-    const icon = state.family === 'catalog' ? state.content.icon_key : state.content.card_icon_key;
-    const art = state.family === 'catalog' ? [state.content.hero_art_key, state.content.home_art_key] : [state.content.card_art_key];
+    const icon = state.content.card_icon_key;
+    const art = [state.content.card_art_key];
     if (state.family === 'directory' && state.registry.is_published) {
       const source = await readFile(await repositoryFile('lib/page-registry-helpers.ts', root), 'utf8');
       const homeSlugs = source.match(/\bexport const homePageSlugs\s*=\s*\[([\s\S]*?)\] as const;/)?.[1];

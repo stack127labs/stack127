@@ -16,9 +16,9 @@ function state(slug, family = "directory", published = false) {
       content_markdown: "Tool instructions", tool_version: "1.0.0", stack127_repo_url: null,
       stack127_repo_version: null, stack127_repo_commit_sha: null, card_name: "Tool",
       card_description: "Tool description", card_icon_key: "calculator", card_art_key: "icon" },
-    catalog: { heading_before: "", heading_mark: "Tools", heading_after: "", intro: "Find a tool",
-      section_heading: "Tools", icon_key: "layers", hero_art_key: "icon", home_art_key: "icon",
-      home_order: 10, card_name: "Tools", card_description: "Choose a tool" },
+    catalog: { title: "<mark>Tools</mark>", intro_markdown: "Find a tool", content_markdown: null,
+      card_icon_key: "layers", card_art_key: "icon", display_order: 10,
+      card_name: "Tools", card_description: "Choose a tool" },
   }[family];
   return { slug, family, registry: { label: "Page", meta_title: "Page | stack127",
     meta_description: "Page description", is_published: published, is_indexable: true, cover_image_url: null,
@@ -38,11 +38,9 @@ function create(after) {
 
 // This client models transactional persistence and the constraints used by the publisher.
 // The development integration checks the same operations against PostgreSQL's real triggers.
-function database(initial = [], { catalogSchema = "original", catalogColumns } = {}) {
-  const catalogFields = schema => CONTENT_FIELDS.catalog.map(field => schema === "renamed"
-    ? { icon_key: "card_icon_key", home_art_key: "card_art_key" }[field] ?? field : field);
-  let physicalCatalogFields = catalogFields(catalogSchema);
-  let availableCatalogColumns = catalogColumns ?? physicalCatalogFields;
+function database(initial = []) {
+  const physicalCatalogFields = CONTENT_FIELDS.catalog;
+  const availableCatalogColumns = physicalCatalogFields;
   let store = { pages: [], content: { tool: [], directory: [], catalog: [] }, members: [] };
   let nextId = 1;
   for (const item of initial) {
@@ -195,18 +193,6 @@ function database(initial = [], { catalogSchema = "original", catalogColumns } =
   };
   return { client, pool: { async connect() { return client; } }, calls,
     get store() { return structuredClone(store); }, get releases() { return releases; },
-    setCatalogSchema(schema) {
-      const nextFields = catalogFields(schema);
-      for (const row of store.content.catalog) {
-        physicalCatalogFields.forEach((field, index) => {
-          if (field === nextFields[index]) return;
-          row[nextFields[index]] = row[field];
-          delete row[field];
-        });
-      }
-      physicalCatalogFields = nextFields;
-      availableCatalogColumns = nextFields;
-    },
     failWhen(predicate) { failure = predicate; },
     writes() { return calls.filter(call => /^(insert|update|delete) /.test(call.sql)); },
   };
@@ -250,10 +236,9 @@ test("full states require all managed fields and reject unknown or schema-invali
   assert.throws(() => validateState({ ...tool, catalogs: [{ slug: "tools", display_order: 2147483648 }] }), /integer range/);
 });
 
-test("catalog heading fragments preserve the spaces used around marked text", async () => {
+test("catalog titles preserve the spaces around marked text", async () => {
   const catalog = state("dns-tools", "catalog");
-  catalog.content.heading_before = "DNS ";
-  catalog.content.heading_after = " to check records";
+  catalog.content.title = "DNS <mark>tools</mark> to check records";
   const db = database([catalog]);
   assert.deepEqual(validateState(catalog), catalog);
   assert.deepEqual(await readStates(db.client, [{ slug: catalog.slug, family: catalog.family }]), [catalog]);
@@ -511,77 +496,44 @@ test("new complete repo metadata gets its sync date inside the page transaction"
   assert.equal(db.store.content.tool[0].stack127_repo_synced_at, null);
 });
 
-for (const catalogSchema of ["original", "renamed"]) {
-  test(`catalog reads, creation, updates, and restore use canonical states with ${catalogSchema} physical columns`, async () => {
-    const catalog = state("tools", "catalog");
-    catalog.content.icon_key = "network";
-    catalog.content.home_art_key = "dns-tools";
-    catalog.content.hero_art_key = "hero-art";
-    const db = database([], { catalogSchema });
-    const refs = [{ slug: catalog.slug, family: catalog.family }];
-    const creation = create(catalog);
-    await executeBatch(db.pool, [creation], { apply: true });
-    assert.deepEqual(await readStates(db.client, refs), [catalog]);
-    const updated = change(catalog, after => {
-      after.content.icon_key = "globe";
-      after.content.home_art_key = "domain-tools";
-    });
-    await executeBatch(db.pool, [updated], { apply: true });
-    assert.deepEqual(await readStates(db.client, refs), [updated.after]);
-    const physical = db.store.content.catalog[0];
-    assert.equal(physical[catalogSchema === "renamed" ? "card_icon_key" : "icon_key"], "globe");
-    assert.equal(physical[catalogSchema === "renamed" ? "card_art_key" : "home_art_key"], "domain-tools");
-    assert.equal(physical.hero_art_key, "hero-art");
-    const writeCount = db.writes().length;
-    await executeBatch(db.pool, [updated], { apply: true });
-    assert.equal(db.writes().length, writeCount);
-    await executeBatch(db.pool, [updated], { apply: true, restore: true });
-    assert.deepEqual(await readStates(db.client, refs), [catalog]);
-  });
-
-  test(`a batch shares one ${catalogSchema} catalog mapping across selected and dependency reads and writes`, async () => {
-    const selected = state("selected-tools", "catalog");
-    const dependency = state("other-tools", "catalog");
-    const tool = state("tool", "tool");
-    tool.catalogs = [{ slug: selected.slug, display_order: 1 }, { slug: dependency.slug, display_order: 1 }];
-    const db = database([selected, dependency], { catalogSchema });
-    await executeBatch(db.pool, [change(selected, after => { after.content.icon_key = "network"; }), create(tool)], { apply: true });
-    assert.equal(db.calls.filter(call => call.sql.includes("information_schema.columns")).length, 1);
-    assert.equal(db.store.members.length, 2);
-  });
-}
-
-test("catalog column resolution is fresh for each read and batch on the same client", async () => {
+test("catalog copy, order, and shared card fields round-trip and restore without writes on retries", async () => {
   const catalog = state("tools", "catalog");
-  const db = database([catalog]);
+  catalog.content.card_icon_key = "network";
+  catalog.content.card_art_key = "dns-tools";
+  catalog.content.content_markdown = "## DNS checks\n\nChoose the records you need.";
+  const db = database();
   const refs = [{ slug: catalog.slug, family: catalog.family }];
+  await executeBatch(db.pool, [create(catalog)], { apply: true });
   assert.deepEqual(await readStates(db.client, refs), [catalog]);
-  db.setCatalogSchema("renamed");
-  assert.deepEqual(await readStates(db.client, refs), [catalog]);
-  const updated = change(catalog, after => { after.content.home_art_key = "new-art"; });
+  const updated = change(catalog, after => {
+    after.content.title = "Domain <mark>tools</mark>";
+    after.content.intro_markdown = "Find a **domain** check.";
+    after.content.content_markdown = null;
+    after.content.card_icon_key = "globe";
+    after.content.card_art_key = "domain-tools";
+    after.content.display_order = 20;
+  });
   await executeBatch(db.pool, [updated], { apply: true });
-  assert.equal(db.store.content.catalog[0].card_art_key, "new-art");
-  assert.equal(db.calls.filter(call => call.sql.includes("information_schema.columns")).length, 3);
+  assert.deepEqual(await readStates(db.client, refs), [updated.after]);
+  const writes = db.writes().length;
+  await executeBatch(db.pool, [updated], { apply: true });
+  assert.equal(db.writes().length, writes);
+  await executeBatch(db.pool, [updated], { apply: true, restore: true });
+  assert.deepEqual(await readStates(db.client, refs), [catalog]);
 });
 
-for (const invalid of [
-  { field: "icon_key", error: "Missing", columns: ["home_art_key"] },
-  { field: "home_art_key", error: "Missing", columns: ["icon_key"] },
-  { field: "icon_key", error: "Ambiguous", columns: ["icon_key", "card_icon_key", "home_art_key"] },
-  { field: "home_art_key", error: "Ambiguous", columns: ["icon_key", "home_art_key", "card_art_key"] },
-]) {
-  test(`${invalid.error.toLowerCase()} mapping for ${invalid.field} rejects catalog reads and batches before writes`, async () => {
-    const catalog = state("tools", "catalog");
-    const db = database([catalog], { catalogColumns: invalid.columns });
-    const expected = new RegExp(`${invalid.error} catalog column mapping for ${invalid.field}`);
-    await assert.rejects(readStates(db.client, [{ slug: catalog.slug, family: catalog.family }]), expected);
-    const empty = database([], { catalogColumns: invalid.columns });
-    await assert.rejects(executeBatch(empty.pool, [create(state("directory")), create(catalog)], { apply: true }), expected);
-    assert.equal(empty.writes().length, 0);
-    assert.equal(empty.calls.at(-1).sql, "rollback");
-    assert.equal(empty.releases, 1);
-  });
-}
+test("catalog Markdown is optional, trimmed when present, and uses the shared fields", () => {
+  const catalog = state("tools", "catalog");
+  assert.deepEqual(validateState(catalog), catalog);
+  for (const value of ["", " ", " Content", "Content "]) {
+    assert.throws(() => validateState({ ...catalog, content: { ...catalog.content, content_markdown: value } }), /nonempty text/);
+  }
+  for (const field of ["title", "intro_markdown"]) {
+    assert.throws(() => validateState({ ...catalog, content: { ...catalog.content, [field]: "" } }), /nonempty text/);
+  }
+  assert.throws(() => validateState({ ...catalog, content: { ...catalog.content, display_order: 1.5 } }), /integer/);
+  assert.throws(() => validateState({ ...catalog, content: { ...catalog.content, hero_art_key: "icon" } }), /Unknown catalog content field/);
+});
 
 test("directory assets are complete managed state and restore exactly without writes on retries", async () => {
   const directory = state("directory", "directory", true);
@@ -953,15 +905,10 @@ test("readiness checks shared registry keys for directories, catalogs and tools"
   const fixture = await repositoryFixture(t);
   for (const family of ["directory", "catalog", "tool"]) {
     const page = state("example", family, true);
-    if (family === "catalog") {
-      page.content.hero_art_key = "dns-tools";
-      page.content.home_art_key = "cli-apps";
-    } else {
-      page.content.card_icon_key = "book";
-      page.content.card_art_key = "cli-apps";
-    }
+    page.content.card_icon_key = "book";
+    page.content.card_art_key = "cli-apps";
     await checkRepositoryRequirements(fixture.requirements(family), page, fixture.root);
-    const fields = family === "catalog" ? ["icon_key", "hero_art_key", "home_art_key"] : ["card_icon_key", "card_art_key"];
+    const fields = ["card_icon_key", "card_art_key"];
     for (const field of fields) {
       for (const key of ["unregistered-key", "constructor", "tostring"]) {
         const invalid = structuredClone(page);

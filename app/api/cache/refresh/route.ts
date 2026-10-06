@@ -1,3 +1,4 @@
+import { inspectOriginIndexing } from "@/scripts/stack127/cache/verify-origin-indexing.mjs";
 import { cacheBodyDigest } from "@/scripts/stack127/cache/refresh.mjs";
 import { NextResponse } from "next/server";
 import { cacheAuthorized } from "@/lib/cache-auth";
@@ -72,10 +73,12 @@ export async function POST(request: Request) {
           }
         } else if (path.endsWith(".xml")) {
           if (!response.ok || !html.includes("<urlset")) throw new Error("Invalid origin sitemap");
+          const { rows: sitemapPages } = await getPool().query("select slug,is_published,is_indexable from public.stack127_pages");
+          inspectOriginIndexing(html, { path, sitemapPages, canonicalOrigin: "https://stack127.com" });
         } else {
           const slug = path.replace(/^\//, "");
-          const { rows } = await getPool().query<{ is_published: boolean; row_updated_at: Date; page_family: string; has_page_content: boolean }>(
-            `select is_published,row_updated_at,page_family,
+          const { rows } = await getPool().query<{ is_published: boolean; is_indexable: boolean; row_updated_at: Date; page_family: string; has_page_content: boolean }>(
+            `select is_published,is_indexable,row_updated_at,page_family,
               case page_family
                 when 'tool' then exists(select 1 from public.stack127_tool_pages content where content.page_id=page.id)
                 when 'directory' then exists(select 1 from public.stack127_directory_pages content where content.page_id=page.id)
@@ -99,6 +102,7 @@ export async function POST(request: Request) {
             if (response.status !== 404) throw new Error(`${path}: removed page is still served`);
           } else {
             if (response.status !== 200) throw new Error(`${path}: HTTP ${response.status}`);
+            inspectOriginIndexing(html, { path, page: rows[0], published, canonicalOrigin: "https://stack127.com" });
             const revision = rows[0].row_updated_at.toISOString();
             contentRevision = revision;
             if (!html.includes(`name="stack127-content-revision" content="${revision}"`)) throw new Error(`${path}: rebuilt content is stale`);

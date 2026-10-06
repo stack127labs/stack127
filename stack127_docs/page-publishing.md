@@ -92,12 +92,12 @@ Each page takes only these keys:
 | Family | Content fields |
 | --- | --- |
 | `tool` | `title`, `intro_markdown`, `usage_markdown`, `content_markdown`, `tool_version`, `stack127_repo_url`, `stack127_repo_version`, `stack127_repo_commit_sha`, `card_name`, `card_description`, `card_icon_key`, `card_art_key` |
-| `catalog` | `heading_before`, `heading_mark`, `heading_after`, `intro`, `section_heading`, `icon_key`, `hero_art_key`, `home_art_key`, `home_order`, `card_name`, `card_description` |
+| `catalog` | `title`, `intro_markdown`, `content_markdown`, `card_name`, `card_description`, `card_icon_key`, `card_art_key`, `display_order` |
 | `directory` | `title`, `intro_markdown`, `content_markdown`, `card_name`, `card_description`, `card_icon_key`, `card_art_key` |
 
 These are the plan's field names, and they stay the same across schema versions.
 
-Catalog manifests keep `icon_key` and `home_art_key`, even though the table now calls them `card_icon_key` and `card_art_key`. The publisher writes them to whichever columns the target database has. Use the old names in catalog manifests and the new names everywhere else.
+Catalog manifests use the same `card_icon_key` and `card_art_key` names as tools, directories, and the database. Prepare new plans after the catalog schema migration; older plans use removed fields.
 
 Directory card keys are nullable:
 
@@ -130,10 +130,10 @@ A new page needs every required field, because there is nothing to merge into. T
 | `cover_image_url`, `usage_markdown`, repository fields | `null` |
 | `tool_version` | `1.0.0` |
 | Directory `content_markdown`, `card_icon_key`, `card_art_key` | `null` |
-| Catalog `heading_before`, `heading_after` | Empty |
-| Catalog `icon_key`, `home_order` | `layers`, `100` |
+| Catalog `content_markdown` | `null` |
+| Catalog `card_icon_key`, `display_order` | `layers`, `100` |
 
-A new catalog must set `hero_art_key` and `home_art_key` to keys registered in `lib/card-art.ts`. There is no default art.
+A new catalog must set `card_art_key` to a key registered in `lib/card-art.ts`. There is no default art. The hero uses this key too. Catalog titles use `<mark>` for an optional accent. Catalog `content_markdown` follows the directory rules: `null` or trimmed, nonempty Markdown.
 
 The batch must also make sense as a whole, or nothing is written:
 

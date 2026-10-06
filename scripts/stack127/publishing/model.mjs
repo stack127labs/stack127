@@ -14,8 +14,8 @@ export const CONTENT_FIELDS = Object.freeze({
     "card_icon_key", "card_art_key",
   ]),
   catalog: Object.freeze([
-    "heading_before", "heading_mark", "heading_after", "intro", "section_heading",
-    "icon_key", "hero_art_key", "home_art_key", "home_order", "card_name", "card_description",
+    "title", "intro_markdown", "content_markdown", "card_name", "card_description",
+    "card_icon_key", "card_art_key", "display_order",
   ]),
 });
 
@@ -95,14 +95,13 @@ export function validateState(state, family = state?.family) {
     exactFields(state.content, CONTENT_FIELDS[family], `${family} content`);
     content = {};
     for (const field of CONTENT_FIELDS[family]) {
-      content[field] = field === "home_order"
+      content[field] = field === "display_order"
         ? integer(state.content[field], `content.${field}`)
         : textField(state.content[field], `content.${field}`, {
           nullable: field.startsWith("stack127_repo_") || field === "usage_markdown"
-            || (family === "directory" && ["content_markdown", "card_icon_key", "card_art_key"].includes(field)),
-          empty: field === "heading_before" || field === "heading_after",
-          trimmed: !(family === "catalog" && ["heading_before", "heading_mark", "heading_after", "intro", "section_heading"].includes(field))
-            && !(family === "tool" && ["card_name", "card_description"].includes(field)),
+            || (family !== "tool" && field === "content_markdown")
+            || (family === "directory" && ["card_icon_key", "card_art_key"].includes(field)),
+          trimmed: !(family === "tool" && ["card_name", "card_description"].includes(field)),
         });
       if (field.endsWith("_key") && content[field] !== null && !/^[a-z0-9-]+$/.test(content[field])) {
         throw new Error(`content.${field} must use lowercase letters, numbers, and hyphens`);

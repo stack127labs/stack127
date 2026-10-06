@@ -7,38 +7,9 @@ const TABLES = Object.freeze({
   catalog: "public.stack127_catalog_pages",
 });
 const REPO_FIELDS = ["stack127_repo_url", "stack127_repo_version", "stack127_repo_commit_sha"];
-const CATALOG_COLUMN_NAMES = Object.freeze({
-  icon_key: Object.freeze(["icon_key", "card_icon_key"]),
-  home_art_key: Object.freeze(["home_art_key", "card_art_key"]),
-});
-
-function contentColumnResolver(client) {
-  let catalogColumns;
-  return async family => {
-    if (family !== "catalog") return CONTENT_FIELDS[family];
-    if (!catalogColumns) {
-      const { rows } = await client.query(`
-        select column_name from information_schema.columns
-        where table_schema = $1 and table_name = $2 and column_name = any($3::text[])
-      `, ["public", "stack127_catalog_pages", Object.values(CATALOG_COLUMN_NAMES).flat()]);
-      const found = new Set(rows.map(row => row.column_name));
-      const mapping = {};
-      for (const [field, names] of Object.entries(CATALOG_COLUMN_NAMES)) {
-        const matches = names.filter(name => found.has(name));
-        if (matches.length !== 1) {
-          throw new Error(`${matches.length ? "Ambiguous" : "Missing"} catalog column mapping for ${field}`);
-        }
-        mapping[field] = matches[0];
-      }
-      catalogColumns = CONTENT_FIELDS.catalog.map(field => mapping[field] ?? field);
-    }
-    return catalogColumns;
-  };
-}
-
 function project(row, fields) {
   return Object.fromEntries(fields.map(field => [field,
-    field === "sitemap_priority" || field === "home_order" ? Number(row[field]) : row[field],
+    field === "sitemap_priority" || field === "display_order" ? Number(row[field]) : row[field],
   ]));
 }
 
@@ -47,7 +18,7 @@ function references(refs) {
   return refs.map(validateRef);
 }
 
-async function readManaged(client, refs, lock = false, columns = contentColumnResolver(client)) {
+async function readManaged(client, refs, lock = false) {
   if (!refs.length) return { states: [], rows: new Map() };
   const { rows: pages } = await client.query(`
     select id, slug, page_family, updated_at::text as public_updated_at, ${REGISTRY_FIELDS.join(", ")}
@@ -66,11 +37,8 @@ async function readManaged(client, refs, lock = false, columns = contentColumnRe
     const ids = [...new Set(refs.filter(ref => ref.family === family)
       .map(ref => bySlug.get(ref.slug)?.id).filter(id => id !== undefined))];
     if (!ids.length) continue;
-    const physical = await columns(family);
-    const selection = CONTENT_FIELDS[family].map((field, index) =>
-      physical[index] === field ? field : `${physical[index]} as ${field}`);
     const { rows } = await client.query(`
-      select page_id, ${selection.join(", ")}
+      select page_id, ${CONTENT_FIELDS[family].join(", ")}
       from ${TABLES[family]} where page_id = any($1::bigint[])
       order by page_id ${lock ? "for update" : ""}
     `, [ids]);
@@ -136,7 +104,7 @@ function parentSlug(slug) {
   return slug.includes("/") ? slug.slice(0, slug.lastIndexOf("/")) : null;
 }
 
-async function readDependencies(client, entries, current, columns) {
+async function readDependencies(client, entries, current) {
   const selected = new Set(entries.map(entry => entry.slug));
   const refs = new Map();
   const add = (slug, family) => {
@@ -182,7 +150,7 @@ async function readDependencies(client, entries, current, columns) {
     }
   }
   const dependencyRefs = [...refs.values()].sort((a, b) => a.slug.localeCompare(b.slug));
-  const dependencies = await readManaged(client, dependencyRefs, true, columns);
+  const dependencies = await readManaged(client, dependencyRefs, true);
   const final = new Map(dependencyRefs.map((ref, index) => [ref.slug, dependencies.states[index]]));
   for (const entry of entries) final.set(entry.slug, entry.desired);
 
@@ -257,14 +225,13 @@ async function insertRegistry(client, state) {
   return rows[0].id;
 }
 
-async function writeContent(client, id, family, before, after, columns) {
+async function writeContent(client, id, family, before, after) {
   if (isDeepStrictEqual(before, after)) return;
   if (after === null) {
     await client.query(`delete from ${TABLES[family]} where page_id = $1`, [id]);
     return;
   }
   const fields = CONTENT_FIELDS[family];
-  const physical = await columns(family);
   const values = [id, ...fields.map(field => after[field])];
   const repoChanged = family === "tool" && REPO_FIELDS.some(field => before?.[field] !== after[field]);
   const repoTimestamp = family === "tool" && REPO_FIELDS.every(field => after[field] !== null)
@@ -273,12 +240,12 @@ async function writeContent(client, id, family, before, after, columns) {
     const extraFields = family === "tool" ? ", tool_version_updated_at, stack127_repo_synced_at" : "";
     const extraValues = family === "tool" ? `, now(), ${repoTimestamp}` : "";
     await client.query(`
-      insert into ${TABLES[family]} (page_id, ${physical.join(", ")}${extraFields})
+      insert into ${TABLES[family]} (page_id, ${fields.join(", ")}${extraFields})
       values (${values.map((_, index) => `$${index + 1}`).join(", ")}${extraValues})
     `, values);
   } else {
     await client.query(`
-      update ${TABLES[family]} set ${physical.map((field, index) => `${field} = $${index + 2}`).join(", ")}
+      update ${TABLES[family]} set ${fields.map((field, index) => `${field} = $${index + 2}`).join(", ")}
         ${repoChanged ? `, stack127_repo_synced_at = ${repoTimestamp}` : ""}
       where page_id = $1
     `, values);
@@ -311,8 +278,7 @@ export async function executeBatch(pool, entries, { apply = false, restore = fal
     await client.query("set local statement_timeout = '60s'");
     await client.query("set local idle_in_transaction_session_timeout = '60s'");
     await client.query("select pg_advisory_xact_lock(hashtextextended($1, 0))", ["stack127-page-publishing"]);
-    const columns = contentColumnResolver(client);
-    const current = await readManaged(client, refs, true, columns);
+    const current = await readManaged(client, refs, true);
     const touchNeeded = batch.map(entry => !restore && entry.touch !== undefined
       && (current.rows.get(entry.slug)?.public_updated_at ?? current.rows.get(entry.slug)?.updated_at ?? null) === entry.touch.expected_updated_at);
     const changed = batch.map((entry, index) => {
@@ -324,9 +290,8 @@ export async function executeBatch(pool, entries, { apply = false, restore = fal
       }
       return true;
     });
-    const dependencies = await readDependencies(client, batch, current.states, columns);
+    const dependencies = await readDependencies(client, batch, current.states);
     checkFinalState(batch, current.states, dependencies);
-    if (batch.some(entry => entry.family === "catalog")) await columns("catalog");
     const ids = new Map([...current.rows, ...dependencies.rows].map(([slug, row]) => [slug, row.id]));
     for (let index = 0; index < batch.length; index++) {
       if (changed[index] && current.states[index] === null) {
@@ -341,7 +306,7 @@ export async function executeBatch(pool, entries, { apply = false, restore = fal
     }
     for (let index = 0; index < batch.length; index++) {
       if (changed[index]) await writeContent(client, ids.get(batch[index].slug), batch[index].family,
-        current.states[index]?.content ?? null, batch[index].desired.content, columns);
+        current.states[index]?.content ?? null, batch[index].desired.content);
     }
     for (const entry of membershipChanges) {
       for (const [index, catalog] of entry.desired.catalogs.entries()) {

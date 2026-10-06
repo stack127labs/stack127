@@ -56,6 +56,35 @@ test('development public dates follow real content changes and identical imports
       assert.deepEqual(await dates(),before);assert.deepEqual(await queues(),events);
       assert.deepEqual((await client.query('select to_jsonb(content) value from public.stack127_directory_pages content order by page_id')).rows,copy);
     });
+    await scenario('catalog no-op copy and membership updates keep public dates and refresh events',async()=>{
+      const before=await dates();const events=await queues();
+      await client.query('update public.stack127_catalog_pages set title=title,content_markdown=content_markdown');
+      await client.query('update public.stack127_tool_catalog_memberships set display_order=display_order');
+      assert.deepEqual(await dates(),before);assert.deepEqual(await queues(),events);
+    });
+    for (const [field,expression] of [['title',"title || ' Test'"],['intro_markdown',"intro_markdown || ' Test.'"],
+      ['content_markdown',"'## Catalog check'"],['display_order','display_order+1'],['card_description',"card_description || ' Test.'"]]) {
+      await scenario(`catalog ${field} updates the registry date, refresh event, and source fingerprint`,async()=>{
+        const before=await dates();
+        const fingerprint=async()=> (await client.query("select fingerprint from public.stack127_cache_source_revisions(array['page'],array['dns-tools'])")).rows[0].fingerprint;
+        const original=await fingerprint();
+        await client.query(`update public.stack127_catalog_pages set ${field}=${expression} where page_id=(select id from public.stack127_pages where slug='dns-tools')`);
+        assert.deepEqual(await changedSlugs(before),['dns-tools']);
+        assert.notEqual(await fingerprint(),original);
+        assert.ok((await queues()).some(row=>row.entity_type==='page' && row.slug==='dns-tools'));
+      });
+    }
+    await scenario('catalog membership changes still refresh their catalog',async()=>{
+      const before=await dates();
+      await client.query("update public.stack127_tool_catalog_memberships set display_order=display_order+1000 where catalog_page_id=(select id from public.stack127_pages where slug='dns-tools')");
+      assert.deepEqual(await changedSlugs(before),['dns-tools']);
+      assert.ok((await queues()).some(row=>row.entity_type==='page' && row.slug==='dns-tools'));
+    });
+    await scenario('unpublished catalog copy keeps null public dates',async()=>{
+      await client.query("update public.stack127_pages set is_published=false,published_at=null,updated_at=null where slug='dns-tools'");
+      await client.query("update public.stack127_catalog_pages set content_markdown='## Catalog check' where page_id=(select id from public.stack127_pages where slug='dns-tools')");
+      assert.deepEqual((await client.query("select published_at,updated_at from public.stack127_pages where slug='dns-tools'")).rows[0],{published_at:null,updated_at:null});
+    });
     await scenario('tool cards keep tool dates and still update their catalogs',async()=>{
       const before=await dates();
       const row=(await client.query("select page.id,page.slug from public.stack127_pages page where slug='dns-lookup'")).rows[0];

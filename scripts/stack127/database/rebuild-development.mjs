@@ -12,7 +12,7 @@ const legacyDirectoryCards = new Set([
   'platform-fees', 'self-host-apps', 'software-licenses-for-self-hosting', 'tld-directory',
 ]);
 
-// Accept snapshots from before the card migration while development is ahead.
+// Accept the reviewed schema transitions while development is ahead.
 export function normalizeCardSnapshot(name, rows, pages) {
   const slugById = new Map(pages.map(page => [String(page.id), page.slug]));
   return rows.map(row => {
@@ -26,6 +26,25 @@ export function normalizeCardSnapshot(name, rows, pages) {
         copy[newKey] = copy[oldKey];
         delete copy[oldKey];
       }
+      if (['heading_before', 'heading_mark', 'heading_after'].some(key => key in copy)) {
+        if ('title' in copy || !['heading_before', 'heading_mark', 'heading_after'].every(key => typeof copy[key] === 'string')) {
+          throw new Error(`Conflicting or incomplete catalog heading in ${name}`);
+        }
+        copy.title = copy.heading_before + '<mark>' + copy.heading_mark + '</mark>' + copy.heading_after;
+        for (const key of ['heading_before', 'heading_mark', 'heading_after']) delete copy[key];
+      }
+      for (const [oldKey, newKey] of [['intro', 'intro_markdown'], ['home_order', 'display_order']]) {
+        if (!(oldKey in copy)) continue;
+        if (newKey in copy) throw new Error(`Conflicting catalog columns in ${name}`);
+        copy[newKey] = copy[oldKey];
+        delete copy[oldKey];
+      }
+      if ('hero_art_key' in copy && copy.hero_art_key !== copy.card_art_key) {
+        throw new Error(`Catalog hero art differs from card art in ${name}`);
+      }
+      delete copy.hero_art_key;
+      delete copy.section_heading;
+      if (!('content_markdown' in copy)) copy.content_markdown = null;
     }
     if (name === 'stack127_directory_pages') {
       const slug = slugById.get(String(row.page_id));
@@ -44,6 +63,28 @@ export function compatibleCardColumns(name, source, target) {
     for (const column of original) {
       if (column.column_name === 'icon_key') column.column_name = 'card_icon_key';
       if (column.column_name === 'home_art_key') column.column_name = 'card_art_key';
+    }
+    const headings = ['heading_before', 'heading_mark', 'heading_after'];
+    if (original.some(column => headings.includes(column.column_name))) {
+      if (original.some(column => column.column_name === 'title')
+        || !headings.every(key => original.some(column => column.column_name === key && column.data_type === 'text' && column.udt_name === 'text'))) return false;
+      for (const key of headings) original.splice(original.findIndex(column => column.column_name === key), 1);
+      original.push({ column_name: 'title', data_type: 'text', udt_name: 'text' });
+    }
+    for (const [oldKey, newKey] of [['intro', 'intro_markdown'], ['home_order', 'display_order']]) {
+      const column = original.find(column => column.column_name === oldKey);
+      if (!column) continue;
+      if (original.some(column => column.column_name === newKey)) return false;
+      column.column_name = newKey;
+    }
+    for (const key of ['section_heading', 'hero_art_key']) {
+      const index = original.findIndex(column => column.column_name === key);
+      if (index < 0) continue;
+      if (original[index].data_type !== 'text' || original[index].udt_name !== 'text') return false;
+      original.splice(index, 1);
+    }
+    if (!original.some(column => column.column_name === 'content_markdown')) {
+      original.push({ column_name: 'content_markdown', data_type: 'text', udt_name: 'text' });
     }
   }
   if (name === 'stack127_directory_pages') {

@@ -52,7 +52,7 @@ test('verification remaps tool, catalog, and mixed membership IDs through their 
   const sourcePages = [{ id: 1, slug: 'source-tool', is_indexable: true }, { id: 2, slug: 'source-catalog', is_indexable: true }];
   const extraPages = [{ id: 3, slug: 'development-tool', is_indexable: true }, { id: 4, slug: 'development-catalog', is_indexable: true }];
   const tool = { page_id: 3, title: 'Saved tool', tool_version: '1.0.0' };
-  const catalog = { page_id: 4, card_name: 'Saved catalog' };
+  const catalog = { page_id: 4, card_name: 'Saved catalog', content_markdown: null };
   const memberships = [
     { catalog_page_id: 2, tool_page_id: 3, display_order: 1 },
     { catalog_page_id: 4, tool_page_id: 1, display_order: 2 },
@@ -60,7 +60,7 @@ test('verification remaps tool, catalog, and mixed membership IDs through their 
   ];
   const production = rowsByTable({ stack127_pages: sourcePages,
     stack127_tool_pages: [{ page_id: 1, title: 'Source tool' }],
-    stack127_catalog_pages: [{ page_id: 2, card_name: 'Source catalog' }],
+    stack127_catalog_pages: [{ page_id: 2, card_name: 'Source catalog', content_markdown: null }],
     stack127_tool_catalog_memberships: [{ catalog_page_id: 2, tool_page_id: 1, display_order: 1 }],
   });
   const restored = new Map([...production].map(([name, rows]) => [name, structuredClone(rows)]));
@@ -140,10 +140,10 @@ test('history alignment requires data copy, verification and a backup before rea
 });
 
 
-test('legacy catalog snapshots preserve icon, card art, and hero art through renames', () => {
-  const row = { page_id: 1, icon_key: 'network', home_art_key: 'dns-tools', hero_art_key: 'dns-lookup' };
+test('legacy catalog snapshots preserve card assets and remove duplicate hero art', () => {
+  const row = { page_id: 1, icon_key: 'network', home_art_key: 'dns-tools', hero_art_key: 'dns-tools' };
   assert.deepEqual(normalizeCardSnapshot('stack127_catalog_pages', [row], [])[0], {
-    page_id: 1, card_icon_key: 'network', card_art_key: 'dns-tools', hero_art_key: 'dns-lookup',
+    page_id: 1, card_icon_key: 'network', card_art_key: 'dns-tools', content_markdown: null,
   });
   assert.equal(row.icon_key, 'network');
   assert.throws(() => normalizeCardSnapshot('stack127_catalog_pages', [{ ...row, card_icon_key: 'globe' }], []), /Conflicting card columns/);
@@ -162,7 +162,7 @@ test('legacy directory snapshots backfill homepage cards and leave child assets 
 test('copy accepts only the known card schema transition', () => {
   const column = column_name => ({ column_name, data_type: 'text', udt_name: 'text' });
   assert.ok(compatibleCardColumns('stack127_catalog_pages', [column('icon_key'), column('home_art_key'), column('hero_art_key')],
-    [column('card_icon_key'), column('card_art_key'), column('hero_art_key')]));
+    [column('card_icon_key'), column('card_art_key'), column('content_markdown')]));
   assert.ok(compatibleCardColumns('stack127_directory_pages', [column('title')],
     [column('title'), column('card_icon_key'), column('card_art_key')]));
   assert.ok(!compatibleCardColumns('stack127_directory_pages', [column('title')],
@@ -189,4 +189,33 @@ test('copy and verification accept only the reviewed indexing and revision schem
   assert.equal(compatibleCardColumns('stack127_pages', [column('slug')], [column('slug'), column('is_indexable', 'boolean', 'bool'), column('unknown')]), false);
   assert.deepEqual(normalizeCardSnapshot('stack127_tool_pages', [{page_id: 1, title: 'Tool', content_revision: 7}], []), [{page_id: 1, title: 'Tool'}]);
   assert.deepEqual(normalizeCardSnapshot('stack127_pages', [{slug: 'old'}, {slug: 'hidden', is_indexable: false}], []), [{slug: 'old', is_indexable: true}, {slug: 'hidden', is_indexable: false}]);
+});
+
+
+test('legacy catalog recovery converts exact titles, intro, and ordering without changing dates', () => {
+  const source = { page_id: 2, heading_before: 'DNS ', heading_mark: 'tools', heading_after: ' to check records',
+    intro: 'Choose a check.', section_heading: 'Choose a DNS check', home_order: 10,
+    card_icon_key: 'network', hero_art_key: 'dns-tools', card_art_key: 'dns-tools', row_updated_at: 'original' };
+  const expected = { page_id: 2, title: 'DNS <mark>tools</mark> to check records', intro_markdown: 'Choose a check.',
+    content_markdown: null, display_order: 10, card_icon_key: 'network', card_art_key: 'dns-tools', row_updated_at: 'original' };
+  assert.deepEqual(normalizeCardSnapshot('stack127_catalog_pages', [source], []), [expected]);
+  assert.deepEqual(normalizeCardSnapshot('stack127_catalog_pages', [expected], []), [expected]);
+  assert.throws(() => normalizeCardSnapshot('stack127_catalog_pages', [{ ...source, title: 'Other' }], []), /Conflicting/);
+  assert.throws(() => normalizeCardSnapshot('stack127_catalog_pages', [{ ...source, hero_art_key: 'other' }], []), /differs/);
+  assert.throws(() => normalizeCardSnapshot('stack127_catalog_pages', [{ ...source, intro_markdown: 'Other' }], []), /Conflicting/);
+  const incomplete = { ...source }; delete incomplete.heading_after;
+  assert.throws(() => normalizeCardSnapshot('stack127_catalog_pages', [incomplete], []), /incomplete/);
+});
+
+test('recovery accepts the complete catalog column transition and rejects unexpected types', () => {
+  const text = column_name => ({ column_name, data_type: 'text', udt_name: 'text' });
+  const int = column_name => ({ column_name, data_type: 'integer', udt_name: 'int4' });
+  const source = ['heading_before', 'heading_mark', 'heading_after', 'intro', 'section_heading', 'hero_art_key', 'card_icon_key', 'card_art_key'].map(text).concat(int('home_order'));
+  const target = ['title', 'intro_markdown', 'content_markdown', 'card_icon_key', 'card_art_key'].map(text).concat(int('display_order'));
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', source, target), true);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', target, target), true);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', source.concat(text('unexpected')), target), false);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', source.map(column => column.column_name === 'heading_mark' ? int('heading_mark') : column), target), false);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', source.map(column => column.column_name === 'hero_art_key' ? int('hero_art_key') : column), target), false);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', source.filter(column => column.column_name !== 'heading_after'), target), false);
 });

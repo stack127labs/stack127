@@ -63,7 +63,7 @@ This updates the history record. It doesn't run old SQL. The script never change
 | Cache signing credential, Auth accounts, Vault secrets, media objects | Never copy from production. |
 | Local ad network SQLite database and services | Leave alone. |
 
-The import keeps production IDs and timestamps. While development is ahead, the copy accepts these specific column transitions: catalog card renames, directory card additions, removed tool and directory `content_revision`, and added registry `is_indexable`. Legacy registry snapshots default to indexable. Other column and type differences still fail. Full schema checks for history alignment remain strict.
+The import keeps production IDs and timestamps. While development is ahead, the copy accepts these specific column transitions: catalog card renames, catalog heading conversion to `title`, renamed `intro_markdown` and `display_order`, optional catalog `content_markdown`, removed catalog section headings and duplicate hero art, directory card additions, removed tool and directory `content_revision`, and added registry `is_indexable`. Legacy registry snapshots default to indexable. Other column and type differences still fail. Full schema checks for history alignment remain strict.
 
 Development-only directory record comparison state is preserved and its page IDs are remapped during a copy. It is never copied from production. Before committing, it compares counts and full row content.
 
