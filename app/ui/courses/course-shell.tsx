@@ -8,18 +8,11 @@ import { buildBreadcrumbStructuredData } from "@/lib/seo";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
 import { JsonLd } from "@/app/ui/site/json-ld";
 import { PageHeader } from "@/app/ui/site/page-header";
+import { PageMeta } from "@/app/ui/site/page-meta";
 import { proseClassName, proseFlowClassName } from "@/app/ui/site/prose";
 import { SidebarList } from "@/app/ui/site/sidebar-list";
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/ui/site/sidebar-panel";
 import { EntryHero } from "@/app/ui/site/entry-hero";
-
-function formatUpdated(value: Date | string) {
-  return new Date(value).toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-}
 
 function CourseSidebar({ course, currentSlug, label }: {
   course: CourseDefinition;
@@ -110,22 +103,7 @@ export async function CourseLessonPage({ children, course, currentSlug, entryHer
   const headingBlock = (
     <PageHeader>
       <h1>{renderHeading(heading, lesson?.headingMark)}</h1>
-      <div className="lesson-byline">
-        <img
-          alt=""
-          className="lesson-author-avatar"
-          decoding="async"
-          height="40"
-          loading="lazy"
-          referrerPolicy="no-referrer"
-          src={course.author.avatarUrl}
-          width="40"
-        />
-        <p>
-          <span>By {course.author.name}</span>
-          <span>Updated {formatUpdated(updatedAt)}</span>
-        </p>
-      </div>
+      <PageMeta author={course.author} updatedAt={updatedAt} />
     </PageHeader>
   );
 
