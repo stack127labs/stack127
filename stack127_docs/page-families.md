@@ -98,7 +98,7 @@ Courses teach a path in a fixed order.
 
 The course registry slug supplies its base path. Its content row holds `title`, `intro_markdown`, optional `content_markdown`, the four shared card fields, `author_name`, `author_avatar_url`, and `navigation_label`. Each lesson row links its registry page to the course with `course_page_id` and holds `title`, `sidebar_label`, and `display_order`. Titles use `<mark>` for an accent. The landing page is also the first lesson.
 
-Registry `is_published` controls lesson links. Unpublished lessons stay in the sidebar with a "soon" label. Each lesson file keeps its JSX body and visuals. `getRequiredCourse` reads one cached snapshot with the `stack127-course-pages` tag. Course and lesson changes queue all course routes because their headers and navigation share those definitions.
+Registry `is_published` controls lesson links. Unpublished lessons stay in the sidebar with a "soon" label. Each lesson file keeps its JSX body and visuals. For a meaningful JSX edit, put `touch_reason` on that lesson in a reviewed course publisher plan. The publisher freezes its previous date and skips the touch on retry. `getRequiredCourse` reads one cached snapshot with the `stack127-course-pages` tag. Course and lesson changes queue all course routes because their headers and navigation share those definitions.
 
 The shell uses each lesson's registry `updated_at`. Different course copy moves the course date. Different lesson copy moves that lesson's date. Identical updates leave public dates alone. Initial migration seeds preserve existing dates; any missing registry rows start unpublished with null dates.
 

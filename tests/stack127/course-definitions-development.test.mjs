@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import pg from 'pg';
 import {resolveDatabaseUrl} from '../../scripts/stack127/tool-pages/lib.mjs';
+import {preparePlan} from '../../scripts/stack127/publishing/cli.mjs';
 import {executeBatch,readStates} from '../../scripts/stack127/publishing/database.mjs';
 
 const enabled=process.env.STACK127_TEST_DEVELOPMENT_DATABASE==='1';
@@ -50,6 +51,25 @@ test('development course dates, navigation refresh, publication, and frozen plan
       const applied=await dates();await executeBatch(transactionalPool,batch,{apply:true});assert.deepEqual(await dates(),applied);
       await executeBatch(transactionalPool,batch,{apply:true,restore:true});
       assert.deepEqual((await readStates(client,[refs[1]]))[0],states[1]);
+    });
+    for (const slug of [root,child]) await scenario(async()=>{
+      await client.query("update public.stack127_pages set is_published=true,published_at='2026-01-01',updated_at='2026-01-01' where slug=$1",[slug]);
+      const before=await dates();
+      const manifest={schema_version:1,kind:'courses',pages:[{slug,family:'course',touch_reason:'Reviewed lesson body correction',
+        requirements:{route:slug===root?'app/(site)/(courses)/self-hosting-for-beginners/(index)/page.tsx':`app/(site)/(courses)/${slug}/page.tsx`,assets:[],checks:[],smoke:[]}}]};
+      const plan=await preparePlan(transactionalPool,manifest,{kind:'courses',environment:'development',sourceCommit:'a'.repeat(40)});
+      assert.equal(plan.pages[0].touch.reason,manifest.pages[0].touch_reason);
+      assert.equal(plan.pages[0].touch.expected_updated_at,before.find(row=>row.slug===slug).updated_at);
+      const batch=plan.pages.map(({slug,family,before,after,touch})=>({slug,family,before,after,touch}));
+      const preview=await executeBatch(transactionalPool,batch);
+      assert.equal(preview.pages[0].changed,true);assert.deepEqual(await dates(),before);
+      const applied=await executeBatch(transactionalPool,batch,{apply:true});assert.equal(applied.pages[0].changed,true);
+      assert.deepEqual((await dates()).filter((row,index)=>row.updated_at!==before[index].updated_at).map(row=>row.slug),[slug]);
+      const after=await dates();const events=await queue();
+      const retry=await executeBatch(transactionalPool,batch,{apply:true});assert.equal(retry.pages[0].changed,false);
+      assert.deepEqual(await dates(),after);assert.deepEqual(await queue(),events);
+      const restore=await executeBatch(transactionalPool,batch,{apply:true,restore:true});assert.equal(restore.pages[0].changed,false);
+      assert.deepEqual(await dates(),after);
     });
     await scenario(async()=>{
       const [state]=await readStates(client,[refs[1]]);

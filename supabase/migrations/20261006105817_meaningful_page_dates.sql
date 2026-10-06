@@ -145,7 +145,9 @@ begin
         slugs := slugs || array['platform-fees','platform-fees/' || owner_slug];
         entities := array_append(entities,'platform_fees'); entity_slugs := array_append(entity_slugs,section_id);
       when 'ad_networks','ad_network_publisher_relationships','ad_network_publishers' then
-        slugs := array_append(slugs,'ad-networks');
+        if tg_table_name <> 'ad_network_publishers' or exists (
+          select 1 from public.ad_network_publisher_relationships rel where rel.publisher_id=(value->>'id')::bigint and rel.status='confirmed'
+        ) then slugs := array_append(slugs,'ad-networks'); end if;
         if tg_table_name='ad_networks' then
           owner_slug := value->>'slug';
           slugs := array_append(slugs,'ad-networks/' || owner_slug);
@@ -168,18 +170,30 @@ begin
         slugs := array_append(slugs,'cli-apps');
         entities := array_append(entities,'cli_apps'); entity_slugs := array_append(entity_slugs,'cli-apps');
       when 'github_projects' then
-        if exists(select 1 from public.self_host_apps app where app.github_project_id=(value->>'id')::bigint and app.published and app.self_hosting_status='self_hostable') then
+        if exists(select 1 from public.self_host_apps app where app.github_project_id=(value->>'id')::uuid and app.published and app.self_hosting_status='self_hostable') then
           slugs := array_append(slugs,'self-host-apps');
+          slugs := slugs || coalesce((select array_agg('self-host-apps/' || app.slug) from public.self_host_apps app
+            where app.published and app.self_hosting_status='self_hostable' and (
+              (tg_table_name='github_projects' and app.github_project_id=(value->>'id')::uuid) or
+              (tg_table_name='self_host_app_categories' and exists(select 1 from public.self_host_app_category_links link
+                where link.app_id=app.id and link.category_id=(value->>'id')::uuid))
+            )), '{}'::text[]);
           entities := array_append(entities,'self_host_catalog'); entity_slugs := array_append(entity_slugs,'all');
         end if;
-        if exists(select 1 from public.terminal_apps app where app.github_project_id=(value->>'id')::bigint and app.published) then
+        if exists(select 1 from public.terminal_apps app where app.github_project_id=(value->>'id')::uuid and app.published) then
           slugs := array_append(slugs,'cli-apps');
           entities := array_append(entities,'cli_apps'); entity_slugs := array_append(entity_slugs,'cli-apps');
         end if;
       when 'self_host_app_categories' then
         if exists(select 1 from public.self_host_app_category_links link join public.self_host_apps app on app.id=link.app_id
-          where link.category_id=(value->>'id')::bigint and app.published and app.self_hosting_status='self_hostable') then
+          where link.category_id=(value->>'id')::uuid and app.published and app.self_hosting_status='self_hostable') then
           slugs := array_append(slugs,'self-host-apps');
+          slugs := slugs || coalesce((select array_agg('self-host-apps/' || app.slug) from public.self_host_apps app
+            where app.published and app.self_hosting_status='self_hostable' and (
+              (tg_table_name='github_projects' and app.github_project_id=(value->>'id')::uuid) or
+              (tg_table_name='self_host_app_categories' and exists(select 1 from public.self_host_app_category_links link
+                where link.app_id=app.id and link.category_id=(value->>'id')::uuid))
+            )), '{}'::text[]);
           entities := array_append(entities,'self_host_catalog'); entity_slugs := array_append(entity_slugs,'all');
         end if;
       else

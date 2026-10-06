@@ -86,6 +86,8 @@ test('development public dates follow real content changes and identical imports
       assert.deepEqual((await client.query("select published_at,updated_at from public.stack127_pages where slug='dns-tools'")).rows[0],{published_at:null,updated_at:null});
     });
     await scenario('tool cards keep tool dates and still update their catalogs',async()=>{
+      await client.query("update public.stack127_pages set is_published=true,published_at=coalesce(published_at,now()),updated_at=now() where slug='dns-lookup'");
+      await client.query("update public.stack127_pages set published_at='2026-01-01',updated_at='2026-01-01' where slug in ('dns-lookup','dns-tools','domain-tools')");
       const before=await dates();
       const row=(await client.query("select page.id,page.slug from public.stack127_pages page where slug='dns-lookup'")).rows[0];
       const catalogs=(await client.query('select page.slug from public.stack127_tool_catalog_memberships member join public.stack127_pages page on page.id=member.catalog_page_id where member.tool_page_id=$1 and page.is_published order by slug',[row.id])).rows.map(row=>row.slug);
@@ -95,12 +97,75 @@ test('development public dates follow real content changes and identical imports
       const events=await queues();
       for(const slug of [row.slug,...catalogs]) assert.ok(events.some(event=>event.entity_type==='page' && event.slug===slug));
     });
+    await scenario('draft cards and draft membership insert, update, and delete keep catalog dates',async()=>{
+      await client.query("update public.stack127_pages set is_published=false,published_at=null,updated_at=null where slug='dns-lookup'");
+      const before=await dates();
+      const id=(await client.query("select id from public.stack127_pages where slug='dns-lookup'")).rows[0].id;
+      const members=(await client.query('select * from public.stack127_tool_catalog_memberships where tool_page_id=$1',[id])).rows;
+      assert.ok(members.length);
+      await client.query("update public.stack127_tool_pages set card_description=card_description || ' Draft card test.' where page_id=$1",[id]);
+      await client.query('update public.stack127_tool_catalog_memberships set display_order=display_order+1000 where tool_page_id=$1',[id]);
+      assert.deepEqual(await dates(),before);
+      await client.query('delete from public.stack127_tool_catalog_memberships where tool_page_id=$1',[id]);
+      assert.deepEqual(await dates(),before);
+      for (const member of members) await client.query('insert into public.stack127_tool_catalog_memberships(catalog_page_id,tool_page_id,catalog_rank,display_order) values($1,$2,$3,$4)',
+        [member.catalog_page_id,id,member.catalog_rank,member.display_order]);
+      assert.deepEqual(await dates(),before);
+      await client.query("update public.stack127_pages set slug='dns-lookup-draft-check' where id=$1",[id]);
+      assert.deepEqual((await dates()).filter(row=>!row.slug.startsWith('dns-lookup')),before.filter(row=>row.slug!=='dns-lookup'));
+    });
+    await scenario('member publication and retirement still move every public catalog date',async()=>{
+      await client.query("update public.stack127_pages set is_published=false,published_at=null,updated_at=null where slug='dns-lookup'");
+      const id=(await client.query("select id from public.stack127_pages where slug='dns-lookup'")).rows[0].id;
+      const catalogs=(await client.query('select page.slug from public.stack127_tool_catalog_memberships member join public.stack127_pages page on page.id=member.catalog_page_id where member.tool_page_id=$1 and page.is_published order by page.slug',[id])).rows.map(row=>row.slug);
+      assert.ok(catalogs.length);
+      await client.query("update public.stack127_pages set published_at='2026-01-01',updated_at='2026-01-01' where slug=any($1::text[])",[catalogs]);
+      const before=await dates();
+      await client.query('update public.stack127_pages set is_published=true,published_at=now(),updated_at=now() where id=$1',[id]);
+      assert.deepEqual(await changedSlugs(before),[...catalogs,'dns-lookup'].sort());
+      await client.query("update public.stack127_pages set published_at='2026-01-01',updated_at='2026-01-01' where slug=any($1::text[])",[[...catalogs,'dns-lookup']]);
+      const published=await dates();
+      await client.query('update public.stack127_pages set is_published=false,published_at=null,updated_at=null where id=$1',[id]);
+      assert.deepEqual(await changedSlugs(published),[...catalogs,'dns-lookup'].sort());
+    });
+    await scenario('published membership insert, update, and delete move only affected catalog dates',async()=>{
+      await client.query("update public.stack127_pages set is_published=true,published_at=coalesce(published_at,now()),updated_at=now() where slug='dns-lookup'");
+      const member=(await client.query("select member.* from public.stack127_tool_catalog_memberships member join public.stack127_pages page on page.id=member.catalog_page_id where member.tool_page_id=(select id from public.stack127_pages where slug='dns-lookup') and page.slug='dns-tools'")).rows[0];
+      assert.ok(member);
+      const reset=async()=>client.query("update public.stack127_pages set published_at='2026-01-01',updated_at='2026-01-01' where slug='dns-tools'");
+      await reset();let before=await dates();
+      await client.query('update public.stack127_tool_catalog_memberships set display_order=display_order+1000 where catalog_page_id=$1 and tool_page_id=$2',[member.catalog_page_id,member.tool_page_id]);
+      assert.deepEqual(await changedSlugs(before),['dns-tools']);
+      await reset();before=await dates();
+      await client.query('delete from public.stack127_tool_catalog_memberships where catalog_page_id=$1 and tool_page_id=$2',[member.catalog_page_id,member.tool_page_id]);
+      assert.deepEqual(await changedSlugs(before),['dns-tools']);
+      await reset();before=await dates();
+      await client.query('insert into public.stack127_tool_catalog_memberships(catalog_page_id,tool_page_id,catalog_rank,display_order) values($1,$2,$3,$4)',[member.catalog_page_id,member.tool_page_id,member.catalog_rank,member.display_order]);
+      assert.deepEqual(await changedSlugs(before),['dns-tools']);
+    });
+    await scenario('removing a published tool registry row still moves its catalog dates',async()=>{
+      await client.query("update public.stack127_pages set is_published=true,published_at='2026-01-01',updated_at='2026-01-01' where slug='dns-lookup'");
+      await client.query("update public.stack127_pages set published_at='2026-01-01',updated_at='2026-01-01' where slug in ('dns-tools','domain-tools')");
+      const id=(await client.query("select id from public.stack127_pages where slug='dns-lookup'")).rows[0].id;
+      const catalogs=(await client.query('select page.slug from public.stack127_tool_catalog_memberships member join public.stack127_pages page on page.id=member.catalog_page_id where member.tool_page_id=$1 and page.is_published order by page.slug',[id])).rows.map(row=>row.slug);
+      const before=await dates();await client.query('delete from public.stack127_pages where id=$1',[id]);
+      assert.deepEqual(await changedSlugs(before),catalogs);
+    });
+    await scenario('primary catalog rank refreshes navigation without changing public catalog dates',async()=>{
+      await client.query("update public.stack127_pages set is_published=true,published_at=coalesce(published_at,now()),updated_at=now() where slug='dns-lookup'");
+      const before=await dates();
+      await client.query("update public.stack127_tool_catalog_memberships set catalog_rank=99 where tool_page_id=(select id from public.stack127_pages where slug='dns-lookup') and catalog_rank=1");
+      assert.deepEqual(await dates(),before);
+      assert.ok((await queues()).some(row=>row.entity_type==='page' && row.slug==='dns-tools'));
+    });
     await scenario('tool copy updates its page date',async()=>{
+      await client.query("update public.stack127_pages set is_published=true,published_at='2026-01-01',updated_at='2026-01-01' where slug='dns-lookup'");
       const before=await dates();
       await client.query("update public.stack127_tool_pages set intro_markdown=intro_markdown || ' Copy test.' where page_id=(select id from public.stack127_pages where slug='dns-lookup')");
       assert.deepEqual(await changedSlugs(before),['dns-lookup']);
     });
     await scenario('tool versions update the public and version dates',async()=>{
+      await client.query("update public.stack127_pages set is_published=true,published_at='2026-01-01',updated_at='2026-01-01' where slug='dns-lookup'");
       const before=await dates();
       const result=await client.query("update public.stack127_tool_pages set tool_version='999.0.0' where page_id=(select id from public.stack127_pages where slug='dns-lookup') returning tool_version_updated_at::text");
       assert.equal(result.rows[0].tool_version_updated_at,(await client.query('select now()::text value')).rows[0].value);
@@ -206,7 +271,7 @@ test('development public dates follow real content changes and identical imports
     });
     await scenario('only confirmed ad publisher facts update directory dates',async()=>{
       await client.query("update public.stack127_pages set is_published=true,published_at='2026-01-01',updated_at='2026-01-01' where slug='ad-networks' or slug='ad-networks/adapex'");
-      await client.query("update public.stack127_pages set updated_at='2026-01-01' where slug='ad-networks' or slug='ad-networks/adapex'");
+      await client.query("update public.stack127_pages set published_at='2026-01-01',updated_at='2026-01-01' where slug='ad-networks' or slug='ad-networks/adapex'");
       const before=await dates();
       await client.query("insert into public.ad_network_publishers(id,normalized_domain,display_domain) overriding system value values(-127,'stack127-date-test.example','stack127-date-test.example')");
       assert.deepEqual(await dates(),before);
@@ -215,7 +280,7 @@ test('development public dates follow real content changes and identical imports
           '{"checked_url":"https://stack127-date-test.example","checked_at":"2026-10-06","matched_signal":"test","parser_version":"test"}',now(),now()
         from public.ad_networks where slug='adapex'`);
       assert.deepEqual(await changedSlugs(before),['ad-networks','ad-networks/adapex']);
-      await client.query("update public.stack127_pages set updated_at='2026-01-01' where slug='ad-networks' or slug='ad-networks/adapex'");
+      await client.query("update public.stack127_pages set published_at='2026-01-01',updated_at='2026-01-01' where slug='ad-networks' or slug='ad-networks/adapex'");
       const reset=await dates();
       await client.query("update public.ad_network_publishers set display_domain='www.stack127-date-test.example' where id=-127");
       assert.deepEqual(await changedSlugs(reset),['ad-networks','ad-networks/adapex']);

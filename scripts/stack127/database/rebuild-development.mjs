@@ -27,15 +27,17 @@ export function normalizeCardSnapshot(name, rows, pages) {
         delete copy[oldKey];
       }
       if (['heading_before', 'heading_mark', 'heading_after'].some(key => key in copy)) {
-        if ('title' in copy || !['heading_before', 'heading_mark', 'heading_after'].every(key => typeof copy[key] === 'string')) {
+        if (!['heading_before', 'heading_mark', 'heading_after'].every(key => typeof copy[key] === 'string')) {
           throw new Error(`Conflicting or incomplete catalog heading in ${name}`);
         }
-        copy.title = copy.heading_before + '<mark>' + copy.heading_mark + '</mark>' + copy.heading_after;
+        const title = copy.heading_before + (copy.heading_mark ? '<mark>' + copy.heading_mark + '</mark>' : '') + copy.heading_after;
+        if ('title' in copy && copy.title !== title) throw new Error(`Conflicting catalog title in ${name}`);
+        copy.title = title;
         for (const key of ['heading_before', 'heading_mark', 'heading_after']) delete copy[key];
       }
       for (const [oldKey, newKey] of [['intro', 'intro_markdown'], ['home_order', 'display_order']]) {
         if (!(oldKey in copy)) continue;
-        if (newKey in copy) throw new Error(`Conflicting catalog columns in ${name}`);
+        if (newKey in copy && copy[newKey] !== copy[oldKey]) throw new Error(`Conflicting catalog columns in ${name}`);
         copy[newKey] = copy[oldKey];
         delete copy[oldKey];
       }
@@ -56,8 +58,62 @@ export function normalizeCardSnapshot(name, rows, pages) {
   });
 }
 
+// Insert all target columns while triggers are disabled during recovery.
+// Preserve legacy values until Release C, including the old revision counters.
+export function snapshotForTarget(name, rows, pages, targetColumns) {
+  const normalized = normalizeCardSnapshot(name, rows, pages);
+  const fields = new Set(targetColumns.map(column => column.column_name));
+  return normalized.map((row, index) => {
+    const original = rows[index];
+    const copy = { ...row };
+    if (fields.has('content_revision')) {
+      if (!Number.isInteger(original.content_revision) || original.content_revision < 1) {
+        throw new Error(`Missing valid content_revision in ${name}`);
+      }
+      copy.content_revision = original.content_revision;
+    }
+    if (name === 'stack127_catalog_pages') {
+      for (const key of ['heading_before', 'heading_mark', 'heading_after', 'intro', 'section_heading', 'hero_art_key', 'home_order']) {
+        if (!fields.has(key)) continue;
+        if (!(key in original)) throw new Error(`Missing legacy catalog column: ${key}`);
+        copy[key] = original[key];
+      }
+    }
+    return copy;
+  });
+}
+
 export function compatibleCardColumns(name, source, target) {
   const shape = columns => columns.map(({ column_name, data_type, udt_name }) => ({ column_name, data_type, udt_name }));
+  // Compare canonical shapes when both old and new columns coexist.
+  if (name === 'stack127_catalog_pages') {
+    const canonical = columns => {
+      const result = shape(columns);
+      const headings = ['heading_before', 'heading_mark', 'heading_after'];
+      if (headings.some(key => result.some(column => column.column_name === key))
+        && !headings.every(key => result.some(column => column.column_name === key))) return null;
+      for (const [oldKey, newKey, data_type, udt_name] of [
+        ['heading_before', 'title', 'text', 'text'], ['heading_mark', 'title', 'text', 'text'],
+        ['heading_after', 'title', 'text', 'text'], ['intro', 'intro_markdown', 'text', 'text'],
+        ['home_order', 'display_order', 'integer', 'int4'],
+      ]) {
+        const legacy = result.find(column => column.column_name === oldKey);
+        const modern = result.find(column => column.column_name === newKey);
+        if (legacy && modern) {
+          if (legacy.data_type !== data_type || legacy.udt_name !== udt_name
+            || modern.data_type !== data_type || modern.udt_name !== udt_name) return null;
+          result.splice(result.indexOf(legacy), 1);
+        }
+      }
+      return result;
+    };
+    const from = canonical(source); const to = canonical(target);
+    if (!from || !to) return false;
+    source = from; target = to;
+    // Remove optional legacy-only columns from both compared shapes below.
+    target = target.filter(column => !['section_heading', 'hero_art_key'].includes(column.column_name)
+      || column.data_type !== 'text' || column.udt_name !== 'text');
+  }
   const original = shape(source);
   if (name === 'stack127_catalog_pages') {
     for (const column of original) {
@@ -182,11 +238,11 @@ export function verifyPageFamilyRestore(production, restored, preserved) {
       continue;
     }
     const sourceRows = normalizeCardSnapshot(name, production.get(name), sourcePages);
-    const productionRows = rows.filter(owned);
-    const developmentRows = rows.filter(row => !owned(row));
+    const productionRows = normalizeCardSnapshot(name, rows.filter(owned), restoredPages);
+    const developmentRows = normalizeCardSnapshot(name, rows.filter(row => !owned(row)), restoredPages);
     verifyPageRows(name, sourceRows, productionRows);
     if (preserved) {
-      const expected = remapDevelopmentPageIds(preserved.rows.get(name) ?? [], fields, preserved.pages, restoredPages);
+      const expected = normalizeCardSnapshot(name, remapDevelopmentPageIds(preserved.rows.get(name) ?? [], fields, preserved.pages, restoredPages), restoredPages);
       verifyPageRows(name, expected, developmentRows, false);
     }
     results.push({ table: name, source: sourceRows.length, development: rows.length, contentMatches: true,
@@ -383,7 +439,7 @@ async function main() {
           continue;
         }
         if (!compatibleCardColumns(name, sourceColumns, targetColumns)) throw new Error(`Schema mismatch for ${name}`);
-        const rows = normalizeCardSnapshot(name, await snapshotRows(name), snapshot.get('stack127_pages')?.rows ?? []);
+        const rows = snapshotForTarget(name, await snapshotRows(name), snapshot.get('stack127_pages')?.rows ?? [], targetColumns);
         snapshot.set(name, { rows, columns: targetColumns.filter((column) => column.is_generated === 'NEVER') });
         console.log(JSON.stringify({ table: name, snapshotRows: rows.length }));
       }

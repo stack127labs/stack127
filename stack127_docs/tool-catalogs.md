@@ -25,7 +25,7 @@ Keep each published catalog populated with at least one published tool.
 
 The route renders the title's `<mark>` accent, the Markdown intro, and a fixed "Tools" heading above the cards. Optional `content_markdown` renders below the cards with shared prose styles. The hero and homepage card both use `card_art_key`.
 
-`getPublishedToolCatalogs` and `getPublishedToolCatalog` return the registry's `published_at` and `updated_at` with each catalog. Internal row timestamps are not public page dates.
+`getPublishedToolCatalogs` and `getPublishedToolCatalog` return the registry's `published_at` and `updated_at` with each catalog. Internal row timestamps are not public page dates. A published tool's card or catalog membership change moves the affected catalog dates. Draft cards and memberships leave those dates alone. Publishing or retiring a member still moves them. A primary-catalog rank change refreshes navigation without moving catalog dates.
 
 ## Cards
 

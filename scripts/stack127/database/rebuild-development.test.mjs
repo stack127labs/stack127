@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { planForwardMigrations, preserveDevelopmentPublication, verifyPageFamilyRestore, normalizeCardSnapshot, compatibleCardColumns } from './rebuild-development.mjs';
+import { planForwardMigrations, preserveDevelopmentPublication, verifyPageFamilyRestore, normalizeCardSnapshot, compatibleCardColumns, snapshotForTarget } from './rebuild-development.mjs';
 
 const pageTables = ['stack127_pages', 'stack127_tool_pages', 'stack127_catalog_pages', 'stack127_directory_pages', 'stack127_tool_catalog_memberships'];
 const rowsByTable = overrides => new Map(pageTables.map(name => [name, overrides[name] ?? []]));
@@ -218,4 +218,29 @@ test('recovery accepts the complete catalog column transition and rejects unexpe
   assert.equal(compatibleCardColumns('stack127_catalog_pages', source.map(column => column.column_name === 'heading_mark' ? int('heading_mark') : column), target), false);
   assert.equal(compatibleCardColumns('stack127_catalog_pages', source.map(column => column.column_name === 'hero_art_key' ? int('hero_art_key') : column), target), false);
   assert.equal(compatibleCardColumns('stack127_catalog_pages', source.filter(column => column.column_name !== 'heading_after'), target), false);
+});
+
+
+test('recovery copies complete Release A rows before and after production expansion', () => {
+  const text = column_name => ({column_name, data_type: 'text', udt_name: 'text'});
+  const int = column_name => ({column_name, data_type: 'integer', udt_name: 'int4'});
+  const legacy = {page_id: 2, heading_before: 'DNS ', heading_mark: 'tools', heading_after: '',
+    intro: 'Choose a tool.', section_heading: 'Choose a DNS check', home_order: 10,
+    hero_art_key: 'dns-tools', card_art_key: 'dns-tools'};
+  const expanded = {...legacy, title: 'DNS <mark>tools</mark>', intro_markdown: legacy.intro,
+    content_markdown: null, display_order: legacy.home_order};
+  const columns = Object.keys(expanded).map(key => ['page_id', 'home_order', 'display_order'].includes(key) ? int(key) : text(key));
+  assert.deepEqual(snapshotForTarget('stack127_catalog_pages', [legacy], [], columns), [expanded]);
+  assert.deepEqual(snapshotForTarget('stack127_catalog_pages', [expanded], [], columns), [expanded]);
+  const legacyColumns = columns.filter(column => column.column_name in legacy);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', legacyColumns, columns), true);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', columns, columns), true);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', columns.concat(text('unknown')), columns), false);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', columns.map(column => column.column_name === 'heading_before' ? int('heading_before') : column), columns), false);
+  assert.throws(() => snapshotForTarget('stack127_catalog_pages', [{...expanded, intro: 'Diverged'}], [], columns), /Conflicting/);
+  assert.throws(() => snapshotForTarget('stack127_catalog_pages', [{...expanded, hero_art_key: 'Diverged'}], [], columns), /differs/);
+  const tool = {page_id: 1, title: 'Tool', content_revision: 7};
+  assert.deepEqual(snapshotForTarget('stack127_tool_pages', [tool], [], [int('page_id'), text('title'), int('content_revision')]), [tool]);
+  assert.deepEqual(snapshotForTarget('stack127_tool_pages', [tool], [], [int('page_id'), text('title')]), [{page_id: 1, title: 'Tool'}]);
+  assert.throws(() => snapshotForTarget('stack127_tool_pages', [{...tool, content_revision: null}], [], [int('content_revision')]), /valid content_revision/);
 });

@@ -89,7 +89,7 @@ Each page takes only these keys:
 | `lesson` | Course pages only. Patch `course_slug`, `title`, `sidebar_label`, and positive `display_order` in the linked lesson row. The root also has a lesson row. |
 | `catalogs` | Tools only. The full ordered catalog list. The first entry is the primary catalog. Each entry needs `slug` and a positive `display_order`. |
 | `requirements` | What must already exist before the page can publish. See Readiness. |
-| `touch_reason` | Directories only. Explain a meaningful change to code records or records without automatic date coverage. |
+| `touch_reason` | Directories and course pages only. Explain a meaningful code record or JSX lesson-body change without automatic date coverage. |
 
 | Family | Content fields |
 | --- | --- |
@@ -106,7 +106,7 @@ For an unchanged development preview, use a manifest with the course slug, `fami
 
 Different course or lesson copy calls `stack127_touch_page` for that row's registry page. Identical plans and updates leave public dates alone. Registry dates supply the visible Updated line. Course definitions refresh every lesson route's shared author and navigation.
 
-Catalog manifests use the same `card_icon_key` and `card_art_key` names as tools, directories, and the database. Prepare new plans after the catalog schema migration; older plans use removed fields.
+Catalog manifests use the same `card_icon_key` and `card_art_key` names as tools, directories, and the database. Prepare new plans after Release A adds the new catalog schema. Older plans use legacy fields that Release C removes.
 
 Directory card keys are nullable:
 
@@ -151,9 +151,11 @@ The batch must also make sense as a whole, or nothing is written:
 - Display orders can't collide with another tool in the same catalog.
 - A published directory child page needs a published parent directory.
 
-Database triggers move public dates for tool title, Markdown, and version changes, and for directory copy and records. Tool card-only changes refresh catalogs without moving the tool date. Repository-only edits keep public dates unchanged. Set repository fields only after a real comparison, as [tool-pages.md](tool-pages.md) describes.
+Database triggers move public dates for tool title, Markdown, and version changes, and for directory copy and records. Published tool card changes move their catalog dates without moving the tool date. Draft cards and draft memberships leave catalog dates alone. Publication and retirement still move catalog dates. Repository-only edits keep public dates unchanged. Set repository fields only after a real comparison, as [tool-pages.md](tool-pages.md) describes.
 
-A directory manifest can include `"touch_reason": "Corrected TLD registry facts"` after a meaningful code record change. Don't use it for typos or formatting. `prepare` freezes the reason and current public date. `apply` calls `stack127_touch_page` only if that date has not already moved. Retrying the plan leaves dates alone. `restore` restores managed copy, not code records or old dates. Revert code separately and prepare a new touch when needed.
+A directory manifest can include `"touch_reason": "Corrected TLD registry facts"` after a meaningful code record change. For a course or lesson JSX edit, put a reason such as `"Corrected the Docker install instructions"` on the affected `family: "course"` page. The root course and child lessons both support this. Skip touches for typos and formatting.
+
+`prepare` freezes the reason and current public date. `apply` calls `stack127_touch_page` only if that date has not already moved. Retrying the plan leaves dates alone. `restore` restores managed copy. It does not revert JSX bodies, code records, or old dates. Revert code separately and prepare a new touch when needed.
 
 A page whose rows already match the plan is left alone, unless its pending record touch still applies.
 

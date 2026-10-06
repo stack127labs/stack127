@@ -150,7 +150,7 @@ export function validateState(state, family = state?.family) {
 
 export function validateTouch(touch, family) {
   if (touch === undefined) return undefined;
-  if (family !== 'directory') throw new Error('Only directory records use an explicit page touch');
+  if (!['directory', 'course'].includes(family)) throw new Error('Only directory and course pages use an explicit page touch');
   exactFields(touch,['reason','expected_updated_at'],'page touch');
   textField(touch.reason,'touch.reason');
   if (touch.expected_updated_at !== null && (typeof touch.expected_updated_at !== 'string'

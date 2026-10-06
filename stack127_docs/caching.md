@@ -68,7 +68,7 @@ This is legacy mode. In Cloudflare mode, the worker dispatches a GitHub workflow
 
 `stack127_touch_page` sets published pages' `updated_at` to the transaction time and queues page refreshes. Directory children also touch their registered directory ancestors. Unpublished dates stay null. Statement triggers compare visible records before and after a write, so identical reloads and bookkeeping leave dates alone.
 
-Tool cards still refresh every linked catalog and tool sidebar. They do not change the tool's public date. Tool copy and version changes do. Code directory facts need the development touch command or a publisher `touch_reason`; see [directory-pages.md](directory-pages.md).
+Published tool card edits refresh every linked catalog and tool sidebar, and move those catalog dates. Draft cards and draft memberships leave public catalog dates alone. They do not change the tool's public date. Tool copy and version changes do. Code directory facts need the development touch command or a publisher `touch_reason`; see [directory-pages.md](directory-pages.md).
 
 Origin refreshes and static export checks must verify canonical and indexing metadata, plus sitemap inclusion, with the helpers in `scripts/stack127/publishing/verify.mjs`.
 
