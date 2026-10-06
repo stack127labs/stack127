@@ -88,6 +88,11 @@ async function main() {
         app_id: appIds.get(slug),
         ...resourceEstimatesToRow(appRecords, { checkedAt }),
       }));
+      const facts = columns.filter(column => !['app_id', 'checked_at'].includes(column));
+      const currentFacts = facts.map(column => `self_host_app_resource_estimates.${column}`);
+      const incomingFacts = facts.map((column, index) => column.endsWith('_urls')
+        ? `case when cardinality(excluded.${column}) > 0 then excluded.${column} else ${currentFacts[index]} end`
+        : `coalesce(excluded.${column}, ${currentFacts[index]})`);
       await client.query("begin");
       try {
         await client.query(
@@ -112,6 +117,7 @@ async function main() {
               storage_note = coalesce(excluded.storage_note, self_host_app_resource_estimates.storage_note),
               checked_at = excluded.checked_at,
               updated_at = now()
+            where row(${currentFacts.join(', ')}) is distinct from row(${incomingFacts.join(', ')})
           `,
           [JSON.stringify(storedRows)],
         );

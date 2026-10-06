@@ -3,8 +3,6 @@ import { MarkerArt } from "@/app/ui/site/marker-art";
 import { LessonLink, LessonPage } from "../course";
 import { fivePiecesArt } from "./art/five-pieces";
 
-const lesson = getLesson("basic-setup");
-
 const pieces = [
   {
     name: "Server",
@@ -28,9 +26,10 @@ const pieces = [
   },
 ];
 
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("basic-setup");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           To simplify it right down to the core, self-hosting is really just five things.
           Understanding them connects all the dots you need to get started, and every app you ever

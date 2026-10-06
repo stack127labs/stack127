@@ -9,7 +9,7 @@ export function publicationEvent(event, repository = 'stack127labs/stack127') {
   const payload = typeof deployment.payload === 'string' ? JSON.parse(deployment.payload) : deployment.payload;
   if (!/^[a-f0-9]{40}$/.test(payload?.release_sha ?? '') || deployment.sha !== payload.release_sha || deployment.ref !== payload.release_sha || !Number.isSafeInteger(deployment.id)) throw new Error('Deployment ref, SHA, and publication payload must agree');
   const plan = validatePlan(payload.plan, payload.plan?.kind, 'production');
-  if (!['tools', 'directories'].includes(plan.kind)) throw new Error('Unknown publication kind');
+  if (!['tools', 'directories', 'courses'].includes(plan.kind)) throw new Error('Unknown publication kind');
   return { deploymentId: deployment.id, releaseSha: deployment.sha, plan };
 }
 

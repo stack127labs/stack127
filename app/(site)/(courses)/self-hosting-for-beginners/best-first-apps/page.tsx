@@ -5,11 +5,10 @@ import { LessonLink, LessonPage } from "../course";
 import { repeatSafeAppsArt } from "./art/repeat-safe-apps";
 import { CodeBlock } from "@/app/ui/site/code-block";
 
-const lesson = getLesson("best-first-apps");
-
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("best-first-apps");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           You've got Excalidraw running and you understand roughly how. The best thing you can do
           now is repeat the pattern a few times on low-stakes apps, until making a folder, writing a

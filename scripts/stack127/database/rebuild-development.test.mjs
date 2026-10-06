@@ -1,14 +1,14 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { planForwardMigrations, preserveDevelopmentPublication, verifyPageFamilyRestore, normalizeCardSnapshot, compatibleCardColumns } from './rebuild-development.mjs';
+import { planForwardMigrations, preserveDevelopmentPublication, verifyPageFamilyRestore, normalizeCardSnapshot, compatibleCardColumns, snapshotForTarget } from './rebuild-development.mjs';
 
 const pageTables = ['stack127_pages', 'stack127_tool_pages', 'stack127_catalog_pages', 'stack127_directory_pages', 'stack127_tool_catalog_memberships'];
 const rowsByTable = overrides => new Map(pageTables.map(name => [name, overrides[name] ?? []]));
 
 function directoryRestore() {
-  const sourcePage = { id: 1, slug: 'self-host-apps', page_family: 'directory', is_published: true };
-  const developmentPage = { id: 2, slug: 'development-directory', page_family: 'directory', is_published: true };
+  const sourcePage = { id: 1, slug: 'self-host-apps', page_family: 'directory', is_indexable: true, is_published: true };
+  const developmentPage = { id: 2, slug: 'development-directory', page_family: 'directory', is_indexable: true, is_published: true };
   const sourceCopy = { page_id: 1, title: 'Source directory', content_markdown: null, card_name: 'Source card', card_icon_key: 'self-host-apps', card_art_key: 'self-host-apps' };
   const savedCopy = { page_id: 2, title: 'Edited directory', content_markdown: 'Saved content.', card_name: 'Edited card', card_icon_key: 'terminal', card_art_key: 'labs' };
   return {
@@ -49,10 +49,10 @@ test('verification detects missing and changed preserved directory copy after ID
 });
 
 test('verification remaps tool, catalog, and mixed membership IDs through their page slugs', () => {
-  const sourcePages = [{ id: 1, slug: 'source-tool' }, { id: 2, slug: 'source-catalog' }];
-  const extraPages = [{ id: 3, slug: 'development-tool' }, { id: 4, slug: 'development-catalog' }];
-  const tool = { page_id: 3, title: 'Saved tool', content_revision: 5 };
-  const catalog = { page_id: 4, card_name: 'Saved catalog' };
+  const sourcePages = [{ id: 1, slug: 'source-tool', is_indexable: true }, { id: 2, slug: 'source-catalog', is_indexable: true }];
+  const extraPages = [{ id: 3, slug: 'development-tool', is_indexable: true }, { id: 4, slug: 'development-catalog', is_indexable: true }];
+  const tool = { page_id: 3, title: 'Saved tool', tool_version: '1.0.0' };
+  const catalog = { page_id: 4, card_name: 'Saved catalog', content_markdown: null };
   const memberships = [
     { catalog_page_id: 2, tool_page_id: 3, display_order: 1 },
     { catalog_page_id: 4, tool_page_id: 1, display_order: 2 },
@@ -60,7 +60,7 @@ test('verification remaps tool, catalog, and mixed membership IDs through their 
   ];
   const production = rowsByTable({ stack127_pages: sourcePages,
     stack127_tool_pages: [{ page_id: 1, title: 'Source tool' }],
-    stack127_catalog_pages: [{ page_id: 2, card_name: 'Source catalog' }],
+    stack127_catalog_pages: [{ page_id: 2, card_name: 'Source catalog', content_markdown: null }],
     stack127_tool_catalog_memberships: [{ catalog_page_id: 2, tool_page_id: 1, display_order: 1 }],
   });
   const restored = new Map([...production].map(([name, rows]) => [name, structuredClone(rows)]));
@@ -100,12 +100,12 @@ test('standalone verification compares production content without claiming to ve
 
 test('development previews survive production introducing unpublished draft registry rows', () => {
   const production = [
-    { slug: 'platform-fees', is_published: false, published_at: null, updated_at: null, label: 'Current fee directory' },
-    { slug: 'platform-fees/app-stores', is_published: false, published_at: null },
-    { slug: 'launch-directories', is_published: false, published_at: null },
-    { slug: 'ad-networks', is_published: false, published_at: null },
-    { slug: 'ad-networks/google-adsense', is_published: false, published_at: null },
-    { slug: 'self-host-apps', is_published: true, published_at: 'production-date' },
+    { slug: 'platform-fees', is_published: false, published_at: null, updated_at: null, label: 'Current fee directory', is_indexable: true },
+    { slug: 'platform-fees/app-stores', is_published: false, published_at: null, is_indexable: true },
+    { slug: 'launch-directories', is_published: false, published_at: null, is_indexable: true },
+    { slug: 'ad-networks', is_published: false, published_at: null, is_indexable: true },
+    { slug: 'ad-networks/google-adsense', is_published: false, published_at: null, is_indexable: true },
+    { slug: 'self-host-apps', is_published: true, published_at: 'production-date', is_indexable: true },
   ];
   const development = production.map((row) => ({ ...row, is_published: row.slug !== 'self-host-apps', published_at: '2026-09-28T17:07:36Z', updated_at: '2026-10-01T04:54:10Z', label: 'Outdated local title' }));
   const result = preserveDevelopmentPublication(production, development);
@@ -118,7 +118,7 @@ test('development previews survive production introducing unpublished draft regi
   assert.equal(result[0].label, 'Current fee directory');
   assert.deepEqual(result[5], production[5]);
   assert.equal(production[0].is_published, false);
-  const unpublished = preserveDevelopmentPublication(production, [{ slug: 'platform-fees', is_published: false, published_at: null, updated_at: null }]);
+  const unpublished = preserveDevelopmentPublication(production, [{ slug: 'platform-fees', is_published: false, published_at: null, updated_at: null, is_indexable: true }]);
   assert.equal(unpublished[0].published_at, null);
   assert.equal(unpublished[0].updated_at, null);
 });
@@ -140,17 +140,17 @@ test('history alignment requires data copy, verification and a backup before rea
 });
 
 
-test('legacy catalog snapshots preserve icon, card art, and hero art through renames', () => {
-  const row = { page_id: 1, icon_key: 'network', home_art_key: 'dns-tools', hero_art_key: 'dns-lookup' };
+test('legacy catalog snapshots preserve card assets and remove duplicate hero art', () => {
+  const row = { page_id: 1, icon_key: 'network', home_art_key: 'dns-tools', hero_art_key: 'dns-tools' };
   assert.deepEqual(normalizeCardSnapshot('stack127_catalog_pages', [row], [])[0], {
-    page_id: 1, card_icon_key: 'network', card_art_key: 'dns-tools', hero_art_key: 'dns-lookup',
+    page_id: 1, card_icon_key: 'network', card_art_key: 'dns-tools', content_markdown: null,
   });
   assert.equal(row.icon_key, 'network');
   assert.throws(() => normalizeCardSnapshot('stack127_catalog_pages', [{ ...row, card_icon_key: 'globe' }], []), /Conflicting card columns/);
 });
 
 test('legacy directory snapshots backfill homepage cards and leave child assets null', () => {
-  const pages = [{ id: 1, slug: 'self-host-apps' }, { id: 2, slug: 'platform-fees/books' }];
+  const pages = [{ id: 1, slug: 'self-host-apps', is_indexable: true }, { id: 2, slug: 'platform-fees/books', is_indexable: true }];
   assert.deepEqual(normalizeCardSnapshot('stack127_directory_pages', [{ page_id: 1 }, { page_id: 2 }], pages), [
     { page_id: 1, card_icon_key: 'self-host-apps', card_art_key: 'self-host-apps' },
     { page_id: 2, card_icon_key: null, card_art_key: null },
@@ -162,7 +162,7 @@ test('legacy directory snapshots backfill homepage cards and leave child assets 
 test('copy accepts only the known card schema transition', () => {
   const column = column_name => ({ column_name, data_type: 'text', udt_name: 'text' });
   assert.ok(compatibleCardColumns('stack127_catalog_pages', [column('icon_key'), column('home_art_key'), column('hero_art_key')],
-    [column('card_icon_key'), column('card_art_key'), column('hero_art_key')]));
+    [column('card_icon_key'), column('card_art_key'), column('content_markdown')]));
   assert.ok(compatibleCardColumns('stack127_directory_pages', [column('title')],
     [column('title'), column('card_icon_key'), column('card_art_key')]));
   assert.ok(!compatibleCardColumns('stack127_directory_pages', [column('title')],
@@ -177,4 +177,70 @@ test('restore verification detects a changed card icon or art after ID remapping
     fixture.restored.get('stack127_directory_pages')[1][field] = 'globe';
     assert.throws(() => verifyPageFamilyRestore(fixture.production, fixture.restored, fixture.preserved), /Content mismatch/);
   }
+});
+
+test('copy and verification accept only the reviewed indexing and revision schema changes', () => {
+  const column = (column_name, data_type = 'text', udt_name = 'text') => ({column_name, data_type, udt_name});
+  const legacy = [column('title'), column('content_revision', 'integer', 'int4')];
+  assert.equal(compatibleCardColumns('stack127_tool_pages', legacy, [column('title')]), true);
+  assert.equal(compatibleCardColumns('stack127_tool_pages', [column('title'), column('content_revision')], [column('title')]), false);
+  assert.equal(compatibleCardColumns('stack127_pages', [column('slug')], [column('slug'), column('is_indexable', 'boolean', 'bool')]), true);
+  assert.equal(compatibleCardColumns('stack127_pages', [column('slug')], [column('slug'), column('is_indexable')]), false);
+  assert.equal(compatibleCardColumns('stack127_pages', [column('slug')], [column('slug'), column('is_indexable', 'boolean', 'bool'), column('unknown')]), false);
+  assert.deepEqual(normalizeCardSnapshot('stack127_tool_pages', [{page_id: 1, title: 'Tool', content_revision: 7}], []), [{page_id: 1, title: 'Tool'}]);
+  assert.deepEqual(normalizeCardSnapshot('stack127_pages', [{slug: 'old'}, {slug: 'hidden', is_indexable: false}], []), [{slug: 'old', is_indexable: true}, {slug: 'hidden', is_indexable: false}]);
+});
+
+
+test('legacy catalog recovery converts exact titles, intro, and ordering without changing dates', () => {
+  const source = { page_id: 2, heading_before: 'DNS ', heading_mark: 'tools', heading_after: ' to check records',
+    intro: 'Choose a check.', section_heading: 'Choose a DNS check', home_order: 10,
+    card_icon_key: 'network', hero_art_key: 'dns-tools', card_art_key: 'dns-tools', row_updated_at: 'original' };
+  const expected = { page_id: 2, title: 'DNS <mark>tools</mark> to check records', intro_markdown: 'Choose a check.',
+    content_markdown: null, display_order: 10, card_icon_key: 'network', card_art_key: 'dns-tools', row_updated_at: 'original' };
+  assert.deepEqual(normalizeCardSnapshot('stack127_catalog_pages', [source], []), [expected]);
+  assert.deepEqual(normalizeCardSnapshot('stack127_catalog_pages', [expected], []), [expected]);
+  assert.throws(() => normalizeCardSnapshot('stack127_catalog_pages', [{ ...source, title: 'Other' }], []), /Conflicting/);
+  assert.throws(() => normalizeCardSnapshot('stack127_catalog_pages', [{ ...source, hero_art_key: 'other' }], []), /differs/);
+  assert.throws(() => normalizeCardSnapshot('stack127_catalog_pages', [{ ...source, intro_markdown: 'Other' }], []), /Conflicting/);
+  const incomplete = { ...source }; delete incomplete.heading_after;
+  assert.throws(() => normalizeCardSnapshot('stack127_catalog_pages', [incomplete], []), /incomplete/);
+});
+
+test('recovery accepts the complete catalog column transition and rejects unexpected types', () => {
+  const text = column_name => ({ column_name, data_type: 'text', udt_name: 'text' });
+  const int = column_name => ({ column_name, data_type: 'integer', udt_name: 'int4' });
+  const source = ['heading_before', 'heading_mark', 'heading_after', 'intro', 'section_heading', 'hero_art_key', 'card_icon_key', 'card_art_key'].map(text).concat(int('home_order'));
+  const target = ['title', 'intro_markdown', 'content_markdown', 'card_icon_key', 'card_art_key'].map(text).concat(int('display_order'));
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', source, target), true);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', target, target), true);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', source.concat(text('unexpected')), target), false);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', source.map(column => column.column_name === 'heading_mark' ? int('heading_mark') : column), target), false);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', source.map(column => column.column_name === 'hero_art_key' ? int('hero_art_key') : column), target), false);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', source.filter(column => column.column_name !== 'heading_after'), target), false);
+});
+
+
+test('recovery copies complete Release A rows before and after production expansion', () => {
+  const text = column_name => ({column_name, data_type: 'text', udt_name: 'text'});
+  const int = column_name => ({column_name, data_type: 'integer', udt_name: 'int4'});
+  const legacy = {page_id: 2, heading_before: 'DNS ', heading_mark: 'tools', heading_after: '',
+    intro: 'Choose a tool.', section_heading: 'Choose a DNS check', home_order: 10,
+    hero_art_key: 'dns-tools', card_art_key: 'dns-tools'};
+  const expanded = {...legacy, title: 'DNS <mark>tools</mark>', intro_markdown: legacy.intro,
+    content_markdown: null, display_order: legacy.home_order};
+  const columns = Object.keys(expanded).map(key => ['page_id', 'home_order', 'display_order'].includes(key) ? int(key) : text(key));
+  assert.deepEqual(snapshotForTarget('stack127_catalog_pages', [legacy], [], columns), [expanded]);
+  assert.deepEqual(snapshotForTarget('stack127_catalog_pages', [expanded], [], columns), [expanded]);
+  const legacyColumns = columns.filter(column => column.column_name in legacy);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', legacyColumns, columns), true);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', columns, columns), true);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', columns.concat(text('unknown')), columns), false);
+  assert.equal(compatibleCardColumns('stack127_catalog_pages', columns.map(column => column.column_name === 'heading_before' ? int('heading_before') : column), columns), false);
+  assert.throws(() => snapshotForTarget('stack127_catalog_pages', [{...expanded, intro: 'Diverged'}], [], columns), /Conflicting/);
+  assert.throws(() => snapshotForTarget('stack127_catalog_pages', [{...expanded, hero_art_key: 'Diverged'}], [], columns), /differs/);
+  const tool = {page_id: 1, title: 'Tool', content_revision: 7};
+  assert.deepEqual(snapshotForTarget('stack127_tool_pages', [tool], [], [int('page_id'), text('title'), int('content_revision')]), [tool]);
+  assert.deepEqual(snapshotForTarget('stack127_tool_pages', [tool], [], [int('page_id'), text('title')]), [{page_id: 1, title: 'Tool'}]);
+  assert.throws(() => snapshotForTarget('stack127_tool_pages', [{...tool, content_revision: null}], [], [int('content_revision')]), /valid content_revision/);
 });

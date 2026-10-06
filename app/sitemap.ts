@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next";
 import { getPublishedSitemapPages, pathFromSlug } from "@/lib/page-registry";
 import { absoluteUrl } from "@/lib/seo";
+import { isIndexablePage } from "@/lib/page-registry-helpers";
 
 export const revalidate = false;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pages = await getPublishedSitemapPages();
 
-  return pages.map((page) => ({
+  return pages.filter(isIndexablePage).map((page) => ({
     changeFrequency: "weekly",
     lastModified: new Date(page.updated_at).toISOString(),
     priority: Number(page.sitemap_priority),

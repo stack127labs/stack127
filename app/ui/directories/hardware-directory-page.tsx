@@ -1,6 +1,7 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { ContentMarkdown } from "../content-markdown";
 import { DirectoryPageTitle, DirectoryPageContent } from "./directory-page-content";
+import { PageMeta } from "@/app/ui/site/page-meta";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import type { ReactNode } from "react";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
@@ -64,6 +65,7 @@ export async function HardwareDirectoryPage({ config, snapshot }: { config: Hard
         <PageCanvas as="div" flow className="directory-results">
           <PageHeader bordered>
             <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} fallback={config.icon} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+            <PageMeta updatedAt={directoryPage.updated_at} />
             <ContentMarkdown markdown={directoryPage.intro_markdown} />
           </PageHeader>
 

@@ -19,7 +19,7 @@ import {
   pathFromSlug,
   type Stack127Page,
 } from "@/lib/page-registry";
-import { lessons } from "@/lib/self-hosting-for-beginners";
+import { getRequiredCourse } from "@/lib/course-pages";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
 import { EntryHero } from "@/app/ui/site/entry-hero";
 import { SidebarList } from "@/app/ui/site/sidebar-list";
@@ -39,17 +39,12 @@ type HomePageCardRecord = Stack127Page & {
 /** Legal pages stay in the footer; the explore list is for the real content. */
 const legalSlugs = new Set(["about", "privacy", "terms"]);
 
-/** The course and Labs have no card table, so their card keys and counts stay in code. */
+/** Labs keeps its card assets and counts in code. */
 const codeCards: Record<string, { iconKey: string; artKey: string; counts: () => PageCardCount[] }> = {
   labs: {
     iconKey: "labs",
     artKey: "labs",
     counts: () => [{ label: "projects", value: labProjects.length }],
-  },
-  "self-hosting-for-beginners": {
-    iconKey: "self-hosting-for-beginners",
-    artKey: "self-hosting-for-beginners",
-    counts: () => [{ label: "lessons", value: lessons.filter((lesson) => lesson.published).length }],
   },
 };
 
@@ -80,6 +75,10 @@ function HomeSidebar({ pages }: { pages: HomePageCardRecord[] }) {
 }
 
 async function cardCounts(page: Stack127Page) {
+  if (page.page_family === "course") {
+    const course = await getRequiredCourse(page.slug);
+    return [{ label: "lessons", value: course.lessons.filter(lesson => lesson.published).length }];
+  }
   return codeCards[page.slug]?.counts() ?? directoryCardCounts(page.slug);
 }
 

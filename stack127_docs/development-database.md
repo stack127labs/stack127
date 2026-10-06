@@ -7,7 +7,7 @@ Development uses the managed Supabase project in `.env.local`. Production, in `.
 Save a development backup before you replace its website records. Run commands from the repository root.
 
 ```bash
-# Compare the 15 shared website tables without changing records.
+# Compare the shared website tables without changing records.
 node scripts/stack127/database/rebuild-development.mjs --verify
 
 # Copy production website records and verify before committing the import.
@@ -54,7 +54,7 @@ This updates the history record. It doesn't run old SQL. The script never change
 
 | Data | Recovery behavior |
 | --- | --- |
-| Page registry, tool copy, tool catalogs | Copy production; keep development-only routes and draft previews. |
+| Page registry, tool copy, tool catalogs, course and lesson definitions | Copy production; keep development-only routes and draft previews. |
 | Self-host apps, categories, estimates, installs, GitHub metadata, candidates | Copy current production records. |
 | Terminal apps and their editorial sources | Copy current production records. |
 | Platform fees, launch directories, ad networks, ad publishers and relationships | Keep development records. Use reviewed forward migrations for their schema. |
@@ -63,7 +63,11 @@ This updates the history record. It doesn't run old SQL. The script never change
 | Cache signing credential, Auth accounts, Vault secrets, media objects | Never copy from production. |
 | Local ad network SQLite database and services | Leave alone. |
 
-The import keeps production IDs and timestamps. Before committing, it compares counts and full row content.
+The import keeps production IDs and timestamps. While development is ahead, the copy accepts these specific column transitions: catalog card renames, catalog heading conversion to `title`, renamed `intro_markdown` and `display_order`, optional catalog `content_markdown`, removed catalog section headings and duplicate hero art, directory card additions, retained tool and directory `content_revision` during Release A, followed by its removal in Release C, and added registry `is_indexable`. Legacy registry snapshots default to indexable. During Release A, both old and new catalog columns coexist. Recovery checks that each paired value agrees and writes every target column while triggers are disabled. It preserves revision counters until Release C. Other column and type differences still fail. Full schema checks for history alignment remain strict.
+
+While production has no course tables, recovery keeps all development course and lesson rows. It remaps both `page_id` and `course_page_id` after restoring the registry and checks the preserved rows before commit. Once production has those tables, recovery copies their production rows and keeps development-only definitions. An unexpected schema difference still fails.
+
+Development-only directory record comparison state is preserved and its page IDs are remapped during a copy. It is never copied from production. Before committing, it compares counts and full row content.
 
 Only the draft routes' publication flags, publication dates, and update dates may differ. Their original preview settings are also checked before commit. Development-only registry rows stay intact.
 

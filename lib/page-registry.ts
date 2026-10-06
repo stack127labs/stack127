@@ -6,7 +6,8 @@ import { unstable_cache } from "next/cache";
 import { getPool } from "./db";
 import { readPublicData, selectPublicRows } from "./public-data-api";
 import { absoluteUrl, siteName, siteUrl } from "./seo";
-import { homePageSlugs } from "./page-registry-helpers";
+import { homePageSlugs, resolvePagePublicationState } from "./page-registry-helpers";
+import type { RegistryPublicationState } from "./page-registry-helpers";
 import { PAGE_REGISTRY_TAG, HOME_PAGES_TAG, SITEMAP_TAG } from "./cache-tags";
 
 export type Stack127Page = {
@@ -18,6 +19,7 @@ export type Stack127Page = {
   meta_title: string;
   meta_description: string;
   is_published: boolean;
+  is_indexable: boolean;
   row_created_at: Date | string;
   published_at: Date | string;
   updated_at: Date | string;
@@ -34,29 +36,9 @@ export {
   isMainPageSlug,
 } from "./page-registry-helpers";
 
-export type PagePublicationState =
-  | {
-      kind: "exact";
-      index: true;
-      page: Stack127Page;
-      pathname: string;
-      slug: string;
-    }
-  | {
-      kind: "child";
-      index: false;
-      page: Stack127Page;
-      parentSlug: string;
-      pathname: string;
-      slug: string;
-    }
-  | {
-      kind: "missing";
-      pathname: string;
-      slug: string;
-    };
+export type PagePublicationState = RegistryPublicationState<Stack127Page>;
 
-const publishedPageSelect = `
+const registryPageSelect = `
   select
     id,
     slug,
@@ -65,6 +47,7 @@ const publishedPageSelect = `
     meta_title,
     meta_description,
     is_published,
+    is_indexable,
     row_created_at,
     published_at,
     updated_at,
@@ -73,8 +56,8 @@ const publishedPageSelect = `
     page_type,
     sitemap_priority
   from public.stack127_pages
-  where is_published = true
 `;
+const publishedPageSelect = `${registryPageSelect} where is_published = true`;
 
 const publishedPageColumns = [
   "id",
@@ -84,6 +67,7 @@ const publishedPageColumns = [
   "meta_title",
   "meta_description",
   "is_published",
+  "is_indexable",
   "row_created_at",
   "published_at",
   "updated_at",
@@ -93,20 +77,25 @@ const publishedPageColumns = [
   "sitemap_priority",
 ].join(",");
 
-async function queryPublishedPage(slug: string) {
+async function queryRegistryPage(slug: string) {
   return readPublicData<Stack127Page | null>({
     dataApiRead: async () => {
       const rows = await selectPublicRows<Stack127Page>("stack127_pages", {
-        is_published: "eq.true",
         limit: "1",
         select: publishedPageColumns,
         slug: `eq.${slug}`,
       });
-      return rows[0] ?? null;
+      // RLS hides drafts. Check their existence before inheriting a parent.
+      if (rows[0]) return rows[0];
+      const result = await getPool().query<Stack127Page>(
+        `${registryPageSelect} where slug = $1 limit 1`,
+        [slug],
+      );
+      return result.rows[0] ?? null;
     },
     postgresRead: async () => {
       const result = await getPool().query<Stack127Page>(
-        `${publishedPageSelect} and slug = $1 limit 1`,
+        `${registryPageSelect} where slug = $1 limit 1`,
         [slug],
       );
       return result.rows[0] ?? null;
@@ -114,8 +103,8 @@ async function queryPublishedPage(slug: string) {
   });
 }
 
-function cachedPublishedPage(slug: string) {
-  return unstable_cache(() => queryPublishedPage(slug), ["stack127-published-page", slug], {
+function cachedRegistryPage(slug: string) {
+  return unstable_cache(() => queryRegistryPage(slug), ["stack127-registry-page", slug], {
     revalidate: false,
     tags: [`${PAGE_REGISTRY_TAG}:${slug || "home"}`],
   })();
@@ -136,18 +125,11 @@ export function pathFromSlug(slug: string) {
   return slug ? `/${slug}` : "/";
 }
 
-function ancestorSlugs(slug: string) {
-  const parts = slug.split("/").filter(Boolean);
-  const ancestors: string[] = [];
-
-  for (let index = parts.length - 1; index > 0; index -= 1) {
-    ancestors.push(parts.slice(0, index).join("/"));
-  }
-
-  return ancestors;
-}
-
-export const getExactPublishedPage = cache(cachedPublishedPage);
+const getRegistryPage = cache(cachedRegistryPage);
+export const getExactPublishedPage = cache(async (slug: string) => {
+  const page = await getRegistryPage(slug);
+  return page?.is_published ? page : null;
+});
 
 export const getPublishedPage = getExactPublishedPage;
 
@@ -162,61 +144,27 @@ export const getRequiredPublishedPage = cache(async (slug: string) => {
 });
 
 export const getPagePublicationState = cache(
-  async (pathname: string): Promise<PagePublicationState> => {
-    const cleanedPathname = cleanPathname(pathname);
-    const slug = slugFromPathname(cleanedPathname);
-    const exact = await getPublishedPage(slug);
-
-    if (exact) {
-      return {
-        kind: "exact",
-        index: true,
-        page: exact,
-        pathname: cleanedPathname,
-        slug,
-      };
-    }
-
-    for (const parentSlug of ancestorSlugs(slug)) {
-      const parent = await getPublishedPage(parentSlug);
-
-      if (parent) {
-        return {
-          kind: "child",
-          index: false,
-          page: parent,
-          parentSlug,
-          pathname: cleanedPathname,
-          slug,
-        };
-      }
-    }
-
-    return {
-      kind: "missing",
-      pathname: cleanedPathname,
-      slug,
-    };
-  },
+  (pathname: string): Promise<PagePublicationState> => resolvePagePublicationState(pathname, getRegistryPage),
 );
 
 export const getPublishedSitemapPages = cache(unstable_cache(async () => {
   const rows = await readPublicData<Stack127Page[]>({
     dataApiRead: () => selectPublicRows<Stack127Page>("stack127_pages", {
       is_published: "eq.true",
+      is_indexable: "eq.true",
       order: "slug.asc",
       select: publishedPageColumns,
     }),
     postgresRead: async () => {
       const result = await getPool().query<Stack127Page>(
-        `${publishedPageSelect} order by slug asc`,
+        `${publishedPageSelect} and is_indexable = true order by slug asc`,
       );
       return result.rows;
     },
   });
 
   return rows;
-}, [SITEMAP_TAG], { revalidate: false, tags: [SITEMAP_TAG] }));
+}, [SITEMAP_TAG, "indexable"], { revalidate: false, tags: [SITEMAP_TAG] }));
 
 /**
  * Curated published pages for site-wide home navigation. URL depth is not
@@ -245,7 +193,7 @@ export const getMainPublishedPages = cache(unstable_cache(async () => {
   const cards = await readPageCards(pages);
   return pages.map(page => {
     const card = cards.get(String(page.id));
-    if (["tool", "directory", "catalog"].includes(page.page_family) && !card) {
+    if (["tool", "directory", "catalog", "course"].includes(page.page_family) && !card) {
       throw new Error(`Page card is missing: ${page.slug}`);
     }
     return {

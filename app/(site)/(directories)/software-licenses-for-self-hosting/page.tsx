@@ -1,5 +1,6 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { PageMeta } from "@/app/ui/site/page-meta";
 import { ContentMarkdown } from "@/app/ui/content-markdown";
 import type { Components } from "react-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
@@ -191,6 +192,7 @@ export default async function SoftwareLicensesPage() {
       <PageCanvas as="div" flow className="license-page">
         <PageHeader bordered className={proseClassName}>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+          <PageMeta updatedAt={directoryPage.updated_at} />
           <ContentMarkdown markdown={directoryPage.intro_markdown} components={{ p: ({ children }) => <p className={proseLedeClassName}>{children}</p> }} />
           <DirectoryPageContent page={directoryPage} section="disclaimer" components={{ p: ({ children }) => <p className="license-disclaimer">{children}</p> }} />
         </PageHeader>

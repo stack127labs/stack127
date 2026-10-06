@@ -5,11 +5,10 @@ import { imageContainerCycleArt } from "./art/image-container-cycle";
 import { imageContainerPortArt } from "./art/image-container-port";
 import { CodeBlock } from "@/app/ui/site/code-block";
 
-const lesson = getLesson("install-docker");
-
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("install-docker");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           Almost every app you'll run is packaged with Docker, and most of your self-hosting life
           happens through it: running containers, reading their logs, editing their compose files.

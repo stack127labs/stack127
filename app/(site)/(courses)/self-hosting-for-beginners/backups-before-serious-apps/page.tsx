@@ -5,11 +5,10 @@ import { backupRestoreProofArt } from "./art/backup-restore-proof";
 import { threeTwoOneBackupsArt } from "./art/three-two-one-backups";
 import { CodeBlock } from "@/app/ui/site/code-block";
 
-const lesson = getLesson("backups-before-serious-apps");
-
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("backups-before-serious-apps");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           This is the boring lesson that lets you relax. Once backups run on their own and you've
           seen a restore actually work, you can hand your server real things, photos, passwords,

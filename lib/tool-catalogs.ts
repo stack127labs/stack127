@@ -10,15 +10,12 @@ type CatalogContent = {
   card_name: string;
   card_description: string;
   page_id: number | string;
-  heading_before: string;
-  heading_mark: string;
-  heading_after: string;
-  intro: string;
-  section_heading: string;
+  title: string;
+  intro_markdown: string;
+  content_markdown: string | null;
   card_icon_key: string;
-  hero_art_key: string;
   card_art_key: string;
-  home_order: number;
+  display_order: number;
 };
 
 type Membership = {
@@ -38,6 +35,8 @@ type CardContent = {
 
 export type ToolCatalogSummary = CatalogContent & {
   page: Stack127Page;
+  published_at: Stack127Page["published_at"];
+  updated_at: Stack127Page["updated_at"];
   tool_count: number;
 };
 
@@ -51,8 +50,8 @@ export type PublishedToolCatalog = ToolCatalogSummary & {
   tools: ToolCatalogCard[];
 };
 
-const catalogColumns = "card_name,card_description,page_id,heading_before,heading_mark,heading_after,intro,section_heading,card_icon_key,hero_art_key,card_art_key,home_order";
-const pageColumns = "id,slug,page_family,label,meta_title,meta_description,is_published,row_created_at,published_at,updated_at,row_updated_at,cover_image_url,page_type,sitemap_priority";
+const catalogColumns = "card_name,card_description,page_id,title,intro_markdown,content_markdown,card_icon_key,card_art_key,display_order";
+const pageColumns = "id,slug,page_family,label,meta_title,meta_description,is_published,is_indexable,row_created_at,published_at,updated_at,row_updated_at,cover_image_url,page_type,sitemap_priority";
 const membershipColumns = "catalog_page_id,tool_page_id,catalog_rank,display_order";
 const cardColumns = "page_id,card_name,card_description,card_icon_key,card_art_key";
 
@@ -65,7 +64,7 @@ export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<T
     dataApiRead: async () => {
       const contents = await selectCardRows<CatalogContent>("stack127_catalog_pages", {
         select: catalogColumns,
-        order: "home_order.asc",
+        order: "display_order.asc",
       });
       if (!contents.length) return [];
       const catalogIds = contents.map((content) => content.page_id);
@@ -85,12 +84,14 @@ export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<T
       }
       return contents.flatMap((content) => {
         const page = pageById.get(String(content.page_id));
-        return page ? [{ ...(normalizeCardAssets(content, "catalog", page.slug) as CatalogContent), page, tool_count: counts.get(String(content.page_id)) ?? 0 }] : [];
+        return page ? [{ ...(normalizeCardAssets(content, "catalog", page.slug) as CatalogContent), page,
+          published_at: page.published_at, updated_at: page.updated_at,
+          tool_count: counts.get(String(content.page_id)) ?? 0 }] : [];
       });
     },
     postgresRead: async () => {
       const result = await getPool().query<ToolCatalogSummary & Stack127Page>(`
-        select catalog.*, to_jsonb(page.*) as page,
+        select catalog.*, to_jsonb(page.*) as page, page.published_at, page.updated_at,
           count(tool_page.id)::integer as tool_count
         from public.stack127_catalog_pages catalog
         join public.stack127_pages page on page.id = catalog.page_id
@@ -100,7 +101,7 @@ export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<T
         left join public.stack127_pages tool_page
           on tool_page.id = member.tool_page_id and tool_page.is_published
         group by catalog.page_id, page.id
-        order by catalog.home_order, page.label
+        order by catalog.display_order, page.label
       `);
       return result.rows.map(row => normalizeCardAssets(row, "catalog", row.page.slug) as ToolCatalogSummary);
     },

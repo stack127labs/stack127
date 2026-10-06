@@ -12,7 +12,7 @@ Use `NEXT_PUBLIC_SITE_URL` when a deploy target needs to override the base URL. 
 
 `public.stack127_pages` alone controls public page publication, metadata, indexing, and sitemap inclusion.
 
-Page files must not export `metadata`, define `generateMetadata`, hardcode robots rules, or create canonical URLs. They must not define sitemap dates or emit page-level JSON-LD. Page code renders content only. The root layout reads the current request path, checks `stack127_pages`, and applies publication rules.
+Page files must not export `metadata`, define `generateMetadata`, hardcode robots rules, or create canonical URLs. They must not define sitemap dates or emit page-level JSON-LD. Page code renders content only. Shared registry layouts check `stack127_pages` using their route path and apply publication rules.
 
 Fields:
 
@@ -24,7 +24,8 @@ Fields:
 | `label` | Compact UI label for sidebars, home cards, and other chrome |
 | `meta_title` | Full browser/search title |
 | `meta_description` | Search description |
-| `is_published` | Whether the exact slug is a public SEO page |
+| `is_published` | Whether the exact slug is public. Unpublished pages return 404 |
+| `is_indexable` | Whether a published exact slug can be indexed. Defaults to `true` |
 | `row_created_at` | Internal registry-row creation time. It is not a public date |
 | `row_updated_at` | Automatic internal time of the latest registry-row write |
 | `published_at` | Public time the exact slug first became public; `null` while unpublished |
@@ -45,19 +46,23 @@ Follow these route rules:
 
 | request | behavior |
 | --- | --- |
-| Exact published slug, for example `/self-host-apps` | Render, `index, follow`, sitemap included |
+| Exact published slug with `is_indexable = true` | Render, `index, follow`, sitemap included, JSON-LD included |
+| Exact published slug with `is_indexable = false` | Render, `noindex, follow`, sitemap excluded, no JSON-LD, canonical points to itself |
+| Exact unpublished slug, whatever `is_indexable` says | `404`, sitemap excluded |
 | Exact published slug with query params, for example `/self-host-apps?page=2` | Render the same static page, `noindex, follow` through the proxy header (or the Cloudflare header rule on the static frontend), sitemap excluded |
 | Child route under a published root, for example `/self-host-apps/page/2` | Render if code exists, `noindex, follow`, sitemap excluded |
-| Exact child slug later added to `stack127_pages` | Render, `index, follow`, sitemap included |
+| Exact published child slug in `stack127_pages` | Render; its `is_indexable` value controls indexing and sitemap inclusion |
 | Route outside a published root, for example `/random-test-page` | `404`, even if code exists |
 
 A URL with a query string is never indexed. Search, filters, sort, and `?page=` stay out of the index. To index a category or other view, give it its own path, such as `/self-host-apps/categories/<name>`. Publish that exact slug. See [caching.md](caching.md) for why pages never read the query on the server.
+
+Use `is_indexable = false` for thin child pages, filtered views with their own paths, and useful public pages still being improved. This setting does not hide them from sidebars, catalogs, or homepage lists. Set it to `true` when the page is ready for search.
 
 ## Static frontend
 
 Cloudflare hosting mode uses the SEO behavior below. See [cloudflare.md](cloudflare.md#static-frontend-on-cloudflare) for its activation and release checks.
 
-- The export holds only published pages, so the registry still decides what is public. Anything else returns the static 404 with `noindex`.
+- The export holds all published pages, including noindex pages. Anything unpublished returns the static 404 with `noindex`.
 - Titles, descriptions, canonicals, robots meta tags, and JSON-LD come from the registry, written into the exported HTML at build time.
 - `proxy.ts` doesn't run. A free Cloudflare response header transform rule sends `X-Robots-Tag: noindex, follow` on query URLs. It doesn't add the proxy's canonical `Link` header. The HTML canonical covers that.
 - RSC `.txt` files, `/frontend-release.json`, and the `workers.dev` preview send `noindex`.
@@ -79,7 +84,7 @@ The storage collection and its calculators, including the RAIDZ Expansion Planne
 
 Sitewide JSON-LD describes stack127 as a `WebSite` and `Organization`.
 
-Exact published registry pages get page-level JSON-LD from the root layout. `datePublished`, `dateModified`, description, URL, and page type come from `stack127_pages`.
+Exact published, indexable registry pages get JSON-LD through the shared SEO layout. `datePublished`, `dateModified`, description, URL, and page type come from `stack127_pages`. Public noindex pages emit no JSON-LD, including sitewide data and course breadcrumbs.
 
 ## Robots
 
@@ -93,5 +98,5 @@ Do not block useful pages in `robots.txt` just to handle duplicates. Prefer `noi
 2. Keep page code free of metadata, robots, canonical, sitemap, and JSON-LD exports.
 3. Add or update the page docs under `content_docs/<page-slug>/`.
 4. When the page should become public, insert a reviewed row into `public.stack127_pages` with the correct `page_family`.
-5. Verify the exact URL renders with `index, follow`, appears in `/sitemap.xml`, and child/query variants stay `noindex, follow`.
+5. Check the indexing setting. Indexable pages send `index, follow` and enter `/sitemap.xml`. Noindex pages render with their own canonical, send `noindex, follow`, omit JSON-LD, and stay out of the sitemap. Child/query variants stay `noindex, follow`.
 6. Follow [caching.md](caching.md). The page must be static and use on-demand revalidation. Its data source must be covered by the revalidation pipeline.

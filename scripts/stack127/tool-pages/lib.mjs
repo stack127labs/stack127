@@ -136,7 +136,6 @@ export async function lockToolPage(client, slug) {
         tool.intro_markdown,
         tool.usage_markdown,
         tool.content_markdown,
-        tool.content_revision,
         tool.tool_version,
         tool.stack127_repo_url,
         tool.stack127_repo_version,

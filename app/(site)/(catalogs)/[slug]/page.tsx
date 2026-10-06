@@ -3,7 +3,11 @@ import { AppShell } from "@/app/ui/site/app-shell";
 import { EntryHero } from "@/app/ui/site/entry-hero";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { PageHeader } from "@/app/ui/site/page-header";
+import { PageMeta } from "@/app/ui/site/page-meta";
 import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { ContentMarkdown } from "@/app/ui/content-markdown";
+import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
+import { proseClassName, proseFlowClassName } from "@/app/ui/site/prose";
 import { ToolCatalog } from "@/app/ui/catalogs/tool-catalog";
 import { ToolCatalogSidebar } from "@/app/ui/catalogs/tool-catalog-sidebar";
 import { DomainCatalogReference } from "./domain-catalog-reference";
@@ -24,19 +28,25 @@ export default async function ToolCatalogPage({ params }: { params: Promise<{ sl
       sidebar={<ToolCatalogSidebar active={slug} />}
       sidebarLabel="Tool catalogs sidebar"
     >
-      <EntryHero art={cardArt(catalog.hero_art_key)}>
+      <EntryHero art={cardArt(catalog.card_art_key)}>
         <PageHeader>
           <h1>
             <PageTitleIcon><Icon strokeWidth={2.2} /></PageTitleIcon>{" "}
-            {catalog.heading_before}<mark>{catalog.heading_mark}</mark>{catalog.heading_after}
+            <DirectoryPageTitle title={catalog.title} />
           </h1>
-          <p>{catalog.intro}</p>
+          <PageMeta updatedAt={catalog.updated_at} />
+          <ContentMarkdown markdown={catalog.intro_markdown} />
         </PageHeader>
       </EntryHero>
       <PageCanvas>
-        <ToolCatalog heading={catalog.section_heading} tools={catalog.tools} />
+        <ToolCatalog heading="Tools" tools={catalog.tools} />
         {slug === "domain-tools" ? <DomainCatalogReference /> : null}
       </PageCanvas>
+      {catalog.content_markdown ? (
+        <PageCanvas as="article" reading className={`${proseClassName} ${proseFlowClassName}`}>
+          <ContentMarkdown markdown={catalog.content_markdown} />
+        </PageCanvas>
+      ) : null}
     </AppShell>
   );
 }

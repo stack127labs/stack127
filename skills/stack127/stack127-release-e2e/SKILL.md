@@ -22,6 +22,7 @@ Builds and release checks run on GitHub, not on the homelab. Don't run `npm run 
 - Confirm the Sol review passed and the worktree is clean.
 - Confirm migrations were applied and checked on the development database. PR CI doesn't run migrations.
 - For pages going public or changing data, confirm each publish manifest ran cleanly in development through `prepare`, `preview`, and `apply`.
+- Review `registry.is_indexable` separately from publication. Thin child pages, filtered views, and public pages still being improved can use `false` while staying published. Reprepare plans made before this field existed.
 
 ## Pull request
 
@@ -67,6 +68,7 @@ Use the single-purpose tool-page commands in production only for a small fix to 
 ## After deploy
 
 - Check the changed pages on `https://stack127.com` at desktop and mobile width. For a tool, run one correct and one invalid example. Confirm unpublished pages still return 404.
+- For published noindex pages, confirm their own canonical, a noindex robots tag, no JSON-LD, and absence from the sitemap. The publisher verifies these too.
 - Stop on a real build, target, DNS, credential, or live-site failure.
 
 ## Complete
@@ -74,3 +76,5 @@ Use the single-purpose tool-page commands in production only for a small fix to 
 Report the PR, the merge commit, the workflow result, the live SHA, the page publication result, the public smoke result, and the elapsed time. Don't call the release complete unless `origin/main`, the deployed image, and the live health SHA all match the merge commit. In Cloudflare mode, `/frontend-release.json` must match it too.
 
 Never deploy to the removed Hostinger target, expose secrets, bypass Cloudflare Access, automate dashboard credentials, or change DNS to hide a failed deployment.
+
+For meaningful code directory facts, include `touch_reason` in the reviewed directory publication manifest. Skip it for typo fixes. Copy and covered database records move dates automatically. Tool card edits leave tool dates alone; shipped behavior changes require the next `tool_version`. See `stack127_docs/page-publishing.md` and `stack127_docs/tool-pages.md`.

@@ -17,7 +17,7 @@ const sha = "a".repeat(40);
 const revision = "2026-10-05T10:00:00.123Z";
 const event = { id: "9007199254740993", entity_type: "page", slug: "about", created_at: "2026-10-05 10:00:00.123456+00", fingerprint: "b".repeat(32) };
 const json = (body, status = 200) => Response.json(body, { status });
-const pages = ["", "about"].map(slug => ({ slug, is_published: true, page_family: "site", has_content: true, revision }));
+const pages = ["", "about"].map(slug => ({ slug, is_published: true, is_indexable: true, page_family: "site", has_content: true, revision }));
 const snapshot = (events = [event]) => ({ schema_version: 1, sha, captured_at: revision, build_required: true, events, pages, targets: targetsForEvents(events), launch_revision: "c".repeat(32) });
 
 test("dispatch coalesces a queued, running, or approval-waiting refresh", async () => {
@@ -177,10 +177,10 @@ test("retry updates only captured versions and never acknowledges them", async (
 async function fixture() {
   const directory = await mkdtemp(path.join(os.tmpdir(), "stack127-frontend-queue-"));
   const bodies = new Map([
-    ["/", `<html><meta name="stack127-content-revision" content="${revision}"><main>Home</main></html>`],
-    ["/about", `<html><meta name="stack127-content-revision" content="${revision}"><main>About</main></html>`],
+    ["/", `<html><link rel="canonical" href="https://stack127.com/"><meta name="robots" content="index, follow"><meta name="stack127-content-revision" content="${revision}"><main>Home</main></html>`],
+    ["/about", `<html><link rel="canonical" href="https://stack127.com/about"><meta name="robots" content="index, follow"><meta name="stack127-content-revision" content="${revision}"><main>About</main></html>`],
     ["/robots.txt", "User-agent: *\nSitemap: https://stack127.com/sitemap.xml\n"],
-    ["/sitemap.xml", "<urlset><url><loc>https://stack127.com/about</loc></url></urlset>"],
+    ["/sitemap.xml", "<urlset><url><loc>https://stack127.com/</loc></url><url><loc>https://stack127.com/about</loc></url></urlset>"],
     ["/frontend-release.json", JSON.stringify({ sha })],
   ]);
   for (const [pathname, body] of bodies) {
@@ -203,8 +203,27 @@ test("public verification catches stale content from an earlier build of the sam
     assert.equal((await verifyPublicAssets(snapshot(), files.directory, files)).length, 5);
     files.bodies.set("/about", "<main>Earlier content from the same SHA</main>");
     await assert.rejects(verifyPublicAssets(snapshot(), files.directory, files), /differs from the deployed export/);
-    await writeFile(path.join(files.directory, "about.html"), `<meta name="stack127-content-revision" content="2026-10-04T00:00:00.000Z">`);
+    await writeFile(path.join(files.directory, "about.html"), (await readFile(path.join(files.directory, 'about.html'), 'utf8')).replace(revision, '2026-10-04T00:00:00.000Z'));
     await assert.rejects(exportProofs(snapshot(), files.directory), /content revision differs/);
+  } finally { await files.close(); }
+});
+
+test('static verification checks canonical, robots, structured data and sitemap before acknowledging', async () => {
+  const files = await fixture();
+  try {
+    const original = files.bodies.get('/about');
+    const captured = snapshot();
+    captured.pages = captured.pages.map(page => ({...page, is_indexable: page.slug !== 'about'}));
+    await writeFile(path.join(files.directory, 'about.html'), original.replace('index, follow', 'noindex, follow'));
+    await assert.rejects(exportProofs(captured, files.directory), /sitemap inclusion/);
+    await writeFile(path.join(files.directory, 'sitemap.xml'), '<urlset><url><loc>https://stack127.com/</loc></url></urlset>');
+    await exportProofs(captured, files.directory);
+    await writeFile(path.join(files.directory, 'about.html'), original.replace('index, follow', 'noindex, follow') + '<script type="application/ld+json">{}</script>');
+    await assert.rejects(exportProofs(captured, files.directory), /structured data/);
+    for (const html of [original, original.replace('https://stack127.com/about', 'https://stack127.com/wrong').replace('index, follow', 'noindex, follow')]) {
+      await writeFile(path.join(files.directory, 'about.html'), html);
+      await assert.rejects(exportProofs(captured, files.directory), /indexing metadata/);
+    }
   } finally { await files.close(); }
 });
 

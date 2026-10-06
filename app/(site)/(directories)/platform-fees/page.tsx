@@ -4,6 +4,7 @@ import { feeGroups, groupPath } from '@/lib/platform-fees/groups';
 import { FeeFilters, FeeHubResults } from './filters';
 import { CategoryTile, FeeShell } from './components';
 import styles from './page.module.css';
+import { RegistryStructuredData } from '@/lib/registry-layout';
 
 export default async function PlatformFeesPage() {
   const directoryPage = await getRequiredDirectoryPage('platform-fees');
@@ -21,7 +22,9 @@ export default async function PlatformFeesPage() {
     };
   });
 
-  return <FeeShell directoryPage={directoryPage} overview>
+  return <>
+    <RegistryStructuredData path="/platform-fees" />
+    <FeeShell directoryPage={directoryPage} overview>
     <FeeFilters />
     <FeeHubResults items={items}>
       <p className={styles.count}>{feeGroups.length} categories · {directory.sections.length} sections · {directory.entries.length} listings</p>
@@ -32,5 +35,6 @@ export default async function PlatformFeesPage() {
         return <CategoryTile key={group.slug} group={group} sections={sections.length} listings={listings} />;
       })}</div>
     </FeeHubResults>
-  </FeeShell>;
+    </FeeShell>
+  </>;
 }

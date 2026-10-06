@@ -1,5 +1,6 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { PageMeta } from "@/app/ui/site/page-meta";
 import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { FaGithub } from "react-icons/fa6";
@@ -61,6 +62,7 @@ export default async function SelfHostAppsPage() {
           <EntryHero art={siteSpotSelfHostAppsArt}>
             <PageHeader>
               <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+              <PageMeta updatedAt={directoryPage.updated_at} />
               <ContentMarkdown markdown={directoryPage.intro_markdown} />
             </PageHeader>
           </EntryHero>

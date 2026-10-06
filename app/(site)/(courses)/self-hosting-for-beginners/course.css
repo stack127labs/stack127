@@ -4,39 +4,6 @@
   gap: var(--space-8);
 }
 
-.lesson-byline {
-  align-items: center;
-  color: var(--color-text-muted);
-  display: flex;
-  gap: var(--space-3);
-}
-
-.lesson-author-avatar {
-  aspect-ratio: 1;
-  border: 1px solid var(--color-border);
-  border-radius: 50%;
-  display: block;
-  flex: 0 0 auto;
-  height: 40px;
-  width: 40px;
-}
-
-.lesson-byline p {
-  color: var(--color-text-muted) !important;
-  display: flex;
-  flex-wrap: wrap;
-  font-size: var(--text-small) !important;
-  gap: var(--space-2);
-  line-height: 1.4;
-  margin: 0;
-}
-
-.lesson-byline span + span::before {
-  color: var(--color-text-muted);
-  content: "/";
-  margin-right: var(--space-2);
-}
-
 .lesson-page .lesson-lede {
   color: var(--color-text);
   font-size: var(--text-body);
@@ -139,18 +106,6 @@
 @media (max-width: 720px) {
   .lesson-nav {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .lesson-byline p {
-    display: grid;
-    gap: 0;
-  }
-
-  .lesson-byline span + span::before {
-    content: "";
-    margin: 0;
   }
 }
 

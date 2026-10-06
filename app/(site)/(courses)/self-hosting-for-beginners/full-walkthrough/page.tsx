@@ -5,8 +5,6 @@ import { Callout, LessonLink, LessonPage } from "../course";
 import { fullLoopArt } from "./art/full-loop";
 import { CodeBlock } from "@/app/ui/site/code-block";
 
-const lesson = getLesson("full-walkthrough");
-
 const memosCompose = `services:
   memos:
     image: neosmemo/memos:stable
@@ -17,9 +15,10 @@ const memosCompose = `services:
       - ./data:/var/opt/memos
     restart: unless-stopped`;
 
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("full-walkthrough");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           Let's run the whole path once, top to bottom, so you can see how the pieces connect
           instead of as separate lessons. First the map, then the same run as one sitting with real

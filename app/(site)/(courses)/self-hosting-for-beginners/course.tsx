@@ -1,33 +1,34 @@
 import type { ReactNode } from "react";
 import { Callout } from "@/app/ui/callout";
 import { Faq as SharedFaq } from "@/app/ui/faq";
-import { selfHostingForBeginnersCourse } from "@/lib/self-hosting-for-beginners";
+import { getSelfHostingForBeginnersCourse } from "@/lib/self-hosting-for-beginners";
 import {
   CourseLessonLink,
   CourseLessonPage,
 } from "../../../ui/courses/course-shell";
-import { siteSpotCourseArt } from "../../art/site--spot-course";
+import { cardArt } from "@/lib/card-art";
 
-export function LessonPage({ children, currentSlug, heading }: {
+export async function LessonPage({ children, currentSlug, title }: {
   children: ReactNode;
   currentSlug: string;
-  heading: string;
+  title: string;
 }) {
+  const course = await getSelfHostingForBeginnersCourse();
   return (
     <CourseLessonPage
-      course={selfHostingForBeginnersCourse}
+      course={course}
       currentSlug={currentSlug}
-      entryHeroArt={currentSlug === "" ? siteSpotCourseArt : undefined}
-      heading={heading}
+      entryHeroArt={currentSlug === "" ? cardArt(course.card_art_key) ?? undefined : undefined}
+      title={title}
     >
       {children}
     </CourseLessonPage>
   );
 }
 
-export function LessonLink({ slug, children }: { slug: string; children: ReactNode }) {
+export async function LessonLink({ slug, children }: { slug: string; children: ReactNode }) {
   return (
-    <CourseLessonLink course={selfHostingForBeginnersCourse} slug={slug}>
+    <CourseLessonLink course={await getSelfHostingForBeginnersCourse()} slug={slug}>
       {children}
     </CourseLessonLink>
   );

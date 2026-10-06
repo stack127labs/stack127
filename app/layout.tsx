@@ -4,7 +4,6 @@ import { getUmamiConfig } from "@/lib/analytics";
 import { getGoogleAnalyticsConfig } from "@/lib/google-analytics";
 import { absoluteUrl, defaultDescription, siteName, siteUrl } from "@/lib/seo";
 import { GoogleAnalyticsConsent } from "./ui/site/google-analytics-consent";
-import { JsonLd } from "./ui/site/json-ld";
 import { SiteNav } from "./ui/site/site-nav";
 import "./globals.css";
 
@@ -70,29 +69,6 @@ function baseMetadata(): Metadata {
 
 export const metadata: Metadata = baseMetadata();
 
-const siteStructuredData = [
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    description: defaultDescription,
-    name: siteName,
-    publisher: {
-      "@type": "Organization",
-      name: siteName,
-      url: absoluteUrl("/"),
-    },
-    url: absoluteUrl("/"),
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    email: "stack127@proton.me",
-    logo: absoluteUrl("/android-chrome-512x512.png"),
-    name: siteName,
-    url: absoluteUrl("/"),
-  },
-];
-
 function AppIcons() {
   return (
     <>
@@ -134,7 +110,6 @@ export default function RootLayout({
         ) : null}
       </head>
       <body>
-        <JsonLd data={siteStructuredData} />
         <SiteNav />
         {children}
         {googleAnalytics ? (

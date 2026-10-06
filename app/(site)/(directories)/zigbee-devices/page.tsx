@@ -1,5 +1,6 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { PageMeta } from "@/app/ui/site/page-meta";
 import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { RadioTower } from "lucide-react";
@@ -73,6 +74,7 @@ export default async function ZigbeeDevicesPage() {
         <PageCanvas as="div" flow className="directory-results">
           <PageHeader bordered>
             <h1><PageTitleIcon><RadioTower strokeWidth={2.2} /></PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
+            <PageMeta updatedAt={directoryPage.updated_at} />
             <ContentMarkdown markdown={directoryPage.intro_markdown} />
           </PageHeader>
 

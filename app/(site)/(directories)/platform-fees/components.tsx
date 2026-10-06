@@ -1,5 +1,7 @@
 import type { Stack127DirectoryPage } from "@/lib/directory-pages";
+import { directoryTitleParts } from "@/lib/directory-page-content";
 import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { PageMeta } from "@/app/ui/site/page-meta";
 import { ContentMarkdown } from "@/app/ui/content-markdown";
 import Link from 'next/link';
 import type { ReactNode } from 'react';
@@ -11,6 +13,7 @@ import {
 } from 'lucide-react';
 import { AppShell, SidebarLabel } from '@/app/ui/site/app-shell';
 import { PageCanvas } from '@/app/ui/site/page-canvas';
+import { proseClassName, proseFlowClassName } from '@/app/ui/site/prose';
 import { EntryHero } from '@/app/ui/site/entry-hero';
 import { PageHeader } from '@/app/ui/site/page-header';
 import { PageTitleIcon } from '@/app/ui/site/page-title-icon';
@@ -58,15 +61,19 @@ export function FeeShell({ directoryPage, children, overview = false, group, anc
   </div>;
 
   return <FeeSearch>
-    <AppShell mainLabel={directoryPage.title} sidebar={sidebar} sidebarLabel="Fee categories" menuLabel="Categories">
+    <AppShell mainLabel={directoryTitleParts(directoryPage.title).map(part => part.text).join('')} sidebar={sidebar} sidebarLabel="Fee categories" menuLabel="Categories">
       <EntryHero art={null}>
         <PageHeader>
           {!overview && <Link href="/platform-fees" className={styles.back}>Platform fees</Link>}
           <h1>{group ? <PageTitleIcon><SectionIcon icon={group.icon} /></PageTitleIcon> : <DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />}{' '}<DirectoryPageTitle title={directoryPage.title} /></h1>
+          <PageMeta updatedAt={directoryPage.updated_at} />
           <ContentMarkdown markdown={directoryPage.intro_markdown} />
         </PageHeader>
       </EntryHero>
-      <PageCanvas flow className={styles.content}>{children}<DirectoryPageContent page={directoryPage} /></PageCanvas>
+      <PageCanvas flow className={styles.content}>
+        {children}
+        {directoryPage.content_markdown && <div className={`${proseClassName} ${proseFlowClassName} ${styles.prose}`}><DirectoryPageContent page={directoryPage} /></div>}
+      </PageCanvas>
     </AppShell>
   </FeeSearch>;
 }

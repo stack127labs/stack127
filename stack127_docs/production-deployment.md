@@ -33,6 +33,32 @@ The workflow:
 
 Normal releases should take about three to five minutes with warm GitHub, GHCR, and Dokploy caches. Provider queues and image transfers can take longer.
 
+## Expand, app, and contract releases
+
+PR CI builds against the current production database. It does not apply migrations. For this page schema change, release in this order:
+
+1. Release A is a migrations-only PR based on `origin/main`. It adds registry indexability, meaningful date functions and triggers, catalog columns, and course definitions. It keeps the old tool and directory revision counters and every old catalog column. Its CI builds current main against the current production schema. After merge, the existing workflow applies the migrations before rebuilding and deploying current main.
+2. Release B ships the app and scripts that read and write the new columns. Its PR build can run after Release A is live. Keep the compatibility columns for rollback during this release.
+3. Release C removes the legacy columns and catalog sync trigger. Its SQL is parked in `supabase/pending`, outside `supabase db push`. Move it into migrations with a fresh timestamp only after all legacy readers and writers are retired and rollback no longer needs them.
+
+Release A contains exactly these files:
+
+```text
+supabase/migrations/20261006095935_preserve_page_content_revision.sql
+supabase/migrations/20261006100019_add_page_indexability.sql
+supabase/migrations/20261006105817_meaningful_page_dates.sql
+supabase/migrations/20261006110502_page_date_record_owners.sql
+supabase/migrations/20261006120600_directory_related_dates.sql
+supabase/migrations/20261006121800_directory_registry_dates.sql
+supabase/migrations/20261006122400_tool_card_cache_revision.sql
+supabase/migrations/20261006122500_catalog_page_content_shape.sql
+supabase/migrations/20261006155027_course_page_definitions.sql
+```
+
+The catalog sync trigger changes `NEW` before constraints run. Old heading writes update `title`. New title writes split the optional `<mark>` accent into the old heading fields. A plain title uses an empty accent. Introductions, ordering, and hero/card artwork synchronize in both directions. Conflicting updates to both representations fail. Existing section headings remain, and new catalogs get the legacy default "Tools". This avoids a second update and duplicate date changes.
+
+Legacy tool content scripts still explicitly increment `content_revision`. The retained preparation triggers compute the same next value, so old and new writers increment once and identical content keeps the counter. Release C removes those guards with the columns.
+
 ## Cloudflare static frontend
 
 The GitHub repository and production environment variables `STACK127_FRONTEND_HOSTING` choose the release mode. Enable Cloudflare release mode after the isolated preview passes. Enable the matching Supabase secret after the production route passes its checks. A cutover is complete only when the release verifies the backend, static frontend, and content refresh path. See the activation and rollback steps in [cloudflare.md](cloudflare.md#static-frontend-on-cloudflare).

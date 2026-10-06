@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { refreshTargets, selectRevalidationBatch } from "../../scripts/stack127/cache/refresh.mjs";
+import { inspectOriginIndexing } from "../../scripts/stack127/cache/verify-origin-indexing.mjs";
 import { targetsForEvents } from "../../scripts/stack127/cache/targets.mjs";
 
 test("related catalog updates rebuild their shared tool sidebars once", () => {
@@ -82,4 +83,30 @@ test("directory copy changes invalidate the page reader and homepage cards", () 
   assert.ok(targets.nextTags.includes("stack127-home-pages"));
   assert.ok(targets.paths.includes("/keyboard-shortcuts/vscode"));
   assert.ok(targets.paths.includes("/"));
+});
+
+
+test("origin refresh rejects stale indexing metadata on published pages", () => {
+  const html = '<link rel="canonical" href="https://stack127.com/example"><meta name="robots" content="noindex, follow">';
+  const context = { path: '/example', page: { is_published: true, is_indexable: false }, published: true, canonicalOrigin: 'https://stack127.com' };
+  inspectOriginIndexing(html, context);
+  assert.throws(() => inspectOriginIndexing(html.replace('noindex', 'index'), context), /indexing metadata/);
+  assert.throws(() => inspectOriginIndexing(html + '<script type="application/ld+json">{}</script>', context), /structured data/);
+  assert.throws(() => inspectOriginIndexing(html, { ...context, page: { is_indexable: true } }), /indexing metadata/);
+  assert.throws(() => inspectOriginIndexing(html, { ...context, page: {} }), /indexing flag/);
+  inspectOriginIndexing('', { ...context, published: false });
+});
+
+test("origin sitemap verification uses both publication and indexing flags", () => {
+  const context = { path: '/sitemap.xml', canonicalOrigin: 'https://stack127.com', sitemapPages: [
+    { slug: 'public', is_published: true, is_indexable: true },
+    { slug: 'noindex', is_published: true, is_indexable: false },
+    { slug: 'draft', is_published: false, is_indexable: true },
+  ] };
+  const sitemap = '<urlset><url><loc>https://stack127.com/public</loc></url></urlset>';
+  inspectOriginIndexing(sitemap, context);
+  assert.throws(() => inspectOriginIndexing('<urlset/>', context), /sitemap inclusion/);
+  for (const slug of ['noindex', 'draft']) {
+    assert.throws(() => inspectOriginIndexing(sitemap.replace('</urlset>', `<url><loc>https://stack127.com/${slug}</loc></url></urlset>`), context), /sitemap inclusion/);
+  }
 });

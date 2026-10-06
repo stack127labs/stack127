@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { cache } from "react";
 import { buildRegistryMetadata, getRegistryPageStructuredData, getPagePublicationState } from "./page-registry";
 import { JsonLd } from "@/app/ui/site/json-ld";
+import { siteStructuredData } from "./seo";
 
 type Props = { children?: ReactNode; params?: Promise<Record<string, string | string[]>> };
 const stateForPath = cache(async (pathname: string) => {
@@ -11,8 +12,18 @@ const stateForPath = cache(async (pathname: string) => {
   return getPagePublicationState(pathname);
 });
 
-/** Publication and SEO stay registry-owned; route layouts supply only their path. */
-export function registryLayout(template: string) {
+/** Structured data for one exact path. Index pages under a shared parent layout render it themselves. */
+export async function RegistryStructuredData({ path }: { path: string }) {
+  const state = await stateForPath(path);
+  const data = state ? await getRegistryPageStructuredData(state) : null;
+  return data ? <><JsonLd data={siteStructuredData} /><JsonLd data={data} /></> : null;
+}
+
+/**
+ * Publication and SEO stay registry-owned; route layouts supply only their path.
+ * A layout with child pages passes `structuredData: "page"`, because layout output would also reach child URLs.
+ */
+export function registryLayout(template: string, { structuredData = "layout" }: { structuredData?: "layout" | "page" } = {}) {
   const pathname = async (props: Props) => {
     const params = template.includes("[") ? await props.params : {};
     return template.replace(/\[(?:\.\.\.)?([^\]]+)\]/g, (_, key: string) => {
@@ -29,8 +40,9 @@ export function registryLayout(template: string) {
       const state = await stateForPath(await pathname(props));
       if (!state) return props.children;
       if (state.kind === "missing") notFound();
+      if (structuredData === "page") return props.children;
       const data = await getRegistryPageStructuredData(state);
-      return <>{data ? <JsonLd data={data} /> : null}{props.children}</>;
+      return <>{data ? <><JsonLd data={siteStructuredData} /><JsonLd data={data} /></> : null}{props.children}</>;
     },
   };
 }

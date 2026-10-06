@@ -1,0 +1,57 @@
+/* Each item starts with a separator. The row is shifted left by one separator
+   inside a clipping wrapper, so the first item on every line shows no separator. */
+.meta {
+  --page-meta-separator: 1.5em;
+
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  line-height: 1.4;
+  overflow: hidden;
+}
+
+.row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline-start: calc(var(--page-meta-separator) * -1);
+  row-gap: var(--space-2);
+}
+
+.item {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  gap: var(--space-2);
+  white-space: nowrap;
+}
+
+.item::before {
+  content: "·";
+  display: inline-block;
+  margin-inline-end: calc(var(--space-2) * -1);
+  text-align: center;
+  width: var(--page-meta-separator);
+}
+
+.item svg {
+  flex: none;
+}
+
+a.item {
+  text-decoration: none;
+}
+
+a.item:hover {
+  color: var(--color-text);
+}
+
+.avatar {
+  aspect-ratio: 1;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  display: block;
+  flex: none;
+  height: 20px;
+  width: 20px;
+}

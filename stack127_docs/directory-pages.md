@@ -2,7 +2,7 @@
 
 Directory routes and directory copy have separate owners. The Next.js route owns the layout, sidebar, filters, and record views. PostgreSQL owns the visible title, introduction, Markdown content, and card text. This matches the split for tools in [tool-pages.md](tool-pages.md).
 
-Follow [writing-style.md](writing-style.md) when writing. This document covers storage, rendering, and updates.
+Follow [writing-style.md](writing-style.md) when writing, and use the [directory writing skill](../skills/stack127/stack127-directory-writing/SKILL.md) to plan and write directory copy. This document covers storage, rendering, and updates.
 
 ## Tables
 
@@ -16,7 +16,6 @@ Follow [writing-style.md](writing-style.md) when writing. This document covers s
 | `title` | Visible h1. Wrap the accent phrase in `<mark>`. |
 | `intro_markdown` | Markdown shown under the title. |
 | `content_markdown` | Optional Markdown for the page's prose. Sectioned pages split it with `<!-- section:<id> -->` markers. Keep existing markers when you edit. |
-| `content_revision` | Internal revision number. It goes up on its own when the title or Markdown changes. |
 | `card_name` | Short name on homepage cards and sidebars. |
 | `card_description` | Short summary on homepage cards. |
 | `card_icon_key` | Optional icon key from `lib/card-icons.ts`. The h1, the homepage sidebar row, and the homepage card all use it. |
@@ -35,7 +34,35 @@ When child copy comes from records, a script writes the rows. Don't edit those r
 | --- | --- |
 | Keyboard shortcuts | `scripts/keyboard-shortcuts/sync-pages.mjs` |
 | Ad networks | `scripts/ad-networks/sync-page-copy.mjs` |
-| Platform fees, including the overview | `scripts/platform-fees/sync-development.mjs` |
+
+Platform fee hub and category copy is hand-written in the database. `scripts/platform-fees/sync-development.mjs` loads changed records and creates missing copy rows only. It never replaces existing copy or SEO fields. `prepare-category-manifest.mjs` takes the reviewed development rows through `source: development`.
+
+## Public dates
+
+`getRequiredDirectoryPage` returns the registry's `published_at` and `updated_at`. Use these public dates in the header. Internal row timestamps are not page dates.
+
+Saving different copy or SEO fields moves `updated_at` and queues a cache refresh. A child change also touches every registered directory ancestor. Unpublished pages keep both public dates null.
+
+| Records | Automatic date changes |
+| --- | --- |
+| Platform fees | Changed sections or entries touch the affected category and `/platform-fees`. Moving a section or entry touches both categories. |
+| Launch directories | Changed published listings touch `/launch-directories`. |
+| Ad networks | Changed network facts or confirmed publishers touch the network child and `/ad-networks`. Crawler leases and other bookkeeping do not. |
+| Self-host apps | Changed published apps, category links, resource estimates, install options, or linked GitHub facts touch `/self-host-apps`. Registered app children also get touched. |
+| CLI apps | Changed published terminal apps or their linked GitHub facts touch `/cli-apps`. Candidate discovery and provenance do not. |
+| Software licenses | Changes to published app license counts move the date. License facts in code need an explicit touch. |
+| Keyboard shortcuts | Copy syncs touch changed children and the hub. Full app records catch shortcut edits with the same count. A separate hub snapshot catches removed apps and changed catalog counts. The first run establishes a baseline. |
+
+No-op updates and identical imports leave public dates alone. A real source check that changes a displayed verification date is visible content too.
+
+TLDs, EPP codes, software licenses, hardware records, and other code directories need an explicit touch after meaningful fact or entry changes. Skip it for code typo fixes or formatting. The same applies to a directory without record sync coverage.
+
+```bash
+node scripts/stack127/pages/touch.mjs --environment development \
+  --slug tld-directory --reason "Updated TLD facts" --apply
+```
+
+Without `--apply`, the command previews and rolls back. For production, add `touch_reason` to the reviewed directory publisher manifest. Don't edit timestamps by hand.
 
 ## Card icon and art
 
@@ -83,6 +110,6 @@ node scripts/stack127/directory-pages/update-content.mjs \
   --content-file /tmp/content.md
 ```
 
-Optional flags: `--title`, `--card-name`, `--card-description`, `--card-icon-key`, `--card-art-key`, and `--clear-content`. The command rejects keys that aren't in the registries.
+Optional flags: `--meta-title`, `--meta-description`, `--title`, `--card-name`, `--card-description`, `--card-icon-key`, `--card-art-key`, and `--clear-content`. The command rejects keys that aren't in the registries.
 
 A saved edit queues revalidation for that page's `stack127-directory-page:<slug>` tag and its path.

@@ -3,6 +3,10 @@
   gap: var(--space-10);
 }
 
+.prose {
+  max-width: var(--measure-prose);
+}
+
 .filters {
   display: grid;
   grid-template-columns: minmax(0, 560px) auto;

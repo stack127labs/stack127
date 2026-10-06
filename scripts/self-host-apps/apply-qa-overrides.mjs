@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
 import { readFile } from "node:fs/promises";
+import { isDeepStrictEqual } from 'node:util';
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { appColumns, appColumnTypes } from "./lib/schema.mjs";
 import { guardPartialCorrection, guardInstallCorrection, mergeReviewedInstallOptions } from "./lib/reviewed-corrections.mjs";
 import { installMethods, installOptionsToRow } from "./lib/streamlined-storage.mjs";
+import { changedColumns } from '../stack127/database/sync-records.mjs';
 
 const editableColumns = appColumns.filter((column) => column !== "slug" && column !== "data_source_urls");
 
@@ -27,7 +29,7 @@ function sqlValue(column, parameter) {
 }
 
 async function replaceCategoryLinks(client, appId, categories) {
-  await client.query("delete from public.self_host_app_category_links where app_id = $1", [appId]);
+  await client.query("delete from public.self_host_app_category_links link where app_id=$1 and not exists(select 1 from public.self_host_app_categories category where category.id=link.category_id and category.slug=any($2::text[]))", [appId,categories ?? []]);
   if (!Array.isArray(categories) || categories.length === 0) return;
 
   const categoryResult = await client.query(
@@ -50,7 +52,7 @@ async function replaceCategoryLinks(client, appId, categories) {
   }
 }
 
-async function recordDataSources(client, appId, record, currentRow) {
+async function recordDataSources(client, appId, record, currentRow, factsChanged) {
   const urls = [
     record.source_url,
     ...(record.data_source_urls ?? []),
@@ -69,15 +71,19 @@ async function recordDataSources(client, appId, record, currentRow) {
       data_confidence = case when $4 then data_confidence else coalesce(nullif($3, ''), data_confidence) end,
       updated_at = now()
       where id = $1
+        and ($5 or data_source_urls is distinct from (
+          select array_agg(distinct url order by url)
+          from unnest(coalesce(data_source_urls, '{}') || $2::text[]) as values(url)
+        ) or (not $4 and data_confidence is distinct from coalesce(nullif($3, ''), data_confidence)))
     `,
-    [appId, urls, record.confidence ?? "high", record.review_scope === "partial"],
+    [appId, urls, record.confidence ?? "high", record.review_scope === "partial", factsChanged],
   );
 }
 
 async function applyRecord(client, record, dryRun) {
   if (!record.slug) throw new Error("record.slug is required");
 
-  const columns = editableColumns.filter((column) => Object.hasOwn(record, column));
+  let columns = editableColumns.filter((column) => Object.hasOwn(record, column));
   if (columns.length === 0 && !(record.sources?.length || record.data_source_urls?.length)) {
     console.log(`Skipped ${record.slug}: no fields to update`);
     return;
@@ -93,6 +99,7 @@ async function applyRecord(client, record, dryRun) {
     currentRow.categories = (await client.query("select category.slug from public.self_host_app_category_links link join public.self_host_app_categories category on category.id = link.category_id where link.app_id = $1 order by category.slug", [appId])).rows.map(row => row.slug);
   }
   guardPartialCorrection(record, currentRow);
+  columns = columns.filter(column=>!isDeepStrictEqual(currentRow[column],record[column]));
 
   if (columns.length > 0) {
     const values = [record.slug, ...columns.map((column) => appColumnTypes[column] === "jsonb" ? JSON.stringify(record[column]) : record[column])];
@@ -125,10 +132,10 @@ async function applyRecord(client, record, dryRun) {
     const columns = ["options", "catalog_sources", "source_urls", "checked_at", "docker_images", ...installMethods.map(method => `${method}_urls`)];
     const fields = ["app_id", ...columns];
     const values = [appId, ...columns.map(column => ["options", "catalog_sources"].includes(column) ? JSON.stringify(row[column]) : row[column])];
-    await client.query(`insert into public.self_host_app_install_options (${fields.join(", ")}) values (${fields.map((_, i) => `$${i + 1}`).join(", ")}) on conflict (app_id) do update set ${columns.map(column => `${column} = excluded.${column}`).join(", ")}, updated_at = now()`, values);
+    await client.query(`insert into public.self_host_app_install_options (${fields.join(", ")}) values (${fields.map((_, i) => `$${i + 1}`).join(", ")}) on conflict (app_id) do update set ${columns.map(column => `${column} = excluded.${column}`).join(", ")}, updated_at = now() where ${changedColumns('self_host_app_install_options', columns)}`, values);
   }
 
-  await recordDataSources(client, appId, record, currentRow);
+  await recordDataSources(client, appId, record, currentRow, columns.length > 0);
   console.log(`${dryRun ? "Checked" : "Applied"} QA override: ${record.slug}`);
 }
 

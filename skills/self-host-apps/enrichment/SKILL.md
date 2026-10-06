@@ -59,3 +59,5 @@ npm run typecheck
 Don't build locally. If the batch changes code, the pull request CI runs the build.
 
 Report claimed, published, duplicate, rejected, needs-review, and failed counts.
+
+Published record changes move the affected directory dates and queue cache refreshes. Identical imports keep dates alone. App license-count changes also move the software license directory date. Use the page touch command for meaningful code facts outside the database triggers. See `stack127_docs/directory-pages.md`.

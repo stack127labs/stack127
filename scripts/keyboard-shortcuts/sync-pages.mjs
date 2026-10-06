@@ -124,7 +124,17 @@ if (changed.length > 0) {
 if (process.argv.includes("--apply")) {
   printResult(await runMutation(parseArgs(), async client => {
     let changed = 0;
-    for (const app of apps) changed += await upsertDirectoryPage(client, keyboardShortcutPageCopy(app));
-    return { pages: apps.length, changed };
+    let recordChanges = 0;
+    for (const app of apps) {
+      changed += await upsertDirectoryPage(client,keyboardShortcutPageCopy(app));
+      const result = await client.query('select public.stack127_sync_directory_records($1,$2::jsonb) changed',
+        [`keyboard-shortcuts/${app.slug}`,JSON.stringify(app)]);
+      if (result.rows[0].changed) recordChanges++;
+    }
+    // The hub snapshot also detects removed apps and changed catalog counts.
+    const hub = await client.query('select public.stack127_sync_directory_records($1,$2::jsonb) changed',
+      ['keyboard-shortcuts', JSON.stringify(catalog)]);
+    if (hub.rows[0].changed) recordChanges++;
+    return { pages: apps.length, changed, recordChanges };
   }));
 }

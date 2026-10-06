@@ -22,7 +22,7 @@ function database(slugs) {
   const copies = rows.map(row => ({
     page_id: row.id, title: `Edited <mark>${row.slug}</mark>`, intro_markdown: 'Edited intro.',
     content_markdown: 'Edited page content.', card_name: 'Edited card name',
-    card_description: 'Edited card description.', content_revision: 7, row_updated_at: '2026-10-02',
+    card_description: 'Edited card description.', row_updated_at: '2026-10-02',
   }));
   const state = { rows, copies, failUpdate: null };
   let snapshot;
@@ -85,7 +85,7 @@ async function runScript(script, args, pool, environment = {}) {
 }
 
 for (const preview of cases) {
-  test(`${preview.name} removal and republishing preserve edited copy, cards, revisions, and IDs`, async () => {
+  test(`${preview.name} removal and republishing preserve edited copy, cards, timestamps, and IDs`, async () => {
     const { state, pool } = database(preview.slugs);
     const before = structuredClone(state.copies);
     const ids = state.rows.map(row => row.id);

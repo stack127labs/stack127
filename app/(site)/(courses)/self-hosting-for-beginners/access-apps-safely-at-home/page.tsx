@@ -3,11 +3,10 @@ import { MarkerArt } from "@/app/ui/site/marker-art";
 import { Callout, Faq, LessonLink, LessonPage } from "../course";
 import { homeOnlyRoutingArt } from "./art/home-only-routing";
 
-const lesson = getLesson("access-apps-safely-at-home");
-
-export default function Page() {
+export default async function Page() {
+  const lesson = await getLesson("access-apps-safely-at-home");
   return (
-    <LessonPage currentSlug={lesson.slug} heading={lesson.heading}>
+    <LessonPage currentSlug={lesson.slug} title={lesson.title}>
         <p className="lesson-lede">
           Before you rush to reach your apps from the outside world, it's worth appreciating how
           nice the home setup already is, and how safe. Everything you've built works over your own

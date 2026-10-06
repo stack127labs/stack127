@@ -1,6 +1,6 @@
 # Page publishing
 
-Two commands publish tools and directories. In one database transaction, they write the registry row, family row, search metadata, card fields, catalog memberships, content, tool version, and repository fields. They check that each page is ready first, and check the public pages afterward.
+Shared commands publish tools, directories, and courses. In one database transaction, they write the registry row, family row, search metadata, card fields, catalog memberships, content, tool version, and repository fields. They check that each page is ready first, and check the public pages afterward.
 
 Building and publishing are separate jobs. The research, build, writing, and audit skills create the page. The publisher checks that the finished page is ready, writes its data, and turns publication on.
 
@@ -19,9 +19,10 @@ Read [tool-pages.md](tool-pages.md), [directory-pages.md](directory-pages.md), a
 ```bash
 npm run stack127:tools:publish -- <command> [flags]
 npm run stack127:directories:publish -- <command> [flags]
+node scripts/self-hosting-for-beginners/publish-pages.mjs <command> [flags]
 ```
 
-The tools command takes tool and catalog pages. The directories command takes directory pages, including child pages such as `ad-networks/<slug>`. Both share one implementation. `--environment` defaults to `development`.
+The tools command takes tool and catalog pages. The directories command takes directory pages, including child pages such as `ad-networks/<slug>`. The course command takes `kind: "courses"` and `family: "course"` for the root and its lessons. All commands share one implementation. `--environment` defaults to `development`.
 
 | Command | Flags | What it does | Writes |
 | --- | --- | --- | --- |
@@ -81,22 +82,31 @@ Each page takes only these keys:
 
 | Key | Meaning |
 | --- | --- |
-| `slug`, `family` | The page. `family` is `tool` or `catalog` in a tools batch, and `directory` in a directories batch. |
+| `slug`, `family` | The page. `family` is `tool` or `catalog` in a tools batch, `directory` in a directories batch, and `course` in a courses batch. |
 | `source` | Optional. `development` starts the page from its reviewed development rows instead of the target's rows. See Development source. |
-| `registry` | `stack127_pages` fields to set: `label`, `meta_title`, `meta_description`, `is_published`, `cover_image_url`, `page_type`, `sitemap_priority`. |
-| `content` | Family table fields to set. See the table below. |
+| `registry` | `stack127_pages` fields to set: `label`, `meta_title`, `meta_description`, `is_published`, `is_indexable`, `cover_image_url`, `page_type`, `sitemap_priority`. |
+| `content` | Family table fields to set. See the table below. Course child pages omit this. |
+| `lesson` | Course pages only. Patch `course_slug`, `title`, `sidebar_label`, and positive `display_order` in the linked lesson row. The root also has a lesson row. |
 | `catalogs` | Tools only. The full ordered catalog list. The first entry is the primary catalog. Each entry needs `slug` and a positive `display_order`. |
 | `requirements` | What must already exist before the page can publish. See Readiness. |
+| `touch_reason` | Directories and course pages only. Explain a meaningful code record or JSX lesson-body change without automatic date coverage. |
 
 | Family | Content fields |
 | --- | --- |
 | `tool` | `title`, `intro_markdown`, `usage_markdown`, `content_markdown`, `tool_version`, `stack127_repo_url`, `stack127_repo_version`, `stack127_repo_commit_sha`, `card_name`, `card_description`, `card_icon_key`, `card_art_key` |
-| `catalog` | `heading_before`, `heading_mark`, `heading_after`, `intro`, `section_heading`, `icon_key`, `hero_art_key`, `home_art_key`, `home_order`, `card_name`, `card_description` |
+| `catalog` | `title`, `intro_markdown`, `content_markdown`, `card_name`, `card_description`, `card_icon_key`, `card_art_key`, `display_order` |
+| `course` root | `title`, `intro_markdown`, `content_markdown`, `card_name`, `card_description`, `card_icon_key`, `card_art_key`, `author_name`, `author_avatar_url`, `navigation_label` |
 | `directory` | `title`, `intro_markdown`, `content_markdown`, `card_name`, `card_description`, `card_icon_key`, `card_art_key` |
 
 These are the plan's field names, and they stay the same across schema versions.
 
-Catalog manifests keep `icon_key` and `home_art_key`, even though the table now calls them `card_icon_key` and `card_art_key`. The publisher writes them to whichever columns the target database has. Use the old names in catalog manifests and the new names everywhere else.
+Course plans freeze the course content and selected lesson rows together. Root pages need both rows. Child pages need their lesson row and published parent course. Course readiness checks the registry layout, JSX route, Markdown, card assets, and declared smoke checks. Public verification compares the H1 against `lesson.title`, since the root's course title names the whole course.
+
+For an unchanged development preview, use a manifest with the course slug, `family: "course"`, and its route requirements. Include child slugs to review their definitions too. `prepare` keeps omitted fields and `preview` must report `changed: false`. To publish reviewed development copy later, use `source: "development"` and set `registry.is_published` explicitly. There is no direct registry upsert command for courses.
+
+Different course or lesson copy calls `stack127_touch_page` for that row's registry page. Identical plans and updates leave public dates alone. Registry dates supply the visible Updated line. Course definitions refresh every lesson route's shared author and navigation.
+
+Catalog manifests use the same `card_icon_key` and `card_art_key` names as tools, directories, and the database. Prepare new plans after Release A adds the new catalog schema. Older plans use legacy fields that Release C removes.
 
 Directory card keys are nullable:
 
@@ -114,20 +124,25 @@ Keep the manifest, its Markdown files, and its plans together in `tmp/page-publi
 
 For an existing page, the manifest is a patch. `prepare` merges it into the current rows of the target database. Fields you leave out keep their current values. Leaving out `catalogs` keeps the tool's current memberships. Including it replaces the whole list.
 
+Set `registry.is_indexable` to `false` for thin child pages, filtered views with their own paths, or public pages still being improved. Keep `is_published: true` so people can use them and find them in site lists. They keep their own canonical, send `noindex, follow`, omit all JSON-LD, and stay out of the sitemap. Query URLs already send a noindex header.
+
+Existing pages keep their indexing setting when the manifest omits it. New pages default to `true`. Plans prepared before this column existed must be prepared again. Every frozen registry snapshot includes `is_indexable`.
+
 A new page needs every required field, because there is nothing to merge into. The publisher fills only these defaults:
 
 | Field | Default |
 | --- | --- |
 | `is_published` | `false` |
+| `is_indexable` | `true` |
 | `page_type` | `SoftwareApplication` for tools, `CollectionPage` otherwise |
 | `sitemap_priority` | `0.5` |
 | `cover_image_url`, `usage_markdown`, repository fields | `null` |
 | `tool_version` | `1.0.0` |
 | Directory `content_markdown`, `card_icon_key`, `card_art_key` | `null` |
-| Catalog `heading_before`, `heading_after` | Empty |
-| Catalog `icon_key`, `home_order` | `layers`, `100` |
+| Catalog `content_markdown` | `null` |
+| Catalog `card_icon_key`, `display_order` | `layers`, `100` |
 
-A new catalog must set `hero_art_key` and `home_art_key` to keys registered in `lib/card-art.ts`. There is no default art.
+A new catalog must set `card_art_key` to a key registered in `lib/card-art.ts`. There is no default art. The hero uses this key too. Catalog titles use `<mark>` for an optional accent. Catalog `content_markdown` follows the directory rules: `null` or trimmed, nonempty Markdown.
 
 The batch must also make sense as a whole, or nothing is written:
 
@@ -136,9 +151,13 @@ The batch must also make sense as a whole, or nothing is written:
 - Display orders can't collide with another tool in the same catalog.
 - A published directory child page needs a published parent directory.
 
-The publisher keeps the existing revision rules. Database triggers raise `content_revision` when the title or Markdown changes, and set `tool_version_updated_at` when `tool_version` changes. Card and membership changes don't change either. Setting the repository fields also sets `stack127_repo_synced_at`, so set them only after a real comparison, as [tool-pages.md](tool-pages.md) describes. A repository-only change updates the registry's internal `row_updated_at` but keeps the public dates.
+Database triggers move public dates for tool title, Markdown, and version changes, and for directory copy and records. Published tool card changes move their catalog dates without moving the tool date. Draft cards and draft memberships leave catalog dates alone. Publication and retirement still move catalog dates. Repository-only edits keep public dates unchanged. Set repository fields only after a real comparison, as [tool-pages.md](tool-pages.md) describes.
 
-A page whose rows already match the plan is left alone. Retrying a plan doesn't bump any revision or date.
+A directory manifest can include `"touch_reason": "Corrected TLD registry facts"` after a meaningful code record change. For a course or lesson JSX edit, put a reason such as `"Corrected the Docker install instructions"` on the affected `family: "course"` page. The root course and child lessons both support this. Skip touches for typos and formatting.
+
+`prepare` freezes the reason and current public date. `apply` calls `stack127_touch_page` only if that date has not already moved. Retrying the plan leaves dates alone. `restore` restores managed copy. It does not revert JSX bodies, code records, or old dates. Revert code separately and prepare a new touch when needed.
+
+A page whose rows already match the plan is left alone, unless its pending record touch still applies.
 
 ### Development source
 
@@ -191,7 +210,8 @@ Readiness checks only read. Import a directory's records with its own reviewed c
 
 `apply` and `restore` always check the public pages after they commit. `verify` runs the same check on its own. The check reads the database first, then loads each page until it matches or the wait runs out. The wait is 180 seconds by default.
 
-- A published page must return 200 and be in the sitemap. Its title, `h1`, description, canonical, and robots tags must match the plan. Its `stack127-content-revision` tag must match the registry row. A tool with a repository URL must show that link.
+- A published page must return 200. Its title, `h1`, description, canonical, and robots tags must match the plan. Its `stack127-content-revision` tag must match the registry row. A tool with a repository URL must show that link.
+- An indexable published page must be in the sitemap and send index metadata. A published noindex page must send a noindex robots tag, keep its own canonical, send no JSON-LD, and be absent from the sitemap.
 - Canonical and sitemap URLs use the site's configured origin, the same one `lib/seo` uses. That's `https://stack127.com` in production, and `NEXT_PUBLIC_SITE_URL` from the environment or `.env.local` in development. It falls back to `https://stack127.com` when unset. `--site` doesn't change it.
 - Each smoke path must show its expected text.
 - An unpublished page must return 404 and be missing from the sitemap.

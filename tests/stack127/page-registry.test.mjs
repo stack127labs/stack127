@@ -6,9 +6,47 @@ import {
   isHomePageSlug,
   isHomeVisiblePage,
   isMainPageSlug,
+  isIndexablePage,
+  resolvePagePublicationState,
 } from "../../lib/page-registry-helpers.ts";
 
 const registrySource = readFileSync(new URL("../../lib/page-registry.ts", import.meta.url), "utf8");
+
+test("exact publication and indexing are independent, including registered children", async () => {
+  for (const slug of ["example", "example/child", ""]) {
+    for (const is_published of [true, false]) {
+      for (const is_indexable of [true, false]) {
+        const page = { slug, is_published, is_indexable };
+        const result = await resolvePagePublicationState(`/${slug}`, async key =>
+          key === slug ? page : { slug: key, is_published: true, is_indexable: true });
+        assert.equal(result.kind, is_published ? "exact" : "missing");
+        if (result.kind === "exact") assert.equal(result.index, is_indexable);
+      }
+    }
+  }
+});
+
+test("unregistered children stay noindex and cannot inherit through an unpublished parent", async () => {
+  const parent = { is_published: true, is_indexable: false };
+  const readPage = async slug => slug === "example" ? parent : null;
+  const result = await resolvePagePublicationState("//example/child/?filter=yes", readPage);
+  assert.deepEqual(result, { kind: "child", index: false, page: parent, parentSlug: "example", pathname: "/example/child", slug: "example/child" });
+  parent.is_indexable = true;
+  assert.equal((await resolvePagePublicationState("/example/child", readPage)).index, false);
+  parent.is_published = false;
+  assert.equal((await resolvePagePublicationState("/example/child", readPage)).kind, "missing");
+  assert.equal((await resolvePagePublicationState("/missing", readPage)).kind, "missing");
+});
+
+test("sitemap filtering includes only published and indexable pages", () => {
+  const pages = [
+    { slug: "indexed", is_published: true, is_indexable: true },
+    { slug: "public-noindex", is_published: true, is_indexable: false },
+    { slug: "draft", is_published: false, is_indexable: true },
+    { slug: "draft-noindex", is_published: false, is_indexable: false },
+  ];
+  assert.deepEqual(pages.filter(isIndexablePage).map(page => page.slug), ["indexed"]);
+});
 
 test("missing required registry pages resolve through the 404 boundary", () => {
   assert.match(registrySource, /import \{ notFound \} from "next\/navigation"/);

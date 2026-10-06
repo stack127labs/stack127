@@ -2,8 +2,9 @@
 
 import { existsSync, readFileSync } from "node:fs";
 import pg from "pg";
+import { syncRecords, changedColumns } from '../stack127/database/sync-records.mjs';
 import { parseArgs, numberArg } from "./lib/args.mjs";
-import { appColumns, appRecordsetColumns } from "./lib/schema.mjs";
+import { appColumns } from "./lib/schema.mjs";
 
 const { Pool } = pg;
 
@@ -61,22 +62,16 @@ async function upsertCategories(client, categories) {
     await client.query(
       `insert into public.self_host_app_categories (slug, name, icon_key, sort_order)
        values ($1, $2, $3, $4)
-       on conflict (slug) do update set name = excluded.name, icon_key = excluded.icon_key, sort_order = excluded.sort_order, updated_at = now()`,
+       on conflict (slug) do update set name = excluded.name, icon_key = excluded.icon_key, sort_order = excluded.sort_order, updated_at = now() where ${changedColumns('self_host_app_categories',['name','icon_key','sort_order'])}`,
       [category.slug, category.name, category.icon_key, category.sort_order],
     );
   }
 }
 
-async function upsertApps(client, apps) {
-  const updates = appColumns.filter((column) => column !== "slug" && column !== "github_project_id").map((column) => `${column} = excluded.${column}`).join(",\n          ");
-  const rows = apps.map((app) => ({ ...app, github_project_id: null }));
-  await client.query(
-    `insert into public.self_host_apps (${appColumns.join(", ")})
-     select ${appColumns.map((column) => `item.${column}`).join(", ")}
-     from jsonb_to_recordset($1::jsonb) as item(${appRecordsetColumns.join(", ")})
-     on conflict (slug) do update set ${updates}, updated_at = now()`,
-    [JSON.stringify(rows)],
-  );
+async function upsertApps(client,apps) {
+  // Local GitHub IDs belong to another database. Preserve each target link.
+  const columns = appColumns.filter(column=>column!=='github_project_id');
+  await syncRecords(client,{table:'self_host_apps',rows:apps,keys:['slug'],columns});
 }
 
 async function appAndCategoryIds(client, state) {
@@ -90,51 +85,18 @@ async function appAndCategoryIds(client, state) {
   };
 }
 
-async function replaceCategoryLinks(client, state, maps) {
-  const ids = [...maps.appIds.values()];
-  if (ids.length > 0) await client.query("delete from public.self_host_app_category_links where app_id = any($1::uuid[])", [ids]);
-  for (const link of state.categoryLinks) {
-    const appId = maps.appIds.get(link.app_slug);
-    const categoryId = maps.categoryIds.get(link.category_slug);
-    if (!appId || !categoryId) continue;
-    await client.query("insert into public.self_host_app_category_links (app_id, category_id) values ($1, $2) on conflict do nothing", [appId, categoryId]);
-  }
+async function replaceCategoryLinks(client,state,maps) {
+  const rows = state.categoryLinks.map(link=>({app_id:maps.appIds.get(link.app_slug),category_id:maps.categoryIds.get(link.category_slug)}))
+    .filter(row=>row.app_id && row.category_id);
+  await syncRecords(client,{table:'self_host_app_category_links',rows,keys:['app_id','category_id'],columns:['app_id','category_id'],
+    removeMissing:true,scope:{column:'app_id',values:[...maps.appIds.values()]}});
 }
 
-async function upsertGithubProjects(client, projects) {
-  for (const project of projects) {
-    await client.query(
-      `insert into public.github_projects (
-        owner, repo, full_name, repository_url, repo_id, node_id, owner_type,
-        stars, forks, watchers, open_issues, primary_language, languages, topics,
-        created_at, updated_at, pushed_at, default_branch, repo_size_kb, archived,
-        disabled, is_fork, is_template, latest_release, latest_release_at,
-        last_commit_at, license_spdx_id, checked_at, source_url
-      ) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13::jsonb,
-        $14::text[], $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30)
-      on conflict (owner, repo) do update set
-        full_name = excluded.full_name, repository_url = excluded.repository_url,
-        repo_id = excluded.repo_id, node_id = excluded.node_id, owner_type = excluded.owner_type,
-        stars = excluded.stars, forks = excluded.forks, watchers = excluded.watchers,
-        open_issues = excluded.open_issues, primary_language = excluded.primary_language,
-        languages = excluded.languages, topics = excluded.topics, created_at = excluded.created_at,
-        updated_at = excluded.updated_at, pushed_at = excluded.pushed_at, default_branch = excluded.default_branch,
-        repo_size_kb = excluded.repo_size_kb, archived = excluded.archived, disabled = excluded.disabled,
-        is_fork = excluded.is_fork, is_template = excluded.is_template, latest_release = excluded.latest_release,
-        latest_release_at = excluded.latest_release_at, last_commit_at = excluded.last_commit_at,
-        license_spdx_id = excluded.license_spdx_id, checked_at = excluded.checked_at,
-        source_url = excluded.source_url, row_updated_at = now()`,
-      [
-        project.owner, project.repo, project.full_name, project.repository_url, project.repo_id,
-        project.node_id, project.owner_type, project.stars, project.forks, project.watchers,
-        project.open_issues, project.primary_language, JSON.stringify(project.languages ?? {}),
-        project.topics ?? [], project.created_at, project.updated_at, project.pushed_at,
-        project.default_branch, project.repo_size_kb, project.archived, project.disabled,
-        project.is_fork, project.is_template, project.latest_release, project.latest_release_at,
-        project.last_commit_at, project.license_spdx_id, project.checked_at, project.source_url,
-      ],
-    );
-  }
+async function upsertGithubProjects(client,projects) {
+  const columns = ['owner','repo','full_name','repository_url','repo_id','node_id','owner_type','stars','forks','watchers',
+    'open_issues','primary_language','languages','topics','created_at','updated_at','pushed_at','default_branch','repo_size_kb',
+    'archived','disabled','is_fork','is_template','latest_release','latest_release_at','last_commit_at','license_spdx_id','checked_at','source_url'];
+  await syncRecords(client,{table:'github_projects',rows:projects,keys:['owner','repo'],columns});
 }
 
 async function linkGithubProjects(client, apps) {
@@ -142,38 +104,24 @@ async function linkGithubProjects(client, apps) {
     if (!app.github_owner || !app.github_repo) continue;
     await client.query(
       `update public.self_host_apps app set github_project_id = project.id, updated_at = now()
-       from public.github_projects project where app.slug = $1 and lower(project.owner) = lower($2) and lower(project.repo) = lower($3)`,
+       from public.github_projects project where app.slug = $1 and lower(project.owner) = lower($2) and lower(project.repo) = lower($3) and app.github_project_id is distinct from project.id`,
       [app.slug, app.github_owner, app.github_repo],
     );
   }
 }
 
-async function replaceResources(client, state, appIds) {
-  const ids = [...appIds.values()];
-  if (ids.length > 0) await client.query("delete from public.self_host_app_resource_estimates where app_id = any($1::uuid[])", [ids]);
-  for (const row of state.resourceEstimates) {
-    const columns = Object.keys(row).filter((column) => column !== "app_slug" && column !== "app_id" && !["created_at", "updated_at"].includes(column));
-    const values = [appIds.get(row.app_slug), ...columns.map((column) => row[column])];
-    if (!values[0]) continue;
-    await client.query(
-      `insert into public.self_host_app_resource_estimates (app_id, ${columns.join(", ")}) values ($1, ${columns.map((column, index) => `$${index + 2}${column.endsWith("_urls") ? "::text[]" : column === "checked_at" ? "::timestamptz" : ""}`).join(", ")})`,
-      values,
-    );
-  }
+async function replaceAppChildren(client,table,sourceRows,appIds) {
+  const rows = sourceRows.map(({app_slug,created_at,updated_at,...row})=>({...row,app_id:appIds.get(app_slug)})).filter(row=>row.app_id);
+  const columns = Object.keys(rows[0] ?? {app_id:null});
+  await syncRecords(client,{table,rows,keys:['app_id'],columns,removeMissing:true,scope:{column:'app_id',values:[...appIds.values()]}});
 }
 
-async function replaceInstalls(client, state, appIds) {
-  const ids = [...appIds.values()];
-  if (ids.length > 0) await client.query("delete from public.self_host_app_install_options where app_id = any($1::uuid[])", [ids]);
-  for (const row of state.installOptions) {
-    const columns = Object.keys(row).filter((column) => column !== "app_slug" && column !== "app_id" && !["created_at", "updated_at"].includes(column));
-    const values = [appIds.get(row.app_slug), ...columns.map((column) => row[column])];
-    if (!values[0]) continue;
-    await client.query(
-      `insert into public.self_host_app_install_options (app_id, ${columns.join(", ")}) values ($1, ${columns.map((column, index) => `$${index + 2}${column.endsWith("_urls") || column.endsWith("_images") || column === "source_urls" ? "::text[]" : column === "checked_at" ? "::timestamptz" : column === "options" || column === "catalog_sources" ? "::jsonb" : ""}`).join(", ")})`,
-      values,
-    );
-  }
+async function replaceResources(client,state,appIds) {
+  await replaceAppChildren(client,'self_host_app_resource_estimates',state.resourceEstimates,appIds);
+}
+
+async function replaceInstalls(client,state,appIds) {
+  await replaceAppChildren(client,'self_host_app_install_options',state.installOptions,appIds);
 }
 
 async function draftMissingProdRows(client, localSlugs) {

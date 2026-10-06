@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // Partial corrections only. No publishing, deletion, or whole-record date changes.
+import { isDeepStrictEqual } from 'node:util';
 import { readFile } from "node:fs/promises";
 import { parseArgs, parseEnv } from "node:util";
 import pg from "pg";
@@ -21,9 +22,9 @@ try {
       const current = (await client.query("select * from public.terminal_apps where slug = $1 for update", [record.slug])).rows[0];
       if (!current) throw new Error(`Missing CLI app: ${record.slug}`);
       guardCorrection(record, current);
-      const fields = Object.keys(record.fields);
+      const fields = Object.keys(record.fields).filter(field=>!isDeepStrictEqual(current[field],record.fields[field]));
       // Identifiers come exclusively from the guard's fixed allowlist.
-      await client.query(`update public.terminal_apps set ${fields.map((field, index) => `${field} = $${index + 2}`).join(", ")}, updated_at = now() where id = $1`, [current.id, ...fields.map(field => record.fields[field])]);
+      if (fields.length) await client.query(`update public.terminal_apps set ${fields.map((field, index) => `${field} = $${index + 2}`).join(", ")}, updated_at = now() where id = $1`, [current.id, ...fields.map(field => record.fields[field])]);
       for (const field of fields) {
         await client.query(`insert into public.terminal_app_field_sources (app_id, field_name, source, source_url, confidence, checked_at, note)
           values ($1, $2, 'stack127_primary_source_review', $3, 'high', $4::timestamptz, $5)

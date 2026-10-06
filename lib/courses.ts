@@ -1,10 +1,10 @@
 export type CourseLesson = {
-  heading: string;
-  headingMark?: string;
+  title: string;
+  updatedAt: string | null;
   order: number;
   published: boolean;
   sidebarLabel: string;
-  slug: string;
+  slug: string | null;
 };
 
 export type CourseDefinition = {
@@ -13,7 +13,12 @@ export type CourseDefinition = {
     name: string;
   };
   basePath: `/${string}`;
-  fallbackUpdatedAt: string;
+  intro_markdown: string;
+  content_markdown: string | null;
+  card_name: string;
+  card_description: string;
+  card_icon_key: string | null;
+  card_art_key: string | null;
   lessons: CourseLesson[];
   navigationLabel: string;
   registrySlug: string;

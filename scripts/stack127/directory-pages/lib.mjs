@@ -46,9 +46,11 @@ export async function previewDirectoryPages(pool, pages, { remove = false, refre
     for (const page of pages) {
       const row = bySlug.get(page.slug);
       if (remove) {
-        if (row) await client.query(`update public.stack127_pages
+        if (row && (row.is_published || row.published_at || row.updated_at)) await client.query(`update public.stack127_pages
           set is_published=false,published_at=null,updated_at=null where id=$1`, [row.id]);
       } else {
+        if (row.label === page.label && row.meta_title === page.title && row.meta_description === page.description
+          && (refresh || row.is_published)) continue;
         await client.query(`update public.stack127_pages set label=$2,meta_title=$3,meta_description=$4,
           is_published=case when $5::boolean then is_published else true end,
           published_at=case when $5::boolean then published_at else coalesce(published_at,now()) end,
@@ -81,18 +83,5 @@ export function adNetworkPageCopy(network) {
     title: `${network.name} publisher websites`,
     intro_markdown: `${network.summary ?? `Browse publisher websites with a verified ${network.name} relationship.`} A site can use more than one ad network.`,
     content_markdown: 'A site appears here only when its current ads.txt or live configuration supports the stated relationship. A seller authorization alone does not establish active use.',
-  };
-}
-
-export function platformFeeSectionCopy(section, slug) {
-  return { slug, title: section.meta_title, intro_markdown: section.intro, content_markdown: null };
-}
-
-export function platformFeeOverviewCopy(sectionCount, entryCount) {
-  return {
-    slug: 'platform-fees',
-    title: `Platform fees compared: ${entryCount} listings across ${sectionCount} categories`,
-    intro_markdown: 'Choose what you sell, then compare fees and start costs. Each category has sections for different products and services. Open a card for other rates and official sources.',
-    content_markdown: null,
   };
 }

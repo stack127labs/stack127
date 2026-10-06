@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { directoryContentSection, directoryTitleParts } from '../../lib/directory-page-content.ts';
-import { keyboardShortcutPageCopy, adNetworkPageCopy, platformFeeSectionCopy, platformFeeOverviewCopy } from '../../scripts/stack127/directory-pages/lib.mjs';
+import { keyboardShortcutPageCopy, adNetworkPageCopy } from '../../scripts/stack127/directory-pages/lib.mjs';
 import { remapDevelopmentPageIds } from '../../scripts/stack127/database/rebuild-development.mjs';
 
 test('named prose sections cannot include the neighboring record explanation', () => {
@@ -28,8 +28,7 @@ test('generated child copy uses the record identity and current intro', () => {
   assert.equal(network.slug, 'ad-networks/demo');
   assert.match(network.intro_markdown, /verified Demo relationship/);
   assert.ok(adNetworkPageCopy({ slug: 'demo', name: 'Demo', summary: 'Updated summary.' }).intro_markdown.startsWith('Updated summary.'));
-  assert.equal(platformFeeSectionCopy({ meta_title: 'Demo', intro: 'Current section intro.' }, 'platform-fees/demo').intro_markdown, 'Current section intro.');
-  assert.match(platformFeeOverviewCopy(2, 9).title, /9 listings across 2 categories/);
+
 });
 
 test('development rebuild keeps child copy and memberships when page IDs change', () => {

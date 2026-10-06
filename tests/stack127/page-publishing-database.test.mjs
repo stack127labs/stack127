@@ -16,12 +16,12 @@ function state(slug, family = "directory", published = false) {
       content_markdown: "Tool instructions", tool_version: "1.0.0", stack127_repo_url: null,
       stack127_repo_version: null, stack127_repo_commit_sha: null, card_name: "Tool",
       card_description: "Tool description", card_icon_key: "calculator", card_art_key: "icon" },
-    catalog: { heading_before: "", heading_mark: "Tools", heading_after: "", intro: "Find a tool",
-      section_heading: "Tools", icon_key: "layers", hero_art_key: "icon", home_art_key: "icon",
-      home_order: 10, card_name: "Tools", card_description: "Choose a tool" },
+    catalog: { title: "<mark>Tools</mark>", intro_markdown: "Find a tool", content_markdown: null,
+      card_icon_key: "layers", card_art_key: "icon", display_order: 10,
+      card_name: "Tools", card_description: "Choose a tool" },
   }[family];
   return { slug, family, registry: { label: "Page", meta_title: "Page | stack127",
-    meta_description: "Page description", is_published: published, cover_image_url: null,
+    meta_description: "Page description", is_published: published, is_indexable: true, cover_image_url: null,
     page_type: family === "tool" ? "WebPage" : "CollectionPage", sitemap_priority: 0.5 },
   content, ...(family === "tool" ? { catalogs: [] } : {}) };
 }
@@ -38,11 +38,9 @@ function create(after) {
 
 // This client models transactional persistence and the constraints used by the publisher.
 // The development integration checks the same operations against PostgreSQL's real triggers.
-function database(initial = [], { catalogSchema = "original", catalogColumns } = {}) {
-  const catalogFields = schema => CONTENT_FIELDS.catalog.map(field => schema === "renamed"
-    ? { icon_key: "card_icon_key", home_art_key: "card_art_key" }[field] ?? field : field);
-  let physicalCatalogFields = catalogFields(catalogSchema);
-  let availableCatalogColumns = catalogColumns ?? physicalCatalogFields;
+function database(initial = []) {
+  const physicalCatalogFields = CONTENT_FIELDS.catalog;
+  const availableCatalogColumns = physicalCatalogFields;
   let store = { pages: [], content: { tool: [], directory: [], catalog: [] }, members: [] };
   let nextId = 1;
   for (const item of initial) {
@@ -53,8 +51,7 @@ function database(initial = [], { catalogSchema = "original", catalogColumns } =
     if (item.content) {
       const fields = item.family === "catalog" ? physicalCatalogFields : CONTENT_FIELDS[item.family];
       const content = Object.fromEntries(CONTENT_FIELDS[item.family].map((field, index) => [fields[index], item.content[field]]));
-      store.content[item.family].push({ page_id: id, ...content,
-        content_revision: 1, row_updated_at: "old", tool_version_updated_at: "old" });
+      store.content[item.family].push({ page_id: id, ...content, row_updated_at: "old", tool_version_updated_at: "old" });
     }
   }
   for (const item of initial.filter(item => item.family === "tool")) {
@@ -78,7 +75,7 @@ function database(initial = [], { catalogSchema = "original", catalogColumns } =
       if (sql.startsWith("begin")) { snapshot = structuredClone(store); return result([]); }
       if (sql === "rollback") { if (snapshot) store = snapshot; snapshot = undefined; return result([]); }
       if (sql === "commit") { snapshot = undefined; return result([]); }
-      if (sql.startsWith("set local") || sql.includes("pg_advisory_xact_lock")) return result([]);
+      if (sql === "set constraints all immediate" || sql.startsWith("set local") || sql.includes("pg_advisory_xact_lock")) return result([]);
       if (sql.startsWith("select")) {
         if (sql.includes("information_schema.columns")) {
           assert.deepEqual(values.slice(0, 2), ["public", "stack127_catalog_pages"]);
@@ -142,7 +139,6 @@ function database(initial = [], { catalogSchema = "original", catalogColumns } =
           throw new Error("Catalog insert used a missing physical column");
         }
         if (store.content[family].some(content => content.page_id === row.page_id)) throw new Error("Duplicate family content");
-        row.content_revision = 1;
         row.row_updated_at = `tick-${++ticks}`;
         if (family === "tool") {
           row.tool_version_updated_at = row.row_updated_at;
@@ -185,9 +181,6 @@ function database(initial = [], { catalogSchema = "original", catalogColumns } =
             row.updated_at = row.is_published ? row.row_updated_at : null;
           }
         } else {
-          if (["title", "intro_markdown", "usage_markdown", "content_markdown"].some(field => before[field] !== row[field])) {
-            row.content_revision++;
-          }
           if (before.tool_version !== row.tool_version) row.tool_version_updated_at = row.row_updated_at;
           if (sql.includes("stack127_repo_synced_at = now()")) row.stack127_repo_synced_at = row.row_updated_at;
           if (sql.includes("stack127_repo_synced_at = null")) row.stack127_repo_synced_at = null;
@@ -200,18 +193,6 @@ function database(initial = [], { catalogSchema = "original", catalogColumns } =
   };
   return { client, pool: { async connect() { return client; } }, calls,
     get store() { return structuredClone(store); }, get releases() { return releases; },
-    setCatalogSchema(schema) {
-      const nextFields = catalogFields(schema);
-      for (const row of store.content.catalog) {
-        physicalCatalogFields.forEach((field, index) => {
-          if (field === nextFields[index]) return;
-          row[nextFields[index]] = row[field];
-          delete row[field];
-        });
-      }
-      physicalCatalogFields = nextFields;
-      availableCatalogColumns = nextFields;
-    },
     failWhen(predicate) { failure = predicate; },
     writes() { return calls.filter(call => /^(insert|update|delete) /.test(call.sql)); },
   };
@@ -249,16 +230,15 @@ test("full states require all managed fields and reject unknown or schema-invali
     assert.throws(() => validateState(incomplete), /Missing tool content field/);
   }
   assert.throws(() => validateState({ ...tool, extra: true }), /Unknown state field/);
-  assert.throws(() => validateState({ ...tool, content: { ...tool.content, content_revision: 4 } }), /Unknown tool content field/);
+  assert.throws(() => validateState({ ...tool, content: { ...tool.content, unexpected: 1 } }), /Unknown tool content field/);
   assert.throws(() => validateState({ ...tool, registry: { ...tool.registry, sitemap_priority: 0.555 } }), /two decimal places/);
   assert.throws(() => validateState({ ...tool, content: { ...tool.content, content_markdown: null } }), /nonempty text/);
   assert.throws(() => validateState({ ...tool, catalogs: [{ slug: "tools", display_order: 2147483648 }] }), /integer range/);
 });
 
-test("catalog heading fragments preserve the spaces used around marked text", async () => {
+test("catalog titles preserve the spaces around marked text", async () => {
   const catalog = state("dns-tools", "catalog");
-  catalog.content.heading_before = "DNS ";
-  catalog.content.heading_after = " to check records";
+  catalog.content.title = "DNS <mark>tools</mark> to check records";
   const db = database([catalog]);
   assert.deepEqual(validateState(catalog), catalog);
   assert.deepEqual(await readStates(db.client, [{ slug: catalog.slug, family: catalog.family }]), [catalog]);
@@ -304,7 +284,6 @@ test("dry runs validate writes and roll back, and a successful retry writes noth
   assert.equal(preview.pages[0].changed, true);
   assert.deepEqual(db.store, original);
   await executeBatch(db.pool, [entry], { apply: true });
-  assert.equal(db.store.content.directory[0].content_revision, 2);
   const applied = db.store;
   const writeCount = db.writes().length;
   const retry = await executeBatch(db.pool, [entry], { apply: true });
@@ -322,7 +301,6 @@ test("new pages enter as drafts and get family content and memberships before pu
   assert.deepEqual(result.states, [tool, catalog]);
   assert.deepEqual(await readStates(db.client, [{ slug: tool.slug, family: "tool" },
     { slug: catalog.slug, family: "catalog" }]), [tool, catalog]);
-  assert.equal(db.store.content.tool[0].content_revision, 1);
   assert.match(db.store.content.tool[0].tool_version_updated_at, /^tick-/);
 });
 
@@ -351,7 +329,6 @@ test("selected tools can swap orders without duplicate memberships or writes on 
   await executeBatch(db.pool, entries, { apply: true });
   assert.equal(db.writes().length, count);
   assert.equal(db.store.members.length, 2);
-  assert.ok(db.store.content.tool.every(row => row.content_revision === 1));
 });
 
 test("orders held by unselected tools cannot be overwritten", async () => {
@@ -519,77 +496,44 @@ test("new complete repo metadata gets its sync date inside the page transaction"
   assert.equal(db.store.content.tool[0].stack127_repo_synced_at, null);
 });
 
-for (const catalogSchema of ["original", "renamed"]) {
-  test(`catalog reads, creation, updates, and restore use canonical states with ${catalogSchema} physical columns`, async () => {
-    const catalog = state("tools", "catalog");
-    catalog.content.icon_key = "network";
-    catalog.content.home_art_key = "dns-tools";
-    catalog.content.hero_art_key = "hero-art";
-    const db = database([], { catalogSchema });
-    const refs = [{ slug: catalog.slug, family: catalog.family }];
-    const creation = create(catalog);
-    await executeBatch(db.pool, [creation], { apply: true });
-    assert.deepEqual(await readStates(db.client, refs), [catalog]);
-    const updated = change(catalog, after => {
-      after.content.icon_key = "globe";
-      after.content.home_art_key = "domain-tools";
-    });
-    await executeBatch(db.pool, [updated], { apply: true });
-    assert.deepEqual(await readStates(db.client, refs), [updated.after]);
-    const physical = db.store.content.catalog[0];
-    assert.equal(physical[catalogSchema === "renamed" ? "card_icon_key" : "icon_key"], "globe");
-    assert.equal(physical[catalogSchema === "renamed" ? "card_art_key" : "home_art_key"], "domain-tools");
-    assert.equal(physical.hero_art_key, "hero-art");
-    const writeCount = db.writes().length;
-    await executeBatch(db.pool, [updated], { apply: true });
-    assert.equal(db.writes().length, writeCount);
-    await executeBatch(db.pool, [updated], { apply: true, restore: true });
-    assert.deepEqual(await readStates(db.client, refs), [catalog]);
-  });
-
-  test(`a batch shares one ${catalogSchema} catalog mapping across selected and dependency reads and writes`, async () => {
-    const selected = state("selected-tools", "catalog");
-    const dependency = state("other-tools", "catalog");
-    const tool = state("tool", "tool");
-    tool.catalogs = [{ slug: selected.slug, display_order: 1 }, { slug: dependency.slug, display_order: 1 }];
-    const db = database([selected, dependency], { catalogSchema });
-    await executeBatch(db.pool, [change(selected, after => { after.content.icon_key = "network"; }), create(tool)], { apply: true });
-    assert.equal(db.calls.filter(call => call.sql.includes("information_schema.columns")).length, 1);
-    assert.equal(db.store.members.length, 2);
-  });
-}
-
-test("catalog column resolution is fresh for each read and batch on the same client", async () => {
+test("catalog copy, order, and shared card fields round-trip and restore without writes on retries", async () => {
   const catalog = state("tools", "catalog");
-  const db = database([catalog]);
+  catalog.content.card_icon_key = "network";
+  catalog.content.card_art_key = "dns-tools";
+  catalog.content.content_markdown = "## DNS checks\n\nChoose the records you need.";
+  const db = database();
   const refs = [{ slug: catalog.slug, family: catalog.family }];
+  await executeBatch(db.pool, [create(catalog)], { apply: true });
   assert.deepEqual(await readStates(db.client, refs), [catalog]);
-  db.setCatalogSchema("renamed");
-  assert.deepEqual(await readStates(db.client, refs), [catalog]);
-  const updated = change(catalog, after => { after.content.home_art_key = "new-art"; });
+  const updated = change(catalog, after => {
+    after.content.title = "Domain <mark>tools</mark>";
+    after.content.intro_markdown = "Find a **domain** check.";
+    after.content.content_markdown = null;
+    after.content.card_icon_key = "globe";
+    after.content.card_art_key = "domain-tools";
+    after.content.display_order = 20;
+  });
   await executeBatch(db.pool, [updated], { apply: true });
-  assert.equal(db.store.content.catalog[0].card_art_key, "new-art");
-  assert.equal(db.calls.filter(call => call.sql.includes("information_schema.columns")).length, 3);
+  assert.deepEqual(await readStates(db.client, refs), [updated.after]);
+  const writes = db.writes().length;
+  await executeBatch(db.pool, [updated], { apply: true });
+  assert.equal(db.writes().length, writes);
+  await executeBatch(db.pool, [updated], { apply: true, restore: true });
+  assert.deepEqual(await readStates(db.client, refs), [catalog]);
 });
 
-for (const invalid of [
-  { field: "icon_key", error: "Missing", columns: ["home_art_key"] },
-  { field: "home_art_key", error: "Missing", columns: ["icon_key"] },
-  { field: "icon_key", error: "Ambiguous", columns: ["icon_key", "card_icon_key", "home_art_key"] },
-  { field: "home_art_key", error: "Ambiguous", columns: ["icon_key", "home_art_key", "card_art_key"] },
-]) {
-  test(`${invalid.error.toLowerCase()} mapping for ${invalid.field} rejects catalog reads and batches before writes`, async () => {
-    const catalog = state("tools", "catalog");
-    const db = database([catalog], { catalogColumns: invalid.columns });
-    const expected = new RegExp(`${invalid.error} catalog column mapping for ${invalid.field}`);
-    await assert.rejects(readStates(db.client, [{ slug: catalog.slug, family: catalog.family }]), expected);
-    const empty = database([], { catalogColumns: invalid.columns });
-    await assert.rejects(executeBatch(empty.pool, [create(state("directory")), create(catalog)], { apply: true }), expected);
-    assert.equal(empty.writes().length, 0);
-    assert.equal(empty.calls.at(-1).sql, "rollback");
-    assert.equal(empty.releases, 1);
-  });
-}
+test("catalog Markdown is optional, trimmed when present, and uses the shared fields", () => {
+  const catalog = state("tools", "catalog");
+  assert.deepEqual(validateState(catalog), catalog);
+  for (const value of ["", " ", " Content", "Content "]) {
+    assert.throws(() => validateState({ ...catalog, content: { ...catalog.content, content_markdown: value } }), /nonempty text/);
+  }
+  for (const field of ["title", "intro_markdown"]) {
+    assert.throws(() => validateState({ ...catalog, content: { ...catalog.content, [field]: "" } }), /nonempty text/);
+  }
+  assert.throws(() => validateState({ ...catalog, content: { ...catalog.content, display_order: 1.5 } }), /integer/);
+  assert.throws(() => validateState({ ...catalog, content: { ...catalog.content, hero_art_key: "icon" } }), /Unknown catalog content field/);
+});
 
 test("directory assets are complete managed state and restore exactly without writes on retries", async () => {
   const directory = state("directory", "directory", true);
@@ -609,7 +553,6 @@ test("directory assets are complete managed state and restore exactly without wr
   assert.deepEqual(await readStates(db.client, refs), [updated.after]);
   assert.equal(db.store.content.directory[0].card_icon_key, "globe");
   assert.equal(db.store.content.directory[0].card_art_key, "dns-tools");
-  assert.equal(db.store.content.directory[0].content_revision, 1);
   const applied = db.store;
   let writes = db.writes().length;
   assert.equal((await executeBatch(db.pool, [updated], { apply: true })).pages[0].changed, false);
@@ -797,7 +740,6 @@ for (const published of [false, true]) {
     assert.notEqual(linkedPage.row_updated_at, initialPage.row_updated_at);
     assert.equal(linkedPage.published_at, initialPage.published_at);
     assert.equal(linkedPage.updated_at, initialPage.updated_at);
-    assert.equal(linkedContent.content_revision, initialContent.content_revision);
     assert.equal(linkedContent.tool_version_updated_at, initialContent.tool_version_updated_at);
     assert.equal(linkedContent.stack127_repo_synced_at, null);
     const verified = change(link.after, after => {
@@ -810,7 +752,6 @@ for (const published of [false, true]) {
     assert.notEqual(verifiedPage.row_updated_at, linkedPage.row_updated_at);
     assert.equal(verifiedPage.published_at, initialPage.published_at);
     assert.equal(verifiedPage.updated_at, initialPage.updated_at);
-    assert.equal(verifiedContent.content_revision, initialContent.content_revision);
     assert.equal(verifiedContent.tool_version_updated_at, initialContent.tool_version_updated_at);
     assert.match(verifiedContent.stack127_repo_synced_at, /^tick-/);
     const beforeRetry = db.store;
@@ -852,6 +793,42 @@ async function repositoryFixture(t) {
 const prepareOptions = root => ({ kind: "directories", environment: "development", root, sourceCommit: "a".repeat(40) });
 const directoryManifest = (page, requirements) => ({ schema_version: 1, kind: "directories",
   pages: [{ ...page, family: "directory", requirements }] });
+
+test("prepare defaults new pages to indexable and preserves existing noindex settings", async t => {
+  const fixture = await repositoryFixture(t);
+  const newPage = state("new-directory", "directory", true);
+  delete newPage.registry.is_indexable;
+  const created = await preparePlan(database().pool,
+    directoryManifest({ slug: newPage.slug, registry: newPage.registry, content: newPage.content }, fixture.requirements()), prepareOptions(fixture.root));
+  assert.equal(created.pages[0].after.registry.is_indexable, true);
+  const existing = state("directory", "directory", true);
+  existing.registry.is_indexable = false;
+  const db = database([existing]);
+  const unchanged = await preparePlan(db.pool,
+    directoryManifest({ slug: existing.slug, content: { intro_markdown: "Reviewed copy" } }, fixture.requirements()), prepareOptions(fixture.root));
+  assert.equal(unchanged.pages[0].after.registry.is_indexable, false);
+  for (const invalid of ["false", null, 0]) {
+    await assert.rejects(preparePlan(db.pool,
+      directoryManifest({ slug: existing.slug, registry: { is_indexable: invalid } }, fixture.requirements()), prepareOptions(fixture.root)), /is_indexable must be a boolean/);
+  }
+});
+
+test("indexability-only batches preview, apply, retry and restore without changing publication", async () => {
+  const before = state("directory", "directory", true);
+  const entry = change(before, after => { after.registry.is_indexable = false; });
+  const db = database([before]);
+  await executeBatch(db.pool, [entry]);
+  assert.deepEqual(await readStates(db.client, [{ slug: before.slug, family: before.family }]), [before]);
+  await executeBatch(db.pool, [entry], { apply: true });
+  assert.deepEqual(await readStates(db.client, [{ slug: before.slug, family: before.family }]), [entry.after]);
+  assert.equal(db.store.pages[0].is_published, true);
+  assert.notEqual(db.store.pages[0].published_at, null);
+  const writes = db.writes().length;
+  await executeBatch(db.pool, [entry], { apply: true });
+  assert.equal(db.writes().length, writes);
+  await executeBatch(db.pool, [entry], { apply: true, restore: true });
+  assert.deepEqual(await readStates(db.client, [{ slug: before.slug, family: before.family }]), [before]);
+});
 
 test("prepare freezes directory assets, preserves omitted values and supports explicit null restore", async t => {
   const fixture = await repositoryFixture(t);
@@ -928,15 +905,10 @@ test("readiness checks shared registry keys for directories, catalogs and tools"
   const fixture = await repositoryFixture(t);
   for (const family of ["directory", "catalog", "tool"]) {
     const page = state("example", family, true);
-    if (family === "catalog") {
-      page.content.hero_art_key = "dns-tools";
-      page.content.home_art_key = "cli-apps";
-    } else {
-      page.content.card_icon_key = "book";
-      page.content.card_art_key = "cli-apps";
-    }
+    page.content.card_icon_key = "book";
+    page.content.card_art_key = "cli-apps";
     await checkRepositoryRequirements(fixture.requirements(family), page, fixture.root);
-    const fields = family === "catalog" ? ["icon_key", "hero_art_key", "home_art_key"] : ["card_icon_key", "card_art_key"];
+    const fields = ["card_icon_key", "card_art_key"];
     for (const field of fields) {
       for (const key of ["unregistered-key", "constructor", "tostring"]) {
         const invalid = structuredClone(page);

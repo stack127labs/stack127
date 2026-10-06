@@ -45,6 +45,10 @@ async function preserveExactAppSources(client, decisions) {
       updated_at = now()
       from source_lists
       where public.self_host_apps.id = source_lists.app_id
+        and (data_confidence='unknown' or data_checked_at is null or data_source_urls is distinct from (
+          select array_agg(distinct url order by url)
+          from unnest(coalesce(public.self_host_apps.data_source_urls, '{}') || source_lists.source_urls) as values(url)
+        ))
     `,
     [JSON.stringify(decisions)],
   );

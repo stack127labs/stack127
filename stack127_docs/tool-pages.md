@@ -41,7 +41,6 @@ This split applies only to interactive tools. Directories such as `/epp-status-c
 | `intro_markdown` | Markdown rendered before the interactive tool. |
 | `usage_markdown` | Optional Markdown rendered after the interactive tool and before supporting content. Existing rows may remain `null` until reviewed. |
 | `content_markdown` | Markdown rendered after the interactive tool. |
-| `content_revision` | Internal revision number. Increment only when `title`, `intro_markdown`, `usage_markdown`, or `content_markdown` changes. |
 | `tool_version` | Semantic version of the hosted tool behavior. Content-only edits do not change it. |
 | `tool_version_updated_at` | Time the hosted tool version last changed. |
 | `stack127_repo_url` | Optional URL for the stack127-owned repository that contains the related public tool. |
@@ -57,7 +56,7 @@ This split applies only to interactive tools. Directories such as `/epp-status-c
 The `stack127_repo_*` fields describe repositories owned by stack127. They are unrelated to `public.github_projects`. That table stores third-party repository facts used by directories.
 
 See [tool-catalogs.md](tool-catalogs.md) for tool catalog content and memberships. A tool may appear in several catalogs. Its rank-1 membership is the primary one. Card edits update every linked catalog's public date and queue those pages for revalidation.
-Card edits also update the tool's public date because its name appears in tool navigation. They do not change `content_revision`, which tracks the tool page heading and Markdown.
+Card-only edits leave the tool's public date alone. Their internal registry timestamp still advances so cache checks can reject an older render. Title, introduction, usage, supporting content, and `tool_version` changes move the public date. No-op writes and repository-only updates keep it unchanged.
 
 In development, tool integration updates shared card fields and the complete ordered catalog list with `npm run stack127:tool-page:catalogs:update`. The command defaults to a dry run and uses `.env.local` for development. Add `--apply` to write. The first catalog has rank 1. If display orders are omitted, new tools are appended and existing memberships keep their positions. See [tool-catalogs.md](tool-catalogs.md) for the command and checks.
 
@@ -96,18 +95,18 @@ When correcting claims about tool coverage, data handling, accuracy, or limits, 
      --meta-description "Check public DNS records and compare resolver and authoritative answers."
    ```
 
-3. Add `--usage-file /tmp/dns-lookup-usage.md` when reviewed usage guidance is available. Omitting it preserves the existing value, including `null`. The file must contain meaningful nonempty Markdown. Add `--title "DNS lookup"` only when the visible heading changes. Pass `--meta-title` and `--meta-description` together when search metadata changes. This updates only those registry fields and the public `updated_at` date. It does not increment `content_revision`. Add `--apply` after reviewing the dry-run result.
+3. Add `--usage-file /tmp/dns-lookup-usage.md` when reviewed usage guidance is available. Omitting it preserves the existing value, including `null`. The file must contain meaningful nonempty Markdown. Add `--title "DNS lookup"` only when the visible heading changes. Pass `--meta-title` and `--meta-description` together when search metadata changes. This updates only those registry fields and the public `updated_at` date. Add `--apply` after reviewing the dry-run result.
 4. Render and test the page from the development database.
 5. For production, put the same reviewed files in a publisher manifest and follow [page-publishing.md](page-publishing.md). The content command also accepts `--environment production --confirm stack127-production --apply` for a small fix to one live page.
 
-The command increments `content_revision`. It leaves `tool_version` and `tool_version_updated_at` unchanged. For a published row, it updates the public `stack127_pages.updated_at`. For an unpublished row, that date stays `null`.
+The command leaves `tool_version` and `tool_version_updated_at` unchanged. For a published row, it updates the public `stack127_pages.updated_at`. For an unpublished row, that date stays `null`.
 
 ## Functional tool changes
 
 A functional change affects inputs, validation, formulas, resolution behavior, data-source interpretation, results, interactive visuals, or privacy behavior. Any other change a user can observe in the tool also counts.
 
 1. Change the route, engine, fixtures, and tests through the normal test-first tool workflow.
-2. Choose the next semantic version. Use a patch for a compatible correction. Use a minor version for compatible new behavior and a major version for an incompatible contract change.
+2. Raise `tool_version` when shipped inputs, outputs, calculations, validation, or other user-visible tool behavior changes. Keep it unchanged for copy, cards, styling, and repository metadata. Choose the next semantic version. Use a patch for a compatible correction. Use a minor version for compatible new behavior and a major version for an incompatible contract change.
 3. Dry-run the version update against development, then apply it after the implementation and tests pass:
 
    ```bash
@@ -119,9 +118,9 @@ A functional change affects inputs, validation, formulas, resolution behavior, d
 
 4. Check the rendered page and pass the full quality gate. Set the same version in the publisher manifest for production, after the release that ships the code is live.
 
-The command changes `tool_version` and `tool_version_updated_at`. It does not change `content_revision`. For a published row it updates the public `stack127_pages.updated_at`.
+The command changes `tool_version` and `tool_version_updated_at`. For a published row it updates the public `stack127_pages.updated_at`.
 
-If the functional release also needs copy changes, run the content command and version command separately. This preserves both histories.
+If the functional release also needs copy changes, run the content command and version command separately. This keeps content edits separate from functional version changes.
 
 ## stack127 repo synchronization
 
@@ -136,7 +135,7 @@ npm run stack127:tool-page:repo:sync -- \
   --apply
 ```
 
-This command updates only the `stack127_repo_*` fields and their internal row timestamp. It does not change `content_revision`, `tool_version`, or the public `updated_at`. If the sync also changes the hosted tool, complete the functional version workflow separately.
+This command updates only the `stack127_repo_*` fields and their internal row timestamp. It does not change `tool_version` or the public `updated_at`. If the sync also changes the hosted tool, complete the functional version workflow separately.
 
 All three commands default to a dry run. The publisher can set the version and repository fields too, in the same batch as content. They read `.env.local` for development or `.env.database` for production. They reject `--database-url` overrides. Production writes require an explicit production environment, confirmation phrase, and `--apply`. Development mode also stops if `.env.local` and `.env.database` contain the same database URL.
 

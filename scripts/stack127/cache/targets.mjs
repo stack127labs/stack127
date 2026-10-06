@@ -1,4 +1,4 @@
-import { PAGE_REGISTRY_TAG, HOME_PAGES_TAG, TOOL_PAGES_TAG, DIRECTORY_PAGES_TAG, TOOL_CATALOGS_TAG, TOOL_CATALOG_TAG, TOOL_PRIMARY_CATALOGS_TAG, SELF_HOST_INDEX_TAG, SELF_HOST_DETAILS_TAG, SELF_HOST_APP_TAG, CLI_APPS_TAG, SITEMAP_TAG, PLATFORM_FEES_TAG, AD_NETWORKS_TAG, LAUNCH_DIRECTORIES_TAG } from "../../../lib/cache-tags.ts";
+import { COURSE_PAGES_TAG, PAGE_REGISTRY_TAG, HOME_PAGES_TAG, TOOL_PAGES_TAG, DIRECTORY_PAGES_TAG, TOOL_CATALOGS_TAG, TOOL_CATALOG_TAG, TOOL_PRIMARY_CATALOGS_TAG, SELF_HOST_INDEX_TAG, SELF_HOST_DETAILS_TAG, SELF_HOST_APP_TAG, CLI_APPS_TAG, SITEMAP_TAG, PLATFORM_FEES_TAG, AD_NETWORKS_TAG, LAUNCH_DIRECTORIES_TAG } from "../../../lib/cache-tags.ts";
 import { feeGroups, groupPath } from "../../../lib/platform-fees/groups.ts";
 const clean = (value) => String(value ?? "").replace(/^\/+|\/+$/g, "").toLowerCase();
 const pageTag = (path) => `page:${clean(path).replaceAll("/", ":") || "home"}`;
@@ -25,6 +25,7 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
       nextTags.add(TOOL_CATALOGS_TAG);
       nextTags.add(TOOL_PRIMARY_CATALOGS_TAG);
       nextTags.add(HOME_PAGES_TAG);
+      nextTags.add(COURSE_PAGES_TAG);
       nextTags.add(SITEMAP_TAG);
       if (slug === "self-host-apps" || slug === "self-hosted-app-resource-planner") edgeTags.add("self-host-detail");
       if (slug === "self-hosted-app-resource-planner") addPage("/api/resource-planner-index", false);

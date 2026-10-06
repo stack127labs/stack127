@@ -1,19 +1,11 @@
-import { CalendarDays, Tag } from "lucide-react";
-import { FaGithub } from "react-icons/fa6";
 import type { ReactNode } from "react";
 import type { Stack127ToolPage } from "@/lib/tool-pages";
 import { PageHeader } from "./page-header";
+import { PageMeta } from "./page-meta";
 import { PageTitleIcon } from "./page-title-icon";
 import { ContentMarkdown } from "../content-markdown";
 import { proseClassName, proseFlowClassName } from "./prose";
 import styles from "./tool-page-content.module.css";
-
-const updatedDateFormatter = new Intl.DateTimeFormat("en-US", {
-  day: "numeric",
-  month: "short",
-  year: "numeric",
-  timeZone: "UTC",
-});
 
 export function ToolPageHeader({
   icon,
@@ -22,36 +14,17 @@ export function ToolPageHeader({
   icon: ReactNode;
   toolPage: Stack127ToolPage;
 }) {
-  const updatedAt = new Date(toolPage.updated_at);
-
   return (
     <PageHeader>
       <h1>
         <PageTitleIcon>{icon}</PageTitleIcon>{" "}
         {toolPage.title}
       </h1>
-      <div className={styles.metadata}>
-        {toolPage.stack127_repo_url ? (
-          <a
-            aria-label="GitHub repository"
-            className={styles.metadataItem}
-            href={toolPage.stack127_repo_url}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <FaGithub aria-hidden="true" size={15} />
-            GitHub
-          </a>
-        ) : null}
-        <span className={styles.metadataItem}>
-          <Tag aria-hidden="true" size={15} strokeWidth={1.8} />
-          Version {toolPage.tool_version}
-        </span>
-        <span className={styles.metadataItem}>
-          <CalendarDays aria-hidden="true" size={15} strokeWidth={1.8} />
-          <time dateTime={updatedAt.toISOString()}>Updated {updatedDateFormatter.format(updatedAt)}</time>
-        </span>
-      </div>
+      <PageMeta
+        githubUrl={toolPage.stack127_repo_url}
+        updatedAt={toolPage.updated_at}
+        version={toolPage.tool_version}
+      />
       <ContentMarkdown markdown={toolPage.intro_markdown} />
     </PageHeader>
   );

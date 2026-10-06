@@ -1,0 +1,4 @@
+interface:
+  display_name: "stack127 Directory Writing"
+  short_description: "Write directory page copy using the shared writing guide"
+  default_prompt: "Use $stack127-directory-writing to plan and write this directory page's title, intro, content, and SEO text from its brief, records, and stack127_docs/writing-style.md."
