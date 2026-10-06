@@ -97,7 +97,7 @@ export async function preparePlan(pool, manifest, { kind, environment, base = pr
     const source = page.source ? development.get(page.slug) : current;
     if (page.source && !source?.content) throw new Error(`Reviewed development page is missing: ${page.slug}`);
     const defaults = page.family === 'tool' ? { usage_markdown: null, tool_version: '1.0.0', stack127_repo_url: null, stack127_repo_version: null, stack127_repo_commit_sha: null } : page.family === 'directory' ? { content_markdown: null, card_icon_key: null, card_art_key: null } : { heading_before: '', heading_after: '', icon_key: 'layers', home_order: 100 };
-    const after = validateState({ slug: page.slug, family: page.family, registry: { is_published: false, cover_image_url: null, page_type: page.family === 'tool' ? 'SoftwareApplication' : 'CollectionPage', sitemap_priority: 0.5, ...source?.registry, ...page.registry }, content: { ...defaults, ...source?.content, ...await resolveCopy(page.content, base) }, ...(page.family === 'tool' ? { catalogs: page.catalogs ?? source?.catalogs ?? [] } : {}) });
+    const after = validateState({ slug: page.slug, family: page.family, registry: { is_published: false, is_indexable: true, cover_image_url: null, page_type: page.family === 'tool' ? 'SoftwareApplication' : 'CollectionPage', sitemap_priority: 0.5, ...source?.registry, ...page.registry }, content: { ...defaults, ...source?.content, ...await resolveCopy(page.content, base) }, ...(page.family === 'tool' ? { catalogs: page.catalogs ?? source?.catalogs ?? [] } : {}) });
     const requirements = await freezeRequirements(page.requirements, after, root);
     pages.push({ slug: page.slug, family: page.family, before: current, after, requirements });
   }

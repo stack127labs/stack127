@@ -13,7 +13,6 @@ export type Stack127DirectoryPage = {
   title: string;
   intro_markdown: string;
   content_markdown: string | null;
-  content_revision: number;
   card_name: string;
   card_description: string;
   card_icon_key: string | null;
@@ -21,7 +20,7 @@ export type Stack127DirectoryPage = {
   row_updated_at: Date | string;
 };
 
-const columns = "page_id,title,intro_markdown,content_markdown,content_revision,card_name,card_description,card_icon_key,card_art_key,row_updated_at";
+const columns = "page_id,title,intro_markdown,content_markdown,card_name,card_description,card_icon_key,card_art_key,row_updated_at";
 
 export const getPublishedDirectoryPage = cache(async (slug: string) => unstable_cache(async () => {
   return readPublicData<Stack127DirectoryPage | null>({

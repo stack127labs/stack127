@@ -33,7 +33,6 @@ function matchesPage(row, expectedPublished) {
     && row.page_family === "tool"
     && row.page_type === "WebApplication"
     && row.tool_title === "Chmod calculator"
-    && row.content_revision === 2
     && row.tool_version === "1.0.0";
 }
 
@@ -43,7 +42,7 @@ try {
   const existing = await pool.query(
     `select page.id, page.slug, page.is_published, page.published_at, page.updated_at,
             page.page_family, page.page_type, tool.title as tool_title,
-            tool.content_revision, tool.tool_version
+            tool.tool_version
        from public.stack127_pages page
        left join public.stack127_tool_pages tool on tool.page_id = page.id
       where page.slug = $1

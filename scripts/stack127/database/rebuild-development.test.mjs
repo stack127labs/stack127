@@ -51,7 +51,7 @@ test('verification detects missing and changed preserved directory copy after ID
 test('verification remaps tool, catalog, and mixed membership IDs through their page slugs', () => {
   const sourcePages = [{ id: 1, slug: 'source-tool' }, { id: 2, slug: 'source-catalog' }];
   const extraPages = [{ id: 3, slug: 'development-tool' }, { id: 4, slug: 'development-catalog' }];
-  const tool = { page_id: 3, title: 'Saved tool', content_revision: 5 };
+  const tool = { page_id: 3, title: 'Saved tool', tool_version: '1.0.0' };
   const catalog = { page_id: 4, card_name: 'Saved catalog' };
   const memberships = [
     { catalog_page_id: 2, tool_page_id: 3, display_order: 1 },

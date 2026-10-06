@@ -46,24 +46,21 @@ const result = await runMutation(args, async (client) => {
     return {
       slug,
       changed: false,
-      content_revision: page.content_revision,
       tool_version: page.tool_version,
       meta_title: page.meta_title,
       meta_description: page.meta_description,
     };
   }
 
-  let contentRevision = page.content_revision;
   if (contentChanged) {
-    const updated = await client.query(
+    await client.query(
       usageMarkdown === null
-        ? `update public.stack127_tool_pages set title = $2, intro_markdown = $3, content_markdown = $4, content_revision = content_revision + 1 where page_id = $1 returning content_revision`
-        : `update public.stack127_tool_pages set title = $2, intro_markdown = $3, usage_markdown = $4, content_markdown = $5, content_revision = content_revision + 1 where page_id = $1 returning content_revision`,
+        ? `update public.stack127_tool_pages set title = $2, intro_markdown = $3, content_markdown = $4 where page_id = $1`
+        : `update public.stack127_tool_pages set title = $2, intro_markdown = $3, usage_markdown = $4, content_markdown = $5 where page_id = $1`,
       usageMarkdown === null
         ? [page.id, title, introMarkdown, contentMarkdown]
         : [page.id, title, introMarkdown, usageMarkdown, contentMarkdown],
     );
-    contentRevision = updated.rows[0].content_revision;
   }
   if (metadataChanged) {
     await client.query(`
@@ -80,8 +77,6 @@ const result = await runMutation(args, async (client) => {
     changed: true,
     content_changed: contentChanged,
     metadata_changed: metadataChanged,
-    content_revision_before: contentChanged ? page.content_revision : null,
-    content_revision_after: contentRevision,
     tool_version: page.tool_version,
     meta_title: metaTitle ?? page.meta_title,
     meta_description: metaDescription ?? page.meta_description,

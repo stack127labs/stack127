@@ -76,9 +76,9 @@ const insertPageSql = [
 ].join("\n");
 const insertToolSql = [
   "insert into public.stack127_tool_pages (",
-  "  page_id, title, intro_markdown, usage_markdown, content_markdown, content_revision,",
+  "  page_id, title, intro_markdown, usage_markdown, content_markdown,",
   "  tool_version, tool_version_updated_at, card_art_key",
-  ") values ($1, $2, $3, null, $4, 1, '1.0.0', now(), $5)",
+  ") values ($1, $2, $3, null, $4, '1.0.0', now(), $5)",
 ].join("\n");
 
 try {

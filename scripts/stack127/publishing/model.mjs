@@ -1,6 +1,6 @@
 export const REGISTRY_FIELDS = Object.freeze([
   "label", "meta_title", "meta_description", "is_published", "cover_image_url",
-  "page_type", "sitemap_priority",
+  "page_type", "sitemap_priority", "is_indexable",
 ]);
 
 export const CONTENT_FIELDS = Object.freeze({
@@ -69,8 +69,8 @@ export function validateState(state, family = state?.family) {
   const registry = {};
   for (const field of REGISTRY_FIELDS) {
     const value = state.registry[field];
-    if (field === "is_published") {
-      if (typeof value !== "boolean") throw new Error("registry.is_published must be a boolean");
+    if (field === "is_published" || field === "is_indexable") {
+      if (typeof value !== "boolean") throw new Error(`registry.${field} must be a boolean`);
       registry[field] = value;
     } else if (field === "sitemap_priority") {
       if (typeof value !== "number" || !Number.isFinite(value) || value < 0 || value > 1

@@ -268,7 +268,14 @@ async function main() {
     for (const [kind, query] of Object.entries(queries)) {
       const original = (await source.query(query)).rows;
       const current = (await target.query(query)).rows;
-      if (JSON.stringify(original) !== JSON.stringify(current)) throw new Error(`Public schema mismatch: ${kind}. Resolve it before aligning history; no history entries were replaced.`);
+      if (JSON.stringify(original) !== JSON.stringify(current)) {
+        // Name the differing rows so the drift can be fixed without guessing.
+        const originalRows = new Set(original.map((row) => JSON.stringify(row)));
+        const currentRows = new Set(current.map((row) => JSON.stringify(row)));
+        const onlyProduction = [...originalRows].filter((row) => !currentRows.has(row)).slice(0, 20);
+        const onlyDevelopment = [...currentRows].filter((row) => !originalRows.has(row)).slice(0, 20);
+        throw new Error(`Public schema mismatch: ${kind}. Resolve it before aligning history; no history entries were replaced.\nOnly in production:\n${onlyProduction.join('\n') || '(none)'}\nOnly in development:\n${onlyDevelopment.join('\n') || '(none)'}`);
+      }
     }
     console.log(JSON.stringify({ publicSchemaMatches: true, allowedDevelopmentIndex: 'open_projects_source_model_idx' }));
   }

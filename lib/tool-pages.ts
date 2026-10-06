@@ -15,7 +15,6 @@ export type Stack127ToolPage = {
   intro_markdown: string;
   usage_markdown: string | null;
   content_markdown: string;
-  content_revision: number;
   tool_version: string;
   tool_version_updated_at: Date | string;
   stack127_repo_url: string | null;
@@ -36,7 +35,6 @@ const toolContentColumns = [
   "intro_markdown",
   "usage_markdown",
   "content_markdown",
-  "content_revision",
   "tool_version",
   "tool_version_updated_at",
   "stack127_repo_url",
@@ -75,7 +73,6 @@ export const getPublishedToolPage = cache(async (slug: string) => unstable_cache
             tool.intro_markdown,
             tool.usage_markdown,
             tool.content_markdown,
-            tool.content_revision,
             tool.tool_version,
             tool.tool_version_updated_at,
             tool.stack127_repo_url,

@@ -12,6 +12,8 @@ stack127 has four content families and one family for the site's own pages. They
 
 The family name is the same in the database, the route group, and the code. `public.stack127_pages` is only the registry for URL, publication, SEO, and dates. Each family table holds that family's own columns.
 
+`is_published` controls whether a page is public. `is_indexable` controls search indexing, sitemap inclusion, and JSON-LD. Set it to `false` for thin child pages, filtered views, or public pages still being improved. Published noindex pages can still appear in site lists and sidebars.
+
 URLs stay short and flat:
 
 | Page | Example |

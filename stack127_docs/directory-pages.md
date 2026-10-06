@@ -16,7 +16,6 @@ Follow [writing-style.md](writing-style.md) when writing, and use the [directory
 | `title` | Visible h1. Wrap the accent phrase in `<mark>`. |
 | `intro_markdown` | Markdown shown under the title. |
 | `content_markdown` | Optional Markdown for the page's prose. Sectioned pages split it with `<!-- section:<id> -->` markers. Keep existing markers when you edit. |
-| `content_revision` | Internal revision number. It goes up on its own when the title or Markdown changes. |
 | `card_name` | Short name on homepage cards and sidebars. |
 | `card_description` | Short summary on homepage cards. |
 | `card_icon_key` | Optional icon key from `lib/card-icons.ts`. The h1, the homepage sidebar row, and the homepage card all use it. |

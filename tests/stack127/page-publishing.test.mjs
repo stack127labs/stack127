@@ -11,7 +11,7 @@ import { publicationEvent } from '../../scripts/stack127/publishing/github.mjs';
 const sha = 'a'.repeat(40);
 const state = {
   slug: 'example', family: 'directory',
-  registry: { label: 'Example', meta_title: 'Example directory', meta_description: 'Compare examples & choices.', is_published: true, cover_image_url: null, page_type: 'CollectionPage', sitemap_priority: 0.5 },
+  registry: { label: 'Example', meta_title: 'Example directory', meta_description: 'Compare examples & choices.', is_published: true, is_indexable: true, cover_image_url: null, page_type: 'CollectionPage', sitemap_priority: 0.5 },
   content: { title: 'Find <mark>examples</mark>', intro_markdown: 'Choose an example.', content_markdown: null, card_name: 'Examples', card_description: 'Compare examples.', card_icon_key: null, card_art_key: null },
 };
 const revision = '2026-10-04T00:00:00.000Z';
@@ -140,6 +140,39 @@ test('public verification checks metadata, visible heading and the current cache
   assert.throws(() => inspectPublishedHtml(html().replace('Find <mark>examples</mark>', 'Old heading'), state, revision, 'https://stack127.com'), /stale/);
   assert.throws(() => inspectPublishedHtml(html().replace('index, follow', 'none'), state, revision, 'https://stack127.com'), /indexing/);
   assert.throws(() => inspectPublishedHtml(html().replace('Example directory | stack127', 'Unrelated Example directory suffix'), state, revision, 'https://stack127.com'), /stale/);
+});
+
+test('public noindex pages keep their canonical and send no structured data', async () => {
+  const noindex = structuredClone(state);
+  noindex.registry.is_indexable = false;
+  const publicHtml = html().replace('index, follow', 'noindex, follow');
+  inspectPublishedHtml(publicHtml, noindex, revision, 'https://stack127.com');
+  assert.throws(() => inspectPublishedHtml(html(), noindex, revision, 'https://stack127.com'), /indexing/);
+  assert.throws(() => inspectPublishedHtml(publicHtml.replace('name="robots"', 'name="googlebot"'), noindex, revision, 'https://stack127.com'), /indexing/);
+  assert.throws(() => inspectPublishedHtml(publicHtml.replace('/example"', '/parent"'), noindex, revision, 'https://stack127.com'), /indexing/);
+  assert.throws(() => inspectPublishedHtml(publicHtml + '<script type="application/ld+json">{}</script>', noindex, revision, 'https://stack127.com'), /structured data/);
+  const pages = [{ ...plan().pages[0], after: noindex }];
+  const pool = { query: async () => ({ rows: [{ slug: 'example', row_updated_at: revision }] }) };
+  const verify = (sitemap, body = publicHtml, status = 200) => verifyPublicPages(pool, pages, {
+    site: 'https://stack127.com', waitSeconds: 0,
+    fetchImplementation: async url => new Response(url.endsWith('sitemap.xml') ? sitemap : body, { status: url.endsWith('sitemap.xml') ? 200 : status }),
+  });
+  assert.equal((await verify('<urlset/>')).verified, true);
+  await assert.rejects(verify('<urlset><url><loc>https://stack127.com/example</loc></url></urlset>'), /sitemap inclusion/);
+  await assert.rejects(verify('<urlset/>', html()), /indexing/);
+  await assert.rejects(verify('<urlset/>', publicHtml, 404), /Published page missing/);
+});
+
+test('restore checks the original noindex setting and sitemap absence', async () => {
+  const before = structuredClone(state);
+  before.registry.is_indexable = false;
+  const pages = [{ ...plan().pages[0], before }];
+  const pool = { query: async () => ({ rows: [{ slug: 'example', row_updated_at: revision }] }) };
+  const result = await verifyPublicPages(pool, pages, {
+    site: 'https://stack127.com', restore: true, waitSeconds: 0,
+    fetchImplementation: async url => new Response(url.endsWith('sitemap.xml') ? '<urlset/>' : html().replace('index, follow', 'noindex, follow')),
+  });
+  assert.equal(result.verified, true);
 });
 
 test('a repository URL update requires the rendered repository link', () => {

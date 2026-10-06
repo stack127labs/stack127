@@ -121,8 +121,8 @@ try {
       );
       await pool.query(
         `insert into public.stack127_tool_pages (
-          page_id, title, intro_markdown, content_markdown, content_revision, tool_version, tool_version_updated_at
-        ) values ($1, $2, $3, $4, 1, $5, now())`,
+          page_id, title, intro_markdown, content_markdown, tool_version, tool_version_updated_at
+        ) values ($1, $2, $3, $4, $5, now())`,
         [page.rows[0].id, preview.title, preview.intro, preview.content, INITIAL_TOOL_VERSION],
       );
     }

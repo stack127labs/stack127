@@ -83,7 +83,7 @@ Each page takes only these keys:
 | --- | --- |
 | `slug`, `family` | The page. `family` is `tool` or `catalog` in a tools batch, and `directory` in a directories batch. |
 | `source` | Optional. `development` starts the page from its reviewed development rows instead of the target's rows. See Development source. |
-| `registry` | `stack127_pages` fields to set: `label`, `meta_title`, `meta_description`, `is_published`, `cover_image_url`, `page_type`, `sitemap_priority`. |
+| `registry` | `stack127_pages` fields to set: `label`, `meta_title`, `meta_description`, `is_published`, `is_indexable`, `cover_image_url`, `page_type`, `sitemap_priority`. |
 | `content` | Family table fields to set. See the table below. |
 | `catalogs` | Tools only. The full ordered catalog list. The first entry is the primary catalog. Each entry needs `slug` and a positive `display_order`. |
 | `requirements` | What must already exist before the page can publish. See Readiness. |
@@ -114,11 +114,16 @@ Keep the manifest, its Markdown files, and its plans together in `tmp/page-publi
 
 For an existing page, the manifest is a patch. `prepare` merges it into the current rows of the target database. Fields you leave out keep their current values. Leaving out `catalogs` keeps the tool's current memberships. Including it replaces the whole list.
 
+Set `registry.is_indexable` to `false` for thin child pages, filtered views with their own paths, or public pages still being improved. Keep `is_published: true` so people can use them and find them in site lists. They keep their own canonical, send `noindex, follow`, omit all JSON-LD, and stay out of the sitemap. Query URLs already send a noindex header.
+
+Existing pages keep their indexing setting when the manifest omits it. New pages default to `true`. Plans prepared before this column existed must be prepared again. Every frozen registry snapshot includes `is_indexable`.
+
 A new page needs every required field, because there is nothing to merge into. The publisher fills only these defaults:
 
 | Field | Default |
 | --- | --- |
 | `is_published` | `false` |
+| `is_indexable` | `true` |
 | `page_type` | `SoftwareApplication` for tools, `CollectionPage` otherwise |
 | `sitemap_priority` | `0.5` |
 | `cover_image_url`, `usage_markdown`, repository fields | `null` |
@@ -191,7 +196,8 @@ Readiness checks only read. Import a directory's records with its own reviewed c
 
 `apply` and `restore` always check the public pages after they commit. `verify` runs the same check on its own. The check reads the database first, then loads each page until it matches or the wait runs out. The wait is 180 seconds by default.
 
-- A published page must return 200 and be in the sitemap. Its title, `h1`, description, canonical, and robots tags must match the plan. Its `stack127-content-revision` tag must match the registry row. A tool with a repository URL must show that link.
+- A published page must return 200. Its title, `h1`, description, canonical, and robots tags must match the plan. Its `stack127-content-revision` tag must match the registry row. A tool with a repository URL must show that link.
+- An indexable published page must be in the sitemap and send index metadata. A published noindex page must send a noindex robots tag, keep its own canonical, send no JSON-LD, and be absent from the sitemap.
 - Canonical and sitemap URLs use the site's configured origin, the same one `lib/seo` uses. That's `https://stack127.com` in production, and `NEXT_PUBLIC_SITE_URL` from the environment or `.env.local` in development. It falls back to `https://stack127.com` when unset. `--site` doesn't change it.
 - Each smoke path must show its expected text.
 - An unpublished page must return 404 and be missing from the sitemap.

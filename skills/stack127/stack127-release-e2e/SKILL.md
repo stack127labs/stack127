@@ -22,6 +22,7 @@ Builds and release checks run on GitHub, not on the homelab. Don't run `npm run 
 - Confirm the Sol review passed and the worktree is clean.
 - Confirm migrations were applied and checked on the development database. PR CI doesn't run migrations.
 - For pages going public or changing data, confirm each publish manifest ran cleanly in development through `prepare`, `preview`, and `apply`.
+- Review `registry.is_indexable` separately from publication. Thin child pages, filtered views, and public pages still being improved can use `false` while staying published. Reprepare plans made before this field existed.
 
 ## Pull request
 
@@ -67,6 +68,7 @@ Use the single-purpose tool-page commands in production only for a small fix to 
 ## After deploy
 
 - Check the changed pages on `https://stack127.com` at desktop and mobile width. For a tool, run one correct and one invalid example. Confirm unpublished pages still return 404.
+- For published noindex pages, confirm their own canonical, a noindex robots tag, no JSON-LD, and absence from the sitemap. The publisher verifies these too.
 - Stop on a real build, target, DNS, credential, or live-site failure.
 
 ## Complete

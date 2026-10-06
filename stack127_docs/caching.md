@@ -20,7 +20,8 @@ Shared links prefetch a page only when a reader shows intent, such as hovering o
 ## Indexing
 
 - A URL with a query string (`?…`) is never indexed. This includes search, filters, sort, and `?page=`. The proxy sends `X-Robots-Tag: noindex, follow` for these, and the canonical link points to the clean URL. On the static frontend, a Cloudflare response header rule sends the same header.
-- A page we want indexed gets its own path, such as `/platform-fees/creators-and-communities` or later `/self-host-apps/categories/<name>`. It is indexed only after its row is published in `public.stack127_pages`.
+- A page we want indexed gets its own path, such as `/platform-fees/creators-and-communities` or later `/self-host-apps/categories/<name>`. Its registry row must have both `is_published` and `is_indexable` set to `true`.
+- A published row with `is_indexable = false` stays public, sends noindex metadata, omits JSON-LD, and stays out of the sitemap. Use this for thin child pages and pages still being improved.
 - See [seo.md](seo.md) for the registry and sitemap rules.
 
 ## Page patterns
@@ -60,6 +61,8 @@ Without JavaScript, visitors and crawlers see the default static page.
 4. It verifies origin pages and the self-host search, CLI index, and hardware index against their sources before purging Cloudflare. It then warms the verified responses. A stale response leaves the event queued for retry.
 
 A release purges `stack127-public` and `stack127-assets`, then warms the main pages.
+
+`stack127_queue_page_change` compares the whole registry row apart from its internal write timestamp. Changing `is_indexable` queues a `page` event. That event refreshes the registry cache, page HTML, and sitemap. In Cloudflare mode it rebuilds the export, including public noindex pages, before acknowledging the event.
 
 This is legacy mode. In Cloudflare mode, the worker dispatches a GitHub workflow that rebuilds and deploys the static export instead. See below.
 

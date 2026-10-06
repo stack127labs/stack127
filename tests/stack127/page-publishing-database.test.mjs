@@ -21,7 +21,7 @@ function state(slug, family = "directory", published = false) {
       home_order: 10, card_name: "Tools", card_description: "Choose a tool" },
   }[family];
   return { slug, family, registry: { label: "Page", meta_title: "Page | stack127",
-    meta_description: "Page description", is_published: published, cover_image_url: null,
+    meta_description: "Page description", is_published: published, is_indexable: true, cover_image_url: null,
     page_type: family === "tool" ? "WebPage" : "CollectionPage", sitemap_priority: 0.5 },
   content, ...(family === "tool" ? { catalogs: [] } : {}) };
 }
@@ -852,6 +852,42 @@ async function repositoryFixture(t) {
 const prepareOptions = root => ({ kind: "directories", environment: "development", root, sourceCommit: "a".repeat(40) });
 const directoryManifest = (page, requirements) => ({ schema_version: 1, kind: "directories",
   pages: [{ ...page, family: "directory", requirements }] });
+
+test("prepare defaults new pages to indexable and preserves existing noindex settings", async t => {
+  const fixture = await repositoryFixture(t);
+  const newPage = state("new-directory", "directory", true);
+  delete newPage.registry.is_indexable;
+  const created = await preparePlan(database().pool,
+    directoryManifest({ slug: newPage.slug, registry: newPage.registry, content: newPage.content }, fixture.requirements()), prepareOptions(fixture.root));
+  assert.equal(created.pages[0].after.registry.is_indexable, true);
+  const existing = state("directory", "directory", true);
+  existing.registry.is_indexable = false;
+  const db = database([existing]);
+  const unchanged = await preparePlan(db.pool,
+    directoryManifest({ slug: existing.slug, content: { intro_markdown: "Reviewed copy" } }, fixture.requirements()), prepareOptions(fixture.root));
+  assert.equal(unchanged.pages[0].after.registry.is_indexable, false);
+  for (const invalid of ["false", null, 0]) {
+    await assert.rejects(preparePlan(db.pool,
+      directoryManifest({ slug: existing.slug, registry: { is_indexable: invalid } }, fixture.requirements()), prepareOptions(fixture.root)), /is_indexable must be a boolean/);
+  }
+});
+
+test("indexability-only batches preview, apply, retry and restore without changing publication", async () => {
+  const before = state("directory", "directory", true);
+  const entry = change(before, after => { after.registry.is_indexable = false; });
+  const db = database([before]);
+  await executeBatch(db.pool, [entry]);
+  assert.deepEqual(await readStates(db.client, [{ slug: before.slug, family: before.family }]), [before]);
+  await executeBatch(db.pool, [entry], { apply: true });
+  assert.deepEqual(await readStates(db.client, [{ slug: before.slug, family: before.family }]), [entry.after]);
+  assert.equal(db.store.pages[0].is_published, true);
+  assert.notEqual(db.store.pages[0].published_at, null);
+  const writes = db.writes().length;
+  await executeBatch(db.pool, [entry], { apply: true });
+  assert.equal(db.writes().length, writes);
+  await executeBatch(db.pool, [entry], { apply: true, restore: true });
+  assert.deepEqual(await readStates(db.client, [{ slug: before.slug, family: before.family }]), [before]);
+});
 
 test("prepare freezes directory assets, preserves omitted values and supports explicit null restore", async t => {
   const fixture = await repositoryFixture(t);

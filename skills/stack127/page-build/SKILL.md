@@ -9,7 +9,7 @@ Read `AGENTS.md`, `stack127_docs/writing-style.md`, `stack127_docs/shared-ui.md`
 
 ## Work
 
-1. Confirm the route family, flat public URL, publication state, and data source.
+1. Confirm the route family, flat public URL, publication state, indexing setting, and data source. Use `registry.is_indexable: false` for thin child pages, filtered views with their own paths, or public pages still being improved. Keep them published when people should be able to use them.
 2. Check the shared components and `/components-ui` gallery in development before creating local UI. Implement the page with the shared shell, `PageCanvas`, tokens, components, metadata system, and server-rendered content. Use `ContentMarkdown` for pages that render Markdown.
 3. Keep the page static and on-demand revalidated, as `stack127_docs/caching.md` describes. No `force-dynamic`, no timed `revalidate`, and no server `searchParams`, `headers()`, or `cookies()`. URL-dependent parts are client components. A new data source gets a cache tag and pipeline coverage.
 4. Keep page styles beside the page or component. Do not add page selectors to `app/globals.css`.
@@ -19,3 +19,5 @@ Read `AGENTS.md`, `stack127_docs/writing-style.md`, `stack127_docs/shared-ui.md`
 8. For a tool, catalog, or directory, write its publish manifest as `stack127_docs/page-publishing.md` describes. List the route, assets, readiness checks, and smoke text. A directory also says where its records come from. With the dev server and local cache watcher running, run the publisher's `prepare`, `preview`, and `apply` against development. `apply` also checks the public page.
 
 This skill builds the page. The publisher checks readiness and turns publication on. Production publication runs through the release skill after the code is live. Do not write production data, publish, commit, push, or deploy without authorization.
+
+Check published noindex pages for their own canonical, `noindex, follow`, no JSON-LD, and absence from the sitemap. They can still appear in sidebars, catalogs, and homepage lists.
