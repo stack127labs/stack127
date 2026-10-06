@@ -10,6 +10,7 @@ import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { listAdNetworks } from "@/lib/ad-networks";
+import { RegistryStructuredData } from "@/lib/registry-layout";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { AdNetworkList } from "./ad-network-view";
 import { AdNetworksSidebar } from "./ad-networks-sidebar";
@@ -21,6 +22,7 @@ export default async function AdNetworksPage() {
   const networks = await listAdNetworks("");
 
   return <DirectoryQueryProvider route="/ad-networks">
+    <RegistryStructuredData path="/ad-networks" />
     <AppShell mainLabel="Ad networks directory" menuLabel="Networks" sidebar={<AdNetworksSidebar networks={networks} />} sidebarLabel="Ad networks">
       <EntryHero art={null}>
         <PageHeader>

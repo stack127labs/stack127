@@ -6,7 +6,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { CourseDefinition } from "@/lib/courses";
 import { courseLessonHref, courseLessonNeighbors } from "@/lib/courses";
-import { getRequiredPublishedPage } from "@/lib/page-registry";
+import { getPublishedPage, getRequiredPublishedPage } from "@/lib/page-registry";
+import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { buildBreadcrumbStructuredData } from "@/lib/seo";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
 import { JsonLd } from "@/app/ui/site/json-ld";
@@ -86,7 +87,13 @@ export async function CourseLessonPage({ children, course, currentSlug, entryHer
 }) {
   const lesson = course.lessons.find((entry) => entry.slug === currentSlug);
   if (!lesson?.published) notFound();
-  const coursePage = await getRequiredPublishedPage(course.registrySlug);
+  const isLanding = currentSlug === "";
+  const [coursePage, lessonPage] = await Promise.all([
+    getRequiredPublishedPage(course.registrySlug),
+    isLanding ? null : getPublishedPage(courseLessonHref(course, lesson).slice(1)),
+  ]);
+  // Noindex pages carry no structured data.
+  const indexable = (isLanding ? coursePage : lessonPage)?.is_indexable ?? false;
   const heading = directoryTitleParts(title).map(part => part.text).join("");
   const crumbs = [
     { name: "stack127", path: "/" },
@@ -110,11 +117,13 @@ export async function CourseLessonPage({ children, course, currentSlug, entryHer
       sidebar={<CourseSidebar course={course} currentSlug={currentSlug} label={coursePage.label} />}
       sidebarLabel={`${courseName(course)} sidebar`}
     >
-      <JsonLd data={buildBreadcrumbStructuredData(crumbs)} />
+      {indexable ? <JsonLd data={buildBreadcrumbStructuredData(crumbs)} /> : null}
       {entryHeroArt ? <EntryHero art={entryHeroArt}>{headingBlock}</EntryHero> : null}
       <PageCanvas as="article" flow reading className={`lesson-page ${proseClassName} ${proseFlowClassName}`}>
         {entryHeroArt ? null : headingBlock}
+        {isLanding ? <ContentMarkdown markdown={course.intro_markdown} /> : null}
         {children}
+        {isLanding && course.content_markdown ? <ContentMarkdown markdown={course.content_markdown} /> : null}
         <LessonNavigation course={course} currentSlug={currentSlug} />
       </PageCanvas>
     </AppShell>

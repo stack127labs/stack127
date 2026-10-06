@@ -7,12 +7,6 @@ export default async function SelfHostingCoursePage() {
   const lesson = await getLesson("");
   return (
     <LessonPage currentSlug={lesson.slug} title={lesson.title}>
-        <p className="lesson-lede">
-          Normally, the apps you use are connected to the cloud, a.k.a somebody else's server.
-          Your notes stay on Notion's servers, your passwords stay on Apple's, and so on. That's
-          why you can reach them from anywhere with just your account.
-        </p>
-
         <p>
           With self-hosting, instead of sending all that to someone else's server, you send it to a
           little box that lives inside your closet. That's the entire pitch, really.
