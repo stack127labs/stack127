@@ -1,9 +1,14 @@
 // `label` is the filter text. `card` is a fallback for a row without its own `cost_tag` or link label on the card.
 export const costOptions = [
-  { value: "free", label: "Free", card: "Free" },
+  { value: "free", label: "Has a free option", card: "Free" },
   { value: "free_and_paid", label: "Free and paid", card: "Free and paid" },
   { value: "paid", label: "Paid", card: "Paid" },
   { value: "unknown", label: "No confirmed price", card: "See details" },
+];
+
+export const backlinkOptions = [
+  { value: "", label: "Any" },
+  { value: "not_required", label: "Free without required backlink" },
 ];
 
 export const linkOptions = [
@@ -26,7 +31,7 @@ export const submissionOptions = [
 
 export const sortOptions = [
   { value: "recommended", label: "Recommended" },
-  { value: "ready", label: "Ready to submit first" },
+  { value: "ready", label: "Checked pages first" },
   { value: "name", label: "Name A to Z" },
 ] as const;
 

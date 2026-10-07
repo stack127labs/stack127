@@ -14,6 +14,7 @@ Keep each current decision in the operating doc it belongs to. Page-specific pla
 | `directory-pages.md` | Where directory titles, intros, Markdown, and card text live, and how to edit them. |
 | `stack127-repos.md` | Boundaries, inventory, automation, and revision tracking for repositories stack127 owns. |
 | `brand-assets.md` | Logo originals, production variants, favicon choice, and how to regenerate them. |
+| [listed-on.md](listed-on.md) | Concise list of stack127 submissions, launch dates, links, and future actions. |
 | [directory-submission-status.md](directory-submission-status.md) | stack127's directory submissions, listing links, launch dates, and remaining requirements. |
 | [directory-submission-badges.md](directory-submission-badges.md) | Badge snippets collected while submitting stack127 to directories. |
 | [directory-submission-priorities.md](directory-submission-priorities.md) | Research-backed shortlist of pending submissions and selective badge candidates. |

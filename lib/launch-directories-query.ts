@@ -32,6 +32,7 @@ export type LaunchDirectoryQuery = {
   costs?: string[];
   links?: string[];
   submission?: string;
+  backlink?: string;
   sort?: string;
   page?: string | number;
   pageSize?: number;
@@ -39,6 +40,15 @@ export type LaunchDirectoryQuery = {
 
 function searchable(value: string) {
   return value.normalize("NFKC").toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+export function launchDirectoryHasFreeOption(directory: LaunchDirectory) {
+  return directory.cost_kind === "free" || directory.cost_kind === "free_and_paid";
+}
+
+function matchesCost(directory: LaunchDirectory, cost: string) {
+  if (cost === "free") return launchDirectoryHasFreeOption(directory);
+  return directory.cost_kind === cost;
 }
 
 /** Each filter group is an alternative; different groups narrow the same result. */
@@ -52,13 +62,16 @@ export function filterLaunchDirectories(
     const haystack = searchable([
       directory.name, directory.slug, directory.website_url, directory.summary,
       directory.best_for, directory.eligibility_label,
+      ...(directory.submission_details?.requirements ?? []),
       ...directory.categories.map((category) => categoryLabels[category] ?? category.replaceAll("-", " ")),
     ].join(" "));
     const verified = directory.submission_status === "verified" && Boolean(directory.submit_url);
     return (!search || haystack.includes(search))
       && (!query.categories?.length || query.categories.some((category) => directory.categories.includes(category)))
-      && (!query.costs?.length || query.costs.includes(directory.cost_kind))
+      && (!query.costs?.length || query.costs.some((cost) => matchesCost(directory, cost)))
       && (!query.links?.length || query.links.includes(directory.link_type_kind))
+      && (query.backlink !== "not_required" || (launchDirectoryHasFreeOption(directory)
+        && ["optional", "not_required"].includes(directory.submission_details?.backlink ?? "unknown")))
       && (query.submission !== "verified" || verified)
       && (query.submission !== "unverified" || !verified);
   });

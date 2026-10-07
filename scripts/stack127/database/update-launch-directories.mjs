@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 import { isDeepStrictEqual } from "node:util";
 import { parseArgs, requireArg, runMutation, printResult } from "../tool-pages/lib.mjs";
-import { launchDirectoryDate, latestLaunchEvidenceDate } from "../../../lib/launch-directories-data.ts";
+import { launchDirectoryDate, latestLaunchEvidenceDate, launchSubmissionDetails } from "../../../lib/launch-directories-data.ts";
 
 const fields = new Set([
   "website_url", "submit_url", "submission_status", "summary", "best_for", "cost_kind",
@@ -47,6 +47,7 @@ export function validateLaunchDirectoryUpdates(updates) {
       } else if (key === "evidence") {
         if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error(`Invalid evidence for ${update.slug}`);
         validateEvidence(value, update.slug);
+        if (Object.hasOwn(value, "public_submission") && !launchSubmissionDetails(value)) throw new Error(`Invalid public submission details for ${update.slug}`);
       } else if (typeof value !== "string" || (!value.trim() && key !== "research_notes")) {
         throw new Error(`Invalid ${key} for ${update.slug}`);
       }

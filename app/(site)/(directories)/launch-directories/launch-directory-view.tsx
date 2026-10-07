@@ -19,8 +19,8 @@ import { CategoryIcon } from "@/app/ui/site/category-icon";
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/ui/site/sidebar-panel";
 import { StatePanel } from "@/app/ui/state-panel";
 import type { LaunchDirectory } from "@/lib/launch-directories";
-import { queryLaunchDirectories } from "@/lib/launch-directories-query";
-import { correctionEmail, costOptions, linkOptions, sortOptions, submissionOptions } from "./launch-directory-options";
+import { launchDirectoryHasFreeOption, queryLaunchDirectories } from "@/lib/launch-directories-query";
+import { backlinkOptions, correctionEmail, costOptions, linkOptions, sortOptions, submissionOptions } from "./launch-directory-options";
 import styles from "./launch-directories.module.css";
 
 const route = "/launch-directories";
@@ -94,17 +94,39 @@ function categoriesOf(categoryMap: Record<string, Category>, directory: LaunchDi
   return directory.categories.map((slug) => categoryMap[slug] ?? { value: slug, label: slug.replaceAll("-", " "), iconKey: "box" });
 }
 
+function freeRequirements(directory: LaunchDirectory) {
+  const details = directory.submission_details;
+  if (!details) return ["Free requirements not checked"];
+  const labels = [...details.requirements];
+  if (!labels.some((label) => /backlink/i.test(label))) {
+    if (details.backlink === "required") labels.unshift("Backlink required");
+    else if (details.backlink === "optional") labels.unshift("Backlink optional");
+    else if (details.backlink === "not_required") labels.unshift("No backlink required in checked flow");
+    else labels.push("Backlink requirement not checked");
+  }
+  return labels;
+}
+
+const observationMethods = {
+  public_page: "Public rule",
+  signed_in_flow: "Our submission",
+  email: "Email about our submission",
+};
+
 /** The full record, server-rendered into the page HTML and shown in the side panel. */
 function DirectoryDetails({ categories, directory }: { categories: Category[]; directory: LaunchDirectory }) {
   const sources = directory.source_links ?? [];
   const checked = formatDate(directory.checked_on);
   const subject = encodeURIComponent(`Correction: ${directory.name} on launch directories`);
   const submitUrl = directory.submission_status === "verified" ? directory.submit_url : null;
+  const submission = directory.submission_details;
   const facts: Array<[string, string, LucideIcon]> = [
     ["Cost", directory.cost_label, WalletCards],
-    ["Review time", directory.review_time_label, Clock3],
+    [submission ? "Approval / review" : "Review / scheduling", submission?.review_time ?? (submission ? "Not confirmed" : directory.review_time_label), Clock3],
+    ...(submission ? [["Launch queue", submission.launch_queue ?? "Not confirmed", Clock3] as [string, string, LucideIcon]] : []),
     ["Link type", directory.link_type_label, Link2],
     ["Who can submit", directory.eligibility_label, ShieldCheck],
+    ...(launchDirectoryHasFreeOption(directory) ? [["Free-plan requirements", freeRequirements(directory).join(" · "), ShieldCheck] as [string, string, LucideIcon]] : []),
   ];
 
   return <div className={styles.details}>
@@ -135,6 +157,17 @@ function DirectoryDetails({ categories, directory }: { categories: Category[]; d
         </div>)}
       </dl>
     </section>
+    {submission ? <section className={styles.observations}>
+      <h3>What we checked</h3>
+      <p>Our submission results describe that attempt. Other products may receive different dates or decisions.</p>
+      <ul>
+        {submission.observations.map((observation, index) => <li key={index}>
+          <span className={styles.checked}>{observationMethods[observation.method]} · {formatDate(observation.checked_at)}</span>
+          <p>{observation.text}</p>
+          {observation.source_url ? <a href={observation.source_url} rel="noopener noreferrer" target="_blank">{shortUrl(observation.source_url)}</a> : null}
+        </li>)}
+      </ul>
+    </section> : null}
     <section className={styles.sources}>
       <h3>Sources</h3>
       {checked ? <p className={styles.checked}>Record checked {checked}</p> : null}
@@ -205,6 +238,9 @@ function DirectoryCard({ categoryMap, directory, eager }: { categoryMap: Record<
         </div>
         <div><dt>Link</dt><dd>{linkCardLabels.get(directory.link_type_kind) ?? directory.link_type_label}</dd></div>
       </dl>
+      {launchDirectoryHasFreeOption(directory) ? <p className={styles.requirements}>
+        <span>Free plan</span> {freeRequirements(directory).join(" · ")}
+      </p> : null}
       <div className={styles.cardFooter}>
         <details className={styles.more}>
           <summary onClick={(event) => { event.preventDefault(); setOpen(true); }}>
@@ -252,6 +288,7 @@ export function LaunchDirectoryFilters({ categoryOptions, costOptions, heading, 
     <DirectoryTagSelectGroup name="category" options={categoryOptions} selected={paramValues(params, "category")} title="Category" />
     <DirectoryRadioGroup name="submission" options={submissionOptions} selected={paramString(params, "submission")} title="Submission page" />
     <DirectoryCheckboxGroup name="cost" options={costOptions} selected={paramValues(params, "cost")} title="Cost" />
+    <DirectoryRadioGroup name="backlink" options={backlinkOptions} selected={paramString(params, "backlink")} title="Free-plan backlink" />
     <DirectoryCheckboxGroup name="link" options={linkOptions} selected={paramValues(params, "link")} title="Link type" />
     <div className="filter-actions"><Link href={route}>clear filters</Link></div>
     <DirectoryFilterController />
@@ -263,6 +300,7 @@ function ActiveFilters({ categoryMap, params }: { categoryMap: Record<string, Ca
     { key: "category", title: "Category", labels: new Map(Object.values(categoryMap).map((category) => [category.value, category.label])) },
     { key: "submission", title: "Submission page", labels: new Map(submissionOptions.map((option) => [option.value, option.label])) },
     { key: "cost", title: "Cost", labels: new Map(costOptions.map((option) => [option.value, option.label])) },
+    { key: "backlink", title: "Free-plan backlink", labels: new Map(backlinkOptions.map((option) => [option.value, option.label])) },
     { key: "link", title: "Link type", labels: new Map(linkOptions.map((option) => [option.value, option.label])) },
   ];
   const chips: Array<{ href: string; label: string }> = [];
@@ -306,6 +344,7 @@ export function LaunchDirectoryResults({ categories, directories }: { categories
     costs: paramValues(params, "cost"),
     links: paramValues(params, "link"),
     submission: paramString(params, "submission"),
+    backlink: paramString(params, "backlink"),
     sort,
     page: paramString(params, "page") || 1,
   }, categoryLabels);
@@ -315,7 +354,7 @@ export function LaunchDirectoryResults({ categories, directories }: { categories
     <div className={styles.resultsIntro}>
       <p aria-atomic="true" aria-live="polite" className={styles.count}>{countText(result.start, result.end, result.total, filtered)}</p>
       <p className={styles.order}>
-        {sort === "name" ? "Sorted by name." : sort === "ready" ? "Sites with a checked submission page come first." : "Well-known launch sites first, then places you can submit to today."}{" "}
+        {sort === "name" ? "Sorted by name." : sort === "ready" ? "Checked submission pages first, then known prices. Launch slots may be full." : "Well-known launch sites first, then checked submission pages. Launch slots may be full."}{" "}
         <a href={sort === "recommended" ? "#recommended-order" : "#how-we-check"}>{sort === "recommended" ? "How we order them" : "How we check listings"}</a>
       </p>
     </div>

@@ -1,0 +1,783 @@
+[
+  {
+    "slug": "devhunt",
+    "expected_updated_at": "2026-10-03T12:07:00.467036+00:00",
+    "changes": {
+      "review_time_label": "No approval-time estimate is published.",
+      "evidence": {
+        "cost": {
+          "date": "2026-09-29",
+          "note": "Free queue; $49 queue skip. Billing period for the $49 fee: Not stated on their site.",
+          "method": "Official page review",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://devhunt.org/the-story",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Free queue; $49 queue skip. Billing period for the $49 fee: Not stated on their site.",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/the-story"
+            },
+            {
+              "date": "2026-09-29",
+              "note": "A specific detail in this field is not stated on the official site.",
+              "method": "Official page review",
+              "status": "not_published",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/the-story"
+            }
+          ]
+        },
+        "link_type": {
+          "rel": [
+            "nofollow",
+            "noopener"
+          ],
+          "date": "2026-09-29",
+          "href": "https://www.npmjs.com/package/@mcpindex/server?ref=devhunt",
+          "note": "Observed on this sample only; no site-wide guarantee.",
+          "method": "public listing HTML",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://devhunt.org/tool/mcpindex",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Sample only (MCPIndex, tier not stated): nofollow (`rel=\"nofollow noopener\"`). No site-wide rule was found.",
+              "method": "Official page review; raw HTML sample check",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/tool/mcpindex"
+            }
+          ],
+          "sampled_tier": "not stated"
+        },
+        "submission": {
+          "date": "2026-10-02",
+          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+          "method": "browser GET",
+          "status": "verified",
+          "checked_at": "2026-10-02T16:37:02.336Z",
+          "source_url": "https://devhunt.org/login",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Official maker start route verified: https://devhunt.org/login",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/login"
+            },
+            {
+              "date": "2026-10-02",
+              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+              "method": "browser GET",
+              "status": "verified",
+              "checked_at": "2026-10-02T16:37:02.336Z",
+              "source_url": "https://devhunt.org/login"
+            }
+          ]
+        },
+        "eligibility": {
+          "date": "2026-09-29",
+          "note": "Developer tools in the listed categories; sign-in uses GitHub or Google.",
+          "method": "Official page review",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://devhunt.org/",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Developer tools in the listed categories; sign-in uses GitHub or Google.",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/"
+            }
+          ]
+        },
+        "review_time": {
+          "date": "2026-10-07",
+          "note": "The public free-launch queue average is about 6 months; no separate approval ETA is published.",
+          "method": "Official page review",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://devhunt.org/the-story",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Free queue averages about six months; paid makers can choose a launch week.",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/"
+            }
+          ]
+        },
+        "public_submission": {
+          "backlink": "unknown",
+          "requirements": [
+            "Developer tool in supported categories"
+          ],
+          "review_time": "No separate approval-time estimate is published.",
+          "launch_queue": "The public page says the free queue averages 6 months. Our free launch is assigned April 2, 2030; that date is specific to our account, not a general promise.",
+          "observations": [
+            {
+              "text": "The official page states that the average wait for a free launch is 6 months.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://devhunt.org/the-story",
+              "method": "public_page"
+            },
+            {
+              "text": "Our signed-in free submission was assigned April 2, 2030. This is our account-specific date, separate from the public six-month average.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://devhunt.org/login",
+              "method": "signed_in_flow"
+            }
+          ]
+        }
+      },
+      "checked_on": "2026-10-07"
+    }
+  },
+  {
+    "slug": "saashub",
+    "expected_updated_at": "2026-10-03T12:07:00.467036+00:00",
+    "changes": {
+      "review_time_label": "Approval required; no ETA is published.",
+      "evidence": {
+        "cost": {
+          "method": "Official pricing page and our signed-in flow",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://www.saashub.com/services/submit",
+          "date": "2026-10-07",
+          "note": "Free basic; $75 one-off priority; featured placement $99/month.",
+          "observations": [
+            {
+              "date": "2026-10-07",
+              "note": "Our signed-in basic listing flow offered a $75 one-off priority option.",
+              "method": "signed-in submission flow",
+              "status": "verified",
+              "checked_at": "2026-10-07",
+              "source_url": "https://www.saashub.com/services/submit"
+            },
+            {
+              "date": "2026-10-07",
+              "note": "The official featured-products page lists featured placement at $99 per month, separate from the one-off priority option in our flow.",
+              "method": "official featured-products page",
+              "status": "verified",
+              "checked_at": "2026-10-07",
+              "source_url": "https://www.saashub.com/featured-products"
+            }
+          ]
+        },
+        "link_type": {
+          "rel": [
+            "nofollow"
+          ],
+          "href": "https://obsidian.md/",
+          "method": "public listing HTML",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://www.saashub.com/obsidian",
+          "sampled_tier": "basic listing"
+        },
+        "submission": {
+          "date": "2026-10-02",
+          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+          "method": "browser GET",
+          "status": "verified",
+          "checked_at": "2026-10-02T16:37:02.336Z",
+          "source_url": "https://www.saashub.com/services/submit",
+          "observations": [
+            {
+              "date": "2026-10-02",
+              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+              "method": "browser GET",
+              "status": "verified",
+              "checked_at": "2026-10-02T16:37:02.336Z",
+              "source_url": "https://www.saashub.com/services/submit"
+            }
+          ]
+        },
+        "eligibility": {
+          "method": "official submission rules",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://www.saashub.com/services/submit"
+        },
+        "review_time": {
+          "note": "The official submission page requires approval but gives no approval-time estimate.",
+          "method": "official submission page",
+          "status": "not_published",
+          "checked_at": "2026-10-07",
+          "source_url": "https://www.saashub.com/services/submit"
+        },
+        "public_submission": {
+          "backlink": "not_required",
+          "requirements": [
+            "Released software with a live website"
+          ],
+          "review_time": "Approval is required; no approval-time estimate is published.",
+          "launch_queue": "Our free submission flow showed an estimate of up to 32 days, with no exact date.",
+          "observations": [
+            {
+              "text": "The official submission page requires approval, says product-domain email verification improves queue priority, and excludes unreleased products, waitlists, free subdomains, agencies, and non-English products.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://www.saashub.com/services/submit",
+              "method": "public_page"
+            },
+            {
+              "text": "Our basic free submission reached pending review and product verification ACTIVE through the signed-in account flow. No DNS TXT record or maker-site backlink was required in our flow.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://www.saashub.com/services/submit",
+              "method": "signed_in_flow"
+            },
+            {
+              "text": "Our free submission showed an estimated queue time of up to 32 days; it did not show an exact date. This is our flow result, not a guaranteed review time.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://www.saashub.com/services/submit",
+              "method": "signed_in_flow"
+            },
+            {
+              "text": "Our signed-in basic listing flow offered a $75 one-off priority option. This is separate from featured placement.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://www.saashub.com/services/submit",
+              "method": "signed_in_flow"
+            },
+            {
+              "text": "The official featured-products page lists featured placement at $99 per month; this is separate from the one-off priority option in our flow.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://www.saashub.com/featured-products",
+              "method": "public_page"
+            }
+          ]
+        }
+      },
+      "checked_on": "2026-10-07",
+      "cost_label": "Free basic; $75 one-off priority; $99/mo featured",
+      "cost_note": "Priority $75 once; featured $99/mo"
+    }
+  },
+  {
+    "slug": "fazier",
+    "expected_updated_at": "2026-10-03T12:07:00.467036+00:00",
+    "changes": {
+      "eligibility_label": "Free Basic: English website, DR above 0, 3 useful comments, backlink",
+      "review_time_label": "No separate approval-time estimate is published.",
+      "evidence": {
+        "cost": {
+          "method": "official terms",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://fazier.com/submit"
+        },
+        "link_type": {
+          "rel": [
+            "noopener"
+          ],
+          "href": "https://www.launching.today?ref=fazier",
+          "method": "public listing HTML",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://fazier.com/launches/launching-today",
+          "sampled_tier": "unknown"
+        },
+        "submission": {
+          "date": "2026-10-02",
+          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+          "method": "browser GET",
+          "status": "verified",
+          "checked_at": "2026-10-02T16:37:02.336Z",
+          "source_url": "https://fazier.com/submit",
+          "observations": [
+            {
+              "date": "2026-10-02",
+              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+              "method": "browser GET",
+              "status": "verified",
+              "checked_at": "2026-10-02T16:37:02.336Z",
+              "source_url": "https://fazier.com/submit"
+            }
+          ]
+        },
+        "eligibility": {
+          "method": "official terms",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://fazier.com/submit"
+        },
+        "review_time": {
+          "method": "official submit page",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://fazier.com/submit",
+          "note": "The Basic page says reviewed and listed within 30 days; no separate approval-only estimate is published."
+        },
+        "public_submission": {
+          "backlink": "required",
+          "requirements": [
+            "Website in English",
+            "Three useful comments required",
+            "Domain rating above zero",
+            "Backlink required"
+          ],
+          "review_time": "The Basic page says reviewed and listed within 30 days; it gives no separate approval-only ETA.",
+          "launch_queue": null,
+          "observations": [
+            {
+              "text": "The public Basic plan requires a backlink on the maker homepage or footer and says listings are reviewed and listed within 30 days.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://fazier.com/submit",
+              "method": "public_page"
+            },
+            {
+              "text": "Our signed-in free flow required the maker website to be in English, three useful comments, and domain rating above zero. Our domain scored 0.0 on October 7, so we could not continue. The public submit page does not show these additional gates.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://fazier.com/submit",
+              "method": "signed_in_flow"
+            }
+          ]
+        }
+      },
+      "checked_on": "2026-10-07"
+    }
+  },
+  {
+    "slug": "startupbase",
+    "expected_updated_at": "2026-10-03T12:07:00.467036+00:00",
+    "changes": {
+      "review_time_label": "No approval-time estimate is published.",
+      "evidence": {
+        "cost": {
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://startupbase.io/about"
+        },
+        "link_type": {
+          "note": "Paid plans promise permanent dofollow. The free standard link type is not stated; badge-verified free entry requires a reciprocal badge.",
+          "method": "official plan policy",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://startupbase.io/about"
+        },
+        "submission": {
+          "date": "2026-10-02",
+          "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://startupbase.io/login. Login, account, and payment gates were not completed.",
+          "method": "browser GET",
+          "status": "verified",
+          "checked_at": "2026-10-02T16:37:02.336Z",
+          "source_url": "https://startupbase.io/submit",
+          "observations": [
+            {
+              "date": "2026-10-02",
+              "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://startupbase.io/login. Login, account, and payment gates were not completed.",
+              "method": "browser GET",
+              "status": "verified",
+              "checked_at": "2026-10-02T16:37:02.336Z",
+              "source_url": "https://startupbase.io/submit"
+            }
+          ]
+        },
+        "eligibility": {
+          "method": "official submission rules",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://startupbase.io/about"
+        },
+        "review_time": {
+          "method": "official About page",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://startupbase.io/about",
+          "note": "Every submission is reviewed. The 10+ week standard and 4 to 5 week badge estimates describe queue waits, not approval time."
+        },
+        "public_submission": {
+          "backlink": "optional",
+          "requirements": [
+            "Working website and real product",
+            "Priority free queue needs reciprocal backlink"
+          ],
+          "review_time": "Every submission is reviewed before launch; no approval-time estimate is published.",
+          "launch_queue": "The public page estimates 10+ weeks for the standard free queue and about 4 to 5 weeks for the badge-verified free queue.",
+          "observations": [
+            {
+              "text": "The About page describes a standard free queue with no badge and a badge-verified free queue that asks for a reciprocal link. It estimates 10+ weeks and 4 to 5 weeks respectively. Its rejection examples do not list free online utilities.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://startupbase.io/about",
+              "method": "public_page"
+            },
+            {
+              "text": "Our standard free submission was rejected by email on October 7 because it was a free online utility. The public About page does not list this exclusion; this is our case, not a published general rule.",
+              "checked_at": "2026-10-07",
+              "source_url": null,
+              "method": "email"
+            }
+          ]
+        }
+      },
+      "checked_on": "2026-10-07"
+    }
+  },
+  {
+    "slug": "scrolllaunch",
+    "expected_updated_at": "2026-10-05T11:04:42.049027+00:00",
+    "changes": {
+      "cost_label": "Free; Premium $39 per product",
+      "cost_note": "Paid from $39/product",
+      "review_time_label": "No approval-time estimate is published.",
+      "eligibility_label": "Backlink check in our free flow",
+      "link_type_label": "Free link stays dofollow with a live badge or text link; Premium is always dofollow.",
+      "research_notes": "Free Launch is $0, with up to 25 free listings per week. Premium costs $39 per product. A badge or plain text link from the maker site keeps the free product-page link dofollow; Premium is always dofollow. Our plain homepage footer text link passed the free flow, and our launch was scheduled for week 2026-W53. No public review estimate is stated.",
+      "evidence": {
+        "cost": {
+          "note": "Free Launch is $0; Premium is $39 per product. Product Center Ads are $19/week or $99 for six weeks; the weekly newsletter sponsor is $49 and the dedicated article is $249.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://www.scrolllaunch.com/pricing"
+        },
+        "link_type": {
+          "rel": [
+            "noopener"
+          ],
+          "href": "https://getbirthchart.com/?utm_source=scrolllaunch&utm_medium=product_page&utm_campaign=getbirthchart&utm_content=visit_website_button",
+          "note": "The maker-site anchor has rel=noopener only, so this sample is followable. Couldn’t verify its tier: the public listing does not show the plan.",
+          "method": "public HTML GET; raw anchor inspection",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://www.scrolllaunch.com/products/getbirthchart",
+          "sampled_tier": "unknown"
+        },
+        "submission": {
+          "note": "The official pricing page links to the free launch flow. The public pricing page does not state a separate review or queue ETA.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://www.scrolllaunch.com/pricing"
+        },
+        "eligibility": {
+          "note": "Free product-page links stay dofollow while a badge or a plain link to that page remains on the maker site. The public page supports SaaS and AI products.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://www.scrolllaunch.com/pricing"
+        },
+        "link_policy": {
+          "note": "The free product-page link stays dofollow while a badge or plain link to that page remains on the maker site. Premium is always dofollow.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://www.scrolllaunch.com/pricing"
+        },
+        "review_time": {
+          "note": "No review or approval-time estimate is stated on the official pricing page.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://www.scrolllaunch.com/pricing"
+        },
+        "public_submission": {
+          "backlink": "unknown",
+          "requirements": [
+            "Backlink check in our flow"
+          ],
+          "review_time": "No review or approval-time estimate is published.",
+          "launch_queue": "The free tier allows 25 launches per week; no public wait estimate is given. Our free launch was scheduled for week 2026-W53, December 28, 2026 to January 3, 2027.",
+          "observations": [
+            {
+              "text": "The official pricing page lists Free Launch at $0, up to 25 free listings per week, and Premium at $39 per product. It says the free product-page link stays dofollow while a badge or link to that page remains on the maker site.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://www.scrolllaunch.com/pricing",
+              "method": "public_page"
+            },
+            {
+              "text": "Our signed-in free submission required the backlink checker to pass before we could finish scheduling; our plain text homepage footer link passed. This records our flow, not a universal publication rule.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://www.scrolllaunch.com/faq",
+              "method": "signed_in_flow"
+            },
+            {
+              "text": "The official FAQ says free product-page links stay dofollow while a badge or direct product-page link remains on the maker site. It does not say whether a free listing can publish without one.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://www.scrolllaunch.com/faq",
+              "method": "public_page"
+            }
+          ]
+        }
+      },
+      "checked_on": "2026-10-07"
+    }
+  },
+  {
+    "slug": "letslaunch",
+    "expected_updated_at": "2026-10-05T11:04:42.049027+00:00",
+    "changes": {
+      "review_time_label": "No editor review; automated backlink check is separate.",
+      "eligibility_label": "Free launch needs an account and backlink; plain text links count.",
+      "link_type_label": "Free link is dofollow while its backlink is verified; plain text links count.",
+      "evidence": {
+        "cost": {
+          "note": "Free; Premium $9/launch shown against $19; Premium+ $29/launch shown against $49. Optional ads: Starter $19/month for 30 days with one payment, Product Center $19/week, Right Sidebar $29/week, newsletter from $299/issue.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://letslaunch.today/pricing"
+        },
+        "link_type": {
+          "rel": [
+            "noopener",
+            "noreferrer"
+          ],
+          "href": "https://formsubmit.app/",
+          "note": "The FormSubmit maker-site anchor has no nofollow, ugc, or sponsored value. Couldn't verify the listing's plan: the public page does not display it.",
+          "method": "public HTML GET; raw anchor inspection",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://letslaunch.today/product/formsubmit",
+          "sampled_tier": "unknown"
+        },
+        "submission": {
+          "note": "HTTP 200 after redirect to the official sign-in page with /submit as the return target. No account was created.",
+          "method": "public HTTP GET",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://letslaunch.today/submit"
+        },
+        "eligibility": {
+          "note": "A reciprocal badge is checked by script before publication. The official FAQ says an account is required to submit.",
+          "method": "official submission terms",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://letslaunch.today/submit-your-startup"
+        },
+        "link_policy": {
+          "note": "Free listings get a dofollow link while public. If the five-upvote survival rule hides a listing, its link changes to nofollow. The operator says that rule is currently disabled.",
+          "method": "official operator policy",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://letslaunch.today/how-it-works"
+        },
+        "review_time": {
+          "note": "There is no human review queue. The official FAQ says the first automatic backlink check runs about one hour after submission.",
+          "method": "official FAQ",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://letslaunch.today/faq"
+        },
+        "public_submission": {
+          "backlink": "required",
+          "requirements": [
+            "Account required",
+            "Backlink required before publication",
+            "Plain text links count"
+          ],
+          "review_time": "There is no human approval queue; the first automatic backlink check runs about one hour after submission.",
+          "launch_queue": "Free launches open Mondays at 08:00 UTC, up to 20 per week. Our reservation is October 12, 2026 at 08:00 UTC.",
+          "observations": [
+            {
+              "text": "The official FAQ says a real link to the exact listing URL anywhere on the maker site counts, including plain text. Free launches publish on Monday at 08:00 UTC, with up to 20 per week; the first automatic check runs about one hour after submission.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://letslaunch.today/faq",
+              "method": "public_page"
+            },
+            {
+              "text": "Our plain text link in the homepage footer passed the checker, and our free launch was reserved for October 12, 2026 at 08:00 UTC. This confirms our placement in our flow.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://letslaunch.today/faq",
+              "method": "signed_in_flow"
+            }
+          ]
+        }
+      },
+      "checked_on": "2026-10-07"
+    }
+  },
+  {
+    "slug": "smol-launch",
+    "expected_updated_at": "2026-10-03T12:07:00.467036+00:00",
+    "changes": {
+      "review_time_label": "Official estimates differ: most within 24h; typical 24 to 48h.",
+      "evidence": {
+        "cost": {
+          "method": "official pricing and submission terms",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://smollaunch.com/maker-pass"
+        },
+        "link_type": {
+          "note": "Free standard is nofollow; badge-verified free listings and paid plans promise dofollow. Sample raw rel was not available.",
+          "method": "official link policy",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://smollaunch.com/guides/launching-on-smol-launch"
+        },
+        "submission": {
+          "date": "2026-10-02",
+          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+          "method": "browser GET retry",
+          "status": "verified",
+          "checked_at": "2026-10-02T16:45:47.591Z",
+          "source_url": "https://smollaunch.com/submit",
+          "observations": [
+            {
+              "date": "2026-10-02",
+              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+              "method": "browser GET retry",
+              "status": "verified",
+              "checked_at": "2026-10-02T16:45:47.591Z",
+              "source_url": "https://smollaunch.com/submit"
+            }
+          ]
+        },
+        "eligibility": {
+          "method": "official maker guide",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://smollaunch.com/guides/launching-on-smol-launch"
+        },
+        "review_time": {
+          "method": "official maker guide and methodology",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://smollaunch.com/methodology",
+          "note": "Official sources differ: the maker guide says most reviews are within 24 hours; the methodology page says typical review takes 24 to 48 hours.",
+          "observations": [
+            {
+              "text": "The maker guide says most submissions are reviewed within 24 hours.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://smollaunch.com/guides/launching-on-smol-launch",
+              "method": "public page"
+            },
+            {
+              "text": "The methodology page says typical review turnaround is 24 to 48 hours.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://smollaunch.com/methodology",
+              "method": "public page"
+            }
+          ]
+        },
+        "public_submission": {
+          "backlink": "optional",
+          "requirements": [
+            "Vote for 3 products before a free submission",
+            "Working product or public demo"
+          ],
+          "review_time": "The official guide says most reviews are within 24 hours; its methodology page says typical turnaround is 24 to 48 hours.",
+          "launch_queue": "Basic Free has 50 platform-wide slots per week, in Monday-to-Sunday launch periods. Our submission was approved for February 1, 2027 at 09:00 Pacific Time.",
+          "observations": [
+            {
+              "text": "The official platform page says makers must vote for 3 other products before either free launch option. Standard Free uses a nofollow link; the verified free option requires a badge for a followed link.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://smollaunch.com/about",
+              "method": "public_page"
+            },
+            {
+              "text": "The current maker guide says most submissions are reviewed within 24 hours.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://smollaunch.com/guides/launching-on-smol-launch",
+              "method": "public_page"
+            },
+            {
+              "text": "The current methodology page gives a typical review turnaround of 24 to 48 hours.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://smollaunch.com/methodology",
+              "method": "public_page"
+            },
+            {
+              "text": "Our Basic Free submission was approved for February 1, 2027 at 09:00 Pacific Time. This is our scheduled launch date, separate from review time.",
+              "checked_at": "2026-10-07",
+              "source_url": null,
+              "method": "email"
+            }
+          ]
+        }
+      },
+      "checked_on": "2026-10-07"
+    }
+  },
+  {
+    "slug": "toolfound",
+    "expected_updated_at": "2026-10-03T12:07:00.467036+00:00",
+    "changes": {
+      "review_time_label": "No editorial approval estimate is published.",
+      "eligibility_label": "Logo and domain check; email, meta tag, or DNS TXT.",
+      "evidence": {
+        "cost": {
+          "method": "official form",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://toolfound.com/submit"
+        },
+        "link_type": {
+          "note": "Current standard listings have dofollow links; sponsor placements have a separate policy.",
+          "method": "official terms",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://toolfound.com/submit",
+          "sampled_listing_url": "https://toolfound.com/tool/sendhq"
+        },
+        "submission": {
+          "date": "2026-10-02",
+          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+          "method": "browser GET",
+          "status": "verified",
+          "checked_at": "2026-10-02T16:37:02.336Z",
+          "source_url": "https://toolfound.com/submit",
+          "observations": [
+            {
+              "date": "2026-10-02",
+              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+              "method": "browser GET",
+              "status": "verified",
+              "checked_at": "2026-10-02T16:37:02.336Z",
+              "source_url": "https://toolfound.com/submit"
+            }
+          ]
+        },
+        "eligibility": {
+          "method": "official form",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://toolfound.com/submit"
+        },
+        "review_time": {
+          "method": "official submission page",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://toolfound.com/submit",
+          "note": "The official form shows available launch dates before submission but gives no separate editorial approval estimate."
+        },
+        "public_submission": {
+          "backlink": "unknown",
+          "requirements": [
+            "Product logo required",
+            "Verify product-domain ownership"
+          ],
+          "review_time": "No separate editorial approval-time estimate is published.",
+          "launch_queue": "The form shows available dates before submission. Our October 12 request was assigned November 8, 2026 at queue position 110; dates are not guaranteed.",
+          "observations": [
+            {
+              "text": "The official submission page requires a product logo and one domain-ownership check. It offers a domain email magic link, a meta tag, or a DNS TXT record, and says the available launch date appears before final submission.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://toolfound.com/submit",
+              "method": "public_page"
+            },
+            {
+              "text": "Our flow verified domain ownership with a DNS TXT record and assigned November 8, 2026 at queue position 110 after we requested October 12. The assigned date is our result, not a guaranteed slot.",
+              "checked_at": "2026-10-07",
+              "source_url": "https://toolfound.com/submit",
+              "method": "signed_in_flow"
+            }
+          ]
+        }
+      },
+      "checked_on": "2026-10-07"
+    }
+  }
+]
