@@ -36,7 +36,7 @@ They should leave with a few submission pages open in new tabs. The page doesn't
 | Details | Opens the side panel. A click anywhere on the card does the same. |
 | Submit action | **Submit** opens the checked submission page. Its accessible name is "Submit to {name}". Without a checked page, the footer says **Submission page unavailable** or **Submission page not found**, with no guessed link. |
 
-Cost and Link labels and the cost note each fit on one line from 320px to 1920px. Phones at 480px and below stack Cost and Link. Free cards show a compact, wrapping line of checked requirements. An unchecked card says "Free requirements not checked". Avoid decorative badges.
+Cost and Link labels and the cost note each fit on one line from 320px to 1920px. Phones at 480px and below stack Cost and Link. Free cards show a compact, wrapping line of checked requirements when available. Omit the requirements row from cards and details when no checked requirements are available. Avoid decorative badges.
 
 Checked records separate approval or review time from the launch queue in the details panel. Dated observations identify public rules, signed-in flows, and our own submission results. A date assigned to stack127 or one rejection must never become a general promise or eligibility rule.
 
