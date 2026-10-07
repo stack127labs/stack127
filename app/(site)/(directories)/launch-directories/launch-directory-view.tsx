@@ -96,13 +96,12 @@ function categoriesOf(categoryMap: Record<string, Category>, directory: LaunchDi
 
 function freeRequirements(directory: LaunchDirectory) {
   const details = directory.submission_details;
-  if (!details) return ["Free requirements not checked"];
+  if (!details) return [];
   const labels = [...details.requirements];
   if (!labels.some((label) => /backlink/i.test(label))) {
     if (details.backlink === "required") labels.unshift("Backlink required");
     else if (details.backlink === "optional") labels.unshift("Backlink optional");
     else if (details.backlink === "not_required") labels.unshift("No backlink required in checked flow");
-    else labels.push("Backlink requirement not checked");
   }
   return labels;
 }
@@ -120,13 +119,14 @@ function DirectoryDetails({ categories, directory }: { categories: Category[]; d
   const subject = encodeURIComponent(`Correction: ${directory.name} on launch directories`);
   const submitUrl = directory.submission_status === "verified" ? directory.submit_url : null;
   const submission = directory.submission_details;
+  const requirements = launchDirectoryHasFreeOption(directory) ? freeRequirements(directory) : [];
   const facts: Array<[string, string, LucideIcon]> = [
     ["Cost", directory.cost_label, WalletCards],
     [submission ? "Approval / review" : "Review / scheduling", submission?.review_time ?? (submission ? "Not confirmed" : directory.review_time_label), Clock3],
     ...(submission ? [["Launch queue", submission.launch_queue ?? "Not confirmed", Clock3] as [string, string, LucideIcon]] : []),
     ["Link type", directory.link_type_label, Link2],
     ["Who can submit", directory.eligibility_label, ShieldCheck],
-    ...(launchDirectoryHasFreeOption(directory) ? [["Free-plan requirements", freeRequirements(directory).join(" · "), ShieldCheck] as [string, string, LucideIcon]] : []),
+    ...(requirements.length ? [["Free-plan requirements", requirements.join(" · "), ShieldCheck] as [string, string, LucideIcon]] : []),
   ];
 
   return <div className={styles.details}>
@@ -223,6 +223,7 @@ function DirectoryCard({ categoryMap, directory, eager }: { categoryMap: Record<
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
   const categories = categoriesOf(categoryMap, directory);
+  const requirements = launchDirectoryHasFreeOption(directory) ? freeRequirements(directory) : [];
   const submitUrl = directory.submission_status === "verified" ? directory.submit_url : null;
   const details = <DirectoryDetails categories={categories} directory={directory} />;
 
@@ -238,8 +239,8 @@ function DirectoryCard({ categoryMap, directory, eager }: { categoryMap: Record<
         </div>
         <div><dt>Link</dt><dd>{linkCardLabels.get(directory.link_type_kind) ?? directory.link_type_label}</dd></div>
       </dl>
-      {launchDirectoryHasFreeOption(directory) ? <p className={styles.requirements}>
-        <span>Free plan</span> {freeRequirements(directory).join(" · ")}
+      {requirements.length ? <p className={styles.requirements}>
+        <span>Free plan</span> {requirements.join(" · ")}
       </p> : null}
       <div className={styles.cardFooter}>
         <details className={styles.more}>
