@@ -19,6 +19,12 @@ test("a record date cannot predate newer source observations", async () => {
   await assert.rejects(applyLaunchDirectoryUpdates(client, [{ slug: "a", changes: { evidence: { cost: { observations: [{ source_url: "https://example.com/pricing", checked_at: "2026-10-02" }] } } } }]), /older than its evidence/);
 });
 
+test("imports reject public submission conditions without dated observations", () => {
+  assert.throws(() => validateLaunchDirectoryUpdates([{ slug: "a", changes: { evidence: { public_submission: {
+    backlink: "not_required", requirements: [], review_time: null, launch_queue: null, observations: [],
+  } } } }]), /public submission details/);
+});
+
 test("card cost fields accept short trimmed labels and a nullable note", () => {
   for (const changes of [
     { cost_tag: "Free", cost_note: "Paid from $14.99 once" },

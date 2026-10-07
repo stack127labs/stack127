@@ -9,6 +9,7 @@ import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { getLaunchDirectorySnapshot, launchCategories } from "@/lib/launch-directories";
+import { filterLaunchDirectories } from "@/lib/launch-directories-query";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { LaunchDirectoryGuide } from "./launch-directory-guide";
 import { costOptions, linkOptions } from "./launch-directory-options";
@@ -23,7 +24,7 @@ export default async function LaunchDirectoriesPage() {
     ...category,
     count: directories.filter((directory) => directory.categories.includes(category.value)).length,
   })).filter((category) => category.count > 0);
-  const availableCosts = costOptions.filter((option) => directories.some((directory) => directory.cost_kind === option.value));
+  const availableCosts = costOptions.filter((option) => filterLaunchDirectories(directories, { costs: [option.value] }).length > 0);
   const availableLinks = linkOptions.filter((option) => directories.some((directory) => directory.link_type_kind === option.value));
   const sidebar = <LaunchDirectoryFilters
     categoryOptions={categoryOptions}

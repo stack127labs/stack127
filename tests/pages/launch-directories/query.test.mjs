@@ -1,13 +1,40 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { queryLaunchDirectories, sortLaunchDirectories } from "../../../lib/launch-directories-query.ts";
-import { launchDirectorySources, launchDirectoryRevisionMatches } from "../../../lib/launch-directories-data.ts";
+import { launchDirectorySources, launchDirectoryRevisionMatches, launchSubmissionDetails } from "../../../lib/launch-directories-data.ts";
 
 const row = (slug, changes = {}) => ({
   slug, name: slug, website_url: `https://${slug}.com/`, summary: "A product listing",
   best_for: "Makers", eligibility_label: "Live products", categories: ["launch-boards"],
   submission_status: "verified", submit_url: `https://${slug}.com/submit`,
   cost_kind: "free", link_type_kind: "dofollow", ...changes,
+});
+
+test("free includes mixed plans while backlink-free excludes unknown and required conditions", () => {
+  const rows = [row("free"), row("mixed", { cost_kind: "free_and_paid", submission_details: { backlink: "not_required" } }),
+    row("optional", { submission_details: { backlink: "optional" } }), row("required", { submission_details: { backlink: "required" } }),
+    row("paid", { cost_kind: "paid", submission_details: { backlink: "not_required" } }), row("unknown", { cost_kind: "unknown" })];
+  assert.equal(queryLaunchDirectories(rows, { costs: ["free"] }).total, 4);
+  assert.deepEqual(queryLaunchDirectories(rows, { backlink: "not_required", sort: "name" }).items.map(item => item.slug), ["mixed", "optional"]);
+  assert.equal(queryLaunchDirectories(rows, { costs: ["free"], backlink: "not_required" }).total, 2);
+  assert.equal(queryLaunchDirectories(rows, { costs: ["paid"], backlink: "not_required" }).total, 0);
+  assert.equal(queryLaunchDirectories(rows, { costs: ["free_and_paid"] }).total, 1);
+  assert.equal(queryLaunchDirectories(rows, { costs: ["free", "paid"] }).total, 5);
+});
+
+test("public submission projection rejects unchecked conditions and never copies private notes", () => {
+  const public_submission = { backlink: "not_required", requirements: ["DNS verification"], review_time: null, launch_queue: "Choose an available week",
+    observations: [{ text: "Our checked flow required a DNS TXT record.", checked_at: "2026-10-07", source_url: null, method: "signed_in_flow" }] };
+  const projected = launchSubmissionDetails({ public_submission, private_notes: "Private research", account: "Private account" });
+  assert.deepEqual(projected, public_submission);
+  assert.equal(JSON.stringify(projected).includes("Private"), false);
+  for (const changed of [{ observations: [] }, { backlink: "maybe" }, { backlink: ["not_required"] }, { requirements: [42] },
+    { observations: [{ ...public_submission.observations[0], method: ["public_page"] }] },
+    { observations: [{ ...public_submission.observations[0], checked_at: "2026-02-30" }] },
+    { observations: [{ ...public_submission.observations[0], source_url: "https://user:password@example.com/" }] }]) {
+    assert.equal(launchSubmissionDetails({ public_submission: { ...public_submission, ...changed } }), null);
+  }
+  assert.equal(launchSubmissionDetails({}), null);
 });
 
 test("domain search combines with category, price and submission availability", () => {

@@ -1,5 +1,55 @@
 export type LaunchDirectorySource = { label: string; url: string; checked_on: string | null };
 
+export type LaunchSubmissionDetails = {
+  backlink: "required" | "optional" | "not_required" | "unknown";
+  requirements: string[];
+  review_time: string | null;
+  launch_queue: string | null;
+  observations: Array<{
+    text: string;
+    checked_at: string;
+    source_url: string | null;
+    method: "public_page" | "signed_in_flow" | "email";
+  }>;
+};
+
+/** Project an explicitly public, checked object. Never expose the surrounding research evidence. */
+export function launchSubmissionDetails(evidence: unknown): LaunchSubmissionDetails | null {
+  if (!evidence || typeof evidence !== "object" || Array.isArray(evidence)) return null;
+  const value = (evidence as Record<string, unknown>).public_submission;
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const field = value as Record<string, unknown>;
+  const text = (value: unknown, limit: number): value is string => typeof value === "string"
+    && value.length > 0 && value === value.trim() && [...value].length <= limit;
+  if (typeof field.backlink !== "string" || !["required", "optional", "not_required", "unknown"].includes(field.backlink)
+    || !Array.isArray(field.requirements) || field.requirements.length > 8
+    || !field.requirements.every((value) => text(value, 80))
+    || !(field.review_time === null || text(field.review_time, 500))
+    || !(field.launch_queue === null || text(field.launch_queue, 500))
+    || !Array.isArray(field.observations) || field.observations.length < 1 || field.observations.length > 12) return null;
+  const observations: LaunchSubmissionDetails["observations"] = [];
+  for (const item of field.observations) {
+    if (!item || typeof item !== "object" || Array.isArray(item)) return null;
+    const observation = item as Record<string, unknown>;
+    const date = launchDirectoryDate(observation.checked_at);
+    if (!text(observation.text, 1200) || !date || date !== observation.checked_at
+      || typeof observation.method !== "string" || !["public_page", "signed_in_flow", "email"].includes(observation.method)
+      || !(observation.source_url === null || sourceUrl(observation.source_url))) return null;
+    observations.push({
+      text: observation.text, checked_at: date,
+      source_url: observation.source_url === null ? null : sourceUrl(observation.source_url),
+      method: observation.method as LaunchSubmissionDetails["observations"][number]["method"],
+    });
+  }
+  return {
+    backlink: field.backlink as LaunchSubmissionDetails["backlink"],
+    requirements: [...field.requirements] as string[],
+    review_time: field.review_time as string | null,
+    launch_queue: field.launch_queue as string | null,
+    observations,
+  };
+}
+
 export const LAUNCH_DIRECTORY_REVISION_SQL = `select md5(coalesce(string_agg(to_jsonb(directory)::text, '' order by directory.slug), '')) as fingerprint from public.launch_directories directory`;
 
 const evidenceLabels: Record<string, string> = {

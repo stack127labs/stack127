@@ -1,7 +1,7 @@
 import { getPool } from "./db";
 import { unstable_cache } from "next/cache";
 import { LAUNCH_DIRECTORIES_TAG } from "./cache-tags";
-import { LAUNCH_DIRECTORY_REVISION_SQL, launchDirectorySources, type LaunchDirectorySource } from "./launch-directories-data";
+import { LAUNCH_DIRECTORY_REVISION_SQL, launchDirectorySources, launchSubmissionDetails, type LaunchDirectorySource, type LaunchSubmissionDetails } from "./launch-directories-data";
 import directoryIcons from "./launch-directory-icons.json";
 
 export type LaunchDirectory = {
@@ -25,6 +25,7 @@ export type LaunchDirectory = {
   checked_on: string | null;
   example_listing_url: string | null;
   source_links: LaunchDirectorySource[];
+  submission_details?: LaunchSubmissionDetails | null;
 };
 
 export const launchCategories = [
@@ -40,7 +41,7 @@ export const launchCategories = [
 ] as const;
 
 async function loadLaunchDirectorySnapshot(): Promise<{ directories: LaunchDirectory[]; revision: string }> {
-  type Row = Omit<LaunchDirectory, "icon_url" | "source_links"> & { sources: string[]; evidence: unknown };
+  type Row = Omit<LaunchDirectory, "icon_url" | "source_links" | "submission_details"> & { sources: string[]; evidence: unknown };
   const client = await getPool().connect();
   try {
     await client.query("begin isolation level repeatable read read only");
@@ -62,6 +63,7 @@ async function loadLaunchDirectorySnapshot(): Promise<{ directories: LaunchDirec
       ...row,
       icon_url: icons[row.slug] ?? null,
       source_links: launchDirectorySources(evidence, sources),
+      submission_details: launchSubmissionDetails(evidence),
     }));
     return { directories, revision };
   } catch (error) {

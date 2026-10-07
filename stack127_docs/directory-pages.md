@@ -113,3 +113,5 @@ node scripts/stack127/directory-pages/update-content.mjs \
 Optional flags: `--meta-title`, `--meta-description`, `--title`, `--card-name`, `--card-description`, `--card-icon-key`, `--card-art-key`, and `--clear-content`. The command rejects keys that aren't in the registries.
 
 A saved edit queues revalidation for that page's `stack127-directory-page:<slug>` tag and its path.
+
+For launch directories, `evidence.public_submission` holds checked free-plan requirements, backlink status, approval time, launch queue text, and dated observations. The server projects only validated public fields from that object. Signed-in and email observations describe our submission attempt, and stay separate from public rules. Unknown backlink requirements do not qualify for the free-without-required-backlink filter. Existing research notes remain private. Update these records through `scripts/stack127/database/update-launch-directories.mjs`, which checks the reviewed row version.
