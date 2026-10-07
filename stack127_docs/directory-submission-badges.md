@@ -514,3 +514,11 @@ Only LetsLaunch and ScrollLaunch verification links are being prepared for relea
 LetsLaunch explicitly accepts a text link anywhere, including About. ScrollLaunch scans the homepage HTML and names its product URL as a matching marker; acceptance of the text link still needs a live verifier check. Neither selected verification is complete yet.
 
 Fazier now confirms three useful comments, but its free plan requires DR above zero. LetsLaunch's public DR checker returned 0.0 for stack127.com. No Fazier badge or eligibility attestation was added. StartupBase instead used the standard free queue without a badge and is pending review.
+
+## SideProjectors badge collected October 7, 2026
+
+The promotion submission is under review, with an estimated 2 to 3 business days for approval. This optional badge was supplied on the confirmation page. It is collected here only and has not been installed. Its "As featured" artwork should wait for publication.
+
+```html
+<a href='https://www.sideprojectors.com/project/98907/stack127' alt='Check out stack127  at @SideProjectors'><img src='https://www.sideprojectors.com/img/badges/badge_show_black.png' alt='Check out stack127 at @SideProjectors'></a>
+```

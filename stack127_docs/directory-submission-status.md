@@ -6,8 +6,8 @@ Last reconciled October 7, 2026.
 
 | Status | Count |
 | --- | ---: |
-| Submitted or scheduled | 14 |
-| Active, unfinished directories | 8 |
+| Submitted or scheduled | 15 |
+| Active, unfinished directories | 7 |
 | Parked by user decision | 18 |
 | Total directories | 40 |
 
@@ -17,7 +17,7 @@ Confirmation emails report that IndieNeed and LaunchFree are live. Smol Launch a
 
 Private edit links are omitted. Where one is saved, the row says so. The existing [directory badge notes](directory-submission-badges.md) list badge requirements and snippets. No badge has been installed on stack127.
 
-The user approved the [October 7 priority review](directory-submission-priorities.md). The 18 parked directories are outside the active queue. Two of the ten selected directories are now submitted; eight remain unfinished. Historical draft rows below remain for reference.
+The user approved the [October 7 priority review](directory-submission-priorities.md). The 18 parked directories are outside the active queue. Three of the ten selected directories are now submitted; seven remain unfinished. Historical draft rows below remain for reference.
 
 ## Submitted, published, or scheduled
 
@@ -38,6 +38,8 @@ The user approved the [October 7 priority review](directory-submission-prioritie
 
 | Toolfound | Ownership verified; free launch queued | [Product page](https://toolfound.com/tool/stack127) | Assigned November 8, 2026; queue position 110. TXT record confirmed through public DNS. Requested October 12 was not the assigned date. |
 | StartupBase | Standard free submission accepted; Pending Review | [Product page](https://startupbase.io/products/stack127) | Submitted October 7. Estimated queue of 10 or more weeks; no exact date assigned. Three genuine votes and one useful comment completed. No badge used. |
+
+| SideProjectors | Promotion submission accepted; under review | [Confirmation](https://www.sideprojectors.com/submit/done/98907), [planned product URL supplied by share links](https://www.sideprojectors.com/project/98907/stack127) | Submitted October 7. Typical review is 2 to 3 business days. Logo and two 1600 × 900 screenshots saved; technical details and X included. Sale discussion is disabled. Public publication not confirmed. |
 
 ## Saved submissions that still need verification
 
@@ -75,8 +77,7 @@ The user approved the [October 7 priority review](directory-submission-prioritie
 | Firsto | Google account created; complete free form, not submitted | [Submission form](https://firsto.co/projects/submit) | Copy, categories, five tags, square logo, horizontal cover, X/GitHub, Free pricing and Web are filled in tab_a. The $0 launch plan reports no available dates through April 4, 2027. Keep the form open. No launch confirmed. |
 | BetterLaunch | Sign-in page reached, no account or submission confirmed | [Submission route](https://www.betterlaunch.co/submit) | Google sign-in opened, but preview interaction failed after one reopen. Resume when the preview host works. |
 | OpenHunts | Google account created; complete free form, not submitted | [Submission route](https://openhunts.com/projects/submit) | Core details, social links, Developer Tools/Productivity/Education Tech categories, Web, Free pricing, square logo, and horizontal screenshot are filled in tab_7. All 60 listed free weeks through December 5, 2027 are full. The optional badge offers about three weeks for manual review to skip the queue. Badge preview collected. No listing was submitted. |
-| ScrollLaunch | Free-plan draft saved, not submitted | [Saved products dashboard](https://www.scrolllaunch.com/dashboard/products) | Full copy, logo, two horizontal screenshots, categories, tags, audience, technical details, and X/GitHub links are saved. The earliest free launch week is December 14 to 20, 2026. Free scheduling reaches mandatory homepage badge verification. The earlier October 19 to 25 date referred to paid ad availability. Premium defaults on when the editor reopens, so deselect it again before continuing. No launch was confirmed. |
-| SideProjectors | Account restored; saved promotion draft accessible | [Saved draft](https://www.sideprojectors.com/submit/project/98907/general) | Email reset succeeded October 7. Finish logo, media and remaining steps. No sale authorized or submission confirmed. |
+| ScrollLaunch | Free-plan draft saved, not submitted | [Saved products dashboard](https://www.scrolllaunch.com/dashboard/products) | Full copy, logo, two horizontal screenshots, categories, tags, audience, technical details, and X/GitHub links are saved. December 14 to 20 was the saved free week, but was full when checked October 7. December 28 to January 3 appeared next, without confirmation. Free scheduling reaches mandatory homepage badge verification. The earlier October 19 to 25 date referred to paid ad availability. Premium defaults on when the editor reopens, so deselect it again before continuing. No launch was confirmed. |
 
 ## Not started
 
@@ -100,12 +101,13 @@ The browser host disconnected during the SideProjectors logo step. Both native s
 | Directory | Current state | Remaining work |
 | --- | --- | --- |
 | LetsLaunch | October 12 reservation still hidden | Release the exact crawlable product link on About, then verify in the restored account. |
-| ScrollLaunch | Existing account restored; complete draft retained | Release the exact product text link in the homepage footer, test the verifier, then schedule the free week. December 14 to 20 is not confirmed. Keep Premium off. |
+| ScrollLaunch | Existing account restored; complete draft retained | Release the exact product text link in the homepage footer, test the verifier, then schedule the free week. The saved December 14 to 20 week is now full. December 28 to January 3 appeared next, but was not saved or confirmed. Keep Premium off. |
 | Fazier | Account restored; 3/3 helpful comments confirmed | No public listing recorded | DR checker returned 0.0 on October 7. Free plan requires DR above zero; no badge or eligibility attestation added. |
 | SaaSHub | Registration filled; human challenge remains | User must complete hCaptcha in the open tab. No account or submission confirmed. |
 | PeerPush | Email sign-in blocked at security verification | [Sign-in form](https://peerpush.com/auth/login?redirectTo=%2Fsubmit) | October 7 retry reports "Let's try the security check again." No code or submission confirmed. |
-| SideProjectors | Account restored; saved promotion draft accessible | [Saved draft](https://www.sideprojectors.com/submit/project/98907/general) | Email reset succeeded October 7. Finish logo, media and remaining steps. No sale authorized or submission confirmed. |
 | Startups Lab | Complete draft preserved; sign-in unavailable | No public listing recorded | October 7 worker found both Google and email buttons disabled. Votes and free scheduling remain incomplete. |
 | Product Hunt | Blocked before sign-in by site security verification | No listing or confirmation URL recorded |
 
 Coordinator Sol completed Toolfound DNS verification and StartupBase's free queue, restored Fazier and SideProjectors through ordinary email recovery, and prepared the selected website links. One Luna worker checked PeerPush, SideProjectors and Startups Lab; a second Luna task restored ScrollLaunch and checks LetsLaunch. Workers ran one at a time. No Opus was used in this run.
+
+SideProjectors confirmed successful submission after the coordinator finished its logo, both horizontal screenshots and technical details. The optional traffic and revenue metrics were left unknown. The sale-discussion default was disabled. No ComingUp cross-submission was selected.
