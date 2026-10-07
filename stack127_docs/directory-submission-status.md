@@ -6,18 +6,16 @@ Last reconciled October 7, 2026.
 
 | Status | Count |
 | --- | ---: |
-| Submitted or scheduled | 15 |
-| Active, unfinished directories | 7 |
+| Submitted or scheduled | 17 |
+| Active, unfinished directories | 5 |
 | Parked by user decision | 18 |
 | Total directories | 40 |
 
-Toolfound ownership is now verified by an apex TXT record. Its free launch is scheduled for November 8, 2026, at queue position 110. StartupBase accepted the standard free submission and shows Pending Review, with an estimated queue of at least ten weeks. Neither submission required a badge or payment.
+Five of the ten directories selected in the [priority review](directory-submission-priorities.md) are now submitted or scheduled. Toolfound, StartupBase, SideProjectors, ScrollLaunch and SaaSHub completed in the October 7 run. The remaining five and their actual blockers are listed below. No paid plans were purchased.
 
-Confirmation emails report that IndieNeed and LaunchFree are live. Smol Launch and TinyLaunch are approved for their scheduled launches. DevHunt accepted the twelfth submission, and its product page loaded in the signed-in browser with the approved description, logo, home screenshot, and maker comment. Its homepage launch is scheduled for April 2, 2030. Independent public checks could not load the new email-supplied URLs, so email-confirmed publication and observed page availability are distinguished below. No unknown slugs were inferred.
+Submitted includes pending editorial review and scheduled launches. It does not mean all 17 listings are publicly live. Listing links, confirmation links and estimates are distinguished in the table. IndieNeed and LaunchFree were confirmed live by email; DevHunt's product page was observed in the signed-in browser. Some earlier public URLs could not be independently loaded.
 
-Private edit links are omitted. Where one is saved, the row says so. The existing [directory badge notes](directory-submission-badges.md) list badge requirements and snippets. No badge has been installed on stack127.
-
-The user approved the [October 7 priority review](directory-submission-priorities.md). The 18 parked directories are outside the active queue. Three of the ten selected directories are now submitted; seven remain unfinished. Historical draft rows below remain for reference.
+Toolfound ownership is verified by a public apex TXT record. ScrollLaunch accepted its plain homepage footer link and scheduled the free week. LetsLaunch's About-page link is live, but its checker has not found it. An additional exact homepage footer link is prepared for release. No image badges have been installed. Offered snippets are collected in [directory-submission-badges.md](directory-submission-badges.md).
 
 ## Submitted, published, or scheduled
 
@@ -35,79 +33,34 @@ The user approved the [October 7 priority review](directory-submission-prioritie
 | Uneed | Free launch confirmed and scheduled | [Planned product URL, not verified live](https://www.uneed.best/tool/stack127); private edit link saved | Scheduled for December 28, 2026, also confirmed by email. This replaces the earlier March 4, 2027 date. Email says a launch-day upvote score of 10 is required to stay published and 20 to keep a dofollow link. Below 10, the product returns to the dashboard. |
 | Land-book | Submission confirmed as processing | [Maker profile, not a direct product listing](https://land-book.com/ravi_teja_knts_976656) | Await processing and editorial decision. Do not resubmit. |
 | Lapa Ninja | Submission emailed; a listing is not guaranteed | No direct product URL or shareable confirmation URL recorded | Await any editorial response. No timeframe recorded. |
-
 | Toolfound | Ownership verified; free launch queued | [Product page](https://toolfound.com/tool/stack127) | Assigned November 8, 2026; queue position 110. TXT record confirmed through public DNS. Requested October 12 was not the assigned date. |
 | StartupBase | Standard free submission accepted; Pending Review | [Product page](https://startupbase.io/products/stack127) | Submitted October 7. Estimated queue of 10 or more weeks; no exact date assigned. Three genuine votes and one useful comment completed. No badge used. |
-
 | SideProjectors | Promotion submission accepted; under review | [Confirmation](https://www.sideprojectors.com/submit/done/98907), [planned product URL supplied by share links](https://www.sideprojectors.com/project/98907/stack127) | Submitted October 7. Typical review is 2 to 3 business days. Logo and two 1600 × 900 screenshots saved; technical details and X included. Sale discussion is disabled. Public publication not confirmed. |
+| ScrollLaunch | Free launch scheduled; text link verified | [Product page](https://www.scrolllaunch.com/products/stack127) | Confirmed week 2026-W53, December 28, 2026 to January 3, 2027. Exact time not supplied. The former December 14 week was full. Premium was disabled. Logo, two horizontal screenshots, complete copy, tags and social links saved. |
+| SaaSHub | Free submission accepted; product verification ACTIVE | [Confirmation](https://www.saashub.com/stack127/added), [planned listing](https://www.saashub.com/stack127) | Submitted and verified October 7. Free approval queue estimates up to 32 days, with no exact date. Logo, two horizontal screenshots, Free pricing, six categories, four relevant alternatives, full description, Web platform, features, GitHub and five product Q&A answers saved. No backlink or DNS required. |
 
-## Saved submissions that still need verification
-
-| Directory | Status | Recorded URL | Blocker or timing |
-| --- | --- | --- | --- |
-| LetsLaunch | Reservation confirmed; listing remains hidden | [Reserved product path, not verified live](https://letslaunch.today/product/stack127) | Reserved for October 12, 2026 at 08:00 UTC, which is 13:30 IST. Verify the homepage badge before the listing can appear. |
-| SaaSGrow | Project saved; final listing submission still needs verification | [Saved project URL, not an approved listing](https://saasgrow.app/saas/stack127) | Verify the required homepage or footer badge, then submit for admin review. No review date recorded. |
-
-## Started, not finally submitted
-
-| Directory | Status | Recorded URL | Blocker or next step |
-| --- | --- | --- | --- |
-| SaaSHub | Registration stopped at a human-verification challenge; no account or submission confirmed | [Registration page](https://www.saashub.com/register) | The page asks a person to click "I am human". After that, finish registration and use the free submission. |
-| FastLaunch | Account created; free submission form filled through launch-date selection, not submitted | [Official submission form](https://fastlaunch.io/projects/submit) | The free plan had 179 dates listed from October 7, 2026 through April 3, 2027. Every date was disabled with 0 free slots. No paid option was selected. |
-| PeerPush | Email sign-in blocked at security verification | [Sign-in form](https://peerpush.com/auth/login?redirectTo=%2Fsubmit) | October 7 retry reports "Let's try the security check again." No code or submission confirmed. |
-| Startups Lab | Complete draft preserved; sign-in unavailable | No public listing recorded | October 7 worker found both Google and email buttons disabled. Votes and free scheduling remain incomplete. |
-| startuups | Form filled, not submitted | No public listing or shareable confirmation URL recorded | All free slots for October 12 to November 2, 2026 were full. Check again when new free slots open. |
-| Fazier | Account restored; 3/3 helpful comments confirmed | No public listing recorded | DR checker returned 0.0 on October 7. Free plan requires DR above zero; no badge or eligibility attestation added. |
-| LaunchBoard | Form filled, not submitted | No public listing or shareable confirmation URL recorded | Complete 3 product votes and 1 comment, then verify the footer badge. |
-| Startup Fame | Draft saved with approved copy | No public listing or shareable confirmation URL recorded | Finish media and social links. Free approval requires a homepage or footer badge. |
-| LaunchVault | Form filled to 100%; next-step validation fails | No public listing or shareable confirmation URL recorded | Investigate the technical details and categorization validation error. Those fields appeared filled. Free approval also requires a badge. |
-| StartupTrusted | Free form filled to 100%; not submitted | No public listing or shareable confirmation URL recorded | Verify a homepage or footer badge before final submission. |
-| SaaSCity | Form filled; submit button is disabled | No public listing or shareable confirmation URL recorded | Verify a homepage badge. The earliest free window shown is May 31 to June 6, 2027. |
-| ToolDirs | Form filled; not submitted | No public listing or shareable confirmation URL recorded | Add and verify a dofollow footer link. The badge choice is still pending. |
-| Aura++ | Partial form, on the Details step | No public listing or shareable confirmation URL recorded | Complete and verify category, technical details, pricing, and maker fields. Free approval requires a homepage badge. |
-| LaunchIt | Basic Free form filled; December 5, 2026 selected, not submitted | No public listing or shareable confirmation URL recorded | Verify the required badge before final submission. |
-| LaunchIgniter | Account and profile complete; product form is partial | No public listing or shareable confirmation URL recorded | Add images and a category, then choose a plan. The free listing requires a badge. |
-| Nick Launches | Draft saved | No public listing or shareable confirmation URL recorded | Complete 3 pairwise voting rounds and verify the homepage badge. |
-| IndieHunt | Free final step filled; November 15, 2027 selected, not submitted | No public listing or shareable confirmation URL recorded | Add and verify a backlink before final submission. |
-
-## Started in the October 6 run, not finally submitted
-
-| Directory | Status | Recorded URL | Blocker or next step |
-| --- | --- | --- | --- |
-| Firsto | Google account created; complete free form, not submitted | [Submission form](https://firsto.co/projects/submit) | Copy, categories, five tags, square logo, horizontal cover, X/GitHub, Free pricing and Web are filled in tab_a. The $0 launch plan reports no available dates through April 4, 2027. Keep the form open. No launch confirmed. |
-| BetterLaunch | Sign-in page reached, no account or submission confirmed | [Submission route](https://www.betterlaunch.co/submit) | Google sign-in opened, but preview interaction failed after one reopen. Resume when the preview host works. |
-| OpenHunts | Google account created; complete free form, not submitted | [Submission route](https://openhunts.com/projects/submit) | Core details, social links, Developer Tools/Productivity/Education Tech categories, Web, Free pricing, square logo, and horizontal screenshot are filled in tab_7. All 60 listed free weeks through December 5, 2027 are full. The optional badge offers about three weeks for manual review to skip the queue. Badge preview collected. No listing was submitted. |
-| ScrollLaunch | Free-plan draft saved, not submitted | [Saved products dashboard](https://www.scrolllaunch.com/dashboard/products) | Full copy, logo, two horizontal screenshots, categories, tags, audience, technical details, and X/GitHub links are saved. December 14 to 20 was the saved free week, but was full when checked October 7. December 28 to January 3 appeared next, without confirmation. Free scheduling reaches mandatory homepage badge verification. The earlier October 19 to 25 date referred to paid ad availability. Premium defaults on when the editor reopens, so deselect it again before continuing. No launch was confirmed. |
-
-## Not started
-
-| Directory | Status | Recorded URL |
-| --- | --- | --- |
-| Product Hunt | Blocked before sign-in by site security verification | No listing or confirmation URL recorded |
-| KittyLaunch | Not started | No listing or confirmation URL recorded |
-
-## Models and task roles
-
-An earlier Opus worker submitted TinyLaunch and Pitchwall. Earlier Luna workers researched directories and badges, submitted Uneed and Favors, and prepared this report. Coordinator Sol reconciled the records and reviewed the report. The user has since selected Luna for workers.
-
-On October 6, 2026, one Luna worker resumed the free-submission queue. FastLaunch account creation succeeded, but its free calendar had no slots. SaaSHub requires a human-verification click. This run created an OpenHunts account and saved a ScrollLaunch draft, but confirmed no new submissions. BetterLaunch and OpenHunts form interaction, and the later preview host, failed before the other untouched directories could be processed. Coordinator Sol completed and checked the saved ScrollLaunch draft, uploaded its logo and screenshots, and collected its badge. Final scheduling requires homepage badge verification.
-
-Coordinator Sol submitted DevHunt on October 6, 2026, completed the saved StartupBase and ScrollLaunch drafts, filled OpenHunts through the free plan, and collected their badge snippets. No payment or website badge installation was made.
-
-The browser host disconnected during the SideProjectors logo step. Both native status and reopen returned an explicit no-host error. Product Hunt and KittyLaunch remain untouched. The open drafts must be checked after reconnection because their unsaved fields may not persist. The earlier run ended at that point.
-
-## October 7 active queue
+## Active unfinished directories
 
 | Directory | Current state | Remaining work |
 | --- | --- | --- |
-| LetsLaunch | October 12 reservation still hidden | Release the exact crawlable product link on About, then verify in the restored account. |
-| ScrollLaunch | Existing account restored; complete draft retained | Release the exact product text link in the homepage footer, test the verifier, then schedule the free week. The saved December 14 to 20 week is now full. December 28 to January 3 appeared next, but was not saved or confirmed. Keep Premium off. |
-| Fazier | Account restored; 3/3 helpful comments confirmed | No public listing recorded | DR checker returned 0.0 on October 7. Free plan requires DR above zero; no badge or eligibility attestation added. |
-| SaaSHub | Registration filled; human challenge remains | User must complete hCaptcha in the open tab. No account or submission confirmed. |
-| PeerPush | Email sign-in blocked at security verification | [Sign-in form](https://peerpush.com/auth/login?redirectTo=%2Fsubmit) | October 7 retry reports "Let's try the security check again." No code or submission confirmed. |
-| Startups Lab | Complete draft preserved; sign-in unavailable | No public listing recorded | October 7 worker found both Google and email buttons disabled. Votes and free scheduling remain incomplete. |
-| Product Hunt | Blocked before sign-in by site security verification | No listing or confirmation URL recorded |
+| LetsLaunch | Hidden reservation for October 12, 2026 at 08:00 UTC, 13:30 IST | Its authenticated checker did not find the live About-page link. No verification-page setting exists. Release the exact text link in the homepage footer, then check once more. [Reservation](https://letslaunch.today/product/stack127). |
+| Fazier | Account restored; three useful comments complete | Free plan requires domain rating above zero. Public checker returned 0.0 on October 7. No badge or false eligibility attestation added. Wait for eligibility to change. |
+| PeerPush | Email sign-in blocked at security verification | Retry reported "Let's try the security check again." No login code or submission confirmed. [Sign-in](https://peerpush.com/auth/login?redirectTo=%2Fsubmit). |
+| Startups Lab | Complete draft retained; sign-in unavailable | Both Google and email buttons were disabled in worker and coordinator sessions. No votes or free launch confirmed. [Site](https://startupslab.site/). |
+| Product Hunt | Blocked before sign-in | Site security verification prevents reaching the maker submission. No listing or launch confirmed. [Site](https://www.producthunt.com/). |
 
-Coordinator Sol completed Toolfound DNS verification and StartupBase's free queue, restored Fazier and SideProjectors through ordinary email recovery, and prepared the selected website links. One Luna worker checked PeerPush, SideProjectors and Startups Lab; a second Luna task restored ScrollLaunch and checks LetsLaunch. Workers ran one at a time. No Opus was used in this run.
+## Parked directories
 
-SideProjectors confirmed successful submission after the coordinator finished its logo, both horizontal screenshots and technical details. The optional traffic and revenue metrics were left unknown. The sale-discussion default was disabled. No ComingUp cross-submission was selected.
+The user approved parking these 18. Existing drafts remain saved. No new submissions, badge installations or withdrawals are planned for them. The [priority review](directory-submission-priorities.md) records the reasons and sources.
+
+FastLaunch, BetterLaunch, Firsto, startuups, OpenHunts, LaunchIgniter, LaunchBoard, KittyLaunch, SaaSGrow, StartupTrusted, SaaSCity, ToolDirs, LaunchIt, IndieHunt, Startup Fame, LaunchVault, Aura++, and Nick Launches.
+
+## Models and task roles
+
+| Model lane | Work |
+| --- | --- |
+| Coordinator Sol | Reconciled records; restored ordinary account access; completed Toolfound DNS verification, StartupBase's free queue, SideProjectors promotion submission, ScrollLaunch scheduling and SaaSHub's complete free listing. Reviewed and released the selected plain website links. |
+| Luna workers | Researched directory value and badges. In the October 7 run, one worker checked PeerPush, SideProjectors and Startups Lab; another restored ScrollLaunch and checked LetsLaunch and the free-plan eligibility. Workers ran one at a time. |
+| Earlier Opus worker | Earlier TinyLaunch and Pitchwall submissions. No Opus was used in the October 7 run. |
+
+SideProjectors is a promotion listing. Sale discussion is disabled, optional traffic and revenue fields remain unknown, and no ComingUp cross-submission was selected. Passwords and account details remain in the gitignored private `.env.directories`; they are not included in this report.

@@ -1,6 +1,6 @@
 # Directory badges for stack127
 
-This document collects badges offered during stack127's directory submissions. No badges have been added to the live site. Review the requirement and listing status before choosing one.
+This document collects badges offered during stack127's directory submissions. No image badges have been added to the live site. Selected plain listing links are live as described below. Review the requirement and listing status before choosing an image badge.
 
 ## Smol Launch
 
@@ -507,11 +507,13 @@ The free submission is accepted with April 2, 2030 assigned for its launch. The 
 
 LaunchFree confirmed publication by email on October 5, 2026. Its optional badge page is https://launchfree.io/add-badge.html. The page could not be loaded during the disconnected browser session, so no embed code has been collected. No badge is installed.
 
-## Selected links prepared October 7, 2026
+## Selected links updated October 7, 2026
 
-Only LetsLaunch and ScrollLaunch verification links are being prepared for release. About includes the exact LetsLaunch reservation link and the confirmed IndieNeed, LaunchFree and DevHunt product URLs. The shared footer includes ScrollLaunch's exact product URL with its supplied `?ref=badge` parameter. These are normal crawlable text links, with no `nofollow`, `ugc` or `sponsored` value. No image badge or claim of being featured was added.
+Only LetsLaunch and ScrollLaunch verification links are selected. About includes the exact LetsLaunch reservation link and the confirmed IndieNeed, LaunchFree and DevHunt URLs. The shared footer includes ScrollLaunch's exact product URL with its supplied `?ref=badge` parameter. These are normal crawlable text links with no `nofollow`, `ugc` or `sponsored` value. No image badge or claim of being featured was added.
 
-LetsLaunch explicitly accepts a text link anywhere, including About. ScrollLaunch scans the homepage HTML and names its product URL as a matching marker; acceptance of the text link still needs a live verifier check. Neither selected verification is complete yet.
+ScrollLaunch accepted the plain homepage footer link on October 7 and scheduled the free launch for December 28, 2026 to January 3, 2027. Keep the link while retaining its reciprocal-link benefit.
+
+LetsLaunch's FAQ permits a text link anywhere, including About. Its authenticated checker did not find our live About-page link, and its editor provides no separate verification URL. An additional exact homepage footer link labeled "LetsLaunch reservation" is prepared for release. The reservation remains hidden until verification succeeds.
 
 Fazier now confirms three useful comments, but its free plan requires DR above zero. LetsLaunch's public DR checker returned 0.0 for stack127.com. No Fazier badge or eligibility attestation was added. StartupBase instead used the standard free queue without a badge and is pending review.
 
@@ -522,3 +524,7 @@ The promotion submission is under review, with an estimated 2 to 3 business days
 ```html
 <a href='https://www.sideprojectors.com/project/98907/stack127' alt='Check out stack127  at @SideProjectors'><img src='https://www.sideprojectors.com/img/badges/badge_show_black.png' alt='Check out stack127 at @SideProjectors'></a>
 ```
+
+## SaaSHub checked October 7, 2026
+
+The free submission is pending approval, and product verification is ACTIVE. No reciprocal backlink is required. The signed-in Trophies page displayed an empty badge section and no trophies. No badge snippet is available to collect yet. Do not display a trophy or featured claim.
