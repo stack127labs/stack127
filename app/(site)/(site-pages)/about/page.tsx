@@ -103,6 +103,21 @@ export default function AboutPage() {
         </section>
 
         <section>
+          <h2>Launch directories</h2>
+          <p>stack127 is listed on:</p>
+          <ul>
+            <li><a href="https://www.indieneed.com/products/stack127">IndieNeed</a></li>
+            <li><a href="https://launchfree.io/listings/stack127.html">LaunchFree</a></li>
+            <li><a href="https://devhunt.org/tool/stack127">DevHunt</a></li>
+          </ul>
+          <p>
+            You can also follow our{" "}
+            <a href="https://letslaunch.today/product/stack127">LetsLaunch reservation</a>
+            .
+          </p>
+        </section>
+
+        <section>
           <h2>Contact</h2>
           <p>
             Found a wrong link, an outdated fact, or something missing? Email <a href="mailto:stack127@proton.me">stack127@proton.me</a>. Tell me what&apos;s wrong and where you found the right answer, and I&apos;ll fix it.
