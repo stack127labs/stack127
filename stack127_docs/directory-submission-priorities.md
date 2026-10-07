@@ -1,6 +1,6 @@
 # Pending directory priorities
 
-Reviewed October 7, 2026. The user approved this queue and parking the 18 lower-priority directories. This file records the research; current submission outcomes are in [directory-submission-status.md](directory-submission-status.md). All 28 unfinished directories are accounted for: seven to pursue now, three badge candidates, and 18 to park. Keep existing drafts and records; do not withdraw submissions.
+Reviewed October 7, 2026. The user approved this queue and parking the 18 lower-priority directories. This file records the research; current submission outcomes are in [directory-submission-status.md](directory-submission-status.md). At the time of the review, all 28 unfinished directories were accounted for: seven to pursue now, three badge candidates, and 18 to park. Keep existing drafts and records; do not withdraw submissions.
 
 The criteria are audience fit, dated public activity, visible product engagement, remaining effort, and permanent website-link requirements. Votes and comments are signs of activity, not verified visitors or proof of authentic engagement. Published traffic, subscriber counts, and domain ratings were not treated as independent evidence. The coordinator reviewed nine sites; one Luna worker reviewed the other 19. No account, vote, submission, DNS, or website changes were made during this review.
 

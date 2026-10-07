@@ -54,6 +54,9 @@ export function AppShell({
                 <Link {...intentPrefetch} href="/about">about</Link>
                 <Link {...intentPrefetch} href="/labs">labs</Link>
               </nav>
+              <a href="https://letslaunch.today/product/stack127">
+                LetsLaunch reservation
+              </a>
               <a href="https://www.scrolllaunch.com/products/stack127?ref=badge">
                 ScrollLaunch launch page
               </a>
