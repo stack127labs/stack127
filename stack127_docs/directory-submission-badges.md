@@ -143,7 +143,7 @@ The free plan requires three product upvotes, one product comment, and a verifie
 
 ## Fazier
 
-The free route requires three helpful product comments and a website badge before the listing form opens. It also requires an English website and domain rating above zero. Neither the comments nor badge installation have been done. These snippets were copied from the signed-in form. The launched and featured badges do not mean the listing has been accepted.
+The free route requires three helpful product comments and a website badge before the listing form opens. It also requires an English website and domain rating above zero. Three helpful comments were completed on October 7. No badge was installed because the free plan requires domain rating above zero and the public checker returned 0.0. These snippets were copied from the signed-in form. The launched and featured badges do not mean the listing has been accepted.
 
 ```html
 <a href="https://fazier.com/launches/stack127.com" target="_blank"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=light" width=120 alt="Fazier badge" /></a>
@@ -155,7 +155,7 @@ The free route requires three helpful product comments and a website badge befor
 
 ## LetsLaunch
 
-The free submission reserved October 12, 2026 at 08:00 UTC. The listing remains hidden until a crawlable reciprocal listing link or badge is installed and verified. The normal five-upvote survival rule is currently paused.
+The free submission reserved October 12, 2026 at 08:00 UTC. The plain homepage footer link passed verification on October 7. The confirmation says the free listing remains hidden until October 12 at 08:00 UTC. The normal five-upvote survival rule is currently paused.
 
 ```html
 <a href="https://letslaunch.today/product/stack127" target="_blank" rel="noopener">
@@ -436,7 +436,7 @@ The free scheduling dialog provided this verification snippet:
 </a>
 ```
 
-The draft is unverified and has not launched. This snippet is collected for review only. It does not establish that stack127 earned a featured or weekly ranking badge. The free editor requires a website badge before publishing. The badge page also says it checks the backlink weekly to keep the Visit link dofollow.
+On October 7, the plain homepage footer link passed verification and the free launch was scheduled for December 28, 2026 to January 3, 2027. The launch has not occurred yet. This image snippet is collected for review only. It does not establish that stack127 earned a featured or weekly ranking badge. The free editor requires a website badge before publishing. The badge page also says it checks the backlink weekly to keep the Visit link dofollow.
 
 ```html
 <a href="https://www.scrolllaunch.com/products/stack127?ref=badge" target="_blank" rel="noopener">
@@ -513,9 +513,9 @@ Only LetsLaunch and ScrollLaunch verification links are selected. About includes
 
 ScrollLaunch accepted the plain homepage footer link on October 7 and scheduled the free launch for December 28, 2026 to January 3, 2027. Keep the link while retaining its reciprocal-link benefit.
 
-LetsLaunch's FAQ permits a text link anywhere, including About. Its authenticated checker did not find our live About-page link, and its editor provides no separate verification URL. An additional exact homepage footer link labeled "LetsLaunch reservation" is prepared for release. The reservation remains hidden until verification succeeds.
+LetsLaunch's FAQ permits a text link anywhere, including About. Its authenticated checker did not find our live About-page link, and its editor provides no separate verification URL. PR #32 released an additional exact homepage footer link labeled "LetsLaunch reservation". The authenticated checker accepted it on October 7, and both the editor and dashboard retain "Badge verified". The confirmation says the free listing cannot open before October 12 at 08:00 UTC. No image badge was installed.
 
-Fazier now confirms three useful comments, but its free plan requires DR above zero. LetsLaunch's public DR checker returned 0.0 for stack127.com. No Fazier badge or eligibility attestation was added. StartupBase instead used the standard free queue without a badge and is pending review.
+Fazier now confirms three useful comments, but its free plan requires DR above zero. LetsLaunch's public DR checker returned 0.0 for stack127.com. No Fazier badge or eligibility attestation was added. StartupBase used the standard free queue without a badge, but its October 7 email rejected the product because the free queue excludes free online tools.
 
 ## SideProjectors badge collected October 7, 2026
 
@@ -528,3 +528,35 @@ The promotion submission is under review, with an estimated 2 to 3 business days
 ## SaaSHub checked October 7, 2026
 
 The free submission is pending approval, and product verification is ACTIVE. No reciprocal backlink is required. The signed-in Trophies page displayed an empty badge section and no trophies. No badge snippet is available to collect yet. Do not display a trophy or featured claim.
+
+## ScrollLaunch verification email October 7, 2026
+
+The 10:17 UTC email confirms the dofollow link is active and the free launch is scheduled for 2026-W53. A plain product link may satisfy its weekly checks. The email supplied this optional featured image badge, collected here without installing it. It does not establish a leaderboard award.
+
+```html
+<a href="https://www.scrolllaunch.com/products/stack127?ref=badge" target="_blank">
+  <img src="https://www.scrolllaunch.com/api/badge/stack127?variant=featured&theme=light"
+       alt="stack127 - Featured on ScrollLaunch"
+       width="220" height="48" />
+</a>
+```
+
+## IndieHunt record corrected October 7, 2026
+
+An October 6 email confirms an existing nofollow launch for November 8 to November 15, 2027. The earlier draft note did not establish the final outcome. No backlink installation is required to retain this recorded nofollow schedule. The directory remains parked for further work, and no upgrade or badge work is planned.
+
+## LaunchFree badges collected October 7, 2026
+
+The product page is publicly live. The optional [badge generator](https://launchfree.io/add-badge.html) generated these exact listing links. No badge is required for the free listing, and neither image has been installed.
+
+```html
+<a href="https://launchfree.io/listings/stack127.html" target="_blank" rel="noopener">
+  <img src="https://launchfree.io/badge-dark.svg" alt="Listed on The Runway - LaunchFree.io" width="250" height="56" />
+</a>
+```
+
+```html
+<a href="https://launchfree.io/listings/stack127.html" target="_blank" rel="noopener">
+  <img src="https://launchfree.io/badge-light.svg" alt="Listed on The Runway - LaunchFree.io" width="250" height="56" />
+</a>
+```
