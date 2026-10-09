@@ -1,0 +1,20 @@
+## How to read the result
+
+The result names the certificate authorities allowed for normal and for wildcard certificates. Each one appears as the domain it uses in CAA, such as `letsencrypt.org`.
+
+| You see | What it means |
+| --- | --- |
+| Names, then `may issue.` | Only those certificate authorities may issue. |
+| `CAA does not restrict this kind of certificate.` | CAA lets any certificate authority issue. |
+| `No certificate authority is allowed.` | The policy blocks every certificate authority. |
+| `Policy inherited from` a name | The records sit on a parent domain, not on the name you entered. |
+
+`Where the policy came from` lists each name the check asked, in order.
+
+<Example title="api.github.com">
+
+`api.github.com` has no CAA records of its own, so the check moves up to `github.com` and finds 7. For normal certificates, `digicert.com`, `globalsign.com`, `letsencrypt.org`, and `sectigo.com` may issue. Wildcard certificates leave out `globalsign.com`, because the `issuewild` records don't list it.
+
+Checked on 9 October 2026.
+
+</Example>

@@ -1,0 +1,15 @@
+## How to read the result
+
+The first line names the first problem found, or says the delegation checks out.
+
+In `Delegation, glue, and addresses`, `Parent` means the parent zone, such as `.com`, lists the nameserver. You set that list at your registrar. `Child` means the zone's own NS records list it. You set those at your DNS provider. Both columns should say `Yes` for every server.
+
+`Nameserver address checks` tests each address over UDP and TCP. `Authoritative SOA` means the server answered as the source for this zone.
+
+<Example title="github.com">
+
+GitHub uses 8 nameservers from two providers: 4 from NS1 and 4 from Amazon Route 53. The parent and the zone list the same 8, and every address answers over UDP and TCP. `ns-421.awsdns-52.com` comes with glue, because it sits under `.com` like `github.com`.
+
+Checked on 9 October 2026.
+
+</Example>

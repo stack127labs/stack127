@@ -1,0 +1,31 @@
+## What if the parent and the zone list different nameservers?
+
+Usually a provider move wasn't finished. A server was added or removed in one place but not the other. Resolvers can use either list, so some lookups work and others fail.
+
+Make the two lists match. Add every new nameserver at both your registrar and your DNS provider, and remove old ones from both. A mismatch doesn't fix itself over time.
+
+## When is glue required?
+
+Glue is a nameserver's address, published by the parent zone with the delegation. The `Glue rule` column says whether a server needs it:
+
+| Glue rule | When it applies |
+| --- | --- |
+| `Required` | The nameserver sits inside the domain it serves, such as `ns1.example.com` for `example.com`. Without glue, nobody can find its address. |
+| `Optional sibling` | The nameserver sits in another domain under the same parent, such as a `.com` nameserver for a `.com` domain. |
+| `Not required` | The nameserver is somewhere else, and normal lookups find its address. |
+
+If the glue doesn't match the nameserver's own A or AAAA records, the result flags it. Update the glue at your registrar.
+
+## What is a lame delegation?
+
+Usually, a nameserver that's listed but doesn't answer as the source for the zone. Definitions vary, and [RFC 9499](https://www.rfc-editor.org/rfc/rfc9499.html#section-7) lists the common ones. The result says such a server `did not claim authority`. Fix the zone on that server, or remove the server from both lists.
+
+## Why test both UDP and TCP?
+
+Most DNS queries use UDP. Large answers, such as signed records or long TXT records, switch to TCP. [RFC 7766](https://www.rfc-editor.org/rfc/rfc7766.html) requires nameservers to answer over TCP, so a server that only answers over UDP can fail on those.
+
+## Should nameservers be on different networks?
+
+Yes, so one outage can't take them all down. [RFC 2182](https://www.rfc-editor.org/rfc/rfc2182.html) recommends spreading them out. The result notes when every address is on one network, or when two names share one address.
+
+The checks run from stack127's server. IPv6 addresses are skipped when the checker has no IPv6 route, and the result says so. stack127 doesn't keep the names you check.

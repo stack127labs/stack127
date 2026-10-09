@@ -1,0 +1,15 @@
+## How to read the trace
+
+Each numbered step is one server the trace asked. A step either points to the nameservers for the next zone down, which is called a referral, or ends the trace. The last step gives the answer, says the name doesn't exist, says there's no record of that type, or shows an error.
+
+If a server doesn't answer, the trace tries up to 3 servers for that step and lists the failed tries.
+
+<Example title="www.github.com, A record">
+
+1. The root nameserver points to the nameservers for `.com`.
+2. The `.com` nameserver points to the nameservers for `github.com`. One of them is `ns-421.awsdns-52.com`.
+3. The nameserver for `github.com` answers. `www.github.com` is an alias for `github.com`, which is at `20.207.73.82`.
+
+Checked on 9 October 2026.
+
+</Example>

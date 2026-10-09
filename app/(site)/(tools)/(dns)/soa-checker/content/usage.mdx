@@ -1,0 +1,15 @@
+## How to read the result
+
+The first line says whether the SOA records agree and, if not, which serial is newest. Servers that return the same values share one row. A server with a different value gets its own row.
+
+If the `Primary` and `Mailbox` values differ too, you're usually looking at two DNS providers. Each one writes its own SOA, so their serials can't be compared.
+
+<Example title="github.com">
+
+The 4 NS1 nameservers report serial 1,656,468,023, with primary `dns1.p08.nsone.net`. The 4 Amazon Route 53 nameservers report serial 1, with primary `ns-1707.awsdns-21.co.uk`.
+
+The checker calls 1,656,468,023 newest, but neither provider is behind. They each keep their own SOA.
+
+Checked on 9 October 2026.
+
+</Example>
