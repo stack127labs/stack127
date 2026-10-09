@@ -330,7 +330,9 @@ export function chartOption(spec: UiChartSpec): EChartsCoreOption {
         formatter: (params: unknown) => {
           const list = asParams(params);
           const x = list[0]?.axisValue ?? (list[0]?.value as number[])[0];
-          return tooltipHtml(labels ? String(x) : xFormat(Number(x)), list.map((item) => ({ color: item.seriesIndex, label: item.seriesName, value: format((item.value as number[])[1]) })));
+          // A labeled axis holds plain values; numeric and time axes hold [x, y] pairs.
+          const y = (item: TooltipParam) => (labels ? Number(item.value) : (item.value as number[])[1]);
+          return tooltipHtml(labels ? String(x) : xFormat(Number(x)), list.map((item) => ({ color: item.seriesIndex, label: item.seriesName, value: format(y(item)) })));
         },
         trigger: "axis",
       },
