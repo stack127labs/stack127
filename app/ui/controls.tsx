@@ -331,14 +331,14 @@ function DatePickerBase({
       <FieldMessages description={description} error={error} />
       <Popover className={`${styles.popover} ${styles.calendarPopover}`} placement="bottom start">
         <Dialog className={styles.calendarDialog}>
-          {hasTime ? <DateThenTime hourCycle={hourCycle} maxValue={maxValue} minValue={minValue} minuteStep={minuteStep} /> : <PickerCalendar />}
+          {hasTime ? <DateThenTime commit={onChange} hourCycle={hourCycle} maxValue={maxValue} minValue={minValue} minuteStep={minuteStep} /> : <PickerCalendar />}
         </Dialog>
       </Popover>
     </DatePicker>
   );
 }
 
-function PickerCalendar({ onChange }: { onChange?: () => void }) {
+function PickerCalendar({ onChange }: { onChange?: (day: DateValue) => void }) {
   return (
     <RacCalendar className={styles.calendar} onChange={onChange}>
       <header className={styles.calendarHeader}>
@@ -363,11 +363,36 @@ function PickerCalendar({ onChange }: { onChange?: () => void }) {
 }
 
 /** The date-and-time popover: the calendar first, then the time list once a day is picked. */
-function DateThenTime({ hourCycle, maxValue, minValue, minuteStep }: Required<TimeOptions> & { maxValue?: DateValue; minValue?: DateValue }) {
+function DateThenTime({
+  commit,
+  hourCycle,
+  maxValue,
+  minValue,
+  minuteStep,
+}: Required<TimeOptions> & { commit?: (value: DateValue | null) => void; maxValue?: DateValue; minValue?: DateValue }) {
   const state = useContext(DatePickerStateContext);
   const [step, setStep] = useState<"date" | "time">("date");
   const day = state?.dateValue;
   const time = state?.timeValue ?? null;
+
+  // Limits only apply on their own day: on any day between them, every time is allowed.
+  const boundsFor = (picked: DateValue) => ({
+    max: maxValue && "hour" in maxValue && sameDay(picked, maxValue) ? boundMinutes(maxValue, "max") : lastMinute,
+    min: minValue && "hour" in minValue && sameDay(picked, minValue) ? boundMinutes(minValue, "min") : 0,
+  });
+
+  // Every way out of the popover keeps the picked day, so the time it keeps must already be allowed.
+  const pickDay = (picked: DateValue) => {
+    const bounds = boundsFor(picked);
+    const current = state?.value && "hour" in state.value ? state.value : null;
+    if (!current) {
+      if (!state?.timeValue) state?.setTimeValue(new Time(Math.floor(bounds.min / 60), bounds.min % 60));
+    } else if (minutesOf(current) < bounds.min || minutesOf(current) > bounds.max) {
+      const total = Math.min(bounds.max, Math.max(bounds.min, minutesOf(current)));
+      commit?.(current.set({ day: picked.day, hour: Math.floor(total / 60), millisecond: 0, minute: total % 60, month: picked.month, second: 0, year: picked.year }));
+    }
+    setStep("time");
+  };
 
   if (step === "date" || !state || !day) {
     const timeLabel = time
@@ -375,7 +400,7 @@ function DateThenTime({ hourCycle, maxValue, minValue, minuteStep }: Required<Ti
       : null;
     return (
       <div className={styles.timePanel}>
-        <PickerCalendar onChange={() => setStep("time")} />
+        <PickerCalendar onChange={pickDay} />
         {day ? <UiButton className={styles.timeDone} onPress={() => setStep("time")}>{timeLabel ? `Time: ${timeLabel}` : "Choose time"}</UiButton> : null}
       </div>
     );
@@ -388,18 +413,7 @@ function DateThenTime({ hourCycle, maxValue, minValue, minuteStep }: Required<Ti
         <ChevronLeft aria-hidden="true" size={18} />
         <span><span className={styles.visuallyHidden}>Change date, </span>{dayLabel}</span>
       </RacButton>
-      <TimeColumns
-        bounds={{
-          // Limits only apply on their own day: on any day between them, every time is allowed.
-          max: maxValue && "hour" in maxValue && sameDay(day, maxValue) ? minutesOf(maxValue) : lastMinute,
-          min: minValue && "hour" in minValue && sameDay(day, minValue) ? minutesOf(minValue) : 0,
-        }}
-        hourCycle={hourCycle}
-        minuteStep={minuteStep}
-        onChange={state.setTimeValue}
-        value={time}
-      />
-      {/* The picker's own close keeps a chosen day even before a time is picked; the time starts at 12:00 AM. */}
+      <TimeColumns bounds={boundsFor(day)} hourCycle={hourCycle} minuteStep={minuteStep} onChange={state.setTimeValue} value={time} />
       <UiButton className={styles.timeDone} onPress={() => state.setOpen(false)} variant="primary">Done</UiButton>
     </div>
   );
@@ -438,7 +452,7 @@ export function UiTimeField({ description, disabled, error, hourCycle = 12, labe
           <Popover className={`${styles.popover} ${styles.timePopover}`} placement="bottom end">
             <Dialog aria-label={label} className={`${styles.calendarDialog} ${styles.timePanel}`}>
               <TimeColumns
-                bounds={{ max: maxValue ? minutesOf(maxValue) : lastMinute, min: minValue ? minutesOf(minValue) : 0 }}
+                bounds={{ max: maxValue ? boundMinutes(maxValue, "max") : lastMinute, min: minValue ? boundMinutes(minValue, "min") : 0 }}
                 hourCycle={hourCycle}
                 minuteStep={minuteStep}
                 onChange={(time) => onChange?.(time)}
@@ -457,6 +471,9 @@ export function UiTimeField({ description, disabled, error, hourCycle = 12, labe
 const padTime = (part: number) => String(part).padStart(2, "0");
 const lastMinute = 23 * 60 + 59;
 const minutesOf = (time: { hour: number; minute: number }) => time.hour * 60 + time.minute;
+/** A limit in whole minutes. A minimum with seconds rounds up, so a minute pick never lands before it. */
+const boundMinutes = (time: { hour: number; millisecond: number; minute: number; second: number }, kind: "max" | "min") =>
+  minutesOf(time) + (kind === "min" && (time.second > 0 || time.millisecond > 0) ? 1 : 0);
 const sameDay = (a: DateValue, b: DateValue) => toCalendarDate(a).compare(toCalendarDate(b)) === 0;
 
 /**
@@ -480,11 +497,17 @@ function TimeColumns({
   const minutes = Array.from({ length: Math.ceil(60 / minuteStep) }, (_, index) => index * minuteStep);
   const outside = (first: number, last: number) => last < bounds.min || first > bounds.max;
 
+  const clamp = (total: number) => Math.min(bounds.max, Math.max(bounds.min, total));
+  // Change only the time, so a date or time zone the value carries survives. Seconds reset with every pick.
+  const at = (total: number) => {
+    const time = { hour: Math.floor(total / 60), millisecond: 0, minute: total % 60, second: 0 };
+    return value ? (value as Time).set(time) : new Time(time.hour, time.minute);
+  };
   const pick = (nextHour: number, nextMinute: number) => {
-    const total = Math.min(bounds.max, Math.max(bounds.min, nextHour * 60 + nextMinute));
-    const time = { hour: Math.floor(total / 60), minute: total % 60 };
-    // Change only the time, so a date or time zone the value carries survives.
-    onChange(value ? (value as Time).set(time) : new Time(time.hour, time.minute));
+    let next = at(clamp(nextHour * 60 + nextMinute));
+    // A time inside a daylight saving gap doesn't exist, and the zone moves it forward, maybe past a limit.
+    if (minutesOf(next) !== clamp(minutesOf(next))) next = at(clamp(minutesOf(next)));
+    onChange(next);
   };
 
   return (
