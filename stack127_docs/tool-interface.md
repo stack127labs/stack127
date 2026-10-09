@@ -301,7 +301,7 @@ Set explicit segment tones when a category must keep the same color across relat
 
 Don't assign red, yellow, or green by position when they'd suggest danger, warning, or success. Color is never the only label. Keep every segment name and exact value in the legend. A zero or tiny value keeps its legend entry but gets no made-up minimum width in the bar.
 
-The canonical code lives in `app/ui/controls.tsx`, `app/ui/display.tsx`, and focused modules such as `app/ui/uploads.tsx`, with styles beside them. Read [shared-ui.md](shared-ui.md) for use across pages and Markdown syntax. `/components-ui` is the development-only gallery and returns `404` in production.
+The canonical code lives in `app/ui/controls.tsx`, `app/ui/display.tsx`, and focused modules such as `app/ui/uploads.tsx`, with styles beside them. Read [shared-ui.md](shared-ui.md) for use across pages, and [page-content.md](page-content.md) for content blocks. `/components-ui` is the development-only gallery and returns `404` in production.
 
 Pull out a primitive when pages share its behavior and look. Don't create a component that only renames one HTML element or makes an unusual tool harder to understand.
 

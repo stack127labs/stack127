@@ -20,7 +20,7 @@ export function replaceStaticParameters(source, parameters, file) {
 export async function prepareFrontend(source, target, pages) {
   // Copy only explicit build inputs. No credentials, git state, or server output.
   await mkdir(target, { recursive: true });
-  for (const file of ["app", "lib", "public", "next.config.ts", "next-env.d.ts", "tsconfig.json", "package.json", "package-lock.json"]) {
+  for (const file of ["app", "lib", "public", "next.config.ts", "mdx-components.tsx", "next-env.d.ts", "tsconfig.json", "package.json", "package-lock.json"]) {
     await cp(path.join(source, file), path.join(target, file), { recursive: true });
   }
   // Turbopack requires dependencies inside its root. Reflink where supported;

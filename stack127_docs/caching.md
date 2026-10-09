@@ -28,7 +28,9 @@ Shared links prefetch a page only when a reader shows intent, such as hovering o
 
 ### Content, references, courses, and catalogs
 
-Server-rendered from the registry, Markdown, or repository data. Static by default. Follow the rules above; no extra steps are needed.
+Server-rendered from MDX content beside the route, the registry, and repository data. Pages that haven't moved to MDX render their content from the database. Static by default. Follow the rules above; no extra steps are needed.
+
+MDX content ships with a code release, which rebuilds every page, so it needs no revalidation. Database changes, such as titles, search metadata, cards, and records, use the pipeline below.
 
 ### Tools
 

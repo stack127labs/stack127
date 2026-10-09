@@ -18,7 +18,7 @@
 .previewHeading > :first-child { flex: 1 1 16rem; }
 .previewHeading button { min-height: 44px; }
 .sheetFrame { max-width: 100%; overflow-x: auto; padding-bottom: var(--space-3); }
-.sheetFrame:focus-visible { outline: var(--focus-ring); outline-offset: 2px; }
+.sheetFrame:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
 .sheet { background: #fff; color: #161616; min-width: 680px; padding: var(--space-8); width: 760px; }
 .sheet h2, .sheet h3 { font-family: var(--font-display); line-height: var(--line-heading); margin: 0; }
 .sheet h2 { font-size: var(--text-h2); }

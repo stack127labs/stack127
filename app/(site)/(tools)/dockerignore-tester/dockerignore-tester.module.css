@@ -90,11 +90,12 @@
 
 .choice input:focus-visible + span,
 .editor textarea:focus-visible,
-.tool button:focus-visible,
+/* Shared buttons (react-aria, data-rac) draw their own ring. */
+.tool button:not([data-rac]):focus-visible,
 .tool summary:focus-visible,
 .result h2:focus-visible,
 .failure h2:focus-visible {
-  outline: var(--focus-ring);
+  outline: var(--focus-outline);
   outline-offset: 2px;
 }
 
@@ -337,7 +338,7 @@
 }
 
 .guideTableWrap:focus-visible {
-  outline: var(--focus-ring);
+  outline: var(--focus-outline);
   outline-offset: 2px;
 }
 

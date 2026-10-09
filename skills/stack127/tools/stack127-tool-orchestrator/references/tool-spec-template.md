@@ -70,7 +70,7 @@ The questions the page must answer, from research. For each, say where it is ans
 
 ### Outline
 
-Plan each part from the Page structure section of `skills/stack127/tools/stack127-tool-writing/SKILL.md`:
+Plan each part from the Page structure section of `skills/stack127/tools/stack127-tool-writing/SKILL.md`. The intro, usage, and content become the route's `content/intro.mdx`, `content/usage.mdx`, and `content/article.mdx`:
 
 - Intro: what the reader gets, who it is for, what they need ready.
 - Usage: only the steps that need explaining, how to read the result, and one worked example.

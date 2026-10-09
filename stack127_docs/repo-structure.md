@@ -8,9 +8,11 @@ Every normal page is a repo-owned Next.js route under `app/`.
 
 Routes stay in the repo. `stack127_pages` controls publication and SEO. Family tables may own structured page data.
 
-Interactive tool code stays under `app/(site)/(tools)/`. Tool titles, introductions, supporting Markdown, and version records live in `stack127_tool_pages`. See `stack127_docs/tool-pages.md` for who owns what and the update commands.
+Page content lives in `content/*.mdx` beside each route. See `stack127_docs/page-content.md`.
 
-Directory routes stay under `app/(site)/(directories)/`. Directory titles, introductions, Markdown, and card text live in `stack127_directory_pages`. See `stack127_docs/directory-pages.md`.
+Interactive tool code stays under `app/(site)/(tools)/`. Tool titles, card fields, and version records live in `stack127_tool_pages`. See `stack127_docs/tool-pages.md` for who owns what and the update commands.
+
+Directory routes stay under `app/(site)/(directories)/`. Directory titles and card text live in `stack127_directory_pages`. See `stack127_docs/directory-pages.md`.
 
 Page source is grouped by job. The groups don't change URLs.
 

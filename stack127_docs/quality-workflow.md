@@ -10,7 +10,7 @@ Run:
 npm run quality
 ```
 
-This runs TypeScript and a small core suite. The suite checks database error handling, publication boundaries, the static release gate, and production deployment safety. Use it when no production build is required.
+This runs TypeScript and a small core suite. The suite checks database error handling, publication boundaries, the static release gate, production deployment safety, and the MDX content rules in [page-content.md](page-content.md). Use it when no production build is required.
 
 Run a focused test only when code calculates, parses, transforms, imports, or resolves data:
 

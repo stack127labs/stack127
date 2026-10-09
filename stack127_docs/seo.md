@@ -94,7 +94,7 @@ Do not block useful pages in `robots.txt` just to handle duplicates. Prefer `noi
 
 ## Creating a new public page
 
-1. Build the repo-owned route under `app/`.
+1. Build the repo-owned route under `app/`, with its content in `content/*.mdx` beside it. See [page-content.md](page-content.md).
 2. Keep page code free of metadata, robots, canonical, sitemap, and JSON-LD exports.
 3. Add or update the page docs under `content_docs/<page-slug>/`.
 4. When the page should become public, insert a reviewed row into `public.stack127_pages` with the correct `page_family`.

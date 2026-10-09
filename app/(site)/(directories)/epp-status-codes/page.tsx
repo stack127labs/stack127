@@ -1,11 +1,9 @@
+import { isValidElement, type ComponentPropsWithoutRef } from "react";
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
-import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
-import { ContentMarkdown } from "@/app/ui/content-markdown";
-import type { Components } from "react-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import "@/app/(site)/(tools)/(domain)/domain-tools.css";
-import Link from "next/link";
 import { AppShell } from "../../../ui/site/app-shell";
 import { DomainToolsSidebar } from "@/app/(site)/(tools)/(domain)/domain-tools-sidebar";
 import { STATUS_CODES, STATUS_GROUP_TITLES, type StatusGroup } from "@/lib/domain/status-codes.ts";
@@ -13,6 +11,13 @@ import { StatePill } from "@/app/(site)/(tools)/(domain)/domain-lookup-client";
 import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { PageHeader } from "../../../ui/site/page-header";
 import { proseSectionFlowClassName } from "../../../ui/site/prose";
+import BadSign from "./content/bad-sign.mdx";
+import ClientAndServer from "./content/client-and-server.mdx";
+import Intro from "./content/intro.mdx";
+import RelatedTools from "./content/related-tools.mdx";
+import SiteDown from "./content/site-down.mdx";
+import TwoSpellings from "./content/two-spellings.mdx";
+import WhyItWasSet from "./content/why-it-was-set.mdx";
 
 /** Who set it decides what you can do, so that is what the tone encodes. */
 const GROUP_TONE: Record<StatusGroup, "good" | "warn" | "bad" | "quiet"> = {
@@ -43,20 +48,18 @@ const GROUP_INTRO: Record<StatusGroup, string> = {
   lifecycle: "Where the domain sits between being registered and being released.",
 };
 
-const sourcePathComponents: Components = {
-  p({ children, node }) {
-    const [code, description] = node?.children ?? [];
-    if (code?.type === "element" && code.tagName === "code" && description?.type === "text" && description.value.startsWith(" → ")) {
-      const label = code.children[0];
-      return <p className="domain-source-path">
-        <code>{label?.type === "text" ? label.value : ""}</code>
-        <span aria-hidden="true">→</span>
-        <span>{description.value.slice(3)}</span>
-      </p>;
-    }
-    return <p>{children}</p>;
-  },
-};
+/** A paragraph written as `client…` → meaning renders as one source-path row. */
+function SourcePathParagraph({ children, ...props }: ComponentPropsWithoutRef<"p">) {
+  const [code, description] = Array.isArray(children) ? children : [];
+  if (isValidElement<{ children?: unknown }>(code) && typeof description === "string" && description.startsWith(" → ")) {
+    return <p className="domain-source-path">
+      <code>{typeof code.props.children === "string" ? code.props.children : ""}</code>
+      <span aria-hidden="true">→</span>
+      <span>{description.slice(3)}</span>
+    </p>;
+  }
+  return <p {...props}>{children}</p>;
+}
 
 export default async function EppStatusCodesPage() {
   const directoryPage = await getRequiredDirectoryPage("epp-status-codes");
@@ -71,20 +74,20 @@ export default async function EppStatusCodesPage() {
         <PageHeader>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <PageMeta updatedAt={directoryPage.updated_at} />
-          <ContentMarkdown markdown={directoryPage.intro_markdown} />
+          <Intro />
         </PageHeader>
 
-          <article className={`domain-reference-content ${proseSectionFlowClassName}`}>
+        <article className={`domain-reference-content ${proseSectionFlowClassName}`}>
           <section>
-            <DirectoryPageContent page={directoryPage} section="copy-1" />
+            <TwoSpellings />
           </section>
 
           <section>
-            <DirectoryPageContent page={directoryPage} section="copy-2" components={sourcePathComponents} />
+            <ClientAndServer components={{ p: SourcePathParagraph }} />
           </section>
 
           <section>
-            <DirectoryPageContent page={directoryPage} section="copy-3" />
+            <SiteDown />
           </section>
 
           {GROUP_ORDER.map((group) => (
@@ -134,15 +137,15 @@ export default async function EppStatusCodesPage() {
           ))}
 
           <section>
-            <DirectoryPageContent page={directoryPage} section="copy-4" />
+            <WhyItWasSet />
           </section>
 
           <section>
-            <DirectoryPageContent page={directoryPage} section="copy-5" />
+            <BadSign />
           </section>
 
           <section>
-            <DirectoryPageContent page={directoryPage} section="copy-6" />
+            <RelatedTools />
           </section>
         </article>
       </PageCanvas>

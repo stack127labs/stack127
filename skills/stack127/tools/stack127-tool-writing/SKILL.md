@@ -5,13 +5,13 @@ description: Plan and write, or rewrite, the content, title, page copy, interfac
 
 # stack127 tool writing
 
-Read `stack127_docs/writing-style.md` for how to write and search wording, and `stack127_docs/shared-ui.md` for components and their syntax. Read `content_docs/<slug>/research.md` and `tool-spec.md` when they exist. Check every claim against the tool and its sources.
+Read `stack127_docs/writing-style.md` for how to write and search wording, and `stack127_docs/page-content.md` for the content files, the MDX blocks, and the content rules. Read `content_docs/<slug>/research.md` and `tool-spec.md` when they exist. Check every claim against the tool and its sources.
 
 ## When to use it
 
 In the tool pipeline, Opus runs this skill in its own Claude Code writing session after the tool is built. Plan the Content section first, then write in the same session.
 
-It also handles rewrites of live tool pages. Read the current title, intro, usage, and content from `public.stack127_tool_pages`. Use the tool once and read its code for the exact rules and messages. Keep the facts, limits, and sources a reader needs, and cut what goes beyond the core of the tool. Write drafts to `tmp/page-publishing/<slug>/` unless the user asks to apply them. Git ignores `tmp/`, and the files stay there through release. Skip the spec step for a rewrite.
+It also handles rewrites of live tool pages. Read the current content in the route's `content/*.mdx` files, and the title and search text on the page. If the page still renders its content from the database, move it to MDX first with the steps in `page-content.md`, and commit the move before rewriting. Use the tool once and read its code for the exact rules and messages. Keep the facts, limits, and sources a reader needs, and cut what goes beyond the core of the tool. Skip the spec step for a rewrite.
 
 ## Win the search
 
@@ -67,12 +67,14 @@ Refer to facts in the research instead of copying them.
 
 ## Page structure
 
-| Part | Where it shows | What to write |
-| --- | --- | --- |
-| Title | Page heading | "Tool name: the question it answers", in words people search for. Example: "KDP payment date calculator: when will KDP pay you?" |
-| Intro | Above the tool | 2 to 3 sentences. What you get, and what to have ready. No history or filler. |
-| Usage | After the tool | Steps that need explaining, how to read the result, and one worked example. |
-| Content | After usage | Short sections with question headings, each answered in its first sentence. |
+| Part | Where it shows | Where it lives | What to write |
+| --- | --- | --- | --- |
+| Title | Page heading | Database, through the publisher | "Tool name: the question it answers", in words people search for. Example: "KDP payment date calculator: when will KDP pay you?" |
+| Intro | Above the tool | `content/intro.mdx` | 2 to 3 sentences. What you get, and what to have ready. No history or filler. |
+| Usage | After the tool | `content/usage.mdx` | Steps that need explaining, how to read the result, and one worked example. |
+| Content | After usage | `content/article.mdx` | Short sections with `##` question headings, each answered in its first sentence. |
+
+The SEO title, SEO description, and card copy also go to the database through the publisher.
 
 ### Usage steps
 
@@ -99,7 +101,7 @@ Keep each section to 1 to 3 short paragraphs, or one table, list, or visual with
 
 - Show first. Use a table, list, chart, example, formula, note, or warning when it shows the idea better than a paragraph. See the format table in `writing-style.md`.
 - Use marker art only for a concept that needs a picture, such as a flow or a rough relationship. Use at most one or two per page. Request it through the marker art skills; don't invent figure references.
-- Use only existing components. Page copy never needs a new one.
+- Use only the blocks `page-content.md` lists. Page copy never needs a new one.
 - Say each idea once. The intro, usage, and content must not repeat each other.
 - Say whether a number is exact, an estimate, or a rule of thumb.
 - For lookups and checks, say what the result can and cannot tell the reader.
@@ -113,17 +115,17 @@ If the main agent finds a problem on the rendered page, fix it in the same sessi
 
 ## Hand off the copy
 
-Put the intro, usage, and content in separate Markdown files in `tmp/page-publishing/<slug>/`. Integration builds the publish manifest beside them. In the pipeline, apply interface-word changes in the frontend code yourself, since Opus owns the frontend. For a standalone rewrite, list suggested interface words instead.
+Write the intro, usage, and content into the route's `content/intro.mdx`, `content/usage.mdx`, and `content/article.mdx`, following the rules in `page-content.md`. Run `node scripts/stack127/content/check-mdx.mjs` and fix what it reports. The content ships with a code release. Integration puts the title, search text, and card copy in the publish manifest. In the pipeline, apply interface-word changes in the frontend code yourself, since Opus owns the frontend. For a standalone rewrite, list suggested interface words instead.
 
 Return:
 
-- the file paths and word counts before and after;
+- the MDX file paths and word counts before and after;
 - the visible title, SEO title, and SEO description;
 - a short card name and task-focused card description, which appear in every assigned catalog;
 - interface words changed or suggested;
 - any marker art you suggest;
 - sources for factual claims.
 
-Keep the spec as planning, not a second live copy.
+Keep the spec as planning. The MDX files are the page content.
 
-Copy edits move a published tool's public date without changing `tool_version`. Card-only edits refresh catalogs and keep the tool date unchanged. Functional tool changes use the version workflow in `stack127_docs/tool-pages.md`.
+A tool's public date moves with its version, title, and search text. Content edits leave `tool_version` and the date alone; a date move for content-only tool changes comes later. Card-only edits refresh catalogs and keep the tool date unchanged. Functional tool changes use the version workflow in `stack127_docs/tool-pages.md`.

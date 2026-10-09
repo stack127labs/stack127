@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
 import { collectAllowedDevOrigins } from "./lib/allowed-dev-origins";
 import { legacyShortcutRedirects } from "./lib/legacy-shortcut-redirects";
 
@@ -76,4 +77,8 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  options: { remarkPlugins: ["remark-gfm"] },
+});
+
+export default withMDX(nextConfig);

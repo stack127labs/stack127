@@ -46,7 +46,7 @@ The group names organize the repository. They never appear in public URLs.
 - Visible titles and introductions use `PageHeader`.
 - Reading content uses the classes exported by `app/ui/site/prose.ts`, so heading and paragraph rhythm comes from one place.
 
-Use [writing-style.md](writing-style.md) for all public wording and visual choices. Use [shared-ui.md](shared-ui.md) for common controls, tables, charts, callouts, pagination, dialogs, and Markdown content. Keep family-specific data and unusual interactions in their own route.
+Use [writing-style.md](writing-style.md) for all public wording and visual choices. Use [shared-ui.md](shared-ui.md) for common controls, tables, charts, callouts, pagination, and dialogs. Use [page-content.md](page-content.md) for where page content lives and the section order of each family. Keep family-specific data and unusual interactions in their own route.
 
 ## Catalogs
 
@@ -54,7 +54,7 @@ Catalogs gather stack127's own pages in one place. `/dns-tools`, `/domain-tools`
 
 Catalog routes live under `app/(site)/(catalogs)/`.
 
-- Catalog copy and cards live in `stack127_catalog_pages`. Its `title`, `intro_markdown`, optional `content_markdown`, and card fields match directory pages. `display_order` controls catalog ordering. Public dates come from the registry. See [tool-catalogs.md](tool-catalogs.md).
+- Catalog titles and cards live in `stack127_catalog_pages`. Catalog intros and articles are still there too, until catalogs move to MDX. `display_order` controls catalog ordering. Public dates come from the registry. See [tool-catalogs.md](tool-catalogs.md).
 - Link to the canonical flat route for every included page.
 - When several pages share navigation and active states, the catalog owns them.
 - Don't put third-party software, hardware records, courses, or stable fact tables here.
@@ -63,7 +63,7 @@ Catalog routes live under `app/(site)/(catalogs)/`.
 
 Directories help someone find, compare, or look up things: third-party software and hardware, platforms, and stable facts such as codes, licenses, TLDs, and keyboard shortcuts. The self-host apps, CLI apps, TLD directory, and EPP status codes all belong here. There is no separate reference family.
 
-A directory page's title, intro, Markdown content, and card text live in `stack127_directory_pages`, the same way tool copy lives in `stack127_tool_pages`. See [directory-pages.md](directory-pages.md). Published, indexable child pages, such as `/ad-networks/<slug>`, get their own row.
+A directory page's introduction and sections live in `content/*.mdx` beside its route. Its title and card text live in `stack127_directory_pages`, the same way a tool's live in `stack127_tool_pages`. See [directory-pages.md](directory-pages.md). Published, indexable child pages, such as `/ad-networks/<slug>`, get their own row.
 
 Directory records live in one of two places. Decide which in the directory's brief when you create it.
 
@@ -112,7 +112,7 @@ Tools help someone answer one concrete question. The page order:
 2. One clearly framed interface. Results stay in that frame or connect to it directly.
 3. Supporting guidance, in the shared prose rhythm.
 
-Tool routes live under `app/(site)/(tools)/`. The interactive part stays in code. The title, introduction, and supporting Markdown live in `public.stack127_tool_pages` and render through the shared server content layer. Read `stack127_docs/tool-pages.md` before you change tool content or a tool version.
+Tool routes live under `app/(site)/(tools)/`. The interactive part and the page content stay in code: the introduction, usage, and article are MDX files beside the route. The title, version, and card fields live in `public.stack127_tool_pages`. Read `stack127_docs/tool-pages.md` before you change tool content or a tool version.
 
 DNS, domain, and storage tools sit under route groups inside `(tools)`. Each group layout owns its sidebar and shell, so moving between tools in that family replaces only the page content. Code shared by one group, such as DNS diagnostics or the domain tools sidebar, lives in that group folder. Shared tool shells live in `app/ui/tools/`.
 
@@ -122,6 +122,6 @@ Use neutral borders, calm background changes, and useful diagrams. Don't scatter
 
 ## Site pages
 
-Site pages are the homepage, `/about`, `/privacy`, `/terms`, and `/labs`. They live under `app/(site)/(site-pages)/` and use `page_family = 'site'`. They have no family table.
+Site pages are the homepage, `/about`, `/privacy`, `/terms`, and `/labs`. They live under `app/(site)/(site-pages)/` and use `page_family = 'site'`. They have no family table. Their words are in the route's TSX and move to MDX later.
 
 About, privacy, terms, and Labs use `InfoPage`: generous spacing, useful icons, restrained borders, short descriptions, and obvious actions. Its sidebar links between the site pages. Text pages use the shared reading width. Labs stays wide.

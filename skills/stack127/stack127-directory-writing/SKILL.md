@@ -5,19 +5,21 @@ description: Plan and write, or rewrite, the title, H1, intro, content, card tex
 
 # stack127 directory writing
 
-Read `stack127_docs/writing-style.md` for how to write and search wording, `stack127_docs/shared-ui.md` for components, and `stack127_docs/directory-pages.md` for where directory copy is stored. Read `content_docs/<slug>/` before writing. Check every claim against the records and their sources.
+Read `stack127_docs/writing-style.md` for how to write and search wording, `stack127_docs/page-content.md` for the content files and the MDX blocks, and `stack127_docs/directory-pages.md` for the database side. Read `content_docs/<slug>/` before writing. Check every claim against the records and their sources.
 
 This skill covers words. Each directory gathers and shows its data differently, so the records, filters, and layout are separate work. If the copy can't fix a problem, such as missing data, weak filters, or stale records, report it instead of writing around it.
 
 ## Find where the copy lives
 
-Hand-written directory copy lives in the database. The title, intro, content, and card text are in the page's `public.stack127_directory_pages` row. The SEO title and description are on its `public.stack127_pages` row. Don't keep a second copy of these words in code.
+The intro and the page's sections live in `content/*.mdx` beside the route. The title and card text are in the page's `public.stack127_directory_pages` row. The SEO title and description are on its `public.stack127_pages` row.
 
-Code holds copy only when a sync script fills a template for many child pages from records, such as one page per app. Change that template in the script. See the table in `directory-pages.md`.
+If the page still renders its content from the database, move it to MDX first with the steps in `page-content.md`, and commit the move before rewriting.
 
-Platform fee hub and category copy stays in the database. The fee sync creates missing rows only and never replaces reviewed words or SEO fields.
+Child page copy that a sync script fills from records stays a template in the script, such as one page per app. Change that template there. See the table in `directory-pages.md`.
 
-Section or group intros may live in the directory's data files. Check that the route renders `content_markdown` and that it renders well: with the shared prose styles, normal spacing, and tables that fit on a phone.
+Platform fee hub and category copy is still in the database, and its child pages can't move to MDX yet. Ask the coordinator before changing it. The fee sync creates missing rows only and never replaces reviewed words or SEO fields.
+
+Section or group intros may live in the directory's data files. Check that they render well: with the shared prose styles, normal spacing, and tables that fit on a phone.
 
 If the directory's brief disagrees with this skill, for example about the title, follow the skill, update the brief, and say so in the handoff.
 
@@ -67,14 +69,14 @@ Write the plan in a "Copy plan" section of `content_docs/<slug>/brief.md`.
 
 ## Page structure
 
-| Part | Where it shows | What to write |
-| --- | --- | --- |
-| SEO title | Search results | What the visitor can find or compare, in search words. Name well-known entries when people search for them. |
-| Title (H1) | Page heading | Close to the SEO title and plain. Not a bare category name. |
-| SEO description | Search results | What is listed, what can be compared, and why to trust it, in about 150 characters. |
-| Intro | Above the listing | 2 to 3 sentences. What is here, how to start, and when entries were checked if the records say so. |
-| Content | After the listing | Short sections with question headings, each answered in its first sentence. |
-| Card name and description | Homepage, catalogs, and sidebars | Short and focused on the task. |
+| Part | Where it shows | Where it lives | What to write |
+| --- | --- | --- | --- |
+| SEO title | Search results | Database | What the visitor can find or compare, in search words. Name well-known entries when people search for them. |
+| Title (H1) | Page heading | Database | Close to the SEO title and plain. Not a bare category name. |
+| SEO description | Search results | Database | What is listed, what can be compared, and why to trust it, in about 150 characters. |
+| Intro | Above the listing | `content/intro.mdx` | 2 to 3 sentences. What is here, how to start, and when entries were checked if the records say so. |
+| Content | After the listing | One `content/<section>.mdx` per section | Short sections with `##` question headings, each answered in its first sentence. |
+| Card name and description | Homepage, catalogs, and sidebars | Database | Short and focused on the task. |
 
 Counts change. Use a count in a title only when the page computes it from the records.
 
@@ -85,16 +87,18 @@ When child pages share a template, such as one page per app or per section, writ
 ## Keep it short and visual
 
 - Use a table, list, or short example when it shows the idea better than a paragraph.
-- Use only existing components.
+- Use only the blocks `page-content.md` lists.
 - Say each idea once. The intro, cards, and content must not repeat each other.
 - Say whether a figure is exact, a starting rate, or depends on conditions.
 - Link to stack127 tools and directories the visitor would use next.
 
 ## Apply and check in development
 
-Apply the copy to development with `scripts/stack127/directory-pages/update-content.mjs --environment development`. It previews and rolls back unless you add `--apply`. Use `--meta-title` and `--meta-description` for SEO fields. Don't rerun a directory's full sync just to change copy, because it may reload records in the shared development database. For a child page template, run the sync only when the brief allows it, and check that rows outside your change stay the same.
+Write the intro and sections into the route's `content/*.mdx` files, and import any new section file where it goes on the page. Run `node scripts/stack127/content/check-mdx.mjs` and fix what it reports. The content ships with a code release.
 
-A changed copy or SEO field moves the public date and queues a cache refresh. A child edit also moves its directory ancestors' dates. Record imports do this automatically where covered. For meaningful code record changes, use the development touch command or `touch_reason` in a reviewed publisher batch. Skip explicit touches for typo fixes. See `directory-pages.md`. A worktree preview needs the local cache watcher pointed at its port; see `homelab-development.md`. The watcher clears the events it handles from the shared queue, so run it only for as long as you need.
+Apply the title, SEO fields, and card text to development with `scripts/stack127/directory-pages/update-content.mjs --environment development`. It previews and rolls back unless you add `--apply`. Use `--title`, `--meta-title`, `--meta-description`, `--card-name`, and `--card-description`. Don't rerun a directory's full sync just to change copy, because it may reload records in the shared development database. For a child page template, run the sync only when the brief allows it, and check that rows outside your change stay the same.
+
+A changed title, SEO field, or card text moves the public date and queues a cache refresh. A child edit also moves its directory ancestors' dates. Record imports do this automatically where covered. An MDX content change doesn't. For a meaningful content or code record change, use the development touch command, and give the coordinator a `touch_reason` for the release manifest. Skip explicit touches for typo fixes. See `directory-pages.md`. A worktree preview needs the local cache watcher pointed at its port; see `homelab-development.md`. The watcher clears the events it handles from the shared queue, so run it only for as long as you need.
 
 Open the real page at desktop and mobile width in both themes. Read it as a first-time visitor. Check that the title, intro, listing, and content work together and that nothing repeats.
 
@@ -110,7 +114,8 @@ Return:
 
 - the pages changed, with development links;
 - the SEO title, SEO description, H1, intro, and word count of the content before and after;
-- each file, script, and row you changed, and how the copy was applied;
+- each MDX file, script, and row you changed, and how the copy was applied;
+- a `touch_reason` when the content change matters to readers;
 - what you left out and where it is handled;
 - problems the copy can't fix, such as data, filters, or layout, for other lanes;
 - sources for factual claims.

@@ -34,7 +34,7 @@ Rules:
 - Every code change gets a Sol review before it is pushed, unless the user says otherwise.
 - Only the coordinator pushes, deploys, or writes production data, after the user authorizes it and the review passes. A worker may do it only when the coordinator's task says so explicitly and names the reviewed commit or the exact data changes.
 - Use the workspace T3 assigned. Do not create local branches or switch branches for a task. An agent already in a worktree does its work there, without adding another branch. The coordinator releases reviewed code through a pull request merged into `main`. Docs-only changes may go straight to `main`. T3 auto-pull updates the main checkout when enabled. Preserve branches attached to other agents' active worktrees.
-- Workers may dry-run and apply development tool-page updates through the content, catalog, version, and repository-sync commands, or stage and verify selected tool and directory batches through the publishing commands. Use `--environment development` and verify the result.
+- Workers may dry-run and apply development tool-page updates through the catalog, version, and repository-sync commands, or stage and verify selected tool and directory batches through the publishing commands. Use `--environment development` and verify the result.
 - Never pin a default model version in docs or skills.
 
 Fallback when a tool is out of limits:
@@ -53,6 +53,7 @@ Reporting:
 
 - Use simple English and short status updates.
 - Read `stack127_docs/writing-style.md` before writing or reviewing website copy. It is the only writing style guide, including visual choices, SEO wording, and editing. Use its plain language for chat and documentation too.
+- Read `stack127_docs/page-content.md` before writing, moving, or reviewing page content.
 - State what is done, what remains, and what is blocked.
 - Preserve unrelated worktree changes.
 - Do not create process files, evidence, hashes, receipts, or tests unless they protect a real user-visible failure.
@@ -80,9 +81,11 @@ Reporting:
 - Do not add route-owned metadata, robots, canonicals, sitemap dates, or JSON-LD to page files.
 - New pages must be static and refreshed only by on-demand revalidation. The conversion of existing pages is pending. Read `stack127_docs/caching.md` before adding a page, route, or data source.
 - Page families are `tool`, `directory`, `course`, `catalog`, and `site`. Use the same words in the database and code. Read `stack127_docs/page-families.md`.
-- Tool content and versions live in `public.stack127_tool_pages`. Read `stack127_docs/tool-pages.md` before changing them.
-- Directory page copy lives in `public.stack127_directory_pages`. Read `stack127_docs/directory-pages.md` before changing it.
-- Create, stage, publish, and update selected tools and directories with `stack127:tools:publish` or `stack127:directories:publish`. Read `stack127_docs/page-publishing.md`. Prepare a frozen batch, preview it, then apply it to development and check the real pages. After release authorization, dispatch the production batch to GitHub against the deployed main SHA. A database commit alone is not completed publication; public verification must pass.
+- Page content lives in `content/*.mdx` beside each route: the intro, tool usage, article, and named sections. Titles, search metadata, cards, catalog memberships, versions, dates, publication, and every data record stay in the database. Read `stack127_docs/page-content.md`.
+- A content change ships with a code release, through a pull request. Most pages still render content from the database. Move a page to MDX with the steps in `page-content.md` before you edit its content. Never edit page content in the database.
+- Tool titles, cards, and versions live in `public.stack127_tool_pages`. Read `stack127_docs/tool-pages.md` before changing them.
+- Directory titles and card text live in `public.stack127_directory_pages`. Read `stack127_docs/directory-pages.md` before changing them.
+- Create, stage, publish, and update the database side of selected tools and directories with `stack127:tools:publish` or `stack127:directories:publish`. Read `stack127_docs/page-publishing.md`. Prepare a frozen batch, preview it, then apply it to development and check the real pages. After release authorization, dispatch the production batch to GitHub against the deployed main SHA. A database commit alone is not completed publication; public verification must pass.
 
 ## Files
 

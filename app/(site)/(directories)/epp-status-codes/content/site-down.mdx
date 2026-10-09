@@ -1,0 +1,5 @@
+## My domain is registered but the site is down. Why?
+
+Check for `client hold` or `server hold` first. Those two tell the registry to stop publishing the domain, so nothing under it resolves at all, while the registration itself remains perfectly valid. People lose hours in DNS tools before finding it, because DNS is not the problem. `client hold` is nearly always unpaid invoices or an unverified contact address.
+
+The other one worth knowing: `inactive` means no nameservers are on record. It looks alarming and usually is not, it just means nothing has been pointed anywhere yet.

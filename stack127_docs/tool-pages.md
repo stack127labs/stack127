@@ -1,8 +1,8 @@
 # Tool pages
 
-Tool routes and tool copy have separate owners. The Next.js route owns the interactive tool. PostgreSQL owns its title, introduction, supporting Markdown, public dates, and version records.
+A tool page has three owners. The Next.js route owns the interactive tool. The route's `content/*.mdx` files own the introduction, usage, and article. PostgreSQL owns the title, search metadata, card fields, catalog memberships, version records, and public dates.
 
-Follow [writing-style.md](writing-style.md) when writing. This document covers content storage, rendering, and updates.
+Read [page-content.md](page-content.md) for the content files and how to move a page to them. Follow [writing-style.md](writing-style.md) when writing. This document covers the database side, rendering, and updates.
 
 New tools, tools going public, and changes that touch several tables go through the tool publisher. See [page-publishing.md](page-publishing.md). The single-purpose commands below stay for development and small edits.
 
@@ -38,9 +38,7 @@ This split applies only to interactive tools. Directories such as `/epp-status-c
 | --- | --- |
 | `page_id` | Primary key and foreign key to `stack127_pages.id`. |
 | `title` | Visible tool-page heading. |
-| `intro_markdown` | Markdown rendered before the interactive tool. |
-| `usage_markdown` | Optional Markdown rendered after the interactive tool and before supporting content. Existing rows may remain `null` until reviewed. |
-| `content_markdown` | Markdown rendered after the interactive tool. |
+| `intro_markdown`, `usage_markdown`, `content_markdown` | Content for pages that haven't moved to MDX. A moved page ignores them, but the publisher still requires `intro_markdown` and `content_markdown` for a new tool. See [page-publishing.md](page-publishing.md). They retire once every page has moved. |
 | `tool_version` | Semantic version of the hosted tool behavior. Content-only edits do not change it. |
 | `tool_version_updated_at` | Time the hosted tool version last changed. |
 | `stack127_repo_url` | Optional URL for the stack127-owned repository that contains the related public tool. |
@@ -56,50 +54,34 @@ This split applies only to interactive tools. Directories such as `/epp-status-c
 The `stack127_repo_*` fields describe repositories owned by stack127. They are unrelated to `public.github_projects`. That table stores third-party repository facts used by directories.
 
 See [tool-catalogs.md](tool-catalogs.md) for tool catalog content and memberships. A tool may appear in several catalogs. Its rank-1 membership is the primary one. Card edits update every linked catalog's public date and queue those pages for revalidation.
-Card-only edits leave the tool's public date alone. Their internal registry timestamp still advances so cache checks can reject an older render. Title, introduction, usage, supporting content, and `tool_version` changes move the public date. No-op writes and repository-only updates keep it unchanged.
+Card-only edits leave the tool's public date alone. Their internal registry timestamp still advances so cache checks can reject an older render. Title, search metadata, and `tool_version` changes move the public date. MDX content changes don't move it; a date move for content-only tool changes comes later. No-op writes and repository-only updates keep it unchanged.
 
 In development, tool integration updates shared card fields and the complete ordered catalog list with `npm run stack127:tool-page:catalogs:update`. The command defaults to a dry run and uses `.env.local` for development. Add `--apply` to write. The first catalog has rank 1. If display orders are omitted, new tools are appended and existing memberships keep their positions. See [tool-catalogs.md](tool-catalogs.md) for the command and checks.
 
-## Markdown boundary
+## Rendering
 
-Store readable copy in Markdown. Raw HTML is not rendered. GitHub-flavored tables, lists, links, inline code, fenced code, headings, and blockquotes are supported. See [shared-ui.md](shared-ui.md) for shared content components and copyable examples.
+Every tool route loads its row with `getRequiredToolPage` and renders through `app/ui/site/tool-page-content.tsx`:
 
-Keep controls, live results, accessibility behavior, and operational states in code. Use content Markdown for formulas, worked examples, callouts, and exact static charts when they help the reader. Keep the introduction and supporting explanation in the database. Do not commit a second live copy of the Markdown under the route or `content_docs`.
+- `ToolPageHeader` shows the title, version, date, and repository link from the row. Its `intro` takes the page's `content/intro.mdx`.
+- The interactive tool comes next.
+- `ToolPageArticle` holds `content/usage.mdx`, when there is one, then `content/article.mdx`, in one server-rendered prose region.
 
-The tool-page server renderer is `app/ui/site/tool-page-content.tsx`. It uses the sitewide `ContentMarkdown` from `app/ui/content-markdown.tsx`. Every tool route loads its row with `getRequiredToolPage`. It renders `ToolPageHeader` before the interactive component and `ToolPageMarkdown` after it. The article renders `usage_markdown` first when present, then `content_markdown`. The guide stays in one continuous server-rendered prose region.
+`/cac-payback-calculator` shows the whole pattern. A page that hasn't moved yet omits `intro` and uses `ToolPageMarkdown`, which renders the database Markdown through `ContentMarkdown`. Move it before editing its content.
 
-Markdown may reference an approved generated marker figure, such as `![How the pool is assembled](marker-art://catalog/zfs-capacity)`. The registry in `app/marker-art-registry.ts` resolves only known generated modules through `MarkerArt`. Unknown references and arbitrary paths are rejected.
+Keep controls, live results, accessibility behavior, and operational states in the tool's code. Formulas, worked examples, callouts, and charts that explain the tool go in the MDX content. See [page-content.md](page-content.md) for the blocks content can use.
 
-Supporting Markdown tables use the reading column's width and wrap explanations, links, and inline code. Keep the keyboard-focusable scroll region as a fallback for unusual content. Interactive result tables and raw-output viewers keep their own overflow behavior.
+Content tables use the reading column's width and wrap explanations, links, and inline code. Wide comparison tables may scroll inside their own region on narrow screens. Don't split identifiers into fragments to make every column fit. Check computed styles as well as page width, since general prose rules can override table wrapping. Interactive result tables and raw-output viewers keep their own overflow behavior.
 
-Use `> [!NOTE]`, `> [!WARNING]`, `> [!FORMULA]`, or `> [!EXAMPLE]` for shared content blocks. A short title may follow the marker on the same line. Use `chart-bar`, `chart-line`, or `chart-donut` fenced JSON for an exact data chart. It renders as a `UiStaticChart`. The renderer validates chart data and shows a readable error for invalid input. Ordinary headings, lists, and contextual links need no special syntax.
+## Content changes
 
-Preserve readable words and code identifiers. Wide comparison tables may scroll inside their own region on narrow screens. Do not split identifiers into fragments to make every column fit. Check computed styles as well as page width. General prose rules can override table-specific wrapping.
+A content change edits the introduction, usage, or article. It leaves the tool's inputs, calculations, data sources, results, and behavior unchanged.
 
-## Content-only changes
+1. Move the page to MDX first if it hasn't moved. See [page-content.md](page-content.md).
+2. Edit the files in the route's `content/` folder.
+3. Run `npm run quality` and check the page at desktop and mobile width.
+4. The change ships with the next code release, through a pull request.
 
-A content-only change edits the visible title, introduction, or supporting Markdown. It leaves the tool's inputs, calculations, data sources, results, and behavior unchanged.
-
-When correcting claims about tool coverage, data handling, accuracy, or limits, check the search title and description too. A corrected guide must not leave the old promise in a search snippet. Metadata stays in `stack127_pages` and follows `stack127_docs/seo.md`. Editing it does not require changes to publication flags or route-level SEO code. Tool writing supplies the search title and description. Integration applies them to the development registry and checks the rendered metadata. Production metadata changes go through the publisher as part of an authorized release.
-
-1. Prepare reviewed introduction and content Markdown in temporary files outside the live route. Planning and evidence may stay under `content_docs/<slug>/`. The database remains the live copy.
-2. Run a dry run against the development database:
-
-   ```bash
-   npm run stack127:tool-page:content:update -- \
-     --slug dns-lookup \
-     --intro-file /tmp/dns-lookup-intro.md \
-     --usage-file /tmp/dns-lookup-usage.md \
-     --content-file /tmp/dns-lookup-content.md \
-     --meta-title "DNS lookup: current records and nameservers | stack127" \
-     --meta-description "Check public DNS records and compare resolver and authoritative answers."
-   ```
-
-3. Add `--usage-file /tmp/dns-lookup-usage.md` when reviewed usage guidance is available. Omitting it preserves the existing value, including `null`. The file must contain meaningful nonempty Markdown. Add `--title "DNS lookup"` only when the visible heading changes. Pass `--meta-title` and `--meta-description` together when search metadata changes. This updates only those registry fields and the public `updated_at` date. Add `--apply` after reviewing the dry-run result.
-4. Render and test the page from the development database.
-5. For production, put the same reviewed files in a publisher manifest and follow [page-publishing.md](page-publishing.md). The content command also accepts `--environment production --confirm stack127-production --apply` for a small fix to one live page.
-
-The command leaves `tool_version` and `tool_version_updated_at` unchanged. For a published row, it updates the public `stack127_pages.updated_at`. For an unpublished row, that date stays `null`.
+When correcting claims about tool coverage, data handling, accuracy, or limits, check the search title and description too. A corrected guide must not leave the old promise in a search snippet. Title and search metadata stay in the database and follow [seo.md](seo.md). Tool writing supplies them. Integration applies them to development with the tools publisher and checks the rendered metadata. Production changes go through the publisher as part of an authorized release.
 
 ## Functional tool changes
 
@@ -120,7 +102,7 @@ A functional change affects inputs, validation, formulas, resolution behavior, d
 
 The command changes `tool_version` and `tool_version_updated_at`. For a published row it updates the public `stack127_pages.updated_at`.
 
-If the functional release also needs copy changes, run the content command and version command separately. This keeps content edits separate from functional version changes.
+If the functional release also needs content changes, edit the MDX in the same pull request. The version still changes only for behavior.
 
 ## stack127 repo synchronization
 
@@ -137,10 +119,10 @@ npm run stack127:tool-page:repo:sync -- \
 
 This command updates only the `stack127_repo_*` fields and their internal row timestamp. It does not change `tool_version` or the public `updated_at`. If the sync also changes the hosted tool, complete the functional version workflow separately.
 
-All three commands default to a dry run. The publisher can set the version and repository fields too, in the same batch as content. They read `.env.local` for development or `.env.database` for production. They reject `--database-url` overrides. Production writes require an explicit production environment, confirmation phrase, and `--apply`. Development mode also stops if `.env.local` and `.env.database` contain the same database URL.
+These commands default to a dry run. The publisher can set the version and repository fields too, in the same batch as the title, search metadata, and cards. They read `.env.local` for development or `.env.database` for production. They reject `--database-url` overrides. Production writes require an explicit production environment, confirmation phrase, and `--apply`. Development mode also stops if `.env.local` and `.env.database` contain the same database URL.
 
 ## Publication and access
 
-Only `stack127_pages.is_published` controls publication. A tool content row does not publish its route. The publisher turns publication on last, after the page's rows and readiness checks are in place.
+Only `stack127_pages.is_published` controls publication. The tool row doesn't publish its route. The publisher turns publication on last, after the page's rows and readiness checks are in place.
 
 Row-level security lets anonymous and authenticated readers see a tool row only when its parent is a published tool. Server rendering still uses the joined registry check in `lib/tool-pages.ts`. Normal routes stay flat and live in the repo.

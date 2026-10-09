@@ -11,7 +11,8 @@ Use this skill in `/Users/ravitejaknts/projects/Stack127` for strict, evidence-b
 
 - Read `AGENTS.md`.
 - Read `stack127_docs/writing-style.md` for all writing guidance.
-- Read `stack127_docs/shared-ui.md` when assessing tables, charts, callouts, formulas, or Markdown presentation. A chart should show accurate data, read in both themes with no clipped labels, and be static unless the reader needs hover, toggles, or ranges.
+- Read `stack127_docs/page-content.md`. Page content lives in the route's `content/*.mdx` files. A page that hasn't moved to MDX still renders its content from the database, so read the rendered page for it.
+- Read `stack127_docs/shared-ui.md` when assessing tables, charts, callouts, formulas, or other content blocks. A chart should show accurate data, read in both themes with no clipped labels, and be static unless the reader needs hover, toggles, or ranges.
 - If the target belongs to a page family with docs, read `content_docs/<page-slug>/` before judging the page.
 - Inspect the route/source under `app/`, the shared shell/components it uses, and any page-specific docs or manifest files that define scope.
 - If the user says "check", "evaluate", "audit", or "tell me", stay read-only unless they explicitly ask for edits.
@@ -41,7 +42,7 @@ Do not drift into a full product, directory, database, performance, SEO, or desi
    - State the page promise: what the reader should understand or be able to do after reading.
 
 2. Inspect the local page.
-   - Read the source page file and shared page shell/components.
+   - Read the route's page file, its `content/*.mdx` files, and the shared page shell/components.
    - Read rendered output if a local or live URL exists. Check status, visible headings, article text, links, code blocks, visuals, sidebar/nav, and prev/next flow.
    - For page lists or courses, map the full order and check whether any term, command, tool, or assumption appears before it is taught.
    - Check links and source attribution where claims, tools, or install steps depend on external sources.
@@ -62,7 +63,7 @@ Do not drift into a full product, directory, database, performance, SEO, or desi
    - For a list of pages or a course, check the learner path from first page to last: setup assumptions, introduced concepts, repeated claims, skipped prerequisites, and handoffs.
    - Identify exact places where a new reader will likely pause, branch out, or get lost.
 
-6. Review the writing against `stack127_docs/writing-style.md` and verify that claims match the sources and implemented behavior.
+6. Review the writing against `stack127_docs/writing-style.md` and verify that claims match the sources and implemented behavior. Check the content rules in `stack127_docs/page-content.md`: no h1 in content, headings that step down one level at a time, no eyebrows or bold lines standing in for headings, the family's section order, and only the listed blocks.
 
 7. Produce a strict verdict.
    - Lead with the actual answer: launch-ready, needs minor fixes, needs major revision, or do not launch.

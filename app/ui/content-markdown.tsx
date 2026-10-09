@@ -1,16 +1,9 @@
-import { Children, isValidElement, type ComponentPropsWithoutRef, type ReactNode } from "react";
-import Link from "next/link";
+import type { ReactNode } from "react";
 import ReactMarkdown, { defaultUrlTransform, type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { CodeBlock } from "@/app/ui/site/code-block";
-import { MarkerArt } from "@/app/ui/site/marker-art";
-import { resolveMarkerArtReference } from "@/app/marker-art-registry";
-import { Callout, type CalloutTone } from "./callout";
-import { ContentBlock } from "./content-block";
-import { TableFrame } from "./table-frame";
+import { ContentCallout, ContentCode, ContentImage, ContentLink, ContentParagraph, ContentPre, ContentTable } from "./content-elements";
 import { UiStaticChart } from "./charts/chart-static";
 import type { UiChartSpec } from "./charts/chart-option";
-import styles from "./content-markdown.module.css";
 
 type MarkdownNode = {
   type: string;
@@ -137,63 +130,36 @@ function ChartFromMarkdown({ kind, source }: { kind: string; source: string }) {
   return <UiStaticChart spec={spec} />;
 }
 
-function MarkdownParagraph({ children, node: _node, ...props }: ComponentPropsWithoutRef<"p"> & { node?: unknown }) {
-  const items = Children.toArray(children);
-  const onlyChild = items.length === 1 ? items[0] : null;
-  if (isValidElement<{ src?: unknown }>(onlyChild)
-    && typeof onlyChild.props.src === "string"
-    && onlyChild.props.src.startsWith("marker-art://")) return <>{onlyChild}</>;
-  return <p {...props}>{children}</p>;
+/** Drops react-markdown's node prop so the shared renderers get only HTML props. */
+function withoutNode<P extends object>(Render: (props: P) => ReactNode) {
+  return function MarkdownElement({ node: _node, ...props }: P & { node?: unknown }) {
+    return Render(props as P);
+  };
 }
 
 const components: Components = {
-  p: MarkdownParagraph,
-  a({ children, href, node: _node, ...props }) {
-    return href?.startsWith("/") ? <Link href={href}>{children}</Link> : <a href={href} {...props}>{children}</a>;
-  },
+  p: withoutNode(ContentParagraph),
+  a: withoutNode(ContentLink),
   blockquote({ children, node: _node, ...props }) {
     const attributes = props as Record<string, unknown>;
     const kind = attributes["data-content-block"];
     const customTitle = attributes["data-content-title"];
     const title = typeof customTitle === "string" && customTitle ? customTitle : undefined;
-    if (kind === "formula" || kind === "example") return <ContentBlock kind={kind} title={title}>{children}</ContentBlock>;
-    if (kind === "note" || kind === "warning" || kind === "tip") {
-      const tone: CalloutTone = kind === "tip" ? "recommend" : kind;
-      return <Callout title={title ?? (kind === "tip" ? "Tip" : kind === "warning" ? "Warning" : "Note")} tone={tone}>{children}</Callout>;
+    if (kind === "note" || kind === "warning" || kind === "tip" || kind === "formula" || kind === "example") {
+      return <ContentCallout kind={kind} title={title}>{children}</ContentCallout>;
     }
     return <blockquote {...props}>{children}</blockquote>;
   },
-  table({ children, node: _node, ...props }) {
-    return <TableFrame ariaLabel="Content table" className={styles.tableScroll}><table {...props}>{children}</table></TableFrame>;
-  },
-  pre({ children }) {
-    const item = Children.toArray(children)[0];
-    if (isValidElement<{ className?: string; children?: ReactNode }>(item) && !item.props.className) {
-      return <CodeBlock>{String(item.props.children ?? "")}</CodeBlock>;
-    }
-    return <>{children}</>;
-  },
+  table: withoutNode(ContentTable),
+  pre: withoutNode(ContentPre),
   code({ children, className, node: _node, ...props }) {
-    if (!className) return <code {...props}>{children}</code>;
-    const language = className.replace(/^language-/, "");
-    const source = String(children).replace(/\n$/, "");
+    const language = className?.replace(/^language-/, "");
     if (language === "chart-bar" || language === "chart-line" || language === "chart-donut") {
-      return <ChartFromMarkdown kind={language.slice(6)} source={source} />;
+      return <ChartFromMarkdown kind={language.slice(6)} source={String(children).replace(/\n$/, "")} />;
     }
-    return <CodeBlock label={language || undefined}>{source}</CodeBlock>;
+    return <ContentCode className={className} {...props}>{children}</ContentCode>;
   },
-  img({ src, alt, node: _node, ...props }) {
-    if (typeof src === "string" && src.startsWith("marker-art://")) {
-      try {
-        const svg = resolveMarkerArtReference(src);
-        if (!svg || !alt?.trim()) throw new Error("Check the figure reference and caption.");
-        return <MarkerArt svg={svg} caption={alt} />;
-      } catch {
-        return <span role="note">Figure unavailable: check its reference and caption.</span>;
-      }
-    }
-    return <img src={src} alt={alt} {...props} />;
-  },
+  img: withoutNode(ContentImage),
 };
 
 function transformUrl(url: string) {

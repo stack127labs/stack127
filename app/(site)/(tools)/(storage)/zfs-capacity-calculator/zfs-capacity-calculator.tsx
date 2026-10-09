@@ -365,6 +365,7 @@ function QuickDriveSetup({
         />
         <UiQuantityInput
           ariaLabel={`${groupLabel} shared capacity`}
+          error={size.trim() && !validCapacity ? "Enter a size above 0, such as 18." : undefined}
           label="Same capacity"
           onChange={setSize}
           onUnitChange={(value) => setUnit(value as InputUnit)}
@@ -911,7 +912,7 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
             dataFocusKey="headroom"
             error={errors.headroom}
             label="Planning headroom"
-            max={100}
+            max={50}
             min={0}
             onChange={(value) => mutate((current) => ({ ...current, headroom: Number.isNaN(value) ? "" : String(value) }))}
             required

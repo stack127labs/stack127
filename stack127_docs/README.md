@@ -8,10 +8,12 @@ Keep each current decision in the operating doc it belongs to. Page-specific pla
 | --- | --- |
 | [product-direction.md](product-direction.md) | Audience, offerings, revenue model, URL structure, and future work for the tools and directories site. |
 | `design-system.md` | Visual tokens and UI rules. |
-| [shared-ui.md](shared-ui.md) | Shared components, the development-only Components UI gallery at `/components-ui`, and Markdown syntax for content blocks and charts. |
+| [page-content.md](page-content.md) | Where page content lives, how to write it in MDX, and how to move a page to MDX. |
+| [shared-ui.md](shared-ui.md) | Shared components, the development-only Components UI gallery at `/components-ui`, content blocks, and charts. |
 | `page-families.md` | The five page families (tool, directory, course, catalog, site) and their shared structure. |
-| `tool-pages.md` | Tool page tables, Markdown ownership, public dates, versions, and reviewed update commands. |
-| `directory-pages.md` | Where directory titles, intros, Markdown, and card text live, and how to edit them. |
+| `tool-pages.md` | Tool page tables, rendering, public dates, versions, and reviewed update commands. |
+| `directory-pages.md` | Where directory titles, card text, and records live, how pages render, and how to edit them. |
+| `page-publishing.md` | Publishing tools, directories, and courses: manifests, readiness, plans, and production. |
 | `stack127-repos.md` | Boundaries, inventory, automation, and revision tracking for repositories stack127 owns. |
 | `brand-assets.md` | Logo originals, production variants, favicon choice, and how to regenerate them. |
 | [listed-on.md](listed-on.md) | Concise list of stack127 submissions, launch dates, links, and future actions. |

@@ -2,7 +2,7 @@
 
 Write like you're helping one person next to you. Plain words, short sentences, no filler. Anyone should get it on the first read.
 
-This guide covers how to write, which format to use, and search wording, for every page, doc, and chat. Components and their syntax live in [shared-ui.md](shared-ui.md). What goes on a tool page lives in `skills/stack127/tools/stack127-tool-writing/SKILL.md`.
+This guide covers how to write, which format to use, and search wording, for every page, doc, and chat. Where page content lives, and how to write each block in MDX, is in [page-content.md](page-content.md). Components are in [shared-ui.md](shared-ui.md). What goes on a tool page lives in `skills/stack127/tools/stack127-tool-writing/SKILL.md`.
 
 ## Show first
 
@@ -21,7 +21,7 @@ stack127 shows more than it tells. Before writing a paragraph, ask if a format w
 | Marker art | A concept that is hard to grasp in words, or a rough relationship with no exact data. Skip it for anything simple or obvious. |
 | Paragraph | Explaining why, connecting ideas, or guiding the reader to a choice. |
 
-Use only existing components. The syntax for each one is in [shared-ui.md](shared-ui.md): notes, warnings, formulas, and examples under "Notes, warnings, formulas, and examples", charts under "Data charts", and marker art under "Markdown on content pages". Plan and draw marker art with the marker art skills. Page copy never needs a new component.
+Use only existing components. The MDX for each block is in [page-content.md](page-content.md) under "Writing in MDX". Chart specs are under "Charts" in [shared-ui.md](shared-ui.md). Plan and draw marker art with the marker art skills. Page copy never needs a new component.
 
 Don't repeat a visual's values in the text. A caption gives the takeaway. Alt text says what the image shows.
 

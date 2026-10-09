@@ -29,7 +29,7 @@ Use these semantic names for new UI:
 | Headings | `--text-h1` + `--line-h1`, `--text-h2`, `--text-h3` |
 | Space | `--space-1` to `--space-14`, `--measure-prose` |
 | Radius | `--radius` (2px for every bounded UI shape) |
-| Effects | `--focus-ring`, `--motion-fast`, `--motion-base` |
+| Effects | `--focus-ring`, `--focus-outline`, `--motion-fast`, `--motion-base` |
 | Layout | `--container-gutter`, `--page-padding-top`, `--page-padding-bottom`, `--top-bar-height`, `--sidebar-width` |
 
 The old token scale is gone. That includes `--text-sm`, `--color-accent-soft`, `--shadow-card`, and similar names. All CSS uses the tokens above. If a token isn't in this table, it doesn't exist.
@@ -116,7 +116,7 @@ Component styles must keep this shared link treatment.
 - Use the 4px and 8px spacing rhythm through `--space-*`.
 - Use `--font-mono` for facts, slugs, versions, stats, and metadata. Never set it in uppercase with positive letter spacing.
 - Sections start with a display heading and an optional lede.
-- Use `--focus-ring` for focus states.
+- Use `--focus-ring` for focus states. It is a `box-shadow` value. Where the element's shadow is already in use, use `outline: var(--focus-outline)` instead. Never put `--focus-ring` in `outline`; the browser ignores it and the focus disappears.
 - Unknown is better than fake precision.
 - When unsure, remove. If a page feels flat, add a doodle or a better sentence, not another component.
 
