@@ -35,7 +35,7 @@ const SPECIAL_BITS = [
   ["sticky", "Sticky"],
 ] as const;
 
-const COPY_FAILURE = "Copy failed. UiSelect the text to copy it.";
+const COPY_FAILURE = "Copy failed. Select the text to copy it.";
 
 async function copyText(value: string) {
   try {

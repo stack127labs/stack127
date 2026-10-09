@@ -1,0 +1,13 @@
+## What to enter
+
+`Matched location` is the path after `location` in the block that handles the request, such as `/api/`. `Request target` is the path and query the browser asks for, such as `/api/users?id=42`. `proxy_pass URL` is everything after `proxy_pass`, without the semicolon.
+
+Leave `Rewrite before proxy_pass` on `None` unless that location has a `rewrite` line. Regex locations, named locations, rewrites, and variables depend on the running server, so the tool says it needs live nginx instead of guessing.
+
+<Example title="An app served under /api/">
+
+Location `/api/`, request `/api/users?id=42`, `proxy_pass http://backend/`.
+
+The final upstream URL is `http://backend/users?id=42`. With `Compare the final slash` on, the tool also shows `http://backend/api/users?id=42` for `proxy_pass http://backend`.
+
+</Example>

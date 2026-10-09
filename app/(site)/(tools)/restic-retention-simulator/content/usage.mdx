@@ -1,0 +1,17 @@
+## What to enter
+
+Paste the output of `restic snapshots --json` as it is. The simulator reads each snapshot's ID, time, host, paths, and tags.
+
+Pick the timezone your backups run in. Daily, weekly, monthly, and yearly rules count calendar days in that timezone, so a backup just after midnight can land on a different day in UTC.
+
+`Group snapshots by` applies each rule separately to every host, path set, or tag set. restic itself groups by host and paths together, which this tool can't combine. If one host backs up several paths in separate jobs, compare the result with a dry run.
+
+<Example title="20 nightly backups with 7 daily, 4 weekly, and 6 monthly">
+
+One snapshot a night from 1 to 20 September 2026, grouped by host, timezone `Europe/Berlin`.
+
+The result is `Kept 10 of 20 snapshots.` The 7 newest are daily keeps, and 20 September also counts for its week and month. 13 and 6 September are the newest in their weeks. 1 September is kept as the oldest snapshot, because the history isn't long enough to fill 4 weeks and 6 months.
+
+</Example>
+
+`pruned` means no rule picked that snapshot. Nothing is deleted.

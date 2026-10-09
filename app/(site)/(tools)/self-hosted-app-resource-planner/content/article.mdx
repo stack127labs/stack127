@@ -1,0 +1,29 @@
+## How much RAM does a home server need?
+
+Add up the apps you'll run, then leave room for the system. Small services such as a password manager or a DNS filter need well under 1 GiB each. Media servers and photo libraries need several GiB each, and most of a home server's RAM goes to them.
+
+The planner's estimates name their source. Immich's, for example, follows [the project's requirements](https://immich.app/docs/install/requirements): 6 GB of RAM minimum and 8 GB recommended.
+
+## Should I plan for the low or the high estimate?
+
+Plan for the high one. RAM use grows with users, library size, and background work such as transcoding, thumbnails, or search indexing. A server that fits only the low estimates will run out of memory at busy moments.
+
+When Linux runs out of memory, the kernel starts killing processes, and [Docker notes](https://docs.docker.com/engine/containers/resource_constraints/) that any process can be picked, including Docker itself.
+
+## Does a Docker memory limit make an app need less RAM?
+
+No. A limit caps how much a container can use. An app that needs more than its limit can crash or slow down, but it won't need less. Use limits to protect the other apps on the server, not to make a plan fit.
+
+After the apps are running, `docker stats` shows what each container really uses. Compare that with the plan and adjust the estimates.
+
+## What does the storage estimate include?
+
+It depends on the app, so read its basis. Some ranges cover only the app and its database. Your own data, such as a film library or years of photos, can be far bigger. Add it as a custom row when the basis doesn't mention it.
+
+Leave space for backups too, on another disk if you can.
+
+## Does the planner check CPU?
+
+No. It totals RAM and storage only. Video transcoding and machine learning, such as face recognition in photo apps, lean on the CPU or a GPU. Check each app's own requirements. Immich, for example, asks for at least 2 CPU cores.
+
+To pick the machine itself, see the course chapter on [picking your first server](/self-hosting-for-beginners/pick-your-first-server).

@@ -1,0 +1,29 @@
+## What to paste
+
+From the container's config, copy the part after `lxc.idmap`, such as `u 0 100000 65536`. On Proxmox the config is `/etc/pve/lxc/<id>.conf`. Put `u` lines in `UID map` and `g` lines in `GID map`. Leave out the `lxc.idmap =` or `lxc.idmap:` prefix.
+
+For the grants, copy the matching lines from `/etc/subuid` and `/etc/subgid` on the host, and enter their owner. On Proxmox the owner is `root`, because LXC creates containers as root.
+
+For `Query ID`, enter the container user or group you care about, such as `1000` for the first normal user.
+
+## How to read the result
+
+The lead line says which host ID the container ID maps to, or that it's unmapped. The grant status is one of three:
+
+- `covered`: one grant for this owner covers the whole host range the ID falls in.
+- `missing`: you pasted grants, but none covers that whole range.
+- `unknown`: you didn't paste grants, so the tool can't check them.
+
+<Example title="Passing container user 1000 through to host user 1000">
+
+UID map:
+
+```text
+u 0 100000 1000
+u 1000 1000 1
+u 1001 101001 64535
+```
+
+The result reads `UID 1000 maps to host 1000.` With only `root:100000:65536` as a grant, the status is missing, because nothing allows host ID 1000. Add `root:1000:1` and it becomes covered.
+
+</Example>

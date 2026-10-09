@@ -1,0 +1,55 @@
+## Which ports does NFS need?
+
+It depends on the version. NFSv4 needs one port, and NFSv3 needs several.
+
+| Setup | Open on the server | Open on the client |
+| --- | --- | --- |
+| NFSv4.1 or later | TCP 2049 | Nothing new |
+| NFSv4.0 | TCP 2049 | The callback port |
+| NFSv3 | TCP 111 and 2049, plus `mountd`, `statd`, and `lockd` | TCP 111, plus `statd` and `lockd` |
+
+NFSv4 uses the registered port 2049, so clients don't need the RPC port mapper on 111. [RFC 7530](https://www.rfc-editor.org/rfc/rfc7530#section-3.1) explains why that lets NFS cross firewalls.
+
+## Should I use NFSv3 or NFSv4 through a firewall?
+
+Use NFSv4.1 or later when both sides support it. It's one TCP port on the server and nothing on the client. In NFSv4.1, the server sends callbacks over the connection the client already opened, as [RFC 8881](https://www.rfc-editor.org/rfc/rfc8881) describes.
+
+NFSv4.0 is the odd one out. The server opens a new connection back to the client for callbacks, so the client needs an open port too.
+
+## How do I pin the NFSv3 ports?
+
+Set fixed ports in `/etc/nfs.conf` on the host, then restart the NFS services. Without this, the ports can change after a reboot and your rules stop matching.
+
+```ini
+[mountd]
+port = 20048
+
+[statd]
+port = 662
+
+[lockd]
+port = 32803
+udp-port = 32769
+```
+
+These numbers are only examples. Pick free ports, then check them with `rpcinfo -p`. The [nfs.conf manual](https://man7.org/linux/man-pages/man5/nfs.conf.5.html) lists the keys for each section.
+
+## Why don't my firewalld rules work?
+
+Rules added with `--permanent` change only the saved config. They take effect after `firewall-cmd --reload` or a restart, as the [firewall-cmd manual](https://firewalld.org/documentation/man-pages/firewall-cmd.html) says.
+
+Also check the zone. A rule in `public` does nothing if your interface is in another zone.
+
+<Note title="These are fragments, not a full firewall">
+
+The `nftables` output is a set of lines for an existing `inet` input chain. The `ufw` output assumes ufw is already on. In every case, rules that come earlier can still block or allow the same traffic.
+
+</Note>
+
+## My firewall is open but the mount still fails. What now?
+
+Test from the client with `mount -t nfs -o vers=4.1 server:/export /mnt`, then `findmnt` to see the version it used. Change `vers=4.1` to `vers=3` for an NFSv3 setup.
+
+`access denied` comes from the export, not the firewall. Check `/etc/exports` on the server and that the client's address is allowed.
+
+If the mount works but files show the wrong owner, the user IDs differ between client and server. If the share goes into an LXC container, the [LXC ID mapping checker](/lxc-idmap-checker) shows how container IDs map to the host.

@@ -1,0 +1,52 @@
+## How does LXC ID mapping work?
+
+An unprivileged container sees its own user and group IDs, but the host stores each one as a different ID. Each map line says where a block of container IDs lands on the host.
+
+<Formula title="Host ID">
+
+host ID = host start + (container ID - container start)
+
+</Formula>
+
+The common default is `u 0 100000 65536`. Container root (0) is host 100000, and container user 1000 is host 101000. The line covers 65,536 IDs, so the last one is container 65535, host 165535. The [LXC config manual](https://linuxcontainers.org/lxc/manpages/man5/lxc.container.conf.5.html) defines the format.
+
+The same idea applies to groups, with `g` lines. A container needs both maps, and they don't have to match.
+
+## Why do files on my bind mount show up as nobody?
+
+Because the host's owner isn't in the container's map. Any host ID outside the map appears inside the container as the overflow ID, 65534, usually shown as `nobody`. The [Linux user namespaces manual](https://man7.org/linux/man-pages/man7/user_namespaces.7.html) describes this.
+
+It works the other way too. Files the container creates on the mount belong to high host IDs, such as 101000 for container user 1000.
+
+You can fix this in two ways:
+
+1. Change the owner of the host folder to the mapped ID, such as `chown -R 101000:101000 /path/on/host` for container user 1000 with the default map.
+2. Pass one container ID straight through to the same host ID, as below.
+
+## How do I give a container access to a host user's files?
+
+Split the map so one ID passes through unchanged, then allow that ID in the grants. The [Proxmox guide to unprivileged containers](https://pve.proxmox.com/wiki/Unprivileged_LXC_containers) walks through the same steps.
+
+1. Replace the single map line with three: the IDs below yours, your ID mapped to itself, and the IDs above it. The example above shows this for ID 1000. Do the same with `g` lines for the group.
+2. Add `root:1000:1` to both `/etc/subuid` and `/etc/subgid` on the host.
+3. Make sure the host folder is owned by 1000, then restart the container.
+
+The three lines must add up to the full 65,536 IDs. In the example, 1000 + 1 + 64535 is 65,536. If a line is short, the IDs past it stay unmapped, and if ranges overlap, the checker rejects the map.
+
+<Warning title="A passed-through ID is the same user on the host">
+
+Container user 1000 can then do anything host user 1000 can do to files on the mount. Pass through only the ID you need.
+
+</Warning>
+
+## What are /etc/subuid and /etc/subgid?
+
+They list the ID ranges each host user may hand to containers. Each line is `owner:start:count`, so `root:100000:65536` lets root use host IDs 100000 to 165535. See the [subuid manual](https://man7.org/linux/man-pages/man5/subuid.5.html).
+
+UIDs come from `/etc/subuid` and GIDs from `/etc/subgid`. The Proxmox guide adds a grant for every host range a map uses, including a single passed-through ID.
+
+## What's the difference between privileged and unprivileged containers?
+
+In a privileged container, container root is host root. In an unprivileged one, container root is a high host ID such as 100000. If something escapes the container, it lands as that unprivileged user instead of root, as the Proxmox guide explains.
+
+The checker only does the arithmetic and the grant check. It doesn't read the running container, so check the real owners with `ls -ln` on both sides. Once the IDs line up, the [chmod calculator](/chmod-calculator) helps with the permission bits.

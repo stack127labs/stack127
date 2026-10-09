@@ -1,0 +1,23 @@
+## What to enter
+
+`Protected host` is the machine whose firewall you're changing. Plan the server and the client separately.
+
+The allowed CIDR is the network the other side connects from. Keep it as small as you can, such as your home network instead of `0.0.0.0/0`.
+
+For `firewalld`, enter the zone your network interface is in. `firewall-cmd --get-active-zones` shows it.
+
+## Why NFSv3 asks for verified ports
+
+NFSv3 helpers such as `mountd`, `statd`, and `lockd` pick ports when they start, unless you pin them. On the server, run `rpcinfo -p` to see the ports in use, and enter only those. Until you do, the planner shows the fixed ports and lists what's missing, without firewall commands.
+
+<Example title="NFSv4.1 server with ufw">
+
+NFS version `NFSv4.1+`, protected host `NFS server`, firewall `UFW`, allowed client CIDR `192.168.1.0/24`.
+
+The result is `Allow 1 listener rule on the NFS server.` The command is:
+
+```bash
+ufw allow in proto tcp from 192.168.1.0/24 to any port 2049 comment 'NFS nfs'
+```
+
+</Example>

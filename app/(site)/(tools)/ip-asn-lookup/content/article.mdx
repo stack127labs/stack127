@@ -1,0 +1,41 @@
+## Who owns this IP address?
+
+The registry record names the organization the address block is registered to. That's usually an internet provider, hosting company, or cloud platform, not the person or device using the address today.
+
+The record covers a whole range. A hosting company can assign one address in it to a customer, and the record will still show the hosting company.
+
+## What is an ASN?
+
+An autonomous system number identifies one network that routes traffic on the internet, such as `AS15169` for Google or `AS13335` for Cloudflare. Networks use BGP to tell each other which address blocks they carry.
+
+An ASN lookup shows the registered holder of that number. An IP lookup also shows which ASN currently announces the address.
+
+## Why do the registered owner and the route origin differ?
+
+They answer different questions. The registration says who the block was given to. The route says which network announces it right now. A block registered to one organization can be announced by another, such as a provider carrying a customer's range. Neither record is wrong.
+
+The route comes from [Team Cymru's IP to ASN service](https://www.team-cymru.com/ip-asn-mapping), built from BGP feeds it refreshes every four hours. Its country code also comes from registry records.
+
+## Can an IP lookup show where someone is?
+
+No. The registered country belongs to the organization's record, not to the device. The lookup can't name a subscriber, a person, or a street address.
+
+Location services estimate where an address is from other data. Their guesses are a separate thing, and this tool doesn't make one.
+
+## How do I report abuse from an IP address?
+
+Send your report to the abuse contact in the result. Include enough for the provider to find the traffic:
+
+1. The address, the exact time with its time zone, and what happened, such as the protocol or URL.
+2. The log lines that show it. Remove unrelated personal data and secrets.
+3. Any instructions in the registry record, such as a web form instead of email.
+
+The contact is where to send reports. It doesn't prove that the holder caused the traffic, and no one has to reply.
+
+## Where does the data come from?
+
+The registration comes from one of the five regional internet registries: ARIN, RIPE NCC, APNIC, LACNIC, or AFRINIC. The tool finds the right one with [IANA's RDAP bootstrap](https://www.rfc-editor.org/rfc/rfc9224) and asks it over [RDAP](https://www.rfc-editor.org/rfc/rfc9082), the structured successor to WHOIS. The raw response is in the result if you need fields the summary leaves out.
+
+If a registry or the routing service doesn't answer, the result says it can't determine the record. A failed lookup doesn't mean the address is unregistered, so try again later.
+
+For domain names instead of addresses, the [domain owner lookup](/domain-owner) shows a domain's registration record.
