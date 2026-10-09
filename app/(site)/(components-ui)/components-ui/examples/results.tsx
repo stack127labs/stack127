@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { UiButton, UiCopyAction, UiRawOutput } from "@/app/ui/controls";
-import { UiActionRow, UiAllocationBar, UiCodeOutput, UiKeyValueList, UiMetricGroup, UiPrimaryResult, UiProgressBar, UiResultLead, UiStatusWord, UiTimeline } from "@/app/ui/display";
+import { UiActionRow, UiAllocationBar, UiCodeOutput, UiKeyValueList, UiMetricGroup, UiPrimaryResult, UiProgressBar, UiResultLead, UiStatusWord, UiSteps, UiTimeline } from "@/app/ui/display";
 import { Example } from "../gallery";
 import styles from "../components-ui.module.css";
 
@@ -91,6 +91,18 @@ export function ResultsExamples() {
             { dateTime: "1995-08-14", id: "registered", label: "Registered", state: "past", value: "14 Aug 1995" },
             { dateTime: "2026-08-14", id: "changed", label: "Last changed", state: "current", value: "14 Aug 2026" },
             { dateTime: "2027-08-13", id: "expires", label: "Expires", state: "future", value: "13 Aug 2027" },
+          ]}
+        />
+      </Example>
+
+      <Example components={["UiSteps"]} note="Ordered stages and which one is done, current, or next." source="app/ui/display.tsx" title="Steps">
+        <UiSteps
+          ariaLabel="PDF check steps"
+          steps={[
+            { detail: "File type and size accepted", id: "receive", label: "Receive", state: "complete" },
+            { detail: "Pages, boxes, fonts, and images", id: "inspect", label: "Inspect", state: "complete" },
+            { detail: "Compare against the chosen KDP setup", id: "compare", label: "Compare", state: "current" },
+            { detail: "Findings you can act on", id: "report", label: "Report", state: "pending" },
           ]}
         />
       </Example>

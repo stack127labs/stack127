@@ -5,7 +5,8 @@ import type { EChartsType } from "echarts/core";
 import type { DateValue } from "react-aria-components";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { UiDatePicker } from "@/app/ui/controls";
-import { chartLegend, chartOption, donutTotal, rangeStart, xBounds, type UiChartRange, type UiChartSpec } from "./chart-option";
+import { chartLegend, chartOption, donutTotal, hasChartTable, rangedSeries, rangeStart, xBounds, type UiChartRange, type UiChartSpec } from "./chart-option";
+import { ChartDataTable, ChartHeading } from "./chart-parts";
 import { echarts } from "./echarts";
 import styles from "./charts.module.css";
 
@@ -28,50 +29,98 @@ const startOfDay = (time: number) => Math.floor(time / dayLength) * dayLength;
 const formatDay = (time: number) => new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeZone: "UTC" }).format(time);
 
 type ZoomEvent = { batch?: { end: number; start: number }[]; end?: number; start?: number };
+type Bounds = { first: number; last: number };
+type Span = { end: number; start: number };
 
-export function UiChartClient({ spec, svg }: { spec: UiChartSpec; svg: string }) {
+const boundsOf = (spec: UiChartSpec) => {
+  const series = rangedSeries(spec);
+  return series ? xBounds(series) : null;
+};
+const startingRange = (spec: UiChartSpec) => "range" in spec && rangedSeries(spec) ? spec.range ?? null : null;
+const presetSpan = (bounds: Bounds, range: UiChartRange) => ({ end: bounds.last, start: rangeStart(bounds.last, bounds.first, range) });
+
+/** The reader's range on new data: the same preset, or the same dates kept inside the data. */
+function keepSpan(bounds: Bounds | null, preset: UiChartRange | null, span: Span | null): Span | null {
+  if (!bounds) return null;
+  if (preset) return presetSpan(bounds, preset);
+  const start = Math.max(bounds.first, Math.min(span?.start ?? bounds.first, bounds.last));
+  const end = Math.min(bounds.last, Math.max(span?.end ?? bounds.last, start));
+  return { end, start };
+}
+
+/**
+ * The chart drawn in the browser, with line toggles, hover, and range controls. Use it inside client
+ * components for data computed in the browser; it redraws when the spec changes. UiChart uses it too,
+ * with `svg` holding the server drawing to show until the browser has drawn its own.
+ */
+export function UiLiveChart({ spec, svg }: { spec: UiChartSpec; svg?: string }) {
   const hostRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<EChartsType | null>(null);
   const [drawnIn, setDrawnIn] = useState<number | null>(null);
   const [hidden, setHidden] = useState<string[]>([]);
   const legend = chartLegend(spec);
   const total = donutTotal(spec);
-  const bounds = useMemo(() => (spec.kind === "line" || spec.kind === "area" || spec.kind === "stacked-area") && spec.range ? xBounds(spec.series) : null, [spec]);
-  const [preset, setPreset] = useState<UiChartRange | null>(spec.kind === "line" || spec.kind === "area" || spec.kind === "stacked-area" ? spec.range ?? null : null);
-  const [visible, setVisible] = useState(() => bounds && preset ? { end: bounds.last, start: rangeStart(bounds.last, bounds.first, preset) } : null);
+  const withTable = hasChartTable(spec);
+  const bounds = useMemo(() => boundsOf(spec), [spec]);
+  const [preset, setPreset] = useState(() => startingRange(spec));
+  const [visible, setVisible] = useState(() => keepSpan(bounds, preset, null));
   // What the reader typed in From and To. The chart follows only complete dates inside the data,
   // so the fields never jump back while someone is still typing.
   const [draft, setDraft] = useState<{ end?: DateValue | null; start?: DateValue | null }>({});
 
+  // New data with a different date span: keep the reader's range on it.
+  const boundsKey = bounds ? `${bounds.first}:${bounds.last}` : "";
+  const [shownBoundsKey, setShownBoundsKey] = useState(boundsKey);
+  if (boundsKey !== shownBoundsKey) {
+    setShownBoundsKey(boundsKey);
+    setVisible(keepSpan(bounds, preset, visible));
+    setDraft({});
+  }
+
+  // The latest state, for the chart's own events and redraws.
+  const latestState = useRef({ bounds, hidden, visible });
+  useEffect(() => {
+    latestState.current = { bounds, hidden, visible };
+  });
+
   useEffect(() => {
     const host = hostRef.current;
     if (!host) return;
-    const started = performance.now();
     const chart = echarts.init(host, null, { renderer: "svg" });
-    chart.setOption(chartOption(spec));
     chartRef.current = chart;
-    // Reported once the browser has painted the chart; the gallery's page weight panel reads it.
-    const frame = requestAnimationFrame(() => setDrawnIn(performance.now() - started));
-
     const resize = new ResizeObserver(() => chart.resize());
     resize.observe(host);
     chart.on("datazoom", (event) => {
-      if (!bounds) return;
+      const current = latestState.current.bounds;
+      if (!current) return;
       const zoom = (event as ZoomEvent).batch?.[0] ?? (event as ZoomEvent);
       if (zoom.start === undefined || zoom.end === undefined) return;
-      const span = bounds.last - bounds.first;
-      setVisible({ end: bounds.first + span * zoom.end / 100, start: bounds.first + span * zoom.start / 100 });
+      const span = current.last - current.first;
+      setVisible({ end: current.first + span * zoom.end / 100, start: current.first + span * zoom.start / 100 });
       setDraft({});
       setPreset(null);
     });
-
     return () => {
-      cancelAnimationFrame(frame);
       resize.disconnect();
       chart.dispose();
       chartRef.current = null;
     };
-  }, [bounds, spec]);
+  }, []);
+
+  useEffect(() => {
+    const chart = chartRef.current;
+    if (!chart) return;
+    const started = performance.now();
+    const option = chartOption(spec);
+    // A redraw keeps the lines the reader turned off and the range they picked.
+    const { hidden: off, visible: span } = latestState.current;
+    option.legend = { selected: Object.fromEntries(off.map((label) => [label, false])), show: false };
+    if (span && Array.isArray(option.dataZoom)) option.dataZoom = option.dataZoom.map((zoom) => ({ ...zoom, endValue: span.end, startValue: span.start }));
+    chart.setOption(option, { notMerge: true });
+    // Reported once the browser has painted the chart; the gallery's page weight panel reads it.
+    const frame = requestAnimationFrame(() => setDrawnIn((time) => time ?? performance.now() - started));
+    return () => cancelAnimationFrame(frame);
+  }, [spec]);
 
   const zoomTo = (start: number, end: number) => {
     chartRef.current?.dispatchAction({ endValue: end, startValue: start, type: "dataZoom" }, { silent: true });
@@ -106,10 +155,11 @@ export function UiChartClient({ spec, svg }: { spec: UiChartSpec; svg: string })
     chartRef.current?.dispatchAction({ name: label, type: "legendToggleSelect" });
     setHidden((current) => current.includes(label) ? current.filter((name) => name !== label) : [...current, label]);
   };
+  const off = hidden.filter((label) => legend.some((item) => item.label === label));
 
   return (
     <figure className={styles.figure} data-chart-drawn-ms={drawnIn === null ? undefined : Math.round(drawnIn)}>
-      <figcaption className={styles.caption}>{spec.title}</figcaption>
+      <ChartHeading spec={spec} />
 
       {bounds && visible ? (
         <div className={styles.toolbar}>
@@ -156,12 +206,12 @@ export function UiChartClient({ spec, svg }: { spec: UiChartSpec; svg: string })
       {legend.length > 1 ? (
         <div aria-label="Shown in the chart" className={styles.legend} role="group">
           {legend.map(({ detail, label }, index) => {
-            const isOn = !hidden.includes(label);
+            const isOn = !off.includes(label);
             return (
               <button
                 aria-pressed={isOn}
                 className={styles.legendButton}
-                disabled={isOn && hidden.length === legend.length - 1}
+                disabled={isOn && off.length === legend.length - 1}
                 key={label}
                 onClick={() => toggle(label)}
                 type="button"
@@ -175,11 +225,13 @@ export function UiChartClient({ spec, svg }: { spec: UiChartSpec; svg: string })
         </div>
       ) : null}
 
-      <div className={styles.plot} style={{ height: spec.height ?? 360 }}>
-        {drawnIn === null ? <div aria-hidden="true" className={styles.serverDrawing} dangerouslySetInnerHTML={{ __html: svg }} /> : null}
+      {/* The box keeps its height before the first drawing, so nothing below it moves. */}
+      <div aria-hidden={withTable || undefined} className={styles.plot} style={{ height: spec.height ?? 360 }}>
+        {svg && drawnIn === null ? <div aria-hidden="true" className={styles.serverDrawing} dangerouslySetInnerHTML={{ __html: svg }} /> : null}
         <div className={styles.host} ref={hostRef} />
         {total ? <p className={styles.donutTotal}><strong>{total}</strong><span>Total</span></p> : null}
       </div>
+      <ChartDataTable spec={spec} />
     </figure>
   );
 }

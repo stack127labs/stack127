@@ -1,5 +1,6 @@
-import { chartLegend, chartOption, donutTotal, type UiChartSpec } from "./chart-option";
-import { UiChartClient } from "./chart-client";
+import { chartLegend, chartOption, donutTotal, hasChartTable, type UiChartSpec } from "./chart-option";
+import { UiLiveChart } from "./chart-client";
+import { ChartDataTable, ChartHeading } from "./chart-parts";
 import { echarts } from "./echarts";
 import styles from "./charts.module.css";
 
@@ -22,14 +23,14 @@ export function renderChartSvg(spec: UiChartSpec, width = wideWidth) {
  * Static charts send no chart script at all.
  */
 export function UiChart({ interactive = true, spec }: { interactive?: boolean; spec: UiChartSpec }) {
-  if (interactive) return <UiChartClient spec={spec} svg={renderChartSvg(spec)} />;
+  if (interactive) return <UiLiveChart spec={spec} svg={renderChartSvg(spec)} />;
 
   const legend = chartLegend(spec);
   const height = spec.height ?? 360;
   const total = donutTotal(spec);
   return (
     <figure className={`${styles.figure} ${styles.static}`}>
-      <figcaption className={styles.caption}>{spec.title}</figcaption>
+      <ChartHeading spec={spec} />
       {legend.length > 1 ? (
         <ul className={styles.legend}>
           {legend.map((item, index) => (
@@ -41,11 +42,12 @@ export function UiChart({ interactive = true, spec }: { interactive?: boolean; s
           ))}
         </ul>
       ) : null}
-      <div className={styles.plot}>
+      <div aria-hidden={hasChartTable(spec) || undefined} className={styles.plot}>
         <div className={`${styles.staticDrawing} ${styles.wideDrawing}`} dangerouslySetInnerHTML={{ __html: renderChartSvg(spec, proseWidth) }} style={{ aspectRatio: `${proseWidth} / ${height}` }} />
         <div className={`${styles.staticDrawing} ${styles.narrowDrawing}`} dangerouslySetInnerHTML={{ __html: renderChartSvg(spec, phoneWidth) }} style={{ aspectRatio: `${phoneWidth} / ${height}` }} />
         {total ? <p className={styles.donutTotal}><strong>{total}</strong><span>Total</span></p> : null}
       </div>
+      <ChartDataTable spec={spec} />
     </figure>
   );
 }

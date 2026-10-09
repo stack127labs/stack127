@@ -1,6 +1,5 @@
 import {
   ChartColumn,
-  ChartSpline,
   FileText,
   Gauge,
   Image,
@@ -70,9 +69,9 @@ export const gallerySections: GallerySection[] = [
   {
     slug: "results",
     label: "Results",
-    description: "The main answer, supporting numbers, status words, progress, timelines, and generated output.",
+    description: "The main answer, supporting numbers, status words, progress, steps, timelines, and generated output.",
     icon: Gauge,
-    components: ["UiPrimaryResult", "UiResultLead", "UiMetricGroup", "UiKeyValueList", "UiStatusWord", "UiProgressBar", "UiAllocationBar", "UiTimeline", "UiCodeOutput", "UiRawOutput"],
+    components: ["UiPrimaryResult", "UiResultLead", "UiMetricGroup", "UiKeyValueList", "UiStatusWord", "UiProgressBar", "UiAllocationBar", "UiSteps", "UiTimeline", "UiCodeOutput", "UiRawOutput"],
   },
   {
     slug: "tables",
@@ -84,16 +83,9 @@ export const gallerySections: GallerySection[] = [
   {
     slug: "charts",
     label: "Charts",
-    description: "Bar, line, donut, and flow charts for measured values and ordered stages.",
+    description: "Line, area, bar, donut, scatter, and heatmap charts from data, in both themes, with the page weight they add.",
     icon: ChartColumn,
-    components: ["UiBarChart", "UiLineChart", "UiDonutChart", "UiFlowChart"],
-  },
-  {
-    slug: "echarts-trial",
-    label: "ECharts trial",
-    description: "A trial of Apache ECharts in our style: lines with toggles and ranges, bars, a donut, a scatter, a heatmap, and page weight numbers.",
-    icon: ChartSpline,
-    components: ["UiChart"],
+    components: ["UiChart", "UiLiveChart"],
   },
   {
     slug: "cards",

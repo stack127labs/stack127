@@ -4,7 +4,6 @@ import { ActionsAndFormsExamples } from "../examples/actions-and-forms";
 import { CardsExamples } from "../examples/cards";
 import { ChartsExamples } from "../examples/charts";
 import { ContentExamples } from "../examples/content";
-import { EChartsTrialExamples } from "../examples/echarts-trial";
 import { FeedbackAndDialogsExamples } from "../examples/feedback-and-dialogs";
 import { FileUploadsExamples } from "../examples/file-uploads";
 import { FiltersAndSortingExamples } from "../examples/filters-and-sorting";
@@ -27,7 +26,6 @@ const examples: Record<string, ComponentType> = {
   results: ResultsExamples,
   tables: TablesExamples,
   charts: ChartsExamples,
-  "echarts-trial": EChartsTrialExamples,
   cards: CardsExamples,
   content: ContentExamples,
   "media-and-art": MediaAndArtExamples,

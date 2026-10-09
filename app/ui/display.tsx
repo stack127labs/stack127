@@ -1,3 +1,4 @@
+import { ArrowRight, Check, Circle } from "lucide-react";
 import type { ReactNode, Ref } from "react";
 import { TableFrame } from "./table-frame";
 import styles from "./controls.module.css";
@@ -256,6 +257,33 @@ export function UiTimeline({ ariaLabel, events }: { ariaLabel: string; events: U
           ) : (
             <strong>{event.value}</strong>
           )}
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export type UiStep = Readonly<{
+  detail?: string;
+  id: string;
+  label: string;
+  state: "complete" | "current" | "pending";
+}>;
+
+/** Ordered stages and which one is done, current, or next. */
+export function UiSteps({ ariaLabel, steps }: { ariaLabel: string; steps: readonly UiStep[] }) {
+  return (
+    <ol aria-label={ariaLabel} className={styles.steps}>
+      {steps.map((step, index) => (
+        <li aria-current={step.state === "current" ? "step" : undefined} data-state={step.state} key={step.id}>
+          <span className={styles.stepMarker}>
+            {step.state === "complete" ? <Check aria-hidden="true" size={18} /> : step.state === "current" ? <ArrowRight aria-hidden="true" size={18} /> : <Circle aria-hidden="true" size={14} />}
+          </span>
+          <div>
+            <strong>{step.label}</strong>
+            {step.detail ? <span>{step.detail}</span> : null}
+          </div>
+          {index < steps.length - 1 ? <ArrowRight aria-hidden="true" className={styles.stepConnector} size={20} /> : null}
         </li>
       ))}
     </ol>

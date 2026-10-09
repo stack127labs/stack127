@@ -25,13 +25,18 @@ export type UiChartFormat = "number" | "compact" | "bytes" | "currency" | "perce
 
 export type UiChartPoint = readonly [x: number, y: number];
 
-export type UiChartSeries = { id: string; label: string; points: readonly UiChartPoint[] };
+/** A point on a labeled axis, such as "Q1" or "2026". */
+export type UiChartLabelPoint = readonly [x: string, y: number];
+
+export type UiChartSeries<Point = UiChartPoint> = { id: string; label: string; points: readonly Point[] };
 
 export type UiChartRange = "1m" | "3m" | "6m" | "1y" | "all";
 
 type Shared = {
   /** The chart's name. Screen readers and the tooltip use it. */
   title: string;
+  /** One short line under the title, such as the source or what was measured. */
+  caption?: string;
   /** Height in pixels. The width always fills the column. */
   height?: number;
   format: UiChartFormat;
@@ -40,8 +45,10 @@ type Shared = {
 export type UiChartSpec = Shared & (
   | {
       kind: "line" | "area" | "stacked-area";
-      series: readonly UiChartSeries[];
-      xFormat: UiChartFormat;
+      /** x values are dates as milliseconds, numbers, or labels. Labels give a category axis. */
+      series: readonly UiChartSeries[] | readonly UiChartSeries<UiChartLabelPoint>[];
+      /** How numeric x values read. Labels need none. */
+      xFormat?: UiChartFormat;
       /** Time charts: show range buttons and a range slider, starting at this range. */
       range?: UiChartRange;
     }
@@ -73,6 +80,91 @@ export function chartLegend(spec: UiChartSpec): { label: string; detail?: string
 
 export function donutTotal(spec: UiChartSpec) {
   return spec.kind === "donut" ? formatChartValue(spec.slices.reduce((sum, slice) => sum + slice.value, 0), spec.format) : null;
+}
+
+type LineSpec = Extract<UiChartSpec, { kind: "line" | "area" | "stacked-area" }>;
+
+const isLine = (spec: UiChartSpec): spec is LineSpec => spec.kind === "line" || spec.kind === "area" || spec.kind === "stacked-area";
+
+/** The labels of a labeled x axis, in first-seen order, or null when x values are numbers. */
+function xLabels(spec: LineSpec) {
+  const points = spec.series.flatMap((line) => line.points as readonly (UiChartPoint | UiChartLabelPoint)[]);
+  return points.length && points.every((point) => typeof point[0] === "string") ? [...new Set(points.map((point) => String(point[0])))] : null;
+}
+
+const isTimeFormat = (format: UiChartFormat | undefined) => format === "date" || format === "datetime";
+
+/** The numeric points of a time chart that shows range controls, or null. */
+export function rangedSeries(spec: UiChartSpec) {
+  return isLine(spec) && spec.range !== undefined && isTimeFormat(spec.xFormat) && !xLabels(spec) ? spec.series as readonly UiChartSeries[] : null;
+}
+
+/** Charts with up to this many values carry a hidden data table. */
+const tableLimit = 60;
+
+function valueCount(spec: UiChartSpec) {
+  if (spec.kind === "donut") return spec.slices.length;
+  if (spec.kind === "heatmap") return spec.cells.length;
+  if (spec.kind === "bar" || spec.kind === "stacked-bar" || spec.kind === "horizontal-bar") return spec.categories.length * spec.series.length;
+  const points = (spec.series as readonly UiChartSeries<unknown>[]).reduce((count, line) => count + line.points.length, 0);
+  return spec.kind === "scatter" ? points * 2 : points;
+}
+
+export const hasChartTable = (spec: UiChartSpec) => valueCount(spec) <= tableLimit;
+
+/**
+ * The chart's numbers as a small table for screen readers, or null for a large chart.
+ * Rows are x values, categories, or items; columns are series.
+ */
+export function chartTable(spec: UiChartSpec): { columns: string[]; corner: string; rows: { cells: string[]; label: string }[] } | null {
+  if (!hasChartTable(spec)) return null;
+  const format = (value: number) => formatChartValue(value, spec.format);
+  if (spec.kind === "donut") {
+    const total = spec.slices.reduce((sum, slice) => sum + slice.value, 0);
+    return {
+      columns: ["Value", "Share"],
+      corner: "Part",
+      rows: spec.slices.map((slice) => ({ cells: [format(slice.value), `${numberFormat.format(total ? slice.value / total * 100 : 0)}%`], label: slice.label })),
+    };
+  }
+  if (spec.kind === "heatmap") {
+    const cells = new Map(spec.cells.map(([x, y, value]) => [`${x},${y}`, value]));
+    return {
+      columns: [...spec.xCategories],
+      corner: spec.valueLabel,
+      rows: spec.yCategories.map((label, y) => ({ cells: spec.xCategories.map((_, x) => cells.has(`${x},${y}`) ? format(cells.get(`${x},${y}`)!) : ""), label })),
+    };
+  }
+  if (spec.kind === "scatter") {
+    return {
+      columns: [spec.xName, spec.yName],
+      corner: "Series",
+      rows: spec.series.flatMap((dots) => dots.points.map(([x, y]) => ({ cells: [formatChartValue(x, spec.xFormat), format(y)], label: dots.label }))),
+    };
+  }
+  if (spec.kind === "bar" || spec.kind === "stacked-bar" || spec.kind === "horizontal-bar") {
+    return {
+      columns: spec.series.map((bars) => bars.label),
+      corner: "Category",
+      rows: spec.categories.map((label, index) => ({ cells: spec.series.map((bars) => bars.values[index] === undefined ? "" : format(bars.values[index])), label })),
+    };
+  }
+  if (!isLine(spec)) return null;
+  const series = spec.series as readonly UiChartSeries<UiChartPoint | UiChartLabelPoint>[];
+  // One row per x value, so lines that share a date share a row.
+  const xs = [...new Set(series.flatMap((line) => line.points.map((point) => point[0])))];
+  if (!xLabels(spec)) xs.sort((a, b) => Number(a) - Number(b));
+  return {
+    columns: series.map((line) => line.label),
+    corner: isTimeFormat(spec.xFormat) ? "Date" : "Point",
+    rows: xs.map((x) => ({
+      cells: series.map((line) => {
+        const point = line.points.find((item) => item[0] === x);
+        return point ? format(point[1]) : "";
+      }),
+      label: typeof x === "string" ? x : formatChartValue(x, spec.xFormat ?? "number"),
+    })),
+  };
 }
 
 // Fixed locale and UTC, so the server drawing and the browser drawing match exactly.
@@ -149,7 +241,8 @@ export function chartOption(spec: UiChartSpec): EChartsCoreOption {
   const format = (value: number) => formatChartValue(value, spec.format);
   const base = {
     animation: false,
-    aria: { enabled: true, label: { description: spec.title } },
+    // Small charts carry a data table instead; see chartTable.
+    aria: { enabled: !hasChartTable(spec), label: { description: spec.caption ? `${spec.title}. ${spec.caption}` : spec.title } },
     color: [...seriesInk],
     legend: { show: false },
     textStyle: { color: ink.text, fontFamily: "var(--font-mono)", fontSize: 12 },
@@ -165,11 +258,13 @@ export function chartOption(spec: UiChartSpec): EChartsCoreOption {
     useUTC: true,
   };
 
-  if (spec.kind === "line" || spec.kind === "area" || spec.kind === "stacked-area") {
-    const xFormat = (value: number) => formatChartValue(value, spec.xFormat);
-    const isTime = spec.xFormat === "date" || spec.xFormat === "datetime";
-    const { first, last } = xBounds(spec.series);
-    const withRange = isTime && spec.range !== undefined;
+  if (isLine(spec)) {
+    const xFormat = (value: number) => formatChartValue(value, spec.xFormat ?? "number");
+    const labels = xLabels(spec);
+    const isTime = !labels && isTimeFormat(spec.xFormat);
+    const ranged = rangedSeries(spec);
+    const { first, last } = ranged ? xBounds(ranged) : { first: 0, last: 0 };
+    const withRange = ranged !== null;
     return {
       ...base,
       dataZoom: withRange
@@ -215,20 +310,21 @@ export function chartOption(spec: UiChartSpec): EChartsCoreOption {
         axisPointer: { lineStyle: { color: ink.axis, width: 1 }, type: "line" },
         formatter: (params: unknown) => {
           const list = asParams(params);
-          const x = Number(list[0]?.axisValue ?? (list[0]?.value as number[])[0]);
-          return tooltipHtml(xFormat(x), list.map((item) => ({ color: item.seriesIndex, label: item.seriesName, value: format((item.value as number[])[1]) })));
+          const x = list[0]?.axisValue ?? (list[0]?.value as number[])[0];
+          return tooltipHtml(labels ? String(x) : xFormat(Number(x)), list.map((item) => ({ color: item.seriesIndex, label: item.seriesName, value: format((item.value as number[])[1]) })));
         },
         trigger: "axis",
       },
       xAxis: {
         // ECharts always keeps a time axis's last label, even on top of its neighbour.
-        axisLabel: { ...axisLabel, formatter: isTime ? timeLabels : xFormat, showMaxLabel: isTime ? false : undefined },
+        axisLabel: labels ? axisLabel : { ...axisLabel, formatter: isTime ? timeLabels : xFormat, showMaxLabel: isTime ? false : undefined },
         axisLine,
         axisPointer: { label: { show: false } },
         axisTick: { show: false },
         boundaryGap: false,
+        data: labels ?? undefined,
         splitLine: { show: false },
-        type: isTime ? "time" : "value",
+        type: labels ? "category" : isTime ? "time" : "value",
       },
       yAxis: { axisLabel: { ...axisLabel, formatter: (value: number) => formatChartValue(value, spec.format === "currency" ? "currency" : spec.format === "bytes" ? "bytes" : "compact") }, splitLine, type: "value" },
     };
