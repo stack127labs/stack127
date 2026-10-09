@@ -49,7 +49,7 @@ import {
   type TimeValue,
   type Key,
 } from "react-aria-components";
-import { getLocalTimeZone, Time, toCalendarDate } from "@internationalized/date";
+import { CalendarDateTime, getLocalTimeZone, Time, toCalendarDate, toCalendarDateTime, toZoned, type ZonedDateTime } from "@internationalized/date";
 import {
   useCallback,
   useContext,
@@ -381,16 +381,20 @@ function DateThenTime({
     min: minValue && "hour" in minValue && sameDay(picked, minValue) ? boundMinutes(minValue, "min") : 0,
   });
 
-  // Every way out of the popover keeps the picked day, so the time it keeps must already be allowed.
-  const pickDay = (picked: DateValue) => {
-    const bounds = boundsFor(picked);
+  // Every pick builds the whole value on its day first, then holds it inside the limits at full
+  // precision, so a time zone, a daylight saving gap, or leftover seconds can't slip past them.
+  // Committing right away also means every way out of the popover keeps an allowed value.
+  const place = (picked: DateValue, hour: number, minute: number) => {
     const current = state?.value && "hour" in state.value ? state.value : null;
-    if (!current) {
-      if (!state?.timeValue) state?.setTimeValue(new Time(Math.floor(bounds.min / 60), bounds.min % 60));
-    } else if (minutesOf(current) < bounds.min || minutesOf(current) > bounds.max) {
-      const total = Math.min(bounds.max, Math.max(bounds.min, minutesOf(current)));
-      commit?.(current.set({ day: picked.day, hour: Math.floor(total / 60), millisecond: 0, minute: total % 60, month: picked.month, second: 0, year: picked.year }));
-    }
+    const fields = { day: picked.day, hour, millisecond: 0, minute, month: picked.month, second: 0, year: picked.year };
+    const candidate = current ? current.set(fields) : new CalendarDateTime(picked.year, picked.month, picked.day, hour, minute);
+    commit?.(withinLimits(candidate, minValue, maxValue));
+  };
+
+  // A new day keeps the chosen time. A first pick starts at midnight, moved to the day's earliest allowed time.
+  const pickDay = (picked: DateValue) => {
+    const current = state?.value && "hour" in state.value ? state.value : null;
+    place(picked, current?.hour ?? 0, current?.minute ?? 0);
     setStep("time");
   };
 
@@ -413,7 +417,7 @@ function DateThenTime({
         <ChevronLeft aria-hidden="true" size={18} />
         <span><span className={styles.visuallyHidden}>Change date, </span>{dayLabel}</span>
       </RacButton>
-      <TimeColumns bounds={boundsFor(day)} hourCycle={hourCycle} minuteStep={minuteStep} onChange={state.setTimeValue} value={time} />
+      <TimeColumns bounds={boundsFor(day)} hourCycle={hourCycle} minuteStep={minuteStep} onPick={(hour, minute) => place(day, hour, minute)} value={time} />
       <UiButton className={styles.timeDone} onPress={() => state.setOpen(false)} variant="primary">Done</UiButton>
     </div>
   );
@@ -455,7 +459,11 @@ export function UiTimeField({ description, disabled, error, hourCycle = 12, labe
                 bounds={{ max: maxValue ? boundMinutes(maxValue, "max") : lastMinute, min: minValue ? boundMinutes(minValue, "min") : 0 }}
                 hourCycle={hourCycle}
                 minuteStep={minuteStep}
-                onChange={(time) => onChange?.(time)}
+                onPick={(hour, minute) => {
+                  // Change only the time, so a date or time zone the value carries survives. Seconds reset.
+                  const candidate = value ? (value as Time).set({ hour, millisecond: 0, minute, second: 0 }) : new Time(hour, minute);
+                  onChange?.(timeWithinLimits(candidate, minValue, maxValue));
+                }}
                 value={value ?? null}
               />
               <UiButton className={styles.timeDone} slot="close" variant="primary">Done</UiButton>
@@ -476,19 +484,37 @@ const boundMinutes = (time: { hour: number; millisecond: number; minute: number;
   minutesOf(time) + (kind === "min" && (time.second > 0 || time.millisecond > 0) ? 1 : 0);
 const sameDay = (a: DateValue, b: DateValue) => toCalendarDate(a).compare(toCalendarDate(b)) === 0;
 
+/** Holds a date and time inside its limits at full precision. Date-only limits are the calendar's job. */
+function withinLimits(candidate: CalendarDateTime | ZonedDateTime, min?: DateValue, max?: DateValue): DateValue {
+  const like = (bound: DateValue) => ("timeZone" in candidate ? toZoned(bound, candidate.timeZone) : toCalendarDateTime(bound));
+  if (min && "hour" in min && candidate.compare(min) < 0) return like(min);
+  if (max && "hour" in max && candidate.compare(max) > 0) return like(max);
+  return candidate;
+}
+
+const timeOfDay = (time: TimeValue) => ((time.hour * 60 + time.minute) * 60 + time.second) * 1000 + time.millisecond;
+
+/** Holds a time of day inside its limits, seconds included. */
+function timeWithinLimits(candidate: TimeValue, min?: TimeValue, max?: TimeValue): TimeValue {
+  const like = (bound: TimeValue) => (candidate as Time).set({ hour: bound.hour, millisecond: bound.millisecond, minute: bound.minute, second: bound.second });
+  if (min && timeOfDay(candidate) < timeOfDay(min)) return like(min);
+  if (max && timeOfDay(candidate) > timeOfDay(max)) return like(max);
+  return candidate;
+}
+
 /**
  * Hour, minute, and (for 12 hours) AM or PM lists. A pick in any list sets the whole time:
  * an hour on its own means minute 00, and a minute on its own means the 12 AM hour.
  * Times outside the bounds (minutes into the day) are disabled, and a pick that lands outside
- * them moves to the nearest allowed time.
+ * them moves to the nearest allowed minute. The caller builds the value and checks it exactly.
  */
 function TimeColumns({
   bounds,
   hourCycle,
   minuteStep,
-  onChange,
+  onPick,
   value,
-}: Required<TimeOptions> & { bounds: { max: number; min: number }; onChange: (time: TimeValue) => void; value: TimeValue | null }) {
+}: Required<TimeOptions> & { bounds: { max: number; min: number }; onPick: (hour: number, minute: number) => void; value: TimeValue | null }) {
   const hour = value?.hour ?? null;
   const minute = value?.minute ?? 0;
   const isPm = hour !== null && hour >= 12;
@@ -497,17 +523,9 @@ function TimeColumns({
   const minutes = Array.from({ length: Math.ceil(60 / minuteStep) }, (_, index) => index * minuteStep);
   const outside = (first: number, last: number) => last < bounds.min || first > bounds.max;
 
-  const clamp = (total: number) => Math.min(bounds.max, Math.max(bounds.min, total));
-  // Change only the time, so a date or time zone the value carries survives. Seconds reset with every pick.
-  const at = (total: number) => {
-    const time = { hour: Math.floor(total / 60), millisecond: 0, minute: total % 60, second: 0 };
-    return value ? (value as Time).set(time) : new Time(time.hour, time.minute);
-  };
   const pick = (nextHour: number, nextMinute: number) => {
-    let next = at(clamp(nextHour * 60 + nextMinute));
-    // A time inside a daylight saving gap doesn't exist, and the zone moves it forward, maybe past a limit.
-    if (minutesOf(next) !== clamp(minutesOf(next))) next = at(clamp(minutesOf(next)));
-    onChange(next);
+    const total = Math.min(bounds.max, Math.max(bounds.min, nextHour * 60 + nextMinute));
+    onPick(Math.floor(total / 60), total % 60);
   };
 
   return (
