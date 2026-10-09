@@ -183,11 +183,11 @@ A page whose rows already match the plan is left alone, unless its pending recor
 
 ### Directory child pages
 
-Many directory child pages get their copy from records, through the sync scripts listed in [directory-pages.md](directory-pages.md). The publisher doesn't run those scripts, and you shouldn't type over their copy in a manifest. Instead:
+A child page's words ship in its MDX files with the code release. Its title and search metadata go through the publisher like any directory page:
 
-1. Run the directory's sync in development and review the child pages there.
+1. Write them to the development rows with `scripts/stack127/directory-pages/update-content.mjs`, and review the child pages there.
 2. List each child page in the directories manifest with `"source": "development"` and an explicit `registry.is_published`.
-3. In production, run only the directory's reviewed dataset import, if its records live in the database. Don't run the page copy sync there. The plan already holds the reviewed child copy.
+3. In production, run only the directory's reviewed dataset import, if its records live in the database. The plan already holds the reviewed titles and search metadata.
 
 ## Readiness
 

@@ -54,7 +54,7 @@ Catalogs gather stack127's own pages in one place. `/dns-tools`, `/domain-tools`
 
 Catalog routes live under `app/(site)/(catalogs)/`.
 
-- Catalog titles and cards live in `stack127_catalog_pages`. Catalog intros and articles are still there too, until catalogs move to MDX. `display_order` controls catalog ordering. Public dates come from the registry. See [tool-catalogs.md](tool-catalogs.md).
+- Catalog titles and cards live in `stack127_catalog_pages`. Each catalog's intro and article live in `content/<slug>/` under the shared catalog route. See [page-content.md](page-content.md). `display_order` controls catalog ordering. Public dates come from the registry. See [tool-catalogs.md](tool-catalogs.md).
 - Link to the canonical flat route for every included page.
 - When several pages share navigation and active states, the catalog owns them.
 - Don't put third-party software, hardware records, courses, or stable fact tables here.

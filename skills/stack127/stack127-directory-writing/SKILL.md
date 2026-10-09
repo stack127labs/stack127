@@ -15,9 +15,7 @@ The intro and the page's sections live in `content/*.mdx` beside the route. The 
 
 If the page still renders its content from the database, move it to MDX first with the steps in `page-content.md`, and commit the move before rewriting.
 
-Child page copy that a sync script fills from records stays a template in the script, such as one page per app. Change that template there. See the table in `directory-pages.md`.
-
-Platform fee hub and category copy is still in the database, and its child pages can't move to MDX yet. Ask the coordinator before changing it. The fee sync creates missing rows only and never replaces reviewed words or SEO fields.
+Each child page has its own `content/` files: beside its own `page.tsx`, such as `keyboard-shortcuts/figma/content/`, or in a folder named for its slug under a shared route, such as `platform-fees/[section]/content/<category>/`. See `page-content.md`.
 
 Section or group intros may live in the directory's data files. Check that they render well: with the shared prose styles, normal spacing, and tables that fit on a phone.
 
@@ -82,7 +80,9 @@ Counts change. Use a count in a title only when the page computes it from the re
 
 ### Child pages
 
-When child pages share a template, such as one page per app or per section, write the template once and fill it from the records. Change the template in the sync script or route, so the copy stays correct as records change. Check two or three filled pages, including one with sparse records.
+Write every child page for itself. The shared template lays out the records, and the page's own intro says what this page is and how to use it. Two lines can be enough, as on a keyboard shortcuts page: what the app is, who uses it, and what the shortcuts cover. Give a page sections when its records need explaining.
+
+Each child page gets its own title and search metadata too, written for what people search for that page. Don't write one sentence and swap in a name.
 
 ## Keep it short and visual
 
@@ -96,7 +96,7 @@ When child pages share a template, such as one page per app or per section, writ
 
 Write the intro and sections into the route's `content/*.mdx` files, and import any new section file where it goes on the page. Run `node scripts/stack127/content/check-mdx.mjs` and fix what it reports. The content ships with a code release.
 
-Apply the title, SEO fields, and card text to development with `scripts/stack127/directory-pages/update-content.mjs --environment development`. It previews and rolls back unless you add `--apply`. Use `--title`, `--meta-title`, `--meta-description`, `--card-name`, and `--card-description`. Don't rerun a directory's full sync just to change copy, because it may reload records in the shared development database. For a child page template, run the sync only when the brief allows it, and check that rows outside your change stay the same.
+Apply the title, SEO fields, and card text to development with `scripts/stack127/directory-pages/update-content.mjs --environment development`. It previews and rolls back unless you add `--apply`. Use `--title`, `--meta-title`, `--meta-description`, `--card-name`, and `--card-description`. Don't rerun a directory's full sync just to change copy, because it may reload records in the shared development database. Don't run a record sync to change child page words or titles.
 
 A changed title, SEO field, or card text moves the public date and queues a cache refresh. A child edit also moves its directory ancestors' dates. Record imports do this automatically where covered. An MDX content change doesn't. For a meaningful content or code record change, use the development touch command, and give the coordinator a `touch_reason` for the release manifest. Skip explicit touches for typo fixes. See `directory-pages.md`. A worktree preview needs the local cache watcher pointed at its port; see `homelab-development.md`. The watcher clears the events it handles from the shared queue, so run it only for as long as you need.
 
