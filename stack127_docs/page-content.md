@@ -37,6 +37,8 @@ import Article from "./content/article.mdx";
 
 MDX renders on the server, so pages stay static and send no extra script.
 
+`mdx-components.tsx` and `ContentMarkdown` render elements through the same functions in `app/ui/content-elements.tsx`, so moved and unmoved pages look the same. When one file needs a page-specific element, the route passes it, such as `<ClientAndServer components={{ p: SourcePathParagraph }} />` in `/epp-status-codes`.
+
 ## Writing in MDX
 
 MDX is Markdown that can hold our components. Write ordinary Markdown for headings, paragraphs, lists, links, tables, and code. Use a component only for the blocks below.
