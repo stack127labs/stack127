@@ -8,10 +8,10 @@ Work through the steps in order. Step 0 and Part 1 ship together in pull request
 
 | Step | What | Who | Pull request | Status |
 | --- | --- | --- | --- | --- |
-| 0 | Ship the current work | Opus, Sol review | #35 | Done, Sol approved |
-| 1a | Chart docs and skills | Opus | #35 | Done, Sol approved |
-| 1b | Move every chart to `UiChart` | Claude Opus worker, Sol review | #35 | Done, Sol approved |
-| 1c | Preview server readiness fix | Sol | #35 | Done, Sol approved |
+| 0 | Ship the current work | Opus, Sol review | #35 | Shipped in `cba975b3` |
+| 1a | Chart docs and skills | Opus | #35 | Shipped in `cba975b3` |
+| 1b | Move every chart to `UiChart` | Claude Opus worker, Sol review | #35 | Shipped in `cba975b3` |
+| 1c | Preview server readiness fix | Sol | #35 | Shipped in `cba975b3` |
 | 2a | Content design doc | Opus | PR C | Not started |
 | 2b | Pilot: MDX setup, export script, two pages | Claude Opus worker, Sol for the script, Sol review | PR C | Not started |
 | 2c | Docs and skills for content in code | Opus | PR C | Not started |
@@ -31,7 +31,7 @@ Work through the steps in order. Step 0 and Part 1 ship together in pull request
 
 ## Step 0: Ship the current work
 
-Pull request #35. Sol approved it after four rounds, and CI passed. It merges together with Part 1.
+Shipped with Part 1 in pull request #35, released to production as `cba975b3` on 2026-10-09.
 
 The branch `chore/audit-components-page` holds uncommitted work:
 
