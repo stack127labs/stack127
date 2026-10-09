@@ -124,7 +124,11 @@ export function chartTable(spec: UiChartSpec): { columns: string[]; corner: stri
     return {
       columns: ["Value", "Share"],
       corner: "Part",
-      rows: spec.slices.map((slice) => ({ cells: [format(slice.value), `${numberFormat.format(total ? slice.value / total * 100 : 0)}%`], label: slice.label })),
+      // The total that sits in the hole is read out as the last row.
+      rows: [
+        ...spec.slices.map((slice) => ({ cells: [format(slice.value), `${numberFormat.format(total ? slice.value / total * 100 : 0)}%`], label: slice.label })),
+        { cells: [format(total), "100%"], label: "Total" },
+      ],
     };
   }
   if (spec.kind === "heatmap") {
