@@ -9,7 +9,6 @@ import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content"
 import { proseClassName, proseFlowClassName } from "@/app/ui/site/prose";
 import { ToolCatalog } from "@/app/ui/catalogs/tool-catalog";
 import { ToolCatalogSidebar } from "@/app/ui/catalogs/tool-catalog-sidebar";
-import { DomainCatalogReference } from "./domain-catalog-reference";
 import { cardArt } from "@/lib/card-art";
 import { cardIcon } from "@/lib/card-icons";
 import { getPublishedToolCatalog } from "@/lib/tool-catalogs";
@@ -43,7 +42,6 @@ export default async function ToolCatalogPage({ params }: { params: Promise<{ sl
       </EntryHero>
       <PageCanvas>
         <ToolCatalog heading="Tools" tools={catalog.tools} />
-        {slug === "domain-tools" ? <DomainCatalogReference /> : null}
       </PageCanvas>
       {Article ? (
         <PageCanvas as="article" reading className={`${proseClassName} ${proseFlowClassName}`}>

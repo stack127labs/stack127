@@ -1,0 +1,13 @@
+## Which DNS tool do I need?
+
+Pick the row that matches what you're seeing.
+
+| What's happening | Tool to use |
+| --- | --- |
+| You want to see a record's current value, such as an A, MX, or TXT record | [DNS lookup](/dns-lookup) |
+| You changed a record, and some people still get the old one | [DNS change checker](/dns-change-checker) |
+| The domain doesn't resolve, or fails only some of the time | [Nameserver checker](/nameserver-checker), then [DNS trace](/dns-trace) to see where the lookup stops |
+| Lookups fail with SERVFAIL after you turned on DNSSEC or moved DNS | [DNSSEC checker](/dnssec-checker) |
+| Your nameservers give different answers for the same record | [SOA checker](/soa-checker) |
+| A certificate authority won't issue a certificate for your domain | [CAA checker](/caa-checker) |
+| The domain may be on hold or near expiry, or you want registration and DNS checked together | [Domain report](/domain-report) |
