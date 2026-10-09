@@ -124,8 +124,9 @@
 }
 
 .domain-name-field input:focus,
-.domain-form button:focus-visible,
-.domain-results button:focus-visible {
+/* Shared buttons (react-aria, data-rac) draw their own ring. */
+.domain-form button:not([data-rac]):focus-visible,
+.domain-results button:not([data-rac]):focus-visible {
   outline: var(--focus-outline);
 }
 
