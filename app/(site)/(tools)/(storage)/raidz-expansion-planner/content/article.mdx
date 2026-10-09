@@ -1,0 +1,24 @@
+## Why does an expanded vdev hold less than a new one?
+
+Data written before the expansion keeps its old data-to-parity ratio. A 6-wide RAIDZ2 stores 4 data sectors for every 2 parity. After you widen it to 8, those old blocks still use 4 and 2, and only new blocks use 6 and 2. The [`zpool attach` manual](https://openzfs.github.io/openzfs-docs/man/master/8/zpool-attach.8.html) describes this.
+
+The planner calls the difference the geometry gap. The fuller the vdev is before you expand, the bigger the gap. Rewriting old data, for example with `zfs send` and `zfs receive`, moves it to the new ratio.
+
+## Why does ZFS report less free space than the planner?
+
+ZFS keeps estimating space with the vdev's original parity ratio, even after expansion, so `zfs list` and `df` show slightly less than the vdev can hold. The manual says so too. The planner shows the space the vdev can hold, not what `zfs list` will report.
+
+## Why does one extra disk sometimes add less than expected?
+
+Block size and padding can make two widths equally efficient. With 128 KiB blocks and 4 KiB sectors, a 7-wide RAIDZ2 stores data no better than a 6-wide one. In the example above, the first 8 TB disk adds 5.33 TB and the second adds 6.85 TB. The [ZFS padding calculator](/zfs-padding-calculator) shows the allocation for one block at any width.
+
+## What should you check before expanding?
+
+| Check | Why |
+| --- | --- |
+| OpenZFS 2.3 or later | RAIDZ expansion arrived in [OpenZFS 2.3.0](https://github.com/openzfs/zfs/releases/tag/zfs-2.3.0). |
+| The vdev is healthy | Expansion pauses if a disk fails until the vdev is repaired. |
+| The new disk is at least as large as the smallest member | Space above that size goes unused. |
+| A current backup | Expansion reads and rewrites every allocated block. |
+
+Expansion adds one disk at a time and keeps the parity level, so RAIDZ2 stays RAIDZ2. For a new pool, use the [ZFS capacity calculator](/zfs-capacity-calculator) instead.

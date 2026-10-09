@@ -1,0 +1,37 @@
+## How does a ZFS pool add up its vdevs?
+
+A pool is a set of vdevs, and ZFS spreads data across all of them. Each vdev has its own redundancy, so the pool's space is the sum of what each vdev gives.
+
+<MarkerArt figure="catalog/zfs-capacity" alt="Separate vdevs stack together to form one ZFS pool." />
+
+Losing a whole vdev loses the pool, so the weakest vdev sets the pool's safety. The [OpenZFS vdev overview](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Pool%20Structure/VDEVs.html) covers the rules.
+
+| Vdev | Minimum drives | Drives that can fail in that vdev |
+| --- | --- | --- |
+| Mirror | 2 | All but one |
+| RAIDZ1 | 2 | 1 |
+| RAIDZ2 | 3 | 2 |
+| RAIDZ3 | 4 | 3 |
+
+## Why does block size change RAIDZ capacity?
+
+RAIDZ writes each block as data sectors plus parity sectors, then pads the total to a multiple of parity plus one. Small blocks waste more of each stripe on parity and padding.
+
+| Six 8 TB drives in RAIDZ2 | Writable |
+| --- | --- |
+| 128 KiB `recordsize` | 28.98 TiB |
+| 8 KiB `volblocksize` | 14.43 TiB |
+
+With 8 KiB blocks, only a third of the space holds data, against two thirds with 128 KiB blocks. The [OpenZFS RAIDZ guide](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Pool%20Structure/RAIDZ.html) explains the allocation, and the [ZFS padding calculator](/zfs-padding-calculator) shows the sectors for one block. The estimate uses one block size for the whole pool, while a real pool mixes sizes.
+
+## What is ZFS slop space?
+
+It's space ZFS keeps back so the pool never fills completely. OpenZFS reserves 1/32 of the pool by default, about 3.2%, according to its [module parameters](https://openzfs.github.io/openzfs-docs/man/master/4/zfs.4.html). The OpenZFS source caps it at 128 GiB, so large pools lose less than 3.2%.
+
+Planning headroom is different. It's your own choice of space to leave free, and it doesn't change what ZFS can write.
+
+## Why does my pool show less free space?
+
+The estimate is for a new, empty pool. Partitions, metadata, snapshots, and the real mix of block sizes all take space, so `zfs list` usually shows less. Drives are also labeled in TB while ZFS reports TiB, so an 8 TB drive shows as 7.28 TiB. The [RAID calculator](/raid-calculator) explains that difference in full.
+
+To widen an existing RAIDZ vdev, use the [RAIDZ expansion planner](/raidz-expansion-planner). Expanded vdevs hold less than this estimate for a fresh one.

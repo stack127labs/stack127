@@ -1,0 +1,26 @@
+## How do SnapRAID and mergerfs work together?
+
+SnapRAID protects the data disks with parity. mergerfs shows the same data disks as one folder. They use the same data mounts but do different jobs.
+
+| Tool | Job | Uses |
+| --- | --- | --- |
+| SnapRAID | Parity and checksums, updated when you run a sync | Data disks, parity disks, content files |
+| mergerfs | One pooled folder over many disks | Data disks only |
+
+The fstab line lists data disks only, so a parity disk never becomes part of the pool.
+
+## What does SnapRAID protect between syncs?
+
+Only what was there at the last sync. SnapRAID isn't real-time: files added or changed since then may not be recoverable if a disk fails. The [manual](https://www.snapraid.it/manual) names this as its main limit.
+
+That makes SnapRAID a good fit for media libraries that rarely change, and a poor fit for databases or virtual machine images that change all the time. Schedule syncs to match how fast your data changes, and keep a separate backup. The [3-2-1 backup calculator](/backup-321-calculator) helps you size one.
+
+## What should you check before using the files?
+
+The planner compares paths, not real disks. Two different paths can sit on the same disk, and only the host can tell you.
+
+1. Run `findmnt` and `lsblk` to confirm each path is its own disk.
+2. Check that your mergerfs version and FUSE setup allow `allow_other`, which lets other users and services see the pool.
+3. Save the files under `/etc`, mount the pool, and run your first `snapraid sync`.
+
+Compare the options with the [SnapRAID manual](https://www.snapraid.it/manual) and the [mergerfs quick start](https://trapexit.github.io/mergerfs/2.41.1/quickstart/) for your installed versions. For a parity-protected array that runs in real time, see the [Unraid calculator](/unraid-calculator).

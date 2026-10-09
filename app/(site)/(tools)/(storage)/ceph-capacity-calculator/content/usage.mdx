@@ -1,0 +1,13 @@
+## What to enter
+
+Add one row per batch of identical OSDs. Give each row the name of the host, rack, or data center it sits in. Rows with the same name count as one failure domain, so a host with two drive sizes takes two rows with one label.
+
+Planning reserve is space you keep free so the cluster never fills up. It's your own choice, not a Ceph setting.
+
+`Share plan` makes a link with your inputs, including the domain names, so anyone you send it to can see them.
+
+<Example title="Four hosts, each with four 8 TB OSDs, three copies">
+
+128 TB raw gives 42.67 TB of usable space. With a 20% reserve, the planning target is 34.13 TB. Three copies need three hosts, so the fourth host is spare. Losing one host still leaves three, enough to place every copy.
+
+</Example>

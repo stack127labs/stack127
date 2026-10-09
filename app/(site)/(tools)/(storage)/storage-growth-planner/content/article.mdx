@@ -1,0 +1,25 @@
+## How do you estimate storage growth?
+
+Multiply your data by one plus the growth rate, once for each year.
+
+<Formula title="Data after n years">
+
+Data in year n = current data × (1 + annual growth)^n
+
+</Formula>
+
+At 20% a year, 10 TB becomes 12 TB after one year and 14.4 TB after two. Real growth comes in jumps, such as a new camera or a migration, so try a slower and a faster rate too.
+
+## What does the shortfall year mean?
+
+It's the first year your data is larger than the usable space minus your reserve. The array isn't full yet, but you're into the space you meant to keep free. Plan to buy more drives before then.
+
+Usable space comes from equal drives and the layout you pick: mirror keeps half, single parity loses one drive, and dual parity loses two. For mixed drives or a ZFS pool, check the number in the [RAID calculator](/raid-calculator) or the [ZFS capacity calculator](/zfs-capacity-calculator).
+
+## How much does it cost to run a NAS?
+
+Power adds up because a NAS runs all the time. A system drawing 50 W all day uses 438 kWh a year, which is 0.05 kW × 8,760 hours. Multiply by your electricity rate to get the yearly cost.
+
+The total adds hardware, power over the whole horizon, the replacement reserve, and the backup budget. It leaves out labor, cooling, taxes, and moving data. Prices are the ones you enter, not live prices.
+
+A backup budget is money, not storage. The [3-2-1 backup calculator](/backup-321-calculator) sizes the backup itself.

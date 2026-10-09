@@ -1,0 +1,36 @@
+## How does RAIDZ allocate a block?
+
+RAIDZ splits the block into sectors, adds parity for each row of data sectors, then pads the total up to a multiple of parity plus one.
+
+<Formula title="RAIDZ allocation">
+
+Data sectors = block size ÷ sector size, rounded up
+
+Rows = data sectors ÷ (width - parity), rounded up
+
+Parity sectors = rows × parity
+
+Allocated sectors = data + parity, rounded up to a multiple of (parity + 1)
+
+</Formula>
+
+The sectors added by that last rounding are the padding. The [OpenZFS RAIDZ guide](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Pool%20Structure/RAIDZ.html) explains how RAIDZ lays out data.
+
+## Which block size wastes the least space on RAIDZ?
+
+Larger blocks, up to a point. On a six-drive RAIDZ2 with 4 KiB sectors:
+
+| Block size | Space on disk | Share that holds data |
+| --- | --- | --- |
+| 4 KiB | 12 KiB | 33.3% |
+| 8 KiB | 24 KiB | 33.3% |
+| 16 KiB | 24 KiB | 66.7% |
+| 128 KiB | 192 KiB | 66.7% |
+
+From 16 KiB up, every block reaches the best this width can do, which is 4 data drives out of 6. That's why a zvol with small blocks can lose much more space on RAIDZ than a dataset with 128 KiB records.
+
+## Should I pick the most space-efficient block size?
+
+Not on space alone. Block size also changes how fast reads and writes are and how well data compresses. A database that writes 8 KiB pages can run better with a matching small block, even on a less efficient layout. Use this calculator to see the space cost of that choice.
+
+The result is for one uncompressed block. Compression, metadata, and snapshots change real use. For a whole pool, use the [ZFS capacity calculator](/zfs-capacity-calculator).
