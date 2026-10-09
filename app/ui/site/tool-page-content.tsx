@@ -7,11 +7,14 @@ import { ContentMarkdown } from "../content-markdown";
 import { proseClassName, proseFlowClassName } from "./prose";
 import styles from "./tool-page-content.module.css";
 
+/** `intro` is the page's content/intro.mdx. Pages not yet moved to MDX render intro_markdown. */
 export function ToolPageHeader({
   icon,
+  intro,
   toolPage,
 }: {
   icon: ReactNode;
+  intro?: ReactNode;
   toolPage: Stack127ToolPage;
 }) {
   return (
@@ -25,19 +28,29 @@ export function ToolPageHeader({
         updatedAt={toolPage.updated_at}
         version={toolPage.tool_version}
       />
-      <ContentMarkdown markdown={toolPage.intro_markdown} />
+      {intro ?? <ContentMarkdown markdown={toolPage.intro_markdown} />}
     </PageHeader>
   );
 }
 
-export function ToolPageMarkdown({ toolPage }: { toolPage: Stack127ToolPage }) {
+/** Holds the usage and article content shown after the tool. */
+export function ToolPageArticle({ children }: { children: ReactNode }) {
   return (
     <article
       className={`${styles.content} ${proseClassName} ${proseFlowClassName}`}
       data-tool-page-content
     >
+      {children}
+    </article>
+  );
+}
+
+/** For pages whose usage and article still come from the database. */
+export function ToolPageMarkdown({ toolPage }: { toolPage: Stack127ToolPage }) {
+  return (
+    <ToolPageArticle>
       {toolPage.usage_markdown ? <ContentMarkdown markdown={toolPage.usage_markdown} /> : null}
       <ContentMarkdown markdown={toolPage.content_markdown} />
-    </article>
+    </ToolPageArticle>
   );
 }
