@@ -1,0 +1,77 @@
+## Why does a DNS lookup still show the old record?
+
+Usually because a resolver still has the old answer cached. Each resolver keeps a copy until its TTL runs out, and resolvers fetch at different times, so some show the new value while others still show the old one.
+
+Look up the same name and type with `Authoritative nameserver`:
+
+- If it shows the new value, the change is saved. Public resolvers pick it up as their cached copies expire.
+- If it still shows the old value, the change isn't live. Check that you edited the DNS provider this domain actually uses. The [nameserver checker](/nameserver-checker) shows which one that is.
+
+Lowering a TTL now doesn't shorten copies already cached. A record that didn't exist can be cached as missing too, so a new TXT record may take a while to show. [RFC 2308](https://www.rfc-editor.org/rfc/rfc2308.html) calls this negative caching.
+
+The lookup runs from stack127's server, not your computer. Your router, VPN, or office network may use a different resolver and see another answer. Some providers also return different addresses by location. To compare many public resolvers at once, use the [DNS change checker](/dns-change-checker).
+
+## Which DNS record type should I look up?
+
+Pick the type that matches the job. One name can hold several types at once without them replacing each other.
+
+| Type | What it holds |
+| --- | --- |
+| A | The IPv4 address for the name. |
+| AAAA | The IPv6 address. Check it too when a site works on one network but not another. |
+| CNAME | An alias to another name. The address comes from the target. |
+| MX | The servers that receive email. A lower number means higher priority. |
+| NS | The nameservers for the zone. To check they match the domain's registration, use the [nameserver checker](/nameserver-checker). |
+| TXT | Text for domain verification and email policies such as SPF and DMARC. |
+| CAA | Which certificate authorities may issue certificates. The [CAA checker](/caa-checker) tests the full policy. |
+| SOA | The zone's serial number and timers. The [SOA checker](/soa-checker) compares it across nameservers. |
+| SRV | The host and port for a service. Look up the service name, such as `_sip._tcp.example.com`. |
+| DS and DNSKEY | DNSSEC keys. Their presence doesn't prove DNSSEC works. |
+| PTR | The hostname published for an IP address. |
+
+[Cloudflare's record type reference](https://developers.cloudflare.com/dns/manage-dns-records/reference/dns-record-types/) explains each type in more depth.
+
+## How do I check email DNS records?
+
+Each email record lives at a set name, and most are TXT records. A TXT lookup at `example.com` won't show the ones under `_dmarc` or `_domainkey`.
+
+- Incoming mail: MX at the domain after the `@`, such as `example.com`.
+- SPF: TXT at `example.com`, starting `v=spf1`.
+- DMARC: TXT at `_dmarc.example.com`, starting `v=DMARC1`.
+- DKIM: TXT at `selector._domainkey.example.com`, using the selector your mail provider gives you. Some providers use a CNAME there instead.
+
+Compare the name and the full value with your provider's instructions.
+
+`0 .` as the only MX record means the domain accepts no email. [RFC 7505](https://www.rfc-editor.org/rfc/rfc7505.html) calls this a null MX.
+
+This tool shows the records. It doesn't check that the SPF, DKIM, or DMARC policy is valid, or that mail gets delivered.
+
+## What do NXDOMAIN, SERVFAIL, and an empty result mean?
+
+An empty result means the name exists but has no record of that type. The response code tells that apart from a lookup that failed.
+
+| You see | What it means |
+| --- | --- |
+| Records | DNS answered. Compare the values with what you expected. |
+| `No A record returned.` | The name has no record of that type. Check the spelling and any alias first. |
+| NXDOMAIN | The name, or an alias target, doesn't exist. Check spelling and subdomains. |
+| SERVFAIL | The resolver couldn't finish the lookup. A nameserver may be down, or DNSSEC may be failing. |
+| REFUSED | The server declined to answer. Try another resolver. |
+| `did not answer within the lookup timeout` | stack127 got no reply in time. That says nothing about whether the name exists. |
+
+The codes are defined in [RFC 1035](https://www.rfc-editor.org/rfc/rfc1035.html#section-4.1.1). To see where a lookup stops, use [DNS trace](/dns-trace).
+
+## Does this lookup check DNSSEC?
+
+No. The `DNSSEC authentication` line only repeats a flag from the resolver's reply, so `Not authenticated` doesn't mean DNSSEC is broken. A DS or DNSKEY record in the results doesn't prove DNSSEC works either.
+
+To check whether a domain is signed and validates, use the [DNSSEC checker](/dnssec-checker).
+
+## What happens to the names I look up?
+
+- stack127 sends the name to the resolver you picked. For `Authoritative nameserver`, it asks Cloudflare which nameserver to use, then asks that server.
+- Addresses in the result go to Team Cymru's DNS service for the network details.
+- Your browser loads the site's icon straight from that site.
+- stack127 doesn't keep a history of your lookups, and analytics leave out the names you check.
+
+Look up public names only, not private hostnames you don't want leaving your network.

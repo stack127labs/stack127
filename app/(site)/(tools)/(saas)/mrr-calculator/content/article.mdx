@@ -1,0 +1,47 @@
+## How do you calculate MRR?
+
+Divide each plan's price by the months in its billing term, multiply by its active subscriptions, and add up the plans.
+
+<Formula title="MRR">
+
+MRR = sum of (active subscriptions × price per term ÷ months in term)
+
+Months in term: monthly 1, quarterly 3, every six months 6, annually 12
+
+</Formula>
+
+[ChartMogul](https://chartmogul.com/saas-metrics/mrr/) and [Chargebee](https://www.chargebee.com/docs/billing/2.0/reports-and-analytics/monthly-recurring-revenue) both spread a longer plan across its months, so a $1,200 yearly plan adds $100 to MRR. Counting the whole $1,200 in the month it's paid is the mistake ChartMogul warns about.
+
+## What counts toward MRR?
+
+Recurring subscription charges count. One-time charges don't.
+
+| Charge | In MRR? |
+| --- | --- |
+| Plan price after recurring discounts | Yes |
+| Recurring add-ons | Yes. Add them to the price, or give them their own row if only some subscriptions have them. |
+| Setup fees and other one-time charges | No |
+| Tax | No |
+| Free trials | No, until they start paying |
+| Cancelled or expired subscriptions | No |
+| Past-due subscriptions, and ones set to cancel at the end of the term | Your call. Billing tools differ. |
+
+[ChartMogul's MRR report](https://help.chartmogul.com/article/154-chart-monthly-recurring-revenue-mrr) counts past-due subscriptions. [Chargebee](https://www.chargebee.com/docs/billing/2.0/reports-and-analytics/monthly-recurring-revenue) counts subscriptions set not to renew, and keeps ones with a failed payment until its retries end. Pick one rule and use it every month, so your months compare. A different rule is also the usual reason a total here doesn't match your billing dashboard.
+
+## Is MRR the same as cash or revenue?
+
+No. MRR is a monthly rate, not money received or revenue in your books. In the example, the Pro yearly customers pay $5,700 once a year but add $475.00 to MRR every month. [Chargebee's MRR guide](https://www.chargebee.com/docs/billing/2.0/reports-and-analytics/monthly-recurring-revenue) draws the same line between MRR, payments received, and accounting revenue.
+
+## What's the difference between MRR and ARR?
+
+ARR on this page is MRR × 12, the annualized run rate. It shows a year at today's rate. It isn't a forecast or money you're owed.
+
+ARR can also mean annual recurring revenue, which [ChartMogul](https://chartmogul.com/saas-metrics/arr/) says counts only contracts of 12 months or longer. Check which one a report means before you compare.
+
+## What doesn't MRR show?
+
+MRR is a snapshot of today. It doesn't show how it changed, who left, or what an average account pays.
+
+- The [MRR waterfall calculator](/mrr-waterfall-calculator) walks from starting to ending MRR through new, expansion, contraction, and churned revenue.
+- The [ARPU and ARPA calculator](/arpu-arpa-calculator) divides MRR by your paying accounts.
+- The [SaaS metrics calculator](/saas-metrics-calculator) shows one month's growth and retention.

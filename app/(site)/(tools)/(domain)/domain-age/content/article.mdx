@@ -1,0 +1,43 @@
+## Is domain age the same as website age?
+
+No. Domain age dates the registration of the name, not the website on it or the person who owns it now. Someone can buy a 20-year-old domain today and open a new shop on it tomorrow.
+
+So use the age to test a specific claim, not as a trust score. If a shop says it has used this address for ten years but the registration began last month, ask about the gap. A business can also be older than its domain if it moved to a new name.
+
+To see what was on the site over the years, open the [Wayback Machine](https://web.archive.org/) and compare captures from different years. A parked page or an unrelated business tells a different story from years of the same shop. A first capture shows a page existed by then, not when it launched, and [the archive has gaps](https://help.archive.org/help/using-the-wayback-machine/).
+
+## Does domain age reset after renewal, transfer, or expiry?
+
+Only deletion followed by a new registration resets it. Renewal, a move to another registrar (the company you buy the domain through), and even a change of owner keep the same registration going.
+
+| What happens | Effect on the age |
+| --- | --- |
+| The owner renews it | No reset. The expiry date moves forward. |
+| It moves to another registrar | No reset. The record may show a transfer date, but not whether the owner changed. |
+| The expiry date passes | No reset. The owner can often still renew, or the registrar may pass the name to someone new. |
+| It's deleted, then registered again | The age may start from the new registration. Earlier history may be missing. |
+
+These are separate operations in the [registry protocol, RFC 5731](https://www.rfc-editor.org/rfc/rfc5731.html). [ICANN's renewal and expiry FAQ](https://www.icann.org/resources/pages/domain-name-renewal-expiration-faqs-2018-12-07-en) explains what happens after a name expires. To follow an expiry date, use the [domain expiry checker](/domain-expiry).
+
+## Does domain age matter for SEO?
+
+This checker can't tell you. It doesn't look at search traffic, links from other sites, past content, or penalties, so the age isn't an SEO score.
+
+Before paying extra for an old domain, look at its past sites in the archive and at the sites that link to it. Google's spam policies name [expired domain abuse](https://developers.google.com/search/docs/essentials/spam-policies#expired-domains): buying an expired name and using it mainly to manipulate rankings with content that offers little value. Buying an old domain isn't abuse by itself.
+
+## Why is the age missing, or different on another site?
+
+The age is missing when the registry publishes no registration date, or when the domain ending has no public lookup service the checker can use. Neither means the name is new or free to register. `Could not check` means the registry didn't answer or limited requests, so try again in a few minutes.
+
+If another site shows a different age, compare the dates, not the big numbers. This checker counts from a re-registration date when there is one, and rounds the age. The `Fetched` line says when the record was read. A record marked cached is a saved answer up to 24 hours old.
+
+The lookup goes from stack127 to the registry. The website itself isn't contacted. For the rest of the record, such as the registrar, statuses, and nameservers, use the [domain registration lookup](/domain-lookup).
+
+## What do the dates in the result mean?
+
+<Terms>
+<Term name="First registered">The original registration date. It shows when the registry also publishes a later re-registration date.</Term>
+<Term name="Last changed">When the registration record last changed. It doesn't say what changed, and it isn't when the website was edited.</Term>
+<Term name="Registry expiry">When the current paid term ends, as the registry reports it. It isn't a deletion date.</Term>
+<Term name="Registry data">When the registry last updated the database it answered from.</Term>
+</Terms>

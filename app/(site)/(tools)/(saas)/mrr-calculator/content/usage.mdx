@@ -1,0 +1,23 @@
+## What to enter
+
+Add one row for each price and billing term. If some customers on a plan pay a different price, give them their own row.
+
+Count subscriptions, not customers. A customer with two subscriptions counts as two. For per-seat pricing, use what the whole subscription pays.
+
+The price is what one subscription pays for the whole term, after recurring discounts and before tax. A $190 yearly plan goes in as `190` with `Annually`, not as $15.83 a month.
+
+Enter every price in one currency. The currency menu only changes the symbol, so convert other currencies first.
+
+## How to read the result
+
+<Example title="Three plans on different billing terms">
+
+- Starter: 120 subscriptions × $19 a month = $2,280.00
+- Pro yearly: 30 subscriptions × $190 a year ÷ 12 = $475.00
+- Team: 8 subscriptions × $147 a quarter ÷ 3 = $392.00
+
+MRR is $3,147.00. Annualized ARR is $37,764.00.
+
+</Example>
+
+Check the monthly contribution column first. A plan 12 times too high usually has a yearly price with `Monthly` picked. One 12 times too low usually has a monthly price with `Annually` picked.

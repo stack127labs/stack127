@@ -1,0 +1,71 @@
+## How much usable space does each RAID level give?
+
+With equal drives, usable space is a whole number of drives. N is the number of drives, S is the size of the smallest one, and G is the number of groups.
+
+| Level | Min. drives | Usable space | Drives that can fail |
+| --- | --- | --- | --- |
+| RAID 0 | 2 | N × S | None |
+| RAID 1 | 2 | S | N - 1 |
+| RAID 5 | 3 | (N - 1) × S | 1 |
+| RAID 6 | 4 | (N - 2) × S | 2 |
+| RAID 10 | 4, even | N ÷ 2 × S | 1, or one per pair |
+| RAID 50 | 6 | (N - G) × S | 1, or one per group |
+| RAID 60 | 8 | (N - 2G) × S | 2, or two per group |
+| Linear or JBOD | 1 | All drives added up | None |
+
+## What is the RAID write penalty?
+
+It's the number of disk operations one small write causes. To change one small block in RAID 5, the array reads the old data and parity, then writes both.
+
+| Level | Disk operations per small write |
+| --- | --- |
+| RAID 0, Linear, JBOD | 1 |
+| RAID 1 | 1 per drive |
+| RAID 10 | 2 |
+| RAID 5 and RAID 50 | 4 |
+| RAID 6 and RAID 60 | 6 |
+
+It explains why parity layouts are slower at small random writes. It isn't a speed measurement, because caches and full-stripe writes change real performance. [Dell's RAID reference](https://www.dell.com/support/manuals/en-us/unity-880f/unity_p_pool_config/drive-iops-by-raid-type?guid=guid-b32204b2-a11b-4f25-b086-e8c135df04f1&lang=en-us) lists the same counts.
+
+## Can you mix drive sizes in RAID?
+
+Yes, but every drive in a group gives only as much space as the smallest drive in that group. A mirror of a 4 TB and an 8 TB drive holds 4 TB. Linear and JBOD are the exception: they join drives end to end, so every drive counts in full, with no redundancy.
+
+If you want mixed drives with redundancy and little waste, look at Synology SHR in the [SHR calculator](/shr-calculator) or Unraid in the [Unraid calculator](/unraid-calculator). Linux md RAID 0 can also use part of the extra space on larger drives. This calculator doesn't model that.
+
+## Does drive order matter in RAID 10?
+
+Yes. Each mirror pair is limited by its smaller drive, so pairing drives of the same size keeps the most space. The same four drives give different results:
+
+| Order entered | Mirror pairs | Usable | Size mismatch |
+| --- | --- | --- | --- |
+| 4, 4, 8, 8 TB | 4 + 4 and 8 + 8 | 10.91 TiB (12 TB) | 0 |
+| 4, 8, 4, 8 TB | 4 + 8 and 4 + 8 | 7.28 TiB (8 TB) | 7.28 TiB |
+
+RAID 50 and RAID 60 work the same way inside each group.
+
+## How many drives can fail in RAID 10, 50, or 60?
+
+Any one drive can fail in RAID 10 and RAID 50, and any two in RAID 60. More can fail only if they land in different groups.
+
+An eight-drive RAID 10 survives four failed drives if each comes from a different mirror pair. It doesn't survive losing both drives of one pair. In RAID 50 and 60, losing one whole group loses the array.
+
+## Why does my array show less space than the calculator?
+
+Drives are sold in TB, but most computers count in TiB. A TB is 1,000,000,000,000 bytes and a TiB is 1,099,511,627,776 bytes, so a 4 TB drive is 3.64 TiB. Windows shows TiB values but labels them TB, as [Seagate explains](https://www.seagate.com/support/kb/why-does-my-hard-drive-report-less-capacity-than-indicated-on-the-drives-label-172191en/). macOS counts in TB, like the label, according to [Apple](https://support.apple.com/en-us/102119).
+
+The result is also the size of the array before anything is on it. Partitions, the filesystem, reserved space, and snapshots take more. A NAS also keeps a system partition on every drive.
+
+## Should you use RAID 5 or RAID 6?
+
+The difference shows when a drive fails. RAID 5 has no protection left while it rebuilds, so a second failure loses the array. RAID 6 can still lose one more drive.
+
+A rebuild reads every remaining drive, so larger drives take longer to rebuild. The [rebuild calculator](/rebuild-calculator) estimates how long your array would stay exposed.
+
+## Is RAID a backup?
+
+No. RAID keeps the array running when a drive fails. It doesn't protect you from deleted files, ransomware, theft, fire, or a fault that corrupts the whole array. Keep a separate copy and test that it restores. The [3-2-1 backup calculator](/backup-321-calculator) helps you size one.
+
+## What should you check before building the array?
+
+Check that your controller or operating system supports the layout. Some vendors use JBOD to mean separate disks, not one combined volume. ZFS RAIDZ uses different math, so use the [ZFS capacity calculator](/zfs-capacity-calculator) for a ZFS pool, or the [storage layout advisor](/storage-layout-advisor) to compare layouts for your drives and the failures you need to survive.
