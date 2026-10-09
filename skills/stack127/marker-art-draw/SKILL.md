@@ -18,7 +18,7 @@ Use this skill in the current stack127 workspace to turn approved marker art pro
 
 1. Write the spec at `app/<page-path>/art/<figure-slug>.spec.json` with id `<page-slug>--<figure-slug>`. Required fields: id, type, takeaway, source, dataAsOf, seed, data.
 2. Establish the silhouette, focal object, reading direction, and empty space before adding internal marks or labels. One subject or group must dominate.
-3. Keep marker art conceptual. Real claims need an honest source, but exact comparisons and quotable values use the clean-chart pipeline. Never fake or eyeball a value.
+3. Keep marker art conceptual. Real claims need an honest source, but exact comparisons and quotable values use a `UiChart`. Never fake or eyeball a value.
 4. Remove detail that does not help recognition or the takeaway. Spot art has no visible words and at most one supporting object. Avoid repeated tiny symbols, filler marks, crossing connectors, and color used for variety.
 5. Run `npm run stack127:marker-art` (or pass the specific folder to `node scripts/stack127/marker-art/generate.mjs`). Fix every lint error; treat warnings as things to check visually.
 6. Embed in the page: import the generated `.ts` export and render `<MarkerArt svg={...} caption="..." />` (component at `app/ui/site/marker-art.tsx`). For stored Markdown, register the approved figure and use the `marker-art://` reference documented in `stack127_docs/shared-ui.md`. The caption usually restates the takeaway. Doodles use the documented `Doodle` path instead.

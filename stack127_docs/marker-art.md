@@ -150,7 +150,7 @@ Every homepage card needs a spec-backed marker drawing registered in `lib/card-a
 
 ## Data accuracy
 
-- Marker art doesn't show exact values. Use the clean-chart pipeline when a reader needs to compare, quote, or reproduce a number.
+- Marker art doesn't show exact values. Use a `UiChart` (see `stack127_docs/shared-ui.md`) when a reader needs to compare, quote, or reproduce a number.
 - Geometry always comes from the numbers in the spec. Nobody eyeballs a bar length or a pie angle.
 - Every spec has `source` (where the numbers came from) and `dataAsOf` (a date). Real data gets a real source. Conceptual figures say they're conceptual.
 - The generator checks what it can: donut percentages must add up to 100, bar values must be numbers, and line series need at least two points.
