@@ -214,6 +214,12 @@ test('scans only content MDX, passes empty trees, and reports the failing file',
     const file = path.join(root, 'route/content/article.mdx');
     await writeFile(file, 'Intro\n\n# Wrong');
     assert.match((await checkContentFiles(root))[0], new RegExp(`${file}:3:`));
+    await mkdir(path.join(root, 'route/content/category/details'), { recursive: true });
+    const nested = path.join(root, 'route/content/category/details/intro.mdx');
+    await writeFile(nested, 'Intro\n\n# Wrong');
+    const errors = await checkContentFiles(root);
+    assert.equal(errors.length, 2);
+    assert.ok(errors.some(error => error.startsWith(`${nested}:3:`)));
   } finally { await rm(root, { recursive: true, force: true }); }
 });
 
