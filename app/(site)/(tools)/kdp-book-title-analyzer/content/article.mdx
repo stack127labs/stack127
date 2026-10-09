@@ -1,0 +1,27 @@
+## How does the analyzer match words?
+
+It matches exact words, ignoring capitals and punctuation. It doesn't know synonyms, plurals, or word endings, so `balcony` doesn't match `balconies` and `grow` doesn't match `growing`. A target phrase matches only when its words appear together, in order, in one field.
+
+## How long can a KDP title and subtitle be?
+
+Keep them under 200 characters together. At exactly 200, KDP's own pages disagree. The [metadata guidelines](https://kdp.amazon.com/en_US/help/topic/G201097560) say "fewer than 200 characters", and the [titles and editions page](https://kdp.amazon.com/en_US/help/topic/GW7J4WEKBVU25YEC) says "200 characters or less".
+
+The analyzer warns at 200 and flags anything over it. The [KDP metadata checker](/kdp-metadata-checker) follows the stricter rule and flags 200 too.
+
+<Note title="Counts can differ from KDP's">
+
+The analyzer counts every character, including spaces and punctuation, plus one for the gap between title and subtitle. KDP doesn't say how it counts emoji or accented letters. Aim for 199 or fewer.
+
+</Note>
+
+## What can't you put in a KDP title?
+
+KDP's [titles and editions page](https://kdp.amazon.com/en_US/help/topic/GW7J4WEKBVU25YEC) rules out repeated generic keywords like "notebook" or "gifts", others' titles, names, or trademarks without permission, sales rank claims like "bestselling", promotional words like "free", placeholder text like "n/a", a title that's only punctuation, and HTML.
+
+Your title must also match your cover and be the same across paperback, hardcover, and eBook. The analyzer checks only for HTML and a title with no letters or numbers. The metadata checker also flags promotional words.
+
+## Will a keyword in my title help my book rank?
+
+No one can promise that. KDP says it [can't guarantee top search placement](https://kdp.amazon.com/en_US/help/topic/GATLM5TG2NFRXQ89), and that order depends on things like past sales, availability, time listed, and popularity. The analyzer shows which words your title uses. It can't predict clicks, rank, or sales.
+
+Put the phrases that didn't fit your title into the [KDP backend keywords builder](/kdp-backend-keywords-builder), then check the whole listing with the [KDP metadata checker](/kdp-metadata-checker).

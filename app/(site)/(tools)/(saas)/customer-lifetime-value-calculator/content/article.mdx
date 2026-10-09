@@ -1,0 +1,96 @@
+## How is customer lifetime value calculated?
+
+Lifetime gross profit is one period's gross profit divided by the customer churn rate. ARPA, margin, and churn all use the period you chose.
+
+<Formula title="Lifetime gross profit">
+
+Gross profit per period = ARPA × gross margin.
+
+Lifetime gross profit = gross profit per period ÷ customer churn.
+
+Model lifetime = 1 ÷ customer churn.
+
+</Formula>
+
+This is a simple model with a constant rate. Each customer pays the first period in full. After that, the same share of the customers still paying leaves every period. So the expected gross profit per starting customer shrinks a little each period, and the totals add up toward the lifetime figure. Churn has to be above zero for the lifetime figure to exist.
+
+At 100% churn, everyone leaves after the first period. With $50 of monthly ARPA and an 80% margin, lifetime gross profit is $40.00 and model lifetime is 1.0 month.
+
+[ChartMogul's LTV guide](https://chartmogul.com/saas-metrics/ltv/) gives this gross-profit formula and calls lifetime value a forward-looking estimate, not a record of past payments. ChartMogul's own in-app LTV chart is different. Its [help page](https://help.chartmogul.com/article/208-chart-customer-lifetime-value-ltv) says it divides average revenue by a six-month trailing average of churn and leaves margin out. So a number from that chart won't match this page.
+
+## How is revenue LTV different from gross-profit LTV?
+
+Revenue LTV uses the same churn but keeps serving costs in. In the example above, revenue LTV is $50 ÷ 3% = $1,666.67. Lifetime gross profit uses 80% of the $50, so it's $1,333.33.
+
+Gross profit is the main result because it's what a customer leaves after serving costs, to pay for everything else. [Stripe's customer lifetime value guide](https://stripe.com/resources/more/customer-lifetime-value) notes that a customer who pays more can be worth less if the margin is thin. Stripe's guide shows several formulas. This page uses only the gross-profit formula above.
+
+## Can you mix monthly revenue with yearly churn?
+
+No. Both numbers have to cover the same period, and a monthly churn rate times 12 isn't the yearly rate.
+
+If 5% of the customers still paying leave each month, about 54% of the starting group are still paying after 12 months. About 46% have left, not 60%. The calculator won't convert between the two. If you need a yearly rate, work it out from your own data before you type it.
+
+| What you measured | Don't enter | Enter |
+| --- | --- | --- |
+| $50 per customer each month, and 5% leaving each month | Yearly churn of 60% | `Per month`, ARPA `50`, churn `5` |
+| Revenue per customer for a year, and the share who left that year | The yearly share divided by 12 | `Per year`, with the yearly revenue and the yearly churn |
+
+Revenue does add up across months. Twelve payments of $50 are $600 a year. You can enter `50` per month or `600` per year, as long as churn is for the same period.
+
+A yearly example: $24,000 of yearly ARPA, a 75% margin, and 20% yearly churn give $18,000.00 of gross profit a year and $90,000.00 of lifetime gross profit. Model lifetime is 5.0 years. Year 1 brings in $18,000.00, which is 20.0% of the lifetime total.
+
+## What does model lifetime mean?
+
+It's 1 ÷ churn, in the period you chose. At 3% a month, model lifetime is 33.3 months. That's the average number of paid periods this model implies. It isn't how long your customers have actually stayed, and it doesn't promise that a new customer will stay 33.3 months.
+
+## What if customer churn is zero?
+
+The result says `Not estimable`. If no one ever leaves, this model has no end, so there's no finite lifetime total. The result doesn't show $0, and it doesn't claim customers stay forever.
+
+The checkpoint table still fills in, because 1, 2, 3, and 5 years are finite. Each period adds one full period of gross profit. With $40.00 a month and 0% churn, month 12 is $480.00, month 24 is $960.00, month 36 is $1,440.00, and month 60 is $2,400.00. The share of LTV says `n/a`, because there's no lifetime total to take a share of.
+
+## How much of the estimate arrives in the first few years?
+
+The checkpoint table answers this for the churn you entered. The rows are fixed reading points, not a forecast from your data or a suggested contract length.
+
+For $50 a month, 80% margin, and 3% monthly churn:
+
+| By the end of | Gross profit | Share of LTV |
+| --- | --- | --- |
+| Month 12 | $408.21 | 30.6% |
+| Month 24 | $691.44 | 51.9% |
+| Month 36 | $887.96 | 66.6% |
+| Month 60 | $1,118.92 | 83.9% |
+
+So about 16% of the $1,333.33 is expected after year 5.
+
+<Warning title="Low churn puts most of the value in later years">
+
+Drop churn to 0.5% a month and the same $40.00 a month becomes $8,000.00 of lifetime gross profit, with a model lifetime of 200.0 months. By month 60 only $2,077.91 has arrived, 26.0% of the total. The result then says less than half arrives in the first 5 years. Most of that $8,000.00 depends on churn staying that low for many more years.
+
+</Warning>
+
+## What if gross margin is zero or negative?
+
+Both are allowed. A negative margin means each customer loses you money.
+
+A margin of `-20` on $50 of monthly ARPA is a loss of $10.00 a month. At 5% monthly churn, lifetime gross profit is a loss of $200.00, and month 12 shows a loss of $91.93. Revenue LTV is still $1,000.00, because it ignores serving costs.
+
+A margin of 0 gives $0.00 of lifetime gross profit and $0.00 at every checkpoint.
+
+## Is my LTV good or bad?
+
+The calculator doesn't grade it. There's no single healthy LTV, because it only means something next to what a customer costs to win. Compare it with your acquisition cost on the [LTV to CAC calculator](/ltv-cac-calculator).
+
+## What this estimate doesn't measure
+
+It doesn't read your customer data or report what past customers actually paid. It keeps ARPA, margin, and churn constant. It leaves out upgrades, downgrades, price changes, refunds, and the lower value of money that arrives later. Real groups of customers often cancel faster in the first months than a steady rate suggests.
+
+Formula estimates can miss by a lot. In its [2026 SaaS LTV report](https://chartmogul.com/reports/saas-ltv-report/), ChartMogul checked its revenue formula against what customers actually paid. It used 35,512 groups of customers from 3,331 company accounts, each group starting in a quarter from early 2020 to late 2024, with revenue tracked through June 2026. Over the first 12 months, 28.3% of the groups earned more than 50% above or below the formula's prediction. That test used ChartMogul's revenue formula, not this page's gross-profit model. Read the result as a scenario, not money you're sure to collect.
+
+Next steps:
+
+- [Customer acquisition cost calculator](/customer-acquisition-cost-calculator): what winning one customer cost.
+- [LTV to CAC calculator](/ltv-cac-calculator): lifetime gross profit compared with that cost.
+- [CAC payback calculator](/cac-payback-calculator): the month a group earns its cost back while customers leave.
+- [SaaS metrics calculator](/saas-metrics-calculator): a simpler lifetime estimate inside a one-month snapshot.

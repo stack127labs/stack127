@@ -1,0 +1,27 @@
+## What to enter
+
+- Image file. One JPEG or PNG, up to 25 MiB, 20,000 pixels per side, and 40 million pixels in total. To check a crop, export the cropped image first and choose that file.
+- Print size. The width or height of the space the image fills on the printed page, which may be smaller than the page. With **Keep proportions** on, the other side fills in. For an image that runs off the page edge, include the bleed.
+- **No size yet?** Leave both boxes blank to see the largest size the image prints at 300 DPI.
+
+Use a dot for decimals, like `4.5`. Turn off Keep proportions only to test a stretched image. You'll then need both sides.
+
+## How to read the result
+
+- **Effective resolution** is the image's DPI at the size you entered. If the two sides differ, the lower one counts.
+- **Maximum size at 300 DPI** is the largest the whole image prints and still meets KDP's 300 DPI. A `~` means the number is rounded.
+- **Stored density** is the DPI tag saved in the file. It doesn't affect the result.
+
+<Example title="One 1,200 × 1,800 pixel image at three sizes">
+
+The same file gives three different results, because only the printed size changes.
+
+</Example>
+
+| Printed size | Effective DPI | Result |
+| --- | --- | --- |
+| 4 × 6 in | 300 | Meets the 300 DPI target |
+| 6 × 9 in | 200 | Below the target |
+| 8 × 12 in | 150 | Low resolution |
+
+Stretched to 4 × 8 in, the same image is 300 DPI across but 225 DPI down, so the result is 225 DPI.

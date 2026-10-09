@@ -1,0 +1,98 @@
+## How is customer acquisition cost calculated?
+
+Customer acquisition cost (CAC) is the acquisition spending you counted, divided by the new paying customers you counted. The calculator keeps three versions apart because each answers a different question.
+
+<Formula title="Three versions of CAC">
+
+Cash CAC = cash acquisition costs ÷ new paying customers.
+
+CAC with founder time = (cash costs + your hours × your hourly value) ÷ the same customers.
+
+Paid media CAC = paid media ÷ paid-sourced customers.
+
+</Formula>
+
+The cash figure is the main result. [Stripe's guide to CAC in SaaS](https://stripe.com/resources/more/cac-in-saas) uses the same basic formula: total sales and marketing costs divided by new customers acquired.
+
+## Which costs belong in CAC?
+
+Count the costs you spent to win new customers. The fields give each kind of cost a place. They aren't a full list of accounts you must fill in.
+
+| Field | What belongs there |
+| --- | --- |
+| Paid media | Ads and sponsored placements. |
+| Sales and marketing pay | Salary and commission for people who work on winning customers full time. |
+| Agencies and freelancers | Outside help hired to win customers. |
+| Tools, content, and events | Software, content, sponsorships, and events used to win customers. |
+| Shared costs | A cost that only partly wins customers, such as a mixed role, rent, or general software. |
+| Founder time | Your unpaid hours, priced at a rate you choose. This row isn't cash. |
+
+Stripe's guide says to leave out customer support, infrastructure, and research and development (R&D), and to count only costs tied directly to winning new users. They stay out of CAC, but they don't all go to the same place:
+
+- Costs to serve paying customers, such as hosting, support, and payment fees, lower your gross margin. They go into the margin you enter on the [customer lifetime value calculator](/customer-lifetime-value-calculator).
+- Costs to build the product, such as engineers and designers working on new features, are usually operating costs. They belong in neither CAC nor gross margin. They are part of the fixed monthly costs on the [break-even MRR calculator](/break-even-mrr-calculator), which finds the revenue that covers them.
+
+Count each cost once. If a person or tool does several jobs, put only the acquisition part here, through shared costs. Don't also count that same part in gross margin.
+
+A blank row is left out. A row with 0 is counted and adds nothing.
+
+## How do you split a cost that only partly wins customers?
+
+Turn on shared costs and pick a split you can explain.
+
+- `Fixed share` uses the percent you type. A 12.5% share of $4,000 adds $500.00.
+- `Hours` uses acquisition hours divided by total hours. A $9,000 shared cost with 120 acquisition hours out of 400 adds $2,700.00.
+- `Headcount` works the same way with people. A part-time person can be 0.5. Total headcount has to be above 0, and the acquisition part can't be higher than the total.
+
+The line under the allocated amount repeats the split you entered. The calculator can't check that your hours, people, or percent are right.
+
+## Should you count your own unpaid time?
+
+Count it as a second figure when you want to know what the work would cost if you paid for it. Cash CAC stays the same either way, so you can still compare it with a team that pays for the same work.
+
+In the example above, cash CAC is $75.00. Add 40 unpaid hours at $75.00 an hour and founder time is $3,000.00. CAC with founder time is $225.00, and cash CAC is still $75.00.
+
+The hourly value is your choice. It could be what you'd pay someone else, or what you earn elsewhere. The calculator doesn't suggest one.
+
+## Why is paid media CAC a different number?
+
+It uses a different cost and a different customer count. Cash CAC divides every counted cost by every new paying customer. Paid media CAC divides only the paid-media field by the customers you credit to paid media.
+
+<Example title="Ads, pay, and tools">
+
+Paid media is $5,000, sales and marketing pay is $3,000, and tools are $2,000. That's $10,000 over 100 new paying customers, so cash CAC is $100.00. If 40 of those customers came from paid media, paid media CAC is $5,000 ÷ 40 = $125.00.
+
+</Example>
+
+The two numbers aren't meant to match. The $125.00 is ad spend per ad-sourced customer. It leaves out the pay, tools, and agencies that also helped win them. If paid-sourced customers is 0, cash CAC still works, and the paid-media line says there is no paid media CAC.
+
+## What if spend and new customers fall in different months?
+
+The timing choice says what you paired. It can't fix a long sales cycle for you.
+
+<Warning title="Same period doesn't mean the costs won these customers">
+
+If a sale takes longer than your period, some of this period's spend may win customers you haven't signed yet. Some of this period's customers may have come from earlier spend. Stripe's guide makes the same point. Choose `Matched to these customers` only after you've assigned the costs yourself. The calculator doesn't move spend between periods or check your matching.
+
+</Warning>
+
+Both choices give the same number for the same inputs. Check the timing line under the result before you compare two calculations.
+
+## What if there were no new paying customers?
+
+The result says `No new customers`. The spend still shows, but there's no cost per customer, because the calculator won't divide by zero.
+
+$5,000 of paid media and 0 customers means $5,000.00 was spent and there's no CAC. Ten customers with paid media typed as 0 is different. That cash CAC is $0.00.
+
+## What CAC doesn't tell you
+
+There's no single good CAC to aim for. Stripe's guide says there's no universal CAC benchmark across SaaS. This page doesn't score your result or tell you to spend less.
+
+It isn't the figure your accountant uses either. US accounting rules under ASC 340-40 decide when some costs of winning a contract, such as a commission paid only when a contract is signed, are spread over time. The [FASB memo on costs to obtain a contract](https://storage.fasb.org/REVREC_TRG_Memo_23_Costs_to_Obtain_a_Contract.pdf) covers that question. It doesn't define the fields on this page.
+
+CAC isn't lifetime value, a payback period, or cash collected from customers. For those:
+
+- [Customer lifetime value calculator](/customer-lifetime-value-calculator): the gross profit one customer may bring in.
+- [LTV to CAC calculator](/ltv-cac-calculator): lifetime value compared with this cost.
+- [CAC payback calculator](/cac-payback-calculator): the month a group of customers earns the cost back, counting the ones who leave.
+- [SaaS metrics calculator](/saas-metrics-calculator): a quick monthly snapshot with one spend figure and one new-customer count.

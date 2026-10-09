@@ -1,0 +1,45 @@
+## How does the estimator turn words into pages?
+
+It works out how much text fits on one page, then divides your word count by it. KDP doesn't publish a formula for this, so these are stack127's own assumptions.
+
+<Formula title="Words per page">
+
+Text area: `trim size - margins`
+
+Characters per line: `text width ÷ (font size ÷ 72 × font width factor)`
+
+Lines per page: `text height ÷ (font size ÷ 72 × line spacing)`
+
+Words per page: `characters per line × lines per page ÷ 5`, then 80% to 120% of that for the range
+
+</Formula>
+
+Characters per line and lines per page round down, with a minimum of one. The lower words-per-page estimate rounds down and the upper estimate rounds up.
+
+The font width factor is 0.5 for serif, 0.52 for sans, and 0.6 for monospaced. Pages from text are `words ÷ words per page`, rounded up. Then the added pages go on top.
+
+## Why might my real book have more pages?
+
+The model assumes full lines and pages, with five character slots per word and no separate slot for spaces. Its upper words-per-page estimate is 20% above that nominal capacity. The range isn't calibrated against typeset manuscripts and can underestimate your page count. Real layouts use more space:
+
+- Short paragraphs and dialogue leave the end of many lines empty.
+- Headings, scene breaks, and block quotes take extra space.
+- Chapters that start on a right-hand page can add a blank page each.
+- Images placed between paragraphs take space the word count doesn't show.
+- Your actual font may be wider or narrower than its class.
+
+So use the range to compare layouts, not as a final number. Once your book is typeset, the exported PDF's page count is the real one.
+
+## What are KDP's page count limits?
+
+Paperbacks need at least 24 pages, or 72 in standard color. The most is 828 pages, or fewer for some trims, inks, and papers. Hardcovers need 75 to 550 pages. The estimator warns below 24 and above 828, but it doesn't check hardcover limits or your ink and paper. See KDP's [paperback submission guidelines](https://kdp.amazon.com/en_US/help/topic/G201857950) and [hardcover specs](https://kdp.amazon.com/en_US/help/topic/GVBQ3CMEQW3W2VL6).
+
+## What does page count change?
+
+Page count sets your spine width, your minimum inside margin, and your printing cost. A few extra pages can move you into a wider margin band.
+
+- See your spine, cover size, and margins in the [KDP book setup calculator](/kdp-book-setup-calculator).
+- See what you earn per sale in the [KDP royalty calculator](/kdp-royalty-calculator).
+- Find the lowest price KDP allows in the [KDP minimum list price calculator](/kdp-minimum-list-price-calculator).
+
+When your PDF is ready, check its size and page count with the [KDP PDF preflight checker](/kdp-pdf-preflight-checker).

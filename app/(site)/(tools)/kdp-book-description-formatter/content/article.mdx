@@ -1,0 +1,35 @@
+## Which HTML tags does KDP allow in a description?
+
+KDP's [description guidance](https://kdp.amazon.com/en_US/help/topic/G201189630) lists these, and the formatter keeps only these:
+
+| Tag | Does |
+| --- | --- |
+| `<p>` | Paragraph |
+| `<br>` | Line break |
+| `<b>` | Bold |
+| `<i>`, `<em>` | Italic |
+| `<u>` | Underline |
+| `<h4>`, `<h5>`, `<h6>` | Heading |
+| `<ul>`, `<ol>`, `<li>` | Bulleted or numbered list |
+
+`<h1>`, `<h2>`, and `<h3>` aren't supported.
+
+## What happens to bold and unsupported headings?
+
+The formatter converts `<strong>` to `<b>` and `<h1>` to `<h3>` to `<h4>`. It keeps the bold and heading boundaries and lists each conversion under What changed. Other unsupported wrappers lose their tags but keep their text.
+
+## Does KDP's 4,000-character limit include HTML?
+
+Yes. Every tag counts. A bulleted list of 10 items adds 99 characters of tags before any text. Some characters cost extra too: `&` becomes `&amp;`, five characters, and `<` becomes `&lt;`, four.
+
+The formatter counts Unicode characters. KDP doesn't say how it counts emoji or accented letters, so check KDP's own counter after you paste. Above 4,000, the formatter tells you how far over you are and holds back the copy button.
+
+## Does formatting check what the description says?
+
+No. It only cleans the HTML. KDP's [metadata guidelines](https://kdp.amazon.com/en_US/help/topic/G201097560) also rule out contact details and links, reviews and quotes, requests for reviews, ads, time-limited offers, and spoilers. Paste your result into the [KDP metadata checker](/kdp-metadata-checker), which flags links, email addresses, review requests, and promotional words.
+
+## What if KDP still shows an error?
+
+If KDP says the description has invisible characters, they likely came from copying out of a document. The formatter removes zero-width spaces, U+200B, word joiners, U+2060, and byte order marks, U+FEFF. It records these changes and rejects output with no visible text. It preserves other Unicode formatting characters, so cleanup may not fix every hidden-character error. KDP's [troubleshooting page](https://kdp.amazon.com/en_US/help/topic/GC4VASCGNQP6LQ7L) suggests typing the description in by hand or checking the source for unsupported HTML.
+
+After you save, look at the description on your KDP listing. Your text stays in your browser and isn't sent to a formatting service.

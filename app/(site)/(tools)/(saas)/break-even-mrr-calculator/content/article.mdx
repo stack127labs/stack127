@@ -1,0 +1,112 @@
+## How is break-even MRR calculated?
+
+Break-even MRR is your fixed monthly cost divided by the share of each revenue dollar left after variable costs. The account count divides the same fixed cost by what one account contributes, then rounds up to a whole account.
+
+Contribution is monthly ARPA minus the variable cost of one account. ARPA means average revenue per account. The contribution ratio is contribution divided by ARPA.
+
+<Formula title="Per account">
+
+Break-even MRR = fixed costs ÷ contribution ratio
+
+Accounts = fixed costs ÷ contribution per account, rounded up
+
+</Formula>
+
+The [SBA's break-even guidance](https://legacy.sba.gov/business-guide/plan-your-business/calculate-your-startup-costs/break-even-point) uses the same division. You can't sell part of an account, so the count rounds up. The revenue figure rounds up to the next cent, so it never falls short.
+
+<Example title="$25,000 fixed, $49 a month, $8 variable cost">
+
+Contribution is $41.00 per account. The ratio shows 83.67%, which is $41 ÷ $49 rounded to a hundredth of a percent. The math uses the exact ratio.
+
+$25,000 × $49 ÷ $41 comes to $29,878.048..., so break-even MRR is $29,878.05.
+
+$25,000 ÷ $41 is 609.76 accounts, so you need 610. Those accounts bring $29,890.00 of MRR, which leaves $10.00 after fixed costs.
+
+</Example>
+
+$29,878.05 is the smallest monthly revenue that covers the costs. $29,890.00 is what 610 whole accounts bring in. The page shows both.
+
+## Which costs are fixed, and which grow?
+
+Fixed costs stay put as the account count changes. Variable costs grow with accounts or with revenue. The SBA guidance says to split a cost that has both parts, and to turn a yearly bill into a monthly amount.
+
+| Cost | Where it goes |
+| --- | --- |
+| Rent, salaries, and software you pay with no new accounts | Fixed, per month or per year |
+| A hosting minimum you pay even with no usage | Fixed |
+| Hosting or support that rises with accounts or usage | Variable, per account |
+| Payment fees that are a percent of revenue | Variable, as a share of MRR |
+| Your own pay, when this result should cover it | Fixed |
+| A bill with a fixed part and a growing part | Split it. Don't enter the same dollars twice. |
+
+A yearly line of $100 shows $8.33 a month, because $100 ÷ 12 doesn't land on a whole cent. The math keeps the exact twelfth.
+
+[Stripe's gross margin guide](https://stripe.com/resources/more/saas-gross-margin-explained-what-it-is-and-why-it-is-important) puts hosting, support, and payment processing in the cost to serve. Some of that cost is fixed, and some of it grows. If your gross margin already subtracts a fixed hosting minimum or a support salary, don't use that whole margin as the variable share. Enter the fixed part on a fixed line and only the growing part as variable.
+
+A steady sales payroll can sit on a fixed line when you want the result to cover it. Ad spend that grows with each new customer is the cost of winning customers, and this page leaves it out. Use the [CAC payback calculator](/cac-payback-calculator) for that.
+
+## Should your own pay be included?
+
+Include it when you want the revenue that covers your pay and the other fixed costs. Leave it off when you want the other bills only. The breakdown shows the lines you included.
+
+<Warning title="The result stops at zero profit">
+
+Break-even MRR covers the costs on your list and nothing more. It doesn't add a profit goal, a tax reserve, or a cost you left off. This calculator doesn't ask for a target profit.
+
+</Warning>
+
+## What if variable costs are a share of MRR?
+
+Use `Share of MRR` when the variable cost is a percent of recurring revenue. Break-even MRR is then fixed monthly cost divided by the share you keep.
+
+<Formula title="Share of MRR">
+
+Break-even MRR = fixed costs ÷ (1 - variable share)
+
+</Formula>
+
+$4,500 of fixed costs and a 20% variable share leave 80 cents of each revenue dollar, so break-even MRR is $5,625.00. Leave ARPA blank and the revenue answer is still complete, but there's no account count.
+
+Add an ARPA of $29 and contribution is $23.20 per account. You need 194 accounts. Those bring $5,626.00, which leaves $0.80 after fixed costs.
+
+The share stops at 100%, so this mode can't show an account that loses money. Use `Per account` with a variable cost above ARPA for that case.
+
+## What does current MRR change?
+
+Current MRR shows where today's recurring revenue sits against break-even. It doesn't change break-even MRR.
+
+Take $1,000 of fixed costs, $50 of ARPA, and $10 of variable cost. Contribution is $40.00 and break-even MRR is $1,250.00. 25 accounts bring exactly $1,250.00, so the two revenue figures match here.
+
+| Current MRR | Monthly result now | Gap | More accounts at $50 |
+| --- | --- | --- | --- |
+| $500 | -$600.00 | MRR still needed: $750.00 | 15 |
+| $5,000 | $3,000.00 | Above break-even by $3,750.00 | 0 |
+
+At $500 of current MRR, variable costs leave $400.00, which is $600.00 short of the $1,000 fixed cost. Each extra account adds $40.00, so 15 accounts close that $600.00 gap.
+
+When the main result isn't a dollar amount, `Monthly result now` still shows. The revenue gap and the extra accounts stay blank.
+
+## When is there no break-even point?
+
+There's no break-even point when each account contributes nothing or loses money. More accounts can't close a fixed-cost gap then.
+
+| Contribution | Fixed costs | Main result |
+| --- | --- | --- |
+| Positive | Above 0 | The dollar amount |
+| Positive | 0 | `$0.00`. Any paying account adds profit. |
+| Zero | Above 0 | `No break-even point`. More accounts never cover the fixed costs. |
+| Negative | Above 0 | `No break-even point`. More accounts widen the gap. |
+| Zero | 0 | `Breaks even at any MRR` |
+| Negative | 0 | `Only at $0 MRR`. Each added account loses money. |
+
+ARPA of $29 and a variable cost of $29, with $4,500 fixed, leaves $0.00 per account, so more accounts never cover that $4,500. A variable cost of $30 loses $1.00 per account, so more accounts widen the gap. At a current MRR of $2,900, monthly result now is -$4,600.00.
+
+## Is break-even MRR cash, or a date?
+
+Neither. It is the monthly rate of recurring revenue that covers this cost list. [ChartMogul's MRR definition](https://chartmogul.com/saas-metrics/mrr/) spreads each subscription across its billing interval and leaves one-time charges out, so MRR is not the cash you collect this month.
+
+[Stripe's guide to subscription revenue recognition](https://stripe.com/gb/resources/more/revenue-recognition-for-subscription-based-businesses-explained) also counts revenue as the service is delivered. A customer can pay for a year up front and still add one twelfth to MRR. This page doesn't predict the month you'll reach break-even, and it isn't an income statement.
+
+One ARPA is an average, and several plans can drift from it. The SBA notes that one average can misstate a mix of products. Use a weighted average, or run the calculator once per plan.
+
+Next, the [CAC payback calculator](/cac-payback-calculator) shows how many months of gross profit repay the cost of one new customer. Build that cost in the [customer acquisition cost calculator](/customer-acquisition-cost-calculator) when it needs its own lines. The [customer lifetime value calculator](/customer-lifetime-value-calculator) and the [LTV:CAC calculator](/ltv-cac-calculator) compare what a customer is worth with what they cost. The [SaaS metrics calculator](/saas-metrics-calculator) gives the wider picture for one month.

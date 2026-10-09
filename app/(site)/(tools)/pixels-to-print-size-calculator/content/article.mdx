@@ -1,0 +1,42 @@
+## How do you convert pixels to inches?
+
+Divide the pixels by the PPI. For metric, multiply the inches by 2.54 for centimeters or 25.4 for millimeters. One inch is exactly 2.54 cm, as [NIST defines](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8).
+
+<Formula title="Print size">
+
+`inches = pixels ÷ PPI`
+
+`centimeters = inches × 2.54`
+
+</Formula>
+
+[Adobe's guide to print resolution](https://helpx.adobe.com/photoshop/desktop/crop-resize-transform/resize-adjust-resolution/printed-image-resolution.html) explains the same relationship.
+
+## How many pixels do I need for a full page?
+
+Multiply the page size by 300. For common KDP trim sizes:
+
+| Trim size | Pixels at 300 PPI | With interior bleed |
+| --- | --- | --- |
+| 5 × 8 in | 1500 × 2400 | 1538 × 2475 |
+| 5.5 × 8.5 in | 1650 × 2550 | 1688 × 2625 |
+| 6 × 9 in | 1800 × 2700 | 1838 × 2775 |
+| 8.5 × 11 in | 2550 × 3300 | 2588 × 3375 |
+
+Bleed adds 0.125 in to the width and 0.25 in to the height. For other trims and for full covers, use the [KDP book setup calculator](/kdp-book-setup-calculator).
+
+## Is PPI the same as DPI?
+
+Not quite. PPI is how many image pixels fill an inch of paper. DPI is how many ink dots a printer puts down per inch. Print guides, KDP included, often say DPI when they mean image PPI, so treat a "300 DPI" request as 300 PPI here.
+
+## What PPI should I use?
+
+Use the number your printer or publisher gives you. KDP asks for at least 300 for images in print books, in its [formatting fixes guide](https://kdp.amazon.com/en_US/help/topic/G201834260). Large prints seen from farther away can use less, as [Adobe explains](https://helpx.adobe.com/photoshop/desktop/crop-resize-transform/resize-adjust-resolution/resolution-specs-for-printing-images.html).
+
+## Does changing the PPI change my image?
+
+In this calculator, changing PPI changes only the calculated print size. In an image editor, turn off Resample to change PPI without changing the pixels. See [Adobe's guide to print size and resolution](https://helpx.adobe.com/photoshop/desktop/crop-resize-transform/resize-adjust-resolution/change-print-dimensions-and-resolution.html).
+
+## What can't this calculator tell you?
+
+It works from the numbers you type and doesn't open the image. It can't tell you whether the image will look sharp. To check a real file at the size it fills in a KDP book, use the [KDP image DPI checker](/kdp-image-dpi-checker).
