@@ -8,10 +8,10 @@ Work through the steps in order. Step 0 and Part 1 ship together in pull request
 
 | Step | What | Who | Pull request | Status |
 | --- | --- | --- | --- | --- |
-| 0 | Ship the current work | Opus, Sol review | #35 | Reviewed, CI passed, waiting to merge with Part 1 |
-| 1a | Chart docs and skills | Opus | #35 | Done, in Sol review |
-| 1b | Move every chart to `UiChart` | Claude Opus worker, Sol review | #35 | Done, in Sol review |
-| 1c | Preview server readiness fix | Sol | #35 | Done, in Sol review |
+| 0 | Ship the current work | Opus, Sol review | #35 | Done, Sol approved |
+| 1a | Chart docs and skills | Opus | #35 | Done, Sol approved |
+| 1b | Move every chart to `UiChart` | Claude Opus worker, Sol review | #35 | Done, Sol approved |
+| 1c | Preview server readiness fix | Sol | #35 | Done, Sol approved |
 | 2a | Content design doc | Opus | PR C | Not started |
 | 2b | Pilot: MDX setup, export script, two pages | Claude Opus worker, Sol for the script, Sol review | PR C | Not started |
 | 2c | Docs and skills for content in code | Opus | PR C | Not started |
