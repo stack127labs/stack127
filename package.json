@@ -86,9 +86,11 @@
     "check:static": "node scripts/stack127/check-static-routes.mjs"
   },
   "dependencies": {
+    "@internationalized/date": "^3.12.4",
     "@namefi/dnssec-audit": "^2.1.1",
     "@types/pg": "^8.20.0",
     "dns-packet": "^5.6.1",
+    "echarts": "^6.1.0",
     "lucide-react": "^1.18.0",
     "next": "16.2.9",
     "pdf-lib": "^1.17.1",

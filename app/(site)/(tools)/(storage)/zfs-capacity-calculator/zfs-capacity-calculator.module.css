@@ -16,7 +16,7 @@
 }
 
 .settingsGrid {
-  align-items: end;
+  align-items: start;
   display: grid;
   gap: var(--space-4);
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -29,10 +29,14 @@
 }
 
 .optionalGrid {
-  align-items: end;
+  align-items: start;
   display: grid;
   gap: var(--space-4);
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.optionalGrid > :first-child {
+  margin-top: var(--control-label-offset);
 }
 
 .optionalSection {
@@ -365,6 +369,10 @@
   .settingsGrid,
   .optionalGrid {
     grid-template-columns: 1fr;
+  }
+
+  .optionalGrid > :first-child {
+    margin-top: 0;
   }
 
   .quickSetup {

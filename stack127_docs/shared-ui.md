@@ -39,7 +39,9 @@ import { UiDataTable } from "@/app/ui/display";
 import { Callout } from "@/app/ui/callout";
 ```
 
-The gallery shows reusable controls, results, content blocks, cards, and directory filters. It links to real pages for full layouts. The TypeScript props beside each component are the full API. The table above helps you pick the right one.
+The gallery is the component library. It groups components by what they do, not by the page family that first used them, because any page can use any component. Its sidebar links one page per section: text and choices, numbers and sliders, actions and forms, file uploads, filters and sorting, results, tables, charts, cards, content, media and art, feedback and dialogs, navigation, and page layout. `/components-ui` lists every section and its components. Page layout links to real pages for full layouts. The TypeScript props beside each component are the full API. The table above helps you pick the right one.
+
+To add a component to the gallery, add an `Example` to the matching file in `app/(site)/(components-ui)/components-ui/examples/` and add its name to that section in `sections.ts`. Add a new section only when no existing type fits.
 
 ### When to add a component
 

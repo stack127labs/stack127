@@ -1,0 +1,297 @@
+.figure {
+  display: grid;
+  gap: var(--space-5);
+  margin: 0;
+  min-width: 0;
+}
+
+.caption {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+}
+
+/* Range buttons and dates */
+
+.toolbar {
+  align-items: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5) var(--space-8);
+  justify-content: space-between;
+}
+
+.ranges {
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  display: inline-flex;
+  height: var(--control-height-field);
+}
+
+.rangeButton {
+  background: transparent;
+  border: 0;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  min-width: 48px;
+  padding: 0 var(--space-4);
+}
+
+.rangeButton + .rangeButton {
+  border-left: 1px solid var(--color-border);
+}
+
+.rangeButton:hover {
+  background: var(--color-surface-2);
+  color: var(--color-text);
+}
+
+.rangeButton[aria-pressed="true"] {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-weight: var(--weight-semibold);
+}
+
+.rangeButton:focus-visible,
+.legendButton:focus-visible {
+  box-shadow: var(--focus-ring);
+  outline: none;
+  position: relative;
+}
+
+.dates {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(2, minmax(0, 200px));
+}
+
+/* Legend: each name turns its line on or off. A dim name is off. */
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.legendItem,
+.legendButton {
+  align-items: center;
+  color: var(--color-text);
+  display: inline-flex;
+  font-size: var(--text-small);
+  gap: var(--space-3);
+}
+
+.legendButton {
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+  min-height: 36px;
+  padding: 0 var(--space-2);
+}
+
+.legendButton[aria-pressed="false"] {
+  color: var(--color-text-muted);
+  opacity: 0.55;
+}
+
+.legendButton[aria-pressed="false"] .swatch {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.legendButton:disabled {
+  cursor: default;
+}
+
+.swatch {
+  border-radius: 2px;
+  display: inline-block;
+  flex: 0 0 auto;
+  height: 12px;
+  width: 12px;
+}
+
+.swatch[data-series="0"] { background: var(--color-data-chartreuse); }
+.swatch[data-series="1"] { background: var(--color-data-cyan); }
+.swatch[data-series="2"] { background: var(--color-data-blue); }
+.swatch[data-series="3"] { background: var(--color-data-yellow); }
+.swatch[data-series="4"] { background: var(--color-data-red); }
+.swatch[data-series="5"] { background: var(--color-data-violet); }
+.swatch[data-series="6"] { background: var(--color-data-green); }
+
+/* The drawing. The server's SVG shows until the browser has drawn its own. */
+
+.plot {
+  min-width: 0;
+  position: relative;
+}
+
+.serverDrawing,
+.host {
+  inset: 0;
+  position: absolute;
+}
+
+.serverDrawing svg,
+.staticDrawing svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+/* Letters that hang below the line ("p", "y") may reach past the drawing's edge. */
+.plot svg {
+  overflow: visible;
+}
+
+/* Static charts are for articles: reading width, drawn on the server at a wide and a narrow size. */
+.static {
+  max-width: var(--measure-prose);
+}
+
+.narrowDrawing {
+  display: none;
+}
+
+/* A donut's total sits in the hole. */
+.donutTotal {
+  align-content: center;
+  margin: 0;
+  display: grid;
+  inset: 0;
+  justify-items: center;
+  pointer-events: none;
+  position: absolute;
+}
+
+.donutTotal strong {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  line-height: var(--line-heading);
+}
+
+.donutTotal span {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+}
+
+.legendDetail {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+}
+
+/* Placeholder colors from chart-option.ts, mapped to site tokens. CSS beats SVG attributes. */
+
+.plot [fill="#0a0b01"] { fill: var(--color-text); }
+.plot [stroke="#0a0b01"] { stroke: var(--color-text); }
+.plot [fill="#0a0b02"] { fill: var(--color-text-muted); }
+.plot [stroke="#0a0b02"] { stroke: var(--color-text-muted); }
+.plot [fill="#0a0b03"] { fill: var(--color-border); }
+.plot [stroke="#0a0b03"] { stroke: var(--color-border); }
+.plot [fill="#0a0b04"] { fill: var(--color-border-strong); }
+.plot [stroke="#0a0b04"] { stroke: var(--color-border-strong); }
+.plot [fill="#0a0b05"] { fill: var(--color-surface); }
+.plot [stroke="#0a0b05"] { stroke: var(--color-surface); }
+.plot [fill="#0a0b06"] { fill: var(--color-bg); }
+.plot [stroke="#0a0b06"] { stroke: var(--color-bg); }
+.plot [fill="#0a0b07"] { fill: var(--color-accent-text); fill-opacity: 0.12; }
+.plot [fill="#0a0b08"] { fill: var(--color-text); fill-opacity: 0.05; }
+
+.plot [fill="#0a0c00"] { fill: var(--color-data-chartreuse); }
+.plot [fill="#0a0c01"] { fill: var(--color-data-cyan); }
+.plot [fill="#0a0c02"] { fill: var(--color-data-blue); }
+.plot [fill="#0a0c03"] { fill: var(--color-data-yellow); }
+.plot [fill="#0a0c04"] { fill: var(--color-data-red); }
+.plot [fill="#0a0c05"] { fill: var(--color-data-violet); }
+.plot [fill="#0a0c06"] { fill: var(--color-data-green); }
+.plot [stroke="#0a0c00"] { stroke: var(--color-data-chartreuse); }
+.plot [stroke="#0a0c01"] { stroke: var(--color-data-cyan); }
+.plot [stroke="#0a0c02"] { stroke: var(--color-data-blue); }
+.plot [stroke="#0a0c03"] { stroke: var(--color-data-yellow); }
+.plot [stroke="#0a0c04"] { stroke: var(--color-data-red); }
+.plot [stroke="#0a0c05"] { stroke: var(--color-data-violet); }
+.plot [stroke="#0a0c06"] { stroke: var(--color-data-green); }
+
+/* Tooltip. ECharts places the box; the content is ours. */
+
+.tooltipBox {
+  pointer-events: none;
+}
+
+.tooltip {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px var(--color-overlay);
+  color: var(--color-text);
+  display: grid;
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  gap: var(--space-3);
+  min-width: 180px;
+  padding: var(--space-4) var(--space-5);
+}
+
+.tooltip p {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  margin: 0;
+}
+
+.tooltip ul {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tooltip li {
+  align-items: center;
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: auto 1fr auto;
+}
+
+.tooltip strong {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-semibold);
+  padding-left: var(--space-5);
+}
+
+@media (max-width: 700px) {
+  /* The server draws at desktop width, where its text would shrink to unreadable. The box keeps
+     its height until the browser draws at the real width. */
+  .serverDrawing {
+    display: none;
+  }
+
+  .wideDrawing {
+    display: none;
+  }
+
+  .narrowDrawing {
+    display: block;
+  }
+
+  .toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ranges {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+  }
+
+  .dates {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

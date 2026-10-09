@@ -258,12 +258,13 @@ The intended primitives:
 - `UiTextArea`
 - `UiSelect`
 - `UiComboBox`
+- `UiDatePicker`, `UiTimeField`, and `UiDateTimePicker`. Times use 12 hours; pass `hourCycle={24}` when the tool needs 24 hours.
 - `UiNumberField`
 - `UiQuantityField`
 - `UiQuantityInput`
 - `UiSlider`
 - `UiRangeSlider`
-- `UiChoiceGroup`
+- `UiChoiceGroup` (one choice) and `UiMultiChoiceGroup` (several)
 - `UiCheckbox`
 - `UiSwitch`
 - `UiButton`

@@ -29,7 +29,8 @@
   --color-data-green: #3f8f52;
 
   --color-overlay: rgba(0, 0, 0, 0.36);
-  --focus-ring: 0 0 0 2px var(--color-accent);
+  /* Accent text: dark green on the light theme, lime on dark, so the ring stays visible in both. */
+  --focus-ring: 0 0 0 2px var(--color-accent-text);
 
   /* type: two body sizes plus the heading scale */
   --text-body: 1.0625rem;
@@ -74,6 +75,10 @@
   --control-height-sm: 32px;
   --control-height-md: 40px;
   --control-height-lg: 42px;
+  /* Every single-line field box: one body line, 9px padding and a 1px border on each side. */
+  --control-height-field: calc(var(--text-body) * var(--line-body) + 20px);
+  /* A field label line plus its gap. Puts a button or note beside a field level with the box. */
+  --control-label-offset: calc(var(--text-body) * var(--line-ui) + var(--space-3));
   --sidebar-width: clamp(260px, 20vw, 300px);
   --top-bar-height: 58px;
   --motion-fast: 120ms ease;

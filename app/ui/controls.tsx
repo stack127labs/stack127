@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarDays, Check, ChevronDown, ChevronLeft, ChevronRight, Copy, Download, Minus, Plus, Search, X } from "lucide-react";
+import { CalendarDays, Check, Clock, ChevronDown, ChevronLeft, ChevronRight, Copy, Download, Minus, Plus, Search, X } from "lucide-react";
 import {
   Button as RacButton,
   Calendar as RacCalendar,
@@ -10,11 +10,15 @@ import {
   CalendarGridHeader,
   CalendarHeaderCell,
   Checkbox as RacCheckbox,
+  CheckboxGroup,
   ComboBox,
   DateInput,
   DatePicker,
+  DatePickerStateContext,
   DateSegment,
+  TimeField,
   Dialog,
+  DialogTrigger,
   Disclosure,
   DisclosurePanel,
   FieldError,
@@ -42,14 +46,19 @@ import {
   TextField,
   type ButtonProps as RacButtonProps,
   type DateValue,
+  type TimeValue,
   type Key,
 } from "react-aria-components";
+import { getLocalTimeZone, Time } from "@internationalized/date";
 import {
+  useCallback,
+  useContext,
   useEffect,
   useId,
   useLayoutEffect,
   useRef,
   useState,
+  useSyncExternalStore,
   type KeyboardEventHandler,
   type ReactNode,
   type Ref,
@@ -247,10 +256,159 @@ export type UiDatePickerProps = FieldCopy & {
   value?: DateValue | null;
 };
 
-export function UiDatePicker({ description, disabled, error, label, maxValue, minValue, onChange, required, value }: UiDatePickerProps) {
+export function UiDatePicker(props: UiDatePickerProps) {
+  return <DatePickerBase {...props} granularity="day" />;
+}
+
+type TimeOptions = {
+  /** 12 (the default) or 24 hours. */
+  hourCycle?: 12 | 24;
+  /** Gap between the minutes in the list. Typing still accepts any minute. Defaults to 5. */
+  minuteStep?: number;
+};
+
+export type UiDateTimePickerProps = UiDatePickerProps & TimeOptions;
+
+/** A date and a time in one box. Picking a day in the calendar moves straight to the time list. */
+export function UiDateTimePicker(props: UiDateTimePickerProps) {
+  return <DatePickerBase {...props} granularity="minute" />;
+}
+
+const subscribeToNothing = () => () => {};
+
+/**
+ * Date and time segments follow the reader's locale, which the server can't know: it would
+ * draw 10/14/2026 for a reader who sees 14/10/2026, and a different space before AM/PM.
+ * The segments render after hydration; the server keeps an empty box of the same size.
+ */
+function DateSegments() {
+  const hydrated = useSyncExternalStore(subscribeToNothing, () => true, () => false);
+  if (!hydrated) return <span aria-hidden="true" className={styles.dateInput} />;
+  return (
+    <DateInput className={styles.dateInput}>
+      {(segment) => <DateSegment className={styles.dateSegment} segment={segment} />}
+    </DateInput>
+  );
+}
+
+function DatePickerBase({
+  description,
+  disabled,
+  error,
+  granularity,
+  hourCycle = 12,
+  label,
+  maxValue,
+  minValue,
+  minuteStep = 5,
+  onChange,
+  required,
+  value,
+}: UiDateTimePickerProps & { granularity: "day" | "minute" }) {
+  const hasTime = granularity === "minute";
   return (
     <DatePicker
       className={styles.field}
+      granularity={granularity}
+      hourCycle={hourCycle}
+      isDisabled={disabled}
+      isInvalid={Boolean(error)}
+      isRequired={required}
+      maxValue={maxValue}
+      minValue={minValue}
+      onChange={onChange}
+      shouldCloseOnSelect={!hasTime}
+      validationBehavior="aria"
+      value={value ?? null}
+    >
+      <UiLabel label={label} required={required} />
+      <Group className={styles.dateControl}>
+        <DateSegments />
+        <RacButton aria-label={`Open ${label} calendar`} className={styles.dateButton}>
+          <CalendarDays aria-hidden="true" size={18} />
+        </RacButton>
+      </Group>
+      <FieldMessages description={description} error={error} />
+      <Popover className={`${styles.popover} ${styles.calendarPopover}`} placement="bottom start">
+        <Dialog className={styles.calendarDialog}>
+          {hasTime ? <DateThenTime hourCycle={hourCycle} minuteStep={minuteStep} /> : <PickerCalendar />}
+        </Dialog>
+      </Popover>
+    </DatePicker>
+  );
+}
+
+function PickerCalendar({ onChange }: { onChange?: () => void }) {
+  return (
+    <RacCalendar className={styles.calendar} onChange={onChange}>
+      <header className={styles.calendarHeader}>
+        <RacButton aria-label="Previous month" className={styles.calendarButton} slot="previous">
+          <ChevronLeft aria-hidden="true" size={18} />
+        </RacButton>
+        <Heading className={styles.calendarHeading} />
+        <RacButton aria-label="Next month" className={styles.calendarButton} slot="next">
+          <ChevronRight aria-hidden="true" size={18} />
+        </RacButton>
+      </header>
+      <CalendarGrid className={styles.calendarGrid}>
+        <CalendarGridHeader>
+          {(day) => <CalendarHeaderCell className={styles.calendarHeaderCell}>{day}</CalendarHeaderCell>}
+        </CalendarGridHeader>
+        <CalendarGridBody>
+          {(date) => <CalendarCell className={styles.calendarCell} date={date} />}
+        </CalendarGridBody>
+      </CalendarGrid>
+    </RacCalendar>
+  );
+}
+
+/** The date-and-time popover: the calendar first, then the time list once a day is picked. */
+function DateThenTime({ hourCycle, minuteStep }: Required<TimeOptions>) {
+  const state = useContext(DatePickerStateContext);
+  const [step, setStep] = useState<"date" | "time">("date");
+  const day = state?.dateValue;
+  const time = state?.timeValue ?? null;
+
+  if (step === "date" || !state || !day) {
+    const timeLabel = time
+      ? new Intl.DateTimeFormat(undefined, { hour: "numeric", hourCycle: hourCycle === 12 ? "h12" : "h23", minute: "2-digit" }).format(new Date(2000, 0, 1, time.hour, time.minute))
+      : null;
+    return (
+      <div className={styles.timePanel}>
+        <PickerCalendar onChange={() => setStep("time")} />
+        {day ? <UiButton className={styles.timeDone} onPress={() => setStep("time")}>{timeLabel ? `Time: ${timeLabel}` : "Choose time"}</UiButton> : null}
+      </div>
+    );
+  }
+
+  const dayLabel = new Intl.DateTimeFormat(undefined, { day: "numeric", month: "short", weekday: "short" }).format(day.toDate(getLocalTimeZone()));
+  return (
+    <div className={styles.timePanel}>
+      <RacButton className={styles.timeBack} onPress={() => setStep("date")}>
+        <ChevronLeft aria-hidden="true" size={18} />
+        <span><span className={styles.visuallyHidden}>Change date, </span>{dayLabel}</span>
+      </RacButton>
+      <TimeColumns hourCycle={hourCycle} minuteStep={minuteStep} onChange={state.setTimeValue} value={time} />
+      {/* The picker's own close keeps a chosen day even before a time is picked; the time starts at 12:00 AM. */}
+      <UiButton className={styles.timeDone} onPress={() => state.setOpen(false)} variant="primary">Done</UiButton>
+    </div>
+  );
+}
+
+export type UiTimeFieldProps = FieldCopy & TimeOptions & {
+  disabled?: boolean;
+  maxValue?: TimeValue;
+  minValue?: TimeValue;
+  onChange?: (value: TimeValue | null) => void;
+  value?: TimeValue | null;
+};
+
+/** Hours and minutes. Type each part, or open the clock to pick from a list. */
+export function UiTimeField({ description, disabled, error, hourCycle = 12, label, maxValue, minValue, minuteStep = 5, onChange, required, value }: UiTimeFieldProps) {
+  return (
+    <TimeField
+      className={styles.field}
+      hourCycle={hourCycle}
       isDisabled={disabled}
       isInvalid={Boolean(error)}
       isRequired={required}
@@ -262,38 +420,101 @@ export function UiDatePicker({ description, disabled, error, label, maxValue, mi
     >
       <UiLabel label={label} required={required} />
       <Group className={styles.dateControl}>
-        <DateInput className={styles.dateInput}>
-          {(segment) => <DateSegment className={styles.dateSegment} segment={segment} />}
-        </DateInput>
-        <RacButton aria-label={`Open ${label} calendar`} className={styles.dateButton}>
-          <CalendarDays aria-hidden="true" size={18} />
-        </RacButton>
+        <DateSegments />
+        <DialogTrigger>
+          <RacButton aria-label={`Choose ${label}`} className={styles.dateButton} isDisabled={disabled}>
+            <Clock aria-hidden="true" size={18} />
+          </RacButton>
+          <Popover className={`${styles.popover} ${styles.timePopover}`} placement="bottom end">
+            <Dialog aria-label={label} className={`${styles.calendarDialog} ${styles.timePanel}`}>
+              <TimeColumns hourCycle={hourCycle} minuteStep={minuteStep} onChange={(time) => onChange?.(time)} value={value ?? null} />
+              <UiButton className={styles.timeDone} slot="close" variant="primary">Done</UiButton>
+            </Dialog>
+          </Popover>
+        </DialogTrigger>
       </Group>
       <FieldMessages description={description} error={error} />
-      <Popover className={`${styles.popover} ${styles.calendarPopover}`} placement="bottom start">
-        <Dialog className={styles.calendarDialog}>
-          <RacCalendar className={styles.calendar}>
-            <header className={styles.calendarHeader}>
-              <RacButton aria-label="Previous month" className={styles.calendarButton} slot="previous">
-                <ChevronLeft aria-hidden="true" size={18} />
-              </RacButton>
-              <Heading className={styles.calendarHeading} />
-              <RacButton aria-label="Next month" className={styles.calendarButton} slot="next">
-                <ChevronRight aria-hidden="true" size={18} />
-              </RacButton>
-            </header>
-            <CalendarGrid className={styles.calendarGrid}>
-              <CalendarGridHeader>
-                {(day) => <CalendarHeaderCell className={styles.calendarHeaderCell}>{day}</CalendarHeaderCell>}
-              </CalendarGridHeader>
-              <CalendarGridBody>
-                {(date) => <CalendarCell className={styles.calendarCell} date={date} />}
-              </CalendarGridBody>
-            </CalendarGrid>
-          </RacCalendar>
-        </Dialog>
-      </Popover>
-    </DatePicker>
+    </TimeField>
+  );
+}
+
+const padTime = (part: number) => String(part).padStart(2, "0");
+
+/**
+ * Hour, minute, and (for 12 hours) AM or PM lists. A pick in any list sets the whole time:
+ * an hour on its own means minute 00, and a minute on its own means the 12 AM hour.
+ */
+function TimeColumns({ hourCycle, minuteStep, onChange, value }: Required<TimeOptions> & { onChange: (time: Time) => void; value: TimeValue | null }) {
+  const hour = value?.hour ?? null;
+  const minute = value?.minute ?? 0;
+  const isPm = hour !== null && hour >= 12;
+  const to24 = (shown: number, pm: boolean) => (hourCycle === 24 ? shown : (shown % 12) + (pm ? 12 : 0));
+  const hours = hourCycle === 24 ? Array.from({ length: 24 }, (_, index) => index) : [12, ...Array.from({ length: 11 }, (_, index) => index + 1)];
+  const minutes = Array.from({ length: Math.ceil(60 / minuteStep) }, (_, index) => index * minuteStep);
+
+  return (
+    <div className={styles.timeColumns}>
+      <TimeColumn
+        heading="Hour"
+        label="Hour"
+        onSelect={(shown) => onChange(new Time(to24(shown, isPm), minute))}
+        options={hours.map((shown) => ({ id: shown, label: hourCycle === 24 ? padTime(shown) : String(shown) }))}
+        selected={hour === null ? null : hourCycle === 24 ? hour : hour % 12 || 12}
+      />
+      <TimeColumn
+        heading="Min"
+        label="Minute"
+        onSelect={(next) => onChange(new Time(hour ?? 0, next))}
+        options={minutes.map((option) => ({ id: option, label: padTime(option) }))}
+        selected={value ? minute : null}
+      />
+      {hourCycle === 12 ? (
+        <TimeColumn
+          label="AM or PM"
+          onSelect={(pm) => onChange(new Time(to24(hour === null ? 12 : hour % 12 || 12, pm === 1), minute))}
+          options={[{ id: 0, label: "AM" }, { id: 1, label: "PM" }]}
+          selected={hour === null ? null : isPm ? 1 : 0}
+        />
+      ) : null}
+    </div>
+  );
+}
+
+function TimeColumn({ heading, label, onSelect, options, selected }: { heading?: string; label: string; onSelect: (id: number) => void; options: { id: number; label: string }[]; selected: number | null }) {
+  // Open with the chosen value in view. Only on open: scrolling on every pick would move the list under the pointer.
+  // A ref on the option, not an effect, because react-aria draws the options after the list itself.
+  const hasScrolled = useRef(selected === null);
+  const scrollIntoView = useCallback((option: HTMLDivElement | null) => {
+    const list = option?.parentElement;
+    if (!option || !list || hasScrolled.current) return;
+    hasScrolled.current = true;
+    list.scrollTop = option.offsetTop - (list.clientHeight - option.offsetHeight) / 2;
+  }, []);
+
+  return (
+    <div className={styles.timeColumn}>
+      <span aria-hidden="true" className={styles.timeColumnLabel}>{heading}</span>
+      <ListBox
+        aria-label={label}
+        className={styles.timeList}
+        disallowEmptySelection
+        items={options}
+        onSelectionChange={(keys) => {
+          if (keys !== "all") {
+            const [key] = keys;
+            if (key !== undefined) onSelect(Number(key));
+          }
+        }}
+        selectedKeys={selected === null ? [] : [selected]}
+        selectionMode="single"
+      >
+        {(option) => (
+          <ListBoxItem className={styles.timeOption} id={option.id} ref={option.id === selected ? scrollIntoView : undefined} textValue={option.label}>
+            {option.label}
+          </ListBoxItem>
+        )}
+      </ListBox>
+    </div>
   );
 }
 
@@ -659,7 +880,7 @@ export function UiChoiceGroup({ dataFocusKey, description, error, label, name, o
       <div className={styles.choiceRow}>
         {options.map((option) => (
           <Radio className={styles.choice} data-focus-key={option.id === options[0]?.id ? dataFocusKey : undefined} id={option.id} key={option.id} value={option.id}>
-            {option.label}
+            <ChoiceCopy option={option} />
           </Radio>
         ))}
       </div>
@@ -668,18 +889,66 @@ export function UiChoiceGroup({ dataFocusKey, description, error, label, name, o
   );
 }
 
+function ChoiceCopy({ option }: { option: UiOption }) {
+  return (
+    <span className={styles.choiceCopy}>
+      <span>{option.label}</span>
+      {option.description ? <span className={styles.choiceDescription}>{option.description}</span> : null}
+    </span>
+  );
+}
+
+export type UiMultiChoiceGroupProps = FieldCopy & {
+  dataFocusKey?: string;
+  name?: string;
+  onChange?: (value: string[]) => void;
+  options: UiOption[];
+  value?: string[];
+};
+
+/** Choose any number of options. Each chip carries a small check box, so it reads differently from the one-choice group. */
+export function UiMultiChoiceGroup({ dataFocusKey, description, error, label, name, onChange, options, required, value }: UiMultiChoiceGroupProps) {
+  return (
+    <CheckboxGroup
+      className={styles.field}
+      isInvalid={Boolean(error)}
+      isRequired={required}
+      name={name}
+      onChange={onChange}
+      validationBehavior="aria"
+      value={value}
+    >
+      <UiLabel label={label} required={required} />
+      <div className={styles.choiceRow}>
+        {options.map((option) => (
+          <RacCheckbox className={`${styles.choice} ${styles.multiChoice}`} data-focus-key={option.id === options[0]?.id ? dataFocusKey : undefined} id={option.id} key={option.id} value={option.id}>
+            <span aria-hidden="true" className={styles.choiceBox}><Check size={13} strokeWidth={3} /></span>
+            <ChoiceCopy option={option} />
+          </RacCheckbox>
+        ))}
+      </div>
+      <FieldMessages description={description} error={error} />
+    </CheckboxGroup>
+  );
+}
+
 export function UiCheckbox({ children, isDisabled, isSelected, onChange }: { children: ReactNode; isDisabled?: boolean; isSelected?: boolean; onChange?: (selected: boolean) => void }) {
   return (
     <RacCheckbox className={styles.check} isDisabled={isDisabled} isSelected={isSelected} onChange={onChange}>
-      <span aria-hidden="true" className={styles.checkBox}>✓</span>
-      <span>{children}</span>
+      {(state) => (
+        <>
+          {/* An unavailable, unchecked box shows a muted X so it doesn't read as an empty choice. */}
+          <span aria-hidden="true" className={styles.checkBox}>{state.isDisabled && !state.isSelected ? <X size={14} strokeWidth={2.2} /> : "✓"}</span>
+          <span>{children}</span>
+        </>
+      )}
     </RacCheckbox>
   );
 }
 
-export function UiSwitch({ children, isSelected, onChange }: { children: ReactNode; isSelected?: boolean; onChange?: (selected: boolean) => void }) {
+export function UiSwitch({ children, isDisabled, isSelected, onChange }: { children: ReactNode; isDisabled?: boolean; isSelected?: boolean; onChange?: (selected: boolean) => void }) {
   return (
-    <Switch className={styles.switch} isSelected={isSelected} onChange={onChange}>
+    <Switch className={styles.switch} isDisabled={isDisabled} isSelected={isSelected} onChange={onChange}>
       <span aria-hidden="true" className={styles.switchTrack}><span /></span>
       <span>{children}</span>
     </Switch>

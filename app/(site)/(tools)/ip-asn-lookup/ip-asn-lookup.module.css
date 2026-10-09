@@ -12,7 +12,7 @@
 }
 
 .form {
-  align-items: end;
+  align-items: start;
   grid-template-columns: minmax(0, 1fr) auto;
 }
 
@@ -23,6 +23,7 @@
 }
 
 .submit {
+  margin-top: var(--control-label-offset);
   min-width: 220px;
 }
 
@@ -170,6 +171,10 @@
   .form {
     align-items: stretch;
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .submit {
+    margin-top: 0;
   }
 
   .submit,
