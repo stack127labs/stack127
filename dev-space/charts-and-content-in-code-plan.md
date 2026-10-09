@@ -15,7 +15,7 @@ Work through the steps in order. Step 0 and Part 1 ship together in pull request
 | 2a | Content design doc | Opus | #36 | Shipped in `ce282243` |
 | 2b | Pilot: MDX setup, export script, two pages | Claude Opus worker, Sol for the script, Sol review | #36 | Shipped in `ce282243`: `/cac-payback-calculator` and `/epp-status-codes` |
 | 2c | Docs and skills for content in code | Opus | #36 | Shipped in `ce282243` |
-| 2d | Content pass: rewrite and move every published tool, directory, child, and catalog page | Claude Opus thread in its own worktree, Sol for scripts and review | One PR at the end | Not started |
+| 2d | Content pass: rewrite and move every published tool, directory, child, and catalog page | Claude Opus thread in its own worktree, Sol for scripts and review | One PR at the end | In progress on `content/page-rewrite`: route side done, 19 move-only tools moved, tool family pilots done |
 | 2e | Cleanup and retire database content columns | Sol | Final PR | Not started |
 | 3 | Production release | Coordinator | Release | Not started |
 
