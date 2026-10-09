@@ -1,6 +1,7 @@
 import { thinPoints } from "@/app/ui/charts/chart-data";
 import type { UiChartPoint, UiChartSpec } from "@/app/ui/charts/chart-option";
-import { renderChartSvg, UiChart } from "@/app/ui/charts/chart";
+import { UiChart } from "@/app/ui/charts/chart";
+import { renderChartSvg, UiStaticChart } from "@/app/ui/charts/chart-static";
 import { Example } from "../gallery";
 import { LiveChartExample } from "./live-chart";
 import { PageWeight } from "./page-weight";
@@ -225,8 +226,8 @@ export function ChartsExamples() {
         <Weight spec={activity} />
       </Example>
 
-      <Example components={["UiChart"]} note={<><code>interactive={"{false}"}</code> draws on the server only, with no chart script and no hover. For articles and reference pages.</>} source="app/ui/charts/chart.tsx" title="Static chart">
-        <UiChart interactive={false} spec={signups} />
+      <Example components={["UiStaticChart"]} note="Drawn on the server only, with no chart script and no hover. For articles and reference pages." source="app/ui/charts/chart-static.tsx" title="Static chart">
+        <UiStaticChart spec={signups} />
         <Weight interactive={false} spec={signups} />
       </Example>
     </>

@@ -59,6 +59,10 @@ export function UiLiveChart({ spec, svg }: { spec: UiChartSpec; svg?: string }) 
   const [drawnIn, setDrawnIn] = useState<number | null>(null);
   const [hidden, setHidden] = useState<string[]>([]);
   const legend = chartLegend(spec);
+  // New data may drop series: forget hidden names that are gone, and never leave every series hidden.
+  const stillThere = hidden.filter((label) => legend.some((item) => item.label === label));
+  const off = stillThere.length >= legend.length ? [] : stillThere;
+  if (off.length !== hidden.length) setHidden(off);
   const total = donutTotal(spec);
   const withTable = hasChartTable(spec);
   const bounds = useMemo(() => boundsOf(spec), [spec]);
@@ -155,7 +159,6 @@ export function UiLiveChart({ spec, svg }: { spec: UiChartSpec; svg?: string }) 
     chartRef.current?.dispatchAction({ name: label, type: "legendToggleSelect" });
     setHidden((current) => current.includes(label) ? current.filter((name) => name !== label) : [...current, label]);
   };
-  const off = hidden.filter((label) => legend.some((item) => item.label === label));
 
   return (
     <figure className={styles.figure} data-chart-drawn-ms={drawnIn === null ? undefined : Math.round(drawnIn)}>

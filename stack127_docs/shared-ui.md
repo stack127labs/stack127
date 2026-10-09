@@ -11,7 +11,8 @@ The Components UI gallery is at `/components-ui` in development. That route retu
 | Text, search, dates, numbers, choices, sliders, and actions | `app/ui/controls.tsx` |
 | File selection and file lists | `app/ui/uploads.tsx` |
 | Results, metrics, key-value lists, tables, progress, allocation bars, steps, and timelines | `app/ui/display.tsx` |
-| Charts on pages | `UiChart` in `app/ui/charts/chart.tsx` |
+| Interactive charts on pages | `UiChart` in `app/ui/charts/chart.tsx` |
+| Charts nobody needs to interact with, such as in articles | `UiStaticChart` in `app/ui/charts/chart-static.tsx` |
 | Charts of data computed in the browser, such as tool results | `UiLiveChart` in `app/ui/charts/chart-client.tsx` |
 | Notes, warnings, and recommendations | `Callout`, `Note`, `Warning` in `app/ui/callout.tsx` |
 | Formulas and worked examples | `ContentBlock` in `app/ui/content-block.tsx` |
@@ -72,10 +73,11 @@ Every chart is Apache ECharts through one wrapper. Pass data; the wrapper draws 
 
 | Component | Use |
 | --- | --- |
-| `UiChart` | Charts on pages. The server draws the chart as SVG, so it shows before scripts load and search engines see it. Interactive charts then add hover, toggles, and ranges in the browser. |
+| `UiChart` | Interactive charts on pages. The server draws the chart as SVG, so it shows before scripts load and search engines see it. The browser then adds hover, toggles, and ranges. |
+| `UiStaticChart` | Charts drawn on the server only. It sends no chart script. Use it for articles and reference pages. |
 | `UiLiveChart` | The same chart for data computed in the browser, such as a tool's result. Use it inside client components. It draws once the data exists. |
 
-Both take a `spec`: the chart's `kind`, its data, a `title`, an optional `caption`, and a number `format`.
+All three take a `spec`: the chart's `kind`, its data, a `title`, an optional `caption`, and a number `format`.
 
 | `kind` | Shows |
 | --- | --- |
@@ -93,9 +95,9 @@ Both take a `spec`: the chart's `kind`, its data, a `title`, an optional `captio
 
 ### Interactive or static
 
-`UiChart` is interactive by default. Each series name toggles its line, and a dim name is off. Hover shows every visible value at that point. Time charts with `range` add range buttons, From and To dates, and a slider. Only ranges shorter than the data appear.
+In `UiChart` and `UiLiveChart`, each series name toggles its line, and a dim name is off. Hover shows every visible value at that point. Time charts with `range` add range buttons, From and To dates, and a slider. Only ranges shorter than the data appear.
 
-`interactive={false}` draws on the server only and sends no chart script. Use it for articles and reference pages where nobody needs hover or ranges. Static charts sit at reading width.
+`UiStaticChart` draws on the server only and sends no chart script. Use it for articles and reference pages where nobody needs hover or ranges. Static charts sit at reading width. Its file never imports the interactive chart, so a page that uses only static charts loads no chart code.
 
 Interactive charts load about 170 to 190 KB of compressed script on the pages that use them. Use a static chart unless hover, toggles, or ranges help the reader.
 
@@ -108,7 +110,7 @@ Interactive charts load about 170 to 190 KB of compressed script on the pages th
 
 ### Accessibility
 
-Charts with up to 60 values carry a visually hidden data table. ECharts adds a short description to larger charts. When people need the exact numbers of a large chart, show a `UiDataTable` or a download next to it.
+Charts with up to 60 values carry a visually hidden data table. Larger charts get a short description from their title, caption, and series names. When people need the exact numbers of a large chart, show a `UiDataTable` or a download next to it.
 
 ### Add a chart type
 
@@ -164,7 +166,7 @@ Use normal fenced code with an optional language, such as `bash`. Use normal Git
 
 ### Data charts
 
-Use a `chart-bar`, `chart-line`, or `chart-donut` code fence containing JSON. It renders as a static `UiChart`.
+Use a `chart-bar`, `chart-line`, or `chart-donut` code fence containing JSON. It renders as a `UiStaticChart`.
 
 - Give the chart a title and an optional caption.
 - Give data unique IDs, labels, and finite numeric values.

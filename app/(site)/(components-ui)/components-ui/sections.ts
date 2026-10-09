@@ -85,7 +85,7 @@ export const gallerySections: GallerySection[] = [
     label: "Charts",
     description: "Line, area, bar, donut, scatter, and heatmap charts from data, in both themes, with the page weight they add.",
     icon: ChartColumn,
-    components: ["UiChart", "UiLiveChart"],
+    components: ["UiChart", "UiStaticChart", "UiLiveChart"],
   },
   {
     slug: "cards",

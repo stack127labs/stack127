@@ -8,7 +8,7 @@ import { resolveMarkerArtReference } from "@/app/marker-art-registry";
 import { Callout, type CalloutTone } from "./callout";
 import { ContentBlock } from "./content-block";
 import { TableFrame } from "./table-frame";
-import { UiChart } from "./charts/chart";
+import { UiStaticChart } from "./charts/chart-static";
 import type { UiChartSpec } from "./charts/chart-option";
 import styles from "./content-markdown.module.css";
 
@@ -134,7 +134,7 @@ function ChartFromMarkdown({ kind, source }: { kind: string; source: string }) {
   } catch (error) {
     return <p role="note">Chart unavailable: {error instanceof SyntaxError ? "Check the chart JSON." : error instanceof Error ? error.message : "Check the chart data."}</p>;
   }
-  return <UiChart interactive={false} spec={spec} />;
+  return <UiStaticChart spec={spec} />;
 }
 
 function MarkdownParagraph({ children, node: _node, ...props }: ComponentPropsWithoutRef<"p"> & { node?: unknown }) {

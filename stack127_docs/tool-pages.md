@@ -72,7 +72,7 @@ Markdown may reference an approved generated marker figure, such as `![How the p
 
 Supporting Markdown tables use the reading column's width and wrap explanations, links, and inline code. Keep the keyboard-focusable scroll region as a fallback for unusual content. Interactive result tables and raw-output viewers keep their own overflow behavior.
 
-Use `> [!NOTE]`, `> [!WARNING]`, `> [!FORMULA]`, or `> [!EXAMPLE]` for shared content blocks. A short title may follow the marker on the same line. Use `chart-bar`, `chart-line`, or `chart-donut` fenced JSON for an exact data chart. It renders as a static `UiChart`. The renderer validates chart data and shows a readable error for invalid input. Ordinary headings, lists, and contextual links need no special syntax.
+Use `> [!NOTE]`, `> [!WARNING]`, `> [!FORMULA]`, or `> [!EXAMPLE]` for shared content blocks. A short title may follow the marker on the same line. Use `chart-bar`, `chart-line`, or `chart-donut` fenced JSON for an exact data chart. It renders as a `UiStaticChart`. The renderer validates chart data and shows a readable error for invalid input. Ordinary headings, lists, and contextual links need no special syntax.
 
 Preserve readable words and code identifiers. Wide comparison tables may scroll inside their own region on narrow screens. Do not split identifiers into fragments to make every column fit. Check computed styles as well as page width. General prose rules can override table-specific wrapping.
 
