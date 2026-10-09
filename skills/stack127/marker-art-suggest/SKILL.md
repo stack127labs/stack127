@@ -20,7 +20,7 @@ Use this skill in the current stack127 workspace to propose marker art placement
 - Name the user question or page identity the art will clarify.
 - Do not propose art for a region that only needs better spacing or hierarchy.
 - Do not illustrate a sentence that is already easier to read than the drawing.
-- Do not use marker art for exact values or comparisons. Propose a clean chart or table instead.
+- Do not use marker art for exact values or comparisons. Propose a data chart (`UiChart`) or table instead.
 - Prefer one strong, page-specific object or relationship over a collage of related symbols.
 - If the art needs a paragraph to explain it, propose a simpler figure or no figure.
 
@@ -46,7 +46,7 @@ A proposal is one paragraph plus a small block, per placement:
 - **Where**: the exact section or paragraph the figure sits after, quoted or referenced by heading.
 - **The takeaway**: the one sentence the figure exists to make instant. If the paragraph makes three claims, pick the one that benefits most from being visual.
 - **Figure type and why**: pick whatever shows the idea fastest. Do not force content into the existing types; if a better form would land quicker, say so and note that the generator needs a new figure type for it.
-- **The structure**: the actual relationship, with a source when the claim is factual. Conceptual figures say "conceptual, no external data". Exact numbers, prices, and measurements belong in a clean chart or table.
+- **The structure**: the actual relationship, with a source when the claim is factual. Conceptual figures say "conceptual, no external data". Exact numbers, prices, and measurements belong in a data chart or table.
 - **Tones**: which semantic colors carry the meaning (per the doc: primary is the subject, good is recommended or light, warn is heavy or risky, note is neutral highlight).
 
 ## Judgment Rules

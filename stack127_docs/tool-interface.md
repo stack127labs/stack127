@@ -195,7 +195,7 @@ Don't put every fact in an equal card. Group related facts and make the main fin
 | Content | Use |
 | --- | --- |
 | Repeated fields | Table |
-| Exact comparisons | Clean chart |
+| Exact comparisons and trends | `UiLiveChart` |
 | Conceptual relationships | Marker art |
 
 Each result region answers a different question. Don't repeat a visible value in a second metric row, card, or summary unless the second view shows a needed relationship. Compare the formatted values the reader actually sees. If two source timestamps display as the same date, don't render an identical two-value comparison.

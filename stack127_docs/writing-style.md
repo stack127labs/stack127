@@ -13,7 +13,7 @@ stack127 shows more than it tells. Before writing a paragraph, ask if a format w
 | Table | The information is naturally rows and columns: options, comparisons, values, record types. |
 | Numbered list | Order matters, such as steps. |
 | Bullets | Related points where order doesn't matter. |
-| Chart | You have accurate data to show, such as a trend, a share, or a comparison. |
+| Chart | You have accurate data to show, such as a trend, a share, or a comparison. Make it interactive only when the reader needs to hover, hide lines, or change the range. |
 | Example box | A worked example with real numbers. |
 | Formula box | The rule or calculation itself. |
 | Note | Useful context the reader should keep in mind. |

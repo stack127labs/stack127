@@ -2,7 +2,7 @@
 
 Marker art is the stack127 illustration style. It uses bold hand-drawn strokes, restrained zigzag fills, and a handwritten font, like a thick marker on a dark board.
 
-Use it for conceptual diagrams, meaningful spot art, hero art, and quiet doodles. Exact data belongs in clean charts. This doc is the single source of truth for how marker art works and how agents make it.
+Use it for conceptual diagrams, meaningful spot art, hero art, and quiet doodles. Exact data belongs in a data chart (`UiChart`). This doc is the single source of truth for how marker art works and how agents make it.
 
 Two skills run this system: `skills/stack127/marker-art-suggest` and `skills/stack127/marker-art-draw`.
 
@@ -83,7 +83,7 @@ An explainer makes one conceptual relationship visible.
 - Use alignment and closeness to show groups. Add an outline only when it marks a real boundary.
 - Keep nodes big enough to recognize, and connectors far enough from text to read cleanly.
 - Use the fewest labels that keep the idea. Split the figure when side branches compete with the main path.
-- Use a clean chart or table when exact comparison matters.
+- Use a data chart or table when exact comparison matters.
 
 ### Doodle
 

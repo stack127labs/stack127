@@ -11,7 +11,7 @@ Use this skill in `/Users/ravitejaknts/projects/Stack127` for strict, evidence-b
 
 - Read `AGENTS.md`.
 - Read `stack127_docs/writing-style.md` for all writing guidance.
-- Read `stack127_docs/shared-ui.md` when assessing tables, charts, callouts, formulas, or Markdown presentation.
+- Read `stack127_docs/shared-ui.md` when assessing tables, charts, callouts, formulas, or Markdown presentation. A chart should show accurate data, read in both themes with no clipped labels, and be static unless the reader needs hover, toggles, or ranges.
 - If the target belongs to a page family with docs, read `content_docs/<page-slug>/` before judging the page.
 - Inspect the route/source under `app/`, the shared shell/components it uses, and any page-specific docs or manifest files that define scope.
 - If the user says "check", "evaluate", "audit", or "tell me", stay read-only unless they explicitly ask for edits.

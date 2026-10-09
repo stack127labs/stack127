@@ -2,16 +2,16 @@
 
 Goal: one chart system (ECharts through `UiChart`), and page content written in code, so any page can use any shared component. Data stays in the database. When every step is done and reviewed, the whole result ships to production.
 
-Work through the steps in order. Mark each one done here when its pull request merges.
+Work through the steps in order. Step 0 and Part 1 ship together in pull request #35. Mark each step done here when its work is reviewed, and when its pull request merges.
 
 ## Status
 
 | Step | What | Who | Pull request | Status |
 | --- | --- | --- | --- | --- |
-| 0 | Ship the current work | Opus, Sol review | PR A | Not started |
-| 1a | Chart docs and skills | Opus | PR B | Not started |
-| 1b | Move every chart to `UiChart` | Claude Opus worker, Sol review | PR B | Not started |
-| 1c | Preview server readiness fix | Sol | Small PR | Not started |
+| 0 | Ship the current work | Opus, Sol review | #35 | Reviewed, CI passed, waiting to merge with Part 1 |
+| 1a | Chart docs and skills | Opus | #35 | In progress |
+| 1b | Move every chart to `UiChart` | Claude Opus worker, Sol review | #35 | In progress |
+| 1c | Preview server readiness fix | Sol | #35 | In progress |
 | 2a | Content design doc | Opus | PR C | Not started |
 | 2b | Pilot: MDX setup, export script, two pages | Claude Opus worker, Sol for the script, Sol review | PR C | Not started |
 | 2c | Docs and skills for content in code | Opus | PR C | Not started |
@@ -21,15 +21,17 @@ Work through the steps in order. Mark each one done here when its pull request m
 
 ## Decisions
 
-| Question | Recommendation | Answer |
-| --- | --- | --- |
-| `UiFlowChart` is a step diagram, not a data chart. Keep it or remove it? | Keep it, rename it as a steps component, and move it out of the charts section. | Pending |
-| Where do the version and updated date live once content is in code? | In the database, as now. The publish command updates them when content changes in a way readers should see. | Pending |
-| Courses are already TSX. Move them to MDX now? | Not now. Move long lesson text to MDX later. | Pending |
+| Question | Decision |
+| --- | --- |
+| `UiFlowChart` is a step diagram, not a data chart. Keep it or remove it? | Keep it as `UiSteps` in `app/ui/display.tsx`, next to `UiTimeline`, and show it in the Results section of the gallery. |
+| Where do the version and updated date live once content is in code? | In the database, the same for every page. The publish command updates them when content changes in a way readers should see. |
+| Courses are already TSX. Move them to MDX now? | Later, after the rest of this plan is done. |
 
 ---
 
 ## Step 0: Ship the current work
+
+Pull request #35. Sol approved it after four rounds, and CI passed. It merges together with Part 1.
 
 The branch `chore/audit-components-page` holds uncommitted work:
 
@@ -79,9 +81,13 @@ Chart rules to write down:
 Give this to a Claude Opus worker.
 
 1. Make `UiChart` final: the gallery's Charts section shows the `UiChart` examples, and the separate "ECharts trial" section goes away. Keep the page weight panel as a gallery tool.
+   - Pages use `UiChart`, which draws on the server. Tool results computed in the browser use `UiLiveChart`, the same chart without a server drawing.
+   - Charts take an optional caption. Line x values may be labels, which give a category axis.
+   - Small charts carry a visually hidden data table for screen readers.
+   - Rename `UiFlowChart` to `UiSteps` and move it to `app/ui/display.tsx`.
 2. Change the chart blocks in `app/ui/content-markdown.tsx` (`chart-bar`, `chart-line`, `chart-donut`) to render static `UiChart` charts. This covers the time until content moves to code.
 3. Delete the old charts:
-   - The chart components in `app/ui/visuals.tsx`.
+   - `app/ui/visuals.tsx` and its stylesheet, after `UiSteps` moves out.
    - `app/ui/site/chart.tsx`.
    - `scripts/stack127/clean-charts/` and the `stack127:clean-charts` npm script. No page uses them.
 4. Run a read-only query for chart blocks in live database content, and confirm each still renders.
