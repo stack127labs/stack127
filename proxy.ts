@@ -25,7 +25,7 @@ export async function proxy(request: NextRequest) {
   }
 
   if (!pathname.startsWith("/api/") && pathname !== "/sitemap.xml" && pathname !== "/robots.txt" && pathname !== "/publication-not-found" &&
-    !(process.env.NODE_ENV === "development" && pathname === "/components-ui")) {
+    !(process.env.NODE_ENV === "development" && (pathname === "/components-ui" || pathname.startsWith("/components-ui/")))) {
     const published = await getExactPublishedPage(slugFromPathname(pathname));
     // The fallback route renders tool catalogs. Other published records still
     // need a compiled page; a registry row alone cannot create that route.

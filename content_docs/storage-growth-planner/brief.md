@@ -17,7 +17,7 @@ They leave with a modeled capacity after operating reserve, a year-by-year growt
 ## Show vs say
 
 - The tool UI is the primary visual: one full-width workbench with clear demand, local-plan, and cost inputs.
-- An exact clean chart shows projected data against capacity after reserve. It has real year labels and exact values, not marker art.
+- An exact `UiChart` shows projected data against capacity after reserve. It has real year labels and exact values, not marker art.
 - A year-by-year table shows demand, remaining headroom, and cumulative cost. On narrow screens it becomes labelled rows instead of clipping or relying on hidden horizontal scrolling.
 - A compact cost table separates hardware, power, replacement reserve, backup budget, and total TCO.
 - The result headline says whether the plan clears the selected horizon and identifies the first shortfall when it does not.

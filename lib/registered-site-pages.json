@@ -15,6 +15,8 @@
   "/chmod-calculator",
   "/cli-apps",
   "/components-ui",
+  "/components-ui/[section]",
+  "/components-ui/charts",
   "/customer-acquisition-cost-calculator",
   "/customer-churn-calculator",
   "/customer-lifetime-value-calculator",

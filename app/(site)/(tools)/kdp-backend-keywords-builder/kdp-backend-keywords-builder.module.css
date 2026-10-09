@@ -1,5 +1,6 @@
 .capNote {
-  align-self: end;
+  align-self: start;
+  margin-top: var(--control-label-offset);
   padding-block: var(--space-3);
 }
 
@@ -94,6 +95,7 @@
 
 @media (max-width: 760px) {
   .capNote {
+    margin-top: 0;
     padding-top: 0;
   }
 }

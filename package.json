@@ -66,7 +66,6 @@
     "domain-tools:refresh-tld-directory": "node --experimental-strip-types scripts/domain-tools/refresh-tld-directory.mjs",
     "domain-tools:check-tld-directory": "node --experimental-strip-types scripts/domain-tools/refresh-tld-directory.mjs --check",
     "stack127:marker-art": "node scripts/stack127/marker-art/generate.mjs",
-    "stack127:clean-charts": "node scripts/stack127/clean-charts/generate.mjs",
     "stack127:brand:build": "node scripts/stack127/brand/build-assets.mjs",
     "stack127:media:migrate-directory-icons": "node scripts/stack127/media/migrate-directory-icons.mjs",
     "stack127:media:migrate-json-images": "node scripts/stack127/media/migrate-json-images.mjs",
@@ -86,9 +85,11 @@
     "check:static": "node scripts/stack127/check-static-routes.mjs"
   },
   "dependencies": {
+    "@internationalized/date": "^3.12.4",
     "@namefi/dnssec-audit": "^2.1.1",
     "@types/pg": "^8.20.0",
     "dns-packet": "^5.6.1",
+    "echarts": "^6.1.0",
     "lucide-react": "^1.18.0",
     "next": "16.2.9",
     "pdf-lib": "^1.17.1",

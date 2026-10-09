@@ -10,4 +10,4 @@ They can try controls and upload states, trigger validation, inspect directory f
 
 ## Show vs say
 
-The development-only page at `/components-ui` uses working components and realistic data. Short headings separate inputs, actions, feedback, content, data, charts, and navigation. It is a practical gallery, not a public article.
+The development-only gallery at `/components-ui` uses working components and realistic data. A sidebar links one page per component type, such as inputs, results, tables, charts, cards, and content. Sections follow what a component does, not the page family that first used it, because tools, directories, catalogs, and courses share every component. Each example names its components and their files. It is a practical component library, not a public article.

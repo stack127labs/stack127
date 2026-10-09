@@ -8,7 +8,7 @@ import { siteStructuredData } from "./seo";
 
 type Props = { children?: ReactNode; params?: Promise<Record<string, string | string[]>> };
 const stateForPath = cache(async (pathname: string) => {
-  if (process.env.NODE_ENV === "development" && pathname === "/components-ui") return null;
+  if (process.env.NODE_ENV === "development" && (pathname === "/components-ui" || pathname.startsWith("/components-ui/"))) return null;
   return getPagePublicationState(pathname);
 });
 

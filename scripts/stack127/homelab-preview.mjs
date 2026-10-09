@@ -196,21 +196,33 @@ async function startServer(port, ip) {
   if (mode === "dev") launch(process.execPath, ["node_modules/next/dist/bin/next", "dev", "-H", "0.0.0.0", "-p", String(port)], serverEnv);
   else launch(process.execPath, [".next/standalone/server.js"], serverEnv);
   let stopped = false;
-  activeExit.then(() => { stopped = true; });
-  const deadline = Date.now() + 90_000;
-  while (true) {
-    checkStopped();
-    if (stopped) {
-      const result = await activeExit;
-      throw result.error ?? new Error(`The server stopped before becoming ready (exit ${result.code}).`);
+  const serverStopped = new AbortController();
+  activeExit.then(() => { stopped = true; serverStopped.abort(); });
+  const waitMs = mode === "dev" ? 300_000 : 90_000;
+  const requestMs = mode === "dev" ? 60_000 : 3000;
+  const deadline = Date.now() + waitMs;
+  const progress = setInterval(() => {
+    console.log(mode === "dev" ? "Still compiling the first page..." : "Still waiting for the server...");
+  }, 20_000);
+  try {
+    while (true) {
+      checkStopped();
+      if (stopped) {
+        const result = await activeExit;
+        throw result.error ?? new Error(`The server stopped before becoming ready (exit ${result.code}).`);
+      }
+      const remainingMs = deadline - Date.now();
+      if (remainingMs <= 0) throw new Error(`The server did not become ready within ${waitMs / 1000} seconds.`);
+      try {
+        const response = await fetch(`http://127.0.0.1:${port}/`, {
+          signal: AbortSignal.any([serverStopped.signal, AbortSignal.timeout(Math.min(requestMs, remainingMs))]),
+        });
+        if (response.ok && !stopped) break;
+      } catch { /* Next.js may still be starting. */ }
+      if (stopped) continue;
+      await delay(500);
     }
-    try {
-      const response = await fetch(`http://127.0.0.1:${port}/`, { signal: AbortSignal.timeout(3000) });
-      if (response.ok && !stopped) break;
-    } catch { /* Next.js may still be starting. */ }
-    if (Date.now() >= deadline) throw new Error("The server did not become ready within 90 seconds.");
-    await delay(500);
-  }
+  } finally { clearInterval(progress); }
   console.log(`\nSite ready: http://${ip}:${port}/\nUse Stop preview or press Ctrl+C in this terminal to stop it.\n`);
   const result = await activeExit;
   if (result.error) throw result.error;

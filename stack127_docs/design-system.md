@@ -270,7 +270,7 @@ Keep short, important choices in a tool visible instead of hiding them in a drop
 
 Media figures use `MediaFigure` from `app/ui/site/media-figure.tsx`. Screenshots and photos use the `image` kind. Generated visual explainers use the `diagram` kind. Captions use `--text-small`. Capture screenshots in the dark theme and crop to the relevant interface.
 
-Clean charts use `*.chart.json` specs beside the page. Generate them with `npm run stack127:clean-charts` and render them with `Chart` from `app/ui/site/chart.tsx`. The generator and figure types live in `scripts/stack127/clean-charts/`. Check the rendered chart or figure where it actually sits on the page.
+Data charts use `UiChart`, or `UiLiveChart` for data computed in the browser. Chart colors come from the data tokens through the placeholder mapping in `app/ui/charts/`, so every chart follows both themes. See the Charts section of [shared-ui.md](shared-ui.md). Check the rendered chart or figure where it actually sits on the page.
 
 Code snippets use `CodeBlock` from `app/ui/site/code-block.tsx`. Code surfaces stay dark in both themes. The accent highlights only the lines the prose is talking about. Pass the exact text as string children. Don't hand-roll a bare `<pre className="lesson-code">` on new pages.
 

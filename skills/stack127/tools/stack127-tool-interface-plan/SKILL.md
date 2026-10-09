@@ -18,7 +18,8 @@ Decide:
 - distinct result regions with no repeated facts;
 - shared, new shared, or route-specific components for nontrivial controls;
 - initial, valid, invalid, loading, empty, partial, failure, retry, reset, restored, and long-value states that apply;
-- desktop and mobile order, containment, table behavior, keyboard flow, focus, and announcements.
+- desktop and mobile order, containment, table behavior, keyboard flow, focus, and announcements;
+- any chart: its `UiLiveChart` kind, series, number format, and whether hover, toggles, or ranges help. See the Charts section of `stack127_docs/shared-ui.md`. A chart type that isn't registered yet gets added to `app/ui/charts/` now, with a gallery example.
 
 ## Components
 
@@ -26,7 +27,7 @@ List every existing shared component the frontend will use. When no shared compo
 
 - Put it in `app/ui/` and follow `stack127_docs/shared-ui.md`, `stack127_docs/design-system.md`, and `stack127_docs/css-architecture.md`.
 - Make it useful beyond this one tool. Keep calculations, data sources, and tool-specific behavior out of it.
-- Add an example to the `/components-ui` gallery.
+- Add an example to the `/components-ui` gallery, in the section for its component type. See `stack127_docs/shared-ui.md`.
 - When changing an existing component, keep the pages that use it working.
 - Check it in the gallery and on the page types that use it, at desktop and mobile width in both themes. Run `npm run quality`.
 

@@ -18,6 +18,8 @@ export type UiFileDropzoneProps = Readonly<{
   browseLabel?: string;
   description: string;
   disabled?: boolean;
+  /** Heading inside the drop zone. Defaults to "Drop a file here" or "Drop files here", following allowsMultiple. */
+  dropLabel?: string;
   inputRef?: Ref<HTMLInputElement>;
   label: string;
   maxFiles?: number;
@@ -62,9 +64,10 @@ export function UiFileDropzone({
   acceptedFileTypes,
   allowsMultiple = false,
   browseButtonRef,
-  browseLabel = "Choose files",
+  browseLabel = allowsMultiple ? "Choose files" : "Choose file",
   description,
   disabled,
+  dropLabel = allowsMultiple ? "Drop files here" : "Drop a file here",
   inputRef,
   label,
   maxFiles,
@@ -92,7 +95,7 @@ export function UiFileDropzone({
       >
         <Upload aria-hidden="true" className={styles.dropzoneIcon} size={24} />
         <div className={styles.dropzoneCopy}>
-          <strong>Drop files here</strong>
+          <strong>{dropLabel}</strong>
           <span>{description}</span>
         </div>
         <FileTrigger acceptedFileTypes={acceptedFileTypes} allowsMultiple={allowsMultiple} onSelect={(files) => submit(files ? Array.from(files) : [])} ref={inputRef}>
