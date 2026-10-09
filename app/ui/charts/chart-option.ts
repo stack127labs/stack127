@@ -86,10 +86,16 @@ type LineSpec = Extract<UiChartSpec, { kind: "line" | "area" | "stacked-area" }>
 
 const isLine = (spec: UiChartSpec): spec is LineSpec => spec.kind === "line" || spec.kind === "area" || spec.kind === "stacked-area";
 
-/** The labels of a labeled x axis, in first-seen order, or null when x values are numbers. */
+/**
+ * The labels of a labeled x axis, or null when x values are numbers. Labels are positions: every
+ * series lists its points in the same order, and a label may repeat, so the longest series names them.
+ */
 function xLabels(spec: LineSpec) {
-  const points = spec.series.flatMap((line) => line.points as readonly (UiChartPoint | UiChartLabelPoint)[]);
-  return points.length && points.every((point) => typeof point[0] === "string") ? [...new Set(points.map((point) => String(point[0])))] : null;
+  const series = spec.series as readonly UiChartSeries<UiChartPoint | UiChartLabelPoint>[];
+  const points = series.flatMap((line) => line.points);
+  if (!points.length || !points.every((point) => typeof point[0] === "string")) return null;
+  const longest = series.reduce((most, line) => (line.points.length > most.points.length ? line : most));
+  return longest.points.map((point) => String(point[0]));
 }
 
 const isTimeFormat = (format: UiChartFormat | undefined) => format === "date" || format === "datetime";
@@ -155,9 +161,17 @@ export function chartTable(spec: UiChartSpec): { columns: string[]; corner: stri
   }
   if (!isLine(spec)) return null;
   const series = spec.series as readonly UiChartSeries<UiChartPoint | UiChartLabelPoint>[];
+  const labels = xLabels(spec);
+  if (labels) {
+    return {
+      columns: series.map((line) => line.label),
+      corner: "Point",
+      rows: labels.map((label, index) => ({ cells: series.map((line) => (line.points[index] ? format(line.points[index][1]) : "")), label })),
+    };
+  }
   // One row per x value, so lines that share a date share a row.
   const xs = [...new Set(series.flatMap((line) => line.points.map((point) => point[0])))];
-  if (!xLabels(spec)) xs.sort((a, b) => Number(a) - Number(b));
+  xs.sort((a, b) => Number(a) - Number(b));
   return {
     columns: series.map((line) => line.label),
     corner: isTimeFormat(spec.xFormat) ? "Date" : "Point",
@@ -296,7 +310,8 @@ export function chartOption(spec: UiChartSpec): EChartsCoreOption {
       series: spec.series.map((line, index) => ({
         areaStyle: spec.kind === "line" ? undefined : { color: seriesColor(index), opacity: spec.kind === "stacked-area" ? 0.32 : 0.14 },
         color: seriesColor(index),
-        data: line.points,
+        // A labeled axis places values by position, so a repeated label keeps its own point.
+        data: labels ? line.points.map((point) => point[1]) : line.points,
         emphasis: { disabled: true },
         id: line.id,
         itemStyle: { borderColor: ink.page, borderWidth: 2, color: seriesColor(index) },

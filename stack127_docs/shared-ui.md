@@ -91,7 +91,7 @@ All three take a `spec`: the chart's `kind`, its data, a `title`, an optional `c
 | `scatter` | Two measures for each item. |
 | `heatmap` | A value across two categories, such as hour and weekday. |
 
-`format` is `number`, `compact`, `bytes`, `currency`, `percent`, `date`, or `datetime`. Line and scatter charts also take `xFormat`. Line x values are dates as milliseconds, numbers, or labels. Labels give a category axis.
+`format` is `number`, `compact`, `bytes`, `currency`, `percent`, `date`, or `datetime`. Line and scatter charts also take `xFormat`. Line x values are dates as milliseconds, numbers, or labels. Labels give a category axis and are read by position: list every series' points in the same order. A label may repeat.
 
 ### Interactive or static
 

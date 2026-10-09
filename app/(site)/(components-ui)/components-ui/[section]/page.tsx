@@ -2,7 +2,6 @@ import type { ComponentType } from "react";
 import { notFound } from "next/navigation";
 import { ActionsAndFormsExamples } from "../examples/actions-and-forms";
 import { CardsExamples } from "../examples/cards";
-import { ChartsExamples } from "../examples/charts";
 import { ContentExamples } from "../examples/content";
 import { FeedbackAndDialogsExamples } from "../examples/feedback-and-dialogs";
 import { FileUploadsExamples } from "../examples/file-uploads";
@@ -17,6 +16,7 @@ import { TextAndChoicesExamples } from "../examples/text-and-choices";
 import { GalleryPage } from "../gallery";
 import { gallerySection } from "../sections";
 
+// Charts has its own route (../charts), so the interactive chart code never reaches the other sections.
 const examples: Record<string, ComponentType> = {
   "text-and-choices": TextAndChoicesExamples,
   "numbers-and-sliders": NumbersAndSlidersExamples,
@@ -25,7 +25,6 @@ const examples: Record<string, ComponentType> = {
   "filters-and-sorting": FiltersAndSortingExamples,
   results: ResultsExamples,
   tables: TablesExamples,
-  charts: ChartsExamples,
   cards: CardsExamples,
   content: ContentExamples,
   "media-and-art": MediaAndArtExamples,
