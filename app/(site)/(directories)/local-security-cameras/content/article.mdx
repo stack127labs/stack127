@@ -1,0 +1,29 @@
+## Will this camera work with Frigate?
+
+If it has an RTSP stream, Frigate can usually record it, but only a few cameras here have a tested setup. The Frigate status in the details tells you which:
+
+<Terms>
+<Term name="Verified">Someone ran this Frigate config on the camera and reported it to the source database.</Term>
+<Term name="Recorded, not bench verified">The database generated a config from the published stream paths. Nobody has reported testing it.</Term>
+<Term name="Not recorded">There's no Frigate config for this camera yet.</Term>
+</Terms>
+
+## What should I look for in a camera for Frigate?
+
+[Frigate's hardware guide](https://docs.frigate.video/frigate/hardware) suggests a few things. The details show each one when the source publishes it.
+
+- H.264 video and AAC audio give the most compatibility with Frigate and Home Assistant.
+- More than one substream lets Frigate detect on a small stream and record the full one.
+- A wired connection is safer. Frigate doesn't recommend Wi-Fi cameras, because their streams can drop.
+
+RTSP carries the video. ONVIF helps software find the camera and control it, such as moving a PTZ camera.
+
+## Why do firmware and the exact model matter?
+
+Stream paths and ONVIF behavior can change with a firmware update. Many brands also sell rebadged hardware, such as Hikvision cameras under other names, so one model can follow another maker's stream paths. Check the stream path in the details against your camera's current firmware.
+
+## Where does this list come from?
+
+From the [CCTV Camera Database](https://github.com/ch-bas/cctv-camera-database), a public domain list built from manufacturer datasheets and product pages. We include cameras that publish RTSP or ONVIF and cite a manufacturer source. Each camera's details show when the database last checked it.
+
+We haven't tested these cameras ourselves. The database says its specs may contain errors, so confirm against the official datasheet before you buy.

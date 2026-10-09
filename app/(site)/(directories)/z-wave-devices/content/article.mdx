@@ -1,0 +1,30 @@
+## Will this Z-Wave device work with Home Assistant?
+
+Very likely, if it's certified for your region. Home Assistant's Z-Wave integration runs on Z-Wave JS, and [its docs](https://www.home-assistant.io/integrations/zwave_js/) say a device "may very well work as intended" without a device file.
+
+A configuration file adds the model's settings, such as configuration parameters and association groups, plus any fixes it needs. "No Z-Wave JS match" means we couldn't match a file, sometimes because the certificate lists no product ID. It doesn't mean the device fails.
+
+## Which Z-Wave frequency do I need?
+
+The one for your country. Z-Wave radios use different frequencies by region, and Home Assistant's docs say you can't change an end device's frequency, so buy devices made for your region. 700 and 800 series controllers can switch region.
+
+"US LR" on a card means Z-Wave Long Range, a newer US option that reaches farther. Home Assistant uses it when your adapter supports it. Devices without Long Range still join the same network.
+
+## Why do product IDs matter more than the name?
+
+A retail name can cover several hardware versions and regions, each with its own certificate. Z-Wave JS picks a configuration file from the manufacturer ID, product type, and product ID the device reports, and sometimes the firmware version. The details list these IDs and every certified variant, so you can match the exact one you're buying.
+
+## Where does this list come from?
+
+It joins two public sources by those product IDs.
+
+| Source | What it adds |
+| --- | --- |
+| [Z-Wave Alliance product catalog](https://products.z-wavealliance.org/) | Certification, frequency, device type, and product IDs |
+| [Z-Wave JS device database](https://devices.zwave-js.io/) | Whether Z-Wave JS has a configuration file, and what it sets |
+
+Every product here is certified by the Z-Wave Alliance. We haven't tested them ourselves, so check the manual or configuration link in the details before you buy.
+
+## What about Zigbee and Matter devices?
+
+They use different radios and software, so check them in [Zigbee devices](/zigbee-devices) and [Matter devices](/matter-devices).

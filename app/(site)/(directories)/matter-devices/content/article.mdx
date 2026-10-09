@@ -1,0 +1,32 @@
+## Will a Matter device work with Home Assistant?
+
+Usually, but certification doesn't promise every feature. It means the product passed the Connectivity Standards Alliance's tests for its device type. [Home Assistant's Matter docs](https://www.home-assistant.io/integrations/matter/) note that Matter, as a shared standard, may lack features a brand's own app offers. Check that your controller supports the device type on the card.
+
+An "Aggregator" is a bridge. It brings a brand's other devices into Matter, so what you can control depends on the bridge.
+
+## What do I need for Thread, Wi-Fi, or Ethernet?
+
+Each network needs something different:
+
+| Network | What you need |
+| --- | --- |
+| Thread | A Thread border router, which links Thread devices to your home network |
+| Wi-Fi | Your Wi-Fi network |
+| Ethernet | A wired network port |
+| Bluetooth | A phone near the device during setup. Bluetooth is only used to add the device, not to control it. |
+
+Matter also needs local IPv6 and multicast traffic to reach your controller, so check your router doesn't block them.
+
+## Why does one product have several certificates?
+
+Brands certify hardware versions, firmware versions, and regional models separately, so one product can carry many certificate IDs. The details list each variant with its firmware, hardware version, and product ID. A device on newer firmware may sit under a later certificate.
+
+## Where does this list come from?
+
+From the [Connectivity Standards Alliance's certified product list](https://csa-iot.org/csa-iot_products/). We group certificates for the same product into one card. For some products, the community [Matter Database](https://github.com/matterdatabase/matterdatabase) adds retail names and images.
+
+We haven't tested these products ourselves. If you can't find one, it may be certified under another brand name, or after the date above the cards.
+
+## What about Zigbee and Z-Wave devices?
+
+Each has its own radio and software. Check exact models in [Zigbee devices](/zigbee-devices) and [Z-Wave devices](/z-wave-devices).
