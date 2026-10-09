@@ -1,0 +1,11 @@
+## Why can't some domain extensions be looked up?
+
+Our domain tools read registration data over RDAP, and some registries don't offer it. The Lookups column shows where each ending stands.
+
+| Lookups | What it means |
+| --- | --- |
+| Yes | The registry is in [IANA's RDAP directory](https://data.iana.org/rdap/dns.json). |
+| Via our own list | The registry runs RDAP but isn't in IANA's directory. We added it after testing it with a real domain. The name under the label runs the service. |
+| Cannot check | We know of no RDAP service for this ending, so our lookup and availability tools can't answer for it. |
+
+A "Cannot check" ending may still have a WHOIS server or a lookup on the registry's website. Its page in [IANA's root zone database](https://www.iana.org/domains/root/db) lists both. [Domain lookup](/domain-lookup) explains how RDAP and WHOIS differ.

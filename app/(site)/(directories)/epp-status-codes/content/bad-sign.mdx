@@ -1,5 +1,9 @@
 ## Are status codes on my domain a bad sign?
 
-Usually not. A healthy domain normally carries at least one, and `clientTransferProhibited` is the default lock most registrars apply precisely because it protects you from an unauthorised transfer. Seeing it is a good sign, not a problem to fix.
+Usually not. Every domain carries at least one, and `clientTransferProhibited` is a lock most registrars turn on by default to stop unauthorized transfers.
 
-The ones actually worth acting on are the two hold codes, anything starting with `server`, and the lifecycle codes that mean a domain is on its way out. Everything else is either informational or something that clears on its own.
+Look into these:
+
+- `clientHold` or `serverHold`, because the site is offline.
+- Any code starting with `server`, because only the registry can remove it, so find out why it's there.
+- `autoRenewPeriod`, `redemptionPeriod`, or `pendingDelete`, because the domain is close to being lost.

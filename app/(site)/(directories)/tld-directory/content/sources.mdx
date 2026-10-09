@@ -1,0 +1,7 @@
+## Where does this data come from?
+
+- Type and operator: [IANA's root zone database](https://www.iana.org/domains/root/db).
+- DNSSEC: DS records in the [root zone file](https://www.internic.net/domain/root.zone).
+- Lookups: [IANA's RDAP directory](https://data.iana.org/rdap/dns.json), plus the few registries we added by hand.
+
+A script rebuilds the table from these sources. If a source changes shape, the script stops instead of saving a partial list.

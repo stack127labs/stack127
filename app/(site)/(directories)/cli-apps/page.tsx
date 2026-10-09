@@ -1,7 +1,6 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
-import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
-import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import {
@@ -23,6 +22,12 @@ import { HiddenDetails } from "@/app/ui/directories/hidden-details";
 import { cliAppPageSize, installLabels, labelForValue, platformOptions } from "./cli-app-options";
 import { CliAppFilters, CliAppResults } from "./cli-app-view";
 import { sortApps } from "./filters";
+import { proseClassName, proseSectionFlowClassName } from "@/app/ui/site/prose";
+import Checks from "./content/checks.mdx";
+import Health from "./content/health.mdx";
+import Intro from "./content/intro.mdx";
+import SourceModel from "./content/source-model.mdx";
+import Types from "./content/types.mdx";
 
 const typeLabels = new Map<string, string>(terminalAppTypeLabels);
 
@@ -137,14 +142,27 @@ export default async function CliAppsPage() {
           <PageHeader>
             <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
             <PageMeta updatedAt={directoryPage.updated_at} />
-            <ContentMarkdown markdown={directoryPage.intro_markdown} />
+            <Intro />
           </PageHeader>
         </EntryHero>
         <PageCanvas as="div" flow className="directory-results">
           <CliAppResults firstPage={defaultApps} total={apps.length} categoryLabels={categoryLabels} emptyVisual={<Doodle svg={siteDoodleStarArt} />} />
           <HiddenDetails prefix="cli-app" items={defaultApps.map((app) => ({ slug: app.slug, name: app.name, body: <CliAppDetailsBody app={app} /> }))} />
-        <DirectoryPageContent page={directoryPage} />
-          </PageCanvas>
+          <article className={`${proseClassName} ${proseSectionFlowClassName}`}>
+            <section>
+              <Types />
+            </section>
+            <section>
+              <Checks />
+            </section>
+            <section>
+              <Health />
+            </section>
+            <section>
+              <SourceModel />
+            </section>
+          </article>
+        </PageCanvas>
       </AppShell>
     </DirectoryQueryProvider>
   );
