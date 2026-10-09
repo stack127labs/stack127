@@ -1,9 +1,8 @@
 import type { Stack127DirectoryPage } from "@/lib/directory-pages";
-import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
-import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
-import { Fragment } from "react";
+import { Fragment, type ReactNode } from "react";
 import { groupedBindings, keycapParts } from "@/lib/shortcuts/presentation";
 import Link from "next/link";
 import { PageHeader } from "@/app/ui/site/page-header";
@@ -55,8 +54,11 @@ function ShortcutRow({ shortcut, platforms }: { shortcut: Shortcut; platforms: A
   );
 }
 
-/** `iconKey` is the page's own card icon key, or the keyboard shortcuts directory's when it has none. */
-export function KeyboardShortcutsReference({ app, directoryPage, iconKey }: { app: AppShortcuts; directoryPage: Stack127DirectoryPage; iconKey: string | null }) {
+/**
+ * `intro` is the app page's own `content/intro.mdx`. `iconKey` is the page's own card icon key,
+ * or the keyboard shortcuts directory's when it has none.
+ */
+export function KeyboardShortcutsReference({ app, directoryPage, iconKey, intro }: { app: AppShortcuts; directoryPage: Stack127DirectoryPage; iconKey: string | null; intro: ReactNode }) {
   return (
     <PageCanvas className={styles.page} flow>
       <PageHeader>
@@ -65,7 +67,7 @@ export function KeyboardShortcutsReference({ app, directoryPage, iconKey }: { ap
           <DirectoryPageTitle title={directoryPage.title} />
         </h1>
         <PageMeta updatedAt={directoryPage.updated_at} />
-        <ContentMarkdown markdown={directoryPage.intro_markdown} />
+        {intro}
         <small>
           {app.platforms.map((platform) => platformLabels[platform]).join(", ")} · {shortcutCount(app)} shortcuts
         </small>
@@ -99,7 +101,8 @@ export function KeyboardShortcutsReference({ app, directoryPage, iconKey }: { ap
       ))}
 
       <section className={styles.nextStep} aria-labelledby="print-title">
-        <DirectoryPageContent page={directoryPage} section="print" components={{ h2: ({ children }) => <h2 id="print-title">{children}</h2> }} />
+        <h2 id="print-title">Print the shortcuts you use</h2>
+        <p><Link href={`/shortcuts-cheatsheet-generator?apps=${app.slug}`}>Make a printable {app.name} sheet</Link></p>
       </section>
     </PageCanvas>
   );

@@ -5,7 +5,6 @@ import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
-import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { proseClassName, proseFlowClassName } from "@/app/ui/site/prose";
 import { ToolCatalog } from "@/app/ui/catalogs/tool-catalog";
@@ -14,11 +13,15 @@ import { DomainCatalogReference } from "./domain-catalog-reference";
 import { cardArt } from "@/lib/card-art";
 import { cardIcon } from "@/lib/card-icons";
 import { getPublishedToolCatalog } from "@/lib/tool-catalogs";
+import { catalogContent } from "./content";
 
 export default async function ToolCatalogPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const catalog = await getPublishedToolCatalog(slug);
   if (!catalog) notFound();
+  const content = catalogContent[slug];
+  if (!content) throw new Error(`Published catalog has no content: ${slug}`);
+  const { Intro, Article } = content;
   const Icon = cardIcon(catalog.card_icon_key);
 
   return (
@@ -35,16 +38,16 @@ export default async function ToolCatalogPage({ params }: { params: Promise<{ sl
             <DirectoryPageTitle title={catalog.title} />
           </h1>
           <PageMeta updatedAt={catalog.updated_at} />
-          <ContentMarkdown markdown={catalog.intro_markdown} />
+          <Intro />
         </PageHeader>
       </EntryHero>
       <PageCanvas>
         <ToolCatalog heading="Tools" tools={catalog.tools} />
         {slug === "domain-tools" ? <DomainCatalogReference /> : null}
       </PageCanvas>
-      {catalog.content_markdown ? (
+      {Article ? (
         <PageCanvas as="article" reading className={`${proseClassName} ${proseFlowClassName}`}>
-          <ContentMarkdown markdown={catalog.content_markdown} />
+          <Article />
         </PageCanvas>
       ) : null}
     </AppShell>
