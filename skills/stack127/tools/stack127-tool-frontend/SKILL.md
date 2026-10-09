@@ -7,11 +7,11 @@ description: Build the page, interface, tool components, styles, and card art fo
 
 In the tool pipeline, Opus runs this skill in the same planning session that wrote the spec, after Sol finishes the backend.
 
-Read the spec, the backend files Sol built, `stack127_docs/tool-pages.md`, `stack127_docs/tool-interface.md`, `stack127_docs/shared-ui.md`, `stack127_docs/design-system.md`, and `stack127_docs/css-architecture.md`.
+Read the spec, the backend files Sol built, `stack127_docs/tool-pages.md`, `stack127_docs/page-content.md`, `stack127_docs/tool-interface.md`, `stack127_docs/shared-ui.md`, `stack127_docs/design-system.md`, and `stack127_docs/css-architecture.md`.
 
 Build the interface you planned. Call the backend only through its contract. If the backend does not match the contract or has a bug, do not patch it. Report it to the main agent so it goes back to Sol.
 
-1. Build the route page. Use `ToolPageShell` from `app/ui/tools/tool-page-shell.tsx` with the fetched `toolPage`. It resolves the primary catalog and sidebar from database memberships. Do not add a route-owned tool sidebar.
+1. Build the route page. Use `ToolPageShell` from `app/ui/tools/tool-page-shell.tsx` with the fetched `toolPage`. It resolves the primary catalog and sidebar from database memberships. Do not add a route-owned tool sidebar. Create `content/intro.mdx` and `content/article.mdx` beside the route with one clearly marked placeholder line each. Pass `<Intro />` to `ToolPageHeader`'s `intro` and put `<Article />` inside `ToolPageArticle`, as `/cac-payback-calculator` does. The writing session replaces the placeholders.
 2. Build the interface with the components named in the spec, one primary action, and one lead answer. Add only the tool-specific components the spec lists. Draw result charts with `UiLiveChart`. Charts in the page's own content use `UiStaticChart`, or `UiChart` when the reader needs hover, toggles, or ranges. Keep the client island small and colocate styles. The route page stays static: read shared-link values in a client wrapper with `useInitialQuery()` from `app/ui/tools/use-initial-query.ts`, never `searchParams` on the server page. See `stack127_docs/caching.md`.
 3. Handle every state in the spec: initial, valid, invalid, loading, empty, partial, failure, retry, reset, restored, and long values, as they apply.
 4. Use `$marker-art-draw` and the card art brief to create the tool's `toolSpot` in `app/ui/art/`. Generate its `.svg` and `.ts`, register a tool-specific key in `lib/card-art.ts`, and check it at card size. Do not use the `icon` fallback for a new tool.
@@ -22,4 +22,4 @@ Leave the production build to the main agent. Do not write page content, publish
 
 Return the files you built, what you checked, and any backend problem you found.
 
-For an existing tool, a change to inputs, results, calculations, validation, or other user-visible behavior needs a `tool_version` increase. Use a patch for a compatible fix, a minor version for compatible new behavior, and a major version for an incompatible contract change. Confirm the version with the coordinator before integration. The database moves the public date when the version changes. Copy-only edits move the date without changing the version. Card-only edits refresh catalogs and keep the tool date unchanged. See `stack127_docs/tool-pages.md`.
+For an existing tool, a change to inputs, results, calculations, validation, or other user-visible behavior needs a `tool_version` increase. Use a patch for a compatible fix, a minor version for compatible new behavior, and a major version for an incompatible contract change. Confirm the version with the coordinator before integration. The database moves the public date when the version changes. MDX content changes leave the version and the date alone; a date move for content-only tool changes comes later. Card-only edits refresh catalogs and keep the tool date unchanged. See `stack127_docs/tool-pages.md`.

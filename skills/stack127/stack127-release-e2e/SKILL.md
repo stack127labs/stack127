@@ -14,7 +14,7 @@ Builds and release checks run on GitHub, not on the homelab. Don't run `npm run 
 | Change | Path |
 | --- | --- |
 | Only docs, skills, `content_docs`, records, or other `.md` files | Commit and push straight to `main`. Nothing deploys. |
-| Anything else, including a small code fix or a migration | Pull request, then merge. The merge deploys. |
+| Anything else, including page content in `content/*.mdx`, a small code fix, or a migration | Pull request, then merge. The merge deploys. |
 
 ## Before release
 
@@ -55,6 +55,8 @@ If the frontend fails after the backend is live, run `node scripts/stack127/fron
 
 Do this after the release workflow passes and the live health SHA matches the merge commit. "Push to prod" already covers it. Don't ask again.
 
+Page content in MDX went live with the merge. The publisher writes the database side: registry, titles, search metadata, cards, catalogs, versions, dates, and publication.
+
 1. From a clean checkout of the exact merge commit, which must be the current `origin/main`, run the publisher's `prepare` for each manifest with `--environment production` and a new `--out` file. It reads the current production rows into the plan and records the source commit.
 2. Run `preview` with `--environment production`. Read the result and confirm only the intended pages change.
 3. Run `dispatch` with `--environment production`, `--confirm stack127-production`, and the full current `origin/main` SHA as `--release-sha`.
@@ -77,4 +79,4 @@ Report the PR, the merge commit, the workflow result, the live SHA, the page pub
 
 Never deploy to the removed Hostinger target, expose secrets, bypass Cloudflare Access, automate dashboard credentials, or change DNS to hide a failed deployment.
 
-For meaningful code directory facts, include `touch_reason` in the reviewed directory publication manifest. Skip it for typo fixes. Copy and covered database records move dates automatically. Tool card edits leave tool dates alone; shipped behavior changes require the next `tool_version`. See `stack127_docs/page-publishing.md` and `stack127_docs/tool-pages.md`.
+For meaningful code directory facts or directory MDX content changes, include `touch_reason` in the reviewed directory publication manifest. Skip it for typo fixes. Title, search metadata, card, and covered database record changes move dates automatically. Tool card edits leave tool dates alone; shipped behavior changes require the next `tool_version`. Tools have no content-only date move yet. See `stack127_docs/page-publishing.md` and `stack127_docs/tool-pages.md`.
