@@ -20,7 +20,7 @@ test("export contains published pages and registry-selected dynamic parameters",
   for (const folder of ["app/(site)/live", "app/(site)/draft", "app/(site)/(catalogs)/[slug]", "app/api/private", "app/vitals", "app/publication-not-found", "lib", "public", "node_modules"]) {
     await mkdir(path.join(source, folder), { recursive: true });
   }
-  for (const filename of ["next.config.ts", "next-env.d.ts", "tsconfig.json", "package.json", "package-lock.json"]) await writeFile(path.join(source, filename), "{}");
+  for (const filename of ["next.config.ts", "mdx-components.tsx", "next-env.d.ts", "tsconfig.json", "package.json", "package-lock.json"]) await writeFile(path.join(source, filename), "{}");
   for (const route of ["live", "draft", "(catalogs)/[slug]"]) {
     await writeFile(path.join(source, "app/(site)", route, "page.tsx"), "export default function Page() { return null; }\n");
     await writeFile(path.join(source, "app/(site)", route, "layout.tsx"), 'const registry = registryLayout("/x");\nexport function generateStaticParams() { return []; }\n');

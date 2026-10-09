@@ -1,0 +1,100 @@
+## How is CAC payback calculated?
+
+Payback months are the acquisition cost divided by one month of gross profit from that customer.
+
+<Formula title="Payback months">
+
+Payback months = CAC ÷ (monthly ARPA × gross margin)
+
+</Formula>
+
+Monthly ARPA is average revenue per account. Gross margin is the share left after serving costs. In the example above, monthly gross profit is $40.00, payback is 7.5 months, and the cost is earned back during month 8.
+
+[ChartMogul's payback definition](https://chartmogul.com/saas-metrics/cac-payback/) and [Stripe's payback guide](https://stripe.com/resources/more/what-is-the-cac-payback-period) both divide by monthly gross profit.
+
+## Why show months that ignore serving costs?
+
+The row `Months if you ignore serving costs` divides CAC by monthly ARPA and leaves the margin out. It shows how far off a revenue-only payback can be.
+
+In the example, that row is 6.0 months and the payback is 7.5. The 6.0 treats the whole $50 as profit, but hosting, support, and payment fees still come out of it.
+
+## What belongs in the CAC?
+
+CAC is sales and marketing cost divided by the new paying customers you won. [Stripe's CAC guide](https://stripe.com/resources/more/cac-in-saas) uses that ratio. The period and the customer group have to match. If your sales cycle is longer than the period, a same-month ratio is rough. Stripe also says there is no universal CAC target.
+
+Serving costs belong in gross margin instead. [Stripe's gross margin guide](https://stripe.com/resources/more/saas-gross-margin-explained-what-it-is-and-why-it-is-important) counts hosting, support, payment processing, and direct delivery as the cost of serving. Sales and marketing stay out of that margin.
+
+With `From spend and new customers`, $10,000 of spend and 7 customers shows a CAC of $1,428.57. The months use the exact $10,000 ÷ 7, not the rounded figure. At $99 of monthly ARPA and a 70% margin, payback is 20.6 months, earned back during month 21.
+
+When the cost needs separate lines for ads, pay, tools, and your own unpaid hours, start with the [customer acquisition cost calculator](/customer-acquisition-cost-calculator). Bring the cash cost back here. Unpaid hours stay out of the payback unless you include them in the CAC you type.
+
+## What does monthly customer churn change?
+
+With churn off, every new customer keeps paying. With churn on, the page follows the group as people leave.
+
+Month 1 counts every customer you won. At 5% churn, month 2 counts 95% of the group, and each later month keeps 95% of the month before. The page adds up the gross profit from the customers still paying. The churn line shows the first month that running total reaches the CAC.
+
+In the example above, the churn line reads: `With 5% monthly churn: earned back during month 10.` After 9 months the group has earned $295.80, short of $300. After 10 months it has earned $321.01.
+
+The main result stays 7.5 months, earned back during month 8, because it assumes nobody leaves. A churn rate of 0 gives the same month as the main result.
+
+## When does the group never earn the cost back?
+
+A steady churn rate caps the gross profit one customer can return. The cap is one month of gross profit divided by the churn rate. Below 100% churn, the running total gets closer to that cap but never reaches it. So a CAC equal to the cap is still `never`.
+
+At $40.00 a month and 5% churn, the cap is $800.00. A CAC of $800.00 shows `never`, and the line says a customer returns at most $800.00 in gross profit. The main result can still show 20.0 months, because it ignores the people who leave.
+
+At 100% churn, only month 1 pays. The cap is that one month of gross profit, and it is reached, so a CAC equal to it is earned back.
+
+| CAC | Monthly churn | What you see |
+| --- | --- | --- |
+| $300 | 5% | Earned back during month 10. The main result still shows 7.5 months. |
+| $800 | 5% | `never`. The most gross profit is $800.00. |
+| $40 | 100% | Earned back during month 1. Gross profit that month is $40.00. |
+| $50 | 100% | `never`. The most gross profit is $40.00. |
+
+The page checks up to 600 months. If the running total is still short of the CAC by then, the churn line says `not within 600 months`. That is not `never`. The cost is earned back in a later month the page doesn't check.
+
+For example, a CAC of $399,000, monthly ARPA of $50, an 80% margin, and 0.01% churn. The main result shows 9,975.0 months, because it assumes nobody leaves. The churn line says `not within 600 months`.
+
+The page doesn't label any result healthy or unhealthy.
+
+## What if the cost is zero, or gross profit is not positive?
+
+A cost of exactly 0 shows `Nothing to earn back`, whatever the margin and churn. It is not shown as 0 months.
+
+| What you entered | Main result | What else you see |
+| --- | --- | --- |
+| CAC $0, margin 80%, ARPA $50 | `Nothing to earn back` | Gross profit is still $40.00 a month. |
+| CAC $0, margin -20%, ARPA $50 | `Nothing to earn back` | Each customer still costs $10.00 a month more to serve than they pay. |
+| CAC $300, margin 0%, ARPA $50 | `Never` | Each customer leaves $0.00 a month after serving costs. The revenue-only row still shows 6.0 months. |
+| CAC $300, margin -20%, ARPA $50 | `Never` | Each customer costs $10.00 a month more to serve than they pay. |
+| Spend $0.01 and 3 customers, ARPA $50, margin 80% | `Under 0.1` | The CAC row shows `Under $0.01`. The cost is still above zero, and it is earned back during month 1. |
+
+<Note title="A loss and a zero cost are different">
+
+Zero CAC with a negative margin stays `Nothing to earn back`, because there is no acquisition cost to repay. The serving loss shows in its own sentence.
+
+</Note>
+
+## Does paying annually change the months?
+
+No. The months count gross profit over the time you serve the customer. Cash can arrive on a different date.
+
+[ChartMogul's MRR definition](https://chartmogul.com/saas-metrics/mrr/) spreads a recurring plan across its billing interval and leaves one-time charges out, so monthly revenue is not the cash in your account. The accounting standard [IFRS 15](https://www.ifrs.org/issued-standards/list-of-standards/ifrs-15-revenue-from-contracts-with-customers/) also counts revenue as the service is delivered.
+
+<Warning title="An annual prepayment does not make payback one day">
+
+A customer can pay for a year up front while the gross profit is earned across the year. Refunds, late invoices, and collection delays are not inputs here. A cash schedule needs those dates. This result is the gross-profit schedule.
+
+</Warning>
+
+The formula also uses one ARPA, one margin, and at most one churn rate. Expansion, later price changes, and discounts are not included.
+
+## How is payback different from lifetime value?
+
+Payback counts the months until gross profit covers the CAC. Lifetime value is the gross profit you expect over the whole time a customer stays, if price, margin, and churn stay the same.
+
+The [customer lifetime value calculator](/customer-lifetime-value-calculator) estimates that gross profit. The [LTV:CAC calculator](/ltv-cac-calculator) divides it by acquisition cost and shows the no-churn payback next to the ratio. With the same ARPA, margin, and CAC, that payback matches the main result here. Lifetime value can be high while payback is still long.
+
+For the revenue that covers the company's fixed costs, use the [break-even MRR calculator](/break-even-mrr-calculator). For one month of revenue, retention, and acquisition together, use the [SaaS metrics calculator](/saas-metrics-calculator).

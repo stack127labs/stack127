@@ -1,0 +1,27 @@
+## What to enter
+
+CAC is the cost to win one new paying customer. [Stripe's CAC guide](https://stripe.com/resources/more/cac-in-saas) divides sales and marketing cost by the new customers you won. Use the same period and the same customers on both sides.
+
+`Enter CAC` is for a cost you already have. `From spend and new customers` divides the spend by the count for you. A spend of 0 is a real zero. A blank field is missing, not zero.
+
+Monthly ARPA is the average monthly revenue from one of those new customers, before serving costs. It is not your company's total revenue.
+
+Gross margin is the share left after hosting, support, payment fees, and other costs to serve that revenue. Sales and marketing belong in the CAC, not here. The field runs from -100 to 100. Type `-20` when serving the customer costs more than they pay.
+
+`Include monthly churn` asks for customer churn, the share of this new group who stop paying each month. Revenue churn is a different percent, because price changes are mixed in. The rate stays the same every month, and month 1 counts every new customer as paying.
+
+`Compare a second scenario` tries one other CAC, price, margin, or churn. It shows how many months sooner or later only when both sides have a month count. If either side is `Never` or `Nothing to earn back`, there is no gap to show.
+
+Type digits with up to two decimals. A `$`, comma, or `%` sign is rejected. Currency changes the symbol only.
+
+## How to read the result
+
+The main result is the months of gross profit it takes to cover the CAC. The line under it names the month the cost is covered. `Never` means these inputs never cover the cost. `Nothing to earn back` means the cost is exactly zero.
+
+The table row `Months if you ignore serving costs` leaves the margin out. It's there for comparison. The main result is the payback.
+
+<Example title="$300 to win the customer, $50 a month, 80% margin">
+
+Monthly gross profit is $40.00. Payback is 7.5 months. The cost is earned back during month 8. Months if you ignore serving costs: 6.0.
+
+</Example>
