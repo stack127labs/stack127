@@ -21,6 +21,14 @@ function escapeText(value) {
     .replace(/^(import|export)(?=\s)/gm, word => `&#${word.charCodeAt(0)};${word.slice(1)}`);
 }
 
+function linkLabel(value) {
+  return value.replace(/[\\`*_~[\]{}<&|]/g, character => `&#${character.charCodeAt(0)};`);
+}
+
+function linkDestination(value) {
+  return `<${value.replace(/[\\<>&\r\n]/g, character => `&#${character.charCodeAt(0)};`)}>`;
+}
+
 function applyEdits(markdown, edits) {
   let result = markdown;
   for (const { start, end, value } of edits.sort((a, b) => b.start - a.start)) {
@@ -71,7 +79,7 @@ export function convertMarkdown(markdown, { source = 'Markdown', lineOffset = 0 
       return;
     }
     if (node.type === 'link' && raw(node).startsWith('<')) {
-      replace(node, `[${escapeText(node.children.map(child => child.value).join(''))}](${node.url})`);
+      replace(node, `[${linkLabel(node.children.map(child => child.value).join(''))}](${linkDestination(node.url)})`);
       return;
     }
     const image = node.type === 'image' ? node : node.type === 'imageReference' ? definitions.get(node.identifier) : null;

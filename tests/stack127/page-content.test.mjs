@@ -3,6 +3,10 @@ import assert from 'node:assert/strict';
 import { mkdtemp, readFile, rm, mkdir, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkGfm from 'remark-gfm';
+import remarkMdx from 'remark-mdx';
 import { convertMarkdown, pageContentFiles, splitDirectorySections } from '../../scripts/stack127/content/convert-markdown.mjs';
 import { checkMdx, checkContentFiles } from '../../scripts/stack127/content/check-mdx.mjs';
 import { findRouteFolder, parseExportArgs, readPageContent, writeContentFiles } from '../../scripts/stack127/content/export-page-content.mjs';
@@ -71,9 +75,39 @@ test('escapes text expressions and angles while preserving code byte for byte', 
 test('preserves GFM tables and makes angle autolinks safe for MDX', () => {
   const result = convertMarkdown('## Data\n\n| Name | Value |\n| --- | --- |\n| braces | {x} |\n\n<https://example.com> and <me@example.com>');
   assert.match(result, /\| braces \| &#123;x&#125; \|/);
-  assert.match(result, /\[https:\/\/example.com\]\(https:\/\/example.com\)/);
-  assert.match(result, /\[me@example.com\]\(mailto:me@example.com\)/);
+  assert.match(result, /\[https:\/\/example.com\]\(<https:\/\/example.com>\)/);
+  assert.match(result, /\[me@example.com\]\(<mailto:me@example.com>\)/);
   valid(result);
+});
+
+test('preserves complete link destinations and labels with Markdown punctuation', () => {
+  const markdownParser = unified().use(remarkParse).use(remarkGfm);
+  const mdxParser = unified().use(remarkParse).use(remarkGfm).use(remarkMdx);
+  for (const source of [
+    '<https://example.com/a)b>',
+    '<https://example.com/a[b]c>',
+    '<https://example.com/a*(b)_c?x={value}&y=2>',
+    '<https://example.com/~~label~~>',
+    '<https://example.com/a&#92;b?x=&amp;amp;>',
+    '<https://example.com/a&#60;b&#62;c>',
+    '[A \\[label\\] & {value}](<https://example.com/a)b[c]?x=1&y=2>)',
+    '[**Formatted** label](https://example.com/a\\)b)',
+    '[A label][ref]\n\n[ref]: <https://example.com/a)b[c]>',
+  ]) {
+    const result = convertMarkdown(source);
+    valid(result);
+    const beforeTree = markdownParser.parse(source);
+    const afterTree = mdxParser.parse(result);
+    const before = beforeTree.children[0];
+    const after = afterTree.children[0];
+    const url = (link, tree) => link.type === 'linkReference'
+      ? tree.children.find(node => node.type === 'definition' && node.identifier === link.identifier).url : link.url;
+    assert.equal(after.children.length, 1, result);
+    assert.equal(after.children[0].type, before.children[0].type, result);
+    assert.equal(url(after.children[0], afterTree), url(before.children[0], beforeTree), result);
+    assert.deepEqual(after.children[0].children.map(child => child.value ?? child.type),
+      before.children[0].children.map(child => child.value ?? child.type), result);
+  }
 });
 
 test('splits directory sections using parsed comments and ignores markers in code', () => {
@@ -128,6 +162,47 @@ test('checks headings, HTML, attributes, imports, and the allowed component list
 
 test('core MDX content gate', async () => {
   assert.deepEqual(await checkContentFiles(), []);
+});
+
+test('rejects embedded JSX in flow, text, and component attribute expressions', () => {
+  for (const content of [
+    '{<h1 className="custom">Title</h1>}',
+    'Text {<span style={{color: "red"}}>Styled</span>}.',
+    '{<>Fragment</>}',
+    '<Note title={<h1>Title</h1>} />',
+    '<UiStaticChart\n spec={{data: [<h1>Title</h1>]}} />',
+    '{false && <h1>Title</h1>}',
+    '<Note title={() => <h1>Title</h1>} />',
+  ]) assert.ok(checkMdx(content).some(message => /Embedded JSX/.test(message)), content);
+  assert.match(checkMdx('<Note\n title={<h1>Title</h1>} />', 'fixture')[0], /fixture:2:/);
+});
+
+test('allows only plain values in content expressions, including nested chart specs', () => {
+  for (const expression of [
+    'value', 'getSpec()', 'value.title', '1 + 2', 'true ? 1 : 2', '(1, 2)',
+    '() => 1', 'new Date()', '`text`', '/pattern/', '1n', '1e999',
+    '{value}', '{...value}', '{["key"]: 1}', '{get key() { return 1 }}', '{key() { return 1 }}',
+    '[...value]', '[, 1]', '{nested: [getSpec()]}', '{nested: {value}}',
+  ]) {
+    for (const content of [`{${expression}}`, `Text {${expression}}.`, `<UiStaticChart spec={${expression}} />`]) {
+      assert.ok(checkMdx(content).some(message => /must be plain literals/.test(message)), content);
+    }
+  }
+  for (const expression of ['"text"', '42', '-2.5', '+3', 'true', 'false', 'null', '[]', '{}',
+    '{kind: "bar", data: [{label: "A", value: -1.5}], options: {enabled: true, max: null}, "unit": "%"}']) {
+    valid(`{${expression}}`);
+    valid(`Text {${expression}}.`);
+    valid(`<UiStaticChart spec={${expression}} />`);
+  }
+});
+
+test('rejects chart fences in MDX and directs writers to UiStaticChart', () => {
+  for (const language of ['chart-bar', 'chart-line', 'chart-custom']) {
+    assert.match(checkMdx(`Intro\n\n\`\`\`${language}\n{}\n\`\`\``, 'fixture')[0],
+      /fixture:3: Chart fences.*<UiStaticChart spec=\{…\} \/>/);
+  }
+  valid('```json\n{}\n```\n\n`chart-bar`');
+  valid('<UiStaticChart spec={{kind: "bar", data: [{label: "A", value: 1}]}} />');
 });
 
 test('scans only content MDX, passes empty trees, and reports the failing file', async () => {
