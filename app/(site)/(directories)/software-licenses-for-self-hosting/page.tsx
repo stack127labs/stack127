@@ -2,6 +2,7 @@ import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import type { MDXComponents } from "mdx/types";
+import { NewTabContentLink } from "@/app/ui/content-elements";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import Link from "next/link";
 import { getDirectoryLicenseCounts } from "@/lib/apps";
@@ -47,8 +48,12 @@ const verdictColumns = [
   { key: "redistribute", label: "Redistribute" },
 ] as const;
 
+/** Source links open in a new tab, so readers keep their place in the comparison. */
+const licenseComponents: MDXComponents = { a: NewTabContentLink };
+
 /** Bold verdict words in the table key take the table's verdict colors. */
 const verdictComponents: MDXComponents = {
+  ...licenseComponents,
   strong({ children }) {
     const verdict = typeof children === "string" && ["yes", "careful", "depends", "no"].includes(children) ? children : null;
     return <strong className={verdict ? `license-verdict-${verdict}` : undefined}>{children}</strong>;
@@ -207,7 +212,7 @@ export default async function SoftwareLicensesPage() {
 
         <section className="license-section license-structured-section" id="verdict-table">
           <div className={`license-narrative ${proseClassName} ${proseFlowClassName}`}>
-            <Compare />
+            <Compare components={licenseComponents} />
           </div>
           <VerdictTable />
           <div className={`license-narrative ${proseClassName} ${proseFlowClassName}`}>
@@ -219,24 +224,24 @@ export default async function SoftwareLicensesPage() {
           className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
           id="license-families"
         >
-          <Families />
+          <Families components={licenseComponents} />
           <MarkerArt
             caption="The four license families differ by what must stay open and when that obligation begins."
             svg={softwareLicensesForSelfHostingLicenseFamiliesArt}
           />
-          <FamilyDetails />
+          <FamilyDetails components={licenseComponents} />
         </section>
 
         <section
           className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
           id="copyleft-trigger"
         >
-          <CopyleftTrigger />
+          <CopyleftTrigger components={licenseComponents} />
         </section>
 
         <section className="license-section license-structured-section" id="all-licenses">
           <div className={`license-narrative ${proseClassName} ${proseFlowClassName}`}>
-            <AllLicenses />
+            <AllLicenses components={licenseComponents} />
           </div>
 
           {licenseGroups.map((group) => {
@@ -267,21 +272,21 @@ export default async function SoftwareLicensesPage() {
           className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
           id="open-source-vs-source-available"
         >
-          <OpenVsSourceAvailable />
+          <OpenVsSourceAvailable components={licenseComponents} />
         </section>
 
         <section
           className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
           id="choosing-a-license"
         >
-          <Choosing />
+          <Choosing components={licenseComponents} />
         </section>
 
         <section
           className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
           id="faq"
         >
-          <Faq />
+          <Faq components={licenseComponents} />
         </section>
       </PageCanvas>
     </AppShell>

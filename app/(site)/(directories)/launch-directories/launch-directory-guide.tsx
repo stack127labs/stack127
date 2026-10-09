@@ -1,4 +1,5 @@
 import type { ComponentPropsWithoutRef } from "react";
+import { NewTabContentLink } from "@/app/ui/content-elements";
 import { proseClassName, proseFlowClassName } from "@/app/ui/site/prose";
 import Corrections from "./content/corrections.mdx";
 import FreeListings from "./content/free-listings.mdx";
@@ -15,13 +16,16 @@ function headingWithId(id: string) {
   };
 }
 
+// Source links open in a new tab, so visitors keep their filtered list.
+const a = NewTabContentLink;
+
 export function LaunchDirectoryGuide() {
-  return <div className={`${proseClassName} ${proseFlowClassName} ${styles.guide}`}>
-    <HowWeCheck components={{ h2: headingWithId("how-we-check") }} />
-    <RecommendedOrder components={{ h2: headingWithId("recommended-order") }} />
-    <LinkTypes />
-    <FreeListings />
-    <LaunchTiming />
-    <Corrections />
-  </div>;
+  return <section aria-labelledby="how-we-check" className={`${proseClassName} ${proseFlowClassName} ${styles.guide}`}>
+    <HowWeCheck components={{ a, h2: headingWithId("how-we-check") }} />
+    <RecommendedOrder components={{ a, h2: headingWithId("recommended-order") }} />
+    <LinkTypes components={{ a }} />
+    <FreeListings components={{ a }} />
+    <LaunchTiming components={{ a }} />
+    <Corrections components={{ a }} />
+  </section>;
 }
