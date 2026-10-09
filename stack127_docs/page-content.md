@@ -49,13 +49,21 @@ MDX is Markdown that can hold our components. Write ordinary Markdown for headin
 | Formula | `<Formula title="Conversion rate">…</Formula>` |
 | Worked example | `<Example title="400 visitors">…</Example>` |
 | Terms and their meanings | `<Terms>` holding `<Term name="Churn">…</Term>` items |
-| Chart | `<UiStaticChart spec={…} />`, or `<UiChart spec={…} />` when the reader needs hover, toggles, or ranges |
+| Chart | `<UiStaticChart spec={…} />`. Use `<UiChart spec={…} />` only when the reader needs hover, toggles, or ranges. |
 | Data table with row headers or mobile rows | `<UiDataTable … />` |
 | Marker art | `<MarkerArt figure="catalog/zfs-capacity" alt="…" />` |
 
 `title` is optional on every callout. The words inside a block are ordinary Markdown.
 
-`mdx-components.tsx` lists every component content may use. Content can't import anything, so a page can only use what that file allows. Add a component there only when it is a shared component in `app/ui/` and documented in [shared-ui.md](shared-ui.md).
+`mdx-components.tsx` lists every component content may use, and `scripts/stack127/content/allowed-components.mjs` lists the same names for the content check. Content can't import anything, so a page can only use what those allow. Add a component there only when it is a shared component in `app/ui/` and documented in [shared-ui.md](shared-ui.md).
+
+`UiChart` is the one exception: it loads the chart script, so it isn't in `mdx-components.tsx`. A page whose content needs it passes it from the route, so only that page loads the script:
+
+```tsx
+import { UiChart } from "@/app/ui/charts/chart";
+
+<Article components={{ UiChart }} />
+```
 
 ## Rules
 
