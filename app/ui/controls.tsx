@@ -49,7 +49,7 @@ import {
   type TimeValue,
   type Key,
 } from "react-aria-components";
-import { getLocalTimeZone, Time } from "@internationalized/date";
+import { getLocalTimeZone, Time, toCalendarDate } from "@internationalized/date";
 import {
   useCallback,
   useContext,
@@ -331,7 +331,7 @@ function DatePickerBase({
       <FieldMessages description={description} error={error} />
       <Popover className={`${styles.popover} ${styles.calendarPopover}`} placement="bottom start">
         <Dialog className={styles.calendarDialog}>
-          {hasTime ? <DateThenTime hourCycle={hourCycle} minuteStep={minuteStep} /> : <PickerCalendar />}
+          {hasTime ? <DateThenTime hourCycle={hourCycle} maxValue={maxValue} minValue={minValue} minuteStep={minuteStep} /> : <PickerCalendar />}
         </Dialog>
       </Popover>
     </DatePicker>
@@ -363,7 +363,7 @@ function PickerCalendar({ onChange }: { onChange?: () => void }) {
 }
 
 /** The date-and-time popover: the calendar first, then the time list once a day is picked. */
-function DateThenTime({ hourCycle, minuteStep }: Required<TimeOptions>) {
+function DateThenTime({ hourCycle, maxValue, minValue, minuteStep }: Required<TimeOptions> & { maxValue?: DateValue; minValue?: DateValue }) {
   const state = useContext(DatePickerStateContext);
   const [step, setStep] = useState<"date" | "time">("date");
   const day = state?.dateValue;
@@ -388,7 +388,17 @@ function DateThenTime({ hourCycle, minuteStep }: Required<TimeOptions>) {
         <ChevronLeft aria-hidden="true" size={18} />
         <span><span className={styles.visuallyHidden}>Change date, </span>{dayLabel}</span>
       </RacButton>
-      <TimeColumns hourCycle={hourCycle} minuteStep={minuteStep} onChange={state.setTimeValue} value={time} />
+      <TimeColumns
+        bounds={{
+          // Limits only apply on their own day: on any day between them, every time is allowed.
+          max: maxValue && "hour" in maxValue && sameDay(day, maxValue) ? minutesOf(maxValue) : lastMinute,
+          min: minValue && "hour" in minValue && sameDay(day, minValue) ? minutesOf(minValue) : 0,
+        }}
+        hourCycle={hourCycle}
+        minuteStep={minuteStep}
+        onChange={state.setTimeValue}
+        value={time}
+      />
       {/* The picker's own close keeps a chosen day even before a time is picked; the time starts at 12:00 AM. */}
       <UiButton className={styles.timeDone} onPress={() => state.setOpen(false)} variant="primary">Done</UiButton>
     </div>
@@ -427,7 +437,13 @@ export function UiTimeField({ description, disabled, error, hourCycle = 12, labe
           </RacButton>
           <Popover className={`${styles.popover} ${styles.timePopover}`} placement="bottom end">
             <Dialog aria-label={label} className={`${styles.calendarDialog} ${styles.timePanel}`}>
-              <TimeColumns hourCycle={hourCycle} minuteStep={minuteStep} onChange={(time) => onChange?.(time)} value={value ?? null} />
+              <TimeColumns
+                bounds={{ max: maxValue ? minutesOf(maxValue) : lastMinute, min: minValue ? minutesOf(minValue) : 0 }}
+                hourCycle={hourCycle}
+                minuteStep={minuteStep}
+                onChange={(time) => onChange?.(time)}
+                value={value ?? null}
+              />
               <UiButton className={styles.timeDone} slot="close" variant="primary">Done</UiButton>
             </Dialog>
           </Popover>
@@ -439,39 +455,61 @@ export function UiTimeField({ description, disabled, error, hourCycle = 12, labe
 }
 
 const padTime = (part: number) => String(part).padStart(2, "0");
+const lastMinute = 23 * 60 + 59;
+const minutesOf = (time: { hour: number; minute: number }) => time.hour * 60 + time.minute;
+const sameDay = (a: DateValue, b: DateValue) => toCalendarDate(a).compare(toCalendarDate(b)) === 0;
 
 /**
  * Hour, minute, and (for 12 hours) AM or PM lists. A pick in any list sets the whole time:
  * an hour on its own means minute 00, and a minute on its own means the 12 AM hour.
+ * Times outside the bounds (minutes into the day) are disabled, and a pick that lands outside
+ * them moves to the nearest allowed time.
  */
-function TimeColumns({ hourCycle, minuteStep, onChange, value }: Required<TimeOptions> & { onChange: (time: Time) => void; value: TimeValue | null }) {
+function TimeColumns({
+  bounds,
+  hourCycle,
+  minuteStep,
+  onChange,
+  value,
+}: Required<TimeOptions> & { bounds: { max: number; min: number }; onChange: (time: TimeValue) => void; value: TimeValue | null }) {
   const hour = value?.hour ?? null;
   const minute = value?.minute ?? 0;
   const isPm = hour !== null && hour >= 12;
   const to24 = (shown: number, pm: boolean) => (hourCycle === 24 ? shown : (shown % 12) + (pm ? 12 : 0));
   const hours = hourCycle === 24 ? Array.from({ length: 24 }, (_, index) => index) : [12, ...Array.from({ length: 11 }, (_, index) => index + 1)];
   const minutes = Array.from({ length: Math.ceil(60 / minuteStep) }, (_, index) => index * minuteStep);
+  const outside = (first: number, last: number) => last < bounds.min || first > bounds.max;
+
+  const pick = (nextHour: number, nextMinute: number) => {
+    const total = Math.min(bounds.max, Math.max(bounds.min, nextHour * 60 + nextMinute));
+    const time = { hour: Math.floor(total / 60), minute: total % 60 };
+    // Change only the time, so a date or time zone the value carries survives.
+    onChange(value ? (value as Time).set(time) : new Time(time.hour, time.minute));
+  };
 
   return (
     <div className={styles.timeColumns}>
       <TimeColumn
+        disabled={hours.filter((shown) => outside(to24(shown, isPm) * 60, to24(shown, isPm) * 60 + 59))}
         heading="Hour"
         label="Hour"
-        onSelect={(shown) => onChange(new Time(to24(shown, isPm), minute))}
+        onSelect={(shown) => pick(to24(shown, isPm), minute)}
         options={hours.map((shown) => ({ id: shown, label: hourCycle === 24 ? padTime(shown) : String(shown) }))}
         selected={hour === null ? null : hourCycle === 24 ? hour : hour % 12 || 12}
       />
       <TimeColumn
+        disabled={hour === null ? [] : minutes.filter((option) => outside(hour * 60 + option, hour * 60 + option))}
         heading="Min"
         label="Minute"
-        onSelect={(next) => onChange(new Time(hour ?? 0, next))}
+        onSelect={(next) => pick(hour ?? 0, next)}
         options={minutes.map((option) => ({ id: option, label: padTime(option) }))}
         selected={value ? minute : null}
       />
       {hourCycle === 12 ? (
         <TimeColumn
+          disabled={[outside(0, 719) ? 0 : -1, outside(720, lastMinute) ? 1 : -1].filter((id) => id >= 0)}
           label="AM or PM"
-          onSelect={(pm) => onChange(new Time(to24(hour === null ? 12 : hour % 12 || 12, pm === 1), minute))}
+          onSelect={(pm) => pick(to24(hour === null ? 12 : hour % 12 || 12, pm === 1), minute)}
           options={[{ id: 0, label: "AM" }, { id: 1, label: "PM" }]}
           selected={hour === null ? null : isPm ? 1 : 0}
         />
@@ -480,7 +518,21 @@ function TimeColumns({ hourCycle, minuteStep, onChange, value }: Required<TimeOp
   );
 }
 
-function TimeColumn({ heading, label, onSelect, options, selected }: { heading?: string; label: string; onSelect: (id: number) => void; options: { id: number; label: string }[]; selected: number | null }) {
+function TimeColumn({
+  disabled,
+  heading,
+  label,
+  onSelect,
+  options,
+  selected,
+}: {
+  disabled: number[];
+  heading?: string;
+  label: string;
+  onSelect: (id: number) => void;
+  options: { id: number; label: string }[];
+  selected: number | null;
+}) {
   // Open with the chosen value in view. Only on open: scrolling on every pick would move the list under the pointer.
   // A ref on the option, not an effect, because react-aria draws the options after the list itself.
   const hasScrolled = useRef(selected === null);
@@ -497,6 +549,7 @@ function TimeColumn({ heading, label, onSelect, options, selected }: { heading?:
       <ListBox
         aria-label={label}
         className={styles.timeList}
+        disabledKeys={disabled}
         disallowEmptySelection
         items={options}
         onSelectionChange={(keys) => {

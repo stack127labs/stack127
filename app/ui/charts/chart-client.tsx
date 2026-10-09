@@ -23,6 +23,8 @@ const toDay = (time: number) => {
 };
 const fromDay = (day: DateValue) => Date.UTC(day.year, day.month - 1, day.day);
 
+const dayLength = 86_400_000;
+const startOfDay = (time: number) => Math.floor(time / dayLength) * dayLength;
 const formatDay = (time: number) => new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeZone: "UTC" }).format(time);
 
 type ZoomEvent = { batch?: { end: number; start: number }[]; end?: number; start?: number };
@@ -81,8 +83,11 @@ export function UiChartClient({ spec, svg }: { spec: UiChartSpec; svg: string })
     if (day === null) return "Enter a date.";
     // A year under 1000 is one still being typed.
     if (day.year < 1000) return undefined;
+    // Whole days: a range that starts or ends partway through a day still accepts that day.
     const time = fromDay(day);
-    return time < earliest || time > latest ? `Pick a date from ${formatDay(earliest)} to ${formatDay(latest)}.` : undefined;
+    const firstDay = startOfDay(earliest);
+    const lastDay = startOfDay(latest);
+    return time < firstDay || time > lastDay ? `Pick a date from ${formatDay(firstDay)} to ${formatDay(lastDay)}.` : undefined;
   };
 
   const pickDate = (side: "end" | "start", day: DateValue | null) => {
@@ -92,8 +97,9 @@ export function UiChartClient({ spec, svg }: { spec: UiChartSpec; svg: string })
     setPreset(null);
     const start = side === "start" ? day : null;
     const end = side === "end" ? day : null;
-    if (start && start.year >= 1000 && !dateError(start, bounds.first, visible.end)) zoomTo(fromDay(start), visible.end);
-    if (end && end.year >= 1000 && !dateError(end, visible.start, bounds.last)) zoomTo(visible.start, fromDay(end));
+    if (start && start.year >= 1000 && !dateError(start, bounds.first, visible.end)) zoomTo(Math.max(bounds.first, fromDay(start)), visible.end);
+    // "To" includes the whole chosen day, so intraday readings later that day stay in view.
+    if (end && end.year >= 1000 && !dateError(end, visible.start, bounds.last)) zoomTo(visible.start, Math.min(bounds.last, fromDay(end) + dayLength - 1));
   };
 
   const toggle = (label: string) => {
