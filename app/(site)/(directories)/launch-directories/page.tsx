@@ -1,7 +1,6 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
-import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
-import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { DirectoryQueryProvider } from "@/app/ui/directories/directory-query";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
 import { EntryHero } from "@/app/ui/site/entry-hero";
@@ -11,6 +10,7 @@ import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { getLaunchDirectorySnapshot, launchCategories } from "@/lib/launch-directories";
 import { filterLaunchDirectories } from "@/lib/launch-directories-query";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
+import Intro from "./content/intro.mdx";
 import { LaunchDirectoryGuide } from "./launch-directory-guide";
 import { costOptions, linkOptions } from "./launch-directory-options";
 import { LaunchDirectoryFilters, LaunchDirectoryResults } from "./launch-directory-view";
@@ -39,14 +39,14 @@ export default async function LaunchDirectoriesPage() {
         <PageHeader>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <PageMeta updatedAt={directoryPage.updated_at} />
-          <ContentMarkdown markdown={directoryPage.intro_markdown} />
+          <Intro />
         </PageHeader>
       </EntryHero>
       {/* Data freshness marker for the cache verifier, not page metadata. */}
       <span data-launch-directories-revision={snapshot.revision} hidden />
       <PageCanvas as="div" className="directory-results">
         <LaunchDirectoryResults categories={[...launchCategories]} directories={directories} />
-        <LaunchDirectoryGuide directoryPage={directoryPage} />
+        <LaunchDirectoryGuide />
       </PageCanvas>
     </AppShell>
   </DirectoryQueryProvider>;
