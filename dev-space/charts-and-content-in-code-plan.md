@@ -12,8 +12,8 @@ Work through the steps in order. Step 0 and Part 1 ship together in pull request
 | 1a | Chart docs and skills | Opus | #35 | Shipped in `cba975b3` |
 | 1b | Move every chart to `UiChart` | Claude Opus worker, Sol review | #35 | Shipped in `cba975b3` |
 | 1c | Preview server readiness fix | Sol | #35 | Shipped in `cba975b3` |
-| 2a | Content design doc | Opus | PR C | Not started |
-| 2b | Pilot: MDX setup, export script, two pages | Claude Opus worker, Sol for the script, Sol review | PR C | Not started |
+| 2a | Content design doc | Opus | PR C | Written: `stack127_docs/page-content.md` |
+| 2b | Pilot: MDX setup, export script, two pages | Claude Opus worker, Sol for the script, Sol review | PR C | In progress: `/cac-payback-calculator` and `/epp-status-codes` |
 | 2c | Docs and skills for content in code | Opus | PR C | Not started |
 | 2d | Batch migration | Claude Opus workers, Sol review | PR D, E, … | Not started |
 | 2e | Cleanup and retire database content columns | Sol | Final PR | Not started |
