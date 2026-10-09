@@ -1,0 +1,17 @@
+## How to read the result
+
+The mode always shows four digits. The first one holds the special bits, so `755` shows as `0755`. For a file, both mean the same thing.
+
+The nine letters match what `ls -l` prints after its first character. That first character is the file type, such as `-` for a file or `d` for a directory.
+
+The field takes numbers only. To turn letters such as `rwxr-x---` into a number, tick the matching boxes.
+
+<Example title="A config file only you and your group can read">
+
+You want to edit the file, let your group read it, and keep everyone else out. Tick owner read and write, and group read.
+
+The result is `0640`, shown as `rw-r-----`. Owner is 6 (4 + 2), group is 4, and others is 0.
+
+</Example>
+
+Before you run the command, check the real target with `ls -ld path/to/file`. It shows the type, owner, group, and current permissions.
