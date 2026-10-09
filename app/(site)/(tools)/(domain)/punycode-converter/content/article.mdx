@@ -1,0 +1,27 @@
+## What is punycode?
+
+Punycode is the way a domain name with non-ASCII letters is written in plain ASCII, so DNS can handle it. Each encoded part starts with `xn--`. `münchen.de` and `xn--mnchen-3ya.de` are the same domain, written two ways.
+
+[RFC 3492](https://www.rfc-editor.org/rfc/rfc3492.html) defines the encoding, and [RFC 5890](https://www.rfc-editor.org/rfc/rfc5890.html) sets the rules for which names are valid. Not every Unicode string can be a domain name, so the result lists any rule a name breaks.
+
+## How do you spot a punycode phishing domain?
+
+Look for letters from another writing system that copy familiar ones. Latin `a` is U+0061, and Cyrillic `а` is U+0430. They look the same, but they make a different domain. This trick is called a homograph attack.
+
+Most lookalikes mix writing systems inside one part of the name, so the tool flags that and shows each character. A mixed name is a reason to look closer, not proof of fraud. A name written entirely in Cyrillic or Greek is normal where those languages are used.
+
+## What won't this catch?
+
+Lookalikes made only of ASCII letters. `paypaI.com` with a capital i, or `rn` standing in for `m`, use ordinary Latin letters, so no writing system check can flag them. No warning doesn't mean the name is safe.
+
+Your browser also decides when to show the readable form and when to show `xn--`. The rules differ between browsers and change over time. [Chromium's IDN display policy](https://chromium.googlesource.com/chromium/src/+/main/docs/idn.md) is one example.
+
+## Why is my converted domain name too long?
+
+Encoding makes non-ASCII names longer. `例え.jp` has 2 letters before the dot, but its encoded form `xn--r8jz45g` has 11. Each part has a 63-byte limit after encoding, and the whole name has a 253-byte limit. The label breakdown shows each part's encoded length.
+
+## Does punycode apply to the whole URL?
+
+No, only the domain name. The path and query use percent encoding, such as `%20` for a space. When you paste a full address, only its hostname changes.
+
+If a link looks suspicious, the [domain age checker](/domain-age) shows when the name was registered.

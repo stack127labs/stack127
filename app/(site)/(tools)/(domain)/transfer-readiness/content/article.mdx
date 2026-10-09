@@ -1,0 +1,35 @@
+## Which transfer locks can you remove?
+
+Only the one your registrar sets. The others need the registrar's help or time. The [EPP status codes](/epp-status-codes) page explains each code.
+
+| Status | Who can clear it |
+| --- | --- |
+| `clientTransferProhibited` | You, usually with a "transfer lock" switch in your registrar account. |
+| `serverTransferProhibited` | Only the registry. Ask your registrar why it's there. |
+| `pendingTransfer` | Nobody. Another transfer is already running, so wait for it to finish or cancel it with your registrar. |
+| `redemptionPeriod` or `pendingDelete` | The domain must be restored first, if restoring is still possible. |
+
+## Why can't I transfer a domain I registered or moved recently?
+
+Under ICANN's [Transfer Policy](https://www.icann.org/en/contracted-parties/accredited-registrars/transfer-policy-01-06-2016-en), the current registrar may refuse a transfer within 60 days of the registration or of the last transfer. The checker treats those 60 days as a block, so ask your registrar if you need an exception.
+
+Changing the registrant's name, organization, or email can also start a 60-day lock on generic endings. Registrars may let you opt out, but only before you make the change. Ask before editing contact details to prepare a transfer.
+
+The [ICANN Board adopted](https://www.icann.org/en/board-activities-and-meetings/materials/approved-resolutions-regular-meeting-of-the-icann-board-07-06-2026-en) shorter 30-day locks on 7 June 2026, and removed the registrant change lock. They don't apply until ICANN publishes a date, so the 60-day rules still hold.
+
+## How do I move a domain without the site or email going down?
+
+Sort out DNS before you start, because a transfer moves the registration, not your DNS, website, or email.
+
+1. Find out where your DNS is hosted. If it's at the old registrar, copy every record to the new DNS host and switch the nameservers before the transfer.
+2. If DNSSEC is on, set up signing at the new DNS host and update the DS record, or switch DNSSEC off first. A broken chain stops the domain from resolving for many visitors. The [DNSSEC checker](/dnssec-checker) tests the chain.
+3. Remove the registrar transfer lock and get the authorization code from the old registrar.
+4. Start the transfer at the new registrar and approve any confirmation email.
+
+Never paste the authorization code into a lookup tool or a public message. It's the key to the transfer.
+
+## Do country-code domains follow the same rules?
+
+No. ICANN's Transfer Policy only covers generic endings such as `.com`. Country endings such as `.uk` or `.de` have their own steps, codes, and waiting periods, and the result says when the 60-day checks don't apply. Find the registry's rules through the [TLD directory](/tld-directory).
+
+The lookup goes from stack127 to the registry and the registrar. A registered result can be a saved answer up to 24 hours old, so a lock you just removed may still show. To find your registrar's details, use the [registrar lookup](/domain-registrar).
