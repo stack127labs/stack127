@@ -14,7 +14,7 @@ Read [page-content.md](page-content.md) for the content files and how to move a 
 | --- | --- |
 | `page_id` | Primary key and foreign key to `stack127_pages.id`. |
 | `title` | Visible h1. Wrap the accent phrase in `<mark>`. |
-| `intro_markdown`, `content_markdown` | Content for pages that haven't moved to MDX, and copy that sync scripts write for child pages. A moved page ignores them, but the publisher still requires `intro_markdown` for a new directory. See [page-publishing.md](page-publishing.md). |
+| `intro_markdown`, `content_markdown` | Content for pages that haven't moved to MDX. A moved page ignores them, but the publisher still requires `intro_markdown` for a new directory. See [page-publishing.md](page-publishing.md). |
 | `card_name` | Short name on homepage cards and sidebars. |
 | `card_description` | Short summary on homepage cards. |
 | `card_icon_key` | Optional icon key from `lib/card-icons.ts`. The h1, the homepage sidebar row, and the homepage card all use it. |
@@ -25,16 +25,17 @@ A published directory page with no row returns 404. The directory publisher crea
 
 ## Child pages
 
-Every published, indexable child page gets its own row, for example `/ad-networks/<slug>` or `/keyboard-shortcuts/<app>`.
+Every published child page gets its own row, for example `/ad-networks/<slug>` or `/keyboard-shortcuts/<app>`. The row holds its title, search metadata, and dates, the same as a top-level directory.
 
-When child copy comes from records, a script writes the rows. Don't edit those rows by hand, because the next sync will overwrite them. Change the records or the script instead. The publisher doesn't run these scripts. Run the sync in development, review the pages, then publish them with `"source": "development"` in the manifest. That freezes the reviewed copy into the plan. Production needs only the directory's dataset import, not the copy sync. See [page-publishing.md](page-publishing.md).
+Every child page also gets its own words, written for that page: an intro at least, and sections when the page needs them. They live in MDX, as [page-content.md](page-content.md) describes. A child page with its own route folder, such as `/keyboard-shortcuts/figma`, keeps them in `content/` beside its `page.tsx`. Platform fee categories share `platform-fees/[section]/`, so each category has a folder under that route's `content/`, named for its slug.
 
-| Directory | Script |
+Record sync scripts own the records and the generated route files. They must not write over a child page's words, title, or search metadata. A script that generates child routes, such as the keyboard shortcuts sync, generates each `page.tsx` to pass the page's own `content/` files to the template. Write the title and search metadata with the directory writing skill, then publish them with `"source": "development"` in the manifest. See [page-publishing.md](page-publishing.md).
+
+| Directory | Record script |
 | --- | --- |
 | Keyboard shortcuts | `scripts/keyboard-shortcuts/sync-pages.mjs` |
 | Ad networks | `scripts/ad-networks/sync-page-copy.mjs` |
-
-Platform fee hub and category copy is hand-written and still in the database. `scripts/platform-fees/sync-development.mjs` loads changed records and creates missing copy rows only. It never replaces existing copy or SEO fields. `prepare-category-manifest.mjs` takes the reviewed development rows through `source: development`. Child pages share their parent's route, so they can't move to MDX yet. Ask the coordinator before changing hand-written child copy.
+| Platform fees | `scripts/platform-fees/sync-development.mjs`, then `prepare-category-manifest.mjs` for the manifest |
 
 ## Public dates
 

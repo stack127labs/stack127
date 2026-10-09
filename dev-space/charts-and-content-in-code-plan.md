@@ -15,7 +15,7 @@ Work through the steps in order. Step 0 and Part 1 ship together in pull request
 | 2a | Content design doc | Opus | #36 | Shipped in `ce282243` |
 | 2b | Pilot: MDX setup, export script, two pages | Claude Opus worker, Sol for the script, Sol review | #36 | Shipped in `ce282243`: `/cac-payback-calculator` and `/epp-status-codes` |
 | 2c | Docs and skills for content in code | Opus | #36 | Shipped in `ce282243` |
-| 2d | Batch migration | Claude Opus workers, Sol review | PR D, E, … | Not started |
+| 2d | Content pass: rewrite and move every published tool, directory, child, and catalog page | Claude Opus thread in its own worktree, Sol for scripts and review | One PR at the end | Not started |
 | 2e | Cleanup and retire database content columns | Sol | Final PR | Not started |
 | 3 | Production release | Coordinator | Release | Not started |
 
@@ -26,6 +26,9 @@ Work through the steps in order. Step 0 and Part 1 ship together in pull request
 | `UiFlowChart` is a step diagram, not a data chart. Keep it or remove it? | Keep it as `UiSteps` in `app/ui/display.tsx`, next to `UiTimeline`, and show it in the Results section of the gallery. |
 | Where do the version and updated date live once content is in code? | In the database, the same for every page. The publish command updates them when content changes in a way readers should see. |
 | Courses are already TSX. Move them to MDX now? | Later, after the rest of this plan is done. |
+| Move pages as they are, or rewrite them? | Rewrite and move in one pass, in the current writing style. Pages already rewritten with Claude only move. |
+| Do child pages get their own words? | Yes. Every page a visitor can land on, except pagination, gets its own intro, title, and search text. Keyboard shortcut pages need only a two-line intro. |
+| Which pages are in the pass? | Published tools, directories, directory child pages, and catalogs. Unpublished pages, courses, and site pages stay as they are. |
 
 ---
 
@@ -145,12 +148,14 @@ Ships in the pilot's pull request, not earlier, so agents on `main` never follow
 - Docs: `tool-pages.md`, `directory-pages.md`, `page-publishing.md`, `page-families.md`, `caching.md`, `writing-style.md`, `shared-ui.md` for the MDX block list, and the "Routes and publication" section of `CLAUDE.md`.
 - Skills: tool writing, directory writing, tool content integration, page build, tool orchestrator, tool audit, content audit, and release where it covers content.
 
-### 2d. Batch migration
+### 2d. Content pass
 
-- Batches by family: the tool pages (about 71), then directories, catalogs, and site pages.
-- One worker per batch, each in its own worktree with its own files.
-- Each batch: export, clean to the guardrails, text match check, browser sample, Sol review, pull request.
-- Courses stay TSX for now.
+Rewrite every published tool, directory, directory child, and catalog page in the current writing style, and move it to MDX in the same pass. Search titles and descriptions are rewritten too, as if the page were new.
+
+- **Move only:** the 21 tools already rewritten with Claude: every `kdp-*` tool, `kindle-unlimited-kenp-earnings-calculator`, `pixels-to-print-size-calculator`, `break-even-mrr-calculator`, `cac-payback-calculator` (already moved), `customer-acquisition-cost-calculator`, `customer-lifetime-value-calculator`, and `ltv-cac-calculator`.
+- **Rewrite and move:** the other 50 published tools, the 14 published directories, their 226 published child pages (218 keyboard shortcut apps and 8 platform fee categories), and the 8 published catalogs. `/epp-status-codes` is already moved, but its words still need the rewrite.
+- **Out:** unpublished pages, pagination, courses, and site pages.
+- One branch, committed often, released once at the end: Sol review, one pull request, then the production publisher batch for titles and search metadata.
 
 ### 2e. Cleanup
 

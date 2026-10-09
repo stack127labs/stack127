@@ -13,6 +13,8 @@ In the tool pipeline, Opus runs this skill in its own Claude Code writing sessio
 
 It also handles rewrites of live tool pages. Read the current content in the route's `content/*.mdx` files, and the title and search text on the page. If the page still renders its content from the database, move it to MDX first with the steps in `page-content.md`, and commit the move before rewriting. Use the tool once and read its code for the exact rules and messages. Keep the facts, limits, and sources a reader needs, and cut what goes beyond the core of the tool. Skip the spec step for a rewrite.
 
+It also covers catalog pages, such as `/dns-tools`: the title, the intro above the cards, the article below them, and the search text. A catalog's content lives in a folder named for its slug under `app/(site)/(catalogs)/[slug]/content/`. See `page-content.md`.
+
 ## Win the search
 
 The page should be the best answer for the searcher. Before planning, answer three questions from the research or, for a rewrite, from a quick look at the top results:

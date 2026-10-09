@@ -9,7 +9,9 @@ Page content lives in code, beside the page's route. Data lives in the database.
 | The introduction, usage text, article content, and content blocks of tool, directory, catalog, and site pages | The publication registry, page titles, search metadata, card text, catalog memberships, versions, and dates |
 | | Every data record: self-host apps, TLDs, shortcuts, launch directories, and the rest |
 
-Child pages built from records use one template in code that reads the records. Never write one content file per record.
+Every page a visitor can land on gets its own words: tools, directories, catalogs, and child pages such as `/keyboard-shortcuts/figma`. Only pagination pages don't. The content can be two lines or a long article, but a reader landing on any page should understand at once what it is and how to use it. The route's template lays out the records; the page's content files say what the page is about.
+
+Large record sets that a pipeline grows on its own, such as self-host apps, keep one shared template for their words, filled from the records.
 
 A content change ships with a code release, through a pull request. The publisher still writes the database side: registry, search metadata, cards, catalogs, versions, and publication. See [page-publishing.md](page-publishing.md).
 
@@ -38,6 +40,12 @@ import Article from "./content/article.mdx";
 ```
 
 A directory imports each section file where the section goes, as `/epp-status-codes` does.
+
+A child page with its own route folder, such as `/keyboard-shortcuts/figma`, keeps its `content/` folder beside its own `page.tsx` and passes the files to the shared template.
+
+### Pages that share one route
+
+Catalogs share `app/(site)/(catalogs)/[slug]/`, and platform fee categories share `platform-fees/[section]/`. Each page there gets its own folder under the route's `content/`, named for its slug, such as `content/dns-tools/intro.mdx` and `content/dns-tools/article.mdx`. One `content/index.ts` imports every folder into a map keyed by slug, and the route renders the entry for its slug. A published slug with no entry is an error, not an empty page.
 
 MDX renders on the server, so pages stay static and send no extra script.
 
@@ -114,6 +122,10 @@ Move a page before you change its content. Make the move and the content change 
 5. Check the page at desktop and mobile width in both themes. Compare its visible text with the live page; only intended edits may differ. Check that the title, description, and SEO tags are unchanged.
 6. Run `npm run quality`.
 
-The export handles tool and directory pages that have their own route folder. Catalogs share one route, and directory child pages share their parent's route, so they move in a later step of `dev-space/charts-and-content-in-code-plan.md`. Ask the coordinator before changing their content. Site pages keep their words in TSX, and courses keep their lessons in JSX. Both move to MDX later.
+The export handles tool and directory pages with a flat slug and their own route folder. For a child page or a page on a shared route, copy the live text into the files by hand.
+
+When you rewrite a page from scratch, you can skip the move: read the live page, write the new files, and check the new text against the facts on the live page and in the records instead of matching it word for word.
+
+Site pages keep their words in TSX, and courses keep their lessons in JSX. Both move to MDX later.
 
 The database content columns stay in place until every page has moved, then retire in one migration. Don't edit them for a moved page.
