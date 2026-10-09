@@ -146,7 +146,7 @@
 .dns-record-type-options input:focus-visible + span,
 .dns-lookup-form button:focus-visible,
 .dns-results button:focus-visible {
-  outline: var(--focus-ring);
+  outline: var(--focus-outline);
 }
 
 .dns-record-type-picker {
@@ -250,7 +250,7 @@
 }
 
 .dns-record-type-specialized summary:focus-visible {
-  outline: var(--focus-ring);
+  outline: var(--focus-outline);
 }
 
 .dns-record-type-specialized summary small {
@@ -752,7 +752,7 @@
 }
 
 .dns-ttl-help:focus-visible {
-  outline: var(--focus-ring);
+  outline: var(--focus-outline);
 }
 
 .dns-network-line {

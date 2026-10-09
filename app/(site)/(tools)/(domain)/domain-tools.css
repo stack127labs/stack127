@@ -126,7 +126,7 @@
 .domain-name-field input:focus,
 .domain-form button:focus-visible,
 .domain-results button:focus-visible {
-  outline: var(--focus-ring);
+  outline: var(--focus-outline);
 }
 
 .domain-submit {

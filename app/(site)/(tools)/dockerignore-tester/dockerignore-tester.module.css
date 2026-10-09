@@ -94,7 +94,7 @@
 .tool summary:focus-visible,
 .result h2:focus-visible,
 .failure h2:focus-visible {
-  outline: var(--focus-ring);
+  outline: var(--focus-outline);
   outline-offset: 2px;
 }
 
@@ -337,7 +337,7 @@
 }
 
 .guideTableWrap:focus-visible {
-  outline: var(--focus-ring);
+  outline: var(--focus-outline);
   outline-offset: 2px;
 }
 

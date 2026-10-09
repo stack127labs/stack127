@@ -114,12 +114,17 @@
   padding: var(--space-3);
 }
 
+/* Top-aligned, so an error under one field doesn't lift its box; the button sits level with the boxes. */
 .quickSetup {
-  align-items: end;
+  align-items: start;
   display: grid;
   gap: var(--space-3);
   grid-template-columns: minmax(8rem, 0.6fr) minmax(13rem, 1.4fr) auto;
   min-width: 0;
+}
+
+.quickSetup > button {
+  margin-top: var(--control-label-offset);
 }
 
 .primaryButton {
@@ -294,7 +299,7 @@
 .shareUrl:focus-visible,
 .vdevHeading h3:focus-visible,
 .answer h2:focus-visible {
-  outline: var(--focus-ring);
+  outline: var(--focus-outline);
   outline-offset: 2px;
 }
 
@@ -319,6 +324,7 @@
 
   .quickSetup button {
     grid-column: 1 / -1;
+    margin-top: 0;
   }
 }
 
