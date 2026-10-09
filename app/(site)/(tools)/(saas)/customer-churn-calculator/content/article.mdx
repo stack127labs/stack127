@@ -1,0 +1,35 @@
+## How do you calculate customer churn rate?
+
+Divide the opening accounts you lost by the accounts you started with.
+
+<Formula title="Customer churn">
+
+Customer churn = lost opening accounts ÷ opening paying accounts × 100
+
+</Formula>
+
+If your report lists cancellations, don't count them straight in. [ChartMogul's churn report](https://help.chartmogul.com/article/203-chart-customer-churn-rate) takes the cancellations and removes customers who came back and customers who joined during the period. Its example: 100 customers at the start, 12 cancellations, one comeback, and one who joined that month, so churn is (12 - 2) ÷ 100 = 10%.
+
+## What is a good customer churn rate?
+
+There's no single good number. [ChartMogul's churn guide](https://chartmogul.com/saas-metrics/customer-churn/) says it varies by company stage, category, and price point. Early-stage companies and cheaper products usually churn more. Compare against your own past months first.
+
+## Can you turn monthly churn into yearly churn?
+
+Not by multiplying by 12. Each month's churn applies to the customers who are left, so it compounds.
+
+<Formula title="Yearly churn from a steady monthly rate">
+
+Yearly churn = 1 - (1 - monthly churn)^12
+
+</Formula>
+
+At 5% a month, you keep 95% each month. After 12 months, 0.95^12 is about 54% still paying, so yearly churn is about 46%, not 60%. This assumes the monthly rate holds all year.
+
+When you compare periods, use the same length and the same rules for who counts.
+
+## How is customer churn different from revenue churn?
+
+Customer churn counts accounts. Revenue churn counts dollars, so losing one big account hurts it more. The [revenue churn calculator](/revenue-churn-calculator) compares the churn and retention measures side by side.
+
+Monthly customer churn also feeds lifetime value. The [customer lifetime value calculator](/customer-lifetime-value-calculator) uses it to estimate the gross profit one customer brings in.

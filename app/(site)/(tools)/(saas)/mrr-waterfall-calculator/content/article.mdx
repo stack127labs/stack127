@@ -1,0 +1,43 @@
+## What do the MRR movements mean?
+
+Each movement is a change in MRR from one kind of customer event. These are the common meanings. If your billing tool defines them differently, use its numbers.
+
+| Movement | What it records |
+| --- | --- |
+| New MRR | A customer's first paid subscription, such as a trial user who starts paying |
+| Expansion MRR | An existing customer pays more, through an upgrade or more seats |
+| Reactivation MRR | A former customer starts paying again |
+| Contraction MRR | A customer pays less but stays, through a downgrade or fewer seats |
+| Churned MRR | A customer stops paying entirely, through a cancellation or failed renewal |
+
+[ChartMogul's movement guide](https://help.chartmogul.com/article/163-understanding-mrr-movements) uses these five, plus a neutral movement for changes that leave MRR the same. It also counts a new discount as contraction.
+
+## How do you calculate ending MRR?
+
+Add the gains to starting MRR and subtract the losses.
+
+<Formula title="Ending MRR">
+
+Ending MRR = starting MRR + new + expansion + reactivation - contraction - churned
+
+Net new MRR = ending MRR - starting MRR
+
+</Formula>
+
+The order of the bars is fixed: gains first, then losses. It isn't the order things happened during the month, and the order doesn't change the ending balance.
+
+Ending MRR is a run rate on the last day of the month, not the revenue you earned during it. The [MRR calculator](/mrr-calculator) explains what counts toward MRR.
+
+## Why doesn't my report's ending MRR match?
+
+Usually because the figures follow different rules. Check that every amount covers the same month, currency, and definition of MRR.
+
+Timing matters too. [ChartMogul's churn recognition setting](https://help.chartmogul.com/article/242-churn-recognition) can record a cancellation when it's made, when it's scheduled, or when the paid period ends. Each choice can move churn into a different month.
+
+## What can you work out from these movements?
+
+The same numbers feed most monthly SaaS metrics.
+
+- The [net revenue retention calculator](/net-revenue-retention-calculator) shows how much starting MRR your existing customers kept, with expansion counted.
+- The [revenue churn calculator](/revenue-churn-calculator) shows the share of starting MRR lost to contraction and churn.
+- The [SaaS metrics calculator](/saas-metrics-calculator) puts growth and retention for the month on one page.

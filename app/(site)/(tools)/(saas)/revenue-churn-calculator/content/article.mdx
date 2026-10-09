@@ -1,0 +1,39 @@
+## How is revenue churn calculated?
+
+Add the MRR lost to cancellations and downgrades, then divide by MRR at the start of the month.
+
+<Formula title="Gross revenue churn">
+
+Gross revenue churn = (canceled MRR + reduced MRR) ÷ opening MRR × 100
+
+</Formula>
+
+[ChartMogul](https://chartmogul.com/saas-metrics/revenue-churn/) and [Stripe](https://stripe.com/resources/more/revenue-churn-101-how-to-calculate-it-and-why-it-matters) use the same formula.
+
+## What's the difference between gross and net revenue churn?
+
+Gross revenue churn counts only what you lost. Net revenue churn subtracts expansion and reactivation from those losses, so it can drop below zero. That's called negative churn: existing customers add more than they take away.
+
+This calculator shows gross churn. Net revenue churn is 100% minus net revenue retention, which the [net revenue retention calculator](/net-revenue-retention-calculator) works out.
+
+## How do churn and retention measures compare?
+
+All of them follow the customers you had at the start of the month. They differ in what they count and whether gains offset losses.
+
+| Measure | What it asks | Counts upgrades? |
+| --- | --- | --- |
+| Customer churn | What share of paying customers left? | No |
+| Gross revenue churn | What share of starting MRR was lost? | No |
+| Gross revenue retention | What share of starting MRR is still paid? | No |
+| Net revenue churn | What share was lost, after upgrades? | Yes |
+| Net revenue retention | What share is still paid, after upgrades? | Yes |
+
+The ones that count upgrades can pass the usual limits: net revenue churn can go below 0%, and net revenue retention above 100%. Gross revenue retention is 100% minus gross revenue churn. Net revenue retention is 100% minus net revenue churn.
+
+## Why is revenue churn different from customer churn?
+
+Customer churn counts accounts. Revenue churn counts dollars. The two split whenever the customers who leave pay more or less than average.
+
+Say you have 10 customers and $1,000 of MRR. One customer paying $50 leaves. Customer churn is 10%, but revenue churn is 5%. If the one who left paid $300, revenue churn would be 30%.
+
+To count accounts, use the [customer churn calculator](/customer-churn-calculator). To see the whole month's MRR, new customers included, use the [MRR waterfall calculator](/mrr-waterfall-calculator).
