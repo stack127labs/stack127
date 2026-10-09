@@ -1,8 +1,8 @@
 # Directory pages
 
-Directory routes and directory copy have separate owners. The Next.js route owns the layout, sidebar, filters, and record views. PostgreSQL owns the visible title, introduction, Markdown content, and card text. This matches the split for tools in [tool-pages.md](tool-pages.md).
+A directory page has three owners. The Next.js route owns the layout, sidebar, filters, and record views. The route's `content/*.mdx` files own the introduction and the page's sections. PostgreSQL owns the visible title, search metadata, card text, public dates, and the records themselves. This matches the split for tools in [tool-pages.md](tool-pages.md).
 
-Follow [writing-style.md](writing-style.md) when writing, and use the [directory writing skill](../skills/stack127/stack127-directory-writing/SKILL.md) to plan and write directory copy. This document covers storage, rendering, and updates.
+Read [page-content.md](page-content.md) for the content files and how to move a page to them. Follow [writing-style.md](writing-style.md) when writing, and use the [directory writing skill](../skills/stack127/stack127-directory-writing/SKILL.md) to plan and write directory copy. This document covers the database side, rendering, and updates.
 
 ## Tables
 
@@ -14,8 +14,7 @@ Follow [writing-style.md](writing-style.md) when writing, and use the [directory
 | --- | --- |
 | `page_id` | Primary key and foreign key to `stack127_pages.id`. |
 | `title` | Visible h1. Wrap the accent phrase in `<mark>`. |
-| `intro_markdown` | Markdown shown under the title. |
-| `content_markdown` | Optional Markdown for the page's prose. Sectioned pages split it with `<!-- section:<id> -->` markers. Keep existing markers when you edit. |
+| `intro_markdown`, `content_markdown` | Content for pages that haven't moved to MDX, and copy that sync scripts write for child pages. A moved page ignores them, but the publisher still requires `intro_markdown` for a new directory. See [page-publishing.md](page-publishing.md). |
 | `card_name` | Short name on homepage cards and sidebars. |
 | `card_description` | Short summary on homepage cards. |
 | `card_icon_key` | Optional icon key from `lib/card-icons.ts`. The h1, the homepage sidebar row, and the homepage card all use it. |
@@ -35,13 +34,15 @@ When child copy comes from records, a script writes the rows. Don't edit those r
 | Keyboard shortcuts | `scripts/keyboard-shortcuts/sync-pages.mjs` |
 | Ad networks | `scripts/ad-networks/sync-page-copy.mjs` |
 
-Platform fee hub and category copy is hand-written in the database. `scripts/platform-fees/sync-development.mjs` loads changed records and creates missing copy rows only. It never replaces existing copy or SEO fields. `prepare-category-manifest.mjs` takes the reviewed development rows through `source: development`.
+Platform fee hub and category copy is hand-written and still in the database. `scripts/platform-fees/sync-development.mjs` loads changed records and creates missing copy rows only. It never replaces existing copy or SEO fields. `prepare-category-manifest.mjs` takes the reviewed development rows through `source: development`. Child pages share their parent's route, so they can't move to MDX yet. Ask the coordinator before changing hand-written child copy.
 
 ## Public dates
 
 `getRequiredDirectoryPage` returns the registry's `published_at` and `updated_at`. Use these public dates in the header. Internal row timestamps are not page dates.
 
-Saving different copy or SEO fields moves `updated_at` and queues a cache refresh. A child change also touches every registered directory ancestor. Unpublished pages keep both public dates null.
+Saving a different title, search metadata, or card text moves `updated_at` and queues a cache refresh. A child change also touches every registered directory ancestor. Unpublished pages keep both public dates null.
+
+An MDX content change doesn't move the date by itself. When it matters to readers, add a `touch_reason` to the page in the directories publisher manifest for that release. Skip it for typo fixes and formatting.
 
 | Records | Automatic date changes |
 | --- | --- |
@@ -55,7 +56,7 @@ Saving different copy or SEO fields moves `updated_at` and queues a cache refres
 
 No-op updates and identical imports leave public dates alone. A real source check that changes a displayed verification date is visible content too.
 
-TLDs, EPP codes, software licenses, hardware records, and other code directories need an explicit touch after meaningful fact or entry changes. Skip it for code typo fixes or formatting. The same applies to a directory without record sync coverage.
+TLDs, EPP codes, software licenses, hardware records, and other code directories need an explicit touch after meaningful fact or entry changes, the same as a content change. Skip it for code typo fixes or formatting. The same applies to a directory without record sync coverage.
 
 ```bash
 node scripts/stack127/pages/touch.mjs --environment development \
@@ -83,7 +84,7 @@ Homepage cards show live counts, such as apps and categories. Each directory com
 
 ## Records
 
-The table holds page copy only. Directory records live in one of two places:
+The table holds page fields only. Directory records live in one of two places:
 
 | Records | Where |
 | --- | --- |
@@ -94,24 +95,28 @@ Decide which in the directory's brief when you create it. The publish manifest m
 
 ## Rendering
 
-Pages read their row with `getRequiredDirectoryPage(slug)` from `lib/directory-pages.ts`. Render Markdown through `app/ui/directories/directory-page-content.tsx`. Don't hard-code the title, intro, or prose in the page file.
+Pages read their row with `getRequiredDirectoryPage(slug)` from `lib/directory-pages.ts` for the title, date, and card icon. The route imports `content/intro.mdx` under the title and each section file where that section goes. `/epp-status-codes` shows the pattern. Don't hard-code the title in the page file.
 
-## Editing copy
+A page that hasn't moved yet renders its database Markdown through `ContentMarkdown` and `app/ui/directories/directory-page-content.tsx`. Move it before editing its content.
 
-Use the directory publisher for a new directory, child pages going public, and production changes. See [page-publishing.md](page-publishing.md).
+## Editing
 
-For a small copy edit in development, use the single-page command. It previews and rolls back by default. Add `--apply` to save.
+| Change | How |
+| --- | --- |
+| Introduction or sections | Move the page first if it hasn't moved, then edit its `content/*.mdx` files. The change ships with a code release. See [page-content.md](page-content.md). |
+| Title, search metadata, or card fields | The directory publisher. For a quick development check, the single-page command below. |
+| A new directory, or child pages going public | The directory publisher. See [page-publishing.md](page-publishing.md). |
+
+The single-page command previews and rolls back by default. Add `--apply` to save.
 
 ```bash
 node scripts/stack127/directory-pages/update-content.mjs \
   --environment development \
   --slug tld-directory \
-  --intro-file /tmp/intro.md \
-  --content-file /tmp/content.md
+  --meta-title "<search title>" \
+  --meta-description "<search description>"
 ```
 
-Optional flags: `--meta-title`, `--meta-description`, `--title`, `--card-name`, `--card-description`, `--card-icon-key`, `--card-art-key`, and `--clear-content`. The command rejects keys that aren't in the registries.
-
-A saved edit queues revalidation for that page's `stack127-directory-page:<slug>` tag and its path.
+Its flags are `--title`, `--meta-title`, `--meta-description`, `--card-name`, `--card-description`, `--card-icon-key`, and `--card-art-key`. It rejects keys that aren't in the registries. A saved edit queues revalidation for that page's `stack127-directory-page:<slug>` tag and its path.
 
 For launch directories, `evidence.public_submission` holds checked free-plan requirements, backlink status, approval time, launch queue text, and dated observations. The server projects only validated public fields from that object. Signed-in and email observations describe our submission attempt, and stay separate from public rules. Unknown backlink requirements do not qualify for the free-without-required-backlink filter. Existing research notes remain private. Update these records through `scripts/stack127/database/update-launch-directories.mjs`, which checks the reviewed row version.

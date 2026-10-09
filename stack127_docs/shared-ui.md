@@ -21,7 +21,7 @@ The Components UI gallery is at `/components-ui` in development. That route retu
 | Detail drawer with focus and close behavior | `DetailDialog` and `DetailDialogClose` in `app/ui/detail-dialog.tsx` |
 | FAQ with repeated questions | `Faq` in `app/ui/faq.tsx` |
 | Scrollable table region | `TableFrame` in `app/ui/table-frame.tsx` |
-| Markdown content | `ContentMarkdown` in `app/ui/content-markdown.tsx` |
+| Page content blocks in MDX | `mdx-components.tsx`, built on `app/ui/content-elements.tsx`. See [page-content.md](page-content.md). |
 | Page shell, headings, prose, media, code, and navigation | `app/ui/site/` |
 | Linked page cards for tools, catalogs, directories, the course, and Labs | `PageCard`, `ToolCard`, `CatalogCard`, `DirectoryCard` in `app/ui/cards/` |
 | Software and hardware record cards, and directory filters | `app/ui/directories/` |
@@ -130,61 +130,25 @@ Rules for every chart setting:
 
 `UiDataTable` has row and column headers, an optional caption, and optional right alignment for number columns. It turns into labeled rows on small screens.
 
-Markdown tables use a scrollable `TableFrame`. Keep tables readable at mobile width. Let wide identifiers scroll instead of breaking every word.
+Content tables written in Markdown use a scrollable `TableFrame`. Keep tables readable at mobile width. Let wide identifiers scroll instead of breaking every word.
 
 ## Steps and timelines
 
 `UiSteps` shows ordered stages and which one is done, current, or next. `UiTimeline` shows dated events. Use a timeline only when its axis is time. `UiAllocationBar` shows parts of a total and is often easier to compare than a donut.
 
-## Markdown on content pages
+## Content blocks
 
-Use `ContentMarkdown` wherever a page renders stored or written Markdown. It keeps links, tables, code, callouts, charts, and marker art the same across page types. The tool-page renderer already uses it. Ordinary lists and headings are still the right choice for steps and related links.
+Page content is MDX beside each route. [page-content.md](page-content.md) lists every block content can use and how to write it: notes, warnings, tips, formulas, examples, terms, charts, data tables, and marker art. `mdx-components.tsx` maps them to the shared elements in `app/ui/content-elements.tsx`, so every page renders them the same way.
 
-### Notes, warnings, formulas, and examples
+- Use a note for context, a warning for something that can cost money, data, or time, and a tip for a recommendation.
+- Give a formula or example one clear home instead of repeating it around the page.
+- Ordinary lists and headings are still the right choice for steps and related links. A plain `>` blockquote renders as a quote.
+- Fenced code with an optional language, such as `bash`, uses the shared copyable `CodeBlock`. Inline code stays inline.
+- Use a Markdown table for simple rows. Use `UiDataTable` when rows need headers or labeled rows on phones.
+- Draw a chart with `<UiStaticChart spec={…} />`, using the spec from [Charts](#charts). Use `UiChart` only when the reader needs hover, toggles, or ranges.
+- Embed approved marker art with `<MarkerArt figure="catalog/zfs-capacity" alt="…" />`. The figure must be registered in `app/marker-art-registry.json`.
 
-Write a callout as a blockquote with a type on its first line. A short title after the type is optional.
-
-```md
-> [!NOTE] About this estimate
-> This figure assumes the same currency for every input.
-
-> [!WARNING] Before changing DNS records
-> Write down the current values so you can undo the change.
-
-> [!FORMULA] Conversion rate
-> `signups ÷ visitors × 100`
-
-> [!EXAMPLE] 400 visitors
-> If 30 of them sign up, the conversion rate is 7.5%.
-```
-
-`[!TIP]` uses the recommendation style. Standard blockquotes still render as quotes. Give a formula or example one clear home instead of repeating it around the page.
-
-### Code and tables
-
-Use normal fenced code with an optional language, such as `bash`. Use normal GitHub-flavored Markdown tables. Fenced code uses the shared copyable `CodeBlock`. Ordinary inline code stays inline.
-
-### Data charts
-
-Use a `chart-bar`, `chart-line`, or `chart-donut` code fence containing JSON. It renders as a `UiStaticChart`.
-
-- Give the chart a title and an optional caption.
-- Give data unique IDs, labels, and finite numeric values.
-- Bar and donut values must be nonnegative.
-- Line points also need `xLabel`, and the chart needs `valueLabel`.
-- Add increasing numeric `xValue` values when time gaps or numeric spacing matter.
-
-````md
-```chart-bar
-{"title":"Requests by service","caption":"Same 15-minute sample.","data":[{"id":"api","label":"API","value":50},{"id":"worker","label":"Worker","value":30}]}
-```
-````
-
-An invalid chart shows a readable error on the page, so the writer can fix its data. These fences render as server output. They don't run arbitrary code or JSX.
-
-### Marker art
-
-Approved marker art keeps its image reference format, such as `![How the pool is assembled](marker-art://catalog/zfs-capacity)`. The registry accepts known figures only. Raw HTML doesn't render.
+`ContentMarkdown` in `app/ui/content-markdown.tsx` renders pages whose content is still in the database. It uses the same elements, so moved and unmoved pages look the same.
 
 ## Check a change
 

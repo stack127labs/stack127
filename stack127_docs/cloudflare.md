@@ -160,7 +160,7 @@ The worker runs only where `public.stack127_cache_worker_wake.function_url` is s
 
 Function secrets include `SUPABASE_DB_URL`, `STACK127_SITE_URL`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ZONE_ID`, and `GITHUB_ALERT_TOKEN`. Cloudflare mode adds `STACK127_FRONTEND_HOSTING` and `GITHUB_FRONTEND_TOKEN`. `CACHE_WORKER_DRY_RUN=1` reports how many events are ready and changes nothing: no lease, retry state, reconcile, or alert.
 
-Everything above is legacy mode. In Cloudflare mode the worker dispatches a GitHub build instead. See [Content edits in Cloudflare mode](#content-edits-in-cloudflare-mode).
+Everything above is legacy mode. In Cloudflare mode the worker dispatches a GitHub build instead. See [Database edits in Cloudflare mode](#database-edits-in-cloudflare-mode).
 
 When the function or its shared cache scripts change, the release deploys the function after the new app is live.
 
@@ -359,7 +359,9 @@ Two switches pick the mode. Both default to legacy, where OVH serves pages and t
 
 After the isolated preview passes, set both GitHub variable scopes to Cloudflare mode so the release builds and activates the static frontend. Once the production route passes its checks, enable the Supabase hosting secret and verify a content refresh. Reset all three settings on rollback.
 
-### Content edits in Cloudflare mode
+### Database edits in Cloudflare mode
+
+This covers database edits: titles, search metadata, cards, dates, records, and content of pages that haven't moved to MDX. MDX page content ships with a code release instead.
 
 A database edit still queues an event. The `cache-worker` doesn't refresh pages. It:
 

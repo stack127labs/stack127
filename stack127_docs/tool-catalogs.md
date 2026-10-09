@@ -9,7 +9,7 @@ Notion is only a planning space. The site never reads or syncs Notion for catalo
 | Table | Owns |
 | --- | --- |
 | `public.stack127_pages` | The only registry for URL, publication, SEO, social image, and public dates. Set `page_family = 'catalog'` for a tool catalog. A catalog is public only when `is_published = true`. |
-| `public.stack127_catalog_pages` | The visible `title`, `intro_markdown`, optional `content_markdown`, `display_order`, and the catalog's card: `card_name`, `card_description`, `card_icon_key`, and `card_art_key`. Its `page_id` points to a registry row whose family is `catalog`. |
+| `public.stack127_catalog_pages` | The visible `title`, `intro_markdown`, optional `content_markdown`, `display_order`, and the catalog's card: `card_name`, `card_description`, `card_icon_key`, and `card_art_key`. Its `page_id` points to a registry row whose family is `catalog`. The intro and article move to MDX later, as [page-content.md](page-content.md) describes. |
 | `public.stack127_tool_pages` | Each tool's short card name and description, plus icon and marker art keys. These fields apply in every catalog that includes the tool. |
 | `public.stack127_tool_catalog_memberships` | Links tools to any number of catalogs. |
 
@@ -20,6 +20,8 @@ Only published tool rows render as cards. An unpublished tool can have its membe
 Keep each published catalog populated with at least one published tool.
 
 ## Page copy
+
+Catalogs share one route, `app/(site)/(catalogs)/[slug]/page.tsx`, so their intros and articles still render from the table through `ContentMarkdown`. They move to MDX in a later step of the content plan. Ask the coordinator before changing an existing catalog's intro or article.
 
 `title` and `intro_markdown` must be trimmed, nonempty text. `content_markdown` is optional. Use `null` when there is no prose, or trimmed, nonempty Markdown when there is. These rules match directory pages.
 

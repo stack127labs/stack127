@@ -16,7 +16,7 @@ Lanes and models follow "Agent roles" in `AGENTS.md`. The main agent is the coor
 | 2 | Product, interface, and component plan | Opus, planning session | `medium` | New `tool-spec.md` with why people will choose it, Product with backend contract, Interface, catalog placement, card art brief, and new or improved shared components |
 | 3 | Backend build | Sol | `high`, or `xhigh` for risky logic | Engine, API routes, data scripts, development preview row, and focused correctness test. No UI. |
 | 4 | Frontend build | Opus, same planning session | `high` | Route page, interface, tool components, styles, card art, and desktop and mobile checks |
-| 5 | Content plan and writing | Opus, writing session | `medium` | Content section, title, page copy, interface words, SEO text, and catalog card copy |
+| 5 | Content plan and writing | Opus, writing session | `medium` | Content section, title, the route's `content/*.mdx` files, interface words, SEO text, and catalog card copy |
 | 6 | Development content integration | Luna | `xhigh` | Publish manifest, integrated development page, and catalog memberships |
 | 7 | Independent audit | Sol | `high` | Release verdict and defects routed to their owner |
 
@@ -130,21 +130,21 @@ The frontend step also makes the card art. It uses `$marker-art-draw` to create 
 
 When the in-app browser isn't available over SSH, use the local headless browser in `skills/stack127/references/homelab-browser-and-search.md`. That applies to these checks and the later audit.
 
-A new database-backed route needs a development preview row to render. Until writing supplies final copy, put only minimal, clearly marked placeholder intro and content in that row. Keep any existing row, and don't treat the placeholder as finished writing.
+A new database-backed route needs a development preview row to render. Until writing supplies the final title, give it a clearly marked placeholder title and the placeholder Markdown fields the table requires. Keep any existing row, and don't treat the placeholder as finished writing.
 
 After the backend and frontend are both done, the main agent runs `npm run quality`. The full build runs in pull request CI on GitHub when the user asks to push to prod. Don't build on the homelab.
 
-Writing hands integration its final plain-language title, SEO text, interface words, catalog card name and description, and temporary Markdown files. The live copy belongs in the database, not in the spec or route.
+Writing hands integration its final plain-language title, SEO text, interface words, catalog card name and description, and the page content as MDX files in the route's `content/` folder. See [page-content.md](page-content.md). The spec holds the plan, not the page content.
 
 Before integration, the main agent confirms every planned catalog exists. A new catalog needs its own registry row, content, art, and page review.
 
-Integration writes one publish manifest for the tool, as [page-publishing.md](page-publishing.md) describes. It holds the registry fields, content Markdown files, card fields, tool-specific art key, full ordered catalog list, and readiness requirements. A new catalog the tool needs goes in the same manifest. Integration then works in development:
+Integration wires the MDX files into the route and runs the content check. It then writes one publish manifest for the tool, as [page-publishing.md](page-publishing.md) describes. It holds the registry fields, title, the content fields the publisher still requires, card fields, tool-specific art key, full ordered catalog list, and readiness requirements. A new catalog the tool needs goes in the same manifest. Integration then works in development:
 
 1. With the dev server and local cache watcher running, run the tools publisher's `prepare`, `preview`, and `apply` against development. `apply` also checks the public page.
 2. Check the actual tool and each assigned catalog card at desktop and mobile width in both themes.
 3. Run a new build only if integration or audit changes route, runtime, or SEO code.
 
-Copy and card fixes after integration update the manifest's files, then run the publisher in development again. That keeps the manifest ready for production. The single-purpose tool-page commands are fine for a quick development check, but the manifest must end with the same values.
+Content fixes after integration edit the MDX files. Title, search text, and card fixes update the manifest, then run the publisher in development again. That keeps the manifest ready for production. The single-purpose tool-page commands are fine for a quick development check, but the manifest must end with the same values.
 
 The auditor checks accuracy, content, catalog cards and placement, and the common user flow. That includes whether the new tool's marker drawing reads clearly at its rendered size in both themes.
 

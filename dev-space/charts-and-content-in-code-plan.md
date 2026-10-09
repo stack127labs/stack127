@@ -158,6 +158,7 @@ After every page is moved and checked in production:
 
 1. Page renderers stop reading the database content columns.
 2. Retire the content sync commands. Publish commands keep the registry, SEO, version, and data flows.
+   - The publisher stops requiring `intro_markdown` and `content_markdown` for new pages, and stops validating the `*_markdown` fields. Until then, new tool and directory manifests fill them with one summary sentence, as `stack127_docs/page-publishing.md` says.
 3. A migration freezes or drops the old content columns. This is a production data step and needs the user's authorization at that point.
 
 ## Step 3: Production release

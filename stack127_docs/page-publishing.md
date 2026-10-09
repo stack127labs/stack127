@@ -1,12 +1,14 @@
 # Page publishing
 
-Shared commands publish tools, directories, and courses. In one database transaction, they write the registry row, family row, search metadata, card fields, catalog memberships, content, tool version, and repository fields. They check that each page is ready first, and check the public pages afterward.
+Shared commands publish tools, directories, and courses. In one database transaction, they write the registry row, family row, title, search metadata, card fields, catalog memberships, tool version, and repository fields. They check that each page is ready first, and check the public pages afterward.
+
+Page content isn't published this way. It lives in MDX files beside each route and ships with a code release. See [page-content.md](page-content.md).
 
 Building and publishing are separate jobs. The research, build, writing, and audit skills create the page. The publisher checks that the finished page is ready, writes its data, and turns publication on.
 
 | Job | Owner |
 | --- | --- |
-| Research, spec, route, engine, components, copy, and card art | Tool and page skills |
+| Research, spec, route, engine, components, MDX content, and card art | Tool and page skills |
 | Schema migrations | A pull request and the release workflow |
 | Dataset imports and record syncs | Each dataset's own reviewed command, run before publishing |
 | Readiness checks, page data, catalog memberships, and publication | The publisher |
@@ -26,7 +28,7 @@ The tools command takes tool and catalog pages. The directories command takes di
 
 | Command | Flags | What it does | Writes |
 | --- | --- | --- | --- |
-| `prepare` | `--manifest`, `--out`, `--environment` | Reads the manifest and its Markdown files, checks readiness, reads the current rows from the target database, and writes a plan file. | Only the plan file |
+| `prepare` | `--manifest`, `--out`, `--environment` | Reads the manifest and any Markdown files it names, checks readiness, reads the current rows from the target database, and writes a plan file. | Only the plan file |
 | `preview` | `--plan`, `--environment` | Runs the whole plan in one transaction, prints the result, and rolls back. | Nothing |
 | `apply` | `--plan`, `--environment`, `--confirm`, `--release-sha`, `--site`, `--wait-seconds` | Commits the plan in one transaction, then checks the database and the public pages. | The database |
 | `verify` | `--plan`, `--environment`, `--release-sha`, `--site`, `--wait-seconds`, `--restored` | Checks the database and public pages against the plan without writing. | Nothing |
@@ -42,7 +44,7 @@ There are no force or skip flags. Every gate below always runs.
 
 ## Manifest
 
-A manifest describes one batch of pages. All pages in a batch succeed or fail together.
+A manifest describes one batch of pages. All pages in a batch succeed or fail together. This one updates an existing tool. A new tool also needs the fields in [Content fields](#content-fields).
 
 ```json
 {
@@ -58,9 +60,7 @@ A manifest describes one batch of pages. All pages in a batch succeed or fail to
         "is_published": true
       },
       "content": {
-        "intro_markdown": { "$file": "dns-lookup/intro.md" },
-        "usage_markdown": { "$file": "dns-lookup/usage.md" },
-        "content_markdown": { "$file": "dns-lookup/content.md" },
+        "title": "DNS lookup",
         "card_description": "Read current DNS records and see where each answer came from."
       },
       "catalogs": [
@@ -100,6 +100,18 @@ Each page takes only these keys:
 
 These are the plan's field names, and they stay the same across schema versions.
 
+### Content fields
+
+The `*_markdown` fields are database content columns. Tool and directory pages with MDX content don't show them. See [page-content.md](page-content.md). The publisher still requires some of them:
+
+- A new tool needs nonempty `intro_markdown` and `content_markdown`. A new directory, catalog, or course needs a nonempty `intro_markdown`. The rest may be `null`.
+- For a new tool or directory, put one plain sentence that sums up the page in each required field, such as the first sentence of its `intro.mdx`.
+- For an existing page, leave them out of the manifest. They keep their current values.
+
+Catalogs and courses still show these fields until they move to MDX. See [tool-catalogs.md](tool-catalogs.md) and [page-families.md](page-families.md).
+
+These fields retire with the database content columns.
+
 Course plans freeze the course content and selected lesson rows together. Root pages need both rows. Child pages need their lesson row and published parent course. Course readiness checks the registry layout, JSX route, Markdown, card assets, and declared smoke checks. Public verification compares the H1 against `lesson.title`, since the root's course title names the whole course.
 
 For an unchanged development preview, use a manifest with the course slug, `family: "course"`, and its route requirements. Include child slugs to review their definitions too. `prepare` keeps omitted fields and `preview` must report `changed: false`. To publish reviewed development copy later, use `source: "development"` and set `registry.is_published` explicitly. There is no direct registry upsert command for courses.
@@ -118,7 +130,7 @@ Every directory plan carries both keys, even when they're `null`. A directory pl
 
 A `*_markdown` field can be `{ "$file": "path.md" }`. The path must be relative and stay inside the manifest's folder after symlinks are resolved. Both the requested path and its resolved target must end in `.md` or `.markdown`. `prepare` reads the file, trims it, and copies the text into the plan. Later edits to the file don't change a prepared plan.
 
-Keep the manifest, its Markdown files, and its plans together in `tmp/page-publishing/<batch>/` in the checkout. Git ignores `tmp/`, so nothing is committed, and the folder lasts from development integration until release. Plans are written readable only by you. The database stays the live copy.
+Keep the manifest, any Markdown files, and its plans together in `tmp/page-publishing/<batch>/` in the checkout. Git ignores `tmp/`, so nothing is committed, and the folder lasts from development integration until release. Plans are written readable only by you.
 
 ### Existing and new pages
 
@@ -151,11 +163,11 @@ The batch must also make sense as a whole, or nothing is written:
 - Display orders can't collide with another tool in the same catalog.
 - A published directory child page needs a published parent directory.
 
-Database triggers move public dates for tool title, Markdown, and version changes, and for directory copy and records. Published tool card changes move their catalog dates without moving the tool date. Draft cards and draft memberships leave catalog dates alone. Publication and retirement still move catalog dates. Repository-only edits keep public dates unchanged. Set repository fields only after a real comparison, as [tool-pages.md](tool-pages.md) describes.
+Database triggers move public dates for registry changes such as search metadata, for tool title and version changes, and for directory title, card, and record changes. MDX content changes don't move dates by themselves. Published tool card changes move their catalog dates without moving the tool date. Draft cards and draft memberships leave catalog dates alone. Publication and retirement still move catalog dates. Repository-only edits keep public dates unchanged. Set repository fields only after a real comparison, as [tool-pages.md](tool-pages.md) describes.
 
-A directory manifest can include `"touch_reason": "Corrected TLD registry facts"` after a meaningful code record change. For a course or lesson JSX edit, put a reason such as `"Corrected the Docker install instructions"` on the affected `family: "course"` page. The root course and child lessons both support this. Skip touches for typos and formatting.
+A directory manifest can include `"touch_reason": "Corrected TLD registry facts"` after a meaningful MDX content or code record change in the same release. Tools have no content touch yet; a tool's date moves with its version. For a course or lesson JSX edit, put a reason such as `"Corrected the Docker install instructions"` on the affected `family: "course"` page. The root course and child lessons both support this. Skip touches for typos and formatting.
 
-`prepare` freezes the reason and current public date. `apply` calls `stack127_touch_page` only if that date has not already moved. Retrying the plan leaves dates alone. `restore` restores managed copy. It does not revert JSX bodies, code records, or old dates. Revert code separately and prepare a new touch when needed.
+`prepare` freezes the reason and current public date. `apply` calls `stack127_touch_page` only if that date has not already moved. Retrying the plan leaves dates alone. `restore` restores the database fields. It does not revert MDX content, JSX bodies, code records, or old dates. Revert code separately and prepare a new touch when needed.
 
 A page whose rows already match the plan is left alone, unless its pending record touch still applies.
 
@@ -186,7 +198,7 @@ Many directory child pages get their copy from records, through the sync scripts
 | `route` | Required. A `page.tsx` under the family's route group, such as `app/(site)/(tools)/`. Its path must match the slug, and dynamic segments are allowed for directory children. The `layout.tsx` beside it must use `registryLayout`. |
 | `assets` | Each listed repository file must exist. |
 | Icon and art keys | Tool and catalog keys, and any directory key that isn't `null`, must be registered in `lib/card-icons.ts` and `lib/card-art.ts`. Homepage directories need both keys. |
-| Markdown | Every Markdown field must pass the shared Markdown validator. |
+| Markdown | Every `*_markdown` field must pass the shared Markdown validator. MDX content is checked by `npm run quality` instead. |
 | `checks` | Each `{ "name", "sql_file", "params" }` points to a repository SQL file holding one `SELECT` or `WITH` query. It runs in a read-only transaction and must return exactly one row, `{ "ready": true }`. |
 | `smoke` | Each `{ "path", "text" }` is a path under the page's own slug and text that must appear on it. The public check uses these. |
 
@@ -228,7 +240,7 @@ These HTTP checks confirm the data is live. They don't replace looking at the pa
 
 ## Development
 
-1. Write the manifest and Markdown files from the reviewed copy and the spec.
+1. Write the manifest from the reviewed title, search text, card copy, and the spec. The page content is already in the route's MDX files.
 2. Start the dev server and the local cache watcher.
 3. Run `prepare`. Fix any readiness failure it reports.
 4. Run `preview` and read the result. Check that only the pages you meant changed.
@@ -265,7 +277,7 @@ Production `apply`, `verify`, `restore`, and `dispatch` also need a full `--rele
      --release-sha <full origin/main SHA>
    ```
 
-`dispatch` creates a GitHub deployment with task `page-publication` in the `stack127-page-publication` environment. The reviewed plan travels in the deployment payload. Don't commit it, because that would make a second live copy of the content.
+`dispatch` creates a GitHub deployment with task `page-publication` in the `stack127-page-publication` environment. The reviewed plan travels in the deployment payload. Don't commit it.
 
 The page publication workflow, `.github/workflows/stack127-publish-pages.yml`:
 
@@ -306,12 +318,13 @@ Check a restore later with `verify --restored`.
 
 ## Narrow edits
 
-The older single-purpose commands still work:
+These commands each write one kind of database field:
 
-- `stack127:tool-page:content:update`
-- `stack127:tool-page:catalogs:update`
-- `stack127:tool-page:version:update`
-- `stack127:tool-page:repo:sync`
-- `scripts/stack127/directory-pages/update-content.mjs`
+| Command | Writes |
+| --- | --- |
+| `npm run stack127:tool-page:catalogs:update` | A tool's card fields and catalog memberships |
+| `npm run stack127:tool-page:version:update` | A tool's version |
+| `npm run stack127:tool-page:repo:sync` | A tool's repository fields |
+| `node scripts/stack127/directory-pages/update-content.mjs` | A directory's title, search metadata, and card fields |
 
-Use them in development and for a small fix to one live page. Use the publisher for a new page, a page going public, and any change that touches several tables at once.
+Use them in development and for a small fix to one live page. Use the publisher for a new page, a page going public, and any change that touches several tables at once. Page content changes go through a code release instead.
