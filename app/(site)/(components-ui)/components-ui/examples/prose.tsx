@@ -24,13 +24,13 @@ It also handles [HTTPS certificates](/nginx-proxy-pass-calculator) in one place.
 ### What it changes
 
 Requests reach **one address**, and the proxy picks the app by *host name*.
-Run \`docker compose up -d\`, then press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop following logs.` }}
+Run \`docker compose up -d\` to start it.` }}
       >
         <div className={flow}>
           <h2>How does a reverse proxy work?</h2>
           <p>A reverse proxy sits in front of your apps and sends each request to the right one. It also handles <a href="/nginx-proxy-pass-calculator">HTTPS certificates</a> in one place.</p>
           <h3>What it changes</h3>
-          <p>Requests reach <strong>one address</strong>, and the proxy picks the app by <em>host name</em>. Run <code>docker compose up -d</code>, then press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop following logs.</p>
+          <p>Requests reach <strong>one address</strong>, and the proxy picks the app by <em>host name</em>. Run <code>docker compose up -d</code> to start it.</p>
           <h4>A fourth-level heading</h4>
           <p>Use it rarely. Most pages need only h2 and h3.</p>
           <p><small>Small print, for a source line or a date checked. Checked on 9 October 2026.</small></p>

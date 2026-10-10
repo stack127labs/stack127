@@ -88,8 +88,11 @@
   width: 100%;
 }
 
+/* Terms sit beside their meanings, the same layout tool articles use, and stack on phones. */
 .prose dl {
   display: grid;
+  gap: var(--space-2) var(--space-5);
+  grid-template-columns: minmax(8rem, max-content) minmax(0, 1fr);
   margin: 0;
 }
 
@@ -97,12 +100,18 @@
   font-weight: var(--weight-semibold);
 }
 
-.prose dt:not(:first-child) {
-  margin-top: var(--space-7);
+.prose dd {
+  margin: 0;
 }
 
-.prose dd {
-  margin: var(--space-1) 0 0;
+@media (max-width: 640px) {
+  .prose dl {
+    grid-template-columns: 1fr;
+  }
+
+  .prose dd + dt {
+    margin-top: var(--space-3);
+  }
 }
 
 .flow,
