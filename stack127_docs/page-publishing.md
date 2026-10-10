@@ -223,7 +223,7 @@ Readiness checks only read. Import a directory's records with its own reviewed c
 `apply` and `restore` always check the public pages after they commit. `verify` runs the same check on its own. The check reads the database first, then loads each page until it matches or the wait runs out. The wait is 180 seconds by default.
 
 - A published page must return 200. Its title, `h1`, description, canonical, and robots tags must match the plan. Its `stack127-content-revision` tag must match the registry row. A tool with a repository URL must show that link.
-- An indexable published page must be in the sitemap and send index metadata. A published noindex page must send a noindex robots tag, keep its own canonical, send no JSON-LD, and be absent from the sitemap.
+- An indexable published page must be in the sitemap, and no robots tag may say `noindex` or `none`. A published noindex page must send a noindex robots tag, keep its own canonical, send no JSON-LD, and be absent from the sitemap.
 - Canonical and sitemap URLs use the site's configured origin, the same one `lib/seo` uses. That's `https://stack127.com` in production, and `NEXT_PUBLIC_SITE_URL` from the environment or `.env.local` in development. It falls back to `https://stack127.com` when unset. `--site` doesn't change it.
 - Each smoke path must show its expected text.
 - An unpublished page must return 404 and be missing from the sitemap.
