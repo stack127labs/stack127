@@ -8,8 +8,6 @@ export const neovim: AppShortcuts = {
   name: "Neovim",
   category: "Text editor",
   platforms: [...platforms],
-  intro:
-    "Neovim keeps Vim's modal editing model and adds built-in behavior around it. This reference covers the core motions and operators plus the LSP, commenting, diagnostic, and terminal-mode defaults that distinguish a current Neovim session from a plugin-specific setup.",
   versionContext:
     "Core behavior and built-in mappings from the official Neovim quick reference and LSP documentation checked in August 2026. LSP mappings appear when a language server attaches; plugin and user keymaps can add or replace any of these commands. See https://neovim.io/doc/user/lsp/ for the LSP defaults.",
   sourceUrl: "https://neovim.io/doc/user/quickref/",

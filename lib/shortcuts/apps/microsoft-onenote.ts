@@ -29,8 +29,6 @@ export const microsoftOneNote: AppShortcuts = {
   name: "Microsoft OneNote",
   category: "Notes and writing",
   platforms: [...platforms],
-  intro:
-    "OneNote's Windows and Mac desktop shortcuts cover notes, notebooks, search, synchronization, page movement, and the common editing commands.",
   versionContext:
     "Current Microsoft OneNote desktop shortcut tables checked September 1, 2026. Windows, macOS, and web versions have different maps, so this record separates the Windows and Mac desktop commands and leaves web-only access keys out.",
   sourceUrl: "https://support.microsoft.com/en-us/accessibility/onenote/keyboard-shortcuts-in-onenote",

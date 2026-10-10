@@ -8,8 +8,6 @@ const imessage: AppShortcuts = {
   name: "Messages",
   category: "Messaging",
   platforms: [...platforms],
-  intro:
-    "Apple's Messages shortcuts cover conversation filters, search, replies, Tapbacks, message editing, and conversation details. This record is for the current macOS Messages app.",
   versionContext:
     "The official Apple User Guide publishes the Messages shortcuts for macOS. The app name shown to Mac users is Messages, while this Stack127 record keeps the requested iMessage slug. iPhone and iPad gestures are outside scope.",
   sourceUrl: "https://support.apple.com/guide/messages/keyboard-shortcuts-ichtc78b3bff/mac",

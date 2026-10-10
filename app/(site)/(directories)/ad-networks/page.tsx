@@ -1,8 +1,9 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { getBreadcrumbs } from "@/lib/breadcrumbs";
-import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
-import { ContentMarkdown } from "@/app/ui/content-markdown";
+import Intro from "./content/intro.mdx";
+import Article from "./content/article.mdx";
 import { Network } from "lucide-react";
 import { DirectoryQueryProvider } from "@/app/ui/directories/directory-query";
 import { AppShell } from "@/app/ui/site/app-shell";
@@ -29,12 +30,12 @@ export default async function AdNetworksPage() {
         <PageHeader breadcrumbs={await getBreadcrumbs("ad-networks")}>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} fallback={<Network strokeWidth={2.2} />} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <PageMeta updatedAt={directoryPage.updated_at} />
-          <ContentMarkdown markdown={directoryPage.intro_markdown} />
+          <Intro />
         </PageHeader>
       </EntryHero>
       <PageCanvas flow className={styles.content}>
         <AdNetworkList networks={networks.map(({ name, slug, summary, verified_count }) => ({ name, slug, summary, verified_count }))} />
-      <DirectoryPageContent page={directoryPage} />
+      <Article />
           </PageCanvas>
     </AppShell>
   </DirectoryQueryProvider>;

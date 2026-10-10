@@ -38,8 +38,6 @@ export const microsoftTeams: AppShortcuts = {
   name: "Microsoft Teams",
   category: "Team chat",
   platforms: [...platforms],
-  intro:
-    "Teams shortcuts cover search, chats, settings, pane focus, messaging, and meeting controls across the Windows and macOS desktop and web clients.",
   versionContext:
     "Current Microsoft Teams desktop and web shortcut tables checked September 1, 2026. Several commands have separate desktop and web forms, and Teams can reserve or customize shortcuts depending on the client and account.",
   sourceUrl: "https://support.microsoft.com/en-us/accessibility/teams/keyboard-shortcuts-for-microsoft-teams",

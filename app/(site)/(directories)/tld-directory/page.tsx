@@ -39,7 +39,7 @@ export default async function TldDirectoryPage() {
       sidebar={<DomainToolsSidebar />}
       sidebarLabel="Domain tools sidebar"
     >
-      <PageCanvas as="main" className="domain-tool-main">
+      <PageCanvas className="domain-tool-main">
         <PageHeader breadcrumbs={await getBreadcrumbs("tld-directory")}>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <PageMeta updatedAt={directoryPage.updated_at} />

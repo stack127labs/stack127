@@ -8,8 +8,6 @@ export const sparkMail: AppShortcuts = {
   name: "Spark Mail",
   category: "Email",
   platforms: [...platforms],
-  intro:
-    "Spark Mail's desktop shortcut reference groups email triage, navigation, composing, formatting, calendar, and team actions. This record uses the published Mac and Windows desktop presets.",
   versionContext:
     "Spark Desktop shortcuts checked September 1, 2026. Spark supports configurable shortcut presets, so these entries describe the published default desktop bindings rather than a user's custom preset.",
   sourceUrl: "https://sparkmailapp.com/help/tips-tricks/use-keyboard-shortcuts",

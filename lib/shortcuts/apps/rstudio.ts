@@ -24,8 +24,6 @@ export const rstudio: AppShortcuts = {
   name: "RStudio",
   category: "Developer tool",
   platforms: [...desktopPlatforms],
-  intro:
-    "RStudio's current Posit guide publishes defaults for the command palette, console, source editor, completions, panes, help, builds, debugging, plots, version control, sessions, terminals, and menus. This reference keeps Windows, Linux, and macOS differences explicit.",
   versionContext:
     "RStudio User Guide version 2026.08.2 checked September 1, 2026. The guide warns that Emacs, Vim, and Sublime Text keybindings change the defaults. This record uses the standard keybinding set and omits rows where the guide says no shortcut.",
   sourceUrl: "https://docs.posit.co/ide/user/ide/reference/shortcuts.html",

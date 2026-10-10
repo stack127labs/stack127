@@ -8,8 +8,6 @@ const insomnia: AppShortcuts = {
   name: "Insomnia",
   category: "API client",
   platforms: [...platforms],
-  intro:
-    "Insomnia's desktop shortcuts cover request editing, sending, environments, history, plugins, and workspace organization. The entries below follow Kong's current Windows and macOS shortcut reference.",
   versionContext:
     "Kong's Insomnia documentation publishes Windows and macOS columns. Several commands depend on the request editor, response panel, or sidebar having focus, and all shortcuts remain user-configurable through the app.",
   sourceUrl: "https://developer.konghq.com/insomnia/keyboard-shortcuts/",

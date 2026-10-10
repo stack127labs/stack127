@@ -12,8 +12,6 @@ export const microsoftPowerToys: AppShortcuts = {
   name: "Microsoft PowerToys",
   category: "Windows utilities",
   platforms: ["windows"],
-  intro:
-    "PowerToys shortcuts start with the Shortcut Guide, PowerToys Run, Always On Top, Color Picker, FancyZones, and Workspaces. The utility bindings are global while PowerToys is running.",
   versionContext:
     "Current Microsoft PowerToys documentation checked September 1, 2026. These are the documented defaults, but every utility can be disabled or remapped in PowerToys settings and the set may change as utilities evolve.",
   sourceUrl: "https://learn.microsoft.com/en-us/windows/powertoys/shortcut-guide",

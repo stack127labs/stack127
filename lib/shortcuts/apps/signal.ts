@@ -8,8 +8,6 @@ export const signal: AppShortcuts = {
   name: "Signal",
   category: "Messaging",
   platforms: [...platforms],
-  intro:
-    "Signal Desktop keyboard shortcuts move through conversations, search messages, format drafts, manage media, and control calls. This reference keeps the published Mac and Windows/Linux differences visible.",
   versionContext:
     "Signal Desktop keyboard shortcuts checked September 1, 2026. The official table covers the Mac and Windows/Linux desktop apps; user settings and browser shortcuts are outside this record.",
   sourceUrl: "https://support.signal.org/hc/en-us/articles/360036517511-Signal-Desktop-Keyboard-Shortcuts",

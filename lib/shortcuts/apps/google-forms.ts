@@ -8,8 +8,6 @@ const googleForms: AppShortcuts = {
   name: "Google Forms",
   category: "Form builder",
   platforms: [...platforms],
-  intro:
-    "Google Forms shortcuts help you move through a form, insert questions and media, format text, and manage grading. The bindings below come from Google's current PC and Mac shortcut reference.",
   versionContext:
     "Google documents shortcuts for the form editor on PC and Mac. Commands that insert an item use a sequential Ctrl or Command sequence, represented with a visible then token here.",
   sourceUrl: "https://support.google.com/docs/answer/6026976?hl=en",

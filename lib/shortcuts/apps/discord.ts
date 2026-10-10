@@ -1,21 +1,19 @@
 import type { AppShortcuts, Shortcut, ShortcutKey } from "../types.ts";
 
-const key = (platform: "windows" | "macos", keys: string[], alternatives?: string[][]): ShortcutKey => ({ platform, keys, ...(alternatives ? { alternatives } : {}) });
-const pair = (id: string, action: string, win: string[], mac: string[], winAlt?: string[][], macAlt?: string[][]): Shortcut => ({ id, action, keys: [key("windows", win, winAlt), key("macos", mac, macAlt)] });
+const key = (platform: "windows" | "macos" | "linux", keys: string[], alternatives?: string[][]): ShortcutKey => ({ platform, keys, ...(alternatives ? { alternatives } : {}) });
+const pair = (id: string, action: string, win: string[], mac: string[], winAlt?: string[][], macAlt?: string[][]): Shortcut => ({ id, action, keys: [key("windows", win, winAlt), key("macos", mac, macAlt), key("linux", win, winAlt)] });
 const shared = (id: string, action: string, keys: string[], alternatives?: string[][]): Shortcut => pair(id, action, keys, keys, alternatives, alternatives);
 
 export const discord: AppShortcuts = {
   slug: "discord",
   name: "Discord",
   category: "Communication",
-  platforms: ["windows", "macos"],
-  intro:
-    "Discord's browser and desktop shortcuts cover settings, search, messages, channels, servers, voice controls, and keyboard navigation. Custom keybinds are desktop-only and are not included as defaults.",
+  platforms: ["windows", "macos", "linux"],
   versionContext:
-    "Current Discord commands, shortcuts, and navigation guide updated April 14, 2025 and checked August 31, 2026. The documented shortcuts apply to browser and desktop Discord, not the mobile app.",
+    "Current Discord commands, shortcuts, and navigation guide updated April 14, 2025 and checked October 10, 2026. The documented shortcuts apply to browser and desktop Discord, not the mobile app. The guide labels Windows and Mac bindings; Linux uses the Windows modifier column.",
   sourceUrl: "https://support.discord.com/hc/en-us/articles/31232432266647-Discord-Commands-Shortcuts-and-Navigation-Guide",
   sourceLabel: "Discord commands, shortcuts, and navigation guide",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-10-10",
   groups: [
     {
       id: "general",

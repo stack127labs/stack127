@@ -1,20 +1,18 @@
 import { combo } from "../build.ts";
 import type { AppShortcuts } from "../types.ts";
 
-const platforms = ["windows", "linux"] as const;
+const platforms = ["windows", "macos", "linux"] as const;
 
 const inkscape: AppShortcuts = {
   slug: "inkscape",
   name: "Inkscape",
   category: "Vector editor",
   platforms: [...platforms],
-  intro:
-    "Inkscape's official key reference covers tools, files, object editing, z-order, and canvas views. These entries focus on the commands that recur while drawing and preparing a vector document.",
   versionContext:
-    "The Inkscape documentation reference and its default key XML are maintained by the Inkscape project. The public reference does not publish a separate macOS column, so this record covers Windows and Linux and leaves custom keymaps out.",
+    "Inkscape's official keyboard reference checked October 10, 2026. The project says its shortcuts use Ctrl rather than Command on macOS; users can change shortcuts in Preferences.",
   sourceUrl: "https://inkscape.org/sl/doc/keys.html",
   sourceLabel: "official Inkscape keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-10-10",
   groups: [
     {
       id: "tools",

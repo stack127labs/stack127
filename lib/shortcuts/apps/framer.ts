@@ -45,8 +45,6 @@ export const framer: AppShortcuts = {
   name: "Framer",
   category: "Website design",
   platforms: [...platforms],
-  intro:
-    "Framer's official shortcut table covers agents, arranging, editing, layout, preview, projects, selection, tools, typography, vector editing, views, and zoom.",
   versionContext:
     "Current Framer keyboard shortcut table checked September 1, 2026. Framer publishes separate Mac and Windows columns in one searchable reference.",
   sourceUrl: "https://www.framer.com/shortcuts",

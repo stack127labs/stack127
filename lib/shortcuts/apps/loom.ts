@@ -21,8 +21,6 @@ export const loom: AppShortcuts = {
   name: "Loom",
   category: "Screen recording",
   platforms: [...platforms],
-  intro:
-    "Loom's desktop recorder, Chrome extension, and video player each have a small set of documented controls. This reference keeps those contexts separate.",
   versionContext:
     "Current Loom help shortcuts checked September 1, 2026. Desktop bindings can be changed in Preferences, Chrome extension bindings can be changed at chrome://extensions/shortcuts, and Loom documents QWERTY support for the desktop set.",
   sourceUrl: "https://support.atlassian.com/loom/docs/use-looms-keyboard-shortcuts",

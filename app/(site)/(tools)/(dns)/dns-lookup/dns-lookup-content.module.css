@@ -2,20 +2,3 @@
   width: 100%;
   min-width: 0;
 }
-
-.guide table {
-  width: 100%;
-  min-width: 0;
-  table-layout: fixed;
-}
-
-.guide th,
-.guide td {
-  white-space: normal;
-  overflow-wrap: anywhere;
-}
-
-.guide th:first-child,
-.guide td:first-child {
-  width: 35%;
-}

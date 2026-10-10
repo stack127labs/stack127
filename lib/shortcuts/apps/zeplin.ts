@@ -28,8 +28,6 @@ export const zeplin: AppShortcuts = {
   name: "Zeplin",
   category: "Design handoff",
   platforms: [...platforms],
-  intro:
-    "Zeplin publishes separate Mac and Windows app shortcuts for projects, styleguides, screens, sections, tags, layers, and zoom.",
   versionContext:
     "Zeplin keyboard shortcut article checked September 1, 2026. The article also lists a Web app table, while this record uses the published Mac and Windows app maps.",
   sourceUrl: "https://support.zeplin.io/en/articles/9685993-keyboard-shortcuts",

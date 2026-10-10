@@ -22,8 +22,6 @@ export const cinema4d: AppShortcuts = {
   name: "Cinema 4D",
   category: "3D creation suite",
   platforms: ["windows", "macos"],
-  intro:
-    "Cinema 4D's default shortcuts cover animation, project files, managers, the viewport, display modes, modeling and selection tools, rendering, and sculpt controls.",
   versionContext:
     "Cinema 4D 2026 default shortcut table checked August 31, 2026. Maxon says macOS users press Command instead of Ctrl. Letter pairs are hierarchical shortcuts pressed in sequence. Command Manager presets and manager-specific assignments can change the active set.",
   sourceUrl: "https://help.maxon.net/c4d/2026/en-us/Content/html/Shortcuts.html",

@@ -38,7 +38,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 240
+    "shortcutCount": 239
   },
   {
     "slug": "adobe-acrobat-pro",
@@ -252,7 +252,7 @@ export const shortcutAppCatalog = [
   },
   {
     "slug": "arc-browser",
-    "name": "Arc Browser",
+    "name": "Arc",
     "category": "Web browser",
     "platforms": [
       "windows",
@@ -289,6 +289,16 @@ export const shortcutAppCatalog = [
       "windows"
     ],
     "shortcutCount": 75
+  },
+  {
+    "slug": "fusion-360",
+    "name": "Autodesk Fusion",
+    "category": "CAD and engineering",
+    "platforms": [
+      "windows",
+      "macos"
+    ],
+    "shortcutCount": 42
   },
   {
     "slug": "autodesk-maya",
@@ -392,7 +402,7 @@ export const shortcutAppCatalog = [
   },
   {
     "slug": "brave",
-    "name": "Brave Browser",
+    "name": "Brave",
     "category": "Web browser",
     "platforms": [
       "windows",
@@ -516,6 +526,16 @@ export const shortcutAppCatalog = [
     "shortcutCount": 76
   },
   {
+    "slug": "cubase",
+    "name": "Cubase",
+    "category": "Music production",
+    "platforms": [
+      "windows",
+      "macos"
+    ],
+    "shortcutCount": 38
+  },
+  {
     "slug": "cursor",
     "name": "Cursor",
     "category": "AI code editor",
@@ -532,19 +552,21 @@ export const shortcutAppCatalog = [
     "category": "Video editing",
     "platforms": [
       "windows",
-      "macos"
+      "macos",
+      "linux"
     ],
     "shortcutCount": 11
   },
   {
     "slug": "davinci-resolve-fusion-page",
-    "name": "DaVinci Resolve Fusion Page",
+    "name": "DaVinci Resolve Fusion page",
     "category": "Compositing and motion graphics",
     "platforms": [
       "windows",
-      "macos"
+      "macos",
+      "linux"
     ],
-    "shortcutCount": 8
+    "shortcutCount": 10
   },
   {
     "slug": "dbeaver",
@@ -583,13 +605,14 @@ export const shortcutAppCatalog = [
     "category": "Communication",
     "platforms": [
       "windows",
-      "macos"
+      "macos",
+      "linux"
     ],
     "shortcutCount": 24
   },
   {
     "slug": "draw-io-diagrams-net",
-    "name": "draw.io (diagrams.net)",
+    "name": "draw.io",
     "category": "Diagramming",
     "platforms": [
       "windows",
@@ -722,16 +745,6 @@ export const shortcutAppCatalog = [
     "shortcutCount": 43
   },
   {
-    "slug": "fusion-360",
-    "name": "Fusion 360",
-    "category": "CAD and engineering",
-    "platforms": [
-      "windows",
-      "macos"
-    ],
-    "shortcutCount": 42
-  },
-  {
     "slug": "ghostty",
     "name": "Ghostty",
     "category": "Terminal emulator",
@@ -747,6 +760,7 @@ export const shortcutAppCatalog = [
     "category": "Image editor",
     "platforms": [
       "windows",
+      "macos",
       "linux"
     ],
     "shortcutCount": 55
@@ -771,7 +785,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 8
+    "shortcutCount": 6
   },
   {
     "slug": "github-desktop",
@@ -815,6 +829,15 @@ export const shortcutAppCatalog = [
       "linux"
     ],
     "shortcutCount": 85
+  },
+  {
+    "slug": "gnome",
+    "name": "GNOME",
+    "category": "Desktop environment",
+    "platforms": [
+      "linux"
+    ],
+    "shortcutCount": 29
   },
   {
     "slug": "emacs",
@@ -975,6 +998,7 @@ export const shortcutAppCatalog = [
     "category": "Vector editor",
     "platforms": [
       "windows",
+      "macos",
       "linux"
     ],
     "shortcutCount": 50
@@ -1052,6 +1076,15 @@ export const shortcutAppCatalog = [
     "shortcutCount": 6
   },
   {
+    "slug": "linux-kde-plasma",
+    "name": "KDE Plasma",
+    "category": "Desktop environment",
+    "platforms": [
+      "linux"
+    ],
+    "shortcutCount": 49
+  },
+  {
     "slug": "keynote",
     "name": "Keynote",
     "category": "Presentation software",
@@ -1102,24 +1135,6 @@ export const shortcutAppCatalog = [
       "linux"
     ],
     "shortcutCount": 18
-  },
-  {
-    "slug": "linux-kde-plasma",
-    "name": "Linux (KDE Plasma)",
-    "category": "Desktop environment",
-    "platforms": [
-      "linux"
-    ],
-    "shortcutCount": 49
-  },
-  {
-    "slug": "gnome",
-    "name": "Linux GNOME",
-    "category": "Desktop environment",
-    "platforms": [
-      "linux"
-    ],
-    "shortcutCount": 29
   },
   {
     "slug": "logic-pro",
@@ -1233,7 +1248,7 @@ export const shortcutAppCatalog = [
   {
     "slug": "microsoft-edge",
     "name": "Microsoft Edge",
-    "category": "Web browsers",
+    "category": "Web browser",
     "platforms": [
       "windows",
       "macos"
@@ -1663,7 +1678,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 10
+    "shortcutCount": 7
   },
   {
     "slug": "rstudio",
@@ -1807,16 +1822,6 @@ export const shortcutAppCatalog = [
     "shortcutCount": 33
   },
   {
-    "slug": "cubase",
-    "name": "Steinberg Cubase",
-    "category": "Music production",
-    "platforms": [
-      "windows",
-      "macos"
-    ],
-    "shortcutCount": 38
-  },
-  {
     "slug": "sublime-text",
     "name": "Sublime Text",
     "category": "Code editor",
@@ -1825,7 +1830,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 40
+    "shortcutCount": 39
   },
   {
     "slug": "superhuman",
@@ -1886,7 +1891,7 @@ export const shortcutAppCatalog = [
     "platforms": [
       "macos"
     ],
-    "shortcutCount": 41
+    "shortcutCount": 53
   },
   {
     "slug": "tmux",
@@ -2027,7 +2032,7 @@ export const shortcutAppCatalog = [
     "platforms": [
       "windows"
     ],
-    "shortcutCount": 29
+    "shortcutCount": 28
   },
   {
     "slug": "windows-snipping-tool",
@@ -2126,7 +2131,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 26
+    "shortcutCount": 25
   },
   {
     "slug": "youtrack",
@@ -2147,7 +2152,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 36
+    "shortcutCount": 34
   },
   {
     "slug": "zbrush",
@@ -2176,6 +2181,7 @@ export const shortcutAppCatalog = [
     "category": "Web browser",
     "platforms": [
       "windows",
+      "macos",
       "linux"
     ],
     "shortcutCount": 53

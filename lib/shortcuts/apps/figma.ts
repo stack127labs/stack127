@@ -8,8 +8,6 @@ export const figma: AppShortcuts = {
   name: "Figma",
   category: "Design tool",
   platforms: [...platforms],
-  intro:
-    "Figma work is mostly selection and repetition. These shortcuts get you from tool choice to shape editing to layer and canvas control without breaking the design flow.",
   versionContext:
     "The current Figma help page documents canvas navigation, keyboard selection, object creation, and the in-product shortcuts panel. macOS uses Cmd and Option where Windows and Linux use Ctrl and Alt.",
   sourceUrl: "https://help.figma.com/hc/en-us/articles/360040328653-Use-Figma-products-with-a-keyboard",

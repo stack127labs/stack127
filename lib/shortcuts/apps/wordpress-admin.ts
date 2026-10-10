@@ -28,8 +28,6 @@ export const wordpressAdmin: AppShortcuts = {
   name: "WordPress Admin",
   category: "Content management",
   platforms: [...platforms],
-  intro:
-    "WordPress publishes keyboard references for the Block Editor, Classic Editor, comments, and Site Editor. This map keeps those admin editing surfaces together and does not claim shortcuts for every plugin screen.",
   versionContext:
     "WordPress Block Editor, Classic Editor, and Site Editor references checked September 1, 2026. The Block Editor table and Classic Editor table publish Windows or Linux and Mac variants, while the Site Editor documents its command palette separately.",
   sourceUrl: "https://wordpress.org/documentation/article/keyboard-shortcuts-block-editor/",

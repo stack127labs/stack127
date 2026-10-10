@@ -29,8 +29,6 @@ export const microsoftWord: AppShortcuts = {
   name: "Microsoft Word",
   category: "Word processing",
   platforms: [...platforms],
-  intro:
-    "Word's desktop shortcut map covers editing, navigation, formatting, review, fields, and document views on Windows and macOS.",
   versionContext:
     "Current Microsoft Word shortcut tables checked September 1, 2026. The official article uses U.S. keyboard layouts and separate Windows and Mac sections. Web, mobile, add-in, and custom shortcut behavior is outside this desktop record.",
   sourceUrl: "https://support.microsoft.com/en-us/accessibility/word/keyboard-shortcuts-in-word",

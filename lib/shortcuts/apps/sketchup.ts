@@ -9,8 +9,6 @@ export const sketchup: AppShortcuts = {
   name: "SketchUp",
   category: "3D design",
   platforms: [...platforms],
-  intro:
-    "SketchUp's current default shortcut table covers the direct tool keys used for selection, drawing, modeling, and camera control. These entries apply to the Windows and Mac desktop defaults.",
   versionContext:
     "SketchUp default keyboard shortcuts checked September 1, 2026. The official help page was updated August 31, 2026 and notes that custom shortcuts can replace these defaults.",
   sourceUrl: "https://help.sketchup.com/en/default-keyboard-shortcuts",

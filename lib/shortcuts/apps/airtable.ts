@@ -17,8 +17,6 @@ export const airtable: AppShortcuts = {
   name: "Airtable",
   category: "Collaborative database",
   platforms: ["windows", "macos"],
-  intro:
-    "Airtable's documented shortcuts cover base navigation, view controls, cell editing, record movement, and the Gallery, Kanban, Gantt, and expanded-record surfaces. The reference keeps context-specific commands with the view where Airtable says they work.",
   versionContext:
     "Airtable web keyboard shortcuts from the current official support article checked August 31, 2026. At that check, the article displayed a relative 'Last updated 23 days ago' label rather than a stable revision date. Airtable publishes separate Mac and Windows tables. Browser and operating-system shortcuts, screenshots, and modifier-plus-pointer gestures are omitted. No Linux keymap is documented on the source page.",
   sourceUrl: "https://support.airtable.com/articles/7980233311-airtable-keyboard-shortcuts",

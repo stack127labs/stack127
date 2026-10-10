@@ -29,7 +29,7 @@ const paramKeys = ["q", "sort", "category", "vendor", "capability", "ota", "batt
 const sortOptions = [
   { label: "Device name", value: "name" },
   { label: "Vendor", value: "vendor" },
-  { label: "Most Zigbee2MQTT features", value: "capabilities" },
+  { label: "Most features", value: "capabilities" },
   { label: "Recently added to a support list", value: "newest" },
 ];
 
@@ -123,7 +123,7 @@ export function ZigbeeDeviceResults({ categoryLabels, details, firstPage, index,
     {chipRow}
     <header className={styles.resultHeader}>
       <p className={styles.resultCount}>{count.toLocaleString("en-US")} matching devices</p>
-      <p className={styles.snapshotNote}>Updated {snapshotDate}</p>
+      <p className={styles.snapshotNote}>Sources read {snapshotDate}</p>
     </header>
 
     {pageDevices.length > 0 ? (

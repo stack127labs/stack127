@@ -15,8 +15,6 @@ export const reddit: AppShortcuts = {
   name: "Reddit",
   category: "Social and community",
   platforms: [...platforms],
-  intro:
-    "Reddit's current desktop web hotkeys move through posts and comments, perform voting and saving actions, and control media playback. This page keeps navigation, actions, and media separate so the single-letter bindings are easy to scan.",
   versionContext:
     "Current Reddit desktop web hotkeys checked September 1, 2026. Reddit says the feature is available on the newest reddit.com interface, not old Reddit. On Windows, the help article maps its CMD references to Alt.",
   sourceUrl: "https://support.reddithelp.com/hc/en-us/articles/38744650091412-How-to-use-keyboard-shortcuts-hotkeys",

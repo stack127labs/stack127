@@ -22,13 +22,11 @@ export const linear: AppShortcuts = {
   name: "Linear",
   category: "Project management",
   platforms: [...platforms],
-  intro:
-    "Linear's keyboard map links issue triage, search, navigation, views, and the rich-text editor. Chords use the same letter-first pattern as Linear's own documentation.",
   versionContext:
-    "Current public Linear shortcut documentation checked September 1, 2026. Linear also exposes a searchable in-app shortcut help screen with `?`; public docs cover the commonly used defaults and may not include every workspace or permission-dependent action.",
-  sourceUrl: "https://linear.app/changelog/2021-03-25-keyboard-shortcuts-help",
-  sourceLabel: "Linear keyboard shortcuts help",
-  lastVerified: "2026-09-01",
+    "Current Linear issue, search, favorites, layout, and editor documentation checked October 10, 2026. Public docs cover common defaults and may not include every workspace- or permission-dependent action.",
+  sourceUrl: "https://linear.app/docs/select-issues",
+  sourceLabel: "official Linear issue-selection and keyboard documentation",
+  lastVerified: "2026-10-10",
   groups: [
     {
       id: "navigation-and-search",

@@ -18,8 +18,6 @@ export const audacity: AppShortcuts = {
   name: "Audacity",
   category: "Audio editor",
   platforms: ["windows", "macos", "linux"],
-  intro:
-    "Audacity's Standard shortcut set covers projects, audio editing, selections, timeline views, playback, recording, looping, track mute controls, and effect reuse. The extended Full set remains separate because it is not enabled by default.",
   versionContext:
     "Current Audacity Development Manual checked August 31, 2026. This record includes the default Standard set only. The manual maps Ctrl to Command and Alt to Option on macOS, with explicit Mac exceptions preserved. Users can customize or replace the defaults in Shortcuts Preferences.",
   sourceUrl: "https://manual.audacityteam.org/man/keyboard_shortcut_reference.html",

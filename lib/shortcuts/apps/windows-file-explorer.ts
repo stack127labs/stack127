@@ -15,8 +15,6 @@ export const windowsFileExplorer: AppShortcuts = {
   name: "Windows File Explorer",
   category: "File management",
   platforms: [...platforms],
-  intro:
-    "Microsoft publishes a dedicated File Explorer section in its current Windows keyboard shortcut reference. This map covers navigation, tabs, search, panes, and file actions.",
   versionContext:
     "Microsoft Windows keyboard shortcuts checked September 1, 2026. The source applies to Windows 10 and Windows 11, and some commands depend on the focused File Explorer pane.",
   sourceUrl: "https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec",
@@ -29,8 +27,7 @@ export const windowsFileExplorer: AppShortcuts = {
       intro: "Use these commands to open folders, move through the file tree, and control the current window.",
       shortcuts: [
         shortcut("address-bar", "Focus the address bar", ["Alt", "D"]),
-        shortcut("search", "Focus search", ["Ctrl", "E"]),
-        shortcut("search-alt", "Focus search", ["Ctrl", "F"]),
+        { id: "search", action: "Focus search", keys: [{ platform: "windows", keys: ["Ctrl", "E"], alternatives: [["Ctrl", "F"]] }] },
         shortcut("new-window", "Open a new File Explorer window", ["Ctrl", "N"]),
         shortcut("close-window", "Close the active window", ["Ctrl", "W"]),
         shortcut("expand-parent-folders", "Display all folders above the selected folder", ["Ctrl", "Shift", "E"]),

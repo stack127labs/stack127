@@ -12,8 +12,6 @@ export const paintNet: AppShortcuts = {
   name: "Paint.NET",
   category: "Design tool",
   platforms: ["windows"],
-  intro:
-    "Paint.NET combines canvas navigation with image zoom, selection controls, tool windows, and keyboard access to its drawing tools. Its official list also documents repeated key presses for tool groups, so those bindings stay explicit instead of being collapsed into one generic tool shortcut.",
   versionContext:
     "Paint.NET keyboard and mouse commands from the official documentation, checked September 1, 2026. This reference is for the Windows desktop application and keeps mouse gestures only where the official command is a keyboard-plus-mouse action.",
   sourceUrl: "https://www.getpaint.net/doc/latest/KeyboardMouseCommands.html",

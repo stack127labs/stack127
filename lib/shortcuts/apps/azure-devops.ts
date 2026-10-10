@@ -17,8 +17,6 @@ export const azureDevops: AppShortcuts = {
   name: "Azure DevOps",
   category: "Software development platform",
   platforms: ["windows", "macos"],
-  intro:
-    "Azure DevOps web shortcuts change with the active service and page. Sequential navigation keys work only when focus is outside an input control, so this reference separates global navigation, Repos, work items, Boards, Test Plans, and Wiki commands.",
   versionContext:
     "Azure DevOps Services and Azure DevOps Server web-portal shortcuts from Microsoft's February 17, 2026 reference, checked August 31, 2026. Portal Control chords are preserved literally on both platforms where Microsoft publishes one shared table. The rich-text editor uses the separate Windows and macOS bindings supplied by Microsoft.",
   sourceUrl: "https://learn.microsoft.com/en-us/azure/devops/project/navigation/keyboard-shortcuts?view=azure-devops",

@@ -13,7 +13,7 @@ export default async function CaaCheckerPage() {
   const toolPage = await getRequiredToolPage("caa-checker");
   return (
     <ToolPageShell toolPage={toolPage}>
-      <PageCanvas as="main" className={styles.main}>
+      <PageCanvas className={styles.main}>
         <ToolPageHeader
           icon={<FileKey strokeWidth={2.2} />}
           intro={<Intro />}

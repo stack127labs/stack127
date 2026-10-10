@@ -8,8 +8,6 @@ export const sketch: AppShortcuts = {
   name: "Sketch",
   category: "Design tool",
   platforms: [...platforms],
-  intro:
-    "Sketch's Mac app shortcut reference covers documents, canvas navigation, comments, layers, styling, and export. This page keeps the current US English Mac defaults separate from Sketch web shortcuts.",
   versionContext:
     "Sketch Mac app shortcuts checked September 1, 2026. The official page was updated June 22, 2026 and notes that listed combinations use the US English keyboard layout.",
   sourceUrl: "https://www.sketch.com/docs/shortcuts/mac/",

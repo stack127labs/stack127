@@ -15,8 +15,6 @@ export const ulysses: AppShortcuts = {
   name: "Ulysses",
   category: "Writing tool",
   platforms: [...platforms],
-  intro:
-    "Ulysses' official Mac reference covers sheets and groups, library navigation, search, editor markup, tables, previews, appearance, and export. The app's iPad and iPhone hardware-keyboard maps are separate, so this record stays Mac-only.",
   versionContext:
     "Ulysses Keyboard Shortcuts page checked September 1, 2026. The source publishes the Mac map separately from iPad and iPhone shortcuts; this record uses the Mac defaults and leaves custom macOS App Shortcuts outside the map.",
   sourceUrl: "https://help.ulysses.app/keyboard-shortcuts-mac-ipad?kb_language=en_US",

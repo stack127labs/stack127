@@ -8,8 +8,6 @@ const googleMeet: AppShortcuts = {
   name: "Google Meet",
   category: "Video meetings",
   platforms: [...platforms],
-  intro:
-    "Google Meet's documented meeting shortcuts control the camera, microphone, captions, presentation, participants, chat, and layout. They work while a Meet call has focus.",
   versionContext:
     "Google publishes separate Windows and Mac meeting tables. The complete in-meeting shortcut list is available from Meet's help dialog with Shift+question mark; some commands depend on account or meeting permissions.",
   sourceUrl: "https://support.google.com/meet/answer/9298571?hl=en",

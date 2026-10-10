@@ -8,8 +8,6 @@ export const claudeCode: AppShortcuts = {
   name: "Claude Code",
   category: "AI coding agent",
   platforms: [...platforms],
-  intro:
-    "Claude Code spends most of its time waiting for a decision, running a tool, or holding a prompt. These official interactive-mode shortcuts cover interrupts, rewinds, mode changes, multiline input, terminal-style editing, and transcript navigation.",
   versionContext:
     "Interactive-mode shortcuts from the official Claude Code docs checked August 26, 2026. Keys vary by terminal. On macOS, Option must be configured as Meta for Alt-style text editing. The readline flavor changes some editing defaults in Claude Code v2.1.238 and later.",
   sourceUrl: "https://code.claude.com/docs/en/interactive-mode",

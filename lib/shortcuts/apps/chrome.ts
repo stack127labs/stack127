@@ -8,8 +8,6 @@ export const chrome: AppShortcuts = {
   name: "Google Chrome",
   category: "Web browser",
   platforms: [...platforms],
-  intro:
-    "Chrome's official list covers the browser habits that happen dozens of times a day: manage tabs, move through history, search the current page, reach browser tools, and work in the address bar without leaving the keyboard.",
   versionContext:
     "Documented defaults from Google Chrome Help checked August 26, 2026. Google separates Windows and Linux from macOS, and some commands depend on the focused page, address bar, or dialog.",
   sourceUrl: "https://support.google.com/chrome/answer/157179",

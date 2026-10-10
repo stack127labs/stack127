@@ -13,7 +13,7 @@ export default async function DnsChangeCheckerPage() {
   const toolPage = await getRequiredToolPage("dns-change-checker");
   return (
     <ToolPageShell toolPage={toolPage}>
-      <PageCanvas as="main" className={styles.main}>
+      <PageCanvas className={styles.main}>
         <ToolPageHeader
           icon={<RefreshCw strokeWidth={2.2} />}
           intro={<Intro />}

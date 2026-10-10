@@ -14,8 +14,6 @@ export const amplitude: AppShortcuts = {
   name: "Amplitude",
   category: "Product analytics",
   platforms: [...platforms],
-  intro:
-    "Amplitude's chart-creation shortcuts open event and property controls, refresh or save analysis, copy and organize charts, and operate hovered selector rows. Every binding here stays within the chart builder context documented by Amplitude.",
   versionContext:
     "Current Amplitude Analytics chart basics documentation checked August 31, 2026. These browser-app shortcuts work on chart creation pages for all chart types except Data Tables. The official table does not publish operating-system variants, so the documented combinations are shown unchanged across desktop platforms.",
   sourceUrl: "https://amplitude.com/docs/analytics/charts/chart-basics#keyboard-shortcuts",

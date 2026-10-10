@@ -29,8 +29,6 @@ export const buffer: AppShortcuts = {
   name: "Buffer",
   category: "Social media management",
   platforms,
-  intro:
-    "Buffer's web shortcuts open its reference and command bar, jump among product areas, start new work, schedule posts, build threads, and navigate Community conversations.",
   versionContext:
     "Current Buffer Help Center shortcut list checked August 31, 2026. Navigation commands are two-key sequences, not simultaneous chords, and global shortcuts are suppressed while the cursor is in a text field. Buffer Home must be enabled for its navigation command.",
   sourceUrl: "https://support.buffer.com/en-us/articles/using-buffers-keyboard-shortcuts-jvc735UOsa",

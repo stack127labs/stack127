@@ -12,8 +12,6 @@ export const pages: AppShortcuts = {
   name: "Pages",
   category: "Notes and docs",
   platforms: ["macos"],
-  intro:
-    "Pages on Mac combines document editing with page-layout objects, tables, comments, and style controls. This reference groups the commands people use while writing, searching, formatting, and arranging a document, with Apple-specific object and table actions kept visible.",
   versionContext:
     "Pages for Mac shortcuts from Apple's current Pages User Guide, checked September 1, 2026. Apple notes that portable Macs may require Fn and that paragraph, character, or list styles can also receive user-assigned shortcuts.",
   sourceUrl: "https://support.apple.com/guide/pages/keyboard-shortcuts-tanc0ffef022/mac",

@@ -109,7 +109,8 @@ jobs:
             await checkCurrentRelease(options);
             await verifyFrontend(options.site, options.sha);
           }
-          await publishingMain(publication.plan.kind, ['apply', '--plan', `${process.env.RUNNER_TEMP}/page-plan.json`, '--environment', 'production', '--confirm', 'stack127-production', '--release-sha', publication.releaseSha], {
+          const plan = JSON.parse(await readFile(`${process.env.RUNNER_TEMP}/page-plan.json`, 'utf8'));
+          await publishingMain(plan.kind, ['apply', '--plan', `${process.env.RUNNER_TEMP}/page-plan.json`, '--environment', 'production', '--confirm', 'stack127-production', '--release-sha', publication.releaseSha], {
             afterCommit: async ({ pool }) => {
               if (options.hosting !== 'cloudflare') return;
               const client = await pool.connect();

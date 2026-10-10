@@ -46,8 +46,6 @@ export const excalidraw: AppShortcuts = {
   name: "Excalidraw",
   category: "Whiteboard and diagrams",
   platforms: [...platforms],
-  intro:
-    "Excalidraw's official shortcut map covers file actions, clipboard and layer operations, canvas modes, zoom, selection, and tool locking. Most commands use Ctrl on Windows and Linux or Command on macOS.",
   versionContext:
     "The current Excalidraw shortcut map in the official repository was checked September 1, 2026. Excalidraw can be embedded in other products, where host shortcuts or browser behavior may take precedence.",
   sourceUrl: "https://raw.githubusercontent.com/excalidraw/excalidraw/master/packages/excalidraw/actions/shortcuts.ts",

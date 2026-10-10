@@ -8,8 +8,6 @@ export const jupyterNotebook: AppShortcuts = {
   name: "Jupyter Notebook",
   category: "Developer tools",
   platforms: [...platforms],
-  intro:
-    "Jupyter Notebook keeps the notebook itself in the browser, so its most useful keys switch between editing and command mode, run cells, search, and control the kernel.",
   versionContext:
     "Essential shortcuts from the Jupyter Notebook 7.6.0 documentation, checked September 1, 2026. The full context-sensitive map is available from Help > Keyboard Shortcuts inside the running notebook; this page keeps the defaults explicitly documented in the public guide.",
   sourceUrl: "https://jupyter-notebook.readthedocs.io/en/v7.6.0/notebook.html",

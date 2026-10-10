@@ -2,7 +2,7 @@ import type { LaunchDirectory } from "./launch-directories";
 
 export const LAUNCH_DIRECTORY_PAGE_SIZE = 24;
 
-// A short editorial list of long-running launch sites most makers start with.
+// A short editorial pick of the launch sites most makers start with.
 const recommendedPins = new Map([
   ["product-hunt", 0], ["betalist", 1], ["devhunt", 2],
   ["peerlist-launchpad", 3], ["alternativeto", 4], ["saashub", 5],
@@ -46,6 +46,16 @@ export function launchDirectoryHasFreeOption(directory: LaunchDirectory) {
   return directory.cost_kind === "free" || directory.cost_kind === "free_and_paid";
 }
 
+/**
+ * A free plan whose checked submission flow says a backlink is optional or not required.
+ * Unchecked records don't qualify: unknown isn't the same as "not required".
+ */
+export function launchDirectoryFreeWithoutRequiredBacklink(directory: LaunchDirectory) {
+  if (!launchDirectoryHasFreeOption(directory)) return false;
+  const backlink = directory.submission_details?.backlink;
+  return backlink === "optional" || backlink === "not_required";
+}
+
 function matchesCost(directory: LaunchDirectory, cost: string) {
   if (cost === "free") return launchDirectoryHasFreeOption(directory);
   return directory.cost_kind === cost;
@@ -70,8 +80,7 @@ export function filterLaunchDirectories(
       && (!query.categories?.length || query.categories.some((category) => directory.categories.includes(category)))
       && (!query.costs?.length || query.costs.some((cost) => matchesCost(directory, cost)))
       && (!query.links?.length || query.links.includes(directory.link_type_kind))
-      && (query.backlink !== "not_required" || (launchDirectoryHasFreeOption(directory)
-        && ["optional", "not_required"].includes(directory.submission_details?.backlink ?? "unknown")))
+      && (query.backlink !== "not_required" || launchDirectoryFreeWithoutRequiredBacklink(directory))
       && (query.submission !== "verified" || verified)
       && (query.submission !== "unverified" || !verified);
   });

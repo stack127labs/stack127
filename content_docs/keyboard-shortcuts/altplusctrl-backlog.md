@@ -125,7 +125,7 @@ Research must start with the current first-party shortcut reference for the name
 | Krita | `krita` | Verified | https://docs.krita.org/en/reference_manual/preferences/shortcut_settings.html |
 | LastPass | `lastpass` | Blocked | https://lastpass.com/misc_download2.php?lang=en_US |
 | LibreOffice Writer | `libreoffice-writer` | Verified | https://help.libreoffice.org/latest/en-US/text/swriter/04/01020000.html?DbPAR=SHARED |
-| Linear | `linear` | Verified | https://linear.app/changelog/2021-03-25-keyboard-shortcuts-help |
+| Linear | `linear` | Verified | https://linear.app/docs/select-issues |
 | LinkedIn | `linkedin` | Verified | https://www.linkedin.com/help/linkedin/answer/a6246187?lang=en-US |
 | Linux (KDE Plasma) | `linux-kde-plasma` | Verified | https://docs.kde.org/stable_kf6/en/khelpcenter/fundamentals/fundamentals.pdf |
 | Logic Pro | `logic-pro` | Verified | https://support.apple.com/en-ca/guide/logicpro/lgcp02bf31b6/mac |

@@ -22,8 +22,6 @@ export const typora: AppShortcuts = {
   name: "Typora",
   category: "Writing tool",
   platforms: [...platforms],
-  intro:
-    "Typora's official shortcut table covers file operations, Markdown editing, headings, lists, formatting, search, views, and document navigation. The Windows and Linux defaults are paired, while macOS command and option variants stay explicit.",
   versionContext:
     "Typora's Shortcut Keys reference updated July 19, 2026 and checked September 1, 2026. Typora allows menu bindings to be changed in macOS App Shortcuts or Windows/Linux advanced settings, so this record describes the published defaults.",
   sourceUrl: "https://support.typora.io/Shortcut-Keys/",

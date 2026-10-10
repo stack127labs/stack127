@@ -16,10 +16,10 @@ const dual = (
   ...(note ? { note } : {}),
 });
 
-const shared = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
+const shared = (id: string, action: string, keys: string[], note?: string, alternatives?: string[][]): Shortcut => ({
   id,
   action,
-  keys: perPlatform(platforms, { windows: keys, macos: keys }),
+  keys: platforms.map((platform) => ({ platform, keys, ...(alternatives ? { alternatives } : {}) })),
   ...(note ? { note } : {}),
 });
 
@@ -28,8 +28,6 @@ export const youtube: AppShortcuts = {
   name: "YouTube",
   category: "Video",
   platforms: [...platforms],
-  intro:
-    "YouTube publishes desktop player shortcuts for playback, seeking, captions, chapters, speed, volume, search, and playlist navigation.",
   versionContext:
     "YouTube Help keyboard shortcut reference checked September 1, 2026. Some commands require the player or seek bar to have focus, and frame controls work only while playback is paused.",
   sourceUrl: "https://support.google.com/youtube/answer/7631406?hl=en",
@@ -41,9 +39,7 @@ export const youtube: AppShortcuts = {
       title: "Playback",
       intro: "Use these keys to play, pause, mute, seek, and change playback speed.",
       shortcuts: [
-        shared("space", "Play or pause", ["Space"], "The seek bar must be selected, or the focused button must support activation."),
-        shared("media-play", "Play or pause", ["Media Play/Pause"]),
-        shared("play-pause-k", "Play or pause", ["K"]),
+        shared("play-pause", "Play or pause", ["K"], "Space works when the seek bar is selected or a player button has focus.", [["Space"], ["Media Play/Pause"]]),
         shared("mute", "Mute or unmute", ["M"]),
         shared("media-stop", "Stop playback", ["Media Stop"]),
         shared("media-next", "Play the next track", ["Media Next Track"]),

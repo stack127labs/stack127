@@ -14,21 +14,19 @@ The operator pins both inputs, runs the refresh, reviews the count and exclusion
 ## Safe matching
 
 1. Parse Blakadder front matter without executing repository content.
-2. Keep records whose compatibility list includes both `zha` and `z2m`.
-3. Exclude coordinators.
-4. Group records by case-normalized marketed model.
-5. Exclude model groups with conflicting identity fields.
-6. Match the remaining model exactly to one Zigbee2MQTT definition.
-7. Prepare the converter definition and flatten exposed capability names.
-8. Write deterministic records sorted by vendor, model, and slug.
-9. Normalize each matching Blakadder image to fit within a 480 by 480 WebP and store it under `public/zigbee-device-images/`.
+2. Exclude coordinators.
+3. Expand every marketed Zigbee2MQTT definition, including white-label models, and flatten its exposed capability names.
+4. Join a Blakadder record to a definition on exact vendor and model, or on exact model when only one record has it. Ambiguous matches are not joined.
+5. Add every unjoined Blakadder record as its own device, so the catalog is the union of both sources.
+6. Write deterministic records sorted by vendor, model, and slug.
+7. Normalize each product image to fit within a 480 by 480 WebP and keep its upstream image URL.
 
 Generic Zigbee identifiers such as `TS0601` do not create a match by themselves. Those identifiers are reused by unrelated devices and need manufacturer fingerprints.
 
 ## Review checks
 
 - Device count does not fall unexpectedly.
-- Every record has both source URLs and pinned source revisions.
+- Every record has at least one source URL, and the snapshot records pinned source revisions.
 - Every record has one local product image and an exact upstream image URL.
 - Slugs and marketed models are unique.
 - No coordinator appears.

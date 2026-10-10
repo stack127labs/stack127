@@ -12,8 +12,6 @@ export const microsoftOutlook: AppShortcuts = {
   name: "Microsoft Outlook",
   category: "Email",
   platforms: ["windows"],
-  intro:
-    "Outlook's Windows shortcuts differ between the new Outlook app and classic Outlook. The groups below keep their mail, calendar, and message commands distinct.",
   versionContext:
     "Current Microsoft Outlook shortcut documentation checked September 1, 2026. This record covers Windows desktop and web-oriented Windows commands from Microsoft's New Outlook and classic Outlook tables. Outlook for Mac has a separate official table and is not mixed into this Windows record.",
   sourceUrl: "https://support.microsoft.com/en-us/office/keyboard-shortcuts-for-outlook-3cdeb221-7ae5-4c1d-8c1d-9e63216c1efd",

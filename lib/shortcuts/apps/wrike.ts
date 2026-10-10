@@ -35,8 +35,6 @@ export const wrike: AppShortcuts = {
   name: "Wrike",
   category: "Project management",
   platforms: [...platforms],
-  intro:
-    "Wrike publishes shortcuts for task creation, search, comments, text formatting, table views, and Gantt chart navigation.",
   versionContext:
     "Wrike keyboard shortcut and Gantt chart shortcut pages checked September 1, 2026. Some commands depend on the current view, browser, or focus inside a task description.",
   sourceUrl: "https://help.wrike.com/hc/en-us/articles/210322725-Keyboard-Shortcuts",

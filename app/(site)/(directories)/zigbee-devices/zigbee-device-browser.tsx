@@ -30,8 +30,8 @@ function DeviceDetails({ categoryLabels, device, onClose }: { categoryLabels: Re
   const support = device.card?.compatibility ?? { label: "Works with", status: "confirmed", value: "Zigbee2MQTT + ZHA" };
   const sections = device.detail_sections ?? [
     { heading: "Exact device", facts: [{ label: "Manufacturer", value: device.vendor }, { label: "Retail model", value: device.model }, { label: "Category", value: categoryLabel(device.category) }] },
-    { heading: "Platform compatibility", facts: [{ label: "Zigbee2MQTT", value: device.zigbee2mqtt_url ? "Support record available" : "Not listed" }, { label: "ZHA", value: device.blakadder_url ? "Community record available" : "Not listed" }] },
-    { heading: "Exposed features", facts: [{ label: "Zigbee2MQTT fields", value: formatList(device.zigbee2mqtt_capabilities) }, { label: "ZHA reported features", value: formatList(device.zha_reported_capabilities) }] },
+    { heading: "Platform compatibility", facts: [{ label: "Zigbee2MQTT", value: device.zigbee2mqtt_url ? "Support record available" : "Not listed" }, { label: "Blakadder", value: device.blakadder_url ? "Community record available" : "Not listed" }] },
+    { heading: "Exposed features", facts: [{ label: "Zigbee2MQTT fields", value: formatList(device.zigbee2mqtt_capabilities) }, { label: "Blakadder reported features", value: formatList(device.zha_reported_capabilities) }] },
   ];
   const visibleSections = sections
     .map((section) => ({
@@ -87,7 +87,7 @@ function DeviceDetails({ categoryLabels, device, onClose }: { categoryLabels: Re
         <div className="app-detail-primary-links">
           {device.amazon ? <a className="primary" href={device.amazon.url} rel="sponsored noreferrer" target="_blank"><span>Check price on Amazon</span><ExternalLink aria-hidden="true" size={14} /></a> : null}
           {device.zigbee2mqtt_url ? <a className={device.amazon ? undefined : "primary"} href={device.zigbee2mqtt_url} rel="noreferrer" target="_blank"><span>Zigbee2MQTT support</span><ExternalLink aria-hidden="true" size={14} /></a> : null}
-          {device.blakadder_url ? <a href={device.blakadder_url} rel="noreferrer" target="_blank"><span>ZHA community report</span><ExternalLink aria-hidden="true" size={14} /></a> : null}
+          {device.blakadder_url ? <a href={device.blakadder_url} rel="noreferrer" target="_blank"><span>Blakadder community report</span><ExternalLink aria-hidden="true" size={14} /></a> : null}
         </div>
       </DetailDialog>
   );

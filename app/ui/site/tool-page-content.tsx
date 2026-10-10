@@ -4,18 +4,17 @@ import type { Stack127ToolPage } from "@/lib/tool-pages";
 import { PageHeader } from "./page-header";
 import { PageMeta } from "./page-meta";
 import { PageTitleIcon } from "./page-title-icon";
-import { ContentMarkdown } from "../content-markdown";
 import { proseClassName, proseFlowClassName } from "./prose";
 import styles from "./tool-page-content.module.css";
 
-/** `intro` is the page's content/intro.mdx. Pages not yet moved to MDX render intro_markdown. */
+/** `intro` is the page's required content/intro.mdx. */
 export async function ToolPageHeader({
   icon,
   intro,
   toolPage,
 }: {
   icon: ReactNode;
-  intro?: ReactNode;
+  intro: ReactNode;
   toolPage: Stack127ToolPage;
 }) {
   const breadcrumbs = await getToolBreadcrumbs(toolPage.page_id, toolPage.slug, toolPage.card_name);
@@ -30,7 +29,7 @@ export async function ToolPageHeader({
         updatedAt={toolPage.updated_at}
         version={toolPage.tool_version}
       />
-      {intro ?? <ContentMarkdown markdown={toolPage.intro_markdown} />}
+      {intro}
     </PageHeader>
   );
 }
@@ -44,15 +43,5 @@ export function ToolPageArticle({ children }: { children: ReactNode }) {
     >
       {children}
     </article>
-  );
-}
-
-/** For pages whose usage and article still come from the database. */
-export function ToolPageMarkdown({ toolPage }: { toolPage: Stack127ToolPage }) {
-  return (
-    <ToolPageArticle>
-      {toolPage.usage_markdown ? <ContentMarkdown markdown={toolPage.usage_markdown} /> : null}
-      <ContentMarkdown markdown={toolPage.content_markdown} />
-    </ToolPageArticle>
   );
 }

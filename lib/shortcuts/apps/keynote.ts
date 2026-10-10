@@ -8,8 +8,6 @@ export const keynote: AppShortcuts = {
   name: "Keynote",
   category: "Presentation software",
   platforms: [...platforms],
-  intro:
-    "Keynote's Mac shortcuts cover presentation files, slide navigation, text and object editing, tables, comments, and the live presentation controls.",
   versionContext:
     "Keyboard shortcuts from Apple's current Keynote for Mac User Guide, checked September 1, 2026. Some commands are context-sensitive, and presentation-mode keys apply only while a slideshow is running.",
   sourceUrl: "https://support.apple.com/guide/keynote/keyboard-shortcuts-tanfde4a3e6d/mac",

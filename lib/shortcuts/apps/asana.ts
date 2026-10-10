@@ -18,8 +18,6 @@ export const asana: AppShortcuts = {
   name: "Asana",
   category: "Work management",
   platforms: ["windows", "macos"],
-  intro:
-    "Asana combines Inbox keys, task actions, Tab-key chords, selection controls, and native desktop-window shortcuts. The list-view field-navigation command is different: Asana explicitly documents it as two Right Arrow presses.",
   versionContext:
     "Current defaults from Asana's official Help Center, checked August 31, 2026. Some shortcuts may not work with non-English keyboard input. Desktop-window commands apply to the Asana desktop app. Tab+B requires the Tab-B hack to be enabled in Settings.",
   sourceUrl: "https://help.asana.com/s/article/keyboard-shortcuts",

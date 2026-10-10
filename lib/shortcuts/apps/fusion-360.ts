@@ -5,11 +5,9 @@ const platforms = ["windows", "macos"] as const;
 
 const fusion360: AppShortcuts = {
   slug: "fusion-360",
-  name: "Fusion 360",
+  name: "Autodesk Fusion",
   category: "CAD and engineering",
   platforms: [...platforms],
-  intro:
-    "Fusion 360 puts common modeling, sketching, view, and document commands on the keyboard. This reference keeps the commands that are useful across a normal design session and leaves pointer gestures outside the shortcut list.",
   versionContext:
     "Autodesk's current Fusion keyboard reference labels Windows and macOS separately. Command replaces Control on macOS for the shared document and modeling commands, while Autodesk-specific Option and Command combinations remain platform-specific.",
   sourceUrl: "https://help.autodesk.com/view/fusion360/ENU/?guid=GUID-F0491540-0324-470A-B651-2238D0EFAC30",

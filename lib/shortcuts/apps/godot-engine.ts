@@ -8,8 +8,6 @@ const godotEngine: AppShortcuts = {
   name: "Godot Engine",
   category: "Game engine",
   platforms: [...platforms],
-  intro:
-    "Godot's editor shortcuts move between workspaces, scenes, panels, and the 2D canvas. This record follows the default key mapping in the current Godot 4.6 manual and keeps tool, scene, and run commands together.",
   versionContext:
     "The Godot 4.6 manual documents separate macOS workspace commands and shared editor commands for Windows, Linux, and macOS. All shortcuts can be changed in Editor Settings > Shortcuts, and some canvas keys depend on the active tool.",
   sourceUrl: "https://docs.godotengine.org/en/4.6/tutorials/editor/default_key_mapping.html",

@@ -8,8 +8,6 @@ const gitkraken: AppShortcuts = {
   name: "GitKraken",
   category: "Git client",
   platforms: [...platforms],
-  intro:
-    "GitKraken's desktop shortcuts cover the work that repeats in every repository: fetch, stage, commit, move through history, compare changes, and switch between open tabs. The same reference covers Windows, macOS, and Linux.",
   versionContext:
     "The current GitKraken Desktop reference documents Command for macOS and Control for Windows and Linux. Some keys act on the commit graph or the panel under focus, so the group notes call out those contexts.",
   sourceUrl: "https://help.gitkraken.com/gitkraken-desktop/keyboard-shortcuts/",

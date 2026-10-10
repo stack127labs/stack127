@@ -1,20 +1,18 @@
 import { combo } from "../build.ts";
 import type { AppShortcuts } from "../types.ts";
 
-const platforms = ["windows", "linux"] as const;
+const platforms = ["windows", "macos", "linux"] as const;
 
 const gimp: AppShortcuts = {
   slug: "gimp",
   name: "GIMP",
   category: "Image editor",
   platforms: [...platforms],
-  intro:
-    "GIMP's official quick reference groups shortcuts by toolbox, image files, dialogs, and view controls. These entries cover the commands used most often when selecting, painting, editing layers, and exporting an image.",
   versionContext:
-    "The official GIMP one-page quick reference publishes the desktop bindings without a separate macOS column. This record therefore covers Windows and Linux only, and keeps the documented Ctrl-based combinations as written.",
+    "The official GIMP one-page quick reference publishes one set of desktop bindings without operating-system columns. The listed keys are kept as published on Windows, macOS, and Linux; individual installations may differ.",
   sourceUrl: "https://docs.gimp.org/quickreference/gimp-keys-en.pdf",
   sourceLabel: "official GIMP keyboard shortcuts quick reference",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-10-10",
   groups: [
     {
       id: "toolbox",

@@ -14,8 +14,6 @@ export const penpot: AppShortcuts = {
   name: "Penpot",
   category: "Design tool",
   platforms: [...platforms],
-  intro:
-    "Penpot's workspace shortcuts cover alignment, object editing, zoom, layers, selection, and prototyping. This reference keeps Windows and Linux together where the official table does and shows macOS symbols as their equivalent key combinations.",
   versionContext:
     "Penpot workspace shortcuts from the official user guide, checked September 1, 2026. Penpot also publishes the current keymap in its source repository, and many bindings are available only when the workspace has focus.",
   sourceUrl: "https://help.penpot.dev/user-guide/first-steps/shortcuts/",

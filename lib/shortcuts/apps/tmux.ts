@@ -15,8 +15,6 @@ export const tmux: AppShortcuts = {
   name: "tmux",
   category: "Terminal",
   platforms: [...platforms],
-  intro:
-    "tmux's default prefix map controls sessions, windows, panes, copy mode, and terminal layout without leaving a shell. The entries use tmux's default Ctrl-B prefix and preserve the distinction between a prefix chord and the command key that follows it.",
   versionContext:
     "Default key bindings from the current tmux master manual and Getting Started guide checked September 1, 2026. A user's tmux.conf can replace or remove any binding, and copy-mode or status-line bindings can change when vi mode is enabled.",
   sourceUrl: "https://github.com/tmux/tmux/blob/master/tmux.1",

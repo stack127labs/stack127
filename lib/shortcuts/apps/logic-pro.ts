@@ -12,8 +12,6 @@ export const logicPro: AppShortcuts = {
   name: "Logic Pro",
   category: "Music production",
   platforms: ["macos"],
-  intro:
-    "Logic Pro's key commands cover transport, editing, track and region work, window focus, and the main production views. The most useful commands are grouped by the job they perform.",
   versionContext:
     "Default Logic Pro key commands for the U.S. preset, checked September 1, 2026. Logic Pro is macOS-only and key commands can be reassigned in the Key Commands window.",
   sourceUrl: "https://support.apple.com/en-ca/guide/logicpro/lgcp02bf31b6/mac",

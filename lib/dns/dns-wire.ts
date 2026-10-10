@@ -111,7 +111,8 @@ export function encodeDnsQuery(
   const packet: Packet = {
     type: "query",
     id: options.id ?? Math.floor(Math.random() * 65_536),
-    flags: options.recursive === false ? 0 : dnsPacket.RECURSION_DESIRED,
+    // RFC 6840 section 5.7 requests the resolver's AD flag without requesting DNSSEC records via DO.
+    flags: options.recursive === false ? 0 : dnsPacket.RECURSION_DESIRED | dnsPacket.AUTHENTIC_DATA,
     questions: [{ name, type: type as RecordType, class: "IN" }],
     answers: [],
     authorities: [],

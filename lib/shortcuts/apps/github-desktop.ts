@@ -8,8 +8,6 @@ const githubDesktop: AppShortcuts = {
   name: "GitHub Desktop",
   category: "Git client",
   platforms: [...platforms],
-  intro:
-    "GitHub Desktop's shortcuts cover repository setup, branch work, commit flow, and the views that developers use while reviewing changes. Mac and Windows bindings come directly from GitHub's current desktop reference.",
   versionContext:
     "GitHub publishes separate macOS and Windows tables. This record covers the desktop application, not browser shortcuts or terminal commands. Windows uses Control where macOS uses Command, with the platform-specific full-screen and developer-tool commands preserved.",
   sourceUrl: "https://docs.github.com/en/desktop/overview/github-desktop-keyboard-shortcuts",

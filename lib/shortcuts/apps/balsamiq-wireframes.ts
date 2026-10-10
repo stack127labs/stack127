@@ -34,8 +34,6 @@ export const balsamiqWireframes: AppShortcuts = {
   name: "Balsamiq Wireframes",
   category: "Wireframing",
   platforms: ["windows", "macos"],
-  intro:
-    "Balsamiq Wireframes combines direct-selection keys, drawing letters, and context-sensitive editing commands. Browser and operating-system shortcuts can take precedence in the web editor, so this reference keeps Balsamiq's published platform limits visible.",
   versionContext:
     "Current Balsamiq Wireframes shortcut reference checked August 31, 2026. The main table prints Control-based editing commands without a Mac equivalent; those rows are therefore labeled Windows. macOS entries appear only where Balsamiq explicitly publishes a Mac binding or a Control/Command pair.",
   sourceUrl: "https://balsamiq.com/support/docs/creating-and-editing/shortcuts/",

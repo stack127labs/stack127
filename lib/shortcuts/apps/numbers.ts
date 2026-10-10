@@ -12,8 +12,6 @@ export const numbers: AppShortcuts = {
   name: "Numbers",
   category: "Spreadsheet",
   platforms: ["macos"],
-  intro:
-    "Numbers on Mac uses familiar editing keys alongside spreadsheet-specific commands for sheets, tables, formulas, objects, and comments. This reference keeps the app-level commands separate from cell navigation and text formatting so the same key is easier to locate.",
   versionContext:
     "Numbers for Mac shortcuts from Apple's current Numbers User Guide, checked September 1, 2026. Apple notes that System Settings can change some shortcuts, and portable Macs may require Fn for function keys.",
   sourceUrl: "https://support.apple.com/guide/numbers/keyboard-shortcuts-tana45192591/mac",

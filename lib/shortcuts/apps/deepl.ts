@@ -12,8 +12,6 @@ export const deepl: AppShortcuts = {
   name: "DeepL",
   category: "Translation and writing",
   platforms: ["windows", "macos"],
-  intro:
-    "DeepL's desktop shortcuts send selected text from any application to DeepL for translation or writing improvement. Translation uses a repeated C sequence; the keys are not pressed as one simultaneous chord.",
   versionContext:
     "Current DeepL desktop-app defaults checked August 31, 2026. Translation and improvement shortcuts can be disabled or customized in app settings, so these entries describe the published defaults.",
   sourceUrl: "https://support.deepl.com/hc/en-us/articles/360020613059-Use-DeepL-shortcuts-for-desktop-apps",
@@ -21,19 +19,14 @@ export const deepl: AppShortcuts = {
   lastVerified: "2026-08-31",
   groups: [
     {
-      id: "selected-text",
-      title: "Translate or improve selected text",
-      intro: "Select text in any app first. For translation, hold the platform modifier and press C twice; ordinary copy sends nothing to DeepL.",
+      id: "selected-text-and-app",
+      title: "Selected text and app controls",
+      intro: "Select text in another app before using DeepL's translation or improvement commands. DeepL also documents a Mac quit shortcut.",
       shortcuts: [
         dual("translate", "Translate selected text", ["Ctrl", "C", "then", "C"], ["Cmd", "C", "then", "C"]),
         dual("improve", "Improve selected text", ["Ctrl", "Win", "C"], ["Ctrl", "Cmd", "C"]),
+        { id: "quit", action: "Quit DeepL for Mac", keys: [{ platform: "macos", keys: ["Cmd", "Q"] }] },
       ],
-    },
-    {
-      id: "application",
-      title: "Application",
-      intro: "DeepL documents a native quit command for its Mac desktop application.",
-      shortcuts: [{ id: "quit", action: "Quit DeepL for Mac", keys: [{ platform: "macos", keys: ["Cmd", "Q"] }] }],
     },
   ],
 };

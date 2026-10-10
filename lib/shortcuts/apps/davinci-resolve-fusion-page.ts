@@ -1,6 +1,6 @@
 import type { AppShortcuts, Shortcut } from "../types.ts";
 
-const platforms = ["windows", "macos"] as const;
+const platforms = ["windows", "macos", "linux"] as const;
 
 const shared = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
   id,
@@ -18,16 +18,14 @@ const mac = (id: string, action: string, keys: string[], note?: string): Shortcu
 
 export const davinciResolveFusionPage: AppShortcuts = {
   slug: "davinci-resolve-fusion-page",
-  name: "DaVinci Resolve Fusion Page",
+  name: "DaVinci Resolve Fusion page",
   category: "Compositing and motion graphics",
   platforms: [...platforms],
-  intro:
-    "The Fusion page uses a small set of transport and playhead commands for moving through a composition. The focused Fusion timeline or viewer determines where a command applies.",
   versionContext:
-    "DaVinci Resolve Fusion 20.3 Reference Manual checked September 1, 2026. Resolve supports custom keyboard mappings, and the manual's Command-labelled range commands are kept separate from the shared transport keys.",
+    "DaVinci Resolve Fusion 20.3 Reference Manual checked October 10, 2026. Resolve is available on Linux and supports custom keyboard mappings; the manual's Command-labelled range commands are kept separate from the shared transport keys.",
   sourceUrl: "https://documents.blackmagicdesign.com/UserManuals/FusionManual.pdf?_v=1724310010000",
   sourceLabel: "Fusion 20.3 Reference Manual",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-10-10",
   groups: [
     {
       id: "playback-and-navigation",
@@ -40,6 +38,8 @@ export const davinciResolveFusionPage: AppShortcuts = {
         shared("play-forward", "Play forward", ["L"]),
         shared("frame-back", "Move one frame backward", ["Left"]),
         shared("frame-forward", "Move one frame forward", ["Right"]),
+        shared("global-start", "Jump to the global start", ["Shift", "Left"]),
+        shared("global-end", "Jump to the global end", ["Shift", "Right"]),
       ],
     },
     {

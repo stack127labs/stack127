@@ -174,6 +174,30 @@ function groupBy(values, keyFor) {
   return groups;
 }
 
+const compatibilityLabels = {
+  "24d": "Unverified platform",
+  deconz: "deCONZ",
+  "deconz.zha": ["deCONZ", "ZHA"],
+  ihost: "SONOFF iHost",
+  iob: "ioBroker",
+  iobroker: "ioBroker",
+  sz2m: "Unverified platform",
+  tasmota: "Tasmota",
+  z2m: "Zigbee2MQTT",
+  z4d: "Zigbee4Domoticz",
+  zha: "ZHA",
+  zigbee2mqtt: "Zigbee2MQTT",
+};
+
+export function normalizeCompatibilityCodes(codes) {
+  return [...new Set((Array.isArray(codes) ? codes : []).flatMap((rawCode) => {
+    const code = String(rawCode ?? "").trim().toLowerCase();
+    if (!code) return [];
+    const label = compatibilityLabels[code];
+    return label ? (Array.isArray(label) ? label : [label]) : [String(rawCode).trim()];
+  }))];
+}
+
 export function expandZigbee2mqttDefinitions(definitions) {
   const definitionMap = new Map(definitions.map((definition) => [definition.model, definition]));
   const pageDefinitions = [];
@@ -256,7 +280,10 @@ function uniqueSlug(used, value) {
 
 function compatibilitySection(values) {
   return values.length > 0
-    ? values.map((value) => ({ label: value, value: "Support record available" }))
+    ? values.map((value) => ({
+      label: value,
+      value: value === "Unverified platform" ? "Source platform code could not be mapped" : "Support record available",
+    }))
     : [{ label: "Controller listings", value: "None listed in source record" }];
 }
 
@@ -313,7 +340,10 @@ export function buildCatalog({
     const imageFile = availableImages.size === 0 || availableImages.has(ownImage) ? ownImage : availableImages.has(fallbackImage) ? fallbackImage : null;
     const slug = uniqueSlug(usedSlugs, `${vendor}-${model}`);
     if (!imageFile) failures.push({ model, reason: "Official Zigbee2MQTT product image is missing", vendor });
-    const compatibility = ["Zigbee2MQTT", ...(record?.compatible.includes("zha") ? ["ZHA"] : [])];
+    const compatibility = [...new Set([
+      "Zigbee2MQTT",
+      ...normalizeCompatibilityCodes(record?.compatible ?? []),
+    ])];
     const category = record ? normalizeCategory(record.category) : inferCategory(capabilities, official.description);
     const categoryValue = category.replace(/^./, (letter) => letter.toUpperCase());
     const capabilityValue = capabilities.length > 0 ? capabilities.slice(0, 4).join(", ") : "Support definition has no exposed fields";
@@ -331,9 +361,10 @@ export function buildCatalog({
       { label: "Zigbee model IDs", value: (definition.zigbeeModel ?? []).join(", ") || "Fingerprint matching used" },
     ];
     const sourceUrl = `https://www.zigbee2mqtt.io/devices/${z2mDeviceSlug(official.baseModel)}.html`;
+    const recordUrl = record ? `https://zigbee.blakadder.com/${record.fileName.replace(/\.md$/i, ".html")}` : "";
     devices.push({
       battery_reporting: capabilities.includes("battery"),
-      blakadder_url: record ? `https://zigbee.blakadder.com/${record.fileName.replace(/\.md$/i, ".html")}` : "",
+      blakadder_url: recordUrl,
       card: {
         compatibility: { label: "Works with", status: "confirmed", value: compatibility.join(" + ") },
         facts: [{ label: "Type", value: categoryValue }, { label: "Capabilities", value: capabilityValue }],
@@ -353,7 +384,13 @@ export function buildCatalog({
       model,
       name: String(official.description ?? record?.title ?? model).trim(),
       ota: Boolean(definition.ota),
-      provenance: [...identityFacts, ...compatibilityFacts, ...featureFacts].map((fact) => ({ field: fact.label, source: "Zigbee2MQTT", url: sourceUrl })),
+      provenance: [
+        ...identityFacts.map((fact) => ({ field: fact.label, source: "Zigbee2MQTT", url: sourceUrl })),
+        ...compatibilityFacts.map((fact) => fact.label === "Zigbee2MQTT" || !record
+          ? { field: fact.label, source: "Zigbee2MQTT", url: sourceUrl }
+          : { field: fact.label, source: "Blakadder Zigbee record", url: recordUrl }),
+        ...featureFacts.map((fact) => ({ field: fact.label, source: "Zigbee2MQTT", url: sourceUrl })),
+      ],
       slug,
       vendor,
       zha_reported_capabilities: [...new Set((record?.supports ?? []).map((value) => value.trim()).filter(Boolean))]
@@ -368,9 +405,7 @@ export function buildCatalog({
   const communityGroups = groupBy(communityRecords.filter((record) => !matchedCommunity.has(record)), (record) => identityKey(record.vendor, record.model));
   for (const records of communityGroups.values()) {
     const record = records[0];
-    const compatibleCodes = [...new Set(records.flatMap((item) => item.compatible))];
-    const compatibilityLabels = { deconz: "deCONZ", iob: "ioBroker", iobroker: "ioBroker", tasmota: "Tasmota", z2m: "Zigbee2MQTT", z4d: "deCONZ", zha: "ZHA" };
-    const compatibility = [...new Set(compatibleCodes.map((value) => compatibilityLabels[value] ?? value))];
+    const compatibility = normalizeCompatibilityCodes(records.flatMap((item) => item.compatible));
     const supports = [...new Set(records.flatMap((item) => item.supports))].sort((left, right) => left.localeCompare(right));
     const category = normalizeCategory(record.category);
     const categoryValue = category.replace(/^./, (letter) => letter.toUpperCase());

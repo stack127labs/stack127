@@ -6,8 +6,6 @@ export const windowsTerminal: AppShortcuts = {
   name: "Windows Terminal",
   category: "Terminal emulator",
   platforms: ["windows"],
-  intro:
-    "Windows Terminal is a workspace for several shells, so its important keys manage the container around the prompt. Open tabs, split panes, search scrollback, copy and paste, zoom, and reach the command palette.",
   versionContext:
     "Current Windows Terminal documentation as of August 2026; most bindings listed are defaults from the official Actions reference and can be changed in settings.",
   sourceUrl: "https://learn.microsoft.com/en-us/windows/terminal/customize-settings/actions",

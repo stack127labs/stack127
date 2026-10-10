@@ -8,8 +8,6 @@ export const firefox: AppShortcuts = {
   name: "Mozilla Firefox",
   category: "Web browser",
   platforms: [...platforms],
-  intro:
-    "Firefox's official reference spans browsing, editing, tabs, search, bookmarks, developer tools, PDFs, and media. This table keeps those contexts together so the shortcut still makes sense when the page is no longer just a page.",
   versionContext:
     "Mozilla's keyboard reference checked August 26, 2026. Windows and Linux generally share the Ctrl bindings, while macOS uses Command or Option. A few backspace, tab-order, and link-opening shortcuts depend on Firefox preferences.",
   sourceUrl: "https://support.mozilla.org/en-US/kb/keyboard-shortcuts-perform-firefox-tasks-quickly",

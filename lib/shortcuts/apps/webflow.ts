@@ -22,8 +22,6 @@ export const webflow: AppShortcuts = {
   name: "Webflow",
   category: "Design tool",
   platforms: [...platforms],
-  intro:
-    "Webflow's current designer reference covers canvas editing, breakpoints, panels, classes, interactions, element movement, and publishing. Webflow documents Command and Option on Mac with Control and Alt equivalents on Windows, which this map keeps explicit.",
   versionContext:
     "Webflow Help Center keyboard shortcuts updated August 24, 2026 and checked September 1, 2026. Some entries are context-sensitive, such as timeline and canvas commands; this record excludes mouse-only gestures while retaining the keyboard part of combined actions.",
   sourceUrl: "https://help.webflow.com/hc/en-us/articles/33961359609875-Keyboard-shortcuts-in-Webflow",

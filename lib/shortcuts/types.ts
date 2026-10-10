@@ -44,7 +44,6 @@ export type AppShortcuts = {
   name: string;
   category: string;
   platforms: PlatformId[];
-  intro: string;
   /** Version or setup context when it affects accuracy. */
   versionContext: string | null;
   sourceUrl: string;

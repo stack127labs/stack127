@@ -15,8 +15,6 @@ export const raycast: AppShortcuts = {
   name: "Raycast",
   category: "Launcher",
   platforms: [...platforms],
-  intro:
-    "Raycast is a keyboard-first launcher with search, action panels, forms, AI chat, and configurable hotkeys. This reference separates built-in commands from settings and text editing so configurable global shortcuts are not mistaken for fixed app bindings.",
   versionContext:
     "Current Raycast Manual keyboard shortcuts checked September 1, 2026. Raycast supports macOS and Windows, and users can change page navigation, Emacs, Vim, and global hotkeys in settings.",
   sourceUrl: "https://manual.raycast.com/keyboard-shortcuts",

@@ -14,7 +14,7 @@ export default async function DnsLookupPage() {
 
   return (
     <ToolPageShell toolPage={toolPage}>
-      <PageCanvas as="main" className="dns-lookup-main">
+      <PageCanvas className="dns-lookup-main">
         <ToolPageHeader
           icon={<Search strokeWidth={2.2} />}
           intro={<Intro />}

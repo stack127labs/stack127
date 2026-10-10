@@ -22,8 +22,6 @@ export const mattermost: AppShortcuts = {
   name: "Mattermost",
   category: "Team chat",
   platforms: [...platforms],
-  intro:
-    "Mattermost shortcuts cover channel navigation, search, message editing, formatting, file uploads, calls, and desktop tab management.",
   versionContext:
     "Current Mattermost keyboard shortcuts checked September 1, 2026. The official table covers Windows, Linux, and macOS. Some call controls depend on Mattermost Calls being enabled, and desktop tab commands apply to the Mattermost desktop app.",
   sourceUrl: "https://docs.mattermost.com/end-user-guide/collaborate/keyboard-shortcuts.html",

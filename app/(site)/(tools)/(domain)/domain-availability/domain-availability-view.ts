@@ -68,7 +68,7 @@ export function hasExpiryFollowUp(result: DomainRegistration) {
 
 export function registrySourceMetadata(result: DomainRegistration) {
   const fetch = result.registryFetch;
-  if (!fetch) return null;
+  if (!fetch || fetch.status === "no_service") return null;
   let host: string | null = null;
   if (fetch.url) {
     try {

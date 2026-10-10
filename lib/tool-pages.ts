@@ -12,9 +12,6 @@ export type Stack127ToolPage = {
   title: string;
   card_name: string;
   card_description: string;
-  intro_markdown: string;
-  usage_markdown: string | null;
-  content_markdown: string;
   tool_version: string;
   tool_version_updated_at: Date | string;
   stack127_repo_url: string | null;
@@ -32,9 +29,6 @@ const toolContentColumns = [
   "title",
   "card_name",
   "card_description",
-  "intro_markdown",
-  "usage_markdown",
-  "content_markdown",
   "tool_version",
   "tool_version_updated_at",
   "stack127_repo_url",
@@ -70,9 +64,6 @@ export const getPublishedToolPage = cache(async (slug: string) => unstable_cache
             tool.title,
             tool.card_name,
             tool.card_description,
-            tool.intro_markdown,
-            tool.usage_markdown,
-            tool.content_markdown,
             tool.tool_version,
             tool.tool_version_updated_at,
             tool.stack127_repo_url,

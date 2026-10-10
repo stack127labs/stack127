@@ -104,7 +104,7 @@ export async function preparePlan(pool, manifest, { kind, environment, base = pr
     const current = before[index];
     const source = page.source ? development.get(page.slug) : current;
     if (page.source && (!source || !hasRequiredContent(source))) throw new Error(`Reviewed development page is missing: ${page.slug}`);
-    const defaults = page.family === 'tool' ? { usage_markdown: null, tool_version: '1.0.0', stack127_repo_url: null, stack127_repo_version: null, stack127_repo_commit_sha: null } : ['directory','course'].includes(page.family) ? { content_markdown: null, card_icon_key: null, card_art_key: null } : { content_markdown: null, card_icon_key: 'layers', display_order: 100 };
+    const defaults = page.family === 'tool' ? { tool_version: '1.0.0', stack127_repo_url: null, stack127_repo_version: null, stack127_repo_commit_sha: null } : page.family === 'course' ? { content_markdown: null, card_icon_key: null, card_art_key: null } : page.family === 'directory' ? { card_icon_key: null, card_art_key: null } : { card_icon_key: 'layers', display_order: 100 };
     const after = validateState({ slug: page.slug, family: page.family, registry: { is_published: false, is_indexable: true, cover_image_url: null, page_type: page.family === 'tool' ? 'SoftwareApplication' : 'CollectionPage', sitemap_priority: 0.5, ...source?.registry, ...page.registry }, content: page.family === 'course' && page.slug.includes('/') ? null : { ...defaults, ...source?.content, ...await resolveCopy(page.content, base) }, ...(page.family === 'course' ? { lesson: page.lesson || source?.lesson ? { ...source?.lesson, ...page.lesson } : null } : {}), ...(page.family === 'tool' ? { catalogs: page.catalogs ?? source?.catalogs ?? [] } : {}) });
     const requirements = await freezeRequirements(page.requirements, after, root);
     pages.push({ slug: page.slug, family: page.family, before: current, after, requirements,
@@ -199,10 +199,8 @@ export async function publishingMain(kind, argv = process.argv.slice(2), { after
     if (!restore) await checkDatabaseRequirements(pool, plan.pages);
     if (args.command === 'dispatch') {
       productionCodeGate(plan, args['release-sha']);
-      const payload = { ref: args['release-sha'], task: 'page-publication', environment: 'stack127-page-publication', auto_merge: false, required_contexts: [], production_environment: true, payload: { release_sha: args['release-sha'], plan } };
-      const response = JSON.parse(execFileSync('gh', ['api', 'repos/stack127labs/stack127/deployments', '--method', 'POST', '--input', '-'], { input: JSON.stringify(payload), encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 }));
-      if (!response.id || response.sha !== args['release-sha']) throw new Error('GitHub did not accept the expected publication deployment');
-      console.log(JSON.stringify({ dispatched: true, deployment_id: response.id, url: `https://github.com/stack127labs/stack127/deployments`, complete: false }));
+      const { dispatchPublication } = await import('./github.mjs');
+      console.log(JSON.stringify(await dispatchPublication(plan, args['release-sha'])));
       return;
     }
     if (args.environment === 'production' && args.command !== 'preview') {

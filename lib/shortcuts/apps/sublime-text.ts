@@ -8,8 +8,6 @@ export const sublimeText: AppShortcuts = {
   name: "Sublime Text",
   category: "Code editor",
   platforms: [...platforms],
-  intro:
-    "Sublime Text's current community documentation publishes separate Windows/Linux and macOS tables for editing, navigation, builds, search, tabs, folding, and bookmarks.",
   versionContext:
     "Sublime Text keyboard shortcut tables checked September 1, 2026. Windows and Linux share most bindings, while macOS changes the primary modifier and a few editing commands.",
   sourceUrl: "https://docs.sublimetext.io/reference/keyboard_shortcuts_win.html",
@@ -51,8 +49,9 @@ export const sublimeText: AppShortcuts = {
         { id: "quick-open", action: "Quick-open files by name", keys: combo(platforms, ["Ctrl", "P"], ["Cmd", "P"]) },
         { id: "goto-symbol", action: "Go to a symbol", keys: combo(platforms, ["Ctrl", "R"], ["Cmd", "R"]) },
         { id: "goto-line", action: "Go to a line", keys: perPlatform(platforms, { windows: ["Ctrl", "G"], linux: ["Ctrl", "G"], macos: ["Ctrl", "G"] }) },
-        { id: "build", action: "Build", keys: perPlatform(platforms, { windows: ["F7"], linux: ["F7"], macos: ["F7"] }) },
-        { id: "build-command", action: "Build", keys: combo(platforms, ["Ctrl", "B"], ["Cmd", "B"]) },
+        { id: "build", action: "Build", keys: perPlatform(platforms, {
+          windows: ["F7"], linux: ["F7"], macos: ["F7"],
+        }).map((key) => ({ ...key, alternatives: key.platform === "macos" ? [["Cmd", "B"]] : [["Ctrl", "B"]] })) },
         { id: "build-selected", action: "Build selected", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "B"], linux: ["Ctrl", "Shift", "B"], macos: ["Shift", "Cmd", "B"] }) },
         { id: "command-palette", action: "Open the Command Palette", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "P"], linux: ["Ctrl", "Shift", "P"], macos: ["Shift", "Cmd", "P"] }) },
         { id: "sidebar", action: "Toggle the side bar", keys: perPlatform(platforms, { windows: ["Ctrl", "K", "Ctrl", "B"], linux: ["Ctrl", "K", "Ctrl", "B"], macos: ["Cmd", "K", "Cmd", "B"] }) },

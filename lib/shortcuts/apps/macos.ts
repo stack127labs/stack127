@@ -6,8 +6,6 @@ export const macos: AppShortcuts = {
   name: "macOS",
   category: "Operating system",
   platforms: ["macos"],
-  intro:
-    "macOS shortcuts are the layer underneath almost every app. Start with clipboard and window control, then use Mission Control, screenshots, Finder, text movement, and system actions when the desktop gets busy.",
   versionContext:
     "From Apple's Mac keyboard shortcuts article published March 10, 2026, checked again in August 2026. Shortcuts apply to current macOS releases, though individual apps can override common bindings and some keys depend on the keyboard hardware.",
   sourceUrl: "https://support.apple.com/en-us/102650",

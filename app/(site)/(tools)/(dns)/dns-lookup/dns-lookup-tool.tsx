@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { UiButton, UiSelect, UiTextField } from "@/app/ui/controls";
 import { UiDataTable } from "@/app/ui/display";
 import { dnsRecordsCsv } from "@/lib/dns/export.ts";
@@ -41,6 +41,16 @@ function ownerGroups(records: NormalizedDnsRecord[]) {
   return [...groups.entries()];
 }
 
+/** Lets a long hostname wrap after a dot before it ever breaks inside a label. */
+function Hostname({ name }: { name: string }) {
+  const labels = name.split(".");
+  return labels.map((label, index) => (
+    <Fragment key={index}>{label}{index < labels.length - 1 ? <>.<wbr /></> : null}</Fragment>
+  ));
+}
+
+const HOSTNAME_RECORD_TYPES = new Set<string>(["CNAME", "NS", "PTR"]);
+
 async function copyText(value: string) {
   await navigator.clipboard.writeText(value);
 }
@@ -51,7 +61,7 @@ function AliasChain({ authoritative, edges }: { authoritative: boolean; edges: D
     <div className="dns-alias-summary" aria-label="Alias chain">
       {edges.length === 1 ? (
         <>
-          <p><code>{edges[0].from}</code> points to <code>{edges[0].to}</code>, so the records below may belong to the second name.</p>
+          <p><code><Hostname name={edges[0].from} /></code> points to <code><Hostname name={edges[0].to} /></code>, so the records below may belong to the second name.</p>
           <p>{authoritative ? "The nameserver reports an authoritative TTL of" : "The resolver reported"} {authoritative ? formatAuthoritativeTtl(edges[0].resolverTtlSeconds) : formatResolverTtl(edges[0].resolverTtlSeconds)} for this alias.</p>
         </>
       ) : (
@@ -60,7 +70,7 @@ function AliasChain({ authoritative, edges }: { authoritative: boolean; edges: D
           <ol>
             {edges.map((edge) => (
               <li key={`${edge.from}-${edge.to}`}>
-                <code>{edge.from}</code> → <code>{edge.to}</code>
+                <code><Hostname name={edge.from} /></code> → <code><Hostname name={edge.to} /></code>
               </li>
             ))}
           </ol>
@@ -148,7 +158,7 @@ function RecordRow({
     return (
       <li className="dns-record-item dns-record-item-nameserver" data-record-type={record.type}>
         <div className="dns-nameserver-record-heading">
-          <code className="dns-record-value">{fields[0]?.value ?? record.value}</code>
+          <code className="dns-record-value"><Hostname name={fields[0]?.value ?? record.value} /></code>
           {recordMeta}
         </div>
         <div className="dns-nameserver-addresses">
@@ -184,7 +194,9 @@ function RecordRow({
     <li className="dns-record-item" data-record-type={record.type}>
       <div className="dns-record-primary">
         {fields.length === 1 ? (
-          <code className="dns-record-value">{fields[0].value}</code>
+          <code className="dns-record-value">
+            {HOSTNAME_RECORD_TYPES.has(record.type) ? <Hostname name={fields[0].value} /> : fields[0].value}
+          </code>
         ) : (
           <dl className="dns-record-fields">
             {fields.map((field) => (
@@ -465,7 +477,7 @@ function LookupResults({ result }: { result: DnsLookupResponse }) {
           {result.aliasObservations.map((observation) => (
             <div key={observation.requestedType}>
               <strong>{observation.requestedType} query</strong>
-              <ol>{observation.aliasChain.map((edge) => <li key={`${edge.from}-${edge.to}`}><code>{edge.from}</code> → <code>{edge.to}</code></li>)}</ol>
+              <ol>{observation.aliasChain.map((edge) => <li key={`${edge.from}-${edge.to}`}><code><Hostname name={edge.from} /></code> → <code><Hostname name={edge.to} /></code></li>)}</ol>
             </div>
           ))}
         </section>
@@ -608,7 +620,7 @@ export function DnsLookupTool({
             open={specializedOpen}
           >
             <summary>
-              <span>Specialized record types</span>
+              <span>More record types</span>
               {specializedRecordOptions.some((option) => option.value === selection) ? <small>{selection} selected</small> : null}
             </summary>
             <div className="dns-record-type-options">

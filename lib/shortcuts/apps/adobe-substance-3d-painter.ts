@@ -18,8 +18,6 @@ export const adobeSubstance3dPainter: AppShortcuts = {
   name: "Adobe Substance 3D Painter",
   category: "3D texturing",
   platforms: ["windows", "macos"],
-  intro:
-    "Substance 3D Painter combines editable application shortcuts with fixed mouse and layer-stack controls. This reference separates tools, viewport navigation, painting gestures, masks, layers, and project commands so each chord keeps its working context.",
   versionContext:
     "Current defaults from Adobe's July 3, 2026 shortcut reference, checked August 31, 2026. Editable assignments can be changed in Settings > Shortcuts. Fixed shortcuts are identified by their group, and actions whose official shortcut cell is blank are omitted.",
   sourceUrl: "https://experienceleague.adobe.com/en/docs/substance-3d-painter/using/interface/settings/shortcuts",

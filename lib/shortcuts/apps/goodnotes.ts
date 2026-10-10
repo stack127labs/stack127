@@ -8,8 +8,6 @@ const goodnotes: AppShortcuts = {
   name: "Goodnotes",
   category: "Note-taking",
   platforms: [...platforms],
-  intro:
-    "Goodnotes shortcuts cover notebooks and tabs, editing, page navigation, drawing tools, and text formatting. This desktop set follows the current Goodnotes reference for macOS and Windows.",
   versionContext:
     "Goodnotes publishes separate Mac, Windows, iPadOS, and web columns. This record includes the Mac and Windows desktop bindings only. Some tools are available only in a document or text editor, as noted by their group.",
   sourceUrl: "https://support.goodnotes.com/hc/en-us/articles/17220521238159-Keyboard-Shortcuts-in-Goodnotes",

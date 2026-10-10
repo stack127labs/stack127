@@ -8,8 +8,6 @@ export const macosSpotlight: AppShortcuts = {
   name: "macOS Spotlight",
   category: "Operating system",
   platforms: [...platforms],
-  intro:
-    "Spotlight shortcuts open the search panel, move through results, narrow the result type, and send a selected item to its owning app or Finder.",
   versionContext:
     "Spotlight keyboard shortcuts from Apple's current Mac User Guide, checked September 1, 2026. Result categories and filters can vary with the macOS version and enabled Spotlight sources.",
   sourceUrl: "https://support.apple.com/guide/mac-help/mh26783/mac",

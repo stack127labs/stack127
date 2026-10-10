@@ -20,8 +20,6 @@ export const obsidian: AppShortcuts = {
   name: "Obsidian",
   category: "Notes and docs",
   platforms: [...platforms],
-  intro:
-    "Obsidian separates system editing shortcuts from customizable command hotkeys. This reference covers the documented editing and navigation defaults across Windows, Linux, and macOS, while leaving plugin and user-assigned commands to Obsidian's Hotkeys settings.",
   versionContext:
     "Obsidian editing and navigation shortcuts from the current official help, checked September 1, 2026. Command hotkeys can be changed or assigned multiple times in Settings > Hotkeys, and displayed keys follow a US layout.",
   sourceUrl: "https://obsidian.md/help/editing-shortcuts",

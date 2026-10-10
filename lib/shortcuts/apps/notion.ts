@@ -8,8 +8,6 @@ export const notion: AppShortcuts = {
   name: "Notion",
   category: "Notes and docs",
   platforms: [...platforms],
-  intro:
-    "Notion combines app shortcuts, block editing, Markdown-style input, slash commands, and database actions. This reference keeps those layers together so a long page stays quick to build and navigate.",
   versionContext:
     "Current shortcuts from the Notion Help Center in August 2026. The source uses cmd on Mac and ctrl on Windows and Linux and assumes an English QWERTY keyboard.",
   sourceUrl: "https://www.notion.com/help/keyboard-shortcuts",

@@ -83,7 +83,7 @@ Use `Amazon.com`, `USD`, and a valid month for these arithmetic checks; the rate
 
 The flat route is `app/(site)/(tools)/kindle-unlimited-kenp-earnings-calculator/page.tsx`; it uses the shared shell, `PageCanvas`, and tool-page renderer. Put the pure validation and arithmetic engine in `lib/kdp/kenp.ts`, the client form and result in the route's `kindle-unlimited-kenp-earnings-calculator.tsx`, and route-only layout in its `.module.css` if shared tool styles do not cover it. Put focused arithmetic and validation tests in `tests/pages/kindle-unlimited-kenp-earnings-calculator/kenp.test.mjs`. No new page-specific script or external data table is needed.
 
-The page's publication and SEO record belongs to `public.stack127_pages`; title, introduction, usage, supporting copy, card fields, and version belong to `public.stack127_tool_pages`; catalog links belong to `public.stack127_tool_catalog_memberships`. Use the existing `scripts/stack127/tool-pages/update-content.mjs` and `update-catalogs.mjs` workflow for development content and placement. The calculation constants are the user's inputs, not a maintained payout table.
+The page's publication and SEO record belongs to `public.stack127_pages`; title, card fields, and version belong to `public.stack127_tool_pages`; catalog links belong to `public.stack127_tool_catalog_memberships`. The introduction, usage, and supporting copy live in the route's `content/*.mdx`. Use `stack127:tools:publish` for reviewed development metadata and catalog placement, following `stack127_docs/page-publishing.md`. The calculation constants are the user's inputs, not a maintained payout table.
 
 ### Catalog placement
 

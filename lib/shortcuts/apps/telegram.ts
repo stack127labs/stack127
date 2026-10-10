@@ -8,8 +8,6 @@ export const telegram: AppShortcuts = {
   name: "Telegram",
   category: "Messaging",
   platforms: [...platforms],
-  intro:
-    "Telegram Desktop publishes its default shortcut actions in the open-source desktop implementation and exposes them in Chat Settings. This reference focuses on chat, folder, window, and message navigation.",
   versionContext:
     "Telegram Desktop shortcuts checked September 1, 2026 against the current desktop source and official translation strings. Telegram lets users customize and reset these bindings in Chat Settings > Keyboard shortcuts.",
   sourceUrl: "https://github.com/telegramdesktop/tdesktop/blob/dev/Telegram/SourceFiles/core/shortcuts.cpp",

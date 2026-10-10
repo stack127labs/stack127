@@ -22,8 +22,6 @@ export const salesforce: AppShortcuts = {
   name: "Salesforce",
   category: "Customer relationship management",
   platforms: [...platforms],
-  intro:
-    "Salesforce Lightning Experience publishes global, navigation, composer, and console shortcuts. This reference keeps the standard Lightning actions separate from the extra workspace-tab controls available in Lightning console apps.",
   versionContext:
     "Salesforce Help keyboard shortcut references checked September 1, 2026. Lightning shortcuts are enabled by default, are not case-sensitive, and can be disabled from the Help menu. Console shortcuts apply to Lightning console apps and may not be available in standard navigation.",
   sourceUrl: "https://help.salesforce.com/s/articleView?id=sf.accessibility_keyboard_shortcuts_lex.htm&language=en_US&type=5",

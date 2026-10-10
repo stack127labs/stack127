@@ -17,8 +17,6 @@ export const adobeInDesign: AppShortcuts = {
   name: "Adobe InDesign",
   category: "Page layout and publishing",
   platforms: ["windows", "macos"],
-  intro:
-    "InDesign's default shortcuts cover layout tools, frames, transformations, typography, tables, document navigation, panels, styles, and production previews. The same key can change meaning when a text insertion point is active, so context stays in each action.",
   versionContext:
     "Current InDesign desktop defaults from Adobe's keyboard shortcut reference checked August 31, 2026. The tables use the InDesign Default shortcut set, not its optional Illustrator, Photoshop, PageMaker, QuarkXPress, or custom sets.",
   sourceUrl: "https://helpx.adobe.com/indesign/desktop/get-started/settings-and-preferences/keyboard-shortcuts.html",

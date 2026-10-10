@@ -2,11 +2,9 @@ import type { AppShortcuts } from "../types.ts";
 
 export const gnome: AppShortcuts = {
   slug: "gnome",
-  name: "Linux GNOME",
+  name: "GNOME",
   category: "Desktop environment",
   platforms: ["linux"],
-  intro:
-    "GNOME's Super-key shortcuts connect the desktop shell to the work inside its windows. This reference covers the current official shell defaults for Activities, windows, workspaces, monitors, notifications, screenshots, recording, and common text editing.",
   versionContext:
     "Defaults from the current GNOME Help keyboard-shortcuts page checked in August 2026. Window-manager and terminal shortcuts can vary when a distribution changes GNOME settings or when another desktop component claims the same key.",
   sourceUrl: "https://help.gnome.org/gnome-help/shell-keyboard-shortcuts.html",

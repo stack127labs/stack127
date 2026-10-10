@@ -26,8 +26,6 @@ export const adobeLightroomClassic: AppShortcuts = {
   name: "Adobe Lightroom Classic",
   category: "Photo catalog and editor",
   platforms: ["windows", "macos"],
-  intro:
-    "Lightroom Classic's keymap follows its module-based workflow. It covers the workspace, catalog and photo management, Library views, ratings, collections, metadata, Develop controls, and local adjustment tools.",
   versionContext:
     "Current Lightroom Classic desktop defaults from Adobe's reference updated July 5, 2026 and checked August 31, 2026. Adobe's August 2026 release notes identify Lightroom Classic 15.5 as the current release.",
   sourceUrl: "https://helpx.adobe.com/lightroom-classic/desktop/introduction-to-lightroom-classic/keyboard-shortcuts.html",

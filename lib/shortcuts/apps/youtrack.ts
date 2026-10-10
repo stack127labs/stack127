@@ -28,8 +28,6 @@ export const youtrack: AppShortcuts = {
   name: "YouTrack",
   category: "Project management",
   platforms: [...platforms],
-  intro:
-    "YouTrack Cloud publishes keyboard tables for issue lists, single issues, rich text, and whiteboards. This reference keeps those contexts separate.",
   versionContext:
     "YouTrack Cloud 2026.2 keyboard shortcuts checked September 1, 2026. The source gives Windows or Linux and macOS variants, and many commands depend on the focused issue list or editor.",
   sourceUrl: "https://www.jetbrains.com/help/youtrack/cloud/keyboard-shortcuts.html",

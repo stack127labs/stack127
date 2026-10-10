@@ -20,10 +20,8 @@ const windowsOnly = (id: string, action: string, keys: string[], note?: string):
 export const microsoftEdge: AppShortcuts = {
   slug: "microsoft-edge",
   name: "Microsoft Edge",
-  category: "Web browsers",
+  category: "Web browser",
   platforms: [...platforms],
-  intro:
-    "Microsoft Edge shortcuts cover tabs, windows, navigation, search, downloads, developer tools, and page display on Windows and macOS.",
   versionContext:
     "Current Microsoft Edge desktop shortcuts checked September 1, 2026. The official table has separate Windows and Mac columns; some commands depend on the page type, such as PDF viewing, and extensions can add conflicts.",
   sourceUrl: "https://support.microsoft.com/en-US/edge/keyboard-shortcuts-in-microsoft-edge",

@@ -21,11 +21,9 @@ const same = (id: string, action: string, keys: string[], alternatives?: string[
 
 export const drawIoDiagramsNet: AppShortcuts = {
   slug: "draw-io-diagrams-net",
-  name: "draw.io (diagrams.net)",
+  name: "draw.io",
   category: "Diagramming",
   platforms: ["windows", "macos", "linux"],
-  intro:
-    "The diagrams.net editor has keyboard commands for document work, canvas views, selection, shapes, labels, styling, and tables, plus modifier-and-pointer gestures for precise diagram construction. Focus and the selected object determine which command runs.",
   versionContext:
     "Current official printable draw.io shortcut reference and 2026 documentation checked August 31, 2026. The reference directs macOS users to use Command for Control and Option for Alt. Linux follows Control notation except for the separately published redo binding.",
   sourceUrl: "https://app.diagrams.net/shortcuts.svg",

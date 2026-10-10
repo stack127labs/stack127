@@ -8,8 +8,6 @@ const googleDocs: AppShortcuts = {
   name: "Google Docs",
   category: "Document editor",
   platforms: [...platforms],
-  intro:
-    "Google Docs shortcuts handle editing, formatting, navigation, comments, and document commands in the browser. The entries below use Google's current Windows and macOS help tables rather than generic browser shortcuts.",
   versionContext:
     "Google publishes separate PC and Mac columns for Docs. These commands apply while a document or its editor has focus. Browser, screen-reader, and Chromebook tables are outside this desktop record.",
   sourceUrl: "https://support.google.com/docs/answer/179738?hl=en-GB",

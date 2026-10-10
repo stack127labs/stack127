@@ -22,8 +22,6 @@ export const mastodon: AppShortcuts = {
   name: "Mastodon",
   category: "Social networking",
   platforms: [...platforms],
-  intro:
-    "Mastodon's web shortcuts search, open, and act on posts, move through columns, and use G-prefixed sequences to reach common views.",
   versionContext:
     "Web hotkeys from Mastodon's current main source, checked September 1, 2026. The source ignores shortcuts while focus is in an input, textarea, or select, and user instances can run different releases or customizations. Alt is shown as Option on macOS.",
   sourceUrl: "https://github.com/mastodon/mastodon/blob/main/app/javascript/mastodon/components/hotkeys/index.tsx",

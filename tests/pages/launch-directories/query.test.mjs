@@ -10,9 +10,9 @@ const row = (slug, changes = {}) => ({
   cost_kind: "free", link_type_kind: "dofollow", ...changes,
 });
 
-test("free includes mixed plans while backlink-free excludes unknown and required conditions", () => {
-  const rows = [row("free"), row("mixed", { cost_kind: "free_and_paid", submission_details: { backlink: "not_required" } }),
-    row("optional", { submission_details: { backlink: "optional" } }), row("required", { submission_details: { backlink: "required" } }),
+test("free includes mixed plans while backlink-free excludes required backlink conditions", () => {
+  const rows = [row("free", { cost_label: "Free" }), row("mixed", { cost_kind: "free_and_paid", submission_details: { backlink: "not_required" } }),
+    row("optional", { submission_details: { backlink: "optional" } }), row("required", { cost_label: "Free", submission_details: { backlink: "required" } }),
     row("paid", { cost_kind: "paid", submission_details: { backlink: "not_required" } }), row("unknown", { cost_kind: "unknown" })];
   assert.equal(queryLaunchDirectories(rows, { costs: ["free"] }).total, 4);
   assert.deepEqual(queryLaunchDirectories(rows, { backlink: "not_required", sort: "name" }).items.map(item => item.slug), ["mixed", "optional"]);
@@ -20,6 +20,17 @@ test("free includes mixed plans while backlink-free excludes unknown and require
   assert.equal(queryLaunchDirectories(rows, { costs: ["paid"], backlink: "not_required" }).total, 0);
   assert.equal(queryLaunchDirectories(rows, { costs: ["free_and_paid"] }).total, 1);
   assert.equal(queryLaunchDirectories(rows, { costs: ["free", "paid"] }).total, 5);
+});
+
+test("backlink-free needs a checked free flow, whatever the cost text says", () => {
+  const rows = [
+    row("badge", { cost_label: "Free with badge; paid from $19" }),
+    row("plain", { cost_kind: "free_and_paid", cost_label: "Free; Premium $39 per launch", cost_tag: "Free" }),
+    row("unknown-check", { cost_label: "Free", submission_details: { backlink: "unknown" } }),
+    row("checked", { cost_label: "Free with badge", submission_details: { backlink: "optional" } }),
+    row("not-required", { cost_kind: "free_and_paid", submission_details: { backlink: "not_required" } }),
+  ];
+  assert.deepEqual(queryLaunchDirectories(rows, { backlink: "not_required", sort: "name" }).items.map(item => item.slug), ["checked", "not-required"]);
 });
 
 test("public submission projection rejects unchecked conditions and never copies private notes", () => {

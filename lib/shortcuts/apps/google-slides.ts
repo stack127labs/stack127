@@ -8,8 +8,6 @@ const googleSlides: AppShortcuts = {
   name: "Google Slides",
   category: "Presentation editor",
   platforms: [...platforms],
-  intro:
-    "Google Slides shortcuts cover slide creation, editing, filmstrip movement, presentation controls, and text formatting. The entries below use Google's current Windows and Mac help tables.",
   versionContext:
     "Google publishes PC and Mac columns for Slides. Commands such as filmstrip movement and speaker notes require focus in the matching Slides area, while formatting commands apply to selected text or objects.",
   sourceUrl: "https://support.google.com/docs/answer/1696717?hl=en-EN",

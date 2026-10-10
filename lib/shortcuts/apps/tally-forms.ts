@@ -8,8 +8,6 @@ export const tallyForms: AppShortcuts = {
   name: "Tally Forms",
   category: "Forms",
   platforms: [...platforms],
-  intro:
-    "Tally's official keyboard shortcut guide covers form editing, block movement, formatting, command menus, and Markdown-style input. The shared web shortcuts are paired across Windows, macOS, and Linux.",
   versionContext:
     "Tally keyboard shortcuts checked September 1, 2026. The source describes shortcuts for the Tally editor and uses Cmd on macOS and Ctrl on Windows or Linux.",
   sourceUrl: "https://tally.so/help/keyboard-shortcuts",

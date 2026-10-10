@@ -16,8 +16,6 @@ export const piCodingAgent: AppShortcuts = {
   name: "Pi coding agent",
   category: "AI coding agent",
   platforms: [...platforms],
-  intro:
-    "Pi's keyboard model separates the prompt you are writing from the agent work already running. This reference covers the current editor, queue, session, model, thinking, transcript, tree, and application defaults.",
   versionContext:
     "Current defaults from Pi's official coding-agent README and keybindings guide in August 2026. Bindings can be replaced in ~/.pi/agent/keybindings.json and reloaded with /reload. Native Windows and WSL have a few terminal-specific differences.",
   sourceUrl: "https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/keybindings.md",

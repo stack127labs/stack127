@@ -22,20 +22,12 @@ export const otterAi: AppShortcuts = {
   name: "Otter.ai",
   category: "Transcription",
   platforms: [...platforms],
-  intro:
-    "Otter's published shortcuts cover search, audio playback, and transcript editing. The key map stays focused on the commands Otter documents for its web workspace and leaves account or browser shortcuts out.",
   versionContext:
     "Otter Help Center keyboard shortcuts checked September 1, 2026. The source article was updated February 4, 2025 and labels the modifier differences for Mac and Windows.",
   sourceUrl: "https://help.otter.ai/hc/en-us/articles/29431724341399-Keyboard-Shortcuts",
   sourceLabel: "official Otter.ai keyboard shortcuts",
   lastVerified: "2026-09-01",
   groups: [
-    {
-      id: "search",
-      title: "Search",
-      intro: "Open Otter's search view from the workspace with the platform's documented modifier and letter combination.",
-      shortcuts: [dual("open-search", "Open search", ["Ctrl", "K"], ["Cmd", "K"])],
-    },
     {
       id: "audio-playback",
       title: "Audio playback",
@@ -60,10 +52,13 @@ export const otterAi: AppShortcuts = {
       ],
     },
     {
-      id: "shortcut-help",
-      title: "Shortcut help",
-      intro: "Show or hide Otter's shortcut panel with the platform modifier and slash command from the help article.",
-      shortcuts: [dual("toggle-shortcut-panel", "Toggle the keyboard shortcuts panel", ["Ctrl", "/"], ["Cmd", "/"])],
+      id: "search-and-shortcut-help",
+      title: "Search and shortcut help",
+      intro: "Open search or show Otter's keyboard shortcut panel with the platform modifier shown in the help article.",
+      shortcuts: [
+        dual("open-search", "Open search", ["Ctrl", "K"], ["Cmd", "K"]),
+        dual("toggle-shortcut-panel", "Toggle the keyboard shortcuts panel", ["Ctrl", "/"], ["Cmd", "/"]),
+      ],
     },
   ],
 };

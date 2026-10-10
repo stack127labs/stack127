@@ -14,7 +14,7 @@ The primary query is `Zigbee compatible devices`. Supporting queries are `Zigbee
 
 ## Coverage contract
 
-The catalog universe is the union of current Zigbee2MQTT device definitions and Blakadder compatibility records. A device stays in the catalog when only one source knows it. Exact-model joins add evidence but never decide inclusion. Coordinator records belong in `/zigbee-coordinators` and are excluded here with a counted reason. Every included record needs a local product image, an image source, exact model identity, support status by source, useful capabilities, and a source link. The snapshot records source totals, union size, matched records, one-source records, exclusions, image coverage, failures, revisions, and refresh time. Keep the route unpublished until the union, details, and images are complete.
+The catalog universe is the union of current Zigbee2MQTT device definitions and Blakadder compatibility records. A device stays in the catalog when only one source knows it. Exact-model joins add evidence but never decide inclusion. Coordinator records belong in `/zigbee-coordinators` and are excluded here with a counted reason. Every included record needs a local product image, an image source, exact model identity, support status by source, useful capabilities, and a source link. The snapshot records source totals, union size, matched records, one-source records, exclusions, image coverage, failures, revisions, and refresh time.
 
 ## Show vs say
 

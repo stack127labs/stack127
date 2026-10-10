@@ -10,8 +10,6 @@ export const excel: AppShortcuts = {
   name: "Microsoft Excel",
   category: "Spreadsheet",
   platforms: [...platforms],
-  intro:
-    "Excel shortcuts are easiest to use when they follow the job in front of you: move through a grid, edit a cell, format a selection, work with data, and reach the ribbon or formula bar. This reference covers current desktop defaults for Windows and Mac.",
   versionContext:
     "Microsoft's Excel shortcut reference checked in August 2026. It applies to Microsoft 365 and the listed recent Excel desktop releases; the source uses a US keyboard layout and warns that macOS settings, function-key preferences, and platform conflicts can change behavior.",
   sourceUrl: "https://support.microsoft.com/en-us/office/keyboard-shortcuts-in-excel-1798d9d5-842a-42b8-9c99-9b7213f0040f",

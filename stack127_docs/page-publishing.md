@@ -28,12 +28,12 @@ The tools command takes tool and catalog pages. The directories command takes di
 
 | Command | Flags | What it does | Writes |
 | --- | --- | --- | --- |
-| `prepare` | `--manifest`, `--out`, `--environment` | Reads the manifest and any Markdown files it names, checks readiness, reads the current rows from the target database, and writes a plan file. | Only the plan file |
+| `prepare` | `--manifest`, `--out`, `--environment` | Reads the manifest and any course Markdown files it names, checks readiness, reads the current rows from the target database, and writes a plan file. | Only the plan file |
 | `preview` | `--plan`, `--environment` | Runs the whole plan in one transaction, prints the result, and rolls back. | Nothing |
 | `apply` | `--plan`, `--environment`, `--confirm`, `--release-sha`, `--site`, `--wait-seconds` | Commits the plan in one transaction, then checks the database and the public pages. | The database |
 | `verify` | `--plan`, `--environment`, `--release-sha`, `--site`, `--wait-seconds`, `--restored` | Checks the database and public pages against the plan without writing. | Nothing |
 | `restore` | `--plan`, `--environment`, `--confirm`, `--release-sha`, `--site`, `--wait-seconds` | Puts back the plan's before values, then checks them. | The database |
-| `dispatch` | `--plan`, `--environment production`, `--confirm`, `--release-sha` | Sends a reviewed production plan to the page publication workflow on GitHub. | A GitHub deployment |
+| `dispatch` | `--plan`, `--environment production`, `--confirm`, `--release-sha` | Sends a reviewed production plan to the page publication workflow on GitHub. | A GitHub plan blob and deployment |
 
 There are no force or skip flags. Every gate below always runs.
 
@@ -44,7 +44,7 @@ There are no force or skip flags. Every gate below always runs.
 
 ## Manifest
 
-A manifest describes one batch of pages. All pages in a batch succeed or fail together. This one updates an existing tool. A new tool also needs the fields in [Content fields](#content-fields).
+A manifest describes one batch of pages. All pages in a batch succeed or fail together. This one updates an existing tool. A new tool needs its title, cards, search fields, and MDX imports.
 
 ```json
 {
@@ -93,24 +93,18 @@ Each page takes only these keys:
 
 | Family | Content fields |
 | --- | --- |
-| `tool` | `title`, `intro_markdown`, `usage_markdown`, `content_markdown`, `tool_version`, `stack127_repo_url`, `stack127_repo_version`, `stack127_repo_commit_sha`, `card_name`, `card_description`, `card_icon_key`, `card_art_key` |
-| `catalog` | `title`, `intro_markdown`, `content_markdown`, `card_name`, `card_description`, `card_icon_key`, `card_art_key`, `display_order` |
+| `tool` | `title`, `tool_version`, `stack127_repo_url`, `stack127_repo_version`, `stack127_repo_commit_sha`, `card_name`, `card_description`, `card_icon_key`, `card_art_key` |
+| `catalog` | `title`, `card_name`, `card_description`, `card_icon_key`, `card_art_key`, `display_order` |
 | `course` root | `title`, `intro_markdown`, `content_markdown`, `card_name`, `card_description`, `card_icon_key`, `card_art_key`, `author_name`, `author_avatar_url`, `navigation_label` |
-| `directory` | `title`, `intro_markdown`, `content_markdown`, `card_name`, `card_description`, `card_icon_key`, `card_art_key` |
+| `directory` | `title`, `card_name`, `card_description`, `card_icon_key`, `card_art_key` |
 
-These are the plan's field names, and they stay the same across schema versions.
+Regenerate plans prepared before the content-column retirement. Their snapshots contain fields the current publisher rejects.
 
 ### Content fields
 
-The `*_markdown` fields are database content columns. Tool and directory pages with MDX content don't show them. See [page-content.md](page-content.md). The publisher still requires some of them:
+Tool, directory, and catalog manifests accept only title, card, version, repository, and order fields for their family rows. They reject the retired `intro_markdown`, `usage_markdown`, and `content_markdown` fields. Keep page words in MDX and run `npm run quality` before preparing a plan.
 
-- A new tool needs nonempty `intro_markdown` and `content_markdown`. A new directory, catalog, or course needs a nonempty `intro_markdown`. The rest may be `null`.
-- For a new tool or directory, put one plain sentence that sums up the page in each required field, such as the first sentence of its `intro.mdx`.
-- For an existing page, leave them out of the manifest. They keep their current values.
-
-Catalogs and courses still show these fields until they move to MDX. See [tool-catalogs.md](tool-catalogs.md) and [page-families.md](page-families.md).
-
-These fields retire with the database content columns.
+A new course root still needs nonempty `intro_markdown`. Its optional `content_markdown` may be `null`. Courses keep database Markdown until their content move.
 
 Course plans freeze the course content and selected lesson rows together. Root pages need both rows. Child pages need their lesson row and published parent course. Course readiness checks the registry layout, JSX route, Markdown, card assets, and declared smoke checks. Public verification compares the H1 against `lesson.title`, since the root's course title names the whole course.
 
@@ -148,13 +142,13 @@ A new page needs every required field, because there is nothing to merge into. T
 | `is_indexable` | `true` |
 | `page_type` | `SoftwareApplication` for tools, `CollectionPage` otherwise |
 | `sitemap_priority` | `0.5` |
-| `cover_image_url`, `usage_markdown`, repository fields | `null` |
+| `cover_image_url`, repository fields | `null` |
 | `tool_version` | `1.0.0` |
-| Directory `content_markdown`, `card_icon_key`, `card_art_key` | `null` |
-| Catalog `content_markdown` | `null` |
+| Directory `card_icon_key`, `card_art_key` | `null` |
+| Course `content_markdown`, `card_icon_key`, `card_art_key` | `null` |
 | Catalog `card_icon_key`, `display_order` | `layers`, `100` |
 
-A new catalog must set `card_art_key` to a key registered in `lib/card-art.ts`. There is no default art. The hero uses this key too. Catalog titles use `<mark>` for an optional accent. Catalog `content_markdown` follows the directory rules: `null` or trimmed, nonempty Markdown.
+A new catalog must set `card_art_key` to a key registered in `lib/card-art.ts`. There is no default art. The hero uses this key too. Catalog titles use `<mark>` for an optional accent.
 
 The batch must also make sense as a whole, or nothing is written:
 
@@ -185,7 +179,7 @@ A page whose rows already match the plan is left alone, unless its pending recor
 
 A child page's words ship in its MDX files with the code release. Its title and search metadata go through the publisher like any directory page:
 
-1. Write them to the development rows with `scripts/stack127/directory-pages/update-content.mjs`, and review the child pages there.
+1. Write them to the development rows with `scripts/stack127/directory-pages/update-fields.mjs`, and review the child pages there.
 2. List each child page in the directories manifest with `"source": "development"` and an explicit `registry.is_published`.
 3. In production, run only the directory's reviewed dataset import, if its records live in the database. The plan already holds the reviewed titles and search metadata.
 
@@ -198,7 +192,7 @@ A child page's words ship in its MDX files with the code release. Its title and 
 | `route` | Required. A `page.tsx` under the family's route group, such as `app/(site)/(tools)/`. Its path must match the slug, and dynamic segments are allowed for directory children. The `layout.tsx` beside it must use `registryLayout`. |
 | `assets` | Each listed repository file must exist. |
 | Icon and art keys | Tool and catalog keys, and any directory key that isn't `null`, must be registered in `lib/card-icons.ts` and `lib/card-art.ts`. Homepage directories need both keys. |
-| Markdown | Every `*_markdown` field must pass the shared Markdown validator. MDX content is checked by `npm run quality` instead. |
+| Content | Course Markdown passes the shared validator. Tool, directory, and catalog content lives in MDX and passes `npm run quality`. |
 | `checks` | Each `{ "name", "sql_file", "params" }` points to a repository SQL file holding one `SELECT` or `WITH` query. It runs in a read-only transaction and must return exactly one row, `{ "ready": true }`. |
 | `smoke` | Each `{ "path", "text" }` is a path under the page's own slug and text that must appear on it. The public check uses these. |
 
@@ -277,11 +271,11 @@ Production `apply`, `verify`, `restore`, and `dispatch` also need a full `--rele
      --release-sha <full origin/main SHA>
    ```
 
-`dispatch` creates a GitHub deployment with task `page-publication` in the `stack127-page-publication` environment. The reviewed plan travels in the deployment payload. Don't commit it.
+`dispatch` creates a GitHub deployment with task `page-publication` in the `stack127-page-publication` environment. It first uploads the frozen plan as an immutable Git blob in the same repository. The deployment carries only the blob SHA, SHA-256, byte length, kind, and release SHA. Plans up to 90 MiB dispatch as one batch. Keep the local plan file. Do not commit it.
 
 The page publication workflow, `.github/workflows/stack127-publish-pages.yml`:
 
-1. Checks that the sender has write, maintain, or admin access to the repository, and that the release SHA is still the current `main` commit.
+1. Checks that the sender has write, maintain, or admin access and the release SHA is the current `main`. It downloads the repository blob and verifies its Git SHA, SHA-256, byte length, kind, and plan schema before writing the runner plan file. Both workflow jobs repeat this check.
 2. Waits up to 10 minutes for the live health SHA to match the release SHA. It stops without writing if the release never goes live.
 3. Joins the shared `stack127-production` concurrency group. Release and publication jobs queue there in order and never cancel each other. GitHub holds up to 100 pending jobs in the group.
 4. Runs `apply` with the plan. It repeats the SQL readiness checks after the live release wait, commits the batch, and runs the public check.
@@ -325,6 +319,6 @@ These commands each write one kind of database field:
 | `npm run stack127:tool-page:catalogs:update` | A tool's card fields and catalog memberships |
 | `npm run stack127:tool-page:version:update` | A tool's version |
 | `npm run stack127:tool-page:repo:sync` | A tool's repository fields |
-| `node scripts/stack127/directory-pages/update-content.mjs` | A directory's title, search metadata, and card fields |
+| `node scripts/stack127/directory-pages/update-fields.mjs` | A directory's title, search metadata, and card fields |
 
 Use them in development and for a small fix to one live page. Use the publisher for a new page, a page going public, and any change that touches several tables at once. Page content changes go through a code release instead.

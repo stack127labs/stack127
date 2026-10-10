@@ -17,8 +17,6 @@ export const adobeIllustrator: AppShortcuts = {
   name: "Adobe Illustrator",
   category: "Vector graphics editor",
   platforms: ["windows", "macos"],
-  intro:
-    "Illustrator's default keymap covers document work, its dense tool palette, artboards, object selection, drawing, color, type, and effects. These tables keep Adobe's Windows and macOS defaults separate.",
   versionContext:
     "Current Adobe Illustrator desktop defaults from Adobe's English reference updated February 17, 2026. Custom shortcut sets and pointer-only gestures are not listed.",
   sourceUrl: "https://helpx.adobe.com/illustrator/using/default-keyboard-shortcuts.html",

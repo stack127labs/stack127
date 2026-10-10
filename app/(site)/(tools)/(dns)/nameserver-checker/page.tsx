@@ -13,7 +13,7 @@ export default async function NameserverCheckerPage() {
   const toolPage = await getRequiredToolPage("nameserver-checker");
   return (
     <ToolPageShell toolPage={toolPage}>
-      <PageCanvas as="main" className={styles.main}>
+      <PageCanvas className={styles.main}>
         <ToolPageHeader
           icon={<Server strokeWidth={2.2} />}
           intro={<Intro />}

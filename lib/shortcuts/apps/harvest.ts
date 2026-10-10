@@ -8,8 +8,6 @@ const harvest: AppShortcuts = {
   name: "Harvest",
   category: "Time tracking",
   platforms: [...platforms],
-  intro:
-    "Harvest's Windows app shortcuts cover timer creation, the timesheet, favorites, day navigation, and editing or deleting a selected entry. The source gives these as the app's current Windows defaults.",
   versionContext:
     "Harvest documents Windows defaults and marks several commands as customizable in preferences. Its Mac preferences page describes customization without publishing stable default key values, so this record is Windows-only.",
   sourceUrl: "https://support.getharvest.com/hc/en-us/articles/360048685411-Windows-app-Keyboard-shortcuts",

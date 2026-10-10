@@ -8,8 +8,6 @@ export const onePassword: AppShortcuts = {
   name: "1Password",
   category: "Password manager",
   platforms: [...platforms],
-  intro:
-    "1Password has separate keyboard layers for the desktop app, Quick Access, and the browser extension. The bindings below keep those contexts separate so the same key can be read without guessing where it works.",
   versionContext:
     "Current desktop defaults checked August 31, 2026. Global shortcuts can be changed in 1Password settings. Linux global shortcuts depend on X11 or user-configured Wayland bindings. iPhone and iPad shortcuts are outside stack127's current platform model.",
   sourceUrl: "https://support.1password.com/keyboard-shortcuts/",

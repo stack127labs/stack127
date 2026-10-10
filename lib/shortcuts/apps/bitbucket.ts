@@ -13,8 +13,6 @@ export const bitbucket: AppShortcuts = {
   name: "Bitbucket",
   category: "Code hosting",
   platforms: [...platforms],
-  intro:
-    "Bitbucket Cloud's documented keyboard shortcuts cover site search, navigation panels, repository file filtering, and the core pull-request review tabs and actions.",
   versionContext:
     "Current Bitbucket Cloud shortcut reference checked August 31, 2026. Single-letter commands work in the page context named by each group. Bitbucket lets users disable all keyboard shortcuts in Personal Bitbucket settings.",
   sourceUrl: "https://support.atlassian.com/bitbucket-cloud/docs/keyboard-shortcuts/",

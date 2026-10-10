@@ -13,8 +13,6 @@ export const alfred: AppShortcuts = {
   name: "Alfred",
   category: "Productivity launcher",
   platforms: ["macos"],
-  intro:
-    "Alfred's default hotkeys cover launching and dismissing the search window, acting on results, browsing files, managing the File Buffer, using Clipboard History, and controlling the Music Mini Player. Powerpack requirements are stated where they apply.",
   versionContext:
     "Default Alfred 5 hotkeys from the current official cheatsheet checked August 31, 2026. Alfred lets users change hotkeys, so modified installations can differ. Universal Actions, File System Navigation, Clipboard History, snippets, contacts, email, workflows, and the Music Mini Player require the Powerpack where noted.",
   sourceUrl: "https://www.alfredapp.com/help/getting-started/cheatsheet/",

@@ -26,8 +26,6 @@ export const libreOfficeWriter: AppShortcuts = {
   name: "LibreOffice Writer",
   category: "Word processing",
   platforms: [...platforms],
-  intro:
-    "Writer's default shortcuts cover document navigation, styles, tables, text selection, and the keyboard-first editing commands used across LibreOffice.",
   versionContext:
     "Default shortcuts from LibreOffice 26.8 Help, checked September 1, 2026. The source notes that desktop environments can claim a key and that users can change assignments in Tools > Customize > Keyboard. Windows and Linux use Ctrl or Alt; the documented Command and Option forms are preserved for macOS.",
   sourceUrl: "https://help.libreoffice.org/latest/en-US/text/swriter/04/01020000.html?DbPAR=SHARED",

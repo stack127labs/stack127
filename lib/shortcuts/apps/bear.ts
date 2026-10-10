@@ -12,8 +12,6 @@ export const bear: AppShortcuts = {
   name: "Bear",
   category: "Notes and writing",
   platforms: ["macos"],
-  intro:
-    "Bear for Mac has native commands for Markdown-style formatting, note structure, tables, navigation, and windows. Many bindings depend on whether focus is in the editor, note list, sidebar, or a table cell, so they are grouped by working context.",
   versionContext:
     "Current Bear for Mac shortcut reference checked August 31, 2026. Bear Web has a separate beta keymap and is not mixed into this native macOS reference. Back and forward shortcuts can vary with keyboard layout and localization.",
   sourceUrl: "https://bear.app/faq/mac-keyboard-shortcuts/",

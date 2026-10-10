@@ -1,12 +1,12 @@
 import { perPlatform } from "../build.ts";
 import type { AppShortcuts, Shortcut } from "../types.ts";
 
-const platforms = ["windows", "linux"] as const;
+const platforms = ["windows", "macos", "linux"] as const;
 
 const shared = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
   id,
   action,
-  keys: perPlatform(platforms, { windows: keys, linux: keys }),
+  keys: perPlatform(platforms, { windows: keys, macos: keys, linux: keys }),
   ...(note ? { note } : {}),
 });
 
@@ -15,13 +15,11 @@ export const zenBrowser: AppShortcuts = {
   name: "Zen Browser",
   category: "Web browser",
   platforms: [...platforms],
-  intro:
-    "Zen Browser publishes a current desktop shortcut reference for compact mode, workspaces, split views, tabs, navigation, search, pages, and developer tools.",
   versionContext:
-    "Zen Browser shortcut reference checked September 1, 2026. The published table uses Ctrl and Alt notation and does not provide a separate macOS table, so this record covers Windows and Linux only.",
+    "Zen Browser shortcut reference checked October 10, 2026. The published table uses Ctrl and Alt notation without operating-system variants, so this record keeps the published notation for Windows, macOS, and Linux.",
   sourceUrl: "https://docs.zen-browser.app/user-manual/shortcuts",
   sourceLabel: "official Zen Browser shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-10-10",
   groups: [
     {
       id: "zen-layout",

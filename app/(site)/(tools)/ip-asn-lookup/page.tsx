@@ -13,7 +13,7 @@ export default async function IpAsnLookupPage() {
   const toolPage = await getRequiredToolPage("ip-asn-lookup");
   return (
     <ToolPageShell toolPage={toolPage}>
-      <PageCanvas as="main">
+      <PageCanvas>
         <ToolPageHeader icon={<Network strokeWidth={2.2} />} intro={<Intro />} toolPage={toolPage} />
         <IpAsnLookupFromUrl />
         <ToolPageArticle>

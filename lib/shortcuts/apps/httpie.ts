@@ -8,8 +8,6 @@ const httpie: AppShortcuts = {
   name: "HTTPie",
   category: "API client",
   platforms: [...platforms],
-  intro:
-    "HTTPie Desktop's shortcuts cover tabs, the request editor, search, and the library. They keep a request session moving while the URL, code editor, or response panel has focus.",
   versionContext:
     "The official HTTPie Desktop preview documentation publishes macOS, Windows, and Linux bindings. Some commands are desktop-only, and the preview feature set may change as HTTPie Desktop evolves.",
   sourceUrl: "https://httpie.io/docs/desktop/preview",

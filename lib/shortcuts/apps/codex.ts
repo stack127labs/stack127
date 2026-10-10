@@ -8,8 +8,6 @@ export const codex: AppShortcuts = {
   name: "Codex CLI",
   category: "AI coding agent",
   platforms: [...platforms],
-  intro:
-    "Codex CLI gives you a terminal UI around a running coding task. The current keymap covers steering, prompt editing, transcript navigation, reasoning effort, approvals, and the list pickers that appear around a session.",
   versionContext:
     "Built-in TUI defaults from the official OpenAI Codex source checked August 26, 2026. Codex resolves context-specific bindings and lets users rebind supported actions through /keymap and tui.keymap in config.toml. Alt may be reported as Option on macOS terminals.",
   sourceUrl: "https://github.com/openai/codex/blob/main/codex-rs/tui/src/keymap.rs",

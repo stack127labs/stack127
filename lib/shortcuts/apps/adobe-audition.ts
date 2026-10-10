@@ -18,8 +18,6 @@ export const adobeAudition: AppShortcuts = {
   name: "Adobe Audition",
   category: "Audio editor",
   platforms: ["windows", "macos"],
-  intro:
-    "Audition's published defaults cover transport and zoom, markers, Waveform Editor processing, spectral editing, and Multitrack clip or mixer adjustments. Editor-specific commands stay separate so a binding is not mistaken for an application-wide action.",
   versionContext:
     "Adobe's current expert-selected default list, updated June 17, 2026 and checked August 31, 2026. Adobe labels the web reference as partial and directs users to Edit > Keyboard Shortcuts for the complete installed keymap. CD-authoring commands removed in Audition 26.3 are not included, and custom shortcut sets are outside this reference.",
   sourceUrl: "https://helpx.adobe.com/audition/desktop/keyboard-shortcuts/default-keyboard-shortcuts.html",

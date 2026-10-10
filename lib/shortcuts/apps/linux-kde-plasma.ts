@@ -5,11 +5,9 @@ const platforms = ["linux"] as const;
 
 export const linuxKdePlasma: AppShortcuts = {
   slug: "linux-kde-plasma",
-  name: "Linux (KDE Plasma)",
+  name: "KDE Plasma",
   category: "Desktop environment",
   platforms: [...platforms],
-  intro:
-    "KDE Plasma's documented defaults cover window switching, workspaces, activities, the desktop, and the global actions that stay available above individual apps.",
   versionContext:
     "Defaults from the current KDE Plasma 6 Fundamentals and Plasma Desktop handbooks, checked September 1, 2026. Global shortcuts are configurable in System Settings, and distributions or user profiles can change them. The handbooks disagree on the direction of one Meta-plus zoom binding, so that conflicting zoom pair is omitted.",
   sourceUrl: "https://docs.kde.org/stable_kf6/en/khelpcenter/fundamentals/fundamentals.pdf",

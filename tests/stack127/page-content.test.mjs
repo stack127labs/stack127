@@ -241,10 +241,15 @@ test('finds one route and rejects missing or ambiguous routes', async () => {
     await mkdir(path.join(root, '(tools)/pilot'), { recursive: true });
     await writeFile(path.join(root, '(tools)/pilot/page.tsx'), '');
     assert.equal(await findRouteFolder('pilot', root), path.join(root, '(tools)/pilot'));
-    await assert.rejects(findRouteFolder('missing', root), /found 0/);
+    await mkdir(path.join(root, '(catalogs)/[slug]'), { recursive: true });
+    await writeFile(path.join(root, '(catalogs)/[slug]/page.tsx'), '');
+    assert.equal(await findRouteFolder('pilot', root), path.join(root, '(tools)/pilot'));
+    assert.equal(await findRouteFolder('pilot', root, 'catalog'), path.join(root, '(catalogs)/[slug]'));
+    await assert.rejects(findRouteFolder('missing', root, 'tool'), /found 0/);
     await mkdir(path.join(root, '(directories)/pilot'), { recursive: true });
     await writeFile(path.join(root, '(directories)/pilot/page.tsx'), '');
     await assert.rejects(findRouteFolder('pilot', root), /found 2/);
+    assert.equal(await findRouteFolder('pilot', root, 'directory'), path.join(root, '(directories)/pilot'));
   } finally { await rm(root, { recursive: true, force: true }); }
 });
 
@@ -268,6 +273,7 @@ test('database exports use a read-only transaction and roll back on success and 
         assert.ok(readOnly);
         assert.ok(sql.startsWith('select '));
         if (sql.includes('stack127_pages')) { assert.deepEqual(values, ['pilot']); return { rows: [{ id: 1, slug: 'pilot', page_family: 'tool' }] }; }
+        if (sql.includes('information_schema.columns')) return { rows: [{ present: true }] };
         if (fail) throw new Error('Read failed');
         return { rows: [{ intro_markdown: 'Intro', content_markdown: 'Article' }] };
       },
@@ -279,4 +285,31 @@ test('database exports use a read-only transaction and roll back on success and 
     assert.ok(rolledBack);
     assert.ok(released);
   }
+});
+
+test('exports archived tool words after the live columns have been removed', async () => {
+  let rolledBack = false;
+  let released = false;
+  const client = {
+    async query(sql, values) {
+      if (sql.startsWith('begin')) { assert.match(sql, /read only$/); return {}; }
+      if (sql === 'rollback') { rolledBack = true; return {}; }
+      if (sql.includes('stack127_pages')) return { rows: [{ id: 12, slug: 'pilot', page_family: 'tool' }] };
+      if (sql.includes('information_schema.columns')) return { rows: [{ present: false }] };
+      assert.match(sql, /from public.stack127_retired_page_content/);
+      assert.deepEqual(values, [12, 'stack127_tool_pages']);
+      return { rows: [
+        { column_name: 'intro_markdown', value: 'Original intro' },
+        { column_name: 'content_markdown', value: 'Original article' },
+        { column_name: 'usage_markdown', value: null },
+      ] };
+    },
+    release() { released = true; },
+  };
+  assert.deepEqual(await readPageContent({ connect: async () => client }, 'pilot'), {
+    id: 12, slug: 'pilot', page_family: 'tool', intro_markdown: 'Original intro',
+    content_markdown: 'Original article', usage_markdown: null,
+  });
+  assert.ok(rolledBack);
+  assert.ok(released);
 });

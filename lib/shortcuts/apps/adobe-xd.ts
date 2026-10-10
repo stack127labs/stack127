@@ -20,8 +20,6 @@ export const adobeXd: AppShortcuts = {
   name: "Adobe XD",
   category: "Interface design and prototyping",
   platforms: ["windows", "macos"],
-  intro:
-    "Adobe XD assigns commands across design, vector editing, layout, prototype preview, and shared-spec contexts. This reference keeps platform-only exports, window controls, and preview recording explicit instead of inventing Windows equivalents.",
   versionContext:
     "Adobe XD maintenance-mode desktop defaults from Adobe's June 3, 2026 reference, checked August 31, 2026. The page is Adobe's current shortcut list, but XD no longer receives ongoing feature development. Browser gestures and touch-only interactions are omitted.",
   sourceUrl: "https://helpx.adobe.com/xd/desktop/introduction/keyboard-shortcuts.html",

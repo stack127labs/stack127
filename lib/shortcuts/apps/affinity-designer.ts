@@ -18,8 +18,6 @@ export const affinityDesigner: AppShortcuts = {
   name: "Affinity Designer 2",
   category: "Vector design",
   platforms: ["windows", "macos"],
-  intro:
-    "Affinity Designer 2 assigns tools by Persona and combines them with document, view, text, drawing-modifier, and layer controls. Tool letters can be tapped to keep a tool active or held for temporary use before returning to the previous tool.",
   versionContext:
     "Affinity Designer 2 desktop defaults from Serif's May 23, 2024 Windows and macOS shortcut sheets, cross-checked against the current Affinity V2 online help on August 31, 2026. The sheets use English UK keyboard layouts, so physical key positions can differ. Customized shortcuts are not listed.",
   sourceUrl: "https://affinity.help/designer2/English.lproj/pages/Workspace/shortcuts.html",

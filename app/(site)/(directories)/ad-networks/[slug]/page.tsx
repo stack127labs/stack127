@@ -1,7 +1,7 @@
-import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { PageMeta } from "@/app/ui/site/page-meta";
-import { ContentMarkdown } from "@/app/ui/content-markdown";
+import { adNetworkContent } from "./content";
 import { notFound } from "next/navigation";
 import { Network } from "lucide-react";
 import { DirectoryQueryProvider } from "@/app/ui/directories/directory-query";
@@ -24,6 +24,9 @@ export async function generateStaticParams() {
 export default async function AdNetworkPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const directoryPage = await getRequiredDirectoryPage(`ad-networks/${slug}`);
+  const content = adNetworkContent[slug];
+  if (!content) throw new Error(`Ad network has no MDX content: ${slug}`);
+  const { Intro, Article } = content;
   const [network, networks, parentPage] = await Promise.all([getAdNetwork(slug), listAdNetworks(""), getPublishedDirectoryPage("ad-networks")]);
   if (!network) notFound();
   const route = `/ad-networks/${slug}`;
@@ -38,11 +41,11 @@ export default async function AdNetworkPage({ params }: { params: Promise<{ slug
         <PageHeader breadcrumbs={await getBreadcrumbs(`ad-networks/${slug}`)} bordered>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key ?? parentPage?.card_icon_key} fallback={<Network strokeWidth={2.2} />} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <PageMeta updatedAt={directoryPage.updated_at} />
-          <ContentMarkdown markdown={directoryPage.intro_markdown} />
+          <Intro />
         </PageHeader>
         {network.official_url ? <p className={styles.official}><a href={network.official_url} rel="noopener noreferrer" target="_blank">Official {network.name} website ↗</a></p> : null}
         <PublisherList firstPage={rows.slice(0, publisherPageSize)} index={index} networkName={network.name} route={route} total={rows.length} />
-        <div className={styles.method}><DirectoryPageContent page={directoryPage} /></div>
+        <div className={styles.method}><Article /></div>
       </PageCanvas>
     </AppShell>
   </DirectoryQueryProvider>;

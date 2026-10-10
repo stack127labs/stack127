@@ -5,11 +5,9 @@ const platforms = ["windows", "macos"] as const;
 
 export const cubase: AppShortcuts = {
   slug: "cubase",
-  name: "Steinberg Cubase",
+  name: "Cubase",
   category: "Music production",
   platforms: [...platforms],
-  intro:
-    "Cubase Pro's current default key command reference covers project files, editing, transport, windows, and media. The platform-neutral commands are paired with the documented Windows and macOS modifier conventions.",
   versionContext:
     "Cubase Pro 15.0 key commands checked September 1, 2026. Steinberg documents Windows and macOS defaults and allows users to customize or reset the key command preset.",
   sourceUrl: "https://www.steinberg.help/r/cubase-pro/15.0/en/cubase_nuendo/topics/key_commands/key_commands_default_c.html",

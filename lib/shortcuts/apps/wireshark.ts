@@ -21,13 +21,11 @@ export const wireshark: AppShortcuts = {
   name: "Wireshark",
   category: "Network analysis",
   platforms: [...platforms],
-  intro:
-    "Wireshark's current User's Guide documents keyboard navigation, packet search, marking, references, capture controls, and display actions for its desktop application.",
   versionContext:
-    "Wireshark User's Guide 4.7.3 checked September 1, 2026. The guide uses the same menu shortcuts across desktop platforms, with Option replacing Alt for packet-selection history on macOS.",
+    "Current Wireshark User's Guide 4.7.3 checked October 10, 2026. The guide uses the same menu shortcuts across desktop platforms, with Option replacing Alt for packet-selection history on macOS.",
   sourceUrl: "https://www.wireshark.org/docs/wsug_html/",
   sourceLabel: "official Wireshark User's Guide",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-10-10",
   groups: [
     {
       id: "packet-navigation",
@@ -38,8 +36,16 @@ export const wireshark: AppShortcuts = {
         shared("previous-pane", "Move to the previous pane", ["Shift", "Tab"]),
         shared("next-packet", "Select the next packet", ["Down Arrow"]),
         shared("previous-packet", "Select the previous packet", ["Up Arrow"]),
-        shared("next-packet-fast", "Select the next packet", ["Ctrl", "Down Arrow"]),
-        shared("previous-packet-fast", "Select the previous packet", ["Ctrl", "Up Arrow"]),
+        {
+          id: "next-packet-fast",
+          action: "Select the next packet even if the packet list isn't focused",
+          keys: combo(platforms, ["Ctrl", "Down Arrow"]).map((entry) => ({ ...entry, alternatives: [["F8"]] })),
+        },
+        {
+          id: "previous-packet-fast",
+          action: "Select the previous packet even if the packet list isn't focused",
+          keys: combo(platforms, ["Ctrl", "Up Arrow"]).map((entry) => ({ ...entry, alternatives: [["F7"]] })),
+        },
         shared("next-conversation-packet", "Select the next packet in the conversation", ["Ctrl", "."]),
         shared("previous-conversation-packet", "Select the previous packet in the conversation", ["Ctrl", ","]),
         history("next-selection", "Move forward in packet-selection history", ["Alt", "Right Arrow"], ["Option", "Right Arrow"]),

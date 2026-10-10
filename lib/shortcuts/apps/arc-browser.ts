@@ -14,16 +14,14 @@ const rows = (items: Row[]): Shortcut[] =>
 
 export const arcBrowser: AppShortcuts = {
   slug: "arc-browser",
-  name: "Arc Browser",
+  name: "Arc",
   category: "Web browser",
   platforms: ["windows", "macos"],
-  intro:
-    "Arc organizes browsing around tabs, Spaces, a sidebar, and Split View. This reference preserves the different Windows and macOS navigation chords, including macOS-only Little Arc and alternate history keys.",
   versionContext:
     "Default shortcuts from Arc's current official Help Center article, checked August 31, 2026. Arc's article metadata reports an update on November 5, 2024. Arc lets users remap shortcuts in Settings, so this reference covers documented defaults only.",
   sourceUrl: "https://resources.arc.net/hc/en-us/articles/20595231349911-Keyboard-Shortcuts",
   sourceLabel: "Arc Browser keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-10-10",
   groups: [
     {
       id: "tabs-and-windows",

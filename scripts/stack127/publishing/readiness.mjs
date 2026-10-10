@@ -93,8 +93,10 @@ export async function checkRepositoryRequirements(requirements, state, root = pr
   }
   if (state.family === 'course' && !state.lesson) throw new Error(`Course lesson definition is missing: ${state.slug}`);
   if (state.content) {
-    const markdown = Object.fromEntries(Object.entries(state.content).filter(([key, value]) => key.endsWith('_markdown') && typeof value === 'string'));
-    validateToolMarkdown(markdown, { repositoryRoot: root });
+    if (state.family === 'course') {
+      const markdown = Object.fromEntries(Object.entries(state.content).filter(([key, value]) => key.endsWith('_markdown') && typeof value === 'string'));
+      validateToolMarkdown(markdown, { repositoryRoot: root });
+    }
     const keys = async (file, name) => {
       const source = await readFile(await repositoryFile(file, root), 'utf8');
       const entries = source.match(new RegExp(`\\bconst ${name}\\s*:[^=]+=[ \\t\\r\\n]*\\{([\\s\\S]*?)^\\s*\\};`, 'm'))?.[1];

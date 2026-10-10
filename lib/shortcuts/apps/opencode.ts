@@ -16,8 +16,6 @@ export const opencode: AppShortcuts = {
   name: "OpenCode",
   category: "AI coding agent",
   platforms: [...platforms],
-  intro:
-    "OpenCode exposes a large, remappable TUI keymap. This page covers the current default leader chords, session and model controls, message navigation, prompt editing, dialogs, and the desktop prompt layer.",
   versionContext:
     "Current default keybinds from opencode.ai, last updated August 25, 2026. The leader is Ctrl+X, leader chords are sequential, and every TUI binding can be remapped in tui.json.",
   sourceUrl: "https://opencode.ai/docs/keybinds",

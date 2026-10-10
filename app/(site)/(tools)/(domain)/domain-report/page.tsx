@@ -13,7 +13,7 @@ export default async function DomainReportPage() {
 
   return (
     <ToolPageShell toolPage={toolPage}>
-      <PageCanvas as="main" className="domain-tool-main">
+      <PageCanvas className="domain-tool-main">
         <ToolPageHeader
           icon={<ClipboardList strokeWidth={2.2} />}
           intro={<Intro />}

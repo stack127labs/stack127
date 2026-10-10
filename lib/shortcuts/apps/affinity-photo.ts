@@ -18,8 +18,6 @@ export const affinityPhoto: AppShortcuts = {
   name: "Affinity Photo 2",
   category: "Photo editing",
   platforms: ["windows", "macos"],
-  intro:
-    "Affinity Photo 2 changes tool letters with the active Persona while keeping common document, view, brush, and layer commands available throughout the desktop app. This reference labels each Persona so overlapping keys remain understandable.",
   versionContext:
     "Affinity Photo 2 desktop defaults from Serif's September 19, 2023 Windows and macOS shortcut sheets, cross-checked against the current Affinity V2 online help on August 31, 2026. The sheets use English UK or British keyboard layouts, so physical key positions can differ. Customized shortcuts are not listed.",
   sourceUrl: "https://affinity.help/photo2/English.lproj/pages/Workspace/shortcuts.html",

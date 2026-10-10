@@ -84,8 +84,8 @@ test('directory, course, and labs keys resolve in both registries and existing t
 
 test('writers reject unknown card keys before opening a database connection', () => {
   for (const [script, args, error] of [
-    ['directory-pages/update-content.mjs', ['--slug', 'self-host-apps', '--card-icon-key', 'missing-icon'], /Unknown card_icon_key/],
-    ['directory-pages/update-content.mjs', ['--slug', 'self-host-apps', '--card-art-key', 'missing-art'], /Unknown card_art_key/],
+    ['directory-pages/update-fields.mjs', ['--slug', 'self-host-apps', '--card-icon-key', 'missing-icon'], /Unknown card_icon_key/],
+    ['directory-pages/update-fields.mjs', ['--slug', 'self-host-apps', '--card-art-key', 'missing-art'], /Unknown card_art_key/],
     ['tool-pages/update-catalogs.mjs', ['--slug', 'dns-lookup', '--card-name', 'DNS', '--card-description', 'Lookup',
       '--card-icon-key', 'network', '--card-art-key', 'missing-art', '--catalogs', 'dns-tools'], /Unknown card_art_key/],
   ]) {

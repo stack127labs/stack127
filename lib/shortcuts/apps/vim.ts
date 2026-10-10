@@ -8,8 +8,6 @@ export const vim: AppShortcuts = {
   name: "Vim",
   category: "Text editor",
   platforms: [...platforms],
-  intro:
-    "Vim is a language of motions, operators, and modes rather than a list of isolated hotkeys. This reference covers the normal, insert, visual, search, window, and command-line paths that make the official quick reference useful at the keyboard.",
   versionContext:
     "Core Vim 9.2 behavior from the official Vim quick reference checked in August 2026. Commands are typed inside Vim, so the same keys apply on Windows, macOS, and Linux; terminal or GUI mappings can change them.",
   sourceUrl: "https://vimhelp.org/quickref.txt.html",

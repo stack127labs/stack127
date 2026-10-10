@@ -28,8 +28,6 @@ export const wix: AppShortcuts = {
   name: "Wix",
   category: "Website builder",
   platforms: [...platforms],
-  intro:
-    "Wix publishes keyboard shortcuts for the Wix Editor, including object editing, panels, page controls, and text formatting.",
   versionContext:
     "Wix Editor shortcut article checked September 1, 2026. The source lists Windows and Mac combinations and notes that some commands depend on the editor focus.",
   sourceUrl: "https://support.wix.com/en/article/wix-editor-keyboard-shortcuts-in-the-editor",

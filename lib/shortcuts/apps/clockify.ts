@@ -13,8 +13,6 @@ export const clockify: AppShortcuts = {
   name: "Clockify",
   category: "Time tracking",
   platforms: ["windows", "macos", "linux"],
-  intro:
-    "Clockify's web Time Tracker uses single keys when no field is being edited. The native Mac app has a separate set of Command shortcuts that work while its window has focus.",
   versionContext:
     "Current Clockify web and Mac desktop documentation checked August 31, 2026. Favorite-entry number keys require the workspace feature to be enabled and entries pinned. User-configurable global shortcuts are not listed as defaults.",
   sourceUrl: "https://clockify.me/help/track-time-and-expenses/creating-a-time-entry",

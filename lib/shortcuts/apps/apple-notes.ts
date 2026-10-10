@@ -12,8 +12,6 @@ export const appleNotes: AppShortcuts = {
   name: "Apple Notes",
   category: "Notes",
   platforms: ["macos"],
-  intro:
-    "Notes on Mac provides shortcuts for the main window, note formatting, lists, shared-note navigation, and table editing. Table keys depend on whether the insertion point is inside a cell, so those commands remain in their own group.",
   versionContext:
     "Current Notes defaults from Apple's macOS Tahoe user guide, checked August 31, 2026. Shortcuts can vary with language and keyboard layout. Trackpad and Magic Mouse gestures are omitted from this keyboard-only reference.",
   sourceUrl: "https://support.apple.com/guide/notes/keyboard-shortcuts-and-gestures-apd46c25187e/mac",

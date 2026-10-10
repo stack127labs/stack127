@@ -8,8 +8,6 @@ const grammarly: AppShortcuts = {
   name: "Grammarly",
   category: "Writing assistant",
   platforms: [...platforms],
-  intro:
-    "Grammarly's current desktop accessibility reference documents keyboard navigation for the assistant and sidebar. These entries cover opening and closing the desktop surfaces and moving through their controls.",
   versionContext:
     "The source covers Grammarly for Windows and Mac, not every browser or editor integration. Tab and Shift+Tab move focus, while Enter or Space activates a focused control. Grammarly's separate quick-fix Tab behavior is being discontinued and is not included.",
   sourceUrl: "https://support.grammarly.com/hc/en-us/articles/24059143083277-Can-I-use-my-keyboard-to-navigate-Grammarly-for-Windows-and-Mac",

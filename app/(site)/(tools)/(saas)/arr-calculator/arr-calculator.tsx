@@ -135,7 +135,7 @@ export function ArrCalculator() {
           <div className={styles.results}>
             <UiPrimaryResult
               inputRef={resultRef}
-              label="Annualized ARR"
+              label="ARR (12 × MRR)"
               value={formatResultCents(result.annualizedArrCents, result.currency)}
             />
             <p className={styles.basis}>

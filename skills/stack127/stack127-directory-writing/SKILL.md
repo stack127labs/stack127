@@ -13,7 +13,7 @@ This skill covers words. Each directory gathers and shows its data differently, 
 
 The intro and the page's sections live in `content/*.mdx` beside the route. The title and card text are in the page's `public.stack127_directory_pages` row. The SEO title and description are on its `public.stack127_pages` row.
 
-If the page still renders its content from the database, move it to MDX first with the steps in `page-content.md`, and commit the move before rewriting.
+Read and edit its MDX files. Tools, directories, and catalogs have no database-content fallback.
 
 Each child page has its own `content/` files: beside its own `page.tsx`, such as `keyboard-shortcuts/figma/content/`, or in a folder named for its slug under a shared route, such as `platform-fees/[section]/content/<category>/`. See `page-content.md`.
 
@@ -96,7 +96,7 @@ Each child page gets its own title and search metadata too, written for what peo
 
 Write the intro and sections into the route's `content/*.mdx` files, and import any new section file where it goes on the page. Run `node scripts/stack127/content/check-mdx.mjs` and fix what it reports. The content ships with a code release.
 
-Apply the title, SEO fields, and card text to development with `scripts/stack127/directory-pages/update-content.mjs --environment development`. It previews and rolls back unless you add `--apply`. Use `--title`, `--meta-title`, `--meta-description`, `--card-name`, and `--card-description`. Don't rerun a directory's full sync just to change copy, because it may reload records in the shared development database. Don't run a record sync to change child page words or titles.
+Apply the title, SEO fields, and card text to development with `scripts/stack127/directory-pages/update-fields.mjs --environment development`. It previews and rolls back unless you add `--apply`. Use `--title`, `--meta-title`, `--meta-description`, `--card-name`, and `--card-description`. Don't rerun a directory's full sync just to change copy, because it may reload records in the shared development database. Don't run a record sync to change child page words or titles.
 
 A changed title, SEO field, or card text moves the public date and queues a cache refresh. A child edit also moves its directory ancestors' dates. Record imports do this automatically where covered. An MDX content change doesn't. For a meaningful content or code record change, use the development touch command, and give the coordinator a `touch_reason` for the release manifest. Skip explicit touches for typo fixes. See `directory-pages.md`. A worktree preview needs the local cache watcher pointed at its port; see `homelab-development.md`. The watcher clears the events it handles from the shared queue, so run it only for as long as you need.
 
