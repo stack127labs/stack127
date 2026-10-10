@@ -1,0 +1,65 @@
+/* Muted mono steps divided by slashes. Sections show lowercase, like the main menu. The current page is semibold in the text color. */
+.breadcrumbs {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  line-height: var(--line-ui);
+  min-width: 0;
+}
+
+nav.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Inside a prose header, list items would otherwise take the reading size. */
+nav.breadcrumbs li {
+  align-items: baseline;
+  color: inherit;
+  display: inline-flex;
+  font-size: inherit;
+  line-height: inherit;
+  min-width: 0;
+}
+
+/* The slash trails each step, so a wrapped line starts with a name, not a slash. */
+nav.breadcrumbs li:not(:last-child)::after {
+  color: var(--color-text-muted);
+  content: "/";
+  content: "/" / "";
+  opacity: 0.6;
+  padding-inline: var(--space-3);
+}
+
+nav.breadcrumbs li[data-section] {
+  text-transform: lowercase;
+}
+
+nav.breadcrumbs a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+nav.breadcrumbs a:hover,
+nav.breadcrumbs a:focus-visible {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-underline-offset: 3px;
+}
+
+nav.breadcrumbs a:focus-visible {
+  border-radius: var(--radius);
+  box-shadow: var(--focus-ring);
+  outline: none;
+}
+
+nav.breadcrumbs [aria-current="page"] {
+  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+  overflow-wrap: anywhere;
+}

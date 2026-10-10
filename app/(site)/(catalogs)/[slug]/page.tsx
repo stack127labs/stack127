@@ -12,6 +12,7 @@ import { ToolCatalogSidebar } from "@/app/ui/catalogs/tool-catalog-sidebar";
 import { cardArt } from "@/lib/card-art";
 import { cardIcon } from "@/lib/card-icons";
 import { getPublishedToolCatalog } from "@/lib/tool-catalogs";
+import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { catalogContent } from "./content";
 
 export default async function ToolCatalogPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -31,7 +32,7 @@ export default async function ToolCatalogPage({ params }: { params: Promise<{ sl
       sidebarLabel="Tool catalogs sidebar"
     >
       <EntryHero art={cardArt(catalog.card_art_key)}>
-        <PageHeader>
+        <PageHeader breadcrumbs={await getBreadcrumbs(slug)}>
           <h1>
             <PageTitleIcon><Icon strokeWidth={2.2} /></PageTitleIcon>{" "}
             <DirectoryPageTitle title={catalog.title} />

@@ -7,6 +7,7 @@ import {
   ListFilter,
   MessageSquare,
   MousePointerClick,
+  Pilcrow,
   Signpost,
   SlidersHorizontal,
   SquareStack,
@@ -76,9 +77,9 @@ export const gallerySections: GallerySection[] = [
   {
     slug: "tables",
     label: "Tables",
-    description: "Data tables with row headers, and a scroll frame for wide tables.",
+    description: "Data tables with row headers, content tables written in MDX, and a scroll frame for wide tables.",
     icon: Table2,
-    components: ["UiDataTable", "TableFrame"],
+    components: ["UiDataTable", "ContentTable", "TableFrame"],
   },
   {
     slug: "charts",
@@ -97,9 +98,16 @@ export const gallerySections: GallerySection[] = [
   {
     slug: "content",
     label: "Content",
-    description: "Notes, warnings, formulas, examples, questions, code, and Markdown.",
+    description: "Notes, warnings, tips, formulas, examples, terms, questions, and code.",
     icon: FileText,
-    components: ["Callout", "Note", "Warning", "ContentBlock", "Faq", "CodeBlock", "ContentMarkdown"],
+    components: ["Callout", "Note", "Warning", "Tip", "ContentBlock", "Terms", "Term", "Faq", "CodeBlock"],
+  },
+  {
+    slug: "prose",
+    label: "Prose",
+    description: "Reading text: headings, paragraphs, links, lists, quotes, inline code, and how blocks sit between them.",
+    icon: Pilcrow,
+    components: ["proseClassName", "proseFlowClassName", "proseSectionFlowClassName", "proseLedeClassName"],
   },
   {
     slug: "media-and-art",
@@ -118,9 +126,9 @@ export const gallerySections: GallerySection[] = [
   {
     slug: "navigation",
     label: "Navigation",
-    description: "Page links for long lists and sidebar link lists.",
+    description: "Breadcrumbs above page titles, page links for long lists, and sidebar link lists.",
     icon: Signpost,
-    components: ["Pagination", "SidebarList"],
+    components: ["Breadcrumbs", "Pagination", "SidebarList"],
   },
   {
     slug: "page-layout",

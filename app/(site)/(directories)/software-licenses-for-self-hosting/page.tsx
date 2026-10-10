@@ -1,4 +1,5 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
+import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import type { MDXComponents } from "mdx/types";
@@ -203,7 +204,7 @@ export default async function SoftwareLicensesPage() {
       sidebarLabel="Software licenses sidebar"
     >
       <PageCanvas as="div" flow className="license-page">
-        <PageHeader bordered className={proseClassName}>
+        <PageHeader breadcrumbs={await getBreadcrumbs("software-licenses-for-self-hosting")} bordered className={proseClassName}>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <PageMeta updatedAt={directoryPage.updated_at} />
           <Intro components={{ p: ({ children }) => <p className={proseLedeClassName}>{children}</p> }} />

@@ -1,4 +1,5 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
+import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import { ContentMarkdown } from "@/app/ui/content-markdown";
@@ -25,7 +26,7 @@ export default async function AdNetworksPage() {
     <RegistryStructuredData path="/ad-networks" />
     <AppShell mainLabel="Ad networks directory" menuLabel="Networks" sidebar={<AdNetworksSidebar networks={networks} />} sidebarLabel="Ad networks">
       <EntryHero art={null}>
-        <PageHeader>
+        <PageHeader breadcrumbs={await getBreadcrumbs("ad-networks")}>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} fallback={<Network strokeWidth={2.2} />} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <PageMeta updatedAt={directoryPage.updated_at} />
           <ContentMarkdown markdown={directoryPage.intro_markdown} />

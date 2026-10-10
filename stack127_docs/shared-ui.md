@@ -14,9 +14,10 @@ The Components UI gallery is at `/components-ui` in development. That route retu
 | Interactive charts on pages | `UiChart` in `app/ui/charts/chart.tsx` |
 | Charts nobody needs to interact with, such as in articles | `UiStaticChart` in `app/ui/charts/chart-static.tsx` |
 | Charts of data computed in the browser, such as tool results | `UiLiveChart` in `app/ui/charts/chart-client.tsx` |
-| Notes, warnings, and recommendations | `Callout`, `Note`, `Warning` in `app/ui/callout.tsx` |
+| Notes, warnings, and recommendations | `Callout`, `Note`, `Warning`, `Tip` in `app/ui/callout.tsx` |
 | Formulas and worked examples | `ContentBlock` in `app/ui/content-block.tsx` |
 | Empty, loading, and error panels | `StatePanel` in `app/ui/state-panel.tsx` |
+| Breadcrumbs above a page title | `getBreadcrumbs` or `getToolBreadcrumbs` in `lib/breadcrumbs.ts`, passed to `PageHeader`'s `breadcrumbs` |
 | URL-based page navigation | `Pagination` in `app/ui/pagination.tsx` |
 | Detail drawer with focus and close behavior | `DetailDialog` and `DetailDialogClose` in `app/ui/detail-dialog.tsx` |
 | FAQ with repeated questions | `Faq` in `app/ui/faq.tsx` |
@@ -41,9 +42,11 @@ import { UiDataTable } from "@/app/ui/display";
 import { Callout } from "@/app/ui/callout";
 ```
 
-The gallery is the component library. It groups components by what they do, not by the page family that first used them, because any page can use any component. Its sidebar links one page per section: text and choices, numbers and sliders, actions and forms, file uploads, filters and sorting, results, tables, charts, cards, content, media and art, feedback and dialogs, navigation, and page layout. `/components-ui` lists every section and its components. Page layout links to real pages for full layouts. The TypeScript props beside each component are the full API. The table above helps you pick the right one.
+The gallery is the component library. It groups components by what they do, not by the page family that first used them, because any page can use any component. Its sidebar links one page per section: text and choices, numbers and sliders, actions and forms, file uploads, filters and sorting, results, tables, charts, cards, content, prose, media and art, feedback and dialogs, navigation, and page layout. `/components-ui` lists every section and its components. Page layout links to real pages for full layouts. The TypeScript props beside each component are the full API. The table above helps you pick the right one.
 
 To add a component to the gallery, add an `Example` to the matching file in `app/(site)/(components-ui)/components-ui/examples/` and add its name to that section in `sections.ts`. Add a new section only when no existing type fits.
+
+Show each look once. When a thin wrapper renders the same thing as another component, such as `ToolCard` over `PageCard`, list both names on one example instead of drawing the card twice. A component content can use gets a `usage` snippet with the MDX to write.
 
 ### When to add a component
 
@@ -148,7 +151,7 @@ Page content is MDX beside each route. [page-content.md](page-content.md) lists 
 - Draw a chart with `<UiStaticChart spec={…} />`, using the spec from [Charts](#charts). Use `UiChart` only when the reader needs hover, toggles, or ranges.
 - Embed approved marker art with `<MarkerArt figure="catalog/zfs-capacity" alt="…" />`. The figure must be registered in `app/marker-art-registry.json`.
 
-`ContentMarkdown` in `app/ui/content-markdown.tsx` renders pages whose content is still in the database. It uses the same elements, so moved and unmoved pages look the same.
+`ContentMarkdown` in `app/ui/content-markdown.tsx` renders pages whose content is still in the database: course pages, the ad network pages, and pages not yet moved to MDX. It uses the same elements, so moved and unmoved pages look the same. It isn't in the gallery, because new content is MDX. Remove it once nothing renders database content.
 
 ## Check a change
 

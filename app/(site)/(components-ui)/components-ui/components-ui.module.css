@@ -107,6 +107,12 @@
 
 /* Example layouts */
 
+/* Prose demos stop at the reading width, as they do on pages. */
+.reading {
+  max-width: var(--measure-prose);
+  min-width: 0;
+}
+
 .stack {
   display: grid;
   gap: var(--space-8);
@@ -151,18 +157,6 @@
   overflow: hidden;
   padding: var(--space-8);
   position: relative;
-}
-
-.cardLogo {
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius);
-  color: var(--color-text);
-  display: grid;
-  font-family: var(--font-display);
-  font-weight: var(--weight-bold);
-  height: 48px;
-  place-items: center;
-  width: 48px;
 }
 
 .markerExample {

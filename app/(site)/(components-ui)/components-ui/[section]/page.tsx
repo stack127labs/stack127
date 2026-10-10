@@ -10,6 +10,7 @@ import { MediaAndArtExamples } from "../examples/media-and-art";
 import { NavigationExamples } from "../examples/navigation";
 import { NumbersAndSlidersExamples } from "../examples/numbers-and-sliders";
 import { PageLayoutExamples } from "../examples/page-layout";
+import { ProseExamples } from "../examples/prose";
 import { ResultsExamples } from "../examples/results";
 import { TablesExamples } from "../examples/tables";
 import { TextAndChoicesExamples } from "../examples/text-and-choices";
@@ -27,6 +28,7 @@ const examples: Record<string, ComponentType> = {
   tables: TablesExamples,
   cards: CardsExamples,
   content: ContentExamples,
+  prose: ProseExamples,
   "media-and-art": MediaAndArtExamples,
   "feedback-and-dialogs": FeedbackAndDialogsExamples,
   navigation: NavigationExamples,

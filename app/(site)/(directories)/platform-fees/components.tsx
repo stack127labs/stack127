@@ -20,6 +20,7 @@ import { DirectoryTitleIcon } from '@/app/ui/directories/directory-title-icon';
 import { SidebarList } from '@/app/ui/site/sidebar-list';
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from '@/app/ui/site/sidebar-panel';
 import { feeGroups, groupPath, type FeeGroup } from '@/lib/platform-fees/groups';
+import { getBreadcrumbs } from '@/lib/breadcrumbs';
 import type { FeeEntry, FeeSection } from '@/lib/platform-fees/model';
 import { FeeSearch, FeeSidebarAnchors, type FeeAnchor } from './filters';
 import styles from './page.module.css';
@@ -40,12 +41,11 @@ export function SectionIcon({ icon, size = 22 }: { icon: FeeSection['icon']; siz
 }
 
 /** `intro` and `article` are the page's own MDX content. */
-export function FeeShell({ directoryPage, intro, article, children, overview = false, group, anchors = [] }: {
+export async function FeeShell({ directoryPage, intro, article, children, group, anchors = [] }: {
   directoryPage: Stack127DirectoryPage;
   intro: ReactNode;
   article?: ReactNode;
   children: ReactNode;
-  overview?: boolean;
   group?: FeeGroup;
   anchors?: FeeAnchor[];
 }) {
@@ -62,11 +62,11 @@ export function FeeShell({ directoryPage, intro, article, children, overview = f
     {anchors.length > 0 && <FeeSidebarAnchors anchors={anchors} />}
   </div>;
 
+  const breadcrumbs = await getBreadcrumbs(group ? groupPath(group.name).slice(1) : 'platform-fees');
   return <FeeSearch>
     <AppShell mainLabel={directoryTitleParts(directoryPage.title).map(part => part.text).join('')} sidebar={sidebar} sidebarLabel="Fee categories" menuLabel="Categories">
       <EntryHero art={null}>
-        <PageHeader>
-          {!overview && <Link href="/platform-fees" className={styles.back}>Platform fees</Link>}
+        <PageHeader breadcrumbs={breadcrumbs}>
           <h1>{group ? <PageTitleIcon><SectionIcon icon={group.icon} /></PageTitleIcon> : <DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />}{' '}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <PageMeta updatedAt={directoryPage.updated_at} />
           {intro}

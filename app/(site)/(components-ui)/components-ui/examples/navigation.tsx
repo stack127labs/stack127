@@ -1,5 +1,6 @@
 import { Globe, HardDrive, Keyboard } from "lucide-react";
 import { Pagination } from "@/app/ui/pagination";
+import { Breadcrumbs } from "@/app/ui/site/breadcrumbs";
 import { SidebarList } from "@/app/ui/site/sidebar-list";
 import { Example } from "../gallery";
 import styles from "../components-ui.module.css";
@@ -9,6 +10,22 @@ const here = "/components-ui/navigation";
 export function NavigationExamples() {
   return (
     <>
+      <Example
+        components={["Breadcrumbs", "getBreadcrumbs", "getToolBreadcrumbs"]}
+        note="Above every page title but home's. Sections show lowercase, like the main menu; the page keeps its own name. A tool sits under its primary catalog. Pass the trail to PageHeader."
+        source="app/ui/site/breadcrumbs.tsx, lib/breadcrumbs.ts"
+        title="Breadcrumbs"
+        usage={{ label: "TSX", code: `<PageHeader breadcrumbs={await getBreadcrumbs("keyboard-shortcuts/claude-code", app.name)}>
+  <h1>…</h1>
+</PageHeader>` }}
+      >
+        <div className={styles.stack}>
+          <Breadcrumbs items={[{ name: "stack127", href: "/", section: true }, { name: "domain tools", href: "/domain-tools", section: true }, { name: "Domain age checker", href: "/domain-age", section: false }]} />
+          <Breadcrumbs items={[{ name: "stack127", href: "/", section: true }, { name: "Keyboard shortcuts", href: "/keyboard-shortcuts", section: true }, { name: "Claude Code", href: "/keyboard-shortcuts/claude-code", section: false }]} />
+          <Breadcrumbs items={[{ name: "stack127", href: "/", section: true }, { name: "self-host apps", href: "/self-host-apps", section: true }]} />
+        </div>
+      </Example>
+
       <Example components={["Pagination"]} note="The page builds each link, so filters and sorting stay in the URL. Page one uses the clean URL." source="app/ui/pagination.tsx" title="Pagination">
         <Pagination ariaLabel="Example pages" currentPage={4} hrefForPage={(page) => page === 1 ? here : `${here}?page=${page}`} totalPages={12} />
       </Example>

@@ -1,57 +1,82 @@
+/* Code surfaces stay dark in both themes: one familiar terminal everywhere.
+   The locally scoped custom properties keep that independent of the page theme. */
 .block {
+  --code-bg: #141413;
+  --code-header: #1b1b1a;
+  --code-rule: rgba(232, 232, 228, 0.1);
+  --code-text: #e8e8e4;
+  --code-muted: #9d9c95;
+  --code-accent: #bafc3c;
+  background: var(--code-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
   display: grid;
-  gap: var(--space-2);
   margin: 0;
   min-width: 0;
+  overflow: hidden;
+}
+
+.header {
+  align-items: center;
+  background: var(--code-header);
+  border-bottom: 1px solid var(--code-rule);
+  display: flex;
+  gap: var(--space-5);
+  justify-content: space-between;
+  min-width: 0;
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-8);
 }
 
 .label {
-  color: var(--color-text-muted);
+  color: var(--code-muted);
   font-family: var(--font-mono);
   font-size: var(--text-small);
   line-height: var(--line-ui);
   min-width: 0;
   overflow: hidden;
-  padding: 0 var(--space-1);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* Code surfaces stay dark in both themes: one familiar terminal everywhere.
-   The locally scoped custom properties keep that independent of the page theme. */
-.frame {
-  --code-bg: #141413;
-  --code-text: #e8e8e4;
-  --code-muted: #9d9c95;
+.body {
   align-items: flex-start;
-  background: var(--code-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space-5);
   min-width: 0;
-  padding: var(--space-6) var(--space-4) var(--space-6) var(--space-7);
+  padding: var(--space-8) var(--space-8);
+}
+
+.block:not([data-labeled]) .body {
+  align-items: center;
+  padding: var(--space-4) var(--space-3) var(--space-4) var(--space-8);
 }
 
 .copy {
   align-items: center;
   appearance: none;
   background: transparent;
-  border: 0;
+  border: 1px solid transparent;
   border-radius: var(--radius);
   color: var(--code-muted);
   cursor: pointer;
   display: inline-flex;
   flex: 0 0 auto;
-  height: 22px;
-  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  gap: var(--space-2);
+  height: 30px;
+  line-height: 1;
   margin: 0;
-  padding: 0;
-  width: 22px;
+  padding: 0 var(--space-4);
 }
 
 .copy:hover {
-  color: var(--color-accent);
+  border-color: var(--code-rule);
+  color: var(--code-text);
+}
+
+.copy[data-copied] {
+  color: var(--code-accent);
 }
 
 .copy:focus-visible {
@@ -67,10 +92,28 @@
   padding: 0;
 }
 
+.block:not([data-labeled]) .pre {
+  padding-block: var(--space-4);
+}
+
 .pre code {
   color: var(--code-text);
   font-family: var(--font-mono);
   font-size: var(--text-small);
-  line-height: 1.6;
+  line-height: 1.7;
   white-space: pre;
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding-left: var(--space-6);
+  }
+
+  .body {
+    padding: var(--space-7) var(--space-6);
+  }
+
+  .block:not([data-labeled]) .body {
+    padding-left: var(--space-6);
+  }
 }

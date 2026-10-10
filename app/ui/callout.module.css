@@ -1,35 +1,51 @@
+/* Neutral box. The icon names the kind; only a warning colors its words. */
 .callout {
   align-self: start;
-  background: var(--color-surface-2);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
+  column-gap: var(--space-5);
   display: grid;
-  gap: var(--space-2);
+  grid-template-columns: auto minmax(0, 1fr);
   max-width: var(--measure-prose);
   min-width: 0;
-  padding: var(--space-4) var(--space-6);
+  padding: var(--space-7) var(--space-9) var(--space-8) var(--space-8);
   width: 100%;
 }
 
-.callout .title {
-  color: var(--color-text);
-  font-size: var(--text-small);
-  font-weight: var(--weight-semibold);
-  line-height: var(--line-ui);
-  margin: 0;
+.icon {
+  color: var(--color-text-muted);
+  margin-top: 1px;
 }
 
-.callout[data-tone="recommend"] .title {
-  color: var(--color-success-text);
+.callout[data-tone="recommend"] .icon {
+  color: var(--color-accent-text);
 }
 
+.callout[data-tone="warning"] .icon,
 .callout[data-tone="warning"] .title {
   color: var(--color-warning-text);
 }
 
+.content {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.callout .title {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
 .body {
   display: grid;
-  gap: var(--space-2);
+  gap: var(--space-5);
   min-width: 0;
 }
 

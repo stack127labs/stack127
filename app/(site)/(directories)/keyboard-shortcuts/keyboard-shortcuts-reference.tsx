@@ -1,3 +1,4 @@
+import type { Breadcrumb } from "@/lib/breadcrumbs";
 import type { Stack127DirectoryPage } from "@/lib/directory-pages";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
@@ -58,10 +59,10 @@ function ShortcutRow({ shortcut, platforms }: { shortcut: Shortcut; platforms: A
  * `intro` is the app page's own `content/intro.mdx`. `iconKey` is the page's own card icon key,
  * or the keyboard shortcuts directory's when it has none.
  */
-export function KeyboardShortcutsReference({ app, directoryPage, iconKey, intro }: { app: AppShortcuts; directoryPage: Stack127DirectoryPage; iconKey: string | null; intro: ReactNode }) {
+export function KeyboardShortcutsReference({ app, breadcrumbs, directoryPage, iconKey, intro }: { app: AppShortcuts; breadcrumbs: Breadcrumb[]; directoryPage: Stack127DirectoryPage; iconKey: string | null; intro: ReactNode }) {
   return (
     <PageCanvas className={styles.page} flow>
-      <PageHeader>
+      <PageHeader breadcrumbs={breadcrumbs}>
         <h1>
           <DirectoryTitleIcon iconKey={iconKey} />{" "}
           <DirectoryPageTitle title={directoryPage.title} />

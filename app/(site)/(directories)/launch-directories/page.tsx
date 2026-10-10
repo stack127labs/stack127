@@ -1,4 +1,5 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
+import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import { DirectoryQueryProvider } from "@/app/ui/directories/directory-query";
@@ -36,7 +37,7 @@ export default async function LaunchDirectoriesPage() {
   return <DirectoryQueryProvider route="/launch-directories">
     <AppShell mainLabel="Launch directory results" menuLabel="Filters" sidebar={sidebar} sidebarLabel="Launch directory filters">
       <EntryHero art={null}>
-        <PageHeader>
+        <PageHeader breadcrumbs={await getBreadcrumbs("launch-directories")}>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <PageMeta updatedAt={directoryPage.updated_at} />
           <Intro />

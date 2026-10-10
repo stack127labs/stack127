@@ -1,4 +1,5 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
+import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { DirectoryPageTitle } from "./directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
@@ -63,7 +64,7 @@ export async function HardwareDirectoryPage({ article, config, intro, snapshot }
     <DirectoryQueryProvider route={config.route}>
       <AppShell mainLabel={config.title} menuLabel="Filters" sidebar={sidebar} sidebarLabel={`${config.sidebarLabel} filters`}>
         <PageCanvas as="div" flow className="directory-results">
-          <PageHeader bordered>
+          <PageHeader bordered breadcrumbs={await getBreadcrumbs(config.route.slice(1))}>
             <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} fallback={config.icon} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
             <PageMeta updatedAt={directoryPage.updated_at} />
             {intro}

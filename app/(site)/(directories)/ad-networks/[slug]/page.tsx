@@ -1,4 +1,5 @@
 import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { notFound } from "next/navigation";
@@ -34,7 +35,7 @@ export default async function AdNetworkPage({ params }: { params: Promise<{ slug
   return <DirectoryQueryProvider route={route}>
     <AppShell mainLabel={`${network.name} publisher sites`} menuLabel="Networks" sidebar={<AdNetworksSidebar networks={networks} current={slug} />} sidebarLabel="Ad networks">
       <PageCanvas flow className={styles.content}>
-        <PageHeader bordered>
+        <PageHeader breadcrumbs={await getBreadcrumbs(`ad-networks/${slug}`)} bordered>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key ?? parentPage?.card_icon_key} fallback={<Network strokeWidth={2.2} />} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <PageMeta updatedAt={directoryPage.updated_at} />
           <ContentMarkdown markdown={directoryPage.intro_markdown} />
