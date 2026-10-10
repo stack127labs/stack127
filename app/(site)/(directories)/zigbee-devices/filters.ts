@@ -13,7 +13,7 @@ type FilterableDevice = Pick<ZigbeeDevice,
   | "vendor" | "name" | "model" | "category" | "zigbee_models" | "fingerprints"
   | "zigbee2mqtt_capabilities" | "zha_reported_capabilities" | "ota" | "battery_reporting">;
 type SortableDevice = Pick<ZigbeeDevice, "vendor" | "name" | "model" | "zigbee2mqtt_capabilities" | "zha_reported_capabilities" | "date_added">;
-type CapabilityDevice = Pick<ZigbeeDevice, "zigbee2mqtt_capabilities" | "zha_reported_capabilities">;
+type CapabilityDevice = Pick<ZigbeeDevice, "zigbee2mqtt_capabilities" | "zha_reported_capabilities"> & { category?: string };
 
 // Zigbee2MQTT field names match the featured capabilities directly. Blakadder
 // writes free-text feature names, so each featured capability lists the
@@ -42,6 +42,8 @@ export function deviceCapabilities(device: CapabilityDevice) {
   for (const reported of device.zha_reported_capabilities) {
     const value = reported.trim().toLowerCase();
     for (const [capability, pattern] of Object.entries(reportedCapabilityPatterns)) {
+      // A tilt or position sensor reports the same words as a blind motor. Only covers move.
+      if (capability === "cover" && device.category === "sensor") continue;
       if (pattern.test(value)) capabilities.add(capability);
     }
   }
