@@ -40,6 +40,12 @@
   padding-inline: 0.16em;
 }
 
+/* A highlight that is or holds a link paints normally, so the link stays clickable. */
+.header h1 a mark,
+.header h1 mark:has(a) {
+  z-index: auto;
+}
+
 .header > p {
   color: var(--color-text);
   font-size: var(--text-body);

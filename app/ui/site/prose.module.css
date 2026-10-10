@@ -29,6 +29,12 @@
   padding: 0 0.18em;
 }
 
+/* A highlight that is or holds a link paints normally, so the link stays clickable. */
+.prose h1 a mark,
+.prose h1 mark:has(a) {
+  z-index: auto;
+}
+
 .prose h2 {
   font-size: var(--text-h2);
 }
