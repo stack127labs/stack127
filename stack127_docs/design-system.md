@@ -264,7 +264,7 @@ FAQs stay open. Each question and answer sits between neutral `--color-border` r
 | --- | --- |
 | Pagination | Mono numerals in bordered squares. The current page is the one accent fill. |
 | Tabs | The active tab gets a 2px accent bottom underline. |
-| Breadcrumbs | Muted text, with the current page in `--weight-semibold`. |
+| Breadcrumbs | Above every page title except home, through `PageHeader`'s `breadcrumbs`. Small muted mono steps split by slashes. Sections show lowercase, like the main menu; the page keeps its own name in `--color-text` at `--weight-semibold`. A tool sits under its primary catalog. |
 | Drawers | Rows and dividers. They sit above the top bar and go full-screen on mobile. |
 | Filters | Share input height, radius, font size, and focus styles. Selected filter tags use an `--color-accent-text` border and text, never a fill. |
 

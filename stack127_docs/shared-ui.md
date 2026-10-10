@@ -17,6 +17,7 @@ The Components UI gallery is at `/components-ui` in development. That route retu
 | Notes, warnings, and recommendations | `Callout`, `Note`, `Warning`, `Tip` in `app/ui/callout.tsx` |
 | Formulas and worked examples | `ContentBlock` in `app/ui/content-block.tsx` |
 | Empty, loading, and error panels | `StatePanel` in `app/ui/state-panel.tsx` |
+| Breadcrumbs above a page title | `getBreadcrumbs` or `getToolBreadcrumbs` in `lib/breadcrumbs.ts`, passed to `PageHeader`'s `breadcrumbs` |
 | URL-based page navigation | `Pagination` in `app/ui/pagination.tsx` |
 | Detail drawer with focus and close behavior | `DetailDialog` and `DetailDialogClose` in `app/ui/detail-dialog.tsx` |
 | FAQ with repeated questions | `Faq` in `app/ui/faq.tsx` |

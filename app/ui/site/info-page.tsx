@@ -1,6 +1,7 @@
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { AppShell, SidebarLabel } from "./app-shell";
 import { proseClassName, proseSectionFlowClassName } from "./prose";
@@ -66,7 +67,7 @@ export async function InfoPage({ children, slug, title, heading, intro, heroArt,
       sidebarLabel={`${title} sidebar`}
     >
       <EntryHero art={heroArt}>
-        <PageHeader>
+        <PageHeader breadcrumbs={await getBreadcrumbs(slug)}>
           <h1>{heading ?? title}</h1>
           {intro}
         </PageHeader>

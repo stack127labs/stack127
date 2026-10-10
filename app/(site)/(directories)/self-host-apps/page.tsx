@@ -1,4 +1,5 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
+import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
@@ -65,7 +66,7 @@ export default async function SelfHostAppsPage() {
           sidebarLabel="Self-hosted app filters"
         >
           <EntryHero art={siteSpotSelfHostAppsArt}>
-            <PageHeader>
+            <PageHeader breadcrumbs={await getBreadcrumbs("self-host-apps")}>
               <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
               <PageMeta updatedAt={directoryPage.updated_at} />
               <Intro />

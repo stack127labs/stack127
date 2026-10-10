@@ -126,9 +126,9 @@ export const gallerySections: GallerySection[] = [
   {
     slug: "navigation",
     label: "Navigation",
-    description: "Page links for long lists and sidebar link lists.",
+    description: "Breadcrumbs above page titles, page links for long lists, and sidebar link lists.",
     icon: Signpost,
-    components: ["Pagination", "SidebarList"],
+    components: ["Breadcrumbs", "Pagination", "SidebarList"],
   },
   {
     slug: "page-layout",

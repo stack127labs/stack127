@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { getToolBreadcrumbs } from "@/lib/breadcrumbs";
 import type { Stack127ToolPage } from "@/lib/tool-pages";
 import { PageHeader } from "./page-header";
 import { PageMeta } from "./page-meta";
@@ -8,7 +9,7 @@ import { proseClassName, proseFlowClassName } from "./prose";
 import styles from "./tool-page-content.module.css";
 
 /** `intro` is the page's content/intro.mdx. Pages not yet moved to MDX render intro_markdown. */
-export function ToolPageHeader({
+export async function ToolPageHeader({
   icon,
   intro,
   toolPage,
@@ -17,8 +18,9 @@ export function ToolPageHeader({
   intro?: ReactNode;
   toolPage: Stack127ToolPage;
 }) {
+  const breadcrumbs = await getToolBreadcrumbs(toolPage.page_id, toolPage.slug, toolPage.card_name);
   return (
-    <PageHeader>
+    <PageHeader breadcrumbs={breadcrumbs}>
       <h1>
         <PageTitleIcon>{icon}</PageTitleIcon>{" "}
         {toolPage.title}

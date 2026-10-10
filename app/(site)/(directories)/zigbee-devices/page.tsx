@@ -1,4 +1,5 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
+import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
@@ -73,7 +74,7 @@ export default async function ZigbeeDevicesPage() {
     <DirectoryQueryProvider route="/zigbee-devices">
       <AppShell mainLabel="Zigbee devices directory" menuLabel="Filters" sidebar={sidebar} sidebarLabel="Zigbee device filters">
         <PageCanvas as="div" flow className="directory-results">
-          <PageHeader bordered>
+          <PageHeader breadcrumbs={await getBreadcrumbs("zigbee-devices")} bordered>
             <h1><PageTitleIcon><RadioTower strokeWidth={2.2} /></PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
             <PageMeta updatedAt={directoryPage.updated_at} />
             <Intro />

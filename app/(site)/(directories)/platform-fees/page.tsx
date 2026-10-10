@@ -26,7 +26,7 @@ export default async function PlatformFeesPage() {
 
   return <>
     <RegistryStructuredData path="/platform-fees" />
-    <FeeShell directoryPage={directoryPage} intro={<Intro />} article={<Article />} overview>
+    <FeeShell directoryPage={directoryPage} intro={<Intro />} article={<Article />}>
     <FeeFilters />
     <FeeHubResults items={items}>
       <p className={styles.count}>{feeGroups.length} categories · {directory.sections.length} sections · {directory.entries.length} listings</p>

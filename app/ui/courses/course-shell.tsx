@@ -104,7 +104,7 @@ export async function CourseLessonPage({ children, course, currentSlug, entryHer
   }
 
   const headingBlock = (
-    <PageHeader>
+    <PageHeader breadcrumbs={crumbs.map((crumb, index) => ({ name: crumb.name, href: crumb.path, section: index < 2 }))}>
       <h1><DirectoryPageTitle title={title} /></h1>
       <PageMeta author={course.author} updatedAt={lesson.updatedAt} />
     </PageHeader>

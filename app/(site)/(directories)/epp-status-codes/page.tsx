@@ -1,4 +1,5 @@
 import { isValidElement, type ComponentPropsWithoutRef } from "react";
+import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
@@ -61,7 +62,7 @@ export default async function EppStatusCodesPage() {
       sidebarLabel="Domain tools sidebar"
     >
       <PageCanvas as="main" className="domain-tool-main">
-        <PageHeader>
+        <PageHeader breadcrumbs={await getBreadcrumbs("epp-status-codes")}>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <PageMeta updatedAt={directoryPage.updated_at} />
           <Intro />
