@@ -336,7 +336,7 @@ Before upload, `assets.mjs` checks the Cloudflare Free limits: at most 20,000 fi
 | `/404` | `no-store` and `noindex` |
 | `/frontend-release.json` | `noindex` |
 
-`proxy.ts` doesn't run on static hosting. A free zone response header transform rule, `Stack127 query pages: noindex`, sets `X-Robots-Tag: noindex, follow` on any query URL outside `/api/`, `/_next/`, and `/vitals/`. Canonicals, robots meta tags, and JSON-LD still come from the registry, inside the exported HTML.
+`proxy.ts` doesn't run on static hosting. A free zone response header transform rule, `Stack127 query pages: noindex`, sets `X-Robots-Tag: noindex, follow` on any query URL outside `/api/`, `/_next/`, and `/vitals/`. Canonicals, robots meta tags, and JSON-LD still come from the registry, inside the exported HTML. Indexable pages send no robots meta tag, so a query URL, which gets the same file, carries only the `noindex` header.
 
 Static files are public whatever cookies the request carries, so analytics cookies don't lower the hit rate. The JSON routes on OVH keep their cookie bypass. To cache JSON requests that carry analytics cookies, add a strict allowlist of those cookie names. Don't remove the cookie checks.
 
