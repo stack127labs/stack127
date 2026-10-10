@@ -46,7 +46,7 @@ Follow these route rules:
 
 | request | behavior |
 | --- | --- |
-| Exact published slug with `is_indexable = true` | Render, `index, follow`, sitemap included, JSON-LD included |
+| Exact published slug with `is_indexable = true` | Render, no robots meta tag (indexing is the default), sitemap included, JSON-LD included |
 | Exact published slug with `is_indexable = false` | Render, `noindex, follow`, sitemap excluded, no JSON-LD, canonical points to itself |
 | Exact unpublished slug, whatever `is_indexable` says | `404`, sitemap excluded |
 | Exact published slug with query params, for example `/self-host-apps?page=2` | Render the same static page, `noindex, follow` through the proxy header (or the Cloudflare header rule on the static frontend), sitemap excluded |
@@ -63,7 +63,7 @@ Use `is_indexable = false` for thin child pages, filtered views with their own p
 Cloudflare hosting mode uses the SEO behavior below. See [cloudflare.md](cloudflare.md#static-frontend-on-cloudflare) for its activation and release checks.
 
 - The export holds all published pages, including noindex pages. Anything unpublished returns the static 404 with `noindex`.
-- Titles, descriptions, canonicals, robots meta tags, and JSON-LD come from the registry, written into the exported HTML at build time.
+- Titles, descriptions, canonicals, robots meta tags, and JSON-LD come from the registry, written into the exported HTML at build time. Indexable pages have no robots meta tag. A query URL shares its page's HTML file, so an `index` tag would contradict the `noindex` header it gets.
 - `proxy.ts` doesn't run. A free Cloudflare response header transform rule sends `X-Robots-Tag: noindex, follow` on query URLs. It doesn't add the proxy's canonical `Link` header. The HTML canonical covers that.
 - RSC `.txt` files, `/frontend-release.json`, and the `workers.dev` preview send `noindex`.
 - A registry change reaches the public HTML only after the frontend workflow rebuilds and deploys the export.
@@ -98,5 +98,5 @@ Do not block useful pages in `robots.txt` just to handle duplicates. Prefer `noi
 2. Keep page code free of metadata, robots, canonical, sitemap, and JSON-LD exports.
 3. Add or update the page docs under `content_docs/<page-slug>/`.
 4. When the page should become public, insert a reviewed row into `public.stack127_pages` with the correct `page_family`.
-5. Check the indexing setting. Indexable pages send `index, follow` and enter `/sitemap.xml`. Noindex pages render with their own canonical, send `noindex, follow`, omit JSON-LD, and stay out of the sitemap. Child/query variants stay `noindex, follow`.
+5. Check the indexing setting. Indexable pages send no robots meta tag and enter `/sitemap.xml`. Noindex pages render with their own canonical, send `noindex, follow`, omit JSON-LD, and stay out of the sitemap. Child/query variants stay `noindex, follow`.
 6. Follow [caching.md](caching.md). The page must be static and use on-demand revalidation. Its data source must be covered by the revalidation pipeline.

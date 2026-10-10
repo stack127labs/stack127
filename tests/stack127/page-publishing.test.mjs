@@ -135,6 +135,7 @@ test('a healthy site with another build cannot satisfy the publication gate', as
 
 test('public verification checks metadata, visible heading and the current cache revision', () => {
   inspectPublishedHtml(html(), state, revision, 'https://stack127.com');
+  inspectPublishedHtml(html().replace('<meta name="robots" content="index, follow">', ''), state, revision, 'https://stack127.com');
   assert.throws(() => inspectPublishedHtml(html().replace(revision, '2026-09-01T00:00:00.000Z'), state, revision, 'https://stack127.com'), /older revision/);
   assert.throws(() => inspectPublishedHtml(html().replace('index, follow', 'noindex, follow'), state, revision, 'https://stack127.com'), /indexing/);
   assert.throws(() => inspectPublishedHtml(html().replace('Find <mark>examples</mark>', 'Old heading'), state, revision, 'https://stack127.com'), /stale/);
@@ -245,6 +246,21 @@ test('older directory plans must be regenerated when either snapshot omits a car
   const missingContent = plan();
   missingContent.pages[0].before = { ...structuredClone(state), content: null };
   assert.equal(validatePlan(missingContent, 'directories', 'production').schema_version, 1);
+});
+
+test('indexable pages allow absent robots metadata and reject blocking directives from either tag', () => {
+  const site = 'https://stack127.com';
+  const page = { slug: 'example', is_indexable: true };
+  const canonical = '<link rel="canonical" href="https://stack127.com/example">';
+  assert.doesNotThrow(() => inspectIndexingHtml(canonical, page, site));
+  for (const name of ['robots', 'googlebot']) {
+    assert.doesNotThrow(() => inspectIndexingHtml(`${canonical}<meta name="${name}" content="index, follow">`, page, site));
+    for (const directive of ['noindex, follow', 'none']) {
+      const blocked = `${canonical}<meta name="${name}" content="${directive}">`;
+      assert.throws(() => inspectIndexingHtml(blocked, page, site), /indexing metadata/);
+      assert.throws(() => inspectIndexingHtml(`${blocked}<meta name="robots" content="index, follow">`, page, site), /indexing metadata/);
+    }
+  }
 });
 
 test('the root canonical passes with or without a trailing slash, and wrong paths still fail', () => {

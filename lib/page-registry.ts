@@ -243,9 +243,9 @@ export function buildRegistryMetadata(state: PagePublicationState): Metadata {
       type: "website",
       url: canonicalPath,
     },
-    robots: {
+    robots: state.index ? undefined : {
       follow: true,
-      index: state.index,
+      index: false,
     },
     title: state.page.meta_title,
     other: { "stack127-content-revision": new Date(state.page.row_updated_at).toISOString() },
