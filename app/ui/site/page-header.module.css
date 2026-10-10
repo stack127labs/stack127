@@ -23,7 +23,15 @@
   overflow-wrap: anywhere;
 }
 
+/* The tight h1 line height lets the highlight reach the line above. Painting it
+   behind the title's other text keeps those descenders on top. */
+.header h1 {
+  isolation: isolate;
+}
+
 .header h1 mark {
+  position: relative;
+  z-index: -1;
   background: var(--color-accent);
   border-radius: var(--radius);
   box-decoration-break: clone;

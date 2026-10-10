@@ -14,10 +14,13 @@
 
 .prose h1 {
   font-size: var(--text-h1);
+  isolation: isolate;
   line-height: var(--line-h1);
 }
 
 .prose h1 mark {
+  position: relative;
+  z-index: -1;
   background: var(--color-accent);
   border-radius: var(--radius);
   box-decoration-break: clone;

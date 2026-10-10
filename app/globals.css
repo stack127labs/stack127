@@ -10,7 +10,7 @@
 
   /* accent: --color-accent for fills only, --color-accent-text for colored text */
   --color-accent: #bafc3c;
-  --color-accent-text: #3f7a00;
+  --color-accent-text: #3a7000;
   --color-accent-contrast: #141414;
   --color-link: var(--color-accent-text);
 
