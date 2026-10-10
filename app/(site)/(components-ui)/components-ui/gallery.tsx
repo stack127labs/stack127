@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { CodeBlock } from "@/app/ui/site/code-block";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
@@ -17,19 +18,25 @@ export function GalleryPage({ children, section }: { children: ReactNode; sectio
   );
 }
 
-/** One example: a plain name, the components it shows, where they live, and the working demo. */
+/**
+ * One example: a plain name, the components it shows, where they live, the working demo,
+ * and optionally what to write to get it. Show each look once; list every component that renders it.
+ */
 export function Example({
   children,
   components,
   note,
   source,
   title,
+  usage,
 }: {
   children: ReactNode;
   components: string[];
   note?: ReactNode;
   source: string;
   title: string;
+  /** What to write, for example the MDX tags. The label names the language. */
+  usage?: { label: "MDX" | "TSX"; code: string };
 }) {
   return (
     <section className={styles.example}>
@@ -42,6 +49,7 @@ export function Example({
         {note ? <p>{note}</p> : null}
       </div>
       {children}
+      {usage ? <CodeBlock label={usage.label}>{usage.code}</CodeBlock> : null}
     </section>
   );
 }

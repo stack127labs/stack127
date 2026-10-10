@@ -252,7 +252,11 @@ The h1 icon is unboxed, em-sized, in `--color-accent-text`, and optically aligne
 
 ### Callouts
 
-Callouts stand apart through a neutral `--color-border` full border and spacing alone. For a warning, the key phrase inside uses `--color-warning-text`. The box itself stays neutral. Never use a colored left edge.
+Callouts stand apart through a neutral `--color-border` full border on `--color-surface`, and spacing. A monochrome icon names the kind: info for a note, a light bulb for a tip, a triangle for a warning. The title uses `--font-display`. Only a warning colors its icon and title, with `--color-warning-text`. A tip's icon uses `--color-accent-text`. The box itself stays neutral. Never use a colored left edge or a tinted panel.
+
+Formulas and worked examples use the same neutral box with a header row: the title on the left, and the kind in muted mono with its icon on the right. A dashed `--color-border` rule separates the header from the body. Code inside a formula reads as plain mono math, without inline code chips.
+
+FAQs stay open. Each question and answer sits between neutral `--color-border` rules.
 
 ### Small controls
 
@@ -272,7 +276,7 @@ Media figures use `MediaFigure` from `app/ui/site/media-figure.tsx`. Screenshots
 
 Data charts use `UiChart`, or `UiLiveChart` for data computed in the browser. Chart colors come from the data tokens through the placeholder mapping in `app/ui/charts/`, so every chart follows both themes. See the Charts section of [shared-ui.md](shared-ui.md). Check the rendered chart or figure where it actually sits on the page.
 
-Code snippets use `CodeBlock` from `app/ui/site/code-block.tsx`. Code surfaces stay dark in both themes. The accent highlights only the lines the prose is talking about. Pass the exact text as string children. Don't hand-roll a bare `<pre className="lesson-code">` on new pages.
+Code snippets use `CodeBlock` from `app/ui/site/code-block.tsx`. Code surfaces stay dark in both themes. A labeled block puts its file name or language and a Copy button in a header bar. An unlabeled block puts the Copy button beside the code. The accent highlights only the lines the prose is talking about. Pass the exact text as string children. Don't hand-roll a bare `<pre className="lesson-code">` on new pages.
 
 ### Marker art
 

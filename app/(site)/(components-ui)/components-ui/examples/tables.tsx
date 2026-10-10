@@ -1,4 +1,4 @@
-import { ContentMarkdown } from "@/app/ui/content-markdown";
+import { ContentTable } from "@/app/ui/content-elements";
 import { UiDataTable } from "@/app/ui/display";
 import { Example } from "../gallery";
 
@@ -24,14 +24,24 @@ export function TablesExamples() {
         />
       </Example>
 
-      <Example components={["ContentMarkdown", "TableFrame"]} note="Markdown tables get the same scroll frame. Use TableFrame directly when a page builds its own wide table." source="app/ui/content-markdown.tsx, app/ui/table-frame.tsx" title="Markdown table">
-        <ContentMarkdown markdown={[
-          "| Plan | Price | Storage | Users | Backups | Support |",
-          "| --- | ---: | ---: | ---: | --- | --- |",
-          "| Starter | $5 | 50 GB | 1 | Daily | Email |",
-          "| Team | $20 | 500 GB | 10 | Hourly | Email and chat |",
-          "| Business | $60 | 2 TB | 50 | Hourly | Priority |",
-        ].join("\n")} />
+      <Example
+        components={["ContentTable", "TableFrame"]}
+        note="A Markdown table in MDX gets a scroll frame and stops at reading width. Use TableFrame directly when a page builds its own wide table."
+        source="app/ui/content-elements.tsx, app/ui/table-frame.tsx"
+        title="Content table"
+        usage={{ label: "MDX", code: `| Plan | Price | Storage | Users |
+| --- | --- | --- | --- |
+| Starter | $5 | 50 GB | 1 |
+| Team | $20 | 500 GB | 10 |` }}
+      >
+        <ContentTable>
+          <thead><tr><th>Plan</th><th>Price</th><th>Storage</th><th>Users</th><th>Backups</th><th>Support</th></tr></thead>
+          <tbody>
+            <tr><td>Starter</td><td>$5</td><td>50 GB</td><td>1</td><td>Daily</td><td>Email</td></tr>
+            <tr><td>Team</td><td>$20</td><td>500 GB</td><td>10</td><td>Hourly</td><td>Email and chat</td></tr>
+            <tr><td>Business</td><td>$60</td><td>2 TB</td><td>50</td><td>Hourly</td><td>Priority</td></tr>
+          </tbody>
+        </ContentTable>
       </Example>
     </>
   );

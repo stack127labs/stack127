@@ -10,7 +10,7 @@ type CodeBlockProps = {
    * Do not wrap children in <code> yourself.
    */
   children: string;
-  /** Optional short label, e.g. a filename shown above the block. */
+  /** Optional short label, e.g. a filename or language, shown in the block's header bar. */
   label?: string;
   className?: string;
 };
@@ -48,30 +48,37 @@ export function CodeBlock({ children, label, className }: CodeBlockProps) {
     window.setTimeout(() => setCopied(false), 1600);
   }
 
+  const button = (
+    <button
+      aria-describedby={label ? labelId : undefined}
+      aria-label={copied ? "Copied" : "Copy code"}
+      className={styles.copy}
+      data-copied={copied || undefined}
+      onClick={copy}
+      type="button"
+    >
+      {copied ? (
+        <Check aria-hidden="true" size={14} strokeWidth={2.2} />
+      ) : (
+        <Copy aria-hidden="true" size={14} strokeWidth={2.2} />
+      )}
+      <span aria-hidden="true">{copied ? "Copied" : "Copy"}</span>
+    </button>
+  );
+
   return (
-    <div className={[styles.block, className].filter(Boolean).join(" ")}>
+    <div className={[styles.block, className].filter(Boolean).join(" ")} data-labeled={label ? true : undefined}>
       {label ? (
-        <span className={styles.label} id={labelId}>
-          {label}
-        </span>
+        <div className={styles.header}>
+          <span className={styles.label} id={labelId}>{label}</span>
+          {button}
+        </div>
       ) : null}
-      <div className={styles.frame}>
+      <div className={styles.body}>
         <pre className={styles.pre}>
           <code>{code}</code>
         </pre>
-        <button
-          aria-describedby={label ? labelId : undefined}
-          aria-label={copied ? "Copied" : "Copy code"}
-          className={styles.copy}
-          onClick={copy}
-          type="button"
-        >
-          {copied ? (
-            <Check aria-hidden="true" size={14} strokeWidth={2} />
-          ) : (
-            <Copy aria-hidden="true" size={14} strokeWidth={2} />
-          )}
-        </button>
+        {label ? null : button}
       </div>
     </div>
   );
