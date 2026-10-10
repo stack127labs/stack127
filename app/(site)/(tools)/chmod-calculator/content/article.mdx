@@ -1,0 +1,89 @@
+## How do chmod numbers work?
+
+Each digit adds up three values: read is 4, write is 2, and execute is 1. The three digits are for the owner, the group, and everyone else, in that order.
+
+<Formula title="One permission digit">
+
+read (4) + write (2) + execute (1)
+
+</Formula>
+
+| Digit | Letters | Permissions |
+| --- | --- | --- |
+| 7 | `rwx` | Read, write, and execute |
+| 6 | `rw-` | Read and write |
+| 5 | `r-x` | Read and execute |
+| 4 | `r--` | Read only |
+| 3 | `-wx` | Write and execute |
+| 2 | `-w-` | Write only |
+| 1 | `--x` | Execute only |
+| 0 | `---` | Nothing |
+
+So `755` gives the owner everything and lets the group and others read and execute. A fourth digit in front adds the special bits, covered below. The [GNU chmod manual](https://man7.org/linux/man-pages/man1/chmod.1.html) defines these values.
+
+## What do 644, 755, 600, and 777 mean?
+
+These are the modes you'll see most. They're common patterns, not rules. Give a file the fewest permissions that still let its program work.
+
+- `644` (`rw-r--r--`): ordinary files and web pages. You edit, everyone reads.
+- `755` (`rwxr-xr-x`): directories, scripts, and programs. You edit, everyone reads and runs.
+- `640` (`rw-r-----`): config files a service's group must read. Others get nothing.
+- `600` (`rw-------`): private keys and password files. Only you.
+- `700` (`rwx------`): private directories such as `~/.ssh`. Only you.
+- `777` (`rwxrwxrwx`): rarely right. Anyone on the system can change it.
+
+Some programs check this for you. [ssh ignores a private key](https://man7.org/linux/man-pages/man1/ssh.1.html) that other users can access.
+
+## Why do directories need execute permission?
+
+On a directory, execute means you can enter it and reach the files inside by name. Read only lets you list the names.
+
+| Permission | On a file | On a directory |
+| --- | --- | --- |
+| Read | Read the contents | List the names inside |
+| Write | Change the contents | Add, delete, or rename entries, with execute also set |
+| Execute | Run it as a program | Enter it and open entries by name |
+
+This is why one mode for a whole folder tree goes wrong. `chmod -R 644` leaves directories without execute, so no one but root can open the files inside. `chmod -R 755` makes every file executable.
+
+GNU chmod's capital `X` handles mixed trees: `a+X` adds execute only to directories and to files that someone could already execute. See [conditional executability](https://www.gnu.org/software/coreutils/manual/html_node/Conditional-Executability.html).
+
+Deleting a file depends on the directory's write permission, not the file's. A read-only file can still be deleted from a folder you can write to.
+
+## What do s, S, t, and T mean in permissions?
+
+They mark the special bits, which sit in the first of the four digits. Each letter takes the place of an `x`: setuid in the owner's spot, setgid in the group's, and sticky in others'.
+
+| Special bit (first digit) | Letters | What it does |
+| --- | --- | --- |
+| Setuid (4) | `s`/`S` | A program runs with its owner's user ID |
+| Setgid (2) | `s`/`S` | A program runs with its group's ID. On a directory, new files get the directory's group. |
+| Sticky (1) | `t`/`T` | On a directory, only a file's owner, the directory's owner, or root can delete or rename it |
+
+Lowercase means the execute bit is also set. Uppercase means it isn't. So `4640` shows as `rwSr-----`: setuid is on, but the owner can't execute. The [GNU ls manual](https://www.gnu.org/software/coreutils/manual/html_node/What-information-is-listed.html) lists these letters.
+
+You'll see two of these on real systems. `/tmp` is usually `1777` (`rwxrwxrwt`), so anyone can write there but can't delete other people's files. A shared folder set to `2775` keeps every new file in the folder's group. The [Linux inode manual](https://man7.org/linux/man-pages/man7/inode.7.html) describes both.
+
+<Warning title="0755 doesn't clear setgid on a directory">
+
+GNU chmod keeps a directory's setuid and setgid bits when you give it a four-digit mode like `0755`. To clear them, use `00755` or `chmod g-s`. See [setuid and setgid on directories](https://www.gnu.org/software/coreutils/manual/html_node/Directory-Setuid-and-Setgid.html).
+
+</Warning>
+
+## Why can't I access a file when the permissions look right?
+
+The mode is only one part of access. These also decide it:
+
+| What else counts | What to check |
+| --- | --- |
+| Owner and group | The owner digit applies only to the user who owns the file. Compare the owner in `ls -l` with the user your program runs as. |
+| Parent directories | You need execute on every directory in the path, not just the last one. |
+| ACLs | A `+` after the letters in `ls -l` means extra rules for named users or groups. `getfacl` shows them. See the [Linux ACL manual](https://man7.org/linux/man-pages/man5/acl.5.html). |
+| Mount options | A filesystem mounted read-only blocks writes, and one mounted `noexec` blocks running programs, whatever the mode says. |
+| Containers | In an unprivileged container, files owned by an unmapped user show up as `nobody` (ID 65534). The [LXC ID mapping checker](/lxc-idmap-checker) checks those mappings. |
+
+## Is umask the same as chmod?
+
+No. Umask removes permissions when a file is created. `chmod` sets them on a file that already exists.
+
+The usual umask is `022`. A program that creates a file with `666` gets `644`, and a directory created with `777` gets `755`. Changing the umask doesn't touch existing files. See the [Linux umask manual](https://man7.org/linux/man-pages/man2/umask.2.html).

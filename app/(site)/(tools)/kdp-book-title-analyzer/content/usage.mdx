@@ -1,0 +1,30 @@
+## What to enter
+
+Only the title is required. Add any of these to compare your title against:
+
+- Book topic. A sentence on what the book covers.
+- Intended reader. Who it's for, like `apartment gardeners`.
+- Target phrases. Up to three, one per line, with at most 80 characters each.
+
+Without those details, you still get counts, repetition prompts, and the supported title-rule checks.
+
+## How to read the result
+
+| Result | What it means |
+| --- | --- |
+| Found in title or subtitle | Topic or reader words your title uses. Small words like "the" are skipped. |
+| Only in supplied context | Topic or reader words it doesn't use. That's a cue to reread, not a word you must add. |
+| Target phrase matches | Title, Subtitle, Both fields, or Not found. |
+| Local counts | Words and characters per field, and the combined count out of 200. |
+| Prompts | A word repeated twice in a row, a two-word phrase in both fields, HTML, a title with no letters or numbers, or 200 or more characters. |
+
+<Example title="Balcony Herbs">
+
+Title `Balcony Herbs`, subtitle `Growing Food in Small Spaces`, topic `Grow herbs on apartment balconies and small patios`, reader `Apartment gardeners`, target phrases `balcony herbs` and `urban gardening`.
+
+- Topic words found: `herbs`, `small`. Only in the topic: `grow`, `apartment`, `balconies`, `patios`.
+- Reader words found: none.
+- `balcony herbs` is in the title. `urban gardening` isn't found.
+- 42 of 200 characters, no prompts.
+
+</Example>

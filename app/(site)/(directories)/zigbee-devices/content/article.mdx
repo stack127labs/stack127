@@ -1,0 +1,40 @@
+## Will my Zigbee device work with ZHA?
+
+Probably, if it follows the Zigbee standard, but no official list confirms it. [Home Assistant's ZHA docs](https://www.home-assistant.io/integrations/zha/) say there is no official compatibility list, because standard devices should work without device-specific code. Devices that bend the standard need a "quirk", a small fix written by volunteers.
+
+The ZHA results here come from community reports in [Blakadder's Zigbee device compatibility repository](https://zigbee.blakadder.com/). A device with no ZHA report hasn't failed with ZHA. Nobody has reported it there yet.
+
+## What does a Zigbee2MQTT listing mean?
+
+It means Zigbee2MQTT has a definition for that exact model, so it knows which features to show. A device without one can still pair, but [Zigbee2MQTT then guesses its features](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html) from the standard and may miss some.
+
+The device details show what the definition adds:
+
+<Terms>
+<Term name="Exposed fields">The values Zigbee2MQTT can read or set, such as `brightness` or `occupancy`.</Term>
+<Term name="OTA updates">Whether the definition supports firmware updates over the air.</Term>
+<Term name="White-label model">Yes means this is another brand's version of hardware Zigbee2MQTT already defines.</Term>
+</Terms>
+
+## Why does the exact model matter?
+
+Support belongs to a model number, not a product name. Brands reuse names across hardware revisions, and a newer revision may behave differently or not be supported yet.
+
+Tuya-based devices are the hardest case. Many report the same Zigbee model, such as `TS0601`, and differ only in a manufacturer code like `_TZE200_1fuxihti`. The device details list the codes each definition covers. Zigbee2MQTT and ZHA both show your device's code on its page after pairing. If yours isn't listed, its features may not match.
+
+## Where does this device list come from?
+
+It joins two public sources. A device is listed when either source knows it. When both name the same brand and model, the card shows both.
+
+| Source | What it adds |
+| --- | --- |
+| [Zigbee2MQTT supported devices](https://www.zigbee2mqtt.io/supported-devices/) | Zigbee2MQTT support, exposed fields, OTA updates, and device identifiers |
+| [Blakadder compatibility repository](https://zigbee.blakadder.com/) | Community reports for ZHA, deCONZ, ioBroker, Tasmota, and other hubs |
+
+We haven't tested these devices ourselves. Support changes with new releases and device firmware, so open the source links in the device details before you buy.
+
+## Do you need a Zigbee coordinator?
+
+Yes. Every device here joins your network through a coordinator, the USB or network radio that ZHA or Zigbee2MQTT talks to. Coordinators aren't listed on this page. Compare their chipsets and firmware support in [Zigbee coordinators](/zigbee-coordinators).
+
+For other smart home radios, see [Z-Wave devices](/z-wave-devices) and [Matter devices](/matter-devices).

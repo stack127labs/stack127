@@ -1,0 +1,41 @@
+## How does restic forget decide what to keep?
+
+Each rule picks snapshots on its own, and a snapshot stays if any rule picks it. Everything else is forgotten. The [restic forget documentation](https://restic.readthedocs.io/en/stable/060_forget.html) describes each rule.
+
+- `--keep-last n` keeps the newest n snapshots.
+- `--keep-daily n` keeps the newest snapshot from each of the last n days that have one.
+- `--keep-weekly n` does the same for weeks.
+- `--keep-monthly n` does the same for months.
+- `--keep-yearly n` does the same for years.
+
+Weeks run from Monday to Sunday. One snapshot can satisfy several rules at once, so a policy of 7 daily and 4 weekly can keep fewer than 11 snapshots.
+
+## Does --keep-daily 7 keep the last 7 days?
+
+No. It keeps the newest snapshot from the last 7 days that have a snapshot. Days with no backup don't count, so after a week of missed backups, `--keep-daily 7` still keeps 7 snapshots that reach further back.
+
+To keep everything within a time span instead, restic has `--keep-within` and `--keep-within-daily`, which take a duration such as `7d`. This simulator doesn't model those, or `--keep-hourly` and `--keep-tag`.
+
+## Why is my oldest snapshot kept?
+
+When there aren't enough snapshots to fill a rule, restic also keeps the oldest one and marks it `oldest`. With 20 days of backups and `--keep-monthly 6`, only one month has snapshots, so the oldest stays as well.
+
+## Why are some snapshots kept that I didn't expect?
+
+Check the grouping first. restic applies the policy to each group of host and paths separately, so every backup job keeps its own full set. A snapshot with a different path list counts as a separate group, even on the same host.
+
+To group differently, use `--group-by`, such as `--group-by host` or `--group-by paths,tags`.
+
+## Does forget free disk space?
+
+Not by itself. `forget` removes snapshots from the list, and `prune` deletes the data that only those snapshots used. Add `--prune` to `forget` to run both. Pruning locks the repository, so backups can't run while it works.
+
+The simulator can't tell how much space you'll get back, because snapshots share most of their data.
+
+<Warning title="Run a dry run before the real command">
+
+Run `restic forget --dry-run` with the same rules and grouping, and compare its list with this one. Only then run it without `--dry-run`. Forgotten snapshots can't be brought back after a prune.
+
+</Warning>
+
+For where backups fit in a home server setup, see the course chapter on [backups before serious apps](/self-hosting-for-beginners/backups-before-serious-apps).

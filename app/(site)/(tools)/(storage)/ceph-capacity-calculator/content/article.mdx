@@ -1,0 +1,38 @@
+## How do replication and erasure coding change Ceph capacity?
+
+Replication stores whole copies, so three copies leave a third of the raw space for data. Erasure coding splits data into k data chunks and adds m coding chunks, so k ÷ (k + m) of the space holds data.
+
+| Profile | Share for data | Domains needed | Usable from 128 TB raw |
+| --- | --- | --- | --- |
+| 3 copies | 1/3 | 3 | 42.67 TB |
+| Erasure coding 2+2 | 1/2 | 4 | 64 TB |
+| Erasure coding 4+2 | 2/3 | 6 | 85.33 TB |
+
+Erasure coding gives more space but needs more failure domains. [Ceph's erasure coding guide](https://docs.ceph.com/en/latest/rados/operations/erasure-code/) covers its performance and recovery trade-offs.
+
+## What is a failure domain?
+
+It's a group of drives that can fail together, such as a host or a rack. Ceph places each copy or chunk in a different domain, so a profile needs at least as many domains as copies, or k + m for erasure coding.
+
+Six drives in one host are one domain, not six. The calculator only checks the count. Ceph's [CRUSH rules](https://docs.ceph.com/en/latest/rados/operations/crush-map/) decide where data really goes.
+
+## What happens when the largest domain fails?
+
+The calculator removes the biggest domain and checks whether enough remain to place every copy or chunk. With exactly as many domains as the profile needs, losing one leaves too few. Your data can still be available, but Ceph can't restore full protection until the domain returns or you add one.
+
+A spare domain gives Ceph somewhere to rebuild the missing copies. The check doesn't simulate recovery.
+
+## How much free space should a Ceph cluster keep?
+
+Keep every OSD below 85% full, where Ceph starts warning by default. It stops writes at 95%, according to its [monitor settings](https://docs.ceph.com/en/latest/rados/configuration/mon-config-ref/). After a failure, recovery fills the remaining OSDs, so leave room for that too.
+
+## How do I check the plan against a real cluster?
+
+Compare your rows with the live hierarchy and pool settings:
+
+- `ceph osd tree` shows hosts, racks, and OSDs.
+- `ceph osd pool get <pool> size` shows a pool's copy count.
+- `ceph osd erasure-code-profile get <profile>` shows k and m.
+- `ceph df` shows what the cluster reports after it's running.
+
+The result leaves out BlueStore overhead, placement group balance, and snapshots, so `ceph df` can show less. For a single-server pool, the [ZFS capacity calculator](/zfs-capacity-calculator) fits better.

@@ -1,7 +1,6 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
-import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
-import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import Link from "next/link";
 import { appsInCategory, shortcutAppCatalog, shortcutCategories } from "@/lib/shortcuts";
@@ -10,7 +9,11 @@ import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { EntryHero } from "@/app/ui/site/entry-hero";
 import { siteSpotKeyboardShortcutsArt } from "../../art/site--spot-keyboard-shortcuts";
+import { proseClassName, proseSectionFlowClassName } from "@/app/ui/site/prose";
 import styles from "./keyboard-shortcuts.module.css";
+import Intro from "./(index)/content/intro.mdx";
+import ShortcutNotWorking from "./(index)/content/shortcut-not-working.mdx";
+import WhereShortcutsComeFrom from "./(index)/content/where-shortcuts-come-from.mdx";
 
 function categoryId(category: string) {
   return "category-" + category.toLowerCase().replace(/[^a-z0-9]+/g, "-");
@@ -26,7 +29,7 @@ export async function KeyboardShortcutsDirectory() {
       <PageHeader>
         <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
         <PageMeta updatedAt={directoryPage.updated_at} />
-        <ContentMarkdown markdown={directoryPage.intro_markdown} />
+        <Intro />
         <small>{shortcutAppCatalog.length} apps · {totalShortcuts} shortcuts · Windows, macOS, and Linux</small>
       </PageHeader>
 
@@ -67,8 +70,18 @@ export async function KeyboardShortcutsDirectory() {
         );
       })}
 
-      <section className={styles.nextStep} aria-labelledby="generator-title">
-        <DirectoryPageContent page={directoryPage} section="copy-1" />
+      <article className={`${proseClassName} ${proseSectionFlowClassName}`}>
+        <section>
+          <WhereShortcutsComeFrom />
+        </section>
+        <section>
+          <ShortcutNotWorking />
+        </section>
+      </article>
+
+      <section className={styles.nextStep} aria-labelledby="print-title">
+        <h2 id="print-title">Print the shortcuts you use</h2>
+        <p><Link href="/shortcuts-cheatsheet-generator">Make a printable sheet from one or more apps</Link></p>
       </section>
       </PageCanvas>
     </>

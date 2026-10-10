@@ -1,0 +1,30 @@
+## How is each SaaS metric calculated?
+
+Each result is one formula on the figures you entered. Each one also has its own calculator with more detail.
+
+| Metric | Formula |
+| --- | --- |
+| [Ending MRR](/mrr-waterfall-calculator) | Starting MRR + new + expansion - contraction - churned |
+| [ARR](/arr-calculator) | Ending MRR × 12 |
+| MRR growth | (Ending MRR - starting MRR) ÷ starting MRR |
+| [Net revenue retention](/net-revenue-retention-calculator) | (Starting MRR + expansion - contraction - churned) ÷ starting MRR |
+| [Gross revenue retention](/revenue-churn-calculator) | (Starting MRR - contraction - churned) ÷ starting MRR |
+| [Customer churn](/customer-churn-calculator) | Churned starting accounts ÷ starting accounts |
+| [Monthly ARPA](/arpu-arpa-calculator) | Ending MRR ÷ ending paying accounts |
+| [Gross margin](/saas-gross-margin-calculator) | (Recognized revenue - service costs) ÷ recognized revenue |
+| [CAC](/customer-acquisition-cost-calculator) | Acquisition spend ÷ new accounts |
+| [Simple LTV](/customer-lifetime-value-calculator) | ARPA × gross margin ÷ customer churn |
+| [CAC payback](/cac-payback-calculator) | CAC ÷ (ARPA × gross margin) |
+| [Burn multiple](/burn-multiple-calculator) | Net cash burn ÷ (net new MRR × 12) |
+
+New MRR counts toward growth but stays out of both retention measures. Retention follows only the customers you had at the start.
+
+## Which results are rough from one month?
+
+The revenue and retention results are exact for the figures you entered. The per-customer results are estimates.
+
+- Simple LTV assumes this month's churn and margin hold for good. One month of churn from a small customer base can swing it a lot. With no churn, it can't give a figure at all.
+- CAC matches this month's spend with this month's new accounts. If your sales take longer than a month, [Stripe's CAC guide](https://stripe.com/resources/more/cac-in-saas) warns the match is rough.
+- Burn multiple from one month swings with payment timing. A quarter is steadier.
+
+The dedicated calculators let you set each input yourself, add churn to payback, or compare a second case.

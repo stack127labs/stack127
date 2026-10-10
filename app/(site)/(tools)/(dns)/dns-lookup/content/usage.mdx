@@ -1,0 +1,28 @@
+## What to enter
+
+Look up the exact name that has the problem. `example.com` and `www.example.com` are separate names and can point to different servers. If you paste a URL, the tool keeps the hostname and drops the rest.
+
+`All` checks 11 record types at that one name. It doesn't find subdomains or list every record in the domain. Some records live under their own names, such as `_dmarc.example.com`, so look those up directly.
+
+| Resolver | What you see | Use it when |
+| --- | --- | --- |
+| A public resolver, such as Cloudflare or Google Public DNS | The answer that resolver gives its users, often a cached copy | You want to see what people using that resolver get |
+| Authoritative nameserver | What one of the domain's own nameservers publishes now | You just changed a record and want to see if it saved |
+
+## How to read the result
+
+Each record type gets its own block, and each record is listed under the name it belongs to. If your name is an alias (a CNAME) for another name, the records belong to the target, and a line above them shows the path.
+
+TTL is how long a record may be kept in a cache. `Resolver TTL` is the time left on that resolver's copy, so it's often lower than the domain's setting. `Authoritative TTL` is the value the domain sets.
+
+Addresses show the network that announces them, from [Team Cymru's IP to ASN data](https://www.team-cymru.com/ip-asn-mapping). That's the hosting or CDN network. It doesn't tell you where the server sits or who owns the site.
+
+`No MX record returned` is normal for a name that doesn't use that type. It's a problem only when you expected one.
+
+<Example title="www.github.com, A record, Cloudflare">
+
+The result says `www.github.com` points to `github.com`. The address is listed under `Records for github.com`, on Microsoft's network, AS8075. So `www.github.com` has no address of its own. It uses the one for `github.com`.
+
+Checked on 9 October 2026. GitHub may give you a different address.
+
+</Example>

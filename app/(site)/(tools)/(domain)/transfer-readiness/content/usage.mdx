@@ -1,0 +1,18 @@
+## How to read the result
+
+The first line counts the blockers it found and splits them into ones you can clear in your registrar account and ones that need waiting or the registrar's help. Each check below it shows one of four states.
+
+| State | What it means |
+| --- | --- |
+| Blocked | This stops a transfer right now. |
+| Risk | The transfer can go ahead, but plan for this first, such as DNSSEC or DNS hosted at the old registrar. |
+| Unknown | The public record doesn't say. Check in your account. |
+| Clear | Nothing in the public record blocks it. |
+
+`No public blocker was found` doesn't mean the transfer will go through. You still need the authorization code, account access, and the registrar's own steps.
+
+<Example title="github.com, checked on 9 October 2026">
+
+`github.com cannot be transferred now. One public blocker is visible: one you can clear in your account.` That blocker is the registrar transfer lock. Time since the last transfer is `Unknown`, because the registry published no transfer date, and `Where DNS is hosted` is a risk to plan for.
+
+</Example>

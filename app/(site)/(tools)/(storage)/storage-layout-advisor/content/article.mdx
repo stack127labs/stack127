@@ -1,0 +1,23 @@
+## Which RAID layout should I use?
+
+Start from how many failed drives you must survive, then pick the layout that keeps the most space for what you store.
+
+| Layout | Usable from four 8 TB drives | Survives |
+| --- | --- | --- |
+| RAID 5 or RAIDZ1 | 24 TB | Any 1 drive |
+| RAID 6 or RAIDZ2 | 16 TB | Any 2 drives |
+| Striped mirrors, RAID 10 | 16 TB | Any 1 drive, up to one per pair |
+
+RAID 6 and striped mirrors tie on space but not on failures. RAID 6 survives any two failed drives. Striped mirrors survive two only if they sit in different pairs.
+
+Mirrors suit VMs and databases because each small write touches fewer drives. The [RAID calculator](/raid-calculator) shows the write penalty for each level.
+
+## What does "best fit" mean?
+
+It's the top of a ranked list, not a guarantee. The advisor drops layouts that miss your failure target, then ranks the rest by the share of space they keep, adjusted for your workload. It doesn't measure speed or predict reliability.
+
+## Why can my real pool hold less?
+
+The result is the array size before a filesystem goes on it. ZFS RAIDZ also loses space to padding that depends on block size and pool width, so a RAIDZ1 can hold less than RAID 5 on the same drives. Use the [ZFS capacity calculator](/zfs-capacity-calculator) for a closer ZFS number.
+
+Check that your NAS or operating system supports the layout and the drive count. Adding a disk to an existing RAIDZ vdev is a separate question, covered by the [RAIDZ expansion planner](/raidz-expansion-planner).

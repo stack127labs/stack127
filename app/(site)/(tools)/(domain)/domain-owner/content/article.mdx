@@ -1,0 +1,36 @@
+## Can you find out who owns a domain?
+
+Sometimes. Companies often appear by name, but most registrars hide the personal details of individuals to comply with privacy laws such as the GDPR. When the name is hidden, this lookup can't reveal it, but the routes below can still reach the owner.
+
+Even a published name only tells you who registered the domain. That can be a different person or company from whoever runs the website, especially on hosted platforms.
+
+## What does redacted for privacy mean?
+
+It means the registrar or registry withheld a field from the public record. Some providers say which fields and how, using the [RDAP redaction standard, RFC 9537](https://www.rfc-editor.org/rfc/rfc9537.html). When they don't, a missing field stays unknown.
+
+| Method | What happened to the field |
+| --- | --- |
+| Removed | It was taken out of the record. |
+| Emptied | It's still there, with a blank value. |
+| Replaced | Its value was swapped for a stand-in, often a contact form or relay address. A stand-in doesn't prove messages reach the owner. |
+
+## How do you contact a domain owner?
+
+Pick the route that matches your reason.
+
+1. To ask about the domain, use the contact form or relay email from the result. It reaches the owner without showing their address, but a reply isn't guaranteed.
+2. To report phishing, malware, or spam, write to the registrar's abuse address. Describe the incident and include evidence. The [registrar lookup](/domain-registrar) explains how abuse reports work.
+3. For a legal claim or an investigation on a generic ending such as `.com`, request the hidden data through [ICANN's Registration Data Request Service](https://www.icann.org/rdrs-en). The registrar decides whether to disclose it.
+4. For anything else that needs the data, a court order or a law enforcement request may apply.
+
+## What is the difference between a privacy and a proxy service?
+
+A privacy service replaces the owner's contact details, but the owner stays the registrant. A proxy service registers the domain in its own name and lets the customer use it. [ICANN explains the difference](https://www.icann.org/resources/pages/pp-services-2017-08-31-en).
+
+Both are different from redaction, where the registrar hides fields on its own. A company name such as "Domains By Proxy" in the record tells you which service is involved, not who's behind it.
+
+## Why do WHOIS sites show owner details this lookup doesn't?
+
+Some WHOIS sites keep copies of records from before the details were hidden, or from a previous owner. This lookup reads only the current record, so a name elsewhere may be out of date. The [domain registration lookup](/domain-lookup) explains how RDAP and WHOIS differ.
+
+The lookup goes from stack127 to the registry and the registrar, not to the website. A registered result can be a saved answer up to 24 hours old, so check the fetched time if the contact details just changed.

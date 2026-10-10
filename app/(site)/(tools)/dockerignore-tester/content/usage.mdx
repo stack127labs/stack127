@@ -1,0 +1,19 @@
+## Which file to test
+
+Docker uses one ignore file per build. If your Dockerfile has its own ignore file next to it, such as `build.Dockerfile.dockerignore`, Docker uses that one instead of the root `.dockerignore`. It doesn't merge the two. Pick the matching option in `Effective file` and paste only that file.
+
+## Which paths to try
+
+Write paths relative to the build context, the folder you pass to `docker build`, which is usually the project folder. Try the source of each `COPY` you care about, a file inside each folder you exclude, and each `!` exception.
+
+## How to read the result
+
+Every path starts as Included. Each matching line flips it to Excluded, or back to Included for a `!` line. The last matching line decides, and the trace shows every line that matched along the way.
+
+<Example title="Ignore the docs folder but keep its README">
+
+Rules: `docs`, then `!docs/README.md`. Paths: `docs/README.md`, `docs/guide`, and `src`.
+
+`docs/README.md` is Included by line 2. Its trace shows line 1 as a `Parent` match, because `docs` matched the folder it sits in, and line 2 as a `Direct` match. `docs/guide` is Excluded by line 1. `src` matches nothing, so it stays Included.
+
+</Example>

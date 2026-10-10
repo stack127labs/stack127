@@ -1,0 +1,28 @@
+## What to enter
+
+- Candidate phrases. One phrase per line, most important first. Use up to 100 nonblank lines, with no phrase over 200 characters. Order decides which field a phrase goes in. A comma stays part of its phrase.
+- Planning cap. The most characters per field, from 10 to 200. It starts at 50. KDP doesn't publish a number, so match the limit your KDP form shows.
+- Title, subtitle, and category labels. Optional. The builder flags phrases whose words longer than two characters already appear in your title, subtitle, or category labels. They don't change placement.
+
+## How to read the result
+
+The first line says how many phrases were placed. Each field shows its text, its length against your cap, and a copy button. Below the fields:
+
+| Section | What it means |
+| --- | --- |
+| Omitted duplicate phrases | Same word sequence as an earlier line after lowercasing, replacing punctuation with spaces, and collapsing repeated spaces. |
+| Needs edit | A line with no letters or numbers. |
+| Not placed | Longer than your cap, or no field had room. Phrases are never cut. A cleaned phrase over 200 characters stops the whole submission. |
+| KDP guidance signals | Quotation marks, HTML, or words like `free`, `bestseller`, or `Kindle Unlimited`. |
+| Local organization prompts | A phrase of one word or more than three, a word longer than two characters, excluding common words such as `the`, repeated across placed phrases, or a phrase your title or categories already cover. |
+
+<Example title="Six lines, cap of 50">
+
+Lines: `cozy cat mystery`, `small town secrets`, `amateur sleuth`, `Cozy, cat mystery`, `women sleuths`, `cat lover gifts for mystery readers`.
+
+- Field 1: `cozy cat mystery small town secrets amateur sleuth`, 50 of 50.
+- Field 2: `women sleuths cat lover gifts for mystery readers`, 49 of 50.
+- Line 4 is left out because it repeats line 1.
+- Prompts: line 6 has six words, and `cat` and `mystery` appear in two phrases.
+
+</Example>

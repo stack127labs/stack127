@@ -1,0 +1,45 @@
+## How is effective DPI calculated?
+
+Divide the image's pixels by the inches it fills, once for each side. The lower answer is the effective DPI.
+
+<Formula title="Effective DPI">
+
+`pixel width ÷ printed width in inches`
+
+`pixel height ÷ printed height in inches`
+
+Use the lower of the two.
+
+</Formula>
+
+KDP's [image guide](https://kdp.amazon.com/en_US/help/topic/G202169030) uses the same math. Centimeters and millimeters are converted to inches first. To convert pixel sizes without a file, use the [pixels to print size calculator](/pixels-to-print-size-calculator).
+
+## What DPI does KDP need for print?
+
+KDP asks for at least 300 DPI and calls anything under 200 DPI low resolution.
+
+| Effective DPI | What the checker says |
+| --- | --- |
+| 300 or more | Meets the 300 DPI target |
+| 200 to just under 300 | Below the target |
+| Under 200 | Low resolution |
+
+The 300 DPI minimum and a suggested 600 DPI maximum are in KDP's [paperback submission guidelines](https://kdp.amazon.com/en_US/help/topic/G201857950). The 200 DPI line is in its [image guide](https://kdp.amazon.com/en_US/help/topic/G202169030). Above 600 DPI, the checker adds a note that the file may be larger than it needs to be. It's not an error.
+
+## Why does my image say 72 DPI?
+
+That's a tag stored in the file, not a measure of detail. It doesn't change the pixels, so a 1,200 × 1,800 image tagged 72 DPI is still 300 DPI at 4 × 6 in. Changing the tag to 300 doesn't add detail either.
+
+Some files have no tag or store two that disagree. The checker shows them as they are and doesn't need them. Strictly, image resolution is PPI, pixels per inch. This page says DPI to match KDP.
+
+## What size should I enter for a cover?
+
+Enter the size of the whole cover the image fills, including the back, spine, and bleed. Get it from the [KDP book setup calculator](/kdp-book-setup-calculator). Entering only the front cover's size makes the resolution look higher than it is.
+
+## What if my image is below 300 DPI?
+
+Print it smaller, within the maximum size the checker shows, or find a larger original. Enlarging the image in an editor adds pixels but not detail. KDP's [formatting fixes guide](https://kdp.amazon.com/en_US/help/topic/G201834260) says to insert images at their original size, because enlarging them lowers resolution.
+
+## What doesn't this checker cover?
+
+It checks one source image. Your layout software can scale or compress it on export, so check the finished PDF too with the [KDP PDF preflight checker](/kdp-pdf-preflight-checker). It also doesn't check eBook covers, color, or sharpness, and it can't tell whether KDP will accept your book. Review the book in KDP's previewer and a proof copy before you publish.

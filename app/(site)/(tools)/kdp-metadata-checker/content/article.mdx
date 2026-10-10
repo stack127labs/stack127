@@ -1,0 +1,31 @@
+## What does the KDP metadata checker look for?
+
+It checks each field against KDP's published limits, then points out wording KDP's [metadata guidelines](https://kdp.amazon.com/en_US/help/topic/G201097560) ask you to leave out.
+
+| Field | Documented checks | Review prompts |
+| --- | --- | --- |
+| Title and subtitle | Empty title, HTML tags, 200 or more characters together | Links, email addresses, phone numbers, prices, review requests, promotional words |
+| Description | Empty, over 4,000 characters, unsupported or unfinished tags, attributes like `style`, tags not closed or not matching | The same, plus emoji |
+| Keywords | HTML tags | The same, plus over 50 characters, a repeated keyword, or all words longer than two characters already appearing in the title or subtitle |
+
+The promotional words it looks for are `buy now`, `free`, `sale`, `discount`, `bestseller`, `best seller`, `#1`, `limited time`, and `available now`. The checker matches words, not meaning, so *Free Range Hens* gets a prompt too.
+
+## How does the checker count characters?
+
+It counts every character, including tags and spaces. The description limit is 4,000 with tags, per KDP's [description guidance](https://kdp.amazon.com/en_US/help/topic/G201189630). The title and subtitle must be fewer than 200 together. The checker adds one character for the gap between them. KDP's pages disagree at exactly 200. The [KDP book title analyzer](/kdp-book-title-analyzer) explains.
+
+The 50-character keyword prompt is a stack127 reminder. KDP doesn't publish a keyword limit and says to [watch the limit in the field](https://kdp.amazon.com/en_US/help/topic/G201298500).
+
+KDP doesn't say how it counts emoji or accented letters, so confirm the numbers in KDP's form.
+
+## What can't the checker tell you?
+
+<Warning title="A clean result isn't KDP approval">
+
+The checker can't tell if your text is true, matches your cover, uses a trademark without permission, gives away spoilers, or quotes reviews. KDP says [most book details can't be changed](https://kdp.amazon.com/en_US/help/topic/G202105800) after you publish, so read them over yourself too.
+
+</Warning>
+
+It checks words, not files. For your book files, use the [KDP PDF preflight checker](/kdp-pdf-preflight-checker) and the [KDP image DPI checker](/kdp-image-dpi-checker). If KDP shows a description error after you paste, see its [troubleshooting page](https://kdp.amazon.com/en_US/help/topic/GC4VASCGNQP6LQ7L).
+
+Everything runs in your browser. Your text isn't sent, saved, or passed to an AI writer.

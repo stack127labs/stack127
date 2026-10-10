@@ -1,3 +1,17 @@
+export async function insertDirectoryPageIfMissing(client, row) {
+  const result = await client.query(`
+    insert into public.stack127_directory_pages
+      (page_id,title,intro_markdown,content_markdown,card_name,card_description)
+    select page.id,$2,$3,$4,coalesce($5,page.label),coalesce($6,page.meta_description)
+    from public.stack127_pages page
+    where page.slug=$1 and page.page_family='directory'
+    on conflict (page_id) do nothing
+    returning page_id
+  `, [row.slug, row.title, row.intro_markdown, row.content_markdown ?? null,
+    row.card_name ?? null, row.card_description ?? null]);
+  return result.rowCount;
+}
+
 export async function upsertDirectoryPage(client, row) {
   const result = await client.query(`
     insert into public.stack127_directory_pages
@@ -21,8 +35,8 @@ export async function upsertDirectoryPage(client, row) {
   return result.rowCount;
 }
 
-export async function previewDirectoryPages(pool, pages, { remove = false, refresh = false, matchesRemoval } = {}) {
-  if (remove && refresh) throw new Error('Choose --remove or --refresh');
+export async function previewDirectoryPages(pool, pages, { remove = false, refresh = false, dryRun = false, matchesRemoval } = {}) {
+  if (refresh) throw new Error('--refresh is retired; edit reviewed development fields with scripts/stack127/directory-pages/update-content.mjs');
   const client = await pool.connect();
   try {
     await client.query('begin');
@@ -36,30 +50,37 @@ export async function previewDirectoryPages(pool, pages, { remove = false, refre
     for (const page of pages) {
       const row = bySlug.get(page.slug);
       if (row && row.page_family !== 'directory') throw new Error(`Wrong page family for ${page.slug}; refusing to change it`);
-      if (remove) {
-        if (row && matchesRemoval && !matchesRemoval(row)) throw new Error(`Refusing to remove ${page.slug}: its metadata does not match the preview contract`);
-      } else {
-        if (!row?.has_directory_copy) throw new Error(`Directory page copy is missing for ${page.slug}; refusing to publish or refresh it`);
-        if (!refresh && row.is_published) throw new Error(`A published registry row already exists for ${page.slug}; refusing to overwrite it`);
+      if (remove && row && matchesRemoval && !matchesRemoval(row)) {
+        throw new Error(`Refusing to remove ${page.slug}: its metadata does not match the preview contract`);
       }
     }
     for (const page of pages) {
-      const row = bySlug.get(page.slug);
+      let row = bySlug.get(page.slug);
       if (remove) {
         if (row && (row.is_published || row.published_at || row.updated_at)) await client.query(`update public.stack127_pages
           set is_published=false,published_at=null,updated_at=null where id=$1`, [row.id]);
-      } else {
-        if (row.label === page.label && row.meta_title === page.title && row.meta_description === page.description
-          && (refresh || row.is_published)) continue;
-        await client.query(`update public.stack127_pages set label=$2,meta_title=$3,meta_description=$4,
-          is_published=case when $5::boolean then is_published else true end,
-          published_at=case when $5::boolean then published_at else coalesce(published_at,now()) end,
-          updated_at=case when is_published or not $5::boolean then now() else null end
-          where id=$1`, [row.id, page.label, page.title, page.description, refresh]);
+        continue;
       }
+      if (!row) {
+        await client.query(`insert into public.stack127_pages
+          (slug,page_family,label,meta_title,meta_description,is_published,page_type,sitemap_priority)
+          values($1,'directory',$2,$3,$4,false,$5,$6) on conflict(slug) do nothing`,
+          [page.slug, page.label, page.title, page.description, page.pageType ?? 'CollectionPage', page.priority ?? 0.5]);
+        row = (await client.query('select * from public.stack127_pages where slug=$1 for update', [page.slug])).rows[0];
+        if (row.page_family !== 'directory') throw new Error(`Wrong page family for ${page.slug}; refusing to change it`);
+        bySlug.set(page.slug, row);
+      }
+      if (!row.has_directory_copy) {
+        await insertDirectoryPageIfMissing(client, {
+          slug: page.slug, title: row.label, intro_markdown: row.meta_description, content_markdown: null,
+        });
+      }
+      if (!row.is_published) await client.query(`update public.stack127_pages
+        set is_published=true,published_at=coalesce(published_at,now()),updated_at=now()
+        where id=$1 and not is_published`, [row.id]);
     }
-    await client.query('commit');
-    return rows.length;
+    await client.query(dryRun ? 'rollback' : 'commit');
+    return bySlug.size;
   } catch (error) {
     await client.query('rollback').catch(() => {});
     throw error;
@@ -72,8 +93,8 @@ export function keyboardShortcutPageCopy(app) {
   return {
     slug: `keyboard-shortcuts/${app.slug}`,
     title: `<mark>${app.name}</mark> keyboard shortcuts`,
-    intro_markdown: app.intro,
-    content_markdown: `<!-- section:print -->\n## Print the shortcuts you use\n\n[Make a printable ${app.name} sheet](/shortcuts-cheatsheet-generator?apps=${app.slug})`,
+    intro_markdown: `Find keyboard shortcuts for ${app.name}.`,
+    content_markdown: null,
   };
 }
 

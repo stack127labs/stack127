@@ -19,11 +19,11 @@ test('titles preserve their marked phrase and treat other HTML as text', () => {
   assert.deepEqual(directoryTitleParts('<script>alert(1)</script>'), [{ text: '<script>alert(1)</script>', marked: false }]);
 });
 
-test('generated child copy uses the record identity and current intro', () => {
+test('new child rows use record identity and keyboard rows leave the print section to the route', () => {
   const shortcut = keyboardShortcutPageCopy({ slug: 'demo', name: 'Demo', intro: 'Current record intro.' });
   assert.equal(shortcut.slug, 'keyboard-shortcuts/demo');
-  assert.equal(shortcut.intro_markdown, 'Current record intro.');
-  assert.match(shortcut.content_markdown, /apps=demo/);
+  assert.equal(shortcut.title, '<mark>Demo</mark> keyboard shortcuts');
+  assert.equal(shortcut.content_markdown, null);
   const network = adNetworkPageCopy({ slug: 'demo', name: 'Demo', summary: null });
   assert.equal(network.slug, 'ad-networks/demo');
   assert.match(network.intro_markdown, /verified Demo relationship/);

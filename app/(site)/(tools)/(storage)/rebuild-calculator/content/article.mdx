@@ -1,0 +1,41 @@
+## How long does a RAID rebuild take?
+
+Rebuild time is the data read divided by the rebuild speed. Waiting for a replacement drive adds to the time the array runs without full protection.
+
+<Formula title="Degraded window">
+
+Rebuild time = drives read × drive size × read scope ÷ rebuild speed
+
+Degraded window = rebuild time + replacement delay
+
+</Formula>
+
+How many drives the rebuild reads depends on the layout:
+
+| Layout | Drives read to rebuild one | More read errors it can correct |
+| --- | --- | --- |
+| RAID 1 and RAID 10 | 1, the mirror partner | 0 |
+| RAID 5 | All the others, N - 1 | 0 |
+| RAID 6 | At least N - 2 | 1 |
+
+N is the number of drives. A real RAID 6 rebuild may read more than N - 2 drives. [Intel's RAID guide](https://cdrdv2-public.intel.com/840787/SWUG_full_featured_entry_RAID.pdf) explains why mirror and parity rebuilds read differently.
+
+## What does read-error exposure mean?
+
+It's the modeled chance of hitting at least one unreadable sector while the rebuild reads every bit, if each bit fails at the datasheet rate on its own. More data read, or a higher error rate, means more exposure.
+
+<Formula title="Read-error exposure">
+
+Exposure = 1 - e^(-bits read ÷ bits per error)
+
+</Formula>
+
+On RAID 1, RAID 5, and RAID 10, one such error during a rebuild can leave a block that can't be rebuilt. RAID 6 can correct one.
+
+## Is a high exposure the chance of losing my array?
+
+No. The datasheet rate is a maximum, not a measured rate, so real drives can do better. Errors also don't strike each bit independently. What happens after an error depends on your controller or software.
+
+Treat the number as a way to compare layouts and drive sizes. With the example's drives in RAID 5, the read grows to 40 TB and exposure to 27.4%, with no error left to correct.
+
+The model also leaves out a second drive failing during the rebuild. The [drive reliability explorer](/drive-reliability) shows how often drive models fail, and the [RAID calculator](/raid-calculator) compares the space each layout gives.

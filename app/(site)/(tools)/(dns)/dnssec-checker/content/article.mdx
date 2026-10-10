@@ -1,0 +1,38 @@
+## How does the DNSSEC chain of trust work?
+
+Each zone vouches for the one below it. Three record types do the work:
+
+| Record | Lives in | What it does |
+| --- | --- | --- |
+| DNSKEY | The zone | The zone's public keys. |
+| RRSIG | The zone | A signature over a set of records, made with one of those keys. |
+| DS | The parent zone | A fingerprint of the child zone's key. For your domain, you set it through your registrar. |
+
+Validation starts from the root's key, which resolvers already trust. It checks that each DS matches a DNSKEY one level down, that the keys are signed, and that the answer's RRSIG is valid. [RFC 4033](https://www.rfc-editor.org/rfc/rfc4033.html) describes the design.
+
+Having DS and DNSKEY records isn't enough. They have to match, and the signatures have to be valid.
+
+## How do I fix a Bogus result?
+
+Start with the first step marked `Failed`:
+
+- If the DS link fails, the DS record at your registrar doesn't match the zone's keys. This often happens after changing DNS provider or keys. Copy the current DS value from your DNS provider to your registrar, or delete the DS to turn DNSSEC off.
+- If a DNSKEY or answer step fails, a signature is bad or has expired. `Signature validity` shows when each one runs out. Your DNS provider usually signs the zone, so ask them.
+
+<Warning title="Changing DNS provider with DNSSEC on">
+
+Delete the DS record at your registrar first, and wait for its TTL to pass before you switch nameservers. For `.com`, that's a day. Otherwise the DS points at keys the new provider doesn't have, and the domain goes Bogus. Turn DNSSEC on again at the new provider afterwards.
+
+Some providers can move a signed zone without turning DNSSEC off, as in [Cloudflare's guide](https://developers.cloudflare.com/dns/dnssec/dnssec-active-migration/).
+
+</Warning>
+
+## Is an Insecure result a problem?
+
+No. It means DNSSEC isn't turned on for this name. Answers resolve normally, but they aren't protected against forged replies. Turning it on takes a setting at your DNS provider and a DS record at your registrar.
+
+## Where does the verdict come from?
+
+stack127 checks the signatures itself with the [Namefi DNSSEC Audit library](https://github.com/d3servelabs/dnssec-audit-ts), fetching records through Cloudflare's public resolver. The `Resolver AD` rows repeat the resolver's own flag for reference, and the verdict doesn't use them. That's also why the DNSSEC line in [DNS lookup](/dns-lookup) isn't a DNSSEC check.
+
+The check runs from stack127's server, and stack127 doesn't keep the names you check.

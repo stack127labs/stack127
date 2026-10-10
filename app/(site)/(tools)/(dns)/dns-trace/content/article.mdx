@@ -1,0 +1,29 @@
+## How does a DNS trace work?
+
+It asks each server directly, starting at the root, instead of asking a resolver. A resolver does the same walk for you, but it keeps copies and may hand back a saved answer. The trace keeps no copies, so it shows what the servers publish right now.
+
+DNS is split into zones. The root servers know who runs `.com`, the `.com` servers know who runs `example.com`, and that domain's own nameservers hold its records.
+
+## Where can a trace stop, and what does it mean?
+
+| Where it stops | Usual cause |
+| --- | --- |
+| At the root | The top-level domain doesn't exist, or no root server could be reached. |
+| At the top-level domain | The domain isn't in the registry's zone. It may not be registered, may have expired, or may be on hold. |
+| Before the domain's nameservers | The referral named nameservers, but none had a reachable public address. |
+| At the domain's nameservers | Read the response. NXDOMAIN means the name doesn't exist. SERVFAIL, REFUSED, or no reply means the server isn't answering properly. |
+| After an alias | The alias target doesn't exist, can't be reached, or points back in a loop. |
+
+A name doesn't need every record type, so "returned no AAAA record" is often fine. [DNS lookup](/dns-lookup) explains each response code.
+
+## What is glue in a trace?
+
+Glue is a nameserver's address, sent along with a referral. The parent zone includes it when a nameserver's name sits inside the domain it serves, such as `ns1.example.com` for `example.com`. Without it, nobody could find that nameserver's address. The [nameserver checker](/nameserver-checker) tests whether the glue is right.
+
+## Should I use a trace or a lookup?
+
+Use [DNS lookup](/dns-lookup) to see the answer people get from resolvers. Use the trace when a lookup fails and you need to see where, or after you change nameservers at your registrar.
+
+The trace doesn't check DNSSEC signatures. The [DNSSEC checker](/dnssec-checker) does.
+
+The trace sends the name straight from stack127's server to the root, top-level domain, and domain nameservers. stack127 doesn't keep the names you check.

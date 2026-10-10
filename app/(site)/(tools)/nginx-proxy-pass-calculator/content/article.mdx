@@ -1,0 +1,43 @@
+## Does the trailing slash in proxy_pass matter?
+
+Yes. It decides whether nginx keeps the location path or swaps it out. The rule is whether `proxy_pass` has any path after the host, even a single `/`.
+
+- With no path, as in `http://backend`, nginx passes the request path unchanged.
+- With any path, as in `http://backend/`, nginx cuts the matched location from the front of the request path and puts the `proxy_pass` path in its place.
+
+The [proxy_pass documentation](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass) describes both cases.
+
+## What URL does each proxy_pass send?
+
+For location `/api/` and request `/api/users?id=42`:
+
+- `proxy_pass http://backend` sends `http://backend/api/users?id=42`.
+- `proxy_pass http://backend/` sends `http://backend/users?id=42`.
+- `proxy_pass http://backend/v2` sends `http://backend/v2users?id=42`.
+- `proxy_pass http://backend/v2/` sends `http://backend/v2/users?id=42`.
+
+The join is plain text, so `/v2` plus `users` becomes `/v2users`. The query string always follows unchanged.
+
+## Why do I get a double slash in the upstream URL?
+
+Because the location has no trailing slash but `proxy_pass` does. With location `/api` and `proxy_pass http://127.0.0.1:3000/`, the request `/api/users` loses `/api` and keeps `/users`. Adding that to `/` gives `http://127.0.0.1:3000//users`.
+
+Make the slashes match: use `location /api/` with `http://127.0.0.1:3000/`, or `location /api` with `http://127.0.0.1:3000`.
+
+A location without the slash also matches more than you might expect. `location /api` matches `/apiusers` too.
+
+## Why does nginx redirect /api to /api/?
+
+When a prefix location ends in a slash and uses `proxy_pass`, nginx answers a request for the same path without the slash with a 301 redirect that adds it. The [location documentation](https://nginx.org/en/docs/http/ngx_http_core_module.html#location) shows how to avoid it with an extra exact-match location, `location = /api`.
+
+## Why does my app break under a subpath?
+
+Many apps build links from the root, such as `/static/app.js`. Under `/app/`, those links skip the proxy location and fail. Check whether the app has a base URL or subpath setting, and set it to the same path as the location.
+
+If the app has no such setting, give it its own subdomain instead, with `location /` and a `proxy_pass` with no path.
+
+## How do I check what nginx really sends?
+
+Run `nginx -T` to print the full config nginx loaded, and check that the request lands in the location you think it does. Then look at the request path in the app's access log.
+
+If nginx runs in Docker beside the app, the [Docker Compose checker](/docker-compose-checker) flags ports published to every network. The course chapter on [accessing apps safely at home](/self-hosting-for-beginners/access-apps-safely-at-home) covers where a reverse proxy fits.

@@ -1,0 +1,20 @@
+## What to enter
+
+- PDF file. The exact file you'll upload, up to 650 MB, which is KDP's limit.
+- Check scope. Pick Interior PDF for the book's pages, or Paperback cover for the one-page cover file. Hardcover covers aren't supported. Use the template from [KDP's cover calculator](https://kdp.amazon.com/cover-calculator) for those.
+- Interior bleed. Pick With bleed only if something in your interior runs off the page edge. Not sure? See [what bleed changes](/kdp-book-setup-calculator).
+- Book page count. For a cover, enter your interior's page count, not the cover file's one page. An odd count rounds up to the next even number before the spine is worked out, the same as KDP does. The report shows the rounded count and warns when the book setup falls outside KDP's page range.
+
+## How to read the report
+
+The report starts with the number of possible issues, or "No measurable issues found." Each issue names the page or setting it's about.
+
+The page table compares each page's size with the size it should be. A page counts as a match if it's within 0.02 in. That margin is stack127's own allowance for rounding, not a KDP rule.
+
+The diagnostics list covers fonts, images, page boxes, encryption, and file size. Copy report and Download report export the findings and a short summary as text. The page table and full diagnostics stay on screen. They don't fix the PDF.
+
+<Example title="A 25-page 6 × 9 in interior with two problems">
+
+Page 4 was exported at 6.125 × 9.25 in, and the body font isn't embedded. The report lists 4 possible issues: page 4's size, mixed page sizes, an odd page count of 25, and 1 font not embedded.
+
+</Example>

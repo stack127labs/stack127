@@ -9,6 +9,7 @@ import { FeeShell, FeeSourceList, SectionIcon } from '../components';
 import { FeeSources } from '../sources';
 import { FeeCard } from '../fee-card';
 import styles from '../page.module.css';
+import { feeCategoryContent } from './content';
 
 const dateFormat = new Intl.DateTimeFormat('en-GB', {
   day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
@@ -24,6 +25,8 @@ export default async function FeeCategoryPage({ params }: { params: Promise<{ se
   const group = getFeeGroup(slug);
   if (!group) notFound();
   const directoryPage = await getRequiredDirectoryPage(`platform-fees/${slug}`);
+  const content = feeCategoryContent[slug];
+  if (!content) throw new Error(`Published fee category has no content: ${slug}`);
   // A failed load must surface as an error, never as a cacheable page.
   const directory = await getFeeDirectory();
   const sections = directory.sections.filter(section => section.group_name === group.name);
@@ -49,8 +52,11 @@ export default async function FeeCategoryPage({ params }: { params: Promise<{ se
     };
   });
 
+  const { Intro, Article } = content;
   return <FeeShell
     directoryPage={directoryPage}
+    intro={<Intro />}
+    article={Article ? <Article /> : undefined}
     group={group}
     anchors={blocks.map(block => ({
       href: block.href,

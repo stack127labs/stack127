@@ -1,0 +1,24 @@
+## What to enter
+
+Search for each app by name. The estimates come from the [self-host apps directory](/self-host-apps). Each shows its basis, its source, and a confidence level. Most are estimates for a small home setup, not measurements.
+
+For an app that isn't listed, or a setup bigger than the basis describes, add a custom row with your own low and high numbers. `Quantity` multiplies both, such as two copies of the same database.
+
+RAM is in GiB and storage is in GB, the unit disks are sold in. `Headroom reserve` holds back a share of each budget once, for the operating system, caches, and spikes. The default 20% is a starting point, not a rule.
+
+## How to read the result
+
+| Status | What it means |
+| --- | --- |
+| Within | Even the high estimates fit. |
+| Tight | The low estimates fit, but the high ones don't. |
+| Over | Even the low estimates don't fit. |
+| Unknown | At least one app has no estimate, so the total can't be settled. |
+
+<Example title="Jellyfin, Immich, and Vaultwarden on a 16 GiB server">
+
+Budget 16 GiB RAM and 1,000 GB storage, with 20% headroom.
+
+The result is `RAM may exceed the available amount.` RAM needs 10 GiB to 17 GiB, and 13 GiB is available. Storage needs 101 GB to 620 GB, which fits in the 800 GB available. With 24 GiB of RAM, the plan is within budget.
+
+</Example>

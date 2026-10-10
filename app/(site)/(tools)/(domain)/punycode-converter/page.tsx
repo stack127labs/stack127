@@ -1,9 +1,12 @@
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
-import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
+import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { Languages } from "lucide-react";
 import { PunycodeTool } from "./punycode-tool";
+import Article from "./content/article.mdx";
+import Intro from "./content/intro.mdx";
+import Usage from "./content/usage.mdx";
 
 export default async function PunycodeConverterPage() {
   const toolPage = await getRequiredToolPage("punycode-converter");
@@ -12,12 +15,16 @@ export default async function PunycodeConverterPage() {
       <PageCanvas as="main" className="domain-tool-main">
         <ToolPageHeader
           icon={<Languages strokeWidth={2.2} />}
+          intro={<Intro />}
           toolPage={toolPage}
         />
 
         <PunycodeTool />
 
-        <ToolPageMarkdown toolPage={toolPage} />
+        <ToolPageArticle>
+          <Usage />
+          <Article />
+        </ToolPageArticle>
       </PageCanvas>
     </ToolPageShell>
   );

@@ -1,0 +1,19 @@
+## What to enter
+
+For RAID 10, 50, and 60, enter the drives in the order you'll group them. In RAID 10, drives 1 and 2 form the first mirror pair, drives 3 and 4 the second, and so on. RAID 50 and 60 fill each group the same way, so put drives of the same size next to each other.
+
+The address bar keeps your drive list, so you can bookmark or share the result.
+
+## How to read the result
+
+Theoretical usable capacity is the space the array gives you before a filesystem goes on it. It shows in TiB. Switch to TB to compare it with drive labels.
+
+The bar splits the raw space of all drives into usable space, redundancy, and size mismatch. Redundancy is the mirror copies or parity that let the array survive a failed drive. Size mismatch is space above the smallest drive in a group, which the array can't use.
+
+Failure tolerance first says how many drives can fail, whichever ones they are. For RAID 10, 50, and 60, it then gives a higher number that holds only when the failed drives sit in different groups.
+
+<Example title="Four drives of 4, 4, 8, and 8 TB in RAID 5">
+
+Usable capacity is 10.91 TiB, which is 12 TB. Redundancy takes 3.64 TiB. Size mismatch takes 7.28 TiB, because RAID 5 uses only 4 TB of each 8 TB drive. Any one drive can fail.
+
+</Example>

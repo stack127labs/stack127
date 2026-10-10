@@ -1,6 +1,5 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
-import { ContentMarkdown } from "../content-markdown";
-import { DirectoryPageTitle, DirectoryPageContent } from "./directory-page-content";
+import { DirectoryPageTitle } from "./directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import type { ReactNode } from "react";
@@ -29,7 +28,8 @@ export type HardwareDirectoryConfig = {
 // the first time someone filters, so the default page stays light.
 const inlineIndexLimit = 300;
 
-export async function HardwareDirectoryPage({ config, snapshot }: { config: HardwareDirectoryConfig; snapshot: HardwareDirectorySnapshot }) {
+/** `intro` and `article` are the page's own `content/intro.mdx` and `content/article.mdx`. */
+export async function HardwareDirectoryPage({ article, config, intro, snapshot }: { article: ReactNode; config: HardwareDirectoryConfig; intro: ReactNode; snapshot: HardwareDirectorySnapshot }) {
   const directoryPage = await getRequiredDirectoryPage(config.route.slice(1));
   const records = snapshot.records;
   const firstPage = sortHardwareRecords(records, "name").slice(0, hardwarePageSize).map(hardwareIndexRecord);
@@ -66,7 +66,7 @@ export async function HardwareDirectoryPage({ config, snapshot }: { config: Hard
           <PageHeader bordered>
             <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} fallback={config.icon} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
             <PageMeta updatedAt={directoryPage.updated_at} />
-            <ContentMarkdown markdown={directoryPage.intro_markdown} />
+            {intro}
           </PageHeader>
 
           <HardwareDirectoryResults
@@ -80,7 +80,7 @@ export async function HardwareDirectoryPage({ config, snapshot }: { config: Hard
           />
 
           <section className={`${proseClassName} ${proseFlowClassName} ${styles.guide}`}>
-            <DirectoryPageContent page={directoryPage} />
+            {article}
           </section>
         </PageCanvas>
       </AppShell>

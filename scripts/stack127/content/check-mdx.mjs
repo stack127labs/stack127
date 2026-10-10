@@ -83,11 +83,11 @@ export function checkMdx(markdown, file = 'content.mdx') {
 
 export async function findContentFiles(root = 'app') {
   const files = [];
-  async function walk(directory) {
+  async function walk(directory, inContent = path.basename(directory) === 'content') {
     for (const entry of await readdir(directory, { withFileTypes: true })) {
       const file = path.join(directory, entry.name);
-      if (entry.isDirectory()) await walk(file);
-      else if (entry.name.endsWith('.mdx') && path.basename(directory) === 'content') files.push(file);
+      if (entry.isDirectory()) await walk(file, inContent || entry.name === 'content');
+      else if (entry.name.endsWith('.mdx') && inContent) files.push(file);
     }
   }
   await walk(root);

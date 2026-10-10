@@ -1,0 +1,15 @@
+## What to enter
+
+Protected failures is the number of drives that can fail at once, in any order, without losing data. Only layouts that meet it are compared.
+
+Workload changes the order of the list, not the space. VMs and databases put mirrors first, because they handle small random writes better. Bulk files and General put parity first, because it keeps more space.
+
+For striped mirrors, drives pair up in the order you enter them, so put same-size drives next to each other.
+
+`Share layout` makes a link with your inputs, so anyone you send it to can see them.
+
+<Example title="Four 8 TB drives, one protected failure">
+
+With General, the best fit is RAID 5 or RAIDZ1 with 24 TB usable. RAID 6 and striped mirrors follow with 16 TB each. Switch to VMs and databases and striped mirrors move to the top.
+
+</Example>

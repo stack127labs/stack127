@@ -1,0 +1,27 @@
+## How long does DNS propagation take?
+
+Up to the old record's TTL, counted from when your nameservers start serving the change. A resolver that cached the old record keeps it until that TTL runs out, then fetches the new one.
+
+<Example title="Old TTL of 3,600 seconds">
+
+You change an A record at 2:00 pm, and the nameservers serve it within a minute. A resolver that cached the old record at 1:59 pm can keep it until about 3:00 pm.
+
+</Example>
+
+Lowering the TTL after the change doesn't speed up copies already cached. A record that didn't exist before can be cached as missing. Resolvers then wait for the zone's negative cache time, which the [SOA checker](/soa-checker) shows. [DNS lookup](/dns-lookup) explains TTL and caching in more detail.
+
+## What if the nameservers don't agree?
+
+Sort that out first. Resolvers can fetch from any of them, so some keep getting the old answer. The provider may still be syncing, or one server may have stopped getting updates. The result links to the [SOA checker](/soa-checker), which shows whether one server has an older version of the zone.
+
+If no nameserver shows the new value, the change isn't live. Check that you edited the DNS provider this domain actually uses. The [nameserver checker](/nameserver-checker) shows which nameservers that is.
+
+## Can resolvers disagree without being out of date?
+
+Yes. Large sites and CDNs answer by location, so two resolvers can get different addresses and both be right. Some providers also rotate addresses on every reply. If a resolver still differs after its `Resolver TTL` has run out, the cause isn't an old copy.
+
+## Does this check propagation worldwide?
+
+No. It asks 7 public resolvers from stack127's server, not your computer. Your internet provider's resolver, your router, and your VPN aren't included, so they can show another answer.
+
+IPv6 nameserver addresses are skipped when the checker has no IPv6 route, and the result says so. stack127 doesn't keep the names you check.

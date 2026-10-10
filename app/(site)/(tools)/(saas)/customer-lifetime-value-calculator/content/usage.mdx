@@ -1,0 +1,25 @@
+## What to enter
+
+Choose `Per month` or `Per year` first. Then enter all three numbers for that period. Switching later renames the fields but keeps the numbers you typed, so retype them if they were for the other period.
+
+ARPA (average revenue per account) is what one paying customer pays you in that period, before the cost of serving them. It isn't your whole company's revenue.
+
+Gross margin is the share of that revenue left after hosting, support, payment fees, and other costs to serve. Type `-20` if serving a customer costs more than they pay. The range is -100 to 100, and the `%` sign is already shown.
+
+Customer churn is the share of paying customers who leave during the period. Use customer churn, not revenue churn, which also moves with upgrades and downgrades. Type 0 if no paying customer left. That's allowed and has its own result.
+
+The currency menu changes the symbol only. It doesn't convert amounts.
+
+`Compare a second scenario` lets you try a different price, margin, or churn. The result says how much more or less lifetime gross profit the second scenario has, when both have a finite estimate.
+
+Blank is not zero. Type digits with up to two decimal places. Don't type `$`, `%`, or commas. Only gross margin accepts a minus sign.
+
+## How to read the result
+
+The top line is lifetime gross profit per customer. The first table shows how much of it has arrived by the end of years 1, 2, 3, and 5 if churn holds. The second table shows how the estimate is built, including model lifetime and revenue before serving costs.
+
+<Example title="$50 a month, 80% margin, 3% monthly churn">
+
+Gross profit is $40.00 a month. Lifetime gross profit is $40.00 ÷ 3% = $1,333.33. Revenue before serving costs is $1,666.67. Model lifetime is 33.3 months.
+
+</Example>

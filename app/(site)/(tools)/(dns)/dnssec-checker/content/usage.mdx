@@ -1,0 +1,18 @@
+## What do Secure, Insecure, Bogus, and Indeterminate mean?
+
+| Result | What it means |
+| --- | --- |
+| Secure | The answer is signed, and every link checks out to the root. This includes a signed proof that a record or name doesn't exist. |
+| Insecure | The name isn't signed, and the chain proves that on purpose. Nothing is broken. |
+| Bogus | The name should be signed, but a link fails. Resolvers that check DNSSEC return SERVFAIL, so the name stops working for their users. |
+| Indeterminate | The check couldn't finish. Run it again before you change anything. |
+
+DNSSEC signs each answer, not the domain as a whole. Pick the record type that's failing, or A for a general check.
+
+<Example title="dnssec-failed.org, A record">
+
+The result is Bogus. The steps pass from the root through `org` and the DS record for `dnssec-failed.org`, then fail: no key in the zone matches the DS record its parent publishes. Cloudflare's resolver returns SERVFAIL for the A record, so its users can't reach the name.
+
+Comcast runs this domain as a DNSSEC test, broken on purpose. Checked on 9 October 2026.
+
+</Example>

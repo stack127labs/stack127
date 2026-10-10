@@ -1,0 +1,47 @@
+## How does rsync decide which files to copy?
+
+rsync checks each file and folder against your rules from top to bottom, and the first rule that matches decides. A path that matches no rule is copied. The [rsync manual](https://download.samba.org/pub/rsync/rsync.1#FILTER_RULES) covers the full rule language.
+
+So order matters. Put exceptions before the broad rule they're exceptions to:
+
+- `+ keep.log` then `- *.log` copies `keep.log` and skips the other logs.
+- `- *.log` then `+ keep.log` skips every log, because the first rule already matched.
+
+## Why are files in my included folder not copied?
+
+Because a folder above them was excluded. When rsync excludes a folder, it doesn't look inside, so no later rule can bring back a file in it. This is the most common rsync filter mistake.
+
+Include every folder on the way down. The rsync manual's own example, `+ foo/`, `+ foo/bar.c`, `- *`, copies only `foo/bar.c`, and notes that `foo/` must be included or `- *` would exclude it.
+
+## How do I copy only one file type?
+
+Include all folders first, then the file type, then exclude everything else:
+
+```bash
+rsync -av --include='*/' --include='*.jpg' --exclude='*' src/ dest/
+```
+
+`*/` matches every folder, so rsync walks the whole tree. That can leave empty folders at the destination. Add `-m` (`--prune-empty-dirs`) to skip them.
+
+## What do the pattern symbols mean?
+
+- `*.conf` with no slash matches a file name at any depth, such as `app.conf` or `etc/app.conf`.
+- A leading `/`, as in `/etc/*.conf`, anchors the pattern to the top of the transfer, not your system's root.
+- `*` matches within one path segment, so `/etc/*.conf` doesn't match `etc/app/site.conf`.
+- `**` crosses folders, so `/logs/**` matches everything at any depth under `logs/`.
+- `?` matches one character, so `part?.txt` matches `part1.txt` but not `part12.txt`.
+- A trailing `/`, as in `cache/`, matches folders only.
+
+A standalone `!` clears every rule above it.
+
+## How do I check before copying?
+
+Run the real command with `--dry-run` and `-v`. rsync lists what it would copy without changing anything. This tester doesn't follow symlinks, check permissions, or read `.rsync-filter` merge files, so the dry run is the final check.
+
+<Warning title="Excluded files are kept with --delete">
+
+With `--delete`, rsync removes destination files that aren't in the source. Files your rules exclude are left alone, unless you also use `--delete-excluded`. Test that flag with a dry run first.
+
+</Warning>
+
+For backups with snapshots and retention instead of plain copies, see the [restic retention simulator](/restic-retention-simulator).

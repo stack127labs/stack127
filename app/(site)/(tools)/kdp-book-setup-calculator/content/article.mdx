@@ -1,0 +1,58 @@
+## How is KDP cover size calculated?
+
+A paperback cover is the back, spine, and front side by side, plus 0.125 in of bleed on each outer edge. Bleed is extra image that gets trimmed off, so no white line shows at the edge.
+
+<Formula title="Paperback cover size">
+
+Spine: `page count × paper thickness`
+
+Width: `0.125 + trim width + spine + trim width + 0.125`
+
+Height: `0.125 + trim height + 0.125`
+
+</Formula>
+
+| Ink and paper | Thickness per page |
+| --- | --- |
+| Black and white on white, or standard color | 0.002252 in |
+| Black and white on cream | 0.0025 in |
+| Premium color | 0.002347 in |
+| Black and white on groundwood | 0.00235 in |
+
+KDP's [paperback cover guide](https://kdp.amazon.com/en_US/help/topic/G201953020) lists the white, cream, and color multipliers. Its [paperback submission guidelines](https://kdp.amazon.com/en_US/help/topic/G201857950) list groundwood.
+
+Use at least 80 effective pages for spine text. KDP's guide has conflicting wording about 79 pages, and [Cover Creator](https://kdp.amazon.com/en_US/help/topic/G201113520) requires 80.
+
+## What margins does KDP require?
+
+The inside margin, next to the spine, grows with page count so text doesn't disappear into the binding.
+
+| Pages | Inside margin |
+| --- | --- |
+| 24 to 150 | 0.375 in |
+| 151 to 300 | 0.5 in |
+| 301 to 500 | 0.625 in |
+| 501 to 700 | 0.75 in |
+| 701 to 828 | 0.875 in |
+
+Outside, top, and bottom margins are 0.25 in, or 0.375 in with bleed. These are the least KDP allows in its [paperback submission guidelines](https://kdp.amazon.com/en_US/help/topic/G201857950), not a design recommendation.
+
+One page can move you into the next band. A 300-page book needs a 0.5 in inside margin, but 301 pages rounds up to 302 and needs 0.625 in.
+
+## What does interior bleed change?
+
+Each page gets 0.125 in wider and 0.25 in taller, so a 6 × 9 in book needs 6.125 × 9.25 in pages. Width grows on the outside edge only, because the bound edge isn't trimmed. See KDP's [bleed and trim guide](https://kdp.amazon.com/en_US/help/topic/GVBQ3CMEQW3W2VL6).
+
+## Why is the hardcover size an estimate?
+
+KDP documents the parts of a hardcover cover, a 0.51 in wrap around the board and a 0.4 in hinge beside the spine, but not one formula for the full size. It sends you to its cover calculator instead. See KDP's [hardcover cover guide](https://kdp.amazon.com/en_US/help/topic/GDTKFJPNQCBTMRV6).
+
+This calculator adds the wrap and hinge to both sides and uses paperback paper thickness for the spine. For a 300-page 6 × 9 in hardcover with black ink on white paper, that's about 14.4956 × 10.02 in. Get the final size from [KDP's cover calculator](https://kdp.amazon.com/cover-calculator) before you design.
+
+## What doesn't this calculator check?
+
+It uses KDP's US print specs, rechecked on October 4, 2026, and runs in your browser. It doesn't read your files or decide whether KDP will accept your book. Next steps:
+
+- Check your exported PDF with the [KDP PDF preflight checker](/kdp-pdf-preflight-checker).
+- Check that your images are sharp enough with the [KDP image DPI checker](/kdp-image-dpi-checker).
+- Set your price with the [KDP royalty calculator](/kdp-royalty-calculator).

@@ -1,0 +1,39 @@
+## What does the checker look at?
+
+It reads the PDF's own measurements and compares them with the setup you picked.
+
+| Check | Flagged when |
+| --- | --- |
+| Page size | A page differs from the expected size by more than 0.02 in. |
+| Bleed | You picked bleed, but a page is only the trim size. |
+| Mixed sizes | A page's width or height differs from the first measurable page by more than 0.02 in. |
+| Page count | An interior has an odd count, or a count outside KDP's range for that setup. A cover has more than one page. |
+| Spine | The inferred spine differs from the expected spine by more than 0.02 in. |
+| Fonts | A font isn't embedded, or the checker can't tell. KDP needs [all fonts embedded](https://kdp.amazon.com/en_US/help/topic/G201857950). |
+| Images | A placed image is below 300 DPI or above 600 DPI, or can't be measured. |
+| File | It isn't a PDF, is password-protected, can't be read, has a page with no measurable drawing or text operators, or is missing its end marker. |
+
+## What size should my PDF be?
+
+An interior without bleed is the trim size. With bleed, it's 0.125 in wider and 0.25 in taller, so a 6 × 9 in book becomes 6.125 × 9.25 in. A paperback cover is the back, spine, and front plus bleed. Get both sizes, and the reasons behind them, from the [KDP book setup calculator](/kdp-book-setup-calculator).
+
+## What do Unknown and Not declared mean?
+
+Unknown means the checker couldn't measure something, so it's neither a pass nor a fail. Check that item yourself.
+
+Not declared means the PDF doesn't set its own trim or bleed box. PDF readers then use the page size instead. That's common and isn't a problem by itself.
+
+## How do I fix a possible issue?
+
+Fix it in your layout software, export a new PDF, and check again.
+
+- Wrong page size. Change the page size in your layout document, not only in the export settings.
+- Fonts not embedded. Turn on font embedding when you export. KDP explains how in its [formatting fixes guide](https://kdp.amazon.com/en_US/help/topic/G201834260).
+- Low-resolution images. Check each image file with the [KDP image DPI checker](/kdp-image-dpi-checker), then replace it or place it smaller.
+- Odd page count. KDP rounds up to an even count by adding a blank page. Add one yourself if you want to control where it goes.
+
+## What can't the checker tell you?
+
+It can't see your pages, so it doesn't check margins, text near the edge, the gutter, colors, or the barcode area. It also can't tell whether you have a license for a font. "No measurable issues found" means only that these checks passed.
+
+Before you publish, review the book in KDP's Print Previewer and order a proof copy. Only KDP's own review decides whether the book is accepted. Rules checked on October 4, 2026.

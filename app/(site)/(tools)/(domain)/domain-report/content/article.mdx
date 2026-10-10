@@ -1,0 +1,31 @@
+## Why is my domain registered but not resolving?
+
+Usually a hold status or a nameserver problem. A `clientHold` or `serverHold` status tells the registry to stop publishing the domain, so nothing under it resolves while the registration stays valid. The report flags a hold under `Needs attention`. The [EPP status codes](/epp-status-codes) page says who can remove each one.
+
+If there's no hold, look at the nameserver chain. Missing nameservers, or ones that don't answer, also stop a domain from resolving. If DNS answers correctly and the site still fails, the problem is the web host, which this report doesn't test.
+
+## Why do nameservers differ between the registry and DNS?
+
+Usually a nameserver change was made in one place but not the other, often during a move to a new DNS host. Nameservers are listed in three places, and they should agree.
+
+1. `Registration record`: what you set through your registrar.
+2. `Parent referral`: what the parent zone, such as `.com`, tells visitors.
+3. `Child zone`: the NS records in your own zone.
+
+When they disagree, some visitors reach servers that aren't set up for the domain, and answers come and go. The [nameserver checker](/nameserver-checker) tests each server.
+
+## Does DNSSEC switched on mean it works?
+
+No. The registration record shows whether a DS record is published, which switches DNSSEC on. It doesn't show whether the signatures are valid.
+
+A domain with DNSSEC on and a broken chain stops resolving for everyone whose resolver checks signatures, and keeps working for everyone else. That's why the report asks for a decision and links to the [DNSSEC checker](/dnssec-checker), which validates the chain.
+
+## Why is there no score?
+
+There's no single right setup for every domain, so a score would invent one. A healthy domain can show findings, and a high score could hide a problem the score didn't check. Each finding shows its evidence instead.
+
+## What doesn't the report check?
+
+It doesn't test websites, certificates, or email delivery, and it's a one-time check with no alerts. For deeper DNS checks, use the [SOA checker](/soa-checker) for zone consistency or the [CAA checker](/caa-checker) for certificate rules.
+
+The report runs from stack127's server. DNS answers are live, but the registration part can be a saved answer up to 24 hours old, so the two timestamps can differ.

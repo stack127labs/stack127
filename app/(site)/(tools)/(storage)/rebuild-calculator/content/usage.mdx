@@ -1,0 +1,15 @@
+## What to enter
+
+Rebuild throughput is the speed the array reads the surviving drives during a rebuild. A speed from an earlier rebuild on similar hardware is best. A drive's top sequential speed is too high, because the array keeps serving other work. If you're unsure, try a few speeds and compare.
+
+Member read scope is the share of each drive the rebuild reads. Leave it at 100% unless your system only rebuilds used space, as ZFS does.
+
+The URE specification is on the drive's datasheet, usually as "nonrecoverable read errors per bits read". The [Seagate IronWolf manual](https://www.seagate.com/www-content/product-content/ironwolf/en-us/docs/100818527d.pdf), for example, lists 1 per 10^15 bits.
+
+Replacement delay is the time before a new drive goes in. It adds to the degraded window but not to the read.
+
+<Example title="RAID 6 with six 8 TB drives at 150 MB/s">
+
+The rebuild reads 32 TB and takes 2 days 11 hours. At 1 error per 10^15 bits, modeled read-error exposure is 22.6%. RAID 6 can still correct one more error, so this is not a 22.6% chance of losing data.
+
+</Example>

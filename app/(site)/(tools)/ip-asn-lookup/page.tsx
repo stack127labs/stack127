@@ -1,9 +1,12 @@
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { Network } from "lucide-react";
-import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
+import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { IpAsnLookupFromUrl } from "./ip-asn-lookup-from-url";
+import Article from "./content/article.mdx";
+import Intro from "./content/intro.mdx";
+import Usage from "./content/usage.mdx";
 import "./ip-asn-lookup.css";
 
 export default async function IpAsnLookupPage() {
@@ -11,9 +14,12 @@ export default async function IpAsnLookupPage() {
   return (
     <ToolPageShell toolPage={toolPage}>
       <PageCanvas as="main">
-        <ToolPageHeader icon={<Network strokeWidth={2.2} />} toolPage={toolPage} />
+        <ToolPageHeader icon={<Network strokeWidth={2.2} />} intro={<Intro />} toolPage={toolPage} />
         <IpAsnLookupFromUrl />
-        <ToolPageMarkdown toolPage={toolPage} />
+        <ToolPageArticle>
+          <Usage />
+          <Article />
+        </ToolPageArticle>
       </PageCanvas>
     </ToolPageShell>
   );

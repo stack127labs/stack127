@@ -1,0 +1,17 @@
+## What to enter
+
+Add each vdev on its own. Four drives as two mirrors are two vdevs, not one four-way mirror.
+
+Pick the block size most of your data will use: `recordsize` for datasets, 128 KiB by default, or `volblocksize` for zvols. Small blocks on RAIDZ can lose a lot of space to padding. Leave `ashift` at 12, for 4 KiB sectors, unless you know your drives need another value.
+
+Planning headroom is extra free space you don't plan to fill. It lowers the planning target, not the writable capacity. Spares, SLOG, and L2ARC devices don't add space. A special vdev holds metadata, and the result counts it apart from the data vdevs.
+
+Results show in TiB, the binary unit `zfs list` uses. Switch to TB to compare them with drive labels.
+
+`Share configuration` puts your inputs in a link. The `zpool create -n` command uses placeholder device names, so replace them and check it before you run anything.
+
+<Example title="Six 8 TB drives in one RAIDZ2 vdev">
+
+With a 128 KiB `recordsize` and `ashift=12`, estimated writable capacity is 28.98 TiB, which is 31.86 TB. Parity takes 14.55 TiB and ZFS keeps back 0.13 TiB. With 20% headroom, the planning target is 23.18 TiB.
+
+</Example>

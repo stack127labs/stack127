@@ -1,7 +1,6 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
-import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
-import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { FaGithub } from "react-icons/fa6";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
@@ -25,6 +24,12 @@ import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { EntryHero } from "@/app/ui/site/entry-hero";
 import { siteSpotSelfHostAppsArt } from "../../art/site--spot-self-host-apps";
+import { proseClassName, proseSectionFlowClassName } from "@/app/ui/site/prose";
+import Checks from "./content/checks.mdx";
+import Docker from "./content/docker.mdx";
+import Health from "./content/health.mdx";
+import Intro from "./content/intro.mdx";
+import Resources from "./content/resources.mdx";
 
 // The static page is the default view: most popular first, no filters, page 1.
 // Filters, search, sort, and other pages load in the browser from the search API.
@@ -45,7 +50,7 @@ export default async function SelfHostAppsPage() {
         target="_blank"
       >
         <FaGithub aria-hidden="true" size={14} />
-        View on Github
+        View on GitHub
       </a>
     </div>
   );
@@ -63,13 +68,26 @@ export default async function SelfHostAppsPage() {
             <PageHeader>
               <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
               <PageMeta updatedAt={directoryPage.updated_at} />
-              <ContentMarkdown markdown={directoryPage.intro_markdown} />
+              <Intro />
             </PageHeader>
           </EntryHero>
           <PageCanvas as="div" flow className="directory-results">
             <SelfHostAppResults emptyVisual={<Doodle svg={siteDoodleSparkArt} />} />
             <HiddenDetails prefix="self-host-app" items={detailApps.map((app) => ({ slug: app.slug, name: app.name, body: <AppDetailsBody app={app} /> }))} />
-          <DirectoryPageContent page={directoryPage} />
+            <article className={`${proseClassName} ${proseSectionFlowClassName}`}>
+              <section>
+                <Resources />
+              </section>
+              <section>
+                <Docker />
+              </section>
+              <section>
+                <Health />
+              </section>
+              <section>
+                <Checks />
+              </section>
+            </article>
           </PageCanvas>
         </AppShell>
       </SelfHostAppsSearchProvider>

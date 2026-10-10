@@ -1,0 +1,45 @@
+## What is the 3-2-1 backup rule?
+
+Keep 3 copies of your data, on 2 different types of media, with 1 copy off-site. That's how [CISA](https://www.cisa.gov/sites/default/files/publications/data_backup_options.pdf) puts it. Your original is copy 1, so you need two backups: one local and one off-site.
+
+## How much backup storage do you need?
+
+Start from the data you'll have at the end of your plan, then add room for every restore point you keep.
+
+<Formula title="Backup target size">
+
+Projected data = data × (1 + yearly growth)^years
+
+Full only: projected data × restore points
+
+Full plus incremental: projected data + projected data × change per point × (restore points - 1)
+
+Each target = that total + headroom
+
+</Formula>
+
+The calculator sizes both targets the same, because each holds the full set of restore points.
+
+## Do full or incremental backups use less space?
+
+Full plus incremental usually needs far less, because it stores one full copy and then only what changed. In the example above, full-only would need 103.68 TB before headroom, against 8.47 TB.
+
+Compression and deduplication can shrink both, and some software keeps extra full copies on a schedule. The calculator models neither, so check how your backup tool keeps restore points.
+
+## What are RPO and RTO?
+
+RPO, the recovery point objective, is how much recent data you can afford to lose, measured in time. RTO, the recovery time objective, is how long you can be down. Both come from [NIST's contingency planning guide](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-34r1.pdf).
+
+The calculator passes RPO when you back up at least that often. For RTO, it compares your target with the time to copy the projected data back at your restore speed.
+
+<Note title="Copy time is only part of a restore">
+
+Finding the right backup, setting up a replacement machine, and checking that apps work all add time. Test a real restore before you rely on a passing result.
+
+</Note>
+
+## Does sizing three copies make my backup 3-2-1?
+
+No. The calculator can't see where your copies live, what media they use, or whether they restore. [CISA's ransomware guide](https://www.cisa.gov/stopransomware/ransomware-guide) advises keeping backups offline and encrypted, and testing that they restore.
+
+To plan the drives themselves, use the [storage growth planner](/storage-growth-planner).

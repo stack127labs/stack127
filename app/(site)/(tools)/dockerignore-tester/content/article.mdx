@@ -1,0 +1,54 @@
+## Why doesn't my .dockerignore pattern match files in subfolders?
+
+Patterns start at the root of the build context. `*.log` matches `app.log` but not `logs/app.log`. To match at any depth, start the pattern with `**/`.
+
+<Example title="The same rules, with and without **/">
+
+With `*.log` and `node_modules`:
+
+- `app.log` and `node_modules/x/index.js` are Excluded.
+- `logs/app.log` and `packages/web/node_modules/y.js` are Included.
+
+With `**/*.log` and `**/node_modules`, all four are Excluded.
+
+</Example>
+
+This is the biggest difference from `.gitignore`, where `*.log` matches in every folder. [Docker's own example](https://docs.docker.com/build/concepts/context/#dockerignore-files) shows `*.md` excluding Markdown files at the root only.
+
+## How do I ignore everything except a few files?
+
+Start with `*`, then add a `!` line for each thing you want to keep. The order matters, because the last matching line wins.
+
+<Example title="Keep only the source and the package file">
+
+Rules: `*`, `!src`, `!package.json`.
+
+`src/index.js` and `package.json` are Included. `README.md` and `.env` are Excluded by line 1.
+
+</Example>
+
+## Can I re-include a file inside an ignored folder?
+
+Yes. In Docker, a later `!` line can bring back a file even when an earlier line excluded its folder, as the `docs/README.md` example above shows. Git works differently: [a file can't be re-included](https://git-scm.com/docs/gitignore) when its parent folder is excluded. So rules copied from `.gitignore` can give different results here.
+
+## Why is my .env.local still in the image?
+
+Because `.env` matches only a file named exactly `.env` at the root. `.env*` also catches `.env.local`, and `**/.env*` catches copies in subfolders too, such as `config/.env`.
+
+<Warning title="COPY . . copies everything you didn't exclude">
+
+Anything left in the build context can end up in an image layer with a broad `COPY`. Test every secrets file you have, not just `.env`.
+
+</Warning>
+
+Common entries are `.git`, dependency folders such as `node_modules` that the image installs again, `.env` files, build output, and logs. Test each one here before you rely on it.
+
+## Does .dockerignore stop the Dockerfile from being sent?
+
+No. You can list `Dockerfile` and `.dockerignore`, and the builder still receives them because it needs them. Listing them only stops `COPY` and `ADD` from putting them in the image. See [Docker's build context guide](https://docs.docker.com/build/concepts/context/#dockerignore-files).
+
+## How do I confirm what Docker really sends?
+
+Run a real build and check the `COPY` step you care about. This tester follows Docker's matching library, `moby/patternmatcher` v0.6.1. It doesn't look at real files, symlinks, or permissions.
+
+If Docker isn't set up yet, see [installing Docker](/self-hosting-for-beginners/install-docker). To check the Compose file that runs the image, use the [Docker Compose checker](/docker-compose-checker).
