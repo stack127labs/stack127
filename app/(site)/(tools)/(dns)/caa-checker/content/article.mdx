@@ -1,0 +1,38 @@
+## How does CAA find the policy for a name?
+
+It uses the closest name that has CAA records. The check starts at the exact hostname and moves up one level at a time. The first name with records holds the whole policy, and anything higher up is ignored.
+
+1. `www.shop.example.com` has no CAA records.
+2. `shop.example.com` has no CAA records.
+3. `example.com` has CAA records. This is the policy.
+
+If no name up to the top-level domain has CAA records, CAA doesn't restrict anyone.
+
+If a name is an alias (a CNAME), its target's CAA records count. The search doesn't climb the target's parent domains. It goes back to the parents of the name you entered. [RFC 8659](https://www.rfc-editor.org/rfc/rfc8659.html#section-3) defines this search.
+
+## What do issue, issuewild, and iodef mean?
+
+<Terms>
+<Term name="issue">Allows one certificate authority to issue normal certificates. With no `issuewild`, it covers wildcards too.</Term>
+<Term name="issuewild">Allows one certificate authority to issue wildcard certificates, such as `*.example.com`. When any `issuewild` exists, wildcards ignore `issue`.</Term>
+<Term name="iodef">An email or web address for reports about blocked requests. It doesn't allow or block anything.</Term>
+<Term name='issue ";"'>An empty value. On its own, it allows no certificate authority.</Term>
+<Term name="Flag 128">Marks a record as critical. A certificate authority that doesn't understand it must refuse to issue.</Term>
+</Terms>
+
+Several `issue` records add up, and each one allows one more certificate authority. A policy with only `issuewild` records leaves normal certificates unrestricted.
+
+Use the value your certificate authority publishes for CAA, such as `letsencrypt.org` for [Let's Encrypt](https://letsencrypt.org/docs/caa/) or `digicert.com` for [DigiCert](https://docs.digicert.com/en/certcentral/manage-certificates/dns-caa-resource-record-check.html).
+
+## Why was my certificate blocked by CAA?
+
+These are the usual causes:
+
+- A parent domain has CAA records you forgot, and your certificate authority isn't in them.
+- You listed one certificate authority, but your host or CDN gets certificates from another. Check its docs before you restrict issuance.
+- The certificate is a wildcard, and `issuewild` doesn't list your certificate authority.
+- The CAA lookup itself fails. The result then says the policy couldn't be determined. [DNS lookup](/dns-lookup) explains SERVFAIL and other errors, and the [DNSSEC checker](/dnssec-checker) finds broken signatures, one possible cause.
+
+Being allowed by CAA doesn't mean a certificate will be issued. The certificate authority still checks that you control the domain. This check reads the policy only and doesn't list certificates already issued.
+
+The check asks Cloudflare's public resolver from stack127's server. stack127 doesn't keep the names you check.

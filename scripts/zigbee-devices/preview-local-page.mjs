@@ -56,6 +56,8 @@ function matchesPreview(row) {
 }
 
 const remove = process.argv.includes("--remove");
+const refresh = process.argv.includes("--refresh");
+const dryRun = process.argv.includes("--dry-run");
 const pool = new pg.Pool({
   connectionString: requireManagedDevelopmentEnvironment(),
   connectionTimeoutMillis: 15_000,
@@ -65,8 +67,8 @@ const pool = new pg.Pool({
 });
 
 try {
-  await previewDirectoryPages(pool, [PREVIEW_ROW], { remove, matchesRemoval: matchesPreview });
-  console.log(`${remove ? "Unpublished" : "Published"} the managed-development Zigbee directory preview row.`);
+  await previewDirectoryPages(pool, [PREVIEW_ROW], { remove, refresh, dryRun, matchesRemoval: matchesPreview });
+  console.log(`${dryRun ? "Would " : ""}${remove ? (dryRun ? "unpublish" : "Unpublished") : (dryRun ? "publish" : "Published")} the managed-development Zigbee directory preview row.${dryRun ? " Rolled back." : ""}`);
 } finally {
   await pool.end();
 }

@@ -1,8 +1,7 @@
 import type { Stack127DirectoryPage } from "@/lib/directory-pages";
 import { directoryTitleParts } from "@/lib/directory-page-content";
-import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
-import { ContentMarkdown } from "@/app/ui/content-markdown";
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import {
@@ -40,8 +39,11 @@ export function SectionIcon({ icon, size = 22 }: { icon: FeeSection['icon']; siz
   return <Icon aria-hidden="true" size={size} />;
 }
 
-export function FeeShell({ directoryPage, children, overview = false, group, anchors = [] }: {
+/** `intro` and `article` are the page's own MDX content. */
+export function FeeShell({ directoryPage, intro, article, children, overview = false, group, anchors = [] }: {
   directoryPage: Stack127DirectoryPage;
+  intro: ReactNode;
+  article?: ReactNode;
   children: ReactNode;
   overview?: boolean;
   group?: FeeGroup;
@@ -67,12 +69,12 @@ export function FeeShell({ directoryPage, children, overview = false, group, anc
           {!overview && <Link href="/platform-fees" className={styles.back}>Platform fees</Link>}
           <h1>{group ? <PageTitleIcon><SectionIcon icon={group.icon} /></PageTitleIcon> : <DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />}{' '}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <PageMeta updatedAt={directoryPage.updated_at} />
-          <ContentMarkdown markdown={directoryPage.intro_markdown} />
+          {intro}
         </PageHeader>
       </EntryHero>
       <PageCanvas flow className={styles.content}>
         {children}
-        {directoryPage.content_markdown && <div className={`${proseClassName} ${proseFlowClassName} ${styles.prose}`}><DirectoryPageContent page={directoryPage} /></div>}
+        {article ? <div className={`${proseClassName} ${proseFlowClassName} ${styles.prose}`}>{article}</div> : null}
       </PageCanvas>
     </AppShell>
   </FeeSearch>;

@@ -1,7 +1,6 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
-import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
-import { ContentMarkdown } from "@/app/ui/content-markdown";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { RadioTower } from "lucide-react";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
@@ -23,6 +22,8 @@ import { DirectoryQueryProvider } from "../../../ui/directories/directory-query"
 import { sortDevices, zigbeeIndexRecord, zigbeePageSize } from "./filters";
 import { ZigbeeDeviceFilters, ZigbeeDeviceResults } from "./zigbee-device-view";
 import styles from "./zigbee-devices.module.css";
+import Article from "./content/article.mdx";
+import Intro from "./content/intro.mdx";
 
 export default async function ZigbeeDevicesPage() {
   const directoryPage = await getRequiredDirectoryPage("zigbee-devices");
@@ -75,7 +76,7 @@ export default async function ZigbeeDevicesPage() {
           <PageHeader bordered>
             <h1><PageTitleIcon><RadioTower strokeWidth={2.2} /></PageTitleIcon>{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
             <PageMeta updatedAt={directoryPage.updated_at} />
-            <ContentMarkdown markdown={directoryPage.intro_markdown} />
+            <Intro />
           </PageHeader>
 
           <ZigbeeDeviceResults
@@ -88,7 +89,7 @@ export default async function ZigbeeDevicesPage() {
           />
 
           <section className={`${proseClassName} ${proseFlowClassName} ${styles.guide}`}>
-            <DirectoryPageContent page={directoryPage} section="copy-1" />
+            <Article />
           </section>
         </PageCanvas>
       </AppShell>

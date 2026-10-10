@@ -1,0 +1,15 @@
+## How to read the result
+
+Observed AFR is the share of drives that failed per year of running time. The approximate range next to it shows how sure that number is. A narrow range comes from many failures over a long time. A wide one means a few more or fewer failures would change the rate a lot.
+
+Each row also carries an evidence label. A thin cohort has fewer than 500 drives or at most one failure, so read its rate with care. A model below Backblaze's reporting minimum for the period shows as below the source threshold.
+
+Compare models within one period. Quarterly, annual, and lifetime figures use different minimums. The current snapshot has only a fleet summary for Annual 2025, with no model rows.
+
+<Example title="A 22 TB and a 16 TB model in Q1 2026">
+
+WUH722222ALE6L4: 42 failures over 3,992,942 drive days gives an AFR of 0.38%, with a range of 0.27% to 0.50%.
+
+ST16000NM000J: 1 failure over 10,117 drive days gives 3.61%, with a range of 0.00% to 10.68%. The higher rate rests on one failure, so the two can't be ranked with confidence.
+
+</Example>

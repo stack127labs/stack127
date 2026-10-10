@@ -1,0 +1,11 @@
+## How to read the result
+
+The label breakdown shows each part of the name between the dots, with its encoded length. One part can't be longer than 63 bytes.
+
+For a name with non-ASCII characters, the character table lists each one with its code point, Unicode name, and writing system. A line under the table says whether any part mixes writing systems, which is the usual sign of a lookalike.
+
+<Example title="аpple.com, with a Cyrillic first letter">
+
+The ASCII form is `xn--pple-43d.com`. The character table shows the first letter as U+0430 CYRILLIC SMALL LETTER A, and the result flags that the label mixes Cyrillic and Latin.
+
+</Example>

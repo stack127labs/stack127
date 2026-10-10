@@ -1,0 +1,15 @@
+## What to enter
+
+Enter one RAIDZ vdev, not the whole pool. The planner assumes this vdev has never been expanded.
+
+Current physical allocation is the `ALLOC` value for this vdev in `zpool list -vp`. It counts parity too, which is what the planner needs.
+
+Use `recordsize` for a dataset or `volblocksize` for a zvol, whichever holds most of your data. `zpool get ashift` shows the pool's `ashift`. `ashift=12` means 4 KiB sectors.
+
+`Share plan` puts your inputs in a link you can send or bookmark.
+
+<Example title="RAIDZ2 from 6 to 8 disks of 8 TB, with 30 TB allocated">
+
+With a 128 KiB `recordsize` and `ashift=12`, capacity rises from 32 TB to 44.18 TB, a gain of 12.18 TB. A fresh 8-disk RAIDZ2 would hold 45.51 TB, so 1.33 TB is lost to the data written before the expansion.
+
+</Example>

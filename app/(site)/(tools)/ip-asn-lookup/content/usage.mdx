@@ -1,0 +1,19 @@
+## What to enter
+
+Enter one public IPv4 or IPv6 address, or an AS number such as `AS13335` or `13335`. To look up a domain, find its IP address first with the [DNS lookup](/dns-lookup).
+
+Private addresses such as `192.168.1.10` have no public record, so the tool doesn't look them up. They only exist inside a local network.
+
+## How to read the result
+
+The top line names the registered holder and the registry that holds the record. Below it are the address range, the abuse contact, and the current route.
+
+<Example title="8.8.8.8">
+
+The lead reads `8.8.8.8: Google LLC (ARIN).` The allocation is `8.8.8.0 to 8.8.8.255`, and the abuse contact is `network-abuse@google.com`.
+
+The current BGP route shows origin `AS15169` and announced prefix `8.8.8.0/24`, from Team Cymru.
+
+</Example>
+
+A field marked `Unknown` or `Not published` means the registry left it out. It doesn't mean the value is zero or the organization doesn't exist.

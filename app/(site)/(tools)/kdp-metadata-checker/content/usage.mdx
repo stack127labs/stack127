@@ -1,0 +1,26 @@
+## What to enter
+
+- Description. Paste the HTML source if it has bold, lists, or headings. KDP counts the tags, so the visible text alone gives too low a count. No HTML yet? Use the [KDP book description formatter](/kdp-book-description-formatter).
+- Keywords. Enter each field as you'll type it in KDP. Leave unused boxes empty. To turn a phrase list into seven fields, use the [KDP backend keywords builder](/kdp-backend-keywords-builder).
+
+## How to read the result
+
+Each possible issue has a label:
+
+- Documented check. A required-field, length, or formatting problem to fix. The checker also uses this label for its local input-size guards.
+- Review prompt. It matches a pattern worth a second look. It may be fine.
+
+You also get character counts and a rough preview of the description. The visible count and preview decode common named references, such as `&amp;`, and numeric references. The source count keeps the original HTML. Unrecognized references stay as typed. Copy description source copies what you entered, without fixes. If you edit after checking, the result is marked out of date until you check again.
+
+<Example title="Four possible issues">
+
+Title `Balcony Herbs`, subtitle `Growing Food in Small Spaces`. Description `<p>Grow fresh herbs on a <strong>small balcony</strong>.</p><p>Please leave a review!</p>`. Keywords `balcony herbs`, `container herb garden`, and `Container herb-garden`.
+
+- Documented check: KDP doesn't support `<strong>`. Use `<b>`.
+- Review prompt: a review request in the description.
+- Review prompt: keyword 1 only repeats title words.
+- Review prompt: keyword 3 repeats keyword 2. Capitals and hyphens don't make it new.
+
+The description is 89 of 4,000 characters, 58 of them visible.
+
+</Example>

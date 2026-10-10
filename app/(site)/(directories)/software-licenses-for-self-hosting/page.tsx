@@ -1,8 +1,8 @@
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
-import { DirectoryPageTitle, DirectoryPageContent } from "@/app/ui/directories/directory-page-content";
+import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
-import { ContentMarkdown } from "@/app/ui/content-markdown";
-import type { Components } from "react-markdown";
+import type { MDXComponents } from "mdx/types";
+import { NewTabContentLink } from "@/app/ui/content-elements";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import Link from "next/link";
 import { getDirectoryLicenseCounts } from "@/lib/apps";
@@ -27,6 +27,17 @@ import {
   type Verdict,
 } from "@/lib/software-licenses";
 import { softwareLicensesForSelfHostingLicenseFamiliesArt } from "./art/software-licenses-for-self-hosting--license-families";
+import AllLicenses from "./content/all-licenses.mdx";
+import Choosing from "./content/choosing.mdx";
+import Compare from "./content/compare.mdx";
+import CopyleftTrigger from "./content/copyleft-trigger.mdx";
+import Disclaimer from "./content/disclaimer.mdx";
+import Faq from "./content/faq.mdx";
+import FamilyDetails from "./content/family-details.mdx";
+import Families from "./content/families.mdx";
+import Intro from "./content/intro.mdx";
+import OpenVsSourceAvailable from "./content/open-vs-source-available.mdx";
+import VerdictKey from "./content/verdict-key.mdx";
 
 /** Verdict table columns, in the order people decide things. */
 const verdictColumns = [
@@ -37,13 +48,15 @@ const verdictColumns = [
   { key: "redistribute", label: "Redistribute" },
 ] as const;
 
-const licenseMarkdownComponents: Components = {
+/** Source links open in a new tab, so readers keep their place in the comparison. */
+const licenseComponents: MDXComponents = { a: NewTabContentLink };
+
+/** Bold verdict words in the table key take the table's verdict colors. */
+const verdictComponents: MDXComponents = {
+  ...licenseComponents,
   strong({ children }) {
     const verdict = typeof children === "string" && ["yes", "careful", "depends", "no"].includes(children) ? children : null;
     return <strong className={verdict ? `license-verdict-${verdict}` : undefined}>{children}</strong>;
-  },
-  a({ children, href }) {
-    return href?.startsWith("/") ? <Link href={href}>{children}</Link> : <a href={href} rel="noreferrer" target="_blank">{children}</a>;
   },
 };
 
@@ -193,17 +206,17 @@ export default async function SoftwareLicensesPage() {
         <PageHeader bordered className={proseClassName}>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
           <PageMeta updatedAt={directoryPage.updated_at} />
-          <ContentMarkdown markdown={directoryPage.intro_markdown} components={{ p: ({ children }) => <p className={proseLedeClassName}>{children}</p> }} />
-          <DirectoryPageContent page={directoryPage} section="disclaimer" components={{ p: ({ children }) => <p className="license-disclaimer">{children}</p> }} />
+          <Intro components={{ p: ({ children }) => <p className={proseLedeClassName}>{children}</p> }} />
+          <Disclaimer components={{ p: ({ children }) => <p className="license-disclaimer">{children}</p> }} />
         </PageHeader>
 
         <section className="license-section license-structured-section" id="verdict-table">
           <div className={`license-narrative ${proseClassName} ${proseFlowClassName}`}>
-            <DirectoryPageContent page={directoryPage} section="copy-1" components={licenseMarkdownComponents} />
+            <Compare components={licenseComponents} />
           </div>
           <VerdictTable />
           <div className={`license-narrative ${proseClassName} ${proseFlowClassName}`}>
-            <DirectoryPageContent page={directoryPage} section="copy-2" components={licenseMarkdownComponents} />
+            <VerdictKey components={verdictComponents} />
           </div>
         </section>
 
@@ -211,24 +224,24 @@ export default async function SoftwareLicensesPage() {
           className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
           id="license-families"
         >
-          <DirectoryPageContent page={directoryPage} section="copy-3" components={licenseMarkdownComponents} />
+          <Families components={licenseComponents} />
           <MarkerArt
             caption="The four license families differ by what must stay open and when that obligation begins."
             svg={softwareLicensesForSelfHostingLicenseFamiliesArt}
           />
-          <DirectoryPageContent page={directoryPage} section="copy-4" components={licenseMarkdownComponents} />
+          <FamilyDetails components={licenseComponents} />
         </section>
 
         <section
           className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
           id="copyleft-trigger"
         >
-          <DirectoryPageContent page={directoryPage} section="copy-5" components={licenseMarkdownComponents} />
+          <CopyleftTrigger components={licenseComponents} />
         </section>
 
         <section className="license-section license-structured-section" id="all-licenses">
           <div className={`license-narrative ${proseClassName} ${proseFlowClassName}`}>
-            <DirectoryPageContent page={directoryPage} section="copy-6" components={licenseMarkdownComponents} />
+            <AllLicenses components={licenseComponents} />
           </div>
 
           {licenseGroups.map((group) => {
@@ -259,21 +272,21 @@ export default async function SoftwareLicensesPage() {
           className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
           id="open-source-vs-source-available"
         >
-          <DirectoryPageContent page={directoryPage} section="copy-7" components={licenseMarkdownComponents} />
+          <OpenVsSourceAvailable components={licenseComponents} />
         </section>
 
         <section
           className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
           id="choosing-a-license"
         >
-          <DirectoryPageContent page={directoryPage} section="copy-8" components={licenseMarkdownComponents} />
+          <Choosing components={licenseComponents} />
         </section>
 
         <section
           className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
           id="faq"
         >
-          <DirectoryPageContent page={directoryPage} section="copy-9" components={licenseMarkdownComponents} />
+          <Faq components={licenseComponents} />
         </section>
       </PageCanvas>
     </AppShell>

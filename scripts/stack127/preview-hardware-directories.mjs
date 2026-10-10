@@ -33,11 +33,12 @@ function databaseUrl() {
 
 const remove = process.argv.includes("--remove");
 const refresh = process.argv.includes("--refresh");
+const dryRun = process.argv.includes("--dry-run");
 const pool = new pg.Pool({ connectionString: databaseUrl(), connectionTimeoutMillis: 15_000, idleTimeoutMillis: 10_000, max: 1, query_timeout: 15_000 });
 
 try {
-  const count = await previewDirectoryPages(pool, pages, { remove, refresh });
-  console.log(`${remove ? "Unpublished" : refresh ? "Refreshed metadata for" : "Published"} ${count} managed-development hardware directory preview rows.`);
+  const count = await previewDirectoryPages(pool, pages, { remove, refresh, dryRun });
+  console.log(`${dryRun ? "Would " : ""}${remove ? (dryRun ? "unpublish" : "Unpublished") : (dryRun ? "publish" : "Published")} ${count} managed-development hardware directory preview rows.${dryRun ? " Rolled back." : ""}`);
 } finally {
   await pool.end();
 }

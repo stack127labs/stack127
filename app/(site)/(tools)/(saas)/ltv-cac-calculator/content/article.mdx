@@ -1,0 +1,105 @@
+## How is LTV to CAC calculated?
+
+The ratio is lifetime gross profit divided by customer acquisition cost. [ChartMogul's LTV guide](https://chartmogul.com/saas-metrics/ltv/) defines it the same way. Payback is a separate number that measures time.
+
+<Formula title="The ratio and the payback months">
+
+LTV:CAC = lifetime gross profit ÷ CAC.
+
+Payback months, monthly inputs = CAC ÷ monthly gross profit.
+
+Payback months, yearly inputs = CAC ÷ (yearly gross profit ÷ 12).
+
+</Formula>
+
+The yearly version assumes gross profit arrives evenly through the year. A big upfront payment, a late invoice, or a refund changes when cash arrives, but not this number. Payback here counts months of gross profit, not the date the money reaches your bank.
+
+If you entered LTV directly, you get the ratio only. Without a monthly gross profit, there's no payback to work out.
+
+## Is a 3:1 LTV to CAC ratio good?
+
+You'll often hear that it is, but the calculator doesn't grade your ratio. [Stripe's CAC guide](https://stripe.com/resources/more/cac-in-saas) says SaaS businesses generally aim for 3:1. It calls 1:1 breaking even and 4:1 or more highly efficient, possibly underinvesting in growth. ChartMogul's guide says to aim for LTV of at least three times CAC. These are rules of thumb. The same Stripe guide says there's no universal CAC benchmark across SaaS.
+
+This calculator doesn't color the result or tell you to spend more or less. The ratio can't see your cash on hand, how fast gross profit comes back, or whether both numbers describe the same customers.
+
+## How is payback different from the ratio?
+
+Payback uses the cost and one period of gross profit. Churn isn't part of it. The ratio does use churn, because lifetime gross profit does. So churn can move the ratio a lot without changing payback.
+
+With $50 of monthly ARPA, an 80% margin, and a $400 CAC, monthly gross profit is $40.00, so payback is 10.0 months at any churn:
+
+| Monthly customer churn | Lifetime gross profit | Ratio | Payback |
+| --- | --- | --- | --- |
+| 3% | $1,333.33 | 3.33:1 | 10.0 months |
+| 0.5% | $8,000.00 | 20.00:1 | 10.0 months |
+| 0% | Not estimable | Not estimable | 10.0 months |
+
+The 20.00:1 ratio still takes 10.0 months of gross profit to cover $400. A high ratio here means customers stay longer in the model. It doesn't mean the money comes back faster.
+
+Straight-line payback also ignores customers who leave before the cost is covered. The [CAC payback calculator](/cac-payback-calculator) counts them and finds the month a group of customers actually covers its cost, or shows that it never does.
+
+## When does the model say the cost never comes back?
+
+When lifetime gross profit is equal to or less than CAC. In this model, a group's gross profit keeps adding up but never quite reaches the lifetime total while any customers are still paying. So the lifetime total has to be above the cost, not equal to it.
+
+Take $50 of monthly ARPA, an 80% margin, and 5% monthly churn. Lifetime gross profit is $800.00. A CAC of $800.00 gives a ratio of 1.00:1 and a payback of 20.0 months. The result also says `At this churn, a group of new customers never earns back CAC.` Both show at once, because the 20.0 months ignore customers who leave and the warning counts them.
+
+There's one exception. At 100% churn, every customer pays one period and leaves, so the full amount arrives at once and equal is enough. With the same $50 and 80% margin, lifetime gross profit is $40.00. A CAC of $40.00 gives 1.00:1, a payback of 1.0 month, and no warning. A CAC of $40.01 brings the warning back.
+
+The warning comes from the model, not from customers you've tracked. It doesn't appear when there's no ratio.
+
+## Why does the CAC choice change the label?
+
+So you can't mistake a partial cost for the full one. `All acquisition costs` labels the result `LTV:CAC`. `Paid media only` labels it `LTV to paid media CAC` and adds that pay, tools, agencies, and other acquisition costs are left out.
+
+<Warning title="Paid media alone makes customers look cheaper">
+
+The same $1,333.33 against a $150 paid-media cost is 8.89:1, with payback of 3.8 months. Lifetime value didn't change. The cost shrank because pay, tools, and agencies were left out. Don't read 8.89:1 as the full cost of winning those customers.
+
+</Warning>
+
+Stripe's guide builds CAC from all sales and marketing costs, not ad spend alone. If your lifetime value covers every new customer, compare it with the cost of winning all of them. If you use the paid-media cost, keep the narrower label.
+
+## When is there no ratio?
+
+The result shows a short phrase instead of a ratio. Payback can still have an answer, because it needs different inputs.
+
+| What you entered | The ratio says | Payback says |
+| --- | --- | --- |
+| CAC of exactly 0 | `No CAC to compare` | No payback line. The result says there's nothing to divide by. |
+| Churn of 0, CAC above 0, margin above 0 | `Not estimable` | The straight-line months. |
+| Negative margin, CAC above 0 | `LTV below zero` | Never, because each customer loses money. |
+| Margin of 0, CAC above 0 | `0.00:1` | Never, because gross profit per customer is $0.00. |
+| Your own LTV, CAC above 0 | The ratio | No payback line. |
+
+<Note title="A zero cost is checked first">
+
+If CAC is exactly 0, the result says `No CAC to compare`, even when churn is also 0 or the margin is negative. A small cost that shows as `Under $0.01` is still above zero, so the ratio is still calculated.
+
+</Note>
+
+If churn is 0 and the margin is 0 or negative, the ratio is `Not estimable` and payback is never.
+
+## What has to match on both sides?
+
+The ratio divides one amount by another, so both must describe the same customers in the same way.
+
+- The same customer unit. Don't divide a company account's yearly value by a per-user monthly cost.
+- The same currency. Convert before you type.
+- The same group. Lifetime value for all new customers divided by the ad cost of only some of them makes ads look cheaper than they are.
+- The same period, when you build LTV. Don't mix monthly ARPA with yearly churn.
+- The same cost scope. If you change `CAC includes`, check the new label before comparing with another scenario.
+
+A company-wide ratio can hide a channel that doesn't cover its cost. Put that channel in the second scenario with its own value and cost. The result then says whether its ratio is higher, lower, or the same, and whether payback is sooner, later, or the same. Those comparisons appear only when both scenarios have a number.
+
+## What this comparison doesn't decide
+
+It doesn't tell you to spend more because the ratio is high, or less because it's low. It doesn't know your cash, your capacity, or which costs you left out.
+
+Related tools:
+
+- [Customer acquisition cost calculator](/customer-acquisition-cost-calculator): build CAC from ads, pay, tools, agencies, shared costs, and your own time.
+- [Customer lifetime value calculator](/customer-lifetime-value-calculator): see how much of the lifetime estimate arrives by year 5.
+- [CAC payback calculator](/cac-payback-calculator): find the month a shrinking group covers its cost.
+- [Break-even MRR calculator](/break-even-mrr-calculator): the monthly recurring revenue that covers your running costs.
+- [SaaS metrics calculator](/saas-metrics-calculator): a quick snapshot of one month.

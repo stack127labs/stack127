@@ -1,0 +1,20 @@
+## What to enter
+
+Vdev width is the number of drives in this one RAIDZ vdev, not in the whole pool. `zpool get ashift` shows `ashift`. 12 means 4 KiB sectors.
+
+Pick Filesystem for a dataset, where the setting is `recordsize`, or Zvol for a block device, where it's `volblocksize`. `recordsize` is the largest block a file uses, so files smaller than it use one smaller block.
+
+`Share configuration` puts your inputs in a link you can send or bookmark.
+
+<Example title="An 8 KiB block on a six-drive RAIDZ2 with ashift=12">
+
+| Part | Sectors | Space |
+| --- | --- | --- |
+| Data | 2 | 8 KiB |
+| Parity | 2 | 8 KiB |
+| Padding | 2 | 8 KiB |
+| Total | 6 | 24 KiB |
+
+The 8 KiB block takes 24 KiB on disk, so a third of the space holds data.
+
+</Example>

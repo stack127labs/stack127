@@ -14,7 +14,7 @@ import { proseSectionFlowClassName } from "../../../ui/site/prose";
 import BadSign from "./content/bad-sign.mdx";
 import ClientAndServer from "./content/client-and-server.mdx";
 import Intro from "./content/intro.mdx";
-import RelatedTools from "./content/related-tools.mdx";
+import SeeYourCodes from "./content/see-your-codes.mdx";
 import SiteDown from "./content/site-down.mdx";
 import TwoSpellings from "./content/two-spellings.mdx";
 import WhyItWasSet from "./content/why-it-was-set.mdx";
@@ -37,16 +37,6 @@ const GROUP_PILL: Record<StatusGroup, string> = {
 };
 
 const GROUP_ORDER: StatusGroup[] = ["normal", "registrar_lock", "registry_lock", "in_progress", "lifecycle"];
-
-const GROUP_INTRO: Record<StatusGroup, string> = {
-  normal: "Nothing to do. These are what a healthy domain looks like.",
-  registrar_lock:
-    "Your registrar put these on. That matters, because it usually means you can take them off yourself from your account.",
-  registry_lock:
-    "The registry that runs the ending put these on. You cannot remove them yourself, and the route is through your registrar.",
-  in_progress: "Something is part way through. These clear on their own once the registry finishes.",
-  lifecycle: "Where the domain sits between being registered and being released.",
-};
 
 /** A paragraph written as `client…` → meaning renders as one source-path row. */
 function SourcePathParagraph({ children, ...props }: ComponentPropsWithoutRef<"p">) {
@@ -78,25 +68,12 @@ export default async function EppStatusCodesPage() {
         </PageHeader>
 
         <article className={`domain-reference-content ${proseSectionFlowClassName}`}>
-          <section>
-            <TwoSpellings />
-          </section>
-
-          <section>
-            <ClientAndServer components={{ p: SourcePathParagraph }} />
-          </section>
-
-          <section>
-            <SiteDown />
-          </section>
-
           {GROUP_ORDER.map((group) => (
             <section key={group}>
               <div className="domain-answer-head">
                 <h2>{STATUS_GROUP_TITLES[group]}</h2>
                 <StatePill tone={GROUP_TONE[group]}>{GROUP_PILL[group]}</StatePill>
               </div>
-              <p>{GROUP_INTRO[group]}</p>
               <div className="domain-table-scroll">
                 <table className="domain-table">
                   <thead>
@@ -137,7 +114,7 @@ export default async function EppStatusCodesPage() {
           ))}
 
           <section>
-            <WhyItWasSet />
+            <SiteDown />
           </section>
 
           <section>
@@ -145,7 +122,19 @@ export default async function EppStatusCodesPage() {
           </section>
 
           <section>
-            <RelatedTools />
+            <ClientAndServer components={{ p: SourcePathParagraph }} />
+          </section>
+
+          <section>
+            <TwoSpellings />
+          </section>
+
+          <section>
+            <WhyItWasSet />
+          </section>
+
+          <section>
+            <SeeYourCodes />
           </section>
         </article>
       </PageCanvas>

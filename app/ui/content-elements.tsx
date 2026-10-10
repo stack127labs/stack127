@@ -46,6 +46,13 @@ export function ContentLink({ children, href, ...props }: ComponentPropsWithoutR
   return href?.startsWith("/") ? <Link href={href}>{children}</Link> : <a href={href} {...props}>{children}</a>;
 }
 
+/** For directory pages whose source links open beside the listing instead of leaving it. */
+export function NewTabContentLink({ children, href, ...props }: ComponentPropsWithoutRef<"a">) {
+  return href?.startsWith("/") || href?.startsWith("#") || href?.startsWith("mailto:")
+    ? <ContentLink href={href} {...props}>{children}</ContentLink>
+    : <a href={href} rel="noopener noreferrer" target="_blank" {...props}>{children}</a>;
+}
+
 export function ContentTable({ children, ...props }: ComponentPropsWithoutRef<"table">) {
   return <TableFrame ariaLabel="Content table" className={styles.tableScroll}><table {...props}>{children}</table></TableFrame>;
 }

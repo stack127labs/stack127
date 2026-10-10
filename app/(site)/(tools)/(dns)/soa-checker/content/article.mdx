@@ -1,0 +1,30 @@
+## What does the SOA serial number mean?
+
+It's the zone's version number, and it goes up with each change. Many zones use the date plus a counter, such as `2026100901`, as [RFC 1912](https://www.rfc-editor.org/rfc/rfc1912.html#section-2.2) suggests. Others count from 1 or use a timestamp.
+
+Serials wrap back to zero after 4,294,967,295, so a smaller number isn't always older. The checker compares them with [RFC 1982](https://www.rfc-editor.org/rfc/rfc1982.html) serial arithmetic, not as plain numbers.
+
+## What do the other SOA fields mean?
+
+| Field | What it means |
+| --- | --- |
+| Primary, MNAME | The zone's main nameserver, as the zone names it. |
+| Mailbox, RNAME | The zone contact's email, with the first dot standing for the @. |
+| Refresh | How often a secondary server checks the primary for changes. |
+| Retry | How long a secondary waits to try again after a failed check. |
+| Expire | How long a secondary keeps answering when it can't reach the primary. |
+| MINIMUM | One of the two values that set the negative cache time. |
+| SOA TTL | How long resolvers cache the SOA record itself. |
+| Negative cache | How long resolvers cache a missing name or record: the lower of the SOA TTL and MINIMUM. |
+
+All times are in seconds. Refresh, retry, and expire drive classic zone transfers. Many hosted DNS providers sync their servers another way, so these may not do anything there. The negative cache rule comes from [RFC 2308](https://www.rfc-editor.org/rfc/rfc2308.html).
+
+## Why do my nameservers show different serials?
+
+- A change is still syncing. Check again in a few minutes.
+- The domain uses two DNS providers, each with its own SOA. Compare the record you care about instead.
+- A secondary server stopped updating. It may not reach the primary, or may not be allowed to copy the zone. If its serial stays behind, fix the transfer or remove the server. The [nameserver checker](/nameserver-checker) shows which servers are listed.
+
+Matching serials don't prove that every record matches. To check one record across servers, use the [DNS change checker](/dns-change-checker).
+
+The check asks each nameserver directly from stack127's server. IPv6 addresses are skipped when the checker has no IPv6 route. stack127 doesn't keep the names you check.

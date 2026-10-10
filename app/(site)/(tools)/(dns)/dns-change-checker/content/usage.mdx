@@ -1,0 +1,28 @@
+## What to enter as the expected answer
+
+Type the value the way DNS returns it. Capital letters and a final dot don't matter.
+
+| Type | Enter it like this |
+| --- | --- |
+| A or AAAA | `203.0.113.10` |
+| MX | `10 mail.example.com`, with the priority first |
+| TXT | `"v=spf1 -all"`, with the quotes |
+| CNAME | `target.example.net` |
+
+A TXT value without its quotes won't match anything.
+
+## How to read the result
+
+`Published by authoritative nameservers` is the source: what the domain's own servers hand out now. `Seen in public resolver caches` shows the copy each resolver gives its users.
+
+A resolver marked `Matches reference` returns the same records as the nameservers. `Different answer` means it returns something else. The comparison ignores record order. `Resolver TTL` is the seconds left on that resolver's copy.
+
+<Example title="example.com, A record">
+
+All 12 nameserver addresses return `104.20.23.154` and `172.66.147.243`. Six of 7 resolvers match. Yandex DNS returns `8.47.69.5` and `8.6.112.5` instead.
+
+Both sets are on Cloudflare's network, AS13335. An answer like this usually comes from the provider answering by location, not from an old copy.
+
+Checked on 9 October 2026.
+
+</Example>

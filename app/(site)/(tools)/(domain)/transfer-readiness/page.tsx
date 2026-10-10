@@ -1,9 +1,12 @@
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
-import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
+import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { ArrowLeftRight } from "lucide-react";
 import { TransferReadinessFromUrl } from "./transfer-readiness-from-url";
+import Article from "./content/article.mdx";
+import Intro from "./content/intro.mdx";
+import Usage from "./content/usage.mdx";
 
 export default async function TransferReadinessPage() {
   const toolPage = await getRequiredToolPage("transfer-readiness");
@@ -13,12 +16,16 @@ export default async function TransferReadinessPage() {
       <PageCanvas as="main" className="domain-tool-main">
         <ToolPageHeader
           icon={<ArrowLeftRight strokeWidth={2.2} />}
+          intro={<Intro />}
           toolPage={toolPage}
         />
 
         <TransferReadinessFromUrl />
 
-        <ToolPageMarkdown toolPage={toolPage} />
+        <ToolPageArticle>
+          <Usage />
+          <Article />
+        </ToolPageArticle>
       </PageCanvas>
     </ToolPageShell>
   );

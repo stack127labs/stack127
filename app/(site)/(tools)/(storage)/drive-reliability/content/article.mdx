@@ -1,0 +1,35 @@
+## How is annualized failure rate calculated?
+
+AFR divides failures by drive years of running time.
+
+<Formula title="Annualized failure rate">
+
+AFR = failures ÷ (drive days ÷ 365) × 100
+
+</Formula>
+
+Drive days add up the days each drive ran. A hundred drives for ten days and ten drives for a hundred days both count 1,000 drive days.
+
+The range is an approximate 95% interval from the same failures and drive days. It describes how sure the rate is, not how long a drive will live.
+
+## What does a 0% failure rate mean?
+
+It means no drive in that group failed in the period, not that the model never fails. The range still runs above zero. HMS5C4040BLE640, with 0 failures over 15,858 drive days in Q1 2026, has a range up to 3.19%.
+
+## Why is a drive model missing?
+
+Backblaze only reports models with enough drives and running time for each period, as its [Q1 2026 report](https://www.backblaze.com/blog/backblaze-drive-stats-for-q1-2026/) lists. A missing model means there's no data, not that it's good or bad.
+
+| Period | More than this many drives | And more than this many drive days |
+| --- | --- | --- |
+| Quarterly | 100 | 10,000 |
+| Annual | 250 | 50,000 |
+| Lifetime | 500 | 100,000 |
+
+## Can Backblaze data predict my NAS drive's life?
+
+No. Backblaze runs drives in data centers with their own workload, cooling, and age mix. A model's rate there is a useful hint when you compare models, not a forecast for one drive.
+
+For a drive you own, check its SMART data and firmware, know its warranty, and keep a tested backup. The [3-2-1 backup calculator](/backup-321-calculator) sizes one, and the [rebuild calculator](/rebuild-calculator) shows how long an array stays exposed when a drive fails.
+
+The data comes from [Backblaze Drive Stats](https://www.backblaze.com/cloud-storage/resources/hard-drive-test-data). The share link stores only your filters and chosen models.

@@ -1,0 +1,21 @@
+## What to enter
+
+Write one rule per line, in the order you'll pass them to rsync. `--include=PATTERN` is `+ PATTERN`, and `--exclude=PATTERN` is `- PATTERN`.
+
+For paths, list files relative to the folder you're copying, and end each directory with `/`. Include the folders that lead to the files you care about, such as `photos/` and `photos/2026/`, because a folder's own result decides whether rsync looks inside it.
+
+Leave `Unmatched paths` on `Include` to match rsync. A path no rule matches is copied.
+
+## How to read the result
+
+Each path is included, excluded, or unvisited. Unvisited means rsync never reaches the path, because a folder above it was excluded.
+
+<Example title="Copy only JPEG files from a photo folder">
+
+Paths: `photos/`, `photos/2026/`, `photos/2026/a.jpg`, `photos/2026/b.raw`, `notes.txt`, `cover.jpg`.
+
+With `+ *.jpg` then `- *`, the result is `Included 1, excluded 2, unvisited 3.` Only `cover.jpg` is copied, because `- *` excludes `photos/` and rsync never looks inside.
+
+Add `+ */` as the first rule and it becomes `Included 4, excluded 2, unvisited 0.` Now `photos/2026/a.jpg` is copied too.
+
+</Example>

@@ -1,0 +1,23 @@
+## Plain text or HTML source?
+
+| Input format | Use it for | What happens |
+| --- | --- | --- |
+| Plain text | Text you typed or copied | A blank line starts a new paragraph. A single line break becomes `<br>`. Characters like `<` and `&` stay visible. Extra spaces are trimmed. |
+| HTML source | Text that already has tags | KDP's tags stay. `<strong>` becomes `<b>`, and `<h1>` to `<h3>` become `<h4>`. Attributes like `class` and `style` go. Other tags go but their text stays. Scripts, images, embedded media, and comments are dropped. |
+
+## How to read the result
+
+- Generated HTML. What you paste into KDP. You can copy it at 4,000 characters or fewer.
+- Local character counts. The HTML, the visible text, and the difference, called source overhead. That's what the tags and escaped characters add.
+- What changed. Each kind of cleanup, like tags removed or spaces trimmed.
+- Approximate preview. A rough look at the layout. Amazon's page can differ.
+
+Unclosed or mismatched formatting tags stop formatting. Scripts and other dropped-content blocks are discarded instead. Fix formatting tags and format again.
+
+<Example title="Bold that stays">
+
+HTML source `<p>Grow <strong>fresh herbs</strong> &amp; greens.</p>` becomes `<p>Grow <b>fresh herbs</b> &amp; greens.</p>`. That's 44 characters, 26 visible.
+
+KDP doesn't support `<strong>`, so the formatter converts it to `<b>` and records the change. The bold stays.
+
+</Example>

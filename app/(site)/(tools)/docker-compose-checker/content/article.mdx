@@ -1,0 +1,52 @@
+## Why is my container port open to the whole network?
+
+A port written as `"8080:80"` listens on every network interface of the host, not just on the host itself. [Docker's port publishing guide](https://docs.docker.com/engine/network/port-publishing/) calls this insecure by default.
+
+If only a reverse proxy on the same machine should reach the app, add the local address: `"127.0.0.1:8080:80"`. The checker flags published ports with no host address for this reason.
+
+<Warning title="ufw doesn't block published Docker ports">
+
+Docker writes its own firewall rules, and [Docker says it and ufw are incompatible](https://docs.docker.com/engine/network/packet-filtering-firewalls/). A port published to all interfaces can be reachable even when ufw denies it.
+
+</Warning>
+
+To set up the proxy side, the [nginx proxy_pass calculator](/nginx-proxy-pass-calculator) shows how a request path maps to the app. The course chapter on [accessing apps safely at home](/self-hosting-for-beginners/access-apps-safely-at-home) covers the bigger picture.
+
+## Is mounting the Docker socket safe?
+
+Only for containers you trust fully. A container with `/var/run/docker.sock` can control Docker, and Docker runs as root. [Docker's security guide](https://docs.docker.com/engine/security/) says only trusted users should control the daemon.
+
+Reverse proxies and dashboards often ask for it. Check what the app needs the socket for before you add it.
+
+## Why isn't my variable being replaced?
+
+Compose fills `${VAR}` from your shell and the `.env` file in the project folder. A service's `env_file` is different: it passes variables into the container and doesn't fill `${VAR}` in the Compose file. See [variable interpolation](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/).
+
+The default forms differ on empty values:
+
+- `${VAR-default}` uses the default when `VAR` isn't set.
+- `${VAR:-default}` uses it when `VAR` isn't set or is empty.
+- `${VAR?message}` stops with the message when `VAR` isn't set.
+- `${VAR:?message}` stops when `VAR` isn't set or is empty.
+
+Write `$$` for a literal dollar sign, such as in a healthcheck command. The full list is in the [interpolation reference](https://docs.docker.com/reference/compose-file/interpolation/).
+
+## Do I still need the version line?
+
+No. [Docker's Compose reference](https://docs.docker.com/reference/compose-file/version-and-name/) says `version` is only informative and Compose warns that it's obsolete. Compose always uses the latest schema, whatever the line says. You can delete it unless an older tool still needs it.
+
+## Does depends_on wait for the database to be ready?
+
+Not by default. A plain `depends_on` only sets the start order. To wait until the database is ready, give it a `healthcheck` and use `condition: service_healthy`, as [Docker's startup order guide](https://docs.docker.com/compose/how-tos/startup-order/) shows.
+
+The checker confirms that each dependency exists in the file. It can't tell whether a healthcheck will pass.
+
+## Should I pin image tags?
+
+Pinning makes updates a choice instead of a surprise. An image with no tag, or with `latest`, can change the next time you pull. Pin a version such as `postgres:16`, or a digest when you need the exact same image every time.
+
+## How do I check the whole project?
+
+Run `docker compose config -q` in the project folder. It merges every file, `.env`, and profile the way the real deployment does, and prints nothing when the model is valid. Add `--environment` to see the values it used. See the [compose config reference](https://docs.docker.com/reference/cli/docker/compose/config/).
+
+Neither check proves the images exist, ports are free on the host, or the services start. Those need a real `docker compose up`. If Compose is new to you, start with [understanding Docker Compose](/self-hosting-for-beginners/understand-docker-compose). If your services build from a Dockerfile, the [.dockerignore tester](/dockerignore-tester) shows what goes into the build.

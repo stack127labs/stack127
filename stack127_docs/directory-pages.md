@@ -29,13 +29,15 @@ Every published child page gets its own row, for example `/ad-networks/<slug>` o
 
 Every child page also gets its own words, written for that page: an intro at least, and sections when the page needs them. They live in MDX, as [page-content.md](page-content.md) describes. A child page with its own route folder, such as `/keyboard-shortcuts/figma`, keeps them in `content/` beside its `page.tsx`. Platform fee categories share `platform-fees/[section]/`, so each category has a folder under that route's `content/`, named for its slug.
 
-Record sync scripts own the records and the generated route files. They must not write over a child page's words, title, or search metadata. A script that generates child routes, such as the keyboard shortcuts sync, generates each `page.tsx` to pass the page's own `content/` files to the template. Write the title and search metadata with the directory writing skill, then publish them with `"source": "development"` in the manifest. See [page-publishing.md](page-publishing.md).
+Record sync scripts own the records and the generated route files. They leave existing page words, titles, search metadata, and cards alone. They may insert a starting database row when one is missing. The keyboard shortcuts sync requires every app's `content/intro.mdx` before writing any files, including in `--check` mode. It passes that intro to the template; the template renders the print link. Write the title and search metadata with the directory writing skill, then publish them with `"source": "development"` in the manifest. See [page-publishing.md](page-publishing.md).
 
-| Directory | Record script |
-| --- | --- |
-| Keyboard shortcuts | `scripts/keyboard-shortcuts/sync-pages.mjs` |
-| Ad networks | `scripts/ad-networks/sync-page-copy.mjs` |
-| Platform fees | `scripts/platform-fees/sync-development.mjs`, then `prepare-category-manifest.mjs` for the manifest |
+| Directory | Record script | Page fields |
+| --- | --- | --- |
+| Keyboard shortcuts | `scripts/keyboard-shortcuts/sync-pages.mjs` | `--apply` inserts missing child rows, then syncs app records and the hub snapshot. Existing page fields stay as written. |
+| Ad networks | `scripts/ad-networks/sync-page-copy.mjs` | Inserts missing child rows only. Existing page fields stay as written. |
+| Platform fees | `scripts/platform-fees/sync-development.mjs`, `sync-records.mjs`, then `prepare-category-manifest.mjs` | Syncs records and inserts missing page rows. The manifest takes reviewed page fields from development. |
+
+The managed-development hardware preview scripts, `scripts/stack127/preview-hardware-directories.mjs` and `scripts/zigbee-devices/preview-local-page.mjs`, insert starting rows only when missing. Existing titles, words, cards, and search fields stay as written. Normal runs publish drafts; published pages stay unchanged. `--remove` unpublishes without deleting rows. Zigbee removal still requires the original preview metadata. Add `--dry-run` to preview either operation and roll back. The old hardware `--refresh` flag overwrote search fields; both scripts now reject it. Use the single-page editor below for reviewed changes.
 
 ## Public dates
 

@@ -1,0 +1,27 @@
+## How is Unraid array capacity calculated?
+
+Add up the data drives. Parity drives hold recovery information, not files, so they don't count.
+
+Unlike RAID, Unraid uses all of every data drive, even when sizes differ. The same four drives of 4, 8, 12, and 12 TB in RAID 5 would give 12 TB, because RAID uses only as much of each drive as the smallest holds. The [RAID calculator](/raid-calculator) shows that layout.
+
+## How big does the Unraid parity drive need to be?
+
+At least as large as your largest data drive. With dual parity, both parity drives must meet that rule, but they can differ in size. [Unraid's docs](https://docs.unraid.net/unraid-os/using-unraid-to/manage-storage/array/adding-disks-to-array/) set the rule.
+
+| Parity | Survives | Rule |
+| --- | --- | --- |
+| None | No failed drive | None |
+| Single | 1 failed drive | Parity at least as large as every data drive |
+| Dual | 2 failed drives | Both parity drives at least as large as every data drive |
+
+Extra space on a larger parity drive doesn't add to your data space.
+
+## Can I add a larger drive to Unraid later?
+
+Yes, but a data drive larger than your parity drive needs a parity upgrade first. Replace the parity drive with the larger one, then reuse the old parity drive as a data drive. Follow Unraid's guide for [replacing disks](https://docs.unraid.net/unraid-os/using-unraid-to/manage-storage/array/replacing-disks-in-array/).
+
+## Why does Unraid show less space than the calculator?
+
+The result is the raw size of the data drives. The filesystem on each drive takes some space, and your operating system may count in TiB. Cache pools aren't part of this array estimate.
+
+Parity is not a backup. It rebuilds a failed drive but can't bring back deleted or damaged files. The [3-2-1 backup calculator](/backup-321-calculator) helps you size a backup. For a ZFS pool instead of an Unraid array, use the [ZFS capacity calculator](/zfs-capacity-calculator).

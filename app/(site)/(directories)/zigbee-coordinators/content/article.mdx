@@ -1,0 +1,30 @@
+## Which Zigbee coordinator should I buy?
+
+Start with the radio chipset, because it decides which firmware and software you can use. [Zigbee2MQTT recommends](https://www.zigbee2mqtt.io/guide/adapters/) Texas Instruments, Silicon Labs, and Dresden Elektronik adapters. [Home Assistant's ZHA docs](https://www.home-assistant.io/integrations/zha/) recommend its own adapters first, and list others it has tested.
+
+| Chipset on the card | Maker | What the docs say |
+| --- | --- | --- |
+| CC2652, CC1352 | Texas Instruments | Recommended by Zigbee2MQTT |
+| EFR32MG21, EFR32MG24 | Silicon Labs | Recommended by Zigbee2MQTT |
+| CC2530, CC2531, CC2538 | Texas Instruments, older | Not recommended. They run end-of-life firmware, and ZHA says CC2530 and CC2531 sticks struggle past 15 to 20 devices. |
+| XBee 3 | Digi | ZHA supports it but doesn't recommend it |
+
+Dresden Elektronik adapters, sold as ConBee and RaspBee, show no chipset here. When a card says the chipset isn't published, check the manufacturer page in the details.
+
+## Should I get a USB or network coordinator?
+
+Get USB if the adapter can sit near the machine running ZHA or Zigbee2MQTT. Put it on a USB extension cable, away from the computer, and use a USB 2.0 port, as ZHA's docs recommend.
+
+A network coordinator lets you place the radio anywhere with an Ethernet cable. Zigbee2MQTT warns that adapters on Wi-Fi may be less stable, so it recommends wired Ethernet.
+
+## Will I need to pair my devices again?
+
+Usually not, if you keep a backup. Zigbee2MQTT says firmware updates on the same adapter don't need re-pairing, but moving to a different adapter may. ZHA can move a network between Silicon Labs, Texas Instruments, and ConBee radios from a ZHA backup. Devices then rejoin on their own, normally within an hour.
+
+## Where does this list come from?
+
+Each card comes from the coordinator records in [Blakadder's Zigbee device compatibility repository](https://zigbee.blakadder.com/), a community list. "Works with" shows the software those reports name. We haven't tested these adapters ourselves, so check the firmware your software needs on the manufacturer page before you buy.
+
+## Which Zigbee devices will work with my coordinator?
+
+That depends on ZHA or Zigbee2MQTT more than on the coordinator. Check exact models in [Zigbee devices](/zigbee-devices).

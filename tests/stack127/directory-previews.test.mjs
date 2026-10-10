@@ -22,7 +22,7 @@ function database(slugs) {
   const copies = rows.map(row => ({
     page_id: row.id, title: `Edited <mark>${row.slug}</mark>`, intro_markdown: 'Edited intro.',
     content_markdown: 'Edited page content.', card_name: 'Edited card name',
-    card_description: 'Edited card description.', row_updated_at: '2026-10-02',
+    card_description: 'Edited card description.', card_icon_key: 'layers', card_art_key: 'catalog/test', row_updated_at: '2026-10-02',
   }));
   const state = { rows, copies, failUpdate: null };
   let snapshot;
@@ -46,15 +46,32 @@ function database(slugs) {
         state.copies = state.copies.filter(copy => !removedIds.includes(copy.page_id));
         return { rows: [] };
       }
+      if (query.startsWith('insert into public.stack127_pages')) {
+        if (state.rows.some(row => row.slug === args[0])) return { rows: [], rowCount: 0 };
+        const [slug, label, title, description, pageType, priority] = args;
+        state.rows.push({ id: Math.max(0, ...state.rows.map(row => row.id)) + 1,
+          slug, label, meta_title: title, meta_description: description, page_family: 'directory',
+          page_type: pageType, sitemap_priority: priority, is_published: false, published_at: null, updated_at: null });
+        return { rows: [], rowCount: 1 };
+      }
+      if (query.startsWith('insert into public.stack127_directory_pages')) {
+        const row = state.rows.find(row => row.slug === args[0] && row.page_family === 'directory');
+        if (!row || state.copies.some(copy => copy.page_id === row.id)) return { rows: [], rowCount: 0 };
+        state.copies.push({ page_id: row.id, title: args[1], intro_markdown: args[2], content_markdown: args[3],
+          card_name: args[4] ?? row.label, card_description: args[5] ?? row.meta_description, row_updated_at: 'now' });
+        return { rows: [{ page_id: row.id }], rowCount: 1 };
+      }
       if (query.startsWith('update')) {
         const row = state.rows.find(row => row.id === args[0]);
         if (row.slug === state.failUpdate) throw new Error('Preview update failed');
         if (query.includes('is_published=false')) {
           Object.assign(row, { is_published: false, published_at: null, updated_at: null });
-        } else {
+        } else if (query.includes('label=')) {
           const [, label, title, description, refresh] = args;
           Object.assign(row, { label, meta_title: title, meta_description: description });
           if (!refresh) Object.assign(row, { is_published: true, published_at: 'now', updated_at: 'now' });
+        } else {
+          Object.assign(row, { is_published: true, published_at: row.published_at ?? 'now', updated_at: 'now' });
         }
         return { rows: [] };
       }
@@ -88,6 +105,7 @@ for (const preview of cases) {
   test(`${preview.name} removal and republishing preserve edited copy, cards, timestamps, and IDs`, async () => {
     const { state, pool } = database(preview.slugs);
     const before = structuredClone(state.copies);
+    const searchBefore = state.rows.map(row => ({ label: row.label, title: row.meta_title, description: row.meta_description }));
     const ids = state.rows.map(row => row.id);
     await runScript(preview.script, ['--remove'], pool);
     assert.ok(state.rows.every(row => !row.is_published));
@@ -96,22 +114,58 @@ for (const preview of cases) {
     assert.ok(state.rows.every(row => row.is_published));
     assert.deepEqual(state.rows.map(row => row.id), ids);
     assert.deepEqual(state.copies, before);
+    assert.deepEqual(state.rows.map(row => ({ label: row.label, title: row.meta_title, description: row.meta_description })), searchBefore);
   });
 
-  test(`${preview.name} preview rejects missing copy without publishing any pages`, async () => {
+  test(`${preview.name} preview inserts only missing directory copy and preserves existing fields`, async () => {
     const { state, pool } = database(preview.slugs);
     state.rows.forEach(row => { row.is_published = false; });
     state.copies.pop();
+    const before = structuredClone(state.copies);
+    const searchBefore = state.rows.map(row => [row.label, row.meta_title, row.meta_description]);
+    await runScript(preview.script, [], pool);
+    assert.ok(state.rows.every(row => row.is_published));
+    assert.deepEqual(state.copies.slice(0, before.length), before);
+    assert.equal(state.copies.length, preview.slugs.length);
+    assert.deepEqual(state.rows.map(row => [row.label, row.meta_title, row.meta_description]), searchBefore);
+    const initialized = state.copies.at(-1);
+    assert.equal(initialized.intro_markdown, state.rows.at(-1).meta_description);
+    assert.equal(initialized.content_markdown, null);
+  });
+
+  test(`${preview.name} preview leaves published rows and their dates unchanged`, async () => {
+    const { state, pool } = database(preview.slugs);
     const before = structuredClone({ rows: state.rows, copies: state.copies });
-    await assert.rejects(runScript(preview.script, [], pool), /Directory page copy is missing/);
+    await runScript(preview.script, [], pool);
     assert.deepEqual({ rows: state.rows, copies: state.copies }, before);
   });
 
-  test(`${preview.name} preview refuses to overwrite published pages`, async () => {
+  test(`${preview.name} preview initializes missing registry and directory rows once`, async () => {
+    const { state, pool } = database([]);
+    await runScript(preview.script, [], pool);
+    assert.equal(state.rows.length, preview.slugs.length);
+    assert.equal(state.copies.length, preview.slugs.length);
+    assert.ok(state.rows.every(row => row.is_published && row.page_family === 'directory'));
+    const before = structuredClone({ rows: state.rows, copies: state.copies });
+    await runScript(preview.script, [], pool);
+    assert.deepEqual({ rows: state.rows, copies: state.copies }, before);
+  });
+
+  test(`${preview.name} dry runs roll back publication, removal, and missing-row insertion`, async () => {
+    for (const operation of ['publish', 'remove', 'insert']) {
+      const { state, pool } = database(operation === 'insert' ? [] : preview.slugs);
+      if (operation === 'publish') state.rows.forEach(row => { row.is_published = false; });
+      const before = structuredClone({ rows: state.rows, copies: state.copies });
+      await runScript(preview.script, ['--dry-run', ...(operation === 'remove' ? ['--remove'] : [])], pool);
+      assert.deepEqual({ rows: state.rows, copies: state.copies }, before);
+    }
+  });
+
+  test(`${preview.name} rejects the retired refresh flag without changing fields`, async () => {
     const { state, pool } = database(preview.slugs);
-    const before = structuredClone(state.rows);
-    await assert.rejects(runScript(preview.script, [], pool), /published registry row already exists/);
-    assert.deepEqual(state.rows, before);
+    const before = structuredClone({ rows: state.rows, copies: state.copies });
+    await assert.rejects(runScript(preview.script, ['--refresh'], pool), /--refresh is retired/);
+    assert.deepEqual({ rows: state.rows, copies: state.copies }, before);
   });
 
   test(`${preview.name} preview rejects another page family`, async () => {
@@ -134,15 +188,6 @@ test('hardware preview rolls back the entire batch when an update fails', async 
   const before = structuredClone({ rows: state.rows, copies: state.copies });
   await assert.rejects(runScript(cases[0].script, [], pool), /Preview update failed/);
   assert.deepEqual({ rows: state.rows, copies: state.copies }, before);
-});
-
-test('hardware metadata refresh preserves unpublished visibility and directory copy', async () => {
-  const { state, pool } = database(hardwareSlugs);
-  state.rows.forEach(row => { row.is_published = false; });
-  const before = structuredClone(state.copies);
-  await runScript(cases[0].script, ['--refresh'], pool);
-  assert.ok(state.rows.every(row => !row.is_published));
-  assert.deepEqual(state.copies, before);
 });
 
 test('Zigbee removal retains the preview metadata guard', async () => {

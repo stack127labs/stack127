@@ -1,0 +1,22 @@
+## How does SHR use drives of different sizes?
+
+SHR cuts the drives into layers. Every drive fills the bottom layer up to the size of the smallest drive. The larger drives continue into the next layer, and so on. Each layer is protected on its own, like a small RAID array.
+
+| Layer, for 4, 4, 8, and 8 TB drives | Drives | SHR-1 data | SHR-2 data |
+| --- | --- | --- | --- |
+| 0 to 4 TB | 4 | 12 TB | 8 TB |
+| 4 to 8 TB | 2 | 4 TB | Unused |
+
+SHR-1 uses one drive's share of each layer for protection, and SHR-2 uses two. A layer needs more drives than that to hold data, so in SHR-2 the top layer of the two larger drives stays empty. Plain RAID 5 on the same drives gives 12 TB, because it uses only 4 TB of each drive. The [RAID calculator](/raid-calculator) shows that layout.
+
+## Should I choose SHR-1 or SHR-2?
+
+Decide how many failed drives you need to survive, then compare space. SHR-1 survives one failed drive, and SHR-2 survives two and needs at least four drives.
+
+SHR-2 costs a second drive's worth of space, and with mixed sizes it can leave the top layers unused. Neither is a backup. The [3-2-1 backup calculator](/backup-321-calculator) helps you size one.
+
+## Why does DSM show less space than the calculator?
+
+DSM takes more off after the pool is built. The calculator already subtracts about 10 GB per drive for the system, as [Synology's RAID calculator](https://www.synology.com/en-uk/support/RAID_calculator) does. Synology also reserves about 4% for metadata on a Btrfs volume, or 2% on ext4, and snapshots use more.
+
+An existing pool can also differ because of the order its drives were added or replaced. Check [Synology's SHR guide](https://kb.synology.com/en-uk/DSM/tutorial/What_is_Synology_Hybrid_RAID_SHR) and your NAS model's support before you buy drives to grow a pool.

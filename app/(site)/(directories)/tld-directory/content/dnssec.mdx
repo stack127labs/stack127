@@ -1,0 +1,3 @@
+## Does a signed extension mean my domain uses DNSSEC?
+
+No. "Signed" means the ending itself has a DS record in the root zone, so domains under it can use DNSSEC. Each domain still needs to be signed by its DNS host, with its own DS record added through the registrar. To check one domain, use the [DNSSEC checker](/dnssec-checker).

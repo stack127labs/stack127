@@ -1,0 +1,18 @@
+## What to enter
+
+Each parity disk must be at least as large as your largest data disk, because parity can grow to that size. The [SnapRAID manual](https://www.snapraid.it/manual) sets this rule.
+
+Content files are SnapRAID's list of files and checksums. Keep at least one more copy than you have parity disks, each on a different disk. A copy can sit on a data disk, such as `/mnt/disk1/snapraid.content`, but never on a parity disk.
+
+The mergerfs policy decides which disk gets a new file:
+
+| Option | mergerfs policy | New files go to |
+| --- | --- | --- |
+| Balanced | `epmfs` | The disk with the most free space among those that already have the folder |
+| Most free | `mfs` | The disk with the most free space |
+
+Balanced keeps a folder's files together. The [mergerfs policy docs](https://trapexit.github.io/mergerfs/latest/config/functions_categories_policies/) explain the rest.
+
+Leave the blocksize at 256 KiB, SnapRAID's default, unless you have a reason to change it.
+
+Your paths stay in this browser and aren't added to the page address.

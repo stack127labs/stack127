@@ -4,7 +4,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 import { parseArgs, runMutation, printResult } from "../stack127/tool-pages/lib.mjs";
-import { keyboardShortcutPageCopy, upsertDirectoryPage } from "../stack127/directory-pages/lib.mjs";
+import { keyboardShortcutPageCopy, insertDirectoryPageIfMissing } from "../stack127/directory-pages/lib.mjs";
 
 const root = path.resolve(import.meta.dirname, "../..");
 const appRoot = path.join(root, "lib/shortcuts/apps");
@@ -26,9 +26,10 @@ function writeGenerated(file, content) {
 function generatedRoute(slug) {
   return `import app from "@/lib/shortcuts/apps/${slug}";
 import { KeyboardShortcutsAppPage } from "../keyboard-shortcuts-app-page";
+import Intro from "./content/intro.mdx";
 
 export default function KeyboardShortcutsPage() {
-  return <KeyboardShortcutsAppPage app={app} />;
+  return <KeyboardShortcutsAppPage app={app} intro={<Intro />} />;
 }
 `;
 }
@@ -37,6 +38,13 @@ const slugs = readdirSync(appRoot)
   .filter((name) => name.endsWith(".ts"))
   .map((name) => name.slice(0, -3))
   .sort();
+
+const missingIntros = slugs.filter(slug => !existsSync(path.join(routeRoot, slug, "content/intro.mdx")));
+if (missingIntros.length) {
+  throw new Error(`Keyboard shortcut apps need their own intro before syncing:\n${missingIntros
+    .map(slug => `${slug}: ${path.relative(root, path.join(routeRoot, slug, "content/intro.mdx"))}`)
+    .join("\n")}`);
+}
 
 const apps = [];
 for (const slug of slugs) {
@@ -126,7 +134,7 @@ if (process.argv.includes("--apply")) {
     let changed = 0;
     let recordChanges = 0;
     for (const app of apps) {
-      changed += await upsertDirectoryPage(client,keyboardShortcutPageCopy(app));
+      changed += await insertDirectoryPageIfMissing(client,keyboardShortcutPageCopy(app));
       const result = await client.query('select public.stack127_sync_directory_records($1,$2::jsonb) changed',
         [`keyboard-shortcuts/${app.slug}`,JSON.stringify(app)]);
       if (result.rows[0].changed) recordChanges++;

@@ -1,0 +1,27 @@
+## What does NUT do with my UPS?
+
+NUT lets a computer read the UPS battery status and shut down cleanly before the battery runs out. One machine connects to the UPS, and others on your network can watch it through that machine. Home Assistant reads a UPS through its [NUT integration](https://www.home-assistant.io/integrations/nut/).
+
+## What does the NUT support level mean?
+
+It shows how the driver's authors learned the UPS's protocol. The scale comes from the [NUT compatibility list](https://networkupstools.org/stable-hcl.html):
+
+| Level | How the protocol was learned |
+| --- | --- |
+| 1 | Reverse engineered |
+| 2 | From public fragments of the protocol |
+| 3 | From the published protocol |
+| 4 | Provided by the vendor |
+| 5 | Provided by the vendor, with hardware |
+
+It isn't a test result for your unit. When a card shows two levels, each connection type has its own.
+
+## Is my exact UPS model supported?
+
+Check that the model name and connection match yours. Some entries cover a whole product family, and a family entry may not include every model or regional version. Filter by "Product family" or "Named model" to tell them apart.
+
+If your model isn't listed, the NUT list suggests trying the drivers for other models from the same maker. Many work, or mostly work.
+
+## Where does this list come from?
+
+From the NUT compatibility list, read from the [NUT source code](https://github.com/networkupstools/nut). We leave out power distribution units and transfer switches, which the list also covers. We haven't tested these units ourselves, and the NUT project says its list may miss supported models or contain errors.

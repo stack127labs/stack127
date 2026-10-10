@@ -1,0 +1,32 @@
+## What to paste
+
+Paste one Compose file. If it uses `${VARIABLES}`, paste their values into the second box as `KEY=VALUE` lines. Use made-up values for passwords.
+
+The checker reads only what you paste. It doesn't see your `.env` file, files listed under a service's `env_file`, or files pulled in with `include` or `extends`. When a file uses `include` or `extends`, the result says the model is incomplete.
+
+## How to read the findings
+
+Each finding names the path in the file, such as `services.app.ports[0]`, and the line when it can.
+
+| Severity | What it means |
+| --- | --- |
+| Error | Compose would reject this, or a reference points at nothing. Fix it first. |
+| Warning | The file probably doesn't do what you meant, such as a variable with no value. |
+| Advisory | Valid, but worth a second look. It isn't a security verdict. |
+| Info | Context about what the checker did or couldn't read. |
+
+<Example title="A web app that depends on a database you forgot to add">
+
+```yaml
+services:
+  app:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+```
+
+The result is `Compose model has blocking issues`. The error says the dependency `db` is not in the file. Two advisories follow: the image doesn't pin a version, and port 8080 has no host address.
+
+</Example>

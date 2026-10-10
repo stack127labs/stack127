@@ -1,0 +1,19 @@
+## How to read the report
+
+Start with `Checks in this report`. A check that failed or was skipped stays unresolved. It doesn't count as a pass.
+
+Findings come in three groups.
+
+| Group | Examples |
+| --- | --- |
+| Needs attention | Nameservers differ, a hold status, expiry within 30 days |
+| Needs a decision | DNSSEC is switched on at the registry |
+| Context | Nameservers agree, DNSSEC is off |
+
+Each finding links to the tool that looks into it further. The nameserver chain shows the three places nameservers are listed, side by side.
+
+<Example title="github.com, checked on 9 October 2026">
+
+Both checks completed. Nothing needs attention. The registration record, parent referral, and child zone all list the same eight nameservers, and DNSSEC is off.
+
+</Example>
