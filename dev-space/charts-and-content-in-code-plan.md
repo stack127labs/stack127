@@ -16,8 +16,8 @@ Work through the steps in order. Step 0 and Part 1 ship together in pull request
 | 2b | Pilot: MDX setup, export script, two pages | Claude Opus worker, Sol for the script, Sol review | #36 | Shipped in `ce282243`: `/cac-payback-calculator` and `/epp-status-codes` |
 | 2c | Docs and skills for content in code | Opus | #36 | Shipped in `ce282243` |
 | 2d | Content pass: rewrite and move every published tool, directory, child, and catalog page | Claude Opus thread in its own worktree, Sol for scripts and review | #39 | Done 2026-10-10. Released in 84043484; titles, search text, and cards published to production in 25 batches, all verified |
-| 2e | Cleanup and retire database content columns | Sol | Final PR | Not started |
-| 3 | Production release | Coordinator | Release | Not started |
+| 2e | Cleanup and retire database content columns | Sol, Opus and Luna workers, Sol review | #42, #43 | Done 2026-10-10. #42 (released in `72f5bec7`) removed every database content reader, retired the sync commands, and made the columns optional. #43 archives the columns into `stack127_retired_page_content` and drops them |
+| 3 | Production release | Coordinator | #42, #43 | Done 2026-10-10. Both releases verified on stack127.com; shortcut records, launch data, the DNS lookup version, and three shortcut page titles published |
 
 ## Decisions
 
