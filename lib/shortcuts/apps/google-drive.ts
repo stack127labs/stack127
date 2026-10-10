@@ -8,8 +8,6 @@ const googleDrive: AppShortcuts = {
   name: "Google Drive",
   category: "Cloud storage",
   platforms: [...platforms],
-  intro:
-    "Google Drive's web shortcuts cover navigation panels, item selection, file actions, creation, and preview controls. The record follows Google's current desktop help page for Windows and macOS.",
   versionContext:
     "Google publishes PC and Mac columns for Drive. The navigation sequences below are entered in order, not pressed as one chord. Some commands require the file list, details pane, or preview to have focus.",
   sourceUrl: "https://support.google.com/drive/answer/2563044?co=GENIE.Platform%3DDesktop&hl=en",

@@ -8,8 +8,6 @@ const gitlab: AppShortcuts = {
   name: "GitLab",
   category: "Code hosting",
   platforms: [...platforms],
-  intro:
-    "GitLab's web shortcuts move between projects, issues, merge requests, and the editor. This set follows the current GitLab.com and self-managed reference, including the sequential G routes that make project navigation fast.",
   versionContext:
     "GitLab publishes one web shortcut reference with macOS modifier differences where they matter. Windows and Linux share the Control-based bindings in the source. Some commands depend on the current project, issue, or merge request view.",
   sourceUrl: "https://docs.gitlab.com/user/shortcuts/",

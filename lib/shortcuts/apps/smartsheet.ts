@@ -8,8 +8,6 @@ export const smartsheet: AppShortcuts = {
   name: "Smartsheet",
   category: "Project management",
   platforms: [...platforms],
-  intro:
-    "Smartsheet's official keyboard shortcut table covers sheet editing, search, hierarchy, formatting, row selection, date entry, and dashboard focus. Windows and Mac mappings are shown separately where they differ.",
   versionContext:
     "Smartsheet keyboard shortcuts checked September 1, 2026. The official Learning Center table says Mac users should use Command instead of Ctrl for the paired shortcuts.",
   sourceUrl: "https://help.smartsheet.com/articles/522200-keyboard-shortcuts",

@@ -1,6 +1,6 @@
 import type { AppShortcuts, Shortcut, ShortcutKey } from "../types.ts";
 
-const platforms = ["windows", "macos"] as const;
+const platforms = ["windows", "macos", "linux"] as const;
 
 const shared = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
   id,
@@ -15,6 +15,7 @@ const pair = (id: string, action: string, windows: string[], macos: string[], no
   keys: [
     { platform: "windows", keys: windows },
     { platform: "macos", keys: macos },
+    { platform: "linux", keys: windows },
   ],
   ...(note ? { note } : {}),
 });
@@ -24,13 +25,11 @@ export const davinciResolve: AppShortcuts = {
   name: "DaVinci Resolve",
   category: "Video editing",
   platforms: [...platforms],
-  intro:
-    "These DaVinci Resolve commands cover playback, timeline navigation, timeline zoom, and the blade and clip-enable tools. Focus matters because Resolve has page- and panel-specific commands.",
   versionContext:
-    "DaVinci Resolve 20 guides checked September 1, 2026. Blackmagic Design lets users change nearly every command in Keyboard Customization, so these entries describe the documented defaults.",
+    "DaVinci Resolve 20 guides checked October 10, 2026. Blackmagic Design lists a Linux version and lets users change nearly every command in Keyboard Customization, so these entries describe the documented defaults.",
   sourceUrl: "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Editors-Guide.pdf?_v=1757574010000",
   sourceLabel: "DaVinci Resolve 20 Editors Guide",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-10-10",
   groups: [
     {
       id: "playback",

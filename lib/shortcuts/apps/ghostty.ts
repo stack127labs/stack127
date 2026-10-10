@@ -8,8 +8,6 @@ export const ghostty: AppShortcuts = {
   name: "Ghostty",
   category: "Terminal emulator",
   platforms: [...platforms],
-  intro:
-    "Ghostty's defaults are about arranging terminal work. Split the surface, move between tabs, copy and paste, search scrollback, change the view, and reload configuration while keeping the shell session alive.",
   versionContext:
     "Current default bindings from Ghostty's official keybind documentation and repository source checked in August 2026. Ghostty is supported on macOS and Linux, every keybind is remappable, and ghostty +list-keybinds --default prints the complete build-specific list.",
   sourceUrl: "https://ghostty.org/docs/config/keybind",

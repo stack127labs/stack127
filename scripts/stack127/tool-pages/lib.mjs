@@ -35,13 +35,6 @@ export function requireArg(args, key) {
   return value;
 }
 
-export function readRequiredText(filePath, label) {
-  if (!existsSync(filePath)) throw new Error(`${label} file does not exist: ${filePath}`);
-  const value = readFileSync(filePath, "utf8").trim();
-  if (!value) throw new Error(`${label} must not be empty`);
-  return value;
-}
-
 function envFileValue(filePath, requestedKey) {
   if (!existsSync(filePath)) return null;
 
@@ -133,9 +126,6 @@ export async function lockToolPage(client, slug) {
         page.meta_title,
         page.meta_description,
         tool.title,
-        tool.intro_markdown,
-        tool.usage_markdown,
-        tool.content_markdown,
         tool.tool_version,
         tool.stack127_repo_url,
         tool.stack127_repo_version,

@@ -11,8 +11,6 @@ type CatalogContent = {
   card_description: string;
   page_id: number | string;
   title: string;
-  intro_markdown: string;
-  content_markdown: string | null;
   card_icon_key: string;
   card_art_key: string;
   display_order: number;
@@ -50,7 +48,7 @@ export type PublishedToolCatalog = ToolCatalogSummary & {
   tools: ToolCatalogCard[];
 };
 
-const catalogColumns = "card_name,card_description,page_id,title,intro_markdown,content_markdown,card_icon_key,card_art_key,display_order";
+const catalogColumns = "card_name,card_description,page_id,title,card_icon_key,card_art_key,display_order";
 const pageColumns = "id,slug,page_family,label,meta_title,meta_description,is_published,is_indexable,row_created_at,published_at,updated_at,row_updated_at,cover_image_url,page_type,sitemap_priority";
 const membershipColumns = "catalog_page_id,tool_page_id,catalog_rank,display_order";
 const cardColumns = "page_id,card_name,card_description,card_icon_key,card_art_key";
@@ -91,7 +89,9 @@ export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<T
     },
     postgresRead: async () => {
       const result = await getPool().query<ToolCatalogSummary & Stack127Page>(`
-        select catalog.*, to_jsonb(page.*) as page, page.published_at, page.updated_at,
+        select catalog.page_id,catalog.title,catalog.card_name,catalog.card_description,
+          catalog.card_icon_key,catalog.card_art_key,catalog.display_order,
+          to_jsonb(page.*) as page,page.published_at,page.updated_at,
           count(tool_page.id)::integer as tool_count
         from public.stack127_catalog_pages catalog
         join public.stack127_pages page on page.id = catalog.page_id

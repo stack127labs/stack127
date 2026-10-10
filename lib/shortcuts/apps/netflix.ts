@@ -15,8 +15,6 @@ export const netflix: AppShortcuts = {
   name: "Netflix",
   category: "Video streaming",
   platforms: [...platforms],
-  intro:
-    "Netflix's computer player uses a short set of playback controls for pausing, seeking, volume, fullscreen mode, mute, and intro skipping. This reference keeps the player actions together and calls out the Windows app exceptions published by Netflix.",
   versionContext:
     "Netflix Help Center keyboard shortcuts checked September 1, 2026. The shortcuts apply while watching on a computer; Space and Escape also work in the Windows 10 and Windows 11 app where Netflix says so.",
   sourceUrl: "https://help.netflix.com/en/node/24855",

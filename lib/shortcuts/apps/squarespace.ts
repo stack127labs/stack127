@@ -8,8 +8,6 @@ export const squarespace: AppShortcuts = {
   name: "Squarespace",
   category: "Website builder",
   platforms: [...platforms],
-  intro:
-    "Squarespace's official guide covers site navigation, Fluid Engine block editing, text formatting, and Acuity actions. These entries describe the current Mac and Windows editing shortcuts.",
   versionContext:
     "Squarespace keyboard shortcuts checked September 1, 2026. The official guide was updated November 5, 2025 and warns that some shortcuts do not work in products or panels outside direct site editing.",
   sourceUrl: "https://support.squarespace.com/hc/en-us/articles/214491097-Squarespace-keyboard-shortcuts-and-tips",

@@ -10,14 +10,11 @@ import { CONTENT_FIELDS, REGISTRY_FIELDS, desiredStates, validateState } from ".
 
 function state(slug, family = "directory", published = false) {
   const content = {
-    directory: { title: "Page title", intro_markdown: "Page introduction", content_markdown: null,
-      card_name: "Page", card_description: "Page description", card_icon_key: null, card_art_key: null },
-    tool: { title: "Tool title", intro_markdown: "Tool introduction", usage_markdown: null,
-      content_markdown: "Tool instructions", tool_version: "1.0.0", stack127_repo_url: null,
+    directory: { title: "Page title", card_name: "Page", card_description: "Page description", card_icon_key: null, card_art_key: null },
+    tool: { title: "Tool title", tool_version: "1.0.0", stack127_repo_url: null,
       stack127_repo_version: null, stack127_repo_commit_sha: null, card_name: "Tool",
       card_description: "Tool description", card_icon_key: "calculator", card_art_key: "icon" },
-    catalog: { title: "<mark>Tools</mark>", intro_markdown: "Find a tool", content_markdown: null,
-      card_icon_key: "layers", card_art_key: "icon", display_order: 10,
+    catalog: { title: "<mark>Tools</mark>", card_icon_key: "layers", card_art_key: "icon", display_order: 10,
       card_name: "Tools", card_description: "Choose a tool" },
   }[family];
   return { slug, family, registry: { label: "Page", meta_title: "Page | stack127",
@@ -232,7 +229,7 @@ test("full states require all managed fields and reject unknown or schema-invali
   assert.throws(() => validateState({ ...tool, extra: true }), /Unknown state field/);
   assert.throws(() => validateState({ ...tool, content: { ...tool.content, unexpected: 1 } }), /Unknown tool content field/);
   assert.throws(() => validateState({ ...tool, registry: { ...tool.registry, sitemap_priority: 0.555 } }), /two decimal places/);
-  assert.throws(() => validateState({ ...tool, content: { ...tool.content, content_markdown: null } }), /nonempty text/);
+  assert.throws(() => validateState({ ...tool, content: { ...tool.content, content_markdown: null } }), /Unknown tool content field/);
   assert.throws(() => validateState({ ...tool, catalogs: [{ slug: "tools", display_order: 2147483648 }] }), /integer range/);
 });
 
@@ -438,13 +435,13 @@ test("restore can return an unfinished registry draft to its exact content:null 
   assert.deepEqual(await readStates(db.client, [{ slug: before.slug, family: before.family }]), [before]);
 });
 
-test("query values remain parameters even when Markdown contains SQL syntax", async () => {
+test("query values remain parameters even when card text contains SQL syntax", async () => {
   const page = state("directory");
-  page.content.content_markdown = "Text'); drop table public.stack127_pages; --";
+  page.content.card_description = "Text'); drop table public.stack127_pages; --";
   const db = database();
   await executeBatch(db.pool, [create(page)], { apply: true });
-  assert.ok(db.calls.some(call => call.values.includes(page.content.content_markdown)));
-  assert.ok(db.calls.every(call => !call.sql.includes(page.content.content_markdown)));
+  assert.ok(db.calls.some(call => call.values.includes(page.content.card_description)));
+  assert.ok(db.calls.every(call => !call.sql.includes(page.content.card_description)));
 });
 
 test("repo URLs alone do not claim a sync, and copy changes preserve an existing verified sync", async () => {
@@ -500,15 +497,13 @@ test("catalog copy, order, and shared card fields round-trip and restore without
   const catalog = state("tools", "catalog");
   catalog.content.card_icon_key = "network";
   catalog.content.card_art_key = "dns-tools";
-  catalog.content.content_markdown = "## DNS checks\n\nChoose the records you need.";
   const db = database();
   const refs = [{ slug: catalog.slug, family: catalog.family }];
   await executeBatch(db.pool, [create(catalog)], { apply: true });
   assert.deepEqual(await readStates(db.client, refs), [catalog]);
   const updated = change(catalog, after => {
     after.content.title = "Domain <mark>tools</mark>";
-    after.content.intro_markdown = "Find a **domain** check.";
-    after.content.content_markdown = null;
+    after.content.card_description = "Find a domain check.";
     after.content.card_icon_key = "globe";
     after.content.card_art_key = "domain-tools";
     after.content.display_order = 20;
@@ -522,15 +517,13 @@ test("catalog copy, order, and shared card fields round-trip and restore without
   assert.deepEqual(await readStates(db.client, refs), [catalog]);
 });
 
-test("catalog Markdown is optional, trimmed when present, and uses the shared fields", () => {
+test("catalog metadata is complete and retired Markdown fields are rejected", () => {
   const catalog = state("tools", "catalog");
   assert.deepEqual(validateState(catalog), catalog);
-  for (const value of ["", " ", " Content", "Content "]) {
-    assert.throws(() => validateState({ ...catalog, content: { ...catalog.content, content_markdown: value } }), /nonempty text/);
+  for (const field of ["intro_markdown", "content_markdown"]) {
+    assert.throws(() => validateState({ ...catalog, content: { ...catalog.content, [field]: "Retired words" } }), /Unknown catalog content field/);
   }
-  for (const field of ["title", "intro_markdown"]) {
-    assert.throws(() => validateState({ ...catalog, content: { ...catalog.content, [field]: "" } }), /nonempty text/);
-  }
+  assert.throws(() => validateState({ ...catalog, content: { ...catalog.content, title: "" } }), /nonempty text/);
   assert.throws(() => validateState({ ...catalog, content: { ...catalog.content, display_order: 1.5 } }), /integer/);
   assert.throws(() => validateState({ ...catalog, content: { ...catalog.content, hero_art_key: "icon" } }), /Unknown catalog content field/);
 });
@@ -805,7 +798,7 @@ test("prepare defaults new pages to indexable and preserves existing noindex set
   existing.registry.is_indexable = false;
   const db = database([existing]);
   const unchanged = await preparePlan(db.pool,
-    directoryManifest({ slug: existing.slug, content: { intro_markdown: "Reviewed copy" } }, fixture.requirements()), prepareOptions(fixture.root));
+    directoryManifest({ slug: existing.slug, content: { card_description: "Reviewed copy" } }, fixture.requirements()), prepareOptions(fixture.root));
   assert.equal(unchanged.pages[0].after.registry.is_indexable, false);
   for (const invalid of ["false", null, 0]) {
     await assert.rejects(preparePlan(db.pool,
@@ -836,7 +829,7 @@ test("prepare freezes directory assets, preserves omitted values and supports ex
   before.content.card_icon_key = "book";
   before.content.card_art_key = "cli-apps";
   const db = database([before]);
-  const manifest = directoryManifest({ slug: before.slug, content: { intro_markdown: "Reviewed introduction" } }, fixture.requirements());
+  const manifest = directoryManifest({ slug: before.slug, content: { card_description: "Reviewed description" } }, fixture.requirements());
   const plan = await preparePlan(db.pool, manifest, prepareOptions(fixture.root));
   assert.deepEqual(plan.pages[0].before, before);
   assert.equal(plan.pages[0].after.content.card_icon_key, "book");

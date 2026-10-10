@@ -1,16 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { directoryContentSection, directoryTitleParts } from '../../lib/directory-page-content.ts';
-import { keyboardShortcutPageCopy, adNetworkPageCopy } from '../../scripts/stack127/directory-pages/lib.mjs';
+import { directoryTitleParts } from '../../lib/directory-page-content.ts';
+import { keyboardShortcutPageCopy } from '../../scripts/stack127/directory-pages/lib.mjs';
 import { remapDevelopmentPageIds } from '../../scripts/stack127/database/rebuild-development.mjs';
-
-test('named prose sections cannot include the neighboring record explanation', () => {
-  const content = '<!-- section:first -->\nBefore the table\n\n<!-- section:second -->\nAfter the table';
-  assert.equal(directoryContentSection(content, 'first'), 'Before the table');
-  assert.equal(directoryContentSection(content, 'second'), 'After the table');
-  assert.throws(() => directoryContentSection(content, 'missing'), /section is missing/);
-  assert.equal(directoryContentSection(null, 'missing'), '');
-});
 
 test('titles preserve their marked phrase and treat other HTML as text', () => {
   assert.deepEqual(directoryTitleParts('Check <mark>apps</mark> today'), [
@@ -19,16 +11,10 @@ test('titles preserve their marked phrase and treat other HTML as text', () => {
   assert.deepEqual(directoryTitleParts('<script>alert(1)</script>'), [{ text: '<script>alert(1)</script>', marked: false }]);
 });
 
-test('new child rows use record identity and keyboard rows leave the print section to the route', () => {
-  const shortcut = keyboardShortcutPageCopy({ slug: 'demo', name: 'Demo', intro: 'Current record intro.' });
-  assert.equal(shortcut.slug, 'keyboard-shortcuts/demo');
-  assert.equal(shortcut.title, '<mark>Demo</mark> keyboard shortcuts');
-  assert.equal(shortcut.content_markdown, null);
-  const network = adNetworkPageCopy({ slug: 'demo', name: 'Demo', summary: null });
-  assert.equal(network.slug, 'ad-networks/demo');
-  assert.match(network.intro_markdown, /verified Demo relationship/);
-  assert.ok(adNetworkPageCopy({ slug: 'demo', name: 'Demo', summary: 'Updated summary.' }).intro_markdown.startsWith('Updated summary.'));
-
+test('new keyboard child rows use record identity and leave words in MDX', () => {
+  assert.deepEqual(keyboardShortcutPageCopy({ slug: 'demo', name: 'Demo' }), {
+    slug: 'keyboard-shortcuts/demo', title: '<mark>Demo</mark> keyboard shortcuts',
+  });
 });
 
 test('development rebuild keeps child copy and memberships when page IDs change', () => {

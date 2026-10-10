@@ -8,8 +8,6 @@ export const cursor: AppShortcuts = {
   name: "Cursor",
   category: "AI code editor",
   platforms: [...platforms],
-  intro:
-    "Cursor puts the editor and an AI workspace side by side. Its official reference covers chat, inline edit, code context, autocomplete, terminal prompts, model controls, and the familiar editor navigation keys around them.",
   versionContext:
     "Default Cursor bindings from cursor.com checked August 26, 2026. Cursor notes that the full list is available by pressing Cmd+R or Ctrl+R and saving with Cmd+S or Ctrl+S. Every shortcut can be remapped.",
   sourceUrl: "https://cursor.com/docs/reference/keyboard-shortcuts",

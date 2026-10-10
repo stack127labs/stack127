@@ -37,8 +37,6 @@ export const dbeaver: AppShortcuts = {
   name: "DBeaver",
   category: "Database tools",
   platforms: [...platforms],
-  intro:
-    "DBeaver groups shortcuts by connections, result sets, editors, search, windows, files, and debugging. Focused view and the active key scheme affect which command receives a key.",
   versionContext:
     "Current DBeaver shortcut wiki edited August 18, 2026 and checked September 1, 2026. The wiki lists Windows/Linux and macOS columns, and notes that users can change bindings or select the DBeaver Keyboard Only scheme.",
   sourceUrl: "https://github.com/dbeaver/dbeaver/wiki/Shortcuts",

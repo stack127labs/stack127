@@ -15,8 +15,6 @@ export const scrivener: AppShortcuts = {
   name: "Scrivener",
   category: "Writing",
   platforms: [...platforms],
-  intro:
-    "Scrivener's current manuals include an exhaustive menu appendix with file, edit, document, format, navigate, project, and window commands. This reference records the stable desktop defaults that writers use for projects, documents, text editing, search, and compilation.",
   versionContext:
     "Scrivener 3 User Manual for Windows and macOS checked September 1, 2026. The manuals document default menu assignments and explain that users can change many commands in the Keyboard options. The two platform tables use different modifier conventions.",
   sourceUrl: "https://www.literatureandlatte.com/docs/Scrivener_Manual-Win.pdf",

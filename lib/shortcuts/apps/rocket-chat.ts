@@ -22,8 +22,6 @@ export const rocketChat: AppShortcuts = {
   name: "Rocket.Chat",
   category: "Team chat",
   platforms: [...platforms],
-  intro:
-    "Rocket.Chat's documented defaults cover global search, read-state management, and the message composer. This reference keeps the composer-specific keys separate because they only apply while the empty or active composer has focus.",
   versionContext:
     "Rocket.Chat account and release-note shortcut references checked September 1, 2026. Rocket.Chat says macOS uses Command and Option where Windows and Linux use Control and Alt; server settings, browser extensions, and custom keymaps can change the active bindings.",
   sourceUrl: "https://docs.rocket.chat/docs/your-rocketchat-account",
@@ -36,8 +34,15 @@ export const rocketChat: AppShortcuts = {
       intro: "Open Rocket.Chat's shortcut help, search for a channel or user, and clear unread state from the main interface.",
       shortcuts: [
         shared("shortcut-help", "Show keyboard shortcuts", ["Shift", "?"]),
-        desktop("search-channel-user", "Search for a channel or user", ["Ctrl", "P"], ["Cmd", "P"]),
-        desktop("search-channel-user-alternative", "Search for a channel or user", ["Ctrl", "K"], ["Cmd", "K"], "Rocket.Chat documents Ctrl/Cmd+K as an additional search binding."),
+        {
+          id: "search-channel-user",
+          action: "Search for a channel or user",
+          keys: [
+            { platform: "windows", keys: ["Ctrl", "P"], alternatives: [["Ctrl", "K"]] },
+            { platform: "linux", keys: ["Ctrl", "P"], alternatives: [["Ctrl", "K"]] },
+            { platform: "macos", keys: ["Cmd", "P"], alternatives: [["Cmd", "K"]] },
+          ],
+        },
         desktop("mark-all-read", "Mark all messages as read", ["Ctrl", "Escape"], ["Cmd", "Escape"]),
       ],
     },
@@ -47,10 +52,24 @@ export const rocketChat: AppShortcuts = {
       intro: "Move through composer history, reach its boundaries, and insert a line break while writing a Rocket.Chat message.",
       shortcuts: [
         shared("edit-previous-message", "Edit the previous message", ["Up Arrow"], "The composer must be empty; Up Arrow otherwise moves the cursor in the message."),
-        desktop("composer-start", "Move to the beginning of the composer", ["Alt", "Left Arrow"], ["Option", "Left Arrow"]),
-        desktop("composer-start-alt", "Move to the beginning of the composer", ["Alt", "Up Arrow"], ["Option", "Up Arrow"]),
-        desktop("composer-end", "Move to the end of the composer", ["Alt", "Right Arrow"], ["Option", "Right Arrow"]),
-        desktop("composer-end-alt", "Move to the end of the composer", ["Alt", "Down Arrow"], ["Option", "Down Arrow"]),
+        {
+          id: "composer-start",
+          action: "Move to the beginning of the composer",
+          keys: [
+            { platform: "windows", keys: ["Alt", "Left Arrow"], alternatives: [["Alt", "Up Arrow"]] },
+            { platform: "linux", keys: ["Alt", "Left Arrow"], alternatives: [["Alt", "Up Arrow"]] },
+            { platform: "macos", keys: ["Option", "Left Arrow"], alternatives: [["Option", "Up Arrow"]] },
+          ],
+        },
+        {
+          id: "composer-end",
+          action: "Move to the end of the composer",
+          keys: [
+            { platform: "windows", keys: ["Alt", "Right Arrow"], alternatives: [["Alt", "Down Arrow"]] },
+            { platform: "linux", keys: ["Alt", "Right Arrow"], alternatives: [["Alt", "Down Arrow"]] },
+            { platform: "macos", keys: ["Option", "Right Arrow"], alternatives: [["Option", "Down Arrow"]] },
+          ],
+        },
         shared("new-line", "Insert a new line without sending", ["Shift", "Enter"]),
       ],
     },

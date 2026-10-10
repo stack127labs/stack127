@@ -199,7 +199,7 @@ export function MrrCalculator() {
 
           <section aria-labelledby="mrr-plans-title" className={styles.group}>
             <h2 id="mrr-plans-title">Plans</h2>
-            <p className={styles.guidance}>Enter the recurring price for the selected full billing term.</p>
+            <p className={styles.guidance}>Enter what one subscription pays each billing interval. A $190 yearly plan is 190, with Annually.</p>
             <div className={styles.planList} ref={planListRef}>
               <UiRepeatableList
                 addDescription={
@@ -301,12 +301,12 @@ export function MrrCalculator() {
 
                 <dl className={styles.arr}>
                   <div>
-                    <dt>Annualized ARR</dt>
+                    <dt>ARR (12 × MRR)</dt>
                     <dd>{formatCents(result.annualizedArrCents, result.currency)}</dd>
                   </div>
                 </dl>
                 <p className={styles.qualification}>
-                  12 × MRR is a run rate. It does not mean that revenue was earned or is guaranteed.
+                  ARR here is a run rate. It isn't revenue you have earned or are sure to get.
                 </p>
 
                 <UiDataTable

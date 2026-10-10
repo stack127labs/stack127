@@ -93,7 +93,7 @@ function AccountChecklist({ items }: { items: string[] }) {
 function SourceMetadata({ result }: { result: TransferReadiness }) {
   const registration = result.registration;
   const fetch = registration.registryFetch;
-  if (!fetch) return null;
+  if (!fetch || fetch.status === "no_service") return null;
   return (
     <dl aria-label="Registry source" className={styles.metadata}>
       <div><dt>Registry source</dt><dd><code>{sourceHost(fetch.url) ?? "Host not reported"}</code></dd></div>

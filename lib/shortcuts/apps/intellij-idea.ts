@@ -9,8 +9,6 @@ const intellijIdea: AppShortcuts = {
   name: "IntelliJ IDEA",
   category: "IDE",
   platforms: [...platforms],
-  intro:
-    "IntelliJ IDEA's default keymaps cover search, editing, coding assistance, navigation, debugging, and refactoring. This record keeps the high-use commands from JetBrains' current Windows and macOS keymap references.",
   versionContext:
     "JetBrains documents predefined Windows and macOS keymaps for IntelliJ IDEA 2026.2. All bindings can be changed in Settings > Keymap, and function keys may also be claimed by the operating system.",
   sourceUrl: "https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html",

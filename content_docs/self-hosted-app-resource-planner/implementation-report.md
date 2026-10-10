@@ -300,7 +300,7 @@ Restored:
 - Catalogue loading: server-side query of published self-hostable app rows and reviewed resource estimates, passing a compact normalized catalogue to the client. Reuse existing directory data conventions; do not create a new public data table.
 - Styles: `self-hosted-app-resource-planner.module.css`, following the tool workbench and existing tokens. Do not put page CSS in `app/globals.css`.
 - Tests: pure engine unit tests, route/page tests, focused Playwright states, and one ownership manifest at `tests/pages/self-hosted-app-resource-planner/page.json`.
-- Script: `scripts/self-hosted-app-resource-planner/preview-local-page.mjs` and `scripts.json` if the route needs a preview helper.
+- Development preview: prepare, preview, and apply a reviewed `stack127:tools:publish` batch with `--environment development`, following `stack127_docs/page-publishing.md`.
 - Dependency policy: use existing React, Next, and tool UI primitives. Add no dependency for arithmetic or bars.
 - Publication: keep `public.stack127_pages` unpublished during build and QA. The route must return 404 until separately published.
 

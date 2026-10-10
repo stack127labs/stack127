@@ -16,8 +16,6 @@ export const powershell: AppShortcuts = {
   name: "PowerShell",
   category: "Shell",
   platforms: [...platforms],
-  intro:
-    "PowerShell's interactive keyboard layer comes from PSReadLine. This reference covers its Windows, Emacs, and Vi modes across cursor movement, line editing, history, completion, selection, and multiline input.",
   versionContext:
     "Current PSReadLine functions and key handlers documented by Microsoft in August 2026. The active edit mode controls many defaults: Windows mode is common on Windows, while Emacs is the default on non-Windows. Check Get-PSReadLineKeyHandler for the exact local map.",
   sourceUrl: "https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.6",

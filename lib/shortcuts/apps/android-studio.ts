@@ -18,8 +18,6 @@ export const androidStudio: AppShortcuts = {
   name: "Android Studio",
   category: "Android IDE",
   platforms: ["windows", "macos", "linux"],
-  intro:
-    "Android Studio's default keymap covers tool windows, search and navigation, visual layout tools, code generation and editing, builds, debugging, refactoring, and version control. Windows and Linux share one documented column, while macOS has its own combinations.",
   versionContext:
     "Default Android Studio keymaps from Google's reference updated March 6, 2026 and checked August 31, 2026. Android Studio supports preset and custom keymaps, which can replace these defaults. Mouse-only gestures and modifier-plus-pointer alternatives are omitted.",
   sourceUrl: "https://developer.android.com/studio/intro/keyboard-shortcuts",

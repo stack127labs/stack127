@@ -84,7 +84,11 @@ The storage collection and its calculators, including the RAIDZ Expansion Planne
 
 Sitewide JSON-LD describes stack127 as a `WebSite` and `Organization`.
 
-Exact published, indexable registry pages get JSON-LD through the shared SEO layout. `datePublished`, `dateModified`, description, URL, and page type come from `stack127_pages`. Public noindex pages emit no JSON-LD, including sitewide data and course breadcrumbs.
+Exact published, indexable registry pages get JSON-LD through the shared SEO layout. `datePublished`, `dateModified`, description, URL, and page type come from `stack127_pages`. Public noindex pages emit no JSON-LD, including sitewide data and breadcrumbs.
+
+Every indexable page with a visible trail gets one `BreadcrumbList` through `getRegistryPageStructuredData`. Home has no trail. The shared breadcrumb helpers keep names and links the same as the page header. Tools use their primary catalog and card name. Shortcut child pages use the app name. Courses use the course title and lesson sidebar label. Section names keep their original case in JSON-LD; CSS displays them in lowercase.
+
+A parent layout with child routes uses `registryLayout(path, { structuredData: "page" })`. Its index page renders `RegistryStructuredData` for its exact path. Each child uses its own registry layout. This keeps the parent's JSON-LD out of child HTML in both the server render and static export.
 
 ## Robots
 

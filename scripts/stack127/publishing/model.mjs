@@ -5,12 +5,12 @@ export const REGISTRY_FIELDS = Object.freeze([
 
 export const CONTENT_FIELDS = Object.freeze({
   tool: Object.freeze([
-    "title", "intro_markdown", "usage_markdown", "content_markdown", "tool_version",
+    "title", "tool_version",
     "stack127_repo_url", "stack127_repo_version", "stack127_repo_commit_sha",
     "card_name", "card_description", "card_icon_key", "card_art_key",
   ]),
   directory: Object.freeze([
-    "title", "intro_markdown", "content_markdown", "card_name", "card_description",
+    "title", "card_name", "card_description",
     "card_icon_key", "card_art_key",
   ]),
   course: Object.freeze([
@@ -18,7 +18,7 @@ export const CONTENT_FIELDS = Object.freeze({
     "card_icon_key", "card_art_key", "author_name", "author_avatar_url", "navigation_label",
   ]),
   catalog: Object.freeze([
-    "title", "intro_markdown", "content_markdown", "card_name", "card_description",
+    "title", "card_name", "card_description",
     "card_icon_key", "card_art_key", "display_order",
   ]),
 });
@@ -102,8 +102,8 @@ export function validateState(state, family = state?.family) {
       content[field] = field === "display_order"
         ? integer(state.content[field], `content.${field}`)
         : textField(state.content[field], `content.${field}`, {
-          nullable: field.startsWith("stack127_repo_") || field === "usage_markdown"
-            || (family !== "tool" && field === "content_markdown")
+          nullable: field.startsWith("stack127_repo_")
+            || (family === "course" && field === "content_markdown")
             || (["directory", "course"].includes(family) && ["card_icon_key", "card_art_key"].includes(field)),
           trimmed: !(family === "tool" && ["card_name", "card_description"].includes(field)),
         });

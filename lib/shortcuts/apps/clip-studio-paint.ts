@@ -18,8 +18,6 @@ export const clipStudioPaint: AppShortcuts = {
   name: "Clip Studio Paint",
   category: "Digital illustration",
   platforms: ["windows", "macos"],
-  intro:
-    "Clip Studio Paint assigns defaults to file, edit, layer, selection, canvas, and ruler commands. The defaults can be customized, so this reference describes the initial shortcut set rather than a user's edited configuration.",
   versionContext:
     "Clip Studio Paint 5.0 default menu shortcuts at initial startup, checked August 31, 2026. The official guide describes Windows notation and directs macOS users to replace Control with Command and Alt with Option. Canvas switching retains the separately published Control-based Mac chords.",
   sourceUrl: "https://help.clip-studio.com/en-us/manual_en/780_shortcuts/Menu_Shortcuts.htm",

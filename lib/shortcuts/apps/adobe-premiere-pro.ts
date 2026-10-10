@@ -17,8 +17,6 @@ export const adobePremierePro: AppShortcuts = {
   name: "Adobe Premiere Pro",
   category: "Video editor",
   platforms: ["windows", "macos"],
-  intro:
-    "Premiere Pro separates application commands from panel-specific commands. This reference keeps file, edit, clip, sequence, marker, graphics, workspace, mixer, effects, utility-panel, Project, Program Monitor, and Timeline bindings in their working context.",
   versionContext:
     "Current Adobe Premiere desktop default shortcut set from Adobe's reference updated January 7, 2026 and checked August 31, 2026. Custom presets and unassigned commands are not listed.",
   sourceUrl: "https://helpx.adobe.com/premiere/desktop/get-started/keyboard-shortcuts/default-keyboard-shortcuts.html",

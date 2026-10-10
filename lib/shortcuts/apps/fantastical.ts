@@ -31,8 +31,6 @@ export const fantastical: AppShortcuts = {
   name: "Fantastical",
   category: "Calendar and tasks",
   platforms: [...platforms],
-  intro:
-    "Fantastical's Mac and Windows shortcut pages cover search, event and task creation, date navigation, item movement, and app controls.",
   versionContext:
     "Current Fantastical keyboard shortcut pages checked September 1, 2026. The Mac page lists more commands than the Windows page, and the global open shortcut can be customized.",
   sourceUrl: "https://flexibits.com/fantastical/help/keyboard-shortcuts",

@@ -39,8 +39,6 @@ export const craft: AppShortcuts = {
   name: "Craft",
   category: "Notes and documents",
   platforms: ["windows", "macos"],
-  intro:
-    "Craft separates document navigation, task entry, block editing, formatting, organization, and tabs. Several commands are available only in the Mac app, so those bindings are kept platform-specific.",
   versionContext:
     "Current Craft keyboard shortcut reference checked September 1, 2026. Craft publishes separate Mac and Windows lists; users can also add app-specific shortcuts through macOS settings.",
   sourceUrl: "https://support.craft.do/en/introduction/shortcuts",

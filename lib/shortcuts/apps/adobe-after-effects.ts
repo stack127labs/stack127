@@ -18,8 +18,6 @@ export const adobeAfterEffects: AppShortcuts = {
   name: "Adobe After Effects",
   category: "Motion graphics and compositing",
   platforms: ["windows", "macos"],
-  intro:
-    "After Effects assigns shortcuts across the application and inside individual panels. This reference keeps timeline properties, layers, views, tools, keyframes, masks, paint, text, previews, and rendering in separate groups so focus-dependent commands retain their context.",
   versionContext:
     "After Effects Default preset on a supported U.S. English keyboard, from Adobe's May 5, 2026 reference and checked August 31, 2026. Custom shortcut sets are not listed. Numeric-keypad commands need Num Lock on Windows. macOS function keys can conflict with system shortcuts, and panel shortcuts override application shortcuts while that panel has focus.",
   sourceUrl: "https://helpx.adobe.com/after-effects/desktop/get-started/keyboard-shortcuts/keyboard-shortcuts-reference.html",

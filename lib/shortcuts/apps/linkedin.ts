@@ -8,8 +8,6 @@ export const linkedin: AppShortcuts = {
   name: "LinkedIn",
   category: "Social networking",
   platforms: [...platforms],
-  intro:
-    "LinkedIn's desktop feed shortcuts move between posts and notifications, open the main destinations, and expose a quick reference modal.",
   versionContext:
     "Desktop-only shortcuts from LinkedIn's current Keyboard Shortcuts FAQ, checked September 1, 2026. LinkedIn says the shortcuts can be enabled or disabled from the keyboard menu and are not available in its mobile apps.",
   sourceUrl: "https://www.linkedin.com/help/linkedin/answer/a6246187?lang=en-US",

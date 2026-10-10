@@ -12,8 +12,6 @@ export const finalCutPro: AppShortcuts = {
   name: "Final Cut Pro",
   category: "Video editing",
   platforms: ["macos"],
-  intro:
-    "Final Cut Pro's Mac guide documents shortcuts for application control, editing, clip placement, timeline navigation, selection, and playback organization.",
   versionContext:
     "Final Cut Pro for Mac 12.3 keyboard shortcut guide checked September 1, 2026. Shortcuts can be viewed and changed in the Command Editor, so these entries describe Apple's documented defaults.",
   sourceUrl: "https://support.apple.com/en-mide/guide/final-cut-pro/ver90ba5929/mac",

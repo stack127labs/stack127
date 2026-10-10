@@ -8,8 +8,6 @@ export const superhuman: AppShortcuts = {
   name: "Superhuman",
   category: "Email",
   platforms: [...platforms],
-  intro:
-    "Superhuman's official shortcut guide covers inbox triage, search, composing, formatting, navigation, and tabs. This reference pairs the desktop modifier differences while keeping single-key actions readable.",
   versionContext:
     "Superhuman Mail desktop shortcuts checked September 1, 2026. The official guide and shortcut PDF note that bindings can vary by platform and that the Command menu exposes the current list.",
   sourceUrl: "https://help.superhuman.com/hc/en-us/articles/46005701270541-Keyboard-Shortcuts-in-Superhuman-Mail",

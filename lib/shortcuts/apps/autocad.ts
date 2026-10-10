@@ -13,8 +13,6 @@ export const autocad: AppShortcuts = {
   name: "AutoCAD",
   category: "Computer-aided design",
   platforms: ["windows"],
-  intro:
-    "AutoCAD's default CUIx keymap controls drawings, palettes, selection and editing, drafting aids, viewports, layouts, and 3D subobject filters. This record follows the Windows shortcut table published for AutoCAD 2026.",
   versionContext:
     "Default AutoCAD 2026 shortcut keys from Autodesk's CUIx reference checked August 31, 2026. AutoCAD can customize these assignments, so edited CUIx files can differ. Entries marked AutoCAD only exclude AutoCAD LT. Autodesk publishes a separate product and keymap for AutoCAD on Mac, which is not mixed into this Windows record.",
   sourceUrl: "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-Customization/files/GUID-B6A9C126-230D-47F5-8973-464BC80E3736.htm",

@@ -35,8 +35,6 @@ export const wpsOffice: AppShortcuts = {
   name: "WPS Office",
   category: "Office suite",
   platforms: [...platforms],
-  intro:
-    "WPS publishes product-specific shortcut tables for Writer, Spreadsheets, Presentation, and the Mac app. This reference keeps the Windows document tools separate from the Mac commands.",
   versionContext:
     "Official WPS Help shortcut pages checked September 1, 2026. The published maps are product-specific, and WPS allows shortcut behavior to vary between Writer, Spreadsheets, Presentation, and PDF tools.",
   sourceUrl: "https://help.wps.com/articles/list-of-keyboard-shortcuts-for-writer",

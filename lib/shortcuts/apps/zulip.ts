@@ -15,8 +15,6 @@ export const zulip: AppShortcuts = {
   name: "Zulip",
   category: "Team chat",
   platforms: [...platforms],
-  intro:
-    "Zulip publishes a current Web and Desktop keyboard reference for streams, topics, direct messages, search, composing, and message actions.",
   versionContext:
     "Zulip keyboard shortcut reference checked September 1, 2026. The official Web and Desktop table uses Ctrl notation and includes the same app-level map for the listed desktop platforms.",
   sourceUrl: "https://zulip.com/help/keyboard-shortcuts",

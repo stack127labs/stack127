@@ -94,7 +94,6 @@ test("every app has a source and documented data", () => {
       `${app.slug} needs a real calendar date`,
     );
     assert.ok(app.groups.length > 0);
-    assert.ok(app.intro.length >= 120, `${app.slug} needs a specific intro`);
     assert.ok(shortcutCount(app) > 0, `${app.slug} has no documented shortcut coverage`);
     const groupIds = new Set();
     const ids = new Set();

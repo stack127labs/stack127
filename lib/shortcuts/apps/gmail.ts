@@ -8,8 +8,6 @@ export const gmail: AppShortcuts = {
   name: "Gmail",
   category: "Email",
   platforms: [...platforms],
-  intro:
-    "Gmail becomes much faster once a conversation stays selected. This reference covers the complete documented keyboard layer for inbox triage, composing, reading threads, jumping between views, selecting conversations, formatting, and opening Gmail's menus.",
   versionContext:
     "Google's official Gmail Help page checked in August 2026. Gmail keyboard shortcuts must be turned on in Settings, and Google notes that language and keyboard layout can affect support. Gmail also lets users customize the single-key actions after enabling custom shortcuts.",
   sourceUrl: "https://support.google.com/mail/answer/6594",

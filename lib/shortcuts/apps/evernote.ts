@@ -31,8 +31,6 @@ export const evernote: AppShortcuts = {
   name: "Evernote",
   category: "Notes and documents",
   platforms: [...platforms],
-  intro:
-    "Evernote publishes separate Mac and Windows shortcuts for global capture, notes, navigation, views, editing, formatting, and its AI assistant.",
   versionContext:
     "Current Evernote keyboard shortcut reference updated July 31, 2026 and checked September 1, 2026. Some shortcuts can be customized or disabled from Evernote's shortcut drawer.",
   sourceUrl: "https://help.evernote.com/hc/en-us/articles/34296687388307-Keyboard-shortcuts",

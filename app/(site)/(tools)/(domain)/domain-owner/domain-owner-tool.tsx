@@ -141,7 +141,7 @@ function Freshness({ result }: { result: DomainRegistration }) {
   const responses = [
     { fetch: result.registryFetch, label: "Registry response" },
     { fetch: result.registrarFetch, label: "Registrar response" },
-  ].filter((item): item is { fetch: RdapFetch; label: string } => Boolean(item.fetch));
+  ].filter((item): item is { fetch: RdapFetch; label: string } => Boolean(item.fetch) && item.fetch?.status !== "no_service");
   if (!responses.length) return null;
   return (
     <dl aria-label="Source freshness" className={styles.metadata}>

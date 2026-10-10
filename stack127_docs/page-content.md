@@ -15,7 +15,7 @@ Large record sets that a pipeline grows on its own, such as self-host apps, keep
 
 A content change ships with a code release, through a pull request. The publisher still writes the database side: registry, search metadata, cards, catalogs, versions, and publication. See [page-publishing.md](page-publishing.md).
 
-Most pages haven't moved yet and still render content stored in the database. Before you edit the content of one, move it with the steps in [Move a page to MDX](#move-a-page-to-mdx), then edit the MDX. Never edit page content in the database.
+Tools, directories, and catalogs render only MDX. Their old database content columns have retired into `public.stack127_retired_page_content`. Never write page words to the database. Courses still use their own database Markdown until their content move.
 
 ## Files
 
@@ -45,11 +45,11 @@ A child page with its own route folder, such as `/keyboard-shortcuts/figma`, kee
 
 ### Pages that share one route
 
-Catalogs share `app/(site)/(catalogs)/[slug]/`, and platform fee categories share `platform-fees/[section]/`. Each page there gets its own folder under the route's `content/`, named for its slug, such as `content/dns-tools/intro.mdx` and `content/dns-tools/article.mdx`. One `content/index.ts` imports every folder into a map keyed by slug, and the route renders the entry for its slug. A published slug with no entry is an error, not an empty page.
+Catalogs share `app/(site)/(catalogs)/[slug]/`, and platform fee categories share `platform-fees/[section]/`. Each page there gets its own folder under the route's `content/`, named for its slug, such as `content/dns-tools/intro.mdx` and `content/dns-tools/article.mdx`. One `content/index.ts` imports every folder into a map keyed by slug, and the route renders the entry for its slug. A slug with no content entry fails when it renders. Static imports and TypeScript catch missing MDX files during checks and builds.
 
 MDX renders on the server, so pages stay static and send no extra script.
 
-`mdx-components.tsx` and `ContentMarkdown` render elements through the same functions in `app/ui/content-elements.tsx`, so moved and unmoved pages look the same. When one file needs a page-specific element, the route passes it, such as `<ClientAndServer components={{ p: SourcePathParagraph }} />` in `/epp-status-codes`.
+`mdx-components.tsx` and the course-only `ContentMarkdown` use the same functions in `app/ui/content-elements.tsx`. When one file needs a page-specific element, the route passes it, such as `<ClientAndServer components={{ p: SourcePathParagraph }} />` in `/epp-status-codes`.
 
 ## Writing in MDX
 
@@ -115,17 +115,26 @@ Copy fixes, such as a typo, leave the date alone.
 
 Move a page before you change its content. Make the move and the content change as separate commits, so the text check below stays easy.
 
-1. Export its content: `npm run stack127:content:export -- --slug <slug>`. It writes the `content/` files and turns callouts, terms, and marker art into components. A directory with section markers gets one file per section, named for the marker. The export reads development by default; add `--environment production` to read the live text. It never writes to the database, and it won't overwrite files unless you add `--force`.
+1. Recover its archived content when needed: `npm run stack127:content:export -- --slug <slug>`. It reads `stack127_retired_page_content` after column retirement and writes the `content/` files and turns callouts, terms, and marker art into components. A directory with section markers gets one file per section, named for the marker. The export reads development by default; add `--environment production` to read the live text. It never writes to the database, and it won't overwrite files unless you add `--force`.
 2. If the export stops on a chart fence or raw HTML, it names the line. Those need a manual conversion, such as a chart to `<UiStaticChart spec={…} />`.
 3. Read every file and clean it to the rules above. Keep the reader's text the same unless a sentence breaks a rule.
 4. Change the route to import the files, as the pilot pages do.
 5. Check the page at desktop and mobile width in both themes. Compare its visible text with the live page; only intended edits may differ. Check that the title, description, and SEO tags are unchanged.
 6. Run `npm run quality`.
 
-The export handles tool and directory pages with a flat slug and their own route folder. For a child page or a page on a shared route, copy the live text into the files by hand.
+The export handles tool, directory, and catalog pages, including child slugs. A shared route gets `content/<slug>/`; add the exported files to its content map before publishing.
 
 When you rewrite a page from scratch, you can skip the move: read the live page, write the new files, and check the new text against the facts on the live page and in the records instead of matching it word for word.
 
 Site pages keep their words in TSX, and courses keep their lessons in JSX. Both move to MDX later.
 
-The database content columns stay in place until every page has moved, then retire in one migration. Don't edit them for a moved page.
+The retirement migration archives every original field, including null values, before dropping the seven tool, directory, and catalog content columns. It verifies every archived value and preserves public dates. The archive has no public read grants. Course content columns stay in place.
+
+## Retiring the database columns
+
+Ship this cleanup in two releases because the release workflow migrates the database before switching the image.
+
+1. Release 1 ships the MDX readers, publisher and script cleanup, plus `20261010064142_prepare_page_content_retirement.sql`. This migration allows null values in the old required columns and updates the tool-date trigger. It preserves existing words, columns, and public dates, so the old image can keep reading during rollout. The new publisher works with the old columns present or absent.
+2. After Release 1 is live, Release 2 ships `20261010063116_retire_page_content_columns.sql` only. It verifies the archive, then drops the columns. This file has an earlier version because development applied it before the rollout split. The production release workflow already uses `supabase db push --include-all`, which applies the missing version.
+
+Do not include the archive-and-drop file in Release 1. Keep courses on their current content tables. Keep each database's archive during a development rebuild.

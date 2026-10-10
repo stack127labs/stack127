@@ -8,8 +8,6 @@ export const simplenote: AppShortcuts = {
   name: "Simplenote",
   category: "Notes and writing",
   platforms: [...platforms],
-  intro:
-    "Simplenote's official help page lists desktop shortcuts for creating and searching notes, checklists, focus mode, Markdown preview, and font size. The platform-specific table is preserved here.",
   versionContext:
     "Simplenote desktop shortcuts checked September 1, 2026. The source separates Electron on Linux and Windows from the macOS app, and its full in-app list may include more commands than the common entries shown here.",
   sourceUrl: "https://simplenote.com/help/",

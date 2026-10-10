@@ -72,7 +72,6 @@
     "stack127:repo:dataset:export": "node scripts/stack127/repos/export-dataset.mjs",
     "stack127:repo:dataset:sync": "node scripts/stack127/repos/sync-dataset-repo.mjs",
     "stack127:repo:tool:new": "node scripts/stack127/repos/create-tool-repo.mjs",
-    "stack127:tool-page:content:update": "node scripts/stack127/tool-pages/update-content.mjs",
     "stack127:tools:publish": "node scripts/stack127/tool-pages/publish.mjs",
     "stack127:directories:publish": "node scripts/stack127/directory-pages/publish.mjs",
     "stack127:tool-page:catalogs:update": "node scripts/stack127/tool-pages/update-catalogs.mjs",

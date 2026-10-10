@@ -7,8 +7,6 @@ export const solidworks: AppShortcuts = {
   name: "SOLIDWORKS",
   category: "CAD and engineering",
   platforms: ["windows"],
-  intro:
-    "SOLIDWORKS Design Help publishes selected Windows shortcuts for assemblies, copying, display, selection, sketching, and the shortcut bar. The record focuses on stable key commands rather than mouse gestures.",
   versionContext:
     "SOLIDWORKS 2026 selected keyboard shortcuts checked September 1, 2026. The source calls this a selected list and notes that keyboard assignments can be customized, so this is not a complete custom keymap.",
   sourceUrl: "https://help.solidworks.com/2026/english/SolidWorks/sldworks/c_time_saving_keyboard_shortcuts.htm",

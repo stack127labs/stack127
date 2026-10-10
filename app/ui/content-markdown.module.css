@@ -34,8 +34,12 @@
   border-bottom: 0;
 }
 
-.tableScroll code {
-  overflow-wrap: break-word;
+/* Each code item is one box, so values like rw-r--r-- don't split across lines with the text around them.
+   Quoted messages wrap at spaces inside their box. A table too wide for the column scrolls in its frame.
+   The selector outranks the prose rule for inline code, which would break anywhere. */
+.tableScroll table :not(pre) > code {
+  display: inline-block;
+  overflow-wrap: normal;
   white-space: normal;
   word-break: normal;
 }

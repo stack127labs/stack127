@@ -163,10 +163,6 @@
 }
 
 @media (max-width: 680px) {
-  .tool + :global([data-tool-page-content]) table {
-    min-width: 42rem;
-  }
-
   .permissionGroups {
     grid-template-columns: minmax(0, 1fr);
   }

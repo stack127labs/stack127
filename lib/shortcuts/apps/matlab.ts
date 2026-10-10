@@ -29,8 +29,6 @@ export const matlab: AppShortcuts = {
   name: "MATLAB",
   category: "Developer tools",
   platforms: [...platforms],
-  intro:
-    "MATLAB's Editor shortcuts cover files, navigation, search, code editing, sections, running, folding, and desktop focus. Platform-specific columns are kept separate where MathWorks changes the modifier.",
   versionContext:
     "Current MATLAB Editor and desktop keyboard-shortcut tables checked September 1, 2026. The exact set depends on MATLAB release and operating-system keyboard settings; users can inspect or change bindings in Preferences.",
   sourceUrl: "https://www.mathworks.com/help/matlab/matlab_prog/editor-keyboard-shortcuts.html",

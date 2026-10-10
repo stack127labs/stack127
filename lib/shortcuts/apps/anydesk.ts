@@ -12,8 +12,6 @@ export const anydesk: AppShortcuts = {
   name: "AnyDesk",
   category: "Remote desktop",
   platforms: ["windows"],
-  intro:
-    "AnyDesk reserves one Windows hotkey family for controlling an active remote session. Every command begins with Control+Alt+Shift, which keeps local session controls distinct from keystrokes sent to the remote device.",
   versionContext:
     "Current Windows hotkeys from AnyDesk's July 30, 2025 reference, checked August 31, 2026. Mouse capture requires AnyDesk 8 or later. Remote-system shortcuts and keyboard translation examples are not AnyDesk commands and are not listed.",
   sourceUrl: "https://support.anydesk.com/keyboard-hotkeys",

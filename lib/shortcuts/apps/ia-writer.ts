@@ -8,8 +8,6 @@ const iaWriter: AppShortcuts = {
   name: "iA Writer",
   category: "Writing app",
   platforms: [...platforms],
-  intro:
-    "iA Writer's Mac shortcuts cover files, search, Markdown structure, formatting, preview, and export. They follow the current iA Writer reference so a writer can stay in the editor from first draft to final output.",
   versionContext:
     "The official iA Writer page publishes the Mac app shortcuts and notes that bindings can change with app updates. The Windows page was not used here because the current public reference did not expose an equivalent complete table.",
   sourceUrl: "https://ia.net/writer/support/basics/shortcuts",

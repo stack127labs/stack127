@@ -13,7 +13,7 @@ export async function syncPlatformFeeRecords(client,data) {
 
 export async function ensurePlatformFeePages(client) {
   const pages = [{slug:'platform-fees',name:'Platform fees'},...feeGroups.map(group=>({slug:groupPath(group.name).slice(1),name:group.name}))];
-  // Initial copy is a starting point. Existing copy and SEO belong to the database.
+  // Insert missing titles and card fields. Page words live in MDX.
   for (const page of pages) {
     await client.query(`insert into public.stack127_pages
       (slug,page_family,label,meta_title,meta_description,is_published,page_type,sitemap_priority)
@@ -22,8 +22,8 @@ export async function ensurePlatformFeePages(client) {
     const identity = (await client.query('select page_family from public.stack127_pages where slug=$1',[page.slug])).rows[0];
     if (identity.page_family!=='directory') throw new Error(`Wrong page family: ${page.slug}`);
     await client.query(`insert into public.stack127_directory_pages
-      (page_id,title,intro_markdown,card_name,card_description)
-      select id,label,meta_description,label,meta_description from public.stack127_pages where slug=$1
+      (page_id,title,card_name,card_description)
+      select id,label,label,meta_description from public.stack127_pages where slug=$1
       on conflict(page_id) do nothing`,[page.slug]);
   }
   const slugs = pages.slice(1).map(page=>page.slug);

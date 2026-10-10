@@ -11,8 +11,6 @@ export type Stack127DirectoryPage = {
   page_id: number | string;
   slug: string;
   title: string;
-  intro_markdown: string;
-  content_markdown: string | null;
   card_name: string;
   card_description: string;
   card_icon_key: string | null;
@@ -22,7 +20,7 @@ export type Stack127DirectoryPage = {
   row_updated_at: Date | string;
 };
 
-const columns = "page_id,title,intro_markdown,content_markdown,card_name,card_description,card_icon_key,card_art_key,row_updated_at";
+const columns = "page_id,title,card_name,card_description,card_icon_key,card_art_key,row_updated_at";
 
 export const getPublishedDirectoryPage = cache(async (slug: string) => unstable_cache(async () => {
   return readPublicData<Stack127DirectoryPage | null>({
@@ -39,7 +37,9 @@ export const getPublishedDirectoryPage = cache(async (slug: string) => unstable_
     },
     postgresRead: async () => {
       const result = await getPool().query<Stack127DirectoryPage>(`
-        select content.*, page.slug, page.published_at, page.updated_at
+        select content.page_id,content.title,content.card_name,content.card_description,
+          content.card_icon_key,content.card_art_key,content.row_updated_at,
+          page.slug,page.published_at,page.updated_at
         from public.stack127_directory_pages content
         join public.stack127_pages page on page.id = content.page_id
         where page.slug = $1 and page.page_family = 'directory' and page.is_published

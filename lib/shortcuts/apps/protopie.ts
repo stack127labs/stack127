@@ -17,8 +17,6 @@ export const protopie: AppShortcuts = {
   name: "ProtoPie",
   category: "Prototyping",
   platforms: [...platforms],
-  intro:
-    "ProtoPie's official shortcut list covers Studio files, editing tools, objects, arrangement, interactions, canvas navigation, panels, and preview windows. The record keeps the Windows and macOS columns side by side and excludes pointer-only gestures.",
   versionContext:
     "ProtoPie Studio shortcuts checked September 1, 2026. The official list says the shortcut modal opens from Help or Control+Shift+Question mark on macOS and Ctrl+Shift+Question mark on Windows. Some actions use a key with a pointer gesture and are left out of this keyboard-only record.",
   sourceUrl: "https://www.protopie.io/learn/docs/basic-features-shortcuts",

@@ -43,8 +43,6 @@ export const canva: AppShortcuts = {
   name: "Canva",
   category: "Design and visual communication",
   platforms: ["windows", "macos"],
-  intro:
-    "Canva's editor uses shortcuts for creating elements, arranging and resizing selections, formatting text, changing page views, and handling comments. Desktop-app window and tab commands are separate from shortcuts that act inside a design.",
   versionContext:
     "Current Canva Help Center reference checked August 31, 2026. Windows and macOS bindings are preserved independently. Canva Docs-only text styles and desktop-app-only window commands are labeled in their group context; no missing platform equivalent was inferred.",
   sourceUrl: "https://www.canva.com/help/canva-keyboard-shortcuts/",

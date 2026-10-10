@@ -18,8 +18,6 @@ export const autodeskMaya: AppShortcuts = {
   name: "Autodesk Maya",
   category: "3D modeling and animation",
   platforms: ["windows", "macos", "linux"],
-  intro:
-    "Maya's default hotkeys cover transform tools, scene files, object display, animation playback, snapping, component selection, editing, panel views, and polygon modeling. Mouse-only camera and marking-menu gestures are kept out of the keyboard tables.",
   versionContext:
     "Maya 2026 default hotkeys from Autodesk's searchable reference checked August 31, 2026. On macOS, Autodesk maps Alt to Option and Ctrl to Control unless a command explicitly lists Command. The Hotkey Editor can replace these defaults. Some function keys and US-keyboard punctuation can conflict with macOS or non-US layouts.",
   sourceUrl: "https://help.autodesk.com/cloudhelp/2026/ENU/Maya-KeyboardShortcuts/files/GUID-30CACC9D-8FBE-4B85-8A8F-C5ADF32DDD4E.htm",

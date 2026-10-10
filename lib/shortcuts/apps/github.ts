@@ -8,8 +8,6 @@ export const github: AppShortcuts = {
   name: "GitHub",
   category: "Code hosting platform",
   platforms: [...platforms],
-  intro:
-    "GitHub's keyboard layer changes with the page you are on. These groups cover site navigation, repository sections, issue and pull request triage, comment editing, code browsing, and notifications.",
   versionContext:
     "Shortcuts documented on docs.github.com in August 2026. Character key shortcuts can be disabled in accessibility settings, and the GitHub Command Palette is in public preview and disabled by default.",
   sourceUrl: "https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts",

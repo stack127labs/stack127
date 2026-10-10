@@ -14,8 +14,6 @@ export const coda: AppShortcuts = {
   name: "Coda",
   category: "Collaborative documents",
   platforms: ["windows", "macos"],
-  intro:
-    "Coda combines document navigation, rich-text formatting, insert triggers, and table movement. Several keys change behavior with focus, so page, paragraph, and table commands are separated here.",
   versionContext:
     "Current complete Coda Mac and PC shortcut reference checked August 31, 2026. Coda labels Windows shortcuts as PC. Identical keys are retained where its platform tables agree, including Control-based indentation on Mac.",
   sourceUrl: "https://help.coda.io/hc/en-us/articles/39555894316173-Keyboard-shortcuts",

@@ -174,7 +174,7 @@ function Contacts({ result }: { result: DomainRegistration }) {
 }
 
 function Freshness({ result }: { result: DomainRegistration }) {
-  const rows = [{ fetch: result.registryFetch, label: "Registry response" }, { fetch: result.registrarFetch, label: "Registrar response" }].filter((entry): entry is { fetch: RdapFetch; label: string } => Boolean(entry.fetch));
+  const rows = [{ fetch: result.registryFetch, label: "Registry response" }, { fetch: result.registrarFetch, label: "Registrar response" }].filter((entry): entry is { fetch: RdapFetch; label: string } => Boolean(entry.fetch) && entry.fetch?.status !== "no_service");
   if (!rows.length) return null;
   return <dl aria-label="Source freshness" className={styles.metadata}>{rows.map(({ fetch, label }) => <div key={label}><dt>{label}</dt><dd><span>{lookupSourceHost(fetch.url) ?? "Host not reported"}</span><time dateTime={fetch.fetchedAt}>{formatLookupDate(fetch.fetchedAt)}</time>{fetch.fromCache ? <span>Cached</span> : null}</dd></div>)}</dl>;
 }

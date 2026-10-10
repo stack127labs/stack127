@@ -13,8 +13,6 @@ export const aider: AppShortcuts = {
   name: "Aider",
   category: "AI pair programming",
   platforms: [...platforms],
-  intro:
-    "Aider's interactive terminal prompt supports editing, history navigation, interruption, multiline input, and external-editor handoff. Its default Emacs bindings and optional vi command mode are documented separately so the active input mode is always clear.",
   versionContext:
     "Current Aider command-line documentation checked August 31, 2026. Emacs bindings are the default. The vi group applies only when Aider is started with --vim. Terminal emulators and operating systems can intercept some control or meta combinations before Aider receives them.",
   sourceUrl: "https://aider.chat/docs/usage/commands.html",

@@ -14,8 +14,6 @@ export const confluence: AppShortcuts = {
   name: "Confluence",
   category: "Team knowledge base",
   platforms: ["windows", "macos"],
-  intro:
-    "Confluence Cloud has separate command sets for site navigation, pages and live docs, editor formatting, tables, Markdown input, and whiteboards. General shortcuts can be disabled in the in-product shortcut dialog.",
   versionContext:
     "Current Confluence Cloud reference checked August 31, 2026. Windows and Mac columns are preserved literally, including Control-based Mac commands and the Option-based text-formatting rows published by Atlassian. Confluence Data Center and the legacy editor are outside scope.",
   sourceUrl: "https://support.atlassian.com/confluence-cloud/docs/keyboard-shortcuts-markdown-and-autocomplete/",

@@ -8,8 +8,6 @@ export const pycharm: AppShortcuts = {
   name: "PyCharm",
   category: "Code editor",
   platforms: [...platforms],
-  intro:
-    "PyCharm's keymap reference groups the actions developers reach for while searching, editing, navigating, building, and debugging Python projects. This page keeps those actions together and shows the Windows, Linux, and macOS modifier differences.",
   versionContext:
     "PyCharm 2026.2 keymap reference checked September 1, 2026. JetBrains lets users choose and customize a keymap, so these entries describe the published default reference actions and not every plugin shortcut.",
   sourceUrl: "https://www.jetbrains.com/help/pycharm/keymap-reference.html",

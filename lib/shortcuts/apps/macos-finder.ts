@@ -8,8 +8,6 @@ export const macosFinder: AppShortcuts = {
   name: "macOS Finder",
   category: "File management",
   platforms: [...platforms],
-  intro:
-    "Finder's Mac shortcuts cover file actions, common folders, tabs, search, and the bars that shape a Finder window. Context changes with the selected item and the front Finder view.",
   versionContext:
     "Finder and system shortcuts from Apple's current Mac keyboard-shortcuts reference, checked September 1, 2026. A command can change with the current Finder selection or window state.",
   sourceUrl: "https://support.apple.com/102650",

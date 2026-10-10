@@ -99,7 +99,7 @@ function NextSteps({ result }: { result: DomainRegistration }) {
 
 function Freshness({ result }: { result: DomainRegistration }) {
   const rows = [{ fetch: result.registryFetch, label: "Registry response" }, { fetch: result.registrarFetch, label: "Registrar response" }]
-    .filter((entry): entry is { fetch: RdapFetch; label: string } => Boolean(entry.fetch));
+    .filter((entry): entry is { fetch: RdapFetch; label: string } => Boolean(entry.fetch) && entry.fetch?.status !== "no_service");
   if (!rows.length) return null;
   return (
     <dl aria-label="Source freshness" className={styles.metadata}>

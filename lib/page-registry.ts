@@ -5,7 +5,7 @@ import { cache } from "react";
 import { unstable_cache } from "next/cache";
 import { getPool } from "./db";
 import { readPublicData, selectPublicRows } from "./public-data-api";
-import { absoluteUrl, siteName, siteUrl } from "./seo";
+import { absoluteUrl, buildBreadcrumbStructuredData, siteName, siteUrl } from "./seo";
 import { homePageSlugs, resolvePagePublicationState } from "./page-registry-helpers";
 import type { RegistryPublicationState } from "./page-registry-helpers";
 import { PAGE_REGISTRY_TAG, HOME_PAGES_TAG, SITEMAP_TAG } from "./cache-tags";
@@ -279,8 +279,7 @@ export function buildRegistryPageStructuredData(state: PagePublicationState) {
   };
 }
 
-// Directory structured data uses the same publication boundary as page metadata.
-export async function getRegistryPageStructuredData(state: PagePublicationState) {
+async function getRegistryPageEntity(state: PagePublicationState) {
   const page = buildRegistryPageStructuredData(state);
   if (!page || state.kind !== "exact" || !state.page.slug.startsWith("platform-fees/")) return page;
 
@@ -311,4 +310,15 @@ export async function getRegistryPageStructuredData(state: PagePublicationState)
     // The unavailable state can still show the registry's basic page metadata.
     return page;
   }
+}
+
+// All page and breadcrumb data share the registry's exact, indexable publication boundary.
+export async function getRegistryPageStructuredData(state: PagePublicationState) {
+  const page = await getRegistryPageEntity(state);
+  if (!page || state.kind !== "exact") return null;
+  const { getPageBreadcrumbs } = await import("./breadcrumbs");
+  const trail = await getPageBreadcrumbs(state.page);
+  return [page, ...(trail.length ? [buildBreadcrumbStructuredData(trail.map(crumb => ({
+    name: crumb.name, path: crumb.href,
+  })))] : [])];
 }

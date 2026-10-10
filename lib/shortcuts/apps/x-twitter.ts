@@ -28,13 +28,11 @@ export const xTwitter: AppShortcuts = {
   name: "X (Twitter)",
   category: "Social media",
   platforms: [...platforms],
-  intro:
-    "X publishes keyboard shortcuts for posts, timeline navigation, search, direct messages, profile areas, and other common actions on x.com.",
   versionContext:
-    "X Help keyboard shortcut reference checked September 1, 2026. These shortcuts apply to the desktop web experience on x.com.",
+    "X Help Center keyboard shortcut list checked October 10, 2026. These shortcuts apply to the desktop web experience on x.com. The Help Center still lists a Moments destination that is no longer included here.",
   sourceUrl: "https://help.x.com/en/using-x/how-to-post",
-  sourceLabel: "official X keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  sourceLabel: "official X Help Center keyboard shortcuts",
+  lastVerified: "2026-10-10",
   groups: [
     {
       id: "posts",
@@ -72,7 +70,6 @@ export const xTwitter: AppShortcuts = {
       intro: "Press G followed by the listed key to open a common X area.",
       shortcuts: [
         shared("home", "Go to Home", ["G", "then", "H"]),
-        shared("moments", "Go to Moments", ["G", "then", "O"]),
         shared("notifications", "Go to Notifications", ["G", "then", "N"]),
         shared("mentions", "Go to Mentions", ["G", "then", "R"]),
         shared("profile", "Go to your profile", ["G", "then", "P"]),

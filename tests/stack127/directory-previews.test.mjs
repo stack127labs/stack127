@@ -20,8 +20,7 @@ function database(slugs) {
     published_at: '2026-10-01', updated_at: '2026-10-01',
   }));
   const copies = rows.map(row => ({
-    page_id: row.id, title: `Edited <mark>${row.slug}</mark>`, intro_markdown: 'Edited intro.',
-    content_markdown: 'Edited page content.', card_name: 'Edited card name',
+    page_id: row.id, title: `Edited <mark>${row.slug}</mark>`, card_name: 'Edited card name',
     card_description: 'Edited card description.', card_icon_key: 'layers', card_art_key: 'catalog/test', row_updated_at: '2026-10-02',
   }));
   const state = { rows, copies, failUpdate: null };
@@ -57,8 +56,8 @@ function database(slugs) {
       if (query.startsWith('insert into public.stack127_directory_pages')) {
         const row = state.rows.find(row => row.slug === args[0] && row.page_family === 'directory');
         if (!row || state.copies.some(copy => copy.page_id === row.id)) return { rows: [], rowCount: 0 };
-        state.copies.push({ page_id: row.id, title: args[1], intro_markdown: args[2], content_markdown: args[3],
-          card_name: args[4] ?? row.label, card_description: args[5] ?? row.meta_description, row_updated_at: 'now' });
+        state.copies.push({ page_id: row.id, title: args[1],
+          card_name: args[2] ?? row.label, card_description: args[3] ?? row.meta_description, row_updated_at: 'now' });
         return { rows: [{ page_id: row.id }], rowCount: 1 };
       }
       if (query.startsWith('update')) {
@@ -129,8 +128,7 @@ for (const preview of cases) {
     assert.equal(state.copies.length, preview.slugs.length);
     assert.deepEqual(state.rows.map(row => [row.label, row.meta_title, row.meta_description]), searchBefore);
     const initialized = state.copies.at(-1);
-    assert.equal(initialized.intro_markdown, state.rows.at(-1).meta_description);
-    assert.equal(initialized.content_markdown, null);
+    assert.equal(initialized.card_description, state.rows.at(-1).meta_description);
   });
 
   test(`${preview.name} preview leaves published rows and their dates unchanged`, async () => {

@@ -18,8 +18,6 @@ export const appleMusic: AppShortcuts = {
   name: "Apple Music",
   category: "Music streaming and library",
   platforms: ["windows", "macos"],
-  intro:
-    "Apple Music uses different desktop keymaps on Windows and macOS. This reference keeps platform-only playlist, library, window, and access-key commands visible instead of applying a blanket Control-to-Command conversion.",
   versionContext:
     "Current Apple Music desktop shortcuts from Apple's Windows and macOS Tahoe user guides, checked August 31, 2026. Keys can vary with language and keyboard layout. Windows access keys are sequential: press Alt first, then type the listed letters.",
   sourceUrl: "https://support.apple.com/guide/music/keyboard-shortcuts-mus1019/mac",

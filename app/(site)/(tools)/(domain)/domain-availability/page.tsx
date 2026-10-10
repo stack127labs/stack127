@@ -13,7 +13,7 @@ export default async function DomainAvailabilityPage() {
 
   return (
     <ToolPageShell toolPage={toolPage}>
-      <PageCanvas as="main" className="domain-tool-main">
+      <PageCanvas className="domain-tool-main">
         <ToolPageHeader
           icon={<BadgeCheck strokeWidth={2.2} />}
           intro={<Intro />}

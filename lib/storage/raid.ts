@@ -390,7 +390,7 @@ export function calculateRaidCapacity(input: RaidCalculatorInput): StorageCalcul
       driveCount: drives.length,
       minimumDriveCount: details.minimumDrives,
       rawCapacityBytes: capacityValue("Raw drive capacity", summary.totalCapacityBytes),
-      usableCapacityBytes: capacityValue("Theoretical usable capacity", usableCapacityBytes),
+      usableCapacityBytes: capacityValue("Usable capacity", usableCapacityBytes),
       redundancyBytes: capacityValue("Redundancy", redundancyBytes),
       sizeMismatchBytes: capacityValue("Unavailable from size mismatch", sizeMismatchBytes),
       unavailableCapacityBytes: capacityValue("Total unavailable capacity", unavailableCapacityBytes),

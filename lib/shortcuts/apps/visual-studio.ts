@@ -15,8 +15,6 @@ export const visualStudio: AppShortcuts = {
   name: "Visual Studio",
   category: "Code editor",
   platforms: [...platforms],
-  intro:
-    "Visual Studio's General profile includes distinct defaults for building, debugging, editing, files, projects, refactoring, views, and document windows. This Windows reference keeps the common commands and their context notes readable instead of flattening every context-specific command into one list.",
   versionContext:
     "Microsoft Learn's Visual Studio default keyboard shortcut reference checked September 1, 2026. The map uses the General profile; Visual C#, Visual Basic, keyboard layout, language settings, extensions, and user changes can assign different bindings.",
   sourceUrl: "https://learn.microsoft.com/en-us/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio?view=visualstudio",

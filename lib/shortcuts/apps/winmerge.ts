@@ -15,8 +15,6 @@ export const winmerge: AppShortcuts = {
   name: "WinMerge",
   category: "File comparison",
   platforms: [...platforms],
-  intro:
-    "WinMerge publishes separate shortcut sections for folder comparison, file comparison, merge mode, search, bookmarks, and zoom.",
   versionContext:
     "WinMerge manual shortcut page checked September 1, 2026. Some commands depend on whether a folder comparison, file comparison, or merge view has focus.",
   sourceUrl: "https://manual.winmerge.org/en/Shortcut_keys.html",

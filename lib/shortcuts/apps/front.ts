@@ -8,8 +8,6 @@ const front: AppShortcuts = {
   name: "Front",
   category: "Shared inbox",
   platforms: [...platforms],
-  intro:
-    "Front shortcuts keep conversations moving through selection, reply, assignment, tagging, and archive actions. The reference below uses Front's own shortcut set, including the commands that are useful while a conversation or composer has focus.",
   versionContext:
     "Front publishes four selectable shortcut sets. This record uses the Front set. Personal preferences, the browser versus desktop app, and single-key settings can change what is active. Windows uses Control where the Mac reference uses Command, and Alt where it uses Option.",
   sourceUrl: "https://help.front.com/en/articles/2189",

@@ -9,7 +9,7 @@ Notion is only a planning space. The site never reads or syncs Notion for catalo
 | Table | Owns |
 | --- | --- |
 | `public.stack127_pages` | The only registry for URL, publication, SEO, social image, and public dates. Set `page_family = 'catalog'` for a tool catalog. A catalog is public only when `is_published = true`. |
-| `public.stack127_catalog_pages` | The visible `title`, `intro_markdown`, optional `content_markdown`, `display_order`, and the catalog's card: `card_name`, `card_description`, `card_icon_key`, and `card_art_key`. Its `page_id` points to a registry row whose family is `catalog`. A catalog that has moved to MDX ignores `intro_markdown` and `content_markdown`. |
+| `public.stack127_catalog_pages` | The visible `title`, `display_order`, and the catalog's card: `card_name`, `card_description`, `card_icon_key`, and `card_art_key`. Its `page_id` points to a registry row whose family is `catalog`. |
 | `public.stack127_tool_pages` | Each tool's short card name and description, plus icon and marker art keys. These fields apply in every catalog that includes the tool. |
 | `public.stack127_tool_catalog_memberships` | Links tools to any number of catalogs. |
 
@@ -23,9 +23,9 @@ Keep each published catalog populated with at least one published tool.
 
 Catalogs share one route, `app/(site)/(catalogs)/[slug]/page.tsx`. Each catalog's intro and article live in `content/<slug>/intro.mdx` and `content/<slug>/article.mdx` under that route, as [page-content.md](page-content.md) describes. Use the [tool writing skill](../skills/stack127/tools/stack127-tool-writing/SKILL.md) to write them.
 
-`title` and `intro_markdown` must be trimmed, nonempty text. `content_markdown` is optional. Use `null` when there is no prose, or trimmed, nonempty Markdown when there is. These rules match directory pages.
+`title` must be trimmed, nonempty text. The intro and article live in MDX, and the database has no catalog content columns.
 
-The route renders the title's `<mark>` accent, the Markdown intro, and a fixed "Tools" heading above the cards. Optional `content_markdown` renders below the cards with shared prose styles. The hero and homepage card both use `card_art_key`.
+The route renders the title's `<mark>` accent, the MDX intro, and a fixed "Tools" heading above the cards. Its MDX article renders below the cards with shared prose styles. The hero and homepage card both use `card_art_key`.
 
 `getPublishedToolCatalogs` and `getPublishedToolCatalog` return the registry's `published_at` and `updated_at` with each catalog. Internal row timestamps are not public page dates. A published tool's card or catalog membership change moves the affected catalog dates. Draft cards and memberships leave those dates alone. Publishing or retiring a member still moves them. A primary-catalog rank change refreshes navigation without moving catalog dates.
 
@@ -50,7 +50,7 @@ The tools publisher creates and publishes catalogs. Add a new catalog to the sam
 1. Create the `stack127_pages` row first. Use a flat unique slug, `page_family = 'catalog'`, a short `label`, reviewed `meta_title` and `meta_description`, a fitting `page_type` such as `CollectionPage`, and public dates when publishing. Don't put SEO metadata in route files.
 2. Add a `stack127_catalog_pages` row for that page ID, with its card name and description.
    - Write one `title`, with `<mark>` around the accent phrase, like directory titles.
-   - Add `intro_markdown`, optional `content_markdown`, `display_order`, and approved card icon and art keys. Use `card_icon_key` and `card_art_key` in publisher manifests too. Supported keys are in `lib/card-icons.ts` and `lib/card-art.ts`.
+   - Add the MDX content folder and map entry, `display_order`, and approved card icon and art keys. Use `card_icon_key` and `card_art_key` in publisher manifests too. Supported keys are in `lib/card-icons.ts` and `lib/card-art.ts`.
    - The writers reject keys that aren't registered. A card with no drawing shows its icon large instead.
    - The homepage lists every published catalog first, in `display_order`, then other resource cards. The catalog sidebar uses the same order. The homepage's mixed resource sidebar uses the registry's `sitemap_priority`.
 3. Add at least one `stack127_tool_catalog_memberships` row. Pick the tool's `page_id` from `stack127_tool_pages`, set its next catalog rank, and choose its display order. To move a tool, edit its membership rows. Don't add tool cards to the route code.
@@ -104,14 +104,14 @@ The domain catalog has a separate reference article that explains it. EPP status
 
 These changes call the shared `stack127_touch_page` function through `stack127_touch_catalog_page` and move the catalog's public `updated_at`:
 
-- Catalog content edits.
+- Catalog title, card, and display-order edits.
 - Membership changes.
 - Tool card edits.
 - Tool publication changes.
 
 Identical catalog copy and membership updates leave public dates and refresh events alone. Unpublished catalogs keep public dates null.
 
-The database revalidation queue gets the catalog slug as a page event. The cache worker then invalidates the catalog page, catalog data tags, homepage, and sitemap. A new catalog needs no route or homepage code change.
+The database revalidation queue gets the catalog slug as a page event. The cache worker then invalidates the catalog page, catalog data tags, homepage, and sitemap. A new catalog needs an MDX content folder and map entry in the shared route. Homepage cards come from its database row.
 
 Catalog page events also invalidate the primary catalog lookup and every published tool page. That's because one catalog change can change many tool sidebars. Tool pages are invalidated without warming them all at once. The revalidation endpoint takes paths in batches of at most 200.
 

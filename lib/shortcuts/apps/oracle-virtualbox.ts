@@ -14,31 +14,12 @@ export const oracleVirtualBox: AppShortcuts = {
   name: "Oracle VirtualBox",
   category: "Developer tools",
   platforms: [...platforms],
-  intro:
-    "VirtualBox reserves a host key to release keyboard and mouse ownership from a virtual machine and to send special combinations to the guest. This reference keeps host-key actions separate from guest shortcuts, because the guest operating system still owns its own normal keymap.",
   versionContext:
     "Oracle VirtualBox 7.2 User Guide keyboard and host-key behavior checked September 1, 2026. The default host key is Right Ctrl on Windows and Linux hosts and Left Command on a Mac host; users can change it in Preferences.",
   sourceUrl: "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html",
   sourceLabel: "Oracle VirtualBox User Guide host-key shortcuts",
   lastVerified: "2026-09-01",
   groups: [
-    {
-      id: "host-key",
-      title: "Host key and ownership",
-      intro: "Use the host key to return keyboard or mouse ownership to the host operating system while a virtual machine is focused.",
-      shortcuts: [
-        {
-          id: "release-input",
-          action: "Release keyboard and mouse from the guest",
-          keys: [
-            { platform: "windows", keys: ["Right Ctrl"] },
-            { platform: "linux", keys: ["Right Ctrl"] },
-            { platform: "macos", keys: ["Left Cmd"] },
-          ],
-          note: "The host key can be changed in VirtualBox Preferences, so treat these as the documented defaults.",
-        },
-      ],
-    },
     {
       id: "special-combinations",
       title: "Send special combinations to the guest",
@@ -52,9 +33,19 @@ export const oracleVirtualBox: AppShortcuts = {
     },
     {
       id: "input-routing",
-      title: "Input routing",
-      intro: "VirtualBox can route common combinations such as Alt+Tab to the host or guest, and the choice depends on input settings and focus.",
+      title: "Input routing and host-key ownership",
+      intro: "Release input from the guest or route common combinations such as Alt+Tab to the host or guest. Routing depends on input settings and focus.",
       shortcuts: [
+        {
+          id: "release-input",
+          action: "Release keyboard and mouse from the guest",
+          keys: [
+            { platform: "windows", keys: ["Right Ctrl"] },
+            { platform: "linux", keys: ["Right Ctrl"] },
+            { platform: "macos", keys: ["Left Cmd"] },
+          ],
+          note: "The host key can be changed in VirtualBox Preferences, so treat these as the documented defaults.",
+        },
         {
           id: "alt-tab-routing",
           action: "Route Alt+Tab to the host or guest",

@@ -8,8 +8,6 @@ export const krita: AppShortcuts = {
   name: "Krita",
   category: "Digital painting",
   platforms: [...platforms],
-  intro:
-    "Krita's default menu, selection, layer, canvas, brush, and text-editor shortcuts keep drawing work close to the keyboard.",
   versionContext:
     "Defaults from the Krita Manual 5.3.0, checked September 1, 2026. Krita lets users replace the default scheme, export custom profiles, and assign alternate shortcuts; this page records the documented defaults. The manual publishes the same Ctrl-based command notation for the cross-platform commands below.",
   sourceUrl: "https://docs.krita.org/en/reference_manual/preferences/shortcut_settings.html",

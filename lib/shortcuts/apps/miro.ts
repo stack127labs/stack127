@@ -36,8 +36,6 @@ export const miro: AppShortcuts = {
   name: "Miro",
   category: "Design tool",
   platforms: [...platforms],
-  intro:
-    "Miro's board shortcuts cover tools, object editing, canvas movement, and keyboard-only navigation. The reference separates single-key board tools from modifier shortcuts so accessibility settings and desktop-app commands stay visible.",
   versionContext:
     "Current Miro browser and desktop shortcuts checked September 1, 2026. Miro lets users turn single-character shortcuts off from Accessibility, and the desktop app adds reload, tab, exit, and board-link commands.",
   sourceUrl: "https://help.miro.com/hc/en-us/articles/360017731033-Shortcuts-and-hotkeys",

@@ -8,8 +8,6 @@ export const tableplus: AppShortcuts = {
   name: "TablePlus",
   category: "Database tools",
   platforms: [...platforms],
-  intro:
-    "TablePlus's official shortcut documentation covers connections, workspaces, SQL editing, panes, query execution, and table data. Windows entries use the documented Control replacement for Command.",
   versionContext:
     "TablePlus shortcut keys checked September 1, 2026. The documentation says to replace Command with Control on Windows and notes that key mappings can be customized in Preferences.",
   sourceUrl: "https://docs.tableplus.com/utilities/shortcut-keys",

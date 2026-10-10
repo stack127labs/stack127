@@ -38,8 +38,6 @@ export const flStudio: AppShortcuts = {
   name: "FL Studio",
   category: "Music production",
   platforms: [...platforms],
-  intro:
-    "FL Studio groups shortcuts by global commands, files, patterns, the Channel Rack, transport, windows, the Mixer, the Playlist, the Piano roll, and the Browser.",
   versionContext:
     "Current FL Studio online manual keyboard shortcut page checked September 1, 2026. The manual says shortcuts depend on the active window or plugin and that its list is not exhaustive.",
   sourceUrl: "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/basics_shortcuts.htm",

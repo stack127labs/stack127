@@ -18,8 +18,6 @@ export const basecamp: AppShortcuts = {
   name: "Basecamp",
   category: "Project management",
   platforms: ["windows", "macos"],
-  intro:
-    "Basecamp 5 uses Shift-letter navigation throughout the web app, plus a small set of project and page commands. Hold Shift outside a text field to reveal available keycaps; inside a text field, press Shift twice to activate hotkey mode.",
   versionContext:
     "Current Basecamp 5 keyboard cheat sheet checked August 31, 2026. Commands are shared by Windows and macOS except where Basecamp explicitly publishes Command or Option alternatives.",
   sourceUrl: "https://basecamp.com/keyboard",

@@ -8,8 +8,6 @@ const freshdesk: AppShortcuts = {
   name: "Freshdesk",
   category: "Support desk",
   platforms: [...platforms],
-  intro:
-    "Freshdesk splits its shortcut map by screen. These entries cover global navigation, ticket lists, selected tickets, and the ticket editor so support agents can move through a queue and reply without leaving the keyboard.",
   versionContext:
     "The current Freshdesk support reference covers Freshdesk Omni accounts and notes that accounts created before December 2025 may see a different shortcut set. Shortcuts must be enabled from Profile > Keyboard Shortcuts.",
   sourceUrl: "https://support.freshdesk.com/support/solutions/articles/186758-keyboard-shortcuts-in-freshdesk",

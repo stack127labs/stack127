@@ -18,8 +18,6 @@ export const adobePremiereRush: AppShortcuts = {
   name: "Adobe Premiere Rush",
   category: "Video editing",
   platforms: ["windows", "macos"],
-  intro:
-    "Premiere Rush keeps project, clip, timeline, preview, and media-browser commands in separate contexts. This reference preserves those focus boundaries and the few commands that apply only while editing title text.",
   versionContext:
     "Final desktop defaults from Adobe's June 11, 2026 reference, checked August 31, 2026. Adobe discontinued Premiere Rush and removed it from download after September 30, 2025, but existing installations can still use these documented shortcuts.",
   sourceUrl: "https://helpx.adobe.com/premiere-rush/desktop/introduction/keyboard-shortcuts.html",

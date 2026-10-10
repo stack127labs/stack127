@@ -1,18 +1,19 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { createHash } from 'node:crypto';
 import { mkdtemp, writeFile, symlink, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { publishingArgs, resolveCopy, validatePlan, verifyPublication } from '../../scripts/stack127/publishing/cli.mjs';
 import { checkDatabaseRequirements, readinessSql, routeMatches } from '../../scripts/stack127/publishing/readiness.mjs';
 import { checkLiveRelease, inspectIndexingHtml, inspectPublishedHtml, verifyPublicPages } from '../../scripts/stack127/publishing/verify.mjs';
-import { publicationEvent } from '../../scripts/stack127/publishing/github.mjs';
+import { publicationEvent, dispatchPublication, extractPublication } from '../../scripts/stack127/publishing/github.mjs';
 
 const sha = 'a'.repeat(40);
 const state = {
   slug: 'example', family: 'directory',
   registry: { label: 'Example', meta_title: 'Example directory', meta_description: 'Compare examples & choices.', is_published: true, is_indexable: true, cover_image_url: null, page_type: 'CollectionPage', sitemap_priority: 0.5 },
-  content: { title: 'Find <mark>examples</mark>', intro_markdown: 'Choose an example.', content_markdown: null, card_name: 'Examples', card_description: 'Compare examples.', card_icon_key: null, card_art_key: null },
+  content: { title: 'Find <mark>examples</mark>', card_name: 'Examples', card_description: 'Compare examples.', card_icon_key: null, card_art_key: null },
 };
 const revision = '2026-10-04T00:00:00.000Z';
 const requirements = { route: 'app/(site)/(directories)/example/page.tsx', assets: [], checks: [], smoke: [], records: { kind: 'code', files: ['lib/examples.ts'] } };
@@ -103,7 +104,8 @@ test('frozen plans cannot be applied to another family or environment', () => {
 });
 
 test('GitHub publication events must agree on repository, task, commit and environment', () => {
-  const event = { repository: { full_name: 'stack127labs/stack127' }, deployment: { id: 42, environment: 'stack127-page-publication', task: 'page-publication', sha, ref: sha, payload: { release_sha: sha, plan: plan() } } };
+  const planBlob = { sha: 'b'.repeat(40), sha256: 'c'.repeat(64), size: 1000, kind: 'directories' };
+  const event = { repository: { full_name: 'stack127labs/stack127' }, deployment: { id: 42, environment: 'stack127-page-publication', task: 'page-publication', sha, ref: sha, payload: { schema_version: 2, release_sha: sha, plan_blob: planBlob } } };
   assert.equal(publicationEvent(event).deploymentId, 42);
   assert.throws(() => publicationEvent({ ...event, repository: { full_name: 'elsewhere/repo' } }), /not a stack127/);
   assert.throws(() => publicationEvent({ ...event, deployment: { ...event.deployment, sha: 'b'.repeat(40) } }), /agree/);
@@ -270,4 +272,74 @@ test('the root canonical passes with or without a trailing slash, and wrong path
   inspectIndexingHtml(page('https://stack127.com/'), { slug: '' }, site);
   assert.throws(() => inspectIndexingHtml(page('https://stack127.com/about'), { slug: '' }, site), /indexing metadata/);
   assert.throws(() => inspectIndexingHtml(page('not a url'), { slug: '' }, site), /indexing metadata/);
+});
+
+function githubStorage() {
+  let stored, deployment;
+  const calls = [];
+  const github = async (args, input) => {
+    calls.push(args[0]);
+    if (args[0].endsWith('/git/blobs')) {
+      const bytes = Buffer.from(input.content, input.encoding);
+      const blobSha = createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
+      stored = { sha: blobSha, size: bytes.length, content: input.content, encoding: input.encoding };
+      return { sha: blobSha };
+    }
+    if (args[0].endsWith('/deployments')) { deployment = input; return { id: 42, sha: input.ref }; }
+    if (args[0].includes('/collaborators/')) return { permission: 'write' };
+    if (args[0].endsWith('/commits/main')) return { sha };
+    if (args[0].includes('/git/blobs/')) return stored;
+    throw new Error(`Unexpected GitHub endpoint: ${args[0]}`);
+  };
+  return { github, calls, get stored() { return stored; }, get deployment() { return deployment; } };
+}
+
+const deploymentEvent = input => ({ repository: { full_name: 'stack127labs/stack127' }, sender: { login: 'ravitejaknts' }, deployment: { ...input, id: 42, sha, ref: sha } });
+
+test('a large frozen plan dispatches once and arrives intact without filling the deployment payload', async () => {
+  const large = plan();
+  large.pages[0].after.content.card_description = 'Reviewed café content. '.repeat(100000).trim();
+  const storage = githubStorage();
+  const result = await dispatchPublication(large, sha, { github: storage.github });
+  assert.equal(result.dispatched, true);
+  assert.ok(storage.stored.size > 2 * 1024 * 1024);
+  assert.ok(JSON.stringify(storage.deployment).length < 1000);
+  assert.equal(storage.calls.filter(call => call.endsWith('/deployments')).length, 1);
+  const directory = await mkdtemp(path.join(os.tmpdir(), 'publication-plan-'));
+  try {
+    const file = path.join(directory, 'plan.json');
+    const extracted = await extractPublication(deploymentEvent(storage.deployment), file, { github: storage.github });
+    assert.deepEqual(extracted.plan, large);
+    const { readFile } = await import('node:fs/promises');
+    assert.deepEqual(JSON.parse(await readFile(file, 'utf8')), large);
+  } finally { await rm(directory, { recursive: true, force: true }); }
+});
+
+test('changed plan data, length, and kind stop extraction before a plan can be applied', async () => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), 'publication-corrupt-'));
+  try {
+    for (const change of ['data', 'length', 'kind']) {
+      const storage = githubStorage();
+      await dispatchPublication(plan(), sha, { github: storage.github });
+      if (change === 'data') storage.stored.content = Buffer.from(JSON.stringify({ ...plan(), source_commit: 'b'.repeat(40) })).toString('base64');
+      if (change === 'length') storage.deployment.payload.plan_blob.size++;
+      if (change === 'kind') storage.deployment.payload.plan_blob.kind = 'tools';
+      const file = path.join(directory, `${change}.json`);
+      await assert.rejects(extractPublication(deploymentEvent(storage.deployment), file, { github: storage.github }), /integrity|metadata|invalid/);
+      const { access } = await import('node:fs/promises');
+      await assert.rejects(access(file), { code: 'ENOENT' });
+    }
+  } finally { await rm(directory, { recursive: true, force: true }); }
+});
+
+test('publication authorization and current-main checks run before downloading the stored plan', async () => {
+  for (const gate of ['permission', 'main']) {
+    const storage = githubStorage();
+    await dispatchPublication(plan(), sha, { github: storage.github });
+    const github = async (args, input) => args[0].includes('/collaborators/') && gate === 'permission'
+      ? { permission: 'read' } : args[0].endsWith('/commits/main') && gate === 'main'
+        ? { sha: 'b'.repeat(40) } : storage.github(args, input);
+    await assert.rejects(extractPublication(deploymentEvent(storage.deployment), '/unused.json', { github }), /writer|current main/);
+    assert.ok(!storage.calls.some(call => call.includes('/git/blobs/')));
+  }
 });

@@ -18,8 +18,6 @@ export const zed: AppShortcuts = {
   name: "Zed",
   category: "Code editor",
   platforms: [...platforms],
-  intro:
-    "Zed's default keymap is built around moving quickly through an editor, workspace, terminal, and agent panel. This reference covers the current built-in defaults across macOS, Linux, and Windows, including the context-sensitive keys that are most useful in daily work.",
   versionContext:
     "Defaults from Zed's official per-platform keymap files checked in August 2026. Zed is fully customizable: a selected VS Code, Vim, Helix, or other base keymap, user keymap, extension, terminal context, or language-specific context can change the active binding.",
   sourceUrl: "https://zed.dev/docs/key-bindings",

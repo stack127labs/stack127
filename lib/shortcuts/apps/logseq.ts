@@ -34,8 +34,6 @@ export const logseq: AppShortcuts = {
   name: "Logseq",
   category: "Knowledge management",
   platforms: [...platforms],
-  intro:
-    "Logseq's default keymap covers block editing, navigation, search, page movement, and the left and right sidebars. Sequences are shown in the order they are typed.",
   versionContext:
     "Current default Logseq keymap source checked September 1, 2026. The project defines a platform-neutral `mod` modifier, which maps to Ctrl on Windows and Linux and Command on macOS. Users can change the keymap in Logseq settings or the source configuration.",
   sourceUrl: "https://github.com/logseq/logseq/blob/master/src/main/frontend/modules/shortcut/config.cljs",

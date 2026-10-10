@@ -20,7 +20,7 @@ import {
 import { addAmazonMatches } from "@/lib/amazon-affiliate/server";
 import type { DirectoryFilterOption as FilterOption } from "../../../ui/directories/directory-filters";
 import { DirectoryQueryProvider } from "../../../ui/directories/directory-query";
-import { sortDevices, zigbeeIndexRecord, zigbeePageSize } from "./filters";
+import { deviceCapabilities, sortDevices, zigbeeIndexRecord, zigbeePageSize } from "./filters";
 import { ZigbeeDeviceFilters, ZigbeeDeviceResults } from "./zigbee-device-view";
 import styles from "./zigbee-devices.module.css";
 import Article from "./content/article.mdx";
@@ -46,9 +46,10 @@ export default async function ZigbeeDevicesPage() {
   const vendorOptions: FilterOption[] = [...vendorCounts.entries()]
     .map(([value, count]) => ({ count, label: value, value }))
     .sort((left, right) => left.label.localeCompare(right.label));
+  const capabilitiesBySlug = new Map(devices.map((device) => [device.slug, deviceCapabilities(device)]));
   const capabilityOptions: FilterOption[] = featuredZigbeeCapabilities
     .map((value) => ({
-      count: devices.filter((device) => device.zigbee2mqtt_capabilities.includes(value)).length,
+      count: devices.filter((device) => capabilitiesBySlug.get(device.slug)?.has(value)).length,
       label: value.replaceAll("_", " "),
       value,
     }))

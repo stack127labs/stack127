@@ -187,7 +187,7 @@ function resultForMode(mode: number): ChmodValidResult {
     bits.sticky ? "Sticky" : null,
   ].filter((value): value is string => Boolean(value));
   const context = bits.othersWrite
-    ? ["The others class includes write permission. This is not an effective-access check."]
+    ? ["Every other user on the system can write to this. Real access also depends on folder permissions, ACLs, and mount options."]
     : [];
   const octal = formatOctalMode(mode);
   return {

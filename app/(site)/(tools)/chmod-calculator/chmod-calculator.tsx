@@ -274,7 +274,7 @@ export function ChmodCalculator() {
 
           <div className={styles.commandRegion} data-chmod-command>
             <UiCodeOutput actions={<UiCopyAction kind="command" label="Copy command" value={result.command} />} code={result.command} label="Command example" />
-            <p className={styles.note}>Replace the example path with your file&apos;s path. Filesystem effects are not verified by this calculator.</p>
+            <p className={styles.note}>Replace the example path with your file&apos;s path. This page only works out the mode. It can&apos;t see your files.</p>
           </div>
         </section>
       ) : null}

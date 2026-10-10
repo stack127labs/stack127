@@ -21,8 +21,6 @@ export const safari: AppShortcuts = {
   name: "Safari",
   category: "Web browser",
   platforms: [...platforms],
-  intro:
-    "Safari's Mac User Guide lists keyboard commands for scrolling, webpage fields, tabs, history, downloads, reading lists, bookmarks, zoom, and windows. This reference keeps keyboard actions separate from the guide's pointer gestures.",
   versionContext:
     "Apple's Safari User Guide for Mac checked September 1, 2026. Apple notes that shortcuts can vary with language and keyboard layout, so the Safari menus remain the authority when a local layout changes a key.",
   sourceUrl: "https://support.apple.com/en-az/guide/safari/cpsh003/mac",

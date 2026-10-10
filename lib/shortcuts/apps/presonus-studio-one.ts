@@ -17,8 +17,6 @@ export const presonusStudioOne: AppShortcuts = {
   name: "PreSonus Studio One",
   category: "Music production",
   platforms: [...platforms],
-  intro:
-    "Studio One's official key command sheet covers transport, editing, events, tracks, the browser, console views, markers, zoom, and file commands. This reference keeps the PC commands and their documented Mac modifier substitutions together.",
   versionContext:
     "Studio One Pro 7 Key Command Sheet checked September 1, 2026. The sheet says its commands are for PC, with Ctrl becoming Cmd on Mac and Alt becoming Option or Alt on Mac. Studio One lets users change commands in Options or General or Keyboard Shortcuts.",
   sourceUrl: "https://pae-web.presonusmusic.com/downloads/products/pdf/Studio_One_Pro_7_Key_Command_Sheet.pdf",

@@ -17,8 +17,6 @@ export const looker: AppShortcuts = {
   name: "Looker",
   category: "Analytics",
   platforms: [...platforms],
-  intro:
-    "Looker's official shortcut map changes with the current location: dashboards, Looks, Explores, and the LookML IDE each have their own commands.",
   versionContext:
     "Shortcuts from the current Google Cloud Looker keyboard-shortcuts page, last updated July 22, 2025 and checked September 1, 2026. Availability depends on the current Looker location, permissions, and browser; the published table covers Windows and macOS.",
   sourceUrl: "https://docs.cloud.google.com/looker/docs/keyboard-shortcuts?hl=en",

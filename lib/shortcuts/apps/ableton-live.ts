@@ -18,13 +18,11 @@ export const abletonLive: AppShortcuts = {
   name: "Ableton Live",
   category: "Digital audio workstation",
   platforms: ["windows", "macos"],
-  intro:
-    "Ableton Live's keymap reaches almost every part of a set: views, devices, clips, arrangement editing, tracks, transport, and the browser. The groups follow Live's own manual so a binding stays tied to the view where it works.",
   versionContext:
-    "Documented defaults for Ableton Live 12 checked August 31, 2026. Single-letter commands are affected by the Computer MIDI Keyboard. When it is active, hold Shift with a single-letter shortcut. User Key Map and MIDI Map assignments are not defaults and are not listed.",
+    "Documented defaults for Ableton Live 12 checked October 10, 2026. Single-letter commands are affected by the Computer MIDI Keyboard. When it is active, hold Shift with a single-letter shortcut. User Key Map and MIDI Map assignments are not defaults and are not listed.",
   sourceUrl: "https://www.ableton.com/en/manual/live-keyboard-shortcuts/",
   sourceLabel: "Ableton Live 12 keyboard shortcuts manual",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-10-10",
   groups: [
     {
       id: "views",
@@ -242,7 +240,7 @@ export const abletonLive: AppShortcuts = {
         ["move-session-track", "Move the selected track left or right", ["Ctrl", "Left/Right"], ["Cmd", "Left/Right"]],
         ["move-nonadjacent-scenes", "Move nonadjacent scenes without collapsing them", ["Ctrl", "Up/Down"], ["Cmd", "Up/Down"]],
         ["deactivate-clip", "Deactivate the selected clip", ["0"]],
-        ["jump-session-track-title", "Jump to the highlighted track title bar", ["Esc"]],
+        ["jump-track-title", "Jump to the highlighted track title bar in Session or Arrangement View", ["Esc"]],
         ["jump-first-track", "Jump to the first track in the current scene", ["Home"]],
         ["jump-last-track", "Jump to the last track or return to the current scene", ["End"]],
         ["solo-chain", "Solo the selected chain", ["S"]],
@@ -272,7 +270,6 @@ export const abletonLive: AppShortcuts = {
         ["zoom-back-arrangement", "Zoom back from the Arrangement time selection", ["X"]],
         ["play-insert-marker", "Play from the insert marker in the selected clip", ["Ctrl", "Space"], ["Option", "Space"]],
         ["insert-marker-playhead", "Move the insert marker to the playhead", ["Ctrl", "Shift", "Space"], ["Cmd", "Shift", "Space"]],
-        ["jump-arrangement-track-title", "Jump to the highlighted track title bar", ["Esc"]],
         ["focus-arrangement-mixer", "Move focus to the Mixer", ["Alt", "Shift", "M"], ["Option", "Shift", "M"]],
         ["show-take-lanes", "Show take lanes", ["Ctrl", "Alt", "U"], ["Cmd", "Option", "U"]],
         ["add-take-to-main", "Add the selected take lane area to the main track lane", ["Enter"]],

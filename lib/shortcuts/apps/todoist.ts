@@ -22,8 +22,6 @@ export const todoist: AppShortcuts = {
   name: "Todoist",
   category: "Task management",
   platforms: [...platforms],
-  intro:
-    "Todoist's current reference covers general app navigation, quick add, global desktop controls, task editing, projects, sorting, upcoming view, calendar layout, and multi-window workflows. This map keeps web and desktop commands together while showing platform-specific bindings explicitly.",
   versionContext:
     "Todoist Help keyboard shortcut reference last updated July 2, 2026 and checked September 1, 2026. Todoist documents QWERTY and QWERTZ layouts, and global Quick Add or Ramble shortcuts do not work on Linux; this record covers Windows 10/11 and macOS.",
   sourceUrl: "https://todoist.com/help/articles/use-keyboard-shortcuts-in-todoist-Wyovn2",

@@ -12,7 +12,7 @@ export default async function PunycodeConverterPage() {
   const toolPage = await getRequiredToolPage("punycode-converter");
   return (
     <ToolPageShell toolPage={toolPage}>
-      <PageCanvas as="main" className="domain-tool-main">
+      <PageCanvas className="domain-tool-main">
         <ToolPageHeader
           icon={<Languages strokeWidth={2.2} />}
           intro={<Intro />}

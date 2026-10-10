@@ -17,8 +17,6 @@ export const quickbooksOnline: AppShortcuts = {
   name: "QuickBooks Online",
   category: "Accounting",
   platforms: [...platforms],
-  intro:
-    "QuickBooks Online documents shortcuts for date fields, forms, dropdowns, transactions, registers, payroll, and the browser window. This reference keeps browser-specific save variants as alternatives instead of treating them as universal commands.",
   versionContext:
     "Intuit's QuickBooks Help article was updated August 28, 2026 and checked September 1, 2026. The article covers Internet Explorer, Firefox, and Chrome, with Mac substitutions where Intuit documents them. The in-product reference opens with Control+Option+Question mark on Mac.",
   sourceUrl: "https://quickbooks.intuit.com/learn-support/en-us/help-article/product-setup/keyboard-shortcuts-quickbooks-online/L49aUqVh2_US_en_US",

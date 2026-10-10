@@ -14,8 +14,6 @@ export const opera: AppShortcuts = {
   name: "Opera",
   category: "Web browser",
   platforms: [...platforms],
-  intro:
-    "Opera's documented browser shortcuts cover commands, page search, tabs, navigation, and display controls. Opera also lets users customize most browser shortcuts in Settings, so this page keeps the published defaults and calls out the configurable layer.",
   versionContext:
     "Current Opera desktop shortcuts checked September 1, 2026. The official page covers macOS and Windows/Linux defaults and notes that shortcuts can be customized under Settings > Browser > Shortcuts.",
   sourceUrl: "https://help.opera.com/en/latest/shortcuts/",

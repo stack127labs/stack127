@@ -76,3 +76,20 @@ test("sort and pagination helpers stay deterministic", () => {
   assert.equal(getPage({ page: "3" }), 3);
   assert.deepEqual(paginationPages(5, 10), [1, null, 4, 5, 6, null, 10]);
 });
+
+test("capability filter and feature sort include Blakadder-only records", () => {
+  const blakadderOnly = device({
+    slug: "acme-th1",
+    vendor: "Acme",
+    name: "Climate sensor",
+    model: "TH1",
+    zigbee2mqtt_capabilities: [],
+    zha_reported_capabilities: ["Temperature", "humidity", "batterypct", "occupancy"],
+    zigbee2mqtt_url: "",
+  });
+  const withBlakadder = [...devices, blakadderOnly];
+  assert.deepEqual(filterDevices(withBlakadder, { capability: ["temperature"] }).map((d) => d.slug), ["sonoff-snzb-02p", "acme-th1"]);
+  assert.deepEqual(filterDevices(withBlakadder, { capability: ["occupancy"] }).map((d) => d.slug), ["acme-th1"]);
+  assert.deepEqual(filterDevices(withBlakadder, { capability: ["power"] }).map((d) => d.slug), ["innr-sp-240"]);
+  assert.equal(sortDevices(withBlakadder, "capabilities")[0].slug, "acme-th1");
+});

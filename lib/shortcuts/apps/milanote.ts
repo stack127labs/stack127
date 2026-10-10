@@ -15,8 +15,6 @@ export const milanote: AppShortcuts = {
   name: "Milanote",
   category: "Notes and docs",
   platforms: [...platforms],
-  intro:
-    "Milanote puts boards, notes, images, and tables on one canvas. This reference keeps board movement, text formatting, drawing, and desktop navigation separate so a shortcut is tied to the thing it changes.",
   versionContext:
     "Current Milanote desktop and browser shortcuts checked September 1, 2026. Milanote also supports an in-app shortcut menu, and several actions depend on whether a note, board, table, or drawing is selected.",
   sourceUrl: "https://help.milanote.com/en/articles/111393-keyboard-shortcuts",

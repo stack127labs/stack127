@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import dnsPacket from "dns-packet";
+import { encodeDnsQuery } from "../../../lib/dns/dns-wire.ts";
 
 import {
   buildUnifiedAliasChain,
@@ -274,8 +275,34 @@ test("All records uses every offered type as separate queries with fixed DO/CD v
   assert.ok(calls.every((call) => call.url.href === "https://cloudflare-dns.com/dns-query"));
   assert.ok(calls.every((call) => call.init.method === "POST"));
   assert.ok(calls.every((call) => call.query.flag_cd === false));
+  assert.ok(calls.every((call) => call.query.flag_ad === true));
   assert.ok(calls.every((call) => call.query.additionals.length === 0));
   assert.ok(result.queryResults.every((query) => query.flags.authenticatedData === true));
+});
+
+test("recursive lookups request the resolver's AD flag and preserve its reply", async () => {
+  for (const authenticated of [true, false]) {
+    const result = await lookupDns(
+      { name: "example.com", selection: "A", resolver: "cloudflare" },
+      { fetchImpl: async (_url, init) => {
+        const query = dnsPacket.decode(Buffer.from(init.body));
+        const flags = dnsPacket.RECURSION_AVAILABLE
+          | (authenticated && query.flag_ad ? dnsPacket.AUTHENTIC_DATA : 0);
+        return wireResponse(init.body, [{ name: "example.com", type: "A", ttl: 60, data: "192.0.2.1" }], flags);
+      } },
+    );
+    assert.equal(result.queryResults[0].flags.authenticatedData, authenticated);
+  }
+});
+
+test("authoritative queries leave AD, RD, CD, and EDNS unset", () => {
+  const query = dnsPacket.decode(encodeDnsQuery("example.com", "A", { recursive: false, id: 42 }));
+  assert.equal(query.id, 42);
+  assert.equal(query.flag_ad, false);
+  assert.equal(query.flag_rd, false);
+  assert.equal(query.flag_cd, false);
+  assert.deepEqual(query.additionals, []);
+  assert.deepEqual(query.questions, [{ name: "example.com", type: "A", class: "IN" }]);
 });
 
 test("PTR accepts an IP address, sends one reverse-DNS query, and stays out of All", async () => {

@@ -13,7 +13,7 @@ export default async function DnsTracePage() {
   const toolPage = await getRequiredToolPage("dns-trace");
   return (
     <ToolPageShell toolPage={toolPage}>
-      <PageCanvas as="main" className={styles.main}>
+      <PageCanvas className={styles.main}>
         <ToolPageHeader
           icon={<Route strokeWidth={2.2} />}
           intro={<Intro />}

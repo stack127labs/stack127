@@ -20,8 +20,6 @@ export const mozillaThunderbird: AppShortcuts = {
   name: "Mozilla Thunderbird",
   category: "Email",
   platforms: [...platforms],
-  intro:
-    "Thunderbird changes its shortcut set with the active pane, so a key can select text while composing and messages while browsing a folder. This reference groups the documented mail, search, navigation, composing, address book, and calendar defaults without hiding those context changes.",
   versionContext:
     "Current Thunderbird desktop shortcuts checked September 1, 2026. The official table was updated April 2, 2026. Add-ons can customize or disable some shortcuts, and macOS laptops may need Fn for function keys.",
   sourceUrl: "https://support.mozilla.org/en-US/kb/keyboard-shortcuts-thunderbird",

@@ -28,8 +28,6 @@ export const whimsical: AppShortcuts = {
   name: "Whimsical",
   category: "Visual collaboration",
   platforms: [...platforms],
-  intro:
-    "Whimsical publishes separate current shortcut tables for its Windows and Mac apps. This reference covers workspace navigation, boards, diagrams, mind maps, and notes.",
   versionContext:
     "Whimsical shortcut tables checked September 1, 2026. The source lists the Windows and Mac modifiers separately, and some shortcuts depend on the active board or editor.",
   sourceUrl: "https://whimsical.com/learn/shortcuts",

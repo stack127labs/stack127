@@ -9,8 +9,8 @@ const rowsByTable = overrides => new Map(pageTables.map(name => [name, overrides
 function directoryRestore() {
   const sourcePage = { id: 1, slug: 'self-host-apps', page_family: 'directory', is_indexable: true, is_published: true };
   const developmentPage = { id: 2, slug: 'development-directory', page_family: 'directory', is_indexable: true, is_published: true };
-  const sourceCopy = { page_id: 1, title: 'Source directory', content_markdown: null, card_name: 'Source card', card_icon_key: 'self-host-apps', card_art_key: 'self-host-apps' };
-  const savedCopy = { page_id: 2, title: 'Edited directory', content_markdown: 'Saved content.', card_name: 'Edited card', card_icon_key: 'terminal', card_art_key: 'labs' };
+  const sourceCopy = { page_id: 1, title: 'Source directory', card_name: 'Source card', card_icon_key: 'self-host-apps', card_art_key: 'self-host-apps' };
+  const savedCopy = { page_id: 2, title: 'Edited directory', card_name: 'Edited card', card_icon_key: 'terminal', card_art_key: 'labs' };
   return {
     production: rowsByTable({ stack127_pages: [sourcePage], stack127_directory_pages: [sourceCopy] }),
     restored: rowsByTable({ stack127_pages: [{ ...sourcePage }, { ...developmentPage, id: 4 }],
@@ -52,7 +52,7 @@ test('verification remaps tool, catalog, and mixed membership IDs through their 
   const sourcePages = [{ id: 1, slug: 'source-tool', is_indexable: true }, { id: 2, slug: 'source-catalog', is_indexable: true }];
   const extraPages = [{ id: 3, slug: 'development-tool', is_indexable: true }, { id: 4, slug: 'development-catalog', is_indexable: true }];
   const tool = { page_id: 3, title: 'Saved tool', tool_version: '1.0.0' };
-  const catalog = { page_id: 4, card_name: 'Saved catalog', content_markdown: null };
+  const catalog = { page_id: 4, card_name: 'Saved catalog' };
   const memberships = [
     { catalog_page_id: 2, tool_page_id: 3, display_order: 1 },
     { catalog_page_id: 4, tool_page_id: 1, display_order: 2 },
@@ -60,7 +60,7 @@ test('verification remaps tool, catalog, and mixed membership IDs through their 
   ];
   const production = rowsByTable({ stack127_pages: sourcePages,
     stack127_tool_pages: [{ page_id: 1, title: 'Source tool' }],
-    stack127_catalog_pages: [{ page_id: 2, card_name: 'Source catalog', content_markdown: null }],
+    stack127_catalog_pages: [{ page_id: 2, card_name: 'Source catalog' }],
     stack127_tool_catalog_memberships: [{ catalog_page_id: 2, tool_page_id: 1, display_order: 1 }],
   });
   const restored = new Map([...production].map(([name, rows]) => [name, structuredClone(rows)]));
@@ -150,10 +150,10 @@ test('restore verification detects a changed card icon or art after ID remapping
 
 const column = (column_name, udt_name = 'text') => ({ column_name, udt_name,
   data_type: udt_name === 'int4' ? 'integer' : udt_name === 'bool' ? 'boolean' : 'text' });
-const catalog = {page_id: 2, title: 'DNS <mark>tools</mark>', intro_markdown: 'Choose a tool.',
-  content_markdown: null, display_order: 10, card_icon_key: 'network', card_art_key: 'dns-tools', row_updated_at: 'original'};
+const catalog = {page_id: 2, title: 'DNS <mark>tools</mark>',
+  display_order: 10, card_icon_key: 'network', card_art_key: 'dns-tools', row_updated_at: 'original'};
 const legacy = {heading_before: 'DNS ', heading_mark: 'tools', heading_after: '', intro: 'Choose a tool.',
-  section_heading: 'Choose a DNS check', home_order: 10, hero_art_key: 'dns-tools'};
+  section_heading: 'Choose a DNS check', home_order: 10, hero_art_key: 'dns-tools', intro_markdown: 'Choose a tool.', content_markdown: null};
 const columnsFor = row => Object.keys(row).map(key => column(key, ['page_id', 'display_order', 'home_order', 'content_revision'].includes(key) ? 'int4' : 'text'));
 
 test('recovery copies current production before and after the contract without changing copy or dates', () => {

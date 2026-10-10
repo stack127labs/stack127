@@ -17,8 +17,6 @@ export const axureRp: AppShortcuts = {
   name: "Axure RP",
   category: "Prototyping and wireframing",
   platforms: ["windows", "macos"],
-  intro:
-    "Axure RP 11's keymap covers files, canvas movement, widget insertion and editing, vector operations, sitemap management, prototype tools, panes, preview, and publishing. Single-key canvas commands remain visible as documented alternatives.",
   versionContext:
     "Current Axure RP 11 keyboard shortcut reference checked August 31, 2026. Windows and Mac columns are preserved. Single-key shortcuts are enabled by default but can be disabled in Canvas preferences. Pointer gestures and modifier-only mouse behaviors are omitted.",
   sourceUrl: "https://docs.axure.com/axure-rp/reference/keyboard-shortcuts/",

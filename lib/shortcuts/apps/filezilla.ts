@@ -14,8 +14,6 @@ export const filezilla: AppShortcuts = {
   name: "FileZilla",
   category: "File transfer",
   platforms: [...platforms],
-  intro:
-    "FileZilla's official wiki lists shortcuts for panes, transfers, bookmarks, searches, queues, tabs, and local or remote file navigation.",
   versionContext:
     "Current FileZilla Wiki keyboard shortcut page checked September 1, 2026. The wiki publishes one desktop shortcut set without platform columns, so those values are retained across Windows, macOS, and Linux.",
   sourceUrl: "https://wiki.filezilla-project.org/Keyboard_shortcuts",

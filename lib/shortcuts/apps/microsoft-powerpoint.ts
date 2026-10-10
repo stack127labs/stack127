@@ -36,8 +36,6 @@ export const microsoftPowerPoint: AppShortcuts = {
   name: "Microsoft PowerPoint",
   category: "Presentation software",
   platforms: [...platforms],
-  intro:
-    "PowerPoint's keyboard map separates Windows authoring commands from the presentation controls shared by Windows and Mac. Use the ribbon key tips for commands that do not have a dedicated chord.",
   versionContext:
     "Current Microsoft PowerPoint creation and presentation shortcuts checked September 1, 2026. The official creation table is Windows-focused, while the delivery table documents Windows and Mac separately. Ribbon access keys and presentation commands can vary with the PowerPoint version and keyboard layout.",
   sourceUrl: "https://support.microsoft.com/en-us/office/use-keyboard-shortcuts-to-deliver-powerpoint-presentations-1524ffce-bd2a-45f4-9a7f-f18b992b93a0",

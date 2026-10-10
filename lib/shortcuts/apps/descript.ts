@@ -24,8 +24,6 @@ export const descript: AppShortcuts = {
   name: "Descript",
   category: "Audio and video editing",
   platforms: [...platforms],
-  intro:
-    "Descript's documented shortcuts cover tool selection, the action bar, transcript correction, timeline visibility, and scene creation. The editor's in-app shortcut panel contains additional commands.",
   versionContext:
     "Current Descript blog and Help Center pages checked September 1, 2026. Descript's defaults apply to its Mac and Windows editor; focus on the script editor or timeline where noted.",
   sourceUrl: "https://www.descript.com/blog/article/how-to-use-descript",
@@ -45,12 +43,13 @@ export const descript: AppShortcuts = {
       ],
     },
     {
-      id: "action-bar",
-      title: "Action bar",
-      intro: "The action bar searches Descript commands and AI features from inside a project.",
+      id: "commands-and-view",
+      title: "Commands and view",
+      intro: "Open Descript commands and the shortcut list, then change the project editor layout.",
       shortcuts: [
         pair("open-shortcuts", "Open the keyboard shortcut list", ["Ctrl", "Alt", "K"], ["Option", "Cmd", "K"]),
         pair("action-bar", "Open the action bar", ["Ctrl", "K"], ["Cmd", "K"]),
+        pair("toggle-timeline", "Show or hide the timeline", ["Ctrl", "Shift", "S"], ["Cmd", "Shift", "S"]),
       ],
     },
     {
@@ -62,14 +61,6 @@ export const descript: AppShortcuts = {
         shared("correct-word", "Correct the selected word", ["C"], "Select a word in the script editor first."),
         pair("new-scene", "Create a new empty scene", ["Ctrl", "Shift", "Enter"], ["Cmd", "Shift", "Enter"]),
         shared("split-scene", "Split the current scene", ["/"], "Type the slash in the script where the new scene should begin."),
-      ],
-    },
-    {
-      id: "timeline-and-view",
-      title: "Timeline and view",
-      intro: "The timeline command changes the editor layout while the project remains open.",
-      shortcuts: [
-        pair("toggle-timeline", "Show or hide the timeline", ["Ctrl", "Shift", "S"], ["Cmd", "Shift", "S"]),
       ],
     },
   ],

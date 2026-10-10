@@ -12,8 +12,6 @@ export const notepadPlusPlus: AppShortcuts = {
   name: "Notepad++",
   category: "Text editor",
   platforms: ["windows"],
-  intro:
-    "Notepad++ keeps file, search, view, and editor commands in its Shortcut Mapper. This reference lists the stable default bindings documented in the official manual and calls out that users can remap the command or Scintilla layers.",
   versionContext:
     "Notepad++ current user manual shortcuts checked September 1, 2026. Defaults can differ after editing Settings > Shortcut Mapper, and the manual notes that keyboard layout behavior changed in version 8.7.6.",
   sourceUrl: "https://npp-user-manual.org/docs/user-interface/",

@@ -310,8 +310,6 @@ export const adobeAcrobatPro: AppShortcuts = {
   name: "Adobe Acrobat Pro",
   category: "PDF editor",
   platforms: ["windows", "macos"],
-  intro:
-    "Acrobat's desktop keymap covers tool selection, PDF navigation, comments, form work, task panes, bookmarks, search, and accessibility. Focus-sensitive and single-key commands stay grouped with the interface state they require.",
   versionContext:
     "Current Acrobat desktop defaults from Adobe's September 23, 2025 reference, checked August 31, 2026. Enable Use single-key accelerators to access tools for the one-letter tool commands. Browser-hosted PDFs may reserve some bindings before Acrobat receives them.",
   sourceUrl: "https://helpx.adobe.com/acrobat/desktop/get-started/preferences-and-settings/keyboard-shortcuts.html",

@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   buildCatalog,
   flattenExposes,
+  normalizeCompatibilityCodes,
   parseCompatibilityRecord,
 } from "../../../scripts/zigbee-devices/lib/catalog.mjs";
 
@@ -14,14 +15,14 @@ title: Temperature and Humidity Sensor
 category: sensor
 supports: temperature, humidity
 zigbeemodel: ['SNZB-02P']
-compatible: [z2m, zha]
+compatible: [z2m, zha, ihost, deconz.zha]
 ---
 `;
 
 test("compatibility front matter keeps exact support evidence", () => {
   assert.deepEqual(parseCompatibilityRecord(zhaAndZ2mRecord, "Sonoff_SNZB-02P.md"), {
     category: "sensor",
-    compatible: ["z2m", "zha"],
+    compatible: ["z2m", "zha", "ihost", "deconz.zha"],
     dateAdded: "2023-06-08",
     fileName: "Sonoff_SNZB-02P.md",
     model: "SNZB-02P",
@@ -45,6 +46,13 @@ test("exposes flatten nested features without duplicate labels", () => {
       { name: "battery", type: "numeric" },
     ]),
     ["battery", "climate", "occupied_heating_setpoint", "system_mode"],
+  );
+});
+
+test("compatibility codes use readable platform names and expand compound labels", () => {
+  assert.deepEqual(
+    normalizeCompatibilityCodes(["ihost", "sz2m", "24d", "deconz.zha", "zigbee2mqtt", "z4d"]),
+    ["SONOFF iHost", "Unverified platform", "deCONZ", "ZHA", "Zigbee2MQTT", "Zigbee4Domoticz"],
   );
 });
 
@@ -88,6 +96,15 @@ test("catalog keeps the official marketed universe and adds unmatched community 
   );
   assert.equal(joined.battery_reporting, true);
   assert.equal(joined.ota, true);
+  assert.equal(joined.card.compatibility.value, "Zigbee2MQTT + ZHA + SONOFF iHost + deCONZ");
+  assert.deepEqual(
+    joined.detail_sections.find((section) => section.heading === "Platform compatibility").facts.map((fact) => fact.label),
+    ["Zigbee2MQTT", "ZHA", "SONOFF iHost", "deCONZ"],
+  );
+  assert.deepEqual(
+    joined.provenance.filter((record) => record.field === "SONOFF iHost").map((record) => record.source),
+    ["Blakadder Zigbee record"],
+  );
   assert.equal(result.devices.some((device) => device.model === "ZHA-ONLY"), true);
   assert.equal(result.meta.coverage.zigbee2mqtt_marketed_total, 2);
   assert.equal(result.meta.coverage.record_total, 3);

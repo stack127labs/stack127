@@ -11,6 +11,28 @@ import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { platformLabels, shortcutCount, type AppShortcuts, type Shortcut } from "@/lib/shortcuts/types";
 import styles from "./keyboard-shortcuts.module.css";
 
+const checkedDateFormatter = new Intl.DateTimeFormat("en-US", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+function SourceNote({ app }: { app: AppShortcuts }) {
+  const checked = new Date(app.lastVerified);
+  const hasChecked = !Number.isNaN(checked.getTime());
+  return (
+    <section className={styles.source} aria-labelledby="source-title">
+      <h2 id="source-title">Source</h2>
+      <p>
+        <a href={app.sourceUrl} rel="noreferrer" target="_blank">{app.sourceLabel}</a>
+        {hasChecked ? <> · Checked <time dateTime={app.lastVerified}>{checkedDateFormatter.format(checked)}</time></> : null}
+      </p>
+      {app.versionContext ? <p>{app.versionContext}</p> : null}
+    </section>
+  );
+}
+
 function KeyChips({ keys, alternatives = [] }: { keys: string[]; alternatives?: string[][] }) {
   const bindings = [keys, ...alternatives];
 
@@ -100,6 +122,8 @@ export function KeyboardShortcutsReference({ app, breadcrumbs, directoryPage, ic
           </div>
         </section>
       ))}
+
+      <SourceNote app={app} />
 
       <section className={styles.nextStep} aria-labelledby="print-title">
         <h2 id="print-title">Print the shortcuts you use</h2>

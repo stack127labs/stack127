@@ -8,8 +8,6 @@ export const sevenZip: AppShortcuts = {
   name: "7-Zip",
   category: "File archiver",
   platforms: [...platforms],
-  intro:
-    "7-Zip File Manager uses function keys for file work and numeric keypad keys for selection. The official source defines the bindings directly in the File Manager key handler.",
   versionContext:
     "7-Zip 26.02 File Manager defaults checked August 31, 2026. These bindings cover the Windows graphical File Manager, not the 7z command-line program or Explorer context-menu access keys.",
   sourceUrl: "https://github.com/ip7z/7zip/blob/26.02/CPP/7zip/UI/FileManager/PanelKey.cpp",

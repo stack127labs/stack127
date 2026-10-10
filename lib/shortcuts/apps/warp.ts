@@ -15,8 +15,6 @@ export const warp: AppShortcuts = {
   name: "Warp",
   category: "Terminal",
   platforms: [...platforms],
-  intro:
-    "Warp's official shortcut reference covers panes, blocks, terminal input, command search, tabs, navigation, and font controls across macOS, Windows, and Linux. The map preserves Warp's platform-specific defaults, including Emacs-style input bindings shared by the terminal editor.",
   versionContext:
     "Warp keyboard shortcut reference last updated August 27, 2026 and checked September 1, 2026. Warp lets users remap commands in Settings and warns that macOS system shortcuts may need to be unbound first; this record uses the published defaults.",
   sourceUrl: "https://docs.warp.dev/getting-started/keyboard-shortcuts",

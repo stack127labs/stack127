@@ -21,8 +21,6 @@ export const zendesk: AppShortcuts = {
   name: "Zendesk",
   category: "Customer support",
   platforms: [...platforms],
-  intro:
-    "Zendesk publishes an Agent Workspace keyboard cheat sheet for navigation, ticket actions, status changes, and composing replies or internal notes.",
   versionContext:
     "Zendesk Agent Workspace keyboard shortcut cheat sheet and dashboard shortcut article checked September 1, 2026. The cheat sheet uses Ctrl or Cmd notation, and some commands depend on the active ticket or editor.",
   sourceUrl: "https://static.zdassets.com/agent/assets/keyboard-shortcut-cheatsheet-9bad3e7d4d6f5c2affb9d23e2f23ce22.pdf",

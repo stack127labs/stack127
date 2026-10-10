@@ -12,8 +12,6 @@ export const microsoftOneDrive: AppShortcuts = {
   name: "Microsoft OneDrive",
   category: "Cloud storage",
   platforms: ["windows"],
-  intro:
-    "OneDrive's Windows and web shortcuts cover file selection, navigation, sharing, details, list refreshes, and keyboard access to common file actions.",
   versionContext:
     "Official OneDrive for work or school shortcuts checked September 1, 2026. The source uses Windows keyboard names and documents several commands specifically for the OneDrive web interface.",
   sourceUrl: "https://support.microsoft.com/en-US/accessibility/onedrive/keyboard-shortcuts-for-onedrive-for-work-or-school",

@@ -53,8 +53,6 @@ export const emacs: AppShortcuts = {
   name: "GNU Emacs",
   category: "Text editors",
   platforms: [...platforms],
-  intro:
-    "GNU Emacs uses Control and Meta key notation for movement, editing, files, buffers, windows, search, help, and keyboard macros. Prefix commands are shown in press order rather than as one chord.",
   versionContext:
     "GNU Emacs 30.2 manual and current GNU Emacs reference card checked September 1, 2026. Emacs modes can add local bindings, and terminal or operating-system settings can change how Meta, Alt, and function keys reach Emacs.",
   sourceUrl: "https://www.gnu.org/software/emacs/manual/html_node/emacs/",

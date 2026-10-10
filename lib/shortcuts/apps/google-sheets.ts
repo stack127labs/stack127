@@ -8,8 +8,6 @@ export const googleSheets: AppShortcuts = {
   name: "Google Sheets",
   category: "Spreadsheet",
   platforms: [...platforms],
-  intro:
-    "Google Sheets shortcuts cover selection, cell entry, formatting, sheet navigation, comments, menus, formulas, and accessibility. This reference keeps Google's PC bindings for Windows and Linux separate from its current Mac bindings.",
   versionContext:
     "Google's official Google Sheets Help page checked in August 2026. Google labels Windows and ChromeOS as PC; Linux browsers generally use the same PC Ctrl and Alt bindings, while browser language, keyboard layout, and compatible spreadsheet shortcuts can change behavior.",
   sourceUrl: "https://support.google.com/docs/answer/181110",

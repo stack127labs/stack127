@@ -15,8 +15,6 @@ export const mondayCom: AppShortcuts = {
   name: "monday.com",
   category: "Project management",
   platforms: [...platforms],
-  intro:
-    "monday.com's shortcuts split between system navigation and board work. This page keeps cell editing, board movement, range selection, and account-level search in the same order as the current support reference.",
   versionContext:
     "Current monday.com web shortcuts checked September 1, 2026. The shortcut list is available from the account menu or Shift + ?. Labels differ slightly between Mac and PC, but the actions are shared.",
   sourceUrl: "https://support.monday.com/hc/en-us/articles/115005339905-monday-com-Shortcuts",

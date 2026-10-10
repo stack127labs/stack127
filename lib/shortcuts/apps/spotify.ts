@@ -8,8 +8,6 @@ export const spotify: AppShortcuts = {
   name: "Spotify",
   category: "Music streaming",
   platforms: [...platforms],
-  intro:
-    "Spotify's current desktop support page lists shortcuts for search, playback, library navigation, sidebars, and queue actions. The table below keeps its Mac and Windows differences explicit.",
   versionContext:
     "Spotify desktop and web player shortcuts checked September 1, 2026. Spotify says the app can show the full in-app list, so this record contains the stable actions published in the support article.",
   sourceUrl: "https://support.spotify.com/na-en/article/keyboard-shortcuts/",

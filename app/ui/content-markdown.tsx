@@ -166,6 +166,7 @@ function transformUrl(url: string) {
   return url.startsWith("marker-art://") ? url : defaultUrlTransform(url);
 }
 
+/** Only courses render database Markdown. Other page families import MDX content. */
 export function ContentMarkdown({ markdown, components: overrides }: { markdown: string; components?: Components }): ReactNode {
   return <ReactMarkdown components={overrides ? { ...components, ...overrides } : components} remarkPlugins={[remarkGfm, remarkContentBlocks, remarkDefinitionLists]} urlTransform={transformUrl}>{markdown}</ReactMarkdown>;
 }

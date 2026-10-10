@@ -8,8 +8,6 @@ const intercom: AppShortcuts = {
   name: "Intercom",
   category: "Customer support",
   platforms: [...platforms],
-  intro:
-    "Intercom's Inbox shortcuts cover conversation actions, inbox navigation, and the reply composer. The current Command-K help article also lists direct keys for the actions agents use most often.",
   versionContext:
     "Intercom documents the same direct shortcuts for Mac and Windows with Command or Control modifiers. The direct keys work outside the composer on QWERTY keyboards in Chrome or Edge, and the Command-K menu remains available from the Inbox.",
   sourceUrl: "https://www.intercom.com/help/en/articles/6272267-how-to-use-command-k-with-intercom-inbox",

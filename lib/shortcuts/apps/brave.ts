@@ -5,11 +5,9 @@ const platforms = ["windows", "macos", "linux"] as const;
 
 export const brave: AppShortcuts = {
   slug: "brave",
-  name: "Brave Browser",
+  name: "Brave",
   category: "Web browser",
   platforms: [...platforms],
-  intro:
-    "Brave keeps the useful browser controls close to the keyboard: move across tabs, jump to the address bar, search a page, or open browser tools without leaving the current window.",
   versionContext:
     "Documented defaults from the Brave Help Center checked August 26, 2026. The Windows and Linux table shares bindings, while macOS has its own table. Brave also allows shortcut changes in Settings, System, Shortcuts.",
   sourceUrl: "https://support.brave.app/hc/en-us/articles/360032272171-What-keyboard-shortcuts-can-I-use-in-Brave",

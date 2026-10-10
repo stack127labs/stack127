@@ -6,11 +6,10 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { CourseDefinition } from "@/lib/courses";
 import { courseLessonHref, courseLessonNeighbors } from "@/lib/courses";
-import { getPublishedPage, getRequiredPublishedPage } from "@/lib/page-registry";
+import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { ContentMarkdown } from "@/app/ui/content-markdown";
-import { buildBreadcrumbStructuredData } from "@/lib/seo";
+import { buildCourseBreadcrumbs } from "@/lib/breadcrumbs";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
-import { JsonLd } from "@/app/ui/site/json-ld";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import { proseClassName, proseFlowClassName } from "@/app/ui/site/prose";
@@ -88,20 +87,9 @@ export async function CourseLessonPage({ children, course, currentSlug, entryHer
   const lesson = course.lessons.find((entry) => entry.slug === currentSlug);
   if (!lesson?.published) notFound();
   const isLanding = currentSlug === "";
-  const [coursePage, lessonPage] = await Promise.all([
-    getRequiredPublishedPage(course.registrySlug),
-    isLanding ? null : getPublishedPage(courseLessonHref(course, lesson).slice(1)),
-  ]);
-  // Noindex pages carry no structured data.
-  const indexable = (isLanding ? coursePage : lessonPage)?.is_indexable ?? false;
+  const coursePage = await getRequiredPublishedPage(course.registrySlug);
   const heading = directoryTitleParts(title).map(part => part.text).join("");
-  const crumbs = [
-    { name: "stack127", path: "/" },
-    { name: courseName(course), path: course.basePath },
-  ];
-  if (lesson?.slug) {
-    crumbs.push({ name: lesson.sidebarLabel, path: courseLessonHref(course, lesson) });
-  }
+  const crumbs = buildCourseBreadcrumbs(course, lesson);
 
   const headingBlock = (
     <PageHeader breadcrumbs={crumbs.map((crumb, index) => ({ name: crumb.name, href: crumb.path, section: index < 2 }))}>
@@ -117,7 +105,6 @@ export async function CourseLessonPage({ children, course, currentSlug, entryHer
       sidebar={<CourseSidebar course={course} currentSlug={currentSlug} label={coursePage.label} />}
       sidebarLabel={`${courseName(course)} sidebar`}
     >
-      {indexable ? <JsonLd data={buildBreadcrumbStructuredData(crumbs)} /> : null}
       {entryHeroArt ? <EntryHero art={entryHeroArt}>{headingBlock}</EntryHero> : null}
       <PageCanvas as="article" flow reading className={`lesson-page ${proseClassName} ${proseFlowClassName}`}>
         {entryHeroArt ? null : headingBlock}

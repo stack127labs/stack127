@@ -22,8 +22,6 @@ export const zoom: AppShortcuts = {
   name: "Zoom",
   category: "Video conferencing",
   platforms: [...platforms],
-  intro:
-    "Zoom publishes current desktop shortcuts for meetings, chat, calls, product navigation, and accessibility controls across Windows, macOS, and Linux.",
   versionContext:
     "Zoom desktop keyboard shortcut reference checked September 1, 2026. Zoom notes that some shortcuts require a higher app version than the global minimum and that shortcuts can be edited in settings.",
   sourceUrl: "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0067050",

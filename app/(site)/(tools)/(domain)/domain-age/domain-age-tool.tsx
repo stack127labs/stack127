@@ -14,11 +14,11 @@ import {
 import styles from "./domain-age-tool.module.css";
 
 function sourceHost(fetch: RdapFetch | null) {
-  if (!fetch?.url) return "Registry";
+  if (!fetch?.url) return "Host not reported";
   try {
     return new URL(fetch.url).host;
   } catch {
-    return "Registry";
+    return "Host not reported";
   }
 }
 
@@ -110,7 +110,8 @@ function unavailableResult(result: DomainRegistration) {
 
 function SourceMetadata({ result }: { result: DomainRegistration }) {
   const fetch = result.registryFetch;
-  if (!fetch) return null;
+  // With no RDAP service for the ending, nothing was fetched, so there is no source to show.
+  if (!fetch || fetch.status === "no_service") return null;
 
   return (
     <dl aria-label="Registry source" className={styles.metadata}>

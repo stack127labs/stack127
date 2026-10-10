@@ -187,8 +187,8 @@ function Result({ calculated, outputUnit, onOutputUnitChange }: {
     <div className={styles.result}>
       <div className={styles.answerHeader}>
         <UiPrimaryResult
-          detail={`${values.levelLabel} across ${values.driveCount} drive${values.driveCount === 1 ? "" : "s"}.`}
-          label="Theoretical usable capacity"
+          detail={`${values.levelLabel} across ${values.driveCount} drive${values.driveCount === 1 ? "" : "s"}, before filesystem overhead.`}
+          label="Usable capacity"
           value={display(values.usableCapacityBytes.value)}
         />
         <div className={styles.outputUnit}>

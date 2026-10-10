@@ -8,8 +8,6 @@ export const tableau: AppShortcuts = {
   name: "Tableau",
   category: "Analytics",
   platforms: [...platforms],
-  intro:
-    "Tableau's official shortcut reference covers Desktop workbooks, authoring, data, dashboards, marks, and worksheet navigation. This curated set keeps the most-used Windows and Mac defaults together.",
   versionContext:
     "Tableau Desktop keyboard shortcuts checked September 1, 2026. The official reference also documents Server, Cloud, and Prep shortcuts, but this record focuses on the Desktop authoring workflow.",
   sourceUrl: "https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm",

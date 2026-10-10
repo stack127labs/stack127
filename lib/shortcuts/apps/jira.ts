@@ -8,8 +8,6 @@ const jira: AppShortcuts = {
   name: "Jira",
   category: "Issue tracking",
   platforms: [...platforms],
-  intro:
-    "Jira Cloud's current shortcut reference covers the actions available from issue views and boards, including creating, opening, assigning, commenting, and moving through work items.",
   versionContext:
     "Atlassian says the exact Jira shortcut set depends on the current page and can be inspected from Help > Keyboard shortcuts or with question mark. The direct keys below are published for Jira Cloud and do not assume a platform-specific modifier.",
   sourceUrl: "https://support.atlassian.com/jira-software-cloud/docs/use-keyboard-shortcuts/",

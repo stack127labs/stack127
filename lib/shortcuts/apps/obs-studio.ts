@@ -8,8 +8,6 @@ export const obsStudio: AppShortcuts = {
   name: "OBS Studio",
   category: "Streaming and recording",
   platforms: [...platforms],
-  intro:
-    "OBS Studio's documented defaults focus on editing sources and moving around the preview. This reference keeps the general commands, source-list actions, transforms, and preview controls separate so a key is read in the right OBS context.",
   versionContext:
     "The official OBS keyboard reference was last updated August 25, 2021 and was checked again September 1, 2026. OBS lets users assign or change hotkeys in Settings, so these entries describe the published defaults rather than a user's custom profile.",
   sourceUrl: "https://obsproject.com/kb/keyboard-shortcuts",

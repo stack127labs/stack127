@@ -7,8 +7,6 @@ export const windows: AppShortcuts = {
   name: "Windows",
   category: "Operating system",
   platforms: ["windows"],
-  intro:
-    "Windows shortcuts span the desktop, text fields, File Explorer, virtual desktops, the taskbar, and the command prompt. This page gathers Microsoft's current Windows 10 and Windows 11 defaults so the same key can be understood in the context where it actually works.",
   versionContext:
     "Default Windows 10 and Windows 11 bindings from Microsoft Support checked in August 2026. Individual apps may override general bindings, and some keys depend on a feature, keyboard layout, taskbar focus, or an enabled accessibility setting.",
   sourceUrl: "https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec",

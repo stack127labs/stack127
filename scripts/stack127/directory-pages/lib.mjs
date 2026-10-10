@@ -1,42 +1,18 @@
 export async function insertDirectoryPageIfMissing(client, row) {
   const result = await client.query(`
     insert into public.stack127_directory_pages
-      (page_id,title,intro_markdown,content_markdown,card_name,card_description)
-    select page.id,$2,$3,$4,coalesce($5,page.label),coalesce($6,page.meta_description)
+      (page_id,title,card_name,card_description)
+    select page.id,$2,coalesce($3,page.label),coalesce($4,page.meta_description)
     from public.stack127_pages page
     where page.slug=$1 and page.page_family='directory'
     on conflict (page_id) do nothing
     returning page_id
-  `, [row.slug, row.title, row.intro_markdown, row.content_markdown ?? null,
-    row.card_name ?? null, row.card_description ?? null]);
-  return result.rowCount;
-}
-
-export async function upsertDirectoryPage(client, row) {
-  const result = await client.query(`
-    insert into public.stack127_directory_pages
-      (page_id,title,intro_markdown,content_markdown,card_name,card_description)
-    select page.id,$2,$3,$4,coalesce($5,current.card_name,page.label),coalesce($6,current.card_description,page.meta_description)
-    from public.stack127_pages page
-    left join public.stack127_directory_pages current on current.page_id=page.id
-    where page.slug=$1 and page.page_family='directory'
-    on conflict (page_id) do update set
-      title=excluded.title, intro_markdown=excluded.intro_markdown,
-      content_markdown=excluded.content_markdown, card_name=excluded.card_name,
-      card_description=excluded.card_description
-    where (stack127_directory_pages.title,stack127_directory_pages.intro_markdown,
-      stack127_directory_pages.content_markdown,stack127_directory_pages.card_name,
-      stack127_directory_pages.card_description) is distinct from
-      (excluded.title,excluded.intro_markdown,excluded.content_markdown,
-      excluded.card_name,excluded.card_description)
-    returning page_id
-  `, [row.slug, row.title, row.intro_markdown, row.content_markdown ?? null,
-    row.card_name ?? null, row.card_description ?? null]);
+  `, [row.slug, row.title, row.card_name ?? null, row.card_description ?? null]);
   return result.rowCount;
 }
 
 export async function previewDirectoryPages(pool, pages, { remove = false, refresh = false, dryRun = false, matchesRemoval } = {}) {
-  if (refresh) throw new Error('--refresh is retired; edit reviewed development fields with scripts/stack127/directory-pages/update-content.mjs');
+  if (refresh) throw new Error('--refresh is retired; edit reviewed development fields with scripts/stack127/directory-pages/update-fields.mjs');
   const client = await pool.connect();
   try {
     await client.query('begin');
@@ -72,7 +48,7 @@ export async function previewDirectoryPages(pool, pages, { remove = false, refre
       }
       if (!row.has_directory_copy) {
         await insertDirectoryPageIfMissing(client, {
-          slug: page.slug, title: row.label, intro_markdown: row.meta_description, content_markdown: null,
+          slug: page.slug, title: row.label,
         });
       }
       if (!row.is_published) await client.query(`update public.stack127_pages
@@ -93,16 +69,5 @@ export function keyboardShortcutPageCopy(app) {
   return {
     slug: `keyboard-shortcuts/${app.slug}`,
     title: `<mark>${app.name}</mark> keyboard shortcuts`,
-    intro_markdown: `Find keyboard shortcuts for ${app.name}.`,
-    content_markdown: null,
-  };
-}
-
-export function adNetworkPageCopy(network) {
-  return {
-    slug: `ad-networks/${network.slug}`,
-    title: `${network.name} publisher websites`,
-    intro_markdown: `${network.summary ?? `Browse publisher websites with a verified ${network.name} relationship.`} A site can use more than one ad network.`,
-    content_markdown: 'A site appears here only when its current ads.txt or live configuration supports the stated relationship. A seller authorization alone does not establish active use.',
   };
 }

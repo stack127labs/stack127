@@ -23,8 +23,6 @@ export const eclipse: AppShortcuts = {
   name: "Eclipse IDE",
   category: "Developer tools",
   platforms: [...platforms],
-  intro:
-    "Eclipse shortcuts cover quick access, code navigation, editing, search, debugging, and workbench navigation. The active context, installed plug-ins, scheme, locale, and operating system can change the active binding.",
   versionContext:
     "Eclipse IDE 2026-06 (4.40) documentation and the current Eclipse IDE keybindings card checked September 1, 2026. The entries describe the Default scheme where the documentation provides a default and retain Eclipse's platform-specific Command mappings.",
   sourceUrl: "https://help.eclipse.org/latest/topic/org.eclipse.platform.doc.user/concepts/concepts-keys.htm",

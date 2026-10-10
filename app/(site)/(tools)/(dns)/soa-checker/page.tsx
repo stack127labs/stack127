@@ -13,7 +13,7 @@ export default async function SoaCheckerPage() {
   const toolPage = await getRequiredToolPage("soa-checker");
   return (
     <ToolPageShell toolPage={toolPage}>
-      <PageCanvas as="main" className={styles.main}>
+      <PageCanvas className={styles.main}>
         <ToolPageHeader
           icon={<FileClock strokeWidth={2.2} />}
           intro={<Intro />}

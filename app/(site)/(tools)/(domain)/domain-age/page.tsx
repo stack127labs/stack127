@@ -14,7 +14,7 @@ export default async function DomainAgePage() {
 
   return (
     <ToolPageShell toolPage={toolPage}>
-      <PageCanvas as="main" className="domain-tool-main">
+      <PageCanvas className="domain-tool-main">
         <ToolPageHeader
           icon={<CalendarClock strokeWidth={2.2} />}
           intro={<Intro />}

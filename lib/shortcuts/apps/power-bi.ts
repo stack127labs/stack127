@@ -12,8 +12,6 @@ export const powerBi: AppShortcuts = {
   name: "Power BI",
   category: "Data and analytics",
   platforms: ["windows"],
-  intro:
-    "Power BI Desktop documents shortcuts for report visuals, tables, matrices, panes, canvas zoom, slicers, selection, DAX, data entry, and model relationships. This page focuses on the Windows desktop report experience and keeps context-specific keys in the group where they apply.",
   versionContext:
     "Power BI Desktop keyboard shortcuts from Microsoft Learn, checked September 1, 2026. The shortcut overlay opens with Shift+? and several bindings work only when a visual, pane, formula bar, or model object has focus.",
   sourceUrl: "https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts",

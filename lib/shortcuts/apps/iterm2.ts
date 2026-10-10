@@ -7,8 +7,6 @@ export const iterm2: AppShortcuts = {
   name: "iTerm2",
   category: "Terminal emulator",
   platforms: ["macos"],
-  intro:
-    "iTerm2's shortcuts are about keeping several terminal jobs visible at once. Work across panes and tabs, search scrollback, recover paste history, mark useful output, broadcast input, and open the less obvious terminal tools.",
   versionContext:
     "Default bindings documented on iTerm2's official one-page documentation checked in August 2026. Many bindings can be changed in Preferences, Keys, so a local key mapping can differ from these defaults.",
   sourceUrl: "https://iterm2.com/documentation-one-page.html",

@@ -130,7 +130,7 @@ The frontend step also makes the card art. It uses `$marker-art-draw` to create 
 
 When the in-app browser isn't available over SSH, use the local headless browser in `skills/stack127/references/homelab-browser-and-search.md`. That applies to these checks and the later audit.
 
-A new database-backed route needs a development preview row to render. Until writing supplies the final title, give it a clearly marked placeholder title and the placeholder Markdown fields the table requires. Keep any existing row, and don't treat the placeholder as finished writing.
+A new database-backed route needs reviewed development rows to render. Use the publisher for its title, search metadata, cards, catalog memberships, and version. Page words live in MDX. Do not fill retired Markdown fields or use old placeholder preview scripts.
 
 After the backend and frontend are both done, the main agent runs `npm run quality`. The full build runs in pull request CI on GitHub when the user asks to push to prod. Don't build on the homelab.
 

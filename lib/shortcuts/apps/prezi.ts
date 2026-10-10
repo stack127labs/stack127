@@ -14,8 +14,6 @@ export const prezi: AppShortcuts = {
   name: "Prezi Present",
   category: "Presentation",
   platforms: [...platforms],
-  intro:
-    "Prezi Present uses familiar editing commands alongside canvas navigation and object transformation controls. This reference covers the first-party shortcuts for selecting, arranging, moving through a presentation, and changing the canvas view.",
   versionContext:
     "Prezi Present keyboard shortcuts from the official Support Center, checked September 1, 2026. The article describes Windows and macOS modifier equivalents; browser focus and presentation mode can change which command receives a key.",
   sourceUrl: "https://support.prezi.com/hc/en-us/articles/360003499013-How-to-use-keyboard-shortcuts-in-Prezi-Present",

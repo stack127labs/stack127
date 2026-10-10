@@ -7,17 +7,18 @@ import { isDeepStrictEqual, parseArgs, parseEnv } from 'node:util';
 import pg from 'pg';
 import { parse as parseConnectionString } from 'pg-connection-string';
 
-// Production may still have Release A columns while development has Release C.
-// Require the current schema; never reconstruct missing content from retired fields.
+// Development can contract columns before production. Keep titles and cards,
+// and leave retired page words in each database's archive.
 const retiredPageColumns = {
   stack127_catalog_pages: {
     heading_before: 'text', heading_mark: 'text', heading_after: 'text', intro: 'text',
     section_heading: 'text', hero_art_key: 'text', home_order: 'int4',
+    intro_markdown: 'text', content_markdown: 'text',
   },
-  stack127_tool_pages: { content_revision: 'int4' },
-  stack127_directory_pages: { content_revision: 'int4' },
+  stack127_tool_pages: { content_revision: 'int4', intro_markdown: 'text', usage_markdown: 'text', content_markdown: 'text' },
+  stack127_directory_pages: { content_revision: 'int4', intro_markdown: 'text', content_markdown: 'text' },
 };
-const catalogContentColumns = ['title', 'intro_markdown', 'content_markdown',
+const catalogContentColumns = ['title',
   'display_order', 'card_icon_key', 'card_art_key'];
 
 export function normalizeCardSnapshot(name, rows) {

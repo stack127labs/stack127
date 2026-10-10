@@ -19953,7 +19953,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + deCONZ + ZHA + Tasmota + ihost"
+          "value": "Zigbee2MQTT + deCONZ + ZHA + Tasmota + SONOFF iHost"
         },
         "facts": [
           {
@@ -20009,7 +20009,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -20078,7 +20078,7 @@
           "url": "https://zigbee.blakadder.com/Alecto_SMART-DOOR10.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Alecto_SMART-DOOR10.html"
         },
@@ -20279,7 +20279,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + ioBroker + deCONZ + ZHA + ihost"
+          "value": "Zigbee2MQTT + ioBroker + deCONZ + ZHA + SONOFF iHost"
         },
         "facts": [
           {
@@ -20335,7 +20335,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -20404,7 +20404,7 @@
           "url": "https://zigbee.blakadder.com/Alecto_SMART-MOTION10.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Alecto_SMART-MOTION10.html"
         },
@@ -20593,7 +20593,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + ioBroker + Tasmota + deCONZ + ihost"
+          "value": "Zigbee2MQTT + ioBroker + Tasmota + deCONZ + SONOFF iHost"
         },
         "facts": [
           {
@@ -20649,7 +20649,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -20718,7 +20718,7 @@
           "url": "https://zigbee.blakadder.com/Alecto_SMART-TEMP10.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Alecto_SMART-TEMP10.html"
         },
@@ -81009,7 +81009,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + ioBroker + Tasmota + deCONZ + ihost"
+          "value": "Zigbee2MQTT + ioBroker + Tasmota + deCONZ + SONOFF iHost"
         },
         "facts": [
           {
@@ -81065,7 +81065,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -81134,7 +81134,7 @@
           "url": "https://zigbee.blakadder.com/BlitzWolf_BW-IS8.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/BlitzWolf_BW-IS8.html"
         },
@@ -175650,7 +175650,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + ioBroker + deCONZ + ZHA + ihost"
+          "value": "Zigbee2MQTT + ioBroker + deCONZ + ZHA + SONOFF iHost"
         },
         "facts": [
           {
@@ -175706,7 +175706,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -175775,7 +175775,7 @@
           "url": "https://zigbee.blakadder.com/essentials_120102.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/essentials_120102.html"
         },
@@ -244055,7 +244055,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + ioBroker + deCONZ + ZHA + ihost"
+          "value": "Zigbee2MQTT + ioBroker + deCONZ + ZHA + SONOFF iHost"
         },
         "facts": [
           {
@@ -244111,7 +244111,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -244180,7 +244180,7 @@
           "url": "https://zigbee.blakadder.com/Hihome_WZB-PIR.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Hihome_WZB-PIR.html"
         },
@@ -244215,7 +244215,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + deCONZ + ioBroker + ZHA + Tasmota + ihost"
+          "value": "Zigbee2MQTT + deCONZ + ioBroker + ZHA + Tasmota + SONOFF iHost"
         },
         "facts": [
           {
@@ -244275,7 +244275,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -244349,7 +244349,7 @@
           "url": "https://zigbee.blakadder.com/Hihome_WZB-SDS.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Hihome_WZB-SDS.html"
         },
@@ -244384,7 +244384,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + ioBroker + Tasmota + deCONZ + ihost"
+          "value": "Zigbee2MQTT + ioBroker + Tasmota + deCONZ + SONOFF iHost"
         },
         "facts": [
           {
@@ -244440,7 +244440,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -244509,7 +244509,7 @@
           "url": "https://zigbee.blakadder.com/Hihome_WZB-STH.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Hihome_WZB-STH.html"
         },
@@ -256002,7 +256002,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "ZHA + sz2m"
+          "value": "ZHA + Unverified platform"
         },
         "facts": [
           {
@@ -256046,8 +256046,8 @@
               "value": "Support record available"
             },
             {
-              "label": "sz2m",
-              "value": "Support record available"
+              "label": "Unverified platform",
+              "value": "Source platform code could not be mapped"
             }
           ],
           "heading": "Platform compatibility"
@@ -256100,7 +256100,7 @@
           "url": "https://zigbee.blakadder.com/HomCloud_XH-TVZ.html"
         },
         {
-          "field": "sz2m",
+          "field": "Unverified platform",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/HomCloud_XH-TVZ.html"
         },
@@ -262747,7 +262747,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + 24d"
+          "value": "Zigbee2MQTT + Unverified platform"
         },
         "facts": [
           {
@@ -262791,8 +262791,8 @@
               "value": "Support record available"
             },
             {
-              "label": "24d",
-              "value": "Support record available"
+              "label": "Unverified platform",
+              "value": "Source platform code could not be mapped"
             }
           ],
           "heading": "Platform compatibility"
@@ -262845,7 +262845,7 @@
           "url": "https://zigbee.blakadder.com/iAlarm_SR01.html"
         },
         {
-          "field": "24d",
+          "field": "Unverified platform",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/iAlarm_SR01.html"
         },
@@ -285402,7 +285402,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + ZHA + ihost + deCONZ"
+          "value": "Zigbee2MQTT + ZHA + SONOFF iHost + deCONZ"
         },
         "facts": [
           {
@@ -285450,7 +285450,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             },
             {
@@ -285513,7 +285513,7 @@
           "url": "https://zigbee.blakadder.com/Ikea_LED2005R5.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Ikea_LED2005R5.html"
         },
@@ -374984,7 +374984,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "zigbee2mqtt"
+          "value": "Zigbee2MQTT"
         },
         "facts": [
           {
@@ -375024,7 +375024,7 @@
         {
           "facts": [
             {
-              "label": "zigbee2mqtt",
+              "label": "Zigbee2MQTT",
               "value": "Support record available"
             }
           ],
@@ -375073,7 +375073,7 @@
           "url": "https://zigbee.blakadder.com/Lidl_HG08130C.html"
         },
         {
-          "field": "zigbee2mqtt",
+          "field": "Zigbee2MQTT",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Lidl_HG08130C.html"
         },
@@ -424358,7 +424358,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + ioBroker + Tasmota + deCONZ + ihost"
+          "value": "Zigbee2MQTT + ioBroker + Tasmota + deCONZ + SONOFF iHost"
         },
         "facts": [
           {
@@ -424414,7 +424414,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -424483,7 +424483,7 @@
           "url": "https://zigbee.blakadder.com/Moes_ZSS-X-TH-C.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Moes_ZSS-X-TH-C.html"
         },
@@ -429150,7 +429150,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + deCONZ + ioBroker + ZHA + Tasmota + ihost"
+          "value": "Zigbee2MQTT + deCONZ + ioBroker + ZHA + Tasmota + SONOFF iHost"
         },
         "facts": [
           {
@@ -429210,7 +429210,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -429284,7 +429284,7 @@
           "url": "https://zigbee.blakadder.com/Moes_ZB-XGM.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Moes_ZB-XGM.html"
         },
@@ -439182,7 +439182,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + deCONZ + ioBroker + ZHA + Tasmota + ihost"
+          "value": "Zigbee2MQTT + deCONZ + ioBroker + ZHA + Tasmota + SONOFF iHost"
         },
         "facts": [
           {
@@ -439242,7 +439242,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -439316,7 +439316,7 @@
           "url": "https://zigbee.blakadder.com/Moes_ZSS-X-PIRL-C.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Moes_ZSS-X-PIRL-C.html"
         },
@@ -466006,7 +466006,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + deCONZ + ZHA + Tasmota + ihost"
+          "value": "Zigbee2MQTT + deCONZ + ZHA + Tasmota + SONOFF iHost"
         },
         "facts": [
           {
@@ -466062,7 +466062,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -466131,7 +466131,7 @@
           "url": "https://zigbee.blakadder.com/Nedis_ZBSD10WT.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Nedis_ZBSD10WT.html"
         },
@@ -467219,7 +467219,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + deCONZ + ioBroker + ZHA + Tasmota + ihost"
+          "value": "Zigbee2MQTT + deCONZ + ioBroker + ZHA + Tasmota + SONOFF iHost"
         },
         "facts": [
           {
@@ -467279,7 +467279,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -467353,7 +467353,7 @@
           "url": "https://zigbee.blakadder.com/Neo_NAS-DS07B0.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Neo_NAS-DS07B0.html"
         },
@@ -670796,7 +670796,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + ioBroker + deCONZ + ZHA + ihost"
+          "value": "Zigbee2MQTT + ioBroker + deCONZ + ZHA + SONOFF iHost"
         },
         "facts": [
           {
@@ -670852,7 +670852,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -670921,7 +670921,7 @@
           "url": "https://zigbee.blakadder.com/Rehent_RH-ZMS1.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Rehent_RH-ZMS1.html"
         },
@@ -670955,7 +670955,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + ioBroker + deCONZ + ZHA + ihost"
+          "value": "Zigbee2MQTT + ioBroker + deCONZ + ZHA + SONOFF iHost"
         },
         "facts": [
           {
@@ -671011,7 +671011,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -671080,7 +671080,7 @@
           "url": "https://zigbee.blakadder.com/Rehent_RH-ZMS2.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Rehent_RH-ZMS2.html"
         },
@@ -671114,7 +671114,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + ioBroker + Tasmota + deCONZ + ihost"
+          "value": "Zigbee2MQTT + ioBroker + Tasmota + deCONZ + SONOFF iHost"
         },
         "facts": [
           {
@@ -671170,7 +671170,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -671239,7 +671239,7 @@
           "url": "https://zigbee.blakadder.com/Rehent_RH-ZTH1.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Rehent_RH-ZTH1.html"
         },
@@ -760866,7 +760866,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + deCONZ + ZHA + ihost"
+          "value": "Zigbee2MQTT + deCONZ + ZHA + SONOFF iHost"
         },
         "facts": [
           {
@@ -760918,7 +760918,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -760982,7 +760982,7 @@
           "url": "https://zigbee.blakadder.com/Sonoff_S31ZB.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Sonoff_S31ZB.html"
         },
@@ -761015,7 +761015,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "ZHA + Zigbee2MQTT + Tasmota + ihost"
+          "value": "ZHA + Zigbee2MQTT + Tasmota + SONOFF iHost"
         },
         "facts": [
           {
@@ -761067,7 +761067,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -761131,7 +761131,7 @@
           "url": "https://zigbee.blakadder.com/Sonoff_S40ZBTPB_Lite.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Sonoff_S40ZBTPB_Lite.html"
         },
@@ -786160,7 +786160,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + ioBroker + deconz.zha"
+          "value": "Zigbee2MQTT + ioBroker + deCONZ + ZHA"
         },
         "facts": [
           {
@@ -786208,7 +786208,11 @@
               "value": "Support record available"
             },
             {
-              "label": "deconz.zha",
+              "label": "deCONZ",
+              "value": "Support record available"
+            },
+            {
+              "label": "ZHA",
               "value": "Support record available"
             }
           ],
@@ -786267,7 +786271,12 @@
           "url": "https://zigbee.blakadder.com/Sunricher_SR-ZG9101SAC-HP-Switch.html"
         },
         {
-          "field": "deconz.zha",
+          "field": "deCONZ",
+          "source": "Blakadder Zigbee record",
+          "url": "https://zigbee.blakadder.com/Sunricher_SR-ZG9101SAC-HP-Switch.html"
+        },
+        {
+          "field": "ZHA",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Sunricher_SR-ZG9101SAC-HP-Switch.html"
         },
@@ -904543,7 +904552,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + ioBroker + Tasmota + deCONZ + ihost"
+          "value": "Zigbee2MQTT + ioBroker + Tasmota + deCONZ + SONOFF iHost"
         },
         "facts": [
           {
@@ -904599,7 +904608,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -904668,7 +904677,7 @@
           "url": "https://zigbee.blakadder.com/Tuya_ZXZTH.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Tuya_ZXZTH.html"
         },
@@ -963217,7 +963226,7 @@
         "compatibility": {
           "label": "Works with",
           "status": "reported",
-          "value": "Zigbee2MQTT + ioBroker + deCONZ + ZHA + ihost"
+          "value": "Zigbee2MQTT + ioBroker + deCONZ + ZHA + SONOFF iHost"
         },
         "facts": [
           {
@@ -963273,7 +963282,7 @@
               "value": "Support record available"
             },
             {
-              "label": "ihost",
+              "label": "SONOFF iHost",
               "value": "Support record available"
             }
           ],
@@ -963342,7 +963351,7 @@
           "url": "https://zigbee.blakadder.com/Zemismart_ZXZPIR.html"
         },
         {
-          "field": "ihost",
+          "field": "SONOFF iHost",
           "source": "Blakadder Zigbee record",
           "url": "https://zigbee.blakadder.com/Zemismart_ZXZPIR.html"
         },

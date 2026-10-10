@@ -15,8 +15,6 @@ export const notability: AppShortcuts = {
   name: "Notability",
   category: "Notes and docs",
   platforms: [...platforms],
-  intro:
-    "Notability's Mac shortcuts cover note creation, page movement, audio playback, search, formatting, recording, and the library. Toolbox and color shortcuts use the current positions in Notability's configurable controls.",
   versionContext:
     "Notability keyboard shortcuts checked September 1, 2026. This record uses the official Mac table and the toolbox, color, size, and content manager rows. The separate iPad table is outside this catalog's Windows, macOS, and Linux platform model.",
   sourceUrl: "https://support.gingerlabs.com/hc/en-us/articles/360021489291-Keyboard-shortcuts",

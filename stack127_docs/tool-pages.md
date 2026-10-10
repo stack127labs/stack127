@@ -4,7 +4,7 @@ A tool page has three owners. The Next.js route owns the interactive tool. The r
 
 Read [page-content.md](page-content.md) for the content files and how to move a page to them. Follow [writing-style.md](writing-style.md) when writing. This document covers the database side, rendering, and updates.
 
-New tools, tools going public, and changes that touch several tables go through the tool publisher. See [page-publishing.md](page-publishing.md). The single-purpose commands below stay for development and small edits.
+New tools, tools going public, and changes that touch several tables go through the tool publisher. See [page-publishing.md](page-publishing.md). The card, version, and repository commands below stay for development and small edits. The database content-update command and temporary tool previews have retired. Use the publisher for reviewed development previews too.
 
 This split applies only to interactive tools. Directories such as `/epp-status-codes` and `/tld-directory` use `stack127_directory_pages` instead. See [directory-pages.md](directory-pages.md).
 
@@ -38,7 +38,6 @@ This split applies only to interactive tools. Directories such as `/epp-status-c
 | --- | --- |
 | `page_id` | Primary key and foreign key to `stack127_pages.id`. |
 | `title` | Visible tool-page heading. |
-| `intro_markdown`, `usage_markdown`, `content_markdown` | Content for pages that haven't moved to MDX. A moved page ignores them, but the publisher still requires `intro_markdown` and `content_markdown` for a new tool. See [page-publishing.md](page-publishing.md). They retire once every page has moved. |
 | `tool_version` | Semantic version of the hosted tool behavior. Content-only edits do not change it. |
 | `tool_version_updated_at` | Time the hosted tool version last changed. |
 | `stack127_repo_url` | Optional URL for the stack127-owned repository that contains the related public tool. |
@@ -66,7 +65,7 @@ Every tool route loads its row with `getRequiredToolPage` and renders through `a
 - The interactive tool comes next.
 - `ToolPageArticle` holds `content/usage.mdx`, when there is one, then `content/article.mdx`, in one server-rendered prose region.
 
-`/cac-payback-calculator` shows the whole pattern. A page that hasn't moved yet omits `intro` and uses `ToolPageMarkdown`, which renders the database Markdown through `ContentMarkdown`. Move it before editing its content.
+`/cac-payback-calculator` shows the whole pattern. `intro` is required. Tool pages have no database-content fallback. Missing MDX imports fail the build or TypeScript check.
 
 Keep controls, live results, accessibility behavior, and operational states in the tool's code. Formulas, worked examples, callouts, and charts that explain the tool go in the MDX content. See [page-content.md](page-content.md) for the blocks content can use.
 
@@ -76,7 +75,7 @@ Content tables use the reading column's width and wrap explanations, links, and 
 
 A content change edits the introduction, usage, or article. It leaves the tool's inputs, calculations, data sources, results, and behavior unchanged.
 
-1. Move the page to MDX first if it hasn't moved. See [page-content.md](page-content.md).
+1. Read the current files and [page-content.md](page-content.md).
 2. Edit the files in the route's `content/` folder.
 3. Run `npm run quality` and check the page at desktop and mobile width.
 4. The change ships with the next code release, through a pull request.

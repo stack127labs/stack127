@@ -22,8 +22,6 @@ export const riversideFm: AppShortcuts = {
   name: "Riverside.fm",
   category: "Video and audio",
   platforms: [...platforms],
-  intro:
-    "Riverside's editor shortcuts cover transcript selection, timeline playback, recording splits, comments, scenes, and clipboard actions. This reference keeps the editor scope clear because the separate Studio shortcut list is a different workflow.",
   versionContext:
     "Riverside Help Center editor hotkeys checked September 1, 2026. The source documents Windows and macOS modifier variants for editing commands, while arrow, letter, and timeline controls are published as shared editor keys.",
   sourceUrl: "https://support.riverside.com/hc/en-us/articles/6279202420253-Editor-hotkeys-and-keyboard-shortcuts",

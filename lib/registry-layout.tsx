@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { cache } from "react";
-import { buildRegistryMetadata, getRegistryPageStructuredData, getPagePublicationState } from "./page-registry";
+import { buildRegistryMetadata, getRegistryPageStructuredData, getPagePublicationState, type PagePublicationState } from "./page-registry";
 import { JsonLd } from "@/app/ui/site/json-ld";
 import { siteStructuredData } from "./seo";
 
@@ -15,7 +15,11 @@ const stateForPath = cache(async (pathname: string) => {
 /** Structured data for one exact path. Index pages under a shared parent layout render it themselves. */
 export async function RegistryStructuredData({ path }: { path: string }) {
   const state = await stateForPath(path);
-  const data = state ? await getRegistryPageStructuredData(state) : null;
+  return state ? RegistryPageJsonLd({ state }) : null;
+}
+
+async function RegistryPageJsonLd({ state }: { state: PagePublicationState }) {
+  const data = await getRegistryPageStructuredData(state);
   return data ? <><JsonLd data={siteStructuredData} /><JsonLd data={data} /></> : null;
 }
 
@@ -41,8 +45,7 @@ export function registryLayout(template: string, { structuredData = "layout" }: 
       if (!state) return props.children;
       if (state.kind === "missing") notFound();
       if (structuredData === "page") return props.children;
-      const data = await getRegistryPageStructuredData(state);
-      return <>{data ? <><JsonLd data={siteStructuredData} /><JsonLd data={data} /></> : null}{props.children}</>;
+      return <>{await RegistryPageJsonLd({ state })}{props.children}</>;
     },
   };
 }

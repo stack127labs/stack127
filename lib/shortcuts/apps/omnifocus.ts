@@ -12,8 +12,6 @@ export const omnifocus: AppShortcuts = {
   name: "OmniFocus",
   category: "Task management",
   platforms: ["macos"],
-  intro:
-    "OmniFocus on Mac provides shortcuts for quick entry, perspectives, item editing, review, notes, and window management. This reference uses the official OmniFocus 4 command list and leaves iPad, iPhone, and web-only bindings out of the macOS page.",
   versionContext:
     "OmniFocus 4.8.11 Mac shortcuts from the official reference manual, checked September 1, 2026. Some quick-entry and perspective shortcuts can be customized, and the manual includes separate bindings for iPad and the web app.",
   sourceUrl: "https://support.omnigroup.com/documentation/omnifocus/universal/4.8.11/en/commands/",

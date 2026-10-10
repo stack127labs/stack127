@@ -15,8 +15,6 @@ export const webstorm: AppShortcuts = {
   name: "WebStorm",
   category: "Code editor",
   platforms: [...platforms],
-  intro:
-    "WebStorm's default keymap covers search, code completion, editing, navigation, refactoring, files, tabs, debugging, and version control. The reference uses the standard Windows/Linux and macOS keymaps and keeps two-stroke commands labeled as sequences.",
   versionContext:
     "JetBrains WebStorm documentation and default reference cards checked September 1, 2026. The current WebStorm 2026.2 keymap is configurable, can be replaced by a plugin or another predefined map, and may vary with keyboard layout or operating-system conflicts.",
   sourceUrl: "https://www.jetbrains.com/help/webstorm/mastering-keyboard-shortcuts.html",

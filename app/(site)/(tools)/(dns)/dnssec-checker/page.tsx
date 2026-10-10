@@ -13,7 +13,7 @@ export default async function DnssecCheckerPage() {
   const toolPage = await getRequiredToolPage("dnssec-checker");
   return (
     <ToolPageShell toolPage={toolPage}>
-      <PageCanvas as="main" className={styles.main}>
+      <PageCanvas className={styles.main}>
         <ToolPageHeader
           icon={<ShieldCheck strokeWidth={2.2} />}
           intro={<Intro />}

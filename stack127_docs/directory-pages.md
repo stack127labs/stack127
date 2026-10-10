@@ -14,7 +14,6 @@ Read [page-content.md](page-content.md) for the content files and how to move a 
 | --- | --- |
 | `page_id` | Primary key and foreign key to `stack127_pages.id`. |
 | `title` | Visible h1. Wrap the accent phrase in `<mark>`. |
-| `intro_markdown`, `content_markdown` | Content for pages that haven't moved to MDX. A moved page ignores them, but the publisher still requires `intro_markdown` for a new directory. See [page-publishing.md](page-publishing.md). |
 | `card_name` | Short name on homepage cards and sidebars. |
 | `card_description` | Short summary on homepage cards. |
 | `card_icon_key` | Optional icon key from `lib/card-icons.ts`. The h1, the homepage sidebar row, and the homepage card all use it. |
@@ -34,10 +33,9 @@ Record sync scripts own the records and the generated route files. They leave ex
 | Directory | Record script | Page fields |
 | --- | --- | --- |
 | Keyboard shortcuts | `scripts/keyboard-shortcuts/sync-pages.mjs` | `--apply` inserts missing child rows, then syncs app records and the hub snapshot. Existing page fields stay as written. |
-| Ad networks | `scripts/ad-networks/sync-page-copy.mjs` | Inserts missing child rows only. Existing page fields stay as written. |
 | Platform fees | `scripts/platform-fees/sync-development.mjs`, `sync-records.mjs`, then `prepare-category-manifest.mjs` | Syncs records and inserts missing page rows. The manifest takes reviewed page fields from development. |
 
-The managed-development hardware preview scripts, `scripts/stack127/preview-hardware-directories.mjs` and `scripts/zigbee-devices/preview-local-page.mjs`, insert starting rows only when missing. Existing titles, words, cards, and search fields stay as written. Normal runs publish drafts; published pages stay unchanged. `--remove` unpublishes without deleting rows. Zigbee removal still requires the original preview metadata. Add `--dry-run` to preview either operation and roll back. The old hardware `--refresh` flag overwrote search fields; both scripts now reject it. Use the single-page editor below for reviewed changes.
+The managed-development hardware preview scripts, `scripts/stack127/preview-hardware-directories.mjs` and `scripts/zigbee-devices/preview-local-page.mjs`, insert starting rows only when missing. Existing titles, cards, and search fields stay as written. MDX owns the page words. Normal runs publish drafts; published pages stay unchanged. `--remove` unpublishes without deleting rows. Zigbee removal still requires the original preview metadata. Add `--dry-run` to preview either operation and roll back. The old hardware `--refresh` flag overwrote search fields; both scripts now reject it. Use the single-page editor below for reviewed changes.
 
 ## Public dates
 
@@ -100,20 +98,20 @@ Decide which in the directory's brief when you create it. The publish manifest m
 
 Pages read their row with `getRequiredDirectoryPage(slug)` from `lib/directory-pages.ts` for the title, date, and card icon. The route imports `content/intro.mdx` under the title and each section file where that section goes. `/epp-status-codes` shows the pattern. Don't hard-code the title in the page file.
 
-A page that hasn't moved yet renders its database Markdown through `ContentMarkdown` and `app/ui/directories/directory-page-content.tsx`. Move it before editing its content.
+Every directory renders MDX, including ad-network children. `directory-page-content.tsx` handles title accents only. A shared route must include each slug in its MDX content map.
 
 ## Editing
 
 | Change | How |
 | --- | --- |
-| Introduction or sections | Move the page first if it hasn't moved, then edit its `content/*.mdx` files. The change ships with a code release. See [page-content.md](page-content.md). |
+| Introduction or sections | Edit its `content/*.mdx` files. The change ships with a code release. See [page-content.md](page-content.md). |
 | Title, search metadata, or card fields | The directory publisher. For a quick development check, the single-page command below. |
 | A new directory, or child pages going public | The directory publisher. See [page-publishing.md](page-publishing.md). |
 
-The single-page command previews and rolls back by default. Add `--apply` to save.
+The single-page fields command previews and rolls back by default. It rejects the retired `--intro-file`, `--content-file`, and `--clear-content` flags. Add `--apply` to save.
 
 ```bash
-node scripts/stack127/directory-pages/update-content.mjs \
+node scripts/stack127/directory-pages/update-fields.mjs \
   --environment development \
   --slug tld-directory \
   --meta-title "<search title>" \
@@ -122,4 +120,4 @@ node scripts/stack127/directory-pages/update-content.mjs \
 
 Its flags are `--title`, `--meta-title`, `--meta-description`, `--card-name`, `--card-description`, `--card-icon-key`, and `--card-art-key`. It rejects keys that aren't in the registries. A saved edit queues revalidation for that page's `stack127-directory-page:<slug>` tag and its path.
 
-For launch directories, `evidence.public_submission` holds checked free-plan requirements, backlink status, approval time, launch queue text, and dated observations. The server projects only validated public fields from that object. Signed-in and email observations describe our submission attempt, and stay separate from public rules. Unknown backlink requirements do not qualify for the free-without-required-backlink filter. Existing research notes remain private. Update these records through `scripts/stack127/database/update-launch-directories.mjs`, which checks the reviewed row version.
+For launch directories, `evidence.public_submission` holds checked free-plan requirements, backlink status, approval time, launch queue text, and dated observations. The server projects only validated public fields from that object. Signed-in and email observations describe our submission attempt, and stay separate from public rules. The free-without-required-backlink filter accepts a free record only when its backlink check says optional or not required. A record with no check, or a check that says required or unknown, stays out. Existing research notes remain private. Update these records through `scripts/stack127/database/update-launch-directories.mjs`, which checks the reviewed row version.

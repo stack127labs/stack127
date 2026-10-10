@@ -30,8 +30,6 @@ export const blender: AppShortcuts = {
   name: "Blender",
   category: "3D creation suite",
   platforms: ["windows", "macos", "linux"],
-  intro:
-    "Blender's common default keymap covers file work, properties, selections, editor panels, 3D Viewport modes, animation keys, and Python data-path tools.",
   versionContext:
     "Common shortcuts from the Blender 5.2 LTS Manual, checked August 31, 2026. The page is intentionally not comprehensive. It documents the Blender preset, not the Industry Compatible or legacy Blender 27x presets. On macOS, Command can replace Ctrl except where the operating system conflicts; those Command forms appear as alternatives.",
   sourceUrl: "https://docs.blender.org/manual/en/latest/interface/keymap/blender_default.html",
@@ -55,10 +53,11 @@ export const blender: AppShortcuts = {
     },
     {
       id: "general",
-      title: "Files, history, and general commands",
+      title: "Files, history, preferences, and general commands",
       intro:
-        "Open and save blend files, undo work, search commands, render, manage workspaces, and control the active area's size or playback direction.",
-      shortcuts: rows([
+        "Open and save blend files, undo work, search commands, render, manage workspaces, open Preferences, and control the active area's size or playback direction.",
+      shortcuts: [
+        ...rows([
         ["open", "Open a file", ["Ctrl", "O"]],
         ["save", "Save the current file", ["Ctrl", "S"]],
         ["new", "Create a new file", ["Ctrl", "N"]],
@@ -77,7 +76,9 @@ export const blender: AppShortcuts = {
         ["next-workspace", "Go to the next workspace", ["Ctrl", "Page Up"]],
         ["previous-workspace", "Go to the previous workspace", ["Ctrl", "Page Down"]],
         ["reverse-playback", "Play the animation in reverse", ["Shift", "Ctrl", "Space"]],
-      ]),
+        ]),
+        { id: "preferences", action: "Open Preferences", keys: [{ platform: "macos", keys: ["Cmd", ","] }] },
+      ],
     },
     {
       id: "editors",
@@ -149,19 +150,6 @@ export const blender: AppShortcuts = {
         ["copy-relative-path", "Copy the hovered field's relative data path", ["Shift", "Ctrl", "C"]],
         ["copy-full-path", "Copy the hovered field's full data path", ["Shift", "Ctrl", "Alt", "C"]],
       ]),
-    },
-    {
-      id: "macos",
-      title: "macOS command",
-      intro:
-        "Blender documents one additional shortcut specifically for macOS, separate from the Command alternatives shown on Ctrl-based rows.",
-      shortcuts: [
-        {
-          id: "preferences",
-          action: "Open Preferences",
-          keys: [{ platform: "macos", keys: ["Cmd", ","] }],
-        },
-      ],
     },
   ],
 };

@@ -8,8 +8,6 @@ const googleGemini: AppShortcuts = {
   name: "Google Gemini",
   category: "AI assistant",
   platforms: [...platforms],
-  intro:
-    "Google's current Gemini keyboard reference is for Gemini in Chrome. It documents opening the side panel, switching between the tab and Gemini, and entering selection mode on Windows and Mac.",
   versionContext:
     "Gemini in Chrome is an opt-in feature that Google is rolling out gradually. Its shortcuts can be changed in Chrome settings, and this record does not present them as shortcuts for the general Gemini web app.",
   sourceUrl: "https://support.google.com/gemini/answer/16988996?hl=en-GP",

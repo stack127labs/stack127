@@ -28,8 +28,6 @@ export const wondershareFilmora: AppShortcuts = {
   name: "Wondershare Filmora",
   category: "Video editing",
   platforms: [...platforms],
-  intro:
-    "Filmora publishes complete Windows and Mac shortcut tables for file actions, editing, timeline navigation, markers, playback, and export.",
   versionContext:
     "Filmora V15 release notes and current Windows and Mac shortcut lists checked September 1, 2026. Filmora lets users edit or switch shortcut presets.",
   sourceUrl: "https://filmora.wondershare.com/guide/keyboard-shortcuts-on-windows.html",
