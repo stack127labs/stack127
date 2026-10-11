@@ -1,0 +1,13 @@
+{
+  "id": "catalog--churn-rate-converter",
+  "type": "toolSpot",
+  "takeaway": "Customers lost add up more slowly each period because each period starts with fewer customers, so multiplying one period's loss overstates the total.",
+  "source": "Conceptual figure, no external data.",
+  "dataAsOf": "2026-10-10",
+  "width": 140,
+  "height": 110,
+  "seed": 12759,
+  "data": {
+    "motif": "churnCompounding"
+  }
+}

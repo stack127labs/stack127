@@ -1,0 +1,58 @@
+## How is startup runway calculated?
+
+Runway is the cash you have divided by the cash you lose each month.
+
+<Formula title="Runway">
+
+Net burn = cash paid out − cash collected
+
+Runway in months = cash now ÷ net burn
+
+</Formula>
+
+Gross burn is everything you pay out in a month. Net burn is gross burn minus what customers paid you, as [Carta defines them](https://carta.com/learn/resources/burn-rate-calculator/). For example, $20,000 ÷ ($6,000 − $3,000) is 6.6 months, rounded down.
+
+A positive net burn means your cash is shrinking. Zero means you're at break-even, so the balance holds. A negative net burn means customers pay you more than you spend, and the calculator shows it as net cash in.
+
+The forecast works one month at a time: last month's balance, plus cash collected, minus cash paid out, plus or minus any planned change. In the month cash runs out, money counts as spread evenly, which gives the decimal.
+
+## Why does growth start in month 2?
+
+Month 1 is the normal month you described, so the forecast starts from the numbers you actually have today. Growth changes things from month 2 on. Starting it in month 1 would assume a change that hasn't happened yet, which can make the runway look longer or shorter than it is.
+
+## Should you use MRR or cash collected?
+
+Use cash collected. Runway depends on when money reaches your account, and MRR spreads it out.
+
+[Stripe's example](https://stripe.com/resources/more/revenue-recognition-for-subscription-based-businesses-explained) is a customer who pays $1,200 upfront for a year. That counts as $100 of revenue a month, but all $1,200 arrives the day they pay. Enter $100 a month and you'd spread out cash that comes in one go. Enter $1,200 every month and you'd count it twelve times.
+
+So keep yearly payments out of the monthly figure, including when you average recent months. A payment you've already received is part of your cash now. Add the next one as a planned change in the month you expect it, if you're confident of it. That way each payment is counted once. If you're still pricing a yearly plan, the [annual plan discount calculator](/annual-plan-discount-calculator) shows what a discount costs you and how much cash it brings in upfront.
+
+## Should you count your own pay?
+
+Yes. Your pay is a business cost. Without it, the runway shows how long the business lasts, not how long you can keep working on it.
+
+If you don't pay yourself yet but plan to, add it as a planned change: money out, every month, from the month you'll start.
+
+## What is a good runway for a bootstrapped startup?
+
+There's no single number. Most runway targets online come from fundraising advice, where runway means time left to raise the next round. For a bootstrapped business, the better question is whether cash lasts until customers pay enough to cover your costs. The forecast answers that.
+
+Paul Graham calls this being [default alive](https://paulgraham.com/aord.html): if your costs stay the same and revenue keeps growing at its recent rate, do you become profitable before the money runs out? To try it here, enter your recent monthly revenue growth, leave expense growth at 0%, and add no planned changes. The calculator compares monthly cash in with cash out. It doesn't measure accounting profit, and it doesn't label your result.
+
+To see how long your growth rate takes to reach a revenue target, such as the MRR that covers your costs, use the [MRR goal calculator](/mrr-goal-calculator).
+
+## Why does another calculator show a different runway?
+
+Usually it does one of these:
+
+- Asks for MRR instead of cash. Yearly plans make the two very different.
+- Starts growth in month 1, which can add a month or more.
+- Rounds to the nearest tenth. This one rounds down, so it never overstates.
+- Shows "infinite" runway when cash stops falling. This one looks 60 months ahead and tells you when there's no cash-out in that time. A forecast further out is mostly guesswork.
+
+## What this calculator doesn't cover
+
+It's a monthly model of business cash. It leaves out late payments, loans, interest, fundraising, and personal savings. Churn isn't a separate input, so build it into the revenue growth rate. If new sales add about 8% a month and cancellations take away 3%, enter about 5%.
+
+To find the MRR that covers your costs, use the [break-even MRR calculator](/break-even-mrr-calculator). The [burn multiple calculator](/burn-multiple-calculator) shows how much cash you burn for each dollar of new ARR, and the [SaaS metrics calculator](/saas-metrics-calculator) gives a one-month picture of MRR and retention.

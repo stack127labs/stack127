@@ -1,0 +1,13 @@
+{
+  "id": "annual-plan-discount-calculator--tool-spot",
+  "type": "toolSpot",
+  "takeaway": "An annual plan is a year of monthly payments with some months given away.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-10",
+  "width": 140,
+  "height": 110,
+  "seed": 127,
+  "data": {
+    "motif": "annualDiscount"
+  }
+}

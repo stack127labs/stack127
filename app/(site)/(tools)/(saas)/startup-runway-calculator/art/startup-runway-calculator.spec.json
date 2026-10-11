@@ -1,0 +1,13 @@
+{
+  "id": "startup-runway-calculator--tool-spot",
+  "type": "toolSpot",
+  "takeaway": "Get airborne, covering your costs, before the runway of cash ends.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-10",
+  "width": 140,
+  "height": 110,
+  "seed": 211,
+  "data": {
+    "motif": "runwayLiftoff"
+  }
+}

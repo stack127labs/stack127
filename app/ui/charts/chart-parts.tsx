@@ -15,23 +15,26 @@ export function ChartHeading({ spec }: { spec: UiChartSpec }) {
 export function ChartDataTable({ spec }: { spec: UiChartSpec }) {
   const table = chartTable(spec);
   if (!table) return null;
+  // The wrapper hides the table. A table sized to its content would still widen the page.
   return (
-    <table className={styles.hidden}>
-      <caption>{spec.title}</caption>
-      <thead>
-        <tr>
-          <th scope="col">{table.corner}</th>
-          {table.columns.map((column, index) => <th key={index} scope="col">{column}</th>)}
-        </tr>
-      </thead>
-      <tbody>
-        {table.rows.map((row, index) => (
-          <tr key={index}>
-            <th scope="row">{row.label}</th>
-            {row.cells.map((cell, column) => <td key={column}>{cell}</td>)}
+    <div className={styles.hidden}>
+      <table>
+        <caption>{spec.title}</caption>
+        <thead>
+          <tr>
+            <th scope="col">{table.corner}</th>
+            {table.columns.map((column, index) => <th key={index} scope="col">{column}</th>)}
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {table.rows.map((row, index) => (
+            <tr key={index}>
+              <th scope="row">{row.label}</th>
+              {row.cells.map((cell, column) => <td key={column}>{cell}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }

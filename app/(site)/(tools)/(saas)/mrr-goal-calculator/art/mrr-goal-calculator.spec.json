@@ -1,0 +1,13 @@
+{
+  "id": "catalog--mrr-goal-calculator",
+  "type": "toolSpot",
+  "takeaway": "A monthly climb of paying customers meets a set revenue target.",
+  "source": "Conceptual figure, no external data.",
+  "dataAsOf": "2026-10-10",
+  "width": 140,
+  "height": 110,
+  "seed": 12761,
+  "data": {
+    "motif": "goalFlag"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "free-trial-conversion-calculator--tool-spot",
+  "type": "toolSpot",
+  "takeaway": "From a group that started together, a few paid before the window closed.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-10",
+  "width": 140,
+  "height": 110,
+  "seed": 127,
+  "data": {
+    "motif": "trialConversion"
+  }
+}

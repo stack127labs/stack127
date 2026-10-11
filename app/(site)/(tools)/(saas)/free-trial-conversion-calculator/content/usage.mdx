@@ -1,0 +1,33 @@
+## What to enter
+
+Pick the option that matches how people start. If they enter a card before the trial begins, pick `Free trial, card upfront`, even if you charge only at the end.
+
+A cohort is everyone who started in the same period, usually one month. Get the starts from your billing tool or your signup table. For paid, count only accounts from that same cohort whose first payment went through.
+
+The follow-up window is how many days each account gets to pay, counted from the day it started. For a 14-day trial, a 30-day window also catches people who pay a little late. Use the same window every time you compare.
+
+Cohort age is how many days have passed since the last account in the cohort started. An August cohort counted on October 15 is 45 days old.
+
+For new MRR, enter recurring prices only, without setup fees. With annual plans, pick `Monthly and annual plans` and enter the full yearly price. The tool divides it by 12.
+
+## How to read the result
+
+`Complete` means every account in the cohort had the full window to pay. `Provisional` means some still have days left, so the rate can still go up.
+
+With several cohorts, the main rate is the total paid divided by the total starts of the complete cohorts. It isn't the average of each row's rate. A cohort with days left still shows in the table, but stays out of the main rate as long as the complete cohorts have at least one start. If they have none, the tool uses all cohorts and marks the rate `Provisional`.
+
+With one cohort, the result also shows how many didn't pay within the window. Some may still pay later.
+
+<Example title="Three months, a 30-day window, counted on October 15">
+
+| Cohort | Starts | Paid | Age | Rate |
+| --- | --- | --- | --- | --- |
+| July | 400 | 60 | 76 days | 15.00% |
+| August | 500 | 70 | 45 days | 14.00% |
+| September | 450 | 30 | 15 days | 6.67%, 15 days left |
+
+The main rate is 14.44%: 130 paid out of 900 starts in July and August. September's 6.67% isn't ready to compare yet. Its last starts have had only 15 of their 30 days.
+
+At an average price of $29 a month, the 160 paid customers from all three months add $4,640.00 of new MRR. September's 30 count here, because they've already paid.
+
+</Example>
