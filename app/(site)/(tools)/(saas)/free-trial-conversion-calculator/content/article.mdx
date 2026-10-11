@@ -1,0 +1,74 @@
+## How is free trial conversion rate calculated?
+
+Take one cohort. Divide the accounts in it that paid within your window by all the accounts that started in it. Both numbers must come from the same group. [ChartMogul's trial-to-paid chart](https://help.chartmogul.com/article/219-chart-trial-to-paid-conversion-rate) counts the same way.
+
+<Formula title="Trial-to-paid rate">
+
+Rate = accounts in the cohort that paid within the window ÷ accounts that started in the cohort × 100
+
+</Formula>
+
+A common mistake is dividing this month's payments by this month's starts. Someone who starts a trial on August 25 may pay in September, and that count misses them.
+
+<Example title="100 trials started in August, with a 30-day window">
+
+6 of them paid during August. By day 30 of each person's trial, 20 had paid.
+
+August payments ÷ August starts gives 6%. The cohort rate is 20%, because the 14 who paid in September started in August.
+
+</Example>
+
+The 20% is final only once someone who started on August 31 has had all 30 days. Until then, the tool marks it `Provisional`.
+
+## What counts as a paid conversion?
+
+An account converts when its first payment goes through. These don't count:
+
+- A card saved at signup. It isn't a payment until the charge succeeds.
+- A pending payment or a failed first invoice.
+
+In Stripe, check that the first invoice after the trial was paid, not only that the [subscription](https://docs.stripe.com/api/subscriptions/object) moved out of `trialing`. Count accounts, not subscriptions: a customer with two plans counts once.
+
+## Why doesn't this match Stripe's trial conversion rate?
+
+[Stripe Billing's trial conversion rate](https://support.stripe.com/questions/calculating-trial-conversion-rate-in-billing?locale=en-GB) compares trials that converted in the last 30 days with trials that ended in the last 30 days. Those aren't the same people, so Stripe notes its rate can go above 100%.
+
+That number helps you spot a recent change. This calculator answers a different question: of the people who started together, how many paid?
+
+## What is a good free trial conversion rate?
+
+There's no single good rate. Asking for a card upfront makes a big difference. Your product, price, trial length, and where signups come from matter too. These dated sources split their figures by trial type.
+
+| Source | Free trial, no card | Free trial, card upfront | Free plan |
+| --- | --- | --- | --- |
+| ChartMogul, Growth Unhinged, and ProductLed | Median 4 to 6%. Top quarter 10 to 15%. | Median 25 to 35%. Top quarter 50 to 60%. | Median 3 to 5%. Top quarter 8 to 12%. |
+| First Page Sage | 17.4 to 18.2% | 48.8 to 51% | 2.6 to 2.8% |
+| Recurly | 12% | 39% | Not reported |
+
+The median is the middle product in the survey. A product at the top-quarter figure did better than three in four others.
+
+Who each source measured:
+
+- [ChartMogul, Growth Unhinged, and ProductLed 2026 SaaS Conversion Report](https://chartmogul.com/reports/saas-conversion-report/): a January 2026 survey of 200 software products, self-reported. A typical respondent had $1m to $10m in ARR. All models counted conversions within six months.
+- [First Page Sage](https://firstpagesage.com/seo-blog/saas-free-trial-conversion-rate-benchmarks/), updated September 2025: 86 of the agency's clients from 2022 to 2025, split by organic and paid traffic. Converted means one paid month.
+- [Recurly State of Subscriptions](https://recurly.com/resources/report/state-of-subscriptions-acquisition/), 2022 data: 22 million trials on 803 subscription sites, not only SaaS. Trials that asked for a card averaged 29 days. Trials that didn't averaged 39 days. Recurly counted subscriptions, not accounts, so one account could count more than once.
+
+<Note title="Use these as rough guides, not targets">
+
+Each source counts conversion its own way, so they don't agree. None of these sources reports figures for small indie SaaS by trial type and follow-up window.
+
+</Note>
+
+A higher rate with a card upfront doesn't tell you which setup brings more customers. Fewer people may start when you ask for a card, so compare how many paid, not only the rate.
+
+## How is a free plan different from a free trial?
+
+A free plan has no end date, so people can upgrade months after they sign up. Use a longer window, such as 180 days, and don't compare a free plan rate with a trial rate. 180 days matches the six months the ChartMogul report used.
+
+## Is new MRR the same as revenue?
+
+No. New MRR is the monthly recurring amount these customers added, not the cash you collected. [ChartMogul's MRR definition](https://chartmogul.com/saas-metrics/mrr/) counts a $120 annual plan as $10 a month and leaves out one-time fees, such as setup charges.
+
+The ARR run rate is new MRR × 12. It isn't what you'll earn this year, because some of these customers will cancel. The tool counts only customers who paid and puts no price on those who didn't.
+
+To total MRR across all your plans, use the [MRR calculator](/mrr-calculator). The [customer acquisition cost calculator](/customer-acquisition-cost-calculator) shows what each new paying customer cost to win. The [customer churn calculator](/customer-churn-calculator) shows how many of them stay.

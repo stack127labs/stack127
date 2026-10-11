@@ -1,0 +1,112 @@
+## How many customers do you need for $10k MRR?
+
+Divide your monthly goal by your monthly price, then round up. At $29 a month, $10,000 MRR takes 345 paying customers.
+
+<Formula title="Customers at goal">
+
+Customers needed = monthly goal ÷ monthly price, rounded up
+
+</Formula>
+
+Your price changes the count more than anything else:
+
+| Monthly price | Customers for $10,000 MRR |
+| --- | --- |
+| $9 | 1,112 |
+| $12 | 834 |
+| $29 | 345 |
+| $49 | 205 |
+| $99 | 102 |
+| $299 | 34 |
+
+Check whether your goal is MRR or ARR. $10,000 ARR is $833.33 a month, which is 29 customers at $29, not 345.
+
+The count assumes every customer pays the price you enter. With several plans, it's only as good as your average. If your plan mix shifts, run it again with the new average.
+
+## How does churn slow you down?
+
+Churn takes a share of all your customers every month, so you lose more as you grow. Each month, the tool keeps the customers who stayed and adds the new ones.
+
+<Formula title="One month">
+
+Next month's customers = customers × (1 − monthly churn) + new customers
+
+</Formula>
+
+At 15 new customers a month, with no churn you reach 345 customers in month 23. At 3% churn, the same pace takes until month 39.
+
+New customers join at the end of the month, so they can't cancel in the month they join.
+
+## Why is my goal out of reach?
+
+Your goal is out of reach when you'd lose as many customers each month as you add before you get there. Your customer count stops growing at new customers a month divided by monthly churn. The tool calls this the ceiling.
+
+<Formula title="Where the count levels off">
+
+Ceiling = new customers a month ÷ monthly churn
+
+</Formula>
+
+<Example title="15 new customers a month, 3% churn">
+
+15 ÷ 3% = 500. At 500 customers, 3% churn removes 15 a month, the same 15 you add. The count creeps toward 500 and never passes it.
+
+A $10,000 goal at $29 needs 345, below 500, so you get there. A $15,000 goal needs 518, above 500, so waiting longer won't help at this pace.
+
+</Example>
+
+When that happens, the tool shows the smallest pace that works. For the $15,000 goal it's 16 new customers a month, which raises the ceiling to about 533. That makes the goal possible, not quick: at 16 a month you'd reach 518 in month 117, nearly 10 years out. To aim for a set month, use `Pace for a deadline`.
+
+Lower churn also raises the ceiling. At 2.5% churn, the same 15 a month levels off at 600.
+
+## Are customers at goal and new customers a month the same?
+
+No. They're three different numbers. For $10,000 MRR at $29 with 3% churn:
+
+| Number | What it means | Example |
+| --- | --- | --- |
+| Customers at goal | Paying customers you need at the same time | 345 |
+| New customers a month | Customers who start paying each month, before anyone cancels | 15 |
+| Lost each month at goal | Customers who cancel each month once you're there | About 11 |
+
+Don't add the monthly losses to the 345. You need 345 customers at once. Replacing the 11 who leave is part of your monthly pace, not part of the total.
+
+## Should you plan from a growth rate or from new customers?
+
+Use new customers and churn when you can count both. Use the growth rate when you only see your total MRR change each month.
+
+Net MRR growth already includes cancellations, downgrades, and upgrades. The tool never takes churn off it again, which is why the growth method has no churn field.
+
+At $1,000 MRR and 10% net growth a month, you reach $10,000 in month 25. To get there by month 24, you need 10.07% a month.
+
+A growth rate needs a starting MRR above 0, because 10% of nothing is nothing. If you're starting from scratch, use new customers and churn.
+
+A steady percent also means adding more dollars each month as MRR grows. At 10%, month 1 adds $100 and month 24 adds almost $900.
+
+## How much traffic does your goal need?
+
+Divide the new customers you need each month by both conversion rates.
+
+<Formula title="Visitors a month">
+
+Visitors a month = new customers a month ÷ (visitor to signup × signup to paid)
+
+</Formula>
+
+To reach $10,000 MRR at $29 in 12 months with 4% churn, you need 36 new customers a month. At 3% visitor to signup and 15% signup to paid, that's 240 signups and 8,000 visitors a month.
+
+Some calculators show 7,919 visitors for the same inputs, because they use a fractional pace of 35.63 customers a month. You can't add part of a customer, and 35 a month gets you there in month 13, not 12. So this tool rounds the pace up to 36 whole customers first, then works out the traffic, which gives 8,000.
+
+Use rates from the same period and the same kind of visitor. A rate from a launch week or one big referral may not hold month after month.
+
+## How long does it take to reach $10k MRR?
+
+It depends on your price, pace, and churn, so there's no typical time. Use your own figures, not someone else's.
+
+Run your numbers twice: once with a pace you've already hit, and once with the pace you're planning for. The gap between the two dates tells you more than any average.
+
+## Is $10k MRR the same as $10k income?
+
+No. MRR is the monthly value of your active subscriptions. [Stripe's MRR guide](https://support.stripe.com/questions/understanding-monthly-recurring-revenue-%28mrr%29-and-annual-recurring-revenue-%28arr%29) says it isn't accounting revenue. It isn't cash either: a yearly plan paid up front still adds only a twelfth of its price to MRR each month.
+
+MRR also comes before payment fees, hosting, tools, and taxes. The [break-even MRR calculator](/break-even-mrr-calculator) finds the MRR that covers your costs. To see how long the cash you have will last, use the [startup runway calculator](/startup-runway-calculator).

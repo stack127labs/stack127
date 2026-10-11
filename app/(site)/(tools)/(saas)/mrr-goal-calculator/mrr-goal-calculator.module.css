@@ -1,0 +1,157 @@
+.workbench {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-border-strong);
+  grid-column: 1 / -1;
+  margin-inline: calc(-1 * var(--container-gutter));
+  min-width: 0;
+  padding: var(--space-7) var(--container-gutter);
+  width: calc(100% + var(--container-gutter) + var(--container-gutter));
+}
+
+.content,
+.form,
+.results {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.content {
+  gap: var(--space-7);
+  margin-inline: auto;
+  max-width: 66rem;
+}
+
+.group,
+.resultGroup {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.group h2,
+.resultGroup h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.optional {
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+}
+
+.groupHeader {
+  align-items: end;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: minmax(0, 1fr) minmax(8rem, 10rem);
+}
+
+.goalRow,
+.fieldGrid,
+.choices,
+.timelineGrid {
+  align-items: start;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.timelineGrid[data-count="3"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.goalRow > *,
+.fieldGrid > *,
+.choices > *,
+.timelineGrid > * {
+  min-width: 0;
+}
+
+.results {
+  border-top: 1px solid var(--color-border);
+  overflow-wrap: anywhere;
+  padding-top: var(--space-6);
+}
+
+.timelineHeading {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.sub,
+.lines p {
+  margin: 0;
+}
+
+.sub {
+  color: var(--color-text-muted);
+}
+
+.lines {
+  display: grid;
+  gap: var(--space-2);
+  max-width: var(--measure-prose);
+}
+
+.note {
+  color: var(--color-text-muted);
+  line-height: var(--line-body);
+  margin: 0;
+}
+
+/* A 600-month table scrolls inside the disclosure instead of stretching the page. */
+.monthTable {
+  max-height: 28rem;
+  overflow-y: auto;
+}
+
+.markedMonth {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+}
+
+.marker {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  font-weight: var(--weight-bold);
+}
+
+.formula {
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .workbench {
+    padding-block: var(--space-5);
+  }
+
+  .content {
+    gap: var(--space-6);
+  }
+
+  .groupHeader,
+  .goalRow,
+  .fieldGrid,
+  .choices,
+  .timelineGrid,
+  .timelineGrid[data-count="3"] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .groupHeader .currency {
+    max-width: 12rem;
+  }
+}

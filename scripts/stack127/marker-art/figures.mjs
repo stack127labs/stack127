@@ -1423,6 +1423,93 @@ function toolSpot(spec, A) {
       }
     }
     return;
+  } else if (d.motif === "trialConversion") {
+    // A group that started together waits on a time track. Two filled accounts sit past the dashed day-N gate.
+    const track = 88;
+    const size = 14;
+    const r = size / 2;
+    const ring = { stroke: "@ink", strokeWidth: 1.6, roughness: 0.7 };
+    A.line(12, track, 128, track, { stroke: "@sub", strokeWidth: 1.5, roughness: 0.55 });
+    A.line(14, track - 5, 14, track + 5, { stroke: "@sub", strokeWidth: 1.5, roughness: 0.5 });
+    const starters = [
+      [28, track - r - 1.5], [47, track - r - 1.5], [66, track - r - 1.5],
+      [37.5, track - r - 18], [56.5, track - r - 18],
+      [47, track - r - 34.5],
+    ];
+    for (const [x, y] of starters) A.circle(x, y, size, ring);
+    markerDash(A, 86, 26, 86, track + 6, "@ink", 7, 5);
+    // Rough's solid circle fill loops twice and cancels under evenodd, so fill with a plain dot.
+    for (const x of [104, 122]) {
+      A.dot(x, track - r - 1.5, r - 0.4, "@primary");
+      A.circle(x, track - r - 1.5, size, ring);
+    }
+    return;
+  } else if (d.motif === "annualDiscount") {
+    // A price tag holds a row of paid months. The last slot is empty, its month lifted out above the tag.
+    A.path("M21 63 C 13 52, 17 38, 7 27", { stroke: "@sub", strokeWidth: 1.5, roughness: 0.7 });
+    A.polygon([[9, 63], [26, 41], [110, 41], [110, 85], [26, 85]], { stroke: "@ink", strokeWidth: 1.8, roughness: 0.9 });
+    A.circle(21, 63, 6, { stroke: "@ink", strokeWidth: 1.5, roughness: 0.5 });
+    const tile = 8.4;
+    const gap = 4.4;
+    const top = 56;
+    const height = 14;
+    for (let index = 0; index < 5; index += 1) {
+      A.rect(33 + index * (tile + gap), top, tile, height, { stroke: "@sub", fill: "@sub", fillStyle: "solid", roughness: 0.8, strokeWidth: 1.4 });
+    }
+    dashedRect(A, 33 + 5 * (tile + gap), top - 1, tile + 1, height + 2, "@sub");
+    A.polygon([[99, 20], [109, 23], [105, 37], [95, 34]], { stroke: "@primary", fill: "@primary", fillStyle: "solid", roughness: 0.9, strokeWidth: 1.8 });
+    return;
+  } else if (d.motif === "churnCompounding") {
+    // Customers lost add up along flattening steps, because each period starts with fewer people.
+    // A dashed cap on the last step shows how much higher a straight multiply puts the total.
+    const baseline = 94;
+    const width = 16;
+    const scale = 70;
+    const lost = [1, 2, 3, 4, 5].map((periods) => 1 - 0.77 ** periods);
+    for (let index = 0; index < lost.length; index += 1) {
+      const height = scale * lost[index];
+      A.rect(14 + index * 23, baseline - height, width, height, {
+        stroke: "@ink",
+        fill: "@primary",
+        fillStyle: "solid",
+        roughness: 1.05,
+        strokeWidth: 1.55,
+      });
+    }
+    const lastX = 14 + 4 * 23;
+    const lastTop = baseline - scale * lost[4];
+    const linearTop = baseline - scale * 0.23 * 5;
+    dashedRect(A, lastX, linearTop, width, lastTop - linearTop - 3, "@sub");
+    A.line(6, baseline, 134, baseline, { stroke: "@sub", strokeWidth: 1.4 });
+    return;
+  } else if (d.motif === "goalFlag") {
+    // Monthly dots climb to a dashed target line and meet it at the foot of a planted flag.
+    const target = 30;
+    const poleX = 108;
+    markerDash(A, 12, target, 130, target, "@sub", 7, 5);
+    const dots = Array.from({ length: 7 }, (_, index) => {
+      const share = index / 6;
+      return [18 + share * (poleX - 18), 96 - (96 - target) * share ** 0.9];
+    });
+    for (let index = 1; index < dots.length; index += 1) {
+      A.line(dots[index - 1][0], dots[index - 1][1], dots[index][0], dots[index][1], { stroke: "@sub", strokeWidth: 1.3, roughness: 0.6 });
+    }
+    for (const [x, y] of dots) A.dot(x, y, 3.2, "@ink");
+    A.line(poleX, target, poleX, 7, { stroke: "@ink", strokeWidth: 1.9, roughness: 0.6 });
+    A.polygon([[poleX, 8], [128, 13.5], [poleX, 19]], { stroke: "@primary", fill: "@primary", fillStyle: "solid", roughness: 0.8, strokeWidth: 1.6 });
+    return;
+  } else if (d.motif === "runwayLiftoff") {
+    // A strip recedes to a marked end. A paper plane has already lifted off well before the end bars.
+    A.line(6, 76, 100, 83, { stroke: "@ink", strokeWidth: 1.8, roughness: 0.6 });
+    A.line(6, 104, 100, 95, { stroke: "@ink", strokeWidth: 1.8, roughness: 0.6 });
+    markerDash(A, 12, 90, 94, 89, "@sub", 6, 5);
+    A.line(104, 78, 104, 100, { stroke: "@ink", strokeWidth: 3.4, roughness: 0.5 });
+    markerDash(A, 36, 88, 54, 74, "@primary", 5, 4);
+    markerDash(A, 54, 74, 72, 58, "@primary", 5, 4);
+    markerDash(A, 72, 58, 88, 45, "@primary", 5, 4);
+    A.polygon([[118, 20], [82, 33], [95, 37]], { stroke: "@primary", fill: "@primary", fillStyle: "solid", roughness: 0.8, strokeWidth: 1.6 });
+    A.polygon([[118, 20], [95, 37], [93, 49]], { stroke: "@primary", strokeWidth: 1.6, roughness: 0.8 });
+    return;
   } else {
     drawIcon(A, d.icon, cx, cy, Math.min(A.w, A.h) * 0.48, "@ink");
   }

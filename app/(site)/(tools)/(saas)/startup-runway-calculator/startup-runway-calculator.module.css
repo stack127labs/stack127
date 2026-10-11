@@ -1,0 +1,261 @@
+.workbench {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-border-strong);
+  grid-column: 1 / -1;
+  margin-inline: calc(-1 * var(--container-gutter));
+  min-width: 0;
+  padding: var(--space-7) var(--container-gutter);
+  width: calc(100% + var(--container-gutter) + var(--container-gutter));
+}
+
+.content,
+.form,
+.results,
+.answer {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.content {
+  gap: var(--space-7);
+  margin-inline: auto;
+  max-width: 66rem;
+}
+
+.group,
+.resultGroup,
+.changes {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.group h2,
+.resultGroup h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.optional {
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+}
+
+.groupHeader {
+  align-items: start;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: minmax(0, 1fr) minmax(8rem, 10rem);
+}
+
+.groupTitle {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.helper,
+.note {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+}
+
+.note {
+  font-size: var(--text-body);
+}
+
+.fieldGrid {
+  align-items: start;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.fieldGrid > * {
+  min-width: 0;
+}
+
+/* Planned changes */
+
+.changes :global([data-repeatable-row]) {
+  align-items: start;
+}
+
+/* The shared tooltip uses max-content. A long change name then widens the page. */
+.changes :global([data-repeatable-row]) > :global(button[aria-label])::after {
+  content: none;
+  overflow: hidden;
+  white-space: normal;
+  width: 16rem;
+}
+
+.changes :global([data-repeatable-row]) > :global(button[aria-label]):hover::after,
+.changes :global([data-repeatable-row]) > :global(button[aria-label]):focus-visible::after {
+  content: attr(aria-label);
+}
+
+/* The remove action lines up with the inputs, below the visible labels. */
+.changes :global([data-repeatable-row]) > :global(button) {
+  margin-top: calc(var(--text-body) * var(--line-ui) + var(--space-2));
+}
+
+.change {
+  align-items: start;
+  border: 0;
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns:
+    minmax(8rem, 1fr)
+    minmax(8.5rem, 9.5rem)
+    minmax(6rem, 7.5rem)
+    minmax(9.5rem, 11rem)
+    minmax(8rem, 1fr);
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.change > * {
+  min-width: 0;
+}
+
+.visuallyHidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Results */
+
+.results {
+  border-top: 1px solid var(--color-border);
+  overflow-wrap: anywhere;
+  padding-top: var(--space-6);
+}
+
+.results :global(th),
+.results :global(td) {
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 761px) {
+  .results :global(table) {
+    table-layout: fixed;
+    width: 100%;
+  }
+}
+
+.leads {
+  align-items: start;
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.leads > * {
+  min-width: 0;
+}
+
+.chart {
+  min-width: 0;
+}
+
+.detailLines {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.changeList {
+  display: grid;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.formula {
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1080px) {
+  .change {
+    grid-template-columns: minmax(0, 1fr) minmax(8.5rem, 10rem) minmax(6rem, 7.5rem);
+  }
+
+  .changeFrequency {
+    grid-column: 1;
+  }
+
+  .changeName {
+    grid-column: 2 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .workbench {
+    padding-block: var(--space-5);
+  }
+
+  .content {
+    gap: var(--space-6);
+  }
+
+  .groupHeader,
+  .fieldGrid,
+  .leads {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .currency {
+    max-width: 12rem;
+  }
+
+  .groupHeader .currency {
+    grid-row: 1;
+  }
+
+  .changes :global([data-repeatable-row]) {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-4);
+  }
+
+  .changes :global([data-repeatable-row]:last-child) {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .changes :global([data-repeatable-row]) > :global(button) {
+    margin-top: 0;
+  }
+
+  .change {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .changeFrequency {
+    grid-column: auto;
+  }
+
+  .changeName {
+    grid-column: 1 / -1;
+  }
+}

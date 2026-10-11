@@ -1,0 +1,59 @@
+## How do you convert monthly churn to annual churn?
+
+Multiply the share of customers who stay each month by itself 12 times, then subtract from 1.
+
+<Formula title="Annual churn from monthly churn">
+
+Annual churn = 1 - (1 - monthly churn)^12
+
+</Formula>
+
+Other periods work the same way: the power 4 takes quarterly to yearly, and 3 takes monthly to quarterly. Going back uses a root, such as the 12th root for yearly to monthly.
+
+This assumes the same share of the customers you still have leaves every period. [ChartMogul's churn report](https://help.chartmogul.com/article/203-chart-customer-churn-rate) uses the same rule: 5% a month is about 46% a year.
+
+## Why not multiply monthly churn by 12?
+
+Because each month you lose a share of a shrinking group. Start with 100 customers at 5% a month. You lose 5 in month one, 4.75 of the 95 left in month two, and 4.51 of the 90.25 left in month three. After 12 months about 46 are gone, not 60.
+
+Multiplying always overstates yearly churn, more so as churn rises. At 10% a month, × 12 says 120%, more customers than you had. Dividing goes wrong the other way: 20% a year ÷ 12 is 1.67% a month, but the real monthly equivalent is 1.84%.
+
+## Monthly to annual churn table
+
+| Monthly churn | Annual churn | Monthly × 12 |
+| --- | --- | --- |
+| 1% | 11.36% | 12% |
+| 2% | 21.53% | 24% |
+| 3% | 30.62% | 36% |
+| 5% | 45.96% | 60% |
+| 7% | 58.14% | 84% |
+| 10% | 71.76% | 120% |
+| 15% | 85.78% | 180% |
+
+Annual figures assume the monthly rate holds all year.
+
+## Is annualized churn the same as your real annual churn?
+
+No. Annualized churn is what a steady monthly rate adds up to over a year. Real losses differ: new customers often leave faster than older ones, and churn moves with season, plan, and customer mix.
+
+If you tracked one group of customers for a full year, or have renewal results, trust those more. [ChartMogul's cohort analysis](https://help.chartmogul.com/article/161-cohort-analysis) shows how retention changes as customers age.
+
+Yearly plans are the clearest case. Those customers usually decide once, when the plan renews. If 20% don't renew, the monthly equivalent is 1.84%, but that doesn't mean 1.84% can cancel each month. [ChartMogul on billing cycles](https://chartmogul.com/saas-metrics/billing-cycles/) explains why. The [annual plan discount calculator](/annual-plan-discount-calculator) compares the two plans with a separate renewal rate for yearly customers.
+
+## How long does an average customer stay?
+
+Divide 1 by your churn rate, in the period you entered. At 5% monthly churn it's 20 months. At 20% annual churn it's 5 years.
+
+It's a rough estimate from the same steady-rate model, not real tenure, and there's no answer at 0% churn. The [customer lifetime value calculator](/customer-lifetime-value-calculator) uses it to estimate what a customer is worth. The [MRR goal calculator](/mrr-goal-calculator) uses monthly churn to show how many customers you can keep. Both need churn for the right period, which this tool gives you.
+
+## Can you convert revenue churn or negative churn?
+
+Not here. This tool counts customers. Revenue churn counts revenue lost when customers cancel or move to a cheaper plan, so one big customer counts for more than a small one.
+
+Net revenue churn also subtracts revenue from upgrades, so it can drop below 0%. That means revenue from existing customers grew, not that customers came back, so it has no customer lifetime or "out of 100 customers" view. [Stripe's revenue churn guide](https://stripe.com/resources/more/revenue-churn-101-how-to-calculate-it-and-why-it-matters) explains both. For revenue, use the [revenue churn calculator](/revenue-churn-calculator) or the [net revenue retention calculator](/net-revenue-retention-calculator).
+
+## How do you compare your churn with a benchmark?
+
+Convert to the same period first, and check that the benchmark counts customers, not revenue. A 4% monthly rate and a 5% to 7% yearly benchmark can look close, but 4% a month is about 39% a year.
+
+This tool doesn't rate churn as good or bad. Published ranges change with price, contract length, and customer type, so compare with your own past numbers first.

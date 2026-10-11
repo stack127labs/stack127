@@ -1,0 +1,116 @@
+## How do you work out an annual plan discount?
+
+Compare the annual price with 12 monthly payments. The gap, as a share of those 12 payments, is the discount. Months free is the same gap counted in months.
+
+<Formula title="Annual price, discount, and months free">
+
+Annual price = 12 × monthly price × (1 − discount)
+
+Discount = 1 − annual price ÷ (12 × monthly price)
+
+Months free = 12 × discount
+
+</Formula>
+
+On a $20 monthly plan, 12 payments come to $240:
+
+| Offer | Annual price | Discount | Months free |
+| --- | --- | --- | --- |
+| 1 month free | $220.00 | 8.3% | 1 |
+| 10% off | $216.00 | 10.0% | 1.2 |
+| 15% off | $204.00 | 15.0% | 1.8 |
+| 2 months free | $200.00 | 16.7% | 2 |
+| 20% off | $192.00 | 20.0% | 2.4 |
+| 3 months free | $180.00 | 25.0% | 3 |
+
+## Is 2 months free the same as 20% off?
+
+No. 2 months free is 2 ÷ 12, which is 16.7% off. 20% off is the same as 2.4 months free. On a $20 plan, that's $200 a year against $192.
+
+## What are the two break-even numbers?
+
+"Break even" can answer two different questions, so the calculator gives each its own name.
+
+| Name | Question it answers | $20 a month, $192 a year, 3% churn |
+| --- | --- | --- |
+| Annual price in monthly payments | How many monthly payments add up to the annual price? | 9.6. The 10th monthly payment passes $192. |
+| Break-even discount | At what discount does annual collect as much as monthly, once some monthly customers cancel? | 15.0%. At 20% off, annual collects $12.11 less in year one. |
+
+9.6 and 10 are both right. 9.6 is the exact count, and 10 is the first whole payment that gets there. This first number is about price only, so churn doesn't change it.
+
+## How does churn change the result?
+
+Monthly customers can cancel any month, so the monthly plan usually collects less than 12 full payments a year. The annual plan collects its whole price at signup.
+
+The first monthly payment comes at signup. Before each later one, your churn share of the remaining customers cancels.
+
+<Formula title="Average monthly payments over n months">
+
+Average payments = 1 + (1 − churn) + (1 − churn)² + …, with n terms
+
+Average collected = monthly price × average payments
+
+</Formula>
+
+At 3% churn, 100 monthly customers make about 1,021 payments in their first year, or 10.21 each. On a $20 plan, that's $204.11 per customer.
+
+Higher churn raises the break-even discount. At 6% churn, the same plan averages $174.69 in year one. The $200 annual plan then collects $25.31 more, and the break-even discount is 27.2%.
+
+## Why is the annual renewal rate separate from monthly churn?
+
+The calculator assumes annual customers decide whether to stay when their year ends, so it gives them their own number: the share who renew. Refunds that end a plan early aren't modeled.
+
+Renewal decides months 24 and 36. Take a $20 plan with 2 months free and 3% churn. At 70% renewal, annual is $5.98 behind monthly by month 36. At 50% renewal, it's $93.98 behind, and no discount closes the gap. Annual would have to cost 5.7% more than 12 payments to match.
+
+<Warning title="Don't turn monthly churn into a renewal rate">
+
+3% monthly churn doesn't mean 97% of annual customers renew. It doesn't mean 69% either. That's the share of monthly customers still paying after 12 months, which the [churn rate converter](/churn-rate-converter) works out for any rate. Annual buyers are a different group, and the calculator treats renewal as their one decision each year. Use a renewal rate from your own annual customers, or try a range.
+
+</Warning>
+
+## Is annual plan MRR the same as the upfront payment?
+
+No. MRR (monthly recurring revenue) counts an annual plan as its price ÷ 12. A $200 annual plan adds $16.67 to MRR, even though you get $200 in cash at signup.
+
+[Stripe](https://support.stripe.com/questions/understanding-monthly-recurring-revenue-%28mrr%29-and-annual-recurring-revenue-%28arr%29) and [Paddle](https://www.paddle.com/help/profitwell-metrics/measure/subscription-metrics/mrr) both count it this way, and Stripe notes that MRR isn't cash flow. The $200 pays for a year of service you still owe. So toward an MRR goal, each annual customer counts as $16.67. The [MRR goal calculator](/mrr-goal-calculator) shows how many customers a goal takes.
+
+## Do processor fees make annual billing cheaper?
+
+A little. Most processors charge a fixed fee on every charge, and an annual customer is charged once a year instead of 12 times.
+
+Year-one fees for one customer who stays all year, 12 charges of $20 against one charge of $200, at published US rates:
+
+| Processor rate | Monthly plan | Annual plan | Fee saved |
+| --- | --- | --- | --- |
+| Stripe card, 2.9% + $0.30 | $10.56 | $6.10 | $4.46 |
+| Stripe card and Billing, 3.6% + $0.30 | $12.24 | $7.50 | $4.74 |
+| Paddle, 5% + $0.50 | $18.00 | $10.50 | $7.50 |
+| Lemon Squeezy subscription, 5.5% + $0.50 | $19.20 | $11.50 | $7.70 |
+
+The fee saved is small next to the $40 discount, but it can tip a close result. In the usage example, adding the Stripe card fee moves month 36 from $5.98 behind to $0.20 ahead.
+
+<Note title="Where these rates come from">
+
+Checked 10 Oct 2026: [Stripe pricing](https://stripe.com/pricing) (card 2.9% + $0.30, Billing 0.7% of volume), [Paddle pricing](https://www.paddle.com/pricing) (5% + $0.50), and [Lemon Squeezy fees](https://docs.lemonsqueezy.com/help/getting-started/fees) (5% + $0.50, plus 0.5% on subscription payments). Lemon Squeezy also adds 1.5% for payments from outside the US and 1.5% for PayPal, which the preset leaves out. Your own rate can differ by country, card, currency, and plan.
+
+</Note>
+
+## What happens when you refund an annual plan?
+
+The calculator shows money before refunds. An annual refund can mean paying back months the customer prepaid, and the fee may not come back. [Stripe](https://support.stripe.com/questions/understanding-fees-for-refunded-payments) keeps the original processing fee when you refund a card payment. [Lemon Squeezy](https://docs.lemonsqueezy.com/help/payments/refunds-chargebacks) takes the refund, less its platform fee, out of your next payout. [Paddle's refund page](https://www.paddle.com/help/manage/your-customers/how-do-i-issue-refunds) doesn't say whether its fee comes back, so check your account terms.
+
+## What annual discount should you offer?
+
+The calculator doesn't pick one. No source shows a discount that suits every product, because it depends on your churn, renewals, and buyers.
+
+The break-even discount shows where annual stops collecting as much as monthly for your numbers. It can't tell you whether a discount brings in more customers, or how many will pick annual. If you don't know your churn or renewal rate yet, try a few values and watch how much the answer moves.
+
+## What this calculator doesn't cover
+
+It follows one customer on each plan. It leaves out taxes, failed payments, chargebacks, currency conversion, and the cost of running your product, so no figure here is profit.
+
+Next steps:
+
+- [MRR calculator](/mrr-calculator): add up MRR across monthly and annual plans.
+- [Customer lifetime value calculator](/customer-lifetime-value-calculator): what one customer is worth after serving costs.
+- [Platform fees](/platform-fees): other charges from the platforms you sell on.
