@@ -23,13 +23,27 @@
   overflow-wrap: anywhere;
 }
 
+/* The tight h1 line height lets the highlight reach the line above. Painting it
+   behind the title's other text keeps those descenders on top. */
+.header h1 {
+  isolation: isolate;
+}
+
 .header h1 mark {
+  position: relative;
+  z-index: -1;
   background: var(--color-accent);
   border-radius: var(--radius);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   color: var(--color-accent-contrast);
   padding-inline: 0.16em;
+}
+
+/* A highlight that is or holds a link paints normally, so the link stays clickable. */
+.header h1 a mark,
+.header h1 mark:has(a) {
+  z-index: auto;
 }
 
 .header > p {
