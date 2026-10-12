@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { UiButton, UiCopyAction, UiRawOutput } from "@/app/ui/controls";
-import { UiActionRow, UiAllocationBar, UiCodeOutput, UiKeyValueList, UiMetricGroup, UiPrimaryResult, UiProgressBar, UiResultLead, UiStatusWord, UiSteps, UiTimeline } from "@/app/ui/display";
+import { UiActionRow, UiAllocationBar, UiCodeOutput, UiRangeMarker, UiKeyValueList, UiMetricGroup, UiPrimaryResult, UiProgressBar, UiResultLead, UiStatusWord, UiSteps, UiTimeline, UiUnitGrid } from "@/app/ui/display";
 import { Example } from "../gallery";
 import styles from "../components-ui.module.css";
 
@@ -21,8 +21,22 @@ export function ResultsExamples() {
             items={[
               { id: "raw", label: "Raw", value: "32", unit: "TiB" },
               { id: "protection", label: "Protection", value: "8", unit: "TiB" },
-              { id: "reserve", label: "Reserve", value: "2.2", unit: "TiB" },
+              { id: "reserve", label: "Reserve", value: "2.2", unit: "TiB", hint: "Free space kept back so the pool stays fast." },
             ]}
+          />
+        </div>
+      </Example>
+
+      <Example components={["UiMetricGroup"]} note="The list layout gives one row per number, label left and value right, for numbers people read down a column." source="app/ui/display.tsx" title="Supporting numbers as a list">
+        <div className={styles.stack}>
+          <UiMetricGroup
+            ariaLabel="Trial numbers"
+            items={[
+              { id: "not-paid", label: "Didn't pay", value: "460" },
+              { id: "per-paid", label: "Trials per paying customer", value: "12.5", hint: "How many trial starts it took for each one that paid." },
+              { id: "mrr", label: "New MRR", value: "$1,960.00" },
+            ]}
+            layout="list"
           />
         </div>
       </Example>
@@ -61,6 +75,40 @@ export function ResultsExamples() {
             <UiButton onPress={() => setRebuildProgress(0)} variant="ghost">Reset progress</UiButton>
             <UiButton onPress={() => setRebuildProgress((current) => Math.min(100, current + 10))}>Advance 10%</UiButton>
           </UiActionRow>
+        </div>
+      </Example>
+
+      <Example components={["UiRangeMarker"]} note="Where a value sits next to published ranges. Position only, never a grade. The hint names each range's source. An optional range under the track shows where the person's own value probably sits, such as at a small sample size." source="app/ui/display.tsx" title="Range marker">
+        <div className={styles.stack}>
+          <UiRangeMarker
+            ariaLabel="Your trial conversion rate next to published ranges"
+            bands={[
+              { id: "median", from: 4, to: 6, label: "Median, no-card trials", valueText: "4 to 6%", hint: "ChartMogul survey of 200 software products, January 2026." },
+              { id: "top", from: 10, to: 15, label: "Top quarter, no-card trials", valueText: "10 to 15%", hint: "ChartMogul survey of 200 software products, January 2026." },
+            ]}
+            max={30}
+            maxText="30%"
+            minText="0%"
+            range={{ from: 5.92, to: 10.72, label: "Likely range at 500 starts", valueText: "5.92 to 10.72%", hint: "The true rate is probably in this range. Fewer starts make it wider." }}
+            value={8}
+            valueText="8%"
+          />
+          <UiRangeMarker
+            ariaLabel="A value near the start of the scale"
+            bands={[{ id: "median", from: 4, to: 6, label: "Median", valueText: "4 to 6%" }]}
+            max={30}
+            maxText="30%"
+            minText="0%"
+            value={1.5}
+            valueText="1.5%"
+          />
+        </div>
+      </Example>
+
+      <Example components={["UiUnitGrid"]} note="A share of a group, as filled units out of 100. The last unit fills partly. Use it for rates of people or items. An optional target outlines the units up to a goal." source="app/ui/display.tsx" title="Unit grid">
+        <div className={styles.twoColumns}>
+          <UiUnitGrid ariaLabel="Paid out of every 100 who started" emptyLabel="Didn't pay" filled={13.22} filledLabel="Paid" target={{ amount: 20, label: "At 20%", valueText: "20 of every 100" }} valueText="13.22 of every 100" />
+          <UiUnitGrid ariaLabel="Drives that failed out of every 100" emptyLabel="Still running" filled={4.5} filledLabel="Failed" tone="neutral" valueText="4.5 of every 100" />
         </div>
       </Example>
 

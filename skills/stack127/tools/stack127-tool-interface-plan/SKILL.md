@@ -1,36 +1,24 @@
 ---
 name: stack127-tool-interface-plan
-description: Define the controls, result hierarchy, states, shared components, and responsive behavior for one stack127 tool in tool-spec.md, and build any new or improved shared components it needs.
+description: Plan a stack127 tool's Basic and Advanced inputs, hints, result timing, visual result, and components in tool-spec.md, and build any new shared components it needs.
 ---
 
 # stack127 tool interface plan
 
-Edit the Interface section of `content_docs/<slug>/tool-spec.md`, plus shared components in `app/ui/` and their `/components-ui` gallery entries when the plan needs them.
+Opus runs this in the same planning session as `$stack127-tool-product-plan`. Fill the Interface section of `content_docs/<slug>/tool-spec.md`.
 
-In the tool pipeline, Opus runs this skill in the same Claude Code planning session as `$stack127-tool-product-plan`.
+Read "People and questions", `stack127_docs/tool-interface.md` (especially "How a stack127 tool feels" and "Good and bad tools"), and `stack127_docs/shared-ui.md`. Look at the `/components-ui` gallery and a few sibling tools.
 
-Read `research.md`, the "Why people will choose this tool" and Product sections, `stack127_docs/tool-interface.md`, `stack127_docs/shared-ui.md`, the `/components-ui` gallery in development, and relevant sibling tools.
+Picture two people using it: the first-time visitor from "People and questions", and a pro who knows this domain well. Plan what each of them sees, and make the calls a designer with taste would make:
 
-Decide:
+- **Inputs.** Fill the Inputs table: Basic, Advanced, required or optional, the final label and hint wording, and what each input changes. Cut any input that changes nothing, and keep every option the pro needs.
+- **Default state.** The example values it opens with, the result they produce, and the button's name.
+- **Result.** The answer, then the visual that makes it obvious for this tool. Think about the relationship you're showing and pick the best form from any ECharts type, a shared component, or a custom SVG. Then the supporting numbers, any detail Advanced adds, and a share action if it's worth sharing.
+- **Layout.** How the inputs group into `ToolFieldRow`s, and how the result reads at desktop and on phones. Ask where the eye lands first, and what someone who wants to dig in reads next.
+- **States.** Stale results after an edit, invalid input, each domain limit answering instead of blanking, and anything else this tool can really hit.
 
-- one user question, one lead answer, and one primary action;
-- the minimum visible inputs and which advanced choices genuinely change the answer;
-- distinct result regions with no repeated facts;
-- shared, new shared, or route-specific components for nontrivial controls;
-- initial, valid, invalid, loading, empty, partial, failure, retry, reset, restored, and long-value states that apply;
-- desktop and mobile order, containment, table behavior, keyboard flow, focus, and announcements;
-- any chart: its `UiLiveChart` kind, series, number format, and whether hover, toggles, or ranges help. See the Charts section of `stack127_docs/shared-ui.md`. A chart type that isn't registered yet gets added to `app/ui/charts/` now, with a gallery example.
+Sketch the desktop and phone layouts in words in the spec before building.
 
-## Components
+If a component or chart type you need doesn't exist, build it now as a shared piece with a gallery example. Check it at desktop and mobile width in both themes, and run `npm run quality`. Name each new piece in the spec.
 
-List every existing shared component the frontend will use. When no shared component fits, or an existing one falls short, build or improve it now:
-
-- Put it in `app/ui/` and follow `stack127_docs/shared-ui.md`, `stack127_docs/design-system.md`, and `stack127_docs/css-architecture.md`.
-- Make it useful beyond this one tool. Keep calculations, data sources, and tool-specific behavior out of it.
-- Add an example to the `/components-ui` gallery, in the section for its component type. See `stack127_docs/shared-ui.md`.
-- When changing an existing component, keep the pages that use it working.
-- Check it in the gallery and on the page types that use it, at desktop and mobile width in both themes. Run `npm run quality`.
-
-Name each new or improved component in the Interface section with its import path and what it is for.
-
-Use `stack127_docs/writing-style.md` for interface wording. Do not build the tool route, backend, or tool-specific components yet. Sol builds the backend next, then you build the frontend with `$stack127-tool-frontend` in this same session. Do not create a separate interface contract.
+Don't build the tool route or backend. Sol builds the backend next, then you build the frontend with `$stack127-tool-frontend` in this session.

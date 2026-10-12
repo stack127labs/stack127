@@ -51,6 +51,8 @@ export type UiChartSpec = Shared & (
       xFormat?: UiChartFormat;
       /** Time charts: show range buttons and a range slider, starting at this range. */
       range?: UiChartRange;
+      /** Labeled dots at numeric x values, such as the person's own value on a curve. */
+      marks?: readonly UiChartMark[];
     }
   | { kind: "bar" | "stacked-bar" | "horizontal-bar"; categories: readonly string[]; series: readonly { id: string; label: string; values: readonly number[] }[] }
   | { kind: "donut"; slices: readonly { id: string; label: string; value: number }[] }
@@ -63,7 +65,72 @@ export type UiChartSpec = Shared & (
       /** What a cell counts, for the tooltip. */
       valueLabel: string;
     }
+  /** Stages that narrow, such as trials to paid. Stages keep their order. */
+  | { kind: "funnel"; stages: readonly UiChartPart[] }
+  /** One value against a scale, such as progress toward a goal. */
+  | { kind: "gauge"; label: string; max: number; min?: number; value: number }
+  /** Parts of a total as nested-feeling blocks, for many parts or long tails. */
+  | { kind: "treemap"; parts: readonly UiChartPart[] }
+  /** How amounts flow from one group to the next, such as MRR movements. */
+  | { kind: "sankey"; nodes: readonly { id: string; label: string }[]; links: readonly { source: string; target: string; value: number }[] }
+  /** Several measures compared as shapes, such as two plans across five qualities. */
+  | { kind: "radar"; axes: readonly { label: string; max: number }[]; series: readonly { id: string; label: string; values: readonly number[] }[] }
 );
+
+export type UiChartPart = { id: string; label: string; value: number };
+
+/** One labeled dot on a line chart, such as `Your price`. */
+export type UiChartMark = { label: string; x: number; y: number };
+
+/** Kinds drawn by chart types that load only on pages that use them. See echarts-more.ts. */
+const moreKinds: ReadonlySet<UiChartSpec["kind"]> = new Set(["funnel", "gauge", "treemap", "sankey", "radar"]);
+
+export const needsMoreCharts = (spec: UiChartSpec) => moreKinds.has(spec.kind);
+
+// The drawing, tooltip, and screen-reader table all read data through these, so they always agree.
+
+/** Funnel stages with a finite value. */
+const funnelStages = (spec: Extract<UiChartSpec, { kind: "funnel" }>) => spec.stages.filter((stage) => Number.isFinite(stage.value));
+
+/** Treemap parts with a finite positive value. */
+const treemapParts = (spec: Extract<UiChartSpec, { kind: "treemap" }>) => spec.parts.filter((part) => Number.isFinite(part.value) && part.value > 0);
+
+/** A radar value on its axis, or null for a gap. */
+const radarValue = (values: readonly number[], index: number) => (Number.isFinite(values[index]) ? values[index] : null);
+
+type SankeySpec = Extract<UiChartSpec, { kind: "sankey" }>;
+
+/**
+ * Links ECharts can lay out: both ends known, a finite positive value, and no loop back. A flow
+ * must only move forward, so a link that would close a cycle is left out instead of crashing the drawing.
+ */
+const sankeyLinks = (spec: SankeySpec) => {
+  const ids = new Set(spec.nodes.map((node) => node.id));
+  const next = new Map<string, string[]>();
+  const reaches = (from: string, to: string) => {
+    const seen = new Set<string>();
+    const stack = [from];
+    while (stack.length) {
+      const id = stack.pop()!;
+      if (id === to) return true;
+      if (seen.has(id)) continue;
+      seen.add(id);
+      stack.push(...(next.get(id) ?? []));
+    }
+    return false;
+  };
+  return spec.links.filter((link) => {
+    if (!ids.has(link.source) || !ids.has(link.target) || !Number.isFinite(link.value) || link.value <= 0) return false;
+    if (reaches(link.target, link.source)) return false;
+    next.set(link.source, [...(next.get(link.source) ?? []), link.target]);
+    return true;
+  });
+};
+
+const hasGaugeScale = (spec: Extract<UiChartSpec, { kind: "gauge" }>) =>
+  Number.isFinite(spec.min ?? 0) && Number.isFinite(spec.max) && spec.max > (spec.min ?? 0) && Number.isFinite(spec.value);
+
+const share = (value: number, total: number) => `${numberFormat.format(total ? value / total * 100 : 0)}%`;
 
 /** Names shown in the legend, in series order. Donut slices also show their value and share. */
 export function chartLegend(spec: UiChartSpec): { label: string; detail?: string }[] {
@@ -74,7 +141,8 @@ export function chartLegend(spec: UiChartSpec): { label: string; detail?: string
       label: slice.label,
     }));
   }
-  if (spec.kind === "heatmap") return [];
+  // These label their parts on the drawing itself, so a toggle legend would only repeat them.
+  if (spec.kind === "heatmap" || spec.kind === "funnel" || spec.kind === "gauge" || spec.kind === "treemap" || spec.kind === "sankey") return [];
   return spec.series.map((series) => ({ label: series.label }));
 }
 
@@ -85,6 +153,18 @@ export function donutTotal(spec: UiChartSpec) {
 type LineSpec = Extract<UiChartSpec, { kind: "line" | "area" | "stacked-area" }>;
 
 const isLine = (spec: UiChartSpec): spec is LineSpec => spec.kind === "line" || spec.kind === "area" || spec.kind === "stacked-area";
+
+/** Marks with finite values. A labeled x axis places by position, so it takes none. */
+function lineMarks(spec: UiChartSpec) {
+  if (!isLine(spec) || !spec.marks || xLabels(spec)) return [];
+  return spec.marks.filter((mark) => Number.isFinite(mark.x) && Number.isFinite(mark.y));
+}
+
+/** How a mark reads out loud, such as `Your price, $14.99: $4.39`. */
+const markText = (spec: LineSpec, mark: UiChartMark) => `${mark.label}, ${formatChartValue(mark.x, spec.xFormat ?? "number")}: ${formatChartValue(mark.y, spec.format)}`;
+
+/** Every mark read out loud, for charts too large for a hidden table. */
+export const chartMarksText = (spec: UiChartSpec) => (isLine(spec) ? lineMarks(spec).map((mark) => markText(spec, mark)) : []);
 
 /**
  * The labels of a labeled x axis, or null when x values are numbers. Labels are positions: every
@@ -111,6 +191,11 @@ const tableLimit = 60;
 function valueCount(spec: UiChartSpec) {
   if (spec.kind === "donut") return spec.slices.length;
   if (spec.kind === "heatmap") return spec.cells.length;
+  if (spec.kind === "funnel") return funnelStages(spec).length;
+  if (spec.kind === "gauge") return 1;
+  if (spec.kind === "treemap") return treemapParts(spec).length;
+  if (spec.kind === "sankey") return sankeyLinks(spec).length;
+  if (spec.kind === "radar") return spec.axes.length * spec.series.length;
   if (spec.kind === "bar" || spec.kind === "stacked-bar" || spec.kind === "horizontal-bar") return spec.categories.length * spec.series.length;
   const points = (spec.series as readonly UiChartSeries<unknown>[]).reduce((count, line) => count + line.points.length, 0);
   return spec.kind === "scatter" ? points * 2 : points;
@@ -135,6 +220,41 @@ export function chartTable(spec: UiChartSpec): { columns: string[]; corner: stri
         ...spec.slices.map((slice) => ({ cells: [format(slice.value), `${numberFormat.format(total ? slice.value / total * 100 : 0)}%`], label: slice.label })),
         { cells: [format(total), "100%"], label: "Total" },
       ],
+    };
+  }
+  if (spec.kind === "funnel") {
+    const stages = funnelStages(spec);
+    const first = stages[0]?.value ?? 0;
+    return {
+      columns: ["Value", "Share of first stage"],
+      corner: "Stage",
+      rows: stages.map((stage) => ({ cells: [format(stage.value), share(stage.value, first)], label: stage.label })),
+    };
+  }
+  if (spec.kind === "gauge") {
+    const cells = hasGaugeScale(spec) ? [format(spec.value), `${format(spec.min ?? 0)} to ${format(spec.max)}`] : ["No value", ""];
+    return { columns: ["Value", "Scale"], corner: "Measure", rows: [{ cells, label: spec.label }] };
+  }
+  if (spec.kind === "treemap") {
+    const parts = treemapParts(spec);
+    const total = parts.reduce((sum, part) => sum + part.value, 0);
+    return { columns: ["Value", "Share"], corner: "Part", rows: parts.map((part) => ({ cells: [format(part.value), share(part.value, total)], label: part.label })) };
+  }
+  if (spec.kind === "sankey") {
+    const names = new Map(spec.nodes.map((node) => [node.id, node.label]));
+    return { columns: ["To", "Value"], corner: "From", rows: sankeyLinks(spec).map((link) => ({ cells: [names.get(link.target) ?? link.target, format(link.value)], label: names.get(link.source) ?? link.source })) };
+  }
+  if (spec.kind === "radar") {
+    return {
+      columns: spec.series.map((shape) => shape.label),
+      corner: "Measure",
+      rows: spec.axes.map((axis, index) => ({
+        cells: spec.series.map((shape) => {
+          const value = radarValue(shape.values, index);
+          return value === null ? "No value" : format(value);
+        }),
+        label: axis.label,
+      })),
     };
   }
   if (spec.kind === "heatmap") {
@@ -172,16 +292,29 @@ export function chartTable(spec: UiChartSpec): { columns: string[]; corner: stri
   // One row per x value, so lines that share a date share a row.
   const xs = [...new Set(series.flatMap((line) => line.points.map((point) => point[0])))];
   xs.sort((a, b) => Number(a) - Number(b));
+  // A mark belongs to no one line, so its value gets its own column.
+  const marks = lineMarks(spec);
+  const markColumn = marks.length ? [""] : [];
   return {
-    columns: series.map((line) => line.label),
+    columns: [...series.map((line) => line.label), ...(marks.length ? ["Marked value"] : [])],
     corner: isTimeFormat(spec.xFormat) ? "Date" : "Point",
-    rows: xs.map((x) => ({
-      cells: series.map((line) => {
-        const point = line.points.find((item) => item[0] === x);
-        return point ? format(point[1]) : "";
-      }),
-      label: typeof x === "string" ? x : formatChartValue(x, spec.xFormat ?? "number"),
-    })),
+    rows: [
+      ...xs.map((x) => ({
+        cells: [
+          ...series.map((line) => {
+            const point = line.points.find((item) => item[0] === x);
+            return point ? format(point[1]) : "";
+          }),
+          ...markColumn,
+        ],
+        label: typeof x === "string" ? x : formatChartValue(x, spec.xFormat ?? "number"),
+      })),
+      // Each mark gets its own row, read with its label, after the line's points.
+      ...marks.map((mark) => ({
+        cells: [...series.map(() => ""), format(mark.y)],
+        label: `${mark.label}, ${formatChartValue(mark.x, spec.xFormat ?? "number")}`,
+      })),
+    ],
   };
 }
 
@@ -252,6 +385,8 @@ const axisLabel = { color: ink.muted, fontSize: 12, hideOverlap: true, padding: 
 // Every label says where it is: a zoomed-in axis shows "May 25", not a bare "25".
 const timeLabels = { day: "{MMM} {d}", hour: "{HH}:{mm}", millisecond: "{HH}:{mm}", minute: "{HH}:{mm}", month: "{MMM}", second: "{HH}:{mm}:{ss}", year: "{yyyy}" };
 const splitLine = { lineStyle: { color: ink.grid } };
+// Text drawn over colored shapes: the page color outlines it, so it reads on any data color in both themes.
+const onShape = { color: ink.text, textBorderColor: ink.page, textBorderWidth: 3 };
 const axisLine = { lineStyle: { color: ink.axis } };
 
 /** Turns data into a complete ECharts option in the site style. The server and the browser call it with the same data. */
@@ -260,7 +395,7 @@ export function chartOption(spec: UiChartSpec): EChartsCoreOption {
   const base = {
     animation: false,
     // Small charts carry a data table instead; see chartTable.
-    aria: { enabled: !hasChartTable(spec), label: { description: spec.caption ? `${spec.title}. ${spec.caption}` : spec.title } },
+    aria: { enabled: !hasChartTable(spec), label: { description: [spec.title, spec.caption, ...chartMarksText(spec)].filter(Boolean).join(". ") } },
     color: [...seriesInk],
     legend: { show: false },
     textStyle: { color: ink.text, fontFamily: "var(--font-mono)", fontSize: 12 },
@@ -283,6 +418,7 @@ export function chartOption(spec: UiChartSpec): EChartsCoreOption {
     const ranged = rangedSeries(spec);
     const { first, last } = ranged ? xBounds(ranged) : { first: 0, last: 0 };
     const withRange = ranged !== null;
+    const marks = lineMarks(spec);
     return {
       ...base,
       dataZoom: withRange
@@ -307,28 +443,44 @@ export function chartOption(spec: UiChartSpec): EChartsCoreOption {
           ]
         : undefined,
       grid: { bottom: withRange ? 52 : 16, left: 12, right: 16, top: 16 },
-      series: spec.series.map((line, index) => ({
-        areaStyle: spec.kind === "line" ? undefined : { color: seriesColor(index), opacity: spec.kind === "stacked-area" ? 0.32 : 0.14 },
-        color: seriesColor(index),
-        // A labeled axis places values by position, so a repeated label keeps its own point.
-        data: labels ? line.points.map((point) => point[1]) : line.points,
-        emphasis: { disabled: true },
-        id: line.id,
-        itemStyle: { borderColor: ink.page, borderWidth: 2, color: seriesColor(index) },
-        lineStyle: { color: seriesColor(index), width: 2 },
-        name: line.label,
-        sampling: "lttb",
-        showSymbol: false,
-        stack: spec.kind === "stacked-area" ? "total" : undefined,
-        symbol: "circle",
-        symbolSize: 8,
-        type: "line",
-      })),
+      series: [
+        ...spec.series.map((line, index) => ({
+          areaStyle: spec.kind === "line" ? undefined : { color: seriesColor(index), opacity: spec.kind === "stacked-area" ? 0.32 : 0.14 },
+          color: seriesColor(index),
+          // A labeled axis places values by position, so a repeated label keeps its own point.
+          data: labels ? line.points.map((point) => point[1]) : line.points,
+          emphasis: { disabled: true },
+          id: line.id,
+          itemStyle: { borderColor: ink.page, borderWidth: 2, color: seriesColor(index) },
+          lineStyle: { color: seriesColor(index), width: 2 },
+          name: line.label,
+          sampling: "lttb",
+          showSymbol: false,
+          stack: spec.kind === "stacked-area" ? "total" : undefined,
+          symbol: "circle",
+          symbolSize: 8,
+          type: "line",
+        })),
+        // Marks sit on top of the lines as outlined dots, each named by its label.
+        ...(marks.length ? [{
+          data: marks.map((mark) => ({ name: mark.label, value: [mark.x, mark.y] })),
+          emphasis: { disabled: true },
+          id: "marks",
+          itemStyle: { borderColor: ink.page, borderWidth: 2, color: ink.text },
+          label: { ...onShape, formatter: "{b}", position: "top", show: true },
+          name: "Marks",
+          symbolSize: 11,
+          type: "scatter",
+          z: 3,
+        }] : []),
+      ],
       tooltip: {
         ...base.tooltip,
         axisPointer: { lineStyle: { color: ink.axis, width: 1 }, type: "line" },
         formatter: (params: unknown) => {
-          const list = asParams(params);
+          // The marks repeat a line's own value, so the tooltip lists the lines only.
+          const list = asParams(params).filter((item) => item.seriesIndex < spec.series.length);
+          if (!list.length) return "";
           const x = list[0]?.axisValue ?? (list[0]?.value as number[])[0];
           // A labeled axis holds plain values; numeric and time axes hold [x, y] pairs.
           const y = (item: TooltipParam) => (labels ? Number(item.value) : (item.value as number[])[1]);
@@ -441,6 +593,185 @@ export function chartOption(spec: UiChartSpec): EChartsCoreOption {
       },
       xAxis: { axisLabel: { ...axisLabel, formatter: xFormat }, axisLine, name: spec.xName, nameGap: 28, nameLocation: "middle", nameTextStyle: { color: ink.muted }, splitLine, type: "value" },
       yAxis: { axisLabel: { ...axisLabel, formatter: format }, name: spec.yName, nameTextStyle: { align: "left", color: ink.muted }, splitLine, type: "value" },
+    };
+  }
+
+  if (spec.kind === "funnel") {
+    const stages = funnelStages(spec);
+    const first = stages[0]?.value ?? 0;
+    const max = Math.max(0, ...stages.map((stage) => stage.value));
+    return {
+      ...base,
+      series: [{
+        bottom: 8,
+        data: stages.map((stage, index) => ({ itemStyle: { color: seriesColor(index) }, name: stage.label, value: stage.value })),
+        emphasis: { disabled: true },
+        gap: 3,
+        itemStyle: { borderWidth: 0 },
+        // Labels sit beside the funnel in plain text, so they read in both themes without an outline.
+        // The value goes under the name, and long names wrap, so labels fit beside the funnel on phones.
+        label: { color: ink.text, formatter: (item: { name: string; value: number }) => `${item.name}\n${format(item.value)}`, lineHeight: 18, overflow: "break", position: "right", width: 128 },
+        labelLine: { length: 12, lineStyle: { color: ink.axis } },
+        left: 8,
+        max,
+        min: 0,
+        minSize: "8%",
+        name: spec.title,
+        sort: "none",
+        width: "50%",
+        top: 8,
+        type: "funnel",
+      }],
+      tooltip: {
+        ...base.tooltip,
+        formatter: (params: unknown) => {
+          const [item] = asParams(params);
+          const previous = stages[item.dataIndex - 1]?.value;
+          const rows = [{ color: item.dataIndex, label: "Value", value: format(item.value as number) }, { color: item.dataIndex, label: "Of first stage", value: share(item.value as number, first) }];
+          if (previous !== undefined) rows.push({ color: item.dataIndex, label: "Of previous stage", value: share(item.value as number, previous) });
+          return tooltipHtml(item.name, rows);
+        },
+        trigger: "item",
+      },
+    };
+  }
+
+  if (spec.kind === "gauge") {
+    // A broken scale draws nothing rather than progress that means nothing.
+    if (!hasGaugeScale(spec)) return base;
+    const min = spec.min ?? 0;
+    return {
+      ...base,
+      series: [{
+        axisLabel: { show: false },
+        axisLine: { lineStyle: { color: [[1, ink.grid]], width: 16 } },
+        axisTick: { show: false },
+        center: ["50%", "62%"],
+        data: [{ name: spec.label, value: Math.min(spec.max, Math.max(min, spec.value)) }],
+        detail: { color: ink.text, fontFamily: "var(--font-mono)", fontSize: 28, fontWeight: 600, formatter: () => format(spec.value), offsetCenter: [0, "-8%"] },
+        emphasis: { disabled: true },
+        endAngle: -20,
+        max: spec.max,
+        min,
+        name: spec.title,
+        pointer: { show: false },
+        progress: { itemStyle: { color: seriesColor(0) }, show: true, width: 16 },
+        radius: "92%",
+        splitLine: { show: false },
+        startAngle: 200,
+        title: { color: ink.muted, fontSize: 12, offsetCenter: [0, "22%"] },
+        type: "gauge",
+      }],
+      tooltip: { show: false },
+    };
+  }
+
+  if (spec.kind === "treemap") {
+    const parts = treemapParts(spec);
+    const total = parts.reduce((sum, part) => sum + part.value, 0);
+    return {
+      ...base,
+      series: [{
+        breadcrumb: { show: false },
+        // ECharts puts a root node first, so each part carries its own color index for the tooltip.
+        data: parts.map((part, index) => ({ colorIndex: index, itemStyle: { color: seriesColor(index) }, name: part.label, value: part.value })),
+        emphasis: { disabled: true },
+        height: "100%",
+        itemStyle: { borderColor: ink.page, borderWidth: 2, gapWidth: 2 },
+        label: { ...onShape, formatter: (item: { name: string; value: number }) => `${item.name}\n${format(item.value)}`, position: "insideTopLeft" },
+        left: 0,
+        name: spec.title,
+        nodeClick: false,
+        roam: false,
+        top: 0,
+        type: "treemap",
+        width: "100%",
+      }],
+      tooltip: {
+        ...base.tooltip,
+        formatter: (params: unknown) => {
+          const [item] = asParams(params);
+          const colorIndex = (item.data as { colorIndex?: number } | undefined)?.colorIndex ?? 0;
+          return tooltipHtml(spec.title, [{ color: colorIndex, label: item.name, value: `${format(item.value as number)} (${share(item.value as number, total)})` }]);
+        },
+        trigger: "item",
+      },
+    };
+  }
+
+  if (spec.kind === "sankey") {
+    // Nodes are keyed by id, so two nodes may share a label.
+    const names = new Map(spec.nodes.map((node) => [node.id, node.label]));
+    const nameOf = (id: string) => names.get(id) ?? id;
+    return {
+      ...base,
+      series: [{
+        bottom: 8,
+        data: spec.nodes.map((node, index) => ({ itemStyle: { color: seriesColor(index) }, name: node.id })),
+        draggable: false,
+        emphasis: { disabled: true },
+        label: { color: ink.text, formatter: (item: { name: string }) => nameOf(item.name) },
+        left: 8,
+        lineStyle: { color: "source", opacity: 0.32 },
+        links: sankeyLinks(spec).map((link) => ({ source: link.source, target: link.target, value: link.value })),
+        nodeGap: 12,
+        nodeWidth: 12,
+        right: 96,
+        top: 8,
+        type: "sankey",
+      }],
+      tooltip: {
+        ...base.tooltip,
+        formatter: (params: unknown) => {
+          const item = asParams(params)[0] as TooltipParam & { dataType?: string; data: { source?: string; target?: string; value?: number } };
+          if (item.dataType === "edge") return tooltipHtml(`${nameOf(item.data.source ?? "")} to ${nameOf(item.data.target ?? "")}`, [{ color: 0, label: "Value", value: format(item.data.value ?? 0) }]);
+          return tooltipHtml(nameOf(item.name), [{ color: item.dataIndex, label: "Value", value: format(item.value as number) }]);
+        },
+        trigger: "item",
+      },
+    };
+  }
+
+  if (spec.kind === "radar") {
+    if (!spec.axes.length) return base;
+    return {
+      ...base,
+      radar: {
+        axisLine: axisLine,
+        axisName: { color: ink.muted, fontSize: 12 },
+        indicator: spec.axes.map((axis) => ({ max: axis.max, name: axis.label })),
+        axisNameGap: 8,
+        // Leaves room for axis names beside the shape on a phone-width chart.
+        radius: "52%",
+        splitArea: { show: false },
+        splitLine,
+      },
+      series: [{
+        data: spec.series.map((shape, index) => ({
+          areaStyle: { color: seriesColor(index), opacity: 0.14 },
+          itemStyle: { color: seriesColor(index) },
+          lineStyle: { color: seriesColor(index), width: 2 },
+          name: shape.label,
+          // One value per axis. A missing or broken value draws as a gap, not as zero.
+          value: spec.axes.map((_, axis) => radarValue(shape.values, axis) ?? "-"),
+        })),
+        emphasis: { disabled: true },
+        symbol: "circle",
+        symbolSize: 6,
+        type: "radar",
+      }],
+      tooltip: {
+        ...base.tooltip,
+        formatter: (params: unknown) => {
+          const [item] = asParams(params);
+          const values = spec.series[item.dataIndex]?.values ?? [];
+          return tooltipHtml(item.name, spec.axes.map((axis, index) => {
+            const value = radarValue(values, index);
+            return { color: item.dataIndex, label: axis.label, value: value === null ? "No value" : format(value) };
+          }));
+        },
+        trigger: "item",
+      },
     };
   }
 

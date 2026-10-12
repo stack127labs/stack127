@@ -4,95 +4,135 @@ Route: `/free-trial-conversion-calculator`
 
 Research: [research.md](research.md)
 
+## People and questions
+
+- Most users are: SaaS founders with one trial cohort in a billing dashboard or spreadsheet. They come with two counts: how many started a trial, and how many of them paid. They know offhand whether people enter a card to start.
+- Their top questions:
+  - "What percentage of trial users paid?"
+  - "Is 3 out of 160 bad?"
+  - "How much more MRR would 5% or 10% bring?"
+- Basic answers them with: trial type (`No card`, `Card upfront`, `Free plan`), trial starts, and paid. That's enough for the rate, how sure it is at this sample size, and where it sits next to the one published range that measures the same thing for that trial type.
+- Advanced holds, for growth leads and founders who track more than two counts:
+  - **Follow-up window and cohort age**, because a cohort that hasn't had the full window yet understates its final rate. ChartMogul's rates change after the signup month, and no competitor marks a young cohort. The old tool had both.
+  - **Activated trials**, for growth leads who ask where the funnel loses people. Right Left and Kalkulero both have it, and it splits one rate into two places to work on.
+  - **Revenue**: currency, monthly plan price, annual plan price, and how many paid accounts chose annual. All six competitors model revenue, and "how much MRR" is a top question. The old tool had the monthly and annual split.
+  - **Target conversion**, for "how much more would 10% bring". VentriTools and CalcBee have it. The result adds the extra paid accounts and extra MRR.
+  - **Other cohorts**, up to 12, each with a name, starts, paid, and age. Pros ask whether the rate holds by month, channel, plan, or trial type. The old tool had a cohort list and a combined rate that leaves young cohorts out.
+- Left out:
+  - **Retention, churn, CAC, and LTV.** A first payment isn't a kept customer, and modeling churn here would make one rate look like lifetime value. `/customer-churn-calculator`, `/customer-acquisition-cost-calculator`, and `/customer-lifetime-value-calculator` do those jobs with the inputs they need.
+  - **Visitor-to-trial conversion and ad budget** (Kalkulero). It's a different funnel step with different counts, and it would turn this into a marketing planner.
+  - **A health score or grade.** Niches differ, and the research shows every competitor's grade is unsourced or contradicts its own math.
+  - **Trial length as an input.** It doesn't change the rate. The follow-up window is what changes the answer, and it's in Advanced.
+- Example values it opens with: `No card`, 500 trial starts, 40 paid. That's 8%, between ChartMogul's no-card median (4 to 6%) and top quarter (10 to 15%), so the first comparison doesn't flatter or alarm. Competitors open on similar sizes (500 at Agents for Data and SaaSPriceLab).
+- Published comparison: yes, for all three types. ChartMogul's January 2026 survey gives median and top-quarter bands for no-card trials, card-upfront trials, and free plans with a regular signup, for paid within six months. It's the only source that splits by trial type with a stated window. First Page Sage has no fixed window, Recurly counts subscriptions across consumer sites, and ChartMogul's 3% help-center median has no sample or window, so they go in the article, not the result. The research missed the free plan bands; the writing round found them in the same report and added them. The ranges count paid within six months, so they show only when the follow-up window is 180 to 184 days, or isn't set. With no window, the band labels name the six months, so the reader sees what they measure. Any other window shows no range and says so.
+- Domain limits:
+  - Paid can't exceed trial starts in one cohort. That's an error, never a clamp or a rate above 100%.
+  - Zero starts has no rate. The answer reads `—` with `No trial starts`, not 0%.
+  - A rate under 0.01% shows `Under 0.01%`, not `0%`.
+  - A cohort younger than its window is `Provisional`, with the days left. Its rate can still rise.
+  - A target at or below the current rate adds 0 paid accounts. It never shows a negative.
+
 ## Why people will choose this tool
 
-The searcher wants to know what share of the people who started a free trial, or signed up for a free plan, went on to pay. They also want to know if that number is any good. Usually they're deciding whether to change the trial: card or no card, length, or onboarding.
+The searcher is deciding whether their trial is working, and usually whether to change it: card or no card, onboarding, or pricing. Where the top results fail them:
 
-Where current results fail them (see the research's competitor reviews):
-
-- They take "starts" and "paid" from any period. Nothing ties the paid count to the same start cohort or a fixed follow-up window, so a calendar-month ratio passes as a conversion rate.
-- None of them tells you when a cohort is too young to judge. A recent cohort looks worse than it will end up.
-- Most accept impossible counts. 0 starts with 1 paid gives 100%. 101 paid of 100 gives 101% and a perfect score. Negative starts are accepted.
-- No-card trials, card-upfront trials, and free plans get mixed together or are labeled with bare "opt-in" and "opt-out".
-- Revenue outputs call non-converters "lost revenue", round 0.5 expected customers up to a whole person, or skip annual plan normalization.
-- Benchmarks are unsourced bands or a made-up health score.
+- Most accept impossible counts. 120 paid from 100 starts gives 120% and a "Top 25%" label at Agents for Data, CalcBee, and VentriTools. Kalkulero quietly clamps it. Right Left rejects it but leaves the old result on screen as if it were accepted.
+- They grade one number against unsourced bands, with no trial type or window, and SaaSPriceLab hides its bands behind a paid report.
+- None says how much to trust a rate from 42 trials, which is exactly what r/SaaS commenters argue about.
+- None marks a young cohort, so a recent month looks worse than it will end up.
+- Revenue outputs call MRR × 12 "annual revenue" and don't say it's a run rate.
 
 What this tool does better:
 
-1. It measures one start cohort against itself: starts, and paid within a named window counted from each person's own start.
-2. It shows a visible **Complete** or **Provisional** state from the cohort's age, with the days left.
-3. An optional list of cohorts compares months at the same age. The combined rate uses complete cohorts only.
-4. It has three plain-word models: free trial with no card, free trial with a card upfront, and free plan.
-5. It rejects impossible counts beside the field and never clamps. Zero starts gives "Not available", not 0% or 100%.
-6. Optional new MRR uses one average monthly amount, or monthly and annual plans with annual ÷ 12. It leaves out one-time fees, shows ARR only as a run rate, and never mentions "lost" revenue.
-7. Published figures for the chosen model come with source, date, population, and method. They're directional, with no score or grade, and the page says plainly that indie SaaS figures by model are unknown.
+1. The answer comes with its counts, `40 of 500 trial starts paid`, so you can check you divided the right numbers.
+2. A likely range at your sample size, drawn on the same scale as the published range. 30 of 42 is 71%, but anywhere from about 56% to 83% is plausible.
+3. One dated, named comparison that matches your trial type and window, shown as position only. No grades, no colors that judge.
+4. Impossible counts get a field error, and the last good result steps back instead of pretending.
+5. `Provisional, 18 days left` when the cohort is too young, and a combined rate across cohorts that leaves young ones out.
+6. New MRR and ARR run rate labeled for what they are, with annual plans counted as a twelfth a month.
 
 ## Product
 
 ### Promise and scope
 
-- **User:** an indie hacker or solo SaaS founder with a free trial or free plan, reading counts from Stripe, Paddle, Lemon Squeezy, or their own database.
-- **Job:** find the trial-to-paid (or free-to-paid) rate for one or more start cohorts, know whether each one is old enough to trust, and optionally see the new MRR those customers added.
-- **Answer:** a cohort conversion rate with its window and maturity state. Optionally, a per-cohort table and new MRR with ARR run rate.
-
-In scope:
-
-- Three models: `trialNoCard`, `trialCardRequired`, `freemium`. The math is the same for all three. The model changes the count labels and the published figures shown.
-- One follow-up window in days, shared by every cohort, so cohorts are compared at the same age.
-- 1 to 12 cohorts.
-- New MRR from paid customers, by one average monthly amount or a monthly and annual split.
-- Published figures for the selected model, from the research's dated sources.
-
-Out of scope: forecasts or "what if the rate improves" scenarios, expected-customer estimates, churn, retention, CAC, LTV, cash collected, revenue recognition, activation, funnel attribution, rolling-window rates like Stripe's, CSV import, and saving or sharing state. Link out to `/mrr-calculator`, `/customer-acquisition-cost-calculator`, and `/customer-churn-calculator` for those jobs.
+- **Primary user:** a SaaS founder with counts for one trial cohort.
+- **Main job:** find the share of trial starts that paid, see how sure that is, and see it next to a matching published range.
+- **Delivered answer:** the conversion rate with its counts, a likely range, a 100-unit picture, and, from Advanced, maturity, an activation funnel, new MRR, a target scenario, and a cohort comparison.
+- **Launch scope:** everything in this spec. One calculation runs in the browser. No network, storage, or account.
+- **Exclusions:** see "Left out" above. Also no CSV import, no Stripe connection, no rolling-window rates like Stripe's 30-day metric, and no expected-customer fractions.
 
 ### Technical contract
 
 **Definitions**
 
-- A cohort is a group of accounts that started a trial (or free plan) in one period, such as a calendar month. Each account counts once.
-- Paid means the account's first payment succeeded within the window, counted from that account's own start. A card on file, a pending payment, or a failed first invoice isn't paid. The engine can't check this. It takes the count as given, and the interface and article explain it.
-- The follow-up window `N` is a whole number of days.
-- Cohort age is the number of days from the cohort's newest start to the day the paid count was taken.
+- A cohort is a group of accounts that started a trial, or signed up for a free plan, in one period. Each account counts once.
+- Paid means the account's first payment went through. The engine takes the count as given. The hint and article say a card on file isn't a payment.
+- The follow-up window is the days each account had to pay, counted from its own start.
+- Cohort age is the days from the cohort's last start to the day the paid count was taken.
+- Activated means the start reached the person's own activation event. The funnel is nested: activated includes everyone who paid.
 
-**Formulas**, all exact (bigint fractions, no floats):
+**Inputs, parsing, and bounds**
 
-- Rate = paid ÷ starts × 100.
-- Didn't pay within the window = starts − paid. Never label this "lost".
-- Maturity: `complete` when age ≥ `N`. Otherwise `maturing`, with `daysLeft = N − age`.
-- Combined rate, with one or more cohorts:
-  - If the complete cohorts have more than 0 starts in total, use only complete cohorts: `basis: "complete"`, `status: "complete"`.
-  - Otherwise use every cohort: `basis: "all"`. The status is `provisional` if any cohort is maturing, else `complete`.
-  - Combined rate = Σ paid ÷ Σ starts over the basis cohorts. It is not an average of the cohort rates.
-  - If Σ starts is 0, the rate is `notAvailable`.
-- New MRR, when on. "Paid customers" means Σ paid across **all** listed cohorts, maturing ones included, because those payments already happened.
-  - `average`: MRR = paid customers × average monthly amount.
-  - `split`: monthly-plan customers + annual-plan customers must equal paid customers. MRR = monthly customers × average monthly price + annual customers × average annual price ÷ 12.
-  - ARR run rate = exact MRR × 12. Compute it from the exact MRR, not the rounded one.
+Every value arrives as a string from a text field. Strict parsing, as in the sibling SaaS engines: no signs, commas, spaces inside, exponents, or currency symbols. Leading and trailing spaces are trimmed.
 
-**Rounding**
+| Field | Parser | Range | Empty means |
+| --- | --- | --- | --- |
+| `trialType` | one of `noCard`, `cardUpfront`, `freePlan` | | error |
+| `starts`, `paid` | `parseWholeNumber` | 0 to 10,000,000 | error |
+| `windowDays` | `parseWholeNumber` | 1 to 730 | no window: maturity unknown |
+| `ageDays` | `parseWholeNumber` | 0 to 3,650 | maturity unknown |
+| `activated` | `parseWholeNumber` | 0 to 10,000,000 | no funnel |
+| `targetRate` | `parsePercentHundredths` | 0.01 to 100 | no target |
+| `currency` | `isSaasEconomicsCurrency` | `USD`, `EUR`, `GBP`, `INR`, `CAD`, `AUD` | `USD` |
+| `monthlyPrice`, `annualPrice` | `parseMoneyCents` | 0 to `SAAS_ECONOMICS_MAX_MONEY_CENTS` | not used |
+| `annualAccounts` | `parseWholeNumber` | 0 to 10,000,000 | see revenue rules |
+| cohort `name` | `parseOptionalLabel` | up to 40 characters | `Cohort 2`, `Cohort 3`, by list position + 1 |
+| cohort `starts`, `paid` | `parseWholeNumber` | 0 to 10,000,000 | error, unless the whole row is blank |
+| cohort `ageDays` | `parseWholeNumber` | 0 to 3,650 | maturity unknown |
+| `cohorts` | array | up to 12 rows | no comparison |
 
-- Rates go to hundredths of a percent, half away from zero, through `roundExact` (`lib/saas-economics/unit-economics.ts`). Return `isRounded`. Return `roundedToZero` when paid > 0 but the rounded value is 0. The interface then shows `Under 0.01%`.
-- Money is in cents, half away from zero, with `isRounded`.
-- Counts are whole numbers and never rounded. The tool takes no fractional people and makes no expected-customer estimates.
+A cohort row with every field blank is ignored. It isn't an error.
 
-**Units and bounds**
+**Formulas.** Exact bigint fractions through `lib/saas-economics/unit-economics.ts`, except the likely range.
 
-| Field | Parse | Range |
-| --- | --- | --- |
-| Starts, paid, monthly and annual customers | `parseWholeNumber` | 0 to 10,000,000 |
-| Window | `parseWholeNumber` | 1 to 730 days |
-| Cohort age | `parseWholeNumber` | 0 to 3,650 days |
-| Money | `parseMoneyCents` | 0 to `SAAS_ECONOMICS_MAX_MONEY_CENTS` (1,000,000,000.00) |
-| Cohort name | `parseOptionalLabel` | up to 40 characters, blank allowed |
-| Currency | `isSaasEconomicsCurrency` | the listed currencies |
+- Rate = paid ÷ starts × 100. Rounded to hundredths of a percent, half away from zero. `roundedToZero` when paid > 0 and the rounded value is 0.
+- Not paid = starts − paid.
+- Trials per paying customer = starts ÷ paid, rounded to tenths. None when paid is 0.
+- Likely range: the 95% Wilson score interval, z = 1.96, in floating point. Low rounds down and high rounds up to hundredths of a percent, so the range always contains the true interval. None when starts is 0.
+  - `p = paid / starts`, `n = starts`, `d = 1 + z²/n`, `c = p + z²/(2n)`, `s = z × √(p(1 − p)/n + z²/(4n²))`, low = (c − s) / d, high = (c + s) / d.
+- Maturity, when both window and age are set: `complete` when age ≥ window, otherwise `provisional` with `daysLeft = window − age`. Otherwise `unknown`.
+- Activation, when `activated` is set: activation rate = activated ÷ starts. Activated to paid = paid ÷ activated. Each is a rate as above, or none when its denominator is 0.
+- Revenue, when either price is set. The per-account monthly amount:
+  - Monthly price only: every paid account at the monthly price.
+  - Annual price only: every paid account at annual price ÷ 12.
+  - Both: `annualAccounts` on annual price ÷ 12, the rest on the monthly price.
+  - New MRR = the sum, exact, then rounded to cents half away from zero. ARR run rate = exact MRR × 12, rounded to cents. Never round MRR first.
+- Target, when `targetRate` is set:
+  - Paid at target = ceil(target ÷ 100 × starts). Whole accounts, rounded up, because reaching the target takes a whole extra account. 9 of 99 is 9.09%, and 10% needs 10 paid, so 1 extra.
+  - Extra paid = max(0, paid at target − paid).
+  - Extra MRR, when revenue is set = extra paid × MRR per paid account, rounded to cents. MRR per paid account = exact MRR ÷ paid when paid > 0. When paid is 0, it's the monthly price if set, else annual price ÷ 12.
+- Cohorts, when at least one row is filled. The Basic cohort is index 0, named `This cohort`. Each row gets its own rate, maturity (the shared window with its own age), and likely range.
+  - Combined: if the non-provisional cohorts have more than 0 starts in total, use only those: `basis: "settled"`. Otherwise use all: `basis: "all"`.
+  - Combined rate = Σ paid ÷ Σ starts over the basis cohorts. It is not an average of the row rates.
+  - `status` is `provisional` if any basis cohort is provisional, else `complete` if every basis cohort is complete, else `unknown`.
 
-Strict text: no signs, commas, spaces inside, exponents, or currency symbols. This matches the sibling engines.
+**Invalid, unknown, and partial results**
 
-**Privacy and security:** the tool runs only in the browser. No network calls, no storage, and no URL state, because these are private business numbers. Labels render as text, never HTML.
+- Basic errors (trial type, starts, paid, paid > starts) make the whole calculation invalid. No values come back.
+- Advanced errors hide only the part they feed. The calculation stays valid, that part is `null`, and its errors come back alongside:
+  - Window or age error: `maturity` is `unknown`, and cohort maturities are `unknown`.
+  - Activated error: `activation` is `null`.
+  - Revenue error: `revenue` is `null`, and `target.extraMrrCents` is `null`.
+  - Target error: `target` is `null`.
+  - Any cohort row error: `cohorts` is `null`.
+- An age, on the Basic cohort or any row, with no window is an error on `windowDays`.
+- A window alone is valid. It names the window in the result, and maturity stays `unknown`.
+
+**Privacy and security:** the calculation runs in the browser. No network calls and no storage. The URL holds inputs only after the person presses `Copy link`. Cohort names render as text, never HTML.
 
 ### Backend contract
 
-Same runtime rules as the other SaaS economics engines: strip-types safe, no enums or namespaces, explicit `.ts` imports, and no DOM, network, time, or randomness. Reuse `lib/saas-economics/shared.ts` (`parseWholeNumber`, `parseMoneyCents`, `parseOptionalLabel`, `isSaasEconomicsCurrency`, `SAAS_ECONOMICS_MAX_MONEY_CENTS`) and `lib/saas-economics/unit-economics.ts` (`exactFraction`, `addExact`, `multiplyExact`, `divideExact`, `roundExact`, `isWholeAtScale`) unchanged. No API route, script, dataset, or migration.
+Same runtime rules as the other SaaS engines: strip-types safe, no enums or namespaces, explicit `.ts` imports, and no DOM, network, time, or randomness. Reuse `lib/saas-economics/shared.ts` and `lib/saas-economics/unit-economics.ts` unchanged. No API route, script, dataset, or migration.
 
 #### `lib/free-trial-conversion-calculator/engine.ts`
 
@@ -100,215 +140,272 @@ Same runtime rules as the other SaaS economics engines: strip-types safe, no enu
 import { type SaasEconomicsCurrency } from "../saas-economics/shared.ts";
 import { type ExactFraction } from "../saas-economics/unit-economics.ts";
 
-export const TRIAL_MODELS = ["trialNoCard", "trialCardRequired", "freemium"] as const;
-export type TrialModel = (typeof TRIAL_MODELS)[number];
-export const TRIAL_MRR_METHODS = ["average", "split"] as const;
-export type TrialMrrMethod = (typeof TRIAL_MRR_METHODS)[number];
+export const TRIAL_TYPES = ["noCard", "cardUpfront", "freePlan"] as const;
+export type TrialType = (typeof TRIAL_TYPES)[number];
 export const TRIAL_MAX_COHORTS = 12;
 
-export type TrialCohortInput = { label: string; starts: string; paid: string; ageDays: string };
-export type TrialCohortField = keyof TrialCohortInput;
-export type FreeTrialConversionInput = {
-  model: string;
+export type TrialCohortRowInput = { id: string; name: string; starts: string; paid: string; ageDays: string };
+export type FreeTrialInput = {
+  trialType: string;
+  starts: string;
+  paid: string;
   windowDays: string;
-  cohorts: TrialCohortInput[];
-  includeMrr: boolean;
-  currency: string;          // ignored when includeMrr is false
-  mrrMethod: string;         // ignored when includeMrr is false
-  averageMonthly: string;    // used by "average"
-  monthlyCustomers: string;  // used by "split"
+  ageDays: string;
+  activated: string;
+  targetRate: string;
+  currency: string;
   monthlyPrice: string;
-  annualCustomers: string;
   annualPrice: string;
+  annualAccounts: string;
+  cohorts: TrialCohortRowInput[];
 };
 
-export type TrialFieldKey =
-  | "form" | "model" | "windowDays" | "cohorts"
-  | `cohorts.${number}.${TrialCohortField}`
-  | "currency" | "mrrMethod" | "averageMonthly"
-  | "monthlyCustomers" | "monthlyPrice" | "annualCustomers" | "annualPrice";
+/** The example the tool opens with and Reset returns to. */
+export const FREE_TRIAL_EXAMPLE_INPUT: FreeTrialInput; // noCard, 500, 40, every other field "", currency "USD", cohorts []
 
-export type TrialConversionRate =
-  | { kind: "finite"; hundredths: bigint; exact: ExactFraction; isRounded: boolean; roundedToZero: boolean }
-  | { kind: "notAvailable"; reason: "noStarts" };
-// hundredths = percent × 100. 1322n means 13.22%. exact is the percent as a fraction.
+export type TrialFieldKey =
+  | "form" | "trialType" | "starts" | "paid"
+  | "windowDays" | "ageDays" | "activated" | "targetRate"
+  | "currency" | "monthlyPrice" | "annualPrice" | "annualAccounts"
+  | "cohorts" | `cohorts.${number}.${"name" | "starts" | "paid" | "ageDays"}`;
+// Row keys use the row's position in the input array, blank rows included.
+
+export type TrialRate =
+  | { kind: "rate"; hundredths: bigint; exact: ExactFraction; isRounded: boolean; roundedToZero: boolean }
+  | { kind: "none" };
+// hundredths = percent × 100. 800n is 8%.
+
+export type TrialLikelyRange = { lowHundredths: bigint; highHundredths: bigint } | null;
 
 export type TrialMaturity =
   | { status: "complete" }
-  | { status: "maturing"; daysLeft: bigint };
+  | { status: "provisional"; daysLeft: bigint }
+  | { status: "unknown" };
 
 export type TrialCohortResult = {
-  index: number;             // position in the input
-  label: string;             // trimmed; "" when blank. The UI shows "Cohort 1" etc.
+  inputIndex: number | null; // null for the Basic cohort, else the row's index in input.cohorts
+  name: string;              // "This cohort", the trimmed name, or "Cohort N"
   starts: bigint;
   paid: bigint;
-  notPaid: bigint;           // starts - paid
-  ageDays: bigint;
-  rate: TrialConversionRate;
+  rate: TrialRate;
+  likely: TrialLikelyRange;
   maturity: TrialMaturity;
 };
 
-export type TrialCombined = {
-  basis: "complete" | "all";
-  status: "complete" | "provisional";
-  includedIndexes: number[]; // cohorts in the basis, in input order
-  excludedMaturing: number;  // maturing cohorts left out (0 when basis is "all")
-  starts: bigint;            // over the basis
+export type FreeTrialValues = {
+  trialType: TrialType;
+  starts: bigint;
   paid: bigint;
   notPaid: bigint;
-  rate: TrialConversionRate;
+  rate: TrialRate;
+  likely: TrialLikelyRange;
+  trialsPerPaidTenths: bigint | null;
+  windowDays: bigint | null;
+  maturity: TrialMaturity;
+  activation: { activated: bigint; activationRate: TrialRate; activatedToPaid: TrialRate } | null;
+  revenue: {
+    currency: SaasEconomicsCurrency;
+    monthlyAccounts: bigint;
+    annualAccounts: bigint;
+    mrrCents: bigint;
+    mrrIsRounded: boolean;
+    arrRunRateCents: bigint;
+  } | null;
+  target: {
+    hundredths: bigint;
+    paidAtTarget: bigint;
+    extraPaid: bigint;
+    extraMrrCents: bigint | null; // null when revenue isn't set or has an error
+  } | null;
+  cohorts: {
+    rows: TrialCohortResult[]; // Basic cohort first, then filled rows in input order
+    combined: {
+      basis: "settled" | "all";
+      status: "complete" | "provisional" | "unknown";
+      leftOut: number;          // provisional cohorts left out (0 when basis is "all")
+      starts: bigint;
+      paid: bigint;
+      rate: TrialRate;
+    };
+  } | null;
 };
 
-export type TrialNewMrr = {
-  currency: SaasEconomicsCurrency;
-  method: TrialMrrMethod;
-  paidCustomers: bigint;               // across all cohorts
-  averageMonthlyCents: bigint | null;  // "average" only
-  monthlyPlan: { customers: bigint; priceCents: bigint; mrrCents: bigint } | null; // "split" only, exact
-  annualPlan: { customers: bigint; annualPriceCents: bigint; mrrCents: bigint; isRounded: boolean } | null; // "split" only, ÷12 rounded
-  mrrCents: bigint;                    // rounded from the exact total
-  mrrIsRounded: boolean;
-  runRateArrCents: bigint;             // exact MRR × 12, rounded (always whole in practice)
-};
+export type FreeTrialErrors = Partial<Record<TrialFieldKey, string>>;
 
-export type FreeTrialConversionValues = {
-  model: TrialModel;
-  windowDays: bigint;
-  cohorts: TrialCohortResult[];
-  combined: TrialCombined;
-  newMrr: TrialNewMrr | null;
-};
+export type FreeTrialCalculation =
+  | { status: "valid"; values: FreeTrialValues; errors: FreeTrialErrors } // errors only for Advanced parts
+  | { status: "invalid"; values: null; errors: FreeTrialErrors };
 
-export type FreeTrialConversionErrors = Partial<Record<TrialFieldKey, string>>;
+export function calculateFreeTrialConversion(input: unknown): FreeTrialCalculation;
 
-export type FreeTrialConversionCalculation =
-  | { status: "valid"; values: FreeTrialConversionValues; errors: Record<string, never> }
-  | { status: "invalid"; values: null; errors: FreeTrialConversionErrors };
-
-export function calculateFreeTrialConversion(input: unknown): FreeTrialConversionCalculation;
+/** Share link values. Empty fields stay out. */
+export function freeTrialShareParams(input: FreeTrialInput): Record<string, string>;
+/** Rebuilds the input from a shared link. Missing keys fall back to the example for Basic fields and "" for the rest. Bad values pass through as text, so the engine reports them as field errors. */
+export function freeTrialInputFromQuery(get: (key: string) => string): FreeTrialInput;
 ```
 
-The engine collects every error in one pass and never throws for user input. A non-object input, a non-array `cohorts`, a non-object cohort, or a non-boolean `includeMrr` gives `errors.form`. MRR fields are checked only when `includeMrr` is true, and only the active method's fields.
+The engine collects every error in one pass and never throws for user input. A non-object input or a non-array `cohorts` gives `errors.form` and `status: "invalid"`.
 
-Error messages. The engine owns these strings, and the writing pass may reword them:
+Share link keys: `type`, `starts`, `paid`, `window`, `age`, `activated`, `target`, `currency`, `monthly`, `annual`, `annualPaid`, and `cohorts`. `cohorts` holds the filled rows as `name~starts~paid~age`, joined by `|`. `~` and `|` are removed from names. `currency` goes in only when a price is set. More than 12 rows in a link keeps the first 12. Row IDs are made fresh on read, such as `shared-0`.
+
+Error messages. The engine owns these, and the writing pass may reword them:
 
 | Case | Key | Message |
 | --- | --- | --- |
 | Bad payload | `form` | `Something in the form is out of date. Reset and try again.` |
-| Unknown model | `model` | `Choose one of the listed options.` |
-| Window blank | `windowDays` | `Enter the follow-up window in days.` |
+| Unknown trial type, currency | that key | `Choose one of the listed options.` |
+| Starts or paid blank | the field | `Enter a count. Use 0 if there were none.` |
+| Any count starts with `-` | the field | `Counts can't be negative.` |
+| Any count in another bad format, such as `2.5`, `1,180`, `1e3` | the field | `Use a whole number with no commas or decimals.` |
+| Any count above 10,000,000 | the field | `Enter a number up to 10,000,000.` |
+| Paid > starts | `paid` | `Paid can't be more than trial starts. Count only accounts from this cohort.` |
 | Window bad or out of range | `windowDays` | `Enter whole days from 1 to 730.` |
-| 0 cohorts | `cohorts` | `Add at least one cohort.` |
-| More than 12 cohorts | `cohorts` | `Use up to 12 cohorts.` |
-| Count starts with `-` | the field | `Counts can't be negative.` |
-| Count blank | the field | `Enter a count. Use 0 if there were none.` |
-| Count other bad format, such as `2.5`, `1,180`, `1e3` | the field | `Use a whole number with no commas or decimals.` |
-| Count above 10,000,000 | the field | `Enter a number up to 10,000,000.` |
-| Paid > starts | `cohorts.i.paid` | `Paid can't be more than starts. Count only accounts from this cohort.` |
-| Age blank | `cohorts.i.ageDays` | `Enter the days since the newest start.` |
-| Age bad or out of range | `cohorts.i.ageDays` | `Enter whole days from 0 to 3,650.` |
-| Label too long or has control characters | `cohorts.i.label` | `Use a name up to 40 characters on one line.` |
-| Unknown currency or method | that key | `Choose one of the listed options.` |
-| Money blank | the field | `Enter an amount.` |
+| Age, here or in any row, with no window | `windowDays` | `Enter the follow-up window to compare cohort age against.` |
+| Age bad or out of range | the field | `Enter whole days from 0 to 3,650.` |
+| Activated > starts | `activated` | `Activated can't be more than trial starts.` |
+| Paid > activated | `activated` | `Activated must include everyone who paid, so it can't be less than <paid>.` |
+| Target bad or out of range | `targetRate` | `Enter a rate from 0.01 to 100%.` |
 | Money bad format | the field | `Use digits with up to two decimals. No signs, commas, or currency symbols.` |
 | Money above max | the field | `Enter an amount up to 1,000,000,000.00.` |
-| Split doesn't add up | `monthlyCustomers` | `Monthly and annual customers must add up to <paid>, the paid customers above.` For example, `…add up to 156, the paid customers above.` Only when every count parsed. |
-
-Negative numbers get their own message because the research shows competitors accepting them. Zero starts with zero paid is valid and gives `notAvailable`. Zero starts with paid > 0 is the "paid > starts" error.
-
-#### Published figures
-
-No engine involvement. The frontend keeps them as a typed constant in the route folder (see Ownership), copied from the research's benchmark table. They're display content, not calculation.
+| `annualAccounts` set without both prices | `annualAccounts` | `Enter a monthly and an annual price to split paid accounts by plan.` |
+| Both prices set, `annualAccounts` blank | `annualAccounts` | `Enter how many paid accounts are on annual plans.` |
+| `annualAccounts` > paid | `annualAccounts` | `Annual accounts can't be more than <paid>, the paid count.` |
+| Row with starts or paid blank, other fields filled | the field | `Enter a count. Use 0 if there were none.` |
+| Row paid > row starts | `cohorts.i.paid` | `Paid can't be more than starts in this cohort.` |
+| Row name too long or has control characters | `cohorts.i.name` | `Use a name up to 40 characters on one line.` |
+| More than 12 rows | `cohorts` | `Use up to 12 other cohorts.` |
 
 ### Known examples
 
-Calculated by hand. Use `trialNoCard` with MRR off unless stated.
+Calculated by hand. `noCard`, Advanced empty, unless stated. Likely ranges were checked with the Wilson formula above.
 
 | Inputs | Expected |
 | --- | --- |
-| Window `30`. One cohort: starts `1180`, paid `156`, age `45` | Rate `1322n` (13.2203…%), `isRounded: true`. `notPaid: 1024n`. Maturity `complete`. Combined: the same rate, `basis: "complete"`, `status: "complete"`. (Calclet's 13.22%.) |
-| As above, MRR on, USD, `average`, `49` | Paid customers `156n`. MRR `764400n` ($7,644.00), not rounded. ARR run rate `9172800n` ($91,728.00). |
-| Window `30`. One cohort: starts `100`, paid `20`, age `30` | `2000n` (20.00%). Age = window gives `complete`. The article contrasts this with the 6% calendar-month ratio (6 of the 100 paid in August). The tool doesn't compute that ratio. |
-| Window `14`. One cohort: starts `200`, paid `30`, age `10` | `1500n`. Maturity `maturing`, `daysLeft: 4n`. Combined `basis: "all"`, `status: "provisional"`. |
-| Window `30`. Cohorts: Jul `400`/`60`/age `75`; Aug `500`/`70`/age `45`; Sep `450`/`30`/age `10` | Rows: `1500n`; `1400n`; `667n` (6.6667%) `maturing`, `daysLeft: 20n`. Combined: `basis: "complete"`, `includedIndexes: [0, 1]`, `excludedMaturing: 1`, 130 ÷ 900 gives `1444n` (14.444…%). Not the mean of the row rates (14.50%). |
-| Same three cohorts, MRR on, `average`, `20` | Paid customers `160n` (Sep included). MRR `320000n`. |
-| Window `30`. Cohorts `100`/`5`/age `5` and `200`/`10`/age `12` | Rows `500n`, `500n`, both maturing. Combined `basis: "all"`, `provisional`, `500n` (5.00%) from 15 ÷ 300. Corrected by coordinator after the backend check. |
-| Window `30`. Cohorts `0`/`0`/age `40` and `100`/`10`/age `5` | Row 1 `notAvailable`, `complete`. The complete starts total is 0, so the basis is `all`: `provisional`, 10 ÷ 100 gives `1000n`. |
-| One cohort `0`/`0`/age `40` | Valid. Rate `notAvailable`, shown as `Not available`. Combined `notAvailable`. |
-| One cohort `3`/`1` and `3`/`2` (separate runs), age ≥ window | `3333n` and `6667n`, both `isRounded: true`. |
-| One cohort `1`/`1` | `10000n` (100.00%), not rounded. |
-| One cohort `2000000`/`1` | `0n`, `roundedToZero: true` (exact 0.00005%). Shown as `Under 0.01%`. |
-| Paid `4` total. MRR `split`: monthly `3` at `10`, annual `1` at `100` | Monthly plan `3000n`. Annual plan `833n` (exact 833.33…), `isRounded: true`. MRR `3833n` ($38.33), `mrrIsRounded: true`. ARR run rate `46000n` ($460.00), from the exact MRR. Rounding first would give $459.96. |
-| Paid `156`. MRR `split`: monthly `100`, annual `50` | Error on `monthlyCustomers`: `…must add up to 156…`. |
-| Paid `0`. MRR `average` `49` | MRR `0n`, valid. |
-| `freemium`. Window `180`. One cohort `5000`/`150`/age `200` | `300n` (3.00%), `complete`. Same math and only the model differs. |
-| Maximums: starts `10000000`, paid `10000000`, window `730`, age `3650`; MRR `average` `1000000000` | `10000n`. MRR `1000000000000000000n` cents ($10,000,000,000,000,000.00). ARR run rate twelve times that. No overflow, because everything is bigint. |
-| Invalid: starts `100`, paid `101` | Error on `cohorts.0.paid`. No values. (Agents for Data and Technotize case.) |
-| Invalid: starts `0`, paid `1` | Error on `cohorts.0.paid`. (Calclet's 100% case.) |
-| Invalid: starts `-5` | `Counts can't be negative.` (VentriTools case.) |
-| Invalid: starts `2.5`, `1,180`, `1e3`, blank; window `0`, `731`, blank; age blank, `-1`; label of 41 characters; 0 cohorts; 13 cohorts; model `optIn`; MRR on with currency `JPY`, method `blend`, average `$49`, or annual price `-1` | A field-specific error for each, under the keys above. `status: "invalid"`. Several errors in one input all come back together. |
-| MRR off, with every MRR field blank or garbage | Valid. MRR fields aren't checked. |
+| The example: 500 starts, 40 paid | Rate `800n` (8%), not rounded. Not paid `460n`. Trials per paying customer `125n` (12.5). Likely `592n` to `1072n` (exact 5.9298% to 10.7107%). Maturity `unknown`. Everything else `null`. |
+| 160 / 3 | `188n` (1.875%), `isRounded`. Likely `63n` to `537n` (0.6397% to 5.3671%). Trials per paying customer `533n` (53.3). |
+| 42 / 30 | `7143n` (71.428…%). Likely `5643n` to `8284n` (56.4325% to 82.8331%). Trials per paying customer `14n` (1.4). |
+| 1,180 / 156 | `1322n`. Likely `1140n` to `1528n`. |
+| 50 / 0 | `0n`, not `roundedToZero`. Likely `0n` to `714n` (7.1350%). Trials per paying customer `null`. |
+| 50 / 50 | `10000n`. Likely `9286n` to `10000n`. Trials per paying customer `10n` (1.0). |
+| 2,000,000 / 1 | `0n`, `roundedToZero: true` (exact 0.00005%). Likely `0n` to `1n`. Shown as `Under 0.01%`. |
+| 0 / 0 | Valid. Rate `none`, likely `null`, not paid `0n`, trials per paying customer `null`. |
+| 500 / 40, window `30`, age `45` | Maturity `complete`. |
+| 500 / 40, window `30`, age `30` | `complete`. Age equal to the window is complete. |
+| 500 / 40, window `30`, age `12` | `provisional`, `daysLeft: 18n`. |
+| 500 / 40, window `30` only | Valid. `windowDays: 30n`, maturity `unknown`. |
+| 500 / 40, activated `200` | Activation rate `4000n` (40%). Activated to paid `2000n` (20%). |
+| 500 / 0, activated `0` | Activation rate `0n`. Activated to paid `none`. |
+| 500 / 40, monthly `29` | 40 monthly accounts. MRR `116000n` ($1,160.00), not rounded. ARR run rate `1392000n` ($13,920.00). |
+| 500 / 40, annual `290` | 40 annual accounts. MRR `96667n` ($966.67, exact 966.666…), `mrrIsRounded`. ARR run rate `1160000n` ($11,600.00) from the exact MRR. |
+| 500 / 40, monthly `29`, annual `290`, annual accounts `10` | 30 monthly, 10 annual. MRR `111167n` ($1,111.67, exact 1,111.666…), `mrrIsRounded`. ARR run rate `1334000n` ($13,340.00). Rounding MRR first would give $13,340.04. |
+| 500 / 40, target `10` | Paid at target `50n`. Extra paid `10n`. Extra MRR `null`. |
+| 500 / 40, target `10`, monthly `29` | Extra MRR `29000n` ($290.00). |
+| 500 / 40, target `10`, monthly `29`, annual `290`, annual accounts `10` | Extra MRR = 10 × 1,111.666… ÷ 40 = 277.916… → `27792n` ($277.92). |
+| 333 / 20, target `7.5` | Paid at target = ceil(24.975) = `25n`. Extra paid `5n`. |
+| 99 / 9, target `10` | Paid at target = ceil(9.9) = `10n`. Extra paid `1n`. |
+| 500 / 40, target `5` | Paid at target `25n`. Extra paid `0n`, never negative. |
+| 500 / 0, target `10`, monthly `29` | Extra paid `50n`. Extra MRR `145000n` ($1,450.00), priced at the monthly price because paid is 0. |
+| 500 / 40, window `30`, age `45`. Rows: `Jul` 400 / 36 / age 75; `Sep` 450 / 18 / age 10 | Rows: This cohort `800n` complete; Jul `900n` complete; Sep `400n` provisional, `daysLeft: 20n`. Combined `basis: "settled"`, `status: "complete"`, `leftOut: 1`, 76 ÷ 900 → `844n` (8.444…%). Not the mean of the settled rows (8.5%). |
+| 500 / 40, window `30`, age `5`. Row: `Aug` 300 / 17 / age 8 | Both provisional. Combined `basis: "all"`, `status: "provisional"`, 57 ÷ 800 → `713n` (7.125%). |
+| 500 / 40, no window. Row: blank name, 300 / 17, no age | Row name `Cohort 2`, rate `567n`. Both `unknown`. Combined `basis: "settled"`, `status: "unknown"`, 57 ÷ 800 → `713n`. |
+| 500 / 40. Rows: one fully blank row | Valid. Blank row ignored. `cohorts` is `null`. |
+| Maximums: 10,000,000 / 10,000,000, monthly `1000000000`, target `100` | Rate `10000n`. MRR $10,000,000,000,000,000.00. No overflow. |
+| Invalid: starts `100`, paid `120` | `status: "invalid"`, error on `paid`. |
+| Invalid: starts `0`, paid `1` | Error on `paid`. |
+| Invalid: starts `-5`; `2.5`; `1,180`; `1e3`; blank | The count messages above, on `starts`. |
+| Partial: 500 / 40, activated `30` | Valid. Rate `800n` and the rest as normal. `activation: null`. Error on `activated`: `…can't be less than 40.` |
+| Partial: 500 / 40, age `20`, no window | Valid. Maturity `unknown`. Error on `windowDays`. |
+| Partial: 500 / 40, monthly `$29` | Valid. `revenue: null`. Error on `monthlyPrice`. |
+| Partial: 500 / 40, monthly `29`, annual accounts `5` | Valid. `revenue: null`. Error on `annualAccounts`. |
+| Partial: 500 / 40, row `Sep` 100 / 120 | Valid. `cohorts: null`. Error on `cohorts.0.paid`. |
+| Partial: target `0`, `101`, `abc` | Valid. `target: null`. Error on `targetRate`. |
+| Share round trip: the cohort example, with the Sep row named `Sep~\|26` | `freeTrialShareParams` gives `type=noCard`, `starts=500`, `paid=40`, `window=30`, `age=45`, and `cohorts=Jul~400~36~75\|Sep26~450~18~10`. No empty keys. Reading it back gives the same input, with the name `Sep26` and fresh row IDs. |
 
 ### Ownership
 
 Sol builds the backend:
 
 - `lib/free-trial-conversion-calculator/engine.ts`.
-- `tests/pages/free-trial-conversion-calculator/free-trial-conversion-calculator.test.mjs`, covering the examples above in the CAC test's style.
-- The development tool-page preview row, with a clearly marked placeholder title, when the coordinator asks.
+- `tests/pages/free-trial-conversion-calculator/free-trial-conversion-calculator.test.mjs`, covering the examples above in the style of the other SaaS engine tests.
+- The development tool-page row needs no change. It already exists.
 
 Opus builds the frontend:
 
-- `app/(site)/(tools)/(saas)/free-trial-conversion-calculator/page.tsx`, `layout.tsx`, `free-trial-conversion-calculator.tsx`, `free-trial-conversion-calculator.module.css`, and `published-figures.ts`, the typed benchmark constant.
-- Card art: `art/free-trial-conversion-calculator.spec.json`, `.svg`, and `.ts` through `$marker-art-draw`, a new `trialConversion` motif in `scripts/stack127/marker-art/figures.mjs`, and the key in `lib/card-art.ts`. Other agents may be editing these shared files, so check `git status` first and wait if they're touched.
-- The page icon: lucide `Hourglass`.
+- `app/(site)/(tools)/(saas)/free-trial-conversion-calculator/page.tsx`. Keep `layout.tsx` as it is.
+- `free-trial-conversion-calculator.tsx`, the client tool. It calls only the engine contract.
+- `free-trial-conversion-calculator-from-url.tsx`, the `useInitialQuery()` wrapper, as on `dns-lookup`.
+- `free-trial-conversion-calculator.module.css`, for the result's two-column top only.
+- `published-figures.ts`, the typed ChartMogul bands for the comparison.
+- `content/intro.mdx`, `content/usage.mdx`, and `content/article.mdx`, in the writing round.
+- Check that `lib/registered-site-pages.json` lists the route again once `page.tsx` exists.
+- Card art already exists and stays: `art/free-trial-conversion-calculator.*`, motif `trialConversion`, registered in `lib/card-art.ts`.
 
-No URL-restore wrapper. Business counts and prices don't go in the URL.
+Shared components improved during planning (Opus, done in this round): `UiRangeMarker` and `UiUnitGrid`. See Components.
 
 ### Catalog placement
 
-Primary and only catalog: `/saas-tools`. A founder there is working through SaaS money and growth numbers. Trial conversion is the earliest funnel step before MRR and CAC, so put it next to `/customer-acquisition-cost-calculator` and `/mrr-calculator`. The coordinator sets the final order. No secondary catalog fits. There's no growth or marketing catalog, and creating one isn't needed for this tool.
+Primary and only catalog: `/saas-tools`. A founder there is working through SaaS money and growth numbers, and trial conversion is the funnel step before MRR and CAC. Place it near `/mrr-calculator` and `/customer-acquisition-cost-calculator`. The coordinator confirms the development row's membership during integration. No secondary catalog fits.
 
-Catalog `toolSpot` key: `free-trial-conversion-calculator`. Motif name: `trialConversion`.
-
-- Takeaway: from a group that started together, a few paid before the window closed.
-- Focal subject: a short horizontal time track with three or four small ticks. A dashed vertical gate line stands near its right end, for day N. Left of the gate, a loose cluster of five or six small hollow circles sits on the track: the starters. Just past the gate, two filled `@primary` circles: the ones who paid.
-- One relationship: the gate. Paid means past the line in time, not moved by an arrow.
-- Tone: calm and neutral, with accent only on the two paid circles. No currency signs, numbers, cards, funnels, arrows, hourglasses, calendars, or person glyphs.
-- It must read differently from `customerChurn` (four person icons with an arrow out to one), `cohortRetention` (anchored bars), and `acquisitionCost` (person on a plinth). Wordless, and legible at card size in both themes.
+Card art: keep the existing `toolSpot`, key `free-trial-conversion-calculator`, motif `trialConversion`. Its takeaway still fits: from a group that started together, a few paid before the window closed. A dashed gate line on a short time track, hollow starter circles before it, and two filled circles past it. No words, numbers, cards, funnels, or person glyphs. Recheck it at card size in both themes during the frontend round, and redraw only if it fails.
 
 ## Interface
 
 ### Flow
 
-- Question: "Of the people who started in this cohort, what share paid within my window, and is the cohort old enough to trust?"
-- Minimum input: model (preselected), window, and one cohort row with starts, paid, and age.
-- Primary action: `Calculate conversion`.
-- Lead answer: the combined conversion rate, with its Complete or Provisional state.
-- Control mode: `single`. Every visible field drives the answer. `Add new MRR` is a visible checkbox that adds required fields to the main flow. The model choice changes labels and the published figures, not the math. That's documented here so the audit doesn't flag it as a no-op.
+- Question: "What share of my trial starts paid, how sure is that, and how does it compare?"
+- Lead answer: the conversion rate, large, with `40 of 500 trial starts paid` under it.
+- Example values it opens with: `No card`, 500 trial starts, 40 paid, Advanced empty. The result shows 8%, marked `Example`.
+- Button: `Calculate conversion`, with a quiet `Reset` beside it.
 
-Workbench order:
+### Inputs
 
-1. `What people started`, a `UiChoiceGroup` with descriptions. These are plain words, never bare "opt-in/opt-out":
-   - `Free trial, no card`: `They try it without entering a card.`
-   - `Free trial, card upfront`: `They enter a card to start. The plan bills when the trial ends unless they cancel.`
-   - `Free plan`: `They sign up for a free plan with no end date.`
-2. `Follow-up window`, a narrow `UiTextField` with suffix `days`. Helper: `Days each account gets to pay, counted from its own start.`
-3. `Cohorts`, a group heading with one note under it: `Count each account once. Paid means the first payment went through. A card on file isn't a payment.` Then a `UiRepeatableList` with `Add cohort` (max 12). Each row is one line on desktop:
-   - `Cohort name`: optional, placeholder `Aug 2026`.
-   - `Trial starts`, or `Free signups` for the free plan model.
-   - `Paid within 30 days`. The number follows the window field and shows `Paid within window` while the window is blank.
-   - `Cohort age`, with a `days` suffix. A longer label wrapped and pushed the input out of line.
-   - The remove button.
+| Input | Basic or Advanced | Required or optional | Hint, one sentence or none | What it changes in the result |
+| --- | --- | --- | --- | --- |
+| `Trial type`: `No card`, `Card upfront`, `Free plan` | Basic | Required, `No card` selected | `Card upfront means people enter payment details to start the trial.` | The lead label and count words, and which published range shows. |
+| `Trial starts`, or `Free signups` for `Free plan` | Basic | Required | `Everyone who started in one period, such as August, counting each account once.` | Every number in the result. |
+| `Paid` | Basic | Required | `Accounts from those starts whose first payment went through. A card on file isn't a payment.` | Every number in the result. |
+| `Follow-up window`, suffix `days` | Advanced | Optional | `Days each account had to pay, counted from its own start.` | The detail line reads `paid within 30 days`. With age, the `Complete` or `Provisional` status, and the cohort chart labels. |
+| `Cohort age`, suffix `days` | Advanced | Optional, needs the window | `Days from this cohort's last start to the day you counted paid.` | `Complete`, or `Provisional` with the days left. |
+| `Activated` | Advanced | Optional | `Starts that reached your activation event, such as a first project, including everyone who paid.` | Adds the funnel chart with activation and activated-to-paid rates. |
+| `Target conversion`, suffix `%` | Advanced | Optional | `The conversion rate you're aiming for.` | Adds `Extra paid at 10%` and, with a price, `Extra MRR at 10%`. Outlines the target units in the grid. |
+| `Currency` | Advanced | Optional, `USD` selected | none | The currency of every money value. |
+| `Monthly price`, currency suffix | Advanced | Optional | `Average monthly plan price for a new customer, without one-time fees.` | Adds `New MRR` and `ARR run rate`. Prices `Extra MRR`. |
+| `Annual price`, currency suffix | Advanced | Optional | `Average yearly plan price, which counts as a twelfth each month.` | Same as monthly price. |
+| `On annual plans` | Advanced | Optional, required when both prices are set | `How many of the paid accounts chose a yearly plan.` | Splits paid accounts between the two prices. |
+| `Other cohorts` rows: `Name`, `Trial starts`, `Paid`, `Age` (`days`) | Advanced | Optional. Starts and paid are required in a filled row | On the list: `Earlier months, channels, or plans, each with its own accounts.` | Adds the cohort chart and the `All cohorts` rate. |
 
-   The age field gets one helper, on the first row only: `Days from the last start in this cohort to the day you counted.` Removing the only row clears its fields and keeps the row.
-4. `Add new MRR from these customers`, a `UiCheckbox`. When on, below it in the main flow:
-   - `Currency`, a narrow `UiSelect`.
-   - `Price data`, a `UiChoiceGroup`: `One average amount` or `Monthly and annual plans`.
-   - For average: `Average monthly price` (currency suffix). Helper: `Recurring price only. Leave out setup and other one-time fees.`
-   - For split, two paired rows: `Monthly-plan customers` with `Average monthly price`, and `Annual-plan customers` with `Average annual price`. The same helper sits under the group.
-5. `Calculate conversion` (primary) and a quiet `Reset`, in `UiActionRow`.
-6. One divider, then the results.
+Advanced is one `UiDisclosure` named `Window, activation, revenue, and cohorts`, closed, with `uiSetSummary(count)`. The count is every filled field, plus one per filled cohort row. Currency counts only when a price is set.
+
+Cut: a separate `Trial length` field (it changes nothing the window doesn't), a monthly-customers count (derived from paid minus annual), and per-row trial type (put different trial types in separate runs or name the row).
+
+### Result
+
+Everything here comes from the person's inputs. Sources, method notes, and definitions go in the article.
+
+1. **The answer.** `UiPrimaryResult`, label `Trial to paid`, or `Free signup to paid`. Value `8%`, with hundredths when needed (`13.22%`, `1.88%`) and trailing zeros trimmed. Detail: `40 of 500 trial starts paid`, adding `within 30 days` when the window is set. Under it, a `UiStatusWord`:
+   - `Example` until the person calculates.
+   - `Complete` when the cohort has had the full window.
+   - `Provisional` with `18 days left`, warning tone. The rate can still rise.
+   - Nothing when maturity is unknown.
+2. **The picture.** `UiUnitGrid`, 10 × 10, beside the answer. Filled units are the paid share of every 100 starts, in the first data color. With a target, outlined units run from the rate up to the target. Legend: `Paid`, `Didn't pay`, and `At 10%`. It makes 2 of 100 feel like 2 of 100, which a percentage doesn't.
+3. **Supporting numbers.** `UiMetricGroup` under the answer, in the same column:
+   - `Didn't pay`: `460`.
+   - `Trials per paying customer`: `12.5`, hint `How many trial starts it took, on average, for each one that paid.`
+   - With a price: `New MRR` `$1,160.00`, hint `Paid accounts × their monthly amount, with annual plans as a twelfth.` And `ARR run rate` `$13,920.00`, hint `New MRR × 12. It isn't revenue earned this year, and it doesn't count churn.`
+   - With a target: `Extra paid at 10%` `10`, and with a price `Extra MRR at 10%` `$290.00`.
+   - With other cohorts: `All cohorts` `8.44%`, hint naming what's in it, such as `76 of 900 starts in complete cohorts. Sep is left out until it has 30 days.`
+4. **Comparison and likely range.** `UiRangeMarker`, full width. The track shows ChartMogul's two bands for the chosen trial type, the `You` marker at the rate, and a likely-range bar under the marker:
+   - The bands show only when the follow-up window is 180 to 184 days (six months), or isn't set. Any other window draws the marker and likely range alone, with the status word `No published range for a 30-day window` under it.
+   - `No card`: `No-card median, paid within 6 months` 4 to 6%, and `No-card top quarter, paid within 6 months` 10 to 15%. Scale 0 to 30%.
+   - `Card upfront`: `Card-upfront median, paid within 6 months` 25 to 35%, and `Card-upfront top quarter, paid within 6 months` 50 to 60%. Scale 0 to 80%.
+   - `Free plan`: `Free plan median, paid within 6 months` 3 to 5%, and `Free plan top quarter, paid within 6 months` 8 to 12%. Scale 0 to 30%.
+   - When the likely range's top is past the scale, the scale grows to the next 10%, up to 100%.
+   - Each band's hint: `ChartMogul survey of 200 software products, January 2026, counting paid within six months.`
+   - The likely range legend reads `Likely range at 500 starts` and `5.92 to 10.72%`, hint `The true rate is probably in this range. Fewer starts make it wider.`
+   - No grade words, no colors that judge.
+5. **Funnel**, with `Activated`. `UiLiveChart` kind `funnel`, full width, 260px tall, title `Where trial starts drop off`. Stages: `Trial starts` 500, `Activated` 200, `Paid` 40, each label with its share of the stage before (`40%`, `20%`).
+6. **Cohort comparison**, with other cohorts. `UiLiveChart` kind `horizontal-bar`, full width, title `Paid within 30 days, by cohort`, or `Paid, by cohort` without a window. One bar per cohort, `This cohort` first, rate at the bar end. A provisional cohort's label reads `Sep, 20 days left`. Height grows with rows, at least 260px.
+7. **Share.** `UiShareAction`, `Copy link`, at the end of the result.
 
 ### Components
 
@@ -316,161 +413,123 @@ Existing shared components:
 
 | Use | Component |
 | --- | --- |
-| Model, MRR method | `UiChoiceGroup` from `@/app/ui/controls` (option `description` carries the plain explanation) |
-| Window, counts, age, name, money | `UiTextField` from `@/app/ui/controls`, with `inputMode="numeric"` for counts and days and `decimal` for money, `days` or currency-code `suffix`, and autocomplete, capitalization, and spellcheck off. `UiTextField`, not `UiNumberField`, so pasted text like `-5` or `1,180` reaches the strict parser and gets its message. |
-| Cohort rows | `UiRepeatableList` from `@/app/ui/controls`, as on `/mrr-calculator` |
+| Band, rows, result region | `ToolWorkbench`, `ToolFieldRow`, `ToolResult` from `@/app/ui/tools/tool-workbench` |
+| Trial type | `UiChoiceGroup` from `@/app/ui/controls` |
+| Counts, days, prices, target, cohort names | `UiTextField` from `@/app/ui/controls`, with `inputMode="numeric"` for counts and days and `decimal` for money and the target, suffixes `days`, `%`, or the currency code. A text field, so pasted `-5` or `1,180` reaches the strict parser. |
 | Currency | `UiSelect` from `@/app/ui/controls` |
-| MRR toggle | `UiCheckbox` from `@/app/ui/controls` |
-| Actions | `UiActionRow` from `@/app/ui/display`, `UiButton` from `@/app/ui/controls` |
-| Lead | `UiPrimaryResult` from `@/app/ui/display` |
-| Maturity label | `UiStatusWord` from `@/app/ui/display`: `warning` tone for `Provisional`, `neutral` for `Complete` |
-| Cohort table, published figures | `UiDataTable` from `@/app/ui/display` |
-| New MRR facts | `UiKeyValueList` from `@/app/ui/display` |
-| Change, reset, and failure messages | `UiStatus` from `@/app/ui/display` |
+| Advanced | `UiDisclosure` and `uiSetSummary` from `@/app/ui/controls` |
+| Other cohorts | `UiRepeatableList` from `@/app/ui/controls` |
+| Button, reset, status | `UiButton` from `@/app/ui/controls`, `UiActionRow` and `UiStatus` from `@/app/ui/display` |
+| Answer, status word, numbers | `UiPrimaryResult`, `UiStatusWord`, `UiMetricGroup` from `@/app/ui/display` |
+| Picture | `UiUnitGrid` from `@/app/ui/display` |
+| Comparison and likely range | `UiRangeMarker` from `@/app/ui/display` |
+| Funnel, cohort bars | `UiLiveChart` from `@/app/ui/charts/chart-client` |
+| Copy link | `UiShareAction` from `@/app/ui/controls` |
+| Shared link | `useInitialQuery` from `@/app/ui/tools/use-initial-query` |
 
-**Multi-cohort decision: build it, with the shared list.** It fits existing components: `UiRepeatableList` for input rows and `UiDataTable` for output, the same pairing `/mrr-calculator` uses. It's the clearest way to show the research's core point, that a young cohort understates its final rate. It also lets the combined rate leave maturing cohorts out instead of quietly blending them in. One row is the default, so the quick single-cohort job costs nothing extra.
+Shared components improved in this round:
 
-**No chart.** With at most 12 rates, the table shows exact values side by side. A bar chart would draw maturing cohorts as if they were finished, and marking them differently would need a new chart feature for little gain.
+- `UiRangeMarker` gets an optional `range` (`from`, `to`, `label`, `valueText`, `hint`). It draws the person's likely range as a bar in the first data color, just under the track, with the `You` marker through it, and adds it to the legend first. Any tool with a small sample can use it.
+- `UiUnitGrid` gets an optional `target` amount and `targetLabel`. Units from the filled amount up to the target draw as outlined, so a gap to a goal shows in the same picture. Its fill now uses the first data color instead of the accent fill, as `design-system.md` requires for result visuals. `tone="neutral"` is unchanged.
+- Both have gallery examples in the Results section.
 
-**No new or improved shared component.** The row grid, paired MRR rows, and figures note are route CSS.
+Tool-specific components, in the route:
 
-Tool-specific component, in the route file:
+- `FreeTrialConversionCalculator`: form state, cohort row IDs, error mapping by `TrialFieldKey`, focus, stale state, and the result. It calls only the engine.
+- `FreeTrialConversionFromUrl`: reads a shared link and renders the tool with `key={query.key}`.
 
-- `FreeTrialConversionCalculator`: owns the raw form state, row IDs, error mapping by `TrialFieldKey`, focus, status, and result rendering. It calls only `calculateFreeTrialConversion`. It reads `published-figures.ts` for the selected model.
+### Layout
 
-### Result regions
+Desktop, inside the 66rem working width:
 
-Each region answers a different question, and no formatted value repeats.
+- Row 1: `Trial type` choice row. Three short options in one line.
+- Row 2: `Trial starts` and `Paid`, side by side, each half the width. They're one decision.
+- `Window, activation, revenue, and cohorts`, closed. Inside:
+  - Row: `Follow-up window`, `Cohort age`, `Activated`, `Target conversion`. Four across: everything about this cohort.
+  - Row: `Currency`, `Monthly price`, `Annual price`, `On annual plans`. Four across: revenue.
+  - `Other cohorts` list. Each row on one line: name, starts, paid, age, and remove in a fixed last column. `Add cohort` below, disabled at 12 with `Up to 12 cohorts`.
+- Action row: `Calculate conversion` and `Reset`, with `Inputs changed` beside them when stale.
+- Result, below one divider:
+  - Top: two columns. Left, about two thirds: the answer, then the supporting numbers in a grid under it. Right: the unit grid at 280px, top-aligned with the answer, legend under it. Both columns hold their own, so there's no empty half.
+  - Then full width: the comparison and likely range, the funnel if any, the cohort chart if any, and `Copy link`.
 
-1. **Lead.** `UiPrimaryResult`.
-   - Label: `Free trial to paid` (both trial models) or `Free plan to paid`. With several cohorts, add `, complete cohorts` when `basis` is `complete`.
-   - Value: `13.22%`, `Under 0.01%`, or `Not available` with no unit.
-   - Detail line 1, one cohort: `156 of 1,180 trial starts paid within 30 days. 1,024 didn't.` For several cohorts: `130 of 900 starts in 2 complete cohorts paid within 30 days.`, adding `1 cohort still maturing is left out.` when `excludedMaturing` > 0. For `notAvailable`: `No starts in this cohort, so there's no rate.`
-   - Detail line 2, maturity, starting with `UiStatusWord`:
-     - Complete: `Complete: every account had the full 30 days.`
-     - Provisional, one cohort: `Provisional: the newest starts have 4 more days. This rate can still rise.`
-     - Provisional, several cohorts with basis `all`: `Provisional: no cohort has had the full 30 days yet.`
-   - The tone stays `neutral`. No grade color on the number.
-2. **Cohort table**, only with two or more cohorts. `UiDataTable` columns: `Cohort`, `Starts` (or `Signups`), `Paid`, `Rate`, `Status`, with numbers right-aligned. Status reads `Complete` or `20 days left`. Rows show in input order. A blank name shows `Cohort 1`. A rate of `notAvailable` shows `Not available`.
-3. **New MRR**, when on. A small heading, `New MRR from these customers`, then a `UiKeyValueList`:
-   - `New MRR`: `$7,644.00`.
-   - `How`: `156 paid customers × $49.00`, or for split, `3 monthly × $10.00 + 1 annual × $100.00 ÷ 12`.
-   - `ARR run rate`: `$460.00` with `New MRR × 12. Not revenue earned this year.`
-   - When `mrrIsRounded`: `Rounded to the cent.`
-   - When a maturing cohort is listed: `Includes customers from cohorts still maturing.`
-4. **Published figures for this model.** A small heading, then a `UiDataTable` with columns `Source`, `Who was measured`, `Reported`. Show only the rows for the selected model:
-   - ChartMogul, Growth Unhinged and ProductLed, January 2026 survey: all three models.
-   - First Page Sage, updated September 2025: all three.
-   - Recurly, 2022 data: both trial models. No free plan row.
-   - Leave out Recurly's 2024 50% median. The research marks it as too broad.
-   - Each source name links out.
-   - One note line under the table: `Directional only. Each source counts conversion its own way. No dated figure was found for indie SaaS by model and follow-up window.`
-   - The user's rate is never placed against these bands, scored, or colored.
+Phones:
+
+- Every row stacks in reading order. Trial type options wrap.
+- Each cohort row stacks its fields, with remove top-right.
+- Result: the answer, then the unit grid at full column width up to 320px, then the supporting numbers in two columns, then the full-width pieces. The range marker's legend stacks. Charts keep their overflow inside their own frame.
 
 ### States
 
-- **Initial.** Model `Free trial, no card`. Window blank. One blank cohort row. MRR off, with USD and `One average amount` preselected under it. No result. The published figures appear only with a result.
-- **Invalid or incomplete.** Clear the old result and keep the inputs. Show one error under each invalid field. Put a list-level `cohorts` error in the list's `addDescription` slot as an error. Focus the first invalid field in reading order and add no error panel. All error fields stay visible: MRR fields only exist while the checkbox is on, and the engine only checks them then.
-- **Valid.** Render the regions, focus the lead, and announce once through the focused output.
-- **Zero starts.** Valid. The lead reads `Not available`. It isn't an error.
-- **Provisional.** Valid. Same layout, with a warning-tone `Provisional` word and the days left.
-- **Edited after a result.** Clear the result and announce once, politely: `Inputs changed. Calculate again.` Changing the model counts as an edit. Focus stays where the reader is.
-- **Rows.** `Add cohort` focuses the new row's name field. At 12 rows the add button is disabled with `Up to 12 cohorts`. Removing a row focuses the next row, or `Add cohort`. Removing the only row clears it instead.
-- **MRR toggle and method.** Turning it on adds fields in place, and focus stays on the checkbox. Turning it off or switching method keeps drafts.
-- **Unexpected failure.** If the engine throws, keep the inputs, clear the result, and show one `UiStatus` error by the actions: `Couldn't calculate. Try again.`
-- **Reset.** Restore the initial state, focus the model group, and announce `Form reset.`
-- **Restored.** The clean URL never changes. A back-forward cache restore keeps the result until the next edit.
-- **Long values.** `10,000,000` starts, `$10,000,000,000,000,000.00` MRR, and a 40-character cohort name fit their cells and leads without clipping. Names wrap in the table.
-- **Loading, partial, and retry.** These don't apply. The calculation is synchronous and local.
-
-### Responsive and accessible behavior
-
-Desktop:
-
-- Shared workbench band with a measured inner width.
-- The model choices sit in one row. The window field is narrow.
-- Each cohort row is a five-column grid: name, starts, paid, age, remove. The remove button is in the fixed last column. Labels repeat per row, like the MRR calculator's plan rows.
-- Paired MRR fields share a row.
-- Results stack full width: lead, table, MRR, figures.
-
-Mobile (set breakpoint, as the sibling tools use):
-
-- Model choices stack.
-- Each cohort row stacks its fields in one column, in tab order. In two columns, `Paid within 30 days` wrapped and misaligned its input. The remove button stays top-right.
-- Paired MRR fields stack. Buttons go full width.
-- `UiDataTable` turns into labeled rows.
-- No page-level horizontal overflow. Grid children get `min-width: 0`.
-
-Keyboard and screen readers:
-
-- Tab order follows the visual order, row by row.
-- Enter in any field submits.
-- Every field has a visible label. Each row is a group named `Cohort 2` (or its name), so a screen reader announces "Cohort 2, Paid within 30 days".
-- Errors are tied to their fields.
-- One polite live region announces changes, resets, and failures. Results are announced through the focused lead only.
-- The `Provisional` meaning is in words, never only in color.
-
-Check at desktop and mobile in both themes:
-
-- 1,180 / 156 with average MRR `49`.
-- The three-cohort example.
-- The provisional single cohort.
-- 0 / 0.
-- 100 / 101 and `-5` errors.
-- The split MRR rounding example.
-- 12 rows with long names.
+- **Opens:** the example and its result, status `Example`. Advanced closed, `Not used`.
+- **Edited after a result:** `ToolResult stale` steps the result back, and `UiStatus` says `Inputs changed`. Opening or closing Advanced isn't an edit.
+- **Calculated:** the result updates, `Example` goes away, focus moves to the answer.
+- **Basic error:** on press, errors under each field, focus on the first. The last good result stays stale.
+- **Advanced error:** on press, Advanced opens whenever it holds an error, even when a Basic error takes focus first. Focus goes to the first error in reading order. The main answer updates. Only the part that field feeds disappears: the funnel, the revenue numbers, the target numbers, the cohort chart and `All cohorts`, or the maturity word.
+- **Paid more than starts:** a field error on `Paid`. Never a clamp or a rate past 100%.
+- **Zero starts:** valid. The answer reads `—` with `No trial starts`. The grid is empty, the range marker draws bands only, and the numbers read `—`. The layout keeps its size.
+- **Zero paid:** `0%`, with `Trials per paying customer` `—`. The likely range still shows, from 0%.
+- **Tiny rate:** `Under 0.01%`.
+- **Provisional:** warning-tone `Provisional` and the days left, beside the answer and on each young cohort's bar label.
+- **Target at or below the rate:** `Extra paid at 5%` reads `0`, and the grid draws no outlined units.
+- **Window other than six months:** the published bands drop out, and `No published range for a 30-day window` sits under the marker. The likely range stays.
+- **Shared link:** opens and calculates right away. Invalid values show their errors the same way as a press, with Advanced opened if needed.
+- **Reset:** back to the example and its result, Advanced closed, cohort rows cleared.
+- **Long values:** 10,000,000 starts, a 17-digit MRR, and a 40-character cohort name fit without page overflow. Names wrap in chart labels.
+- **Loading and retry:** don't apply. The calculation is local and synchronous.
 
 ## Content
 
-Plan for the writing session. The engine was run with the three-cohort example (Jul 400/60/75, Aug 500/70/45, Sep 450/30/10, window 30, average price 29): lead 14.44%, complete cohorts, Sep left out with 20 days left, 160 paid customers, new MRR $4,640.00, ARR run rate $55,680.00. A reader might misread the lead as the average of the row rates, read the maturing Sep row as a drop, or read "didn't pay" as money missed.
+Written after the frontend. The tool was run with the example (500 / 40), the forum case (160 / 3), the small-sample case (42 / 30), and the full Advanced example before writing.
 
 ### Search intent and title
 
-The searcher wants their trial-to-paid rate, and to know if it's any good. Top results take two counts from any period, accept impossible counts, and quote unsourced "good" bands. This page ties both counts to one start cohort, says when a cohort is too young, and shows dated figures with who was measured.
+The searcher has two counts and wants the rate, then wants to know if it's normal. Top results grade the number against unsourced bands and accept impossible counts. This page gives the rate with its counts, says how sure it is, and shows dated ranges that match the trial type.
 
-- Visible title: `Free trial conversion calculator: how many free trials turn into paid customers?`
-- SEO title: `Free trial to paid conversion rate calculator`
-- SEO description: names trial or free plan starts, a follow-up window, complete or provisional cohorts, and optional new MRR. No grade, no benchmark promise.
-- Card: `Free trial conversion`, with the share of a trial cohort that paid in the window, and the new MRR.
+- Visible title: keep `Free trial conversion calculator: how many free trials turn into paid customers?`
+- SEO title: keep `Free trial to paid conversion rate calculator`.
+- SEO description, new: `Find what share of your free trial starts paid, how sure that rate is at your cohort's size, and how it compares with published ranges for your trial type.`
+- Card: keep the name `Free trial conversion`. New description: `Find what share of your trial starts paid, and how it compares.`
 
 ### Reader questions
 
 | Question | Where it's answered |
 | --- | --- |
-| What's my trial-to-paid rate? | Tool lead. Formula and the 6% versus 20% example in content. |
-| Which counts do I enter, and from where? | Usage: cohort, paid, window, age. |
-| Why does my newest month look low? | Tool `Provisional` line and table. Usage on reading the result. |
-| What counts as paid? | Cohort note in the tool. Content section with the Stripe link. |
-| Why doesn't this match Stripe's number? | Content: Stripe's rolling 30-day metric. |
-| What's a good rate? | Content table of three dated sources by trial type, plus the in-tool figures for the chosen type. |
-| Free plan or free trial? | Model choice descriptions. Content section on the longer window. |
-| What MRR did they add? | Tool MRR group. Content on run rate versus revenue. |
+| What percentage of my trial users paid? | Tool answer. Formula and the 6% versus 20% example in the article. |
+| Which counts do I enter? | Usage, "What to enter". |
+| What counts as paid? | Paid hint, usage, and the article section. |
+| Is 3 out of 160 bad? | Tool comparison and likely range. Usage example. Article "good rate" and "small cohort" sections. No grade anywhere. |
+| Why does my newest month look low? | `Provisional` status. Article "How long should you wait". |
+| What's a good rate? | Article table of four sources, with who was measured. |
+| Does a card upfront convert better? | Article, with First Page Sage's visitor-to-trial and trial-to-paid averages. |
+| How much MRR would 10% bring? | Tool target and revenue numbers. Article MRR section. |
 
 ### Outline
 
-- **Intro.** Three sentences: what you get, what to have ready, the optional MRR.
-- **Usage.** `What to enter`: trial type when unsure, the window, where the counts come from, cohort age with a date example, the MRR prices. `How to read the result`: complete and provisional, the combined rate, the cohort table, "didn't pay", new MRR. One `Example` with the three-cohort run.
-- **Article.** `How is free trial conversion rate calculated?` (Formula, 6% vs 20% example). `What counts as a paid conversion?` (list). `Why doesn't this match Stripe's trial conversion rate?` `What is a good free trial conversion rate?` (table across types, sources list, note). `How is a free plan different from a free trial?` `Is new MRR the same as revenue?` with next steps.
+- Intro: what you get and what to have ready, in three sentences.
+- Usage: three numbered steps for the counts, what counts as paid, a table of what each Advanced input answers, how to read the result, and one `Example` (160 / 3).
+- Article:
+  - `How is free trial conversion rate calculated?` Formula, then an `Example` of the calendar-month mistake.
+  - `What counts as a paid conversion?` Bullets.
+  - `How long should you wait before you count?` Paragraphs.
+  - `What is a good free trial conversion rate?` Source table, then a `Note` on small cohorts.
+  - `Why does a small cohort's rate swing so much?` The 42 / 30 case and the Wilson interval.
+  - `Does requiring a card upfront improve conversion?` Small table.
+  - `Is new MRR from trials the same as revenue?`
+  - `What to check next` Links.
 
-No chart and no marker art in the article. The card art is registered.
+Left out: input format rules and limits (field errors), zero starts and `Under 0.01%` (the result shows them), the combined-rate fallback rules (the `All cohorts` hint names what's in it), and advice on trial length (the most common length isn't evidence of the best one).
 
-### Left out on purpose
+### Facts, limits, and sources
 
-- Input format, ranges, and the 12-cohort limit: field errors.
-- Zero starts, `Under 0.01%`, cent rounding: result text and the spec.
-- Every combined-rate fallback case: the result lines say which cohorts were used.
-- Card versus no-card strategy advice, activation, CAC, churn: out of scope. Linked next steps instead.
+- Formula and cohort rule, later conversions changing a cohort: [ChartMogul help article](https://help.chartmogul.com/article/219-chart-trial-to-paid-conversion-rate).
+- Ranges by trial type, six-month window, 200 products, January 2026, typical $1M to $10M ARR, self-estimated: [ChartMogul SaaS Conversion Report](https://chartmogul.com/reports/saas-conversion-report/). Free plan bands are for freemium with a regular signup.
+- Trial-to-paid and visitor-to-trial averages, 86 companies, 2022 to 2025, one paid month counts: [First Page Sage](https://firstpagesage.com/seo-blog/saas-free-trial-conversion-rate-benchmarks/), updated September 5, 2025.
+- 37.5% site-level average, 39.0% with billing details, 12.0% without, per subscription, 803 sites, January to August 2022: [Recurly](https://recurly.com/resources/report/state-of-subscriptions-acquisition/).
+- ARR = MRR × 12: [ChartMogul SaaS Go-To-Market Report glossary](https://chartmogul.com/reports/saas-go-to-market-report/).
+- Likely range: 95% Wilson score interval.
+- Avoid: calling any rate good or bad, blending sources into one average, saying card-upfront produces more customers, a recommended trial length, and an indie-specific benchmark (none exists).
 
-### Facts and limits
+### Next step
 
-- Formula and same-cohort rule: ChartMogul trial-to-paid help article.
-- Paid event and trialing to active: Stripe Subscription object. Count each account once; Recurly separates subscribers from subscriptions.
-- Stripe rolling 30-day rate can exceed 100%: Stripe support article.
-- Benchmarks: ChartMogul, Growth Unhinged, and ProductLed (January 2026 survey, 200 products); First Page Sage (86 clients, 2022 to 2025, updated September 2025); Recurly (2022 data, 803 sites, 22 million trials). Leave out Recurly's 2024 50% median.
-- Free plan six-month window: ChartMogul 2026 report.
-- MRR normalization and one-time fees: ChartMogul MRR.
-- Avoid: benchmarks as targets, grades, "lost" revenue, saying card-upfront is better, an indie SaaS benchmark (unknown).
-
-### Next steps
-
-`/mrr-calculator`, `/customer-acquisition-cost-calculator`, `/customer-churn-calculator`.
+`/mrr-calculator`, `/customer-churn-calculator`, `/customer-acquisition-cost-calculator`, `/customer-lifetime-value-calculator`: totals, retention, cost, and value of the customers this tool counts.

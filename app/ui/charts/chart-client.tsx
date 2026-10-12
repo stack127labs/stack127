@@ -5,10 +5,24 @@ import type { EChartsType } from "echarts/core";
 import type { DateValue } from "react-aria-components";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { UiDatePicker } from "@/app/ui/controls";
-import { chartLegend, chartOption, donutTotal, hasChartTable, rangedSeries, rangeStart, xBounds, type UiChartRange, type UiChartSpec } from "./chart-option";
+import { chartLegend, chartOption, donutTotal, hasChartTable, needsMoreCharts, rangedSeries, rangeStart, xBounds, type UiChartRange, type UiChartSpec } from "./chart-option";
 import { ChartDataTable, ChartHeading } from "./chart-parts";
 import { echarts } from "./echarts";
 import styles from "./charts.module.css";
+
+// Funnel, gauge, treemap, sankey, and radar load once, on the first chart that needs one.
+let moreCharts: Promise<void> | null = null;
+let moreChartsReady = false;
+const loadMoreCharts = () => (moreCharts ??= import("./echarts-more").then(
+  () => {
+    moreChartsReady = true;
+  },
+  (error: unknown) => {
+    // A failed download can be tried again by the next chart.
+    moreCharts = null;
+    throw error;
+  },
+));
 
 const ranges: { id: UiChartRange; label: string; name: string }[] = [
   { id: "1m", label: "1M", name: "Last month" },
@@ -56,6 +70,10 @@ function keepSpan(bounds: Bounds | null, preset: UiChartRange | null, span: Span
 export function UiLiveChart({ spec, svg }: { spec: UiChartSpec; svg?: string }) {
   const hostRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<EChartsType | null>(null);
+  // ECharts copies its layout steps when an instance starts, so a chart started before the extra
+  // types loaded is started again to draw them.
+  const startRef = useRef<(() => void) | null>(null);
+  const startedWithMore = useRef(false);
   const [drawnIn, setDrawnIn] = useState<number | null>(null);
   const [hidden, setHidden] = useState<string[]>([]);
   const legend = chartLegend(spec);
@@ -90,40 +108,59 @@ export function UiLiveChart({ spec, svg }: { spec: UiChartSpec; svg?: string }) 
   useEffect(() => {
     const host = hostRef.current;
     if (!host) return;
-    const chart = echarts.init(host, null, { renderer: "svg" });
-    chartRef.current = chart;
-    const resize = new ResizeObserver(() => chart.resize());
+    const start = () => {
+      chartRef.current?.dispose();
+      const chart = echarts.init(host, null, { renderer: "svg" });
+      chartRef.current = chart;
+      startedWithMore.current = moreChartsReady;
+      chart.on("datazoom", (event) => {
+        const current = latestState.current.bounds;
+        if (!current) return;
+        const zoom = (event as ZoomEvent).batch?.[0] ?? (event as ZoomEvent);
+        if (zoom.start === undefined || zoom.end === undefined) return;
+        const span = current.last - current.first;
+        setVisible({ end: current.first + span * zoom.end / 100, start: current.first + span * zoom.start / 100 });
+        setDraft({});
+        setPreset(null);
+      });
+    };
+    start();
+    startRef.current = start;
+    const resize = new ResizeObserver(() => chartRef.current?.resize());
     resize.observe(host);
-    chart.on("datazoom", (event) => {
-      const current = latestState.current.bounds;
-      if (!current) return;
-      const zoom = (event as ZoomEvent).batch?.[0] ?? (event as ZoomEvent);
-      if (zoom.start === undefined || zoom.end === undefined) return;
-      const span = current.last - current.first;
-      setVisible({ end: current.first + span * zoom.end / 100, start: current.first + span * zoom.start / 100 });
-      setDraft({});
-      setPreset(null);
-    });
     return () => {
       resize.disconnect();
-      chart.dispose();
+      chartRef.current?.dispose();
       chartRef.current = null;
+      startRef.current = null;
     };
   }, []);
 
   useEffect(() => {
-    const chart = chartRef.current;
-    if (!chart) return;
+    let cancelled = false;
+    let frame = 0;
     const started = performance.now();
-    const option = chartOption(spec);
-    // A redraw keeps the lines the reader turned off and the range they picked.
-    const { hidden: off, visible: span } = latestState.current;
-    option.legend = { selected: Object.fromEntries(off.map((label) => [label, false])), show: false };
-    if (span && Array.isArray(option.dataZoom)) option.dataZoom = option.dataZoom.map((zoom) => ({ ...zoom, endValue: span.end, startValue: span.start }));
-    chart.setOption(option, { notMerge: true });
-    // Reported once the browser has painted the chart; the gallery's page weight panel reads it.
-    const frame = requestAnimationFrame(() => setDrawnIn((time) => time ?? performance.now() - started));
-    return () => cancelAnimationFrame(frame);
+    const draw = () => {
+      if (cancelled) return;
+      if (needsMoreCharts(spec) && !startedWithMore.current) startRef.current?.();
+      const chart = chartRef.current;
+      if (!chart || chart.isDisposed()) return;
+      const option = chartOption(spec);
+      // A redraw keeps the lines the reader turned off and the range they picked.
+      const { hidden: off, visible: span } = latestState.current;
+      option.legend = { selected: Object.fromEntries(off.map((label) => [label, false])), show: false };
+      if (span && Array.isArray(option.dataZoom)) option.dataZoom = option.dataZoom.map((zoom) => ({ ...zoom, endValue: span.end, startValue: span.start }));
+      chart.setOption(option, { notMerge: true });
+      // Reported once the browser has painted the chart; the gallery's page weight panel reads it.
+      frame = requestAnimationFrame(() => setDrawnIn((time) => time ?? performance.now() - started));
+    };
+    // Until the extra types arrive, the server drawing, if any, stays in place.
+    if (needsMoreCharts(spec)) loadMoreCharts().then(draw, () => {});
+    else draw();
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frame);
+    };
   }, [spec]);
 
   const zoomTo = (start: number, end: number) => {

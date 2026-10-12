@@ -33,6 +33,83 @@
   color: var(--color-danger-text);
 }
 
+/* A label with its ? hint beside it. */
+.labelRow {
+  align-items: center;
+  display: flex;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.hint {
+  display: inline-flex;
+  flex: none;
+}
+
+/* The visible circle stays small. A transparent ring around it gives a comfortable tap target. */
+.hintButton {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--color-text-muted);
+  cursor: help;
+  display: inline-grid;
+  height: 24px;
+  justify-content: center;
+  margin: -4px;
+  padding: 0;
+  width: 24px;
+}
+
+.hintButton > span {
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  display: inline-grid;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: var(--weight-semibold);
+  height: 15px;
+  justify-content: center;
+  line-height: 1;
+  width: 15px;
+}
+
+.hintButton:hover,
+.hintButton[data-open] {
+  color: var(--color-text);
+}
+
+.hintButton:focus-visible {
+  border-radius: 50%;
+  box-shadow: var(--focus-ring);
+  outline: none;
+}
+
+.hintBubble {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px var(--color-overlay);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  font-weight: var(--weight-regular);
+  left: 0;
+  line-height: var(--line-body);
+  max-width: min(18rem, calc(100vw - 16px));
+  padding: var(--space-2) var(--space-3);
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: max-content;
+  z-index: 120;
+}
+
+.hintBubble[hidden] {
+  display: none;
+}
+
 .input,
 .textarea,
 .searchControl,
@@ -1392,6 +1469,120 @@
   font-family: var(--font-mono);
 }
 
+.metricGroup dt > .hint {
+  margin-left: var(--space-2);
+  vertical-align: middle;
+}
+
+/* One row per number: label left, value right, read top to bottom. */
+.metricGroup[data-layout="list"] {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* The value drops under its label when both don't fit on one line. */
+.metricGroup[data-layout="list"] > div {
+  align-items: baseline;
+  column-gap: var(--space-5);
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--space-3) 0;
+  row-gap: var(--space-1);
+}
+
+.metricGroup[data-layout="list"] dt {
+  flex: 1 1 auto;
+}
+
+.metricGroup[data-layout="list"] dd {
+  justify-content: flex-end;
+  margin-left: auto;
+  max-width: 100%;
+}
+
+.metricGroup[data-layout="list"] dt {
+  font-size: var(--text-body);
+}
+
+.metricGroup[data-layout="list"] dd strong {
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  overflow-wrap: normal;
+  text-align: right;
+}
+
+.unitFigure {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  max-width: 280px;
+  min-width: 0;
+  width: 100%;
+}
+
+.unitGrid {
+  display: grid;
+  gap: 3px;
+}
+
+/* The inset ring sits under the fill, so a full unit reads as one solid square. */
+.unit {
+  aspect-ratio: 1;
+  background: var(--color-surface-2);
+  border-radius: var(--radius);
+  box-shadow: inset 0 0 0 1px var(--color-border);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Result visuals are data, not accent: the first data color marks the person's own share. */
+.unitFill,
+.unitSwatch[data-filled] {
+  background: var(--color-data-chartreuse);
+}
+
+/* Units up to a target: an outline in the same color, so the gap to the goal reads as one shape. */
+.unit[data-target],
+.unitSwatch[data-target] {
+  box-shadow: inset 0 0 0 2px var(--color-data-chartreuse);
+}
+
+.unitFill {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.unitFigure[data-tone="neutral"] .unitFill,
+.unitFigure[data-tone="neutral"] .unitSwatch[data-filled] {
+  background: var(--color-text);
+}
+
+.unitLegend {
+  color: var(--color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--text-small);
+  gap: var(--space-2) var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.unitLegend li {
+  align-items: center;
+  display: inline-flex;
+  gap: var(--space-2);
+}
+
+.unitSwatch {
+  background: var(--color-surface-2);
+  border-radius: var(--radius);
+  box-shadow: inset 0 0 0 1px var(--color-border);
+  height: 10px;
+  width: 10px;
+}
+
 .timeline {
   display: grid;
   grid-auto-columns: minmax(150px, 1fr);
@@ -1715,4 +1906,165 @@
   .disclosureButton svg {
     transition-duration: 0.01ms;
   }
+}
+
+/* Range marker: the person's value against published ranges. Neutral data colors only. */
+.rangeFigure {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  min-width: 0;
+}
+
+.rangeScale {
+  display: grid;
+  gap: var(--space-2);
+}
+
+/* Room above the track for the marker label. The marker line runs from the label through the track. */
+.rangeLane {
+  padding-top: calc(var(--text-small) * 1.5 + var(--space-2));
+  position: relative;
+}
+
+.rangeTrack {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  height: 14px;
+  overflow: hidden;
+  position: relative;
+}
+
+.rangeBand,
+.rangeSwatch {
+  background: var(--color-data-cyan);
+}
+
+.rangeBand {
+  bottom: 0;
+  position: absolute;
+  top: 0;
+}
+
+.rangeBand[data-band="1"],
+.rangeSwatch[data-band="1"] {
+  background: var(--color-data-blue);
+}
+
+.rangeBand[data-band="2"],
+.rangeSwatch[data-band="2"] {
+  background: var(--color-data-violet);
+}
+
+/* The person's likely range sits just under the track, in the first data color, with the marker through it. */
+.rangeSpanLane {
+  height: 6px;
+  margin-top: 3px;
+  position: relative;
+}
+
+.rangeSpan {
+  background: var(--color-data-chartreuse);
+  border-radius: var(--radius);
+  bottom: 0;
+  min-width: 2px;
+  position: absolute;
+  top: 0;
+}
+
+.rangeSwatch[data-span] {
+  background: var(--color-data-chartreuse);
+}
+
+.rangeMarker {
+  background: var(--color-text);
+  bottom: -4px;
+  position: absolute;
+  top: calc(var(--text-small) * 1.5);
+  transform: translateX(-1px);
+  width: 2px;
+}
+
+.rangeMarkerLabel {
+  bottom: 100%;
+  color: var(--color-text);
+  font-size: var(--text-small);
+  left: 50%;
+  line-height: var(--line-ui);
+  padding-bottom: var(--space-1);
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.rangeMarker[data-edge="start"] .rangeMarkerLabel {
+  left: 0;
+  transform: none;
+}
+
+.rangeMarker[data-edge="end"] .rangeMarkerLabel {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+.rangeMarkerLabel strong {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-semibold);
+}
+
+.rangeAxis {
+  color: var(--color-text-muted);
+  display: flex;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  justify-content: space-between;
+  line-height: 1.5;
+}
+
+/* One row per range, value on the right, so long labels never squeeze into columns. */
+.rangeLegend {
+  display: grid;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rangeLegend li {
+  align-items: baseline;
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 10px minmax(0, 1fr) auto;
+  min-width: 0;
+  padding: var(--space-3) 0;
+}
+
+.rangeLegend li:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.rangeLegendLabel {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* The ? stays on the last line of a wrapped label instead of floating beside the whole block. */
+.rangeLegendLabel > .hint {
+  margin-left: var(--space-2);
+  vertical-align: middle;
+}
+
+.rangeLegend strong {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-semibold);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.rangeSwatch {
+  border: 1px solid var(--color-border-strong);
+  height: 10px;
+  width: 10px;
 }

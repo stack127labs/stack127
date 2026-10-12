@@ -10,7 +10,7 @@ The Components UI gallery is at `/components-ui` in development. That route retu
 | --- | --- |
 | Text, search, dates, numbers, choices, sliders, and actions | `app/ui/controls.tsx` |
 | File selection and file lists | `app/ui/uploads.tsx` |
-| Results, metrics, key-value lists, tables, progress, allocation bars, steps, and timelines | `app/ui/display.tsx` |
+| Results, metrics, key-value lists, tables, progress, allocation bars, range markers, unit grids, steps, and timelines | `app/ui/display.tsx` |
 | Interactive charts on pages | `UiChart` in `app/ui/charts/chart.tsx` |
 | Charts nobody needs to interact with, such as in articles | `UiStaticChart` in `app/ui/charts/chart-static.tsx` |
 | Charts of data computed in the browser, such as tool results | `UiLiveChart` in `app/ui/charts/chart-client.tsx` |
@@ -56,6 +56,23 @@ Show each look once. When a thin wrapper renders the same thing as another compo
 - Keep calculations, data sources, and unusual interactions with the page or tool that owns them.
 - Static displays go in server-renderable modules. Interactive controls go in client modules.
 
+## Tool inputs and results
+
+These pieces carry the rules in [tool-interface.md](tool-interface.md): simple Basic inputs, optional Advanced inputs, no text under fields, and personal visual results.
+
+| Need | Use |
+| --- | --- |
+| The tool's band, working width, field rows, and result region | `ToolWorkbench`, `ToolFieldRow`, and `ToolResult` in `app/ui/tools/tool-workbench.tsx`. Every tool uses them instead of its own workbench CSS. `ToolResult stale` turns a result's visuals gray when its inputs changed; pair it with an `Inputs changed` status. |
+| A required field | The `required` prop on any field, choice group, or select. It shows `*` beside the label, and screen readers hear `Required`. |
+| Explain a label in one sentence | The `hint` prop on any field, choice group, select, slider, or date control. It draws a small `?` beside the label. The sentence shows on hover, keyboard focus, and tap, and screen readers hear it as the field's description. |
+| Optional refinements | `UiDisclosure` below the Basic inputs, named for what's inside. Pass `summary={uiSetSummary(count)}` so the closed row says `Not used` or `2 set`. Control `isExpanded` to open it when a field inside has an error. |
+| Your value against a published range | `UiRangeMarker` in `app/ui/display.tsx`. It draws a neutral track, the published bands, and a `You` marker. It never grades. Each band can carry a `hint` naming its source. An optional `range` draws where the person's own value probably sits, such as a likely range at a small sample size. Its legend is a vertical list, one row per range with its value on the right. |
+| A share of people or items, such as 8 of every 100 who started a trial | `UiUnitGrid` in `app/ui/display.tsx`. It fills units out of 100, row by row, with a partly filled last unit. An optional `target` outlines the units up to a goal. |
+| Supporting result numbers | `UiMetricGroup` in `app/ui/display.tsx`. The default lays numbers out in columns. `layout="list"` gives one row per number, label on the left and value on the right, for numbers people read down. Each item can carry a `hint`. |
+| A link that reopens the tool with the same inputs | `UiShareAction` in `app/ui/controls.tsx`. Pass the inputs as `params`. It copies the link without changing the address bar, and falls back to a selectable link when copying fails. |
+
+Don't use `description` on tool fields. It stays for forms outside tools, such as feedback forms, where a visible line under the field is the right choice.
+
 ## Navigation and feedback
 
 `Pagination` takes `currentPage`, `totalPages`, an accessible `ariaLabel`, and `hrefForPage(page)`. The page owns the URL builder, so active filters and sorting stay in the links. Page one uses the clean listing URL. Previous and next turn into inactive text at the ends.
@@ -73,6 +90,8 @@ Show each look once. When a thin wrapper renders the same thing as another compo
 ## Charts
 
 Every chart is Apache ECharts through one wrapper. Pass data; the wrapper draws it in the site style, in both themes. Give every chart a useful title.
+
+Any ECharts chart type can be used. The kinds below are already in the wrapper. When a different type shows the data better, such as a sunburst, boxplot, calendar, or pictorial bar, add it. See [Add a chart type](#add-a-chart-type).
 
 | Component | Use |
 | --- | --- |
@@ -93,6 +112,11 @@ All three take a `spec`: the chart's `kind`, its data, a `title`, an optional `c
 | `donut` | Parts of one total, with the total in the middle. |
 | `scatter` | Two measures for each item. |
 | `heatmap` | A value across two categories, such as hour and weekday. |
+| `funnel` | Stages that narrow, in order, such as visitors to trials to paid. |
+| `gauge` | One value against a scale, such as progress toward a goal. |
+| `treemap` | Parts of a total as blocks. Better than a donut for many parts. |
+| `sankey` | Amounts flowing from one group to the next, such as MRR movements. |
+| `radar` | Several measures compared as shapes. |
 
 `format` is `number`, `compact`, `bytes`, `currency`, `percent`, `date`, or `datetime`. Line and scatter charts also take `xFormat`. Line x values are dates as milliseconds, numbers, or labels. Labels give a category axis and are read by position: list every series' points in the same order. A label may repeat.
 
@@ -102,7 +126,7 @@ In `UiChart` and `UiLiveChart`, each series name toggles its line, and a dim nam
 
 `UiStaticChart` draws on the server only and sends no chart script. Use it for articles and reference pages where nobody needs hover or ranges. Static charts sit at reading width. Its file never imports the interactive chart, so a page that uses only static charts loads no chart code.
 
-Interactive charts load about 170 to 190 KB of compressed script on the pages that use them. Use a static chart unless hover, toggles, or ranges help the reader.
+Interactive charts load about 170 to 190 KB of compressed script on the pages that use them. Funnel, gauge, treemap, sankey, and radar load their extra script only on a page that draws one. Use a static chart unless hover, toggles, or ranges help the reader.
 
 ### Page weight
 
@@ -117,8 +141,8 @@ Charts with up to 60 values carry a visually hidden data table. Larger charts ge
 
 ### Add a chart type
 
-1. Register it in `app/ui/charts/echarts.ts`. Only registered types reach the browser.
-2. Add its data shape and settings in `app/ui/charts/chart-option.ts`.
+1. Register it. `app/ui/charts/echarts-more.ts` loads in the browser only for charts that need it, so most new types go there. Add the kind to `moreKinds` in `chart-option.ts`. Use `app/ui/charts/echarts.ts` only for a type most chart pages will draw.
+2. Add its data shape, option, legend, and hidden data table in `app/ui/charts/chart-option.ts`.
 3. Add a gallery example in the Charts section, and check it at desktop and mobile width in both themes.
 
 Rules for every chart setting:
@@ -128,6 +152,7 @@ Rules for every chart setting:
 - Draw SVG only. A canvas can't follow the theme.
 - Chart text uses the mono font. `echarts.ts` measures text by it, so labels never clip.
 - Keep server and browser drawings the same: fixed `en-US` formats and UTC dates.
+- Text drawn on colored shapes uses the `onShape` style, which outlines it in the page color so it reads in both themes.
 
 ## Tables
 
@@ -137,7 +162,7 @@ Content tables written in Markdown use a scrollable `TableFrame`. Keep tables re
 
 ## Steps and timelines
 
-`UiSteps` shows ordered stages and which one is done, current, or next. `UiTimeline` shows dated events. Use a timeline only when its axis is time. `UiAllocationBar` shows parts of a total and is often easier to compare than a donut.
+`UiSteps` shows ordered stages and which one is done, current, or next. `UiTimeline` shows dated events. Use a timeline only when its axis is time. `UiAllocationBar` shows parts of a total and is often easier to compare than a donut. Its `neutral` palette suits a two-part split, `accent` puts focus on one part, and `categorical` keeps three or more parts distinct. Never color parts red, yellow, or green by position, because that implies a verdict.
 
 ## Content blocks
 

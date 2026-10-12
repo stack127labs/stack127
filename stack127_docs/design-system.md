@@ -36,7 +36,7 @@ The old token scale is gone. That includes `--text-sm`, `--color-accent-soft`, `
 
 ## Color rules
 
-- The accent is a spotlight, not a paint bucket. Per view, `--color-accent` fills at most these: the h1 mark phrase, one primary button, the active pagination page, the focus ring, and the active tab underline. Anything else that needs attention uses `--color-accent-text` or a border.
+- The accent is a spotlight, not a paint bucket. Per view, `--color-accent` fills at most these: the h1 mark phrase, one primary button, the active pagination page, the focus ring, and the active tab underline. Anything else that needs attention uses `--color-accent-text` or a border. Charts and result visuals are data, not accent: they use the `--color-data-*` palette, whose first color is also chartreuse.
 - Text on an accent fill always uses `--color-accent-contrast`. Never white on chartreuse.
 - Accent-colored text always uses `--color-accent-text`. Raw `#bafc3c` fails contrast as text on the light background.
 - Semantic color only colors words, and only when the meaning is real. Use `--color-success-text`, `--color-warning-text`, and `--color-danger-text`. No tinted panels, no colored left edges, no badge soup.

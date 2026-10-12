@@ -1,0 +1,59 @@
+.form {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+/* Basic rows pair a choice row on the left with one field on the right, so the choices get the wider share.
+   Nested under .form so it wins over the shared row's auto-fit columns. */
+.form .basicRow {
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+}
+
+/* Print refinements sit two to a row, so their choice rows stay on one line and a lone field keeps half the width. */
+.form .pairRow {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.advanced {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+  padding-top: var(--space-5);
+}
+
+/* The answer on the left and the price split beside it, centered on each other. */
+.top {
+  align-items: center;
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  min-width: 0;
+}
+
+.detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+}
+
+.status {
+  align-items: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+@media (max-width: 720px) {
+  .form .basicRow,
+  .form .pairRow,
+  .top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

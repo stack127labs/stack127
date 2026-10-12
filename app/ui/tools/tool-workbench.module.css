@@ -1,0 +1,43 @@
+/* The band. Its surface and rules span the main column; tool-workbench.css draws them. */
+.workbench {
+  grid-column: 1 / -1;
+  min-width: 0;
+  padding-block: var(--space-7);
+}
+
+/* The working width every tool shares. Inputs and results fill it; nothing sits in a narrow island. */
+.content {
+  display: grid;
+  gap: var(--space-7);
+  margin-inline: auto;
+  max-width: 66rem;
+  min-width: 0;
+  width: 100%;
+}
+
+.fieldRow {
+  align-items: start;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  min-width: 0;
+}
+
+.fieldRow > * {
+  min-width: 0;
+}
+
+.result {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+  padding-top: var(--space-7);
+}
+
+/* A result from older inputs steps back until the person calculates again: its visuals lose their
+   color. Its words keep full contrast, and the tool's status says the inputs changed. */
+.result[data-stale] {
+  filter: grayscale(1);
+  transition: filter var(--motion-fast);
+}

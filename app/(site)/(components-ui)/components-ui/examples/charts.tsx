@@ -45,6 +45,20 @@ const visitors: UiChartSpec = {
   xFormat: "date",
 };
 
+// A paperback that costs $4.60 to print: 50% below $9.99, 60% from $9.99, so the line steps up there.
+const royaltyCurve: UiChartSpec = (() => {
+  const royalty = (cents: number) => (Math.round(cents * (cents >= 999 ? 0.6 : 0.5)) - 460) / 100;
+  const prices = [920, 998, 999, ...Array.from({ length: 21 }, (_, index) => 1000 + index * 100)];
+  return {
+    format: "currency",
+    kind: "line",
+    marks: [{ label: "Your price", x: 14.99, y: royalty(1499) }],
+    series: [{ id: "royalty", label: "Royalty per sale", points: prices.map((cents): UiChartPoint => [cents / 100, royalty(cents)]) }],
+    title: "Royalty by list price",
+    xFormat: "currency",
+  };
+})();
+
 const minute = 60_000;
 const rawLatency = (() => {
   const random = seeded(9);
@@ -161,6 +175,79 @@ const signups: UiChartSpec = {
   xFormat: "date",
 };
 
+const trialFunnel: UiChartSpec = {
+  format: "number",
+  height: 280,
+  kind: "funnel",
+  stages: [
+    { id: "visitors", label: "Visitors", value: 4800 },
+    { id: "signups", label: "Signups", value: 640 },
+    { id: "trials", label: "Trials", value: 200 },
+    { id: "paid", label: "Paid", value: 22 },
+  ],
+  title: "Visitors to paid customers",
+};
+
+const goal: UiChartSpec = { format: "currency", height: 240, kind: "gauge", label: "of $10,000 MRR goal", max: 10_000, title: "MRR goal", value: 6_400 };
+
+const costs: UiChartSpec = {
+  format: "currency",
+  height: 280,
+  kind: "treemap",
+  parts: [
+    { id: "hosting", label: "Hosting", value: 420 },
+    { id: "database", label: "Database", value: 260 },
+    { id: "email", label: "Email", value: 90 },
+    { id: "analytics", label: "Analytics", value: 60 },
+    { id: "monitoring", label: "Monitoring", value: 40 },
+    { id: "backups", label: "Backups", value: 30 },
+    { id: "domains", label: "Domains", value: 25 },
+  ],
+  title: "Monthly costs",
+};
+
+const mrrFlow: UiChartSpec = {
+  format: "currency",
+  height: 300,
+  kind: "sankey",
+  links: [
+    { source: "start", target: "kept", value: 8200 },
+    { source: "start", target: "churned", value: 600 },
+    { source: "start", target: "contracted", value: 200 },
+    { source: "kept", target: "end", value: 8200 },
+    { source: "new", target: "end", value: 1400 },
+    { source: "expansion", target: "end", value: 500 },
+  ],
+  nodes: [
+    { id: "start", label: "Starting MRR" },
+    { id: "new", label: "New" },
+    { id: "expansion", label: "Expansion" },
+    { id: "kept", label: "Kept" },
+    { id: "churned", label: "Churned" },
+    { id: "contracted", label: "Contraction" },
+    { id: "end", label: "Ending MRR" },
+  ],
+  title: "Where this month's MRR came from and went",
+};
+
+const plans: UiChartSpec = {
+  axes: [
+    { label: "Price", max: 10 },
+    { label: "Storage", max: 10 },
+    { label: "Seats", max: 10 },
+    { label: "Support", max: 10 },
+    { label: "Integrations", max: 10 },
+  ],
+  format: "number",
+  height: 320,
+  kind: "radar",
+  series: [
+    { id: "starter", label: "Starter", values: [9, 4, 3, 5, 6] },
+    { id: "team", label: "Team", values: [5, 8, 9, 8, 7] },
+  ],
+  title: "Two plans compared",
+};
+
 const kilobytes = (text: string) => `${(new TextEncoder().encode(text).length / 1000).toFixed(1)} KB`;
 
 /** What a chart adds to the page HTML: the server drawing, and the data handed to the browser. */
@@ -196,6 +283,11 @@ export function ChartsExamples() {
         <LiveChartExample />
       </Example>
 
+      <Example components={["UiChart"]} note="Marks put labeled dots on a line, such as the person's own value on a curve." source="app/ui/charts/chart-option.ts" title="Line with a mark">
+        <UiChart spec={royaltyCurve} />
+        <Weight spec={royaltyCurve} />
+      </Example>
+
       <Example components={["UiChart"]} note="Stacked areas add up to the total." source="app/ui/charts/chart.tsx" title="Stacked area">
         <UiChart spec={storage} />
         <Weight spec={storage} />
@@ -224,6 +316,31 @@ export function ChartsExamples() {
       <Example components={["UiChart"]} note="Darker means more." source="app/ui/charts/chart.tsx" title="Heatmap">
         <UiChart spec={activity} />
         <Weight spec={activity} />
+      </Example>
+
+      <Example components={["UiChart"]} note="Stages that narrow, in order. Hover a stage for its share of the first and the previous stage." source="app/ui/charts/chart.tsx" title="Funnel">
+        <UiChart spec={trialFunnel} />
+        <Weight note="funnel, gauge, treemap, sankey, and radar load their script only on pages that use them" spec={trialFunnel} />
+      </Example>
+
+      <Example components={["UiChart"]} note="One value against a scale, such as progress toward a goal." source="app/ui/charts/chart.tsx" title="Gauge">
+        <UiChart spec={goal} />
+        <Weight spec={goal} />
+      </Example>
+
+      <Example components={["UiChart"]} note="Parts of a total as blocks. Reads better than a donut when there are many parts." source="app/ui/charts/chart.tsx" title="Treemap">
+        <UiChart spec={costs} />
+        <Weight spec={costs} />
+      </Example>
+
+      <Example components={["UiChart"]} note="How amounts flow from one group to the next." source="app/ui/charts/chart.tsx" title="Flow">
+        <UiChart spec={mrrFlow} />
+        <Weight spec={mrrFlow} />
+      </Example>
+
+      <Example components={["UiChart"]} note="Several measures compared as shapes. Click a name to hide or show it." source="app/ui/charts/chart.tsx" title="Radar">
+        <UiChart spec={plans} />
+        <Weight spec={plans} />
       </Example>
 
       <Example components={["UiStaticChart"]} note="Drawn on the server only, with no chart script and no hover. For articles and reference pages." source="app/ui/charts/chart-static.tsx" title="Static chart">

@@ -2,7 +2,7 @@
 
 import { useRef, useState, type FormEvent } from "react";
 import { RotateCcw } from "lucide-react";
-import { UiButton, UiCopyAction, UiDisclosure, UiDownloadAction, UiQuantityField, UiRepeatableList, UiSelect, UiTextField, type UiOption } from "@/app/ui/controls";
+import { UiButton, UiCopyAction, UiDisclosure, UiDownloadAction, UiQuantityField, UiRepeatableList, UiSelect, UiShareAction, UiTextField, uiSetSummary, type UiOption } from "@/app/ui/controls";
 import { UiActionRow, UiStatus } from "@/app/ui/display";
 import { Example } from "../gallery";
 import styles from "../components-ui.module.css";
@@ -23,6 +23,9 @@ type Drive = { id: string; capacity: number; unit: string };
 export function ActionsAndFormsExamples() {
   const [hostname, setHostname] = useState("");
   const [recordSize, setRecordSize] = useState("128K");
+  const [windowDays, setWindowDays] = useState("");
+  const [annualShare, setAnnualShare] = useState("");
+  const advancedSet = [windowDays, annualShare].filter((value) => value.trim()).length;
   const [hostnameError, setHostnameError] = useState<string | null>(null);
   const [status, setStatus] = useState("Enter a hostname, then check it.");
   const hostnameRef = useRef<HTMLInputElement>(null);
@@ -112,8 +115,17 @@ export function ActionsAndFormsExamples() {
         />
       </Example>
 
-      <Example components={["UiDisclosure"]} note="Hide settings most people never change." source="app/ui/controls.tsx" title="Hidden settings">
-        <UiDisclosure label="Advanced settings" summary={`${recordSizeOptions.find((option) => option.id === recordSize)?.label} record size`}>
+      <Example components={["UiDisclosure", "uiSetSummary"]} note="Advanced holds optional refinements, closed by default. Name it for what's inside. While closed, the summary says what's set. Empty fields change nothing." source="app/ui/controls.tsx" title="Advanced settings">
+        <UiDisclosure label="Cohorts and billing" summary={uiSetSummary(advancedSet)}>
+          <div className={styles.twoColumns}>
+            <UiTextField hint="Days each trial gets to pay, counted from its start." inputMode="numeric" label="Follow-up window" onChange={setWindowDays} placeholder="30" suffix="days" value={windowDays} />
+            <UiTextField hint="Share of new customers who pick a yearly plan." inputMode="decimal" label="Annual-plan share" onChange={setAnnualShare} placeholder="20" suffix="%" value={annualShare} />
+          </div>
+        </UiDisclosure>
+      </Example>
+
+      <Example components={["UiDisclosure"]} note="A disclosure can also hold evidence or diagnostics, such as raw responses." source="app/ui/controls.tsx" title="Diagnostics">
+        <UiDisclosure label="Pool settings" summary={`${recordSizeOptions.find((option) => option.id === recordSize)?.label} record size`}>
           <div className={styles.narrow}>
             <UiSelect
               label="Record size"
@@ -123,6 +135,12 @@ export function ActionsAndFormsExamples() {
             />
           </div>
         </UiDisclosure>
+      </Example>
+
+      <Example components={["UiShareAction"]} note="Copies a link that reopens the tool with the same inputs. Empty values stay out of the link." source="app/ui/controls.tsx" title="Share link">
+        <UiActionRow>
+          <UiShareAction params={{ trials: 200, paid: 22, price: 29, window: "" }} />
+        </UiActionRow>
       </Example>
     </>
   );

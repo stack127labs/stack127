@@ -68,8 +68,8 @@ Each step has an owner:
 | Step | Owner |
 | --- | --- |
 | Name the primary catalog, any secondary catalogs, and a specific card art brief | Product plan |
-| Generate and register the drawing | Opus frontend step |
-| Write one card name and description, shared across catalogs | Opus writing session |
+| Generate and register the drawing | Integration worker |
+| Write one card name and description, shared across catalogs | Opus planning session, in its writing step |
 | Apply the card fields and memberships to development together | Integration worker |
 
 The integration worker runs:

@@ -5,129 +5,28 @@ description: Plan and write, or rewrite, the content, title, page copy, interfac
 
 # stack127 tool writing
 
-Read `stack127_docs/writing-style.md` for how to write and search wording, and `stack127_docs/page-content.md` for the content files, the MDX blocks, and the content rules. Read `content_docs/<slug>/research.md` and `tool-spec.md` when they exist. Check every claim against the tool and its sources.
+You're writing for one person: someone who just searched for this tool because something is bugging them. Talk to them like a friend who knows the subject. Get what they're stuck on, explain it simply, and clear up every doubt they'd still have. Then stop.
 
-## When to use it
+Before you write, read the research and spec, and use the finished tool with a real example. Think about this person. What's going on for them? What are they trying to decide? What would they still wonder after seeing the answer? Read the intros of two or three other tools in the same catalog, so this page sounds like its own and not like theirs.
 
-In the tool pipeline, Opus runs this skill in its own Claude Code writing session after the tool is built. Plan the Content section first, then write in the same session.
+Read `stack127_docs/writing-style.md` for the voice and `stack127_docs/page-content.md` for the files and MDX blocks. Check every claim against the tool and its sources.
 
-It also handles rewrites of live tool pages. Read the current content in the route's `content/*.mdx` files, and the title and search text on the page. Read and edit its MDX files. Tools, directories, and catalogs have no database-content fallback. Use the tool once and read its code for the exact rules and messages. Keep the facts, limits, and sources a reader needs, and cut what goes beyond the core of the tool. Skip the spec step for a rewrite.
+## The page
 
-It also covers catalog pages, such as `/dns-tools`: the title, the intro above the cards, the article below them, and the search text. A catalog's content lives in a folder named for its slug under `app/(site)/(catalogs)/[slug]/content/`. See `page-content.md`.
+| Part | Lives in | Its job |
+| --- | --- | --- |
+| Intro | `content/intro.mdx` | Meet the reader where they are, hook them with their own problem, and point them to the tool. |
+| Usage | `content/usage.mdx` | Walk a new user through the tool as if you're sitting beside them: what each input means, what to try, and how to read the result. A conversation, not a glossary. |
+| Content | `content/article.mdx` | What helps them next. Mention related stack127 tools where they naturally come up, linked inside the sentence, never as a list. Leave out anything this reader doesn't need. Published figures and their sources go here, never in the result. Never call a number good or bad. |
+| Interface words | Frontend code | Labels and one-sentence hints. See "Words inside a tool" in `writing-style.md`. |
+| Title, SEO title, description, card copy | Database, through the publisher | "Tool name: the question it answers", in the words people search. |
 
-## Win the search
+In the pipeline, the Opus session that planned the tool writes its page, after planning the spec's Content section. Use this skill for rewrites of live tool pages too, editing the route's MDX directly, and for catalog pages such as `/dns-tools`, whose content lives in `app/(site)/(catalogs)/[slug]/content/`.
 
-The page should be the best answer for the searcher. Before planning, answer three questions from the research or, for a rewrite, from a quick look at the top results:
+## Hand off
 
-1. What is the searcher really trying to decide or produce?
-2. Where do the top results fail them?
-3. What will this page do better?
+Run `node scripts/stack127/content/check-mdx.mjs`. In the pipeline, apply interface word changes in the frontend code yourself. For a standalone rewrite, list them instead.
 
-Then:
+Return the MDX paths with word counts, the title, SEO title and description, the card name and description, the interface words, and sources for factual claims.
 
-- Put the tool and its answer before explanations.
-- Answer the questions people really ask that the top results answer badly.
-- Show a worked example with real numbers.
-- Be honest about limits. Say what the tool can't tell you and when a result is an estimate.
-- Use primary sources and say when the data was checked.
-- Add at least one useful thing the top results don't have.
-
-## Stay on the core
-
-A tool page has two jobs: help the reader understand the idea behind the tool, and help them use it and trust the result. Write only what serves those jobs. Typical topics:
-
-- what the thing is and why it matters;
-- what to enter and where to find each number;
-- how to read the result, with one worked example;
-- the formula or rule;
-- the few questions people search and ask about it.
-
-There is no fixed list of sections. Judge each one by asking whether a typical reader of this tool would want it. If not, cut it.
-
-Leave out:
-
-- How the tool handles rare inputs, such as calculation limits, very small amounts, rounding, or extreme values. The result messages and the spec cover these. Explain an unusual result only when ordinary readers often see it.
-- Input format rules. These belong in field hints and error messages.
-- Tables or walkthroughs of special cases that exist to show the tool is correct.
-- Second sections that repeat a rule already given.
-- Background that doesn't help the reader use the tool or understand the result.
-
-Longer is not better. A focused page that answers the searcher quickly beats a long page that covers everything.
-
-## Plan first
-
-In the pipeline, write the plan in the Content section of `content_docs/<slug>/tool-spec.md`.
-
-1. Use the finished tool once with a real example. Note what the result shows and what a reader might misread.
-2. List the questions searchers ask, from research. Keep only the ones a typical reader of this tool would ask. Drop rare cases and questions that only matter for testing the tool.
-3. Map each question to where it is answered: the tool result, intro, usage, or content.
-4. Outline the page with the structure below. Name each content heading as the question it answers, and pick a format for each from `writing-style.md`.
-5. List what you left out on purpose, and say where it is handled instead, such as a result message, a field hint, or the spec.
-6. Note the facts the page states, their sources, claims to avoid, and the next stack127 pages to link.
-
-Refer to facts in the research instead of copying them.
-
-## Page structure
-
-| Part | Where it shows | Where it lives | What to write |
-| --- | --- | --- | --- |
-| Title | Page heading | Database, through the publisher | "Tool name: the question it answers", in words people search for. Example: "KDP payment date calculator: when will KDP pay you?" |
-| Intro | Above the tool | `content/intro.mdx` | 2 to 3 sentences. What you get, and what to have ready. No history or filler. |
-| Usage | After the tool | `content/usage.mdx` | Steps that need explaining, how to read the result, and one worked example. |
-| Content | After usage | `content/article.mdx` | Short sections with `##` question headings, each answered in its first sentence. |
-
-The SEO title, SEO description, and card copy also go to the database through the publisher.
-
-### Usage steps
-
-Every step must tell the reader something the form doesn't.
-
-- Cut: "Pick the format." "Select Calculate."
-- Keep: where to find a number, what a term means, which choice to pick when unsure.
-
-Beginners should be able to follow along without reading steps that only name buttons.
-
-### Content sections
-
-Pick only what this tool's readers need. This order is a guide, not a checklist:
-
-1. How it works: the rule or formula, with an example. For lookups and checks, what is checked and where the data comes from.
-2. What the result means, including good and bad results. Use benchmarks only with a source.
-3. Common mistakes people actually make.
-4. Related questions people search, from research.
-5. What the tool doesn't cover, in a line or two, and next stack127 tools.
-
-Keep each section to 1 to 3 short paragraphs, or one table, list, or visual with a line or two around it.
-
-## Keep it short and visual
-
-- Show first. Use a table, list, chart, example, formula, note, or warning when it shows the idea better than a paragraph. See the format table in `writing-style.md`.
-- Use marker art only for a concept that needs a picture, such as a flow or a rough relationship. Use at most one or two per page. Request it through the marker art skills; don't invent figure references.
-- Use only the blocks `page-content.md` lists. Page copy never needs a new one.
-- Say each idea once. The intro, usage, and content must not repeat each other.
-- Say whether a number is exact, an estimate, or a rule of thumb.
-- For lookups and checks, say what the result can and cannot tell the reader.
-- A rewrite should not be longer than the current page unless it adds something the reader was missing. Say what you added in the handoff.
-
-## Final pass
-
-After corrections, reread everything as a first-time visitor. Cut repetition, padding, steps that only name buttons, and any section that goes beyond the core of the tool. Keep the details and limits a typical reader needs. Remove research notes, source labels, citation markers, and insider wording. Keep source links that help the reader.
-
-If the main agent finds a problem on the rendered page, fix it in the same session and return the corrected words.
-
-## Hand off the copy
-
-Write the intro, usage, and content into the route's `content/intro.mdx`, `content/usage.mdx`, and `content/article.mdx`, following the rules in `page-content.md`. Run `node scripts/stack127/content/check-mdx.mjs` and fix what it reports. The content ships with a code release. Integration puts the title, search text, and card copy in the publish manifest. In the pipeline, apply interface-word changes in the frontend code yourself, since Opus owns the frontend. For a standalone rewrite, list suggested interface words instead.
-
-Return:
-
-- the MDX file paths and word counts before and after;
-- the visible title, SEO title, and SEO description;
-- a short card name and task-focused card description, which appear in every assigned catalog;
-- interface words changed or suggested;
-- any marker art you suggest;
-- sources for factual claims.
-
-Keep the spec as planning. The MDX files are the page content.
-
-A tool's public date moves with its version, title, and search text. Content edits leave `tool_version` and the date alone; a date move for content-only tool changes comes later. Card-only edits refresh catalogs and keep the tool date unchanged. Functional tool changes use the version workflow in `stack127_docs/tool-pages.md`.
+Content edits leave `tool_version` and the public date alone. See `stack127_docs/tool-pages.md`.

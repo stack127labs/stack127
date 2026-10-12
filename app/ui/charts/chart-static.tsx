@@ -1,6 +1,8 @@
-import { chartLegend, chartOption, donutTotal, hasChartTable, type UiChartSpec } from "./chart-option";
+import { chartLegend, chartMarksText, chartOption, donutTotal, hasChartTable, type UiChartSpec } from "./chart-option";
 import { ChartDataTable, ChartHeading } from "./chart-parts";
 import { echarts } from "./echarts";
+// The server draws every chart type. The browser loads these only when a chart needs one.
+import "./echarts-more";
 import styles from "./charts.module.css";
 
 /** Server drawing widths: the wide content column, the reading column, and a phone. */
@@ -26,7 +28,7 @@ export function UiStaticChart({ spec }: { spec: UiChartSpec }) {
   const total = donutTotal(spec);
   const withTable = hasChartTable(spec);
   // Small charts are read from their hidden table. Larger ones get a short description instead.
-  const description = [spec.title, spec.caption, legend.length ? `Shows ${legend.map((item) => item.label).join(", ")}.` : null].filter(Boolean).join(". ");
+  const description = [spec.title, spec.caption, legend.length ? `Shows ${legend.map((item) => item.label).join(", ")}.` : null, ...chartMarksText(spec)].filter(Boolean).join(". ");
   return (
     <figure className={`${styles.figure} ${styles.static}`}>
       <ChartHeading spec={spec} />

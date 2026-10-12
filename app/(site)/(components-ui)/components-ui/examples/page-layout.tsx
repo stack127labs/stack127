@@ -8,6 +8,9 @@ import { PageHeader } from "@/app/ui/site/page-header";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
 import { ThemeToggle } from "@/app/ui/site/theme-toggle";
+import { UiButton, UiTextField } from "@/app/ui/controls";
+import { UiActionRow, UiPrimaryResult } from "@/app/ui/display";
+import { ToolFieldRow, ToolResult, ToolWorkbench } from "@/app/ui/tools/tool-workbench";
 import { Example } from "../gallery";
 import styles from "../components-ui.module.css";
 
@@ -58,6 +61,25 @@ export function PageLayoutExamples() {
           <span className={styles.brandExample}><BrandWordmark /></span>
           <ThemeToggle />
         </div>
+      </Example>
+
+      <Example components={["ToolWorkbench", "ToolFieldRow", "ToolResult"]} note="Every tool sits in this band: the shared working width, inputs in rows that fill it, the action row, and the result below one divider. A result whose inputs changed steps back with stale." source="app/ui/tools/tool-workbench.tsx" title="Tool workbench">
+        <ToolWorkbench label="Example tool">
+          <ToolFieldRow>
+            <UiTextField label="Drives" suffix="drives" value="4" />
+            <UiTextField label="Drive size" suffix="TB" value="8" />
+          </ToolFieldRow>
+          <UiActionRow>
+            <UiButton type="button" variant="primary">Calculate capacity</UiButton>
+            <UiButton type="button">Reset</UiButton>
+          </UiActionRow>
+          <ToolResult label="Example result">
+            <UiPrimaryResult detail="Example" label="Usable capacity" unit="TB" value="24" />
+          </ToolResult>
+          <ToolResult label="Stale example result" stale>
+            <UiPrimaryResult detail="Inputs changed" label="Usable capacity, stale" unit="TB" value="24" />
+          </ToolResult>
+        </ToolWorkbench>
       </Example>
 
       <Example components={["AppShell", "PageCanvas"]} note="Every page uses the shared shell with a sidebar, and PageCanvas for each content section. This gallery uses both. See full layouts on their live pages." source="app/ui/site/app-shell.tsx, app/ui/site/page-canvas.tsx" title="Full page layouts">

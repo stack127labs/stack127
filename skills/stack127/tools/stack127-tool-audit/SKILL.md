@@ -1,19 +1,20 @@
 ---
 name: stack127-tool-audit
-description: Independently check one complete stack127 tool for correct answers, usable interaction, responsive rendering, clear content, and release readiness.
+description: Independently check one complete stack127 tool for correct answers, a simple Basic flow for most people, usable interaction, responsive rendering, clear content, and release readiness.
 ---
 
 # stack127 tool audit
 
-Audit-only requests are read-only. In the tool pipeline, report confirmed defects with their owner (backend, frontend, or copy) and do not fix them; the main agent sends backend defects to Sol, data defects to Luna, frontend defects to the Opus planning session, and copy to the Opus writing session.
+Judge the tool as its users would, without relying on the builder's explanation. Audits are read-only. Report each defect with its owner: backend to Sol, data to Luna, design, plan, or copy to the Opus planning session, and wiring or card art to integration.
 
-1. Read the tool spec, engine, route, the route's `content/*.mdx` files, focused tests, styles, and scripts. Use `stack127_docs/writing-style.md` when reviewing copy, `stack127_docs/page-content.md` for the content rules, and `stack127_docs/shared-ui.md` when checking components. Check that the content follows those rules: no h1 in content, headings that step down one level at a time, no eyebrows, the tool section order, only the listed blocks, and no placeholder text left in any content file.
-2. Check several independent normal, boundary, and invalid examples against primary sources or hand calculations.
-3. Use the real development page at desktop and mobile width. Follow `skills/stack127/references/homelab-browser-and-search.md` for a local headless browser when needed. Check the primary action, answer, recovery, keyboard use, focus, overflow, shared tables, charts, callouts, links, and content order where present. For each chart, check both themes, that no label is clipped, that the legend toggles and tooltip work, and that the page HTML stays well under 2 MB.
-4. Check basic privacy, escaping, untrusted output, timeouts, unknown versus zero, units, and rounding where they apply.
-5. Confirm development publication and version state. Check that the tool has one rank-1 primary catalog, appears once with the right card in every planned published catalog, has working links and sensible ordering, and does not appear while unpublished. For a new tool, confirm its tool-specific marker drawing is present and recognizable at the rendered card size on desktop and mobile in both themes; an `icon` fallback, unclear subject, overlap, or clipped art blocks release. When the tool is unpublished, inspect the generated art at card size and flag the public-card check for publication. If a publish manifest exists, run its `prepare` and `preview` against development and confirm its readiness checks pass and its values match what you checked. Report a mismatch as an integration defect. Never write production data without authorization.
-6. List wrong answers, broken common flows, accessibility failures, and responsive failures with their owner. After the owners fix them, rerun only the affected focused test or interaction.
+Read the spec, engine, route, `content/*.mdx`, and tests. Check against `stack127_docs/tool-interface.md`, `writing-style.md`, `page-content.md`, and `shared-ui.md`.
 
-Return the verdict, real defects and their owners, focused rechecks, and anything still blocking release. Do not create evidence folders, screenshots by default, hashes, receipts, or a second full test run.
+1. **Answers.** Check normal, boundary, and invalid examples against primary sources or hand calculations. Include unknown versus zero, units, rounding, timeouts, and escaping of untrusted output where they apply.
+2. **First use and depth.** Open the real development page as the first-time visitor in the spec's "People and questions", then as a pro in this domain. Does it open on an example with its result? Can the visitor get the answer from Basic without reading? Would the pro find what serious competitors offer in Advanced? Can they scan the result, with the main answer first and smaller numbers readable? Does every required field show `*`? Does every limit answer instead of blanking? Use the Review list in `tool-interface.md`.
+3. **Interaction.** Check desktop and mobile width in both themes: keyboard and focus, hints, overflow, charts, tables, links, and recovery from errors.
+4. **Content.** Content follows `page-content.md`, with no placeholders left.
+5. **Publication.** Development publication and version. One rank-1 primary catalog, and one card in each planned catalog. The tool-specific card art reads at real size in both themes, and an `icon` fallback blocks release. If a publish manifest exists, run its `prepare` and `preview` against development. Never write production data.
 
-For an existing tool, a change to inputs, results, calculations, validation, or other user-visible behavior needs a `tool_version` increase. Use a patch for a compatible fix, a minor version for compatible new behavior, and a major version for an incompatible contract change. Confirm the version with the coordinator before integration. The database moves the public date when the version changes. MDX content changes leave the version and the date alone; a date move for content-only tool changes comes later. Card-only edits refresh catalogs and keep the tool date unchanged. See `stack127_docs/tool-pages.md`.
+See `skills/stack127/references/homelab-browser-and-search.md` for a headless browser. After owners fix things, recheck only what changed.
+
+Return the verdict, the defects with owners, and anything still blocking release. Don't create evidence folders, screenshots by default, or hashes.
