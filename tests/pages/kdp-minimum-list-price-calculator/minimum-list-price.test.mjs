@@ -60,7 +60,7 @@ test("uses the fixed-only hardcover cost and searches cent boundaries", () => {
     pageCountText: "100",
   })));
   assert.equal(values.deductionCents, 680);
-  assert.equal(values.minimumPriceCents, 1_134);
+  assert.equal(values.minimumPriceCents, 1_133);
   assert.equal(getKdpPrintPricePoint(1_299, 680).royaltyCents, 99);
   assert.equal(values.priceCents, 1_300);
   assert.equal(values.royaltyCents, 100);

@@ -1,225 +1,237 @@
 # Research: Free trial conversion calculator
 
-Recommended slug: `/free-trial-conversion-calculator`. Live search wording includes "free trial conversion rate calculator" and "free trial conversion calculator." This slug is concise and keeps "free trial," the clearest modifier. Use "free trial to paid" in the page title or description to make the outcome clear. `/trial-conversion-rate-calculator` is less specific; `/trial-to-paid-conversion-calculator` is precise but drops "free trial." This is a wording recommendation from current results, not search-volume data.
-
 Route: `/free-trial-conversion-calculator`  
-Checked: 2026-10-10  
-Competitors used: 5
+Checked: 2026-10-11
+Competitors used: 6 public calculators
+
+## Who uses it
+
+The main searcher is a SaaS founder or operator who has counts for a trial cohort and wants to know what share became paying customers. A growth or product lead may have more detailed cohort and activation data and wants to compare segments or estimate the revenue effect of a change.
+
+| Group | Rough share | What they already know | Their questions, in their words |
+| --- | --- | --- | --- |
+| Most people, such as a founder with one cohort report | Most | Trial starts and paid accounts, often from a billing dashboard or spreadsheet | “What percentage of trial users paid?” “Is 3 out of 160 bad?” “How much more MRR would 5% or 10% bring?” |
+| Pros, such as a growth lead with analytics events | Few | Cohort dates, activation events, trial type, acquisition channel, plan, and time to conversion | “What share converted within 30, 90, or 180 days?” “Where does the funnel lose users?” “Does the result hold by channel, plan, or trial model?” |
+
+These shares are a qualitative read of search results, calculator pages, and forum questions, not measured market shares.
+
+- Most searchers want the rate, numerator, denominator, and a quick check that they divided the right counts.
+- Most can provide trial starts and paid conversions from one cohort. They may need to look up whether the cohort has had enough time to convert and whether the billing report counts people, accounts, subscriptions, or seats.
+- Pros need a stated observation window, mature cohorts, consistent counting units, and cuts by trial type, plan, channel, or activation. They may also want to model revenue, but a rate alone does not explain retention or acquisition quality.
+
+## Published comparison data
+
+| Figure | Source and date | Who was measured | Same definition as the tool? |
+| --- | --- | --- | --- |
+| For free trials without payment details, ChartMogul/ProductLed labels 4–6% “good” and 10–15% “great.” For trials requiring payment details, it labels 25–35% “good” and 50–60% “great.” These bands represent the 50th and 75th percentile in the report, not universal targets. | [ChartMogul SaaS Conversion Report](https://chartmogul.com/reports/saas-conversion-report/), published February 2026. Survey of 200 software products conducted in January 2026. The question measures free signups converting to paid within six months. | Software products, mostly SaaS and AI/SaaS hybrids, typically $1–10M ARR. The free-trial subgroup counts are not published. | Close only when the user's metric is paid conversion from a free-signup cohort over six months and the payment-details model matches. Treat as directional because subgroup size and the survey's exact counting method are not stated. |
+| First Page Sage reports average opt-in trial-to-paid rates of 18.2% for organic and 17.4% for paid traffic, and opt-out rates of 48.8% and 51%. It defines conversion as at least one paid month and warns readers to check retention and churn too. | [First Page Sage SaaS Free Trial Conversion Rate Benchmarks](https://firstpagesage.com/seo-blog/saas-free-trial-conversion-rate-benchmarks/), published September 5, 2025. Data spans Q1 2022–Q3 2025. | Agency data from 86 SaaS companies, 71% B2B and 29% B2C. | Partly. It separates trial model and traffic source, but the page does not state a fixed cohort window. “At least one paid month” does not mean retained revenue. Do not combine with a six-month survey figure. |
+| Recurly reports a 37.5% average site-level trial conversion rate. Sites with billing details averaged 39.0%, compared with 12.0% for trials without billing details. | [Recurly State of Subscriptions: The acquisition chapter](https://recurly.com/resources/report/state-of-subscriptions-acquisition/), page date not stated; underlying data covers January–August 2022. | 22 million subscription-level trial starts from 803 sites managed by Recurly merchants. The overall study covers subscription businesses, including consumer categories. | Similar event, different population and aggregation. Recurly explicitly counts two trial subscriptions from one account as two starts and reports an average site-level rate. It is not a SaaS-only, account-level benchmark. |
+| ChartMogul's help article gives a 3% median across SaaS companies. | [ChartMogul Trial-to-Paid Conversions help article](https://help.chartmogul.com/article/219-chart-trial-to-paid-conversion-rate), currently accessible; underlying sample and data period are not stated. | ChartMogul's SaaS company data, with no sample size or cohort window on the page. | It uses a cohort-based trial-to-paid definition, but the page does not define a fixed conversion window. It is not directly comparable to the six-month survey bands. |
+
+These sources do not support one blended range. ChartMogul's dated, model-specific six-month bands are the clearest candidate for an optional comparison, but they are survey percentiles and do not publish the size of either trial subgroup. First Page Sage, Recurly, and ChartMogul's help article measure different populations, traffic mixes, aggregation levels, or time windows. If the page shows a comparison, date it, identify the trial model and window, and label it as context rather than a grade.
 
 ## Scope
 
-The tool should answer: "Of the people who started a free trial or entered a free product in a defined period, how many became paying customers within a defined follow-up window, and what monthly recurring revenue did those conversions add?" Trial and freemium starts are different cohorts and need separate modes. No-card and card-required trials also need separate labels because their populations and conversion rates differ.
+The tool's core job is to calculate paid conversions as a share of a stated trial cohort. It can also help a founder estimate new MRR from the cohort if the founder supplies a monthly revenue per new account. It should not claim to predict conversion, diagnose product-market fit, decide whether the company should require payment details, or infer lifetime value from the first paid month.
 
-The core rate is cohort based. A trial that starts in August and pays in September belongs to the August cohort. Counting August conversions divided by August trial starts can miss that conversion, or mix in people whose trials started in July. Users need to choose an event that means "paid" in their billing system and give every cohort the same time to mature. A result for an incomplete cohort is provisional.
+The route is under the `(saas)` tool group and its registry-backed `layout.tsx` remains. The deleted route page, engine, content, test, research file, and spec are absent. The likely primary catalog is `/saas-tools`, based on the current SaaS tool family and sibling SaaS tool docs. The coordinator should confirm the development row's actual catalog membership during planning or integration. No public vendor offers an official, neutral trial-conversion calculator. The official vendor sources found here are analytics and billing documentation, not standalone calculators.
 
-The scope does not include churn, retention, revenue recognition, CAC, full funnel attribution, trial activation, or a forecast of future conversions. The MRR result is new recurring run rate from converted accounts, not cash collected, first-year revenue, or MRR retained after churn.
+Queries tried:
 
-Searches tried:
+- `free trial conversion rate calculator SaaS`
+- `trial conversion rate calculator SaaS benchmark`
+- `what is a good free trial conversion rate SaaS`
+- `how to calculate free trial to paid conversion rate cohort`
+- `does free trial conversion rate include signups still in trial cohort window`
+- `site:reddit.com/r/SaaS "trial-to-paid" conversion rate free trial users`
+- `site:reddit.com/r/B2BSaaS "credit card" trial conversion rate`
 
-- "free trial conversion calculator SaaS trial to paid calculator"
-- "trial conversion rate calculator cohort free trial to paid SaaS"
-- "freemium free to paid conversion rate calculator SaaS"
-- "trial to paid conversion rate calculator benchmarks SaaS"
-- "free trial conversion rate SaaS"
-- "trial to paid conversion benchmark primary study"
-- "trial to paid conversion calculator free SaaS tools"
-- "site:reddit.com/r/SaaS trial to paid cohort"
-
-Search results repeatedly surfaced ChartMogul, Growth Unhinged/ProductLed, First Page Sage, Appcues, Userpilot, Wall Street Prep, Calclet, Agents for Data, TrialMonitor, VentriTools, Technotize, and Recurly. The local SearXNG search endpoint was unavailable, so the search fallback was the web search connector and a live Google results page. No search-volume tool was available. Search wording above is evidence for the slug, not a volume estimate.
-
-### Existing stack127 tools
-
-- `/mrr-calculator` takes paid plan counts, prices, and billing intervals, then normalizes them into MRR and ARR. It does not connect subscriptions to a trial-start cohort.
-- `/customer-acquisition-cost-calculator` divides acquisition spend by new first-time paying customers. Its guidance excludes trials, signups, and renewals from that customer count. It does not calculate trial conversion or cohort MRR.
-- `/saas-metrics-calculator` analyzes a completed month of MRR changes, retention, and growth, with optional CAC and burn inputs. It does not separate trial or free signup cohorts.
-
-This tool adds early-funnel measurement: trial-start and freemium-start cohorts, a named follow-up window, separate no-card and card-required trial context, and the normalized MRR added by converted customers. It complements the existing tools; it does not replace their CAC or whole-business MRR calculations.
+The calculator results that kept appearing included `agentsfordata.com`, `calcbee.com`, `rightleftagency.com`, `kalkulero.com`, `ventritools.com`, `saaspricelab.com`, and `trialmonitor.io`. Sources that recur for definitions or benchmark claims include ChartMogul, First Page Sage, Recurly, Paddle, and Reddit discussions in r/SaaS and r/B2BSaaS.
 
 ## Search intent
 
 | Query | What the searcher wants | Answer they need | What current results miss |
 | --- | --- | --- | --- |
-| free trial conversion calculator | A quick trial-to-paid rate | A clear numerator, denominator, and result | Many calculators use "started this period" without saying whether conversions came from those same starts. |
-| trial conversion rate calculator cohort | A rate that accounts for trial length and delayed purchases | Start cohort, paid event, and equal follow-up window | Most calculators give a single period rate without cohort maturity or lag. |
-| opt-in vs opt-out trial conversion rate | A way to compare no-card and card-required trials | Plain definitions and model-specific context | Results often use "opt-in/opt-out" inconsistently or compare rates without noting the different friction and populations. |
-| free-to-paid conversion rate calculator | A freemium conversion rate | A separate free-account cohort and measurement window | Some pages treat freemium as a trial despite having no fixed end date. |
-| trial conversion MRR calculator | The recurring revenue associated with newly paid accounts | Monthly normalized recurring value, including annual plans | Competitors may call hypothetical unconverted value "lost revenue," or omit billing interval normalization. |
-| SaaS trial conversion rate benchmarks | A sense of whether a result is plausible | Dated evidence split by business and trial model | Generic "good" bands often lack primary sources, sample details, or a clear definition of conversion. |
+| `free trial conversion rate calculator SaaS` | An immediate rate from two counts | Paid trial-cohort entities divided by all entities in that same cohort, with the count and formula shown | Several results add benchmark scores or revenue estimates before making the cohort and window clear. |
+| `how to calculate free trial to paid conversion rate cohort` | A formula they can reproduce in billing or analytics | A same-cohort numerator and denominator, a conversion window, and a clear counting unit | Search summaries sometimes suggest matching calendar-month totals. Cohort-based conversion can continue to change after the signup month. |
+| `what is a good free trial conversion rate SaaS` | Context for whether their rate is unusually high or low | A comparison split by payment-details requirement and time window, with the study population and date | Results mix SaaS and consumer subscriptions, trial and freemium models, “average” and percentile bands, and different windows. |
+| `credit card required vs no credit card trial conversion` | Whether their trial policy changes the result | Explain that payment details affect both signup volume and conversion among trial starters; compare the whole funnel separately | Many pages compare trial-to-paid rates alone and imply that a higher rate means more paid customers overall. |
+| `trial conversion rate revenue impact calculator` | MRR effect of changing trial conversion | New paid accounts in the cohort multiplied by monthly revenue per account, with retention and annualization assumptions stated | Some pages call a multiplied MRR figure “annual revenue” or “ARR” without saying whether it is run-rate, first-year recognized revenue, or retained revenue. |
+| `SaaS trial activation rate to paid` | Where the signup-to-paid funnel loses people | Distinguish trial-to-activation from activation-to-paid, and define the activation event | Some calculators add activation fields but do not define a product-specific activation event or explain whether paid counts can exceed activated counts. |
 
-Google's live "People also ask" results included "What is the typical conversion rate for SaaS trials?", "What is a good trial conversion rate?", and "Is 2.5% a good conversion rate?" The same page also showed "What is the 3 3 2 2 2 rule of SaaS?", which is not useful for this calculator. Related searches included "Free trial conversion rate SaaS calculator," "Conversion rate optimization for SaaS trial to paid funnel," "SaaS conversion rate benchmarks," "Activation rate SaaS," and "Average freemium conversion rate."
+Google's “People also ask” questions for `what is a good free trial conversion rate SaaS` on 2026-10-11:
 
-The result that needs the most care is "What is a good trial conversion rate?" No single answer applies across no-card trials, card-required trials, freemium, B2B and consumer products, trial lengths, or sales-assisted funnels. The page should make the rate computable first and show benchmark figures only with their population and date.
+- “What is the typical conversion rate for SaaS trials?”
+- “Is 2.5% a good conversion rate?”
+- “What is a good trial conversion rate?”
+- “Is a 10% conversion rate considered good?”
+
+Related searches included `best free trial conversion rate calculator SaaS`, `SaaS free trial conversion rate`, `conversion rate optimization for SaaS trial to paid funnel`, `SaaS conversion rate benchmarks`, `activation rate SaaS`, and `average freemium conversion rate`.
 
 ## User problems
 
 | Problem people repeat | Evidence link | What it means for the tool |
 | --- | --- | --- |
-| Founders debate whether requiring a card improves paid conversion enough to offset fewer or less engaged signups. | [SaaS thread on card required upfront or not](https://www.reddit.com/r/SaaS/comments/1s4dsd5/free_trial_credit_card_required_upfront_or_not/) | Make no-card and card-required modes explicit. Do not present the higher card-required rate as proof that one model is better; signups, activation, refunds, and retention also matter. |
-| A builder moved from a card wall to an email-only seven-day trial and wants paid outcomes rather than signup counts, while weighing server costs. | [SaaS thread on freemium versus card upfront](https://www.reddit.com/r/SaaS/comments/1t6nx4x/freemium_vs_cc_upfront_for_a_7day_trial_just/) | Distinguish free starts from paid conversions, and avoid implying that signup volume alone measures success. A cost or unit-economics model is outside this tool. |
-| Founders ask what trial-to-paid rate others see, while acknowledging that product, audience, activation, and time to convert vary. | [SaaS thread asking for trial conversion rates](https://www.reddit.com/r/SaaS/comments/1ro9ggt/whats_your_trail_to_conversion_rate/) | Show the cohort and measurement window so a user can compare like with like. Explain that one percentage without segment and timing details is hard to interpret. |
-| An adjacent consumer app owner reported a 20.7% blended rate versus 44% for four fully observed weekly cohorts, plus missed analytics events and small-cohort caveats. | [AppBusiness thread on fixing trial conversion tracking](https://www.reddit.com/r/AppBusiness/comments/1upohjk/fixed_my_trial_conversion_21_44_and_just_passed/) | Label cohort maturity and tracking completeness. This is an anecdote from an iOS fitness app, not a SaaS benchmark. |
+| A founder has 160 trial signups and 3 paid accounts and asks whether a 1.9% result means the SaaS is failing. Replies vary by product category and focus on whether the few converted accounts remain. | [“How many of your trial users ended up becoming paying users? Is my SaaS doomed?”](https://www.reddit.com/r/SaaS/comments/1rfdj8o/how_many_of_your_trial_users_ended_up_becoming/), February 26, 2026. Individual reports are not a benchmark. | Show the actual counts with the rate. Do not mark the result healthy or unhealthy from a universal threshold. Keep retention distinct from first paid conversion. |
+| A founder reports 71.43% from 42 trials, then commenters question whether that sample supports a broad conclusion. | [“We just hit 71.43% trial-to-paid conversion rate”](https://www.reddit.com/r/SaaS/comments/1tnrbul/we_just_hit_7143_trialtopaid_conversion_rate/), May 26, 2026. | Preserve the sample size beside the percentage. Avoid strong percentile or health claims from a small cohort. |
+| A B2B SaaS operator with a seven-day, payment-details-required trial asks if 15% is too low and what to change. | [“CC Required Trial → Paid Conversion rates for B2B SaaS?”](https://www.reddit.com/r/B2BSaaS/comments/1ssivq2/cc_required_trial_paid_conversion_rates_for_b2b/), April 22, 2026. | A comparison needs trial model and window. Forum replies provide conflicting targets, so do not treat peer comments as a benchmark. |
+| A founder with 300+ signups and 17 conversions reports about 4% and asks why the trial is underperforming. | [“300+ trial signups, 17 conversions, the real reason most SaaS trials fail”](https://www.reddit.com/r/SaaS/comments/1nocjgp/300_trial_signups_17_conversions_the_real_reason/), September 23, 2025. | The rate alone cannot identify onboarding, audience fit, activation, or trial length as the cause. A funnel breakdown needs defined events and should remain separate from the core calculation. |
 
-These forum posts are qualitative evidence of questions and measurement pain, not representative rate data.
+These are self-reported community examples. Use them to understand questions people ask, not to set benchmark values.
 
 ## Facts to get right
 
 | Fact | Primary source | How the tool should treat it |
 | --- | --- | --- |
-| Cohort rate is the converted share of trial starts from the same start cohort. A cohort can update as later conversions arrive. | [ChartMogul: Trial-to-paid conversion rate](https://help.chartmogul.com/article/219-chart-trial-to-paid-conversion-rate) | Use the same start cohort for numerator and denominator. Require or state a follow-up window, or compare cohorts at the same age. Mark immature cohorts provisional. Keep the customer/account/subscription unit consistent. |
-| A rolling-window conversion KPI can use a different denominator and can exceed 100%. Stripe's Billing metric compares conversions in the last 30 days to trials ended in the last 30 days; the two groups need not be the same cohort. | [Stripe: Calculating trial conversion rate in Billing](https://support.stripe.com/questions/calculating-trial-conversion-rate-in-billing?locale=en-GB) | Do not silently call a rolling period rate a cohort conversion rate. Explain why it can differ from the start-cohort answer. |
-| "Paid" depends on billing state. Stripe's subscription lifecycle moves a trialing subscription to active after trial end, and first invoice/payment status affects whether it is paid. | [Stripe Subscription object](https://docs.stripe.com/api/subscriptions/object) | Define the paid event. Do not count a card on file as a conversion. Users should align the event with their billing or analytics source. |
-| Freemium conversion is a free-start cohort, not a time-limited trial cohort. The 2026 ChartMogul report defines free-to-paid as leads or free signups that become paying within six months. | [ChartMogul 2026 SaaS Conversion Report](https://chartmogul.com/reports/saas-conversion-report/) | Give freemium its own mode and state the chosen window. Do not compare its rate with trial rates without showing the difference in model and horizon. |
-| MRR is recurring subscription value normalized to one month. Annual subscriptions are divided by 12; one-time fees are excluded. New Business MRR is recurring revenue from new paying customers. | [ChartMogul: MRR](https://chartmogul.com/saas-metrics/mrr/) | Sum normalized monthly recurring value for the converted cohort, or multiply conversions by a stated average monthly recurring amount. Label it new MRR/run rate; exclude one-time fees. |
-| Recurly's trial chart can use trial start date and distinguishes subscribers from subscriptions. It separates payment failures and pending states from successful paid transitions. | [Recurly: Trial performance](https://docs.recurly.com/recurly-subscriptions/docs/trial-performance) | Be explicit about whether the unit is an account, subscriber, or subscription. Do not mix failed or pending payments into paid conversions. |
+| Trial-to-paid conversion is a cohort measure. ChartMogul counts customers who started a trial and later began a paid subscription, divided by customers who started a trial in the cohort. Later conversions can change the earlier cohort's rate. | [ChartMogul Trial-to-Paid Conversions calculation](https://help.chartmogul.com/article/219-chart-trial-to-paid-conversion-rate) | Keep trial starts and paid conversions in the same cohort. Ask for or show the conversion window. Do not divide conversions in one calendar month by starts from a different cohort. |
+| The counting unit changes the result. Recurly counts each trial subscription separately, so one account can contribute more than one start. | [Recurly acquisition report](https://recurly.com/resources/report/state-of-subscriptions-acquisition/) | Use the same unit for both counts, such as customers, accounts, or subscriptions. Name the unit and do not mix accounts with seats or subscriptions. |
+| Cohorts need enough time to mature. ChartMogul says rates can change retroactively as trial users pay later and advises using older intervals relative to the sales cycle. | [ChartMogul report notes](https://help.chartmogul.com/article/219-chart-trial-to-paid-conversion-rate) | Label the observation window and whether the cohort has completed it. Treat an immature cohort as provisional, not as a final rate. There is no one conversion window used by every source. |
+| Payment-details-required and cardless trials are different trial models. Requiring payment details may screen signups, while cardless trials lower the signup barrier. The number of paid conversions among starts does not show the visitor-to-paid result. | [Paddle trials documentation](https://developer.paddle.com/concepts/subscriptions/trials/) and [ChartMogul's 2026 report](https://chartmogul.com/reports/saas-conversion-report/) | Compare matching trial models. Do not infer that a higher trial-to-paid percentage means the model produced more paid customers from traffic. “Card required” is common shorthand; billing providers may accept payment methods other than cards. |
+| Published benchmarks vary by sample, model, and time horizon. ChartMogul's 2026 bands refer to free-signup-to-paid conversion within six months; Recurly's 2022 figures are subscription-site averages across wider subscription industries. | [ChartMogul 2026 report](https://chartmogul.com/reports/saas-conversion-report/) and [Recurly acquisition report](https://recurly.com/resources/report/state-of-subscriptions-acquisition/) | If a comparison is shown, cite the date, population, model, and window next to it. Do not merge these studies into a single SaaS average. |
+| Trial duration and conversion window are separate facts. The 2026 ChartMogul/ProductLed survey found 14 days was the most common trial length among products that offered a trial, but it did not establish that 14 days is optimal. | [ChartMogul 2026 report](https://chartmogul.com/reports/saas-conversion-report/) | Do not turn the most common duration into a recommendation. Trial duration alone does not define the conversion window. |
+| A percentage is undefined when there are no trial starts. Paid conversions cannot exceed trial starts for a single cohort and counting unit. | Formula and count constraints; these follow from the definition above. | Require nonnegative whole counts and `paid conversions ≤ trial starts`. For zero starts, explain that the rate cannot be calculated instead of showing 0%. |
+| MRR multiplied by 12 is an annualized run rate, not a measured year of revenue or retained customer value. | [ChartMogul SaaS Go-To-Market report glossary](https://chartmogul.com/reports/saas-go-to-market-report/) | If revenue is modeled, label new MRR and annualized run rate separately. State that retention, billing timing, refunds, and future conversion behavior are not included unless the calculation explicitly models them. |
 
-Recommended calculation:
-
-`trial-to-paid rate = unique eligible accounts from a trial-start cohort that meet the named paid-event rule within the selected window / unique eligible accounts in that same trial-start cohort * 100`
-
-For freemium, replace trial starts with eligible free-account starts. Count unique entities consistently. Use a fixed elapsed window from cohort start, or compare cohorts only after the same elapsed time. A hypothetical example: 100 trials start in August; 6 pay during August and 20 have paid by day 30. The calendar-month ratio is 6%, while the 30-day start-cohort rate is 20%. The latter requires observing that cohort through day 30.
-
-For added MRR, sum each converted account's recurring subscription amount normalized to a month at the chosen conversion point. For an annual plan, divide its recurring annual amount by 12; exclude setup fees and other one-time charges. This is new-business MRR at conversion, not cash collected, recognized revenue, retained MRR, or money "lost" from people who did not convert. If annualized ARR is shown, describe it as run rate (MRR multiplied by 12), not first-year revenue.
-
-### Benchmark evidence and limits
-
-| Source and date | Population and method | Reported figures | How much to trust it |
-| --- | --- | --- | --- |
-| [ChartMogul, Growth Unhinged, and ProductLed, 2026 SaaS Conversion Report](https://chartmogul.com/reports/saas-conversion-report/) | Survey of 200 software products in January 2026, distributed through email, Slack, and social channels. Typical respondent was reported at $1m-$10m ARR and $50-$249 monthly ARPC. The report includes B2B, consumer, hybrid, and several free models. | "Good" (50th percentile) / "great" (75th percentile): freemium regular signup 3-5% / 8-12%; free trial with no card 4-6% / 10-15%; card-required trial 25-35% / 50-60%. Overall median was 8%. | Dated, sourced, and directly split by model, so it is the most relevant found. It is self-reported survey data with a convenience distribution, mixed product types, and smaller segment counts than the total 200. Use as directional segment evidence, not a universal target or a guarantee. |
-| [First Page Sage, updated September 5, 2025](https://firstpagesage.com/seo-blog/saas-free-trial-conversion-rate-benchmarks/) | Agency data from 86 SaaS clients, Q1 2022 through Q3 2025; 71% B2B and 29% B2C. The page reports organic and paid acquisition separately. | No-card "opt-in" trial to paid: 18.2% organic, 17.4% paid. Card-upfront "opt-out": 48.8% organic, 51% paid. Freemium to paid: 2.6% organic, 2.8% paid. | A dated first-party agency dataset with a stated client count and mix. It is a selected agency client sample; weighting, cohort maturity, and exact attribution details are not fully exposed. The page defines conversion as one paid month, so rates do not establish retention or LTV. Treat as source-specific directional data. |
-| [Recurly State of Subscriptions acquisition report, 2022 data](https://recurly.com/resources/report/state-of-subscriptions-acquisition/) | Recurly operational data from January-August 2022: 22 million free trials across 803 subscription sites. Broad subscription businesses, not only SaaS. Average trial length was 30 days. | Average site-level conversion reported as 37.5%; 87.4% required billing information. Sites requiring billing information averaged 39%, versus 12% without it; average trial lengths also differed (29 versus 39 days). | Large operational dataset with a clear period and site count. It is broad subscription data, not an indie SaaS benchmark, and trial models had different lengths. The report's counting unit can include multiple subscriptions per account. Use to show population and model effects, not to set a SaaS goal. |
-| [Recurly 2024 State of Subscriptions release](https://recurly.com/newsroom/recurly-releases-its-2024-state-of-subscriptions-report/) | Recurly report about subscription businesses, reporting a 2023 median. The public summary does not show conversion-specific sample size or model split. | Median trial-to-paid conversion reported as 50%. | Primary source, but too broad and under-described in the summary for comparison with self-serve SaaS cohorts. Do not combine with the 2022 average or quote as a SaaS norm. |
-
-No primary, dated dataset found for indie SaaS split by trial model, trial length, and equal follow-up window. Common online bands such as "5-25%," "50-70%," and "2-5%" often lack a direct dataset, date, or consistent conversion definition. Mark the benchmark for that exact population as unknown. An Appcues 2022 report result appeared in search, but its linked PDF returned 404 when checked, so its figures were not used.
+Unknown: No neutral primary source establishes a universal conversion window for every SaaS trial. The sources here use six months, a vendor cohort that may update later, or a site-level metric without a stated window.
 
 ## Competitor reviews
 
-### 1. Calclet
+I found no official, public, stand-alone trial conversion calculator from a billing or analytics provider. I tested six calculators surfaced by searches for SaaS trial conversion calculators. I entered a valid example, a zero-start edge case, and an impossible conversion count where the controls allowed it.
 
-URL: [Free trial conversion rate calculator](https://www.calclet.com/tools/free-trial-conversion-rate-calculator)
+### 1. Agents for Data
 
-- [Observed] Inputs are trial starts and paid conversions. The result shows conversion rate and remaining non-converted trials. The labels say "Trials started (period)" and "Converted to paid (same cohort)," which still leaves the actual cohort window to the user.
-- [Observed] Correct: 1,180 starts and 156 paid returns 13.22% and 1,024 not converted. Edge: 0 starts and 0 paid returns 0.00%, though the rate is undefined with a zero denominator. Wrong: 0 starts and 1 paid returns 100% and -1 not converted; the input is not rejected.
-- [Documented] Its accompanying article tells users to compare conversions from the same cohort.
-- [Inferred] A user may trust an impossible 100% result or compare calendar periods without a fixed maturity window.
-- [Unknown] No benchmark methodology or way to set a follow-up window was confirmed.
+URL: [agentsfordata.com/saas/trial-conversion-rate](https://www.agentsfordata.com/saas/trial-conversion-rate)
+
+- [Observed] It asks for total trial users, paid conversions, trial length, and monthly ARPU. It shows a rate, benchmark label, health score, revenue, and “opportunity” results immediately. Defaults of 75 paid out of 500 produce 15%.
+- [Observed] Correct example: `75 paid / 500 trial starts -> 15%`. Edge: `0 / 0` gives 0% and a prompt to enter users, while its benchmark status still says “Below Average.” Wrong: `120 / 100` gives 120%, “Top 25%,” and -20 users not converted. It does not reject the impossible count.
+- [Documented] The page claims benchmarks for 2024 and labels some ranges “SaaS Industry Benchmarks 2024” and others “OpenView & Lenny's Newsletter SaaS Benchmarks 2024.” The live form has no trial-model selector, although its instructions say to indicate whether a card is required.
+- [Inferred] The health score and fixed ranges can make a mathematically impossible input look like an excellent result. The separate source labels make it hard to know which benchmark is being applied.
+- [Unknown] The page does not show a cohort date or conversion window, and it does not explain the source sample behind the displayed bands.
 
 ```text
-1,180 starts -> 156 paid -> 13.22%; 1,024 not converted
-0 starts -> 1 paid -> 100%; -1 not converted
+75 paid / 500 starts -> 15%; 0 / 0 -> 0%; 120 / 100 -> 120% and -20 unconverted
 ```
 
-### 2. Agents for Data
+### 2. CalcBee
 
-URL: [SaaS trial conversion rate](https://www.agentsfordata.com/saas/trial-conversion-rate)
+URL: [calcbee.com/calculators/business/saas/trial-conversion-rate](https://calcbee.com/calculators/business/saas/trial-conversion-rate/)
 
-- [Observed] Inputs include trial users, paid conversions, trial length, and monthly ARPU. Default values of 500, 75, 14 days, and $50 produce a 15.0% rate and $3,750 monthly revenue from converted users.
-- [Observed] Edge: 0 starts and 0 conversions shows 0.0%, "Below Average," and a 10/100 score. Wrong: 100 starts and 101 conversions returns 101.0%, -1 unconverted, and a 100/100 health score; there is no count validation.
-- [Documented] The page labels its benchmarks "SaaS Industry Benchmarks 2024," but the benchmark section did not link a primary dataset during review. Its broad benchmark bands and model-specific figures also conflict: one section calls 15-25% healthy, while another gives opt-in average 15-25%; its card-required ranges are higher still.
-- [Inferred] The score can give false confidence because its thresholds are not traceable and impossible counts are allowed.
-- [Unknown] The source, sample, conversion horizon, and cohort method behind the benchmark score could not be confirmed.
+- [Observed] It asks for trial starts, paid conversions, average revenue per customer, and trial type. Trial type options combine payment-details requirement with 7, 14, or 30 days. It also shows projected MRR at several conversion rates.
+- [Observed] Correct example: `100 paid / 1,000 starts -> 10%`; at the default $79 ARPU it shows $7,900 new MRR. Edge: `0 / 0` hides the calculation and revenue result. Wrong: `120 / 100` produces 120% and -20 failed trials, without an error.
+- [Documented] The default no-card, 14-day selection displays low 10%, average 20%, and top 30%. The page text also claims 15–30% is common for trials versus 2–5% for freemium, without a source beside that claim.
+- [Inferred] Trial type and scenario modeling are useful, but the range appears baked into the page and is not tied to a visible cohort window.
+- [Unknown] I could not find a dated primary source for its trial-type ranges.
 
 ```text
-500 starts -> 75 paid -> 15.0%; $50 ARPU -> $3,750 monthly revenue
-100 starts -> 101 paid -> 101.0%; -1 unconverted; score 100/100
+100 / 1,000 -> 10%; 0 / 0 -> no result; 120 / 100 -> 120% and -20 failed trials
 ```
 
-### 3. TrialMonitor
+### 3. Right Left Agency
 
-URL: [Trial conversion calculator](https://trialmonitor.io/tools/trial-conversion-calculator)
+URL: [rightleftagency.com/saas-free-trial-conversion-calculator](https://rightleftagency.com/saas-free-trial-conversion-calculator/)
 
-- [Observed] Sliders ask for monthly trial volume, conversion rate, and monthly ARPU. Defaults of 50 starts, 10%, and $49 show 5 customers, $245 new MRR, and $2,940 ARR. The page also labels the 45 non-converters as $2,205 MRR and $26,460 ARR of "lost" revenue.
-- [Observed] Edge: the minimum trial slider value is 10, so a zero-start case cannot be entered. Wrong: attempts below the 1% minimum rate are blocked by the slider. At 50 starts and 1%, the page rounds 0.5 expected customers to one customer and shows $25 MRR.
-- [Documented] It labels converted-customer revenue as new MRR and annualizes it to ARR, and says its estimates exclude churn.
-- [Inferred] "Lost revenue" may lead users to mistake the spend of hypothetical non-converters for revenue they would actually have earned. Rounding fractional expected customers to a whole person hides the estimate.
-- [Unknown] No cohort window or benchmark source was confirmed. The slider-only inputs prevent testing other invalid numeric strings.
+- [Observed] It asks for monthly signups, activated users, paid customers, and monthly revenue per customer. A Calculate button reveals activation, activated-to-paid conversion, MRR, a funnel, diagnosis, and a target-rate slider. The page also offers an agency audit.
+- [Observed] Correct example: `1,000 starts, 600 activated, 100 paid, $100 ARPU -> 10% trial-to-paid, 60% activation, 16.7% activated-to-paid, $10,000 new MRR`. Edge: zero signups triggers “Monthly free trial signups must be at least 1.” Wrong: 120 paid from 100 starts triggers “Paid customers cannot exceed total trial signups.” In both invalid cases, the previous example's result remains on screen.
+- [Documented] It says values stay in the browser and are not sent or stored. Its input wording counts signups and paid customers “each month,” and it does not ask for a cohort window.
+- [Inferred] Activation detail is useful to a growth operator. A rejected calculation with a stale result can make a reader think the invalid numbers were accepted.
+- [Unknown] The page gives no benchmark source or published conversion range in the tested result.
 
 ```text
-50 starts/mo -> 10% -> $49 monthly ARPU -> 5 customers; $245 new MRR; $2,940 ARR
-50 starts/mo -> 1% -> rounds 0.5 expected customer to 1; $25 MRR
+100 paid / 1,000 starts -> 10%; 0 starts -> validation error; 120 paid / 100 starts -> validation error
 ```
 
-### 4. VentriTools
+### 4. Kalkulero
 
-URL: [Free trial conversion calculator](https://ventritools.com/tools/saas/free-trial-conversion-calculator/)
+URL: [kalkulero.com/free-trial-conversion-calculator](https://kalkulero.com/free-trial-conversion-calculator/)
 
-- [Observed] Inputs are monthly trial starts, current rate, target rate, and average revenue per account. Defaults of 500 starts, 4% current, 6% target, and $79 ARPA show 20 versus 30 customers, $1,580 versus $2,370 MRR, $790 incremental MRR, and $9,480 12-month incremental ARR.
-- [Observed] Edge: zero starts with current and target rates set to zero returns zero values. Wrong: entering -5 starts was accepted despite the visible minimum; with 10% current and 20% target it produced negative customer/revenue outputs and an inconsistent positive incremental result.
-- [Documented] The page presents a rate-improvement scenario and says 2-8% is typical for opt-in trials, but no benchmark source was visible during review.
-- [Inferred] It answers "what if I improve this rate?" rather than "what happened to this start cohort?" The user may also mistake annualized run rate for revenue earned in the next year.
-- [Unknown] Cohort definition, benchmark provenance, and whether rates are rounded before revenue calculation were not confirmed.
+- [Observed] It asks for monthly trial volume, payment-details model, monthly ARPU, activation rate, paid conversion rate, 90-day retention, and monthly ad budget. It shows MRR, annualized ARR, funnel drop-off, retention-adjusted MRR, CAC, and a funnel quality label.
+- [Observed] Correct example: its default `1,200 starts × 6% paid = 72 new customers`; at $79 ARPU it shows $5,688 new MRR and $4,550 retained monthly MRR at day 90. Edge: zero starts gives 0% and a “Leaky Trial Funnel” label. Wrong: entering 120% paid conversion displays 100% and 100 paid out of 100 starts, rather than rejecting the value.
+- [Documented] It offers no-card and card-required models. Its English page includes a German benchmark note that claims 4–8% for no-card and 40–60% for card-required trials. The note has no nearby source. The displayed formula calculates paid users from trial starts, not activated users.
+- [Inferred] The model has more depth than most results, but the many inputs and labels make it hard to see which rate drives which total. The benchmark label and 90-day retention can look like a validated diagnosis even though the assumptions are user-entered.
+- [Unknown] I could not confirm the source or population for its benchmark statement or “funnel quality” labels.
 
 ```text
-500 starts -> 4% current / 6% target -> 20 / 30 customers; $1,580 / $2,370 MRR
--5 starts -> 10% / 20% -> negative customer and revenue values accepted
+72 / 1,200 -> 6%; 0 / 0 -> 0% with “Leaky” label; 120% input -> displayed as 100%
 ```
 
-### 5. Technotize
+### 5. SaaSPriceLab
 
-URL: [Trial to paid conversion calculator](https://technotize.io/tools/trial-to-paid-conversion-calculator)
+URL: [saaspricelab.com/saas-metrics-calculators/conversion-revenue](https://www.saaspricelab.com/saas-metrics-calculators/conversion-revenue)
 
-- [Observed] Inputs are trial starts and paid conversions. Correct: 100 starts and 18 conversions returns 18.00%. It also offers an inverse mode for estimating required trials.
-- [Observed] Edge: 0 starts and 0 conversions prompts "Enter trials started above 0." Wrong: 100 starts and 101 conversions is rejected with "Paid conversions must be between 0 and trials."
-- [Documented] Its article says freemium and trial conversion differ and recommends cohort measurement. It does not offer a separate freemium mode or MRR output.
-- [Inferred] It validates the counts better than several competing calculators, but the two input counts alone cannot resolve cross-period lag or cohort maturity.
-- [Unknown] No explicit follow-up window or primary source for its "opt-in often in teens, opt-out 40-60%" benchmark statement was found.
+- [Observed] It uses sliders for trial starts, paid conversion rate, ARPU, and trial length. It shows conversions, new MRR, annualized value, a revenue projection, and a benchmark panel. Copy, CSV, and share controls are visible; the full benchmark report is gated behind a paid report.
+- [Observed] Correct example: the default `500 starts × 12% = 60 conversions`; at $60 ARPU it shows $3,600 new MRR and $43,200 annualized. Edge: the minimum starts value is 10, so the tool does not allow a zero denominator. Wrong: the paid-rate slider stops at 40%, so keyboard input beyond its maximum remains at 40%.
+- [Documented] Slider bounds are 10–5,000 starts, 1–40% paid conversion, $10–$500 ARPU, and 7–60 trial days. The free result calls 12% “top quartile” but does not expose the benchmark bands; it offers a $19 report.
+- [Inferred] The sliders and export options help scenario work. The hidden benchmark detail makes the visible percentile label hard to audit.
+- [Unknown] I could not verify the benchmark sample or the full trial-length model from the free result.
 
 ```text
-100 starts -> 18 paid -> 18.00%
-100 starts -> 101 paid -> rejected: paid conversions must be between 0 and trials
+60 / 500 -> 12%; 10 starts is the minimum; paid-rate values above 40% are blocked
+```
+
+### 6. VentriTools
+
+URL: [ventritools.com/tools/saas/free-trial-conversion-calculator](https://ventritools.com/tools/saas/free-trial-conversion-calculator/)
+
+- [Observed] It asks for monthly trial starts, current rate, monthly revenue per customer, and target rate. It focuses on incremental MRR and an annualized impact.
+- [Observed] Correct example: `1,000 starts, 5% current, $100 ARPU, 6% target -> 50 vs. 60 new customers, $1,000 incremental MRR, $12,000 annualized`. Edge: zero starts produces zero current and target revenue. Wrong: it accepts 120% current conversion on 1,000 starts, producing 1,200 current customers. The result then shows both positive “incremental MRR” and negative additional MRR, while the annualized value is positive.
+- [Documented] The page labels 2–8% as typical for opt-in trials. Its formula is monthly starts × conversion rate × ARPU. It says its 12-month figure multiplies incremental MRR by 12 and excludes customer retention.
+- [Inferred] The narrow conversion lever keeps the calculator easy to scan. Without validation and a clear sign convention, an impossible rate produces contradictory revenue results.
+- [Unknown] The page does not identify a source for the 2–8% range in the result section, and it does not model a cohort window.
+
+```text
+50 / 1,000 -> 5%; 0 starts -> $0; 120% of 1,000 -> 1,200 paid customers
 ```
 
 ## Comparison
 
-| Feature or answer | Calclet | Agents for Data | TrialMonitor | VentriTools | Technotize | What stack127 should do |
-| --- | --- | --- | --- | --- | --- | --- |
-| Core model | Starts and same-cohort paid count | Starts and paid count | Starts multiplied by rate | Monthly starts and current/target rates | Starts and paid count | Use a named start cohort and fixed elapsed window. |
-| Freemium mode | No | No | No | No | Discusses it, no mode | Give freemium its own free-start cohort mode. |
-| No-card/card-required context | No | Labels benchmark bands | No | Mentions opt-in benchmark | Article mentions models | Explain both in plain terms and keep the rates separate. |
-| MRR from conversions | No | Revenue using ARPU | Yes, plus "lost" MRR | Current/target MRR | No | Normalize recurring prices and label new MRR; do not call non-converters lost revenue. |
-| Cohort maturity or horizon | Article mentions same cohort | No confirmed horizon | No confirmed horizon | No confirmed horizon | No confirmed horizon | Show how later conversions and immature cohorts affect the result. |
-| Invalid-count handling | Accepts impossible counts | Accepts conversions above starts | Slider constrains range | Accepted negative starts | Rejects conversions above starts | Reject negative counts and conversions greater than eligible starts. Define zero-denominator behavior as "not available." |
-| Benchmark evidence | No verified data found | 2024 label without direct source; inconsistent bands | No verified data found | Unsourced 2-8% claim | Unsourced model ranges | Use dated, sourced figures with population, method, and caveats. |
+| Feature or answer | Agents for Data | CalcBee | Right Left | Kalkulero | SaaSPriceLab | VentriTools | What Stack127 should do |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Core rate | Yes | Yes | Yes | Yes | Yes | Yes | Show the numerator, denominator, and formula beside the rate. |
+| Activation funnel | No | No | Yes | Yes | No | No | Keep activation a separate, defined metric for users who have that event data. |
+| Revenue scenario | Yes | Yes | Yes | Yes | Yes | Yes | Label new MRR and annualized run-rate separately. Do not imply retention or lifetime value. |
+| Trial model or length | Instructions mention card choice but no control | Six trial type and length choices | No | Payment-details model | Trial length slider | No | Treat payment-details model and conversion window as context; do not convert the most common length into advice. |
+| Cohort window | No | No | No | No | No | No | Make the measurement window explicit and keep the paid count within that cohort. |
+| Invalid count handling | Allows >100% | Allows >100% | Rejects but leaves stale results | Clamps to 100% | Slider bounds block values | Allows >100%, with inconsistent scenario signs | Reject impossible counts; clear stale results and explain zero-start cases. |
+| Comparison and grading | Dated-looking but weakly sourced bands and health score | Fixed low/average/top band | No rate benchmark in result | Unsourced benchmark note and quality label | Free result hides ranges behind paid report | Unsourced typical range | Avoid grades. If showing a benchmark, state source, date, population, trial model, and window. |
 
 ## Where competitors disagree
 
-- **Start cohort versus rolling period:** ChartMogul's cohort rate counts paid customers from the trial-start cohort, and the result may rise as the cohort matures. Stripe's Billing metric instead compares conversions and ended trials inside separate rolling 30-day windows; Stripe notes that this rolling measure can exceed 100%. Both can be valid for their stated purpose, but only the same-start-cohort formula answers the tool's cohort question. Do not call the Stripe rolling metric a cohort rate.
-- **What counts as paid:** A paid event may mean an active paid subscription, a successful first invoice, or a subscription that has moved through a billing system's trial state. Stripe's lifecycle makes payment status relevant. The tool should ask the user to align the event to their billing source; a stored card is not itself paid revenue.
-- **Benchmark levels:** ChartMogul's 2026 survey reports lower medians for no-card trials and freemium than for card-required trials. First Page Sage's client sample reports higher no-card trial rates. Recurly's broad subscription data shows another distribution. These populations, dates, acquisition sources, trial lengths, event definitions, and methods differ, so there is no defensible single "good SaaS rate" from these sources.
-- **Model labels:** "Opt-in" and "opt-out" can be ambiguous. Use "no card required upfront" and "card required upfront; subscription starts unless canceled," then explain the model. Freemium should stay separate from a fixed-duration trial.
-- **Revenue labels:** Some competitors describe the estimated spend of non-converters as lost revenue. That assumes every non-converter would have paid. Report only actual cohort conversions and their normalized recurring MRR; a hypothetical recovery scenario should be clearly labeled as a scenario.
+- **Calendar month versus signup cohort.** Search summaries and some tool labels compare monthly trial starts with monthly paid counts. ChartMogul's documented method keeps users with the same trial-start cohort together and allows later conversions to update that cohort. The tool needs a stated observation window; a raw pair of counts without cohort context can be misleading.
+- **What counts as one trial.** Recurly counts subscriptions, including two trial subscriptions held by one account. Other systems may count customers or accounts. The denominator and numerator must use the same unit.
+- **What counts as a “good” result.** ChartMogul's 2026 survey gives good/great bands of 4–6%/10–15% for no-payment-details trials and 25–35%/50–60% for payment-details-required trials, within six months. First Page Sage reports 17–18% and 49–51% averages, but gives no fixed conversion window. Recurly reports 37.5% site-level conversion across a wider subscription market. ChartMogul's help center separately says 3% median for SaaS with no stated sample or window. These values should not be averaged or displayed as if they came from one study.
+- **Trial-to-paid versus retained value.** First Page Sage counts even a single paid month and warns that churn matters. A paid event is not a retained customer or LTV. Likewise, MRR × 12 is an annualized run-rate, not recognized first-year revenue.
 
-## How stack127 can win
+## How Stack127 can win
 
-- Calculate a cohort rate from starts and conversions from the same cohort. Let users select a follow-up window and show whether the cohort has reached it.
-- Keep trial-to-paid and freemium-to-paid as separate modes. For trials, distinguish no-card from card-required upfront in the explanation. Avoid using unexplained "opt-in" and "opt-out" labels alone.
-- Define the paid event and entity counted. Include clear treatment for zero starts, negative numbers, conversions greater than starts, duplicate subscriptions, pending payments, and failed first invoices.
-- Show a small worked example where a conversion in the following month belongs to the original trial-start cohort. Explain that recent cohorts can understate their eventual result.
-- Calculate new MRR only for the converted accounts. Normalize annual billing to monthly value, exclude one-time fees, and state the timestamp used for the recurring amount. Do not call unconverted trial value "lost MRR."
-- Put benchmark figures beside source, date, population, model, and method. Present survey percentiles and agency/client data as directional evidence, not a universal target. For an indie SaaS benchmark split by trial type and equal cohort age, say "unknown."
-- State that trial length, sales assistance, customer type, acquisition channel, activation, and conversion horizon can change the comparison. Keep the tool focused on rate and new MRR; point to the existing CAC and MRR calculators for those separate jobs.
+- Let a founder enter counts from one cohort and verify the answer from a visible formula. Keep the counting unit and conversion window clear.
+- Guard against negative or fractional people, zero denominators, and paid counts above starts. Keep the previous example from looking like the result for rejected inputs.
+- Show the sample size with the percentage. Do not assign a health score from one number, especially for a small or immature cohort.
+- Keep optional funnel or revenue analysis tied to explicit definitions. Activation is product-specific. Revenue scenarios need an ARPU and should distinguish new MRR from annualized run-rate and retention-adjusted revenue.
+- If the page shows comparison data, use the dated ChartMogul/ProductLed survey as model-specific, six-month context. Say its trial subgroup size is not disclosed. Do not use Recurly's broader site average or unsourced tool ranges as a SaaS target.
+- The tool needs no paid API, external account, or maintained live dataset. A benchmark section would need source review and date updates as new studies appear.
 
 ## Blockers
 
-None for the calculation or initial page. No paid API, account, or maintained live dataset is required. The exact benchmark for indie SaaS by card model, trial length, and equal follow-up window remains unknown; use the dated sources above with their limits or omit a universal target.
+None. No paid API or maintained dataset is needed for the core calculation. Benchmark claims need dated source references and review, but the calculator itself can use user-entered counts.
 
 ## Sources
 
-- [ChartMogul: Trial-to-paid conversion rate](https://help.chartmogul.com/article/219-chart-trial-to-paid-conversion-rate), checked 2026-10-10.
-- [Stripe: Calculating trial conversion rate in Billing](https://support.stripe.com/questions/calculating-trial-conversion-rate-in-billing?locale=en-GB), checked 2026-10-10.
-- [Stripe Subscription object](https://docs.stripe.com/api/subscriptions/object), checked 2026-10-10.
-- [ChartMogul: MRR](https://chartmogul.com/saas-metrics/mrr/), checked 2026-10-10.
-- [ChartMogul, Growth Unhinged, and ProductLed: 2026 SaaS Conversion Report](https://chartmogul.com/reports/saas-conversion-report/), checked 2026-10-10.
-- [First Page Sage: SaaS free trial conversion rate benchmarks](https://firstpagesage.com/seo-blog/saas-free-trial-conversion-rate-benchmarks/), updated 2025-09-05, checked 2026-10-10.
-- [Recurly: State of Subscriptions acquisition report](https://recurly.com/resources/report/state-of-subscriptions-acquisition/), 2022 data, checked 2026-10-10.
-- [Recurly: 2024 State of Subscriptions report release](https://recurly.com/newsroom/recurly-releases-its-2024-state-of-subscriptions-report/), checked 2026-10-10.
-- [Recurly: Trial performance](https://docs.recurly.com/recurly-subscriptions/docs/trial-performance), checked 2026-10-10.
-- [Calclet calculator](https://www.calclet.com/tools/free-trial-conversion-rate-calculator), checked 2026-10-10.
-- [Agents for Data calculator](https://www.agentsfordata.com/saas/trial-conversion-rate), checked 2026-10-10.
-- [TrialMonitor calculator](https://trialmonitor.io/tools/trial-conversion-calculator), checked 2026-10-10.
-- [VentriTools calculator](https://ventritools.com/tools/saas/free-trial-conversion-calculator/), checked 2026-10-10.
-- [Technotize calculator](https://technotize.io/tools/trial-to-paid-conversion-calculator), checked 2026-10-10.
-- [Reddit: card-required trial discussion](https://www.reddit.com/r/SaaS/comments/1s4dsd5/free_trial_credit_card_required_upfront_or_not/), checked 2026-10-10.
-- [Reddit: freemium versus card upfront discussion](https://www.reddit.com/r/SaaS/comments/1t6nx4x/freemium_vs_cc_upfront_for_a_7day_trial_just/), checked 2026-10-10.
-- [Reddit: trial conversion rate discussion](https://www.reddit.com/r/SaaS/comments/1ro9ggt/whats_your_trail_to_conversion_rate/), checked 2026-10-10.
-- [Reddit: AppBusiness trial conversion tracking discussion](https://www.reddit.com/r/AppBusiness/comments/1upohjk/fixed_my_trial_conversion_21_44_and_just_passed/), checked 2026-10-10.
-- [Appcues 2022 Benchmark Report PDF](https://try.appcues.com/hubfs/2022-Appcues-Benchmark-Report.pdf), returned 404 when checked 2026-10-10; figures not used.
+- [Google search: free trial conversion rate calculator SaaS](https://www.google.com/search?q=free+trial+conversion+rate+calculator+saas), checked 2026-10-11.
+- [Google search: what is a good free trial conversion rate SaaS, including People also ask](https://www.google.com/search?q=what+is+a+good+free+trial+conversion+rate+saas), checked 2026-10-11.
+- [Agents for Data calculator](https://www.agentsfordata.com/saas/trial-conversion-rate), checked 2026-10-11.
+- [CalcBee calculator](https://calcbee.com/calculators/business/saas/trial-conversion-rate/), checked 2026-10-11.
+- [Right Left Agency calculator](https://rightleftagency.com/saas-free-trial-conversion-calculator/), checked 2026-10-11.
+- [Kalkulero calculator](https://kalkulero.com/free-trial-conversion-calculator/), checked 2026-10-11.
+- [SaaSPriceLab calculator](https://www.saaspricelab.com/saas-metrics-calculators/conversion-revenue), checked 2026-10-11.
+- [VentriTools calculator](https://ventritools.com/tools/saas/free-trial-conversion-calculator/), checked 2026-10-11.
+- [ChartMogul SaaS Conversion Report](https://chartmogul.com/reports/saas-conversion-report/), published February 2026; checked 2026-10-11.
+- [ChartMogul report on what improves conversion](https://chartmogul.com/reports/saas-conversion-report-2/), published March 18, 2026; checked 2026-10-11.
+- [ChartMogul Trial-to-Paid Conversions help article](https://help.chartmogul.com/article/219-chart-trial-to-paid-conversion-rate), checked 2026-10-11.
+- [ChartMogul SaaS Go-To-Market Report](https://chartmogul.com/reports/saas-go-to-market-report/), published June 11, 2025; benchmarks cover Q1 2024–Q1 2025; checked 2026-10-11.
+- [First Page Sage trial conversion benchmarks](https://firstpagesage.com/seo-blog/saas-free-trial-conversion-rate-benchmarks/), published September 5, 2025; data covers Q1 2022–Q3 2025; checked 2026-10-11.
+- [Recurly State of Subscriptions: The acquisition chapter](https://recurly.com/resources/report/state-of-subscriptions-acquisition/), underlying trial data covers January–August 2022; checked 2026-10-11.
+- [Paddle developer docs on trials](https://developer.paddle.com/concepts/subscriptions/trials/), checked 2026-10-11.
+- [Reddit r/SaaS conversion question](https://www.reddit.com/r/SaaS/comments/1rfdj8o/how_many_of_your_trial_users_ended_up_becoming/), posted February 26, 2026; checked 2026-10-11.
+- [Reddit r/SaaS 71.43% trial-to-paid discussion](https://www.reddit.com/r/SaaS/comments/1tnrbul/we_just_hit_7143_trialtopaid_conversion_rate/), posted May 26, 2026; checked 2026-10-11.
+- [Reddit r/B2BSaaS card-required conversion question](https://www.reddit.com/r/B2BSaaS/comments/1ssivq2/cc_required_trial_paid_conversion_rates_for_b2b/), posted April 22, 2026; checked 2026-10-11.
+- [Reddit r/SaaS 300 trials and 17 conversions](https://www.reddit.com/r/SaaS/comments/1nocjgp/300_trial_signups_17_conversions_the_real_reason/), posted September 23, 2025; checked 2026-10-11.

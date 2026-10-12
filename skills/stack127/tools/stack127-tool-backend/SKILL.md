@@ -20,4 +20,4 @@ Do not build the page, client components, styles, or card art. Do not write page
 
 Return the files you built, the exported functions or endpoints, the test result, and any contract gap.
 
-For an existing tool, a change to inputs, results, calculations, validation, or other user-visible behavior needs a `tool_version` increase. Use a patch for a compatible fix, a minor version for compatible new behavior, and a major version for an incompatible contract change. Confirm the version with the coordinator before integration. The database moves the public date when the version changes. MDX content changes leave the version and the date alone; a date move for content-only tool changes comes later. Card-only edits refresh catalogs and keep the tool date unchanged. See `stack127_docs/tool-pages.md`.
+For an existing tool, a behavior change needs a `tool_version` bump. See `stack127_docs/tool-pages.md`, and confirm the version with the coordinator.

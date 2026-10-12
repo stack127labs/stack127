@@ -11,6 +11,7 @@ import {
   getKdpPrintFloorCents,
   getKdpPrintPricePoint,
   getKdpPrintingCostCents,
+  getKdpPrintingCostHundredthCents,
   type KdpEbookRoyaltyOption,
   type KdpRoyaltyFormat,
 } from "./royalty.ts";
@@ -225,11 +226,12 @@ function calculatePrint(input: KdpMinimumPriceInput, goalCents: number | null): 
   const printCost = getKdpPrintCost(format, input.trimId, effectivePageCount, interior, paper);
   if (!printCost) return unavailable("A US KDP print cost rule is missing for this setup. Check the KDP rules and try again.");
   const printingCostCents = getKdpPrintingCostCents(printCost, effectivePageCount);
+  const costHundredthCents = getKdpPrintingCostHundredthCents(printCost, effectivePageCount);
   if (!Number.isSafeInteger(printingCostCents) || printingCostCents < 0) {
     return unavailable("A US KDP print cost rule could not be calculated. Check the KDP rules and try again.");
   }
 
-  const minimumPriceCents = getKdpPrintFloorCents(printingCostCents);
+  const minimumPriceCents = getKdpPrintFloorCents(printingCostCents, costHundredthCents);
   if (!Number.isSafeInteger(minimumPriceCents) || minimumPriceCents > KDP_PRINT_MAX_PRICE_CENTS) {
     return unavailable("This print setup's modeled minimum exceeds KDP's $250.00 maximum. Change the print setup.");
   }
@@ -238,13 +240,13 @@ function calculatePrint(input: KdpMinimumPriceInput, goalCents: number | null): 
   if (goalCents !== null) {
     priceCents = 0;
     for (let candidate = minimumPriceCents; candidate <= KDP_PRINT_MAX_PRICE_CENTS; candidate += 1) {
-      if (getKdpPrintPricePoint(candidate, printingCostCents).royaltyCents >= goalCents) {
+      if (getKdpPrintPricePoint(candidate, printingCostCents, costHundredthCents).royaltyCents >= goalCents) {
         priceCents = candidate;
         break;
       }
     }
     if (priceCents === 0) {
-      const highest = getKdpPrintPricePoint(KDP_PRINT_MAX_PRICE_CENTS, printingCostCents);
+      const highest = getKdpPrintPricePoint(KDP_PRINT_MAX_PRICE_CENTS, printingCostCents, costHundredthCents);
       return {
         status: "unreachable",
         values: {
@@ -255,7 +257,7 @@ function calculatePrint(input: KdpMinimumPriceInput, goalCents: number | null): 
     }
   }
 
-  const point = getKdpPrintPricePoint(priceCents, printingCostCents);
+  const point = getKdpPrintPricePoint(priceCents, printingCostCents, costHundredthCents);
   return {
     status: "available",
     values: {

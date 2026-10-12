@@ -5,6 +5,7 @@ import {
   getKdpPrintFloorCents,
   getKdpPrintPricePoint,
   getKdpPrintingCostCents,
+  getKdpPrintingCostHundredthCents,
 } from "./royalty.ts";
 import {
   KDP_SOURCES,
@@ -305,10 +306,11 @@ export function calculateKdpPriceProfit(input: KdpPriceProfitInput): KdpPricePro
       return unavailable("A KDP printing cost rule is missing for one of these options. Check the current KDP tables and try again.");
     }
     const printingCostCents = getKdpPrintingCostCents(printCost, option.effectivePageCount);
+    const costHundredthCents = getKdpPrintingCostHundredthCents(printCost, option.effectivePageCount);
     if (!Number.isSafeInteger(printingCostCents) || printingCostCents < 0) {
       return unavailable("A print cost could not be calculated from the current KDP rules. Reload and try again.");
     }
-    const minimumPriceCents = getKdpPrintFloorCents(printingCostCents);
+    const minimumPriceCents = getKdpPrintFloorCents(printingCostCents, costHundredthCents);
     if (!Number.isSafeInteger(minimumPriceCents) || minimumPriceCents < 1) {
       return unavailable("A KDP minimum price could not be calculated for one of these options. Reload and try again.");
     }
@@ -317,7 +319,7 @@ export function calculateKdpPriceProfit(input: KdpPriceProfitInput): KdpPricePro
     }
 
     const eligible = priceCents >= minimumPriceCents;
-    const point = eligible ? getKdpPrintPricePoint(priceCents, printingCostCents) : null;
+    const point = eligible ? getKdpPrintPricePoint(priceCents, printingCostCents, costHundredthCents) : null;
     const profitCents = input.includeCosts && eligible
       ? (plannedCopies as number) * ((point as NonNullable<typeof point>).royaltyCents - (option.otherCostPerSaleCents as number)) - (option.oneTimeCostCents as number)
       : null;

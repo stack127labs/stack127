@@ -33,6 +33,7 @@ export function TextAndChoicesExamples() {
   const [hourCycle, setHourCycle] = useState<12 | 24>(12);
   const [layout, setLayout] = useState("raidz1");
   const [format, setFormat] = useState("paperback");
+  const [trialType, setTrialType] = useState("no-card");
   const [marketplaces, setMarketplaces] = useState(["us", "uk"]);
   const [recordTypes, setRecordTypes] = useState(["a"]);
   const [keepFree, setKeepFree] = useState(false);
@@ -43,9 +44,26 @@ export function TextAndChoicesExamples() {
       <Example components={["UiTextField"]} source="app/ui/controls.tsx" title="Text field">
         <div className={styles.twoColumns}>
           <UiTextField label="DNS name" placeholder="example.com" required spellCheck={false} />
-          <UiTextField description="Shown under the field when it helps." label="Book title" placeholder="My first cookbook" />
+          <UiTextField description="Outside tools only. Tools use a hint." label="Book title" placeholder="My first cookbook" />
           <UiTextField error={domainError} label="Field with an error" onChange={setDomain} required spellCheck={false} value={domain} />
           <UiTextField label="Field with a suffix" placeholder="80" suffix="pages" />
+        </div>
+      </Example>
+
+      <Example components={["UiHint"]} note="A label most people wouldn't understand gets one sentence behind a ?. It opens on hover, keyboard focus, and tap. Every field takes a hint prop." source="app/ui/controls.tsx" title="Field hint">
+        <div className={styles.twoColumns}>
+          <UiTextField hint="Everyone who started a trial in the same month." inputMode="numeric" label="Trials started" placeholder="200" required />
+          <UiChoiceGroup
+            hint="A card upfront means they enter a card before the trial starts."
+            label="Trial type"
+            onChange={setTrialType}
+            options={[
+              { id: "no-card", label: "No card" },
+              { id: "card", label: "Card upfront" },
+              { id: "free-plan", label: "Free plan" },
+            ]}
+            value={trialType}
+          />
         </div>
       </Example>
 
@@ -77,7 +95,7 @@ export function TextAndChoicesExamples() {
         </div>
       </Example>
 
-      <Example components={["UiChoiceGroup"]} note="Pick exactly one. Options can carry a short description." source="app/ui/controls.tsx" title="One choice">
+      <Example components={["UiChoiceGroup"]} note="Pick exactly one. Tools keep options to names. Outside tools, options can carry a short description." source="app/ui/controls.tsx" title="One choice">
         <div className={styles.twoColumns}>
           <UiChoiceGroup
             label="Layout"

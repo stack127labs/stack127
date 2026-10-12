@@ -1,33 +1,33 @@
 ## What to enter
 
-Pick the option that matches how people start. If they enter a card before the trial begins, pick `Free trial, card upfront`, even if you charge only at the end.
+1. Pick one cohort: everyone who started a trial in one period, such as August.
+2. Count how many of those same accounts paid, whenever they paid. Leave out payments from people who started in another month.
+3. Count accounts in both fields. If your billing tool counts subscriptions or seats, one customer can show up twice.
 
-A cohort is everyone who started in the same period, usually one month. Get the starts from your billing tool or your signup table. For paid, count only accounts from that same cohort whose first payment went through.
+Paid means the first payment went through. A card on file, a pending invoice, or a failed charge isn't a payment yet.
 
-The follow-up window is how many days each account gets to pay, counted from the day it started. For a 14-day trial, a 30-day window also catches people who pay a little late. Use the same window every time you compare.
+The `Window, activation, revenue, and cohorts` section is optional. Leave it closed and the answer uses your two counts alone.
 
-Cohort age is how many days have passed since the last account in the cohort started. An August cohort counted on October 15 is 45 days old.
-
-For new MRR, enter recurring prices only, without setup fees. With annual plans, pick `Monthly and annual plans` and enter the full yearly price. The tool divides it by 12.
+| Add | When you want to know |
+| --- | --- |
+| `Follow-up window` and `Cohort age` | Whether the cohort has had long enough to pay. A young cohort shows `Provisional` and the days left. |
+| `Activated` | Where people drop off. Use your own activation event, such as creating a first project, and count everyone who paid in it. |
+| `Target conversion` | How many more paying accounts you'd need to reach a higher rate. |
+| `Monthly price` and `Annual price` | The new MRR these customers added. With both prices, also enter how many paid accounts are on annual plans. |
+| `Other cohorts` | Whether the rate holds across months, channels, or plans. Each cohort needs its own accounts. |
 
 ## How to read the result
 
-`Complete` means every account in the cohort had the full window to pay. `Provisional` means some still have days left, so the rate can still go up.
+The big number is the share of your trial starts that paid, with the counts under it so you can check the division. The grid shows the same share as people out of every 100.
 
-With several cohorts, the main rate is the total paid divided by the total starts of the complete cohorts. It isn't the average of each row's rate. A cohort with days left still shows in the table, but stays out of the main rate as long as the complete cohorts have at least one start. If they have none, the tool uses all cohorts and marks the rate `Provisional`.
+The bar under it shows your rate as `You`. The line under the track is your likely range: where the true rate probably sits, given how many trials you counted. The colored bands are published medians and top quarters for the trial type you picked. They count payments within six months, so they show only when your follow-up window is six months or not set. With a 30-day window, the bar shows your rate and likely range alone.
 
-With one cohort, the result also shows how many didn't pay within the window. Some may still pay later.
+With other cohorts, `All cohorts` divides total paid by total starts. It leaves out cohorts still marked `Provisional`, so a young month doesn't pull the rate down. If every cohort is still provisional, it combines them all, and its `?` says so.
 
-<Example title="Three months, a 30-day window, counted on October 15">
+<Example title="160 trial starts, 3 paid">
 
-| Cohort | Starts | Paid | Age | Rate |
-| --- | --- | --- | --- | --- |
-| July | 400 | 60 | 76 days | 15.00% |
-| August | 500 | 70 | 45 days | 14.00% |
-| September | 450 | 30 | 15 days | 6.67%, 15 days left |
+The rate is 1.88%, and 157 didn't pay. The likely range runs from 0.63% to 5.37%.
 
-The main rate is 14.44%: 130 paid out of 900 starts in July and August. September's 6.67% isn't ready to compare yet. Its last starts have had only 15 of their 30 days.
-
-At an average price of $29 a month, the 160 paid customers from all three months add $4,640.00 of new MRR. September's 30 count here, because they've already paid.
+That range overlaps the published no-card median of 4 to 6%. With 160 trials, you can't yet tell whether your rate is lower than typical. A few more months of trials will narrow the range.
 
 </Example>

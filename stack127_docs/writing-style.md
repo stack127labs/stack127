@@ -1,6 +1,8 @@
 # Writing on stack127
 
-Write like you're helping one person next to you. Plain words, short sentences, no filler. Anyone should get it on the first read.
+Talk like a friend explaining something to another friend, whatever the situation. Don't overcomplicate it. Keep it simple enough that your friend gets it on the first read. Let it move the way talking does, one thought leading to the next. A short line that just talks to the reader is fine now and then, but never fluff up the page. Stay on the topic, and keep the writing direct and short.
+
+Conversational, but not chatty. Talk to the reader in full sentences, with accurate facts. No jokes, no hype, no filler. Engaging doesn't mean longer; most pages should get shorter.
 
 This guide covers how to write, which format to use, and search wording, for every page, doc, and chat. Where page content lives, and how to write each block in MDX, is in [page-content.md](page-content.md). Components are in [shared-ui.md](shared-ui.md). What goes on a tool page lives in `skills/stack127/tools/stack127-tool-writing/SKILL.md`.
 
@@ -40,7 +42,8 @@ Don't repeat a visual's values in the text. A caption gives the takeaway. Alt te
 
 | Instead of | Write |
 | --- | --- |
-| This calculator enables users to leverage accurate royalty estimations. | Enter your price and page count to see what you earn per sale. |
+| This calculator enables users to leverage accurate royalty estimations. | Amazon takes its cut and the printing cost before you see a cent. Put in your price and page count to see what's left for you. |
+| **Trials started:** the number of users who began a free trial. | Start with how many people began a trial in the month you're checking. Then add how many of them paid. |
 | It is important to note that results may vary. | Results are estimates. Amazon's printing cost can change. |
 | Net revenue retention is a crucial metric in today's SaaS landscape. | Net revenue retention shows how much revenue you keep from existing customers. |
 | Whether you're a beginner or an expert, this tool has you covered. | (Cut it.) |
@@ -73,9 +76,19 @@ Write for the person searching. If they finish their task and don't go back to s
 - No clickbait, keyword stuffing, or padding.
 - Link when it helps the reader check a claim or take the next step. Link related stack127 pages where they're the natural next step.
 
+## Words inside a tool
+
+A tool is something people use, not something they read. The only words inside it are labels, hints, option names, button names, values, errors, and short status words. Everything else goes in the page content.
+
+- Labels use the words people use, like `Trials started`, not `Trial starts in cohort`.
+- A hint is one plain sentence, ideally under 12 words. It says what the input means or where to find the number. Example: `Everyone who started a trial in the same month.`
+- No sentences under fields, headings, options, cards, or buttons.
+- Result labels name the value. Don't explain the result in sentences.
+- Never call a result good or bad. Show it next to a published range when one fits. See [tool-interface.md](tool-interface.md).
+
 ## Clean wording
 
 - `stack127` in lowercase. Sentence case headings. Product names as their owners write them.
-- Straight quotes. No em or en dashes. Ranges use "to".
+- Straight quotes. No em or en dashes in sentences. Ranges use "to". A lone `—` is fine in a tool as the mark for a value it can't calculate yet.
 - No emojis, decorative labels, or extra bold.
 - Buttons name the action, like `Check domain age`.

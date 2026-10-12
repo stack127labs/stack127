@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarDays, Check, Clock, ChevronDown, ChevronLeft, ChevronRight, Copy, Download, Minus, Plus, Search, X } from "lucide-react";
+import { CalendarDays, Check, Clock, ChevronDown, ChevronLeft, ChevronRight, Copy, Download, Link2, Minus, Plus, Search, X } from "lucide-react";
 import {
   Button as RacButton,
   Calendar as RacCalendar,
@@ -63,6 +63,7 @@ import {
   type ReactNode,
   type Ref,
 } from "react";
+import { createPortal } from "react-dom";
 import styles from "./controls.module.css";
 
 export type UiOption = {
@@ -74,13 +75,20 @@ export type UiOption = {
 
 type FieldCopy = {
   label: string;
+  /** Visible text under the field. Tools use `hint` instead. */
   description?: string;
   error?: string | null;
+  /** One plain sentence behind a small ? beside the label. */
+  hint?: string;
   required?: boolean;
 };
 
-function UiLabel({ label, required }: Pick<FieldCopy, "label" | "required">) {
-  return (
+function subscribeToNothing() {
+  return () => {};
+}
+
+function UiLabel({ hint, label, required }: Pick<FieldCopy, "hint" | "label" | "required">) {
+  const text = (
     <Label className={styles.label}>
       {label}
       {required ? (
@@ -91,14 +99,124 @@ function UiLabel({ label, required }: Pick<FieldCopy, "label" | "required">) {
       ) : null}
     </Label>
   );
+  if (!hint) return text;
+  // The ? sits beside the label, not inside it, so pressing it never moves focus to the field.
+  return (
+    <div className={styles.labelRow}>
+      {text}
+      <UiHint label={label} text={hint} />
+    </div>
+  );
 }
 
-function FieldMessages({ description, error }: Pick<FieldCopy, "description" | "error">) {
+function FieldMessages({ description, error, hint }: Pick<FieldCopy, "description" | "error" | "hint">) {
+  // Screen readers hear the hint as the field's description, so nobody has to find the ? first.
   return (
     <>
-      {description ? <Text className={styles.description} slot="description">{description}</Text> : null}
+      {description ? (
+        <Text className={styles.description} slot="description">
+          {description}
+          {hint ? <span className={styles.visuallyHidden}> {hint}</span> : null}
+        </Text>
+      ) : hint ? (
+        <Text className={styles.visuallyHidden} slot="description">{hint}</Text>
+      ) : null}
       <FieldError className={styles.error}>{error}</FieldError>
     </>
+  );
+}
+
+/**
+ * A small ? beside a label. Its one sentence shows on hover, keyboard focus, and tap, so a
+ * tool never needs help text under its fields. A tap or click keeps it open until the next
+ * tap elsewhere, Escape, or leaving the button.
+ */
+export function UiHint({ label, text }: { label: string; text: string }) {
+  const id = useId();
+  // The bubble lives in document.body, so a clipped or transformed parent can't hide or move it.
+  const hydrated = useSyncExternalStore(subscribeToNothing, () => true, () => false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const bubbleRef = useRef<HTMLSpanElement>(null);
+  const pinned = useRef(false);
+  const [open, setOpen] = useState(false);
+
+  const close = useCallback(() => {
+    pinned.current = false;
+    setOpen(false);
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!open) return;
+    // Fixed position keeps the bubble out of any clipped parent. It sits above the ?, moves
+    // below it near the top of the screen, and stays inside the viewport's sides.
+    const place = () => {
+      const button = buttonRef.current;
+      const bubble = bubbleRef.current;
+      if (!button || !bubble) return;
+      const margin = 8;
+      const anchor = button.getBoundingClientRect();
+      const box = bubble.getBoundingClientRect();
+      const viewport = document.documentElement.clientWidth;
+      const centered = anchor.left + anchor.width / 2 - box.width / 2;
+      const left = Math.max(margin, Math.min(centered, viewport - box.width - margin));
+      const above = anchor.top - box.height - 6;
+      bubble.style.left = `${left}px`;
+      bubble.style.top = `${above >= margin ? above : anchor.bottom + 6}px`;
+    };
+    const closeOutside = (event: PointerEvent) => {
+      if (!buttonRef.current?.contains(event.target as Node)) close();
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") close();
+    };
+    place();
+    window.addEventListener("resize", place);
+    window.addEventListener("scroll", place, true);
+    document.addEventListener("pointerdown", closeOutside);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      window.removeEventListener("resize", place);
+      window.removeEventListener("scroll", place, true);
+      document.removeEventListener("pointerdown", closeOutside);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [close, open]);
+
+  return (
+    <span className={styles.hint}>
+      <button
+        aria-describedby={id}
+        aria-label={`About ${label}`}
+        className={styles.hintButton}
+        data-open={open || undefined}
+        onBlur={close}
+        onClick={() => {
+          if (open && pinned.current) {
+            close();
+            return;
+          }
+          pinned.current = true;
+          setOpen(true);
+        }}
+        onFocus={(event) => {
+          if (event.currentTarget.matches(":focus-visible")) setOpen(true);
+        }}
+        onPointerEnter={(event) => {
+          if (event.pointerType === "mouse") setOpen(true);
+        }}
+        onPointerLeave={(event) => {
+          if (event.pointerType === "mouse" && !pinned.current) setOpen(false);
+        }}
+        ref={buttonRef}
+        type="button"
+      >
+        <span aria-hidden="true">?</span>
+      </button>
+      {hydrated ? createPortal(
+        <span className={styles.hintBubble} hidden={!open} id={id} ref={bubbleRef} role="tooltip">{text}</span>,
+        document.body,
+      ) : null}
+    </span>
   );
 }
 
@@ -128,6 +246,7 @@ export function UiTextField({
   dataFocusKey,
   description,
   error,
+  hint,
   inputMode,
   inputRef,
   label,
@@ -154,7 +273,7 @@ export function UiTextField({
       validationBehavior="aria"
       value={value}
     >
-      <UiLabel label={label} required={required} />
+      <UiLabel hint={hint} label={label} required={required} />
       {suffix ? (
         <Group className={styles.numberControl}>
           <Input
@@ -181,7 +300,7 @@ export function UiTextField({
           spellCheck={spellCheck}
         />
       )}
-      <FieldMessages description={description} error={error} />
+      <FieldMessages description={description} error={error} hint={hint} />
     </TextField>
   );
 }
@@ -193,7 +312,7 @@ export type UiSearchFieldProps = FieldCopy & {
   value?: string;
 };
 
-export function UiSearchField({ description, error, label, name, onChange, placeholder, required, value }: UiSearchFieldProps) {
+export function UiSearchField({ description, error, hint, label, name, onChange, placeholder, required, value }: UiSearchFieldProps) {
   return (
     <SearchField
       className={styles.field}
@@ -204,7 +323,7 @@ export function UiSearchField({ description, error, label, name, onChange, place
       validationBehavior="aria"
       value={value}
     >
-      <UiLabel label={label} required={required} />
+      <UiLabel hint={hint} label={label} required={required} />
       <Group className={styles.searchControl}>
         <Search aria-hidden="true" className={styles.leadingIcon} size={18} />
         <Input autoComplete="off" className={styles.searchInput} placeholder={placeholder} />
@@ -212,7 +331,7 @@ export function UiSearchField({ description, error, label, name, onChange, place
           <X aria-hidden="true" size={16} />
         </RacButton>
       </Group>
-      <FieldMessages description={description} error={error} />
+      <FieldMessages description={description} error={error} hint={hint} />
     </SearchField>
   );
 }
@@ -230,7 +349,7 @@ export type UiTextAreaProps = FieldCopy & {
   value?: string;
 };
 
-export function UiTextArea({ autoCapitalize, className = "", description, error, inputRef, label, name, onChange, placeholder, readOnly, required, rows = 4, spellCheck, value }: UiTextAreaProps) {
+export function UiTextArea({ autoCapitalize, className = "", description, error, hint, inputRef, label, name, onChange, placeholder, readOnly, required, rows = 4, spellCheck, value }: UiTextAreaProps) {
   return (
     <TextField
       className={`${styles.field} ${className}`}
@@ -241,9 +360,9 @@ export function UiTextArea({ autoCapitalize, className = "", description, error,
       validationBehavior="aria"
       value={value}
     >
-      <UiLabel label={label} required={required} />
+      <UiLabel hint={hint} label={label} required={required} />
       <TextArea autoCapitalize={autoCapitalize} className={styles.textarea} name={name} placeholder={placeholder} ref={inputRef} rows={rows} spellCheck={spellCheck} />
-      <FieldMessages description={description} error={error} />
+      <FieldMessages description={description} error={error} hint={hint} />
     </TextField>
   );
 }
@@ -274,7 +393,6 @@ export function UiDateTimePicker(props: UiDateTimePickerProps) {
   return <DatePickerBase {...props} granularity="minute" />;
 }
 
-const subscribeToNothing = () => () => {};
 
 /**
  * Date and time segments follow the reader's locale, which the server can't know: it would
@@ -296,6 +414,7 @@ function DatePickerBase({
   disabled,
   error,
   granularity,
+  hint,
   hourCycle = 12,
   label,
   maxValue,
@@ -321,14 +440,14 @@ function DatePickerBase({
       validationBehavior="aria"
       value={value ?? null}
     >
-      <UiLabel label={label} required={required} />
+      <UiLabel hint={hint} label={label} required={required} />
       <Group className={styles.dateControl}>
         <DateSegments />
         <RacButton aria-label={`Open ${label} calendar`} className={styles.dateButton}>
           <CalendarDays aria-hidden="true" size={18} />
         </RacButton>
       </Group>
-      <FieldMessages description={description} error={error} />
+      <FieldMessages description={description} error={error} hint={hint} />
       <Popover className={`${styles.popover} ${styles.calendarPopover}`} placement="bottom start">
         <Dialog className={styles.calendarDialog}>
           {hasTime ? <DateThenTime commit={onChange} hourCycle={hourCycle} maxValue={maxValue} minValue={minValue} minuteStep={minuteStep} /> : <PickerCalendar />}
@@ -432,7 +551,7 @@ export type UiTimeFieldProps = FieldCopy & TimeOptions & {
 };
 
 /** Hours and minutes. Type each part, or open the clock to pick from a list. */
-export function UiTimeField({ description, disabled, error, hourCycle = 12, label, maxValue, minValue, minuteStep = 5, onChange, required, value }: UiTimeFieldProps) {
+export function UiTimeField({ description, disabled, error, hint, hourCycle = 12, label, maxValue, minValue, minuteStep = 5, onChange, required, value }: UiTimeFieldProps) {
   return (
     <TimeField
       className={styles.field}
@@ -446,7 +565,7 @@ export function UiTimeField({ description, disabled, error, hourCycle = 12, labe
       validationBehavior="aria"
       value={value ?? null}
     >
-      <UiLabel label={label} required={required} />
+      <UiLabel hint={hint} label={label} required={required} />
       <Group className={styles.dateControl}>
         <DateSegments />
         <DialogTrigger>
@@ -471,7 +590,7 @@ export function UiTimeField({ description, disabled, error, hourCycle = 12, labe
           </Popover>
         </DialogTrigger>
       </Group>
-      <FieldMessages description={description} error={error} />
+      <FieldMessages description={description} error={error} hint={hint} />
     </TimeField>
   );
 }
@@ -631,6 +750,7 @@ export function UiSelect({
   disabled,
   error,
   hideLabel,
+  hint,
   label,
   name,
   onChange,
@@ -654,13 +774,13 @@ export function UiSelect({
       value={value ?? null}
     >
       <div className={hideLabel ? styles.visuallyHidden : undefined}>
-        <UiLabel label={label} required={required} />
+        <UiLabel hint={hint} label={label} required={required} />
       </div>
       <RacButton className={styles.selectTrigger} data-focus-key={dataFocusKey} data-tool-label={accessibleLabel}>
         <SelectValue className={styles.selectValue} />
         <ChevronDown aria-hidden="true" size={18} />
       </RacButton>
-      <FieldMessages description={description} error={error} />
+      <FieldMessages description={description} error={error} hint={hint} />
       <Popover className={styles.popover} placement="bottom start">
         <ListBox className={styles.listbox} items={options}>
           {(option) => (
@@ -689,7 +809,7 @@ export type UiComboBoxProps = FieldCopy & {
   value?: string | null;
 };
 
-export function UiComboBox({ description, error, label, onChange, onInputChange, onOpenChange, options, placeholder, required, value }: UiComboBoxProps) {
+export function UiComboBox({ description, error, hint, label, onChange, onInputChange, onOpenChange, options, placeholder, required, value }: UiComboBoxProps) {
   const triggerLabelId = useId();
 
   return (
@@ -704,7 +824,7 @@ export function UiComboBox({ description, error, label, onChange, onInputChange,
       validationBehavior="aria"
       value={value ?? null}
     >
-      <UiLabel label={label} required={required} />
+      <UiLabel hint={hint} label={label} required={required} />
       <span className={styles.visuallyHidden} id={triggerLabelId}>Open {label}</span>
       <Group className={styles.comboControl}>
         <Input autoComplete="off" className={styles.comboInput} placeholder={placeholder} />
@@ -712,7 +832,7 @@ export function UiComboBox({ description, error, label, onChange, onInputChange,
           <ChevronDown aria-hidden="true" size={18} />
         </RacButton>
       </Group>
-      <FieldMessages description={description} error={error} />
+      <FieldMessages description={description} error={error} hint={hint} />
       <Popover className={styles.popover} placement="bottom start" shouldFlip={false}>
         <ListBox className={styles.listbox}>
           {(option: UiOption) => (
@@ -753,6 +873,7 @@ export function UiNumberField({
   description,
   disabled,
   error,
+  hint,
   inputRef,
   label,
   max,
@@ -785,6 +906,7 @@ export function UiNumberField({
       <div className={styles.label}>
         {label}
         {required ? <span aria-hidden="true" className={styles.requiredMark}>*</span> : null}
+        {hint ? <UiHint label={label} text={hint} /> : null}
       </div>
       <Group className={styles.numberControl}>
         <RacButton aria-label={`Decrease ${accessibleLabel}`} className={styles.stepButton} slot="decrement">
@@ -796,7 +918,7 @@ export function UiNumberField({
           <Plus aria-hidden="true" size={16} />
         </RacButton>
       </Group>
-      <FieldMessages description={description} error={error} />
+      <FieldMessages description={description} error={error} hint={hint} />
     </NumberField>
   );
 }
@@ -811,6 +933,7 @@ export function UiQuantityField({
   description,
   disabled,
   error,
+  hint,
   label,
   max,
   min,
@@ -823,6 +946,7 @@ export function UiQuantityField({
   units,
   value,
 }: UiQuantityFieldProps) {
+  const hintId = useId();
   return (
     <div className={styles.field}>
       <div className={styles.label}>
@@ -833,9 +957,12 @@ export function UiQuantityField({
             <span className={styles.visuallyHidden}> Required</span>
           </>
         ) : null}
+        {hint ? <UiHint label={label} text={hint} /> : null}
       </div>
+      {hint ? <span className={styles.visuallyHidden} id={hintId}>{hint}</span> : null}
       <div className={styles.quantityControl}>
         <NumberField
+          aria-describedby={hint ? hintId : undefined}
           aria-label={label}
           className={styles.quantityNumber}
           isDisabled={disabled}
@@ -896,6 +1023,7 @@ export function UiQuantityInput({
   description,
   error,
   hideLabel,
+  hint,
   label,
   onChange,
   onUnitChange,
@@ -908,21 +1036,32 @@ export function UiQuantityInput({
 }: UiQuantityInputProps) {
   const inputId = useId();
   const errorId = useId();
+  const hintId = useId();
+  const describedBy = [hint ? hintId : null, error ? errorId : null].filter(Boolean).join(" ") || undefined;
+  const labelElement = (
+    <label className={hideLabel ? styles.visuallyHidden : styles.label} htmlFor={inputId}>
+      {label}
+      {required ? (
+        <>
+          <span aria-hidden="true" className={styles.requiredMark}>*</span>
+          <span className={styles.visuallyHidden}> Required</span>
+        </>
+      ) : null}
+    </label>
+  );
 
   return (
     <div className={styles.field}>
-      <label className={hideLabel ? styles.visuallyHidden : styles.label} htmlFor={inputId}>
-        {label}
-        {required ? (
-          <>
-            <span aria-hidden="true" className={styles.requiredMark}>*</span>
-            <span className={styles.visuallyHidden}> Required</span>
-          </>
-        ) : null}
-      </label>
+      {hint && !hideLabel ? (
+        <div className={styles.labelRow}>
+          {labelElement}
+          <UiHint label={label} text={hint} />
+        </div>
+      ) : labelElement}
+      {hint ? <span className={styles.visuallyHidden} id={hintId}>{hint}</span> : null}
       <div className={styles.quantityControl} data-invalid={Boolean(error) || undefined}>
         <input
-          aria-describedby={error ? errorId : undefined}
+          aria-describedby={describedBy}
           aria-invalid={Boolean(error)}
           aria-label={ariaLabel}
           className={styles.quantityTextInput}
@@ -959,7 +1098,7 @@ export type UiChoiceGroupProps = FieldCopy & {
   value?: string;
 };
 
-export function UiChoiceGroup({ dataFocusKey, description, error, label, name, onChange, options, required, value }: UiChoiceGroupProps) {
+export function UiChoiceGroup({ dataFocusKey, description, error, hint, label, name, onChange, options, required, value }: UiChoiceGroupProps) {
   return (
     <RadioGroup
       className={styles.field}
@@ -970,7 +1109,7 @@ export function UiChoiceGroup({ dataFocusKey, description, error, label, name, o
       validationBehavior="aria"
       value={value}
     >
-      <UiLabel label={label} required={required} />
+      <UiLabel hint={hint} label={label} required={required} />
       <div className={styles.choiceRow}>
         {options.map((option) => (
           <Radio className={styles.choice} data-focus-key={option.id === options[0]?.id ? dataFocusKey : undefined} id={option.id} key={option.id} value={option.id}>
@@ -978,7 +1117,7 @@ export function UiChoiceGroup({ dataFocusKey, description, error, label, name, o
           </Radio>
         ))}
       </div>
-      <FieldMessages description={description} error={error} />
+      <FieldMessages description={description} error={error} hint={hint} />
     </RadioGroup>
   );
 }
@@ -1001,7 +1140,7 @@ export type UiMultiChoiceGroupProps = FieldCopy & {
 };
 
 /** Choose any number of options. Each chip carries a small check box, so it reads differently from the one-choice group. */
-export function UiMultiChoiceGroup({ dataFocusKey, description, error, label, name, onChange, options, required, value }: UiMultiChoiceGroupProps) {
+export function UiMultiChoiceGroup({ dataFocusKey, description, error, hint, label, name, onChange, options, required, value }: UiMultiChoiceGroupProps) {
   return (
     <CheckboxGroup
       className={styles.field}
@@ -1012,7 +1151,7 @@ export function UiMultiChoiceGroup({ dataFocusKey, description, error, label, na
       validationBehavior="aria"
       value={value}
     >
-      <UiLabel label={label} required={required} />
+      <UiLabel hint={hint} label={label} required={required} />
       <div className={styles.choiceRow}>
         {options.map((option) => (
           <RacCheckbox className={`${styles.choice} ${styles.multiChoice}`} data-focus-key={option.id === options[0]?.id ? dataFocusKey : undefined} id={option.id} key={option.id} value={option.id}>
@@ -1021,7 +1160,7 @@ export function UiMultiChoiceGroup({ dataFocusKey, description, error, label, na
           </RacCheckbox>
         ))}
       </div>
-      <FieldMessages description={description} error={error} />
+      <FieldMessages description={description} error={error} hint={hint} />
     </CheckboxGroup>
   );
 }
@@ -1051,41 +1190,57 @@ export function UiSwitch({ children, isDisabled, isSelected, onChange }: { child
 
 type SliderCopy = {
   label: string;
+  /** One plain sentence behind a small ? beside the label. */
+  hint?: string;
   min?: number;
   max?: number;
   step?: number;
   formatOptions?: Intl.NumberFormatOptions;
 };
 
-export function UiSlider({ label, min = 0, max = 100, step = 1, value, onChange, formatOptions }: SliderCopy & { value: number; onChange?: (value: number) => void }) {
+function SliderHintText({ hint, id }: { hint?: string; id: string }) {
+  return hint ? <span className={styles.visuallyHidden} id={id}>{hint}</span> : null;
+}
+
+export function UiSlider({ hint, label, min = 0, max = 100, step = 1, value, onChange, formatOptions }: SliderCopy & { value: number; onChange?: (value: number) => void }) {
+  const hintId = useId();
   return (
     <Slider className={styles.slider} formatOptions={formatOptions} maxValue={max} minValue={min} onChange={onChange} step={step} value={value}>
       <div className={styles.sliderHeader}>
-        <Label className={styles.label}>{label}</Label>
+        <span className={styles.labelRow}>
+          <Label className={styles.label}>{label}</Label>
+          {hint ? <UiHint label={label} text={hint} /> : null}
+        </span>
         <SliderOutput className={styles.sliderOutput} />
       </div>
       <SliderTrack className={styles.sliderTrack}>
         <SliderFill className={styles.sliderFill} />
-        <SliderThumb aria-label={label} className={styles.sliderThumb} />
+        <SliderThumb aria-describedby={hint ? hintId : undefined} aria-label={label} className={styles.sliderThumb} />
       </SliderTrack>
+      <SliderHintText hint={hint} id={hintId} />
     </Slider>
   );
 }
 
-export function UiRangeSlider({ label, min = 0, max = 100, step = 1, value, onChange, formatOptions }: SliderCopy & { value: number[]; onChange?: (value: number[]) => void }) {
+export function UiRangeSlider({ hint, label, min = 0, max = 100, step = 1, value, onChange, formatOptions }: SliderCopy & { value: number[]; onChange?: (value: number[]) => void }) {
+  const hintId = useId();
   return (
     <Slider className={styles.slider} formatOptions={formatOptions} maxValue={max} minValue={min} onChange={onChange} step={step} value={value}>
       <div className={styles.sliderHeader}>
-        <Label className={styles.label}>{label}</Label>
+        <span className={styles.labelRow}>
+          <Label className={styles.label}>{label}</Label>
+          {hint ? <UiHint label={label} text={hint} /> : null}
+        </span>
         <SliderOutput className={styles.sliderOutput}>
           {({ state }) => state.values.map((item) => state.getFormattedValue(item)).join(" to ")}
         </SliderOutput>
       </div>
       <SliderTrack className={styles.sliderTrack}>
         <SliderFill className={styles.sliderFill} />
-        <SliderThumb aria-label={`${label} minimum`} className={styles.sliderThumb} index={0} />
-        <SliderThumb aria-label={`${label} maximum`} className={styles.sliderThumb} index={1} />
+        <SliderThumb aria-describedby={hint ? hintId : undefined} aria-label={`${label} minimum`} className={styles.sliderThumb} index={0} />
+        <SliderThumb aria-describedby={hint ? hintId : undefined} aria-label={`${label} maximum`} className={styles.sliderThumb} index={1} />
       </SliderTrack>
+      <SliderHintText hint={hint} id={hintId} />
     </Slider>
   );
 }
@@ -1096,7 +1251,8 @@ export type UiLevel = Readonly<{
   label: string;
 }>;
 
-export function UiLevelSlider({ label, levels, onChange, value }: { label: string; levels: readonly UiLevel[]; onChange?: (value: string) => void; value: string }) {
+export function UiLevelSlider({ hint, label, levels, onChange, value }: { hint?: string; label: string; levels: readonly UiLevel[]; onChange?: (value: string) => void; value: string }) {
+  const hintId = useId();
   const selectedIndex = Math.max(0, levels.findIndex((level) => level.id === value));
   const selected = levels[selectedIndex];
   if (!selected || levels.length < 2) return null;
@@ -1111,17 +1267,21 @@ export function UiLevelSlider({ label, levels, onChange, value }: { label: strin
       value={selectedIndex}
     >
       <div className={styles.sliderHeader}>
-        <Label className={styles.label}>{label}</Label>
+        <span className={styles.labelRow}>
+          <Label className={styles.label}>{label}</Label>
+          {hint ? <UiHint label={label} text={hint} /> : null}
+        </span>
         <SliderOutput className={styles.levelOutput}>{selected.label}</SliderOutput>
       </div>
       <SliderTrack className={styles.sliderTrack} data-tool-level-track>
         <SliderFill className={styles.sliderFill} data-tool-level-fill />
-        <SliderThumb aria-label={label} aria-valuetext={selected.label} className={styles.sliderThumb} />
+        <SliderThumb aria-describedby={hint ? hintId : undefined} aria-label={label} aria-valuetext={selected.label} className={styles.sliderThumb} />
       </SliderTrack>
       <div aria-hidden="true" className={styles.levelMarks} style={{ gridTemplateColumns: `repeat(${levels.length}, minmax(0, 1fr))` }}>
         {levels.map((level) => <span data-selected={level.id === selected.id || undefined} key={level.id}>{level.label}</span>)}
       </div>
       {selected.description ? <p className={styles.levelDescription}>{selected.description}</p> : null}
+      <SliderHintText hint={hint} id={hintId} />
     </Slider>
   );
 }
@@ -1162,6 +1322,11 @@ export function UiDisclosure({
       <DisclosurePanel className={styles.disclosurePanel}>{children}</DisclosurePanel>
     </Disclosure>
   );
+}
+
+/** The closed summary for an Advanced disclosure: `Not used`, or how many optional values are set. */
+export function uiSetSummary(count: number): string {
+  return count > 0 ? `${count} set` : "Not used";
 }
 
 export function UiRepeatableList<T extends { id: string }>({
@@ -1323,6 +1488,7 @@ export function UiCopyAction({
 }) {
   const [copied, setCopied] = useState(false);
   const [failed, setFailed] = useState(false);
+  const fallbackId = useId();
 
   async function copy() {
     const didCopy = await copyText(value);
@@ -1345,8 +1511,64 @@ export function UiCopyAction({
       </span>
       {failed && withManualFallback ? (
         <div className={styles.copyFallback}>
-          <label>Select and copy this text manually.</label>
-          <textarea onFocus={(event) => event.currentTarget.select()} readOnly rows={5} value={value} />
+          <label htmlFor={fallbackId}>Select and copy this text manually.</label>
+          <textarea id={fallbackId} onFocus={(event) => event.currentTarget.select()} readOnly rows={5} value={value} />
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+export type UiShareParams = Record<string, string | number | null | undefined>;
+
+/**
+ * Copies a link that reopens the tool with the same inputs. Empty values stay out of the link.
+ * It leaves the address bar alone. The tool reads the link back with `useInitialQuery()`.
+ */
+export function UiShareAction({
+  failureLabel = "Copy failed",
+  label = "Copy link",
+  params,
+  successLabel = "Link copied",
+  variant = "secondary",
+}: {
+  failureLabel?: string;
+  label?: string;
+  params: UiShareParams;
+  successLabel?: string;
+  variant?: UiButtonProps["variant"];
+}) {
+  const [copied, setCopied] = useState(false);
+  const [fallback, setFallback] = useState<string | null>(null);
+  const fallbackId = useId();
+
+  async function share() {
+    const url = new URL(window.location.pathname, window.location.origin);
+    for (const [key, value] of Object.entries(params)) {
+      const text = value === null || value === undefined ? "" : String(value).trim();
+      if (text) url.searchParams.set(key, text);
+    }
+    const link = url.toString();
+    const didCopy = await copyText(link);
+    setFallback(didCopy ? null : link);
+    if (!didCopy) return;
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1600);
+  }
+
+  return (
+    <div className={styles.copyAction}>
+      <UiButton aria-label={fallback ? failureLabel : copied ? successLabel : label} onPress={share} variant={variant}>
+        {copied ? <Check aria-hidden="true" size={17} /> : <Link2 aria-hidden="true" size={17} />}
+        {fallback ? failureLabel : copied ? successLabel : label}
+      </UiButton>
+      <span aria-live="polite" className={styles.visuallyHidden} role="status">
+        {fallback ? `${failureLabel}. Select the link manually.` : copied ? successLabel : ""}
+      </span>
+      {fallback ? (
+        <div className={styles.copyFallback}>
+          <label htmlFor={fallbackId}>Select and copy this link.</label>
+          <textarea id={fallbackId} onFocus={(event) => event.currentTarget.select()} readOnly rows={2} value={fallback} />
         </div>
       ) : null}
     </div>

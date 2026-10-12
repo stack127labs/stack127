@@ -1,74 +1,95 @@
 ## How is free trial conversion rate calculated?
 
-Take one cohort. Divide the accounts in it that paid within your window by all the accounts that started in it. Both numbers must come from the same group. [ChartMogul's trial-to-paid chart](https://help.chartmogul.com/article/219-chart-trial-to-paid-conversion-rate) counts the same way.
+Divide the accounts that paid by the accounts that started a trial in the same cohort, then multiply by 100.
 
-<Formula title="Trial-to-paid rate">
+<Formula title="Trial to paid conversion rate">
 
-Rate = accounts in the cohort that paid within the window ÷ accounts that started in the cohort × 100
+Conversion rate = paid accounts from the cohort ÷ trial starts in the cohort × 100
 
 </Formula>
 
-A common mistake is dividing this month's payments by this month's starts. Someone who starts a trial on August 25 may pay in September, and that count misses them.
+40 paid out of 500 trial starts is 8%. [ChartMogul's trial-to-paid metric](https://help.chartmogul.com/article/219-chart-trial-to-paid-conversion-rate) works the same way: it follows people who started a trial in one period and counts the ones who later paid.
 
-<Example title="100 trials started in August, with a 30-day window">
+The common mistake is dividing one month's new customers by the same month's trial starts. Those are different people.
 
-6 of them paid during August. By day 30 of each person's trial, 20 had paid.
+<Example title="100 trial starts in August">
 
-August payments ÷ August starts gives 6%. The cohort rate is 20%, because the 14 who paid in September started in August.
+20 of the 100 paid within 30 days, some of them in September. That cohort's rate is 20%.
+
+August's billing report shows only 6 of those first payments. Dividing 6 by 100 gives 6%, which mixes up the month someone paid with the month they started.
 
 </Example>
 
-The 20% is final only once someone who started on August 31 has had all 30 days. Until then, the tool marks it `Provisional`.
-
 ## What counts as a paid conversion?
 
-An account converts when its first payment goes through. These don't count:
+An account counts once its first payment goes through.
 
-- A card saved at signup. It isn't a payment until the charge succeeds.
-- A pending payment or a failed first invoice.
+- A card on file, a pending invoice, or a failed first charge isn't a payment.
+- Count each account once, in both the starts and the paid count. [Recurly counts trial starts per subscription](https://recurly.com/resources/report/state-of-subscriptions-acquisition/), so one account with two trial subscriptions counts twice there.
+- A first payment isn't a kept customer. Someone who pays once and cancels still counts as converted.
 
-In Stripe, check that the first invoice after the trial was paid, not only that the [subscription](https://docs.stripe.com/api/subscriptions/object) moved out of `trialing`. Count accounts, not subscriptions: a customer with two plans counts once.
+## How long should you wait before you count?
 
-## Why doesn't this match Stripe's trial conversion rate?
+Wait until every account in the cohort has had its full follow-up window. Before then, some people who will pay haven't yet, so the rate is low.
 
-[Stripe Billing's trial conversion rate](https://support.stripe.com/questions/calculating-trial-conversion-rate-in-billing?locale=en-GB) compares trials that converted in the last 30 days with trials that ended in the last 30 days. Those aren't the same people, so Stripe notes its rate can go above 100%.
+There's no standard window. [ChartMogul notes](https://help.chartmogul.com/article/219-chart-trial-to-paid-conversion-rate) that a cohort's rate can still change after the signup month, as people pay later. Its 2026 survey counts conversions within six months. Pick one window that fits how long your customers take to decide, and use it for every cohort you compare.
 
-That number helps you spot a recent change. This calculator answers a different question: of the people who started together, how many paid?
+The calculator marks a cohort `Provisional` until its age reaches the window. Age counts from the cohort's last start, so the newest account has had the full window too.
 
 ## What is a good free trial conversion rate?
 
-There's no single good rate. Asking for a card upfront makes a big difference. Your product, price, trial length, and where signups come from matter too. These dated sources split their figures by trial type.
+There's no single good rate. It depends on whether people enter payment details to start, how long you wait, and who you sell to. Published figures also count conversions in different ways, so compare yours only with a figure that measures the same thing.
 
-| Source | Free trial, no card | Free trial, card upfront | Free plan |
+| Source | No card | Card upfront | Free plan |
 | --- | --- | --- | --- |
-| ChartMogul, Growth Unhinged, and ProductLed | Median 4 to 6%. Top quarter 10 to 15%. | Median 25 to 35%. Top quarter 50 to 60%. | Median 3 to 5%. Top quarter 8 to 12%. |
-| First Page Sage | 17.4 to 18.2% | 48.8 to 51% | 2.6 to 2.8% |
-| Recurly | 12% | 39% | Not reported |
+| ChartMogul survey, 2026 | Median 4 to 6%, top quarter 10 to 15% | Median 25 to 35%, top quarter 50 to 60% | Median 3 to 5%, top quarter 8 to 12% |
+| First Page Sage, 2022 to 2025 | Average 18.2% | Average 48.8% | Average 2.6% |
+| Recurly, 2022 | Average 12.0% | Average 39.0% | Not reported |
+| ChartMogul help center | Median 3%, trial type not stated | | |
 
-The median is the middle product in the survey. A product at the top-quarter figure did better than three in four others.
+Each source measured something different:
 
-Who each source measured:
+- [ChartMogul's SaaS Conversion Report](https://chartmogul.com/reports/saas-conversion-report/) surveyed 200 software products in January 2026, typically $1 million to $10 million ARR. It counts paid within six months, as each respondent estimated it.
+- [First Page Sage](https://firstpagesage.com/seo-blog/saas-free-trial-conversion-rate-benchmarks/), updated September 5, 2025, averages 86 SaaS companies from 2022 to 2025. The figures above are for organic traffic. One paid month counts, and there's no fixed window.
+- [Recurly](https://recurly.com/resources/report/state-of-subscriptions-acquisition/) averages 803 subscription sites from January to August 2022, including consumer services. It counts 22 million trial starts per subscription, not per account.
+- [ChartMogul's help center](https://help.chartmogul.com/article/219-chart-trial-to-paid-conversion-rate) gives a 3% median for SaaS companies, with no sample size or window.
 
-- [ChartMogul, Growth Unhinged, and ProductLed 2026 SaaS Conversion Report](https://chartmogul.com/reports/saas-conversion-report/): a January 2026 survey of 200 software products, self-reported. A typical respondent had $1m to $10m in ARR. All models counted conversions within six months.
-- [First Page Sage](https://firstpagesage.com/seo-blog/saas-free-trial-conversion-rate-benchmarks/), updated September 2025: 86 of the agency's clients from 2022 to 2025, split by organic and paid traffic. Converted means one paid month.
-- [Recurly State of Subscriptions](https://recurly.com/resources/report/state-of-subscriptions-acquisition/), 2022 data: 22 million trials on 803 subscription sites, not only SaaS. Trials that asked for a card averaged 29 days. Trials that didn't averaged 39 days. Recurly counted subscriptions, not accounts, so one account could count more than once.
+The calculator shows only the ChartMogul ranges. They're the only figures here split by trial type with a fixed window. It shows them when your follow-up window is six months, or when you haven't set one. A shorter or longer window counts something different, so it gets no range. Even so, they're survey estimates, and the report doesn't say how many products fall in each trial type.
 
-<Note title="Use these as rough guides, not targets">
+<Note title="Small cohorts">
 
-Each source counts conversion its own way, so they don't agree. None of these sources reports figures for small indie SaaS by trial type and follow-up window.
+A rate from a few dozen trials can move a lot with one or two more payments. Check your likely range before comparing. If it covers the published median, your cohort is too small to tell the difference yet.
 
 </Note>
 
-A higher rate with a card upfront doesn't tell you which setup brings more customers. Fewer people may start when you ask for a card, so compare how many paid, not only the rate.
+## Why does a small cohort's rate swing so much?
 
-## How is a free plan different from a free trial?
+With few trials, chance plays a big part. 30 paid out of 42 is 71.43%, but the likely range runs from 56.43% to 82.84%.
 
-A free plan has no end date, so people can upgrade months after they sign up. Use a longer window, such as 180 days, and don't compare a free plan rate with a trial rate. 180 days matches the six months the ChartMogul report used.
+The likely range is a 95% [Wilson score interval](https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Wilson_score_interval). It's the range of true rates that could easily have produced your counts. Four times as many trials make it about half as wide.
 
-## Is new MRR the same as revenue?
+## Does requiring a card upfront improve conversion?
 
-No. New MRR is the monthly recurring amount these customers added, not the cash you collected. [ChartMogul's MRR definition](https://chartmogul.com/saas-metrics/mrr/) counts a $120 annual plan as $10 a month and leaves out one-time fees, such as setup charges.
+It raises the share of trial starts who pay, but fewer people start a trial. To compare the two, count paying customers per visitor, not just per trial.
 
-The ARR run rate is new MRR × 12. It isn't what you'll earn this year, because some of these customers will cancel. The tool counts only customers who paid and puts no price on those who didn't.
+First Page Sage's averages show both effects:
 
-To total MRR across all your plans, use the [MRR calculator](/mrr-calculator). The [customer acquisition cost calculator](/customer-acquisition-cost-calculator) shows what each new paying customer cost to win. The [customer churn calculator](/customer-churn-calculator) shows how many of them stay.
+| Trial type, organic traffic | Visitor to trial | Trial to paid |
+| --- | --- | --- |
+| No card | 8.5% | 18.2% |
+| Card upfront | 2.5% | 48.8% |
+
+Multiplied out, both land between 1 and 2 paying customers per 100 visitors. These averages come from different companies, so treat them as a rough picture, not a forecast for yours.
+
+## Is new MRR from trials the same as revenue?
+
+No. New MRR is the monthly recurring revenue these paid accounts added: each monthly plan at its price, and each annual plan at a twelfth of its yearly price.
+
+The ARR run rate is new MRR × 12, the same Annual Run Rate formula as [ChartMogul's glossary](https://chartmogul.com/reports/saas-go-to-market-report/). It's a pace, not revenue earned this year. It doesn't include churn, refunds, upgrades, or one-time fees.
+
+## What to check next
+
+- [MRR calculator](/mrr-calculator): add these customers to your total monthly recurring revenue.
+- [Customer churn calculator](/customer-churn-calculator): see how many of them stay.
+- [Customer acquisition cost calculator](/customer-acquisition-cost-calculator): what it cost to win each one.
+- [Customer lifetime value calculator](/customer-lifetime-value-calculator): what a kept customer is worth.

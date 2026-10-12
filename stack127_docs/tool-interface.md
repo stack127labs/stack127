@@ -1,329 +1,150 @@
-# Tool interface system
+# Tool interface
 
-Use [writing-style.md](writing-style.md) for all interface wording and visual choices.
+A stack127 tool is a visual instrument, not something to read. A first-time visitor gets their answer in a few seconds, and a pro finds every option they need one click away. The result should be clear enough that people want to share it.
 
-stack127 tools should feel like focused instruments. A person should see what to enter, what to press, and what the answer means without reading a manual first.
+This doc holds the decisions and taste specific to stack127. Good general UI practice still applies, and isn't repeated here. Words follow [writing-style.md](writing-style.md). Tokens follow [design-system.md](design-system.md). Components are in [shared-ui.md](shared-ui.md).
 
-This doc is the source of truth for tool layout, control order, and shared interaction patterns. `stack127_docs/design-system.md` still owns sitewide color, type, radius, spacing, and theme rules.
+## Serve both people
 
-## Start with the task
+Most people who use a tool want one or two plain answers fast, such as "what's my number?" and "how does it compare?" A smaller group needs depth: per-period breakdowns, extra plans, different methods, edge settings. A great tool serves both. Never make the common user wade through depth, and never drop the depth a pro needs just to look simple.
 
-Before you change a tool, boil its flow down to five parts:
+- **Basic** answers the common questions with the fewest inputs most people know offhand. It's always visible.
+- **Advanced** holds the depth. It's where pros find everything they'd expect from a serious tool in this space. Research tells you what that is: what competitors offer, what forum users ask for, and what the old tool did.
+- Rebuilding or reworking a tool never removes a working capability. Move it into Advanced, or into the page content if it's reference material. Leave something out only when nobody you named would use it, and write down why.
 
-1. The question the person came to answer.
-2. The minimum input needed to answer it.
-3. The one action that produces the answer.
-4. The first result the person needs to see.
-5. Optional detail, verification, or recovery.
+Every tool's plan takes a position: who most users are and their top questions, what Basic answers, what Advanced holds and for whom, and what's left out and why. Add an input because those people need it, not because a competitor has it. Cut one only for a reason a user would agree with.
 
-The interface follows that order. Don't give intro copy, secondary settings, or implementation details more visual weight than the task.
+## Inputs
+
+- Basic inputs sit at the top of the workbench. Advanced is one `UiDisclosure` below them, closed by default, named for what's inside, such as `Cohorts and billing` or `Resolver settings`. Its closed summary says what's set, with `uiSetSummary`.
+- Mark every required field with `required`, which shows `*` beside its label. Basic inputs are usually all required and Advanced ones all optional, and the mark still goes on, because people expect it. A field that becomes required when its partner is filled gets the mark then.
+- Every Advanced input is optional. Empty means not applied, or a default the hint names, such as "Empty uses 6 × 9 in." With Advanced empty, the answer matches Basic. Don't hide a default that changes the answer without naming it.
+- When a refinement needs values together, such as a customer count and a price, ask for them together inside Advanced. Filling one makes its partner required.
+- Repeated rows, such as one row per month or per drive, belong in Advanced with `UiRepeatableList` unless most people need them. Each row stays on one line on wide screens. Remove stays in a fixed last column.
+- Every input must change the result. If it doesn't, cut it.
+- Never use a checkbox or switch to reveal more fields. Never build mode switches or tabs for Basic and Advanced.
+- No text under fields, headings, options, or buttons. When a label needs explaining, give it a `hint`: one sentence behind a small `?`.
+- Accept the real range of the domain. Don't cap an input below what real people enter. When the domain itself has a limit, such as a maximum the platform allows, the error names the limit and who sets it.
+- Units go in a suffix or a unit select. Short important choices, up to about four, show as a visible choice row, not a dropdown.
+
+## Default state and the button
+
+Every tool opens with realistic example values filled in and their result showing, so the first thing anyone sees is a finished answer. Pick typical values, not extreme ones, so the first result and any comparison don't mislead. Mark the result `Example` until the person calculates their own.
+
+One primary button, named for the result, such as `Calculate royalty` or `Look up DNS`, sits below the inputs with a quiet `Reset` beside it. The result changes only when the person presses it.
+
+- When inputs change after a result, the old result stays but steps back (`ToolResult stale`), and a short status says `Inputs changed`. It never disappears.
+- Errors show when the person presses the button: under each field, with focus on the first one. If that field is inside Advanced, open it first.
+- A shared link opens and calculates right away. If a value in it is invalid, show the error the same way.
+- Reset returns to the example and its result.
+- Network tools, such as DNS lookups, show an example input but run only when the person presses the button, never on load.
+
+## Empty and blocked results
+
+The result region keeps its size and place in every state, so the page never jumps or turns into an empty band.
+
+- **Invalid input:** the last good result stays, stepped back, while the errors point at the fields.
+- **A domain rule blocks the answer:** answer with the rule instead of going blank. If the price is below the platform's minimum, the answer is that minimum, and what you'd earn at it. If a value is past a hard limit, say the limit, who sets it, and the nearest result you can give.
+- **Nothing to show yet,** such as a network lookup before its first run: show the shape of the result with `—` in place of values, never a blank band or a paragraph of instructions.
+- **Partial results:** one bad Advanced value hides only the part of the result it feeds, never the main answer.
+
+## The result
+
+The result is personal. It shows only what the person's own inputs produced.
+
+Design it so people can scan it with a clear hierarchy. Guide the eye: the main answer is big and prominent, with its visual, where the eye lands first. Smaller numbers stay clean and readable for the people who want to dig in. Detail pros asked for in Advanced, such as a per-row table, comes after. Arrange it for this tool's answer; there is no fixed layout.
+
+Add Share, copy, or download when useful. `UiShareAction` copies a link that reopens the same inputs. For lookups and checks, put the person's raw records in a closed disclosure.
+
+Sources, published-figure tables, method notes, definitions, caveats, and advice go in the page content, never in the result. A short status word is fine when a number alone could mislead, such as `Provisional` with `15 days left`. Each result region answers a different question, so don't show a value twice.
+
+### Make it visual
+
+Pick the visual that makes this person's answer obvious. Think about the relationship you're showing: a share of a whole, a flow from one stage to the next, progress toward a goal, a ranking, a change over time, a breakdown, a position on a range. Then pick the form that shows it best.
+
+Any Apache ECharts chart type works through our chart wrapper. If the type you need isn't in the wrapper yet, add it. See Charts in [shared-ui.md](shared-ui.md). Shared result components, a custom SVG, or marker art for a concept are fine too.
+
+A visual must show something the numbers alone don't. A chart that repeats one number is decoration. Size a visual for reading, not to fill space. Charts are at least 260px tall.
+
+### Comparisons
+
+Show a published comparison only when the research found data that measures the same thing, the same way: the same definition, unit, and time window. When the person's own settings differ, such as a 30-day window against a six-month benchmark, hide the comparison. When they haven't set it, show the comparison with the source's window in its visible label, such as `Median, paid within 6 months`.
+
+- Show where the person sits next to the range, such as with `UiRangeMarker`. Put the source's name in a hint.
+- Never grade. No `good`, `bad`, `below typical`, scores, or red, yellow, and green that imply a verdict. Niches differ.
+- If sources disagree or measure something else, show none. Unknown beats fake precision.
+
+## Layout and whitespace
+
+Every tool uses `ToolWorkbench`, `ToolFieldRow`, and `ToolResult` from `app/ui/tools/tool-workbench.tsx`. Don't write your own workbench band, width, or section gaps.
+
+- The workbench is a full-width band. Its content uses the shared 66rem working width. That width is room, not a quota. Don't stretch a few results across it; leftover whitespace is fine when the result reads well.
+- Inputs first, then the action row, then the result below one divider, all on the same left edge.
+- Fields that belong to one decision share a row with `ToolFieldRow`. Unrelated fields don't share a row just to fill space. On phones every row stacks, in reading order.
+- Readability beats filling space. When labels and values squeezed into columns start wrapping, use a vertical list instead.
+- Spacing comes from the shared gaps: wider between regions, tighter inside a group. Group with space and alignment, not nested cards or extra borders.
+- A table or chart keeps its overflow inside its own frame. Nothing causes page-level overflow.
+
+## How a stack127 tool feels
+
+Every tool should feel made by the same hand, while its inputs and visual fit its own job:
+
+- The same band, working width, and spacing from `ToolWorkbench`, and the same tokens, typography, and 2px radius from [design-system.md](design-system.md). Dark by default.
+- The same pieces for the same jobs: `hint` for explanations, one `UiDisclosure` for Advanced, `UiShareAction` for links, and the chart wrapper for charts.
+- The same order: inputs, the action, then the result.
+- Accent fill only on the primary button. Result visuals use the data colors, with the first one on the person's own value and nothing competing with it.
+- Numbers in the mono font, words in the sans font, and no decoration that doesn't carry meaning.
+
+## Good and bad tools
+
+These show the quality bar, not a template. Each good tool looks different because its job is different. Don't copy their layouts.
+
+**Good: an MRR goal calculator.** It opens with an example: $4,000 MRR now, a $10,000 goal, and 8% monthly growth, with the result already showing. The answer reads `12 months`, with the goal month under it. A line chart shows the MRR path rising to meet a flat goal line. Two small numbers answer the next questions: the growth needed to get there 6 months sooner, and the new MRR needed each month. Advanced, `Churn, expansion, and monthly targets`, holds what a growth lead models, including a different growth rate per quarter.
+
+**Good: a domain expiry check.** One field with an example domain, and `Check expiry`. Before the first run, the result shows its shape with `—`. After it, the answer reads `Expires in 43 days`, with the date. A bar runs from the registration date to the expiry date, with a marker for today. The registrar and auto-renew status sit below as two small facts. The raw RDAP response is in a closed disclosure.
+
+**Good: a RAID capacity planner.** It opens with four 8 TB drives in RAID 5 and its result. The answer reads `24 TB usable`, and a bar beside it splits the raw space into usable, parity, and reserve, with `Survives 1 drive failure` as a status. Advanced, `Mixed drives and reserve`, lets a pro list each drive's size and set a free-space reserve, and the result adds a per-drive table.
+
+**Bad: the form you have to read.** A sentence under every field. A checkbox that reveals five more required fields. An input most people would have to work out by hand before they get any number.
+
+**Bad: the gutted tool.** It looks simple because the options pros relied on were deleted, such as mixed drive sizes in a RAID planner. Pros leave, and the page has less to say than its competitors.
+
+**Bad: the stretched result.** Three short results spread across the full width. A legend squeezed into three columns, so every label wraps onto two lines and the eye zigzags to find its value.
+
+**Bad: the blank error.** A retention period past the provider's limit makes the whole result disappear. The person has to guess the limit, and the page jumps.
+
+**Bad: the report in the result.** The number, then three sentences explaining it, a table of published studies, and method notes.
+
+**Bad: the dashboard.** Eight equal cards with no lead answer. A donut with one slice. A green `Good` badge based on someone else's average.
+
+## URL state
+
+A tool lives at one clean URL, such as `/raid-calculator`. The tool never changes the URL on its own: not on load, not after a result, and not when someone presses Share.
+
+Sharing is the only way state gets into a URL. `UiShareAction` copies a link with the current inputs. Opening that link restores them and calculates. A link counts as shared only when it carries the tool's own parameters. Ignore anything else, such as `utm_source`, and open on the normal example.
+
+Tool pages stay static, so the server page never reads `searchParams`. A small client wrapper, `<slug>-from-url.tsx`, reads a shared link with `useInitialQuery()` from `app/ui/tools/use-initial-query.ts` and renders the tool with `key={query.key}`. `dns-lookup` is the reference. See [caching.md](caching.md).
+
+## Components
+
+Use the shared components in `app/ui/` and the `/components-ui` gallery. When nothing fits, build a shared component that more than one tool can use, with a gallery example. Keep tool-specific behavior in the route. Never fall back to an unstyled native control because the stack127 piece doesn't exist yet.
 
 ## Plan before you build
 
-Every new tool and every major redesign needs a ready Interface section in `content_docs/<tool-slug>/tool-spec.md` before UI code changes. Create it with `skills/stack127/tools/stack127-tool-interface-plan/SKILL.md`.
-
-A small fix can skip updating that section only if it doesn't change the visible inputs, result regions, hierarchy, visual format, or responsive order.
-
-The interface contract must decide:
-
-- The one user question and the one lead answer.
-- Which available facts are inputs, supporting context, evidence, or left out.
-- Why each control and result region exists.
-- Which formatted facts must not repeat.
-- Whether each proposed visual shows a true relationship.
-- Behavior for real states, long values, desktop, and narrow screens.
-- Observable `UI-` acceptance criteria.
-
-In the full tool pipeline, the Opus planning session plans the interface. Later it builds the frontend itself, on top of the backend Luna builds. It doesn't add controls, result regions, explanatory sentences, or visuals outside the reviewed plan without updating the spec. The independent audit judges the rendered result without relying on the builder's explanation.
-
-## Reading order
-
-A tool page has three visual levels:
-
-| Level | Contains |
-| --- | --- |
-| Page header | Identity icon, tool name, and at most one short sentence when the name doesn't explain the job. |
-| Workbench | Required inputs, one primary action, status, and results. |
-| Supporting content | Interpretation, limits, and related checks, after the workbench. |
-
-Inside the workbench, the eye should find the main input before the main action, and the answer before supporting data. Guide the eye with position and spacing first, size and weight second, and accent last.
-
-## Cut text, keep clarity
-
-- Keep visible labels. Placeholder text is an example, never the only label.
-- Default to no helper text inside the workbench. Add it only when it prevents a likely error, explains a hidden consequence, or clarifies an unfamiliar value the label and control can't express.
-- Remove sentences that repeat a field label, button label, heading, or visible result.
-- Don't describe familiar providers, options, units, or control behavior under a field. If that's still useful, it goes in the supporting content.
-- When a field truly needs guidance, keep it short and beside the field. Don't add a paragraph above the form for it.
-- Show common choices directly. Put optional advanced or rare choices behind a clearly named disclosure.
-- Use a diagram, relationship, scale, timeline, table, or grouped result when it gets the point across faster than prose. Don't replace one sentence with decorative art.
-- Results start with the answer. Method, provider, timing, and raw data come after.
-
-Less text never means unlabeled controls, unexplained errors, hidden limits, or mystery icon-only actions.
-
-## Workbench structure
-
-The workbench is the full-width band defined in `stack127_docs/design-system.md`. Its background and top and bottom rules span the whole main column beside the sidebar. Its interactive contents line up to a calm inner measure.
-
-Use this structure when the tool allows it:
-
-```text
-required input or query
-visible common choices
-secondary settings, only when needed
-primary action   quiet secondary action
------------------------------------------
-answer
-visual or structured result
-verification and metadata
-```
-
-Don't wrap the form, action area, result, table, or visual in separate nested cards. Use alignment, space, and a single divider to group things.
-
-On wide screens, fields may share a row when they belong to one decision. Don't use columns just to fill empty width. On narrow screens, keep the task order and stack controls without shrinking their hit areas.
-
-When a select or input shares a row with its primary button, line the button up with the control itself. The label stays above the control and must not push the action out of line. On narrow screens, stack the button under the control at full width.
-
-## Control rules
-
-All bounded controls use `--radius`, which is 2px. Controls use `--text-body`, the shared focus ring, and the site color tokens. Keep them compact enough for technical work, but never below a comfortable pointer target.
-
-### Buttons
-
-| Type | Rule |
-| --- | --- |
-| Primary | One per workbench state. Accent fill. Name the result, such as `Look up DNS` or `Calculate capacity`. |
-| Secondary | Bordered surface, for useful nearby actions such as reset, copy, download, or load example. |
-| Ghost | Unboxed, for low-priority actions you can undo. |
-| Icon-only | Only for a familiar action in tight space. Needs an accessible name, and a visible tooltip when the icon could be unclear. |
-| Loading | Keeps the button width, says what's happening, and blocks double submits. |
-| Disabled | Only when the reason is obvious. Prefer an enabled submit that shows exact validation when that's clearer. |
-| Copy | Reports success only after the clipboard API or a verified fallback works. If both fail, keep the source value selectable and show one local failure state. |
-
-Don't give primary styling to reset, share, copy, download, or navigation actions.
-
-### Text, search, and number fields
-
-- Use a persistent label, plus a realistic example when one helps.
-- Mark every required field with a visible `*`. Keep the required state in code as well.
-- Pick the right input type, input mode, autocomplete, capitalization, and spellcheck.
-- Use `UiNumberField` when whole or decimal values benefit from keyboard-safe increment and decrement buttons.
-- Join a value and its unit with `UiQuantityField` or `UiQuantityInput`. They're one decision, so they shouldn't float as separate controls.
-- Units go in the attached unit selector or a fixed suffix, not in helper paragraphs.
-- Search fields search or filter a collection. Don't call a single-value lookup field "search" just because it has a magnifying-glass icon.
-- Put errors right under the field. After submit, focus the first invalid field.
-- Show a validation or request error once, at the narrowest useful scope. Don't repeat the same message under a field, above the action, and in the result area.
-- Field validation doesn't create a result. Don't add an error result panel or a `Fix input` button when the error can show beside the field with focus moved there. Use a retry action only for a failed request or operation the person can repeat without changing the input.
-- When a field and action share a row, keep separate rows for label, control, and error. A new error must not knock the action out of line with the control.
-
-### Selects and visible choices
-
-- Use `UiSelect` for a fixed set of choices. It renders the stack127 trigger and listbox, and keeps a visually hidden native select for mobile and form accessibility.
-- Use `UiComboBox` only when the person benefits from typing to filter a longer list.
-- Use a compact radio or segmented row when seeing all common options helps the decision.
-- Keep real radio semantics, and one shared hit target for each label and control.
-- A selected option gets stronger contrast and the allowed accent treatment. Unselected options stay quiet.
-- Don't use a dropdown to hide two or three important choices.
-
-### Checkboxes and switches
-
-- Use a checkbox for an independent choice, or a group where several items can apply.
-- Use a switch only when the change takes effect right away. A setting sent with a form is a checkbox.
-- Write labels as the state or choice, not as an instruction to click.
-
-### Disclosures
-
-- Advanced sections say what's inside, such as `Resolver settings`, not `More options`.
-- Keep values chosen inside a collapsed disclosure visible in a short summary.
-- Never hide required fields, the primary action, an error, or the main result.
-- Never hide a default input that changes the main answer. A prefilled value is an active assumption, not permission to hide it.
-- A disclosure may hold optional refinements that do nothing when off, optional evidence, or diagnostics. If turning an option on makes another field required, show that field in the main flow next to the option.
-- During testing, change every input that drives the result and confirm the answer changes as documented. If it doesn't, remove the control or document what else it does.
-
-### Optional Basic and Advanced modes
-
-Record one control-mode decision for every tool:
-
-| Mode | Use it when |
-| --- | --- |
-| `single` | The default. Use this unless one of the others clearly fits. |
-| `disclosure` | One mode, with optional evidence or refinement tucked away. Active assumptions that drive the result stay visible. |
-| `basic-advanced` | A complete common task can run on a small, explicit set of assumptions, and a separate group of refinements would otherwise swamp it. |
-
-Basic and Advanced use the same engine and the same normalized input contract. Basic shows every active assumption that affects the answer, with its source and a way to edit it. Advanced shows the extra controls. A simpler screen must not mean a different calculation or a hidden default.
-
-When someone switches modes:
-
-- Keep their values.
-- If custom Advanced values stay active in Basic, show a short customized-assumptions summary with an edit action.
-- Replacing them with Basic defaults needs an explicit reset.
-- If a hidden value becomes invalid, show its control, move focus to it, and announce the error. Never leave someone with an error they can't see or fix.
-
-The interface contract must define:
-
-- Labels and the mode explanation.
-- Input mapping.
-- Basic assumptions and their sources.
-- Value retention and reset.
-- Invalid-state recovery.
-- Focus and announcements.
-- URL, reload, back, and forward restoration.
-
-Tests must prove that equal normalized inputs return the same result in both modes. They must cover switching in both directions with custom, invalid, and restored state.
-
-Don't add modes just to make a crowded form look shorter.
-
-### Repeated rows and add actions
-
-- Put `Add` beside the group heading when it creates another group. Put it after the current rows when it adds a row to that group.
-- After adding a row, focus its first useful control. After removing the focused row, return focus to a stable nearby action.
-- Keep row actions in a fixed last column. Don't let long values push remove, duplicate, or reorder actions onto a second line.
-- On narrow screens, keep row order and use a set breakpoint. Don't wait for the browser to wrap controls unpredictably.
-
-## Result hierarchy
-
-Results answer before they document. The order:
-
-1. One plain answer or status, at `--text-body` or a fitting heading size.
-2. The useful visual relationship or structured values.
-3. Raw records, calculation steps, or diagnostic detail.
-4. Provider, timing, version, and source metadata, in `--text-small`.
-5. A next action, only when it helps check or continue the task.
-
-Don't put every fact in an equal card. Group related facts and make the main finding stand out.
-
-| Content | Use |
-| --- | --- |
-| Repeated fields | Table |
-| Exact comparisons and trends | `UiLiveChart` |
-| Conceptual relationships | Marker art |
-
-Each result region answers a different question. Don't repeat a visible value in a second metric row, card, or summary unless the second view shows a needed relationship. Compare the formatted values the reader actually sees. If two source timestamps display as the same date, don't render an identical two-value comparison.
-
-Use a timeline only when its axis is time. Don't place variable, conditional, or unknown stages at equal distances on a line. Use an ordered stage list or table that names each duration and consequence.
-
-A repeated-field table needs enough width for its columns and real values. Put it beside another region only when both stay readable with long content. Otherwise, stack the regions on purpose. On narrow screens, a table may scroll inside its own viewport. Sibling content must never cover a column or cause page-level overflow.
-
-When a result maps to a small fixed set of states, show one label and one value instead of a paragraph. Put the longer caveat in supporting content or an accessible description, as long as the visible value is accurate on its own.
-
-## States are part of the design
-
-Every tool must handle each state that can happen:
-
-- Initial.
-- Incomplete or invalid input.
-- Loading.
-- Success.
-- Empty or no match.
-- Partial result.
-- Service or network failure.
-- Retry or recovery.
-- Disabled controls.
-- Long content and narrow screens.
-
-Announce status changes to assistive technology. A failure names the problem and the next useful action. Don't clear valid input after a failure.
-
-### URL state
-
-The canonical route is the initial state, not a blank query string waiting to be filled. A clean tool URL must stay unchanged through server render and hydration. Never call `replaceState` or `pushState` on mount to write defaults, derived values, or a first result into the URL.
-
-The page stays static, so the server page never reads `searchParams`. A small client wrapper, `<slug>-from-url.tsx`, reads the query with `useInitialQuery()` from `app/ui/tools/use-initial-query.ts` and renders the tool with `key={query.key}`. `dns-lookup` is the reference. The first render shows the default state, then fills in from the URL. A tool that runs from a shared link starts after hydration. See `stack127_docs/caching.md`.
-
-A tool may restore state from a query string the person opened on purpose. When shareable state helps, prefer an explicit Share action that creates or copies the URL. If a tool updates the URL as the person edits, that must be part of the documented task, and it must start only after a deliberate change by the person.
-
-## Shared components
-
-Prefer a small set of semantic components over visual copies inside each tool. Components keep native HTML behavior and take ordinary labels, descriptions, errors, and state props.
-
-Shared fields may take an outer placement class, so the tool can put them in an explicit grid or subgrid. Page styles may position the component, but must not replace its internal control styling.
-
-### Missing components
-
-Before naming a component, planning must check `app/ui`, `/components-ui`, and related sibling tools. For every nontrivial control or result, record one decision:
-
-- Reuse an existing shared component.
-- Add a new shared component.
-- Use a route-specific component because its behavior is unique.
-
-Then describe the component's parts, all its states, keyboard and screen-reader behavior, error and recovery behavior, responsive behavior, and design tokens.
-
-Don't fall back to an unstyled native control, a generic browser upload box, a generic dashboard pattern, or an unrelated third-party component because the stack127 piece doesn't exist yet. Keep native semantics underneath when they're useful or required. For example, a file upload can keep an accessible `input type="file"`, while a stack127 dropzone, browse action, file status, rejection, remove, and retry interface handles what people see.
-
-Build the approved component in the shared UI when its look and behavior can serve more than one page. Keep it in the route when the interaction is specific to that tool. If the missing component can't be built and checked within scope, return the decision to the main agent.
-
-The intended primitives:
-
-- `UiTextField`
-- `UiSearchField`
-- `UiTextArea`
-- `UiSelect`
-- `UiComboBox`
-- `UiDatePicker`, `UiTimeField`, and `UiDateTimePicker`. Times use 12 hours; pass `hourCycle={24}` when the tool needs 24 hours.
-- `UiNumberField`
-- `UiQuantityField`
-- `UiQuantityInput`
-- `UiSlider`
-- `UiRangeSlider`
-- `UiChoiceGroup` (one choice) and `UiMultiChoiceGroup` (several)
-- `UiCheckbox`
-- `UiSwitch`
-- `UiButton`
-- `UiActionRow`
-- `UiDisclosure`
-- `UiRepeatableList`
-- `UiStatus`
-- `UiResultLead`
-- `UiPrimaryResult`
-- `UiProgressBar`
-- `UiAllocationBar`
-- `UiMetricGroup`
-- `UiTimeline`
-- `UiKeyValueList`
-- `UiDataTable`
-- `UiRawOutput`
-- `UiCodeOutput`
-- `UiCopyAction`
-- `UiDownloadAction`
-- `UiFileDropzone`
-- `UiFileList`
-
-### Allocation color
-
-`UiAllocationBar` has three palettes:
-
-| Palette | Use it when |
-| --- | --- |
-| `neutral` | A plain two-part split. |
-| `accent` | One part needs focus against a neutral remainder. |
-| `categorical` | Three or more named parts must stay distinct. |
-
-Set explicit segment tones when a category must keep the same color across related views.
-
-Don't assign red, yellow, or green by position when they'd suggest danger, warning, or success. Color is never the only label. Keep every segment name and exact value in the legend. A zero or tiny value keeps its legend entry but gets no made-up minimum width in the bar.
-
-The canonical code lives in `app/ui/controls.tsx`, `app/ui/display.tsx`, and focused modules such as `app/ui/uploads.tsx`, with styles beside them. Read [shared-ui.md](shared-ui.md) for use across pages, and [page-content.md](page-content.md) for content blocks. `/components-ui` is the development-only gallery and returns `404` in production.
-
-Pull out a primitive when pages share its behavior and look. Don't create a component that only renames one HTML element or makes an unusual tool harder to understand.
-
-## Visual review
-
-Review the rendered tool, not just its CSS.
-
-- At first glance, can a person point to the required input, main action, and result?
-- Is there one obvious primary action?
-- Can any sentence go because the layout already says it?
-- Are related controls grouped more tightly than unrelated ones?
-- Does the result look more important than metadata and options?
-- Do loading, error, empty, and recovery states keep the same hierarchy?
-- Does the task order hold on mobile?
-- Can you reach every table header and cell without sibling content covering it?
-- Can every action be done with a keyboard, with focus always visible?
-- Do dark and light themes both keep contrast and grouping?
-- Does the workbench span the main column while its controls stay comfortably measured?
-- Does a clean canonical URL stay unchanged after hydration?
-
-Fix visible hierarchy or usability problems before polishing decoration.
-
----
-
-_Internal doc. Created 2026-09-04._
+New tools and major redesigns need the Interface section of `content_docs/<slug>/tool-spec.md` first, from `skills/stack127/tools/stack127-tool-interface-plan/SKILL.md`. Small fixes that don't change inputs, results, or layout can skip it.
+
+## Review
+
+Look at the rendered tool at desktop and mobile width, in both themes.
+
+- Does it open on a realistic example with its result showing?
+- Can a first-time visitor get their answer without reading anything but labels?
+- Would a pro find what they expect in Advanced? Did any capability the research or the old tool had go missing?
+- Can someone scan the result: the main answer and its visual first, smaller numbers readable, and no label squeezed until it wraps?
+- Does every required field show `*`?
+- Does the result keep its place when inputs change, are invalid, or hit a domain limit? Does a limit answer instead of blanking?
+- Does every input change the result?
+- Is everything in the result about the person's own inputs, shown so it's obvious at a glance?
+- Is any word in the workbench more than a label, hint, option, button, value, error, or status?
+- Does the URL stay clean until someone presses Share?
+- Does it work with a keyboard, with visible focus, and without page overflow?

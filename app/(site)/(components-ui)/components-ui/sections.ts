@@ -37,7 +37,7 @@ export const gallerySections: GallerySection[] = [
     label: "Text and choices",
     description: "Fields for typing, searching, picking a date or time, and choosing from options.",
     icon: TextCursorInput,
-    components: ["UiTextField", "UiSearchField", "UiTextArea", "UiSelect", "UiComboBox", "UiDatePicker", "UiTimeField", "UiDateTimePicker", "UiChoiceGroup", "UiMultiChoiceGroup", "UiCheckbox", "UiSwitch"],
+    components: ["UiTextField", "UiSearchField", "UiTextArea", "UiSelect", "UiComboBox", "UiDatePicker", "UiTimeField", "UiDateTimePicker", "UiChoiceGroup", "UiMultiChoiceGroup", "UiCheckbox", "UiSwitch", "UiHint"],
   },
   {
     slug: "numbers-and-sliders",
@@ -49,9 +49,9 @@ export const gallerySections: GallerySection[] = [
   {
     slug: "actions-and-forms",
     label: "Actions and forms",
-    description: "Buttons, form validation, copy and download actions, repeated rows, and hidden settings.",
+    description: "Buttons, form validation, copy, share, and download actions, repeated rows, and Advanced settings.",
     icon: MousePointerClick,
-    components: ["UiButton", "UiActionRow", "UiCopyAction", "UiDownloadAction", "UiRepeatableList", "UiDisclosure"],
+    components: ["UiButton", "UiActionRow", "UiCopyAction", "UiShareAction", "UiDownloadAction", "UiRepeatableList", "UiDisclosure"],
   },
   {
     slug: "file-uploads",
@@ -72,7 +72,7 @@ export const gallerySections: GallerySection[] = [
     label: "Results",
     description: "The main answer, supporting numbers, status words, progress, steps, timelines, and generated output.",
     icon: Gauge,
-    components: ["UiPrimaryResult", "UiResultLead", "UiMetricGroup", "UiKeyValueList", "UiStatusWord", "UiProgressBar", "UiAllocationBar", "UiSteps", "UiTimeline", "UiCodeOutput", "UiRawOutput"],
+    components: ["UiPrimaryResult", "UiResultLead", "UiMetricGroup", "UiKeyValueList", "UiStatusWord", "UiProgressBar", "UiAllocationBar", "UiRangeMarker", "UiUnitGrid", "UiSteps", "UiTimeline", "UiCodeOutput", "UiRawOutput"],
   },
   {
     slug: "tables",
@@ -84,7 +84,7 @@ export const gallerySections: GallerySection[] = [
   {
     slug: "charts",
     label: "Charts",
-    description: "Line, area, bar, donut, scatter, and heatmap charts from data, in both themes, with the page weight they add.",
+    description: "Line, area, bar, donut, scatter, heatmap, funnel, gauge, treemap, flow, and radar charts from data, in both themes, with the page weight they add.",
     icon: ChartColumn,
     components: ["UiChart", "UiStaticChart", "UiLiveChart"],
   },
@@ -133,9 +133,9 @@ export const gallerySections: GallerySection[] = [
   {
     slug: "page-layout",
     label: "Page layout",
-    description: "Page headers, title icons, the entry hero, page metadata, and brand pieces.",
+    description: "Page headers, title icons, the entry hero, page metadata, brand pieces, and the tool workbench.",
     icon: LayoutTemplate,
-    components: ["PageHeader", "PageTitleIcon", "CategoryIcon", "EntryHero", "PageMeta", "BrandWordmark", "ThemeToggle"],
+    components: ["PageHeader", "PageTitleIcon", "CategoryIcon", "EntryHero", "PageMeta", "BrandWordmark", "ThemeToggle", "ToolWorkbench", "ToolFieldRow", "ToolResult"],
   },
 ];
 

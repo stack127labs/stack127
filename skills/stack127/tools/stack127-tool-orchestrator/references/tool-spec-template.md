@@ -6,6 +6,16 @@ Research: [research.md](research.md)
 
 Opus starts this file from the research. Link to research instead of copying it.
 
+## People and questions
+
+Take a position from the research's "Who uses it" section. Write it as decisions, not a survey:
+
+- Most users are: <who>. They come with: <what they know>.
+- Their top questions: <2 or 3, in their words>.
+- Basic answers them with: <the fewest inputs most people know offhand>.
+- Advanced holds: <each option pros need>, for <who>, because <reason>. Cover what serious competitors offer and what the old tool did, if there was one.
+- Left out: <what>, because <reason a user would agree with>.
+
 ## Why people will choose this tool
 
 What the searcher is really trying to decide. Where the top results fail them. The specific things this tool does better, such as a clearer answer, honest unknowns, edge cases handled, worked examples, or dated sources. Keep it to a short list the builders and writer can check against.
@@ -22,7 +32,7 @@ Define inputs, parsing, units, bounds, formulas or source precedence, rounding, 
 
 ### Backend contract
 
-The exact handoff between Luna's backend and Opus's frontend. List each exported function or API route with its file path, inputs and types, output shape, errors and unknown values, and timeouts or caching. Name any data script, migration, or dataset. The frontend calls the backend only through this contract.
+The exact handoff between Sol's backend and Opus's frontend. List each exported function or API route with its file path, inputs and types, output shape, errors and unknown values, and timeouts or caching. Name any data script, migration, or dataset. The frontend calls the backend only through this contract.
 
 ### Known examples
 
@@ -30,7 +40,7 @@ Add a small set of independently calculated normal, boundary, and invalid exampl
 
 ### Ownership
 
-List the backend files Luna builds (engine, API routes, scripts, focused test, preview row) and the frontend files Opus builds (route page, components, styles, card art).
+List the backend files Sol builds (engine, API routes, scripts, focused test, preview row) the interface files Opus builds (components and styles), and what integration adds (route page, content wiring, card art).
 
 ### Catalog placement
 
@@ -42,23 +52,35 @@ For a new tool, brief its catalog `toolSpot` marker art: one visual takeaway, a 
 
 ### Flow
 
-State the user question, minimum inputs, primary action, lead answer, and supporting result order.
+State the user question, the lead answer, the example values the tool opens with, and the button's name.
+
+### Inputs
+
+| Input | Basic or Advanced | Required or optional | Hint, one sentence or none | What it changes in the result |
+| --- | --- | --- | --- | --- |
+| | | | | |
+
+Every Advanced input is optional. Name the Advanced disclosure for what's inside. If an input changes nothing in the result, cut it.
+
+### Result
+
+The answer, the visual that shows it, the few supporting numbers, and share or copy actions. Everything in the result comes from the person's inputs. Say what comparison shows, if any, and which published range it uses. No grade words.
 
 ### Components
 
 List every existing shared component the frontend uses, with its import path. List any new or improved shared components built during planning, with what each one is for. List the tool-specific components the frontend will build, with a short description.
 
+### Layout
+
+How the inputs group into rows, where Advanced sits, and how the result reads at desktop and on phones: what the eye lands on first, and where the smaller numbers and detail sit.
+
 ### States
 
-List the initial, valid, invalid, loading, empty, partial, failure, retry, reset, restored, and long-value states that apply.
-
-### Responsive and accessible behavior
-
-Describe desktop and mobile order, containment, table or chart behavior, keyboard flow, focus, and announcements.
+The example it opens with, stale results after an edit, invalid input, and how each domain limit answers instead of blanking. Add any other state this tool can really hit.
 
 ## Content
 
-The writing session fills this section with `skills/stack127/tools/stack127-tool-writing/SKILL.md`. Page copy uses existing components only.
+The planning session fills this section, after the frontend, with `skills/stack127/tools/stack127-tool-writing/SKILL.md`. Page copy uses existing components only.
 
 ### Search intent and title
 

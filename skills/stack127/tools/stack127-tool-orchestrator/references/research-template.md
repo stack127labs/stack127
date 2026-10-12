@@ -4,6 +4,31 @@ Route: `/<slug>`
 Checked: <YYYY-MM-DD>
 Competitors used: <number>
 
+## Who uses it
+
+Who searches for this tool, and what they want to know. Base it on search results, "People also ask", competitor pages, and forums. Name the main group first.
+
+| Group | Rough share | What they already know | Their questions, in their words |
+| --- | --- | --- | --- |
+| Most people, such as a founder with one number from Stripe | Most | | |
+| Pros, such as a growth lead with cohort data | Few | | |
+
+Then answer in a few lines:
+
+- What do most people want in the first few seconds?
+- Which inputs can most people give offhand, and which need digging or a specialist?
+- What do pros need that most people would skip?
+
+## Published comparison data
+
+Published ranges people use to judge their number, if any exist. Write "None" for tools where no comparison makes sense, such as most lookups.
+
+| Figure | Source and date | Who was measured | Same definition as the tool? |
+| --- | --- | --- | --- |
+| | | | |
+
+Say whether the sources agree closely enough to show one range in the tool, and which one. If they don't, say so.
+
 ## Scope
 
 What job this tool covers and what it leaves out. List the search queries you tried and the domains that keep showing up.
