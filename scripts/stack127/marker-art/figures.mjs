@@ -1510,6 +1510,46 @@ function toolSpot(spec, A) {
     A.polygon([[118, 20], [82, 33], [95, 37]], { stroke: "@primary", fill: "@primary", fillStyle: "solid", roughness: 0.8, strokeWidth: 1.6 });
     A.polygon([[118, 20], [95, 37], [93, 49]], { stroke: "@primary", strokeWidth: 1.6, roughness: 0.8 });
     return;
+  } else if (d.motif === "coverBarcode") {
+    // A book's back corner sits behind a white barcode label. Scanners need black bars on white, so those two colors stay fixed in both themes.
+    A.rect(14, 14, 110, 86, { stroke: "@sub", roughness: 1.15, strokeWidth: 1.8 });
+    A.line(24, 14, 24, 100, { stroke: "@sub", strokeWidth: 1.2, roughness: 0.6 });
+    A.rect(36, 32, 86, 56, { stroke: "#111111", fill: "#ffffff", fillStyle: "solid", roughness: 1.15, strokeWidth: 1.6 });
+    // Guard bars at the start, middle, and end run longer than the data bars.
+    const mainBars = [
+      { x: 44, width: 2.6, guard: true }, { x: 49, width: 1.4 }, { x: 52.4, width: 1.4 },
+      { x: 56.8, width: 3.8 }, { x: 62.6, width: 1.4 }, { x: 66, width: 2.6, guard: true },
+      { x: 70.6, width: 1.4 }, { x: 73.9, width: 1.4 }, { x: 78.3, width: 3.8 },
+      { x: 84.1, width: 2.6, guard: true },
+    ];
+    for (const bar of mainBars) {
+      A.rect(bar.x, 40, bar.width, bar.guard ? 40 : 34, { stroke: "#111111", fill: "#111111", fillStyle: "solid", roughness: 1.15, strokeWidth: 1.2 });
+    }
+    // The smaller add-on block sits to the right, shorter than the main bars.
+    const addOnBars = [
+      { x: 96, width: 1.6 }, { x: 99.6, width: 1.6 }, { x: 103.6, width: 2.8 },
+      { x: 109.2, width: 1.6 }, { x: 112.4, width: 1.6 },
+    ];
+    for (const bar of addOnBars) {
+      A.rect(bar.x, 50, bar.width, 20, { stroke: "#111111", fill: "#111111", fillStyle: "solid", roughness: 1.15, strokeWidth: 1.2 });
+    }
+    return;
+  } else if (d.motif === "seriesSpines") {
+    // Three spines stand on one baseline, the first a little taller. Each hop is a thinner arrow than the one before.
+    const baseline = 96;
+    const spines = [
+      { x: 16, width: 26, top: 36 },
+      { x: 56, width: 26, top: 46 },
+      { x: 96, width: 26, top: 46 },
+    ];
+    for (const spine of spines) {
+      A.rect(spine.x, spine.top, spine.width, baseline - spine.top, { stroke: "@ink", fill: "@primary", fillStyle: "solid", roughness: 1.15, strokeWidth: 1.8 });
+      A.line(spine.x, spine.top + 8, spine.x + spine.width, spine.top + 8, { stroke: "@ink", strokeWidth: 1.4, roughness: 0.6 });
+    }
+    A.line(8, baseline, 132, baseline, { stroke: "@sub", strokeWidth: 1.4 });
+    A.arrow(30, 30, 62, 42, { tone: "@ink", sw: 3.4, curve: -0.3 });
+    A.arrow(76, 40, 104, 42, { tone: "@ink", sw: 1.8, curve: -0.3 });
+    return;
   } else {
     drawIcon(A, d.icon, cx, cy, Math.min(A.w, A.h) * 0.48, "@ink");
   }

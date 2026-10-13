@@ -26,6 +26,7 @@ import { domainReportArt } from "@/app/ui/art/domain-report";
 import { driveReliabilityArt } from "@/app/ui/art/drive-reliability";
 import { eppStatusArt } from "@/app/ui/art/epp-status";
 import { ipAsnLookupArt } from "@/app/ui/art/ip-asn-lookup";
+import { isbnBarcodeGeneratorArt } from "@/app/ui/art/isbn-barcode-generator";
 import { kdpBackendKeywordsBuilderArt } from "@/app/ui/art/kdp-backend-keywords-builder";
 import { kdpBookDescriptionFormatterArt } from "@/app/ui/art/kdp-book-description-formatter";
 import { kdpBookSetupCalculatorArt } from "@/app/ui/art/kdp-book-setup-calculator";
@@ -56,6 +57,7 @@ import { resticRetentionSimulatorArt } from "@/app/ui/art/restic-retention-simul
 import { revenueChurnCalculatorArt } from "@/app/ui/art/revenue-churn-calculator";
 import { rsyncFilterTesterArt } from "@/app/ui/art/rsync-filter-tester";
 import { selfHostedAppResourcePlannerArt } from "@/app/ui/art/self-hosted-app-resource-planner";
+import { seriesReadThroughCalculatorArt } from "@/app/ui/art/series-read-through-calculator";
 import { shortcutsCheatsheetGeneratorArt } from "@/app/ui/art/shortcuts-cheatsheet-generator";
 import { shrArt } from "@/app/ui/art/shr";
 import { snapraidMergerfsArt } from "@/app/ui/art/snapraid-mergerfs";
@@ -137,6 +139,7 @@ const art: Record<string, string> = {
   "free-trial-conversion-calculator": freeTrialConversionCalculatorArt,
   "hosting-cloud-tools": siteSpotSelfHostAppsArt,
   "ip-asn-lookup": ipAsnLookupArt,
+  "isbn-barcode-generator": isbnBarcodeGeneratorArt,
   "kdp-backend-keywords-builder": kdpBackendKeywordsBuilderArt,
   "kdp-book-description-formatter": kdpBookDescriptionFormatterArt,
   "kdp-book-setup-calculator": kdpBookSetupCalculatorArt,
@@ -175,6 +178,7 @@ const art: Record<string, string> = {
   "saas-metrics-calculator": saasMetricsCalculatorArt,
   "saas-tools": siteSpotSaasToolsArt,
   "self-hosted-app-resource-planner": selfHostedAppResourcePlannerArt,
+  "series-read-through-calculator": seriesReadThroughCalculatorArt,
   "shortcuts-cheatsheet-generator": shortcutsCheatsheetGeneratorArt,
   "shr": shrArt,
   "snapraid-mergerfs": snapraidMergerfsArt,

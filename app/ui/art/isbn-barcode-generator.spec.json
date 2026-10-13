@@ -1,0 +1,11 @@
+{
+  "id": "catalog--isbn-barcode-generator",
+  "type": "toolSpot",
+  "takeaway": "A book's back cover carries a barcode that scanners read.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-13",
+  "width": 140,
+  "height": 110,
+  "seed": 418,
+  "data": { "motif": "coverBarcode" }
+}
