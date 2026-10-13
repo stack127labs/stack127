@@ -86,18 +86,20 @@ export function ActionsAndFormsExamples() {
         </form>
       </Example>
 
-      <Example components={["UiCopyAction", "UiDownloadAction"]} source="app/ui/controls.tsx" title="Copy and download">
+      <Example components={["UiCopyAction", "UiDownloadAction"]} note="Turn a download off with isDisabled while its result is stale." source="app/ui/controls.tsx" title="Copy and download">
         <UiActionRow>
           <UiCopyAction label="Copy summary" successLabel="Copied summary" value="Estimated usable capacity: 21.8 TiB" />
           <UiDownloadAction contents={"Estimated usable capacity: 21.8 TiB\n"} filename="capacity-report.txt" label="Download report" />
+          <UiDownloadAction contents={"Estimated usable capacity: 21.8 TiB\n"} filename="capacity-report.csv" isDisabled label="Download CSV" />
         </UiActionRow>
       </Example>
 
-      <Example components={["UiRepeatableList"]} note="Adding a row moves focus to it. Removing a row moves focus to the next one." source="app/ui/controls.tsx" title="Repeated rows">
+      <Example components={["UiRepeatableList"]} note="Adding a row moves focus to it. Removing a row moves focus to the next one. With minItems, remove turns off at the minimum; try removing the last drive." source="app/ui/controls.tsx" title="Repeated rows">
         <UiRepeatableList
           addLabel="Add drive"
           ariaLabel="Data drives"
           items={drives}
+          minItems={1}
           onAdd={() => setDrives((current) => [...current, { id: `drive-${Date.now()}`, capacity: 8, unit: "TB" }])}
           onRemove={(id) => setDrives((current) => current.filter((drive) => drive.id !== id))}
           removeLabel={(_, index) => `Remove drive ${index + 1}`}

@@ -1,0 +1,106 @@
+## Do I need my own barcode?
+
+Not always. If your KDP cover has no barcode, KDP adds one for you in a 2 × 1.2 in box on the back cover. You just have to leave that box empty. KDP rejects covers with text or images where the barcode goes ([KDP Barcodes](https://kdp.amazon.com/en_US/help/topic/G5HDYGP4BXLX4RUW)). IngramSpark's cover template comes with a barcode for your ISBN already on it. You can move that barcode, but you can't resize it ([IngramSpark File Creation Guide](https://www.ingramspark.com/hubfs/downloads/file-creation-guide.pdf)).
+
+Your own barcode helps when:
+
+- You or your designer build the whole cover and want to place the barcode yourself.
+- You want a price printed in the barcode.
+- You print with someone who doesn't add a barcode for you.
+
+KDP takes the cover as one PDF with the back, spine, and front together. A barcode you add has to be inside that PDF, because there's no separate barcode upload ([KDP Create a Paperback Cover](https://kdp.amazon.com/help?topicId=G201953020)).
+
+## What does the five-digit price code mean?
+
+The small barcode to the right is the price add-on. In the US, its first digit is 5, which means US dollars. The other four digits are the price in cents. So 51499 means $14.99 ([BISG barcoding guidelines](https://www.bisg.org/barcoding-guidelines-for-the-us-book-industry)).
+
+| List price | Price code |
+| --- | --- |
+| No price | 90000 |
+| $0.01 | 50001 |
+| $14.99 | 51499 |
+| $24.95 | 52495 |
+| $99.98 | 59998 |
+| $99.99 or more | Can't be printed, so the tool uses 90000 |
+
+90000 means "no price here." It tells stores to ignore the barcode for pricing. IngramSpark uses it when you don't set a price ([IngramSpark User Guide](https://www.ingramspark.com/hubfs/downloads/user-guide.pdf)).
+
+If you do print a price, KDP asks that it match your list price ([KDP Barcodes](https://kdp.amazon.com/en_US/help/topic/G5HDYGP4BXLX4RUW)). So whenever you change the price, you'd need a new cover. Printing 90000 avoids that. If you're still settling on a price, the [KDP royalty calculator](/kdp-royalty-calculator) shows what each one pays.
+
+## ISBN-10 or ISBN-13: which goes on the barcode?
+
+Always the ISBN-13. Every ISBN issued since January 1, 2007 has 13 digits ([ISBN International](https://www.isbn-international.org/content/what-isbn/10)). An older ISBN-10 still works, because it turns into an ISBN-13: put 978 in front, keep the first nine digits, and work out a new last digit. The tool does this for you, so 0-306-40615-2 becomes 978-0-306-40615-7.
+
+It only goes one way for numbers that start with 979. A 979 ISBN has no ISBN-10 form, and converting one anyway creates duplicate numbers and order mix-ups ([ISBN International, US prefixes](https://www.isbn-international.org/content/changes-united-states-isbn-prefixes)). Numbers that start with 979-0 aren't ISBNs at all. They're ISMNs, the numbers for printed music.
+
+Each format needs its own ISBN, so your paperback and hardcover each get their own barcode. An eBook on KDP doesn't need an ISBN ([KDP Get an ISBN](https://kdp.amazon.com/en_US/help/topic/GTJ8LBXL6Z4WV5QX)). A free KDP ISBN covers your paperback and hardcover, but only on KDP, and you can't use it with IngramSpark.
+
+## Why does the tool say my ISBN isn't valid?
+
+The last digit of every ISBN is a check digit. It's worked out from the other digits, so one typo or two swapped digits almost always make it wrong. When the check fails, the tool doesn't guess a fix, because the mistake could be in any digit. Copy the ISBN again from your ISBN record.
+
+<Formula title="ISBN-13 check digit">
+
+Multiply the first 12 digits by 1, 3, 1, 3, and so on, and add them up. The check digit is whatever brings the total up to the next multiple of 10, or 0 if it's already one.
+
+For 978-0-11-000222-?, the total is 56, so the check digit is 4 ([ISBN Users' Manual, appendix 1](https://www.isbn-international.org/sites/default/files/ISBN%20Manual%202012%20-corr.pdf)).
+
+</Formula>
+
+The tool also catches a few other mix-ups: the wrong number of digits, a price code pasted onto the end, a store product barcode that doesn't start with 978 or 979, and music ISMNs.
+
+## How big should a book barcode be?
+
+The standard book barcode, called 100%, is 1 in high and 2-3/16 in wide, price add-on included. It can be scaled from 80% to 200% ([BISG](https://www.bisg.org/barcoding-guidelines-for-the-us-book-industry)). Each printer also asks for a clear area on the back cover:
+
+| Area | Size |
+| --- | --- |
+| KDP's suggested barcode box | 2 × 1.2 in |
+| IngramSpark's clear area | 1.75 × 1 in |
+
+KDP also asks you to keep the barcode at least 0.25 in from the spine and the trim edges. On a hardcover, keep it at least 0.76 in from the bottom edge ([KDP Create a Hardcover Cover](https://kdp.amazon.com/en_US/help/topic/GDTKFJPNQCBTMRV6)). The [KDP book setup calculator](/kdp-book-setup-calculator) gives your full cover size.
+
+This tool's printed size is the whole white box: the bars, the clear space scanners need on both sides, and the "ISBN" line on top. With the price add-on, that's 2.20 × 1.21 in at 100% and 1.99 × 1.10 in at 90%. That's why the tool picks 90% when you leave Size empty: it's the largest size that fits KDP's box.
+
+## Why won't my barcode fit IngramSpark's area?
+
+IngramSpark's area is 1.75 in wide. Two parts of a barcode set its width, and each one alone is too wide:
+
+- The bars with their clear space. With the price add-on, they need 1.78 in even at 80%, the smallest size the standard allows.
+- The "ISBN" line on top. BISG asks for text of at least 9 point ([BISG](https://www.bisg.org/barcoding-guidelines-for-the-us-book-industry)), so the line doesn't shrink with the bars. With dashes, the line and its margins need about 1.93 in. Without dashes, about 1.61 in.
+
+So a barcode fits IngramSpark's area only when you leave off the price add-on, type the ISBN without dashes, and set the size to 81% or smaller. The tool shows this as "Fits at 81% or smaller."
+
+For most IngramSpark books, the simpler path is to keep the template barcode IngramSpark gives you. IngramSpark may also replace a barcode it can't scan, without asking ([IngramSpark User Guide](https://www.ingramspark.com/hubfs/downloads/user-guide.pdf)).
+
+## How do I put the barcode on my cover?
+
+Pick the file for your design app, then place it at the printed size the tool shows.
+
+| App | File | How |
+| --- | --- | --- |
+| InDesign | PDF | File > Place. A PDF keeps its printed size, so it lands at the right size. |
+| Affinity | PDF | File > Place. Check the width against Printed size. |
+| Canva | SVG | Upload it, add it to your back cover, then set the width to Printed size. Canva doesn't always keep a file's printed size. |
+| Anything else | PNG | Use it when your app won't take PDF or SVG. It's 600 ppi, and it records that, so apps that read it place it at the right size. |
+
+Whichever app you use:
+
+- Don't resize it in your app. To get a different size, change Size in the tool and download again.
+- Keep it 100% black on its white box. KDP and IngramSpark both ask for this ([KDP Barcodes](https://kdp.amazon.com/en_US/help/topic/G5HDYGP4BXLX4RUW), [IngramSpark File Creation Guide](https://www.ingramspark.com/hubfs/downloads/file-creation-guide.pdf)). The PDF uses black ink only. Don't convert it to rich black, which mixes all four inks. Some apps make that change when they export a print PDF in CMYK, so check the barcode in your exported cover before you upload it.
+- Don't add a border, and don't let anything overlap the white box.
+
+Before you upload your cover, the [KDP PDF preflight checker](/kdp-pdf-preflight-checker) can check its size and bleed.
+
+<Tip title="Scan a proof before you order copies">
+
+The bars follow EAN-13, the barcode standard book scanners read, and the tool's tests read its barcodes back with a separate barcode reader. Still, no tool can promise how your printer prints it. Order a proof and scan the barcode with a phone app before you order more copies.
+
+</Tip>
+
+## What doesn't this tool do?
+
+- It doesn't sell, register, or look up ISBNs, so it can't tell you if a number is assigned to your book. Get ISBNs from your country's ISBN agency, such as Bowker in the US, or a free one from KDP.
+- It doesn't place dashes for you. It keeps the dashes you type, without checking where they go.
+- It only prints prices in US dollars. Other currencies and special codes, such as used-book codes, aren't supported.
+- It makes ISBN barcodes only, not UPC or QR codes.

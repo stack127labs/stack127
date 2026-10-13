@@ -1336,6 +1336,7 @@ export function UiRepeatableList<T extends { id: string }>({
   addLabel,
   ariaLabel,
   items,
+  minItems = 0,
   onAdd,
   onRemove,
   removeLabel,
@@ -1347,6 +1348,8 @@ export function UiRepeatableList<T extends { id: string }>({
   addLabel: string;
   ariaLabel: string;
   items: T[];
+  /** Remove turns off while the list holds this many rows, such as 2 books in a series. */
+  minItems?: number;
   onAdd: () => void;
   onRemove: (id: string) => void;
   removeLabel?: (item: T, index: number) => string;
@@ -1389,6 +1392,7 @@ export function UiRepeatableList<T extends { id: string }>({
               <div className={styles.repeatableContent}>{renderItem(item, index)}</div>
               <UiButton
                 aria-label={label}
+                isDisabled={items.length <= minItems}
                 onPress={() => {
                   pendingRemovalIndex.current = index;
                   onRemove(item.id);
@@ -1578,18 +1582,23 @@ export function UiShareAction({
 export function UiDownloadAction({
   contents,
   filename,
+  isDisabled = false,
   label = "Download",
   mimeType = "text/plain;charset=utf-8",
   variant = "secondary",
 }: {
-  contents: BlobPart;
+  /** The file, or a function that makes it on click, for files that are slow to build. */
+  contents: BlobPart | (() => BlobPart);
   filename: string;
+  /** Turn it off while the result it would save is stale, so nobody saves an old file. */
+  isDisabled?: boolean;
   label?: string;
   mimeType?: string;
   variant?: UiButtonProps["variant"];
 }) {
   function download() {
-    const url = URL.createObjectURL(new Blob([contents], { type: mimeType }));
+    const part = typeof contents === "function" ? contents() : contents;
+    const url = URL.createObjectURL(new Blob([part], { type: mimeType }));
     const link = document.createElement("a");
     link.href = url;
     link.download = filename;
@@ -1598,7 +1607,7 @@ export function UiDownloadAction({
   }
 
   return (
-    <UiButton aria-label={label} onPress={download} variant={variant}>
+    <UiButton aria-label={label} isDisabled={isDisabled} onPress={download} variant={variant}>
       <Download aria-hidden="true" size={17} />
       {label}
     </UiButton>
