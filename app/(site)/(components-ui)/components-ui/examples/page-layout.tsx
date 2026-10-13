@@ -25,6 +25,12 @@ const fullLayouts = [
   { href: "/about", label: "Site page", detail: "InfoPage with a reading-width article" },
 ];
 
+const sidebarModes = [
+  { href: "/components-ui/sidebar-modes/left", label: "Left", detail: "sidebarPosition=\"left\", the default. Filters and lessons. A drawer on small screens." },
+  { href: "/components-ui/sidebar-modes/right", label: "Right", detail: "sidebarPosition=\"right\". Related pages and section links. Below the content on small screens." },
+  { href: "/components-ui/sidebar-modes/none", label: "None", detail: "sidebarPosition=\"none\". Content only. Reading sections center." },
+];
+
 export function PageLayoutExamples() {
   return (
     <>
@@ -82,7 +88,15 @@ export function PageLayoutExamples() {
         </ToolWorkbench>
       </Example>
 
-      <Example components={["AppShell", "PageCanvas"]} note="Every page uses the shared shell with a sidebar, and PageCanvas for each content section. This gallery uses both. See full layouts on their live pages." source="app/ui/site/app-shell.tsx, app/ui/site/page-canvas.tsx" title="Full page layouts">
+      <Example components={["AppShell"]} note="Every page uses the shared shell. Pick where its sidebar goes with sidebarPosition: left for options people use, right for secondary links, or none when the page only needs its content. Each link opens the real shell." source="app/ui/site/app-shell.tsx" title="Sidebar positions" usage={{ label: "TSX", code: '<AppShell sidebar={<RelatedPages />} sidebarPosition="right">\n  <PageCanvas>…</PageCanvas>\n</AppShell>' }}>
+        <ul className={styles.layoutLinks}>
+          {sidebarModes.map((mode) => (
+            <li key={mode.href}><Link href={mode.href}>{mode.label}</Link><span>{mode.detail}</span></li>
+          ))}
+        </ul>
+      </Example>
+
+      <Example components={["AppShell", "PageCanvas"]} note="PageCanvas wraps each content section. This gallery uses both. See full layouts on their live pages." source="app/ui/site/app-shell.tsx, app/ui/site/page-canvas.tsx" title="Full page layouts">
         <ul className={styles.layoutLinks}>
           {fullLayouts.map((layout) => (
             <li key={layout.href}><Link href={layout.href}>{layout.label}</Link><span>{layout.detail}</span></li>

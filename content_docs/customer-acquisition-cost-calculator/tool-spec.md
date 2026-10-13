@@ -285,8 +285,8 @@ Sol builds the backend:
 
 Opus builds the frontend:
 
-- `app/(site)/(tools)/(saas)/customer-acquisition-cost-calculator/page.tsx`, `layout.tsx`, `customer-acquisition-cost-calculator.tsx`, and `customer-acquisition-cost-calculator.module.css`.
-- `app/(site)/(tools)/(saas)/customer-acquisition-cost-calculator/art/customer-acquisition-cost-calculator.spec.json`, `.svg`, and `.ts`, generated with marker-art-draw, plus a new `toolSpot` motif in `scripts/stack127/marker-art/figures.mjs` and the registration line in `lib/tool-catalog-art.ts`. Another frontend worker currently has both shared files open, so these two edits wait until that worker is done.
+- `app/(site)/(tools)/customer-acquisition-cost-calculator/page.tsx`, `layout.tsx`, `customer-acquisition-cost-calculator.tsx`, and `customer-acquisition-cost-calculator.module.css`.
+- `app/(site)/(tools)/customer-acquisition-cost-calculator/art/customer-acquisition-cost-calculator.spec.json`, `.svg`, and `.ts`, generated with marker-art-draw, plus a new `toolSpot` motif in `scripts/stack127/marker-art/figures.mjs` and the registration line in `lib/tool-catalog-art.ts`. Another frontend worker currently has both shared files open, so these two edits wait until that worker is done.
 
 No URL-restore wrapper. Financial inputs don't go in the URL.
 

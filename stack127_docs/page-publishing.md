@@ -68,7 +68,7 @@ A manifest describes one batch of pages. All pages in a batch succeed or fail to
         { "slug": "domain-tools", "display_order": 11 }
       ],
       "requirements": {
-        "route": "app/(site)/(tools)/(dns)/dns-lookup/page.tsx",
+        "route": "app/(site)/(tools)/dns-lookup/page.tsx",
         "assets": ["lib/card-art.ts"],
         "checks": [],
         "smoke": [{ "path": "/dns-lookup", "text": "DNS lookup" }]

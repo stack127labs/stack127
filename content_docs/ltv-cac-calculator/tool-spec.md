@@ -274,8 +274,8 @@ Sol builds the backend:
 
 Opus builds the frontend:
 
-- `app/(site)/(tools)/(saas)/ltv-cac-calculator/page.tsx`, `layout.tsx`, `ltv-cac-calculator.tsx`, and `ltv-cac-calculator.module.css`.
-- `app/(site)/(tools)/(saas)/ltv-cac-calculator/art/ltv-cac-calculator.spec.json`, `.svg`, and `.ts`, generated with marker-art-draw, plus a new `toolSpot` motif in `scripts/stack127/marker-art/figures.mjs` and the registration line in `lib/tool-catalog-art.ts`. Another frontend worker currently has both shared files open, so these two edits wait until that worker is done.
+- `app/(site)/(tools)/ltv-cac-calculator/page.tsx`, `layout.tsx`, `ltv-cac-calculator.tsx`, and `ltv-cac-calculator.module.css`.
+- `app/(site)/(tools)/ltv-cac-calculator/art/ltv-cac-calculator.spec.json`, `.svg`, and `.ts`, generated with marker-art-draw, plus a new `toolSpot` motif in `scripts/stack127/marker-art/figures.mjs` and the registration line in `lib/tool-catalog-art.ts`. Another frontend worker currently has both shared files open, so these two edits wait until that worker is done.
 
 No URL-restore wrapper.
 

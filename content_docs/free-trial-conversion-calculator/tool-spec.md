@@ -331,7 +331,7 @@ Sol builds the backend:
 
 Opus builds the frontend:
 
-- `app/(site)/(tools)/(saas)/free-trial-conversion-calculator/page.tsx`. Keep `layout.tsx` as it is.
+- `app/(site)/(tools)/free-trial-conversion-calculator/page.tsx`. Keep `layout.tsx` as it is.
 - `free-trial-conversion-calculator.tsx`, the client tool. It calls only the engine contract.
 - `free-trial-conversion-calculator-from-url.tsx`, the `useInitialQuery()` wrapper, as on `dns-lookup`.
 - `free-trial-conversion-calculator.module.css`, for the result's two-column top only.

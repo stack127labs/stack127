@@ -18,7 +18,7 @@ It also documents our own coverage. The RDAP column is exactly the gap other pag
 
 ## Shape
 
-A filterable table of TLDs, following the patterns already established by `/self-host-apps` rather than inventing a new directory layout. Reuse the shell, the sidebar, the card and table styling, and the filter behavior that page already has.
+A filterable table of TLDs, following the patterns already established by `/self-host-apps` rather than inventing a new directory layout. Reuse the shell, the card and table styling, and the filter behavior that page already has.
 
 Columns:
 

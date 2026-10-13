@@ -78,7 +78,7 @@ These checks are independent arithmetic on figures from one stated period, using
 
 ### Ownership
 
-- Public URL `/burn-multiple-calculator`. Place the server page and client workbench in `app/(site)/(tools)/(saas)/burn-multiple-calculator/`, using the SaaS route-group layout, shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Do not add route-owned publication or SEO metadata.
+- Public URL `/burn-multiple-calculator`. Place the server page and client workbench in `app/(site)/(tools)/burn-multiple-calculator/`, using the shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Do not add route-owned publication or SEO metadata.
 - Keep strict parsing, validation, exact-cent inputs, result classification, and ratio rounding in `lib/burn-multiple-calculator/engine.ts`; use independent arithmetic, parser, bounds, and state-precedence examples in `tests/pages/burn-multiple-calculator/`. The route component owns raw form, focus, error, and result state. Use a colocated CSS module only for composition, with shared controls, display components, and tokens. No API route, dataset, or background job.
 - This spec owns the contract. `public.stack127_tool_pages` owns the visible title, introduction, instructions, supporting Markdown, version, and card copy; `public.stack127_pages` owns publication and SEO; `public.stack127_tool_catalog_memberships` owns catalog rank. Mark development preview copy as temporary. A dedicated page-update script, if needed, belongs under `scripts/burn-multiple-calculator/`.
 

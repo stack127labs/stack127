@@ -5,7 +5,7 @@ import {
   calculateStorageGrowthPlan,
   decodeStorageGrowthState,
   encodeStorageGrowthState,
-} from "../../../app/(site)/(tools)/(storage)/storage-growth-planner/storage-growth-planner-engine.ts";
+} from "../../../app/(site)/(tools)/storage-growth-planner/storage-growth-planner-engine.ts";
 
 test("FF-006 shares normalized inputs only and round-trips safely", () => {
   const encoded = encodeStorageGrowthState(DEFAULT_STORAGE_GROWTH_INPUT);

@@ -22,6 +22,40 @@
   top: var(--top-bar-height);
 }
 
+/* No sidebar: the main column takes the whole width. */
+.pageNone {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* Right sidebar: the content comes first and the footer stays under the content column. */
+.pageRight {
+  grid-template-areas:
+    "main aside"
+    "footer aside";
+  grid-template-columns: minmax(0, 1fr) var(--sidebar-width);
+  grid-template-rows: 1fr auto;
+}
+
+.pageRight > .main {
+  grid-area: main;
+  min-height: 0;
+}
+
+.pageRight > .footer {
+  grid-area: footer;
+}
+
+.asideRight {
+  align-self: start;
+  background: var(--color-bg);
+  border-left: 1px solid var(--color-border);
+  grid-area: aside;
+  height: calc(100vh - var(--top-bar-height));
+  overflow-y: auto;
+  position: sticky;
+  top: var(--top-bar-height);
+}
+
 .sidebarBar,
 .backdrop,
 .close {
@@ -143,6 +177,24 @@
     padding-right: 0;
   }
 
+  /* A right sidebar stacks below the content, above the footer. No drawer. */
+  .pageRight {
+    grid-template-areas:
+      "main"
+      "aside"
+      "footer";
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .asideRight {
+    border-left: 0;
+    border-top: 1px solid var(--color-border);
+    height: auto;
+    overflow: visible;
+    position: static;
+  }
+
   .sidebarBar {
     align-items: center;
     background: var(--color-bg);
@@ -251,6 +303,7 @@
   .sidebar,
   .sidebarBar,
   .backdrop,
+  .asideRight,
   .footer {
     display: none !important;
   }
@@ -265,7 +318,10 @@
 /* Sidebar navigation keeps neutral text and its existing row states. */
 .sidebar a[href],
 .sidebar a[href]:hover,
-.sidebar a[href]:focus-visible {
+.sidebar a[href]:focus-visible,
+.asideRight a[href],
+.asideRight a[href]:hover,
+.asideRight a[href]:focus-visible {
   color: var(--color-text);
   text-decoration: none;
 }

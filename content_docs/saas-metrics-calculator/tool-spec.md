@@ -104,7 +104,7 @@ These arithmetic checks are calculated from the stated figures, independently of
 
 ### Ownership
 
-- Public URL `/saas-metrics-calculator`. Put the server page and interactive component in `app/(site)/(tools)/(saas)/saas-metrics-calculator/`; the new SaaS route group may share its eventual catalog sidebar layout with later SaaS tools. The page uses the existing tool-page loader, shared shell, `PageCanvas`, header, and database Markdown renderer. No route-owned metadata.
+- Public URL `/saas-metrics-calculator`. Put the server page and interactive component in `app/(site)/(tools)/saas-metrics-calculator/`. The page uses the existing tool-page loader, shared shell, `PageCanvas`, header, and database Markdown renderer. No route-owned metadata.
 - Pure parser, validation, and formulas: `lib/saas-metrics-calculator/engine.ts`. Focused arithmetic and invalid-input checks: `tests/pages/saas-metrics-calculator/saas-metrics-calculator.test.mjs`.
 - Route component owns form and result state. Reuse shared controls and tokens; add a colocated CSS module only where layout needs it. No API route, external dataset, or scheduled job.
 - Use the existing development tool-page and catalog update scripts. If a dedicated one-off script becomes necessary, place it under `scripts/saas-metrics-calculator/`.

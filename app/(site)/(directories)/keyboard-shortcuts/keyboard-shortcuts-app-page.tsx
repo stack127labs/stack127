@@ -3,7 +3,6 @@ import { getPublishedDirectoryPage, getRequiredDirectoryPage } from "@/lib/direc
 import { AppShell } from "@/app/ui/site/app-shell";
 import type { ReactNode } from "react";
 import type { AppShortcuts } from "@/lib/shortcuts/types";
-import { KeyboardShortcutsSidebar } from "@/app/ui/directories/keyboard-shortcuts-sidebar";
 import { KeyboardShortcutsReference } from "./keyboard-shortcuts-reference";
 
 export async function KeyboardShortcutsAppPage({ app, intro }: { app: AppShortcuts; intro: ReactNode }) {
@@ -14,12 +13,7 @@ export async function KeyboardShortcutsAppPage({ app, intro }: { app: AppShortcu
   ]);
   const iconKey = directoryPage.card_icon_key ?? parentPage?.card_icon_key ?? null;
   return (
-    <AppShell
-      mainLabel={app.name + " keyboard shortcuts"}
-      menuLabel="Shortcuts"
-      sidebar={<KeyboardShortcutsSidebar activeSlug={app.slug} groups={app.groups} />}
-      sidebarLabel="Shortcut pages"
-    >
+    <AppShell mainLabel={app.name + " keyboard shortcuts"} sidebarPosition="none">
       <KeyboardShortcutsReference app={app} breadcrumbs={breadcrumbs} directoryPage={directoryPage} iconKey={iconKey} intro={intro} />
     </AppShell>
   );

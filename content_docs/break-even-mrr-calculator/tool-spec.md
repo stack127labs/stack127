@@ -264,8 +264,8 @@ Sol builds the backend:
 
 Opus builds the frontend:
 
-- `app/(site)/(tools)/(saas)/break-even-mrr-calculator/page.tsx`, `layout.tsx`, `break-even-mrr-calculator.tsx`, and `break-even-mrr-calculator.module.css`.
-- `app/(site)/(tools)/(saas)/break-even-mrr-calculator/art/break-even-mrr-calculator.ts`, plus its registration line in `lib/tool-catalog-art.ts`.
+- `app/(site)/(tools)/break-even-mrr-calculator/page.tsx`, `layout.tsx`, `break-even-mrr-calculator.tsx`, and `break-even-mrr-calculator.module.css`.
+- `app/(site)/(tools)/break-even-mrr-calculator/art/break-even-mrr-calculator.ts`, plus its registration line in `lib/tool-catalog-art.ts`.
 
 No URL-restore wrapper.
 

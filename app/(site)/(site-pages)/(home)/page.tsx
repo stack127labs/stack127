@@ -20,13 +20,8 @@ import {
   type Stack127Page,
 } from "@/lib/page-registry";
 import { getRequiredCourse } from "@/lib/course-pages";
-import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
+import { AppShell } from "@/app/ui/site/app-shell";
 import { EntryHero } from "@/app/ui/site/entry-hero";
-import { SidebarList } from "@/app/ui/site/sidebar-list";
-import {
-  sidebarPanelClassName,
-  sidebarPanelHeadingClassName,
-} from "@/app/ui/site/sidebar-panel";
 import { siteHeroStack127Art } from "@/app/(site)/art/site--hero-stack127";
 
 type HomePageCardRecord = Stack127Page & {
@@ -36,9 +31,6 @@ type HomePageCardRecord = Stack127Page & {
   card_art_key: string | null;
 };
 
-/** Legal pages stay in the footer; the explore list is for the real content. */
-const legalSlugs = new Set(["about", "privacy", "terms"]);
-
 /** Labs keeps its card assets and counts in code. */
 const codeCards: Record<string, { iconKey: string; artKey: string; counts: () => PageCardCount[] }> = {
   labs: {
@@ -47,32 +39,6 @@ const codeCards: Record<string, { iconKey: string; artKey: string; counts: () =>
     counts: () => [{ label: "projects", value: labProjects.length }],
   },
 };
-
-function HomeSidebar({ pages }: { pages: HomePageCardRecord[] }) {
-  return (
-    <div className={`${sidebarPanelClassName} home-sidebar-panel`}>
-      <div className={sidebarPanelHeadingClassName}>
-        <SidebarLabel>Explore stack127</SidebarLabel>
-      </div>
-      <nav aria-label="Main pages">
-        <SidebarList
-          items={pages
-            .filter((page) => !legalSlugs.has(page.slug))
-            .map((page) => {
-              const iconKey = page.card_icon_key ?? codeCards[page.slug]?.iconKey;
-              const Icon = iconKey ? cardIcon(iconKey) : null;
-
-              return {
-                href: pathFromSlug(page.slug),
-                icon: Icon ? <Icon size={15} strokeWidth={2.2} /> : undefined,
-                label: page.card_name,
-              };
-            })}
-        />
-      </nav>
-    </div>
-  );
-}
 
 async function cardCounts(page: Stack127Page) {
   if (page.page_family === "course") {
@@ -124,16 +90,6 @@ export default async function Home() {
     getMainPublishedPages(),
     getPublishedToolCatalogs(),
   ]);
-  const visibleMainPages: HomePageCardRecord[] = [
-    ...mainPages.filter(isHomeVisiblePage),
-    ...toolCatalogs.map((catalog) => ({
-      ...catalog.page,
-      card_name: catalog.card_name,
-      card_description: catalog.card_description,
-      card_icon_key: catalog.card_icon_key,
-      card_art_key: catalog.card_art_key,
-    })),
-  ].sort((left, right) => Number(right.sitemap_priority) - Number(left.sitemap_priority) || left.label.localeCompare(right.label));
   const featurePages = mainPages.filter((page) => isHomeVisiblePage(page) && isHomeFeaturePage(page));
   // One snapshot feeds both the card counts and the freshness marker, so they can't straddle a refresh.
   const launchSnapshot = featurePages.some((page) => page.slug === "launch-directories") ? await getLaunchDirectorySnapshot() : null;
@@ -141,12 +97,7 @@ export default async function Home() {
   const startItems = startHereItems(new Set([...featurePages.map((page) => page.slug), ...toolCatalogs.map((catalog) => catalog.page.slug)]));
 
   return (
-    <AppShell
-      mainLabel="Home"
-      menuLabel="Pages"
-      sidebar={<HomeSidebar pages={visibleMainPages} />}
-      sidebarLabel="Home sidebar"
-    >
+    <AppShell mainLabel="Home" sidebarPosition="none">
       <EntryHero art={siteHeroStack127Art}>
         <header className="home-intro">
           <h1 id="home-title">

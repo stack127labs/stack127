@@ -19,6 +19,7 @@
   "/components-ui",
   "/components-ui/[section]",
   "/components-ui/charts",
+  "/components-ui/sidebar-modes/[position]",
   "/customer-acquisition-cost-calculator",
   "/customer-churn-calculator",
   "/customer-lifetime-value-calculator",

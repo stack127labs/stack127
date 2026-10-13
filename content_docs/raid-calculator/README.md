@@ -8,7 +8,7 @@ The page uses the shared engine in `lib/storage/` and the version 1 formula cont
 
 ## Page-owned files
 
-- Route and client UI: `app/(site)/(tools)/(storage)/raid-calculator/`
+- Route and client UI: `app/(site)/(tools)/raid-calculator/`
 - Calculation adapter: `lib/storage/raid.ts`
 - Formula and page tests: `tests/pages/raid-calculator/`
 - Ownership manifest: `tests/pages/raid-calculator/page.json`

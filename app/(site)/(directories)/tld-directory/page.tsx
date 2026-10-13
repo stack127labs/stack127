@@ -3,9 +3,8 @@ import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
-import "@/app/(site)/(tools)/(domain)/domain-tools.css";
+import "@/app/ui/tools/domain/domain-tools.css";
 import { AppShell } from "../../../ui/site/app-shell";
-import { DomainToolsSidebar } from "@/app/(site)/(tools)/(domain)/domain-tools-sidebar";
 import { TldTable, type TldRow } from "./tld-table";
 import directory from "@/lib/domain/data/tld-directory.json" with { type: "json" };
 import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
@@ -33,12 +32,7 @@ export default async function TldDirectoryPage() {
   });
 
   return (
-    <AppShell
-      mainLabel="TLD directory"
-      menuLabel="Domain tools"
-      sidebar={<DomainToolsSidebar />}
-      sidebarLabel="Domain tools sidebar"
-    >
+    <AppShell mainLabel="TLD directory" sidebarPosition="none">
       <PageCanvas className="domain-tool-main">
         <PageHeader breadcrumbs={await getBreadcrumbs("tld-directory")}>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>

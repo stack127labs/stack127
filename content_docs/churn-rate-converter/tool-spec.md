@@ -277,9 +277,9 @@ Sol builds the backend:
 
 Opus builds the frontend:
 
-- `app/(site)/(tools)/(saas)/churn-rate-converter/page.tsx`, `layout.tsx`, `churn-rate-converter.tsx`, and `churn-rate-converter.module.css`.
+- `app/(site)/(tools)/churn-rate-converter/page.tsx`, `layout.tsx`, `churn-rate-converter.tsx`, and `churn-rate-converter.module.css`.
 - Placeholder `content/intro.mdx`, `content/usage.mdx`, and `content/article.mdx`, so the route renders until the writing session replaces them.
-- Card art in `app/(site)/(tools)/(saas)/churn-rate-converter/art/`, registered as `churn-rate-converter` in `lib/card-art.ts`.
+- Card art in `app/(site)/(tools)/churn-rate-converter/art/`, registered as `churn-rate-converter` in `lib/card-art.ts`.
 
 No shared file changes are planned.
 

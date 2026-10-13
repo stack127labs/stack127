@@ -55,7 +55,7 @@ A Last Update Checker was planned and then cut for exactly this reason. It read 
 ## Rules
 
 - The useful input and result sit above the explanatory content.
-- Use the shared Stack127 shell and a `DomainToolsSidebar` following the `DnsToolsSidebar` pattern: a clean list of routes that exist now, with no planned entries, disabled links, or coming-soon labels.
+- Render each tool through `ToolPageShell`. Its sidebar lists the published tools in the catalog, with no planned entries, disabled links, or coming-soon labels.
 - Public explanation is server-rendered. User-requested results are client-rendered and out of search indexing.
 - Findings and information boxes never use a colored left-edge line.
 - Never replace technical findings with a health score, a grade, or a single badge for a domain.

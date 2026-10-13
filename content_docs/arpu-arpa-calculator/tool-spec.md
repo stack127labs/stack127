@@ -79,7 +79,7 @@ Keep source values and period labels in client memory only. Do not send them in 
 
 ### Ownership
 
-- Public URL `/arpu-arpa-calculator`. Put the server page and client workbench in `app/(site)/(tools)/(saas)/arpu-arpa-calculator/`, using the SaaS route-group layout, shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Do not add route-owned publication or SEO metadata.
+- Public URL `/arpu-arpa-calculator`. Put the server page and client workbench in `app/(site)/(tools)/arpu-arpa-calculator/`, using the shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Do not add route-owned publication or SEO metadata.
 - Keep parsing, validation, fixed-point division, and result-state classification in `lib/arpu-arpa-calculator/engine.ts`, with focused independent examples in `tests/pages/arpu-arpa-calculator/`. The route component owns drafts, formatting, focus, errors, and result presentation. Use its CSS module for layout only and shared UI tokens and components for controls and display. No API or background job is needed.
 - This spec owns the contract. `public.stack127_tool_pages` owns visible tool and catalog-card copy; `public.stack127_pages` owns publication and SEO; `public.stack127_tool_catalog_memberships` owns catalog order. Mark development preview copy as temporary. Any dedicated content script belongs under `scripts/arpu-arpa-calculator/`.
 

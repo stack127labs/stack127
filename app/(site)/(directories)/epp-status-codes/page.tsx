@@ -4,11 +4,10 @@ import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
-import "@/app/(site)/(tools)/(domain)/domain-tools.css";
+import "@/app/ui/tools/domain/domain-tools.css";
 import { AppShell } from "../../../ui/site/app-shell";
-import { DomainToolsSidebar } from "@/app/(site)/(tools)/(domain)/domain-tools-sidebar";
 import { STATUS_CODES, STATUS_GROUP_TITLES, type StatusGroup } from "@/lib/domain/status-codes.ts";
-import { StatePill } from "@/app/(site)/(tools)/(domain)/domain-lookup-client";
+import { StatePill } from "@/app/ui/tools/domain/domain-lookup-client";
 import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { PageHeader } from "../../../ui/site/page-header";
 import { proseSectionFlowClassName } from "../../../ui/site/prose";
@@ -55,12 +54,7 @@ function SourcePathParagraph({ children, ...props }: ComponentPropsWithoutRef<"p
 export default async function EppStatusCodesPage() {
   const directoryPage = await getRequiredDirectoryPage("epp-status-codes");
   return (
-    <AppShell
-      mainLabel="Domain status codes"
-      menuLabel="Domain tools"
-      sidebar={<DomainToolsSidebar />}
-      sidebarLabel="Domain tools sidebar"
-    >
+    <AppShell mainLabel="Domain status codes" sidebarPosition="none">
       <PageCanvas className="domain-tool-main">
         <PageHeader breadcrumbs={await getBreadcrumbs("epp-status-codes")}>
           <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>

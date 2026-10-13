@@ -408,8 +408,8 @@ Sol builds the backend:
 
 Opus builds the frontend:
 
-- `app/(site)/(tools)/(saas)/mrr-goal-calculator/page.tsx`, `layout.tsx`, `mrr-goal-calculator.tsx`, and `mrr-goal-calculator.module.css`.
-- `app/(site)/(tools)/(saas)/mrr-goal-calculator/art/mrr-goal-calculator.{spec.json,svg,ts}`, plus its line in `lib/card-art.ts`.
+- `app/(site)/(tools)/mrr-goal-calculator/page.tsx`, `layout.tsx`, `mrr-goal-calculator.tsx`, and `mrr-goal-calculator.module.css`.
+- `app/(site)/(tools)/mrr-goal-calculator/art/mrr-goal-calculator.{spec.json,svg,ts}`, plus its line in `lib/card-art.ts`.
 
 No URL-restore wrapper.
 

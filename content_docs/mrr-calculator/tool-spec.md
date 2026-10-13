@@ -66,7 +66,7 @@ All figures and plan names stay in client component memory. Do not send them in 
 
 ### Ownership
 
-- Public URL `/mrr-calculator`. Put the server page and interactive workbench in `app/(site)/(tools)/(saas)/mrr-calculator/`, using the existing SaaS route-group layout, tool-page loader, shared shell, `PageCanvas`, header, and database Markdown renderer. No route-owned SEO or publication metadata.
+- Public URL `/mrr-calculator`. Put the server page and interactive workbench in `app/(site)/(tools)/mrr-calculator/`, using the existing tool-page loader, shared shell, `PageCanvas`, header, and database Markdown renderer. No route-owned SEO or publication metadata.
 - Keep parsing, validation, and arithmetic in `lib/mrr-calculator/engine.ts`; focused independent arithmetic and invalid-input checks belong in `tests/pages/mrr-calculator/`. The route component owns row IDs, form state, focus, and result state. Use a colocated CSS module for the row grid only and shared tokens/components for controls and output. No API, dataset, or background job.
 - This spec owns the contract. `public.stack127_tool_pages` owns visible page and card copy; `public.stack127_pages` owns publication and SEO; `public.stack127_tool_catalog_memberships` owns catalog rank. Mark any development preview copy as temporary. If a dedicated page-update script is needed, place it under `scripts/mrr-calculator/`.
 

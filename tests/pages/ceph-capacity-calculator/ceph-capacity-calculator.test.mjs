@@ -12,7 +12,7 @@ import {
   parseCapacityBytes,
   serializeCephInput,
   validateCephInput,
-} from "../../../app/(site)/(tools)/(storage)/ceph-capacity-calculator/ceph-capacity-engine.ts";
+} from "../../../app/(site)/(tools)/ceph-capacity-calculator/ceph-capacity-engine.ts";
 
 const TB = 1_000_000_000_000n;
 const GB = 1_000_000_000n;

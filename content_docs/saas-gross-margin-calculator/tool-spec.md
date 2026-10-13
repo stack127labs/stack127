@@ -83,7 +83,7 @@ Do not send entered period labels, scope names, or financial values to a server,
 
 ### Ownership
 
-- Public URL `/saas-gross-margin-calculator`. Put its server page and client workbench in `app/(site)/(tools)/(saas)/saas-gross-margin-calculator/`, using the SaaS route-group layout, shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Do not add route-owned SEO or publication metadata.
+- Public URL `/saas-gross-margin-calculator`. Put its server page and client workbench in `app/(site)/(tools)/saas-gross-margin-calculator/`, using the shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Do not add route-owned SEO or publication metadata.
 - Keep strict parsing, validation, exact-cent calculations, and undefined-ratio classification in `lib/saas-gross-margin-calculator/engine.ts`; put focused independent examples in `tests/pages/saas-gross-margin-calculator/`. The route owns raw form, focus, error, and result state. Use a colocated CSS module for layout, with shared controls and tokens. No API route, maintained dataset, or background job is needed.
 - This spec owns the contract. `public.stack127_tool_pages` owns visible title, introduction, instructions, supporting Markdown, version, and card copy; `public.stack127_pages` owns publication and SEO; `public.stack127_tool_catalog_memberships` owns catalog placement. Mark any development preview copy as temporary. A dedicated update script, if needed, belongs under `scripts/saas-gross-margin-calculator/`.
 

@@ -208,19 +208,24 @@ Results read like an answer, in this order:
 
 ### Sidebars
 
-Every page keeps the sidebar. It holds the page's side space, so the main column stays at a readable width instead of stretching across the screen.
+Each page picks where its sidebar goes with the `sidebarPosition` prop on `AppShell`. Choose it page by page, for what the sidebar does on that page. A parent page and its child pages can use different positions.
 
-A sidebar has one of three jobs:
+| Position | Use it for | Small screens |
+| --- | --- | --- |
+| `left`, the default | Navigation and options: sibling tools, other catalogs, directory filters, sort and view controls, course lessons | Opens from the drawer. Its label names the job, for example "Filters" or "Lessons". |
+| `right` | Secondary help: related pages, links to the page's sections | Sits below the content, above the footer. No drawer. |
+| `none` | Pages that only need their content | Nothing extra. |
 
-| Job | Examples |
-| --- | --- |
-| Options | Directory filters, sort, and view controls |
-| Moving between related pages | Tool family lists, catalog lists, course lessons, shortcut apps |
-| Jumping to page sections | Anchored sections of a long directory page |
+A sidebar is never required. If a page has nothing useful for one, use `none`. Don't add links or text only to fill the space.
 
-Don't put reading content in the sidebar. That includes "about this page" paragraphs, method notes, disclaimers, and summaries. Those belong in the main column. If a page has nothing for these jobs, link to related pages instead of adding filler.
+Don't put reading content in any sidebar. That includes "about this page" paragraphs, method notes, disclaimers, and summaries. Those belong in the main column.
 
-On small screens, the sidebar opens from the existing drawer. Its label names the job, for example "Filters", "Lessons", or "Sections".
+Width follows the position:
+
+- With a sidebar, the main column fills the rest of the page. Wide and reading sections both start at its left edge.
+- With `none`, the main column takes the whole width. Wide sections such as tables, card grids, and tool workbenches fill it. `PageCanvas reading` sections center at the reading width.
+
+The sidebar position previews at `/components-ui/sidebar-modes/left`, `/right`, and `/none` in development.
 
 Sidebars that list things use `SidebarList` from `app/ui/site/sidebar-list.tsx`. It has small rows, optional mono numbers and counts, and a `--color-surface-2` active fill with an accent-ink leading cell.
 
@@ -232,11 +237,11 @@ Sidebars that list things use `SidebarList` from `app/ui/site/sidebar-list.tsx`.
 
 Don't hand-roll another sidebar link list.
 
-Tool catalog sidebars link between published tool catalogs and mark the current one. Individual tools belong in the catalog's main cards, not in a duplicate sidebar list. Individual tool pages keep their family tool navigation.
+Tool catalog sidebars link between published tool catalogs and mark the current one. Individual tools belong in the catalog's main cards, not in a duplicate sidebar list. Individual tool pages list the other tools in their catalog. Tool pages and catalogs use `left`.
 
 ### Homepage
 
-The homepage lists published tool catalogs, selected directories, the self-hosting course, and Labs. Hardware directories stay published but are off the homepage cards and sidebar. The homepage doesn't list individual tools or directory child pages. Card names and descriptions come from each family's page table.
+The homepage lists published tool catalogs, selected directories, the self-hosting course, and Labs. Hardware directories stay published but are off the homepage cards. The homepage uses `none` and doesn't list individual tools or directory child pages. Card names and descriptions come from each family's page table.
 
 Each card shows a meaningful count from its destination's data. A new homepage collection needs an identity icon, a metric, and a marker spot.
 

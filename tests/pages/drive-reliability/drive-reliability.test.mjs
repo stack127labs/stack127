@@ -16,7 +16,7 @@ import {
 
 const snapshotPath = path.resolve(
   import.meta.dirname,
-  "../../../app/(site)/(tools)/(storage)/drive-reliability/data/drive-reliability-snapshot.json",
+  "../../../app/(site)/(tools)/drive-reliability/data/drive-reliability-snapshot.json",
 );
 
 function snapshot() {
