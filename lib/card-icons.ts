@@ -1,5 +1,5 @@
 import {
-  Activity, ArrowLeftRight, BadgeCheck, BookOpen, Building2, CalendarClock, Calculator,
+  Activity, ArrowLeftRight, BadgeCheck, Barcode, BookOpen, Building2, CalendarClock, Calculator,
   CalendarX, ChevronsRight, ClipboardList, Columns3, Database, FileClock,
   FileKey, FileSearch, GitBranch, Globe, HardDrive, HouseWifi, Image, Keyboard,
   FlaskConical, ListChecks, Receipt, Rocket, Scale, Languages, Layers3, LayoutGrid, Network, RefreshCw, Route, Search,
@@ -22,6 +22,7 @@ const icons: Record<string, LucideIcon> = {
   activity: Activity,
   "arrow-left-right": ArrowLeftRight,
   "badge-check": BadgeCheck,
+  barcode: Barcode,
   book: BookOpen,
   building2: Building2,
   "calendar-clock": CalendarClock,

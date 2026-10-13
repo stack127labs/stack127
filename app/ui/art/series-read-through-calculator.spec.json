@@ -1,0 +1,11 @@
+{
+  "id": "catalog--series-read-through-calculator",
+  "type": "toolSpot",
+  "takeaway": "Readers carry from one book to the next, and fewer make each hop.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-13",
+  "width": 140,
+  "height": 110,
+  "seed": 431,
+  "data": { "motif": "seriesSpines" }
+}

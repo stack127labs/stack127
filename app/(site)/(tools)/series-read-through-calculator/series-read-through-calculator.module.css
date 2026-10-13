@@ -1,0 +1,349 @@
+.form {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.visuallyHidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Two short fields per book, so the list keeps to about half the working width. */
+.books {
+  max-width: 34rem;
+  min-width: 0;
+}
+
+/* Rows align at the top, so an error under one field doesn't push its neighbors out of line. */
+.bookRow,
+.kuRow {
+  align-items: start;
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 4.5rem minmax(0, 1fr) minmax(0, 1fr);
+  min-width: 0;
+}
+
+/* Later rows sit under the first row's labels, so their own labels stay for screen readers only. */
+.bookRow[data-later] label,
+.kuRow[data-later] label {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.bookName {
+  align-items: center;
+  color: var(--color-text-muted);
+  display: flex;
+  font-size: var(--text-small);
+  min-height: var(--control-height-field);
+  white-space: nowrap;
+}
+
+/* The first row's name drops past its fields' labels, level with their boxes. */
+.bookRow:not([data-later]) .bookName,
+.kuRow:not([data-later]) .bookName {
+  margin-top: var(--control-label-offset);
+}
+
+.advanced {
+  display: grid;
+  gap: var(--space-7);
+  min-width: 0;
+  padding-top: var(--space-5);
+}
+
+.group {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.groupLabel,
+.partLabel {
+  align-items: center;
+  min-height: 1.5rem;
+  color: var(--color-text);
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  font-weight: 600;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+/* Advanced fields keep a third of the width each, so a lone field doesn't stretch across the band. */
+.form .thirds {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* KU rows line up under the book list's width, one row per book. */
+.kuRows {
+  display: grid;
+  gap: var(--space-4);
+  max-width: calc(34rem - var(--control-height-field) - var(--space-4));
+  min-width: 0;
+}
+
+/* The answer and its two numbers on the left, the ladder beside them. */
+.top {
+  align-items: start;
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  min-width: 0;
+}
+
+.lead {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+/* Two numbers read better stacked here than squeezed into a third of the width. */
+.lead > dl {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.detail {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+}
+
+/* ---------------- the ladder ---------------- */
+
+.ladder {
+  display: grid;
+  position: relative;
+  gap: var(--space-3);
+  margin: 0;
+  min-width: 0;
+}
+
+.ladderTitle {
+  align-items: center;
+  display: flex;
+  font-size: var(--text-small);
+  font-weight: 600;
+  gap: var(--space-2);
+}
+
+/* Words the desktop header already says. Phones have no header, so they show them in each row. */
+.phoneOnly {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.ladderHead,
+.ladderRow {
+  align-items: center;
+  column-gap: var(--space-4);
+  display: grid;
+  grid-template-columns: minmax(7rem, auto) minmax(0, 1fr) 3.5rem 6.5rem 7rem;
+}
+
+.ladderHead {
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  padding-bottom: var(--space-2);
+  white-space: nowrap;
+}
+
+/* "Readers of 100" heads the bar and its number together. */
+.ladderHead > span:nth-child(2) {
+  grid-column: span 2;
+}
+
+.ladderHead > span:nth-child(n + 3) {
+  text-align: right;
+}
+
+.ladderRows {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ladderRow {
+  min-height: 2rem;
+}
+
+.ladderName {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  white-space: nowrap;
+}
+
+.ladderTrack {
+  background: var(--color-surface-2);
+  border-radius: var(--radius);
+  display: block;
+  height: 14px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.ladderBar {
+  background: var(--color-data-chartreuse);
+  display: block;
+  height: 100%;
+}
+
+.ladderReach,
+.ladderStep,
+.ladderEarns {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.ladderStep {
+  color: var(--color-text-muted);
+}
+
+.ladderEarns {
+  font-weight: 600;
+}
+
+/* ---------------- ads, deal, and footer ---------------- */
+
+.parts {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.part {
+  align-content: start;
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.cell {
+  align-items: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: flex-end;
+}
+
+.footer {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  justify-content: space-between;
+}
+
+@media (max-width: 860px) {
+  .top,
+  .parts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lead > dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .form .thirds {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .books,
+  .kuRows {
+    max-width: none;
+  }
+
+  .bookRow,
+  .kuRow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  /* On phones each row shows its own labels again, since the first row's are out of sight. */
+  .bookRow[data-later] label,
+  .kuRow[data-later] label {
+    clip: auto;
+    clip-path: none;
+    height: auto;
+    overflow: visible;
+    position: static;
+    white-space: normal;
+    width: auto;
+  }
+
+  /* The name heads its row's two fields. */
+  .bookName,
+  .bookRow:not([data-later]) .bookName,
+  .kuRow:not([data-later]) .bookName {
+    grid-column: 1 / -1;
+    margin-top: 0;
+    min-height: 0;
+  }
+
+  /* Name and numbers on one line, the bar full width under them. */
+  .ladderHead {
+    display: none;
+  }
+
+  .ladderRow {
+    grid-template-areas:
+      "name reach step earns"
+      "track track track track";
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
+    row-gap: var(--space-2);
+  }
+
+  .ladderName { grid-area: name; }
+  .ladderTrack { grid-area: track; }
+  .ladderReach { grid-area: reach; }
+  .ladderStep { grid-area: step; }
+  .ladderEarns { grid-area: earns; }
+
+  .phoneOnly {
+    clip: auto;
+    clip-path: none;
+    height: auto;
+    overflow: visible;
+    position: static;
+    white-space: pre;
+    width: auto;
+  }
+
+  .ladderReach .phoneOnly {
+    color: var(--color-text-muted);
+  }
+
+  /* Book 1 has no step before it, so the dash only adds noise on a phone. */
+  .ladderStep[data-empty] {
+    visibility: hidden;
+  }
+}

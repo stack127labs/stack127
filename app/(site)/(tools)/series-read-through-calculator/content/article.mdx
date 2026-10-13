@@ -1,0 +1,140 @@
+## How do you calculate series read-through?
+
+Divide each book's readers by the readers of the book before it. If book 1 sold 100 copies and book 2 sold 55, read-through from book 1 to book 2 is 55 ÷ 100 = 55%. Always put the later book on top. Swap them and you get 182%, which means something else entirely.
+
+<Formula title="Read-through for one step">
+
+`readers of this book ÷ readers of the book before`
+
+Readers are copies sold, plus Kindle Unlimited full reads if you add them.
+
+</Formula>
+
+Each step gets its own rate, worked out from your own numbers. Later steps are often quite different from the first one, so the calculator never copies one step's rate to another.
+
+Kindle Unlimited reports pages read, not readers. So the calculator turns pages into full reads: pages read ÷ the book's KENPC. That's an estimate, not a head count. Ten people who each read half the book look the same as five who finished it.
+
+## Why is my read-through above 100%?
+
+Because a book had more readers than the one before it over your dates. That's real, not an error. The usual causes:
+
+- **A launch or a promo** on the later book, or on book 1 a month earlier, so the two books' sales don't line up in time.
+- **Kindle Unlimited.** A book can get more KU reads than the book before it, especially a short one. KU full reads count as readers.
+- **Ads or newsletters for a later book,** which bring readers who skipped the earlier one or bought it some other time.
+- **Short dates.** In a 30-day window, the readers buying book 3 may have bought book 2 the month before.
+
+A longer window, such as 90 days, smooths most of these out. A step above 100% still adds to the reader's value in the calculator, so check whether it reflects what you expect to keep happening.
+
+## What is one new reader worth?
+
+Add up everything the series earned over your dates, then divide by the number of book 1 readers. That's the value of an average new book 1 reader across the series.
+
+<Formula title="Value of one new book 1 reader">
+
+`(sales royalties + KU earnings, all books) ÷ book 1 readers`
+
+Sales royalty per copy: `70% × (price − delivery)` from $2.99 to $12.99, otherwise `35% × price`.
+
+KU earnings: `pages read × KENP rate`.
+
+</Formula>
+
+This treats every later-book reader as someone who came in through book 1. If you advertise book 2 or 3 directly, the per-book table's Worth from this book on column shows what a reader who starts there brings in.
+
+The royalty uses KDP's Amazon.com rules. The 70% rate applies from $2.99 to $12.99 since July 7, 2026, and the delivery fee is $0.15 per MB of your converted file. See KDP's [eBook list price requirements](https://kdp.amazon.com/en_US/help/topic/G200634560) and [digital book pricing](https://kdp.amazon.com/help/topic/G200634500). For the royalty on one book, use the [KDP royalty calculator](/kdp-royalty-calculator).
+
+## How much can I spend on ads to get one new reader?
+
+Up to what a reader is worth, if you're happy to break even. In the example above that's $6.53 a reader. Set a profit to keep per reader, and the most to pay drops by that amount.
+
+Amazon Ads reports ACoS: ad spend ÷ the sales the ads brought in. One ad sale of book 1 brings in book 1's price. So the break-even ACoS is the reader's value ÷ book 1's price.
+
+<Example title="Break-even ACoS for the $4.99 series">
+
+$6.53 ÷ $4.99 is about 130.8%. Ads on book 1 can cost more than the book's own price, and the series still pays them back.
+
+With a 70% ACoS, each book 1 reader costs 70% × $4.99 = $3.49 in ads, which leaves $3.03 per reader.
+
+</Example>
+
+Amazon decides which sales count as coming from an ad. Treat your ACoS as Amazon's view of your ads, not an exact count of new readers. Ad sales also leave out Kindle Unlimited pages read, which Amazon Ads reports apart. If many of your new readers borrow book 1 in KU, your reported ACoS can run higher than this break-even and still pay off.
+
+To turn that ceiling into a bid, add your conversion rate: book 1 orders ÷ ad clicks. At 10%, the highest cost per click for the example series is $0.65. The [KDP book ads bid check](/kdp-break-even-acos-calculator) does the same for one book, with no read-through.
+
+<Warning title="Ads are paid now, royalties later">
+
+KDP pays royalties about 60 days after the end of the month a sale happens. Readers also take weeks to reach later books. So ads that pay back over the series can still leave you short for a couple of months. See KDP's [royalties estimator help](https://kdp.amazon.com/en_US/help/topic/G6BZ4M9PVJ8YSCW8).
+
+</Warning>
+
+## How does Kindle Unlimited change the number?
+
+A KU reader pays you per page, not per sale. For a 300-page book at $0.0045 a page, a full read pays $1.35, while a $4.99 sale pays $3.28. So adding KU readers can lower the value per reader, even though your total earnings go up.
+
+<Example title="The $4.99 series with KU reads">
+
+Add 15,000, 9,000, and 7,200 KU pages to the three books, each with a KENPC of 300, at an example rate of $0.0045 a page. Book 1 now has 150 readers: 100 buyers and 50 full reads. Read-through becomes 56.7% and then 80%.
+
+The series earned $793.12, so each new reader is worth $5.29.
+
+</Example>
+
+KDP pays for each page a reader reads for the first time, up to 3,000 pages per book per borrow. A book with a KENPC above 3,000 pays as if it had 3,000, and the table marks it Capped. See KDP's [KU royalties and KENPC help](https://kdp.amazon.com/help/topic/G201541140).
+
+The KENP rate changes every month, and KDP finalizes it near the 15th of the next month. KDP doesn't publish a per-page rate in its help pages, so the calculator has no default. Use the rate for the month your pages were read, and enter that month too. To estimate one book's KU earnings, use the [Kindle Unlimited KENP earnings calculator](/kindle-unlimited-kenp-earnings-calculator).
+
+## Should I make book 1 free or put it on sale?
+
+It depends on how many deal readers go on to book 2, and only you can guess that. The calculator works out what one deal reader is worth. That's the royalty on book 1 at the deal price, plus the share who read on × what a book 2 reader is worth.
+
+<Formula title="Value of one deal reader">
+
+`book 1 royalty at the deal price + deal read-through × value of a book 2 reader`
+
+</Formula>
+
+It also shows how many deal copies it takes to match one full-price reader. If that number is 2, a free book 1 needs to reach at least twice as many readers as the paid one to come out even.
+
+| Book 1 deal, $4.99 series | Deal read-through | Royalty per copy | Each deal reader is worth | Deal copies to match one full-price reader |
+| --- | --- | --- | --- | --- |
+| Free | 55% | $0.00 | $3.25 | 2.0 |
+| Free | 30% | $0.00 | $1.77 | 3.7 |
+| $0.99 price change | 55% | $0.35 | $3.60 | 1.8 |
+| $0.99 Countdown Deal | 55% | $0.48 | $3.73 | 1.8 |
+
+At $0.99, a Countdown Deal pays more than a plain price change. A Countdown Deal is KDP's timed discount for books in KDP Select, and during it you keep the royalty rate the book earns at full price. So a $4.99 book stays on 70%. Change the price to $0.99 yourself and it drops to 35%. See KDP's [digital book pricing](https://kdp.amazon.com/help/topic/G200634500).
+
+KDP's rules for each kind of deal:
+
+| Deal | KDP's rules on Amazon.com |
+| --- | --- |
+| Free days | Up to 5 free days in each 90-day KDP Select term. Unused days don't carry over. A free copy earns no royalty. See [Free Book Promotions](https://kdp.amazon.com/en_US/help/topic/G201298240). |
+| Countdown Deal | The book must be in KDP Select for at least 30 days, with a list price from $2.99 to $24.99 that stays unchanged for 30 days before and 14 days after. The deal must be at least $1.00 below the list price and lasts up to 7 days. You get one per term, and not in the same term as free days. See [Kindle Countdown Deals](https://kdp.amazon.com/en_US/help/topic/G201293780). |
+| Permanently free | KDP has no free price. A book stays free only when Amazon matches a free price elsewhere, and it earns no royalty while matched. Selling it elsewhere also means it can't be in KDP Select, so it gets no KU reads. See [digital book pricing](https://kdp.amazon.com/help/topic/G200634500) and [KDP Select enrollment](https://kdp.amazon.com/en_US/help/topic/GD9PMU58BV24QFZ7). |
+
+The calculator checks Countdown's price rules. It doesn't check KDP Select enrollment or the 30-day and 14-day price windows.
+
+## What is a good read-through rate?
+
+There's no reliable benchmark. Many author guides say "around 50 to 60%" from book 1 to book 2, including [Kindlepreneur](https://kindlepreneur.com/calculate-series-read-through/), but none of them share a sample or a method. Genre, price, and KU share all move the number. So the calculator doesn't grade your rate.
+
+Compare your rate with your own past months instead, and use the **10 more points to book 2 adds** line in the result to see what improving book 1's ending or back matter is worth to you.
+
+## Why might KDP pay me less than this?
+
+- **Delivery fee.** It depends on your converted file, not your upload. Check the size on your pricing page.
+- **Other stores.** The calculator uses Amazon.com rules and US dollars. Other stores have their own VAT, delivery fees, and KENP rates.
+- **Price matching.** If Amazon matches a lower price elsewhere, you earn on that price.
+- **KU rate.** The month's rate can change until it's finalized near the 15th of the next month.
+- **Refunds and returns,** which the calculator doesn't model.
+
+## What doesn't this calculator cover?
+
+It covers Kindle eBooks on Amazon.com. It doesn't cover:
+
+- Paperbacks and hardcovers. Each needs its own page count and printing cost. Use the [KDP royalty calculator](/kdp-royalty-calculator) per book.
+- Audiobooks and box sets, which sell as separate products.
+- Other Amazon stores and currencies.
+- Whether your book is in KDP Select or eligible for a deal.
+
+It runs in your browser and never touches your KDP account.
