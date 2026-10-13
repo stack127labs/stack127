@@ -39,9 +39,9 @@ The group names organize the repository. They never appear in public URLs.
 
 ## Shared structure
 
-- Every page uses the shared site navigation and `AppShell`, including its sidebar. The sidebar holds options, links between related pages, or links to page sections. It never holds reading content. See Sidebars in [design-system.md](design-system.md).
+- Every page uses the shared site navigation and `AppShell`. Each page picks its sidebar position: `left` for navigation and options, `right` for related pages and section links, or `none`. Prefer `left`. A sidebar never holds reading content. See Sidebars in [design-system.md](design-system.md).
 - All page families use `PageCanvas` and the same responsive gutters.
-- Text-led pages use its 760px reading width. Directories, tool workbenches, tables, and card grids stay wide. Both widths start at the same left edge.
+- Text-led pages use its 760px reading width. Directories, tool workbenches, tables, and card grids stay wide. With a sidebar, both widths start at the same left edge. With no sidebar, reading sections center.
 - `EntryHero` uses the canvas inside it, so entry headers and body sections line up. Don't nest canvases.
 - Visible titles and introductions use `PageHeader`.
 - Reading content uses the classes exported by `app/ui/site/prose.ts`, so heading and paragraph rhythm comes from one place.
@@ -79,8 +79,8 @@ Directory routes live under `app/(site)/(directories)/`. Shared directory contro
 - Use the shared directory header, controls, spacing, filter components, `Pagination`, `DetailDialog`, and `StatePanel` where they fit.
 - Use cards when each result has several facts and its own identity.
 - Use a table when people compare the same short fields across many rows.
-- Use prose for explanation and anchored sections for scanning a long page. Put section links in the sidebar.
-- Keep filters in the sidebar on wide screens and in the existing drawer on small screens.
+- Use prose for explanation and anchored sections for scanning a long page. Put section links in a right sidebar.
+- Keep filters in a left sidebar on wide screens and in the existing drawer on small screens. A directory with no filters or sections doesn't need a sidebar.
 - Don't show crawler records, import state, editorial status, or other maintenance details.
 
 The page is static and shows the default view: first page, default sort, no filters. Filters, search, sort, and pagination run in a client component, and their query URLs stay `noindex`. A view worth indexing, such as a category, gets its own path. Read `stack127_docs/caching.md`.
@@ -114,7 +114,7 @@ Tools help someone answer one concrete question. The page order:
 
 Tool routes live under `app/(site)/(tools)/`. The interactive part and the page content stay in code: the introduction, usage, and article are MDX files beside the route. The title, version, and card fields live in `public.stack127_tool_pages`. Read `stack127_docs/tool-pages.md` before you change tool content or a tool version.
 
-DNS, domain, and storage tools sit under route groups inside `(tools)`. Each group layout owns its sidebar and shell, so moving between tools in that family replaces only the page content. Code shared by one group, such as DNS diagnostics or the domain tools sidebar, lives in that group folder. Shared tool shells live in `app/ui/tools/`.
+Every tool sits in its own flat folder, `app/(site)/(tools)/<slug>/`. There are no tool family route groups. Each tool page renders its shell and left sidebar through `ToolPageShell`. Code shared by a tool family, such as DNS diagnostics or the domain lookup client, lives in `app/ui/tools/<family>/`. Shared tool shells live in `app/ui/tools/`.
 
 The tool page is static. Values from a shared link are read in a small client wrapper with `useInitialQuery()` from `app/ui/tools/use-initial-query.ts`, never from the server page. Read `stack127_docs/caching.md`.
 

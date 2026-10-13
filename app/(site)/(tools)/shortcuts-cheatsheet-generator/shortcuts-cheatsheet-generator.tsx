@@ -11,8 +11,8 @@ import styles from "./shortcuts-cheatsheet-generator.module.css";
 
 type Props = { catalog: readonly ShortcutAppSummary[]; initialSlugs: readonly string[] };
 
-async function loadApp(slug: string, signal?: AbortSignal): Promise<AppShortcuts> {
-  const response = await fetch(`/api/shortcuts/${encodeURIComponent(slug)}`, { signal });
+async function loadApp(slug: string): Promise<AppShortcuts> {
+  const response = await fetch(`/api/shortcuts/${encodeURIComponent(slug)}`);
   if (!response.ok) throw new Error("App shortcuts could not be loaded.");
   const app = await response.json() as AppShortcuts;
   if (app.slug !== slug) throw new Error("App shortcuts could not be loaded.");
@@ -46,23 +46,24 @@ export function ShortcutsCheatSheetGenerator({ catalog, initialSlugs }: Props) {
   const [excludedGroups, setExcludedGroups] = useState<Record<string, Set<string>>>({});
 
   // Loading a shared selection adds records without replacing choices made meanwhile.
+  // Results that arrive after a remount are ignored rather than aborted mid-request.
   useEffect(() => {
-    const controller = new AbortController();
+    let cancelled = false;
     for (const slug of initialSlugs) {
-      void loadApp(slug, controller.signal)
+      void loadApp(slug)
         .then((app) => {
-          if (!controller.signal.aborted) setLoadedApps((current) => ({ ...current, [slug]: app }));
+          if (!cancelled) setLoadedApps((current) => ({ ...current, [slug]: app }));
         })
         .catch(() => {
-          if (controller.signal.aborted) return;
+          if (cancelled) return;
           setSelected((current) => { const next = new Set(current); next.delete(slug); return next; });
           setLoadError("The app shortcuts could not be loaded. Try selecting the app again.");
         })
         .finally(() => {
-          if (!controller.signal.aborted) setLoadingSlugs((current) => { const next = new Set(current); next.delete(slug); return next; });
+          if (!cancelled) setLoadingSlugs((current) => { const next = new Set(current); next.delete(slug); return next; });
         });
     }
-    return () => controller.abort();
+    return () => { cancelled = true; };
   }, [initialSlugs]);
   const selectedApps = catalog.flatMap((summary) => {
     const app = loadedApps[summary.slug];

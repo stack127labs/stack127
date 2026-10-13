@@ -81,7 +81,7 @@ These independent checks use the end-of-period opening-base policy above.
 
 ### Ownership
 
-- Public URL `/customer-churn-calculator`. Put the server page and client workbench in `app/(site)/(tools)/(saas)/customer-churn-calculator/`, using the SaaS route-group layout, shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Add no route-owned publication or SEO metadata.
+- Public URL `/customer-churn-calculator`. Put the server page and client workbench in `app/(site)/(tools)/customer-churn-calculator/`, using the shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Add no route-owned publication or SEO metadata.
 - Put parsing, bounds, and calculation in `lib/customer-churn-calculator/engine.ts`; put focused independent arithmetic and invalid-input checks under `tests/pages/customer-churn-calculator/`. The route component owns raw form values, errors, focus, result state, and rendering. Use shared controls and tokens, adding a colocated CSS module only for layout. No API route, external dataset, or background job is needed.
 - This spec owns the contract. `public.stack127_tool_pages` owns the visible title, introduction, instructions, supporting Markdown, version, and card copy; `public.stack127_pages` owns publication and SEO; `public.stack127_tool_catalog_memberships` owns catalog rank. Mark any development preview copy as temporary. If a dedicated page update script is needed, put it under `scripts/customer-churn-calculator/`.
 

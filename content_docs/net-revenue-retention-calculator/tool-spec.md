@@ -86,7 +86,7 @@ These examples are independent arithmetic checks for the builder.
 
 ### Ownership
 
-- Public URL `/net-revenue-retention-calculator`. Put the server page and client workbench in `app/(site)/(tools)/(saas)/net-revenue-retention-calculator/`, using the SaaS route-group layout, shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Add no route-owned publication or SEO metadata.
+- Public URL `/net-revenue-retention-calculator`. Put the server page and client workbench in `app/(site)/(tools)/net-revenue-retention-calculator/`, using the shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Add no route-owned publication or SEO metadata.
 - Put strict parsing, validation, integer-cent calculation, and percentage formatting data in `lib/net-revenue-retention-calculator/engine.ts`. Focused independent examples and invalid-input tests belong in `tests/pages/net-revenue-retention-calculator/`. The route component owns raw form values, errors, focus, status, and rendering. Use a colocated CSS module for layout with shared tokens and controls. No API, external data source, or background job is needed.
 - This spec owns the contract. `public.stack127_tool_pages` owns title, introduction, instructions, supporting Markdown, version, and card copy; `public.stack127_pages` owns publication and SEO; `public.stack127_tool_catalog_memberships` owns catalog rank. Mark any development preview content as temporary. Any dedicated page-update script belongs under `scripts/net-revenue-retention-calculator/`.
 

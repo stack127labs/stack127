@@ -1,6 +1,6 @@
 .tool { display: grid; grid-template-columns: minmax(280px, 360px) minmax(0, 1fr); min-width: 0; }
 .controls, .preview { min-width: 0; padding: var(--space-7); }
-.controls { border-right: 1px solid var(--color-border); display: grid; gap: var(--space-6); }
+.controls { align-content: start; border-right: 1px solid var(--color-border); display: grid; gap: var(--space-6); }
 .controls h2, .appOptions h3 { font-family: var(--font-display); line-height: var(--line-heading); margin: 0; }
 .controls h2 { font-size: var(--text-h2); }
 .appOptions h3 { font-size: var(--text-h3); }
@@ -19,7 +19,7 @@
 .previewHeading button { min-height: 44px; }
 .sheetFrame { max-width: 100%; overflow-x: auto; padding-bottom: var(--space-3); }
 .sheetFrame:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
-.sheet { background: #fff; color: #161616; min-width: 680px; padding: var(--space-8); width: 760px; }
+.sheet { background: #fff; color: #161616; max-width: 760px; min-width: 560px; padding: var(--space-8); }
 .sheet h2, .sheet h3 { font-family: var(--font-display); line-height: var(--line-heading); margin: 0; }
 .sheet h2 { font-size: var(--text-h2); }
 .sheet h3 { font-size: var(--text-h3); margin-top: var(--space-8); }

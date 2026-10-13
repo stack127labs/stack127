@@ -15,6 +15,11 @@
   max-width: calc(var(--measure-prose) + var(--container-gutter) + var(--container-gutter));
 }
 
+/* With no sidebar, a reading-width section centers in the page. */
+:global([data-sidebar-position="none"]) .reading {
+  margin-inline: auto;
+}
+
 @media (max-width: 900px) {
   .grid {
     gap: var(--space-10);

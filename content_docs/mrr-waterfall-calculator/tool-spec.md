@@ -73,7 +73,7 @@ Keep month and financial figures in client component memory only. Do not put inp
 
 ### Ownership
 
-- Public URL `/mrr-waterfall-calculator`. Put the server page and client workbench in `app/(site)/(tools)/(saas)/mrr-waterfall-calculator/`, using the SaaS route-group layout, shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Add no route-owned publication or SEO metadata.
+- Public URL `/mrr-waterfall-calculator`. Put the server page and client workbench in `app/(site)/(tools)/mrr-waterfall-calculator/`, using the shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Add no route-owned publication or SEO metadata.
 - Put strict parsing, validation, integer-cent calculations, and ordered bridge data in `lib/mrr-waterfall-calculator/engine.ts`; focused independent arithmetic and invalid-input checks belong in `tests/pages/mrr-waterfall-calculator/`. The route component owns raw form values, focus, status, and rendered result. Use a colocated CSS module for the waterfall and field layout, with shared tokens and controls. No API, maintained data source, or job.
 - This spec owns the contract. `public.stack127_tool_pages` owns page title, intro, instructions, supporting Markdown, version, and card copy; `public.stack127_pages` owns publication and SEO; `public.stack127_tool_catalog_memberships` owns catalog rank. Mark any development preview copy as temporary. Any dedicated page-update script belongs under `scripts/mrr-waterfall-calculator/`.
 

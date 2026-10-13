@@ -75,7 +75,7 @@ Reporting:
 - Directory source lives in `app/(site)/(directories)/`, including stable fact pages such as `/tld-directory`.
 - Course source lives in `app/(site)/(courses)/`.
 - Home, about, privacy, terms, and labs live in `app/(site)/(site-pages)/`.
-- Tool source lives in `app/(site)/(tools)/`. DNS, domain, and storage tools use a shared route-group layout before `<slug>/`.
+- Tool source lives in `app/(site)/(tools)/<slug>/`. Every tool uses the same flat folder. Code shared by a tool family lives in `app/ui/tools/`.
 - `public.stack127_pages` is the only publication registry.
 - Exact published slugs are indexable and enter the sitemap. Unpublished routes return 404.
 - Do not add route-owned metadata, robots, canonicals, sitemap dates, or JSON-LD to page files.

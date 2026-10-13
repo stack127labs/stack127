@@ -30,7 +30,7 @@ Shared components live in `app/ui/`, grouped by use. Page data and one-off inter
 | --- | --- |
 | Catalogs | Only the catalog route. Tool code never lives here. |
 | Directories | Directory routes, including stable fact pages such as `/epp-status-codes` and `/tld-directory`. |
-| Tools | Tool routes. Code shared by one tool group lives in that group folder, such as `(tools)/(dns)/`. |
+| Tools | Tool routes, one flat folder per tool. Code shared by a tool family lives in `app/ui/tools/<family>/`, such as `app/ui/tools/dns/`. |
 
 See [page-families.md](page-families.md) for each family's page table.
 

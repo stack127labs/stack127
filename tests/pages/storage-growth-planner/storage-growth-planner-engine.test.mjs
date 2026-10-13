@@ -9,7 +9,7 @@ import {
   formatCapacity,
   formatMoney,
   validateStorageGrowthInput,
-} from "../../../app/(site)/(tools)/(storage)/storage-growth-planner/storage-growth-planner-engine.ts";
+} from "../../../app/(site)/(tools)/storage-growth-planner/storage-growth-planner-engine.ts";
 
 const TB = 1_000_000_000_000n;
 

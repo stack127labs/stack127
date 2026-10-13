@@ -388,8 +388,8 @@ Sol builds the backend:
 
 Opus builds the frontend:
 
-- `app/(site)/(tools)/(saas)/startup-runway-calculator/page.tsx`, `layout.tsx`, `startup-runway-calculator.tsx`, and `startup-runway-calculator.module.css`.
-- `app/(site)/(tools)/(saas)/startup-runway-calculator/art/startup-runway-calculator.{spec.json,svg,ts}`, plus its line in `lib/card-art.ts`. Other agents are adding lines there for sibling tools, so the coordinator should order those edits.
+- `app/(site)/(tools)/startup-runway-calculator/page.tsx`, `layout.tsx`, `startup-runway-calculator.tsx`, and `startup-runway-calculator.module.css`.
+- `app/(site)/(tools)/startup-runway-calculator/art/startup-runway-calculator.{spec.json,svg,ts}`, plus its line in `lib/card-art.ts`. Other agents are adding lines there for sibling tools, so the coordinator should order those edits.
 
 No URL-restore wrapper.
 

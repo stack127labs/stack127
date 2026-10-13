@@ -1,8 +1,3 @@
-.home-sidebar-panel {
-  align-content: start;
-  gap: var(--space-8);
-}
-
 .home-main {
   display: grid;
   gap: var(--space-12);

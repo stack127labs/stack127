@@ -91,7 +91,7 @@ These checks use opening-customer amounts after the attribution above, not raw m
 
 ### Ownership
 
-- Public URL `/revenue-churn-calculator`. Put the server page and client workbench in `app/(site)/(tools)/(saas)/revenue-churn-calculator/`, using the shared SaaS route-group layout, shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Add no route-owned publication or SEO metadata.
+- Public URL `/revenue-churn-calculator`. Put the server page and client workbench in `app/(site)/(tools)/revenue-churn-calculator/`, using the shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Add no route-owned publication or SEO metadata.
 - Put strict parsing, validation, integer-cent calculation, and percentage formatting data in `lib/revenue-churn-calculator/engine.ts`; focused independent arithmetic, attribution-boundary, and invalid-input checks belong under `tests/pages/revenue-churn-calculator/`. The route component owns raw values, errors, focus, status, and result rendering. Use shared controls and tokens, with a colocated CSS module only for layout. No API route, maintained dataset, account, or background job is needed.
 - This spec owns the contract. `public.stack127_tool_pages` owns title, introduction, instructions, supporting Markdown, version, and card copy; `public.stack127_pages` owns publication and SEO; `public.stack127_tool_catalog_memberships` owns catalog placement. Mark development preview copy as temporary. A dedicated update script, if needed, belongs under `scripts/revenue-churn-calculator/`.
 

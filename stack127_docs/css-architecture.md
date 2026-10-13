@@ -25,9 +25,10 @@ Sidebar titles use the shared `SidebarLabel` component from `app/ui/site/app-she
 
 ### Family stylesheets
 
-A route family with several components that work together may use one family stylesheet. It sits with the family and is imported by the family's layout. Current examples:
+A route family with several components that work together may use one family stylesheet. It sits with the family and is imported by the layout or pages that use it. Current examples:
 
-- `app/(site)/(tools)/(dns)/dns-tools.css`
+- `app/ui/tools/dns/dns-tools.css`
+- `app/ui/tools/domain/domain-tools.css`
 - `app/ui/directories/directory.css`
 - `app/(site)/(courses)/self-hosting-for-beginners/course.css`
 - `app/(site)/(directories)/software-licenses-for-self-hosting/software-licenses.css`
@@ -36,17 +37,17 @@ Prefer CSS Modules for new components and new single-page work. Use a family sty
 
 ### Tool styles
 
-Flat tool pages live under `app/(site)/(tools)/`. The `(tools)` and family route groups never appear in a public URL.
+Flat tool pages live under `app/(site)/(tools)/<slug>/`. The `(tools)` route group never appears in a public URL.
 
-- DNS and domain family layouts import their shared styles.
+- Each tool page that uses the DNS or domain family stylesheet imports it first, before its other styles.
 - Storage tools use CSS Modules.
-- Unrelated tools don't inherit DNS or domain CSS.
+- Unrelated tools and catalogs don't load DNS or domain CSS.
 
 ## Building a page
 
-1. Use `AppShell` with `PageCanvas` for each outer content section. `EntryHero` already includes a canvas. Use the shared navigation, sidebar-panel, prose, media, and code-block components where they fit.
+1. Use `AppShell` with `PageCanvas` for each outer content section. Set `sidebarPosition` to `left`, `right`, or `none`, as the Sidebars section of [design-system.md](design-system.md) describes. `EntryHero` already includes a canvas. Use the shared navigation, sidebar-panel, prose, media, and code-block components where they fit.
 2. Put the page's other styles in its route folder or beside its component.
-3. Import family CSS from the nearest route layout. Import a CSS Module directly from the component that owns it.
+3. Import family CSS from the layout or pages that use it, not from a layout that also serves unrelated pages. Import a CSS Module directly from the component that owns it.
 4. Use semantic tokens from `globals.css`. Don't create another global token layer in a page file. Every bounded UI shape uses the shared 2px `--radius` token.
 5. Keep reading copy inside the prose primitive. Keep controls, tables, metadata, and tool results on the compact UI scale.
 6. Check the page in both themes, at desktop and mobile width.

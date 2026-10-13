@@ -63,7 +63,7 @@ Keep the entered financial value in client component memory only. Do not put it 
 
 ### Ownership
 
-- Public URL `/arr-calculator`. Put the server page and client workbench in `app/(site)/(tools)/(saas)/arr-calculator/`, using the SaaS route-group layout, shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Do not add route-owned publication or SEO metadata.
+- Public URL `/arr-calculator`. Put the server page and client workbench in `app/(site)/(tools)/arr-calculator/`, using the shared shell, `PageCanvas`, tool-page loader, and database Markdown renderer. Do not add route-owned publication or SEO metadata.
 - Keep strict parsing, validation, and cent arithmetic in `lib/arr-calculator/engine.ts`; use focused independent examples in `tests/pages/arr-calculator/`. The route component owns currency formatting, form value, focus, error, and result state. Use a colocated CSS module only for route layout and shared tokens/components for controls and display. No API or background job.
 - This spec owns the calculation contract. `public.stack127_tool_pages` owns visible page and card copy; `public.stack127_pages` owns publication and SEO; `public.stack127_tool_catalog_memberships` owns catalog rank. Development preview copy must be clearly temporary. Any dedicated page-update script belongs under `scripts/arr-calculator/`.
 

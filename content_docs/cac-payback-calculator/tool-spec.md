@@ -298,8 +298,8 @@ Sol builds the backend:
 
 Opus builds the frontend:
 
-- `app/(site)/(tools)/(saas)/cac-payback-calculator/page.tsx`, `layout.tsx`, `cac-payback-calculator.tsx`, and `cac-payback-calculator.module.css`, following the sibling SaaS routes.
-- `app/(site)/(tools)/(saas)/cac-payback-calculator/art/cac-payback-calculator.ts`, plus its registration line in `lib/tool-catalog-art.ts`.
+- `app/(site)/(tools)/cac-payback-calculator/page.tsx`, `layout.tsx`, `cac-payback-calculator.tsx`, and `cac-payback-calculator.module.css`, following the sibling SaaS routes.
+- `app/(site)/(tools)/cac-payback-calculator/art/cac-payback-calculator.ts`, plus its registration line in `lib/tool-catalog-art.ts`.
 
 No URL-restore wrapper. Financial inputs don't go in the URL.
 

@@ -19,9 +19,28 @@
 .table a { color: var(--color-link); font-weight: var(--weight-semibold); text-decoration: none; text-decoration-color: currentColor; text-underline-offset: 3px; }
 .table a:hover { color: var(--color-link); text-decoration-color: currentColor; }
 .table a:focus-visible, .nextStep a:focus-visible { outline: 0; box-shadow: var(--focus-ring); }
-.platforms { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin: 0; padding: 0; list-style: none; }
-.platforms li { white-space: nowrap; }
-.count { color: var(--color-text-muted); font-family: var(--font-mono); white-space: nowrap; }
+.appGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-5); margin: 0; padding: 0; list-style: none; }
+.appCard {
+  display: grid;
+  gap: var(--space-2);
+  height: 100%;
+  padding: var(--space-7);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: border-color var(--motion-base);
+}
+.appCard:hover { border-color: var(--color-accent); }
+.appCard:hover .appName { text-decoration: underline; text-underline-offset: 3px; }
+.appCard:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+.appName { color: var(--color-link); font-family: var(--font-display); font-size: var(--text-h3); font-weight: var(--weight-bold); letter-spacing: var(--tracking-display); line-height: var(--line-heading); }
+.appCount { font-family: var(--font-mono); white-space: nowrap; }
+.appCount small { color: var(--color-text-muted); font-size: var(--text-small); }
+.appPlatforms { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+.platform { padding: 0 var(--space-2); border: 1px solid var(--color-border-strong); border-radius: var(--radius); font-family: var(--font-mono); font-size: var(--text-small); line-height: var(--line-body); }
+.platformMissing { border-color: var(--color-border); border-style: dashed; color: var(--color-text-muted); text-decoration: line-through; opacity: 0.6; }
 .referenceTable { table-layout: fixed; }
 .referenceTable th:first-child, .referenceTable .action { width: 40%; }
 .referenceTable th, .referenceTable td { padding: var(--space-10); }
@@ -73,11 +92,14 @@
   .referenceTable tbody tr td + td { margin-top: var(--space-7); }
   .referenceTable .action { width: auto; }
 }
+@media (max-width: 1100px) {
+  .appGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 @media (max-width: 760px) {
-  .directoryTable thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-  .directoryTable tbody tr { display: grid; grid-template-columns: 1fr auto; padding: var(--space-7); gap: var(--space-3); border-bottom: 1px solid var(--color-border); }
-  .directoryTable tbody tr:last-child { border-bottom: 0; }
-  .directoryTable tbody tr td { padding: 0; border: 0; }
-  .directoryTable tbody tr td:first-child { grid-column: 1 / -1; }
-  .directoryTable .count::after { content: " shortcuts"; font-family: var(--font-sans); }
+  .appGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .appCard { padding: var(--space-5); }
+  .platform { padding: 0 var(--space-1); }
+}
+@media (max-width: 360px) {
+  .appGrid { grid-template-columns: minmax(0, 1fr); }
 }

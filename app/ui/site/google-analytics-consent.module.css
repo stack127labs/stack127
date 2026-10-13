@@ -74,9 +74,21 @@
   background: var(--color-surface-2);
 }
 
+/* Keep the banner over the main column when the sidebar is on the right or absent. */
+:global(body:has([data-sidebar-position="right"])) .banner {
+  left: var(--container-gutter);
+  right: calc(var(--sidebar-width) + var(--container-gutter));
+}
+
+:global(body:has([data-sidebar-position="none"])) .banner {
+  left: var(--container-gutter);
+}
+
 @media (max-width: 960px) {
-  .banner {
+  .banner,
+  :global(body:has([data-sidebar-position])) .banner {
     left: var(--container-gutter);
+    right: var(--container-gutter);
   }
 }
 

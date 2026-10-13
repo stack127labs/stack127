@@ -319,8 +319,8 @@ Sol builds the backend:
 
 Opus builds the frontend:
 
-- `app/(site)/(tools)/(saas)/annual-plan-discount-calculator/page.tsx`, `layout.tsx`, `annual-plan-discount-calculator.tsx`, and `annual-plan-discount-calculator.module.css`. Same shell as `break-even-mrr-calculator`. Header icon `Tag` from `lucide-react`. No SaaS sibling uses it, and it matches the card art.
-- `app/(site)/(tools)/(saas)/annual-plan-discount-calculator/art/annual-plan-discount-calculator.spec.json`, `.svg`, and `.ts`, made with marker-art-draw. A new `toolSpot` motif in `scripts/stack127/marker-art/figures.mjs`, and a registration line in `lib/card-art.ts`. Both are shared files that other SaaS planners may also touch. Check `git status` before editing, and wait if someone else has them open.
+- `app/(site)/(tools)/annual-plan-discount-calculator/page.tsx`, `layout.tsx`, `annual-plan-discount-calculator.tsx`, and `annual-plan-discount-calculator.module.css`. Same shell as `break-even-mrr-calculator`. Header icon `Tag` from `lucide-react`. No SaaS sibling uses it, and it matches the card art.
+- `app/(site)/(tools)/annual-plan-discount-calculator/art/annual-plan-discount-calculator.spec.json`, `.svg`, and `.ts`, made with marker-art-draw. A new `toolSpot` motif in `scripts/stack127/marker-art/figures.mjs`, and a registration line in `lib/card-art.ts`. Both are shared files that other SaaS planners may also touch. Check `git status` before editing, and wait if someone else has them open.
 
 No URL-restore wrapper.
 

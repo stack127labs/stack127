@@ -5,7 +5,7 @@ import { PageMeta } from "@/app/ui/site/page-meta";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import Link from "next/link";
 import { appsInCategory, shortcutAppCatalog, shortcutCategories } from "@/lib/shortcuts";
-import { platformLabels } from "@/lib/shortcuts/types";
+import type { PlatformId } from "@/lib/shortcuts/types";
 import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { EntryHero } from "@/app/ui/site/entry-hero";
@@ -15,6 +15,9 @@ import styles from "./keyboard-shortcuts.module.css";
 import Intro from "./(index)/content/intro.mdx";
 import ShortcutNotWorking from "./(index)/content/shortcut-not-working.mdx";
 import WhereShortcutsComeFrom from "./(index)/content/where-shortcuts-come-from.mdx";
+
+const platformOrder: PlatformId[] = ["windows", "macos", "linux"];
+const platformShortLabels: Record<PlatformId, string> = { windows: "Win", macos: "Mac", linux: "Linux" };
 
 function categoryId(category: string) {
   return "category-" + category.toLowerCase().replace(/[^a-z0-9]+/g, "-");
@@ -41,32 +44,27 @@ export async function KeyboardShortcutsDirectory() {
         return (
           <section className={styles.section} aria-labelledby={categoryId(category) + "-title"} id={categoryId(category)} key={category}>
             <h2 id={categoryId(category) + "-title"}>{category}</h2>
-            <div className={styles.tableFrame}>
-              <table className={styles.table + " " + styles.directoryTable}>
-                <thead>
-                  <tr>
-                    <th scope="col">App</th>
-                    <th scope="col">Platforms</th>
-                    <th scope="col">Shortcuts</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {apps.map((app) => (
-                    <tr key={app.slug}>
-                      <td data-label="App">
-                        <Link href={"/keyboard-shortcuts/" + app.slug}>{app.name}</Link>
-                      </td>
-                      <td data-label="Platforms">
-                        <ul className={styles.platforms}>
-                          {app.platforms.map((platform) => <li key={platform}>{platformLabels[platform]}</li>)}
-                        </ul>
-                      </td>
-                      <td className={styles.count} data-label="Shortcuts">{app.shortcutCount}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <ul className={styles.appGrid}>
+              {apps.map((app) => (
+                <li key={app.slug}>
+                  <Link className={styles.appCard} href={"/keyboard-shortcuts/" + app.slug}>
+                    <span className={styles.appName}>{app.name}</span>
+                    <span className={styles.appCount}>{app.shortcutCount}<small> shortcuts</small></span>
+                    <span className={styles.appPlatforms}>
+                      {platformOrder.map((platform) => (
+                        <span
+                          aria-hidden={app.platforms.includes(platform) ? undefined : true}
+                          className={app.platforms.includes(platform) ? styles.platform : `${styles.platform} ${styles.platformMissing}`}
+                          key={platform}
+                        >
+                          {platformShortLabels[platform]}
+                        </span>
+                      ))}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </section>
         );
       })}

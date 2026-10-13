@@ -12,7 +12,7 @@ import {
   decodeStorageLayoutAdvisorState,
   encodeStorageLayoutAdvisorState,
   validateStorageLayoutAdvisorInput,
-} from "../../../app/(site)/(tools)/(storage)/storage-layout-advisor/storage-layout-advisor-engine.ts";
+} from "../../../app/(site)/(tools)/storage-layout-advisor/storage-layout-advisor-engine.ts";
 
 const TB = 1_000_000_000_000n;
 const TiB = 1_099_511_627_776n;

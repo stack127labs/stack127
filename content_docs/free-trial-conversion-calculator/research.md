@@ -34,7 +34,7 @@ These sources do not support one blended range. ChartMogul's dated, model-specif
 
 The tool's core job is to calculate paid conversions as a share of a stated trial cohort. It can also help a founder estimate new MRR from the cohort if the founder supplies a monthly revenue per new account. It should not claim to predict conversion, diagnose product-market fit, decide whether the company should require payment details, or infer lifetime value from the first paid month.
 
-The route is under the `(saas)` tool group and its registry-backed `layout.tsx` remains. The deleted route page, engine, content, test, research file, and spec are absent. The likely primary catalog is `/saas-tools`, based on the current SaaS tool family and sibling SaaS tool docs. The coordinator should confirm the development row's actual catalog membership during planning or integration. No public vendor offers an official, neutral trial-conversion calculator. The official vendor sources found here are analytics and billing documentation, not standalone calculators.
+The route's registry-backed `layout.tsx` remains. The deleted route page, engine, content, test, research file, and spec are absent. The likely primary catalog is `/saas-tools`, based on the current SaaS tool family and sibling SaaS tool docs. The coordinator should confirm the development row's actual catalog membership during planning or integration. No public vendor offers an official, neutral trial-conversion calculator. The official vendor sources found here are analytics and billing documentation, not standalone calculators.
 
 Queries tried:
 
