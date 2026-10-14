@@ -309,3 +309,90 @@ test("standalone protected and privacy-qualified placeholders never become owner
     assert.equal(result.entities.find(entity => entity.roles.includes("registrant")).organization, organization);
   }
 });
+
+test("Manx manager and owner headings isolate contact evidence until Domain Details", async () => {
+  const fixtureText = await fixture("im");
+  for (const heading of ["Domain Managers", "Domain Owners / Registrant"]) {
+    const contact = `${heading}\n\nCreated: 2020-01-02\nStatus: ok\nStatus: clientTransferProhibited\nExpiry Date: 01/01/2030\n`;
+    const bare = parseWhoisResponse(`Domain Name: google.im\n${contact}`, "google.im", reviewed.services.im);
+    assert.equal(bare.status, "registry_error", heading);
+    assert.equal(bare.body, null);
+    const text = fixtureText.replace(`${heading}\n`, contact);
+    const result = normalized("im", "google.im", text);
+    assert.equal(result.status, "registered");
+    assert.equal(result.registrationDate, null, heading);
+    assert.equal(result.registryExpiryDate, "2027-08-16", "Domain Details restores domain ownership");
+    assert.deepEqual(result.statuses, [], heading);
+    assert.equal(assessTransfer(result).findings.find(f => f.id === "client-lock").state, "unknown");
+    const explicit = normalized("im", "google.im", text.replace("Status: clientTransferProhibited", "Domain Status: clientTransferProhibited"));
+    assert.equal(explicit.registrationDate, null);
+    assert.deepEqual(explicit.statuses.map(status => status.epp), ["clientTransferProhibited"]);
+    assert.equal(assessTransfer(explicit).findings.find(f => f.id === "client-lock").state, "blocked");
+  }
+});
+
+// Exact contact/registrar headings observed in the 77 reviewed captures. The
+// other profiles have flat fields or inline contact references, covered above.
+const capturedContactHeadings = {
+  am: ["Registrant:", "Administrative contact:", "Technical contact:"],
+  ax: ["Holder", "Registrar"],
+  be: ["Registrant:", "Registrar Technical Contacts:", "Registrar:"],
+  bn: ["Registrant:", "Administrative Contact:", "Technical Contact:"],
+  edu: ["Registrant:", "Administrative Contact:", "Technical Contact:"],
+  ee: ["Registrant:", "Administrative contact:", "Technical contact:", "Registrar:"],
+  eu: ["Registrant:", "Technical:", "Registrar:"],
+  gf: ["[holder]", "[admin_c]", "[tech_c]", "[zone_c]"],
+  gg: ["Registrant:", "Registrar:"],
+  hk: ["Registrant Contact Information:"],
+  im: ["Domain Managers", "Domain Owners / Registrant", "Administrative Contact", "Billing Contact", "Technical Contact"],
+  it: ["Registrant", "Admin Contact", "Technical Contacts", "Registrar"],
+  je: ["Registrant:", "Registrar:"],
+  jp: ["Contact Information:"],
+  kz: ["Registrant", "Administrative Contact"],
+  lv: ["[Holder]", "[Tech]", "[Registrar]"],
+  mq: ["[holder]", "[admin_c]", "[tech_c]", "[zone_c]"],
+  mx: ["Registrant:", "Administrative Contact:", "Technical Contact:", "Billing Contact:"],
+  sm: ["Owner:", "Technical Contact:"],
+  tn: ["Owner Contact", "Administrativ contact", "Technical contact"],
+  tr: ["** Registrant:", "** Registrar:"],
+  ug: ["Registrant Contact Information:", "Administrative Contact Information:", "Technical Contact Information:"],
+};
+
+test("every captured standalone contact heading excludes generic contact dates and statuses", () => {
+  for (const [tld, headings] of Object.entries(capturedContactHeadings)) {
+    for (const heading of headings) {
+      const domain = `example.${tld}`;
+      const contact = `${heading}\n\nStatus: ok\nCreated: 2020-01-02\nUpdated: 2021-01-02\nStatus: clientTransferProhibited\nDNSSEC: yes\n`;
+      const bare = parseWhoisResponse(`Domain: ${domain}\n${contact}`, domain, reviewed.services[tld]);
+      assert.equal(bare.status, "registry_error", `${tld} ${heading}`);
+      const text = `Domain: ${domain}\nName Server: ns1.example.net\n${contact}`;
+      const result = normalized(tld, domain, text);
+      assert.equal(result.status, "registered", `${tld} ${heading}`);
+      assert.equal(result.registrationDate, null, `${tld} ${heading} Created`);
+      assert.equal(result.lastChangedDate, null, `${tld} ${heading} Updated`);
+      assert.deepEqual(result.statuses, [], `${tld} ${heading} Status`);
+      assert.equal(result.dnssecSigned, null, `${tld} ${heading} DNSSEC`);
+      const explicit = normalized(tld, domain, text + "Domain Status: clientTransferProhibited\n");
+      assert.deepEqual(explicit.statuses.map(status => status.epp), ["clientTransferProhibited"], `${tld} ${heading} Domain Status`);
+    }
+  }
+});
+
+test("privacy-only tokens suppress punctuation and qualifier variants while keeping organization words", () => {
+  for (const placeholder of [
+    "protected for privacy purposes", "protected (GDPR)", "undisclosed for privacy protection",
+    "[Protected] (GDPR)", "PROTECTED—GDPR", "private, per policy request", "redacted: data protection; purpose",
+    "not/disclosed for privacy purposes", "N/A", "[N / A]", "none", "---",
+  ]) {
+    const result = normalized("it", "example.it", `Domain: example.it\nStatus: ok\nRegistrant\n  Name: ${placeholder}\n  Organization: ${placeholder}\n  Phone: ${placeholder}\n`);
+    assert.deepEqual(result.entities.filter(entity => entity.roles.includes("registrant")), [], placeholder);
+  }
+  for (const organization of ["Protected Trust Ltd", "Protected by Design Ltd", "Privacy International"]) {
+    const result = normalized("it", "example.it", `Domain: example.it\nStatus: ok\nRegistrant\n  Name: ${organization}\n  Organization: ${organization}\n`);
+    const registrant = result.entities.find(entity => entity.roles.includes("registrant"));
+    assert.equal(registrant.name, organization);
+    assert.equal(registrant.organization, organization);
+  }
+  const notice = normalized("be", "example.be", "Domain: example.be\nRegistered: 2000-01-01\nRegistrant:\n  Not shown, please visit www.dnsbelgium.be for webbased whois.\n");
+  assert.deepEqual(notice.entities.filter(entity => entity.roles.includes("registrant")), []);
+});

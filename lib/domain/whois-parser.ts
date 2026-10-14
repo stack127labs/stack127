@@ -31,10 +31,13 @@ type Fields = Map<string, string[]>;
 function key(value: string) { return value.toLowerCase().replace(/^\*+[\t ]*/, "").replace(/\.+$/, "").replace(/[\s_-]+/g, " ").trim(); }
 const SECTION_NAMES: Record<string, string> = {
   "domain": "domain", "domain information": "domain", "additional info": "domain",
+  "domain managers": "contact", "domain owners / registrant": "registrant",
   "registrant": "registrant", "domain registrant": "registrant", "registrant contact information": "registrant",
-  "registrar": "registrar", "holder": "contact", "owner": "contact", "contact information": "contact",
+  "registrar": "registrar", "holder": "contact", "owner": "contact", "owner contact": "contact", "contact information": "contact",
   "admin contact": "admin contact", "administrative contact": "admin contact", "administrative contact information": "admin contact",
+  "administrativ contact": "admin contact",
   "technical contact": "technical contacts", "technical contacts": "technical contacts", "technical contact information": "technical contacts",
+  "technical": "technical contacts", "tech": "technical contacts", "registrar technical contacts": "technical contacts",
   "billing contact": "contact", "contact": "contact",
   "nameservers": "nameservers", "name servers": "name servers", "name server information": "name server information",
   "domain servers": "domain servers", "dns servers": "dns servers", "relevant dates": "relevant dates",
@@ -191,18 +194,22 @@ function failureFrom(text: string, notFoundPattern: RegExp): RdapFetchStatus | n
   return failure;
 }
 
-const PRIVACY_PLACEHOLDERS = new Set([
-  "hidden", "redacted", "redacted for privacy", "data redacted", "not disclosed", "not shown", "not published",
-  "not available", "data protected", "protected", "protected by privacy", "private", "withheld", "undisclosed", "masked",
-  "gdpr masked", "non public data", "n/a", "none", "null", "-",
+// Whole values made only of privacy words are placeholders. Organization words
+// such as Trust, Design, Ltd and International deliberately remain outside this set.
+const PRIVACY_TOKENS = new Set([
+  "protected", "protection", "privacy", "private", "gdpr", "redacted", "hidden", "undisclosed", "not", "disclosed",
+  "withheld", "data", "for", "by", "purposes", "purpose", "reason", "reasons", "per", "policy", "request",
+  "na", "none", "null", "masked", "non", "public", "shown", "published", "available", "unavailable",
+  "due", "to", "under", "the", "law", "laws", "regulation", "regulations",
 ]);
 function publishedContactValue(value: string | null): string | null {
   if (!value) return null;
-  if (value.trim() === "-") return null;
-  const normalized = value.toLowerCase().trim().replace(/^[\[('"\s]+|[\])'".!\s]+$/g, "").replace(/[_-]+/g, " ").replace(/\s+/g, " ");
-  const privacyQualified = /^(?:hidden|redacted|data redacted|not disclosed|not shown|not published|data protected|protected|private|withheld|undisclosed|masked) (?:for|by|due to|under) (?:the )?(?:privacy|gdpr|data protection)(?: (?:law|laws|policy|regulations?|reasons?))?$/;
-  if (PRIVACY_PLACEHOLDERS.has(normalized) || privacyQualified.test(normalized) ||
-    /^(?:not disclosed|not shown|data protected|redacted)(?:[!.,]|\s*-\s*|\s+(?:for privacy|due to|under|please|visit)\b)/i.test(value)) return null;
+  const normalized = value.normalize("NFKC").toLowerCase().replace(/\bn\s*\/\s*a\b/g, "na");
+  const tokens = normalized.match(/[\p{L}\p{N}]+/gu) ?? [];
+  if (!tokens.length || tokens.every(token => PRIVACY_TOKENS.has(token))) return null;
+  // Preserve the reviewed suppression of registry instructions containing a URL;
+  // these explanatory sentences are not identities or privacy-only word values.
+  if (/^(?:not disclosed|not shown|data protected|redacted)(?:[!.,]|\s*-\s*|\s+)[\t ]*(?:please|visit)\b/i.test(value)) return null;
   return value;
 }
 
