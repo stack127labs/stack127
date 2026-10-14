@@ -17,11 +17,10 @@ async function fixture(t) {
   const bin = path.join(directory, "bin");
   await mkdir(main);
   await mkdir(bin);
-  for (const folder of ["skills", ".agents", ".claude/skills", ".codex"]) await mkdir(path.join(main, folder), { recursive: true });
+  for (const folder of ["skills", ".agents", ".claude/skills"]) await mkdir(path.join(main, folder), { recursive: true });
   await symlink("../skills", path.join(main, ".agents/skills"));
   await writeFile(path.join(main, "skills/example.txt"), "skill fixture");
   await writeFile(path.join(main, ".claude/skills/example.txt"), "skill fixture");
-  for (const file of [".codex/hooks.json", ".claude/settings.json"]) await writeFile(path.join(main, file), "{}");
   await writeFile(path.join(main, "package.json"), JSON.stringify({ name: "stack127" }));
   await writeFile(path.join(main, "package-lock.json"), "{}");
   await writeFile(path.join(main, ".gitignore"), ".env*\nnode_modules/\n.next/\ntmp/\n");

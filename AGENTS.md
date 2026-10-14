@@ -12,7 +12,7 @@ Work is split into three lanes. They are guidance for who usually does what, not
 | Sol | Newest GPT Sol | `high`, `xhigh` for hard or risky work | Code review, backend changes, and infra planning |
 | Luna | Newest GPT Luna | `xhigh`, `max` for deep research | Research, mass data gathering, and data work |
 
-Claude Code sessions are the Opus lane. Codex sessions are Sol by default and Luna when started for research or data. Opus usually owns pages, components, styles, card art, and copy. Sol and Luna usually own `lib/`, API routes, scripts, migrations, tests, data, and infra. `scripts/stack127/agents/lanes.mjs` maps files to lanes. A hook adds a short note when you edit a file another lane usually owns. The note never blocks. Use your judgment.
+Claude Code sessions are the Opus lane. Codex sessions are Sol by default and Luna when started for research or data. Opus usually owns pages, components, styles, card art, and copy. Sol and Luna usually own `lib/`, API routes, scripts, migrations, tests, data, and infra. These lanes guide task assignment and review. They do not restrict which files an agent may edit when the task requires a cross-lane change.
 
 The agent the user talks to is the coordinator:
 
