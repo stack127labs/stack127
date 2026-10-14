@@ -7,10 +7,11 @@
  * parser that requires an error object breaks on .com.
  */
 
-import { rdapServiceForTld, type TldCoverage } from "./bootstrap.ts";
+import { rdapServiceForTld, whoisServiceForTld, type TldCoverage } from "./bootstrap.ts";
 import { readCachedRdap, writeCachedRdap } from "./cache.ts";
 import { acquireEndpointSlot, reportEndpointResult } from "./throttle.ts";
 import type { RdapFetch, RdapFetchStatus, RdapSource } from "./types.ts";
+import { fetchWhois } from "./whois.ts";
 
 const USER_AGENT = "Stack127-domain-tools/1.0 (+https://stack127.com/domain-tools)";
 const MAX_RESPONSE_BYTES = 1_000_000;
@@ -63,7 +64,7 @@ export type FetchOptions = {
   bypassCache?: boolean;
 };
 
-async function fetchRdapUrl(url: string, source: RdapSource, options: FetchOptions = {}): Promise<RdapFetch> {
+async function fetchRdapUrl(url: string, source: RdapSource, options: FetchOptions = {}, tld?: string): Promise<RdapFetch> {
   const now = new Date().toISOString();
 
   if (!options.bypassCache) {
@@ -71,13 +72,15 @@ async function fetchRdapUrl(url: string, source: RdapSource, options: FetchOptio
     if (cached) return { ...cached, fromCache: true };
   }
 
-  const slot = acquireEndpointSlot(url);
+  const slot = acquireEndpointSlot(url, Date.now(), tld);
   if (!slot.allowed) {
     return {
       status: "rate_limited",
       httpStatus: null,
       url,
       source,
+      protocol: "rdap",
+      retryAfterSeconds: slot.retryAfterSeconds,
       body: null,
       error:
         slot.reason === "circuit_open"
@@ -90,7 +93,9 @@ async function fetchRdapUrl(url: string, source: RdapSource, options: FetchOptio
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), options.timeoutMs ?? DEFAULT_TIMEOUT_MS);
-  options.signal?.addEventListener("abort", () => controller.abort(), { once: true });
+  const abort = () => controller.abort();
+  options.signal?.addEventListener("abort", abort, { once: true });
+  if (options.signal?.aborted) controller.abort();
 
   try {
     const response = await fetch(url, {
@@ -98,21 +103,28 @@ async function fetchRdapUrl(url: string, source: RdapSource, options: FetchOptio
       redirect: "follow",
       signal: controller.signal,
     });
-    reportEndpointResult(url, response.status);
+    reportEndpointResult(url, response.status, Date.now(), response.headers.get("retry-after"));
     const { body } = await readBounded(response);
-    const status = statusFromHttp(response.status);
+    let status = statusFromHttp(response.status);
+    // A successful HTTP response is not necessarily a domain record (HTML, error
+    // objects and redirects to generic landing pages must remain non-answers).
+    if (status === "registered" && (!body || typeof body !== "object" ||
+      !("objectClassName" in body) || !(tld ? ["domain"] : ["domain", "ip network", "autnum"]).includes(String(body.objectClassName)))) {
+      status = "registry_error";
+    }
     const result: RdapFetch = {
       status,
       httpStatus: response.status,
       url,
       source,
+      protocol: "rdap",
       body,
-      error: status === "registered" && body === null ? "The registry returned a response we could not read." : null,
+      error: response.status === 200 && status === "registry_error" ? "The registry returned a response we could not read." : null,
       fetchedAt: now,
       fromCache: false,
     };
     // Never cache a throttle or a block as if it were an answer.
-    if (status === "registered" || status === "not_registered") await writeCachedRdap(url, result);
+    if (!options.bypassCache && (status === "registered" || status === "not_registered")) await writeCachedRdap(url, result);
     return result;
   } catch (error) {
     const aborted = controller.signal.aborted;
@@ -122,6 +134,7 @@ async function fetchRdapUrl(url: string, source: RdapSource, options: FetchOptio
       httpStatus: null,
       url,
       source,
+      protocol: "rdap",
       body: null,
       error: aborted
         ? "The registry did not answer in time."
@@ -133,17 +146,20 @@ async function fetchRdapUrl(url: string, source: RdapSource, options: FetchOptio
     };
   } finally {
     clearTimeout(timeout);
+    options.signal?.removeEventListener("abort", abort);
   }
 }
 
 export function registryUrlFor(coverage: TldCoverage, domain: string) {
-  if (!coverage.url) return null;
+  if (!coverage.url || coverage.source === "whois") return null;
   return `${coverage.url}domain/${encodeURIComponent(domain)}`;
 }
 
 /** Query the registry that operates this TLD. */
 export async function fetchRegistry(domain: string, tld: string, options?: FetchOptions) {
   const coverage = rdapServiceForTld(tld);
+  const whois = whoisServiceForTld(tld);
+  if (coverage.source === "whois" && whois) return { coverage, fetch: await fetchWhois(domain, tld, whois, options) };
   const url = registryUrlFor(coverage, domain);
   if (!url) {
     const fetchResult: RdapFetch = {
@@ -152,13 +168,13 @@ export async function fetchRegistry(domain: string, tld: string, options?: Fetch
       url: null,
       source: "registry",
       body: null,
-      error: `We do not know of an RDAP service for .${coverage.tld}.`,
+      error: `We do not know of a verified registration service for .${coverage.tld}.`,
       fetchedAt: new Date().toISOString(),
       fromCache: false,
     };
     return { coverage, fetch: fetchResult };
   }
-  return { coverage, fetch: await fetchRdapUrl(url, "registry", options) };
+  return { coverage, fetch: await fetchRdapUrl(url, "registry", options, tld) };
 }
 
 /**
@@ -181,8 +197,8 @@ export function registrarUrlFrom(registryBody: unknown): string | null {
   return null;
 }
 
-export async function fetchRegistrar(url: string, options?: FetchOptions) {
-  return fetchRdapUrl(url, "registrar", { ...options, timeoutMs: options?.timeoutMs ?? 8_000 });
+export async function fetchRegistrar(url: string, options?: FetchOptions, tld?: string) {
+  return fetchRdapUrl(url, "registrar", { ...options, timeoutMs: options?.timeoutMs ?? 8_000 }, tld);
 }
 
 /** IP and ASN objects use the same client but a different bootstrap. Exposed for reuse. */

@@ -1,0 +1,23 @@
+# Trimmed whois.gg response for google.gg, 2026-10-14. Contacts omitted.
+Domain:
+     google.gg
+
+Domain Status:
+     Active
+     Delete Prohibited by Registrar
+     Update Prohibited by Registrar
+     Transfer Prohibited by Registrar
+
+Registrar:
+     MarkMonitor Inc. (http://www.markmonitor.com)
+
+Relevant dates:
+     Registered on 30th April 2003 at 00:00:00.000
+     Registry fee due on 30th April each year
+
+Registration status:
+     Registered until cancelled
+
+Name servers:
+     ns1.google.com
+     ns2.google.com

@@ -1,0 +1,11 @@
+# Trimmed whois.website.ws response for google.ws, 2026-10-14. Contacts omitted.
+Domain Name: GOOGLE.WS
+Registrar URL: http://www.markmonitor.com/whois.asp
+Updated Date: 2026-01-31T10:43:38Z
+Creation Date: 2002-03-03T18:00:26Z
+Registrar Registration Expiration Date: 2027-03-04T00:00:26Z
+Registrar: MarkMonitor Inc.
+Registrar IANA ID: 292
+Domain Status: clientTransferProhibited
+Name Server: ns1.google.com
+DNSSEC: unsigned

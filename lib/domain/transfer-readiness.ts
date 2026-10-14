@@ -27,6 +27,8 @@ export type TransferReadiness = {
   registration: DomainRegistration;
   policy: TransferPolicyVersion;
   pendingPolicyChange: TransferPolicyVersion | null;
+  /** ccTLD and infrastructure transfer rules come from their registry. */
+  policyApplies?: boolean;
   findings: TransferFinding[];
   /** What we cannot see at all, listed so the answer is not mistaken for complete. */
   cannotCheck: string[];
@@ -45,6 +47,7 @@ export function assessTransfer(registration: DomainRegistration, now = new Date(
   const findings: TransferFinding[] = [];
   const statuses = registration.statuses.map((status) => status.rdap);
   const has = (value: string) => statuses.includes(value);
+  const policyApplies = registration.query.tldType !== "country-code" && registration.query.tldType !== "infrastructure";
 
   // Registrar lock. The most common blocker and the one the reader owns.
   if (has("client transfer prohibited")) {
@@ -254,6 +257,19 @@ export function assessTransfer(registration: DomainRegistration, now = new Date(
     });
   }
 
+  if (registration.coverage?.source === "whois" && !registration.statuses.length) {
+    for (const finding of findings.filter(finding => ["client-lock", "server-lock", "pending-transfer", "lifecycle"].includes(finding.id))) {
+      finding.state = "unknown";
+      finding.detail = "This WHOIS record does not publish exact EPP statuses, so we cannot check this condition.";
+      finding.evidence = null;
+    }
+  }
+  if (!policyApplies) {
+    for (const finding of findings.filter(finding => ["registration-lock", "transfer-lock"].includes(finding.id))) {
+      finding.state = "unknown";
+      finding.detail = "This ending follows its registry's transfer rules. ICANN's transfer waiting periods do not establish whether it can move.";
+    }
+  }
   const blocked = findings.filter((finding) => finding.state === "blocked");
   const summary = blocked.length
     ? blocked.some((finding) => finding.selfServiceable)
@@ -264,6 +280,7 @@ export function assessTransfer(registration: DomainRegistration, now = new Date(
   return {
     registration,
     policy,
+    policyApplies,
     pendingPolicyChange: pendingPolicy(),
     findings,
     cannotCheck: [

@@ -1,0 +1,11 @@
+# Trimmed whois.jprs.jp response for google.jp/e, 2026-10-14. Contacts omitted.
+[Domain Name]                   GOOGLE.JP
+[Name Server]                   ns1.google.com
+[Name Server]                   ns2.google.com
+[Signing Key]
+[Created on]                    2005/05/30
+[Expires on]                    2027/05/31
+[Status]                        Active
+[Lock Status]                   DomainTransferLocked
+[Lock Status]                   AgentChangeLocked
+[Last Updated]                  2026/06/01 01:05:03 (JST)

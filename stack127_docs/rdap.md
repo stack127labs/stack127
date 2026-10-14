@@ -2,11 +2,11 @@
 
 This is the shared engine contract for every stack127 tool that reads domain, IP, or ASN registration data. Page-specific behavior lives in `content_docs/<tool-slug>/README.md`. This file owns the parts every tool depends on.
 
-Status: plan. Once `lib/domain/` exists, update this file to describe the built engine.
+Status: built. RDAP is the first choice. Reviewed port-43 WHOIS services cover some of the remaining TLDs.
 
-Every fact below was checked against a primary source on 28 July 2026. Where a value can drift, the source and check date are recorded. Re-verify them instead of trusting them.
+Protocol references were checked on 28 July 2026. Service verification dates live with each committed dataset and reviewed entry. Re-verify values that can drift.
 
-## Why RDAP and not WHOIS
+## RDAP first, WHOIS fallback
 
 ICANN ended the port 43 WHOIS requirement for gTLD registries and registrars on 28 January 2025. RDAP replaces it: structured JSON over HTTPS.
 
@@ -18,11 +18,18 @@ So WHOIS is a documented fallback, not the main path. Never quote WHOIS when RDA
 
 ## Endpoint discovery
 
-Find the endpoint in three layers, in order:
+Find the endpoint in four layers, in order:
 
-1. IANA bootstrap. `https://data.iana.org/rdap/dns.json` maps a TLD to one or more RDAP base URLs. Checked 28 July 2026: publication `2026-07-23`, 590 service entries, 1,200 distinct TLDs.
-2. Reviewed overrides. The root zone had 1,438 TLDs on 27 July 2026 (`https://data.iana.org/TLD/tlds-alpha-by-domain.txt`, version `2026072601`). So 238 have no bootstrap entry, and some of those still run RDAP. `.io` is the important one: no bootstrap entry, but `https://rdap.identitydigital.services/rdap/domain/github.io` returned 200. Overrides are a hand-reviewed file in the repo, never discovered at request time.
-3. Nothing. If neither layer knows the TLD, the answer is unknown. Don't guess a URL from the registry name. Don't fall back to a third-party aggregator to make the page look complete.
+1. IANA bootstrap. `https://data.iana.org/rdap/dns.json` maps a TLD to RDAP base URLs. The committed file records its publication and fetch dates. The root-zone list supplies the denominator.
+2. Reviewed RDAP overrides in `lib/domain/data/rdap-overrides.json`. New entries require a real domain returning HTTP 200 with a domain object and a made-up name returning 404. Record both names and the verification date. Remove overrides when IANA adds their TLD.
+3. Reviewed WHOIS services in `lib/domain/data/whois-reviewed.json`. Discovery in `whois-servers.json` comes from the root TLD's `whois:` field at `whois.iana.org`. Discovery alone never enables coverage. Each reviewed entry records a real domain, a made-up name, its observed not-found pattern, its parser family and any query quirks.
+4. Nothing. If no verified service is known, return `no_service`. Never guess an endpoint or use a third-party aggregator.
+
+`registrationServiceForTld()` resolves these layers. `rdapServiceForTld()` remains an alias for existing callers. RDAP responses and failures never trigger a WHOIS hop; fallback is only for TLDs without an RDAP service. WHOIS never follows a referral or a registrar's RDAP link.
+
+Run `npm run domain-tools:refresh-datasets` to refresh the HTTP datasets and serial WHOIS discovery, with a 700 ms pause between IANA queries. Failed discovery queries fail the command and are recorded separately. Resume with `-- --whois-only --whois-retry-failed`. An empty `whois:` line means no server; parsing must not consume the next line. IDN records use `domain-ace` or their Unicode domain name for identity checks.
+
+Run `npm run domain-tools:refresh-tld-directory` after changing coverage. Rows expose `lookupSource` and `lookupHost`; the old `rdap` field remains a coverage-source alias and can now contain `whois`. Counts distinguish `rdapCovered`, `whoisCovered`, `lookupCovered`, and `uncovered`.
 
 Don't route lookups through `rdap.org` or any other public redirector, for three reasons:
 
@@ -38,21 +45,22 @@ Refresh the bootstrap and TLD list with a script under `scripts/domain-tools/` a
 
 Bootstrap coverage and real coverage are different numbers. The gap grows each time we add an override.
 
-`.io` is one of the 238 without a bootstrap entry, and it's also checkable. Both are true. A page that says "we cannot check 238 TLDs" while it checks `.io` contradicts itself.
+`.io` has no bootstrap entry and is checkable through a reviewed override. A page must count all verified service sources before saying how many TLDs it cannot check.
 
-So exactly one function, `coverageSummary()` in `lib/domain/bootstrap.ts`, returns the covered count, the uncovered count, and the check date. It computes them from the committed bootstrap plus the committed overrides.
+So exactly one function, `coverageSummary()` in `lib/domain/bootstrap.ts`, returns `bootstrapCovered`, `overrideCovered`, `whoisCovered`, `covered`, `uncovered`, and the check date. It computes them from the root zone and the three committed service sources.
 
 Every page reads that function. No page hardcodes a number, and no page-owned doc should be quoted as the source of one.
 
-For each TLD, the engine returns one of three states. Write page copy against these states, not against a count:
+For each TLD, the engine returns one of four sources. Write page copy against these states, not against a count:
 
 | State | Meaning |
 | --- | --- |
 | `bootstrap` | Covered by the IANA file. |
 | `override` | Covered by our reviewed override, with the operator named. |
-| `none` | No known RDAP service. |
+| `whois` | Covered by a reviewed official WHOIS service. |
+| `none` | No verified registration service. |
 
-Add a test that fails if any route source contains a hardcoded coverage number.
+Lookup results add `coverage.host` and `registryFetch.protocol` (`rdap` or `whois`). WHOIS uses a `whois://` source URL and has no HTTP status. Existing result status values and registry/registrar source roles remain unchanged. Multi-TLD rows add `coverageSource`.
 
 ## Event actions
 
@@ -165,7 +173,7 @@ Map statuses explicitly:
 
 | Status | Meaning |
 | --- | --- |
-| 200 | Registered |
+| 200 with a valid RDAP object | Registered |
 | 404 | Not in this registry |
 | 429 | Rate limited |
 | 403 | Blocked |
@@ -174,6 +182,16 @@ Map statuses explicitly:
 
 Rate limited and blocked aren't availability answers. They must never render as available.
 
+### WHOIS answers
+
+Only the reviewed server's anchored not-found pattern produces `not_registered`. A domain echo alone is insufficient for `registered`; require registration fields such as nameservers, registrar or a date. NIC Chile's reviewed profile permits an omitted domain echo only when registrar and nameserver fields establish a record. Quota text, access refusal, conflicting signals, reservations, empty responses and connection failures are non-answers.
+
+The parser supports key-value, bracket and block families. It returns RDAP-shaped facts for shared normalization, labelled with the WHOIS protocol. Dates without a timezone keep calendar-day precision; ambiguous numeric dates remain null unless the server's date order was reviewed. Registry and registrar expiry stay distinct. Only exact EPP tokens map to EPP statuses. Other status text stays in `registryFetch.body.whois.rawStatuses` and does not imply a lock code.
+
+The port-43 client sends a CRLF-terminated query, has a 4-second connect timeout and 12-second total timeout, and stops responses over 1 MB. It decodes UTF-8 first and falls back to Latin-1. Raw WHOIS text is neither cached nor returned; parsed registration facts use the existing cache.
+
+Transfer readiness leaves lock checks unknown when WHOIS publishes no exact EPP statuses. For country-code and infrastructure endings, `policyApplies` is false and ICANN waiting-period checks remain unknown. Registry-specific rules still need to be checked with the registrar.
+
 ## Caching
 
 The DNS tools cache nothing on purpose and send `cache-control: no-store`. RDAP has to be different. Registry servers throttle by source IP, and the whole site leaves the OVH VPS through one address.
@@ -181,9 +199,9 @@ The DNS tools cache nothing on purpose and send `cache-control: no-store`. RDAP 
 Store responses in Postgres through `lib/db.ts`:
 
 - Key on the normalized lowercase domain, object type, and which server answered.
-- Store the raw response, the HTTP status, and the fetch time.
-- Suggested freshness: 24 hours for a registered domain, 1 hour for a not-registered answer, 5 minutes for an error.
-- Never cache 429 or 403 as a result. Cache only the fact that we were throttled, so we back off.
+- Store the RDAP response or parsed WHOIS facts, the HTTP status (null for WHOIS), and the fetch time.
+- Freshness: 24 hours for a registered domain, 1 hour for a not-registered answer. Errors are not cached.
+- Never cache throttles or blocks as results. The in-process breaker handles backoff.
 - When the answer came from cache, show the reader the fetch time.
 
 ## Global throttling
@@ -200,6 +218,10 @@ Before any tool that fans out across registries goes live, it needs:
 - Visibility, so we know a registry has cut us off before users report it.
 
 Both limiters run. The per-visitor one stops abuse. The global one stops us from becoming the abuser.
+
+The shared limiter allows 60 outbound requests per host per minute, with a 20-request share per TLD. Registrar hops use the same TLD share. Three consecutive rejections open the host breaker for 60 seconds; a valid HTTP `Retry-After` pauses the host immediately, bounded to one hour. WHOIS quota and block messages feed the same breaker. This state is for one application instance; scaling requires shared state.
+
+Before release, verify outbound TCP port 43 from the OVH application container. A successful check from a developer machine does not establish production connectivity. A failed connection returns `registry_error` or `timeout` and is never treated as availability.
 
 ## Privacy, stated accurately
 

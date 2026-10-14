@@ -6,7 +6,7 @@
  * Three sources, all public:
  *   IANA root zone database  type and sponsoring organisation (HTML, parsed)
  *   The root zone file       which endings are signed, from real DS records
- *   Our committed bootstrap  whether we can look the ending up at all
+ *   Our committed services   RDAP bootstrap, reviewed RDAP and reviewed WHOIS
  *
  * The root zone file is used rather than 1,438 individual DS queries: it is one
  * fetch and it is the same data the queries would return.
@@ -153,6 +153,8 @@ async function main() {
       assigned: info?.assigned ?? null,
       rdap: coverage.source,
       rdapOperator: coverage.operator,
+      lookupSource: coverage.source,
+      lookupHost: coverage.host,
       dnssec: signed.has(tld),
       isIdn: tld.startsWith("xn--"),
     });
@@ -166,7 +168,10 @@ async function main() {
     counts: {
       total: rows.length,
       signed: rows.filter((row) => row.dnssec).length,
-      rdapCovered: rows.filter((row) => row.rdap !== "none").length,
+      rdapCovered: rows.filter((row) => row.lookupSource === "bootstrap" || row.lookupSource === "override").length,
+      whoisCovered: rows.filter((row) => row.lookupSource === "whois").length,
+      lookupCovered: rows.filter((row) => row.lookupSource !== "none").length,
+      uncovered: rows.filter((row) => row.lookupSource === "none").length,
       unassigned: rows.filter((row) => row.assigned === false).length,
       missingType,
     },
@@ -192,7 +197,7 @@ async function main() {
 
   console.log(`\nEndings: ${payload.counts.total}`);
   console.log(`Signed with DNSSEC: ${payload.counts.signed}`);
-  console.log(`We can look up: ${payload.counts.rdapCovered}`);
+  console.log(`We can look up: ${payload.counts.lookupCovered} (${payload.counts.rdapCovered} RDAP, ${payload.counts.whoisCovered} WHOIS)`);
   console.log(`Delegated but not assigned: ${payload.counts.unassigned}`);
   if (missingType) console.log(`No type from IANA: ${missingType}`);
 }
