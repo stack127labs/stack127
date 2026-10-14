@@ -36,7 +36,7 @@ export function multiTldSummary(rows: MultiTldRow[]) {
 }
 
 export function resultDetail(row: MultiTldRow) {
-  if (row.state === "cannot_check") return `No known RDAP service for .${row.tld}`;
+  if (row.state === "cannot_check") return `No lookup service for .${row.tld}`;
   if (row.state === "check_failed") return row.detail || "The registry check failed.";
   return null;
 }
@@ -56,7 +56,7 @@ export function formatMultiTldDate(value: string) {
 }
 
 export function sourceAndFreshness(row: MultiTldRow) {
-  if (row.state === "cannot_check") return { freshness: null, source: "No RDAP service" };
+  if (row.state === "cannot_check") return { freshness: null, source: "No lookup service" };
   return {
     freshness: row.fetchedAt ? `Fetched ${formatMultiTldDate(row.fetchedAt)}${row.fromCache ? ", from cache" : ", live response"}` : null,
     source: row.sourceHost ?? "Registry source not reported",

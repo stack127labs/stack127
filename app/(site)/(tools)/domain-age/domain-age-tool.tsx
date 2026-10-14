@@ -75,7 +75,7 @@ function unavailableResult(result: DomainRegistration) {
   if (result.status === "no_service") {
     return (
       <UiPrimaryResult
-        detail={`No RDAP registration service is published for .${result.query.tld}.`}
+        detail={`stack127 has no lookup service it can use for .${result.query.tld}.`}
         label="Domain age"
         tone="warning"
         value="Unavailable"

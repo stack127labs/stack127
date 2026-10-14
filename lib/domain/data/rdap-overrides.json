@@ -1,11 +1,193 @@
 {
-  "comment": "Hand reviewed RDAP services for TLDs that run RDAP but have no IANA bootstrap entry. Every entry must be verified against a real domain before it is added, and the verification recorded here. Never guess a URL from a registry name.",
+  "comment": "Reviewed RDAP services missing from the IANA bootstrap. New entries require a real domain returning HTTP 200 with a domain object and a made-up name returning HTTP 404. Never guess an endpoint.",
   "overrides": {
+    "ac": {
+      "url": "https://rdap.identitydigital.services/rdap/",
+      "operator": "Identity Digital",
+      "verifiedWith": "nic.ac",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ac",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "af": {
+      "url": "https://rdap.nic.af/",
+      "operator": "Ministry of Communications and IT",
+      "verifiedWith": "nic.af",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.af",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "ag": {
+      "url": "https://rdap.identitydigital.services/rdap/",
+      "operator": "Identity Digital",
+      "verifiedWith": "nic.ag",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ag",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "aw": {
+      "url": "https://rdap.nic.aw/",
+      "operator": "SETAR",
+      "verifiedWith": "nic.aw",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.aw",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "bz": {
+      "url": "https://rdap.identitydigital.services/rdap/",
+      "operator": "Identity Digital",
+      "verifiedWith": "google.bz",
+      "notFoundWith": "qxvbnmtlzra.bz",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "ch": {
+      "url": "https://rdap.nic.ch/",
+      "operator": "SWITCH The Swiss Education & Research Network",
+      "verifiedWith": "google.ch",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ch",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "ci": {
+      "url": "https://rdap.nic.ci/",
+      "operator": "Autorité de Régulation des Télécommunications/TIC de Côte d’lvoire (ARTCI)",
+      "verifiedWith": "nic.ci",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ci",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "co": {
+      "url": "https://rdap.registry.co/co/",
+      "operator": "Ministry of Information and Communications Technologies (MinTIC)",
+      "verifiedWith": "google.co",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.co",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "de": {
+      "url": "https://rdap.denic.de/",
+      "operator": "DENIC eG",
+      "verifiedWith": "denic.de",
+      "verifiedAt": "2026-07-28"
+    },
+    "ga": {
+      "url": "https://rdap.nic.ga/",
+      "operator": "Agence Nationale des Infrastructures Numériques et des Fréquences (ANINF)",
+      "verifiedWith": "nic.ga",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ga",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "gi": {
+      "url": "https://rdap.identitydigital.services/rdap/",
+      "operator": "Identity Digital",
+      "verifiedWith": "nic.gi",
+      "notFoundWith": "qxvbnmtlzra.gi",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "gl": {
+      "url": "https://rdap.centralnic.com/gl/",
+      "operator": "CentralNic",
+      "verifiedWith": "nic.gl",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.gl",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
     "io": {
       "url": "https://rdap.identitydigital.services/rdap/",
       "operator": "Identity Digital",
       "verifiedWith": "github.io",
       "verifiedAt": "2026-07-28"
+    },
+    "lc": {
+      "url": "https://rdap.identitydigital.services/rdap/",
+      "operator": "Identity Digital",
+      "verifiedWith": "google.lc",
+      "notFoundWith": "qxvbnmtlzra.lc",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "li": {
+      "url": "https://rdap.nic.ch/",
+      "operator": "SWITCH The Swiss Education & Research Network",
+      "verifiedWith": "google.li",
+      "notFoundWith": "qxvbnmtlzra.li",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "me": {
+      "url": "https://rdap.identitydigital.services/rdap/",
+      "operator": "Identity Digital",
+      "verifiedWith": "about.me",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.me",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "mn": {
+      "url": "https://rdap.identitydigital.services/rdap/",
+      "operator": "Identity Digital",
+      "verifiedWith": "nic.mn",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.mn",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "my": {
+      "url": "https://rdap.centralnic.com/my/",
+      "operator": "CentralNic",
+      "verifiedWith": "nic.my",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.my",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "mz": {
+      "url": "https://rdap.nic.mz/",
+      "operator": "Centro de Informatica de Universidade Eduardo Mondlane",
+      "verifiedWith": "nic.mz",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.mz",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "pr": {
+      "url": "https://rdap.identitydigital.services/rdap/",
+      "operator": "Identity Digital",
+      "verifiedWith": "nic.pr",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.pr",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "sb": {
+      "url": "https://rdap.nic.sb/",
+      "operator": "Solomon Telekom Company Limited",
+      "verifiedWith": "nic.sb",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.sb",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "sc": {
+      "url": "https://rdap.identitydigital.services/rdap/",
+      "operator": "Identity Digital",
+      "verifiedWith": "nic.sc",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.sc",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "sh": {
+      "url": "https://rdap.identitydigital.services/rdap/",
+      "operator": "Identity Digital",
+      "verifiedWith": "nic.sh",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.sh",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
+    },
+    "so": {
+      "url": "https://rdap.nic.so/",
+      "operator": "Ministry of Post and Telecommunications",
+      "verifiedWith": "notion.so",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.so",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
     },
     "us": {
       "url": "https://rdap.nic.us/",
@@ -13,11 +195,13 @@
       "verifiedWith": "about.us",
       "verifiedAt": "2026-07-28"
     },
-    "de": {
-      "url": "https://rdap.denic.de/",
-      "operator": "DENIC eG",
-      "verifiedWith": "denic.de",
-      "verifiedAt": "2026-07-28"
+    "vc": {
+      "url": "https://rdap.identitydigital.services/rdap/",
+      "operator": "Identity Digital",
+      "verifiedWith": "nic.vc",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.vc",
+      "notFoundStatus": 404,
+      "verifiedAt": "2026-10-14"
     }
   }
 }

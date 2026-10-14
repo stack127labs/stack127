@@ -79,3 +79,22 @@ test("it always states what it cannot see", () => {
   assert.ok(result.cannotCheck.length >= 3);
   assert.ok(result.cannotCheck.some((item) => item.includes("authorization code")));
 });
+
+test("WHOIS without exact EPP statuses leaves public lock checks unknown", () => {
+  const result = assessTransfer(registrationWith({ coverage: { source: "whois" }, query: { domain: "google.gg", tldType: "country-code" } }));
+  for (const id of ["client-lock", "server-lock", "pending-transfer", "lifecycle"]) {
+    assert.equal(result.findings.find(f => f.id === id).state, "unknown");
+  }
+  assert.equal(result.policyApplies, false);
+});
+
+test("ccTLD dates do not imply an ICANN waiting-period block", () => {
+  const result = assessTransfer(registrationWith({
+    query: { domain: "new.it", tldType: "country-code" }, coverage: { source: "whois" },
+    registrationDate: "2026-10-13", transferDate: "2026-10-13",
+    statuses: [{ rdap: "client transfer prohibited" }],
+  }), new Date("2026-10-14T00:00:00Z"));
+  assert.equal(result.findings.find(f => f.id === "client-lock").state, "blocked");
+  assert.equal(result.findings.find(f => f.id === "registration-lock").state, "unknown");
+  assert.equal(result.findings.find(f => f.id === "transfer-lock").state, "unknown");
+});

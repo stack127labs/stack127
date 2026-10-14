@@ -1,0 +1,640 @@
+{
+  "comment": "Reviewed official IANA WHOIS services. Each entry was tested with the real and made-up domains recorded here. Only the observed, anchored not-found pattern decides availability; reserved, throttled, ambiguous and unreachable responses remain non-answers.",
+  "services": {
+    "ae": {
+      "server": "whois.aeda.net.ae",
+      "parser": "key-value",
+      "notFoundPattern": "^No Data Found[\\t ]*\\r?$",
+      "verifiedWith": "google.ae",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ae",
+      "verifiedAt": "2026-10-14"
+    },
+    "am": {
+      "server": "whois.amnic.net",
+      "parser": "key-value",
+      "domainFields": ["registered", "last modified"],
+      "notFoundPattern": "^No match[\\t ]*\\r?$",
+      "verifiedWith": "nic.am",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.am",
+      "verifiedAt": "2026-10-14"
+    },
+    "at": {
+      "server": "whois.nic.at",
+      "parser": "key-value",
+      "notFoundPattern": "^% nothing found[\\t ]*\\r?$",
+      "verifiedWith": "google.at",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.at",
+      "verifiedAt": "2026-10-14"
+    },
+    "ax": {
+      "server": "whois.ax",
+      "parser": "key-value",
+      "notFoundPattern": "^Domain not found[\\t ]*\\r?$",
+      "dateOrder": "dmy",
+      "verifiedWith": "nic.ax",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ax",
+      "verifiedAt": "2026-10-14"
+    },
+    "be": {
+      "server": "whois.dns.be",
+      "parser": "blocks",
+      "notFoundPattern": "^Status:[\\t ]*AVAILABLE[\\t ]*\\r?$",
+      "verifiedWith": "google.be",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.be",
+      "verifiedAt": "2026-10-14"
+    },
+    "bf": {
+      "server": "whois.registre.bf",
+      "parser": "key-value",
+      "notFoundPattern": "^Domain Status:[\\t ]*No Object Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.bf",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.bf",
+      "verifiedAt": "2026-10-14"
+    },
+    "bg": {
+      "server": "whois.register.bg",
+      "parser": "blocks",
+      "notFoundPattern": "^registration status:[\\t ]*available[\\t ]*\\r?$",
+      "verifiedWith": "google.bg",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.bg",
+      "verifiedAt": "2026-10-14"
+    },
+    "bi": {
+      "server": "whois1.nic.bi",
+      "parser": "key-value",
+      "notFoundPattern": "^Domain Status:[\\t ]*No Object Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.bi",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.bi",
+      "verifiedAt": "2026-10-14"
+    },
+    "bj": {
+      "server": "whois.nic.bj",
+      "parser": "key-value",
+      "notFoundPattern": "^Domain Status:[\\t ]*No Object Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.bj",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.bj",
+      "verifiedAt": "2026-10-14"
+    },
+    "bn": {
+      "server": "whois.bnnic.bn",
+      "parser": "blocks",
+      "notFoundPattern": "^Domain Not Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.bn",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.bn",
+      "verifiedAt": "2026-10-14"
+    },
+    "by": {
+      "server": "whois.cctld.by",
+      "parser": "key-value",
+      "notFoundPattern": "^object does not exist[\\t ]*\\r?$",
+      "verifiedWith": "nic.by",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.by",
+      "verifiedAt": "2026-10-14"
+    },
+    "cl": {
+      "server": "whois.nic.cl",
+      "parser": "key-value",
+      "notFoundPattern": "^{domain}: no entries found\\.[\\t ]*\\r?$",
+      "domainEcho": false,
+      "verifiedWith": "google.cl",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.cl",
+      "verifiedAt": "2026-10-14"
+    },
+    "cn": {
+      "server": "whois.cnnic.cn",
+      "parser": "key-value",
+      "notFoundPattern": "^No matching record\\.[\\t ]*\\r?$",
+      "verifiedWith": "baidu.cn",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.cn",
+      "verifiedAt": "2026-10-14"
+    },
+    "dk": {
+      "server": "whois.punktum.dk",
+      "parser": "key-value",
+      "notFoundPattern": "^No entries found for the selected source\\.[\\t ]*\\r?$",
+      "verifiedWith": "google.dk",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.dk",
+      "verifiedAt": "2026-10-14"
+    },
+    "dm": {
+      "server": "whois.dmdomains.dm",
+      "parser": "key-value",
+      "notFoundPattern": "^>>> Domain {domain} is available for registration[\\t ]*\\r?$",
+      "verifiedWith": "google.dm",
+      "notFoundWith": "qxvbnmtlzra.dm",
+      "verifiedAt": "2026-10-14"
+    },
+    "do": {
+      "server": "whois.nic.do",
+      "parser": "key-value",
+      "notFoundPattern": "^The queried object does not exist: No Object Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.do",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.do",
+      "verifiedAt": "2026-10-14"
+    },
+    "dz": {
+      "server": "whois.nic.dz",
+      "parser": "key-value",
+      "notFoundPattern": "^% No match for domain '{domain}'\\.[\\t ]*\\r?$",
+      "verifiedWith": "nic.dz",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.dz",
+      "verifiedAt": "2026-10-14"
+    },
+    "edu": {
+      "server": "whois.educause.edu",
+      "parser": "blocks",
+      "notFoundPattern": "^The domain name you requested was not found in our database\\.[\\t ]*\\r?$",
+      "verifiedWith": "nic.edu",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.edu",
+      "verifiedAt": "2026-10-14"
+    },
+    "ee": {
+      "server": "whois.tld.ee",
+      "parser": "blocks",
+      "notFoundPattern": "^Domain not found[\\t ]*\\r?$",
+      "verifiedWith": "google.ee",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ee",
+      "verifiedAt": "2026-10-14"
+    },
+    "eu": {
+      "server": "whois.eu",
+      "parser": "blocks",
+      "notFoundPattern": "^Status:[\\t ]*AVAILABLE[\\t ]*\\r?$",
+      "verifiedWith": "europa.eu",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.eu",
+      "verifiedAt": "2026-10-14"
+    },
+    "ge": {
+      "server": "whois.nic.ge",
+      "parser": "key-value",
+      "notFoundPattern": "^No match for \"{domain}\"\\.[\\t ]*\\r?$",
+      "verifiedWith": "nic.ge",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ge",
+      "verifiedAt": "2026-10-14"
+    },
+    "gf": {
+      "server": "whois.mediaserv.net",
+      "parser": "key-value",
+      "notFoundPattern": "^NO OBJECT FOUND!\\r?\\nobject:[\\t ]*{domain}\\r?\\ntype:[\\t ]*domain[\\t ]*\\r?$",
+      "verifiedWith": "nic.gf",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.gf",
+      "verifiedAt": "2026-10-14"
+    },
+    "gg": {
+      "server": "whois.gg",
+      "parser": "blocks",
+      "notFoundPattern": "^NOT FOUND[\\t ]*\\r?$",
+      "verifiedWith": "google.gg",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.gg",
+      "verifiedAt": "2026-10-14"
+    },
+    "gh": {
+      "server": "whois.nic.gh",
+      "parser": "key-value",
+      "notFoundPattern": "^Domain Status:[\\t ]*No Object Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.gh",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.gh",
+      "verifiedAt": "2026-10-14"
+    },
+    "gn": {
+      "server": "whois.ande.gov.gn",
+      "parser": "key-value",
+      "notFoundPattern": "^The queried object does not exist: No Object Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.gn",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.gn",
+      "verifiedAt": "2026-10-14"
+    },
+    "hk": {
+      "server": "whois.hkirc.hk",
+      "parser": "key-value",
+      "notFoundPattern": "^The domain has not been registered\\.[\\t ]*\\r?$",
+      "verifiedWith": "google.com.hk",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.hk",
+      "verifiedAt": "2026-10-14"
+    },
+    "hr": {
+      "server": "whois.dns.hr",
+      "parser": "key-value",
+      "notFoundPattern": "^%ERROR: No entries found[\\t ]*\\r?$",
+      "verifiedWith": "google.hr",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.hr",
+      "verifiedAt": "2026-10-14"
+    },
+    "ie": {
+      "server": "whois.weare.ie",
+      "parser": "key-value",
+      "notFoundPattern": "^Not found: {domain}[\\t ]*\\r?$",
+      "verifiedWith": "google.ie",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ie",
+      "verifiedAt": "2026-10-14"
+    },
+    "im": {
+      "server": "whois.nic.im",
+      "parser": "key-value",
+      "domainSections": ["domain details"],
+      "notFoundPattern": "^The domain {domain} was not found\\.[\\t ]*\\r?$",
+      "dateOrder": "dmy",
+      "verifiedWith": "google.im",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.im",
+      "verifiedAt": "2026-10-14"
+    },
+    "ir": {
+      "server": "whois.nic.ir",
+      "parser": "key-value",
+      "notFoundPattern": "^%ERROR:101: no entries found[\\t ]*\\r?$",
+      "verifiedWith": "nic.ir",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ir",
+      "verifiedAt": "2026-10-14"
+    },
+    "it": {
+      "server": "whois.nic.it",
+      "parser": "blocks",
+      "notFoundPattern": "^Status:[\\t ]*AVAILABLE[\\t ]*\\r?$",
+      "verifiedWith": "google.it",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.it",
+      "verifiedAt": "2026-10-14"
+    },
+    "je": {
+      "server": "whois.je",
+      "parser": "blocks",
+      "notFoundPattern": "^NOT FOUND[\\t ]*\\r?$",
+      "verifiedWith": "google.je",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.je",
+      "verifiedAt": "2026-10-14"
+    },
+    "jo": {
+      "server": "whois.nic.net.jo",
+      "parser": "key-value",
+      "notFoundPattern": "^No match for domain \"{domain}\"[\\t ]*\\r?$",
+      "verifiedWith": "google.jo",
+      "notFoundWith": "qxvbnmtlzra.jo",
+      "verifiedAt": "2026-10-14"
+    },
+    "jp": {
+      "server": "whois.jprs.jp",
+      "parser": "bracket",
+      "notFoundPattern": "^No match!![\\t ]*\\r?$",
+      "querySuffix": "/e",
+      "verifiedWith": "google.jp",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.jp",
+      "verifiedAt": "2026-10-14"
+    },
+    "ki": {
+      "server": "whois.nic.ki",
+      "parser": "key-value",
+      "notFoundPattern": "^The queried object does not exist: No Object Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.ki",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ki",
+      "verifiedAt": "2026-10-14"
+    },
+    "kn": {
+      "server": "whois.nic.kn",
+      "parser": "key-value",
+      "notFoundPattern": "^The queried object does not exist: No Object Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.kn",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.kn",
+      "verifiedAt": "2026-10-14"
+    },
+    "kz": {
+      "server": "whois.nic.kz",
+      "parser": "key-value",
+      "domainFields": ["last modified", "expiration date"],
+      "notFoundPattern": "^\\*\\*\\* Nothing found for this query\\.[\\t ]*\\r?$",
+      "verifiedWith": "google.kz",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.kz",
+      "verifiedAt": "2026-10-14"
+    },
+    "la": {
+      "server": "whois.nic.la",
+      "parser": "key-value",
+      "notFoundPattern": "^The queried object does not exist: DOMAIN NOT FOUND[\\t ]*\\r?$",
+      "verifiedWith": "google.la",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.la",
+      "verifiedAt": "2026-10-14"
+    },
+    "ls": {
+      "server": "whois.nic.ls",
+      "parser": "key-value",
+      "notFoundPattern": "^No record found for '{domain}'\\.[\\t ]*\\r?$",
+      "dateOrder": "dmy",
+      "verifiedWith": "nic.ls",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ls",
+      "verifiedAt": "2026-10-14",
+      "registrarField": "handle"
+    },
+    "lt": {
+      "server": "whois.domreg.lt",
+      "parser": "blocks",
+      "notFoundPattern": "^Status:[\\t ]*AVAILABLE[\\t ]*\\r?$",
+      "verifiedWith": "google.lt",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.lt",
+      "verifiedAt": "2026-10-14"
+    },
+    "lu": {
+      "server": "whois.dns.lu",
+      "parser": "key-value",
+      "notFoundPattern": "^% No such domain[\\t ]*\\r?$",
+      "verifiedWith": "google.lu",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.lu",
+      "verifiedAt": "2026-10-14"
+    },
+    "lv": {
+      "server": "whois.nic.lv",
+      "parser": "key-value",
+      "notFoundPattern": "^Status:[\\t ]*free[\\t ]*\\r?$",
+      "verifiedWith": "google.lv",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.lv",
+      "verifiedAt": "2026-10-14"
+    },
+    "ma": {
+      "server": "whois.registre.ma",
+      "parser": "key-value",
+      "notFoundPattern": "^The queried object does not exist: No Object Found[\\t ]*\\r?$",
+      "verifiedWith": "google.co.ma",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ma",
+      "verifiedAt": "2026-10-14"
+    },
+    "mc": {
+      "server": "whois.nic.mc",
+      "parser": "key-value",
+      "notFoundPattern": "^>> No data found for domain : {domain}[\\t ]*\\r?$",
+      "verifiedWith": "nic.mc",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.mc",
+      "verifiedAt": "2026-10-14"
+    },
+    "md": {
+      "server": "whois.nic.md",
+      "parser": "key-value",
+      "notFoundPattern": "^No entries found \\[ No match for \\][\\t ]*\\r?$",
+      "verifiedWith": "google.md",
+      "notFoundWith": "qxvbnmtlzra.md",
+      "verifiedAt": "2026-10-14"
+    },
+    "mk": {
+      "server": "whois.marnet.mk",
+      "parser": "key-value",
+      "notFoundPattern": "^%ERROR:101: no entries found[\\t ]*\\r?$",
+      "dateOrder": "dmy",
+      "verifiedWith": "nic.mk",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.mk",
+      "verifiedAt": "2026-10-14",
+      "registrarField": "handle"
+    },
+    "mm": {
+      "server": "whois.registry.gov.mm",
+      "parser": "key-value",
+      "notFoundPattern": "^The queried object does not exist: DOMAIN NOT FOUND[\\t ]*\\r?$",
+      "verifiedWith": "google.com.mm",
+      "notFoundWith": "qxvbnmtlzra.mm",
+      "verifiedAt": "2026-10-14"
+    },
+    "mq": {
+      "server": "whois.mediaserv.net",
+      "parser": "key-value",
+      "notFoundPattern": "^NO OBJECT FOUND!\\r?\\nobject:[\\t ]*{domain}\\r?\\ntype:[\\t ]*domain[\\t ]*\\r?$",
+      "verifiedWith": "nic.mq",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.mq",
+      "verifiedAt": "2026-10-14"
+    },
+    "mr": {
+      "server": "whois.nic.mr",
+      "parser": "key-value",
+      "notFoundPattern": "^The queried object does not exist: No Object Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.mr",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.mr",
+      "verifiedAt": "2026-10-14"
+    },
+    "mx": {
+      "server": "whois.mx",
+      "parser": "blocks",
+      "notFoundPattern": "^No_Se_Encontro_El_Objeto/Object_Not_Found[\\t ]*\\r?$",
+      "verifiedWith": "google.com.mx",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.mx",
+      "verifiedAt": "2026-10-14"
+    },
+    "nu": {
+      "server": "whois.iis.nu",
+      "parser": "key-value",
+      "notFoundPattern": "^domain \"{domain}\" not found\\.[\\t ]*\\r?$",
+      "verifiedWith": "google.nu",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.nu",
+      "verifiedAt": "2026-10-14"
+    },
+    "nz": {
+      "server": "whois.irs.net.nz",
+      "parser": "key-value",
+      "notFoundPattern": "^Not found: {domain}[\\t ]*\\r?$",
+      "verifiedWith": "google.co.nz",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.nz",
+      "verifiedAt": "2026-10-14"
+    },
+    "om": {
+      "server": "whois.registry.om",
+      "parser": "key-value",
+      "notFoundPattern": "^No Data Found[\\t ]*\\r?$",
+      "verifiedWith": "google.com.om",
+      "notFoundWith": "qxvbnmtlzra.om",
+      "verifiedAt": "2026-10-14"
+    },
+    "pe": {
+      "server": "kero.yachay.pe",
+      "parser": "key-value",
+      "notFoundPattern": "^Domain Status:[\\t ]*No Object Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.pe",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.pe",
+      "verifiedAt": "2026-10-14"
+    },
+    "pk": {
+      "server": "whois.pknic.net.pk",
+      "parser": "key-value",
+      "notFoundPattern": "^[\\t ]*Status:[\\t ]*Not Registered, and may be available if valid[\\t ]*\\r?$",
+      "verifiedWith": "google.com.pk",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.pk",
+      "verifiedAt": "2026-10-14"
+    },
+    "pt": {
+      "server": "whois.dns.pt",
+      "parser": "key-value",
+      "notFoundPattern": "^{domain} - No Match[\\t ]*\\r?$",
+      "dateOrder": "dmy",
+      "verifiedWith": "google.pt",
+      "notFoundWith": "qxvbnmtlzra.pt",
+      "verifiedAt": "2026-10-14"
+    },
+    "qa": {
+      "server": "whois.registry.qa",
+      "parser": "key-value",
+      "notFoundPattern": "^No Data Found[\\t ]*\\r?$",
+      "verifiedWith": "google.com.qa",
+      "notFoundWith": "qxvbnmtlzra.qa",
+      "verifiedAt": "2026-10-14"
+    },
+    "rs": {
+      "server": "whois.rnids.rs",
+      "parser": "key-value",
+      "notFoundPattern": "^%ERROR:103: Domain is not registered[\\t ]*\\r?$",
+      "dateOrder": "dmy",
+      "verifiedWith": "google.rs",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.rs",
+      "verifiedAt": "2026-10-14"
+    },
+    "ru": {
+      "server": "whois.tcinet.ru",
+      "parser": "key-value",
+      "notFoundPattern": "^No entries found for the selected source\\(s\\)\\.[\\t ]*\\r?$",
+      "verifiedWith": "yandex.ru",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ru",
+      "verifiedAt": "2026-10-14",
+      "registrarField": "handle"
+    },
+    "sa": {
+      "server": "whois.nic.net.sa",
+      "parser": "key-value",
+      "notFoundPattern": "^No Match for domain: {domain}[\\t ]*\\r?$",
+      "verifiedWith": "google.com.sa",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.sa",
+      "verifiedAt": "2026-10-14"
+    },
+    "se": {
+      "server": "whois.iis.se",
+      "parser": "key-value",
+      "notFoundPattern": "^domain \"{domain}\" not found\\.[\\t ]*\\r?$",
+      "verifiedWith": "google.se",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.se",
+      "verifiedAt": "2026-10-14"
+    },
+    "sk": {
+      "server": "whois.sk-nic.sk",
+      "parser": "blocks",
+      "notFoundPattern": "^Domain not found\\.[\\t ]*\\r?$",
+      "verifiedWith": "google.sk",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.sk",
+      "verifiedAt": "2026-10-14",
+      "registrarField": "handle"
+    },
+    "sm": {
+      "server": "whois.nic.sm",
+      "parser": "blocks",
+      "notFoundPattern": "^No entries found\\.[\\t ]*\\r?$",
+      "dateOrder": "dmy",
+      "verifiedWith": "nic.sm",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.sm",
+      "verifiedAt": "2026-10-14"
+    },
+    "st": {
+      "server": "whois.nic.st",
+      "parser": "key-value",
+      "notFoundPattern": "^No entries found for domain {domain}[\\t ]*\\r?$",
+      "verifiedWith": "nic.st",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.st",
+      "verifiedAt": "2026-10-14"
+    },
+    "su": {
+      "server": "whois.tcinet.ru",
+      "parser": "key-value",
+      "notFoundPattern": "^No entries found for the selected source\\(s\\)\\.[\\t ]*\\r?$",
+      "verifiedWith": "nic.su",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.su",
+      "verifiedAt": "2026-10-14",
+      "registrarField": "handle"
+    },
+    "sx": {
+      "server": "whois.sx",
+      "parser": "key-value",
+      "notFoundPattern": "^Not found: {domain}[\\t ]*\\r?$",
+      "verifiedWith": "nic.sx",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.sx",
+      "verifiedAt": "2026-10-14"
+    },
+    "tc": {
+      "server": "whois.nic.tc",
+      "parser": "key-value",
+      "notFoundPattern": "^Domain Status:[\\t ]*No Object Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.tc",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.tc",
+      "verifiedAt": "2026-10-14"
+    },
+    "td": {
+      "server": "whois.nic.td",
+      "parser": "key-value",
+      "notFoundPattern": "^The queried object does not exist: No Object Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.td",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.td",
+      "verifiedAt": "2026-10-14"
+    },
+    "tg": {
+      "server": "whois.nic.tg",
+      "parser": "key-value",
+      "notFoundPattern": "^NO OBJECT FOUND!\\r?\\nobject:[.]*{domain}\\r?\\ntype:[.]*domain[\\t ]*\\r?$",
+      "verifiedWith": "nic.tg",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.tg",
+      "verifiedAt": "2026-10-14"
+    },
+    "tl": {
+      "server": "whois.nic.tl",
+      "parser": "key-value",
+      "notFoundPattern": "^The queried object does not exist: No Object Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.tl",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.tl",
+      "verifiedAt": "2026-10-14"
+    },
+    "tm": {
+      "server": "whois.nic.tm",
+      "parser": "key-value",
+      "notFoundPattern": "^Domain {domain} is available for purchase[\\t ]*\\r?$",
+      "verifiedWith": "google.tm",
+      "notFoundWith": "qxvbnmtlzra.tm",
+      "verifiedAt": "2026-10-14"
+    },
+    "tn": {
+      "server": "whois.ati.tn",
+      "parser": "key-value",
+      "domainFields": ["dnssec"],
+      "notFoundPattern": "^NO OBJECT FOUND![\\t ]*\\r?$",
+      "verifiedWith": "google.tn",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.tn",
+      "verifiedAt": "2026-10-14"
+    },
+    "tr": {
+      "server": "whois.trabis.gov.tr",
+      "parser": "blocks",
+      "notFoundPattern": "^No match found for {domain}[\\t ]*\\r?$",
+      "verifiedWith": "google.com.tr",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.tr",
+      "verifiedAt": "2026-10-14"
+    },
+    "ug": {
+      "server": "whois.co.ug",
+      "parser": "key-value",
+      "notFoundPattern": "^[\\t ]*>>> Domain not Found[\\t ]*\\r?$",
+      "verifiedWith": "google.co.ug",
+      "notFoundWith": "qxvbnmtlzra.ug",
+      "verifiedAt": "2026-10-14"
+    },
+    "vu": {
+      "server": "whois.dnrs.vu",
+      "parser": "key-value",
+      "notFoundPattern": "^No Data Found[\\t ]*\\r?$",
+      "verifiedWith": "nic.vu",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.vu",
+      "verifiedAt": "2026-10-14"
+    },
+    "ws": {
+      "server": "whois.website.ws",
+      "parser": "key-value",
+      "notFoundPattern": "^The queried object does not exist: {domain}\\.[\\t ]*\\r?$",
+      "verifiedWith": "google.ws",
+      "notFoundWith": "stack127-check-a7f8c9e2d4b6.ws",
+      "verifiedAt": "2026-10-14"
+    },
+    "xn--p1ai": {
+      "server": "whois.tcinet.ru",
+      "parser": "key-value",
+      "notFoundPattern": "^No entries found for the selected source\\(s\\)\\.[\\t ]*\\r?$",
+      "verifiedWith": "xn--d1acpjx3f.xn--p1ai",
+      "notFoundWith": "qxvbnmtlzra.xn--p1ai",
+      "verifiedAt": "2026-10-14",
+      "registrarField": "handle"
+    }
+  }
+}

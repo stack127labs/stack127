@@ -1,3 +1,5 @@
+import type { CoverageSource } from "./bootstrap.ts";
+
 /**
  * Constants and types the multi-TLD page needs on both sides.
  *
@@ -22,6 +24,7 @@ export type MultiTldRow = {
   registrar: string | null;
   expiryDate: string | null;
   sourceHost: string | null;
+  coverageSource?: CoverageSource;
   fetchedAt: string | null;
   fromCache: boolean;
 };

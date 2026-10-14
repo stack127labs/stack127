@@ -17,7 +17,7 @@ export function transferConclusion(result: TransferReadiness) {
   const { registration } = result;
   const domain = registration.query.unicode ?? registration.query.domain;
   if (registration.status === "not_registered") return `${domain} has no registry record, so there is no registered domain to transfer.`;
-  if (registration.status === "no_service") return `No RDAP service is available for .${registration.query.tld}, so public transfer readiness cannot be checked.`;
+  if (registration.status === "no_service") return `stack127 has no lookup service it can use for .${registration.query.tld}, so public transfer readiness cannot be checked.`;
   if (registration.status !== "registered") return `Public transfer readiness could not be checked for ${domain}.`;
   if (!transferPolicyApplies(result)) return `ICANN's gTLD Transfer Policy does not govern .${registration.query.tld}. Check the transfer rules for this country-code ending.`;
 

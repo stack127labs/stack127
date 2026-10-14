@@ -1,0 +1,13 @@
+# Trimmed whois.eu response for europa.eu, 2026-10-14. Contact sections omitted.
+Domain: europa.eu
+Script: LATIN
+
+Registrar:
+        Name: ClearMedia NV
+        Website: https://www.clearmedia.be
+
+Name servers:
+        ans1.cw.net
+        ns1bru.europa.eu (147.67.250.2)
+        ns1lux.europa.eu (147.67.12.2)
+        ns4az1.europa.eu (2a05:d018:c5f:3701:cc8a:9177:b28:c034)

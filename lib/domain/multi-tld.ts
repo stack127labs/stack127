@@ -37,7 +37,7 @@ function rowFor(tld: string, domain: string, status: RdapFetchStatus, extra: Par
     return { ...base, state: "registered", detail: "Already registered." };
   }
   if (status === "no_service") {
-    return { ...base, state: "cannot_check", detail: `We do not know of an RDAP service for .${tld}.` };
+    return { ...base, state: "cannot_check", detail: `We do not know of a verified registration service for .${tld}.` };
   }
   if (status === "rate_limited") {
     return { ...base, state: "check_failed", detail: "We are being rate limited by this registry right now." };
@@ -84,7 +84,7 @@ export async function checkMultipleTlds(rawName: string, requestedTlds: string[]
       const domain = `${name.ascii}.${tld}`;
       const coverage = rdapServiceForTld(tld);
       if (coverage.source === "none") {
-        rows[index] = rowFor(tld, domain, "no_service", {});
+        rows[index] = rowFor(tld, domain, "no_service", { coverageSource: "none" });
         continue;
       }
       const { fetch: result } = await fetchRegistry(domain, tld, { signal });
@@ -113,7 +113,8 @@ export async function checkMultipleTlds(rawName: string, requestedTlds: string[]
       rows[index] = rowFor(tld, domain, result.status, {
         registrar,
         expiryDate,
-        sourceHost: coverage.url ? new URL(coverage.url).host : null,
+        sourceHost: coverage.host,
+        coverageSource: coverage.source,
         fetchedAt: result.fetchedAt,
         fromCache: result.fromCache,
       });

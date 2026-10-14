@@ -17,11 +17,11 @@ export async function lookupDomain(rawInput: string, options: LookupOptions = {}
   const { coverage, fetch: registry } = await fetchRegistry(query.domain, query.tld, options);
 
   let registrar = null;
-  if (options.includeRegistrar !== false && registry.status === "registered") {
+  if (options.includeRegistrar !== false && registry.status === "registered" && coverage.source !== "whois") {
     const registrarUrl = registrarUrlFrom(registry.body);
     // The hop is optional. A failure degrades the page quietly and never fails
     // the lookup, so it is deliberately not awaited inside a try that rethrows.
-    if (registrarUrl) registrar = await fetchRegistrar(registrarUrl, options);
+    if (registrarUrl) registrar = await fetchRegistrar(registrarUrl, options, query.tld);
   }
 
   return buildRegistration({
@@ -40,6 +40,7 @@ export async function lookupDomain(rawInput: string, options: LookupOptions = {}
       source: coverage.source,
       operator: coverage.operator,
       url: coverage.url,
+      host: coverage.host,
       unknownTld: coverage.unknownTld,
     },
     registry,

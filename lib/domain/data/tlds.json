@@ -1,7 +1,7 @@
 {
   "source": "https://data.iana.org/TLD/tlds-alpha-by-domain.txt",
-  "fetchedAt": "2026-07-28",
-  "version": "2026072702",
+  "fetchedAt": "2026-10-14",
+  "version": "2026101300",
   "tlds": [
     "aaa",
     "aarp",
@@ -623,7 +623,6 @@
     "jpmorgan",
     "jprs",
     "juegos",
-    "juniper",
     "kaufen",
     "kddi",
     "ke",

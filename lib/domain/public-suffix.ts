@@ -123,6 +123,16 @@ export class DomainInputError extends Error {
 
 const IPV4 = /^\d{1,3}(\.\d{1,3}){3}$/;
 
+/** Validate the final ASCII query before it can reach an RDAP or WHOIS server. */
+export function assertValidDomainLabels(domain: string): void {
+  const labels = domain.split(".");
+  if (domain.length > 253 || labels.length < 2 ||
+    labels.some(label => !/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/i.test(label)) ||
+    (labels.some(label => /^xn--/i.test(label)) && convertName(domain, mapLabel).problems.length > 0)) {
+    throw new DomainInputError("invalid_name", "Domain labels must use letters, numbers, or hyphens, and cannot start or end with a hyphen.");
+  }
+}
+
 /**
  * Turn whatever the reader typed into the exact name we query.
  *
@@ -176,6 +186,7 @@ export function normalizeDomainInput(raw: string): NormalizedInput {
   }
 
   const reducedName = found.registrableDomain;
+  assertValidDomainLabels(reducedName);
   const tld = reducedName.slice(reducedName.lastIndexOf(".") + 1);
 
   return {

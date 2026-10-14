@@ -7,20 +7,27 @@
  * Sources, all public and stable:
  *   IANA RDAP bootstrap (dns, ipv4, ipv6, asn)  endpoint discovery
  *   IANA root zone TLD list                     coverage denominator
+ *   IANA port-43 WHOIS                          discovery for RDAP gaps (serial)
  *   Public Suffix List                          registrable-domain reduction
  *   Unicode IdnaMappingTable + Scripts          IDN conversion and script checks
  *
  * Run: npm run domain-tools:refresh-datasets
  * Pass --check to fail when a committed file is out of date instead of writing.
+ * --whois-only refreshes discovery; --whois-retry-failed resumes interrupted
+ * discovery; --skip-whois refreshes HTTP datasets without a port-43 scan.
  */
 
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { readWhois } from "../../lib/domain/whois-transport.ts";
+import { parseIanaDomain, parseIanaWhoisServer } from "./iana-whois.mjs";
 
 const root = process.cwd();
 const dataDir = path.join(root, "lib/domain/data");
 const checkOnly = process.argv.includes("--check");
 const fetchedAt = new Date().toISOString().slice(0, 10);
+const whoisOnly = process.argv.includes("--whois-only");
+const skipWhois = process.argv.includes("--skip-whois");
 
 const UNICODE_VERSION = "16.0.0";
 
@@ -61,7 +68,7 @@ async function emit(name, value) {
 
   // The fetch date changes on every run and would make --check permanently dirty,
   // so compare everything except that field.
-  const strip = (text) => text.replace(/"fetchedAt": "[^"]*",?\n/, "");
+  const strip = (text) => JSON.stringify({ ...JSON.parse(text), fetchedAt: undefined });
   if (current !== null && strip(current) === strip(next)) {
     console.log(`  unchanged  ${name}`);
     return false;
@@ -191,6 +198,13 @@ function parseScripts(raw) {
 async function main() {
   console.log(checkOnly ? "Checking committed datasets" : "Refreshing committed datasets");
 
+  if (whoisOnly) {
+    const bootstrap = JSON.parse(await readFile(path.join(dataDir, "rdap-bootstrap.json"), "utf8"));
+    const tldList = JSON.parse(await readFile(path.join(dataDir, "tlds.json"), "utf8"));
+    if (await refreshWhois(bootstrap, tldList)) process.exitCode = 1;
+    return;
+  }
+
   const [dns, ipv4, ipv6, asn, tlds, psl, idna, scripts] = await Promise.all([
     get(SOURCES.rdapDns), get(SOURCES.rdapIpv4), get(SOURCES.rdapIpv6), get(SOURCES.rdapAsn),
     get(SOURCES.tlds), get(SOURCES.psl), get(SOURCES.idnaMapping), get(SOURCES.scripts),
@@ -227,6 +241,14 @@ async function main() {
     ranges: parseScripts(scripts),
   }) || stale;
 
+  // An IANA entry always wins. Retire reviewed URLs when the bootstrap catches up.
+  const overrideData = JSON.parse(await readFile(path.join(dataDir, "rdap-overrides.json"), "utf8"));
+  for (const tld of Object.keys(overrideData.overrides)) {
+    if (bootstrap.services[tld]) delete overrideData.overrides[tld];
+  }
+  stale = await emit("rdap-overrides.json", overrideData) || stale;
+  if (!skipWhois) stale = await refreshWhois(bootstrap, tldList) || stale;
+
   const covered = tldList.tlds.filter((tld) => bootstrap.services[tld]).length;
   console.log(`\nRoot zone TLDs: ${tldList.tlds.length}`);
   console.log(`With an IANA bootstrap RDAP entry: ${covered}`);
@@ -236,6 +258,45 @@ async function main() {
     console.error("\nCommitted datasets are out of date. Run without --check to update.");
     process.exit(1);
   }
+}
+
+/** Discovery is not permission to query a registry; whois-reviewed.json owns that. */
+async function refreshWhois(bootstrap, tldList) {
+  const { overrides } = JSON.parse(await readFile(path.join(dataDir, "rdap-overrides.json"), "utf8"));
+  const gaps = tldList.tlds.filter(tld => !bootstrap.services[tld] && !overrides[tld]);
+  const reviewed = JSON.parse(await readFile(path.join(dataDir, "whois-reviewed.json"), "utf8"));
+  // Retire fallback profiles when RDAP takes over; discovery never creates one.
+  for (const tld of Object.keys(reviewed.services)) {
+    if (!gaps.includes(tld)) delete reviewed.services[tld];
+  }
+  const reviewedStale = await emit("whois-reviewed.json", reviewed);
+  let services = {};
+  if (process.argv.includes("--whois-retry-failed")) {
+    const prior = JSON.parse(await readFile(path.join(dataDir, "whois-servers.json"), "utf8"));
+    services = Object.fromEntries(Object.entries(prior.services).filter(([tld]) => gaps.includes(tld)));
+  }
+  const failedTlds = [];
+  for (const [index, tld] of gaps.entries()) {
+    if (Object.hasOwn(services, tld)) continue;
+    try {
+      const raw = await readWhois("whois.iana.org", tld, { timeoutMs: 8_000 });
+      // An empty, throttled or unrelated answer is not an empty whois field.
+      const returnedTld = parseIanaDomain(raw);
+      if (returnedTld !== tld) throw new Error("iana_non_answer");
+      services[tld] = parseIanaWhoisServer(raw);
+    } catch {
+      failedTlds.push(tld);
+    }
+    if ((index + 1) % 20 === 0) console.log(`  IANA WHOIS ${index + 1}/${gaps.length}`);
+    // Parallel IANA queries are throttled hard. Keep this serial, including failures.
+    await new Promise(resolve => setTimeout(resolve, 700));
+  }
+  const stale = await emit("whois-servers.json", { source: "whois.iana.org:43", fetchedAt,
+    comment: "IANA discovery only. A server is enabled only by whois-reviewed.json.",
+    services: Object.fromEntries(Object.entries(services).sort(([a], [b]) => a.localeCompare(b))), failedTlds });
+  console.log(`IANA WHOIS servers: ${Object.values(services).filter(Boolean).length}; failed queries: ${failedTlds.length}`);
+  if (failedTlds.length) throw new Error(`IANA WHOIS discovery incomplete: ${failedTlds.join(", ")}. Retry before committing.`);
+  return stale || reviewedStale;
 }
 
 main().catch((error) => {

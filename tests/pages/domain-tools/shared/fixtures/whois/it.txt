@@ -1,0 +1,17 @@
+# Trimmed whois.nic.it response for google.it, 2026-10-14. Contact sections omitted.
+Domain:             google.it
+Status:             ok
+Signed:             no
+Created:            1999-12-10 00:00:00
+Last Update:        2026-06-09 23:13:34
+Expire Date:        2027-04-21
+
+Registrar
+  Organization:     MarkMonitor International Limited
+  Name:             MARKMONITOR-REG
+  Web:              https://www.markmonitor.com/
+  DNSSEC:           no
+
+Nameservers
+  ns1.google.com
+  ns2.google.com

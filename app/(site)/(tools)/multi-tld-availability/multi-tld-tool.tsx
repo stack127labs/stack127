@@ -14,9 +14,8 @@ import {
 } from "./multi-tld-view";
 import styles from "./multi-tld-tool.module.css";
 
-const OPTIONAL_TLDS = ["co", "me", "us", "de", "uk", "site", "online", "tech"];
+const OPTIONAL_TLDS = ["co", "me", "so", "sh", "gg", "to", "eu", "us", "de", "uk", "site", "online", "tech"];
 const ALL_TLDS = [...DEFAULT_TLDS, ...OPTIONAL_TLDS];
-const NO_RDAP_SERVICE = new Set(["co", "me"]);
 
 class MultiTldRequestError extends Error {
   constructor(message: string, readonly fieldError = false) {
@@ -290,7 +289,7 @@ export function MultiTldTool() {
                   key={tld}
                   onChange={() => toggle(tld)}
                 >
-                  <span className={styles.choiceLabel}>.{tld}{NO_RDAP_SERVICE.has(tld) ? <small>No RDAP service</small> : null}</span>
+                  <span className={styles.choiceLabel}>.{tld}</span>
                 </UiCheckbox>
               );
             })}

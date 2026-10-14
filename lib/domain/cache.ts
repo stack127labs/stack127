@@ -1,5 +1,5 @@
 /**
- * Read through cache for RDAP responses.
+ * Read through cache for RDAP responses and parsed WHOIS registration facts.
  *
  * The DNS tools cache nothing. RDAP has to, because registries throttle by source
  * IP and the whole site leaves through one address.
@@ -69,6 +69,7 @@ export async function readCachedRdap(url: string, source: RdapFetch["source"]): 
       httpStatus: row.http_status,
       url,
       source,
+      protocol: url.startsWith("whois://") ? "whois" : "rdap",
       body: row.body,
       error: null,
       fetchedAt: new Date(row.fetched_at).toISOString(),

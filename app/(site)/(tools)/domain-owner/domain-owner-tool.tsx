@@ -184,7 +184,7 @@ function OwnerResult({ result }: { result: DomainRegistration }) {
       <SourceMap result={result} />
       {registrarFailure ? <UiStatus tone="warning">{result.registrarFetch ? "The registrar response failed." : "The registry did not advertise a registrar response."} Retry the lookup before treating missing contact data as unpublished.</UiStatus> : null}
       {registered ? <><ContactRoutes result={result} verdict={verdict} /><PublishedFields result={result} /><Redactions result={result} /><p className={styles.broader}><Link href={`/domain-lookup?name=${encodeURIComponent(result.query.unicode)}`}>See the full registration record</Link> for dates, status, nameservers, and DNSSEC.</p></> : null}
-      {result.status === "no_service" ? <p className={styles.recovery}>See RDAP coverage in the <Link href="/tld-directory">TLD directory</Link>.</p> : null}
+      {result.status === "no_service" ? <p className={styles.recovery}>See which endings we can check in the <Link href="/tld-directory">TLD directory</Link>.</p> : null}
       <Freshness result={result} />
       {notes.length ? <UiDisclosure label="Lookup notes"><ul className={styles.notes}>{notes.map((note) => <li key={note}>{note}</li>)}</ul></UiDisclosure> : null}
       <div className={styles.download}><UiDownloadAction contents={report} filename={`${result.query.domain}-registrant.json`} label="Download report" mimeType="application/json;charset=utf-8" /></div>

@@ -2,9 +2,11 @@
 
 RDAP is the newer way to read public domain registration data, and it replaced WHOIS for generic endings such as `.com` and `.org`. Both read the same registry records. RDAP returns labeled fields and standard event dates, and can declare which data is withheld. WHOIS returns free text that differs by provider.
 
-Since 28 January 2025, ICANN no longer requires generic registries and registrars to run WHOIS, except for `.com`, `.name`, and `.post`. [ICANN's RDAP page](https://www.icann.org/rdap) explains the change. This lookup uses RDAP only.
+Since 28 January 2025, ICANN no longer requires generic registries and registrars to run WHOIS, except for `.com`, `.name`, and `.post`. [ICANN's RDAP page](https://www.icann.org/rdap) explains the change. This lookup uses RDAP whenever the registry offers it.
 
-Country endings such as `.uk` or `.de` set their own rules. Some publish RDAP and some don't. When an ending has none, the result shows `Cannot determine`, which says nothing about whether the name is registered. Use the registry's own lookup, which the ending's page in [IANA's root zone database](https://www.iana.org/domains/root/db) links to. The [TLD directory](/tld-directory) shows which endings have RDAP.
+Country endings such as `.uk` or `.it` set their own rules. Many publish RDAP, and some offer only WHOIS. For those, the lookup asks the registry's WHOIS server and reads the text into the same fields: dates, registrar, statuses, and nameservers. A field the text doesn't clearly state stays unknown, and the source line names the server, such as `whois.nic.it`.
+
+A few endings offer neither, or their WHOIS server didn't pass our tests. For those, the result shows `Cannot determine`, which says nothing about whether the name is registered. Use the registry's own lookup, which the ending's page in [IANA's root zone database](https://www.iana.org/domains/root/db) links to. The [TLD directory](/tld-directory) shows how each ending is checked.
 
 A WHOIS site can show different details because it reads WHOIS text or an older saved copy. Owner details are a separate question, covered in the [registrant lookup](/domain-owner).
 

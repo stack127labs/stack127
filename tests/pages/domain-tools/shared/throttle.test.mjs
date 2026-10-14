@@ -86,3 +86,40 @@ test("endpoints are keyed by host, not full URL", () => {
   acquireEndpointSlot("https://rdap.example-a.test/domain/two", now);
   assert.equal(endpointStateForTests(A).used, 2, "both paths share the registry's budget");
 });
+
+test("a busy TLD leaves host capacity for other TLDs", () => {
+  const now = 1_000_000;
+  for (let i = 0; i < THROTTLE_SETTINGS.MAX_PER_TLD_WINDOW; i += 1) assert.equal(acquireEndpointSlot(A, now, "me").allowed, true);
+  assert.equal(acquireEndpointSlot(A, now, "me").reason, "tld_budget_exhausted");
+  assert.equal(acquireEndpointSlot(A, now, "sh").allowed, true);
+  assert.equal(acquireEndpointSlot(A, now, "ai").allowed, true);
+  assert.equal(acquireEndpointSlot(A, now + THROTTLE_SETTINGS.WINDOW_MS, "me").allowed, true);
+});
+
+test("TLD shares still respect the single-IP host ceiling", () => {
+  const now = 1_000_000;
+  for (let i = 0; i < THROTTLE_SETTINGS.MAX_PER_WINDOW; i += 1) assert.equal(acquireEndpointSlot(A, now, `tld${i}`).allowed, true);
+  assert.equal(acquireEndpointSlot(A, now, "another").reason, "budget_exhausted");
+});
+
+test("the rejection breaker is shared across extensions and RDAP/WHOIS on the host", () => {
+  const now = 1_000_000;
+  for (let i = 0; i < THROTTLE_SETTINGS.BREAKER_THRESHOLD; i += 1) reportEndpointResult(A, 429, now);
+  assert.equal(acquireEndpointSlot(A, now, "sh").reason, "circuit_open");
+  assert.equal(acquireEndpointSlot("whois://rdap.example-a.test/one", now, "me").reason, "circuit_open");
+});
+
+test("Retry-After delta seconds and HTTP dates pause the whole host immediately", () => {
+  const now = 1_000_000;
+  reportEndpointResult(A, 429, now, "120");
+  assert.equal(acquireEndpointSlot(A, now, "me").retryAfterSeconds, 120);
+  assert.equal(acquireEndpointSlot(A, now + 120_001, "me").allowed, true);
+  reportEndpointResult(B, 429, now, new Date(now + 90_000).toUTCString());
+  assert.equal(acquireEndpointSlot(B, now).retryAfterSeconds, 90);
+});
+
+test("invalid Retry-After falls back to the short rejection cooldown", () => {
+  const now = 1_000_000;
+  for (let i = 0; i < THROTTLE_SETTINGS.BREAKER_THRESHOLD; i += 1) reportEndpointResult(A, 403, now, "invalid");
+  assert.equal(acquireEndpointSlot(A, now).retryAfterSeconds, THROTTLE_SETTINGS.BREAKER_COOLDOWN_MS / 1000);
+});

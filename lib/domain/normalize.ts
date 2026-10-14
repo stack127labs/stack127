@@ -171,6 +171,9 @@ export function buildRegistration(input: BuildInput): DomainRegistration {
   if (query.guessedSuffix) {
     notes.push("This ending is not in our copy of the public suffix list, so the registrable part is a best guess.");
   }
+  if (coverage.source === "whois") {
+    notes.push("This answer came from the registry's WHOIS service. Fields it did not clearly publish are unknown.");
+  }
 
   return {
     query,

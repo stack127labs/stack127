@@ -17,6 +17,9 @@ export type RdapFetch = {
   httpStatus: number | null;
   url: string | null;
   source: RdapSource;
+  /** Transport; source continues to identify the registry/registrar role. */
+  protocol?: "rdap" | "whois";
+  retryAfterSeconds?: number;
   body: unknown;
   error: string | null;
   /** When this response was retrieved. Differs from the registry's own publish time. */
@@ -105,6 +108,7 @@ export type DomainRegistration = {
     source: CoverageSource;
     operator: string | null;
     url: string | null;
+    host?: string | null;
     unknownTld: boolean;
   };
   /** registered, not_registered, or one of the failure states. Never guess. */

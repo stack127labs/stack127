@@ -1,0 +1,13 @@
+# Trimmed whois.iis.se response for google.se, 2026-10-14. Contacts omitted.
+state:            active
+domain:           google.se
+created:          2003-08-27
+modified:         2026-09-18
+expires:          2027-10-20
+nserver:          ns1.google.com
+nserver:          ns2.google.com
+dnssec:           unsigned delegation
+status:           serverUpdateProhibited
+status:           serverDeleteProhibited
+status:           serverTransferProhibited
+registrar:        MarkMonitor Inc

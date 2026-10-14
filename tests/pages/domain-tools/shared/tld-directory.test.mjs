@@ -34,7 +34,12 @@ test("bidi control characters are stripped from displayed names", () => {
 });
 
 test("coverage agrees with the bootstrap", () => {
-  assert.equal(directory.counts.rdapCovered, coverageSummary().covered);
+  const summary = coverageSummary();
+  assert.equal(directory.counts.rdapCovered, summary.bootstrapCovered + summary.overrideCovered);
+  assert.equal(directory.counts.whoisCovered, summary.whoisCovered);
+  assert.equal(directory.counts.lookupCovered, summary.covered);
+  assert.equal(directory.counts.uncovered, summary.uncovered);
+  assert.equal(directory.rows.filter(row => row.lookupSource === "whois").length, summary.whoisCovered);
   const io = directory.rows.find((row) => row.tld === "io");
   assert.equal(io?.rdap, "override");
   assert.equal(io?.rdapOperator, "Identity Digital");
