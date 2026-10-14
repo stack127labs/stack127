@@ -88,7 +88,7 @@ export async function setupWorktree() {
   await run(root, "npm", ["ci", "--include=dev", "--no-audit", "--no-fund"]);
   console.log("Generating this checkout's Next.js types...");
   await run(root, process.execPath, ["node_modules/next/dist/bin/next", "typegen"]);
-  for (const name of [".agents/skills", ".claude/skills", ".codex/hooks.json", ".claude/settings.json"]) {
+  for (const name of [".agents/skills", ".claude/skills"]) {
     await access(path.join(root, name));
   }
   console.log("Worktree ready. Use Dev and run or Build and run for a preview.");
