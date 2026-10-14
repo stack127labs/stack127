@@ -194,19 +194,28 @@ function failureFrom(text: string, notFoundPattern: RegExp): RdapFetchStatus | n
   return failure;
 }
 
-// Whole values made only of privacy words are placeholders. Organization words
-// such as Trust, Design, Ltd and International deliberately remain outside this set.
+// A privacy marker is required: filler words alone can be real names (Law, Na).
+// Private and masked retain the previously reviewed standalone privacy labels.
+const PRIVACY_MARKERS = new Set([
+  "redacted", "hidden", "protected", "protection", "privacy", "gdpr", "undisclosed", "disclosed", "withheld",
+  "confidential", "private", "masked",
+]);
+// Organization words such as Trust, Design, Ltd and International stay outside.
 const PRIVACY_TOKENS = new Set([
   "protected", "protection", "privacy", "private", "gdpr", "redacted", "hidden", "undisclosed", "not", "disclosed",
-  "withheld", "data", "for", "by", "purposes", "purpose", "reason", "reasons", "per", "policy", "request",
-  "na", "none", "null", "masked", "non", "public", "shown", "published", "available", "unavailable",
+  "withheld", "confidential", "data", "for", "by", "purposes", "purpose", "reason", "reasons", "per", "policy", "request",
+  "registry", "registrar", "none", "null", "masked", "non", "public", "shown", "published", "available", "unavailable",
   "due", "to", "under", "the", "law", "laws", "regulation", "regulations",
 ]);
+// Reviewed absence values are separate from privacy labels. N/A is normalized
+// to unavailable; the real name Na never takes that path without the slash.
+const NO_VALUE_TEXT = new Set(["none", "null", "unavailable", "not shown", "not published", "not available", "non public data"]);
 function publishedContactValue(value: string | null): string | null {
   if (!value) return null;
-  const normalized = value.normalize("NFKC").toLowerCase().replace(/\bn\s*\/\s*a\b/g, "na");
+  const normalized = value.normalize("NFKC").toLowerCase().replace(/\bn\s*\/\s*a\b/g, "unavailable");
   const tokens = normalized.match(/[\p{L}\p{N}]+/gu) ?? [];
-  if (!tokens.length || tokens.every(token => PRIVACY_TOKENS.has(token))) return null;
+  if (!tokens.length || NO_VALUE_TEXT.has(tokens.join(" "))) return null;
+  if (tokens.some(token => PRIVACY_MARKERS.has(token)) && tokens.every(token => PRIVACY_TOKENS.has(token))) return null;
   // Preserve the reviewed suppression of registry instructions containing a URL;
   // these explanatory sentences are not identities or privacy-only word values.
   if (/^(?:not disclosed|not shown|data protected|redacted)(?:[!.,]|\s*-\s*|\s+)[\t ]*(?:please|visit)\b/i.test(value)) return null;

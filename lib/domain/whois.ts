@@ -10,8 +10,8 @@ import { whoisQueryFor } from "./whois-query.ts";
 export async function fetchWhois(domain: string, tld: string, service: WhoisService, options: FetchOptions = {}): Promise<RdapFetch> {
   // Changing the parser or query format invalidates previously interpreted text.
   const query = whoisQueryFor(domain, service);
-  // Older versions may have mistaken scoped domain statuses for availability.
-  const url = `whois://${service.server}/${encodeURIComponent(domain)}?query=${encodeURIComponent(query)}&parser=4&review=${service.verifiedAt}`;
+  // Older versions may have mistaken contact data or privacy labels for facts.
+  const url = `whois://${service.server}/${encodeURIComponent(domain)}?query=${encodeURIComponent(query)}&parser=5&review=${service.verifiedAt}`;
   const base = { httpStatus: null, url, source: "registry" as const, protocol: "whois" as const,
     fetchedAt: new Date().toISOString(), fromCache: false };
   if (!options.bypassCache) {

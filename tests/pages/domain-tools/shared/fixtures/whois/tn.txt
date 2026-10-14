@@ -1,0 +1,16 @@
+# Trimmed whois.ati.tn response for google.tn, 2026-10-14. Contacts omitted.
+Domain name.........: google.tn
+Details:
+Creation date.......: 05-12-2018 11:02:02 GMT+1
+Domain status.......: Active
+Registrar...........: ELB
+
+Owner Contact
+
+Administrativ contact
+
+Technical contact
+
+dnssec..............: unsigned
+
+DNS servers

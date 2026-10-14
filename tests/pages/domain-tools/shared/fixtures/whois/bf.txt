@@ -1,0 +1,13 @@
+# Trimmed whois.registre.bf response for nic.bf, 2026-10-14. Contact values redacted by the registry.
+Domain Name: nic.bf
+Creation Date: 2021-01-01T00:00:00.0Z
+Registry Expiry Date: 2022-12-31T00:00:00.0Z
+Domain Status: ok https://icann.org/epp#ok
+Registrant Name: Redacted | Registry Policy
+Registrant Organization: MIGRATION-ORG
+Registrant Phone: Redacted | Registry Policy
+Registrant Email: Redacted | Registry Policy
+Name Server: ns1.nic.bf
+Name Server: ns1.arcep.bf
+Name Server: ns2.arcep.bf
+DNSSEC: unsigned

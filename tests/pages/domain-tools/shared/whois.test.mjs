@@ -362,7 +362,10 @@ test("every captured standalone contact heading excludes generic contact dates a
   for (const [tld, headings] of Object.entries(capturedContactHeadings)) {
     for (const heading of headings) {
       const domain = `example.${tld}`;
-      const contact = `${heading}\n\nStatus: ok\nCreated: 2020-01-02\nUpdated: 2021-01-02\nStatus: clientTransferProhibited\nDNSSEC: yes\n`;
+      // TN explicitly publishes DNSSEC as a domain footer field; its exception
+      // is tested with the captured footer below, rather than contact data here.
+      const dnssec = tld === "tn" ? "" : "DNSSEC: yes\n";
+      const contact = `${heading}\n\nStatus: ok\nCreated: 2020-01-02\nUpdated: 2021-01-02\nStatus: clientTransferProhibited\n${dnssec}`;
       const bare = parseWhoisResponse(`Domain: ${domain}\n${contact}`, domain, reviewed.services[tld]);
       assert.equal(bare.status, "registry_error", `${tld} ${heading}`);
       const text = `Domain: ${domain}\nName Server: ns1.example.net\n${contact}`;
@@ -378,7 +381,7 @@ test("every captured standalone contact heading excludes generic contact dates a
   }
 });
 
-test("privacy-only tokens suppress punctuation and qualifier variants while keeping organization words", () => {
+test("privacy markers suppress punctuation and qualifier variants while keeping organization words", () => {
   for (const placeholder of [
     "protected for privacy purposes", "protected (GDPR)", "undisclosed for privacy protection",
     "[Protected] (GDPR)", "PROTECTED—GDPR", "private, per policy request", "redacted: data protection; purpose",
@@ -395,4 +398,46 @@ test("privacy-only tokens suppress punctuation and qualifier variants while keep
   }
   const notice = normalized("be", "example.be", "Domain: example.be\nRegistered: 2000-01-01\nRegistrant:\n  Not shown, please visit www.dnsbelgium.be for webbased whois.\n");
   assert.deepEqual(notice.entities.filter(entity => entity.roles.includes("registrant")), []);
+});
+
+test("Burkina Faso registry-policy redactions never become published registrant fields", async () => {
+  const result = normalized("bf", "nic.bf", await fixture("bf"));
+  assert.equal(result.status, "registered");
+  assert.equal(result.registrationDate, "2021-01-01T00:00:00.000Z");
+  assert.equal(result.nameservers.length, 3);
+  const registrant = result.entities.find(entity => entity.roles.includes("registrant"));
+  assert.equal(registrant.name, null);
+  assert.equal(registrant.phone, null);
+  assert.equal(registrant.email, null);
+  assert.equal(registrant.organization, "MIGRATION-ORG", "the separately published organization field is kept");
+});
+
+test("privacy token values require a marker, while absent values remain absent", () => {
+  for (const placeholder of [
+    "Redacted | Registry Policy", "REDACTED FOR PRIVACY", "Data Protected", "Confidential | Registrar Policy",
+    "redacted (registry) / per policy request", "protected for privacy purposes", "protected (GDPR)", "undisclosed for privacy protection",
+    "n/a", "[N / A]", "none", "null", "---",
+  ]) {
+    const result = normalized("it", "example.it", `Domain: example.it\nStatus: ok\nRegistrant\n  Name: ${placeholder}\n  Organization: ${placeholder}\n  Phone: ${placeholder}\n`);
+    assert.deepEqual(result.entities.filter(entity => entity.roles.includes("registrant")), [], placeholder);
+  }
+  for (const name of ["Protected Trust Ltd", "Protected by Design Ltd", "Privacy International", "Law", "Na", "Registry", "Policy Request", "Data", "The Law", "Redacted Na"]) {
+    const result = normalized("it", "example.it", `Domain: example.it\nStatus: ok\nRegistrant\n  Name: ${name}\n  Organization: ${name}\n`);
+    const registrant = result.entities.find(entity => entity.roles.includes("registrant"));
+    assert.equal(registrant.name, name);
+    assert.equal(registrant.organization, name);
+  }
+});
+
+test("Tunisian DNSSEC footer is a reviewed domain field after contacts", async () => {
+  const text = (await fixture("tn")).replace("Technical contact\n", "Technical contact\nCreated: 2020-01-02\n");
+  const result = normalized("tn", "google.tn", text);
+  assert.equal(result.status, "registered");
+  assert.equal(result.registrar.name, "ELB");
+  assert.equal(result.dnssecSigned, false);
+  assert.equal(result.registrationDate, null, "contact Created remains scoped and the domain's local time is ambiguous");
+  const partial = normalized("tn", "google.tn", text.replace(/^dnssec.*\n/m, ""));
+  assert.equal(partial.dnssecSigned, null, "no DNSSEC answer is invented when the footer is missing");
+  const other = normalized("it", "example.it", "Domain: example.it\nStatus: ok\nTechnical Contacts\nDNSSEC: unsigned\n");
+  assert.equal(other.dnssecSigned, null, "the reviewed exception is limited to TN");
 });

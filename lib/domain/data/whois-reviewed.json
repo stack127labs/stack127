@@ -589,6 +589,7 @@
     "tn": {
       "server": "whois.ati.tn",
       "parser": "key-value",
+      "domainFields": ["dnssec"],
       "notFoundPattern": "^NO OBJECT FOUND![\\t ]*\\r?$",
       "verifiedWith": "google.tn",
       "notFoundWith": "stack127-check-a7f8c9e2d4b6.tn",
