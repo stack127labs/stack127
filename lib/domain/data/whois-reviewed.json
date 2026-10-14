@@ -12,6 +12,7 @@
     "am": {
       "server": "whois.amnic.net",
       "parser": "key-value",
+      "domainFields": ["registered", "last modified"],
       "notFoundPattern": "^No match[\\t ]*\\r?$",
       "verifiedWith": "nic.am",
       "notFoundWith": "stack127-check-a7f8c9e2d4b6.am",
@@ -230,6 +231,7 @@
     "im": {
       "server": "whois.nic.im",
       "parser": "key-value",
+      "domainSections": ["domain details"],
       "notFoundPattern": "^The domain {domain} was not found\\.[\\t ]*\\r?$",
       "dateOrder": "dmy",
       "verifiedWith": "google.im",
@@ -296,6 +298,7 @@
     "kz": {
       "server": "whois.nic.kz",
       "parser": "key-value",
+      "domainFields": ["last modified", "expiration date"],
       "notFoundPattern": "^\\*\\*\\* Nothing found for this query\\.[\\t ]*\\r?$",
       "verifiedWith": "google.kz",
       "notFoundWith": "stack127-check-a7f8c9e2d4b6.kz",

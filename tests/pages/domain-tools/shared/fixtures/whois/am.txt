@@ -1,0 +1,15 @@
+# Trimmed whois.amnic.net response for nic.am, 2026-10-14. Contacts omitted.
+   Domain name: nic.am
+   Registrar: amnic
+   Status: active
+
+   Registrant:
+
+   Administrative contact:
+
+   Technical contact:
+
+   No name servers provided
+
+   Registered: 1997-01-01
+   Last modified: 2017-12-28

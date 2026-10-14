@@ -1,0 +1,25 @@
+# Trimmed whois.dns.be response for google.be, 2026-10-14. Contacts omitted.
+Domain: google.be
+Status: NOT AVAILABLE
+Registered: Tue Dec 12 2000
+
+Registrant:
+
+Registrar Technical Contacts:
+
+Registrar:
+  Name: Markmonitor Inc.
+  Website: https://www.markmonitor.com
+
+Nameservers:
+  ns3.google.com
+  ns1.google.com
+  ns2.google.com
+  ns4.google.com
+
+Keys:
+
+Flags:
+  clientTransferProhibited
+
+Please visit www.dnsbelgium.be for more info.

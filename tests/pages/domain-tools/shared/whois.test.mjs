@@ -18,7 +18,7 @@ const services = {
 };
 async function fixture(tld) { return readFile(new URL(`./fixtures/whois/${tld}.txt`, import.meta.url), "utf8"); }
 function normalized(tld, domain, text, profile = {}) {
-  const parsed = parseWhoisResponse(text, domain, { server: `whois.${tld}`, ...services[tld], ...profile });
+  const parsed = parseWhoisResponse(text, domain, { server: `whois.${tld}`, ...reviewed.services[tld], ...services[tld], ...profile });
   return buildRegistration({
     query: { input: domain, domain, unicode: domain, tld, suffix: tld, reduced: false, isIdn: false, guessedSuffix: false },
     coverage: { source: "whois", operator: null, url: `whois://whois.${tld}/`, host: `whois.${tld}`, unknownTld: false },
@@ -228,4 +228,84 @@ test("only reviewed complete exact EPP lists can establish absence, with unknown
   const mixed = normalized("it", "example.it", text + "transfer status: locked\n", { completeStatusList: true });
   assert.equal(mixed.registryFetch.body.whois.statusesComplete, false);
   assert.equal(assessTransfer(mixed).findings.find(f => f.id === "client-lock").state, "unknown");
+});
+
+test("explicit domain statuses override availability inside every contact or raw-value block", () => {
+  for (const heading of ["Registrant", "Registrar", "Admin Contact", "Technical Contact", "Nameservers"]) {
+    for (const field of ["Domain Status", "Flags", "Transfer Status", "Lock Status", "Registration Status"]) {
+      for (const statusLine of [`  ${field}: inactive / clientHold`, `${field}:\n  clientHold`]) {
+        const text = `Domain: example.it\nStatus: AVAILABLE\n${heading}\n${statusLine}\n`;
+        const parsed = parseWhoisResponse(text, "example.it", services.it);
+        assert.equal(parsed.status, "registry_error", text);
+        assert.equal(parsed.body, null);
+      }
+    }
+  }
+  const scoped = normalized("it", "example.it", "Domain: example.it\nStatus: ok\nRegistrant\n  Domain Status: clientHold\n  Created: 2018-01-02\n");
+  assert.deepEqual(scoped.statuses.map(status => status.epp), ["clientHold", "ok"]);
+  assert.equal(scoped.registrationDate, null, "an explicit domain field does not change the contact's ownership");
+});
+
+test("Belgian footer flags retain the proven registrar transfer blocker", async () => {
+  const result = normalized("be", "google.be", await fixture("be"));
+  assert.equal(result.status, "registered");
+  assert.equal(result.registrationDate, "2000-12-12");
+  assert.equal(result.registrar.name, "Markmonitor Inc.");
+  assert.equal(result.nameservers.length, 4);
+  assert.deepEqual(result.statuses.map(status => status.epp), ["clientTransferProhibited"]);
+  assert.equal(assessTransfer(result).findings.find(f => f.id === "client-lock").state, "blocked");
+});
+
+test("Armenian domain footer dates survive contact sections", async () => {
+  const text = (await fixture("am")).replace("   Technical contact:\n", "   Technical contact:\n      Created: 2020-01-02\n");
+  const result = normalized("am", "nic.am", text);
+  assert.equal(result.status, "registered");
+  assert.equal(result.registrationDate, "1997-01-01");
+  assert.equal(result.lastChangedDate, "2017-12-28");
+  assert.equal(result.registrar.name, "amnic");
+  assert.deepEqual(result.registryFetch.body.whois.rawStatuses, ["active"]);
+  const partial = normalized("am", "nic.am", text.replace(/^   Registered:.*\n/m, ""));
+  assert.equal(partial.registrationDate, null, "contact Created is still scoped");
+});
+
+test("Kazakh domain footer dates and statuses survive contact sections", async () => {
+  const result = normalized("kz", "google.kz", await fixture("kz"));
+  assert.equal(result.status, "registered");
+  assert.equal(result.registrationDate, "1999-06-07");
+  assert.equal(result.registryExpiryDate, "2027-06-06");
+  assert.equal(result.lastChangedDate, "2012-11-28");
+  assert.equal(result.nameservers.length, 2);
+  assert.deepEqual(result.registryFetch.body.whois.rawStatuses, ["ok - Normal state."]);
+  assert.deepEqual(result.statuses, [], "free-text normal state is not an EPP code");
+});
+
+test("Manx Domain Details returns from contacts to the domain expiry", async () => {
+  const text = (await fixture("im")).replace("Technical Contact\nRedacted", "Technical Contact\nRedacted\nCreated: 2020-01-02\nExpiry Date: 01/01/2030");
+  const result = normalized("im", "google.im", text);
+  assert.equal(result.status, "registered");
+  assert.equal(result.registrationDate, null);
+  assert.equal(result.registryExpiryDate, "2027-08-16");
+  assert.equal(result.nameservers.length, 4);
+});
+
+test("Åland's registrar-labelled field is not prefixed by its Registrar heading", async () => {
+  const result = normalized("ax", "nic.ax", await fixture("ax"));
+  assert.equal(result.status, "registered");
+  assert.equal(result.registrar.name, "NETIM");
+  assert.equal(result.registrationDate, "2016-09-05");
+  assert.equal(result.registryExpiryDate, "2027-09-05");
+  assert.equal(result.lastChangedDate, "2026-08-29");
+  assert.deepEqual(result.registryFetch.body.whois.rawStatuses, ["Registered"]);
+});
+
+test("standalone protected and privacy-qualified placeholders never become owner identities", () => {
+  for (const placeholder of ["protected", "PROTECTED", "[protected]", "protected by GDPR", "Protected by the GDPR", "undisclosed for privacy", "undisclosed for privacy reasons", "withheld under data protection law", "hidden due to GDPR"]) {
+    const result = normalized("it", "example.it", `Domain: example.it\nStatus: ok\nRegistrant\n  Name: ${placeholder}\n  Organization: ${placeholder}\n  Phone: ${placeholder}\n`);
+    assert.equal(result.status, "registered");
+    assert.deepEqual(result.entities.filter(entity => entity.roles.includes("registrant")), [], placeholder);
+  }
+  for (const organization of ["Google Ireland Holdings Unlimited Company", "MarkMonitor International Limited", "NETIM", "Protected Trust, LLC", "Private Internet Access", "HiddenLayer"]) {
+    const result = normalized("it", "example.it", `Domain: example.it\nStatus: ok\nRegistrant\n  Organization: ${organization}\n`);
+    assert.equal(result.entities.find(entity => entity.roles.includes("registrant")).organization, organization);
+  }
 });

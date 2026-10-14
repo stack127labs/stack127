@@ -21,6 +21,10 @@ export type WhoisService = {
   registrarField?: "handle";
   /** True only after reviewing that the server publishes the whole EPP status list. */
   completeStatusList?: boolean;
+  /** Reviewed footer fields belonging to the domain even after contact sections. */
+  domainFields?: string[];
+  /** Reviewed headings that return from contacts to the domain record. */
+  domainSections?: string[];
 };
 
 type Fields = Map<string, string[]>;
@@ -46,6 +50,11 @@ function fieldsFrom(text: string, service: WhoisService): Fields {
   // A blank line separates formatting, not ownership. Contact sections remain
   // contact sections until an explicit domain/nameserver section starts.
   let section = "domain";
+  const domainFields = new Set((service.domainFields ?? []).map(key));
+  const domainSections = new Set((service.domainSections ?? []).map(key));
+  const isDomainField = (name: string) => domainKeys.includes(name) || nsKeys.includes(name) ||
+    explicitDomainFields.includes(name) || domainFields.has(name);
+  const isRoleField = (name: string) => /^(?:registrant|registrar|admin|technical)(?: |$)/.test(name);
   const add = (name: string, value: string) => {
     if (value) fields.set(name, [...(fields.get(name) ?? []), value]);
   };
@@ -53,21 +62,31 @@ function fieldsFrom(text: string, service: WhoisService): Fields {
     if (!line.trim()) continue;
     if (/^[%#>]/.test(line.trim())) { lastKey = null; block = null; continue; }
     const heading = key(line.trim().replace(/:$/, "").replace(/^\[([^\]]+)\]$/, "$1"));
+    if (domainSections.has(heading)) {
+      section = "domain"; block = null; lastKey = null; continue;
+    }
+    // Domain-labelled status blocks stay global even inside a contact section.
+    // Their presence must be checked before accepting an availability answer.
+    if (explicitStatusKeys.includes(heading)) { block = heading; lastKey = heading; continue; }
     if (SECTION_NAMES[heading]) {
       section = SECTION_NAMES[heading]; block = heading; lastKey = heading; continue;
     }
     if (block === "relevant dates" && /^\s*Registered on /.test(line)) {
       add(block, line.trim()); continue;
     }
-    // Block values can contain colons in URLs and IPv6 addresses. Those colons
-    // are content, not key separators (e.g. MarkMonitor Inc. (http://...)).
-    if (parser === "blocks" && lastKey === block && RAW_BLOCKS.includes(block ?? "") &&
-      /^\s+\S/.test(line) && !/^\s*(?:name|organisation|organization|website|web|url|nserver|name server|nameserver|dnssec):/i.test(line)) {
-      add(lastKey!, line.trim()); continue;
-    }
     const match = parser === "bracket"
       ? line.match(/^\s*\[([^\]]+)\][\t ]*(.*)$/) ?? line.match(/^\s*([^:]+):[\t ]*(.*)$/)
       : line.match(/^\s*([^:]+):[\t ]*(.*)$/);
+    // Block values can contain colons in URLs and IPv6 addresses. Recognized
+    // fields, including domain statuses, must still escape a raw-value block.
+    const fieldName = match ? key(match[1]) : null;
+    const structuredField = fieldName && (isDomainField(fieldName) || isRoleField(fieldName) ||
+      statusKeys.includes(fieldName) || DATE_FIELDS.some(([, names]) => (names as readonly string[]).includes(fieldName)) ||
+      ["name", "organisation", "organization", "website", "web", "url", "dnssec"].includes(fieldName));
+    if (parser === "blocks" && lastKey === block && RAW_BLOCKS.includes(block ?? "") &&
+      /^\s+\S/.test(line) && !structuredField) {
+      add(lastKey!, line.trim()); continue;
+    }
     if (match) {
       let name = key(match[1]);
       const value = match[2].trim().replace(/^\.+/, "");
@@ -83,9 +102,9 @@ function fieldsFrom(text: string, service: WhoisService): Fields {
         block = null; lastKey = null; continue;
       }
       if (["contact", "person", "personname", "nic hdl"].includes(name)) { section = "contact"; block = null; }
-      if (section !== "domain" && !nsKeys.includes(name) && !name.startsWith("domain record ") && name !== "domain expires") {
+      if (section !== "domain" && !isDomainField(name)) {
         // Fields already explicitly labelled with a role retain that role.
-        if (!/^(?:registrant|registrar|admin|technical) /.test(name)) name = `${section} ${name}`;
+        if (!isRoleField(name)) name = `${section} ${name}`;
       } else if (section === "domain" && name === "name") name = "domain name";
       lastKey = name;
       add(name, value);
@@ -147,6 +166,10 @@ const domainKeys = ["domain", "domain name", "domainname", "domain name ascii", 
 const nsKeys = ["name server", "name servers", "nameserver", "nameservers", "nserver", "domain nameservers", "domain servers", "dns servers", "name server information", "name server (db)"];
 const registrarKeys = ["registrar organization", "registrar organisation", "registrar company name", "registrar name", "registrar", "sponsoring registrar"];
 const statusKeys = ["domain status", "status", "state", "flags", "lock status", "transfer status", "registration status"];
+// Generic Status/State may describe a contact; explicit domain labels cannot.
+const explicitStatusKeys = ["domain status", "flags", "lock status", "transfer status", "registration status"];
+const explicitDomainFields = [...explicitStatusKeys, "domain created", "domain dateregistered", "domain datemodified",
+  "domain record activated", "domain record last updated", "domain expires"];
 
 /** Reviewed refusal formats. Scan complete lines; response size is bounded by the client. */
 function failureFrom(text: string, notFoundPattern: RegExp): RdapFetchStatus | null {
@@ -170,14 +193,16 @@ function failureFrom(text: string, notFoundPattern: RegExp): RdapFetchStatus | n
 
 const PRIVACY_PLACEHOLDERS = new Set([
   "hidden", "redacted", "redacted for privacy", "data redacted", "not disclosed", "not shown", "not published",
-  "not available", "data protected", "protected by privacy", "private", "withheld", "undisclosed", "masked",
+  "not available", "data protected", "protected", "protected by privacy", "private", "withheld", "undisclosed", "masked",
   "gdpr masked", "non public data", "n/a", "none", "null", "-",
 ]);
 function publishedContactValue(value: string | null): string | null {
   if (!value) return null;
   if (value.trim() === "-") return null;
   const normalized = value.toLowerCase().trim().replace(/^[\[('"\s]+|[\])'".!\s]+$/g, "").replace(/[_-]+/g, " ").replace(/\s+/g, " ");
-  if (PRIVACY_PLACEHOLDERS.has(normalized) || /^(?:not disclosed|not shown|data protected|redacted)(?:[!.,]|\s*-\s*|\s+(?:for privacy|due to|under|please|visit)\b)/i.test(value)) return null;
+  const privacyQualified = /^(?:hidden|redacted|data redacted|not disclosed|not shown|not published|data protected|protected|private|withheld|undisclosed|masked) (?:for|by|due to|under) (?:the )?(?:privacy|gdpr|data protection)(?: (?:law|laws|policy|regulations?|reasons?))?$/;
+  if (PRIVACY_PLACEHOLDERS.has(normalized) || privacyQualified.test(normalized) ||
+    /^(?:not disclosed|not shown|data protected|redacted)(?:[!.,]|\s*-\s*|\s+(?:for privacy|due to|under|please|visit)\b)/i.test(value)) return null;
   return value;
 }
 
