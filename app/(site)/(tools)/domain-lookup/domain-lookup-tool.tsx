@@ -195,7 +195,7 @@ function LookupResult({ result }: { result: DomainRegistration }) {
     <SourceMap result={result} />
     {registrarFailure ? <UiStatus tone="warning">The registrar response was incomplete. Registry facts remain available.</UiStatus> : null}
     {registered ? <><Dates result={result} /><RegistrarFacts result={result} /><Statuses result={result} /><Nameservers result={result} /><Dnssec result={result} /><Contacts result={result} /></> : null}
-    {result.status === "no_service" ? <p className={styles.recovery}>See RDAP coverage in the <Link href="/tld-directory">TLD directory</Link>.</p> : null}
+    {result.status === "no_service" ? <p className={styles.recovery}>See which endings we can check in the <Link href="/tld-directory">TLD directory</Link>.</p> : null}
     <Freshness result={result} />
     <div className={styles.download}><UiDownloadAction contents={report} filename={`${result.query.domain}-registration.json`} label="Download report" mimeType="application/json;charset=utf-8" /></div>
     {notes.length ? <UiDisclosure label="Lookup notes"><ul className={styles.notes}>{notes.map((note) => <li key={note}>{note}</li>)}</ul></UiDisclosure> : null}

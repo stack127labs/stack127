@@ -130,7 +130,7 @@ function RegistrarResult({ result }: { result: DomainRegistration }) {
       {registered ? <RegistrarDates result={result} /> : null}
       {registered && !identity.conflict ? <NextSteps result={result} /> : null}
       {registrarHopFailed ? <UiStatus tone="warning">{result.registrarFetch ? "The registrar response failed." : "The registry did not advertise a registrar response."} Website, alternate-name, and additional abuse details may be missing.</UiStatus> : null}
-      {result.status === "no_service" ? <p className={styles.recovery}>See RDAP coverage in the <Link href="/tld-directory">TLD directory</Link>.</p> : null}
+      {result.status === "no_service" ? <p className={styles.recovery}>See which endings we can check in the <Link href="/tld-directory">TLD directory</Link>.</p> : null}
       {registered && !identity.name && !identity.id ? <p className={styles.recovery}>Check the wider <Link href={`/domain-lookup?name=${encodeURIComponent(result.query.unicode)}`}>domain registration record</Link>.</p> : null}
       <Freshness result={result} />
       <div className={styles.download}><UiDownloadAction contents={report} filename={`${result.query.domain}-registrar.json`} label="Download report" mimeType="application/json;charset=utf-8" /></div>

@@ -1,11 +1,12 @@
 ## Why can't some domain extensions be looked up?
 
-Our domain tools read registration data over RDAP, and some registries don't offer it. The Lookups column shows where each ending stands.
+Our domain tools ask each ending's registry over RDAP when it offers it, and over WHOIS when it doesn't. A few registries offer neither in a form we can use. The Lookups column shows where each ending stands.
 
 | Lookups | What it means |
 | --- | --- |
 | Yes | The registry is in [IANA's RDAP directory](https://data.iana.org/rdap/dns.json). |
 | Via our own list | The registry runs RDAP but isn't in IANA's directory. We added it after testing it with a real domain. The name under the label runs the service. |
-| Cannot check | We know of no RDAP service for this ending, so our lookup and availability tools can't answer for it. |
+| Via WHOIS | The registry has no RDAP service we know of, so we read its WHOIS server. We added it after testing it with a real domain and a made-up one. WHOIS text can leave out fields that RDAP would show. |
+| Cannot check | We know of no RDAP service, and the WHOIS server is missing or didn't pass our tests. Our lookup and availability tools can't answer for this ending. |
 
-A "Cannot check" ending may still have a WHOIS server or a lookup on the registry's website. Its page in [IANA's root zone database](https://www.iana.org/domains/root/db) lists both. [Domain lookup](/domain-lookup) explains how RDAP and WHOIS differ.
+A "Cannot check" ending may still have a lookup on the registry's website. Its page in [IANA's root zone database](https://www.iana.org/domains/root/db) links to it. [Domain lookup](/domain-lookup) explains how RDAP and WHOIS differ.

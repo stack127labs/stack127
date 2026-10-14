@@ -143,7 +143,7 @@ function unavailableAnswer(result: DomainRegistration) {
     return <UiPrimaryResult detail={`${result.query.unicode} has no current expiry date.`} label="Domain expiry" value="Not registered" />;
   }
   if (result.status === "no_service") {
-    return <UiPrimaryResult detail={`No RDAP registration service is published for .${result.query.tld}.`} label="Domain expiry" tone="warning" value="Unavailable" />;
+    return <UiPrimaryResult detail={`stack127 has no lookup service it can use for .${result.query.tld}.`} label="Domain expiry" tone="warning" value="Unavailable" />;
   }
   if (result.status === "rate_limited" || result.status === "blocked") {
     return <UiPrimaryResult detail="The registry limited this request. Try again in a few minutes." label="Domain expiry" tone="warning" value="Could not check" />;

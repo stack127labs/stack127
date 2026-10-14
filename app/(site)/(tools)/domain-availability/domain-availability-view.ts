@@ -15,7 +15,7 @@ export function formatAvailabilityDate(value: string | null) {
 }
 
 function failureDetail(status: RdapFetchStatus, tld: string) {
-  if (status === "no_service") return `stack127 has no known RDAP service for .${tld}.`;
+  if (status === "no_service") return `stack127 has no lookup service it can use for .${tld}.`;
   if (status === "rate_limited") return "The registry limited this request. Try again shortly.";
   if (status === "blocked") return "The registry refused this request. Try again shortly.";
   if (status === "timeout") return "The registry did not answer in time. Try again.";

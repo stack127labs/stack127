@@ -278,8 +278,8 @@ export function UnavailableNote({ registration }: { registration: DomainRegistra
           We cannot check <code>{registration.query.domain}</code>.
         </p>
         <p>
-          Nobody publishes a machine readable registration service for <code>.{registration.query.tld}</code>, so there
-          is nothing for us to ask. That is a gap in what the ending offers, not a problem with the domain. The{" "}
+          We have no lookup service we can use for <code>.{registration.query.tld}</code>. Its registry offers none, or its
+          WHOIS server didn't pass our tests. That is a gap in what the ending offers, not a problem with the domain. The{" "}
           <a href="/tld-directory">TLD directory</a> lists which endings we can and cannot check.
         </p>
       </div>

@@ -43,7 +43,7 @@ export function coverageRows(result: DomainReport) {
       id: "registration",
       check: "Registration record",
       state: registrationDone ? "Completed" : "Unavailable",
-      source: result.registration?.registryFetch ? host(result.registration.registryFetch.url) ?? "Registry RDAP" : "Not available",
+      source: result.registration?.registryFetch ? host(result.registration.registryFetch.url) ?? "Registry" : "Not available",
       note: registrationDone ? (result.registration?.registryFetch?.fromCache ? "Cached response" : "Registry response") : skippedReason(result, "Registration record"),
     },
     {
@@ -120,8 +120,9 @@ export function findingDetail(finding: ReportFinding) {
 
 export function reportSourceRows(result: DomainReport) {
   const rows: Array<{ id: string; label: string; value: string }> = [];
-  for (const [label, fetch] of [["Registry RDAP", result.registration?.registryFetch], ["Registrar RDAP", result.registration?.registrarFetch]] as const) {
+  for (const [party, fetch] of [["Registry", result.registration?.registryFetch], ["Registrar", result.registration?.registrarFetch]] as const) {
     if (!fetch || fetch.status === "no_service") continue;
+    const label = `${party} ${fetch.protocol === "whois" ? "WHOIS" : "RDAP"}`;
     rows.push({ id: label, label, value: `${host(fetch.url) ?? "Host not reported"}, fetched ${formatReportDate(fetch.fetchedAt)}, ${fetch.fromCache ? "cached" : "live response"}` });
   }
   if (result.delegation) rows.push({ id: "dns", label: "DNS delegation", value: `${result.delegation.zone} via parent .${result.delegation.parentZone}, checked ${formatReportDate(result.delegation.checkedAt)}` });

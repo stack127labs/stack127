@@ -8,7 +8,7 @@ export type TldRow = {
   unicode: string | null;
   type: string | null;
   organisation: string | null;
-  rdap: "bootstrap" | "override" | "none";
+  rdap: "bootstrap" | "override" | "whois" | "none";
   rdapOperator: string | null;
   dnssec: boolean;
   isIdn: boolean;
@@ -124,6 +124,8 @@ export function TldTable({ rows }: { rows: TldRow[] }) {
                     <StatePill tone="quiet">Cannot check</StatePill>
                   ) : row.rdap === "override" ? (
                     <StatePill tone="warn">Via our own list</StatePill>
+                  ) : row.rdap === "whois" ? (
+                    <StatePill tone="warn">Via WHOIS</StatePill>
                   ) : (
                     <StatePill tone="good">Yes</StatePill>
                   )}

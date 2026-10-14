@@ -23,7 +23,7 @@ export function registrarIdentity(result: DomainRegistration) {
   }
   if (result.status !== "registered") {
     const reason = result.status === "no_service"
-      ? `stack127 has no known RDAP service for .${result.query.tld}.`
+      ? `stack127 has no lookup service it can use for .${result.query.tld}.`
       : result.status === "timeout"
         ? "The registry did not answer in time. Try again."
         : result.status === "rate_limited" || result.status === "blocked"
@@ -61,6 +61,8 @@ export function registrarIdentity(result: DomainRegistration) {
 
 export function isRegistrarHopIncomplete(result: DomainRegistration) {
   if (result.status !== "registered") return false;
+  // WHOIS registries have no registrar hop, so nothing is missing.
+  if (result.registryFetch?.protocol === "whois") return false;
   if (result.registrarFetch) return result.registrarFetch.status !== "registered";
   return Boolean(result.registrar.name || result.registrar.ianaId || result.registrar.rdapUrl);
 }

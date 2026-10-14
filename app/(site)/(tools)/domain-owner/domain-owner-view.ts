@@ -48,7 +48,7 @@ function identityValues(result: DomainRegistration) {
 }
 
 function failureDetail(status: RdapFetchStatus, tld: string) {
-  if (status === "no_service") return `stack127 has no known RDAP service for .${tld}.`;
+  if (status === "no_service") return `stack127 has no lookup service it can use for .${tld}.`;
   if (status === "rate_limited") return "The registry limited this request. Try again shortly.";
   if (status === "blocked") return "The registry refused this request. Try again shortly.";
   if (status === "timeout") return "The registry did not answer in time. Try again.";
@@ -56,6 +56,8 @@ function failureDetail(status: RdapFetchStatus, tld: string) {
 }
 
 export function isRegistrarHopIncomplete(result: DomainRegistration) {
+  // WHOIS registries have no registrar hop, so nothing is missing.
+  if (result.registryFetch?.protocol === "whois") return false;
   if (result.registrarFetch) return result.registrarFetch.status !== "registered";
   return Boolean(result.registrar.name || result.registrar.ianaId || result.registrar.rdapUrl);
 }
@@ -98,6 +100,13 @@ export function ownerVerdict(result: DomainRegistration) {
     return {
       detail: `The registry returned no public registrant identity for ${result.query.unicode}, and ${registrarState}. Retry before treating the data as unpublished.`,
       value: "Cannot determine",
+    };
+  }
+
+  if (result.registryFetch?.protocol === "whois") {
+    return {
+      detail: `The registry's WHOIS record for ${result.query.unicode} names no registrant. WHOIS doesn't say why a field is left out.`,
+      value: "Not published",
     };
   }
 

@@ -111,7 +111,7 @@ function AvailabilityResult({ result }: { result: DomainRegistration }) {
 
       {result.status === "no_service" ? (
         <p className={styles.recovery}>
-          See RDAP coverage in the <Link href="/tld-directory">TLD directory</Link>.
+          See which endings we can check in the <Link href="/tld-directory">TLD directory</Link>.
         </p>
       ) : null}
 
