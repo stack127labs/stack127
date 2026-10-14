@@ -4,6 +4,8 @@ import { readFile } from "node:fs/promises";
 import { parseWhoisResponse, parseWhoisDate } from "../../../../lib/domain/whois-parser.ts";
 import { buildRegistration } from "../../../../lib/domain/normalize.ts";
 import { parseIanaDomain, parseIanaWhoisServer } from "../../../../scripts/domain-tools/iana-whois.mjs";
+import { assessTransfer } from "../../../../lib/domain/transfer-readiness.ts";
+import reviewed from "../../../../lib/domain/data/whois-reviewed.json" with { type: "json" };
 
 const services = {
   it: { parser: "blocks", notFoundPattern: "^Status:[\\t ]*AVAILABLE[\\t ]*\\r?$" },
@@ -12,10 +14,11 @@ const services = {
   se: { parser: "key-value", notFoundPattern: '^domain "{domain}" not found\\.[\\t ]*\\r?$' },
   gg: { parser: "blocks", notFoundPattern: "^NOT FOUND[\\t ]*\\r?$" },
   ws: { parser: "key-value", notFoundPattern: "^The queried object does not exist: {domain}\\.[\\t ]*\\r?$" },
+  sk: reviewed.services.sk,
 };
 async function fixture(tld) { return readFile(new URL(`./fixtures/whois/${tld}.txt`, import.meta.url), "utf8"); }
-function normalized(tld, domain, text) {
-  const parsed = parseWhoisResponse(text, domain, { server: `whois.${tld}`, ...services[tld] });
+function normalized(tld, domain, text, profile = {}) {
+  const parsed = parseWhoisResponse(text, domain, { server: `whois.${tld}`, ...services[tld], ...profile });
   return buildRegistration({
     query: { input: domain, domain, unicode: domain, tld, suffix: tld, reduced: false, isIdn: false, guessedSuffix: false },
     coverage: { source: "whois", operator: null, url: `whois://whois.${tld}/`, host: `whois.${tld}`, unknownTld: false },
@@ -125,4 +128,104 @@ test("IANA empty whois lines never eat the next status line", () => {
   assert.equal(parseIanaWhoisServer("whois: WHOIS.NIC.IT\r\nstatus: ACTIVE\r\n"), "whois.nic.it");
   assert.equal(parseIanaWhoisServer("whois: status:\n"), null);
   assert.equal(parseIanaDomain("domain: 中国\ndomain-ace: XN--FIQS8S\n"), "xn--fiqs8s");
+});
+
+test("maximum-query notices and long quota/error lines override verified availability", () => {
+  const available = "Domain: example.it\nStatus: AVAILABLE\n";
+  const notices = [
+    "Maximum number of queries exceeded",
+    "Maximum number of connections reached",
+    "x".repeat(700) + " Quota exceeded",
+    "Quota " + "x".repeat(700) + " exceeded",
+    "x".repeat(700) + " Maximum number of queries exceeded",
+    "ERROR: " + "x".repeat(700) + " lookup failed",
+    "x".repeat(700) + " ERROR: registry problem",
+    "WHOIS temporarily unavailable",
+  ];
+  for (const notice of notices) {
+    const result = parseWhoisResponse(available + notice, "example.it", services.it);
+    assert.ok(["rate_limited", "registry_error"].includes(result.status), notice);
+    assert.equal(result.body, null);
+  }
+  const conditionalThenFailure = "Terms: If too many queries are received, access may stop. " + "x".repeat(700) + " Quota exceeded";
+  assert.equal(parseWhoisResponse(available + conditionalThenFailure, "example.it", services.it).status, "rate_limited");
+  assert.equal(parseWhoisResponse(available + "ERROR: request failed\nMaximum number of queries exceeded", "example.it", services.it).status, "rate_limited");
+});
+
+test("availability plus a contradictory status is a non-answer without any record facts", () => {
+  for (const status of ["inactive / clientHold", "clientHold", "Registered", "locked", "we cannot confirm"]) {
+    const result = parseWhoisResponse(`Domain: example.it\nStatus: AVAILABLE\nStatus: ${status}\n`, "example.it", services.it);
+    assert.equal(result.status, "registry_error", status);
+    assert.equal(result.body, null);
+  }
+});
+
+test("privacy placeholders never become registrant identities or contact values", () => {
+  for (const placeholder of ["hidden", "HIDDEN", "[hidden]", "redacted", "REDACTED FOR PRIVACY", "not disclosed", "NOT SHOWN!", "data protected", "private", "withheld", "non-public data"]) {
+    const result = normalized("it", "example.it", `Domain: example.it\nStatus: ok\n\nRegistrant\n  Name: ${placeholder}\n  Organization: ${placeholder}\n  Phone: ${placeholder}\n`);
+    assert.equal(result.status, "registered");
+    assert.deepEqual(result.entities.filter(entity => entity.roles.includes("registrant")), [], placeholder);
+  }
+  const published = normalized("it", "example.it", "Domain: example.it\nStatus: ok\n\nRegistrant\n  Organization: Hidden Hands LLC\n");
+  assert.equal(published.entities.find(entity => entity.roles.includes("registrant")).organization, "Hidden Hands LLC");
+});
+
+test("SK sections separate domain dates, registrant organization and registrar handles", async () => {
+  const text = await fixture("sk");
+  const result = normalized("sk", "google.sk", text);
+  assert.equal(result.status, "registered");
+  assert.equal(result.registrationDate, "2003-07-24");
+  assert.equal(result.registryExpiryDate, "2027-07-24");
+  assert.equal(result.lastChangedDate, "2026-06-22");
+  assert.equal(result.registrar.name, "MarkMonitor International Limited");
+  assert.equal(result.registrar.ianaId, null);
+  assert.equal(result.registryFetch.body.whois.registrarHandle, "MARK-0292");
+  assert.equal(result.entities.find(entity => entity.roles.includes("registrant")).organization, "Google Ireland Holdings Unlimited Company");
+  const partial = normalized("sk", "google.sk", text.replace(/^Created: +2003-07-24\n/m, "").replace(/^Updated: +2026-06-22\n/m, ""));
+  assert.equal(partial.registrationDate, null, "contact Created is not domain Created");
+  assert.equal(partial.lastChangedDate, null, "contact Updated is not domain Updated");
+});
+
+test("other block and contact-reference formats cannot supply missing domain dates", () => {
+  const blocks = "Domain: example.it\nStatus: ok\n\nRegistrant\n  Organization: Example LLC\n  Created: 2018-01-02\n\nAdmin Contact\n  Created: 2020-01-02\n\nRegistrar\n  Name: Example Registrar\n  Created: 2021-01-02\n  DNSSEC: yes\n\nName servers:\n  nserver: ns1.example.net\n  Changed: 2026-01-02\n";
+  const result = normalized("it", "example.it", blocks);
+  assert.equal(result.registrationDate, null);
+  assert.equal(result.lastChangedDate, null);
+  assert.equal(result.dnssecSigned, null, "registrar DNSSEC capability is not the domain's delegation state");
+  const reference = "Domain: example.ls\nregistrar: REG-LS\n\ncontact: ADMIN-LSNIC\nCreated: 2018-01-02\nchanged: 2020-01-02\n\nnserver: ns1.example.net\ntech-c: TECH-LSNIC\nCreated: 2021-01-02\n";
+  const ls = normalized("ls", "example.ls", reference, reviewed.services.ls);
+  assert.equal(ls.status, "registered");
+  assert.equal(ls.registrationDate, null);
+  assert.equal(ls.lastChangedDate, null);
+  assert.equal(ls.registrar.name, null);
+  assert.equal(ls.registrar.ianaId, null);
+  assert.equal(ls.registryFetch.body.whois.registrarHandle, "REG-LS");
+});
+
+test("WHOIS database dates cannot turn a not-found response into a registration", () => {
+  const result = parseWhoisResponse("[Domain]\nDomain: missing.lv\nStatus: free\n\n[Whois]\nUpdated: 2026-10-14T00:00:00Z\n", "missing.lv", reviewed.services.lv);
+  assert.equal(result.status, "not_registered");
+});
+
+test("a partial WHOIS EPP list cannot rule out transfer locks, while proven blockers survive", () => {
+  const partial = normalized("it", "example.it", "Domain: example.it\nCreated: 2000-01-01\nstatus: clientUpdateProhibited\ntransfer status: locked\n");
+  assert.equal(partial.status, "registered");
+  assert.equal(partial.statuses[0].epp, "clientUpdateProhibited");
+  assert.equal(partial.registryFetch.body.whois.statusesComplete, false);
+  const assessed = assessTransfer(partial);
+  for (const id of ["client-lock", "server-lock", "pending-transfer", "lifecycle"]) assert.equal(assessed.findings.find(f => f.id === id).state, "unknown");
+  for (const [status, id] of [["clientTransferProhibited", "client-lock"], ["serverTransferProhibited", "server-lock"], ["pendingTransfer", "pending-transfer"], ["redemptionPeriod", "lifecycle"]]) {
+    const proven = normalized("it", "example.it", `Domain: example.it\nCreated: 2000-01-01\nstatus: ${status}\n`);
+    assert.equal(assessTransfer(proven).findings.find(f => f.id === id).state, "blocked");
+  }
+});
+
+test("only reviewed complete exact EPP lists can establish absence, with unknown status text downgrading completeness", () => {
+  const text = "Domain: example.it\nCreated: 2000-01-01\nstatus: clientUpdateProhibited\n";
+  const complete = normalized("it", "example.it", text, { completeStatusList: true });
+  assert.equal(complete.registryFetch.body.whois.statusesComplete, true);
+  assert.equal(assessTransfer(complete).findings.find(f => f.id === "client-lock").state, "clear");
+  const mixed = normalized("it", "example.it", text + "transfer status: locked\n", { completeStatusList: true });
+  assert.equal(mixed.registryFetch.body.whois.statusesComplete, false);
+  assert.equal(assessTransfer(mixed).findings.find(f => f.id === "client-lock").state, "unknown");
 });

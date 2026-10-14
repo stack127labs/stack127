@@ -257,10 +257,11 @@ export function assessTransfer(registration: DomainRegistration, now = new Date(
     });
   }
 
-  if (registration.coverage?.source === "whois" && !registration.statuses.length) {
-    for (const finding of findings.filter(finding => ["client-lock", "server-lock", "pending-transfer", "lifecycle"].includes(finding.id))) {
+  const whoisStatusListComplete = (registration.registryFetch?.body as { whois?: { statusesComplete?: boolean } } | null)?.whois?.statusesComplete === true;
+  if (registration.coverage?.source === "whois" && !whoisStatusListComplete) {
+    for (const finding of findings.filter(finding => finding.state === "clear" && ["client-lock", "server-lock", "pending-transfer", "lifecycle"].includes(finding.id))) {
       finding.state = "unknown";
-      finding.detail = "This WHOIS record does not publish exact EPP statuses, so we cannot check this condition.";
+      finding.detail = "This WHOIS record does not publish a reviewed complete EPP status list, so we cannot rule out this condition.";
       finding.evidence = null;
     }
   }

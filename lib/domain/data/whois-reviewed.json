@@ -316,7 +316,8 @@
       "dateOrder": "dmy",
       "verifiedWith": "nic.ls",
       "notFoundWith": "stack127-check-a7f8c9e2d4b6.ls",
-      "verifiedAt": "2026-10-14"
+      "verifiedAt": "2026-10-14",
+      "registrarField": "handle"
     },
     "lt": {
       "server": "whois.domreg.lt",
@@ -373,7 +374,8 @@
       "dateOrder": "dmy",
       "verifiedWith": "nic.mk",
       "notFoundWith": "stack127-check-a7f8c9e2d4b6.mk",
-      "verifiedAt": "2026-10-14"
+      "verifiedAt": "2026-10-14",
+      "registrarField": "handle"
     },
     "mm": {
       "server": "whois.registry.gov.mm",
@@ -479,7 +481,8 @@
       "notFoundPattern": "^No entries found for the selected source\\(s\\)\\.[\\t ]*\\r?$",
       "verifiedWith": "yandex.ru",
       "notFoundWith": "stack127-check-a7f8c9e2d4b6.ru",
-      "verifiedAt": "2026-10-14"
+      "verifiedAt": "2026-10-14",
+      "registrarField": "handle"
     },
     "sa": {
       "server": "whois.nic.net.sa",
@@ -499,11 +502,12 @@
     },
     "sk": {
       "server": "whois.sk-nic.sk",
-      "parser": "key-value",
+      "parser": "blocks",
       "notFoundPattern": "^Domain not found\\.[\\t ]*\\r?$",
       "verifiedWith": "google.sk",
       "notFoundWith": "stack127-check-a7f8c9e2d4b6.sk",
-      "verifiedAt": "2026-10-14"
+      "verifiedAt": "2026-10-14",
+      "registrarField": "handle"
     },
     "sm": {
       "server": "whois.nic.sm",
@@ -528,7 +532,8 @@
       "notFoundPattern": "^No entries found for the selected source\\(s\\)\\.[\\t ]*\\r?$",
       "verifiedWith": "nic.su",
       "notFoundWith": "stack127-check-a7f8c9e2d4b6.su",
-      "verifiedAt": "2026-10-14"
+      "verifiedAt": "2026-10-14",
+      "registrarField": "handle"
     },
     "sx": {
       "server": "whois.sx",
@@ -624,7 +629,8 @@
       "notFoundPattern": "^No entries found for the selected source\\(s\\)\\.[\\t ]*\\r?$",
       "verifiedWith": "xn--d1acpjx3f.xn--p1ai",
       "notFoundWith": "qxvbnmtlzra.xn--p1ai",
-      "verifiedAt": "2026-10-14"
+      "verifiedAt": "2026-10-14",
+      "registrarField": "handle"
     }
   }
 }

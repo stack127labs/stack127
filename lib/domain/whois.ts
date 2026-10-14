@@ -5,10 +5,13 @@ import { readWhois } from "./whois-transport.ts";
 import { parseWhoisResponse, type WhoisService } from "./whois-parser.ts";
 import type { FetchOptions } from "./rdap.ts";
 import type { RdapFetch } from "./types.ts";
+import { whoisQueryFor } from "./whois-query.ts";
 
 export async function fetchWhois(domain: string, tld: string, service: WhoisService, options: FetchOptions = {}): Promise<RdapFetch> {
   // Changing the parser or query format invalidates previously interpreted text.
-  const url = `whois://${service.server}/${encodeURIComponent(domain)}?query=${encodeURIComponent((service.queryPrefix ?? "") + domain + (service.querySuffix ?? ""))}&parser=1&review=${service.verifiedAt}`;
+  const query = whoisQueryFor(domain, service);
+  // Do not serve v1 entries that may have mistaken errors or contact data for facts.
+  const url = `whois://${service.server}/${encodeURIComponent(domain)}?query=${encodeURIComponent(query)}&parser=2&review=${service.verifiedAt}`;
   const base = { httpStatus: null, url, source: "registry" as const, protocol: "whois" as const,
     fetchedAt: new Date().toISOString(), fromCache: false };
   if (!options.bypassCache) {
@@ -21,7 +24,7 @@ export async function fetchWhois(domain: string, tld: string, service: WhoisServ
     error: slot.reason === "circuit_open" ? "This WHOIS server recently refused our requests, so we have paused contacting it."
       : "We are contacting this WHOIS server too often right now." };
   try {
-    const raw = await readWhois(service.server, (service.queryPrefix ?? "") + domain + (service.querySuffix ?? ""), options);
+    const raw = await readWhois(service.server, query, options);
     const parsed = parseWhoisResponse(raw, domain, service);
     reportEndpointResult(url, parsed.status === "rate_limited" ? 429 : parsed.status === "blocked" ? 403
       : parsed.status === "registered" || parsed.status === "not_registered" ? 200 : null);

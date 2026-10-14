@@ -1,0 +1,17 @@
+# Trimmed whois.sk-nic.sk response for google.sk, 2026-10-14. Personal contacts omitted.
+Domain:                       google.sk
+Created:                      2003-07-24
+Valid Until:                  2027-07-24
+Updated:                      2026-06-22
+Domain Status:                clientTransferProhibited, clientUpdateProhibited, clientDeleteProhibited
+
+Domain registrant:            mmr-170347
+Organization:                 Google Ireland Holdings Unlimited Company
+Created:                      2019-06-07
+Updated:                      2019-06-07
+
+Registrar:                    MARK-0292
+Name:                         MarkMonitor International Limited
+Organization:                 MarkMonitor International Limited
+Created:                      2018-06-27
+Updated:                      2026-10-01
