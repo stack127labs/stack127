@@ -7,6 +7,7 @@ import { BrandWordmark } from "./brand-wordmark";
 import { intentPrefetch } from "./intent-prefetch";
 import styles from "./app-shell.module.css";
 import { sidebarPanelTitleClassName } from "./sidebar-panel";
+import { SectionBar, type SectionNav } from "./section-bar";
 
 /**
  * Where the page puts its sidebar. Pick it per page, for what the sidebar does:
@@ -24,6 +25,8 @@ type AppShellProps = {
   /** Label shown next to the mobile hamburger, e.g. "Lessons" or "Filters". Left sidebars only. */
   menuLabel?: string;
   sidebarPosition?: SidebarPosition;
+  /** Optional short navigation between a section's main pages. Scrolls away with the page. */
+  sectionNav?: SectionNav;
 };
 
 export function SidebarLabel({ children }: { children: ReactNode }) {
@@ -65,12 +68,14 @@ export function AppShell({
   sidebarLabel = "Page sidebar",
   menuLabel = "Menu",
   sidebarPosition = "left",
+  sectionNav,
 }: AppShellProps) {
   // A right sidebar is secondary, so it follows the content in reading order. On small
   // screens it stacks below the content, above the footer, instead of hiding in a drawer.
   if (sidebarPosition === "right") {
     return (
-      <main className={styles.shell}>
+      <main className={`${styles.shell}${sectionNav ? ` ${styles.shellWithSectionNav}` : ""}`}>
+        {sectionNav ? <SectionBar {...sectionNav} /> : null}
         <section className={`${styles.page} ${styles.pageRight}`} data-sidebar-position="right">
           <section className={styles.main} aria-label={mainLabel} data-app-main>
             <div className={styles.content}>{children}</div>
@@ -85,7 +90,8 @@ export function AppShell({
   }
 
   return (
-    <main className={styles.shell}>
+    <main className={`${styles.shell}${sectionNav ? ` ${styles.shellWithSectionNav}` : ""}`}>
+      {sectionNav ? <SectionBar {...sectionNav} /> : null}
       <section
         className={`${styles.page}${sidebarPosition === "none" ? ` ${styles.pageNone}` : ""}`}
         data-sidebar-position={sidebarPosition}

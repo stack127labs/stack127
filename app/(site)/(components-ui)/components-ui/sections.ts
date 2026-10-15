@@ -133,9 +133,9 @@ export const gallerySections: GallerySection[] = [
   {
     slug: "page-layout",
     label: "Page layout",
-    description: "Page headers, title icons, the entry hero, page metadata, brand pieces, and the tool workbench.",
+    description: "Page headers, sidebar positions, the section bar, the entry hero, page metadata, brand pieces, and the tool workbench.",
     icon: LayoutTemplate,
-    components: ["PageHeader", "PageTitleIcon", "CategoryIcon", "EntryHero", "PageMeta", "BrandWordmark", "ThemeToggle", "ToolWorkbench", "ToolFieldRow", "ToolResult"],
+    components: ["PageHeader", "PageTitleIcon", "CategoryIcon", "EntryHero", "PageMeta", "BrandWordmark", "ThemeToggle", "ToolWorkbench", "ToolFieldRow", "ToolResult", "SectionBar"],
   },
 ];
 

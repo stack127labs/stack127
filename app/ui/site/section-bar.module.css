@@ -1,0 +1,82 @@
+/* Match the main navigation and sidebar rail gutters. This bar scrolls with the page. */
+.bar {
+  align-items: center;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  gap: var(--space-12);
+  min-width: 0;
+  padding-inline: clamp(20px, 2vw, 28px);
+}
+
+.bar .identity {
+  color: var(--color-text-muted);
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.scroll {
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.links {
+  display: flex;
+  gap: var(--space-10);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: max-content;
+}
+
+.bar .link {
+  border-bottom: 2px solid transparent;
+  color: var(--color-text-muted);
+  display: block;
+  font-size: var(--text-body);
+  line-height: var(--line-ui);
+  padding-block: var(--space-5);
+  white-space: nowrap;
+}
+
+.bar a[href]:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.bar .link[aria-current="page"],
+.bar .link[aria-current="page"]:hover {
+  border-bottom-color: var(--color-accent-text);
+  color: var(--color-accent-text);
+}
+
+.bar a[href]:focus-visible {
+  border-radius: var(--radius);
+  outline: var(--focus-outline);
+  outline-offset: -2px;
+  text-decoration: none;
+}
+
+@media (max-width: 960px) {
+  .bar {
+    gap: var(--space-9);
+    padding-inline: 22px;
+  }
+}
+
+/* On phones the links start at the edge. The nav's label still names the section. */
+@media (max-width: 680px) {
+  .bar .identity {
+    display: none;
+  }
+}
+
+@media print {
+  .bar {
+    display: none;
+  }
+}

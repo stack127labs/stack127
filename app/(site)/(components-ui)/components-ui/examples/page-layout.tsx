@@ -96,6 +96,14 @@ export function PageLayoutExamples() {
         </ul>
       </Example>
 
+      <Example components={["SectionBar"]} note="Pass sectionNav to AppShell for a short row of related pages. It scrolls away with the page. On phones, the links scroll sideways and the current page stays visible on load. These previews use four working links with each sidebar position." source="app/ui/site/section-bar.tsx" title="Section bar" usage={{ label: "TSX", code: '<AppShell\n  sidebarPosition="none"\n  sectionNav={{\n    label: "ad networks",\n    href: "/ad-networks",\n    current: "/ad-networks/checker",\n    items: [\n      { label: "Directory", href: "/ad-networks" },\n      { label: "Niches", href: "/ad-networks/niches" },\n      { label: "Stats", href: "/ad-networks/stats" },\n      { label: "Checker", href: "/ad-networks/checker" },\n    ],\n  }}\n>\n  <PageCanvas>…</PageCanvas>\n</AppShell>' }}>
+        <ul className={styles.layoutLinks}>
+          {(["left", "right", "none"] as const).map((position) => (
+            <li key={position}><Link href={`/components-ui/section-bar/${position}/checker`}>{position} sidebar</Link><span>Section bar with sidebarPosition="{position}".</span></li>
+          ))}
+        </ul>
+      </Example>
+
       <Example components={["AppShell", "PageCanvas"]} note="PageCanvas wraps each content section. This gallery uses both. See full layouts on their live pages." source="app/ui/site/app-shell.tsx, app/ui/site/page-canvas.tsx" title="Full page layouts">
         <ul className={styles.layoutLinks}>
           {fullLayouts.map((layout) => (

@@ -19,6 +19,7 @@ The Components UI gallery is at `/components-ui` in development. That route retu
 | Empty, loading, and error panels | `StatePanel` in `app/ui/state-panel.tsx` |
 | Breadcrumbs above a page title | `getBreadcrumbs` or `getToolBreadcrumbs` in `lib/breadcrumbs.ts`, passed to `PageHeader`'s `breadcrumbs` |
 | URL-based page navigation | `Pagination` in `app/ui/pagination.tsx` |
+| A section's 3 to 6 main pages | `SectionBar` in `app/ui/site/section-bar.tsx`, through `AppShell`'s optional `sectionNav`. Pass `label`, home `href`, active `current` href, and `items` with `label` and `href`. |
 | Detail drawer with focus and close behavior | `DetailDialog` and `DetailDialogClose` in `app/ui/detail-dialog.tsx` |
 | FAQ with repeated questions | `Faq` in `app/ui/faq.tsx` |
 | Scrollable table region | `TableFrame` in `app/ui/table-frame.tsx` |
