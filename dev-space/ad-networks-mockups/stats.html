@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ad network market share and stats 2026 | stack127</title>
+<link rel="stylesheet" href="assets/mock.css">
+<script src="assets/mock.js"></script>
+</head>
+<body data-section-current="Stats">
+<main class="page" id="page">
+  <div>
+    <div class="band canvas">
+      <header class="page-header">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="#">stack127</a></li><li><a href="ad-networks.html">ad networks</a></li><li><span aria-current="page">stats</span></li></ol></nav>
+        <h1><span class="title-icon"><span data-icon="chart"></span></span><mark>Ad network</mark> market share and stats</h1>
+        <div class="meta"><span><span data-icon="calendar"></span>Updated Oct 12, 2026</span></div>
+        <p>How many sites each ad network runs on, which networks are growing, and what the sites look like. From our checks of <b class="fig">38,912</b> sites across <b class="fig">45</b> networks, with <b class="fig live">35,749</b> confirmed live.</p>
+      </header>
+    </div>
+    <div class="canvas">
+      <section class="stats" aria-label="Ad network stats">
+        <section class="grp first">
+          <h3>Which ad networks do most sites use?</h3>
+          <dl class="summary"><div><dd>38,912</dd><dt>sites listed</dt></div><div><dd class="ac">35,749</dd><dt>confirmed live</dt></div><div><dd>45</dd><dt>networks tracked</dt></div><div><dd>39%</dd><dt>run 2+ networks</dt></div></dl>
+          <div class="row r-11">
+            <div class="blk"><h4>market share</h4><p class="desc">The share of all sites we list that run each network. A site can run more than one.</p><dl class="bars" id="share"></dl></div>
+            <div class="blk"><h4>share over time</h4><p class="desc">Sites on the five biggest networks at the end of each month.</p><div class="viz" data-c="lines"></div><ul class="legend" id="lineleg"></ul></div>
+          </div>
+        </section>
+        <section class="grp">
+          <h3>Which ad networks are growing?</h3>
+          <div class="row r-11">
+            <div class="blk"><h4>net change, last 90 days</h4><p class="desc">Sites gained minus sites lost.</p><div class="viz" data-c="diverge"></div></div>
+            <div class="blk"><h4>biggest switches, last 90 days</h4><p class="desc">The most common moves from one network to another.</p><dl class="bars" id="routes"></dl></div>
+          </div>
+        </section>
+        <section class="grp">
+          <h3>What do sites of each size run?</h3>
+          <div class="blk"><p class="desc">Sites grouped by their place in Chrome's list of the most visited sites. Each site counts once, under its main ad network.</p>
+            <div class="sizes" id="sizes"></div><ul class="legend" id="sizeleg"></ul></div>
+        </section>
+        <section class="grp">
+          <h3>How many ad networks does a site run?</h3>
+          <div class="row r-11">
+            <div class="blk"><h4>networks per site</h4><p class="desc">Networks from our list found on each site.</p><div class="viz" data-c="npersite"></div></div>
+            <div class="blk"><h4>most common pairs</h4><p class="desc">Networks that run together on the same site.</p><dl class="bars" id="pairs"></dl></div>
+          </div>
+        </section>
+        <section class="grp">
+          <h3>How do the networks compare?</h3>
+          <div class="row r-3">
+            <div class="blk"><h4>joining rule vs sites</h4><p class="desc">Each dot is a network, placed by its traffic minimum and how many sites run it. Networks with revenue-based rules are left out.</p><div class="viz" data-c="scatter"></div></div>
+            <div class="blk"><h4>median domain age</h4><p class="desc">How long the domains of each network's sites have been registered.</p><div class="viz" data-c="age"></div></div>
+            <div class="blk"><h4>WordPress share</h4><p class="desc">The share of each network's sites built on WordPress.</p><dl class="bars" id="wp"></dl></div>
+          </div>
+        </section>
+        <section class="grp">
+          <h3>What do ads.txt files look like?</h3>
+          <div class="row r-11">
+            <div class="blk"><div class="big3"><div><b class="ac">71%</b><span>name an ad manager</span></div><div><b>118</b><span>median lines</span></div><div><b>6%</b><span>have broken lines</span></div></div></div>
+            <div class="blk"><h4>file size</h4><p class="desc">Sites by the number of lines in their ads.txt file.</p><div class="viz" data-c="lines-hist"></div></div>
+          </div>
+        </section>
+        <section class="grp">
+          <h3>How fresh is this data?</h3>
+          <div class="row r-11">
+            <div class="blk"><div class="big3"><div><b>94%</b><span>checked in the last 7 days</span></div><div><b class="ac">91.9%</b><span>confirmed live</span></div><div><b>446</b><span>new sites last week</span></div></div></div>
+            <div class="blk"><h4>new sites per week</h4><p class="desc">Sites added to the directory each week, and how many came from people using the checker.</p><div class="viz" data-c="weekly"></div><ul class="legend"><li><i class="bg-n2"></i>found by our scans</li><li><i class="bg-ac"></i>from the checker</li></ul></div>
+          </div>
+        </section>
+      </section>
+      <article class="prose nprose">
+        <section>
+          <h2>How do we count a site for a network?</h2>
+          <p>A site counts for a network when its ads.txt file names the network and the network's own seller list names the site. We re-check sites on a schedule, so these numbers move as sites join and leave.</p>
+        </section>
+      </article>
+    </div>
+  </div>
+</main>
+<script>
+(() => {
+ const f = (n) => n.toLocaleString("en-US");
+ const VAR = { ac: "viz-ac", a2: "viz-ac2", a3: "viz-ac3", n1: "viz-n1", n2: "viz-n2", n3: "viz-n3" };
+ const css = (v) => `var(--${VAR[v] || v})`;
+ const svg = (W, H, inner) => `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${inner}</svg>`;
+ const T = (x, y, s, o = {}) => `<text x="${x}" y="${y}" fill="${o.c || "var(--color-text-muted)"}" text-anchor="${o.a || "start"}"${o.w ? ' font-weight="600"' : ""}>${s}</text>`;
+ const bars = (rows, max, fmt, hi) => rows.map(([n, v]) => `<dt class="${hi && hi(n) ? "hi" : ""}">${n}</dt><dd class="track"><i class="hi" style="width:${(v / max) * 100}%"></i></dd><dd>${fmt(v)}</dd>`).join("");
+ const TOTAL = 38912;
+ const NETS = [["Ezoic", 8144], ["Mediavine", 7852], ["Raptive", 7152], ["Journey", 6953], ["Google AdSense", 5349], ["Publift", 1204], ["Monumetric", 778], ["Playwire", 626], ["NitroPay", 559], ["Freestar", 524], ["AdPushup", 507], ["Snack Media", 402]];
+ document.getElementById("share").innerHTML = bars(NETS, 8144, (v) => `${((v / TOTAL) * 100).toFixed(1)}% · ${f(v)}`);
+ const ROUTES = [["Journey → Mediavine", 412], ["Ezoic → Journey", 286], ["Ezoic → Mediavine", 198], ["AdSense → Ezoic", 151], ["Mediavine → Raptive", 133], ["AdSense → Journey", 120]];
+ document.getElementById("routes").innerHTML = bars(ROUTES, 412, f);
+ const PAIRS = [["Mediavine + Amazon APS", 4980], ["Raptive + Amazon APS", 4410], ["Ezoic + AdSense", 2140], ["Journey + Amazon APS", 1620], ["Mediavine + AdSense", 610]];
+ document.getElementById("pairs").innerHTML = bars(PAIRS, 4980, f);
+ const WP = [["Journey", 91], ["Mediavine", 86], ["Raptive", 81], ["Ezoic", 74], ["Google AdSense", 63], ["Publift", 52], ["Freestar", 44], ["Playwire", 38]];
+ document.getElementById("wp").innerHTML = bars(WP, 100, (v) => v + "%");
+
+ const COLS = [["Mediavine", "ac", "dk"], ["Raptive", "a2", "dk"], ["Journey", "a3", ""], ["Ezoic", "n1", "dk"], ["Google AdSense", "n2", ""], ["Other", "n3", ""]];
+ const GROUPS = [["top 10k", 1104, [30, 41, 1, 6, 4, 18]], ["top 100k", 9870, [33, 28, 8, 13, 6, 12]], ["top 1M", 18420, [22, 14, 21, 20, 13, 10]], ["not ranked", 9518, [8, 3, 24, 30, 26, 9]]];
+ const sizes = document.getElementById("sizes");
+ sizes.innerHTML = GROUPS.map(([g, n, mix]) => `<div class="srow"><span class="lab"><b>${g}</b>${f(n)} sites</span><div class="stack">${mix.map((v, i) => `<i class="${COLS[i][2] ? "on-ac" : ""}" style="flex:${v};background:${css(COLS[i][1])}" data-tip="${g} · <b>${COLS[i][0]}</b> · ${v}% · about ${f(Math.round((n * v) / 100))} sites">${v >= 8 ? v + "%" : ""}</i>`).join("")}</div></div>`).join("");
+ document.getElementById("sizeleg").innerHTML = COLS.map(([n, c]) => `<li><i style="background:${css(c)}"></i>${n}</li>`).join("");
+ const tipAt = (host, html, x, y) => { host.querySelectorAll(".viz-tip").forEach((t) => t.remove()); if (!html) return; const t = document.createElement("div"); t.className = "viz-tip"; t.innerHTML = html; host.append(t); const w = t.offsetWidth; t.style.left = `${Math.min(Math.max(x, w / 2), host.clientWidth - w / 2)}px`; t.style.top = `${y}px`; };
+ sizes.addEventListener("mouseover", (e) => { const s = e.target.closest("i[data-tip]"); if (s) tipAt(s.parentElement, s.dataset.tip, s.offsetLeft + s.offsetWidth / 2, -6); });
+ sizes.addEventListener("mouseleave", () => sizes.querySelectorAll(".viz-tip").forEach((t) => t.remove()));
+
+ const MONTHS = ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"];
+ const ser = (a, b, curve = 1) => MONTHS.map((_, i) => Math.round(a + (b - a) * Math.pow(i / 11, curve)));
+ const LINES = [["Ezoic", ser(7900, 8144), "n1", ""], ["Mediavine", ser(6904, 7852, 1.2), "ac", ""], ["Raptive", ser(6600, 7152), "a2", ""], ["Journey", ser(5100, 6953, 0.8), "ac", "5 4"], ["Google AdSense", ser(5600, 5349), "n2", ""]];
+ document.getElementById("lineleg").innerHTML = LINES.map(([n, , c, d]) => `<li><i style="background:${css(c)};${d ? "background:repeating-linear-gradient(90deg,var(--viz-ac) 0 3px,transparent 3px 5px)" : ""}"></i>${n}</li>`).join("");
+ const NET90 = [["Journey", 612], ["Mediavine", 418], ["Raptive", 205], ["Publift", 38], ["Playwire", 22], ["NitroPay", -9], ["Freestar", -14], ["Monumetric", -41], ["Google AdSense", -96], ["Ezoic", -187]];
+ const NPS = [["1", 61], ["2", 27], ["3", 9], ["4+", 3]];
+ const SC = [["Ezoic", 0, 8144], ["Google AdSense", 0, 5349], ["NitroPay", 0, 559], ["Journey", 1, 6953], ["Monumetric", 2, 778], ["Mediavine", 3, 7852], ["Raptive", 4, 7152], ["Snack Media", 4, 402], ["Freestar", 5, 524], ["Playwire", 6, 626]];
+ const SCX = ["none", "1k", "10k", "50k", "100k", "500k", "1M"];
+ const AGE = [["Raptive", 14], ["Mediavine", 12], ["Freestar", 12], ["Playwire", 11], ["Monumetric", 10], ["Publift", 9], ["Google AdSense", 9], ["Ezoic", 8], ["Journey", 7]];
+ const HIST = [["<20", 9], ["20-50", 11], ["50-100", 18], ["100-200", 34], ["200-500", 22], ["500+", 6]];
+ const WK = [210, 240, 198, 265, 301, 288, 320, 350, 310, 395, 420, 446], WKC = [12, 18, 15, 22, 30, 28, 35, 41, 38, 52, 61, 70];
+
+ const charts = {
+  lines(W, el) {
+   const H = 220, L = 40, R = W < 480 ? 8 : 92, B = 20, Tp = 8, lo = 4500, hi = 8500, n = 12;
+   const x = (i) => L + (i * (W - L - R)) / (n - 1), y = (v) => Tp + (1 - (v - lo) / (hi - lo)) * (H - Tp - B);
+   let s = [5000, 6000, 7000, 8000].map((t) => `<line x1="${L}" x2="${W - R + 4}" y1="${y(t)}" y2="${y(t)}" stroke="var(--color-border)" stroke-dasharray="2 4"/>${T(0, y(t) + 4, t / 1000 + "k")}`).join("");
+   LINES.forEach(([nm, v, c, d]) => { s += `<path d="${v.map((p, i) => `${i ? "L" : "M"}${x(i).toFixed(1)} ${y(p).toFixed(1)}`).join(" ")}" fill="none" stroke="${css(c)}" stroke-width="2"${d ? ` stroke-dasharray="${d}"` : ""}/>`; });
+   if (R > 20) { const labs = LINES.map(([nm, v]) => ({ nm: nm.replace("Google ", ""), y: y(v[n - 1]) + 4 })).sort((a, b) => a.y - b.y); for (let k = 1; k < labs.length; k++) labs[k].y = Math.max(labs[k].y, labs[k - 1].y + 14); labs.forEach((l) => (s += T(x(n - 1) + 8, l.y, l.nm, { c: "var(--color-text)" }))); }
+   const step = W < 480 ? 3 : 1;
+   s += MONTHS.map((m, i) => (i % step === 0 || i === n - 1) ? T(x(i), H - 4, m, { a: i === 0 ? "start" : i === n - 1 ? "end" : "middle" }) : "").join("");
+   el._hover = (px) => { const i = Math.max(0, Math.min(n - 1, Math.round((px - L) / ((W - L - R) / (n - 1))))); return { x: x(i), y: Tp, guide: [Tp, H - B], html: `<b>${MONTHS[i]} ${i < 2 ? 2025 : 2026}</b>` + [...LINES].sort((a, b) => b[1][i] - a[1][i]).map(([nm, v]) => `<div class="row"><span>${nm}</span><b>${f(v[i])}</b></div>`).join("") }; };
+   return svg(W, H, s);
+  },
+  diverge(W) {
+   const lw = 112, mid = lw + (W - lw) * 0.4, sc = Math.min((W - mid - 44) / 612, (mid - lw - 40) / 187), rh = 24;
+   const s = NET90.map(([n, v], i) => { const y = i * rh; const w = Math.abs(v) * sc; return T(0, y + 15, n.replace("Google ", ""), { c: "var(--color-text)" }) + `<rect x="${v >= 0 ? mid : mid - w}" y="${y + 5}" width="${Math.max(w, 1.5)}" height="13" rx="1" fill="${v >= 0 ? "var(--viz-ac)" : "var(--viz-n1)"}"/>` + T(v >= 0 ? mid + w + 5 : mid - w - 5, y + 15, (v > 0 ? "+" : "−") + f(Math.abs(v)), { a: v >= 0 ? "start" : "end" }); }).join("");
+   return svg(W, NET90.length * rh + 4, `<line x1="${mid}" x2="${mid}" y1="0" y2="${NET90.length * rh}" stroke="var(--color-border-strong)"/>` + s);
+  },
+  npersite(W) {
+   const H = 150, B = 20, Tp = 18, bw = W / NPS.length;
+   return svg(W, H, NPS.map(([l, v], i) => { const h = (v / 61) * (H - B - Tp); const xx = i * bw + 6; return `<rect x="${xx}" y="${H - B - h}" width="${bw - 12}" height="${h}" rx="1" fill="${i ? "var(--viz-ac3)" : "var(--viz-ac)"}"/>` + T(xx + (bw - 12) / 2, H - B - h - 6, v + "%", { a: "middle", c: "var(--color-text)" }) + T(xx + (bw - 12) / 2, H - 4, l + (l === "1" ? " network" : ""), { a: "middle" }); }).join("") + `<line x1="0" x2="${W}" y1="${H - B}" y2="${H - B}" stroke="var(--color-border-strong)"/>`);
+  },
+  scatter(W, el) {
+   const H = 250, L = 40, R = 10, B = 40, Tp = 10, x = (k) => L + (k / 6) * (W - L - R - 40) + 20, y = (v) => Tp + (1 - v / 9000) * (H - Tp - B);
+   let s = [0, 3000, 6000, 9000].map((t) => `<line x1="${L}" x2="${W}" y1="${y(t)}" y2="${y(t)}" stroke="var(--color-border)" stroke-dasharray="2 4"/>${T(0, y(t) + 4, t ? t / 1000 + "k" : "0")}`).join("");
+   s += SCX.map((l, k) => T(x(k), H - 22, l, { a: "middle" })).join("") + T(W, H - 4, "traffic minimum →", { a: "end" });
+   const seen = {};
+   let flip = 0;
+   SC.forEach(([n, k, v]) => { const cy = y(v), big = v > 5000; s += `<circle cx="${x(k)}" cy="${cy}" r="6" fill="${big ? "var(--viz-ac)" : "var(--viz-n1)"}"/>`; const nm = n.replace("Google ", "");
+    if (big) s += T(x(k) + 10, cy + 4, nm, { c: "var(--color-text)" });
+    else if (W > 420) { const up = flip++ % 2 === 0; s += T(x(k), up ? cy - 11 : cy + 19, nm, { a: k === 6 ? "end" : k === 0 ? "start" : "middle", c: "var(--color-text)" }); } });
+   el._hover = null;
+   return svg(W, H, s);
+  },
+  age(W) {
+   const lw = 112, rh = 24, x = (v) => lw + (v / 16) * (W - lw - 40);
+   return svg(W, AGE.length * rh + 20, AGE.map(([n, v], i) => { const yy = i * rh + 12; return T(0, yy + 4, n.replace("Google ", ""), { c: "var(--color-text)" }) + `<line x1="${lw}" x2="${x(v)}" y1="${yy}" y2="${yy}" stroke="var(--color-border-strong)"/><circle cx="${x(v)}" cy="${yy}" r="5" fill="${i === 0 ? "var(--viz-ac)" : "var(--viz-n1)"}"/>` + T(x(v) + 9, yy + 4, v + " yrs"); }).join("") + [0, 5, 10, 15].map((t) => T(x(t), AGE.length * rh + 18, t, { a: "middle" })).join(""));
+  },
+  "lines-hist"(W) {
+   const H = 140, B = 20, Tp = 18, bw = W / HIST.length;
+   return svg(W, H, HIST.map(([l, v], i) => { const h = (v / 34) * (H - B - Tp), xx = i * bw + 4; return `<rect x="${xx}" y="${H - B - h}" width="${bw - 8}" height="${h}" rx="1" fill="${i === 3 ? "var(--viz-ac)" : "var(--viz-n2)"}"/>` + T(xx + (bw - 8) / 2, H - B - h - 6, v + "%", { a: "middle", c: "var(--color-text)" }) + T(xx + (bw - 8) / 2, H - 4, l, { a: "middle" }); }).join("") + `<line x1="0" x2="${W}" y1="${H - B}" y2="${H - B}" stroke="var(--color-border-strong)"/>`);
+  },
+  weekly(W, el) {
+   const H = 150, B = 20, Tp = 8, n = WK.length, bw = W / n, sc = (H - B - Tp) / 446;
+   el._hover = (px) => { const i = Math.max(0, Math.min(n - 1, Math.floor(px / bw))); return { x: i * bw + bw / 2, y: H - B - WK[i] * sc - 4, html: `Week ${i + 1} of 12 · <b>${WK[i]}</b> new · <b>${WKC[i]}</b> from the checker` }; };
+   return svg(W, H, WK.map((v, i) => { const xx = i * bw + 2, w = bw - 4; return `<rect x="${xx}" y="${H - B - v * sc}" width="${w}" height="${(v - WKC[i]) * sc}" rx="1" fill="var(--viz-n2)"/><rect x="${xx}" y="${H - B - WKC[i] * sc}" width="${w}" height="${WKC[i] * sc}" rx="1" fill="var(--viz-ac)"/>`; }).join("") + `<line x1="0" x2="${W}" y1="${H - B}" y2="${H - B}" stroke="var(--color-border-strong)"/>` + T(0, H - 4, "12 weeks ago") + T(W, H - 4, "last week", { a: "end" }));
+  },
+ };
+ const draw = (el) => { const W = Math.floor(el.clientWidth); if (!W || W === +el.dataset.w) return; el.dataset.w = W; el.innerHTML = charts[el.dataset.c](W, el); };
+ const ro = new ResizeObserver((es) => es.forEach((e) => draw(e.target)));
+ document.querySelectorAll(".viz").forEach((el) => {
+  ro.observe(el);
+  el.addEventListener("pointermove", (e) => { if (!el._hover) return; const h = el._hover(e.clientX - el.getBoundingClientRect().left); el.querySelectorAll(".g").forEach((g) => g.remove()); if (h.guide) el.insertAdjacentHTML("beforeend", `<div class="g" style="position:absolute;left:${h.x}px;top:${h.guide[0]}px;height:${h.guide[1] - h.guide[0]}px;width:1px;background:var(--color-border-strong);pointer-events:none"></div>`); tipAt(el, h.html, h.x, h.y + (h.guide ? 0 : 0)); });
+  el.addEventListener("pointerleave", () => { el.querySelectorAll(".viz-tip,.g").forEach((t) => t.remove()); });
+ });
+})();
+</script>
+</body>
+</html>
