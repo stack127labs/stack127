@@ -239,6 +239,16 @@ Don't hand-roll another sidebar link list.
 
 Tool catalog sidebars link between published tool catalogs and mark the current one. Individual tools belong in the catalog's main cards, not in a duplicate sidebar list. Individual tool pages list the other tools in their catalog. Tool pages and catalogs use `left`.
 
+### Section bar
+
+Pages can opt in to `sectionNav` on `AppShell` for a section's 3 to 6 main pages. The owner chooses page by page. The lowercase mono section name links home, followed by plain page links. The current page uses accent text and a 2px accent underline.
+
+The bar spans the page below the main navigation and shares its horizontal gutter. It isn't sticky. On phones the section name stays visible and the links scroll sideways in one row. The current link is revealed on load without moving the page or focus. The bar is hidden in print.
+
+Use it with any sidebar position. Keep filters and long lists in the sidebar. Don't give the section bar and sidebar the same job.
+
+Development previews: `/components-ui/section-bar/left/checker`, `/components-ui/section-bar/right/checker`, and `/components-ui/section-bar/none/checker`. Each has Directory, Niches, Stats, and Checker links.
+
 ### Homepage
 
 The homepage lists published tool catalogs, selected directories, the self-hosting course, and Labs. Hardware directories stay published but are off the homepage cards. The homepage uses `none` and doesn't list individual tools or directory child pages. Card names and descriptions come from each family's page table.

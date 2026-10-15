@@ -41,6 +41,7 @@ The group names organize the repository. They never appear in public URLs.
 
 - Every page uses the shared site navigation and `AppShell`. Each page picks its sidebar position: `left` for navigation and options, `right` for related pages and section links, or `none`. Prefer `left`. A sidebar never holds reading content. See Sidebars in [design-system.md](design-system.md).
 - All page families use `PageCanvas` and the same responsive gutters.
+- Any page can opt in to a short section bar through `AppShell`'s `sectionNav`, with any sidebar position. See Section bar in [design-system.md](design-system.md).
 - Text-led pages use its 760px reading width. Directories, tool workbenches, tables, and card grids stay wide. With a sidebar, both widths start at the same left edge. With no sidebar, reading sections center.
 - `EntryHero` uses the canvas inside it, so entry headers and body sections line up. Don't nest canvases.
 - Visible titles and introductions use `PageHeader`.

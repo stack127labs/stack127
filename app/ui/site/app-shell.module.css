@@ -4,19 +4,26 @@
   width: 100%;
 }
 
+.shellWithSectionNav {
+  /* Link line, vertical padding, and its 2px underline plus the bar's bottom border. */
+  --section-bar-height: calc(var(--text-body) * var(--line-ui) + var(--space-5) * 2 + 3px);
+  /* The main navigation's bottom border sits outside --top-bar-height. */
+  --shell-viewport-height: calc(100vh - var(--top-bar-height) - 1px - var(--section-bar-height));
+}
+
 .page {
   align-items: start;
   display: grid;
   gap: 0;
   grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
-  min-height: calc(100vh - var(--top-bar-height));
+  min-height: var(--shell-viewport-height, calc(100vh - var(--top-bar-height)));
   padding: 0;
 }
 
 .sidebar {
   background: var(--color-bg);
   border-right: 1px solid var(--color-border);
-  height: calc(100vh - var(--top-bar-height));
+  height: var(--shell-viewport-height, calc(100vh - var(--top-bar-height)));
   overflow-y: auto;
   position: sticky;
   top: var(--top-bar-height);
@@ -50,7 +57,7 @@
   background: var(--color-bg);
   border-left: 1px solid var(--color-border);
   grid-area: aside;
-  height: calc(100vh - var(--top-bar-height));
+  height: var(--shell-viewport-height, calc(100vh - var(--top-bar-height)));
   overflow-y: auto;
   position: sticky;
   top: var(--top-bar-height);
@@ -97,7 +104,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - var(--top-bar-height));
+  min-height: var(--shell-viewport-height, calc(100vh - var(--top-bar-height)));
   min-width: 0;
 }
 

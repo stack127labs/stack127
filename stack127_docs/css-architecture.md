@@ -45,7 +45,7 @@ Flat tool pages live under `app/(site)/(tools)/<slug>/`. The `(tools)` route gro
 
 ## Building a page
 
-1. Use `AppShell` with `PageCanvas` for each outer content section. Set `sidebarPosition` to `left`, `right`, or `none`, as the Sidebars section of [design-system.md](design-system.md) describes. `EntryHero` already includes a canvas. Use the shared navigation, sidebar-panel, prose, media, and code-block components where they fit.
+1. Use `AppShell` with `PageCanvas` for each outer content section. Set `sidebarPosition` to `left`, `right`, or `none`, as the Sidebars section of [design-system.md](design-system.md) describes. Add `sectionNav` only when the page needs short navigation between related pages. Its styles live in `app/ui/site/section-bar.module.css`. `EntryHero` already includes a canvas. Use the shared navigation, sidebar-panel, prose, media, and code-block components where they fit.
 2. Put the page's other styles in its route folder or beside its component.
 3. Import family CSS from the layout or pages that use it, not from a layout that also serves unrelated pages. Import a CSS Module directly from the component that owns it.
 4. Use semantic tokens from `globals.css`. Don't create another global token layer in a page file. Every bounded UI shape uses the shared 2px `--radius` token.
