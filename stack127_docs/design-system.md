@@ -243,7 +243,7 @@ Tool catalog sidebars link between published tool catalogs and mark the current 
 
 Pages can opt in to `sectionNav` on `AppShell` for a section's 3 to 6 main pages. The owner chooses page by page. The lowercase mono section name links home, followed by plain page links. The current page uses accent text and a 2px accent underline.
 
-The bar spans the page below the main navigation and shares its horizontal gutter. It isn't sticky. On phones the section name stays visible and the links scroll sideways in one row. The current link is revealed on load without moving the page or focus. The bar is hidden in print.
+The bar spans the page below the main navigation and shares its horizontal gutter. It isn't sticky. On phones the section name is hidden and the links scroll sideways in one row. The current link is revealed on load without moving the page or focus. The bar is hidden in print.
 
 Use it with any sidebar position. Keep filters and long lists in the sidebar. Don't give the section bar and sidebar the same job.
 

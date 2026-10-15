@@ -68,6 +68,13 @@
   }
 }
 
+/* On phones the links start at the edge. The nav's label still names the section. */
+@media (max-width: 680px) {
+  .bar .identity {
+    display: none;
+  }
+}
+
 @media print {
   .bar {
     display: none;
