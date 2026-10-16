@@ -2,6 +2,7 @@ import { Globe, HardDrive, Keyboard } from "lucide-react";
 import { Pagination } from "@/app/ui/pagination";
 import { Breadcrumbs } from "@/app/ui/site/breadcrumbs";
 import { SidebarList } from "@/app/ui/site/sidebar-list";
+import { UiTabs } from "@/app/ui/tabs";
 import { Example } from "../gallery";
 import styles from "../components-ui.module.css";
 
@@ -55,6 +56,22 @@ export function NavigationExamples() {
             ]} />
           </nav>
         </div>
+      </Example>
+      <Example
+        components={["UiTabs"]}
+        note="Every panel is in the server HTML under its own heading, so search engines read all of them and the page works without scripts. With scripts, inactive panels get hidden=&quot;until-found&quot;: find-in-page still reaches them and opens their tab. Arrow keys, Home, and End move between tabs."
+        source="app/ui/tabs.tsx"
+        title="Tabs"
+        usage={{ label: "TSX", code: `<UiTabs label="Mediavine details" tabs={[
+  { id: "joining", title: "Joining", content: <Joining /> },
+  { id: "pay", title: "Pay", content: <Pay /> },
+]} />` }}
+      >
+        <UiTabs label="Example details" tabs={[
+          { id: "joining", title: "Joining", content: <p>Who can apply, the traffic rule, and how to apply.</p> },
+          { id: "pay", title: "Pay", content: <p>Your share, when you get paid, and the payment minimum.</p> },
+          { id: "rules", title: "Rules", content: <p>Ad placement, other ad partners, and the contract.</p> },
+        ]} />
       </Example>
     </>
   );

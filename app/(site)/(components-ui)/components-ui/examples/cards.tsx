@@ -8,6 +8,8 @@ import { ToolCard } from "@/app/ui/cards/tool-card";
 import { DirectoryAppCard } from "@/app/ui/directories/directory-app-card";
 import { HardwareFactCardContent, hardwareFactCardClassName } from "@/app/ui/directories/hardware-fact-card";
 import type { DirectoryAppCardData } from "@/lib/apps-card";
+import { NetworkCard, NetworkGrid, SortNote } from "@/app/ui/ad-networks/network-card";
+import { NetworkLogo } from "@/app/ui/ad-networks/network-logo";
 import { Example } from "../gallery";
 import styles from "../components-ui.module.css";
 
@@ -77,6 +79,37 @@ export function CardsExamples() {
             <HardwareFactCardContent facts={[{ label: "Connection", value: "Zigbee" }, { label: "Power", value: "battery" }]} image={null} name="Example Zigbee sensor" />
           </Link>
         </div>
+      </Example>
+      <Example
+        components={["NetworkLogo", "networkLogo"]}
+        note="An ad network's square icon on a white tile, so any icon reads in both themes. card is the 32px tile for cards and table rows; title sits in an h1 in place of the title icon. Without a logo file the tile shows the name's first letter. networkLogo(slug) finds public/ad-networks/logos/<slug>.png on the server."
+        source="app/ui/ad-networks/network-logo.tsx, app/ui/ad-networks/network-logo-src.ts"
+        title="Network logo"
+      >
+        <div style={{ alignItems: "center", display: "flex", flexWrap: "wrap", gap: 16 }}>
+          <NetworkLogo logo={{ src: "/ad-networks/logos/mediavine.png" }} name="Mediavine" />
+          <NetworkLogo logo={{ src: "/ad-networks/logos/raptive.png" }} name="Raptive" />
+          <NetworkLogo logo={{ src: "/ad-networks/logos/newor-media.png" }} name="Newor Media" />
+          <NetworkLogo logo={null} name="Sparteo" />
+          <span style={{ font: "var(--weight-bold) var(--text-h1) / var(--line-h1) var(--font-display)", letterSpacing: "var(--tracking-display)" }}>
+            <NetworkLogo logo={{ src: "/ad-networks/logos/mediavine.png" }} name="Mediavine" size="title" />Mediavine
+          </span>
+        </div>
+      </Example>
+      <Example
+        components={["NetworkCard", "NetworkGrid", "SortNote"]}
+        note="One ad network in the directory: logo, name, the confirmed-share ring, the site count, and what it takes to join. The whole card links to the network. Hover or focus the ring for its bubble; on touch screens a tap opens it. Leave join out to hide the footer. The grid goes four, three, two, then one across."
+        source="app/ui/ad-networks/network-card.tsx, app/ui/ad-networks/confirmed-ring.tsx"
+        title="Network card"
+      >
+        <SortNote>Sorted by how many <b>Food</b> sites use each network.</SortNote>
+        <NetworkGrid>
+          <NetworkCard confirmed={7492} href="/components-ui/cards" join="No traffic minimum" logo={{ src: "/ad-networks/logos/ezoic.png" }} name="Ezoic" sites={8144} />
+          <NetworkCard confirmed={7459} href="/components-ui/cards" join="50,000 sessions a month" logo={{ src: "/ad-networks/logos/mediavine.png" }} name="Mediavine" sites={7852} />
+          <NetworkCard confirmed={6437} href="/components-ui/cards" join="100,000 pageviews a month" logo={{ src: "/ad-networks/logos/raptive.png" }} name="Raptive" sites={7152} />
+          <NetworkCard confirmed={6119} href="/components-ui/cards" join="1,000 sessions a month" logo={{ src: "/ad-networks/logos/journey-by-mediavine.png" }} name="Journey by Mediavine" sites={6953} />
+          <NetworkCard confirmed={1} href="/components-ui/cards" logo={null} name="Publir" sites={1} />
+        </NetworkGrid>
       </Example>
     </>
   );

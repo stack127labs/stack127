@@ -1,0 +1,21 @@
+/* The method questions below the report (mockup `.nprose`). */
+.article {
+  margin-top: 64px;
+  max-width: var(--measure-prose);
+}
+
+.article:first-child {
+  margin-top: 0;
+}
+
+/* The sites table is not an AdSection, so split every section with the same hairline (mockup `.nsec + .nsec`). */
+.sections {
+  display: grid;
+  min-width: 0;
+}
+
+.sections > * + * {
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-14);
+  padding-top: var(--space-13);
+}

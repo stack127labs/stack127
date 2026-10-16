@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AdSection, SectionNote } from "@/app/ui/ad-networks/section";
 import { HardDrive } from "lucide-react";
 import { siteHeroStack127Art } from "@/app/(site)/art/site--hero-stack127";
 import { BrandWordmark } from "@/app/ui/site/brand-wordmark";
@@ -110,6 +111,21 @@ export function PageLayoutExamples() {
             <li key={layout.href}><Link href={layout.href}>{layout.label}</Link><span>{layout.detail}</span></li>
           ))}
         </ul>
+      </Example>
+      <Example
+        components={["AdSection", "SectionHead", "SectionNote"]}
+        note="Sections of the ad networks pages: an h2 asked as a question, optional controls beside it, one muted line saying what the section shows, then the content. Sections in a row are split by a hairline. SectionHead alone is the heading row above a card grid or table."
+        source="app/ui/ad-networks/section.tsx"
+        title="Ad network sections"
+      >
+        <div>
+          <AdSection description="Each block is one niche, sized by how many of our sites belong to it." id="section-demo-1" title="Which niches have the most sites?">
+            <SectionNote>Dates before Jul 2026 come from archived copies of its ads.txt in the Wayback Machine.</SectionNote>
+          </AdSection>
+          <AdSection actions={<span style={{ color: "var(--color-text-muted)", font: "var(--text-small) var(--font-mono)" }}>controls sit here</span>} description="Every network that runs on food sites, with what it takes to join." id="section-demo-2" title="Which ad networks do food sites use?">
+            <SectionNote>The next section starts after a hairline.</SectionNote>
+          </AdSection>
+        </div>
       </Example>
     </>
   );

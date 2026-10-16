@@ -59,7 +59,7 @@ export async function proxy(request: NextRequest) {
   if ((pathname.startsWith("/api/self-host-apps/") && pathname !== "/api/self-host-apps/search") || pathname.startsWith("/api/resource-planner-app/")) tags.push("self-host-detail");
   if (pathname === "/cli-apps" || pathname === "/api/cli-apps/index") tags.push("cli-apps-catalog");
   if (pathname === "/platform-fees" || pathname.startsWith("/platform-fees/")) tags.push("platform-fees-catalog");
-  if (pathname === "/ad-networks" || pathname.startsWith("/ad-networks/")) tags.push("ad-networks-catalog");
+  if (pathname === "/ad-networks" || pathname.startsWith("/ad-networks/") || pathname.startsWith("/api/ad-networks/") || pathname === "/ad-network-checker") tags.push("ad-networks-catalog");
   if (pathname === "/keyboard-shortcuts" || pathname.startsWith("/keyboard-shortcuts/")) tags.push("keyboard-shortcuts-catalog");
   if (pathname.startsWith("/api/hardware-directory/")) {
     const directorySlug = pathname.split("/")[3];

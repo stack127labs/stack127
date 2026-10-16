@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
+import type { SectionNav } from "@/app/ui/site/section-bar";
 import { SidebarList } from "@/app/ui/site/sidebar-list";
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/ui/site/sidebar-panel";
 import { getPrimaryToolCatalog, type PublishedToolCatalog } from "@/lib/tool-catalogs";
@@ -28,9 +29,11 @@ function ToolPageSidebar({ catalog, toolSlug }: { catalog: PublishedToolCatalog;
 
 export async function ToolPageShell({
   children,
+  sectionNav,
   toolPage,
 }: {
   children: ReactNode;
+  sectionNav?: SectionNav;
   toolPage: Stack127ToolPage;
 }) {
   const catalog = await getPrimaryToolCatalog(toolPage.page_id);
@@ -38,6 +41,7 @@ export async function ToolPageShell({
     <AppShell
       mainLabel={toolPage.title}
       menuLabel={catalog?.page.label ?? "Tool catalogs"}
+      sectionNav={sectionNav}
       sidebar={catalog
         ? <ToolPageSidebar catalog={catalog} toolSlug={toolPage.slug} />
         : <ToolCatalogSidebar active="" />}

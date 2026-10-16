@@ -1,0 +1,257 @@
+/* The ad networks directory (mockup ad-networks.html) and the header parts the network pages share. */
+
+/* Header */
+
+.header > p {
+  max-width: var(--measure-prose);
+}
+
+.metaRow {
+  align-items: center;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font: var(--text-small) / 1.4 var(--font-mono);
+  gap: var(--space-2) var(--space-7);
+}
+
+.official {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  gap: var(--space-2);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 3px;
+}
+
+.official svg {
+  height: 15px;
+  width: 15px;
+}
+
+.official:hover,
+.official:focus-visible {
+  color: var(--color-text);
+  text-decoration-color: currentColor;
+}
+
+.visuallyHidden {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Hero search: one box for networks, sites, and niches */
+
+.heroSearch {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+  max-width: var(--measure-prose);
+}
+
+.heroSearch form {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.searchBox {
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  display: flex;
+  height: 52px;
+  min-width: 0;
+}
+
+.searchBox:focus-within {
+  border-color: var(--color-accent-text);
+  box-shadow: var(--focus-ring);
+}
+
+.searchBox svg {
+  color: var(--color-text-muted);
+  flex: none;
+  height: 20px;
+  margin-left: 14px;
+  width: 20px;
+}
+
+.searchBox input {
+  background: transparent;
+  border: 0;
+  color: var(--color-text);
+  flex: 1;
+  font: var(--text-body) var(--font-mono);
+  height: 100%;
+  min-width: 0;
+  outline: 0;
+  padding: 0 14px;
+}
+
+.searchBox input:focus-visible {
+  box-shadow: none;
+}
+
+.searchBox input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.searchBox kbd {
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  color: var(--color-text-muted);
+  font: var(--text-small) var(--font-mono);
+  margin-right: 12px;
+  padding: 1px 7px;
+}
+
+.primaryButton,
+.secondaryButton {
+  align-items: center;
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: inline-flex;
+  font: var(--weight-semibold) var(--text-body) var(--font-sans);
+  justify-content: center;
+  padding: 0 22px;
+  white-space: nowrap;
+}
+
+.primaryButton {
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent-contrast);
+  height: 52px;
+}
+
+.primaryButton:hover {
+  filter: brightness(0.96);
+}
+
+.secondaryButton {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+  height: var(--control-height-lg);
+}
+
+.secondaryButton:hover {
+  background: var(--color-surface-2);
+}
+
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible {
+  box-shadow: var(--focus-ring);
+  outline: 0;
+}
+
+.searchTry {
+  align-items: baseline;
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font: var(--text-small) / var(--line-ui) var(--font-mono);
+  gap: var(--space-2) var(--space-5);
+  margin: 0;
+  width: fit-content;
+}
+
+.searchTry a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 3px;
+}
+
+.searchTry a:hover {
+  text-decoration-color: currentColor;
+}
+
+@media (max-width: 560px) {
+  .heroSearch form {
+    grid-template-columns: 1fr;
+  }
+
+  .searchBox kbd {
+    display: none;
+  }
+}
+
+/* Body: sections spaced like the mockup's separate canvases, with no rules between them */
+
+.body {
+  display: grid;
+  min-width: 0;
+}
+
+.body > * {
+  min-width: 0;
+}
+
+.body > * + * {
+  margin-top: calc(var(--page-padding-top) + var(--page-padding-bottom));
+}
+
+/* Network cards */
+
+.directory {
+  min-width: 0;
+}
+
+.cell {
+  display: grid;
+  min-width: 0;
+}
+
+.cards[data-collapsed] .cell:nth-child(n + 13) {
+  display: none;
+}
+
+/* `hidden="until-found"` keeps a box, so take hidden cards out of the grid flow. Find-in-page
+   still reaches them and opens the list. */
+.cell[hidden] {
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+.cards {
+  position: relative;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-8);
+}
+
+/* Reading content under the cards (mockup `.prose`) */
+
+.article {
+  display: grid;
+  gap: var(--space-7);
+  max-width: var(--measure-prose);
+}
+
+.article h2 {
+  font: var(--weight-bold) 1.7rem / 1.2 var(--font-display);
+  letter-spacing: var(--tracking-display);
+  margin: calc(var(--space-13) - var(--space-7)) 0 0;
+}
+
+.article > h2:first-child {
+  margin-top: 0;
+}
+
+.article p {
+  margin: 0;
+}

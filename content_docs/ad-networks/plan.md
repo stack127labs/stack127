@@ -2,7 +2,9 @@
 
 Status: The draft foundation has 45 network identities and 46 unpublished registry routes in development and production. The managed publisher and relationship tables remain empty. Discovery candidates, source sightings, checks, and relationships use the independent homelab SQLite database at `~/.local/share/stack127/ad-networks.sqlite`. Copying reviewed results into Supabase, enabling production workers, and publishing pages are separate activation steps. Majestic Million is postponed.
 
-The roster started with the [31 ad networks in the research database](https://app.notion.com/p/bc1c2f83e00a463b97219f7f8ae8cb0e?v=70131f4d0b4848a5b87b301714c64c07), then added Google AdSense and 13 reviewed publisher platforms. This document covers the 45-network directory, one page per network, domain discovery, independent verification, database updates, and recurring refreshes. The work has five phases: build the foundation, gather the initial domain list, add new domains on a schedule, verify network relationships on a separate schedule, and check the complete system. Network niche pages, site detail pages, traffic estimates, earnings estimates, technology reports, and other insight pages are later decisions.
+The roster started with the [31 ad networks in the research database](https://app.notion.com/p/bc1c2f83e00a463b97219f7f8ae8cb0e?v=70131f4d0b4848a5b87b301714c64c07), then added Google AdSense and 13 reviewed publisher platforms. This document covers the 45-network directory, one page per network, domain discovery, independent verification, database updates, and recurring refreshes. The work has five phases: build the foundation, gather the initial domain list, add new domains on a schedule, verify network relationships on a separate schedule, and check the complete system. Niche pages, a stats page, and a site checker were added on 2026-10-16; see [the build plan](../../dev-space/ad-networks-build-plan.md). Traffic estimates and earnings estimates are later decisions.
+
+Merger rule (2026-10-16): Snigel is merged into Publisher Collective following their February 2025 merger. Map `snigelweb.com` manager and ad-system evidence to Publisher Collective, keep the usual evidence thresholds, and permanently redirect `/ad-networks/snigel` to `/ad-networks/publisher-collective`. The active roster is 44 networks. PubGalaxy stays separate.
 
 ## What we will publish
 
@@ -10,8 +12,12 @@ The roster started with the [31 ad networks in the research database](https://ap
 | --- | --- | --- |
 | `/ad-networks` | Directory of ad networks | Network name, short factual description, official website, count of currently verified publisher sites, and link to its page. |
 | `/ad-networks/<network-slug>` | Directory of sites for one network | Network introduction and a searchable, paginated list of verified domains. Each row links to the site and identifies the relationship accurately. |
+| `/ad-networks/niches` | Niches across all networks | Sites per niche, network share in each niche, and a niche by network grid. |
+| `/ad-networks/niches/<niche>` | One niche | Its sites, the networks used most, site sizes, moves between networks, and newest sites. Unpublished until the niche run fills the data. Index only niches with 500 or more sites. |
+| `/ad-networks/stats` | The whole market | Market share, growth, switches, site sizes, ads.txt, and freshness. |
+| `/ad-network-checker` | Tool | One site's networks, manager, history, and ads.txt summary, loaded in the browser. |
 
-Use `/ad-networks/journey-by-mediavine` for Journey. Keep the URL plural and consistent with the parent. There are no `/ad-networks/<network>/niches/<niche>` or `/ad-networks/niches/<niche>` routes in this phase. Do not introduce `/ad-network/niche` either. Filtering can use query parameters on an existing list if it becomes useful, but categorization and insight pages are not part of the first release.
+Use `/ad-networks/journey-by-mediavine` for Journey. Keep the URL plural and consistent with the parent. Niche pages live only at `/ad-networks/niches/<niche>`; there are no `/ad-networks/<network>/niches/<niche>` or `/ad-network/niche` routes. Filters on a list use query parameters. There is no static page per site: the static export allows 20,000 files and there are far more sites than that, so the checker tool shows one site at a time.
 
 The directory belongs in `app/(site)/(directories)/`. Each public route must have its exact slug in `public.stack127_pages`; that registry controls publication, indexing, and the sitemap. Follow [page families](../../stack127_docs/page-families.md), [product direction](../../stack127_docs/product-direction.md), and [shared UI](../../stack127_docs/shared-ui.md) when building the pages. Use server-rendered initial rows and bounded pagination so a network with thousands of sites does not load its whole dataset into the browser. Pagination follows the existing `?page=2` convention.
 
@@ -48,7 +54,7 @@ Discovery creates a candidate domain with no network relationship; it never publ
 
 The [IAB ads.txt 1.1 specification](https://iabtechlab.com/wp-content/uploads/2022/04/Ads.txt-1.1.pdf) defines `MANAGERDOMAIN` as a primary or exclusive partner. [Google's sellers.json guidance](https://support.google.com/admanager/answer/9761171?hl=en) explains the business-domain distinction. A missing `MANAGERDOMAIN`, a timeout, a temporary block, or a missing seller entry must remain “unknown” until another check resolves it; none proves the relationship ended.
 
-Some programs need separate rules before their pages go live. Journey and PubNation now have separate seller files, but those files provide leads, not proof that a particular website belongs to either program. Journey still needs a program-specific live signal or another distinct publisher-side declaration. Apply the same caution to related companies and brands such as Snigel/Publisher Collective and Mediavine/PubNation. One company's ad-system domain must not silently populate every related brand's page.
+Some programs need separate rules before their pages go live. Journey and PubNation now have separate seller files, but those files provide leads, not proof that a particular website belongs to either program. Journey still needs a program-specific live signal or another distinct publisher-side declaration. Apply the same caution to related programs such as Mediavine/PubNation. One company's ad-system domain must not silently populate every related brand's page.
 
 ## Source policy
 

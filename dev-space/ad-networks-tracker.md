@@ -2,7 +2,7 @@
 
 The rule: text that is written once lives in the codebase. Data that changes lives in the database.
 
-Mockups: `dev-space/ad-networks-mockups/`. Working data: homelab SQLite at `~/.local/share/stack127/ad-networks.sqlite`.
+Mockups: `dev-space/ad-networks-mockups/`. Build plan: [ad-networks-build-plan.md](ad-networks-build-plan.md). Working data: homelab SQLite at `~/.local/share/stack127/ad-networks.sqlite`.
 
 ## Where we are (2026-10-15)
 
@@ -20,45 +20,63 @@ Mockups: `dev-space/ad-networks-mockups/`. Working data: homelab SQLite at `~/.l
 ## Codebase
 
 ### Network details
-- [ ] Luna research for all 45 networks: join rules, pay share, payment terms, payment threshold, rules, service, with a source for each fact
-- [ ] Opus writes it into one MDX file per network: key numbers, Joining, Pay, Rules, and Service tabs, and sources
-- [ ] Guide text and Q&As for each network page, with no numbers in the text
+- [x] Luna research for all 45 networks: join rules, pay share, payment terms, payment threshold, rules, service, with a source for each fact
+- [x] Opus writes it into one MDX file per network: key numbers, Joining, Pay, Rules, and Service tabs, and sources
+- [x] Guide text and Q&As for each network page, with no numbers in the text
 
 ### Network logos
-- [ ] Collect the official logos for all 45 networks
-- [ ] Save them in `public/` in one size and format
+- [x] Square favicon icons for all 45 networks: 36 from the mockups, 9 fetched in the same style
+- [x] Save them in `public/ad-networks/logos/<slug>.png`
 
 ### Niches
-- [ ] Final list of niches: names, slugs, and one line each
-- [ ] Decide whether niche routes become real pages or stay a `?niche=` filter
+- [x] Final list of niches: names, slugs, and one line each
+- [x] Decide niche routes: real pages, indexed only with 500+ sites
 
 ### Pages
-- [ ] Ad networks directory (`/ad-networks`)
-- [ ] Network page (`/ad-networks/<network>`)
-- [ ] Niches page
-- [ ] Niche page (if we decide yes)
-- [ ] Site page
-- [ ] Stats page
-- [ ] Checker tool (flat URL)
+- [x] Ad networks directory (`/ad-networks`)
+- [x] Network page (`/ad-networks/<network>`)
+- [x] Niches page
+- [x] Niche page (built, unpublished until the niche run)
+- [x] Site view inside the checker (no static site pages: 20,000 file limit)
+- [x] Stats page
+- [x] Checker tool (flat URL)
 
 ### Shared parts
-- [ ] Tabs component that search engines can read, with every panel in the HTML
-- [ ] Chart components with hidden data tables
-- [ ] Sites table with search, filter, sort, and pages
+- [x] Tabs component that search engines can read, with every panel in the HTML
+- [x] Chart components with hidden data tables
+- [x] Sites table with search, filter, sort, and pages
+
+### Rebuild to match the mockups (started 2026-10-16)
+- [x] Shared components that look like the mockup charts, cards, tables, and controls
+- [x] Live data and hide rules for every mockup number and chart (`dev-space/ad-networks-data-contract.md`)
+- [x] Directory and network pages match their mockups
+- [x] Niches, niche, and stats pages match their mockups
+- [x] Checker site view matches `site.html`
+- [x] Side-by-side check of every page against its mockup at 1440 and 390
+- [x] Sol review of the rebuild (two rounds, all findings fixed)
+
+### Follow-ups
+- [x] Fix the homelab nightly backup (2026-10-16: now writes to `/srv/data/backups/stack127-ad-networks`)
+- [ ] January 2027: remove the `data-gate` hide rules once every data run is filling its fields
+- [x] PubGalaxy: keep as its own network, with a note that it's now part of Improve Digital (Azerion)
+- [x] Snigel: merged into Publisher Collective; `/ad-networks/snigel` redirects (homelab and dev done; production with the release)
+- [ ] Watch for sites naming an Improve Digital manager line; add Improve Digital as a network then
+- [ ] Timeline chart type for site history in the checker
+- [ ] Publish niche pages after the niche run
 
 ### Docs
-- [ ] Update `content_docs/ad-networks/plan.md`: niche routes, site pages, and stats
-- [ ] Update `content_docs/ad-networks/brief.md`
-- [ ] Decide on the Publisher tools catalog and widen the Domain tools brief for the checker
+- [x] Update `content_docs/ad-networks/plan.md`: niche routes, site pages, and stats
+- [x] Update `content_docs/ad-networks/brief.md`
+- [x] Decide on the Publisher tools catalog and widen the Domain tools brief for the checker
 
 ---
 
 ## Database
 
 ### Setup
-- [ ] Migration: new site columns (niche, publisher name, platform, domain age, traffic group, ads.txt summary, favicon)
-- [ ] Migration: history snapshot table (counts per network per day)
-- [ ] Copy reviewed sites and confirmed links from SQLite to Supabase dev
+- [x] Migration: new site columns (niche, publisher name, platform, domain age, traffic group, ads.txt summary, favicon), applied to dev
+- [x] Migration: history snapshot table (counts per network per day), applied to dev
+- [x] Copy reviewed sites and confirmed links from SQLite to Supabase dev
 - [ ] Check the dev pages, then copy to production
 
 ### Site checks
@@ -116,7 +134,7 @@ Mockups: `dev-space/ad-networks-mockups/`. Working data: homelab SQLite at `~/.l
 - [x] `discover`: finds new candidate sites (weekly timer)
 - [x] `verify` and `worker`: check each site's ads.txt and update links (always running)
 - [x] `backup-local`: backs up the SQLite file (daily timer)
-- [ ] `sync`: copies reviewed sites and links from SQLite to Supabase, then refreshes the changed pages
+- [x] `sync`: copies reviewed sites and links from SQLite to Supabase (no timer yet)
 - [ ] `snapshot`: saves the daily count per network
 - [ ] `domain-age`: RDAP lookups for new sites
 - [ ] `platform`: detects each site's platform

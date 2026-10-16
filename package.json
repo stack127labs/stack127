@@ -14,6 +14,7 @@
     "keyboard-shortcuts:sync": "node --experimental-strip-types scripts/keyboard-shortcuts/sync-pages.mjs",
     "keyboard-shortcuts:check": "node --experimental-strip-types scripts/keyboard-shortcuts/sync-pages.mjs --check",
     "quality": "npm run typecheck && npm run test:core",
+    "ad-networks:sync": "node scripts/ad-networks/sync.mjs",
     "ad-networks:discover": "node scripts/ad-networks/discover.mjs",
     "ad-networks:import:notion": "node scripts/ad-networks/import-notion-exports.mjs",
     "ad-networks:phase2": "node scripts/ad-networks/phase2-once.mjs",

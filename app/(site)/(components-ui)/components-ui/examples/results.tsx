@@ -2,6 +2,12 @@
 
 import { useState } from "react";
 import { UiButton, UiCopyAction, UiRawOutput } from "@/app/ui/controls";
+import { Report, ReportBars, ReportBlock, ReportFigure, ReportGroup, ReportNumbers, ReportRow } from "@/app/ui/report";
+import { UiTabs } from "@/app/ui/tabs";
+import { DetailsLayout, FactsList, KeyNumbers, NotPublic, SourcesLine } from "@/app/ui/ad-networks/details";
+import { AdsTxtNumbers, AdsTxtPreview, BlockSubheading, FactMuted, SiteFacts, SimilarSites } from "@/app/ui/ad-networks/site-view";
+import { TrafficMeter } from "@/app/ui/ad-networks/traffic-meter";
+import { RankedBars, StackBar } from "@/app/ui/ad-networks/viz/bars";
 import { UiActionRow, UiAllocationBar, UiCodeOutput, UiRangeMarker, UiKeyValueList, UiMetricGroup, UiPrimaryResult, UiProgressBar, UiResultLead, UiStatusWord, UiSteps, UiTimeline, UiUnitGrid } from "@/app/ui/display";
 import { Example } from "../gallery";
 import styles from "../components-ui.module.css";
@@ -171,6 +177,125 @@ export function ResultsExamples() {
             }}
           />
         </div>
+      </Example>
+      <Example
+        components={["Report", "ReportGroup", "ReportRow", "ReportBlock", "ReportNumbers", "ReportFigure", "ReportBars"]}
+        note="A stats report like the ad network mockups: groups headed by the question they answer, split by hairlines, blocks side by side (1-1, 2-1, 1-1-1, or 2-1-1) that stack on phones. No boxes. ReportNumbers ruled is the summary row; plain is three loose numbers. Hide any block, row, or group with no data; a row left with one block takes the full width. Charts for blocks are in Data visuals."
+        source="app/ui/report.tsx"
+        title="Data report"
+      >
+        <Report note="From our checks of 7,852 sites" title="Mediavine stats" titleId="report-demo">
+          <ReportGroup title="How many sites use Mediavine?">
+            <ReportNumbers items={[
+              { label: "sites listed", value: "7,852" },
+              { label: "confirmed live", value: "7,459", accent: true },
+              { label: "of 45 networks", value: "2nd" },
+              { label: "sites in a year", value: "+948", accent: true },
+            ]} />
+            <ReportRow layout="2-1">
+              <ReportBlock description="Which company each site names as its main ad manager." label="Ad manager">
+                <ReportFigure note="name Mediavine" value="88%" />
+              </ReportBlock>
+              <ReportBlock description="Where Mediavine sits among the networks we track, by number of sites." label="Rank among networks">
+                <ReportBars ariaLabel="Sites per network" rows={[
+                  { label: "Ezoic", value: 8144, display: "8,144" },
+                  { label: "Mediavine", value: 7852, display: "7,852", current: true },
+                  { label: "Raptive", value: 7152, display: "7,152" },
+                ]} tone="current" />
+              </ReportBlock>
+            </ReportRow>
+          </ReportGroup>
+          <ReportGroup title="What do ads.txt files look like?">
+            <ReportRow layout="2-1-1">
+              <ReportBlock description="A wide block first, such as domain age." label="wide block">
+                <ReportNumbers items={[
+                  { label: "name an ad manager", value: "71%", accent: true },
+                  { label: "median lines", value: "118" },
+                  { label: "have broken lines", value: "6%" },
+                ]} variant="plain" />
+              </ReportBlock>
+              <ReportBlock description="Then two narrow blocks." label="narrow block">
+                <ReportFigure note="median" value="13 yrs" />
+              </ReportBlock>
+              <ReportBlock description="On tablets these two share a row." label="narrow block">
+                <ReportFigure note="name Mediavine" value="88%" />
+              </ReportBlock>
+            </ReportRow>
+          </ReportGroup>
+        </Report>
+      </Example>
+      <Example
+        components={["DetailsLayout", "KeyNumbers", "FactsList", "NotPublic", "SourcesLine"]}
+        note="A network's details: key numbers in one bordered row, facts in tabs, sources, and the guide prose beside them. From 1200px the prose sits on the left behind a hairline. Use NotPublic for a fact the network doesn't publish."
+        source="app/ui/ad-networks/details.tsx, app/ui/tabs.tsx"
+        title="Network details"
+      >
+        <DetailsLayout
+          prose={(
+            <>
+              <section><h3>How do you join Mediavine?</h3><p>You apply with your site and give Mediavine read access to your Google Analytics. They check your traffic and content against the rules here.</p></section>
+              <section><h3>What does the pay day mean?</h3><p>Mediavine pays each month's earnings a set number of days after the month ends.</p></section>
+            </>
+          )}
+          title="What does Mediavine require and pay?"
+          titleId="details-demo"
+        >
+          <KeyNumbers items={[
+            { label: "sessions a month to join", value: "50,000" },
+            { label: "revenue share", value: "75%" },
+            { label: "pay day", value: "Net 65" },
+          ]} />
+          <UiTabs label="Mediavine details" tabs={[
+            { id: "joining", title: "Joining", content: <FactsList items={[
+              { label: "Traffic", value: "50,000 sessions a month", note: "Measured in Google Analytics" },
+              { label: "Content", value: "Original, long-form content" },
+              { label: "Approval time", value: <NotPublic /> },
+            ]} /> },
+            { id: "pay", title: "Pay", content: <FactsList items={[
+              { label: "Revenue share", value: "75%", note: "More at higher traffic" },
+              { label: "Minimum payout", value: "$25" },
+            ]} /> },
+          ]} />
+          <SourcesLine checked="Oct 12, 2026" sources={[{ label: "mediavine.com/requirements", href: "https://www.mediavine.com/requirements" }]} />
+        </DetailsLayout>
+      </Example>
+      <Example
+        components={["SiteFacts", "AdsTxtNumbers", "AdsTxtPreview", "SimilarSites", "TrafficMeter", "BlockSubheading"]}
+        note="The parts of one site's view in the checker: a ruled facts row (six, three, then two across), the ads.txt counts and the first lines of the file with the manager line marked, and similar sites with their traffic meter."
+        source="app/ui/ad-networks/site-view.tsx, app/ui/ad-networks/traffic-meter.tsx"
+        title="Site view"
+      >
+        <SiteFacts items={[
+          { label: "main ad network", value: "Mediavine" },
+          { label: "traffic", value: <TrafficMeter group="top-10k" muted={false} /> },
+          { label: "niche", value: "Food" },
+          { label: "platform", value: "WordPress" },
+          { label: "domain registered", value: <>2014 <FactMuted>· 12 yrs</FactMuted></> },
+          { label: "publisher", value: "Tiny Kitchen Lab LLC" },
+        ]} />
+        <ReportRow layout="1-1">
+          <ReportBlock>
+            <AdsTxtNumbers items={[{ label: "lines", value: "142" }, { label: "companies", value: "58" }, { label: "direct", value: "31" }, { label: "resellers", value: "111" }]} />
+            <StackBar parts={[{ label: "direct", value: 31, tone: "ac", display: "22%" }, { label: "reseller", value: 111, tone: "n2", display: "78%" }]} />
+            <BlockSubheading>companies with the most lines</BlockSubheading>
+            <RankedBars rows={[{ label: "google.com", value: 18 }, { label: "rubiconproject.com", value: 9 }, { label: "pubmatic.com", value: 8 }]} />
+          </ReportBlock>
+          <ReportBlock>
+            <AdsTxtPreview
+              fileHref="https://tinykitchenlab.com/ads.txt"
+              highlight={["mediavine.com", "aps.amazon.com"]}
+              label="First lines of the ads.txt file"
+              more={132}
+              text={"# tinykitchenlab.com/ads.txt\nMANAGERDOMAIN=mediavine.com\nOWNERDOMAIN=tinykitchenlab.com\nmediavine.com, 4823, DIRECT\naps.amazon.com, 9c1a2b, DIRECT\ngoogle.com, pub-55739, RESELLER, f08c47fec0942fa0\nrubiconproject.com, 17282, RESELLER, 0bfd66d529a55807"}
+            />
+          </ReportBlock>
+        </ReportRow>
+        <SimilarSites sites={[
+          { domain: "sourdoughsundays.com", href: "/components-ui/results", trafficGroup: "top-10k" },
+          { domain: "weeknightskillet.com", href: "/components-ui/results", trafficGroup: "top-10k" },
+          { domain: "crumbandcoast.com", href: "/components-ui/results", trafficGroup: "top-10k" },
+          { domain: "oldfarmrecipes.com", href: "/components-ui/results", trafficGroup: "top-100k" },
+        ]} />
       </Example>
     </>
   );

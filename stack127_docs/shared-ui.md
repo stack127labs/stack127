@@ -23,6 +23,11 @@ The Components UI gallery is at `/components-ui` in development. That route retu
 | Detail drawer with focus and close behavior | `DetailDialog` and `DetailDialogClose` in `app/ui/detail-dialog.tsx` |
 | FAQ with repeated questions | `Faq` in `app/ui/faq.tsx` |
 | Scrollable table region | `TableFrame` in `app/ui/table-frame.tsx` |
+| Tabs that search engines and find-in-page can read | `UiTabs` in `app/ui/tabs.tsx` |
+| A stats report: question groups, side-by-side blocks, headline numbers, ranked bars | `Report`, `ReportGroup`, `ReportRow`, `ReportBlock`, `ReportNumbers`, `ReportFigure`, `ReportBars` in `app/ui/report.tsx` |
+| Search, select, and switch controls beside a section heading, and the large hero search box | `TableToolbar`, `ToolbarSearch`, `ToolbarSelect`, `ToolbarSwitch` in `app/ui/table-toolbar.tsx` |
+| Server-drawn data visuals: ranked bars, stacked bars, donut, columns, lines, flows, strips, treemap, heatmap, timelines | `app/ui/ad-networks/viz/`. See [Data visuals](#data-visuals). |
+| Ad network parts: logo tile, network card, sections, details, sites, niches, ladder, and site view | `app/ui/ad-networks/`. See [Ad network parts](#ad-network-parts). |
 | Page content blocks in MDX | `mdx-components.tsx`, built on `app/ui/content-elements.tsx`. See [page-content.md](page-content.md). |
 | Page shell, headings, prose, media, code, and navigation | `app/ui/site/` |
 | Linked page cards for tools, catalogs, directories, the course, and Labs | `PageCard`, `ToolCard`, `CatalogCard`, `DirectoryCard` in `app/ui/cards/` |
@@ -43,7 +48,7 @@ import { UiDataTable } from "@/app/ui/display";
 import { Callout } from "@/app/ui/callout";
 ```
 
-The gallery is the component library. It groups components by what they do, not by the page family that first used them, because any page can use any component. Its sidebar links one page per section: text and choices, numbers and sliders, actions and forms, file uploads, filters and sorting, results, tables, charts, cards, content, prose, media and art, feedback and dialogs, navigation, and page layout. `/components-ui` lists every section and its components. Page layout links to real pages for full layouts, and to `/components-ui/sidebar-modes/left`, `/right`, and `/none`, which show the real shell with each sidebar position. The TypeScript props beside each component are the full API. The table above helps you pick the right one.
+The gallery is the component library. It groups components by what they do, not by the page family that first used them, because any page can use any component. Its sidebar links one page per section: text and choices, numbers and sliders, actions and forms, file uploads, filters and sorting, results, tables, charts, data visuals, cards, content, prose, media and art, feedback and dialogs, navigation, and page layout. `/components-ui` lists every section and its components. Page layout links to real pages for full layouts, and to `/components-ui/sidebar-modes/left`, `/right`, and `/none`, which show the real shell with each sidebar position. The TypeScript props beside each component are the full API. The table above helps you pick the right one.
 
 To add a component to the gallery, add an `Example` to the matching file in `app/(site)/(components-ui)/components-ui/examples/` and add its name to that section in `sections.ts`. Add a new section only when no existing type fits.
 
@@ -76,7 +81,7 @@ Don't use `description` on tool fields. It stays for forms outside tools, such a
 
 ## Navigation and feedback
 
-`Pagination` takes `currentPage`, `totalPages`, an accessible `ariaLabel`, and `hrefForPage(page)`. The page owns the URL builder, so active filters and sorting stay in the links. Page one uses the clean listing URL. Previous and next turn into inactive text at the ends.
+`Pagination` takes `currentPage`, `totalPages`, an accessible `ariaLabel`, and `hrefForPage(page)`. The page owns the URL builder, so active filters and sorting stay in the links. Page one uses the clean listing URL. Previous and next turn into inactive text at the ends. `variant="words"` shows `Previous` and `Next` in words, each only when there is a page to go to, as in the ad networks sites table.
 
 `DetailDialog` handles Escape, outside pointer presses, keyboard focus, body scrolling, and focus return. Put the page-specific heading and facts inside it, with `DetailDialogClose` in the heading. The page stores which item is selected. The dialog owns the shared behavior.
 
@@ -88,9 +93,64 @@ Don't use `description` on tool fields. It stays for forms outside tools, such a
 | A tool's changing status message | `UiStatus` |
 | Static editorial warning | `Warning` or `Callout`. These aren't live alerts. |
 
+## Tabs
+
+`UiTabs` takes an accessible `label` and `tabs`, each with an `id`, a `title`, and server-rendered `content`. Every panel is in the page HTML under its own heading (`headingLevel`, h3 by default), so search engines read every panel and the page works without scripts. After hydration the tab row appears, the panel headings hide visually, and inactive panels get `hidden="until-found"`. Find-in-page still reaches hidden text and opens its tab through `beforematch`. Arrow keys, Home, and End move between tabs. Use tabs only for parallel sets of facts a reader picks between, such as Joining, Pay, Rules, and Service. Long reading content stays as prose.
+
+## Reports
+
+`app/ui/report.tsx` lays out stats pages: a `Report` with an optional h2 title and a mono note, then `ReportGroup`s headed by the question each answers, split by hairlines. A `ReportRow` puts related `ReportBlock`s side by side and stacks them on phones: `1-1`, `2-1`, `1-1-1` (two columns on tablets, third block below), or `2-1-1` (a wide block, then two narrow ones). A row left with one block takes the full width. Each block has a short mono `label` and a one-line `description`, then a visual from [Data visuals](#data-visuals). `ReportNumbers` shows up to four headline numbers between hairlines (`ruled`, label above) or up to three loose inside a block (`plain`, value above). `ReportFigure` is one big number with a note. `ReportBars` is `RankedBars` with the report's names; `tone="current"` highlights one row.
+
+Where data isn't collected yet, hide the block, row, or group. Don't print a "not collected yet" line and never fill a block with sample numbers.
+
+## Data visuals
+
+`app/ui/ad-networks/viz/` holds the data visuals approved in the ad networks mockups (`dev-space/ad-networks-mockups/`). The ad networks section uses these, not ECharts. Any page may use them when the shape fits. They take plain data as props and hold no sample data.
+
+Each one renders on the server, so it shows without scripts and search engines read it. Small client code adds only hover, tap, arrow keys, the period switch, and a redraw at the box's real width so SVG text stays 12px. Before that redraw the server SVG scales to fit. Charts with 60 values or fewer carry a visually hidden data table. Colors come from the `.tokens` steps in `viz.module.css`: `ac`, `ac2`, `ac3` for accent strengths, `n1`, `n2`, `n3` for neutrals, and `track` for unknown. Each visual draws sensibly with one item. Hiding a visual with no items is the page's job.
+
+| Component | File | Shows |
+| --- | --- | --- |
+| `RankedBars` | `bars.tsx` | Ranked bars with exact values. `tone="highlight"` fills only the page's own row. |
+| `StackBar` | `bars.tsx` | Parts of one whole as a thin bar with a legend. |
+| `MoveBars` | `bars.tsx` | Switches as `from → to`, a bar, and a count. |
+| `VizLegend`, `VizDataTable` | `parts.tsx` | Swatch legend, and the hidden data table. |
+| `Donut` | `donut.tsx` | Parts of a whole as a ring with a legend beside it. |
+| `TypeScale` | `type-scale.tsx` | Labels sized by share, such as domain endings. |
+| `PublisherBlocks` | `publisher-blocks.tsx` | Companies as blocks sized by site count. |
+| `ColumnChart` | `columns.tsx` | One column per group, in HTML. Traffic groups, networks per site, file sizes. |
+| `AreaLine` | `area-line.tsx` | One count over time with hover, tap, and arrow keys. |
+| `JoinedLeftBars` | `joined-left.tsx` | Joined above and left below a line, with a 30 days / 90 days switch. Give a period `slots` and each point a `slot` when only days with changes are passed. |
+| `SwitchFlow` | `switch-flow.tsx` | Where sites came from and went to. |
+| `AgeStrip` | `age-strip.tsx` | Registration years: histogram, middle half, median, oldest, newest. |
+| `SizeStacks` | `size-stacks.tsx` | One 100% bar per size group, split by network. |
+| `NewestList`, `EventsList` | `lists.tsx` | Newest sites, and dated events. |
+| `Treemap` | `treemap.tsx` | Parts of a whole as linked blocks. |
+| `Heatmap` | `heatmap.tsx` | Rows by columns, darker for bigger values. |
+| `MultiLine` | `multi-line.tsx` | A few series over time, named at the line ends. |
+| `DivergingBars` | `diverging-bars.tsx` | Gains and losses around a center line. |
+| `ScatterPlot` | `scatter-plot.tsx` | Items by a step on x and a count on y. |
+| `DotPlot` | `dot-plot.tsx` | One value per row on a shared scale. |
+| `StackedColumns` | `stacked-columns.tsx` | Totals over time with an accent part. |
+| `HistoryGantt` | `history-gantt.tsx` | One bar per network across the years. |
+
+## Ad network parts
+
+`app/ui/ad-networks/` holds the other parts of the ad networks pages and the checker:
+
+- `NetworkLogo` (`network-logo.tsx`): the square icon on a white tile, `card` (32px) or `title` (in an h1). Pass `networkLogo(slug)` from `network-logo-src.ts`, which finds `public/ad-networks/logos/<slug>.png` on the server. Without a file it shows the first letter.
+- `NetworkCard`, `NetworkGrid`, `SortNote` (`network-card.tsx`): the directory card with the confirmed-share ring and its bubble, the four-across grid, and the line saying how cards are sorted. Leave `join` out to hide the card footer.
+- `AdSection`, `SectionHead`, `SectionNote` (`section.tsx`): a section asked as a question, with optional controls and a one-line description. Sections in a row are split by a hairline.
+- `DetailsLayout`, `KeyNumbers`, `FactsList`, `NotPublic`, `SourcesLine` (`details.tsx`): the network details area, used with `UiTabs`.
+- `SitesTable` (`sites-table.tsx`): see [Tables](#tables).
+- `NichesTable` (`niches-table.tsx`) and `NetworkLadder` (`network-ladder.tsx`): the niches list with search, network filter, and sort, and the networks on one niche with a most used / easiest to join switch.
+- `SiteFacts`, `SiteNetworksTable`, `AdsTxtNumbers`, `AdsTxtPreview`, `SimilarSites`, `BlockSubheading` (`site-view.tsx`): the site view in the checker.
+- `TrafficMeter` (`traffic-meter.tsx`): the five-step traffic meter and rank group.
+- `site-format.ts`: shared site formats, such as domain age and traffic group words.
+
 ## Charts
 
-Every chart is Apache ECharts through one wrapper. Pass data; the wrapper draws it in the site style, in both themes. Give every chart a useful title.
+Every chart in this section is Apache ECharts through one wrapper. Pass data; the wrapper draws it in the site style, in both themes. Give every chart a useful title. The ad networks section doesn't use ECharts: it uses the mockup visuals in [Data visuals](#data-visuals).
 
 Any ECharts chart type can be used. The kinds below are already in the wrapper. When a different type shows the data better, such as a sunburst, boxplot, calendar, or pictorial bar, add it. See [Add a chart type](#add-a-chart-type).
 
@@ -158,6 +218,10 @@ Rules for every chart setting:
 ## Tables
 
 `UiDataTable` has row and column headers, an optional caption, and optional right alignment for number columns. It turns into labeled rows on small screens.
+
+`SitesTable` in `app/ui/ad-networks/sites-table.tsx` lists ad network sites. The page passes the server-rendered first page as `initial`, its `defaultSort`, a fixed `scope` (`network` or `niche`), the `columns` and `sorts` to show, and optional `nicheFilter` and `networkFilter`. The response's `availableColumns`, `availableSorts`, and `availableFilters` hide anything with no data yet, and the sort select hides when one option is left. Search, filters, sort, and pages fetch the cached `/api/ad-networks/sites` route and keep their state in the URL, such as `?q=&niche=&page=2`. On phones each row becomes a two-line block.
+
+`ToolbarSelect` is built on React Aria, so there is no native `<select>`. Like a native select it is as wide as its longest option.
 
 Content tables written in Markdown use a scrollable `TableFrame`. Keep tables readable at mobile width. Let wide identifiers scroll instead of breaking every word.
 

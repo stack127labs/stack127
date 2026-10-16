@@ -62,3 +62,25 @@
     padding: 0 var(--space-1);
   }
 }
+
+/* Words variant (ad networks mockup `.pager`): plain text color, right-aligned in a table foot. */
+.pagination[data-variant="words"] {
+  justify-content: flex-end;
+  margin-top: 0;
+}
+
+.pagination[data-variant="words"] a,
+.pagination[data-variant="words"] span {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+  min-height: 36px;
+  min-width: 36px;
+  padding: 0 10px;
+}
+
+.pagination[data-variant="words"] .gap {
+  border-color: transparent;
+  color: var(--color-text-muted);
+  min-width: auto;
+  padding: 0 var(--space-1);
+}

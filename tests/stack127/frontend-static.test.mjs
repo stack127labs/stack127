@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, mkdir, readFile, writeFile, rm, symlink } from "node:fs/promises";
 import path from "node:path";
 import os from "node:os";
-import { inspectAssets, assertNoPrivateCredentials, routeParameters, freeFileSizeLimit } from "../../scripts/stack127/frontend/assets.mjs";
+import { inspectAssets, assertNoPrivateCredentials, routeParameters, staticRedirects, freeFileSizeLimit } from "../../scripts/stack127/frontend/assets.mjs";
 import { prepareFrontend } from "../../scripts/stack127/frontend/prepare.mjs";
 import { activateFrontend } from "../../scripts/stack127/frontend/cloudflare.mjs";
 import { verifyFrontend } from "../../scripts/stack127/frontend/deploy.mjs";
@@ -146,4 +146,14 @@ test("deployment retries preserve release-body, document and missing-page checks
     }), error);
     assert.equal(waits, 1);
   }
+});
+
+test("static redirects preserve explicit HTTP status and existing permanent/temporary defaults", () => {
+  assert.equal(staticRedirects([
+    {source: "/old-company", destination: "/merged-company", statusCode: 301},
+    {source: "/old", destination: "/new", permanent: true},
+    {source: "/temporary", destination: "/current", permanent: false},
+  ]), "/old-company /merged-company 301\n/old /new 308\n/temporary /current 307\n");
+  assert.throws(() => staticRedirects([{source: "/:path*", destination: "/new", permanent: true}]), /non-exact/);
+  assert.throws(() => staticRedirects([{source: "/old", destination: "/new", statusCode: 200}]), /Unsupported redirect status/);
 });

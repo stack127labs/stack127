@@ -4,6 +4,8 @@ import { dirname, resolve } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { IDENTITY_CATALOG_VERSION, networkIdentities } from "./network-identities.mjs";
 
+import { mergeRetiredLocalNetworks } from "./merge-identities.mjs";
+
 export const defaultLocalDatabasePath = resolve(
   process.env.AD_NETWORK_DB_PATH ?? `${homedir()}/.local/share/stack127/ad-networks.sqlite`,
 );
@@ -143,6 +145,7 @@ function seedNetworks(database) {
         network.identityReviewedAt,
       );
     }
+    mergeRetiredLocalNetworks(database);
     database.prepare("insert or replace into schema_meta (key, value) values ('schema_version', '2')").run();
     database.prepare("insert or replace into schema_meta (key, value) values ('identity_catalog_version', ?)")
       .run(IDENTITY_CATALOG_VERSION);

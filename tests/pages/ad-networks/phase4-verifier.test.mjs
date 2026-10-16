@@ -305,7 +305,7 @@ test("local identity catalog includes the expanded network roster and acquired a
   const directory = mkdtempSync(join(tmpdir(), "stack127-ad-network-identities-test-"));
   const database = openLocalDatabase(join(directory, "queue.sqlite"));
   try {
-    assert.equal(database.prepare("select count(*) as count from ad_networks").get().count, 45);
+    assert.equal(database.prepare("select count(*) as count from ad_networks").get().count, 44);
     const aditude = JSON.parse(database.prepare("select manager_domains from ad_networks where slug = 'aditude'").get().manager_domains);
     const venatus = JSON.parse(database.prepare("select manager_domains from ad_networks where slug = 'venatus'").get().manager_domains);
     assert.deepEqual(aditude, ["aditude.com", "aditude.io"]);

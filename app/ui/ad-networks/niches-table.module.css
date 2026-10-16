@@ -1,0 +1,196 @@
+.scroll {
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.table {
+  border-collapse: collapse;
+  font-size: 0.97rem;
+  width: 100%;
+}
+
+.table thead th {
+  border-bottom: 1px solid var(--color-border-strong);
+  color: var(--color-text-muted);
+  font: 500 0.8rem var(--font-mono);
+  padding: 0 var(--space-5) var(--space-4);
+  text-align: left;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.table tbody th,
+.table tbody td {
+  border-top: 1px solid var(--color-border);
+  font-weight: var(--weight-regular);
+  padding: var(--space-6) var(--space-5);
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.table tbody tr:first-child > * {
+  border-top: 0;
+}
+
+.table tbody tr:hover > * {
+  background: var(--color-surface);
+}
+
+.table .right {
+  text-align: right;
+}
+
+.mono {
+  font: 0.86rem var(--font-mono);
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
+
+.niche,
+.niche a {
+  color: var(--color-text);
+  font-weight: var(--weight-semibold) !important;
+}
+
+.niche a:hover,
+.tops a:hover,
+.easy a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.shareWrap {
+  align-items: center;
+  display: flex;
+  gap: var(--space-4);
+  min-width: 150px;
+}
+
+.minibar {
+  background: var(--color-surface-2);
+  border-radius: 1px;
+  flex: 1;
+  height: 8px;
+  max-width: 120px;
+  overflow: hidden;
+}
+
+.minibar i {
+  background: var(--color-accent-text);
+  display: block;
+  height: 100%;
+}
+
+.pct {
+  color: var(--color-text-muted);
+  font: 0.86rem var(--font-mono);
+}
+
+.tops ul {
+  display: flex;
+  gap: var(--space-2) var(--space-7);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tops a,
+.easy a {
+  color: var(--color-text);
+}
+
+.tops span {
+  color: var(--color-text-muted);
+  font: 0.82rem var(--font-mono);
+}
+
+.easy span {
+  display: block;
+  font-size: var(--text-small);
+  margin-top: 2px;
+}
+
+.empty {
+  color: var(--color-text-muted);
+  font: var(--text-small) var(--font-mono);
+  margin: 0;
+}
+
+/* Phones: each row becomes a small block, no sideways scroll. */
+@media (max-width: 760px) {
+  .table thead {
+    display: none;
+  }
+
+  .table,
+  .table tbody {
+    display: block;
+  }
+
+  .table tbody tr {
+    border-top: 1px solid var(--color-border);
+    display: grid;
+    gap: 6px 12px;
+    grid-template-columns: 1fr auto;
+    padding: var(--space-6) 0;
+  }
+
+  .table tbody tr:first-child {
+    border-top: 0;
+  }
+
+  .table tbody th,
+  .table tbody td {
+    border: 0;
+    padding: 0;
+    white-space: normal;
+  }
+
+  .table tbody tr:hover > * {
+    background: none;
+  }
+
+  .niche {
+    grid-column: 1;
+  }
+
+  .count {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .shareCell,
+  .tops,
+  .easy {
+    grid-column: 1 / -1;
+  }
+
+  .shareWrap {
+    min-width: 0;
+  }
+
+  .tops ul {
+    flex-wrap: wrap;
+  }
+
+  .easy {
+    color: var(--color-text-muted);
+    font-size: var(--text-small);
+  }
+
+  .easy:not(:empty)::before {
+    content: "Easiest to join: ";
+  }
+
+  .easy span {
+    display: inline;
+    margin-left: 4px;
+  }
+
+  .easy span::before {
+    content: "· ";
+  }
+}

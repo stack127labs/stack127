@@ -13,6 +13,7 @@ import { loadSelfHostAppsSearch } from "@/lib/self-host-apps-search-data";
 import { parseSelfHostAppsSearchParams } from "@/lib/self-host-apps-search";
 import { loadSelfHostedAppResourcePlannerEntry } from "@/lib/self-hosted-app-resource-planner/data";
 import { getPool } from "@/lib/db";
+import { adNetworkPageKind, getAdNetworkApiVerification } from "@/lib/ad-networks-cache-verification";
 import { sitePageAvailable } from "@/lib/page-source";
 import { getFeeGroup } from "@/lib/platform-fees/groups";
 import { LAUNCH_DIRECTORY_REVISION_SQL, launchDirectoryRevisionMatches } from "@/lib/launch-directories-data";
@@ -29,14 +30,17 @@ export async function POST(request: Request) {
     if (!Array.isArray(paths) || paths.length > 20 || paths.some(path => typeof path !== "string" || !/^\/[a-z0-9/_-]*(?:\.xml)?$/.test(path))) {
       return NextResponse.json({ error: "Invalid paths" }, { status: 400, headers: noStore });
     }
-    const verified: Array<{ path: string; status: number; revision: string | null; digest: string | null; sourceRevision: string | null }> = [];
+    const verified: Array<{ path: string; status: number; revision: string | null; digest: string | null; sourceRevision: string | null; requestPath?: string }> = [];
     for (let i = 0; i < paths.length; i += 4) {
       await Promise.all(paths.slice(i, i + 4).map(async (path: string) => {
+        const adNetworkVerification = path === "/api/ad-networks/sites" || path === "/api/ad-networks/site"
+          ? await getAdNetworkApiVerification(path) : null;
+        const requestPath=adNetworkVerification?.requestPath??path;
         const hosts = [...new Set(["127.0.0.1", process.env.HOSTNAME].filter(Boolean))];
         let response: Response | undefined;
         for (const host of hosts) {
           try {
-            response = await fetch(`http://${host}:${process.env.PORT || "3333"}${path}`, {
+            response = await fetch(`http://${host}:${process.env.PORT || "3333"}${requestPath}`, {
               cache: "no-store", redirect: "manual", signal: AbortSignal.timeout(15_000),
             });
             break;
@@ -47,23 +51,26 @@ export async function POST(request: Request) {
         let contentRevision: string | null = null;
         let sourceRevision: string | null = null;
         if (path.startsWith("/api/")) {
-          const slug = path.split("/").at(-1)!;
-          const hardwareDirectory = path.startsWith("/api/hardware-directory/") ? slug : null;
-          const parent = hardwareDirectory ?? (path === "/api/cli-apps/index" ? "cli-apps"
-            : path.startsWith("/api/self-host-apps/") ? "self-host-apps" : "self-hosted-app-resource-planner");
-          const visible = (await getPool().query("select is_published from public.stack127_pages where slug=$1", [parent])).rows[0]?.is_published;
           let expected: unknown;
-          if (!visible) expected = null;
-          else if (hardwareDirectory === "zigbee-devices") {
-            expected = (await addAmazonMatches(hardwareDirectory, getZigbeeDevices()))
-              .map(device => zigbeeIndexRecord(device, zigbeeCategoryLabels));
-          } else if (hardwareDirectory && isHardwareDirectorySlug(hardwareDirectory)) {
-            expected = (await getHardwareDirectorySnapshot(hardwareDirectory)).records.map(hardwareIndexRecord);
-          } else if (path === "/api/cli-apps/index") expected = await loadTerminalApps();
-          else if (path === "/api/self-host-apps/search") {
-            expected = await loadSelfHostAppsSearch(parseSelfHostAppsSearchParams(new URLSearchParams()));
-          } else if (path.startsWith("/api/self-host-apps/")) expected = (await loadDirectoryAppsBySlugs([slug]))[0] ?? null;
-          else if (path.startsWith("/api/resource-planner-app/")) expected = await loadSelfHostedAppResourcePlannerEntry(slug);
+          if (adNetworkVerification) expected=adNetworkVerification.expected;
+          else {
+            const slug = path.split("/").at(-1)!;
+            const hardwareDirectory = path.startsWith("/api/hardware-directory/") ? slug : null;
+            const parent = hardwareDirectory ?? (path === "/api/cli-apps/index" ? "cli-apps"
+              : path.startsWith("/api/self-host-apps/") ? "self-host-apps" : "self-hosted-app-resource-planner");
+            const visible = (await getPool().query("select is_published from public.stack127_pages where slug=$1", [parent])).rows[0]?.is_published;
+            if (!visible) expected = null;
+            else if (hardwareDirectory === "zigbee-devices") {
+              expected = (await addAmazonMatches(hardwareDirectory, getZigbeeDevices()))
+                .map(device => zigbeeIndexRecord(device, zigbeeCategoryLabels));
+            } else if (hardwareDirectory && isHardwareDirectorySlug(hardwareDirectory)) {
+              expected = (await getHardwareDirectorySnapshot(hardwareDirectory)).records.map(hardwareIndexRecord);
+            } else if (path === "/api/cli-apps/index") expected = await loadTerminalApps();
+            else if (path === "/api/self-host-apps/search") {
+              expected = await loadSelfHostAppsSearch(parseSelfHostAppsSearchParams(new URLSearchParams()));
+            } else if (path.startsWith("/api/self-host-apps/")) expected = (await loadDirectoryAppsBySlugs([slug]))[0] ?? null;
+            else if (path.startsWith("/api/resource-planner-app/")) expected = await loadSelfHostedAppResourcePlannerEntry(slug);
+          }
           if (expected === undefined) throw new Error("Unsupported API refresh");
           if (!expected) {
             if (response.status !== 404) throw new Error(`${path}: removed data is still served`);
@@ -90,8 +97,11 @@ export async function POST(request: Request) {
           );
           let published = sitePageAvailable(path, rows[0]);
           if (published && path.startsWith("/ad-networks/")) {
-            const source = await getPool().query("select 1 from public.ad_networks where slug=$1", [path.slice("/ad-networks/".length)]);
-            published = source.rows.length > 0;
+            const kind=adNetworkPageKind(path);
+            if (kind === "network") {
+              const source = await getPool().query("select 1 from public.ad_networks where slug=$1", [path.slice("/ad-networks/".length)]);
+              published = source.rows.length > 0;
+            } else if (kind === "missing") published=false;
           } else if (published && path.startsWith("/platform-fees/")) {
             const group = getFeeGroup(path.slice("/platform-fees/".length));
             if (!group) published = false;
@@ -121,7 +131,7 @@ export async function POST(request: Request) {
             }
           }
         }
-        verified.push({ path, status: response.status, revision: contentRevision, digest: path.startsWith("/api/") && response.status === 200 ? await cacheBodyDigest(html) : null, sourceRevision });
+        verified.push({ path, ...(requestPath!==path ? {requestPath} : {}), status: response.status, revision: contentRevision, digest: path.startsWith("/api/") && response.status === 200 ? await cacheBodyDigest(html) : null, sourceRevision });
       }));
     }
     return NextResponse.json({ verified }, { headers: noStore });

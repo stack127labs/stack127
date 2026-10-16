@@ -1,0 +1,41 @@
+## How do I find out which ad network a website uses?
+
+Open the site's ads.txt file by adding `/ads.txt` to its address, such as `example.com/ads.txt`. Look for a line that starts with `MANAGERDOMAIN`. If it's there, it names the company that manages the site's ads.
+
+Without that line, the file is a list of companies allowed to sell the site's ad space. Spotting the network in that list takes practice, because most lines belong to the network's partners. This checker does that reading for you and matches the lines to the networks we track.
+
+You can also look at the page's code for ad scripts, but scripts change often and some load only for certain visitors. The ads.txt file is public, stable, and written by the site owner, so we rely on it.
+
+## What does MANAGERDOMAIN mean in ads.txt?
+
+`MANAGERDOMAIN` names the primary or exclusive company that sells a site's ad space, as defined in the [IAB ads.txt 1.1 spec](https://iabtechlab.com/wp-content/uploads/2022/04/Ads.txt-1.1.pdf). Most of the network links we confirm come from this line.
+
+It doesn't prove the deal is exclusive. A site can name a manager and still let other networks sell its ad space, which is why the result can show one main ad network and still list others.
+
+`OWNERDOMAIN` is a different line. It names the business that owns the site, not an ad network.
+
+## Why does the ads.txt file list so many companies?
+
+Each line authorizes one ad account to sell the site's space. `DIRECT` means the site's own account with that company. `RESELLER` means a company that sells the space on someone else's behalf, usually the site's ad network.
+
+A network such as Mediavine works with dozens of ad exchanges, and each one needs its own line. That's why one network can add dozens of lines. The [IAB's ads.txt page](https://iabtechlab.com/ads-txt/) explains the format in full.
+
+## Why isn't a site in the results?
+
+We only show sites our checker has read. We find sites from public lists and each network's own seller list, then read their ads.txt on a schedule. A new or small site may not be in our list yet.
+
+A site also stays out when we can't confirm a network we track. That includes sites with no ads.txt file, sites that block our checker, and sites that use a network outside our list. The [ad networks directory](/ad-networks) lists every network we track.
+
+## How current is the result?
+
+The `Checked` date under the site name is our latest read of its ads.txt. We recheck sites on a schedule.
+
+The `Since` month is when we first confirmed a network. If that was our first check of the site, the network may have been there for years before. The changes section says when our checks of the site started.
+
+One missed check never removes a network. A timeout or a blocked request counts as unknown. A network moves to `Not seen lately`, then `Ended`, only after repeated checks find it missing.
+
+## Does stack127 show traffic or earnings?
+
+Not yet. Traffic and niche join the site facts as our data runs finish. We don't estimate earnings, because there's no public source we can check them against.
+
+If you're choosing a network for your own site, the [ad networks directory](/ad-networks) shows each network's sites and how to join.

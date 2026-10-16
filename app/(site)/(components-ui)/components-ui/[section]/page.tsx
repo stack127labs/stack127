@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ActionsAndFormsExamples } from "../examples/actions-and-forms";
 import { CardsExamples } from "../examples/cards";
 import { ContentExamples } from "../examples/content";
+import { DataVisualsExamples } from "../examples/data-visuals";
 import { FeedbackAndDialogsExamples } from "../examples/feedback-and-dialogs";
 import { FileUploadsExamples } from "../examples/file-uploads";
 import { FiltersAndSortingExamples } from "../examples/filters-and-sorting";
@@ -26,6 +27,7 @@ const examples: Record<string, ComponentType> = {
   "filters-and-sorting": FiltersAndSortingExamples,
   results: ResultsExamples,
   tables: TablesExamples,
+  "data-visuals": DataVisualsExamples,
   cards: CardsExamples,
   content: ContentExamples,
   prose: ProseExamples,

@@ -47,6 +47,7 @@ const nextConfig: NextConfig = {
     if (process.env.STACK127_BUILD_TARGET === "frontend") return [];
     return [
       ...legacyShortcutRedirects,
+      { source: "/ad-networks/snigel", destination: "/ad-networks/publisher-collective", statusCode: 301 },
       { source: "/dns-tools/caa-checker", destination: "/caa-checker", permanent: true },
       { source: "/dns-tools/dns-change-checker", destination: "/dns-change-checker", permanent: true },
       { source: "/dns-tools/dns-lookup", destination: "/dns-lookup", permanent: true },

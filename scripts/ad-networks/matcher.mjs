@@ -1,6 +1,7 @@
 function sourceNetworkSlugs(discoverySources) {
   const aliases = new Map([
     ["sovran", "sovrn"],
+    ["snigel", "publisher-collective"],
     ["anymind", "anymind-anymanager"],
     ["teads-outbrain", "teads"],
     ["outbrain", "teads"],
@@ -29,7 +30,7 @@ function evidenceForManager(variable, fetchEvidence, parserVersion) {
   };
 }
 
-export const MATCHER_VERSION = "ad-network-1.2.0";
+export const MATCHER_VERSION = "ad-network-1.2.1";
 
 function directAdsenseSellerIds(parsed, signature) {
   const pattern = new RegExp(signature.seller_id_pattern ?? "^pub-\\d{16}$", "i");

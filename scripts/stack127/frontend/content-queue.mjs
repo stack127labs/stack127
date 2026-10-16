@@ -267,7 +267,7 @@ export async function refreshApiRecords(snapshot, signingKey, { site = "https://
     },
     warm: async proofs => {
       await Promise.all(proofs.map(async proof => {
-        const response = await siteRequest(site, proof.path, {}, fetchImplementation);
+        const response = await siteRequest(site, proof.requestPath ?? proof.path, {}, fetchImplementation);
         const body = await response.text();
         if (response.status !== proof.status || (proof.digest && await cacheBodyDigest(body) !== proof.digest)) throw new Error(`Public API content is stale: ${proof.path}`);
       }));

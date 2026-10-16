@@ -1,0 +1,9 @@
+/* A count in a header lede (mockup `.fig`): mono, and accent-colored for confirmed sites. */
+
+.figure {
+  font: var(--weight-semibold) 0.95em var(--font-mono);
+}
+
+.figure[data-live] {
+  color: var(--color-accent-text);
+}

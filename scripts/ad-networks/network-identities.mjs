@@ -4,7 +4,6 @@ const definitions = [
   ["adpushup", "AdPushup", ["adpushup.com"], ["adpushup.com"]],
   ["ezoic", "Ezoic", ["ezoic.ai", "ezoic.com"], ["ezoic.ai", "ezoic.co.uk"]],
   ["monumetric", "Monumetric", ["monumetric.com"], ["monumetric.com"]],
-  ["snigel", "Snigel", ["snigelweb.com"], ["snigelweb.com"]],
   ["journey-by-mediavine", "Journey by Mediavine", ["journeymv.com"], ["journeymv.com"]],
   ["setupad", "Setupad", ["setupad.com"], ["setupad.com"]],
   ["mediavine", "Mediavine", ["mediavine.com"], ["mediavine.com"]],
@@ -15,7 +14,7 @@ const definitions = [
   ["refinery89", "Refinery89", ["refinery89.com"], ["refinery89.com"]],
   ["nitropay", "NitroPay", ["nitropay.com"], ["nitropay.com"]],
   ["aditude", "Aditude", ["aditude.com", "aditude.io"], ["aditude.com", "aditude.io"]],
-  ["publisher-collective", "Publisher Collective", ["publisher-collective.com", "network-n.com"], ["publisher-collective.com", "network-n.com", "adsparc.com"]],
+  ["publisher-collective", "Publisher Collective", ["publisher-collective.com", "network-n.com", "snigelweb.com"], ["publisher-collective.com", "network-n.com", "adsparc.com", "snigelweb.com"]],
   ["clickio", "Clickio", ["clickio.com"], ["clickio.com"]],
   ["pubnation", "PubNation", ["pubnation.com"], ["pubnation.com"]],
   ["snack-media", "Snack Media", ["snack-media.com"], ["snack-media.com"]],
@@ -155,13 +154,13 @@ const signatures = new Map([
   }]],
 ]);
 
-export const IDENTITY_CATALOG_VERSION = "2026-09-28.2";
+export const IDENTITY_CATALOG_VERSION = "2026-10-16.1";
 
 const reviewedOnSeptember28 = new Set([
   "aditude",
   "venatus",
   "google-adsense",
-  ...definitions.slice(32).map(([slug]) => slug),
+  ...definitions.slice(31).map(([slug]) => slug),
 ]);
 
 export const networkIdentities = definitions.map(([slug, name, managerDomains, adSystemDomains]) => ({
@@ -170,7 +169,7 @@ export const networkIdentities = definitions.map(([slug, name, managerDomains, a
   managerDomains,
   adSystemDomains,
   programSignatures: signatures.get(slug) ?? [],
-  identityReviewedAt: reviewedOnSeptember28.has(slug)
+  identityReviewedAt: slug === "publisher-collective" ? "2026-10-16T00:00:00.000Z" : reviewedOnSeptember28.has(slug)
     ? "2026-09-28T00:00:00.000Z"
     : "2026-09-25T00:00:00.000Z",
 }));

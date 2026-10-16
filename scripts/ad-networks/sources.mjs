@@ -62,7 +62,7 @@ export const sources = [
     key: `sellers-json:${slug}`,
     kind: "sellers-json",
     url,
-    networkSlug: slug,
+    networkSlug: slug === "snigel" ? "publisher-collective" : slug,
     cadence: "weekly",
     extraction: "sellers[].domain for PUBLISHER or BOTH records",
     use: "candidate_domain_only",

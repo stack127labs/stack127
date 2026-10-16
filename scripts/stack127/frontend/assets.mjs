@@ -67,3 +67,12 @@ export function staticHeaders(sha) {
   // Stable paths revalidate. Only content-addressed Next files are immutable.
   return `/*\n  X-Stack127-Frontend-SHA: ${sha}\n  X-Content-Type-Options: nosniff\n/_next/static/*\n  Cache-Control: public, max-age=31536000, immutable\n/*.txt\n  X-Robots-Tag: noindex\n/404\n  Cache-Control: no-store\n  X-Robots-Tag: noindex\n/frontend-release.json\n  X-Robots-Tag: noindex\nhttps://:subdomain.workers.dev/*\n  X-Robots-Tag: noindex\nhttps://:version.:subdomain.workers.dev/*\n  X-Robots-Tag: noindex\n`;
 }
+
+export function staticRedirects(redirects) {
+  return redirects.map(({ source, destination, permanent, statusCode }) => {
+    if (source.includes(":") || source.includes("*")) throw new Error(`Review non-exact redirect: ${source}`);
+    const status = statusCode ?? (permanent ? 308 : 307);
+    if (![301, 302, 303, 307, 308].includes(status)) throw new Error(`Unsupported redirect status: ${status}`);
+    return `${source} ${destination} ${status}`;
+  }).join("\n") + "\n";
+}

@@ -59,7 +59,7 @@ try {
             }
           },
           warm: async proofs => Promise.all(proofs.map(async proof => {
-            const response = await request(`${site}${proof.path}`, {}, true);
+            const response = await request(`${site}${proof.requestPath ?? proof.path}`, {}, true);
             const body = await response.text();
             if (proof.digest && await cacheBodyDigest(body) !== proof.digest) throw new Error("Public API is stale");
             if (proof.sourceRevision && !launchDirectoryRevisionMatches(body, proof.sourceRevision)) throw new Error("Public launch directory data is stale");

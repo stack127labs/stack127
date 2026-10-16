@@ -1,0 +1,230 @@
+/* Mockup table.sites */
+.section {
+  display: grid;
+  min-width: 0;
+  scroll-margin-top: calc(var(--top-bar-height) + var(--space-5));
+}
+
+.head {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-7);
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+}
+
+.head h2 {
+  font: var(--weight-bold) var(--text-h2) / var(--line-heading) var(--font-display);
+  letter-spacing: var(--tracking-display);
+  margin: 0;
+}
+
+.frame {
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.table {
+  border-collapse: collapse;
+  font-size: 0.97rem;
+  width: 100%;
+}
+
+.table[data-loading] tbody {
+  opacity: 0.55;
+}
+
+.table thead th {
+  border-bottom: 1px solid var(--color-border-strong);
+  color: var(--color-text-muted);
+  font: 500 0.8rem var(--font-mono);
+  padding: 0 var(--space-5) var(--space-4);
+  text-align: left;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.table tbody th,
+.table tbody td {
+  border-top: 1px solid var(--color-border);
+  font-weight: var(--weight-regular);
+  padding: var(--space-6) var(--space-5);
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.table tbody tr:first-child > * {
+  border-top: 0;
+}
+
+.table tbody tr:hover > * {
+  background: var(--color-surface);
+}
+
+.table .right {
+  text-align: right;
+}
+
+.mono {
+  font: 0.86rem var(--font-mono);
+}
+
+.muted,
+.none {
+  color: var(--color-text-muted);
+}
+
+.none {
+  font: var(--text-small) var(--font-mono);
+}
+
+.site {
+  min-width: 0;
+}
+
+.domain {
+  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+}
+
+.domain:hover,
+.domain:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.publisher {
+  color: var(--color-text-muted);
+  display: block;
+  font-size: var(--text-small);
+  font-weight: var(--weight-regular);
+  margin-top: 2px;
+}
+
+.networks a {
+  color: var(--color-text);
+}
+
+.networks a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.foot {
+  align-items: center;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font: var(--text-small) var(--font-mono);
+  gap: var(--space-5);
+  justify-content: space-between;
+  margin-top: var(--space-8);
+}
+
+/* The shared pager, drawn like the mockup's: 36px boxes in strong borders. */
+.pager nav {
+  gap: var(--space-2);
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.pager nav a,
+.pager nav span {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+  font: var(--text-small) var(--font-mono);
+  min-height: 36px;
+  min-width: 36px;
+  padding: 0 10px;
+}
+
+.pager nav a:hover {
+  background: var(--color-surface-2);
+}
+
+.pager nav span[aria-hidden="true"] {
+  border-color: transparent;
+  color: var(--color-text-muted);
+  min-width: auto;
+  padding: 0 var(--space-1);
+}
+
+.pager nav span[aria-disabled="true"] {
+  color: var(--color-text-muted);
+}
+
+.pager nav span[aria-current="page"] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-weight: var(--weight-semibold);
+}
+
+/* Phones: each row becomes a two-line block, no sideways scroll. */
+@media (max-width: 700px) {
+  .table thead {
+    display: none;
+  }
+
+  .table,
+  .table tbody,
+  .table tr {
+    display: block;
+  }
+
+  .table tbody tr {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-6) 0;
+  }
+
+  .table tbody tr:first-child {
+    border-top: 0;
+  }
+
+  .table tbody tr:hover > * {
+    background: none;
+  }
+
+  .table tbody th,
+  .table tbody td {
+    border: 0;
+    color: var(--color-text-muted);
+    display: inline;
+    font: var(--text-small) / 1.7 var(--font-mono);
+    padding: 0;
+    white-space: normal;
+  }
+
+  .table tbody th.site {
+    color: var(--color-text);
+    display: block;
+    font: var(--text-body) var(--font-sans);
+    margin-bottom: var(--space-3);
+  }
+
+  .table tbody td + td::before {
+    content: " · ";
+  }
+
+  .table tbody td[data-column="checked"] {
+    display: none;
+  }
+
+  .table tbody td + td[data-column="manager"]::before {
+    content: " · managed by ";
+  }
+
+  .table tbody td + td[data-column="manager"][data-none]::before {
+    content: " · manager ";
+  }
+
+  .table tbody td[data-column="manager"][data-none] {
+    text-transform: lowercase;
+  }
+
+  .networks a {
+    color: inherit;
+  }
+}
