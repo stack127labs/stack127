@@ -10,6 +10,21 @@ import {targetsForEvents} from '../../../scripts/stack127/cache/targets.mjs';
 import {networkIdentities} from '../../../scripts/ad-networks/network-identities.mjs';
 
 const emptyCoverage={listed:1000,classified:0,traffic:0,age:0,platform:0,publisher:0,checked:1000,manager:0,niches:[],networks:[]};
+test('cold reports bound concurrent queries and release capacity after a database error',async()=>{
+  let active=0,maximum=0;
+  const {queryAdNetworkReport}=adNetworksLibrary(async(sql)=>{
+    active++;maximum=Math.max(maximum,active);
+    await new Promise(resolve=>setTimeout(resolve,5));
+    active--;
+    if(sql==='fail')throw Error('database failed');
+    return {rows:[{value:sql}]};
+  });
+  const results=await Promise.allSettled(Array.from({length:12},(_,i)=>queryAdNetworkReport(i===2?'fail':String(i))));
+  assert.equal(maximum,3);
+  assert.equal(active,0);
+  assert.equal(results.filter(result=>result.status==='rejected').length,1);
+  assert.equal((await queryAdNetworkReport('after')).rows[0].value,'after');
+});
 test('niches need 100 classified sites and 80 percent scope coverage',()=>{
   assert.equal(hasAdNetworkNicheCoverage(0,0),false);
   assert.equal(hasAdNetworkNicheCoverage(99,99),false);

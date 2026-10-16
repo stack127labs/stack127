@@ -46,6 +46,53 @@ const definitions = [
 ];
 
 const signatures = new Map([
+  ["she-media", [{
+    kind: "html_substring",
+    value: "ads.blogherads.com/static/blogherads.js",
+    relationship_type: "active_network_use",
+    source_url: "https://support.shemedia.com/hc/en-us/articles/32102543764763-Why-isn-t-my-site-passing-the-Configure-Ads-step",
+  }, {
+    kind: "html_substring",
+    value: "blogherads.adq.push",
+    relationship_type: "active_network_use",
+    source_url: "https://support.shemedia.com/hc/en-us/articles/32102543764763-Why-isn-t-my-site-passing-the-Configure-Ads-step",
+  }]],
+  ["adapex", [{
+    kind: "html_substring",
+    value: "cdn.adapex.io/hb/aaw.",
+    relationship_type: "active_network_use",
+    source_url: "https://adapex.io/",
+  }]],
+  ["adpushup", [{
+    kind: "html_substring",
+    value: "cdn.adpushup.com/",
+    relationship_type: "active_network_use",
+    source_url: "https://www.adpushup.com/",
+  }]],
+  ["infolinks", [{
+    kind: "html_substring",
+    value: "resources.infolinks.com/js/infolinks_main.js",
+    relationship_type: "active_network_use",
+    source_url: "https://www.infolinks.com/wp-content/uploads/2016/03/Optimization-guide-2016.pdf",
+  }]],
+  ["nitropay", [{
+    kind: "html_substring",
+    value: "s.nitropay.com/ads-",
+    relationship_type: "active_network_use",
+    source_url: "https://nitropay.com/docs/installing-the-ad-script-on-your-page/",
+  }]],
+  ["publisher-collective", [{
+    kind: "html_substring",
+    value: "cdn.snigelweb.com/adengine/",
+    relationship_type: "active_network_use",
+    source_url: "https://www.publisher-collective.com/faq",
+  }]],
+  ["the-moneytizer", [{
+    kind: "html_substring",
+    value: "ads.themoneytizer.com/s/gen.js",
+    relationship_type: "active_network_use",
+    source_url: "https://us.themoneytizer.com/publisherguide",
+  }]],
   ["journey-by-mediavine", [{
     kind: "html_substring",
     value: "journeymv.com",
@@ -55,10 +102,9 @@ const signatures = new Map([
   }]],
   ["mediavine", [{
     kind: "html_substring",
-    value: "scripts.mediavine.com",
-    requires_manager_domains: ["mediavine.com"],
+    value: "scripts.mediavine.com/tags/",
     relationship_type: "active_network_use",
-    source_url: "https://www.mediavine.com/",
+    source_url: "https://help.mediavine.com/switching-your-script-wrapper-to-the-mediavine-control-panel-plugin",
   }]],
   ["google-adsense", [{
     kind: "adsense_account_match",
@@ -154,7 +200,7 @@ const signatures = new Map([
   }]],
 ]);
 
-export const IDENTITY_CATALOG_VERSION = "2026-10-16.1";
+export const IDENTITY_CATALOG_VERSION = "2026-10-16.2";
 
 const reviewedOnSeptember28 = new Set([
   "aditude",
@@ -162,6 +208,8 @@ const reviewedOnSeptember28 = new Set([
   "google-adsense",
   ...definitions.slice(31).map(([slug]) => slug),
 ]);
+const reviewedOnOctober16 = new Set(['she-media','adapex','adpushup','infolinks','nitropay',
+  'publisher-collective','the-moneytizer','mediavine']);
 
 export const networkIdentities = definitions.map(([slug, name, managerDomains, adSystemDomains]) => ({
   slug,
@@ -169,7 +217,7 @@ export const networkIdentities = definitions.map(([slug, name, managerDomains, a
   managerDomains,
   adSystemDomains,
   programSignatures: signatures.get(slug) ?? [],
-  identityReviewedAt: slug === "publisher-collective" ? "2026-10-16T00:00:00.000Z" : reviewedOnSeptember28.has(slug)
+  identityReviewedAt: reviewedOnOctober16.has(slug) ? "2026-10-16T00:00:00.000Z" : reviewedOnSeptember28.has(slug)
     ? "2026-09-28T00:00:00.000Z"
     : "2026-09-25T00:00:00.000Z",
 }));

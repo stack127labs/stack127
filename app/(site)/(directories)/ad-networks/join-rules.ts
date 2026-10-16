@@ -76,4 +76,3 @@ export function joinSentence(rule: string) {
 export function joinOrder(slug: string) {
   return networkFacts(slug)?.minTraffic?.amount ?? null;
 }
-

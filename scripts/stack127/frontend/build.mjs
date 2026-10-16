@@ -7,7 +7,7 @@ import pg from "pg";
 import loadNextConfig from "next/dist/server/config.js";
 import { inspectIndexingHtml, inspectSitemap } from '../publishing/verify.mjs';
 import { prepareFrontend } from "./prepare.mjs";
-import { inspectAssets, staticHeaders, staticRedirects, assertNoPrivateCredentials } from "./assets.mjs";
+import { inspectAssets, staticHeaders, assertNoPrivateCredentials } from "./assets.mjs";
 
 const run = promisify(execFile);
 
@@ -56,7 +56,10 @@ export async function buildFrontend({ output, environment = process.env } = {}) 
     }
     inspectSitemap(await readFile(path.join(exported,'sitemap.xml'),'utf8'),indexingPages,canonicalOrigin);
     await writeFile(path.join(exported, "_headers"), staticHeaders(sha));
-    await writeFile(path.join(exported, "_redirects"), staticRedirects(redirects));
+    await writeFile(path.join(exported, "_redirects"), redirects.map(({ source, destination, permanent }) => {
+      if (source.includes(":") || source.includes("*")) throw new Error(`Review non-exact redirect: ${source}`);
+      return `${source} ${destination} ${permanent ? 308 : 307}`;
+    }).join("\n") + "\n");
     await writeFile(path.join(exported, "frontend-release.json"), JSON.stringify({ sha, pages: pages.length, builtAt: new Date().toISOString() }) + "\n");
     const limits = await inspectAssets(exported);
     await assertNoPrivateCredentials(exported, environment);

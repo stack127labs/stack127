@@ -90,8 +90,8 @@ function sizeStacks(traffic: AdNetworkStatsPageData["traffic"]) {
 const ruleSteps = [0, 1_000, 10_000, 50_000, 100_000, 500_000, 1_000_000];
 const ruleStepLabels = ruleSteps.map((step) => (step ? formatCompact(step) : "none"));
 export default async function AdNetworkStatsPage() {
-  const [directoryPage, data, breadcrumbs] = await Promise.all([
-    getRequiredDirectoryPage("ad-networks/stats"),
+  const directoryPage = await getRequiredDirectoryPage("ad-networks/stats");
+  const [data, breadcrumbs] = await Promise.all([
     getAdNetworkStatsPageData(),
     getBreadcrumbs("ad-networks/stats"),
   ]);

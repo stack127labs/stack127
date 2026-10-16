@@ -18,8 +18,25 @@ import type { AdNetworkSiteCoverage } from "./ad-networks-report";
 import { adNetworkFacts } from "../app/(site)/(directories)/ad-networks/network-facts";
 
 import { getPool } from "./db";
+import type { QueryResultRow } from "pg";
 import { unstable_cache } from "next/cache";
 import { AD_NETWORKS_TAG } from "./cache-tags";
+
+let reportQueries = 0;
+const waitingReports: (() => void)[] = [];
+/** Leave one of the shared pool's four connections for page registry queries. */
+export async function queryAdNetworkReport<Row extends QueryResultRow>(sql: string, values?: unknown[]) {
+  await new Promise<void>(resolve => {
+    if (reportQueries < 3) { reportQueries++; resolve(); }
+    else waitingReports.push(resolve);
+  });
+  try { return await getPool().query<Row>(sql, values); }
+  finally {
+    const next = waitingReports.shift();
+    if (next) next();
+    else reportQueries--;
+  }
+}
 
 export type AdNetwork = {
   id: string;
@@ -58,7 +75,7 @@ export function directoryPageHref(route: string, query: string, page: number) {
 }
 
 async function loadAdNetworks(): Promise<AdNetworkListRow[]> {
-  const result = await getPool().query<AdNetworkListRow & { verified_count: string }>(`
+  const result = await queryAdNetworkReport<AdNetworkListRow & { verified_count: string }>(`
     select n.id, n.slug, n.name, n.official_url, n.summary,
       count(r.publisher_id) filter (where r.status = 'confirmed')::int as verified_count,
       count(r.publisher_id) filter (where r.status in ('confirmed','stale'))::int as listed_count,
@@ -89,7 +106,7 @@ export async function getAdNetwork(slug: string): Promise<AdNetworkListRow | nul
 const publisherBatchSize = 750;
 
 async function loadVerifiedPublishersBatch(networkId: string, offset: number): Promise<VerifiedPublisher[]> {
-  const result = await getPool().query<VerifiedPublisher>(`
+  const result = await queryAdNetworkReport<VerifiedPublisher>(`
     select p.normalized_domain, p.display_domain,
       r.relationship_type, r.last_confirmed_at
     from public.ad_network_publisher_relationships r
@@ -106,7 +123,7 @@ const cachedVerifiedPublishersBatch = unstable_cache(loadVerifiedPublishersBatch
 });
 
 const cachedVerifiedPublisherCount = unstable_cache(async (networkId: string) => {
-  const result = await getPool().query<{ total: string }>(`
+  const result = await queryAdNetworkReport<{ total: string }>(`
     select count(*)::text as total
     from public.ad_network_publisher_relationships r
     join public.ad_network_publishers p on p.id = r.publisher_id
@@ -141,14 +158,14 @@ function cached<T extends unknown[], R>(key: string, loader: (...args: T) => Pro
     const result = await loader(...args);
     if (Buffer.byteLength(JSON.stringify(result)) >= 1_900_000) throw new Error(`${key} exceeds cache entry budget`);
     return result;
-  }, [key, "v11"], { revalidate: false, tags: [AD_NETWORKS_TAG] });
+  }, [key, "v12"], { revalidate: false, tags: [AD_NETWORKS_TAG] });
 }
 const iso = (value: Date | string | null): string | null => value === null ? null : new Date(value).toISOString();
 const ref = (network: AdNetworkRef): AdNetworkRef => ({ slug: network.slug, name: network.name });
 const share = (count: number, total: number) => total ? count / total * 100 : 0;
 
 async function queryNetworkIdentities() {
-  return (await getPool().query<{ slug: string; name: string; manager_domains: string[]; ad_system_domains: string[] }>(
+  return (await queryAdNetworkReport<{ slug: string; name: string; manager_domains: string[]; ad_system_domains: string[] }>(
     "select slug,name,manager_domains,ad_system_domains from public.ad_networks order by slug")).rows;
 }
 const loadNetworkIdentities = cached("ad-network-manager-identities",queryNetworkIdentities);
@@ -170,14 +187,30 @@ const siteProjection = `p.normalized_domain as domain, p.publisher_name, p.niche
     from public.ad_network_publisher_relationships r join public.ad_networks n on n.id=r.ad_network_id
     where r.publisher_id=p.id and r.status in ('confirmed','stale')),'[]'::jsonb) as networks`;
 
+// Reports need the same evidence as individual rows, but must aggregate the
+// relationship table once instead of running JSON subqueries per publisher.
+const reportMemberships = `with relationship_facts as materialized (
+  select r.publisher_id,n.slug,r.status,r.relationship_type,
+    case when r.status='confirmed' and r.relationship_type='primary_or_exclusive_manager'
+      then jsonb_build_object('manager_domain',r.report_retained_manager) end as manager_evidence
+  from public.ad_network_publisher_relationships r join public.ad_networks n on n.id=r.ad_network_id
+  where r.status in ('confirmed','stale')
+) select r.publisher_id,array_agg(r.slug order by r.slug) as network_slugs,
+  coalesce(jsonb_agg(jsonb_build_object('slug',r.slug,'status',r.status,'relationship_type',r.relationship_type,
+    'evidence',r.manager_evidence) order by r.slug)
+    filter(where r.status='confirmed' and r.relationship_type='primary_or_exclusive_manager'),'[]'::jsonb) as manager_relationships
+  from relationship_facts r group by r.publisher_id`;
+const reportManagerEvidence = `jsonb_build_object('manager_domains',p.last_check_evidence->'manager_domains') as evidence,m.manager_relationships`;
+
 export async function loadAdNetworkManagerStatistics() {
   const [groups,identities]=await Promise.all([
-    getPool().query<{evidence:unknown;manager_relationships:SiteRecord["manager_relationships"];network_slugs:string[];has_summary:boolean;count:number}>(`
-      with records as (select ${managerEvidenceProjection},p.ads_txt_summary is not null as has_summary,
-        array(select n.slug from public.ad_network_publisher_relationships r join public.ad_networks n on n.id=r.ad_network_id
-          where r.publisher_id=p.id and r.status in ('confirmed','stale') order by n.slug) as network_slugs
-        from public.ad_network_publishers p where exists(select 1 from public.ad_network_publisher_relationships r
-          where r.publisher_id=p.id and r.status in ('confirmed','stale')))
+    queryAdNetworkReport<{evidence:unknown;manager_relationships:SiteRecord["manager_relationships"];network_slugs:string[];has_summary:boolean;count:number}>(`
+      with memberships as materialized (${reportMemberships}), publishers as materialized (
+        select p.id,jsonb_build_object('manager_domains',p.report_manager_domains) as last_check_evidence,
+          p.report_has_ads_txt_summary as has_summary from public.ad_network_publishers p
+      ), records as (
+        select ${reportManagerEvidence},p.has_summary,m.network_slugs
+        from memberships m join publishers p on p.id=m.publisher_id)
       select evidence,manager_relationships,has_summary,network_slugs,count(*)::int as count from records group by 1,2,3,4`),
     queryNetworkIdentities(),
   ]);
@@ -196,17 +229,18 @@ const siteWhere = `exists(select 1 from public.ad_network_publisher_relationship
 /** Scope controls to the table's network/niche, independent of search and page. */
 export async function loadAdNetworkSitesAvailability(network: string | null, niche: string | null): Promise<AdNetworkSitesAvailability> {
   const [coverage, networks, managerGroups, identities] = await Promise.all([
-    getPool().query<Omit<AdNetworkSiteCoverage,"networks">>(`${scopedCoverageSites}
+    queryAdNetworkReport<Omit<AdNetworkSiteCoverage,"networks">>(`${scopedCoverageSites}
       select count(*)::int as listed,count(p.niche)::int as classified,count(p.traffic_group)::int as traffic,
         count(p.domain_created_on)::int as age,count(p.platform)::int as platform,count(p.publisher_name)::int as publisher,
         count(p.last_checked_at)::int as checked,
         0::int as manager,
         coalesce(array_agg(distinct p.niche) filter(where p.niche is not null),'{}') as niches from sites p`,[network,niche]),
-    getPool().query<AdNetworkRef>(`${scopedCoverageSites} select distinct n.slug,n.name from sites p
+    queryAdNetworkReport<AdNetworkRef>(`${scopedCoverageSites} select distinct n.slug,n.name from sites p
       join public.ad_network_publisher_relationships r on r.publisher_id=p.id and r.status in ('confirmed','stale')
       join public.ad_networks n on n.id=r.ad_network_id order by n.name,n.slug`,[network,niche]),
-    getPool().query<{evidence:unknown;manager_relationships:SiteRecord["manager_relationships"];count:number}>(`${scopedCoverageSites},
-      records as (select ${managerEvidenceProjection} from sites p)
+    queryAdNetworkReport<{evidence:unknown;manager_relationships:SiteRecord["manager_relationships"];count:number}>(`${scopedManagerSites},
+      memberships as materialized (${reportMemberships}),
+      records as (select ${reportManagerEvidence} from sites p join memberships m on m.publisher_id=p.id)
       select evidence,manager_relationships,count(*)::int as count from records group by 1,2`,[network,niche]),
     queryNetworkIdentities(),
   ]);
@@ -217,7 +251,14 @@ export async function loadAdNetworkSitesAvailability(network: string | null, nic
   },0);
   return adNetworkSiteAvailability({...coverage.rows[0],manager,networks:networks.rows});
 }
-const scopedCoverageSites = `with sites as materialized (select p.* from public.ad_network_publishers p
+const coverageWhere = `exists(select 1 from public.ad_network_publisher_relationships r join public.ad_networks n on n.id=r.ad_network_id
+    where r.publisher_id=p.id and r.status in ('confirmed','stale') and ($1::text is null or n.slug=$1))
+    and ($2::text is null or p.niche=$2)`;
+const scopedCoverageSites = `with sites as materialized (select p.id,p.niche,p.traffic_group,p.domain_created_on,p.platform,p.publisher_name,p.last_checked_at
+  from public.ad_network_publishers p where ${coverageWhere})`;
+const scopedManagerSites = `with sites as materialized (select p.id,
+  jsonb_build_object('manager_domains',p.report_manager_domains) as last_check_evidence
+  from public.ad_network_publishers p
   where exists(select 1 from public.ad_network_publisher_relationships r join public.ad_networks n on n.id=r.ad_network_id
     where r.publisher_id=p.id and r.status in ('confirmed','stale') and ($1::text is null or n.slug=$1))
     and ($2::text is null or p.niche=$2))`;
@@ -237,13 +278,20 @@ export async function loadAdNetworkSites(query: AdNetworkSitesQuery): Promise<Ad
   // data-gate: unavailable traffic/age sorts fall back to domain until enrichment lands.
   const effectiveSort = availability.availableSorts.includes(query.sort) ? query.sort : "domain";
   const values = [query.network, query.niche, query.q.trim().toLowerCase()];
-  const count = await getPool().query<{total:number}>(`select count(*)::int as total from public.ad_network_publishers p where ${siteWhere}`, values);
+  const count = await queryAdNetworkReport<{total:number}>(`select count(*)::int as total from public.ad_network_publishers p where ${siteWhere}`, values);
   const total = count.rows[0].total;
   const totalPages = Math.max(1, Math.ceil(total / query.pageSize));
   const page = Math.min(query.page, totalPages);
   const [result, identities] = await Promise.all([
-    getPool().query<SiteRecord>(`select ${siteProjection} from public.ad_network_publishers p where ${siteWhere}
-      order by ${siteSort[effectiveSort]} limit $4 offset $5`, [...values, query.pageSize, (page - 1) * query.pageSize]),
+    // Filter and page using the small indexed facts before reading full evidence.
+    // Sparse searches must not walk every evidence-heavy heap row in domain order.
+    queryAdNetworkReport<SiteRecord>(`with matches as materialized (
+      select p.id,p.normalized_domain,p.traffic_group,p.domain_created_on,p.last_checked_at
+      from public.ad_network_publishers p where ${siteWhere}
+    ), selected as materialized (
+      select p.id from matches p order by ${siteSort[effectiveSort]} limit $4 offset $5
+    ) select ${siteProjection} from selected s join public.ad_network_publishers p on p.id=s.id
+      order by ${siteSort[effectiveSort]}`, [...values, query.pageSize, (page - 1) * query.pageSize]),
     queryNetworkIdentities(),
   ]);
   return { rows: result.rows.map(row => toSite(row, identities)), total, page, pageSize: query.pageSize, totalPages, effectiveSort, ...availability };
@@ -253,9 +301,10 @@ export function defaultAdNetworkSitesQuery(network: string | null = null, niche:
   return { network, niche, q: "", sort: "domain", page: 1, pageSize };
 }
 
-const scopedSites = `with sites as materialized (select p.* from public.ad_network_publishers p where ${siteWhere})`;
+const scopedSites = `with sites as materialized (select p.id,p.normalized_domain,p.niche,p.publisher_name,p.traffic_group,p.platform,p.domain_created_on
+  from public.ad_network_publishers p where ${siteWhere})`;
 const networkShares = cached("ad-network-shares", async (niche: string | null): Promise<AdNetworkShare[]> => {
-  const result = await getPool().query<AdNetworkRef & {count:number; total:number}>(`
+  const result = await queryAdNetworkReport<AdNetworkRef & {count:number; total:number}>(`
     with sites as (select p.id from public.ad_network_publishers p where ($1::text is null or p.niche=$1)
       and exists(select 1 from public.ad_network_publisher_relationships r where r.publisher_id=p.id and r.status in ('confirmed','stale')))
     select n.slug,n.name,count(r.publisher_id)::int as count,(select count(*)::int from sites) as total
@@ -265,7 +314,7 @@ const networkShares = cached("ad-network-shares", async (niche: string | null): 
   return result.rows.map(({total,...row}) => ({ ...row, share: share(row.count,total) }));
 });
 const loadHistory = cached("ad-network-daily-history", async (network: string): Promise<AdNetworkDailyCount[]> => {
-  const result = await getPool().query<AdNetworkDailyCount>(`select snapshot_on::text as date,listed_count as listed,
+  const result = await queryAdNetworkReport<AdNetworkDailyCount>(`select snapshot_on::text as date,listed_count as listed,
     confirmed_count as confirmed,stale_count as stale from public.ad_network_daily_counts d
     join public.ad_networks n on n.id=d.ad_network_id where n.slug=$1 and snapshot_on >= current_date-730
     order by snapshot_on limit 731`,[network]);
@@ -274,7 +323,7 @@ const loadHistory = cached("ad-network-daily-history", async (network: string): 
 export async function loadAdNetworkMovements(network: string | null,asOf=new Date().toISOString().slice(0,10)): Promise<AdNetworkMovement[]> {
   const window=adNetworkUtcWindow(90,new Date(asOf));
   // data-gate: verifier observations supply real joined/left/newly-found events; baseline imports never count.
-  return (await getPool().query<AdNetworkMovement>(`select (e.observed_at at time zone 'UTC')::date::text as date,
+  return (await queryAdNetworkReport<AdNetworkMovement>(`select (e.observed_at at time zone 'UTC')::date::text as date,
       count(*) filter(where event='joined')::int as joined,count(*) filter(where event='left')::int as left,
       count(distinct e.publisher_id) filter(where event='newly_found')::int as newly_found,0::int as baseline
     from public.ad_network_relationship_events e join public.ad_networks n on n.id=e.ad_network_id
@@ -290,7 +339,7 @@ export async function loadAdNetworkSwitches(network: string | null,niche: string
   // Count a manager replacement only when exactly one departed and one arrived within 7 days.
   // Concurrent selling relationships never imply a switch. The 14-day context retains
   // competing departures near a report boundary before the final 90-day filter.
-  return (await getPool().query<AdNetworkSwitch>(`
+  return (await queryAdNetworkReport<AdNetworkSwitch>(`
     with moves as (
       select l.publisher_id,l.ad_network_id as from_id,j.ad_network_id as to_id,l.observed_at,
         count(*) over(partition by l.publisher_id,l.ad_network_id,l.observed_at) as candidates,
@@ -326,7 +375,7 @@ type DomainAgeRecord = {
  * Exact dates select the endpoint domains, with domain order breaking ties.
  */
 async function queryDomainAgeStrips(network: string | null,niche: string | null,byNetwork: boolean): Promise<DomainAgeRecord[]> {
-  return (await getPool().query<DomainAgeRecord>(`with records as materialized (
+  return (await queryAdNetworkReport<DomainAgeRecord>(`with records as materialized (
     select distinct case when $3::boolean then n.slug else '' end as scope_key,
       case when $3::boolean then n.name else '' end as name,
       p.normalized_domain as domain,p.domain_created_on as registered_on,
@@ -375,7 +424,7 @@ export const getAdNetworkDomainAgeByNetwork=cached("ad-network-domain-age-by-net
 
 type Breakdowns = Pick<AdNetworkStatsReport,"niches"|"traffic"|"publishers"|"domain_age"|"median_domain_age"|"median_domain_registered_year"|"platforms"|"domain_endings"|"managers"|"also_runs"|"platform_mix">;
 const loadBreakdowns = cached("ad-network-breakdowns", async (network: string): Promise<Breakdowns> => {
-  const pool = getPool();
+  const pool = {query:queryAdNetworkReport};
   const base = [network,null,""];
   async function groups(expression: string, condition: string, limit=50): Promise<AdNetworkCount[]> {
     return (await pool.query<AdNetworkCount>(`${scopedSites} select ${expression} as key,${expression} as label,count(*)::int as count
@@ -437,15 +486,23 @@ export async function getAdNetworkPageData(slug: string): Promise<AdNetworkPageD
     ...breakdowns,history:adNetworkMonthEnds(history),ranking,movements,movement_totals:movementTotals(movements),switches } };
 }
 
+// Aggregate relationships once. A correlated EXISTS in an aggregate FILTER can
+// rescan the relationship table for every site as the directory grows.
+const nichePopulation = `with listed_publishers as (
+  select publisher_id,bool_or(status='confirmed') as is_confirmed
+  from public.ad_network_publisher_relationships where status in ('confirmed','stale') group by publisher_id
+), population as (
+  select p.niche,l.is_confirmed from listed_publishers l
+  join public.ad_network_publishers p on p.id=l.publisher_id
+)`;
+
 export const getAdNetworkNichesPageData = cached("ad-network-niches-page", async (): Promise<AdNetworkNichesPageData> => {
-  const counts = (await getPool().query<{listed:number;confirmed:number;classified:number}>(`select count(*)::int as listed,
-    count(*) filter(where exists(select 1 from public.ad_network_publisher_relationships r where r.publisher_id=p.id and r.status='confirmed'))::int as confirmed,
-    count(*) filter(where niche is not null)::int as classified from public.ad_network_publishers p
-    where exists(select 1 from public.ad_network_publisher_relationships r where r.publisher_id=p.id and r.status in ('confirmed','stale'))`)).rows[0];
-  const rows = (await getPool().query<{niche:AdNetworkNicheSlug;listed:number;confirmed:number}>(`select niche,count(*)::int as listed,
-    count(*) filter(where exists(select 1 from public.ad_network_publisher_relationships r where r.publisher_id=p.id and r.status='confirmed'))::int as confirmed
-    from public.ad_network_publishers p where niche is not null
-    and exists(select 1 from public.ad_network_publisher_relationships r where r.publisher_id=p.id and r.status in ('confirmed','stale')) group by niche`)).rows;
+  const counts = (await queryAdNetworkReport<{listed:number;confirmed:number;classified:number}>(`${nichePopulation}
+    select count(*)::int as listed,count(*) filter(where is_confirmed)::int as confirmed,
+    count(niche)::int as classified from population`)).rows[0];
+  const rows = (await queryAdNetworkReport<{niche:AdNetworkNicheSlug;listed:number;confirmed:number}>(`${nichePopulation}
+    select niche,count(*)::int as listed,count(*) filter(where is_confirmed)::int as confirmed
+    from population where niche is not null group by niche`)).rows;
   const ready=hasAdNetworkNicheCoverage(counts.listed,counts.classified);
   // data-gate: hide niche groups and their controls until the classification run reaches coverage.
   if (!ready) return {...counts,unclassified:counts.listed-counts.classified,niches:[],networks:[],niche_coverage:null,
@@ -463,12 +520,12 @@ export const getAdNetworkNichesPageData = cached("ad-network-niches-page", async
 
 export async function loadAdNetworkTrafficShares(niche: string | null): Promise<AdNetworkTrafficShare[]> {
   const [groups,identities] = await Promise.all([
-    getPool().query<{traffic_group:string;evidence:unknown;manager_relationships:SiteRecord["manager_relationships"];count:number}>(`
-      with records as (select p.traffic_group,${managerEvidenceProjection}
+    queryAdNetworkReport<{traffic_group:string;evidence:unknown;manager_relationships:SiteRecord["manager_relationships"];count:number}>(`
+      with memberships as materialized (${reportMemberships}), publishers as materialized (
+        select p.id,p.traffic_group,jsonb_build_object('manager_domains',p.report_manager_domains) as last_check_evidence
         from public.ad_network_publishers p
         where p.traffic_group is not null and ($1::text is null or p.niche=$1)
-        and exists(select 1 from public.ad_network_publisher_relationships r
-          where r.publisher_id=p.id and r.status in ('confirmed','stale')))
+      ), records as (select p.traffic_group,${reportManagerEvidence} from memberships m join publishers p on p.id=m.publisher_id)
       select traffic_group,evidence,manager_relationships,count(*)::int as count
       from records group by 1,2,3`,[niche]),
     queryNetworkIdentities(),
@@ -486,14 +543,14 @@ export const getAdNetworkNichePageData = cached("ad-network-niche-page", async (
   if (!niche) return null;
   const [sites,traffic,switches,identities,newestRows,recentRows,domain_age_strip] = await Promise.all([
     getAdNetworkSites(defaultAdNetworkSitesQuery(null,niche.slug)),loadTrafficShares(slug),loadSwitches(null,slug,asOf),loadNetworkIdentities(),
-    getPool().query<SiteRecord & {network_slug:string}>(`with ranked as (
+    queryAdNetworkReport<SiteRecord & {network_slug:string}>(`with ranked as (
       select p.id,n.slug as network_slug,row_number() over(partition by n.id order by (select max(e.observed_at) from public.ad_network_relationship_events e where e.publisher_id=p.id and e.ad_network_id=n.id and e.event in ('joined','newly_found')) desc,p.normalized_domain) as position
       from public.ad_network_publishers p join public.ad_network_publisher_relationships r on r.publisher_id=p.id
       join public.ad_networks n on n.id=r.ad_network_id where p.niche=$1 and r.status in ('confirmed','stale')
       and exists(select 1 from public.ad_network_relationship_events e where e.publisher_id=p.id and e.ad_network_id=n.id and e.event in ('joined','newly_found')))
       select ${siteProjection},ranked.network_slug from ranked join public.ad_network_publishers p on p.id=ranked.id
       where position<=5 order by ranked.network_slug,position`,[slug]),
-    getPool().query<SiteRecord & {first_confirmed_at:string;arrived_network:AdNetworkRef}>(`with recent as (
+    queryAdNetworkReport<SiteRecord & {first_confirmed_at:string;arrived_network:AdNetworkRef}>(`with recent as (
       select distinct on(e.publisher_id) e.publisher_id,e.ad_network_id,e.observed_at as arrived from public.ad_network_relationship_events e
       join public.ad_network_publisher_relationships r on r.publisher_id=e.publisher_id and r.ad_network_id=e.ad_network_id
       join public.ad_network_publishers p on p.id=e.publisher_id where p.niche=$1 and r.status in ('confirmed','stale')
@@ -518,16 +575,16 @@ export const getAdNetworkNichePageData = cached("ad-network-niche-page", async (
 /** Uncached source loader for signed origin verification. */
 export async function loadAdNetworkCheckerSite(domain: string): Promise<AdNetworkCheckerSiteView | null> {
   const [records,identities] = await Promise.all([
-    getPool().query<SiteRecord & {id:string;ads_txt_summary:AdNetworkAdsTxtSummary|null}>(`select p.id,${siteProjection},p.ads_txt_summary
+    queryAdNetworkReport<SiteRecord & {id:string;ads_txt_summary:AdNetworkAdsTxtSummary|null}>(`select p.id,${siteProjection},p.ads_txt_summary
       from public.ad_network_publishers p where p.normalized_domain=$1
       and exists(select 1 from public.ad_network_publisher_relationships r where r.publisher_id=p.id and r.status in ('confirmed','stale','ended'))`,[domain]),queryNetworkIdentities(),
   ]);
   const row=records.rows[0];if (!row) return null;
-  const relationships=(await getPool().query<AdNetworkSiteRelationship>(`select n.slug,n.name,r.status,r.relationship_type,r.verification_method,
+  const relationships=(await queryAdNetworkReport<AdNetworkSiteRelationship>(`select n.slug,n.name,r.status,r.relationship_type,r.verification_method,
     r.first_confirmed_at::text,r.last_confirmed_at::text,r.ended_at::text from public.ad_network_publisher_relationships r
     join public.ad_networks n on n.id=r.ad_network_id where r.publisher_id=$1 and r.status in ('confirmed','stale','ended')
     order by case r.status when 'confirmed' then 0 when 'stale' then 1 else 2 end,n.name`,[row.id])).rows;
-  const history=(await getPool().query<AdNetworkCheckerSiteView["history"][number]>(`select e.observed_at::text as date,e.event,e.relationship_type,
+  const history=(await queryAdNetworkReport<AdNetworkCheckerSiteView["history"][number]>(`select e.observed_at::text as date,e.event,e.relationship_type,
     jsonb_build_object('slug',n.slug,'name',n.name) as network from public.ad_network_relationship_events e
     join public.ad_networks n on n.id=e.ad_network_id where e.publisher_id=$1 order by e.observed_at,e.event,n.slug`,[row.id])).rows;
   const {id,ads_txt_summary,...siteRecord}=row;
@@ -538,7 +595,7 @@ export async function loadAdNetworkCheckerSite(domain: string): Promise<AdNetwor
     ? [site.managed_by.slug] : activeNetworks;
   let basis: "niche" | "network" = "network";
   if (similarNetworks.length) {
-    const findSimilar=(niche: string | null)=>getPool().query<SiteRecord>(`select ${siteProjection} from public.ad_network_publishers p
+    const findSimilar=(niche: string | null)=>queryAdNetworkReport<SiteRecord>(`select ${siteProjection} from public.ad_network_publishers p
       where ($1::text is null or p.niche=$1) and p.normalized_domain<>$2
       and exists(select 1 from public.ad_network_publisher_relationships r join public.ad_networks n on n.id=r.ad_network_id
         where r.publisher_id=p.id and r.status='confirmed' and n.slug=any($3::text[]))
@@ -564,11 +621,15 @@ export async function loadAdNetworkCheckerSite(domain: string): Promise<AdNetwor
 export const getAdNetworkCheckerSite=cached("ad-network-checker-site-v2",loadAdNetworkCheckerSite);
 
 export const getAdNetworkStatsPageData = cached("ad-network-market-report", async (): Promise<AdNetworkStatsPageData> => {
-  const pool=getPool();
+  const pool={query:queryAdNetworkReport};
   const observedDay=new Date();
   const asOf=observedDay.toISOString().slice(0,10);
-  const active=`with active as materialized (select p.* from public.ad_network_publishers p where exists(
+  const active=`with active as materialized (select p.last_checked_at from public.ad_network_publishers p where exists(
     select 1 from public.ad_network_publisher_relationships r where r.publisher_id=p.id and r.status in ('confirmed','stale')))`;
+  const activeAds=`with active as materialized (select p.report_ads_txt_lines as lines,
+    p.report_ads_txt_invalid as invalid from public.ad_network_publishers p
+    where p.report_has_ads_txt_summary and exists(select 1 from public.ad_network_publisher_relationships r
+      where r.publisher_id=p.id and r.status in ('confirmed','stale')))`;
   const [niches,market_share,traffic,switches,networkCounts,pairs,ages,wordpress,ads,sizes,freshness,weekly,movements,managerStats,metadata,queue,domain_age_strip,domain_age_by_network] = await Promise.all([
     getAdNetworkNichesPageData(),networkShares(null),loadTrafficShares(null),loadSwitches(null,null,asOf),
     pool.query<AdNetworkCount>(`with counts as (select publisher_id,count(*) as n from public.ad_network_publisher_relationships
@@ -590,13 +651,13 @@ export const getAdNetworkStatsPageData = cached("ad-network-market-report", asyn
       from public.ad_network_publishers p join public.ad_network_publisher_relationships r on r.publisher_id=p.id
       join public.ad_networks n on n.id=r.ad_network_id where r.status in ('confirmed','stale')
       group by n.id having count(p.platform)>0 order by count(*) filter(where lower(p.platform)='wordpress')::float/count(p.platform) desc,n.name`),
-    pool.query<{median_lines:number|null;with_broken_lines:number}>(`${active}
-      select percentile_cont(0.5) within group(order by (ads_txt_summary->>'lines')::int)::float8 as median_lines,
-      count(*) filter(where (ads_txt_summary->>'invalid')::int>0)::int as with_broken_lines from active`),
-    pool.query<AdNetworkCount>(`${active} select bucket as key,bucket as label,count(*)::int as count from (
-      select case when (ads_txt_summary->>'lines')::int<20 then '<20' when (ads_txt_summary->>'lines')::int<50 then '20–49'
-        when (ads_txt_summary->>'lines')::int<100 then '50–99' when (ads_txt_summary->>'lines')::int<200 then '100–199'
-        when (ads_txt_summary->>'lines')::int<500 then '200–499' else '500+' end as bucket from active where ads_txt_summary is not null
+    pool.query<{median_lines:number|null;with_broken_lines:number}>(`${activeAds}
+      select percentile_cont(0.5) within group(order by lines)::float8 as median_lines,
+      count(*) filter(where invalid>0)::int as with_broken_lines from active`),
+    pool.query<AdNetworkCount>(`${activeAds} select bucket as key,bucket as label,count(*)::int as count from (
+      select case when lines<20 then '<20' when lines<50 then '20–49'
+        when lines<100 then '50–99' when lines<200 then '100–199'
+        when lines<500 then '200–499' else '500+' end as bucket from active
       ) x group by bucket order by min(case bucket when '<20' then 0 when '20–49' then 1 when '50–99' then 2 when '100–199' then 3 when '200–499' then 4 else 5 end)`),
     pool.query<{checked_last_7_days:number;new_last_week:number}>(`${active}, first_listed as (
       select publisher_id,min(observed_at) as first_seen_at from public.ad_network_relationship_events
@@ -664,10 +725,10 @@ function joiningRules(networks: AdNetworkRef[]): AdNetworkJoiningRule[] {
 
 const loadReportMetadata=cached("ad-network-report-metadata",async (network: string | null) => {
   const [updated,methods]=await Promise.all([
-    getPool().query<{updated_at:Date|null}>(`select max(p.last_checked_at) as updated_at from public.ad_network_publishers p
+    queryAdNetworkReport<{updated_at:Date|null}>(`select max(p.last_checked_at) as updated_at from public.ad_network_publishers p
       where exists(select 1 from public.ad_network_publisher_relationships r join public.ad_networks n on n.id=r.ad_network_id
         where r.publisher_id=p.id and r.status in ('confirmed','stale') and ($1::text is null or n.slug=$1))`,[network]),
-    getPool().query<AdNetworkCount>(`select r.verification_method as key,r.verification_method as label,count(*)::int as count
+    queryAdNetworkReport<AdNetworkCount>(`select r.verification_method as key,r.verification_method as label,count(*)::int as count
       from public.ad_network_publisher_relationships r join public.ad_networks n on n.id=r.ad_network_id
       where r.status='confirmed' and r.verification_method is not null and ($1::text is null or n.slug=$1)
       group by r.verification_method order by count(*) desc,r.verification_method`,[network]),

@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily new sites awaiting niche classification
+
+[Timer]
+OnCalendar=*-*-* 23:10:00 UTC
+Persistent=true
+RandomizedDelaySec=15m
+Unit=stack127-ad-network-refresh@niche-export.service
+
+[Install]
+WantedBy=timers.target

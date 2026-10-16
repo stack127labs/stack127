@@ -68,7 +68,7 @@ function parseSeller(line, lineNumber) {
   };
 }
 
-export function parseAdsTxt(text) {
+export function parseAdsTxt(text, { deduplicate = true } = {}) {
   if (typeof text !== "string") throw new TypeError("ads.txt content must be text");
   const sellers = [];
   const variables = [];
@@ -76,7 +76,7 @@ export function parseAdsTxt(text) {
   const seenSellerRows = new Set();
   const normalizedText = text.replace(/^\uFEFF/, "");
 
-  for (const [index, rawLine] of normalizedText.split(/\r?\n/).entries()) {
+  for (const [index, rawLine] of normalizedText.split(/\r\n|\n|\r/).entries()) {
     const lineNumber = index + 1;
     const line = withoutComment(rawLine);
     if (!line) continue;
@@ -96,7 +96,7 @@ export function parseAdsTxt(text) {
         parsed.seller.relationship,
         parsed.seller.certificationAuthorityId ?? "",
       ].join("\u0000");
-      if (!seenSellerRows.has(key)) {
+      if (!deduplicate || !seenSellerRows.has(key)) {
         seenSellerRows.add(key);
         sellers.push(parsed.seller);
       }

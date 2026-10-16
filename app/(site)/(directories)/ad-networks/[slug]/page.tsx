@@ -31,8 +31,8 @@ export default async function AdNetworkPage({ params }: { params: Promise<{ slug
   const { slug } = await params;
   const content = adNetworkContent[slug];
   if (!content) notFound();
-  const [directoryPage, data, breadcrumbs] = await Promise.all([
-    getRequiredDirectoryPage(`ad-networks/${slug}`),
+  const directoryPage = await getRequiredDirectoryPage(`ad-networks/${slug}`);
+  const [data, breadcrumbs] = await Promise.all([
     getAdNetworkPageData(slug),
     getBreadcrumbs(`ad-networks/${slug}`),
   ]);

@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import dns from "node:dns/promises";
 import { isIP } from "node:net";
 import { getDomain } from "tldts";
+import { sharedHostSlot } from './shared-fetch-slots.mjs';
 
 export const USER_AGENT = "stack127bot/1.0 (+https://stack127.com/ad-networks)";
 const TRANSIENT_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504]);
@@ -44,7 +45,16 @@ export function isPublicAddress(address) {
   return false;
 }
 
-export async function assertPublicUrl(value, lookup = dns.lookup) {
+const resolver = new dns.Resolver({ timeout: 3000, tries: 1 });
+// c-ares avoids filling libuv's shared getaddrinfo pool with slow/dead domains.
+async function publicLookup(hostname) {
+  const answers = await Promise.allSettled([resolver.resolve4(hostname), resolver.resolve6(hostname)]);
+  const addresses = answers.flatMap((answer, index) => answer.status === 'fulfilled'
+    ? answer.value.map(address => ({ address, family: index === 0 ? 4 : 6 })) : []);
+  if (!addresses.length) throw new Error('unresolved_target');
+  return addresses;
+}
+export async function assertPublicUrl(value, lookup = publicLookup) {
   const url = value instanceof URL ? value : new URL(value);
   if (!new Set(["http:", "https:"]).has(url.protocol)) throw new Error("unsupported_protocol");
   if (url.username || url.password) throw new Error("url_credentials_not_allowed");
@@ -68,8 +78,41 @@ async function sleep(milliseconds) {
   await new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
+// Serialize request starts per registrable host, including redirects and retries.
+// Slots expire after the request completes; a slow host cannot hold up other hosts.
+const hostSlots = new Map();
 async function requestOnce(url, options, dependencies) {
-  await assertPublicUrl(url, dependencies.lookup);
+  const host = getDomain(url.hostname, { allowPrivateDomains: true }) ?? url.hostname;
+  const previous = hostSlots.get(host) ?? Promise.resolve();
+  let unlock, sharedUnlock, released = false;
+  const slot = new Promise(resolve => { unlock = resolve; });
+  hostSlots.set(host, slot);
+  const release = () => {
+    if (released) return; released = true;
+    try {sharedUnlock?.();}
+    catch(error){console.error(`Shared fetch lease release failed for ${host}: ${error.message}; its bounded lease will expire.`);}
+    finally {setTimeout(() => { unlock(); if (hostSlots.get(host) === slot) hostSlots.delete(host); }, 1000);}
+  };
+  await previous;
+  try {
+    sharedUnlock=await dependencies.sharedHostSlot(host,{leaseMs:2*(options.timeoutMs??15000)+60000});
+    const response = await requestPublic(url, options, dependencies);
+    if (!response.body) { release(); return response; }
+    const reader = response.body.getReader();
+    const body = new ReadableStream({
+      async pull(controller) {
+        try {
+          const { done, value } = await reader.read();
+          if (done) { controller.close(); release(); } else controller.enqueue(value);
+        } catch (error) { controller.error(error); release(); }
+      },
+      async cancel(reason) { try { await reader.cancel(reason); } finally { release(); } },
+    });
+    return new Response(body, { status: response.status, statusText: response.statusText, headers: response.headers });
+  } catch (error) { release(); throw error; }
+}
+async function requestPublic(url, options, dependencies) {
+  await validateTarget(url, options, dependencies);
   return dependencies.fetch(url, {
     method: options.method ?? "GET",
     redirect: "manual",
@@ -78,8 +121,18 @@ async function requestOnce(url, options, dependencies) {
   });
 }
 
+async function validateTarget(url, options, dependencies) {
+  let timer;
+  try {
+    await Promise.race([assertPublicUrl(url, dependencies.lookup), new Promise((_, reject) => {
+      timer = setTimeout(() => reject(new Error('dns_timeout')), options.timeoutMs ?? 15000);
+    })]);
+  } finally { clearTimeout(timer); }
+}
+
 export async function safeFetch(value, options = {}, dependencies = {}) {
-  const runtime = { fetch: dependencies.fetch ?? fetch, lookup: dependencies.lookup ?? dns.lookup };
+  const runtime = { fetch: dependencies.fetch ?? fetch, lookup: dependencies.lookup ?? publicLookup,
+    sharedHostSlot:dependencies.sharedHostSlot??sharedHostSlot };
   const original = new URL(value);
   const originalRoot = getDomain(original.hostname, { allowPrivateDomains: true }) ?? original.hostname;
   let url = original;
@@ -87,7 +140,12 @@ export async function safeFetch(value, options = {}, dependencies = {}) {
   let externalRedirects = 0;
 
   while (true) {
-    await options.beforeRequest?.(url, { redirects });
+    // Hooks can make their own requests (for example robots.txt). Reject unsafe
+    // redirect destinations before a hook can contact their origin.
+    if (options.beforeRequest) {
+      await validateTarget(url, options, runtime);
+      await options.beforeRequest(url, { redirects });
+    }
     let response;
     for (let attempt = 0; attempt < (options.attempts ?? 3); attempt += 1) {
       try {
@@ -99,6 +157,7 @@ export async function safeFetch(value, options = {}, dependencies = {}) {
       }
       if (!TRANSIENT_STATUSES.has(response.status) || attempt + 1 >= (options.attempts ?? 3)) break;
       const retryAfter = Number(response.headers.get("retry-after"));
+      await response.body?.cancel();
       await sleep(Number.isFinite(retryAfter) && retryAfter > 0
         ? Math.min(retryAfter * 1000, 30_000)
         : Math.min(1000 * (2 ** attempt), 5000));
@@ -107,6 +166,7 @@ export async function safeFetch(value, options = {}, dependencies = {}) {
     if (![301, 302, 303, 307, 308].includes(response.status)) {
       return { response, finalUrl: url.toString(), redirects, externalRedirects };
     }
+    await response.body?.cancel();
     if (++redirects > (options.maxRedirects ?? MAX_REDIRECTS)) throw new Error("too_many_redirects");
     const location = response.headers.get("location");
     if (!location) throw new Error("redirect_without_location");
@@ -163,8 +223,9 @@ async function fetchAdsUrl(target, conditional, dependencies) {
     contentType: response.headers.get("content-type"),
   };
   if (response.status === 304) return { ...base, outcome: "not_modified" };
-  if (response.status === 404 || response.status === 410) return { ...base, outcome: "no_ads_txt" };
+  if (response.status === 404 || response.status === 410) { await response.body?.cancel(); return { ...base, outcome: "no_ads_txt" }; }
   if (!response.ok) {
+    await response.body?.cancel();
     return {
       ...base,
       outcome: TRANSIENT_STATUSES.has(response.status) || response.status === 401 || response.status === 403
@@ -173,6 +234,7 @@ async function fetchAdsUrl(target, conditional, dependencies) {
     };
   }
   if (!/^text\/plain(?:\s*;|$)/i.test(base.contentType ?? "")) {
+    await response.body?.cancel();
     return { ...base, outcome: "invalid_ads_txt", reason: "content_type" };
   }
   const text = await readLimitedText(response);
@@ -222,6 +284,6 @@ export async function fetchHomepage(domain, dependencies = {}) {
     headers: { Accept: "text/html,application/xhtml+xml" },
     timeoutMs: 15_000,
   }, dependencies);
-  if (!response.ok || !/^text\/html(?:\s*;|$)/i.test(response.headers.get("content-type") ?? "")) return null;
+  if (!response.ok || !/^text\/html(?:\s*;|$)/i.test(response.headers.get("content-type") ?? "")) { await response.body?.cancel(); return null; }
   return { html: await readLimitedText(response, 2 * 1024 * 1024), finalUrl };
 }

@@ -57,3 +57,21 @@ test('opening an older store retires Snigel atomically and subsequent opens neve
     db.close();db=openLocalDatabase(path);assert.equal(db.prepare("select count(*) n from ad_networks where slug='snigel'").get().n,0);
   }finally{db.close();rmSync(dir,{recursive:true,force:true});}
 });
+
+test('merge winner matches SQL status, confirmation NULLS LAST, update time, then descending network ID',()=>{
+  const row={ad_network_id:10,status:'confirmed',relationship_type:'active_network_use',verification_method:'source',
+    evidence:'{"picked":"source"}',first_confirmed_at:'2025-01-01T00:00:00Z',last_confirmed_at:'2026-10-01T00:00:00.123456Z',
+    created_at:'2025-01-01T00:00:00Z',updated_at:'2026-10-02T00:00:00.123457Z',ended_at:null};
+  const target={...row,ad_network_id:20,verification_method:'target',evidence:'{"picked":"target"}',updated_at:'2026-10-02T00:00:00.123456Z'};
+  const picked=(source,other)=>JSON.parse(mergeNetworkRelationship(source,other).evidence).picked;
+  // Regression: equal confirmations must use the newer source's evidence.
+  assert.equal(picked(row,target),'source');
+  assert.equal(picked({...row,updated_at:target.updated_at},target),'target');
+  assert.equal(picked({...row,ad_network_id:30,updated_at:target.updated_at},target),'source');
+  assert.equal(picked({...row,status:'stale',last_confirmed_at:'2030-01-01T00:00:00Z'},target),'target');
+  assert.equal(picked({...row,last_confirmed_at:null,updated_at:'2030-01-01T00:00:00Z'},target),'target');
+  assert.equal(picked(row,{...target,last_confirmed_at:null,updated_at:'2030-01-01T00:00:00Z'}),'source');
+  assert.equal(picked({...row,last_confirmed_at:null},{...target,last_confirmed_at:null}),'source');
+  // Equal instants in different offsets still fall through to the ID tie-breaker.
+  assert.equal(picked({...row,last_confirmed_at:'2026-10-01T02:00:00.123456+02:00',updated_at:target.updated_at},target),'target');
+});

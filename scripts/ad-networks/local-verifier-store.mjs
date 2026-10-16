@@ -6,6 +6,8 @@ function parsePublisher(row, database) {
   if (!row) return row;
   return {
     ...row,
+    review_relationships: database.prepare("select * from relationships where publisher_id=? and status='needs_review' and verification_method='discovery_hint_and_ads_txt_system'")
+      .all(row.id).map(relationship=>({...relationship,evidence:JSON.parse(relationship.evidence)})),
     last_check_evidence: JSON.parse(row.last_check_evidence || "{}"),
     discovery_sources: database.prepare(`
       select source_key, source_url, domain_as_supplied, license_attribution,
@@ -19,57 +21,43 @@ function placeholders(length) {
   return Array.from({ length }, () => "?").join(", ");
 }
 
-export function claimLocalPublishers(database, { limit, leaseMinutes, domains = [] }) {
+export function claimLocalPublishers(database, { limit, leaseMinutes, domains = [], uncheckedOnly = false }) {
   const now = new Date().toISOString();
   const leaseUntil = new Date(Date.now() + leaseMinutes * 60_000).toISOString();
-  const domainClause = domains.length ? `and publisher.normalized_domain in (${placeholders(domains.length)})` : "";
   database.exec("begin immediate");
   try {
-    const rows = database.prepare(`
-      select publisher.id
-      from publishers publisher
-      where (publisher.lease_until is null or publisher.lease_until < ?)
-        and (${domains.length ? "1 = 1" : "publisher.next_check_at is null or publisher.next_check_at <= ?"})
-        ${domainClause}
-      order by
-        publisher.verification_priority desc,
-        exists (
-          select 1 from relationships relationship
-          where relationship.publisher_id = publisher.id
-            and relationship.status in ('confirmed', 'stale')
-        ) desc,
-        publisher.next_check_at asc,
-        publisher.id
-      limit ?
-    `).all(now, ...(domains.length ? domains : [now]), limit);
-    if (rows.length) {
-      database.prepare(`
-        update publishers set lease_until = ?, updated_at = ?
-        where id in (${placeholders(rows.length)})
-      `).run(leaseUntil, now, ...rows.map((row) => row.id));
+    const select = (size, onlyNew) => database.prepare(`
+      select id from publishers where (lease_until is null or lease_until < ?)
+        and (${domains.length ? "1 = 1" : "next_check_at is null or next_check_at <= ?"})
+        ${domains.length ? `and normalized_domain in (${placeholders(domains.length)})` : ""}
+        ${onlyNew ? "and last_check_outcome is null" : ""}
+      order by verification_priority desc, next_check_at asc, id limit ?
+    `).all(now, ...(domains.length ? domains : [now]), size);
+    const lease = rows => {
+      if (rows.length) database.prepare(`update publishers set lease_until = ?, updated_at = ?
+        where id in (${placeholders(rows.length)})`).run(leaseUntil, now, ...rows.map(row => row.id));
+    };
+    // Reserve a quarter for new sites so recurring high-priority rechecks cannot starve them.
+    const rows = select(uncheckedOnly || domains.length ? limit : Math.max(1, Math.ceil(limit / 4)), uncheckedOnly || !domains.length);
+    lease(rows);
+    if (!uncheckedOnly && !domains.length && rows.length < limit) {
+      const rest = select(limit - rows.length, false);
+      lease(rest); rows.push(...rest);
     }
     database.exec("commit");
-    return rows.map((row) => parsePublisher(
-      database.prepare("select * from publishers where id = ?").get(row.id),
-      database,
-    ));
-  } catch (error) {
-    database.exec("rollback");
-    throw error;
-  }
+    return rows.map(row => parsePublisher(database.prepare("select * from publishers where id = ?").get(row.id), database));
+  } catch (error) { database.exec("rollback"); throw error; }
 }
 
-export function selectLocalPublishers(database, { limit, domains = [] }) {
+export function selectLocalPublishers(database, { limit, domains = [], uncheckedOnly = false }) {
   const now = new Date().toISOString();
-  const domainClause = domains.length ? `and normalized_domain in (${placeholders(domains.length)})` : "";
-  const rows = database.prepare(`
-    select * from publishers
+  const rows = database.prepare(`select * from publishers
     where (${domains.length ? "1 = 1" : "next_check_at is null or next_check_at <= ?"})
-      ${domainClause}
-    order by verification_priority desc, next_check_at asc, id
-    limit ?
+      ${domains.length ? `and normalized_domain in (${placeholders(domains.length)})` : ""}
+      ${uncheckedOnly ? "and last_check_outcome is null" : ""}
+    order by verification_priority desc, next_check_at asc, id limit ?
   `).all(...(domains.length ? domains : [now]), limit);
-  return rows.map((row) => parsePublisher(row, database));
+  return rows.map(row => parsePublisher(row, database));
 }
 
 function publisherStatus(outcome) {
@@ -101,6 +89,8 @@ function upsertMatches(database, publisherId, matches, checkedAt) {
       end,
       evidence = case
         when excluded.status = 'needs_review' and relationships.status <> 'needs_review' then relationships.evidence
+        when excluded.status = 'needs_review' and relationships.verification_method = 'discovery_hint_and_ads_txt_system'
+          then json_set(excluded.evidence, '$.matched_signal', json_extract(relationships.evidence, '$.matched_signal'))
         else excluded.evidence
       end,
       first_confirmed_at = case
@@ -219,6 +209,16 @@ export function saveLocalVerification(database, publisher, result) {
       result.checkedAt,
       publisher.id,
     );
+    if (result.homepageFacts) {
+      database.prepare('update publishers set platform=?,favicon=? where id=?')
+        .run(result.homepageFacts.platform,result.homepageFacts.favicon,publisher.id);
+      database.prepare(`insert into enrichment_state(publisher_id,kind,status,checked_at,retry_at,data)
+        values(?,'homepage','measured',?,null,?) on conflict(publisher_id,kind) do update set
+        status=excluded.status,checked_at=excluded.checked_at,retry_at=null,data=excluded.data`)
+        .run(publisher.id,result.checkedAt,JSON.stringify(result.homepageFacts));
+    }
+    if (result.adsTxtSummary) database.prepare('update publishers set ads_txt_summary = ? where id = ?')
+      .run(JSON.stringify(result.adsTxtSummary), publisher.id);
     database.exec("commit");
   } catch (error) {
     database.exec("rollback");

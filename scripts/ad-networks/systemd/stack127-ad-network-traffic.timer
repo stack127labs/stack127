@@ -1,0 +1,11 @@
+[Unit]
+Description=Monthly Chrome traffic groups
+
+[Timer]
+OnCalendar=*-*-05 05:10:00 UTC
+Persistent=true
+RandomizedDelaySec=15m
+Unit=stack127-ad-network-refresh@traffic.service
+
+[Install]
+WantedBy=timers.target

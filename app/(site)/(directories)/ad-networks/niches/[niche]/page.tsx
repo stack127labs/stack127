@@ -15,8 +15,8 @@ export default async function AdNetworkNichePage({ params }: { params: Promise<{
   const { niche: slug } = await params;
   const content = nicheContent[slug];
   if (!content) throw new Error(`Ad network niche has no MDX content: ${slug}`);
-  const [directoryPage, data, breadcrumbs] = await Promise.all([
-    getRequiredDirectoryPage(`ad-networks/niches/${slug}`),
+  const directoryPage = await getRequiredDirectoryPage(`ad-networks/niches/${slug}`);
+  const [data, breadcrumbs] = await Promise.all([
     getAdNetworkNichePageData(slug),
     getBreadcrumbs(`ad-networks/niches/${slug}`),
   ]);

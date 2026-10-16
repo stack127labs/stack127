@@ -3,8 +3,8 @@ Description=Back up the stack127 local ad network database
 
 [Service]
 Type=oneshot
-WorkingDirectory=/home/teja/projects/stack127
+WorkingDirectory=/srv/data/projects/stack127
 Environment=AD_NETWORK_DB_PATH=%h/.local/share/stack127/ad-networks.sqlite
 Environment=NODE_NO_WARNINGS=1
-ExecStart=/usr/bin/node scripts/ad-networks/backup-local.mjs --keep 7
+ExecStart=/usr/bin/node scripts/ad-networks/backup-local.mjs --backup-directory /srv/data/backups/stack127-ad-networks --keep 7
 Nice=15

@@ -3,6 +3,7 @@ import dns from "node:dns";
 import { domainToASCII } from "node:url";
 import { createInterface } from "node:readline";
 import { Readable } from "node:stream";
+import { assertPublicUrl, readLimitedText, safeFetch } from "./fetch-policy.mjs";
 
 const userAgent = "stack127bot/1.0 (+https://stack127.com/ad-networks)";
 dns.setDefaultResultOrder("ipv4first");
@@ -47,7 +48,7 @@ function sellerDomain(seller) {
   return domain ? { domain, supplied } : null;
 }
 
-export async function* sellerDomainsStream(body) {
+export async function* sellerDomainsStream(body, mapSeller = sellerDomain) {
   if (!body) throw new Error("Seller feed has no response body");
   const input = typeof body.getReader === "function" ? Readable.fromWeb(body) : body;
   const decoder = new TextDecoder();
@@ -87,6 +88,7 @@ export async function* sellerDomainsStream(body) {
       }
 
       objectText += character;
+      if (objectText.length > 1_000_000) throw new Error("Seller record exceeds the size limit");
       if (inString) {
         if (escaped) escaped = false;
         else if (character === "\\") escaped = true;
@@ -102,7 +104,7 @@ export async function* sellerDomainsStream(body) {
         try { seller = JSON.parse(objectText); }
         catch (error) { throw new Error(`Seller feed has invalid seller JSON: ${error.message}`); }
         sellerCount += 1;
-        const candidate = sellerDomain(seller);
+        const candidate = mapSeller(seller);
         if (candidate) candidates.push(candidate);
         objectText = "";
       }
@@ -270,13 +272,16 @@ export async function fetchWithRetry(url, options = {}) {
   throw new Error(`${url} failed after retries`);
 }
 
-export async function checkRobots(url) {
-  const target = new URL(url);
+export async function checkRobots(url, dependencies = {}) {
+  const target = await assertPublicUrl(url, dependencies.lookup);
   const robotsUrl = `${target.origin}/robots.txt`;
-  const response = await fetchWithRetry(robotsUrl, { timeoutMs: 20_000, headers: { Accept: "text/plain" } });
-  if (response.status === 404) return;
-  if (!response.ok) throw new Error(`Could not check robots rules at ${robotsUrl}: HTTP ${response.status}`);
-  const text = await response.text();
+  const { response } = await safeFetch(robotsUrl, { timeoutMs: 20_000, headers: { Accept: "text/plain" } }, dependencies);
+  if (response.status === 404) { await response.body?.cancel(); return; }
+  if (!response.ok) {
+    await response.body?.cancel();
+    throw new Error(`Could not check robots rules at ${robotsUrl}: HTTP ${response.status}`);
+  }
+  const text = await readLimitedText(response, 512 * 1024);
   if (!robotsAllows(text, `${target.pathname}${target.search}`)) {
     throw new Error(`Robots rules do not allow ${url}`);
   }

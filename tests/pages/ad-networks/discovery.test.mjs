@@ -3,6 +3,7 @@ import { test } from "node:test";
 import { Readable } from "node:stream";
 import {
   csvFields,
+  checkRobots,
   normalizeDomain,
   publisherLinkDomains,
   robotsAllows,
@@ -10,6 +11,31 @@ import {
   sellerDomainsStream,
 } from "../../../scripts/ad-networks/lib.mjs";
 import { selectSources, sources } from "../../../scripts/ad-networks/sources.mjs";
+import { safeFetch } from "../../../scripts/ad-networks/fetch-policy.mjs";
+
+test('seller redirects are validated before a robots hook can contact the new origin', async () => {
+  const requested=[];
+  const dependencies={lookup:async()=>[{address:'8.8.8.8',family:4}],sharedHostSlot:async()=>()=>{},
+    fetch:async url=>{
+      requested.push(url.href);
+      return url.pathname==='/robots.txt' ? new Response(null,{status:404})
+        :new Response(null,{status:302,headers:{location:'http://127.0.0.1:8080/private'}});
+    }};
+  await assert.rejects(safeFetch('https://seller.test/sellers.json',{
+    attempts:1,beforeRequest:url=>checkRobots(url.href,dependencies),
+  },dependencies),/nonstandard_port|private_address/);
+  assert.deepEqual(requested,['https://seller.test/robots.txt','https://seller.test/sellers.json']);
+});
+
+test('robots redirects use the protected transport and never fetch a private address', async () => {
+  const requested=[],slots=[];
+  const dependencies={lookup:async()=>[{address:'8.8.8.8',family:4}],
+    sharedHostSlot:async host=>{slots.push(host);return()=>{};},
+    fetch:async url=>{requested.push(url.href);return new Response(null,{status:302,headers:{location:'http://127.0.0.1/robots.txt'}});}};
+  await assert.rejects(checkRobots('https://robots-seller.test/sellers.json',dependencies),/private_address/);
+  assert.deepEqual(requested,['https://robots-seller.test/robots.txt']);
+  assert.ok(slots.includes('robots-seller.test'));
+});
 
 test("normalizes publisher hosts and rejects invalid domain leads", () => {
   assert.equal(normalizeDomain("HTTPS://WWW.Example.COM/path"), "example.com");

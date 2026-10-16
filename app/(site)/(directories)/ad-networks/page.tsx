@@ -2,7 +2,7 @@ import { Network } from "lucide-react";
 import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { getAdNetworkDirectoryData } from "@/lib/ad-networks";
-import { getExactPublishedPage, getRequiredPublishedPage } from "@/lib/page-registry";
+import { getExactPublishedPage } from "@/lib/page-registry";
 import { RegistryStructuredData } from "@/lib/registry-layout";
 import { NetworkCard } from "@/app/ui/ad-networks/network-card";
 import { networkLogo } from "@/app/ui/ad-networks/network-logo-src";
@@ -23,11 +23,10 @@ import styles from "./directory.module.css";
 const exampleDomain = "collegefashion.net";
 
 export default async function AdNetworksPage() {
-  const [directoryPage, data, breadcrumbs] = await Promise.all([
-    getRequiredDirectoryPage("ad-networks"),
+  const directoryPage = await getRequiredDirectoryPage("ad-networks");
+  const [data, breadcrumbs] = await Promise.all([
     getAdNetworkDirectoryData(),
     getBreadcrumbs("ad-networks"),
-    getRequiredPublishedPage("ad-networks"),
   ]);
 
   // data-gate: the niche run fills by_niche once classification coverage passes; until then the

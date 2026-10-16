@@ -117,6 +117,12 @@ test("AdSense requires the same publisher account in ads.txt and the live page",
   assert.equal(mismatched.confirmed.length, 0);
   assert.equal(mismatched.review.length, 0);
   assert.equal(matchNetworks({ ...base, homepage: null }).confirmed.length, 0);
+  for(const container of ['template','textarea','style','noscript']) {
+    for(const markup of ['<meta name="google-adsense-account" content="ca-pub-1234567890123456">',
+      '<script data-ad-client="ca-pub-1234567890123456" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>']) {
+      assert.equal(matchNetworks({...base,homepage:{html:`<${container}>${markup}</${container}>`}}).confirmed.length,0,container);
+    }
+  }
 });
 
 test("a network tag needs its required direct ads.txt system", () => {
@@ -175,6 +181,16 @@ test("a page-only network needs both its official discovery source and live tag"
   const match = matchNetworks({ parsed, networks: [network], fetchEvidence, homepage, discoverySources }).confirmed[0];
   assert.equal(match.slug, "ethicalads");
   assert.equal(match.verificationMethod, "page_signature");
+  for(const html of [`<p>media.ethicalads.io/media/client/ethicalads.min.js</p>`,
+    `<template>${homepage.html}</template>`, `<script type="application/json">${JSON.stringify(homepage.html)}</script>`]) {
+    assert.equal(matchNetworks({parsed,networks:[network],fetchEvidence,homepage:{html},discoverySources}).confirmed.length,0);
+  }
+  const withPublisher={...network,program_signatures:[{...network.program_signatures[0],value:'data-ea-publisher='}]};
+  for(const [html,expected] of [['<div data-ea-publisher="publisher-id"></div>',1],
+    ['<template><div data-ea-publisher="publisher-id"></div></template>',0],
+    ['<p>data-ea-publisher=</p>',0]]) {
+    assert.equal(matchNetworks({parsed,networks:[withPublisher],fetchEvidence,homepage:{html},discoverySources}).confirmed.length,expected);
+  }
 });
 
 test("an ad-system row is review evidence only when discovery points to that network", () => {

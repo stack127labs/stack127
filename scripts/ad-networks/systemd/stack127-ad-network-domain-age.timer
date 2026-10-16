@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily pending ad network domain registrations
+
+[Timer]
+OnCalendar=*-*-* 05:10:00 UTC
+Persistent=true
+RandomizedDelaySec=15m
+Unit=stack127-ad-network-refresh@domain-age.service
+
+[Install]
+WantedBy=timers.target

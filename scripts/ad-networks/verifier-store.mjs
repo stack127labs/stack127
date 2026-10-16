@@ -67,7 +67,9 @@ export async function claimPublishers(client, { limit, leaseMinutes, domains = [
 
 export async function selectPublishers(client, { limit, domains = [] }) {
   const result = await client.query(`
-    select publisher.*
+    select publisher.*,coalesce((select jsonb_agg(to_jsonb(r)||jsonb_build_object('ad_network_id',r.ad_network_id::text))
+      from public.ad_network_publisher_relationships r where r.publisher_id=publisher.id
+        and r.status='needs_review' and r.verification_method='discovery_hint_and_ads_txt_system'),'[]'::jsonb) as review_relationships
     from public.ad_network_publishers publisher
     where ($2::boolean or publisher.next_check_at is null or publisher.next_check_at <= now())
       and ($2::boolean = false or publisher.normalized_domain = any($3::text[]))

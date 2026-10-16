@@ -14,11 +14,30 @@ export function relabelNetworkEvidence(value) {
 const statusRank = {confirmed: 4, stale: 3, ended: 2, needs_review: 1};
 const earliest = (...dates) => dates.filter(Boolean).sort()[0] ?? null;
 const latest = (...dates) => dates.filter(Boolean).sort().at(-1) ?? null;
+function timestampMicros(value) {
+  const milliseconds = Date.parse(value);
+  if (!Number.isFinite(milliseconds)) throw new Error(`Invalid relationship timestamp: ${value}`);
+  const fraction = /[T ]\d{2}:\d{2}:\d{2}\.(\d+)/.exec(value)?.[1] ?? '';
+  return BigInt(milliseconds) * 1000n + BigInt(fraction.padEnd(6,'0').slice(3,6));
+}
+function compareTimestamp(left, right, nullsFirst = false) {
+  if (left == null || right == null) {
+    if (left == null && right == null) return 0;
+    return (left == null ? -1 : 1) * (nullsFirst ? -1 : 1);
+  }
+  const a = timestampMicros(left), b = timestampMicros(right);
+  return a > b ? 1 : a < b ? -1 : 0;
+}
+
 export function mergeNetworkRelationship(source, target) {
-  const winner = !target || statusRank[source.status] > statusRank[target.status]
-    || (statusRank[source.status] === statusRank[target.status]
-      && (source.last_confirmed_at ?? source.updated_at) > (target.last_confirmed_at ?? target.updated_at))
-    ? source : target;
+  // Match 20261016060000: status DESC, confirmation DESC NULLS LAST,
+  // updated_at DESC, ad_network_id DESC. Compare instants, retaining microseconds.
+  const comparison = !target ? 1 : (statusRank[source.status] ?? 1) - (statusRank[target.status] ?? 1)
+    || compareTimestamp(source.last_confirmed_at, target.last_confirmed_at)
+    || compareTimestamp(source.updated_at, target.updated_at, true)
+    || (BigInt(source.ad_network_id ?? 0) > BigInt(target.ad_network_id ?? 0) ? 1
+      : BigInt(source.ad_network_id ?? 0) < BigInt(target.ad_network_id ?? 0) ? -1 : 0);
+  const winner = comparison > 0 ? source : target;
   const result = {...winner,
     first_confirmed_at: earliest(source.first_confirmed_at, target?.first_confirmed_at),
     last_confirmed_at: latest(source.last_confirmed_at, target?.last_confirmed_at),

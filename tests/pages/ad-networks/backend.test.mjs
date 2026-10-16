@@ -33,6 +33,7 @@ test('relationship mapping uses stable domain and slug, preserves observed dates
   assert.equal(row.domain,'food.com');assert.equal(row.network_slug,'mediavine');assert.equal('publisher_id' in row,false);
   assert.equal(row.ended_at,'2026-10-01T00:00:00Z');assert.equal(row.consecutive_misses,3);
   assert.throws(()=>mapSyncRelationship({status:'needs_review'}),/reviewed/);
+  assert.throws(()=>mapSyncRelationship({status:'ended',first_confirmed_at:null}),/previously confirmed/);
 });
 test('sync defaults to a read-only development preview and requires explicit production confirmation',()=>{
   assert.equal(syncArgs(['--sqlite','/tmp/test.sqlite']).apply,false);
@@ -143,6 +144,21 @@ test('sync records an observed join after a retained negative check, then advanc
   const snapshots=JSON.parse(calls.find(c=>c.sql.startsWith('insert into public.ad_network_check_observations')).args[0]);
   assert.deepEqual(snapshots[0].confirmed_network_ids,['4','9']);
   assert.equal(snapshots[0].checked_at,'2026-10-15 12:00:00.123456+00');
+});
+
+test('recovering an omitted or re-attributed confirmation does not manufacture a join',()=>{
+  const previous={checked_at:'2026-10-16T09:00:00Z',network_ids:['4']};
+  const current={checked_at:'2026-10-16T09:22:00Z',network_ids:['4','9']};
+  // An older matcher lost a previously imported confirmation; no departure occurred.
+  assert.deepEqual(classifyNetworkArrivals(previous,current,{known_network_ids:['4','9']}),[]);
+  // A signature-based confirmation predates this check but had no event yet.
+  assert.deepEqual(classifyNetworkArrivals(previous,current,{known_site:true,established_network_ids:['9']}),[
+    {network_id:'9',event:'baseline'},
+  ]);
+  // An actual completed departure followed by a fresh positive still proves a return.
+  assert.deepEqual(classifyNetworkArrivals(previous,current,{
+    known_network_ids:['4','9'],established_network_ids:['9'],departed_network_ids:['9'],
+  }),[{network_id:'9',event:'joined'}]);
 });
 
 

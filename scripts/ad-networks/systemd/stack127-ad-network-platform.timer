@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily new-site homepages and due monthly refreshes
+
+[Timer]
+OnCalendar=*-*-* 03:10:00 UTC
+Persistent=true
+RandomizedDelaySec=15m
+Unit=stack127-ad-network-refresh@platform.service
+
+[Install]
+WantedBy=timers.target

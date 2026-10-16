@@ -6,8 +6,8 @@ import { RegistryStructuredData } from "@/lib/registry-layout";
 import { NichesView } from "./niches-view";
 
 export default async function AdNetworkNichesPage() {
-  const [directoryPage, data, breadcrumbs] = await Promise.all([
-    getRequiredDirectoryPage("ad-networks/niches"),
+  const directoryPage = await getRequiredDirectoryPage("ad-networks/niches");
+  const [data, breadcrumbs] = await Promise.all([
     getAdNetworkNichesPageData(),
     getBreadcrumbs("ad-networks/niches"),
   ]);

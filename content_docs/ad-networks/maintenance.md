@@ -1,10 +1,50 @@
 # Ad network data maintenance
 
+## Release preparation and recurring refreshes
+
+The first gathering run and the reviewed data sync use development only. Finish the niche run and check the real pages before opening the release PR. Production migration, import, publication, and worker activation follow the merged release; opening a PR does not activate them.
+
+`npm run ad-networks:refresh -- --job <job>` prints a plan without opening SQLite or contacting a database. Add `--apply` to run it. Jobs are `sync`, `platform`, `publisher-names`, `traffic`, `domain-age`, `ads-txt-summary`, and `niche-export`. The default target is development. Only an explicitly confirmed `sync --environment production --confirm stack127-production --apply` writes reviewed data to production. Other jobs enrich the local SQLite store. The sync takes and checks a consistent snapshot, copies reviewed relationships, captures daily counts, and removes its own temporary snapshot after success or failure.
+
+The prepared systemd units live in `scripts/ad-networks/systemd/`. They are not installed or enabled by creating these files. The refresh template uses one nonblocking lock per job. Network jobs, discovery, and verification share `~/.local/state/stack127/ad-networks/fetch-throttle.sqlite`; do not run two copies of the same job. The first one-off supervisor has a different limiter path, so wait for its fetch jobs to stop before enabling the recurring jobs.
+
+| Job | Prepared schedule | Behavior |
+| --- | --- | --- |
+| Sync and daily counts | Daily | Consistent SQLite snapshot, reviewed data sync, daily count snapshots |
+| Homepage, platform, favicon | Daily | New sites, failed fetch retries, and successful facts older than 30 days |
+| Domain age | Daily | Missing registrations and due retries; existing successful registrations are reused |
+| ads.txt summaries | Daily | Missing summaries and due failures; the verifier updates current summaries with its checks |
+| Publisher names | Weekly | Refresh source names even when the publisher cohort is unchanged |
+| Traffic | Monthly | Latest available CrUX month with source and attribution |
+| Niche export | Daily | Append new sites with usable homepage facts, without repeating exported domains |
+
+Niche classification still needs a model worker. Exporting files does not classify or publish them. Use the reviewed rubric with a Luna worker, validate every result against its input domain set, then run `niche-import` in preview and apply modes and sync. Repeat for new exports, and recheck existing classifications every six months. No model API key is required for the T3 workflow. Its runs are distinct from the systemd schedules.
+
+The importer withholds low confidence labels (including legacy numeric scores below 0.8) and keeps the original suggestion in local enrichment state. Public niche counts use only accepted labels and exclude unsorted sites. Numeric confidence is not a measured accuracy rate. Sample QA should cover confidence levels and non-English sites, and correct both unsupported guesses and subject tie-breaks before import.
+
+After release, update the homelab checkout to the reviewed merge commit, validate and apply its 44-network catalog, and copy the selected service/timer files into `~/.config/systemd/user/`. Reload systemd and inspect `systemd-analyze --user verify` and `systemctl --user list-timers` before enabling jobs. The refresh template deliberately targets development. A production sync needs a reviewed systemd override replacing its command with the explicit production target and confirmation. Do not enable a development sync expecting it to update production.
+
+Before restarting verification or discovery, confirm no Snigel identity remains and both jobs load the current catalog. Keep the old jobs paused until their checkout is updated; the verification service can otherwise restart old code after a reboot. Enable only the reviewed timers, and start one bounded verification pass before the continuous worker. Keep the backup timer running. Read job failures with `journalctl --user -u 'stack127-ad-network-refresh@*'` and inspect per-job progress in `~/.local/state/stack127/ad-networks/`.
+
+Migration `20261016131455_ad_network_reporting_coverage_index.sql` adds a covering index for report facts. The loaders aggregate relationship membership once per publisher and keep large ads.txt evidence out of simple materialized counts. After a large import, check the real directory and query plans; ordinary `VACUUM (ANALYZE)` on the development publisher and relationship tables refreshes visibility and planner statistics without changing application records.
+
+The following reporting migrations add generated manager projections and ads.txt count fields. They update automatically with the original evidence and summaries, so the scripts never write a second set of facts. Report manager projections preserve duplicate declarations, conflicting managers, retained confirmations and unknown values. Their bounded values are only for aggregate counts and availability; the checker still uses full original evidence. The directory's report query queue leaves one database connection available for registry reads.
+
+After the first full publisher sync, `ad-networks:sync -- --sqlite <snapshot> --niches-only` previews classification updates. Add `--apply` to copy only completed, reviewed classifications into existing target publishers. This mode leaves other enrichment, relationships, observations and history alone. It refuses a missing target publisher rather than making an incomplete row. Use the full sync for a new target or new publishers. A later full sync must use a fresh snapshot after the niche import, so it cannot overwrite classifications with an older snapshot.
+
+An ended discovery candidate with no first confirmation stays in SQLite and never becomes a public departure. The sync excludes it, and `20261016144329_ad_network_confirmed_departures.sql` guards departure events and removes unsupported earlier rows. Robots requests and their redirects use the same protected, throttled transport as seller feeds. Network tag matching accepts executable JavaScript rather than JSON or other inert script data.
+
+The HTML parser excludes script examples inside templates and text-only elements. A new verification hint cannot replace the original seller signal awaiting review. Applying a sync acquires the catalog migration lock before checking target identities, so a waiting sync cannot proceed with a catalog it checked before a migration.
+
+The prepared backup service explicitly writes to `/srv/data/backups/stack127-ad-networks`, which is also the daily backup guard's required destination.
+
 This guide covers Phase 3 discovery and Phase 4 verification. The homelab SQLite database at `~/.local/share/stack127/ad-networks.sqlite` is the working store. Discovery adds candidates without assigning a network. Verification reads first-party evidence and owns relationship changes. The managed databases hold the network identities. Development now also holds reviewed publisher and relationship rows from the sync described below. Copying reviewed SQLite results into production remains a separate activation step.
 
 ## GitHub preview workflows
 
 The repository discovery and verification workflows are manual-only previews. Neither has a schedule or passes `--apply`. Discovery needs no database credential in preview mode. Verification reads candidates from PostgreSQL and writes only its summary artifact, without saving database results. Its default preview batch is 100 domains.
+
+The verifier rejects `--store postgres --apply`. Apply verification to the SQLite working store, then copy reviewed results through `sync`; this keeps one verification write path. PostgreSQL previews still load protected review signals.
 
 These workflows do not change the independent homelab workers described below. Keep production pages unpublished and draft tables private. Before enabling PostgreSQL writes or a production schedule, review the queue import, permissions, identity rules, sample results, and limits. Publication is a separate registry decision.
 
@@ -227,16 +267,18 @@ SQLite uses WAL mode and commits each publisher with its relationships in one tr
 
 Use a consistent SQLite backup, not a copy of an open WAL database. For example, run `sqlite3 ~/.local/share/stack127/ad-networks.sqlite '.backup /tmp/ad-networks.sqlite'` on homelab, then copy that snapshot to the machine running the sync.
 
-Preview with `npm run ad-networks:sync -- --sqlite /tmp/ad-networks.sqlite`. Add `--apply` to write to development. The preview is read-only. The sync imports only publishers with confirmed, stale, or ended relationships and those reviewed relationships; review candidates stay in SQLite. It maps network slugs and publisher domains to target IDs, writes in bounded transactions, and leaves unchanged rows and separately enriched site columns alone. It does not set public page dates; database triggers handle meaningful changes and queue the ad-networks cache tag.
+Preview with `npm run ad-networks:sync -- --sqlite /tmp/ad-networks.sqlite`. Add `--apply` to write to development. The preview is read-only. The sync imports only publishers with confirmed, stale, or ended relationships and those reviewed relationships; review candidates stay in SQLite. It maps network slugs and publisher domains to target IDs, writes in bounded transactions, and includes the enrichment columns present in the SQLite snapshot. Older snapshots without those columns preserve target enrichment. It does not set public page dates; database triggers handle meaningful changes and queue the ad-networks cache tag.
 
 Every applied sync also records the current UTC day's per-network counts. Repeating it on the same UTC day with the same snapshot changes no site, relationship, history, or count rows. A later UTC day adds a real daily snapshot. History begins with real observed dates; it does not invent past daily totals. A later return to an ended relationship records another observed join.
 
 The default environment is development, read from `.env.local`. Production requires both `--environment production` and `--confirm stack127-production`, plus the coordinator's release authorization. No production schedule is enabled by this work.
 
-The checker reads synced results only. Unknown domains return an empty result; requests do not fetch remote ads.txt files or add sites to the queue. Site enrichment and a future submission flow remain separate work.
+The checker reads synced results only. Unknown domains return an empty result; requests do not fetch remote ads.txt files or add sites to the queue. The gathering commands below supply enrichment; a future submission flow remains separate work.
 
 
-The planned `ads-txt-summary` enrichment run must persist the complete line counts, companies, direct/reseller split, top sellers, and a bounded `ads_txt_summary.preview` excerpt. The excerpt keeps the first ten source lines and the first MANAGERDOMAIN line if it occurs later, with a maximum of 4096 UTF-8 bytes. The site API returns it as `ads_txt_preview`; it stays null until stored. Current synced evidence retains some seller-record and parse-error counts, but neither the source lines nor enough detail for the full summary. The enrichment run must add these fields to the SQLite-to-Postgres sync when implemented; the current verifier discards the raw text.
+The verifier now saves complete line counts, companies, direct/reseller split, top sellers, distinct seller domains, and a bounded `ads_txt_summary.preview` excerpt from its existing fetch. The excerpt keeps the first ten source lines and the first MANAGERDOMAIN line if it occurs later, with a maximum of 4096 UTF-8 bytes. The site API returns it as `ads_txt_preview`; it stays null until stored. The `ads-txt-summary` command fetches confirmed sites still missing a complete summary. The reviewed sync includes both the summary and preview.
+
+A binary or misencoded preview containing NUL bytes stays null in new summaries and in the PostgreSQL mapping. PostgreSQL jsonb cannot represent NUL. Existing raw SQLite previews are retained for inspection, and their measured counts are preserved. This recovery was needed for two source files during the first larger development import.
 
 ## Rebuild loaders, gates, and cache flow
 
@@ -256,14 +298,152 @@ In the legacy page host, the worker calls `/api/cache/revalidate`, verifies orig
 
 The migration changes in this pass were applied only to development. Production migrations and scheduling remain coordinator release work. No new automation timer was started. The daily sync already saves snapshots; a standalone snapshot timer can be added with the tracker's automation work.
 
-Enrichment jobs should write the existing Supabase columns directly, or extend the reviewed sync mapping when their SQLite fields exist. The current sync deliberately leaves those separately enriched columns alone. The summary run must also store the complete distinct `ads_txt_summary.seller_domains` list for `other_sellers`; the top-sellers excerpt cannot establish that count. Source attribution must reach `discovery_sources` for weekly scan/checker stacks. Unknown checker domains remain read-only lookups, so the current UI must not promise to add a domain or fetch it live.
+Enrichment jobs write SQLite first; the reviewed sync maps the existing enrichment columns into development Supabase. The summary stores the complete distinct `ads_txt_summary.seller_domains` list for `other_sellers`; the top-sellers excerpt cannot establish that count. The sync also carries `discovery_sources` and traffic source metadata. Unknown checker domains remain read-only lookups, so the current UI must not promise to add a domain or fetch it live.
 
 ## Snigel merger (2026-10-16)
 
 Snigel is retired as a separate network. Publisher Collective owns its `snigelweb.com` manager and ad-system aliases. Keep legacy discovery source keys as provenance; the matcher resolves their `snigel` suffix to Publisher Collective. The SQLite catalog upgrade merges old stores in one transaction, preserves the strongest relationship, earliest first confirmation, latest last confirmation, and original evidence, then deletes the retired identity. Seller lines still require the existing evidence thresholds.
 
-The homelab merge combined 215 rows into 198: 175 confirmed, 4 ended, and 19 needing review. The verification service was paused during the write and resumed. Its existing backup symlink was broken; the verified pre-merge snapshot is at `~/.local/share/stack127/merger-backups/snigel-merge-2026-10-16T06-01-08.869Z/before.sqlite`. No remote source files were deployed for this operation. The running worker reads the merged identities from SQLite; the reviewed source changes ship with the code release.
+The initial homelab merge combined 215 rows into 198: 175 confirmed, 4 ended, and 19 needing review. The verification service was paused during the write and resumed. Its existing backup symlink was broken; the verified pre-merge snapshot is at `~/.local/share/stack127/merger-backups/snigel-merge-2026-10-16T06-01-08.869Z/before.sqlite`. No remote source files were deployed for that operation. The old worker later reseeded its obsolete identities; see the recovery and restart requirements below. The reviewed source changes must reach the shared checkout before that worker runs again.
 
 Applied in development only. Migration `20261016060000_merge_snigel_into_publisher_collective.sql` follows the four report migrations listed in the data contract. It updates identity aliases, merges relationships, remaps existing events and successful-check network IDs, relabels last-check slug arrays, removes Snigel, and leaves refresh triggers enabled. It creates no arrival or departure events. Both old daily aggregate series are removed because they cannot be deduplicated without historical site membership; the next sync records a fresh measured count. With no publisher data, it changes identities only; with no network identities, it does nothing. Registry retirement is a separate directory-publisher batch. PubGalaxy remains separate.
 
-Development retirement used `tmp/page-publishing/merge-snigel/manifest.json` and `plan-dev-final.json` through prepare, preview, and apply. The publisher verified 404 and sitemap removal before the redirect was enabled; it requires 404 for unpublished pages. The final route returns an explicit HTTP 301. Next.js `permanent: true` would return 308, so the config uses `statusCode: 301`, and the static export preserves that status. A future production retirement batch must account for the publisher's 404-only check once the redirect is live.
+Development retirement used `tmp/page-publishing/merge-snigel/manifest.json` and `plan-dev-final.json` through prepare, preview, and apply. The publisher verified 404 and sitemap removal. Snigel's page is retired with no redirect because it was never published in production. `/ad-networks/snigel` stays unpublished and returns 404, matching the release, publication, and cache checks.
+
+## First enrichment and queue drain (2026-10-16)
+
+These commands run once and create no service, timer, or cron job. Code is developed in the assigned Mac worktree. Homelab runs an isolated copy at `/tmp/s127-gather-2038dd94`, with symlinks to the existing dependencies and read-only env files. The main homelab checkout is not edited. Logs and progress survive outside that copy at `~/.local/share/stack127/gather-2026-10-16/`. The pipeline removes its temporary code copy only after successful development sync and snapshot. It keeps the SQLite data, logs, progress, downloaded CrUX snapshot, and niche inputs.
+
+Before the first write on each UTC day, confirm the online backup at `/srv/data/backups/stack127-ad-networks/ad-networks-YYYY-MM-DD.sqlite`. Start the existing `stack127-ad-network-backup.service` if needed. `gather-once` does this check before each stage. It never edits the unit. The homelab SQLite opener also checks before writes, protecting long RDAP jobs that cross UTC midnight.
+
+The queue stalled because verification priority and confirmed-link preference always won over first checks. Its correlated relationship scan also lacked an index beginning with publisher ID. The SQLite opener now adds that index. Normal batches reserve one quarter for unchecked sites; `--unchecked-only` selects only never-checked rows. Larger leased batches keep slow hosts from leaving most workers idle. Interrupted new versions of the verifier finish in-flight checks and release unused leases. Killed older versions recover through lease expiry.
+
+The first high-concurrency attempt exposed libuv DNS queue exhaustion. Its 151 DNS-only first-check failures were requeued, and only that process's unprocessed leases were released. The fetch policy now uses bounded asynchronous DNS checks, one active request per registrable host through body consumption, a one-second host pause, timeouts, bounded bodies, and retries with backoff. The run uses `UV_THREADPOOL_SIZE=128` for the HTTP transport's resolver. Private destinations remain blocked.
+
+The final unchecked pass finished at 10:29 UTC: 61,959 checks, 32,497 confirmed relationships, 1,783 review relationships and no database failures. No never-checked sites remained. Its outcome counts were 31,296 matched, 10,403 no match, 6,159 no ads.txt, 2,219 invalid ads.txt, 11,881 temporary errors and one invalid domain. Temporary failures remain explicit outcomes for later retries.
+
+### Parallel one-shot gathering and early niche batches
+
+The user changed the run plan so summary gathering cannot block other fields. `gather-parallel.mjs` now starts summary, homepage/review, seller-name, traffic and RDAP work independently. It appends niche batches every minute while homepages arrive, and serializes development snapshot syncs whenever a step finishes. Completions arriving during a sync are combined into the next snapshot. Names, traffic and RDAP get a final catch-up for sites promoted during the homepage review. No timer, unit or cron entry is created. The original serial driver was stopped; the replacement uses the same log/state directory and removes the temporary code only after all jobs and syncs succeed.
+
+The summary slowdown was measured in the live process: requests converged on `adstxt.mediavine.com`, and almost all worker capacity queued behind the existing shared-host limit. The sampled process had only a handful of live host slots and request timers. It was not spending that time on 100 network requests or retry sleeps. The old ETA also included 71,723 verifier summaries that needed no fetch. These are now checkpointed before network work. The runner admits at most two jobs per observed redirect destination, keeping other hosts moving; the transport still permits one live request plus a one-second pause per registrable host. Progress reports separate reused work, network throughput, active workers and the shared-host tail. A 400-site homepage sample completed in 73 seconds, including timeout tails; its first 350 completed in 15 seconds. Shared ads.txt endpoints do not determine ordinary homepage speed.
+
+Concurrent jobs set `AD_NETWORK_FETCH_THROTTLE_DB` to the same small SQLite state file. Its atomic expiring leases preserve the host limit and post-response pause across processes, including streamed seller files. This file contains scheduling state only. The working publisher database retains its daily backup protection. Startup queries now select the fields each job needs, and pending checkpoints are filtered in SQL instead of loading every publisher's full evidence and summary into each process. RDAP uses its existing separate registry limiter. Its root-zone TLD key is `.uk` or `.br`, not the multi-label public suffix `co.uk` or `com.br`; previous unsupported-service checkpoints are revisited when the corrected bootstrap lookup has RDAP coverage.
+
+The first 48 immutable niche batches contain 71,748 confirmed sites with measured homepages at `/tmp/s127-niche/input/2026-10-16/batch-0001.jsonl` through `batch-0048.jsonl` on homelab. Haiku can start immediately. Later exports append files with about 1,500 new rows and never rewrite or repeat a domain already exported. A final pass includes remaining confirmed sites with null homepage facts. The exporter publishes complete files atomically, so workers cannot read a half-written batch. Progress is in `niche-export.json`; inputs and results stay outside Git.
+
+```bash
+cd /tmp/s127-gather-2038dd94
+RUN_STATE="$HOME/.local/share/stack127/gather-2026-10-16"
+export UV_THREADPOOL_SIZE=128 NODE_NO_WARNINGS=1
+export AD_NETWORK_FETCH_THROTTLE_DB="$RUN_STATE/fetch-throttle.sqlite"
+
+# Restart the whole supervisor only after its existing children have stopped.
+nohup node --experimental-strip-types scripts/ad-networks/gather-parallel.mjs \
+  --state-directory "$RUN_STATE" --niche-directory /tmp/s127-niche/input/2026-10-16 \
+  --concurrency 100 --cleanup-code >> "$RUN_STATE/pipeline.log" 2>&1 < /dev/null &
+
+# Individual restarts: use only for a stopped step that the supervisor is not retrying.
+restart_step() {
+  nohup node --experimental-strip-types "scripts/ad-networks/$1.mjs" \
+    --concurrency 100 --progress-file "$RUN_STATE/$1.json" \
+    >> "$RUN_STATE/$1.log" 2>&1 < /dev/null &
+  echo "$1 PID: $!"
+}
+restart_step ads-txt-summary
+restart_step platform
+restart_step publisher-names
+restart_step traffic
+restart_step domain-age
+
+# One manual append; the supervisor normally calls this as homepages arrive.
+node scripts/ad-networks/niche-export.mjs --incremental \
+  --run-directory /tmp/s127-niche/input/2026-10-16 --progress-file "$RUN_STATE/niche-export.json"
+```
+
+Stop the supervisor by its recorded PID with `kill -TERM PID`. It forwards the signal to its own children. Summary/homepage queues stop admission and drain active requests before closing SQLite; RDAP completes its current bounded requests. Completed checkpoints remain resumable. `pipeline.json` contains current child PIDs, job states and sync state; each step has its own `.log` and `.json`. Do not start duplicate copies of a step. The shared limiter must also be set for manual restarts. RDAP's roughly 68,800 `.com` domains require at least 59 hours at the existing 20/minute limit, and network latency or backoff can extend that. Its progress file reports the largest remaining TLD and a measured estimate. Other jobs and niche classification proceed while it runs.
+
+At 11:59 UTC the resumed summary and homepage jobs each sustained about 20 sites/second. The summary's observed shared-host tail still projected roughly six hours, so the supervisor leaves it independent. Homepage work projected about 26 minutes. Publisher-name catch-up completed in 450 seconds with 4,618 business names and 101,800 nulls for 106,418 sites (31 ambiguous cases remained null). Traffic completed in 237 seconds. Names and traffic each queued a development snapshot sync. These are run observations, not fixed performance promises; current `.json` progress files carry the changing estimates.
+
+```bash
+# One foreground run; use nohup with an external log for the long first pass.
+UV_THREADPOOL_SIZE=128 npm run ad-networks:gather-once -- --concurrency 100
+
+# Inspect actual filled/null counts and outcomes, without changing the store.
+npm run ad-networks:enrichment:status
+
+# Resume only never-checked candidates, without touching recurring rechecks.
+UV_THREADPOOL_SIZE=128 npm run ad-networks:verify -- --apply --unchecked-only \
+  --limit 100000 --concurrency 100 --lease-minutes 30 --time-budget-minutes 350
+
+# Individual enrichment commands write only the local SQLite store.
+UV_THREADPOOL_SIZE=128 npm run ad-networks:ads-txt-summary -- --concurrency 32
+UV_THREADPOOL_SIZE=128 npm run ad-networks:platform -- --concurrency 32
+# Review-only catch-up still saves homepage facts and refetches ads.txt for the exact stored signal.
+UV_THREADPOOL_SIZE=128 npm run ad-networks:platform -- --review-only --concurrency 48 \
+  --progress-file /tmp/s127-review-homepage.json
+# After a reviewed signature change, rerun only affected networks. Repeat --network as needed.
+UV_THREADPOOL_SIZE=128 npm run ad-networks:platform -- --review-only --refresh \
+  --network she-media --network adapex --network adpushup --network infolinks \
+  --network nitropay --network publisher-collective --network the-moneytizer --network mediavine \
+  --concurrency 64 --progress-file /tmp/s127-review-signatures.json
+npm run ad-networks:domain-age -- --concurrency 32
+npm run ad-networks:publisher-names
+npm run ad-networks:traffic
+
+# Platform and favicon share one homepage fetch. This alias resumes the same job.
+npm run ad-networks:favicon
+
+# Each export gets a new run directory, with about 1,500 JSONL rows per file.
+npm run ad-networks:niche-export -- --output /tmp/s127-niche/input
+
+# Validate the entire result set before an atomic import. Confidence is high, medium, or low; numeric scores from 0 to 1 also work.
+npm run ad-networks:niche-import -- --file /tmp/s127-niche/results/batch-0001.jsonl
+npm run ad-networks:niche-import -- --file /tmp/s127-niche/results/batch-0001.jsonl --apply
+
+# A standalone snapshot is development-only. Sync also captures this day's counts.
+npm run ad-networks:snapshot -- --environment development --apply
+```
+
+The `dev-space/ad-networks-niche/input/` path is not gitignored. Large inputs therefore stay under `/tmp/s127-niche/input/<run-date>/` on homelab. Exports contain every currently confirmed site, including null fields when no usable page was obtained. Rows are `{domain,title,description,h1,language,platform,networks}`. Use the export made after the full homepage pass for Haiku. The importer accepts JSONL `{domain,niche,confidence}` records, checks all 20 current slugs or null, rejects unknown/unconfirmed domains and conflicting duplicates, and stores confidence privately without converting labels into numeric scores. Preview mode is read-only. Classification itself and hand review are still coordinator work.
+
+| Command | Expected first-run time | Resume and source rules |
+| --- | --- | --- |
+| `verify --unchecked-only` | Hours for 138,231 sites; use the live sites/second and ETA in its summary | Existing outcomes skip; leases prevent overlapping claims. Transient failures remain retryable. |
+| `ads-txt-summary` | Roughly 1 to 4 hours for 36,000 sites, depending on failures | Reuses summaries saved by the new verifier; otherwise fetches only missing summaries. Counts physical source lines and all seller rows, including duplicate rows. Evidence matching still deduplicates. Stores all seller domains, top 20, invalid counts, and the existing 4 KB preview. |
+| `platform` / `favicon` | Roughly 1 to 4 hours for 36,000 sites; review-only catch-up usually tens of minutes | One homepage fetch supplies platform, favicon URL, title, description, h1, and language. Includes `needs_review` links with method `discovery_hint_and_ads_txt_system`, even without a confirmed network. Their decision also requires a fresh unconditional ads.txt fetch. Explicit signatures only. Challenge pages are not publisher content. No invented `/favicon.ico` fallback. Verifier page fetches also save reusable facts. |
+| `domain-age` | More than a day for a large `.com` cohort | Reuses the shared RDAP bootstrap, fetch engine, throttle and breaker. ICANN registrable domains are deduplicated, with one worker per registry host, 20 requests/minute per TLD, and 60/minute per host. No WHOIS fallback in this job. Missing RDAP services/dates stay null. |
+| `publisher-names` | About 5 to 30 minutes; large feeds and robots checks dominate | Streams permitted official seller files. Paused feeds stay paused. Requires a confirmed network plus matching exact domain and, when retained, seller ID. Only the public report's business suffixes qualify. Conflicting names stay null. A changed confirmed cohort reruns the feed, so newly confirmed sites are covered. |
+| `traffic` | About 1 to 5 minutes | Uses the newest dated CrUX global CSV, validates the complete snapshot before any write, and records source month and attribution. Never uses CSV row order as rank. |
+| `niche-export` / `niche-import` | Usually seconds | Export once the homepage pass finishes. Import validates every row before writing; identical results are safe to repeat. |
+| `sync` / `snapshot` | Usually minutes / seconds | Create a consistent online backup with `ad-networks:snapshot-local -- --output /tmp/ad-networks.sqlite`, then sync it with `--environment development --apply`. The backup pins a read transaction so active verifier writes cannot restart it indefinitely. New SQLite enrichment columns and source provenance are included. Old snapshots without those columns leave target enrichment alone. Today-only snapshots are real observations; no older dates are invented. |
+
+Successful/unknown enrichment attempts have SQLite checkpoints. Fetch failures have a next-day retry date. `--refresh` deliberately revisits completed homepage, summary, RDAP, or seller-name work; a normal rerun resumes and catches newly confirmed sites. Do not start duplicate enrichment processes for the same kind. The pipeline retries a failed stage with backoff and reports a terminal failure instead of silently marking it complete. `pipeline.json` and each stage's JSON file show the current state.
+
+The homepage review follows [the review rules](../../dev-space/ad-networks-review-rules.md). Only an exact fresh system/seller-ID/type match plus a configured distinctive script tag/configuration confirms `active_network_use`. The evidence retains the ads.txt line and page signature. Shared wrappers, article text, commented-out tags, seller lists, and ads.txt alone do not qualify. Another manager keeps the link in review; this network's own manager is recorded for the separate manager-evidence path. This job never writes manager relationships. Networks with no configured distinctive signature stay unresolved.
+
+Catalog version `2026-10-16.2` adds [the researched signatures](../../dev-space/ad-networks-signatures.md) for SHE Media, Adapex, AdPushup, Infolinks, NitroPay, Publisher Collective, and The Moneytizer, and narrows Mediavine to `/tags/`. Opening SQLite upgrades its catalog transactionally; migration `20261016084059_ad_network_verified_homepage_signatures.sql` applies the same eight network updates to Supabase. That migration is applied only to development. Concert, Media.net and Sovrn remain without safe signatures. Existing DIRECT-only guards on other networks are unchanged. New tag patterns accept either exact seller type in the review path, and the general verifier requires current seller-system corroboration. Both paths exclude article text and commented-out scripts for these tags.
+
+The coordinator stopped the existing verification service after its shared checkout at `9a2243ab` reseeded catalog `2026-09-28.2`. It recreated a 45th Snigel identity and removed current aliases/signatures. The isolated gathering copy restored `2026-10-16.2` and the 44-network roster. The repair backup is `~/.local/share/stack127/gather-2026-10-16/before-catalog-repair.sqlite`; audit and sync reports are beside it. No shared-checkout files, units or timers were changed by this task.
+
+Catalog seeding now checks the actual roster, aliases and signatures even when the version label is unchanged, repairs drift transactionally, and refuses to replace a newer catalog with older released code. Sync validates both the source and development catalog before writes. The niche export validates its catalog inside the same read transaction as its rows. All remaining enrichment commands open SQLite through the guarded seeder. The running pipeline continues from its isolated copy.
+
+The recovery audit compared the pre-repair snapshot with the original merge backup and the 08:48 UTC sync snapshot. No relationship disappeared after canonical alias mapping, none of the 134 homepage-review promotions lost its status or evidence, and no measured enrichment value was cleared. No recreated Snigel relationships were present when the merge reran, and no last-check slug array still named Snigel. The old worker also touched scheduling/update metadata; that does not establish a new observation and was not backdated. Failed obsolete-worker transactions had rolled back, including its foreign-key errors for `crosswordsolver.com` and three earlier sites.
+
+Sixteen affected sites received fresh checks in 21 seconds, with no database failures: 13 matched and three had no ads.txt. EEVblog's AdSense confirmation was recovered from fresh evidence. The four formerly confirmed links that had become stale retained that state: their repeated misses were real, and fresh checks did not reconfirm them. The scoped development repair imported 2,634 sites and 2,782 links (914 publisher updates, 930 relationship updates, no inserts), then verified 44 identities with the restored aliases and signatures. SHE Media retained 13 confirmations; Concert, Media.net and Sovrn remained at zero.
+
+The repair sync initially misclassified two recovered confirmations as joins. EEVblog's duplicate AdSense join was removed while preserving its October 5 baseline. Crossword Solver's Publisher Collective event became a baseline at its original 08:42 UTC confirmation. Arrival classification now checks established confirmations and prior lifecycle events: a missing older check cannot manufacture a join, while a completed departure followed by a positive check can still record a return. Focused tests cover both cases. The repair reports, counts and exact history corrections are in `catalog-repair*.json` and `catalog-recheck.json` beside `pipeline.json`; `catalog-repair-sync.log` retains the original sync counters before these two history corrections.
+
+Before verification is restarted, the coordinator must release these reviewed changes and update `/srv/data/projects/stack127` to that released commit, including the catalog, merger, seeder, matcher and verifier/store changes. From that checkout, run `npm run ad-networks:catalog -- --apply`, then the read-only `npm run ad-networks:catalog`; expect 44 identities, catalog `2026-10-16.2` or its reviewed successor, no Snigel identity, and the current signatures. The old service remains enabled, so a reboot can start unsafe old code until this checkout is updated.
+
+The discovery timer is also unsafe on the old checkout. Its next observed run is Tuesday October 20 at 09:57 IST; both `discover.mjs` and the worker's run recorder call the same SQLite opener and can reseed the obsolete catalog. Its actual unit, like verification, uses `/srv/data/projects/stack127`. Update the checkout before either existing job runs. This task only reports the scheduling risk; it does not change either unit or timer.
+
+Only a fully valid, nonblank HTTP 200 ads.txt body counts an absence. Reviews remain pending after the first and second absences; a third spaced check must span at least seven days before writing `ended`, with the original null `first_confirmed_at` preserved. Absences are spaced by at least 48 hours. Failures, blocked pages, 404s, and unbacked 304s never count as absence. Per-site `homepage-review` checkpoints retain decisions and a 48-hour retry date; a changed review cohort invalidates its checkpoint. No timer is created. The progress JSON includes `review_per_network` counts and reasons for this invocation. Newly confirmed sites flow into the later RDAP, seller-name, traffic, niche-export, and development-sync stages.
+
+### Chrome data and attribution
+
+[Google explicitly licenses CrUX datasets under CC BY 4.0](https://developer.chrome.com/docs/crux/methodology#license). [The license allows sharing and adaptation with attribution](https://creativecommons.org/licenses/by/4.0/). The [zakird cache](https://github.com/zakird/crux-top-lists) describes its files as cached public Google CrUX data. Its repository has no standalone LICENSE file; this job uses only the underlying Google-licensed CSV data and copies no repository code. The use decision relies on Google's dataset license, rather than a guessed license for the repository's code.
+
+The September 2026 file has 1k, 5k, 10k, 50k, 100k, 500k, and 1m magnitude buckets. Both 1k and 5k map to `top-10k`; 50k maps to `top-100k`; 500k maps to `top-1m`. The best rank for the exact hostname, treating `www` as an alias, supplies the group. Other subdomains are never merged into their parent. `not-ranked` means absent from this complete top-million snapshot, not zero traffic. One malformed upstream ACE origin is skipped and counted; too many malformed origins or an unknown rank magnitude stops the import before writes.
+
+SQLite `enrichment_state(kind='traffic').data` records the month, Google creator, CC BY license link, source URL, cache credit, and the grouping adaptation. Sync retains it under `last_check_evidence.enrichment.traffic` in development. Keep this attribution with any public presentation of the derived traffic groups. Production publication and any visible attribution copy remain part of the coordinator's release review. No BigQuery credential is needed for this cached dataset path.
