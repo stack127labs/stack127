@@ -13,10 +13,15 @@ Mockups: `dev-space/ad-networks-mockups/`. Build plan: [ad-networks-build-plan.m
 - [x] Prepared recurring refresh commands and systemd units without enabling new schedules.
 - [x] Added compact generated report fields and covering indexes in development to avoid scanning full evidence for aggregate reports.
 - [x] Fix sparse site-search timeouts by filtering and selecting the page before reading full evidence. Real pagination, search, empty results, reset, and checker recovery pass.
-- [x] Resolve all four Sol review rounds: protected robots transport, inert HTML matching, review-signal retention, confirmed departures, catalog locking, backup destination, and page-only verification gates. Final review passed with 246 tests and one optional live-database fixture skipped.
-- [ ] Finish and validate all 72 final niche files, import into SQLite, and sync classifications to development.
-- [ ] Publish the niche routes in development with indexing based on the 500-site threshold.
-- [ ] Recheck fresh report totals and the real page interactions, commit the reviewed changes, and complete PR CI.
+- [x] Resolve the Sol review findings: protected robots transport, inert HTML matching, review-signal retention, confirmed departures, catalog locking, backup destination, and page-only verification gates. Final review passed with 246 tests and one optional live-database fixture skipped.
+- [x] Finish and validate all 72 final niche files and import 106,441 reviewed rows into SQLite: 85,810 accepted labels; 6,278 low-confidence suggestions withheld.
+- [x] Sync all 106,441 classifications to development from the fresh post-import snapshot, preserving other enrichment and history. Accepted labels cover 80.5% of 106,538 listed sites.
+- [x] Publish the niche index and all 20 child routes in development; every child exceeds 500 sites. All 21 routes passed the publisher’s public checks, including titles, canonical URLs, revisions, indexing, and sitemap membership.
+- [x] Recheck totals and all six page types at 1440 and 390, with checker recovery, pagination, search, empty results, niche filtering, and oldest-domain sort.
+- [x] Resolve the final import deadlock and newly active niche report timeout; bounded transaction retries, one grouped niche matrix, and mobile joining-rule readability passed focused checks and independent Sol reviews.
+- [x] Commit and push the reviewed changes to draft PR #53.
+- [x] Validate refreshed directory and checker release manifests against development; both previews report no changes.
+- [ ] Complete GitHub PR CI. GitHub refuses to start its jobs because of an account billing/spending-limit issue; required builds remain unverified.
 - [ ] Production merge, migrations, reviewed data import, publication, and worker activation follow release authorization.
 
 The counts below are the earlier October 15 snapshot, not current progress.
@@ -128,8 +133,8 @@ The counts below are the earlier October 15 snapshot, not current progress.
 
 ### Niche run
 - [x] Build 1,500-row JSONL exporter and atomic, validating result importer; full input export follows the homepage pass
-- [ ] Luna classifies the confirmed cohort with the reviewed rubric
-- [ ] Spot check a sample by hand
+- [x] Luna classifies all 106,441 confirmed sites in 72 batches with the reviewed rubric
+- [x] Independent 400-row stratified QA and coordinator spot checks; apply corrections and withhold low-confidence suggestions. The sample is not a population accuracy estimate
 
 ### ads.txt summary run
 - [x] Build full summaries and 4 KB previews; reuse verifier fetches; initial 50-site pass stored 45 summaries
@@ -177,7 +182,7 @@ Wayback note (2026-10-16): Technically, CDX can find captures for exact /ads.txt
 - [x] `traffic`: pulls Chrome rank data and sets traffic groups
 - [x] `publisher-names`: reads business names from sellers.json files
 - [x] `niche-export` and `niche-import`: prepare inputs and validate results
-- [ ] `niche`: Luna classification and sample review (coordinator)
+- [x] `niche`: Luna classification and sample review (coordinator); new exports still need a model review before import
 - [x] `favicon`: fetches favicons for new sites
 - [x] `ads-txt-summary`: adds the summary to the site check
 - [ ] `wayback` (only if the terms allow it): one-time history backfill
@@ -195,7 +200,7 @@ The first 48 niche files are ready at `/tmp/s127-niche/input/2026-10-16/batch-00
 
 Publisher-name catch-up finished at 11:57 UTC for the same 106,418-site cohort: 4,618 business names filled, 101,800 null, including 31 ambiguous cases left null. It took 450 seconds, including the cold SQLite startup scan. The supervisor queued another snapshot sync. At 11:59 UTC the resumed summary and homepage jobs each processed about 20 sites/second; summary's shared-host tail, rather than its aggregate rate, determines its remaining time. RDAP's measured largest-TLD estimate was about 66 hours. Per-job progress files supersede these observations as the run advances.
 
-The initial enriched development sync was checked on 2026-10-16 at `http://100.91.14.95:3333` with 1280 px and 390 px viewports. After refreshing the local ad-network cache, traffic/platform columns, publisher names, traffic/platform/ads.txt charts, checker summaries and preview, and domain registration facts rendered. Traffic sorting worked through the control; oldest/newest APIs returned the measured registration date before nulls. Invalid checker input was rejected. The temporary dev server was stopped after the check. Full-cohort coverage and the final sync still need their completion check.
+The initial enriched development sync was checked on 2026-10-16 at `http://100.91.14.95:3333` with 1280 px and 390 px viewports. After refreshing the local ad-network cache, traffic/platform columns, publisher names, traffic/platform/ads.txt charts, checker summaries and preview, and domain registration facts rendered. Traffic sorting worked through the control; oldest/newest APIs returned the measured registration date before nulls. Invalid checker input was rejected. The temporary dev server was stopped after the check. Full-cohort name, traffic, homepage and summary syncs later completed. The final niche sync is also complete; RDAP remains in the background.
 
 The first review-only homepage catch-up ran from 08:06 to 08:24 UTC for 5,794 sites and 7,137 relationships. The cohort had grown beyond the original 6,188 relationships during discovery/checking. It confirmed five Taboola links and one Teads link, with no drops. Progress and per-network decisions are in `~/.local/share/stack127/gather-2026-10-16/review-homepage.json`, with `review-homepage.log` beside it. Concert, Media.net and Sovrn still have no safe configured signatures.
 

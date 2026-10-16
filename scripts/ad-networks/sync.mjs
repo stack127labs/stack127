@@ -107,8 +107,12 @@ export async function syncReviewedData(options) {
         catch(error) {
           await client.query('rollback');
           // A different writer can publish a route after this transaction starts.
-          // Starting a fresh transaction gives date triggers a current timestamp.
-          if (error.constraint !== 'stack127_pages_public_dates_check' || attempt===2) throw error;
+          // Cache acknowledgements can also deadlock with date/event triggers.
+          // Retry the whole rolled-back transaction, with a fresh timestamp.
+          const retryable=error.constraint==='stack127_pages_public_dates_check'
+            || ['40P01','40001'].includes(error.code);
+          if (!retryable || attempt===2) throw error;
+          await new Promise(resolve=>setTimeout(resolve,100*(attempt+1)));
         }
       }
     }

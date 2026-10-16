@@ -17,8 +17,9 @@ select
   and not exists(
     select 1 from required_networks required
     where not exists(
+      -- Researched network pages remain useful with no confirmed sites yet.
+      -- Require their identity. The cohort-wide evidence gate above stays on.
       select 1 from public.ad_networks n
-      join public.ad_network_publisher_relationships r on r.ad_network_id=n.id and r.status='confirmed'
       where n.slug=required.slug
     )
   ) as ready

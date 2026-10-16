@@ -158,7 +158,7 @@ function cached<T extends unknown[], R>(key: string, loader: (...args: T) => Pro
     const result = await loader(...args);
     if (Buffer.byteLength(JSON.stringify(result)) >= 1_900_000) throw new Error(`${key} exceeds cache entry budget`);
     return result;
-  }, [key, "v12"], { revalidate: false, tags: [AD_NETWORKS_TAG] });
+  }, [key, "v13"], { revalidate: false, tags: [AD_NETWORKS_TAG] });
 }
 const iso = (value: Date | string | null): string | null => value === null ? null : new Date(value).toISOString();
 const ref = (network: AdNetworkRef): AdNetworkRef => ({ slug: network.slug, name: network.name });
@@ -507,10 +507,22 @@ export const getAdNetworkNichesPageData = cached("ad-network-niches-page", async
   // data-gate: hide niche groups and their controls until the classification run reaches coverage.
   if (!ready) return {...counts,unclassified:counts.listed-counts.classified,niches:[],networks:[],niche_coverage:null,
     updated_at:(await loadReportMetadata(null)).updated_at};
-  const niches = await Promise.all(adNetworkNiches.filter(n=>rows.some(row=>row.niche===n.slug)).map(async niche => {
+  // Read the niche/network matrix once, rather than scanning membership for
+  // each of the twenty niches when classification first becomes available.
+  const memberships = (await queryAdNetworkReport<AdNetworkRef & {niche:AdNetworkNicheSlug;count:number}>(`
+    with classified as materialized (
+      select id,niche from public.ad_network_publishers where niche is not null
+    ) select p.niche,n.slug,n.name,count(*)::int as count from classified p
+      join public.ad_network_publisher_relationships r on r.publisher_id=p.id and r.status in ('confirmed','stale')
+      join public.ad_networks n on n.id=r.ad_network_id
+      group by p.niche,n.id order by p.niche,count(*) desc,n.name`)).rows;
+  const niches = adNetworkNiches.filter(n=>rows.some(row=>row.niche===n.slug)).map(niche => {
     const count=rows.find(row=>row.niche===niche.slug);
-    return { ...niche,listed:count?.listed??0,confirmed:count?.confirmed??0,share:share(count?.listed??0,counts.listed),networks:(await networkShares(niche.slug)).filter(row=>row.count>0),easiest_to_join:null as AdNetworkJoiningRule | null };
-  }));
+    const networks=memberships.filter(row=>row.niche===niche.slug).map(({niche:_,...network})=>({
+      ...network,share:share(network.count,count?.listed??0),
+    }));
+    return { ...niche,listed:count?.listed??0,confirmed:count?.confirmed??0,share:share(count?.listed??0,counts.listed),networks,easiest_to_join:null as AdNetworkJoiningRule | null };
+  });
   const visible=ready ? niches.filter(niche=>niche.listed>0).sort((a,b)=>b.listed-a.listed||a.slug.localeCompare(b.slug)) : [];
   for (const niche of visible) niche.easiest_to_join=joiningRules(niche.networks.slice(0,3))[0]??null;
   return {...counts,unclassified:counts.listed-counts.classified,niches:visible,

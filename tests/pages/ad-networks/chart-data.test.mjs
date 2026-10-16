@@ -83,6 +83,7 @@ test('newest niche arrivals name the network actually joined while preserving le
     if(sql.includes('select niche,count(*)'))return {rows:[{niche:'food',listed:100,confirmed:80}]};
     if(sql.includes('as updated_at'))return {rows:[{updated_at:null}]};
     if(sql.includes('r.verification_method as key'))return {rows:[]};
+    if(sql.includes('select p.niche,n.slug'))return {rows:[{niche:'food',slug:'a',name:'Network A',count:100}]};
     if(sql.includes('as total')&&sql.includes('group by n.id'))return {rows:[{slug:'a',name:'Network A',count:100,total:125}]};
     if(sql.includes('select distinct n.slug'))return {rows:refs.map(({slug,name})=>({slug,name}))};
     if(sql.includes('select slug,name,manager_domains'))return {rows:refs};

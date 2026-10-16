@@ -106,6 +106,7 @@ test('directory groups, shares and joining order use loader data and never turn 
     if(sql.includes('select niche,count(*)'))return {rows:[{niche:'food',listed:100,confirmed:80}]};
     if(sql.includes('as updated_at'))return {rows:[{updated_at:null}]};
     if(sql.includes('r.verification_method as key'))return {rows:[]};
+    if(sql.includes('select p.niche,n.slug'))return {rows:rows.map(n=>({niche:'food',slug:n.slug,name:n.name,count:n.listed_count}))};
     if(sql.includes('as total')&&sql.includes('group by n.id'))return {rows:rows.map(n=>({slug:n.slug,name:n.name,count:n.listed_count,total:args[0]==='food'?100:125}))};
     throw Error(`Unexpected SQL: ${sql}`);
   },{'../app/(site)/(directories)/ad-networks/network-facts':{adNetworkFacts:{higher:{minTraffic:{amount:50000,unit:'sessions'}},lower:{minTraffic:{amount:1000,unit:'pageviews'}},unknown:{minTraffic:null}}}});
@@ -118,4 +119,32 @@ test('directory groups, shares and joining order use loader data and never turn 
   assert.equal(data.by_niche[0].niche.easiest_to_join.slug,'lower');
   assert.equal(data.by_niche[0].networks[0].niche_share,80);
   assert.ok(data.availableSorts.includes('by-niche'));
+});
+
+test('niche matrix keeps per-niche denominators and overlapping network membership in one read',async()=>{
+  const calls=[];
+  const {getAdNetworkNichesPageData}=adNetworksLibrary(async(sql,args)=>{
+    calls.push({sql,args});
+    if(sql.includes('as classified'))return {rows:[{listed:225,confirmed:200,classified:180}]};
+    if(sql.includes('select niche,count(*)'))return {rows:[{niche:'food',listed:100,confirmed:90},{niche:'tech',listed:80,confirmed:70}]};
+    if(sql.includes('select p.niche,n.slug'))return {rows:[
+      {niche:'food',slug:'higher',name:'Higher',count:80},
+      {niche:'food',slug:'lower',name:'Lower',count:30},
+      {niche:'tech',slug:'unknown',name:'Unknown',count:70},
+      {niche:'tech',slug:'higher',name:'Higher',count:10},
+    ]};
+    if(sql.includes('as total')&&sql.includes('group by n.id'))return {rows:[{slug:'higher',name:'Higher',count:90,total:225}]};
+    if(sql.includes('as updated_at'))return {rows:[{updated_at:null}]};
+    if(sql.includes('r.verification_method as key'))return {rows:[]};
+    throw Error(`Unexpected SQL: ${sql}`);
+  },{'../app/(site)/(directories)/ad-networks/network-facts':{adNetworkFacts:{higher:{minTraffic:{amount:50000,unit:'sessions'}},lower:{minTraffic:{amount:1000,unit:'pageviews'}},unknown:{minTraffic:null}}}});
+  const data=await getAdNetworkNichesPageData();
+  assert.equal(data.niche_coverage,80);assert.equal(data.unclassified,45);
+  assert.deepEqual(Array.from(data.niches,n=>n.slug),['food','tech']);
+  assert.deepEqual(Array.from(data.niches[0].networks,n=>[n.slug,n.count,n.share]),[['higher',80,80],['lower',30,30]]);
+  assert.deepEqual(Array.from(data.niches[1].networks,n=>[n.slug,n.count,n.share]),[['unknown',70,87.5],['higher',10,12.5]]);
+  assert.equal(data.niches[0].easiest_to_join.slug,'lower');
+  assert.equal(data.niches[1].easiest_to_join.slug,'higher');
+  assert.equal(calls.filter(c=>c.sql.includes('select p.niche,n.slug')).length,1);
+  assert.equal(calls.filter(c=>c.args?.[0]!=null).length,0);
 });

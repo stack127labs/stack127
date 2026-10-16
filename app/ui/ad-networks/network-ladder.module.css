@@ -74,6 +74,11 @@
   }
 
   .table td.rule {
+    min-width: 8rem;
+    white-space: normal;
+  }
+
+  .table .name {
     white-space: normal;
   }
 }
