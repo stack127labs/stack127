@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import pg from 'pg';
-import {mkdtempSync,rmSync} from 'node:fs';
+import {mkdtempSync,rmSync,writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {openLocalDatabase} from '../../../scripts/ad-networks/local-db.mjs';
@@ -47,9 +47,11 @@ for(const scenario of ['present','missing','catalog-drift','deadlock-once','seri
     return {rows:[],rowCount:0};
   }};
   t.mock.method(pg.Pool.prototype,'connect',async()=>client);
-  const previous=process.env.DATABASE_URL;
-  process.env.DATABASE_URL='postgresql://localhost/development';
+  const previousDirectory=process.cwd();
   try {
+    // The command reads environment files from its working directory.
+    writeFileSync(join(directory,'.env.local'),'DATABASE_URL=postgresql://localhost/development\n');
+    process.chdir(directory);
     const preview=await syncReviewedData(syncArgs(['--sqlite',file]));
     assert.equal(preview.publishers,1);assert.equal(preview.relationships,1);
     const options=syncArgs(['--sqlite',file,'--niches-only','--apply']);
@@ -76,7 +78,7 @@ for(const scenario of ['present','missing','catalog-drift','deadlock-once','seri
       }
     }
   }finally{
-    if(previous===undefined)delete process.env.DATABASE_URL;else process.env.DATABASE_URL=previous;
+    process.chdir(previousDirectory);
     rmSync(directory,{recursive:true,force:true});
   }
 });

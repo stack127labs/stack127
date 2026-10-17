@@ -21,7 +21,7 @@ Mockups: `dev-space/ad-networks-mockups/`. Build plan: [ad-networks-build-plan.m
 - [x] Resolve the final import deadlock and newly active niche report timeout; bounded transaction retries, one grouped niche matrix, and mobile joining-rule readability passed focused checks and independent Sol reviews.
 - [x] Commit and push the reviewed changes to draft PR #53.
 - [x] Validate refreshed directory and checker release manifests against development; both previews report no changes.
-- [ ] Complete GitHub PR CI. GitHub refuses to start its jobs because of an account billing/spending-limit issue; required builds remain unverified.
+- [ ] Complete GitHub PR CI on the current PR #53 head. The repository became public on 2026-10-17, and GitHub Actions can now run. Use the PR for live CI status.
 - [ ] Production merge, migrations, reviewed data import, publication, and worker activation follow release authorization.
 
 The counts below are the earlier October 15 snapshot, not current progress.
