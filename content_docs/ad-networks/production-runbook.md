@@ -44,7 +44,7 @@ If the homelab checkout cannot fast-forward, preserve its changes and resolve th
 ```bash
 JOBS='snapshot,platform,domain-age,ads-txt-summary,discovery,publisher-names,traffic,backup,verification,rdap-import'
 gh workflow run ad-networks-runtime.yml --repo stack127labs/stack127 --ref main \
-  -f confirm=stack127-production -f enabled_jobs="$JOBS"
+  -f confirm=stack127-production -f release_sha="$RELEASE_SHA" -f enabled_jobs="$JOBS"
 gh run list --repo stack127labs/stack127 --workflow ad-networks-runtime.yml --limit 1
 # Use that activation run's ID:
 gh run watch ACTIVATION_RUN_ID --repo stack127labs/stack127 --exit-status
@@ -83,7 +83,7 @@ for unit in stack127-ad-network-discovery.service stack127-ad-network-verificati
   if systemctl --user cat "$unit" >/dev/null 2>&1; then systemctl --user disable --now "$unit"; fi
 done
 /home/teja/.local/bin/claude auth status
-node --experimental-strip-types scripts/ad-networks/niche-sort.mjs --environment production --confirm stack127-production --apply --limit 2 --claude /home/teja/.local/bin/claude
+node --env-file=.env.deploy --experimental-strip-types scripts/ad-networks/niche-sort.mjs --environment production --confirm stack127-production --apply --limit 2 --claude /home/teja/.local/bin/claude
 mkdir -p "$HOME/.config/systemd/user"
 install -m 644 scripts/ad-networks/systemd/stack127-ad-network-niche.service scripts/ad-networks/systemd/stack127-ad-network-niche.timer "$HOME/.config/systemd/user/"
 systemd-analyze --user verify "$HOME/.config/systemd/user/stack127-ad-network-niche.service" "$HOME/.config/systemd/user/stack127-ad-network-niche.timer"
