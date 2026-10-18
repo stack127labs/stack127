@@ -60,7 +60,9 @@ export function run(script, args, env, signal) {
   return new Promise((resolveRun, reject) => {
     if (signal?.aborted) { reject(new Error('Heavy-job lock was lost')); return; }
     const child = spawn(process.execPath, ['--experimental-strip-types', join(root, 'scripts/ad-networks', `${script}.mjs`), ...args],
-      { cwd: root, env, stdio: 'inherit' });
+      { cwd: root, env, stdio: ['ignore', 'pipe', 'inherit'] });
+    let output = '';
+    child.stdout.on('data', chunk => { process.stdout.write(chunk); output = (output + chunk).slice(-262144); });
     let killTimer;
     const stop = () => { child.kill('SIGTERM'); killTimer ??= setTimeout(() => child.kill('SIGKILL'), 120000); };
     // A broken feed or child must not hold all later schedules forever.
@@ -69,10 +71,31 @@ export function run(script, args, env, signal) {
     process.once('SIGINT', stop); process.once('SIGTERM', stop);
     const clean = () => { clearTimeout(deadline); clearTimeout(killTimer); signal?.removeEventListener('abort', stop); process.off('SIGINT', stop); process.off('SIGTERM', stop); };
     child.once('error', error => { clean(); reject(error); });
-    child.once('exit', (code, signal) => {
-      clean(); code === 0 ? resolveRun() : reject(new Error(`${script} stopped: ${signal ?? code}`));
+    child.once('close', (code, signal) => {
+      clean();
+      if (code === 0) resolveRun(lastJobResult(output));
+      else reject(Object.assign(new Error(`${script} stopped: ${signal ?? code}`), { result: lastJobResult(output) }));
     });
   });
+}
+
+export function lastJobResult(output) {
+  const lines = output.trim().split('\n'), result = {};
+  for (let i = 0; i < lines.length; i++) {
+    if (!lines[i].trim().startsWith('{')) continue;
+    for (let j = i; j < lines.length; j++) {
+      try { const value = JSON.parse(lines.slice(i, j + 1).join('\n')); Object.assign(result, value); i = j; break; }
+      catch { /* A pretty-printed object may span several lines. */ }
+    }
+  }
+  return result;
+}
+
+export function jobCounts(value) {
+  const result = Object.fromEntries(Object.entries(value ?? {}).filter(([key, item]) => typeof item === 'number' || typeof item === 'boolean'
+    || ['status', 'kind', 'scope'].includes(key) && typeof item === 'string'));
+  if (value?.outcomes && typeof value.outcomes === 'object') result.outcomes = Object.fromEntries(Object.entries(value.outcomes).filter(([, count]) => typeof count === 'number'));
+  return result;
 }
 
 export async function refresh(options, dependencies = {}) {
@@ -86,30 +109,38 @@ export async function refresh(options, dependencies = {}) {
   const execute = dependencies.run ?? run;
   const env = { ...process.env, UV_THREADPOOL_SIZE: '8', AD_NETWORK_DB_PATH: options['local-database'],
     AD_NETWORK_FETCH_THROTTLE_DB: join(options['state-directory'], 'fetch-throttle.sqlite') };
+  const publication = { synced: false, revalidated: false, counts: {} };
   const publish = async signal => {
     if (signal?.aborted) throw new Error('Heavy-job lock was lost');
     const snapshot = sync.args[1];
+    let synced;
     try {
       await (dependencies.snapshot ?? snapshotLocal)(options['local-database'], snapshot);
-      await execute(sync.script, sync.args, env, signal);
+      synced = await execute(sync.script, sync.args, env, signal);
+      publication.synced = true; publication.counts.sync = jobCounts(synced);
     } finally {
       for (const path of [snapshot, `${snapshot}-wal`, `${snapshot}-shm`]) await (dependencies.remove ?? rm)(path, { force: true });
     }
-    await execute(revalidation.script, revalidation.args, env, signal);
+    const revalidated = await execute(revalidation.script, revalidation.args, env, signal);
+    publication.revalidated = true; publication.counts.revalidation = jobCounts(revalidated);
+    return { sync: jobCounts(synced), revalidation: jobCounts(revalidated) };
   };
   try {
     const result = await (dependencies.lock ?? withJobLock)(options, async signal => {
-      let collectorError;
+      let collectorError, collector;
       if (options.job !== 'sync') {
-        try { await execute(command.script, command.args, env, signal); } catch (error) { collectorError = error; }
+        try { collector = await execute(command.script, command.args, env, signal); } catch (error) { collectorError = error; collector = error.result; }
+        publication.counts.collector = jobCounts(collector);
       }
-      await publish(signal);
+      const published = await publish(signal);
       if (collectorError) throw collectorError;
-      return { applied: true, environment: options.environment, job: options.job, synced: true, revalidated: true };
+      return { applied: true, environment: options.environment, job: options.job, synced: true, revalidated: true,
+        counts: { collector: jobCounts(collector), ...published } };
     });
     if (!result.skipped) await (dependencies.alert ?? jobAlert)(options, false);
     return result;
   } catch (error) {
+    error.jobResult = { job: options.job, ...publication };
     try { await (dependencies.alert ?? jobAlert)(options, true); } catch (alertError) { console.error(`Alert failed: ${safeError(alertError)}`); }
     throw error;
   }

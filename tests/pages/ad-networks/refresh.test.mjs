@@ -4,7 +4,7 @@ import { mkdtemp, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { refreshArgs, refreshCommand, refresh, refreshJobs } from '../../../scripts/ad-networks/refresh.mjs';
-import { targetDatabaseUrl, withJobLock } from '../../../scripts/ad-networks/runtime-db.mjs';
+import { targetDatabaseUrl, withJobLock, sessionDatabaseUrl } from '../../../scripts/ad-networks/runtime-db.mjs';
 import { revalidateAdNetworks } from '../../../scripts/ad-networks/revalidate.mjs';
 import { latestSlot, nextJob, schedulerTick, scheduledJobs } from '../../../scripts/ad-networks/scheduler.mjs';
 import { jobAlert } from '../../../scripts/ad-networks/alerts.mjs';
@@ -89,7 +89,7 @@ test('scheduler persists completion and retries a failed slot without running tw
   assert.equal((await schedulerTick(options, state, now, deps)).idle, true);
   assert.equal(calls[0].snapshot.status, 'running'); assert.equal(calls[1].snapshot.status, 'complete');
   assert.equal(nextJob({}, now, activatedAt, ['verification']).job, 'verification');
-  assert.equal(new Set(scheduledJobs).size, 9);
+  assert.equal(new Set(scheduledJobs).size, 10);
   assert.ok(refreshCommand(refreshArgs(['--job', 'publisher-names'])).args.includes('--refresh'));
 });
 
@@ -125,4 +125,15 @@ test('false apply flags remain read-only when resolving checkout credentials', a
   const before = process.cwd();
   try { process.chdir(directory); assert.equal(targetDatabaseUrl({ environment: 'development', apply: false }, {}), 'postgresql://localhost/development'); }
   finally { process.chdir(before); await rm(directory, { recursive: true, force: true }); }
+});
+
+test('Supabase shared transaction credentials select the same-host session pooler for advisory locks', () => {
+  const transaction = 'postgresql://postgres.test:p%24ass@aws-0-example.pooler.supabase.com:6543/postgres?sslmode=require';
+  const session = new URL(sessionDatabaseUrl(transaction));
+  assert.equal(session.port, '5432'); assert.equal(session.hostname, new URL(transaction).hostname);
+  assert.equal(session.username, new URL(transaction).username); assert.equal(session.password, new URL(transaction).password);
+  assert.equal(session.search, '?sslmode=require');
+  assert.equal(targetDatabaseUrl({ environment: 'production', apply: true, confirm: 'stack127-production' },
+    { AD_NETWORKS_RUNTIME_ENVIRONMENT: 'production', DATABASE_POOLER_URL: transaction }), session.toString());
+  assert.throws(() => sessionDatabaseUrl('postgresql://user:password@unknown.example:6543/postgres'), /session pooling/);
 });

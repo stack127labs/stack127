@@ -99,7 +99,7 @@ The `STACK127_PRODUCTION_*` values are checked against `scripts/stack127/deploym
 
 The three names with unusual casing stay as they are because they already exist. Don't quietly rename them during a credential rotation.
 
-`OVH_VPS_Password` is for recovery only. The release workflow doesn't use it. It uses the configured SSH identity and the Dokploy API.
+`OVH_VPS_Password` is for recovery only. The release workflow doesn't use it. It uses the Dokploy API with the existing Cloudflare Access service credentials. No OVH SSH key is currently configured; `DOKPLOY_LOCAL_URL` is server-local and cannot be used from other machines.
 
 ### Analytics
 
@@ -267,7 +267,13 @@ The frontend workflow uses the automatic `GITHUB_TOKEN`, the database URL, the S
 
 ## Dokploy runtime
 
-The prepared ad-networks jobs Compose service (October 18, not activated) needs its own production `DATABASE_POOLER_URL` and existing `GITHUB_ALERT_TOKEN`, plus `AD_NETWORKS_RELEASE_SHA`, `AD_NETWORKS_ENABLED_JOBS`, and `AD_NETWORKS_ACTIVATED_AT`. Its production target marker, volume paths, and concurrency are defined in Compose. The database URL must use a session pooler because the runtime takes session advisory locks. Do not add these admin/job variables to the public site app or its build. The homelab niche service reads the mirrored `.env.database` and `.env.deploy`; model execution uses its existing CLI subscription login with secrets removed from the child environment. See the [cutover runbook](../content_docs/ad-networks/production-runbook.md).
+The prepared ad-networks jobs Compose service (October 18, not activated) is created/updated by the protected `ad-networks-runtime.yml` workflow through the Dokploy API, without an OVH shell. It receives production `DATABASE_POOLER_URL`, `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, and existing `GITHUB_ALERT_TOKEN`, plus `AD_NETWORKS_RELEASE_SHA`, `AD_NETWORKS_DEPLOYMENT_ID`, `AD_NETWORKS_ENABLED_JOBS`, and the persisted `AD_NETWORKS_ACTIVATED_AT`. Its production marker, volume paths, and concurrency are repo-defined. The database URL must use a session pooler (5432) for session advisory locks. Never add these admin/job variables to the public app or image build arguments.
+
+Ad-network database runners select session port 5432 on the same Supabase shared-pooler host when existing credentials specify transaction port 6543. This applies to OVH and homelab niche sorting, preserves the target/project/credentials, and makes session advisory locks reliable without editing mirrored env files or GitHub secrets. Unknown non-session endpoints fail closed. See [Supabase connection modes](https://supabase.com/docs/guides/database/connecting-to-postgres).
+
+Read-only GitHub name checks found all required credentials except **`GITHUB_ALERT_TOKEN` in the protected production environment**; the owner must add the existing homelab token there. `DATABASE_POOLER_URL` already exists at repository scope. Production already has the Supabase URL/server key, Dokploy key, Cloudflare Access credentials and GHCR pull token; `GHCR_DOKPLOY_USERNAME` is an environment variable. No new SSH/Storage/model key is required. Homelab's uploader reads existing `.env.database`, creates the private handoff bucket only during authorized cutover, and publishes seed/RDAP manifests. Runtime/niche status stays in private bucket objects, not public tables.
+
+The homelab niche service reads mirrored `.env.database` and `.env.deploy`; model execution uses its existing CLI subscription login with secrets removed from the child environment. See the [cutover runbook](../content_docs/ad-networks/production-runbook.md).
 
 The stack127 app has:
 

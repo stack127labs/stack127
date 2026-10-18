@@ -8,7 +8,7 @@ Mockups: `dev-space/ad-networks-mockups/`. Build plan: [ad-networks-build-plan.m
 
 The current decision is to refresh production automatically while every ad-network page stays unpublished (404). The earlier publication plan below is historical and must not be executed in this release. The [production runbook](../content_docs/ad-networks/production-runbook.md) is the cutover procedure.
 
-- [x] Repo-defined OVH Compose service, immutable GitHub-built image, persistent external SQLite volume, bounded serial scheduler, heavy-job lock, durable retries, and heartbeat health check.
+- [x] Repo-defined OVH Compose service, immutable GitHub-built image, persistent SQLite volume, bounded serial scheduler, heavy-job lock, durable retries, and heartbeat health check.
 - [x] Every scheduled collector automatically syncs reviewed data to the selected database and revalidates origin caches. Existing cache events remain queued for verified edge/static refresh.
 - [x] Full sync preserves existing Postgres niches. Homelab classifies new unsorted production sites through its logged-in Haiku CLI, validates exact domains/labels/confidence, withholds uncertain labels, and writes only niches.
 - [x] Weekly homelab niche timer prepared; obsolete homelab collector, sync, discovery, verification, and backup templates retired from the repo. No installed timer changed in this round.
@@ -18,9 +18,14 @@ The current decision is to refresh production automatically while every ad-netwo
 - [x] Development snapshot plus real homepage collector both completed sync and 70-path revalidation. A stale local `gaming` label did not overwrite the target's `food` label. Desktop/mobile EthicalAds showed 3 sorted sites and Tech 100%.
 - [x] Read-only production migration comparison: ten migrations pending; shared cache functions match the baseline; no new-object/column collisions. Production has zero published ad-network pages among 46 existing registry rows.
 - [ ] Independent coordinator Sol review and PR CI of this local implementation commit.
-- [ ] Authenticated read-only OVH capacity inventory. Public Dokploy requests reach Cloudflare Access, and its preview profile also has no session. Direct HTTPS origin is unreachable; recovery password was not used.
-- [ ] Authorized secure seed transfer/server access. Secret-name inspection found no SSH key secret in either GitHub scope; the release currently uses Dokploy API plus Cloudflare Access credentials. Provide an approved SSH identity or an equivalent authenticated transfer path.
-- [ ] Merge/release, verify production migrations, seed, create paused OVH service, first-run checks, enable the nine OVH jobs and homelab niche timer. No production data/server changes occurred in this round.
+- [x] Shell-free GitHub activation: protected production environment, explicit confirmation, idempotent Dokploy Compose create/update, private environment and GHCR setup, deploy and fresh deployment-specific health/status checks. Enabled list supports pause/resume reruns.
+- [x] Private Supabase Storage handoff: homelab consistent snapshot, compression, bounded immutable chunks/checksums, exclusive verified container install, resumable automatic seed/niche/first-check bootstrap, and one-time later RDAP imports. No source RDAP interruption or manual sync.
+- [x] Private external runtime/niche status includes counts and sync/revalidation outcomes without a migration.
+- [x] Existing Supabase shared transaction-pooler credentials select session port 5432 for reliable OVH/homelab advisory locks. No env-file or secret rotation is needed.
+- [x] Development private-bucket upload/download/bootstrap/restart/RDAP/status test; anonymous access denied and test bucket removed. Corruption, size, domain validation, lock, idempotence, capacity and API activation tests cover failures.
+- [ ] Owner adds existing `GITHUB_ALERT_TOKEN` to GitHub's protected production environment. Other required secret/variable names already exist. No SSH identity or new API key is needed.
+- [ ] Actual OVH capacity inventory and installed Dokploy API compatibility: the protected workflow measures CPU/RAM/disk/load and fails closed before mutation if unavailable or below the documented gate. GitHub-only Access credentials cannot be read locally.
+- [ ] Merge/release, check migrations, upload seed on homelab, dispatch the single activation workflow, inspect private status, then start the homelab niche timer. No production bucket/data/server changes occurred in this round.
 
 Schedules, UTC: continuous verification; counts 00:10 daily; platform/favicon 01:00 daily; age 02:00 daily; ads.txt 03:00 daily; backup 05:00 daily; discovery Tuesday 04:00; names Wednesday 04:00; traffic on day 5 at 04:00; homelab niches Sunday 06:00. No Wayback or history backfill.
 

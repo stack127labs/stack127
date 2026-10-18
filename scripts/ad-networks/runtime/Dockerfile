@@ -8,4 +8,4 @@ COPY lib ./lib
 COPY dev-space/ad-networks-niche/rubric.md ./dev-space/ad-networks-niche/rubric.md
 USER node
 ENV NODE_NO_WARNINGS=1 NODE_OPTIONS=--max-old-space-size=640
-CMD ["flock", "--nonblock", "--conflict-exit-code", "75", "/data/state/scheduler.lock", "node", "--experimental-strip-types", "scripts/ad-networks/scheduler.mjs"]
+CMD ["flock", "--nonblock", "--conflict-exit-code", "75", "/data/state/scheduler.lock", "node", "--experimental-strip-types", "scripts/ad-networks/runtime.mjs"]

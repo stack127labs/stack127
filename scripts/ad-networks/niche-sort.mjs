@@ -11,6 +11,7 @@ import { publicNiche, validateNicheResult } from './niche-import.mjs';
 import { progressFile } from './enrichment-store.mjs';
 import { revalidateAdNetworks } from './revalidate.mjs';
 import { jobAlert, safeError } from './alerts.mjs';
+import { privateStorage, storageConfig } from './handoff-storage.mjs';
 
 export function validateNicheBatch(input, output) {
   const domains = new Set(input.map(row => row.domain));
@@ -77,12 +78,13 @@ export async function importNiches(client, rows) {
 export async function sortNiches(options, dependencies = {}) {
   const pool = dependencies.pool ?? targetPool(options);
   const file = join(options['state-directory'], 'niche-results.json');
-  let client, locked = false;
+  let client, locked = false, imported = 0, withheld = 0, classified = 0;
   try {
     client = await pool.connect();
     if (options.apply) {
       locked = (await client.query("select pg_try_advisory_lock(hashtext('ad-networks-niche-sort')) as locked")).rows[0].locked;
       if (!locked) return { skipped: true, reason: 'niche sorting already running' };
+      await dependencies.onStart?.();
     }
     let checkpoint = {};
     try { checkpoint = JSON.parse(await readFile(file, 'utf8')); } catch (error) { if (error.code !== 'ENOENT') throw error; }
@@ -109,11 +111,12 @@ export async function sortNiches(options, dependencies = {}) {
     }
     if (!options.apply) return { applied: false, environment: options.environment, candidates: input.length, model: 'claude subscription CLI, Haiku' };
     const rubric = await readFile(new URL('../../dev-space/ad-networks-niche/rubric.md', import.meta.url), 'utf8');
-    let imported = 0, withheld = 0;
+
     for (let i = 0; i < input.length; i += +options['batch-size']) {
       const batch = input.slice(i, i + +options['batch-size']);
       const raw = await (dependencies.classify ?? classifyNiches)(batch, rubric, options);
       const rows = validateNicheBatch(batch, raw);
+      classified += rows.length;
       imported += await importNiches(client, rows);
       for (const row of rows) {
         if (publicNiche(row) === null) withheld++;
@@ -125,7 +128,9 @@ export async function sortNiches(options, dependencies = {}) {
     }
     // Also retry revalidation when a previous run committed before it failed.
     await (dependencies.revalidate ?? revalidateAdNetworks)(options);
-    return { applied: true, environment: options.environment, classified: input.length, imported, withheld };
+    return { applied: true, environment: options.environment, classified: input.length, imported, withheld, synced: true, revalidated: true };
+  } catch (error) {
+    error.jobResult = { classified, imported, withheld, synced: imported > 0, revalidated: false }; throw error;
   } finally {
     if (locked) await client.query("select pg_advisory_unlock(hashtext('ad-networks-niche-sort'))").catch(() => {});
     client?.release(); await pool.end();
@@ -144,10 +149,28 @@ export function nicheSortArgs(argv) {
   return { ...values, job: 'niche-sort', 'state-directory': resolve(values['state-directory']) };
 }
 
+export async function runNicheJob(options, dependencies = {}) {
+  if (!options.apply) return (dependencies.sort ?? sortNiches)(options);
+  const storage = dependencies.storage ?? privateStorage(storageConfig(options));
+  const startedAt = new Date().toISOString();
+  const status = async value => storage.putJson('status/niche-sort.json', { schema: 1, job: 'niche-sort',
+    environment: options.environment, started_at: startedAt, updated_at: new Date().toISOString(), ...value });
+  try {
+    const result = await (dependencies.sort ?? sortNiches)(options, { onStart: () => status({ status: 'running', synced: false, revalidated: false }) });
+    // A concurrent run owns the status object and its existing progress.
+    if (result.skipped) return result;
+    await status({ status: 'complete', result, synced: result.synced, revalidated: result.revalidated });
+    await (dependencies.alert ?? jobAlert)(options, false);
+    return result;
+  } catch (error) {
+    await status({ status: 'failed', result: error.jobResult ?? { synced: false, revalidated: false }, error: safeError(error) }).catch(() => {});
+    try { await (dependencies.alert ?? jobAlert)(options, true); } catch (alertError) { console.error(`Alert failed: ${safeError(alertError)}`); }
+    throw error;
+  }
+}
+
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const options = nicheSortArgs(process.argv.slice(2));
-  try { const result = await sortNiches(options); console.log(JSON.stringify(result)); if (result.skipped) process.exitCode = 75;
-    else if (options.apply) await jobAlert(options, false); }
-  catch (error) { console.error(safeError(error)); process.exitCode = 1;
-    if (options.apply) try { await jobAlert(options, true); } catch (alertError) { console.error(`Alert failed: ${safeError(alertError)}`); } }
+  try { const result = await runNicheJob(options); console.log(JSON.stringify(result)); if (result.skipped) process.exitCode = 75; }
+  catch (error) { console.error(safeError(error)); process.exitCode = 1; }
 }

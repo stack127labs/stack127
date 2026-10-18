@@ -5,7 +5,7 @@ import { pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 import { refresh, refreshArgs } from './refresh.mjs';
 import { progressFile } from './enrichment-store.mjs';
-import { safeError } from './alerts.mjs';
+import { jobAlert, safeError } from './alerts.mjs';
 
 export const schedules = [
   { job: 'snapshot', hour: 0, minute: 10 },
@@ -17,7 +17,7 @@ export const schedules = [
   { job: 'traffic', hour: 4, minute: 0, day: 5 },
   { job: 'backup', hour: 5, minute: 0 },
 ];
-export const scheduledJobs = [...schedules.map(row => row.job), 'verification'];
+export const scheduledJobs = [...schedules.map(row => row.job), 'verification', 'rdap-import'];
 
 export function latestSlot(schedule, now) {
   const date = new Date(now);
@@ -59,45 +59,55 @@ export async function schedulerTick(options, state, now, dependencies = {}) {
     const result = await (dependencies.refresh ?? refresh)(args);
     if (result.skipped) {
       state[selected.job] = { ...state[selected.job], status: 'waiting_for_lock', retryAt: new Date(now.getTime() + 30000).toISOString() };
-    } else state[selected.job] = { status: 'complete', completedSlot: selected.slot, finishedAt: new Date().toISOString(),
+    } else state[selected.job] = { status: 'complete', completedSlot: selected.slot, startedAt: now.toISOString(), finishedAt: new Date().toISOString(), result,
       ...(selected.job === 'verification' ? { retryAt: new Date(Date.now() + 30000).toISOString() } : {}) };
   } catch (error) {
-    state[selected.job] = { ...state[selected.job], status: 'failed', error: safeError(error), retryAt: new Date(Date.now() + 300000).toISOString() };
+    state[selected.job] = { ...state[selected.job], status: 'failed', result: error.jobResult ?? { synced: false, revalidated: false }, error: safeError(error), retryAt: new Date(Date.now() + 300000).toISOString() };
     console.error(`${selected.job}: ${safeError(error)}`);
   }
   await save(state);
   return { state, job: selected.job };
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const { values } = parseArgs({ options: { check: { type: 'boolean', default: false } } });
-  const options = { environment: process.env.AD_NETWORKS_RUNTIME_ENVIRONMENT,
-    database: process.env.AD_NETWORK_DB_PATH || '/data/ad-networks.sqlite', stateDirectory: process.env.AD_NETWORKS_STATE_DIRECTORY || '/data/state',
-    concurrency: process.env.AD_NETWORKS_CONCURRENCY || '4', activatedAt: process.env.AD_NETWORKS_ACTIVATED_AT,
-    enabled: (process.env.AD_NETWORKS_ENABLED_JOBS || '').split(',').filter(Boolean) };
-  if (values.check) {
-    const heartbeat = JSON.parse(await readFile(join(options.stateDirectory, 'heartbeat.json'), 'utf8'));
-    if (Date.now() - Date.parse(heartbeat.at) > 120000) throw new Error('Scheduler heartbeat stale');
-    process.exit(0);
-  }
-  if (!['production', 'development'].includes(options.environment)) throw new Error('Set AD_NETWORKS_RUNTIME_ENVIRONMENT');
+export async function runScheduler(options, dependencies = {}) {
+  options = { activatedAt: process.env.AD_NETWORKS_ACTIVATED_AT, concurrency: process.env.AD_NETWORKS_CONCURRENCY || '4',
+    enabled: (process.env.AD_NETWORKS_ENABLED_JOBS || '').split(',').filter(Boolean), ...options };
   if (!options.activatedAt || new Date(options.activatedAt).toISOString() !== options.activatedAt) throw new Error('Set AD_NETWORKS_ACTIVATED_AT to an ISO UTC timestamp');
   if (options.enabled.some(job => !scheduledJobs.includes(job))) throw new Error('Unknown enabled job');
   if (options.environment === 'production' && !process.env.GITHUB_ALERT_TOKEN) throw new Error('GITHUB_ALERT_TOKEN required');
-  // Refuse to create an empty replacement store after a missing-volume restart.
   await access(options.database);
   let state = {};
   try { state = JSON.parse(await readFile(join(options.stateDirectory, 'scheduler.json'), 'utf8')); }
   catch (error) { if (error.code !== 'ENOENT') throw error; }
-  let stopping = false;
-  process.on('SIGINT', () => { stopping = true; }); process.on('SIGTERM', () => { stopping = true; });
-  const heartbeat = () => progressFile(join(options.stateDirectory, 'heartbeat.json'), { at: new Date().toISOString(), enabled: options.enabled });
-  await heartbeat();
-  const timer = setInterval(() => { void heartbeat().catch(() => { stopping = true; }); }, 30000);
+  let stopping = false, rdapAt = 0;
+  const stop = () => { stopping = true; };
+  process.on('SIGINT', stop); process.on('SIGTERM', stop);
   try {
     while (!stopping) {
-      await schedulerTick(options, state, new Date());
+      if (dependencies.rdap && options.enabled.includes('rdap-import') && Date.now() >= rdapAt) {
+        rdapAt = Date.now() + 60000;
+        try {
+          const result = await dependencies.rdap();
+          if (!result.idle && !result.skipped) state['rdap-import'] = { status: 'complete', finishedAt: new Date().toISOString(), result };
+        } catch (error) {
+          state['rdap-import'] = { status: 'failed', finishedAt: new Date().toISOString(), result: error.jobResult ?? { synced: false, revalidated: false }, error: safeError(error) };
+          await jobAlert({ ...options, job: 'rdap-import', 'state-directory': options.stateDirectory }, true).catch(() => {});
+          rdapAt = Date.now() + 300000;
+        }
+        await progressFile(join(options.stateDirectory, 'scheduler.json'), state);
+      }
+      const tick = await schedulerTick(options, state, new Date());
+      if (!tick.idle) await dependencies.publish?.();
       if (!stopping) await new Promise(resolve => setTimeout(resolve, 5000));
     }
-  } finally { clearInterval(timer); }
+  } finally { process.off('SIGINT', stop); process.off('SIGTERM', stop); }
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const { values } = parseArgs({ options: { check: { type: 'boolean', default: false } } });
+  if (values.check) {
+    const file = join(process.env.AD_NETWORKS_STATE_DIRECTORY || '/data/state', 'heartbeat.json');
+    const heartbeat = JSON.parse(await readFile(file, 'utf8')), age = Date.now() - Date.parse(heartbeat.at);
+    if (!Number.isFinite(age) || age < -60000 || age > 120000 || heartbeat.phase !== 'ready') throw new Error('Scheduler not ready or heartbeat stale');
+  } else throw new Error('Start runtime.mjs; it installs and checks the seed before scheduling jobs');
 }
