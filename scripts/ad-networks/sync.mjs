@@ -5,7 +5,7 @@ import { pathToFileURL } from 'node:url';
 import pg from 'pg';
 import { snapshotCounts } from './snapshot.mjs';
 import { captureNetworkObservations } from './movements.mjs';
-import { resolveDatabaseUrl } from '../stack127/tool-pages/lib.mjs';
+import { targetDatabaseUrl } from './runtime-db.mjs';
 import { assertLocalCatalog,assertTargetCatalog } from './identity-catalog.mjs';
 
 const reviewed = new Set(['confirmed', 'stale', 'ended']);
@@ -14,6 +14,9 @@ const reviewedWhere = (prefix = '') => `(${prefix}status in ('confirmed','stale'
 const publisherFields = ['normalized_domain','display_domain','first_seen_at','last_discovered_at','last_checked_at',
   'check_status','last_check_outcome','last_check_evidence','last_successful_check_at'];
 export const enrichmentFields = ['niche','publisher_name','platform','domain_created_on','traffic_group','ads_txt_summary','favicon'];
+// Recurring model work on homelab owns existing target niches. SQLite can seed
+// a newly inserted publisher, but a full collector sync must never replace one.
+export const publisherUpdateFields = fields => fields.filter(field => !['normalized_domain','niche'].includes(field));
 const relationFields = ['status','relationship_type','verification_method','evidence','first_confirmed_at',
   'last_confirmed_at','ended_at','consecutive_misses','first_missed_at','last_missed_at'];
 function object(value, field) {
@@ -61,13 +64,14 @@ const relationshipInput = `select n.id as ad_network_id,p.id as publisher_id,${r
 
 export async function syncReviewedData(options) {
   // Do not call openLocalDatabase: it migrates/seeds the working store. This input is strictly read-only.
-  const databaseUrl=resolveDatabaseUrl({environment:options.environment,...(options.apply ? {apply:true,confirm:options.confirm} : {})});
+  const databaseUrl=targetDatabaseUrl({environment:options.environment,...(options.apply ? {apply:true,confirm:options.confirm} : {})});
   const sqlite = new DatabaseSync(options.sqlite,{readOnly:true});
   const pool = new pg.Pool({connectionString:databaseUrl,max:1,connectionTimeoutMillis:15000,query_timeout:120000});
   const available=new Set(sqlite.prepare('pragma table_info(publishers)').all().map(row=>row.name));
   const fields=[...publisherFields,...enrichmentFields.filter(field=>available.has(field)),'discovery_sources'];
   const pubColumns=fields.join(',');
-  const pubDiff=`(${fields.map(f=>`p.${f}`).join(',')}) is distinct from (${fields.map(f=>`i.${f}`).join(',')})`;
+  const updates=publisherUpdateFields(fields);
+  const pubDiff=`(${updates.map(f=>`p.${f}`).join(',')}) is distinct from (${updates.map(f=>`i.${f}`).join(',')})`;
   const publisherInput=`select ${pubColumns} from jsonb_populate_recordset(null::public.ad_network_publishers,$1::jsonb)`;
   let client, locked=false;
   const counts={publishers:0,relationships:0,publishers_inserted:0,publishers_updated:0,
@@ -147,9 +151,11 @@ export async function syncReviewedData(options) {
       const hasEnrichment=sqlite.prepare("select 1 from sqlite_master where type='table' and name='enrichment_state'").get();
       const payload=JSON.stringify(source.map(row=>{
         const traffic=hasEnrichment ? sqlite.prepare("select data from enrichment_state where publisher_id=? and kind='traffic' and status='measured'").get(row.id) : null;
+        const homepage=hasEnrichment ? sqlite.prepare("select data from enrichment_state where publisher_id=? and kind='homepage' and status='measured'").get(row.id) : null;
         const evidence=object(row.last_check_evidence??{},'last_check_evidence');
         return mapSyncPublisher({...row,
-          last_check_evidence:traffic?{...evidence,enrichment:{...evidence.enrichment,traffic:JSON.parse(traffic.data)}}:evidence,
+          last_check_evidence:{...evidence,enrichment:{...evidence.enrichment,
+            ...(traffic?{traffic:JSON.parse(traffic.data)}:{}),...(homepage?{homepage:JSON.parse(homepage.data)}:{})}},
           discovery_sources:sqlite.prepare(`select source_key,source_url,domain_as_supplied,license_attribution,first_seen_at,last_seen_at
             from publisher_sources where publisher_id=? order by source_key`).all(row.id)});
       }));
@@ -157,8 +163,8 @@ export async function syncReviewedData(options) {
       const plan=await client.query(`with i as (${publisherInput}) select count(*) filter(where p.id is null)::int inserted,
         count(*) filter(where p.id is not null and ${pubDiff})::int updated from i left join public.ad_network_publishers p using(normalized_domain)`,[payload]);
       await client.query(`insert into public.ad_network_publishers as p (${pubColumns}) ${publisherInput}
-        on conflict(normalized_domain) do update set ${fields.filter(f=>f!=='normalized_domain').map(f=>`${f}=excluded.${f}`).join(',')}
-        where (${fields.map(f=>`p.${f}`).join(',')}) is distinct from (${fields.map(f=>`excluded.${f}`).join(',')})`,[payload]);
+        on conflict(normalized_domain) do update set ${updates.map(f=>`${f}=excluded.${f}`).join(',')}
+        where (${updates.map(f=>`p.${f}`).join(',')}) is distinct from (${updates.map(f=>`excluded.${f}`).join(',')})`,[payload]);
       return plan.rows[0];
       });
       counts.publishers_inserted+=planned.inserted;counts.publishers_updated+=planned.updated;

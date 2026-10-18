@@ -2,7 +2,27 @@
 
 The rule: text that is written once lives in the codebase. Data that changes lives in the database.
 
-Mockups: `dev-space/ad-networks-mockups/`. Build plan: [ad-networks-build-plan.md](ad-networks-build-plan.md). Working data: homelab SQLite at `~/.local/share/stack127/ad-networks.sqlite`.
+Mockups: `dev-space/ad-networks-mockups/`. Build plan: [ad-networks-build-plan.md](ad-networks-build-plan.md). Initial working data: homelab SQLite at `~/.local/share/stack127/ad-networks.sqlite`. After cutover, OVH owns the working store; homelab owns only niche sorting.
+
+## Production automation handoff (2026-10-18)
+
+The current decision is to refresh production automatically while every ad-network page stays unpublished (404). The earlier publication plan below is historical and must not be executed in this release. The [production runbook](../content_docs/ad-networks/production-runbook.md) is the cutover procedure.
+
+- [x] Repo-defined OVH Compose service, immutable GitHub-built image, persistent external SQLite volume, bounded serial scheduler, heavy-job lock, durable retries, and heartbeat health check.
+- [x] Every scheduled collector automatically syncs reviewed data to the selected database and revalidates origin caches. Existing cache events remain queued for verified edge/static refresh.
+- [x] Full sync preserves existing Postgres niches. Homelab classifies new unsorted production sites through its logged-in Haiku CLI, validates exact domains/labels/confidence, withholds uncertain labels, and writes only niches.
+- [x] Weekly homelab niche timer prepared; obsolete homelab collector, sync, discovery, verification, and backup templates retired from the repo. No installed timer changed in this round.
+- [x] Failure alerts reuse the existing GitHub issue token and close on job recovery. Development does not send alerts.
+- [x] Late RDAP merge preserves newer OVH work and all other fields. The original RDAP process and gather supervisor remain running. Their installed backup service/timer must stay until both finish because the old loaded code still depends on it; new released code calls the backup script directly.
+- [x] Per-network Top niches works for any sorted sample and states its sample count. Broad index/child coverage and publication gates remain.
+- [x] Development snapshot plus real homepage collector both completed sync and 70-path revalidation. A stale local `gaming` label did not overwrite the target's `food` label. Desktop/mobile EthicalAds showed 3 sorted sites and Tech 100%.
+- [x] Read-only production migration comparison: ten migrations pending; shared cache functions match the baseline; no new-object/column collisions. Production has zero published ad-network pages among 46 existing registry rows.
+- [ ] Independent coordinator Sol review and PR CI of this local implementation commit.
+- [ ] Authenticated read-only OVH capacity inventory. Public Dokploy requests reach Cloudflare Access, and its preview profile also has no session. Direct HTTPS origin is unreachable; recovery password was not used.
+- [ ] Authorized secure seed transfer/server access. Secret-name inspection found no SSH key secret in either GitHub scope; the release currently uses Dokploy API plus Cloudflare Access credentials. Provide an approved SSH identity or an equivalent authenticated transfer path.
+- [ ] Merge/release, verify production migrations, seed, create paused OVH service, first-run checks, enable the nine OVH jobs and homelab niche timer. No production data/server changes occurred in this round.
+
+Schedules, UTC: continuous verification; counts 00:10 daily; platform/favicon 01:00 daily; age 02:00 daily; ads.txt 03:00 daily; backup 05:00 daily; discovery Tuesday 04:00; names Wednesday 04:00; traffic on day 5 at 04:00; homelab niches Sunday 06:00. No Wayback or history backfill.
 
 ## Release preparation (2026-10-16)
 
@@ -22,7 +42,7 @@ Mockups: `dev-space/ad-networks-mockups/`. Build plan: [ad-networks-build-plan.m
 - [x] Commit and push the reviewed changes to draft PR #53.
 - [x] Validate refreshed directory and checker release manifests against development; both previews report no changes.
 - [ ] Complete GitHub PR CI on the current PR #53 head. The repository became public on 2026-10-17, and GitHub Actions can now run. Use the PR for live CI status.
-- [ ] Production merge, migrations, reviewed data import, publication, and worker activation follow release authorization.
+- [ ] Production merge, migrations, reviewed data import, and worker activation follow release authorization. Publication is now explicitly deferred.
 
 The counts below are the earlier October 15 snapshot, not current progress.
 
@@ -146,7 +166,7 @@ The counts below are the earlier October 15 snapshot, not current progress.
 
 ### History
 - [x] Run the standalone development snapshot once on 2026-10-16; same-day counts were already present
-- [x] Prepare the daily sync timer, which also captures daily snapshots; activation follows release
+- [x] Prepare automatic post-job sync and the OVH 00:10 UTC snapshot job; activation follows release
 - [x] Luna checked the Wayback Machine terms (2026-10-16; see note below)
 - [ ] If allowed, fill older history from archived ads.txt files
 
@@ -164,7 +184,7 @@ Wayback note (2026-10-16): Technically, CDX can find captures for exact /ads.txt
 | Publisher names | sellers.json files | Weekly |
 | Traffic groups | Chrome rank data | Monthly |
 | Platform | Site home page | Monthly |
-| Niche | Luna with the reviewed rubric | New exports through T3, then a 6-month recheck |
+| Niche | Homelab logged-in Haiku CLI, reviewed rubric | Sunday 06:00 UTC; uncertain sites after changed evidence or 180 days |
 | Favicon | Site home page | With the monthly homepage refresh |
 | Domain age | RDAP | Once for each new site |
 
@@ -175,7 +195,7 @@ Wayback note (2026-10-16): Technically, CDX can find captures for exact /ads.txt
 - [x] `discover`: finds new candidate sites (existing weekly timer is unsafe until its shared checkout is updated)
 - [x] `verify` and `worker`: check each site's ads.txt and update links (existing service stopped by coordinator pending released code)
 - [x] `backup-local`: backs up the SQLite file (daily timer)
-- [x] `sync`: copies reviewed sites and links from SQLite to Supabase (no timer yet)
+- [x] `sync`: copies reviewed sites and links from SQLite to Supabase automatically after every OVH job
 - [x] `snapshot`: saves the daily count per network
 - [x] `domain-age`: RDAP lookups for new sites
 - [x] `platform`: detects each site's platform
@@ -185,14 +205,14 @@ Wayback note (2026-10-16): Technically, CDX can find captures for exact /ads.txt
 - [x] `niche`: Luna classification and sample review (coordinator); new exports still need a model review before import
 - [x] `favicon`: fetches favicons for new sites
 - [x] `ads-txt-summary`: adds the summary to the site check
-- [ ] `wayback` (only if the terms allow it): one-time history backfill
+- No Wayback or history backfill is planned.
 - [x] `gather-once`: resumable one-shot pipeline, external logs/progress, development sync, and temporary-code cleanup
 - [x] `gather-parallel`: independent one-shot steps, shared host limits, incremental immutable niche batches and snapshot syncs after step completion
 - [x] `enrichment:status`: read-only filled/null counts and queue outcomes
 - [x] `catalog`: validate identities read-only, or repair catalog drift with `--apply`; export and sync reject stale catalogs
-- [x] Prepare recurring systemd units for the refresh jobs; install and enable them after release. Niche model review stays in T3; Wayback remains deferred
+- [x] Replace homelab refresh templates with the OVH runtime and a single homelab niche service/timer; activation remains coordinator work.
 
-### Current one-shot gathering
+### Original one-shot gathering (still finishing RDAP)
 
 Started 2026-10-16 from `/tmp/s127-gather-2038dd94` on homelab. The isolated run leaves the main homelab checkout unchanged. The owner later approved pausing the old discovery and verification jobs; the backup destination was also repaired. The never-checked queue is now empty; the final pass checked 61,959 sites and confirmed 32,497 relationships without database failures. Homepage, summary, name and traffic passes and their development sync are complete. RDAP continues in the background; final niche import is pending. At the user's request, `gather-parallel` replaced the serial driver: summary, homepage, names, traffic and RDAP run independently, sharing a cross-process host limiter. Niche exports append immutable batches as homepages arrive; completed steps trigger serialized snapshot syncs. Progress is at `~/.local/share/stack127/gather-2026-10-16/pipeline.json`, with current child PIDs, `pipeline.log`, and per-stage logs/JSON. The pipeline removes its temporary code only after success. Run `ad-networks:enrichment:status` for current filled/null counts. The `dev-space` input path is not gitignored. See restart commands and timing limits in `content_docs/ad-networks/maintenance.md`.
 

@@ -1,0 +1,19 @@
+[Unit]
+Description=Sort new production ad-network sites with the logged-in Haiku CLI
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/data/projects/stack127
+Environment=PATH=/home/teja/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=NODE_NO_WARNINGS=1
+# Only GITHUB_ALERT_TOKEN from this file is used by this job. The model child
+# receives none of its secrets. Database credentials come from .env.database.
+EnvironmentFile=/srv/data/projects/stack127/.env.deploy
+ExecStart=/usr/bin/node --experimental-strip-types scripts/ad-networks/niche-sort.mjs --environment production --confirm stack127-production --apply --claude /home/teja/.local/bin/claude
+TimeoutStartSec=12h
+TimeoutStopSec=120
+KillMode=control-group
+Nice=15
+MemoryMax=1G

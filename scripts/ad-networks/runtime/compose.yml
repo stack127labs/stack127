@@ -1,0 +1,42 @@
+services:
+  jobs:
+    image: ghcr.io/stack127labs/stack127-ad-networks:${AD_NETWORKS_RELEASE_SHA:?Set the deployed main SHA}
+    restart: unless-stopped
+    init: true
+    read_only: true
+    user: "1000:1000"
+    cpus: "0.50"
+    mem_limit: 1024m
+    pids_limit: 128
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    stop_grace_period: 180s
+    tmpfs:
+      - /tmp:size=128m,mode=1777
+    volumes:
+      - data:/data
+    environment:
+      AD_NETWORKS_RUNTIME_ENVIRONMENT: production
+      AD_NETWORK_DB_PATH: /data/ad-networks.sqlite
+      AD_NETWORKS_STATE_DIRECTORY: /data/state
+      AD_NETWORKS_CONCURRENCY: "4"
+      # Start paused. Enable these jobs after the seed and first-run checks.
+      AD_NETWORKS_ENABLED_JOBS: ${AD_NETWORKS_ENABLED_JOBS:-}
+      AD_NETWORKS_ACTIVATED_AT: ${AD_NETWORKS_ACTIVATED_AT:?Set once to activation time in ISO UTC}
+      DATABASE_POOLER_URL: ${DATABASE_POOLER_URL:?Use production session-pooler credentials}
+      GITHUB_ALERT_TOKEN: ${GITHUB_ALERT_TOKEN:?Use the existing issues alert token}
+    healthcheck:
+      test: [CMD, node, scripts/ad-networks/scheduler.mjs, --check]
+      interval: 60s
+      timeout: 10s
+      start_period: 120s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+volumes:
+  data:
+    external: true
+    name: stack127-ad-networks-data

@@ -2,7 +2,7 @@
 import pg from 'pg';
 import { parseArgs } from 'node:util';
 import { pathToFileURL } from 'node:url';
-import { resolveDatabaseUrl } from '../stack127/tool-pages/lib.mjs';
+import { targetDatabaseUrl } from './runtime-db.mjs';
 export function snapshotCounts(client) {
   return client.query(`insert into public.ad_network_daily_counts as d(ad_network_id,snapshot_on,listed_count,confirmed_count,stale_count)
     select n.id,(now() at time zone 'UTC')::date,count(r.publisher_id) filter(where r.status in ('confirmed','stale')),
@@ -14,8 +14,7 @@ export function snapshotCounts(client) {
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
   const {values}=parseArgs({options:{apply:{type:'boolean',default:false},environment:{type:'string',default:'development'},confirm:{type:'string'}}});
-  if(values.environment!=='development')throw new Error('This gathering command only supports development');
-  const pool=new pg.Pool({connectionString:resolveDatabaseUrl(values),max:1,connectionTimeoutMillis:15000,query_timeout:120000});
+  const pool=new pg.Pool({connectionString:targetDatabaseUrl(values),max:1,connectionTimeoutMillis:15000,query_timeout:120000});
   try {
     const result=values.apply?await snapshotCounts(pool):await pool.query('select count(*)::int as networks from public.ad_networks');
     console.log(JSON.stringify({applied:values.apply,environment:values.environment,changed:values.apply?result.rowCount:0,rows:values.apply?undefined:result.rows}));

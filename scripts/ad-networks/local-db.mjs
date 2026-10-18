@@ -2,6 +2,7 @@ import { existsSync, mkdirSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { homedir } from "node:os";
 import { dirname, resolve } from "node:path";
+import { fileURLToPath } from 'node:url';
 import { DatabaseSync } from "node:sqlite";
 import { IDENTITY_CATALOG_VERSION, networkIdentities } from "./network-identities.mjs";
 
@@ -177,14 +178,16 @@ function seedNetworks(database) {
 
 let backedUpDay = null;
 function requireDailyBackup(path) {
-  // Only the homelab working store has this backup service. Tests and portable
-  // stores do not acquire a hidden systemd dependency.
+  // The legacy homelab store keeps its extra daily backup guard. Portable
+  // stores use their scheduled backups and never depend on homelab systemd.
   const directory = '/srv/data/backups/stack127-ad-networks';
   if (process.platform !== 'linux' || path !== defaultLocalDatabasePath || !existsSync(directory) || !existsSync(path)) return;
   const day = new Date().toISOString().slice(0,10);
   if (backedUpDay === day) return;
   const file = `${directory}/ad-networks-${day}.sqlite`;
-  if (!existsSync(file)) execFileSync('systemctl',['--user','start','stack127-ad-network-backup.service'],{timeout:300000,stdio:'pipe'});
+  if (!existsSync(file)) execFileSync(process.execPath,
+    [fileURLToPath(new URL('./backup-local.mjs', import.meta.url)), '--local-database', path,
+      '--backup-directory', directory, '--keep', '7'], {timeout:300000,stdio:'pipe'});
   if (!existsSync(file)) throw new Error(`Daily SQLite backup is missing: ${file}`);
   backedUpDay = day;
 }

@@ -91,6 +91,7 @@ OVH_DOKPLOY_PASSWORD
 OVH_VPS_Password
 HOSTINGER_Token
 Google_Search_Console
+GITHUB_ALERT_TOKEN
 SUPABASE_ACCESS_TOKEN
 ```
 
@@ -265,6 +266,8 @@ Keep the GitHub repository and environment variables equal. Enable their Cloudfl
 The frontend workflow uses the automatic `GITHUB_TOKEN`, the database URL, the Supabase keys, and the existing production Cloudflare keys. They stay on the GitHub runner. Next.js inlines only `NEXT_PUBLIC_*` values into the exported files, so never give a secret that prefix.
 
 ## Dokploy runtime
+
+The prepared ad-networks jobs Compose service (October 18, not activated) needs its own production `DATABASE_POOLER_URL` and existing `GITHUB_ALERT_TOKEN`, plus `AD_NETWORKS_RELEASE_SHA`, `AD_NETWORKS_ENABLED_JOBS`, and `AD_NETWORKS_ACTIVATED_AT`. Its production target marker, volume paths, and concurrency are defined in Compose. The database URL must use a session pooler because the runtime takes session advisory locks. Do not add these admin/job variables to the public site app or its build. The homelab niche service reads the mirrored `.env.database` and `.env.deploy`; model execution uses its existing CLI subscription login with secrets removed from the child environment. See the [cutover runbook](../content_docs/ad-networks/production-runbook.md).
 
 The stack127 app has:
 

@@ -10,7 +10,7 @@ import type {
 } from "./ad-networks-types";
 import { deriveManagedBy, buildAdsTxtPreview, aggregateAdNetworkManagers, aggregateAdNetworkTrafficShares } from "./ad-network-site-facts.mjs";
 
-import { AD_NETWORK_SITES_PAGE_SIZE, adNetworkSiteAvailability, hasAdNetworkNicheCoverage, adNetworkMonthEnds, adNetworkYearChange,
+import { AD_NETWORK_SITES_PAGE_SIZE, adNetworkSiteAvailability, adNetworkNicheShares, hasAdNetworkNicheCoverage, adNetworkMonthEnds, adNetworkYearChange,
   adNetworkMovementTotals, adNetworkManagerBreakdown, trafficOrder, domainAgeOrder,
   adNetworkSwitchFlow, adNetworkMovementPeriods, adNetworkPlatformMix,
   adNetworkCheckerEvents, adNetworkObservedDomainAge, adNetworkUtcWindow } from "./ad-networks-report";
@@ -453,10 +453,9 @@ const loadBreakdowns = cached("ad-network-breakdowns", async (network: string): 
   }
   const currentNetwork=await getAdNetwork(network);
   const total=currentNetwork?.listed_count??0;
-  // data-gate: a niche comparison needs 100 classified sites and 80% coverage in this network.
-  const classified=niches.reduce((sum,row)=>sum+row.count,0);
+  // Per-network shares use only sorted sites. Broad comparison gates stay in their loaders.
   const percentages=(rows:AdNetworkCount[])=>rows.map(row=>({...row,share:share(row.count,total)}));
-  return { niches:hasAdNetworkNicheCoverage(total,classified) ? percentages(niches) : [],
+  return { niches:adNetworkNicheShares(niches),
     traffic:percentages(traffic.sort((a,b)=>trafficOrder(a.key)-trafficOrder(b.key))),publishers,platforms:percentages(platforms),
     platform_mix:adNetworkPlatformMix(platforms,total),
     domain_age:percentages(domain_age.sort((a,b)=>domainAgeOrder(a.key)-domainAgeOrder(b.key))),

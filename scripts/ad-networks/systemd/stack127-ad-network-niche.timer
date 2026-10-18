@@ -1,0 +1,10 @@
+[Unit]
+Description=Weekly production ad-network niche sorting on homelab
+
+[Timer]
+OnCalendar=Sun *-*-* 06:00:00 UTC
+Persistent=true
+Unit=stack127-ad-network-niche.service
+
+[Install]
+WantedBy=timers.target

@@ -113,7 +113,7 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
 
   const kindBlocks = [
     nicheRows.length ? (
-      <ReportBlock description="What the sites are about, as a share of all sites." key="niches" label="Top niches">
+      <ReportBlock description={`Share of ${stats.niches.reduce((sum, row) => sum + row.count, 0).toLocaleString("en-US")} sorted sites.`} key="niches" label="Top niches">
         <RankedBars ariaLabel={`Top niches on ${name}`} rows={nicheRows} />
       </ReportBlock>
     ) : null,

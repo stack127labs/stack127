@@ -17,6 +17,7 @@ let stopped=false,signal;
 const stop=value=>{stopped=true;signal=value;};
 const interrupt=()=>stop('SIGINT'),terminate=()=>stop('SIGTERM');
 process.on('SIGINT',interrupt);process.on('SIGTERM',terminate);
+const budget=setTimeout(()=>{stopped=true;},+args['time-budget-minutes']*60000);
 const sleep=async ms=>{const until=Date.now()+ms;while(!stopped&&Date.now()<until)await new Promise(r=>setTimeout(r,Math.min(1000,until-Date.now())));};
 let reportTimer;
 try {
@@ -90,5 +91,5 @@ try {
     }
   }));
   await report(); console.log(JSON.stringify({kind:'domain-age',total,processed,outcomes}));
-  if(stopped)process.exitCode=signal==='SIGINT'?130:143;
-}finally{clearInterval(reportTimer);process.off('SIGINT',interrupt);process.off('SIGTERM',terminate);db.close();}
+  if(signal)process.exitCode=signal==='SIGINT'?130:143;
+}finally{clearTimeout(budget);clearInterval(reportTimer);process.off('SIGINT',interrupt);process.off('SIGTERM',terminate);db.close();}

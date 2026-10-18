@@ -10,9 +10,11 @@ export function enrichmentArgs(extra = {}) {
   const {values} = parseArgs({options: { 'local-database': {type:'string',default:defaultLocalDatabasePath},
     concurrency: {type:'string',default:'32'}, limit:{type:'string',default:'1000000'},
     'progress-file':{type:'string',default:'tmp/ad-networks/enrichment-progress.json'},
+    'time-budget-minutes':{type:'string',default:'350'},
     refresh:{type:'boolean',default:false}, ...extra }});
   for (const field of ['concurrency','limit']) if (!/^[1-9]\d*$/.test(values[field])) throw new Error(`Invalid --${field}`);
   if (+values.concurrency > 100) throw new Error('Concurrency must be at most 100');
+  if (!/^[1-9]\d*$/.test(values['time-budget-minutes']) || +values['time-budget-minutes']>350) throw new Error('Invalid time budget');
   return values;
 }
 export function enrichmentDatabase(args) { return openLocalDatabase(args['local-database']); }
@@ -62,6 +64,7 @@ export async function runSites(db,args,kind,work,selectedRows=null,details=()=>(
     reports=reports.then(()=>progressFile(args['progress-file'],data));await reports;
   }
   let timer;
+  const budget=setTimeout(()=>{stopped=true;},+args['time-budget-minutes']*60000);
   try {
     await report();
     timer=setInterval(()=>{void report().catch(()=>{stopped=true;});},15000);timer.unref();
@@ -71,8 +74,8 @@ export async function runSites(db,args,kind,work,selectedRows=null,details=()=>(
       summary.processed++;summary.outcomes[outcome]=(summary.outcomes[outcome]??0)+1;
       if(summary.processed%100===0){ await report();console.log(JSON.stringify(summary)); }
     });
-    summary.status=stopped?'stopped':'complete';
-    if(stopped){summary.signal=signal;process.exitCode=signal==='SIGINT'?130:143;}
+    summary.status=stopped?(signal?'stopped':'budget_complete'):'complete';
+    if(signal){summary.signal=signal;process.exitCode=signal==='SIGINT'?130:143;}
     summary.finishedAt=new Date().toISOString(); await report(); console.log(JSON.stringify(summary));return summary;
-  } finally {clearInterval(timer);process.off('SIGINT',interrupt);process.off('SIGTERM',terminate);}
+  } finally {clearTimeout(budget);clearInterval(timer);process.off('SIGINT',interrupt);process.off('SIGTERM',terminate);}
 }

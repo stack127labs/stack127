@@ -14,6 +14,12 @@ export function hasAdNetworkNicheCoverage(listed: number, classified: number) {
   return listed > 0 && classified >= AD_NETWORK_NICHE_MIN_SITES && classified / listed >= AD_NETWORK_NICHE_MIN_SHARE;
 }
 
+/** A network's own breakdown describes only its sorted sites, even a sample of one. */
+export function adNetworkNicheShares(rows: AdNetworkCount[]): AdNetworkCount[] {
+  const sorted = rows.reduce((total, row) => total + row.count, 0);
+  return sorted ? rows.map(row => ({ ...row, share: row.count / sorted * 100 })) : [];
+}
+
 export type AdNetworkSiteCoverage = {
   listed: number; classified: number; traffic: number; age: number; platform: number;
   publisher: number; checked: number; manager: number;
