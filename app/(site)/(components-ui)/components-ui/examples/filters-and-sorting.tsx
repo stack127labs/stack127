@@ -3,6 +3,7 @@ import { DirectoryFilterController } from "@/app/ui/directories/directory-filter
 import { DirectoryCheckboxGroup, DirectoryRadioGroup, DirectoryTagSelectGroup } from "@/app/ui/directories/directory-filters";
 import { SortDropdown } from "@/app/ui/directories/directory-sort-dropdown";
 import { Example } from "../gallery";
+import { ToolbarDemo } from "./ad-network-demos";
 import styles from "../components-ui.module.css";
 
 export function FiltersAndSortingExamples() {
@@ -34,6 +35,14 @@ export function FiltersAndSortingExamples() {
           />
           <DirectoryFilterController />
         </form>
+      </Example>
+      <Example
+        components={["TableToolbar", "ToolbarSearch", "ToolbarSelect", "ToolbarSwitch"]}
+        note="Controls beside a section heading that drive the list below it. ToolbarSearch size=&quot;large&quot; is the 52px hero box with the / key hint; the compact one sits in the toolbar. ToolbarSelect is a React Aria select with its short mono key inside the control and a popover list, so it works with keys, touch, and screen readers. The switch keeps two to four choices visible. On phones the search takes its own line and selects sit two per line. They are controlled, so use them in a client component."
+        source="app/ui/table-toolbar.tsx"
+        title="Table toolbar"
+      >
+        <ToolbarDemo />
       </Example>
     </>
   );

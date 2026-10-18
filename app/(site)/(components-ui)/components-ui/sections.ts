@@ -1,4 +1,5 @@
 import {
+  ChartBarBig,
   ChartColumn,
   FileText,
   Gauge,
@@ -65,21 +66,21 @@ export const gallerySections: GallerySection[] = [
     label: "Filters and sorting",
     description: "Search, sort, and filter groups for any long list of records.",
     icon: ListFilter,
-    components: ["SortDropdown", "DirectoryCheckboxGroup", "DirectoryRadioGroup", "DirectoryTagSelectGroup", "DirectoryFilterController"],
+    components: ["SortDropdown", "DirectoryCheckboxGroup", "DirectoryRadioGroup", "DirectoryTagSelectGroup", "DirectoryFilterController", "TableToolbar", "ToolbarSearch", "ToolbarSelect", "ToolbarSwitch"],
   },
   {
     slug: "results",
     label: "Results",
     description: "The main answer, supporting numbers, status words, progress, steps, timelines, and generated output.",
     icon: Gauge,
-    components: ["UiPrimaryResult", "UiResultLead", "UiMetricGroup", "UiKeyValueList", "UiStatusWord", "UiProgressBar", "UiAllocationBar", "UiRangeMarker", "UiUnitGrid", "UiSteps", "UiTimeline", "UiCodeOutput", "UiRawOutput"],
+    components: ["UiPrimaryResult", "UiResultLead", "UiMetricGroup", "UiKeyValueList", "UiStatusWord", "UiProgressBar", "UiAllocationBar", "UiRangeMarker", "UiUnitGrid", "UiSteps", "UiTimeline", "UiCodeOutput", "UiRawOutput", "Report", "ReportGroup", "ReportRow", "ReportBlock", "ReportNumbers", "ReportFigure", "ReportBars", "KeyNumbers", "FactsList", "NotPublic", "DetailsLayout", "SourcesLine", "SiteFacts", "AdsTxtNumbers", "AdsTxtPreview", "SimilarSites", "TrafficMeter"],
   },
   {
     slug: "tables",
     label: "Tables",
     description: "Data tables with row headers, content tables written in MDX, and a scroll frame for wide tables.",
     icon: Table2,
-    components: ["UiDataTable", "ContentTable", "TableFrame"],
+    components: ["UiDataTable", "ContentTable", "TableFrame", "SitesTable", "NichesTable", "NetworkLadder", "SiteNetworksTable"],
   },
   {
     slug: "charts",
@@ -89,11 +90,18 @@ export const gallerySections: GallerySection[] = [
     components: ["UiChart", "UiStaticChart", "UiLiveChart"],
   },
   {
+    slug: "data-visuals",
+    label: "Data visuals",
+    description: "Bars, stacks, rings, columns, lines, flows, strips, treemaps, grids, and timelines drawn on the server in the site style, with small scripts only for hover, keys, and width. The ad networks pages use these.",
+    icon: ChartBarBig,
+    components: ["RankedBars", "StackBar", "MoveBars", "VizLegend", "Donut", "TypeScale", "PublisherBlocks", "ColumnChart", "AreaLine", "JoinedLeftBars", "SwitchFlow", "AgeStrip", "SizeStacks", "NewestList", "Treemap", "Heatmap", "MultiLine", "DivergingBars", "ScatterPlot", "DotPlot", "StackedColumns", "HistoryGantt", "EventsList"],
+  },
+  {
     slug: "cards",
     label: "Cards",
     description: "Linked page cards and record cards. Any page can list them.",
     icon: SquareStack,
-    components: ["PageCard", "PageCardCounts", "ToolCard", "CatalogCard", "DirectoryCard", "AppFactCardContent", "DirectoryAppCard", "HardwareFactCardContent"],
+    components: ["PageCard", "PageCardCounts", "ToolCard", "CatalogCard", "DirectoryCard", "AppFactCardContent", "DirectoryAppCard", "HardwareFactCardContent", "NetworkLogo", "NetworkCard", "NetworkGrid", "SortNote"],
   },
   {
     slug: "content",
@@ -128,14 +136,14 @@ export const gallerySections: GallerySection[] = [
     label: "Navigation",
     description: "Breadcrumbs above page titles, page links for long lists, and sidebar link lists.",
     icon: Signpost,
-    components: ["Breadcrumbs", "Pagination", "SidebarList"],
+    components: ["Breadcrumbs", "Pagination", "SidebarList", "UiTabs"],
   },
   {
     slug: "page-layout",
     label: "Page layout",
     description: "Page headers, sidebar positions, the section bar, the entry hero, page metadata, brand pieces, and the tool workbench.",
     icon: LayoutTemplate,
-    components: ["PageHeader", "PageTitleIcon", "CategoryIcon", "EntryHero", "PageMeta", "BrandWordmark", "ThemeToggle", "ToolWorkbench", "ToolFieldRow", "ToolResult", "SectionBar"],
+    components: ["PageHeader", "PageTitleIcon", "CategoryIcon", "EntryHero", "PageMeta", "BrandWordmark", "ThemeToggle", "ToolWorkbench", "ToolFieldRow", "ToolResult", "SectionBar", "AdSection", "SectionHead", "SectionNote"],
   },
 ];
 

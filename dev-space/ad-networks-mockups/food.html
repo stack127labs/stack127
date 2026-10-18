@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ad networks for food sites: which networks food blogs use | stack127</title>
+<link rel="stylesheet" href="assets/mock.css">
+<script src="assets/mock.js"></script>
+</head>
+<body data-section-current="Niches">
+<main class="page" id="page">
+  <div>
+    <div class="band canvas">
+      <header class="page-header">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="#">stack127</a></li><li><a href="ad-networks.html">ad networks</a></li><li><a href="niches.html">niches</a></li><li><span aria-current="page">food</span></li></ol></nav>
+        <h1><span class="title-icon"><span data-icon="shapes"></span></span>Ad networks for <mark>food</mark> sites</h1>
+        <div class="meta"><span><span data-icon="calendar"></span>Updated Oct 12, 2026</span></div>
+        <p>The ad networks food blogs and recipe sites run, and the sites that run them. We list <b class="fig">6,320</b> food sites, and <b class="fig live">5,878</b> are confirmed live from their ads.txt files. <a href="mediavine.html">Mediavine</a> runs on more of them than any other network.</p>
+      </header>
+    </div>
+
+    <div class="canvas">
+      <section class="nsec" aria-labelledby="fsites">
+        <div class="sec-head"><h2 id="fsites">Which food sites run ads?</h2>
+          <div class="table-tools">
+            <label class="mini-search"><span data-icon="search"></span><span class="sr-only">Search sites</span><input type="search" placeholder="Search sites" autocomplete="off" spellcheck="false"></label>
+            <label class="sel"><span class="k">Network</span><select id="fnet"><option value="">All</option><option>Mediavine</option><option>Raptive</option><option>Journey</option><option>Ezoic</option></select></label>
+            <label class="sel"><span class="k">Sort</span><select><option>Traffic</option><option>Oldest domain</option><option>Newest domain</option></select></label>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table class="sites">
+            <thead><tr><th>site</th><th>network</th><th>traffic</th><th class="r">domain age</th><th>platform</th><th class="r">checked</th></tr></thead>
+            <tbody id="frows"></tbody>
+          </table>
+        </div>
+        <div class="table-foot"><span id="fcount"></span>
+          <nav class="pager" aria-label="Pages"><a href="#" aria-current="page">1</a><a href="#">2</a><a href="#">3</a><span>…</span><a href="#">632</a><a href="#">Next</a></nav>
+        </div>
+      </section>
+
+      <section class="nsec" aria-labelledby="fnets">
+        <div class="sec-head"><h2 id="fnets">Which ad networks do food sites use?</h2>
+          <div class="seg" role="group" aria-label="Order"><button type="button" data-o="used" aria-pressed="true">Most used</button><button type="button" data-o="join" aria-pressed="false">Easiest to join</button></div>
+        </div>
+        <p class="nsec-desc">Every network that runs on food sites, with what it takes to join.</p>
+        <div class="table-scroll">
+          <table class="ladder">
+            <thead><tr><th>network</th><th class="r">food sites</th><th>share of food sites</th><th>to join</th></tr></thead>
+            <tbody id="lrows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="nsec" aria-labelledby="fsize">
+        <h2 id="fsize">What do food sites of each size run?</h2>
+        <p class="nsec-desc">Sites grouped by their place in Chrome's list of the most visited sites. Each site counts once, under its main ad network.</p>
+        <div class="sizes" id="sizes"></div>
+        <ul class="legend" id="slg"></ul>
+      </section>
+
+      <section class="nsec" aria-labelledby="fmoves">
+        <h2 id="fmoves">Which networks are food sites moving to?</h2>
+        <p class="nsec-desc">Food sites that switched networks in the last 90 days, and the newest sites on each network.</p>
+        <div class="pair">
+          <div class="blk"><h4>switches, last 90 days</h4><dl class="moves" id="moves"></dl></div>
+          <div class="blk"><h4>newest sites</h4><table class="newest"><tbody id="newest"></tbody></table></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+<script>
+(() => {
+  const f = (n) => n.toLocaleString("en-US");
+  const meter = (n) => `<span class="meter" aria-hidden="true">${[1, 2, 3, 4, 5].map((i) => `<i class="${i <= n ? "f" : ""}"></i>`).join("")}</span>`;
+  // Sample rows: domain, publisher (business names only), network, traffic step, rank group, registered year, platform, checked.
+  const SITES = [
+    ["tinykitchenlab.com", "Tiny Kitchen Lab LLC", "Mediavine", 4, "top 10k", 2014, "WordPress", "Oct 12"],
+    ["sourdoughsundays.com", "", "Raptive", 4, "top 10k", 2017, "WordPress", "Oct 12"],
+    ["oldfarmrecipes.com", "Old Farm Media Inc", "Mediavine", 3, "top 100k", 1996, "WordPress", "Oct 11"],
+    ["weeknightskillet.com", "", "Mediavine", 3, "top 100k", 2019, "WordPress", "Oct 12"],
+    ["budgetpantry.net", "Pantry Press Ltd", "Mediavine", 3, "top 100k", 2012, "Next.js", "Oct 10"],
+    ["mealprepmondays.co", "", "Journey", 2, "top 1M", 2022, "WordPress", "Oct 11"],
+    ["bakeitsimple.net", "", "Journey", 2, "top 1M", 2023, "Squarespace", "Oct 9"],
+    ["spicetrailkitchen.com", "", "Ezoic", 1, "not ranked", 2024, "WordPress", "Oct 12"],
+  ];
+  const frows = document.getElementById("frows"), fnet = document.getElementById("fnet");
+  const renderSites = () => {
+    const n = fnet.value, list = SITES.filter((s) => !n || s[2] === n);
+    frows.innerHTML = list.map(([d, pub, net, st, rk, yr, pl, chk]) => `<tr>
+      <td class="site"><a class="dom" href="${d === "tinykitchenlab.com" ? "site.html" : "#"}">${d}</a>${pub ? `<span class="pub">${pub}</span>` : ""}</td>
+      <td class="netcol"><a href="${net === "Mediavine" ? "mediavine.html" : "#"}">${net}</a></td>
+      <td class="mono">${meter(st)}<span class="mu">${rk}</span></td>
+      <td class="r mono">${2026 - yr} yrs <span class="mu">· ${yr}</span></td>
+      <td class="end">${pl}</td>
+      <td class="r mono mu checked">${chk}</td></tr>`).join("");
+    document.getElementById("fcount").textContent = n ? `${list.length} sample ${n} food sites` : "1-10 of 6,320 sites";
+  };
+  fnet.addEventListener("change", renderSites); renderSites();
+
+  // Every network on food sites: name, food sites, join threshold for ordering, joining rule.
+  const NETS = [["Mediavine", 2591, 50000, "50,000 sessions a month"], ["Raptive", 1390, 100000, "100,000 pageviews a month"], ["Journey", 1138, 1000, "1,000 sessions a month"], ["Ezoic", 569, 0, "No traffic minimum"], ["Google AdSense", 442, 0, "No traffic minimum"], ["Monumetric", 190, 10000, "10,000 pageviews a month"], ["SHE Media", 126, null, null], ["Publift", 126, 100000, "$1,000 ad revenue a month"], ["Freestar", 63, 500000, "500,000 pageviews a month"], ["Newor Media", 63, null, null], ["AdPushup", 25, 200000, "$2,000 ad revenue a month"]];
+  const lrows = document.getElementById("lrows");
+  const renderLadder = (o) => {
+    const list = [...NETS].sort((a, b) => o === "join" ? ((a[2] ?? 1e12) - (b[2] ?? 1e12)) || b[1] - a[1] : b[1] - a[1]);
+    lrows.innerHTML = list.map(([n, c, , rule]) => { const p = (c / 6320) * 100; return `<tr>
+      <td class="lnet"><a href="${n === "Mediavine" ? "mediavine.html" : "#"}">${n}</a></td>
+      <td class="r mono">${f(c)}</td>
+      <td class="lshare"><span class="minibar"><i style="width:${(c / 2591) * 100}%"></i></span><span class="mono pct">${p < 1 ? "<1" : p.toFixed(0)}%</span></td>
+      <td class="rule">${rule ?? '<span class="np">Not public</span>'}</td></tr>`; }).join("");
+  };
+  document.querySelectorAll("[data-o]").forEach((b) => b.addEventListener("click", () => { document.querySelectorAll("[data-o]").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); renderLadder(b.dataset.o); }));
+  renderLadder("used");
+
+  // Size groups: each site counted once under its main network.
+  const COLS = [["Mediavine", "bg-ac on-ac"], ["Raptive", "bg-ac2 on-ac"], ["Journey", "bg-ac3"], ["Ezoic", "bg-n1"], ["Google AdSense", "bg-n2"], ["Other", "bg-n3"]];
+  const GROUPS = [["top 10k", 196, [39, 48, 0, 3, 2, 8]], ["top 100k", 2140, [52, 31, 6, 4, 2, 5]], ["top 1M", 3180, [39, 15, 26, 10, 6, 4]], ["not ranked", 804, [14, 3, 31, 24, 21, 7]]];
+  const sizes = document.getElementById("sizes");
+  sizes.innerHTML = GROUPS.map(([g, n, mix]) => `<div class="srow"><span class="lab"><b>${g}</b>${f(n)} sites</span><div class="stack">${mix.map((v, i) => v ? `<i class="${COLS[i][1]}" style="flex:${v}" tabindex="0" data-tip="${g} · <b>${COLS[i][0]}</b> · ${v}% · about ${f(Math.round((n * v) / 100))} sites">${v >= 7 ? v + "%" : ""}</i>` : "").join("")}</div></div>`).join("");
+  document.getElementById("slg").innerHTML = COLS.map(([n, c]) => `<li><i class="${c.split(" ")[0]}"></i>${n}</li>`).join("");
+  const showTip = (seg) => { sizes.querySelectorAll(".viz-tip").forEach((t) => t.remove()); if (!seg) return; const st = seg.parentElement, t = document.createElement("div"); t.className = "viz-tip"; t.innerHTML = seg.dataset.tip; st.append(t); const w = t.offsetWidth, cx = seg.offsetLeft + seg.offsetWidth / 2; t.style.left = `${Math.min(Math.max(cx, w / 2), st.clientWidth - w / 2)}px`; t.style.top = "-6px"; };
+  ["mouseover", "focusin"].forEach((ev) => sizes.addEventListener(ev, (e) => showTip(e.target.closest("i[data-tip]"))));
+  ["mouseleave", "focusout"].forEach((ev) => sizes.addEventListener(ev, () => showTip(null)));
+
+  const MOVES = [["Journey", "Mediavine", 52], ["Ezoic", "Mediavine", 34], ["Mediavine", "Raptive", 21], ["Google AdSense", "Ezoic", 12], ["Ezoic", "Journey", 9]];
+  document.getElementById("moves").innerHTML = MOVES.map(([a, b, v]) => `<dt>${a}<span class="arrow">→</span>${b}</dt><dd class="track"><i style="width:${(v / 52) * 100}%"></i></dd><dd class="v">${v}</dd>`).join("");
+  const NEW = [["crumbandcoast.com", "Mediavine", "Oct 11"], ["grainbowlguide.com", "Journey", "Oct 9"], ["smokehousenotes.com", "Raptive", "Oct 8"], ["tinytacotuesday.com", "Ezoic", "Oct 6"], ["panfriedpantry.com", "Mediavine", "Oct 3"]];
+  document.getElementById("newest").innerHTML = NEW.map(([d, n, dt]) => `<tr><td><a href="#">${d}</a></td><td>${n}</td><td class="r mono">${dt}</td></tr>`).join("");
+})();
+</script>
+</body>
+</html>

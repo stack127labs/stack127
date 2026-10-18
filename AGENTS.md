@@ -123,6 +123,8 @@ Read `stack127_docs/quality-workflow.md`.
 
 ## Homelab
 
+Scheduled ad-networks collectors, syncs, snapshots, and backups run on OVH. Weekly niche sorting runs on homelab. Other scheduled project automation stays on homelab.
+
 - Development uses managed Supabase from `.env.local`. Do not start a local Docker Supabase stack.
 - `npm run dev` and `npm run start` bind to `0.0.0.0:3333`.
 - Long-running servers are background services, not failed commands. Start one, wait for readiness, reuse it, and stop it when finished.

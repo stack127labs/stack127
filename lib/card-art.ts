@@ -3,6 +3,7 @@ import { siteSpotLaunchDirectoriesArt } from "@/app/(site)/art/site--spot-launch
 import { siteSpotLicensesArt } from "@/app/(site)/art/site--spot-licenses";
 import { siteSpotCourseArt } from "@/app/(site)/art/site--spot-course";
 import { siteSpotCliAppsArt } from "@/app/(site)/art/site--spot-cli-apps";
+import { adNetworkCheckerArt } from "@/app/ui/art/ad-network-checker";
 import { arpuArpaCalculatorArt } from "@/app/ui/art/arpu-arpa-calculator";
 import { arrCalculatorArt } from "@/app/ui/art/arr-calculator";
 import { backup321Art } from "@/app/ui/art/backup-321";
@@ -104,6 +105,7 @@ const art: Record<string, string> = {
   "self-hosting-for-beginners": siteSpotCourseArt,
   "software-licenses-for-self-hosting": siteSpotLicensesArt,
 
+  "ad-network-checker": adNetworkCheckerArt,
   "annual-plan-discount-calculator": annualPlanDiscountCalculatorArt,
   "arpu-arpa-calculator": arpuArpaCalculatorArt,
   "arr-calculator": arrCalculatorArt,

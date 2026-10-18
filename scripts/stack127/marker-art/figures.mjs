@@ -1534,6 +1534,26 @@ function toolSpot(spec, A) {
       A.rect(bar.x, 50, bar.width, 20, { stroke: "#111111", fill: "#111111", fillStyle: "solid", roughness: 1.15, strokeWidth: 1.2 });
     }
     return;
+  } else if (d.motif === "adsTxtManager") {
+    // A site's ads.txt file lists seller lines. One marked line points out to the network that manages the ads.
+    A.polygon([[10, 14], [50, 14], [66, 30], [66, 96], [10, 96]], { stroke: "@ink", strokeWidth: 1.8, roughness: 0.9 });
+    A.line(50, 14, 50, 30, { stroke: "@ink", strokeWidth: 1.4, roughness: 0.6 });
+    A.line(50, 30, 66, 30, { stroke: "@ink", strokeWidth: 1.4, roughness: 0.6 });
+    for (const [y, end] of [[38, 54], [51, 48], [77, 52]]) {
+      A.line(20, y, end, y, { stroke: "@sub", strokeWidth: 1.5, roughness: 0.6 });
+    }
+    A.line(20, 64, 56, 64, { stroke: "@primary", strokeWidth: 3.2, roughness: 0.6 });
+    A.arrow(72, 63, 88, 58, { tone: "@sub" });
+    // The network badge: a ring holding three linked nodes.
+    A.circle(112, 55, 42, { stroke: "@ink", strokeWidth: 1.8, roughness: 0.8 });
+    const nodes = [[112, 43], [101, 62], [123, 62]];
+    for (let index = 0; index < nodes.length; index += 1) {
+      const [x1, y1] = nodes[index];
+      const [x2, y2] = nodes[(index + 1) % nodes.length];
+      A.line(x1, y1, x2, y2, { stroke: "@primary", strokeWidth: 1.5, roughness: 0.5 });
+    }
+    for (const [x, y] of nodes) A.dot(x, y, 3.8, "@primary");
+    return;
   } else if (d.motif === "seriesSpines") {
     // Three spines stand on one baseline, the first a little taller. Each hop is a thinner arrow than the one before.
     const baseline = 96;

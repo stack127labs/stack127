@@ -1,0 +1,35 @@
+## How do I read the result?
+
+Enter a domain or any page address on the site, then press `Check site`. The sentence under the site's name gives the answer: who runs its ads, who else can sell its ad space, and when we last confirmed them live.
+
+Those words follow how we confirmed each network. A network is the site's `main ad network`, and the sentence says the site runs it, only when a `MANAGERDOMAIN` line in its ads.txt names it. For other networks in the file, the sentence says the file lets them sell its ad space, because a listing alone doesn't show which one is in charge. When we confirmed a network from the ad code on the site's pages instead, the sentence says that and doesn't claim the ads.txt file names it.
+
+The row of facts under it describes the site: main ad network, traffic, niche, platform, the year its domain was registered, and its publisher. Each fact shows only when we know it, so a site we know little about has a short row. The same goes for the sections below it.
+
+## What do the statuses in the networks table mean?
+
+The table lists every network we've linked to the site, including ones that stopped. `What its ads.txt says` shows whether the file names the network as an ad manager or allows it to sell ad space. It says `Not listed` when we confirmed the network from the site's page ad code, or when we don't know how we confirmed it. `Since` is the month we first confirmed it.
+
+| Status | What it means |
+| --- | --- |
+| Confirmed live | Our last check found the network on the site. |
+| Not seen lately | Two checks at least 48 hours apart didn't find it. It may come back. |
+| Ended, with a month | Three checks over seven days or more didn't find it. The month is when it ended. |
+
+## What do the other sections show?
+
+| Section | What it shows |
+| --- | --- |
+| How have its ad networks changed? | One bar per network, from the month it first appeared to the month it last did, and a list of each change, newest first. It says a site moved from one network to another only when one ad manager replaced another within seven days. The section shows once a site has a real change, such as a network that left. |
+| What is in its ads.txt file? | How many lines, companies, direct lines, and reseller lines the file has, the companies with the most lines, and the start of the file. |
+| Similar sites | Other sites on the same main ad network, or on the same networks when there's no `MANAGERDOMAIN` line. Click one to check it here. |
+
+A food blog with one ad network can still list dozens of companies in its ads.txt, because the network brings its own partners. The companies with the most lines are usually those partners, not separate networks.
+
+<Example title="collegefashion.net">
+
+Its ads.txt has the line `MANAGERDOMAIN=mediavine.com`, so the sentence reads `collegefashion.net runs Mediavine, and its ads.txt file names Mediavine as its ad manager.` Mediavine is its main ad network and shows as `Confirmed live` in the networks table.
+
+</Example>
+
+Use `Copy link` to share the result. The link opens this page and checks the same site.

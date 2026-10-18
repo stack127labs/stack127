@@ -1,0 +1,5 @@
+/* The method questions below the report (mockup `.nprose`). */
+.article {
+  margin-top: 64px;
+  max-width: var(--measure-prose);
+}

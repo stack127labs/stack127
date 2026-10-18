@@ -18,6 +18,10 @@ The two hubs link to each other where a reader actually crosses over:
 
 Do not duplicate a route or implementation. Link the same flat canonical tool from both collections when it genuinely serves both audiences.
 
+## Ad network checker
+
+`/ad-network-checker` is listed here for now, even though it doesn't read RDAP. It answers a different question about a domain: which ad networks the site uses, from its own ads.txt and our ad networks data. It moves to a Publisher tools collection once two or three publisher tools exist, such as an ads.txt validator or a sellers.json lookup. See `content_docs/ad-networks/plan.md`.
+
 ## Collection routes
 
 | route | tool | page docs |

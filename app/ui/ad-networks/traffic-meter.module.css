@@ -1,0 +1,25 @@
+.wrap {
+  white-space: nowrap;
+}
+
+.meter {
+  display: inline-flex;
+  gap: 2px;
+  margin-right: var(--space-3);
+  vertical-align: -1px;
+}
+
+.meter i {
+  background: var(--color-surface-2);
+  border-radius: 1px;
+  height: 12px;
+  width: 5px;
+}
+
+.meter i[data-on] {
+  background: var(--color-accent-text);
+}
+
+.label {
+  color: var(--color-text-muted);
+}

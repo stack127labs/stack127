@@ -182,9 +182,9 @@ async function processBatch(events: QueueEvent[], key: string) {
         return result.verified;
       },
       purge: purgeCloudflare,
-      warm: async (proofs: Array<{ path: string; status: number; revision: string | null; digest: string | null; sourceRevision?: string | null }>) => {
+      warm: async (proofs: Array<{ path: string; status: number; revision: string | null; digest: string | null; sourceRevision?: string | null; requestPath?: string }>) => {
         await Promise.all(proofs.map(async proof => {
-          const response = await fetch(`${siteUrl}${proof.path}`, {
+          const response = await fetch(`${siteUrl}${proof.requestPath ?? proof.path}`, {
             signal: AbortSignal.timeout(Math.max(1, Math.min(20_000, deadline - Date.now()))),
           });
           const body = await response.text();

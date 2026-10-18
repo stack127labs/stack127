@@ -2,6 +2,12 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { loadTypeScript } from "../../helpers/load-typescript.mjs";
 
+import * as niches from "../../../lib/ad-network-niches.ts";
+import * as report from "../../../lib/ad-networks-report.ts";
+import * as networkFacts from "../../../app/(site)/(directories)/ad-networks/network-facts.ts";
+import * as facts from "../../../lib/ad-network-site-facts.mjs";
+import * as tldts from "tldts";
+
 function library(rows, fail = false) {
   const calls = [];
   const exports = loadTypeScript(new URL("../../../lib/ad-networks.ts", import.meta.url), {
@@ -22,6 +28,11 @@ function library(rows, fail = false) {
         return cache.get(key);
       };
     } },
+    "./ad-network-niches": niches,
+    "./ad-networks-report": report,
+    "../app/(site)/(directories)/ad-networks/network-facts": networkFacts,
+    "./ad-network-site-facts.mjs": facts,
+    "tldts": tldts,
     "./cache-tags": { AD_NETWORKS_TAG: "stack127-ad-networks" },
   });
   return { ...exports, calls };

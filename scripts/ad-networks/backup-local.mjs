@@ -25,7 +25,10 @@ const destination = join(backupDirectory, `ad-networks-${day}.sqlite`);
 const temporary = `${destination}.${process.pid}.tmp`;
 const source = new DatabaseSync(sourcePath, { readOnly: true, timeout: 10_000 });
 try {
+  source.exec("begin");
+  source.prepare("select name from sqlite_schema limit 1").get();
   await backup(source, temporary);
+  source.exec("rollback");
 } finally {
   source.close();
 }

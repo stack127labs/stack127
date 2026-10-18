@@ -75,7 +75,7 @@ export const phase2Sources = [
     key: `explodingweb:${networkSlug}`,
     kind: "exploding-html",
     url: `https://explodingweb.io/ad-networks/${pageSlug}`,
-    networkSlug,
+    networkSlug: networkSlug === "snigel" ? "publisher-collective" : networkSlug,
   })),
   ...[...commonPageSlugs].map(([networkSlug, pageSlug]) => ({
     key: `whichadnetwork:${networkSlug}`,

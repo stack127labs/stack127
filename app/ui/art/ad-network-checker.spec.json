@@ -1,0 +1,11 @@
+{
+  "id": "catalog--ad-network-checker",
+  "type": "toolSpot",
+  "takeaway": "One marked line in a site's ads.txt file points to the network that manages its ads.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-16",
+  "width": 140,
+  "height": 110,
+  "seed": 331,
+  "data": { "motif": "adsTxtManager" }
+}

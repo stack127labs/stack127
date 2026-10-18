@@ -1,0 +1,77 @@
+/* One ad network's page (mockup mediavine.html). */
+
+.header > p {
+  max-width: var(--measure-prose);
+}
+
+.metaRow {
+  align-items: center;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font: var(--text-small) / 1.4 var(--font-mono);
+  gap: var(--space-2) var(--space-7);
+}
+
+.official {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  gap: var(--space-2);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 3px;
+}
+
+.official svg {
+  height: 15px;
+  width: 15px;
+}
+
+.official:hover,
+.official:focus-visible {
+  color: var(--color-text);
+  text-decoration-color: currentColor;
+}
+
+/* Body: sections spaced like the mockup's separate canvases, with no rules between them */
+
+.body {
+  display: grid;
+  min-width: 0;
+}
+
+.body > * {
+  min-width: 0;
+}
+
+.body > * + * {
+  margin-top: calc(var(--page-padding-top) + var(--page-padding-bottom));
+}
+
+/* The Q&A beside the details: flat MDX, spaced like the mockup's question sections */
+
+.article {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.article h3 {
+  margin-top: calc(var(--space-8) - var(--space-3));
+}
+
+.article > h3:first-child {
+  margin-top: 0;
+}
+
+/* Words under a tab's fact rows */
+
+.tabWords {
+  font-size: var(--text-body);
+}
+
+dl + .tabWords {
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-5);
+  padding-top: var(--space-7);
+}

@@ -1,0 +1,119 @@
+name: Activate ad-network jobs runtime
+on:
+  workflow_dispatch:
+    inputs:
+      release_sha:
+        description: Exact deployed main commit to package (unused when pausing)
+        required: false
+        type: string
+      confirm:
+        description: Type stack127-production to authorize activation and automatic production data writes
+        required: true
+        type: string
+      enabled_jobs:
+        description: Comma-separated jobs; empty stops the existing jobs service without website or Storage checks
+        required: false
+        default: snapshot,platform,domain-age,ads-txt-summary,discovery,publisher-names,traffic,backup,verification,rdap-import
+        type: string
+permissions:
+  contents: read
+  packages: write
+concurrency:
+  group: stack127-production
+  cancel-in-progress: false
+  queue: max
+jobs:
+  pause:
+    if: inputs.enabled_jobs == ''
+    environment: production
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CONFIRM: ${{ inputs.confirm }}
+      DOKPLOY_API_URL: ${{ vars.STACK127_DOKPLOY_API_URL }}
+      DOKPLOY_API_KEY: ${{ secrets.DOKPLOY_API_KEY }}
+      CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+      CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+    steps:
+      - name: Require explicit confirmation
+        run: |
+          test "$GITHUB_REF" = refs/heads/main
+          test "$CONFIRM" = stack127-production
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --omit=dev --ignore-scripts
+      - name: Verify service identity, stop containers and persist paused admissions
+        run: node --experimental-strip-types scripts/ad-networks/deploy-runtime.mjs pause
+  activate:
+    if: inputs.enabled_jobs != ''
+    environment: production
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      AD_NETWORKS_RUNTIME_ENVIRONMENT: production
+      CONFIRM: ${{ inputs.confirm }}
+      RELEASE_SHA: ${{ inputs.release_sha }}
+      DEPLOYMENT_ID: ${{ github.run_id }}-${{ github.run_attempt }}
+      ENABLED_JOBS: ${{ inputs.enabled_jobs }}
+      DOKPLOY_API_URL: ${{ vars.STACK127_DOKPLOY_API_URL }}
+      DOKPLOY_API_KEY: ${{ secrets.DOKPLOY_API_KEY }}
+      CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+      CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+      DATABASE_POOLER_URL: ${{ secrets.DATABASE_POOLER_URL }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+      GITHUB_ALERT_TOKEN: ${{ secrets.AD_NETWORKS_ALERT_TOKEN }}
+      GHCR_DOKPLOY_USERNAME: ${{ vars.GHCR_DOKPLOY_USERNAME }}
+      GHCR_DOKPLOY_TOKEN: ${{ secrets.GHCR_DOKPLOY_TOKEN }}
+    steps:
+      - name: Require explicit confirmation
+        run: |
+          test "$GITHUB_REF" = refs/heads/main
+          test "$CONFIRM" = stack127-production
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.release_sha }}
+          fetch-depth: 0
+      - name: Check released main commit
+        run: |
+          [[ "$RELEASE_SHA" =~ ^[a-f0-9]{40}$ ]]
+          test "$(git rev-parse HEAD)" = "$RELEASE_SHA"
+          test "$(git rev-parse origin/main)" = "$RELEASE_SHA"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --omit=dev --ignore-scripts
+      - name: Read-only capacity, seed and publication preflight
+        run: node --experimental-strip-types scripts/ad-networks/deploy-runtime.mjs preflight
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build the jobs image locally on the GitHub runner
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: scripts/ad-networks/runtime/Dockerfile
+          load: true
+          push: false
+          tags: ghcr.io/stack127labs/stack127-ad-networks:${{ inputs.release_sha }}
+          labels: |
+            org.opencontainers.image.revision=${{ inputs.release_sha }}
+            org.opencontainers.image.source=https://github.com/stack127labs/stack127
+          cache-from: type=gha,scope=ad-networks-runtime
+          cache-to: type=gha,mode=max,scope=ad-networks-runtime
+      - name: Smoke required executables and scheduler health before pushing
+        run: |
+          docker run --rm --network none --read-only --tmpfs /tmp:rw,size=128m,mode=1777 \
+            --entrypoint node "ghcr.io/stack127labs/stack127-ad-networks:$RELEASE_SHA" \
+            --experimental-strip-types scripts/ad-networks/runtime/smoke.mjs
+      - name: Push the tested jobs image
+        run: docker push "ghcr.io/stack127labs/stack127-ad-networks:$RELEASE_SHA"
+      - name: Recheck admission, create or update Compose, deploy and wait healthy
+        run: node --experimental-strip-types scripts/ad-networks/deploy-runtime.mjs activate

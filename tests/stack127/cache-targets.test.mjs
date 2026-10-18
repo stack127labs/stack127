@@ -86,11 +86,11 @@ test("platform fee changes refresh all categories, including when a section move
 
 test("ad network edits refresh their list and details by group and page tags", () => {
   const targets = targetsForEvents([{ entity_type: "ad_networks", slug: "mediavine" }]);
-  assert.deepEqual(targets.paths, ["/ad-networks", "/ad-networks/mediavine"]);
+  for (const path of ["/ad-networks", "/ad-networks/mediavine", "/ad-networks/stats", "/ad-networks/niches", "/ad-networks/niches/food", "/ad-network-checker", "/api/ad-networks/sites", "/api/ad-networks/site"]) assert.ok(targets.paths.includes(path));
   assert.ok(targets.nextTags.includes("stack127-ad-networks"));
   assert.ok(targets.edgeTags.includes("ad-networks-catalog"));
   assert.ok(targets.edgeTags.includes("page:ad-networks:mediavine"));
-  assert.deepEqual(targets.warmPaths, targets.paths);
+  assert.deepEqual(targets.warmPaths, targets.paths.filter(path => !path.startsWith("/api/")));
 });
 
 test("launch directory edits refresh the directory and homepage counts", () => {
@@ -123,6 +123,18 @@ test("parent directory copy changes purge inherited child icons at the edge", ()
     assert.ok(targets.edgeTags.includes(`${slug}-catalog`));
     assert.ok(targets.nextTags.includes(`stack127-directory-page:${slug}`));
     const childOnly = targetsForEvents([{ entity_type: "page", slug: `${slug}/example` }]);
-    assert.equal(childOnly.edgeTags.includes(`${slug}-catalog`), false);
+    assert.equal(childOnly.edgeTags.includes(`${slug}-catalog`), slug === "ad-networks");
+  }
+});
+
+
+test("ad-network publication changes purge cached table and checker responses", () => {
+  for (const slug of ["ad-networks", "ad-networks/mediavine", "ad-networks/niches/food", "ad-network-checker"]) {
+    const targets = targetsForEvents([{entity_type:"page",slug}]);
+    assert.ok(targets.edgeTags.includes("ad-networks-catalog"));
+    assert.ok(targets.paths.includes("/api/ad-networks/sites"));
+    assert.ok(targets.paths.includes("/api/ad-networks/site"));
+    assert.ok(targets.verifyPaths.includes("/api/ad-networks/sites"));
+    assert.ok(targets.verifyPaths.includes("/api/ad-networks/site"));
   }
 });

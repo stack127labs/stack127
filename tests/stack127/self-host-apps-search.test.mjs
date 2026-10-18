@@ -163,6 +163,7 @@ test("origin verification checks search against the source and rejects a stale r
   let published = true;
   const { POST } = await loadWithImports("../../app/api/cache/refresh/route.ts", {
     "next/server": nextServer,
+    "@/scripts/stack127/cache/verify-origin-indexing.mjs": {inspectOriginIndexing:()=>{}},
     "@/scripts/stack127/cache/refresh.mjs": { cacheBodyDigest: async () => "digest" },
     "@/lib/cache-auth": { cacheAuthorized: async () => true },
     "@/lib/apps": { loadDirectoryAppsBySlugs: async () => { throw new Error("Search cannot be treated as an app slug"); } },
@@ -179,6 +180,7 @@ test("origin verification checks search against the source and rejects a stale r
     "@/lib/page-source": {},
     "@/lib/platform-fees/groups": {},
     "@/lib/launch-directories-data": {},
+    "@/lib/ad-networks-cache-verification": {adNetworkPageKind: () => "network"},
   }, { fetch: async () => published ? Response.json(served) : Response.json({ error: "Directory not found." }, { status: 404 }) });
   const request = () => new Request("https://stack127.com/api/cache/refresh", {
     method: "POST", body: JSON.stringify({ paths: ["/api/self-host-apps/search"] }),
@@ -206,6 +208,7 @@ test("origin verification rejects stale CLI and hardware indexes and verifies un
     let status = 200;
     const { POST } = await loadWithImports("../../app/api/cache/refresh/route.ts", {
       "next/server": nextServer,
+      "@/scripts/stack127/cache/verify-origin-indexing.mjs": {inspectOriginIndexing:()=>{}},
       "@/scripts/stack127/cache/refresh.mjs": { cacheBodyDigest: async () => "digest" },
       "@/lib/cache-auth": { cacheAuthorized: async () => true },
       "@/lib/apps": {},
@@ -228,6 +231,7 @@ test("origin verification rejects stale CLI and hardware indexes and verifies un
       "@/lib/page-source": {},
       "@/lib/platform-fees/groups": {},
       "@/lib/launch-directories-data": {},
+      "@/lib/ad-networks-cache-verification": {adNetworkPageKind: () => "network"},
     }, { fetch: async () => Response.json(served, { status }) });
     const request = () => new Request("https://stack127.com/api/cache/refresh", {
       method: "POST", body: JSON.stringify({ paths: [path] }),
@@ -255,6 +259,7 @@ test("deleted directory detail sources accept only 404s even when their registry
     const revision = "2026-01-01T00:00:00.000Z";
     const { POST } = await loadWithImports("../../app/api/cache/refresh/route.ts", {
       "next/server": nextServer,
+      "@/scripts/stack127/cache/verify-origin-indexing.mjs": {inspectOriginIndexing:()=>{}},
       "@/scripts/stack127/cache/refresh.mjs": {},
       "@/lib/cache-auth": { cacheAuthorized: async () => true },
       "@/lib/apps": {}, "@/lib/terminal-apps": {}, "@/lib/hardware-directories": {},
@@ -265,6 +270,7 @@ test("deleted directory detail sources accept only 404s even when their registry
       "@/lib/page-source": { sitePageAvailable: () => true },
       "@/lib/platform-fees/groups": { getFeeGroup },
       "@/lib/launch-directories-data": {},
+      "@/lib/ad-networks-cache-verification": {adNetworkPageKind: () => "network"},
       "@/lib/db": { getPool: () => ({ query: async (sql, values) => {
         if (sql.includes("public.stack127_pages")) return { rows: [{ is_published: true, row_updated_at: new Date(revision) }] };
         assert.equal(values[0], sourceId);

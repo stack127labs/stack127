@@ -1,8 +1,13 @@
-import { mkdirSync } from "node:fs";
+import { existsSync, mkdirSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { homedir } from "node:os";
 import { dirname, resolve } from "node:path";
+import { fileURLToPath } from 'node:url';
 import { DatabaseSync } from "node:sqlite";
 import { IDENTITY_CATALOG_VERSION, networkIdentities } from "./network-identities.mjs";
+
+import { mergeRetiredLocalNetworks } from "./merge-identities.mjs";
+import { assertLocalCatalog,localCatalogProblems,newerCatalog } from './identity-catalog.mjs';
 
 export const defaultLocalDatabasePath = resolve(
   process.env.AD_NETWORK_DB_PATH ?? `${homedir()}/.local/share/stack127/ad-networks.sqlite`,
@@ -110,6 +115,9 @@ create index if not exists publishers_queue_idx
 create index if not exists publishers_lease_idx on publishers (lease_until);
 create index if not exists publishers_outcome_idx on publishers (last_check_outcome);
 create index if not exists publisher_sources_key_idx on publisher_sources (source_key, publisher_id);
+create index if not exists relationships_publisher_idx on relationships (publisher_id, status);
+create index if not exists publishers_unchecked_idx on publishers (verification_priority desc, next_check_at, id)
+  where last_check_outcome is null;
 create index if not exists relationships_status_idx on relationships (status, ad_network_id, publisher_id);
 create index if not exists worker_runs_worker_idx on worker_runs (worker, id desc);
 `;
@@ -119,7 +127,8 @@ function seedNetworks(database) {
     "select value from schema_meta where key = 'identity_catalog_version'",
   ).get()?.value;
   const catalogChanged = previousCatalog !== IDENTITY_CATALOG_VERSION;
-  if (!catalogChanged) return;
+  if(newerCatalog(previousCatalog))throw new Error(`Refusing to downgrade identity catalog ${previousCatalog} to ${IDENTITY_CATALOG_VERSION}`);
+  if (!catalogChanged && !localCatalogProblems(database).length) return;
   const statement = database.prepare(`
     insert into ad_networks (
       slug, name, manager_domains, ad_system_domains, program_signatures, identity_reviewed_at
@@ -143,6 +152,7 @@ function seedNetworks(database) {
         network.identityReviewedAt,
       );
     }
+    mergeRetiredLocalNetworks(database);
     database.prepare("insert or replace into schema_meta (key, value) values ('schema_version', '2')").run();
     database.prepare("insert or replace into schema_meta (key, value) values ('identity_catalog_version', ?)")
       .run(IDENTITY_CATALOG_VERSION);
@@ -158,6 +168,7 @@ function seedNetworks(database) {
         where last_checked_at is not null
       `).run(now, now, now);
     }
+    assertLocalCatalog(database);
     database.exec("commit");
   } catch (error) {
     database.exec("rollback");
@@ -165,17 +176,56 @@ function seedNetworks(database) {
   }
 }
 
+let backedUpDay = null;
+function requireDailyBackup(path) {
+  // The legacy homelab store keeps its extra daily backup guard. Portable
+  // stores use their scheduled backups and never depend on homelab systemd.
+  const directory = '/srv/data/backups/stack127-ad-networks';
+  if (process.platform !== 'linux' || path !== defaultLocalDatabasePath || !existsSync(directory) || !existsSync(path)) return;
+  const day = new Date().toISOString().slice(0,10);
+  if (backedUpDay === day) return;
+  const file = `${directory}/ad-networks-${day}.sqlite`;
+  if (!existsSync(file)) execFileSync(process.execPath,
+    [fileURLToPath(new URL('./backup-local.mjs', import.meta.url)), '--local-database', path,
+      '--backup-directory', directory, '--keep', '7'], {timeout:300000,stdio:'pipe'});
+  if (!existsSync(file)) throw new Error(`Daily SQLite backup is missing: ${file}`);
+  backedUpDay = day;
+}
+
 export function openLocalDatabase(path = defaultLocalDatabasePath, options = {}) {
   const absolutePath = resolve(path);
+  requireDailyBackup(absolutePath);
   mkdirSync(dirname(absolutePath), { recursive: true, mode: 0o700 });
   const database = new DatabaseSync(absolutePath, { timeout: options.timeout ?? 10_000 });
+  // Long RDAP jobs can cross UTC midnight. Check before mutations as well as
+  // at startup, so the next day's first write is protected by an online backup.
+  const prepare = database.prepare.bind(database), exec = database.exec.bind(database);
+  database.prepare = (sql) => {
+    const statement = prepare(sql), run = statement.run.bind(statement);
+    statement.run = (...args) => { requireDailyBackup(absolutePath); return run(...args); };
+    return statement;
+  };
+  database.exec = (sql) => { requireDailyBackup(absolutePath); return exec(sql); };
   database.exec("pragma journal_mode = WAL");
   database.exec("pragma synchronous = NORMAL");
   database.exec("pragma foreign_keys = ON");
   database.exec("pragma busy_timeout = 10000");
   database.exec("pragma wal_autocheckpoint = 1000");
   database.exec(schema);
-  seedNetworks(database);
+  const columns = new Set(database.prepare('pragma table_info(publishers)').all().map(row => row.name));
+  for (const name of ['niche','publisher_name','platform','domain_created_on','traffic_group','ads_txt_summary','favicon']) {
+    if (!columns.has(name)) database.exec(`alter table publishers add column ${name} text`);
+  }
+  database.exec(`create table if not exists enrichment_state (
+    publisher_id integer not null references publishers(id), kind text not null,
+    status text not null, checked_at text not null, retry_at text, data text not null default '{}',
+    primary key (publisher_id,kind));
+    create table if not exists rdap_domains (domain text primary key, status text not null,
+    registered_on text, checked_at text not null, retry_at text, source_url text);
+    create table if not exists seller_names (network_slug text not null, seller_id text not null,
+    domain text not null, name text not null, source_url text not null,
+    primary key(network_slug,seller_id,domain));`);
+  try {seedNetworks(database);}catch(error){database.close();throw error;}
   return database;
 }
 

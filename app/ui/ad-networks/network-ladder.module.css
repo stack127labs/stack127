@@ -1,0 +1,84 @@
+.table {
+  border-collapse: collapse;
+  font-size: 0.97rem;
+  width: 100%;
+}
+
+.table thead th {
+  border-bottom: 1px solid var(--color-border-strong);
+  color: var(--color-text-muted);
+  font: 500 0.8rem var(--font-mono);
+  padding: 0 var(--space-5) var(--space-4);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table tbody th,
+.table tbody td {
+  border-top: 1px solid var(--color-border);
+  font-weight: var(--weight-regular);
+  padding: var(--space-5);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table tbody tr:first-child > * {
+  border-top: 0;
+}
+
+.table tbody tr:hover > * {
+  background: var(--color-surface);
+}
+
+.table .right {
+  text-align: right;
+}
+
+.mono {
+  font: 0.86rem var(--font-mono);
+}
+
+.name,
+.name a {
+  color: var(--color-text);
+  font-weight: var(--weight-semibold) !important;
+}
+
+.name a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.share {
+  align-items: center;
+  display: flex;
+  gap: var(--space-4);
+  min-width: 160px;
+}
+
+.share > span:first-child {
+  max-width: 200px;
+}
+
+@media (max-width: 640px) {
+  .table th:nth-child(3),
+  .table td:nth-child(3) {
+    display: none;
+  }
+
+  .table tbody th,
+  .table tbody td,
+  .table thead th {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .table td.rule {
+    min-width: 8rem;
+    white-space: normal;
+  }
+
+  .table .name {
+    white-space: normal;
+  }
+}
