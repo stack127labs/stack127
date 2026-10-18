@@ -7,7 +7,10 @@ import { DatabaseSync } from 'node:sqlite';
 import { openLocalDatabase } from '../../../scripts/ad-networks/local-db.mjs';
 import { uploadSnapshot, downloadSnapshot, validateManifest, checkSnapshot, fileDigest } from '../../../scripts/ad-networks/handoff.mjs';
 import { privateStorage, storageConfig } from '../../../scripts/ad-networks/handoff-storage.mjs';
-import { bootstrap, bootstrapSteps, consumeRdap, publishRuntimeStatus, assertUnpublished } from '../../../scripts/ad-networks/runtime.mjs';
+import { bootstrap, bootstrapSteps, consumeRdap, publishRuntimeStatus, assertUnpublished, startRuntime } from '../../../scripts/ad-networks/runtime.mjs';
+import { jobAlert } from '../../../scripts/ad-networks/alerts.mjs';
+import { syncArgs } from '../../../scripts/ad-networks/sync.mjs';
+import { checkRuntimeExecutables } from '../../../scripts/ad-networks/runtime/check-executables.mjs';
 import { runNicheJob } from '../../../scripts/ad-networks/niche-sort.mjs';
 import { lastJobResult, jobCounts } from '../../../scripts/ad-networks/refresh.mjs';
 
@@ -150,4 +153,49 @@ test('release guard refuses missing migrations and a stale target catalog before
     await assert.rejects(assertUnpublished({ environment: 'production' }, { pool }), applied === 9 ? /ten.*migrations/ : /catalog/);
     assert.equal(ended, true);
   }
+});
+
+test('automatic bootstrap selects fill-only niche seeding, never the correction command', async t => {
+  const { directory, storage } = await fixture(t), calls = [];
+  const options = { environment: 'development', database: join(directory, 'data.sqlite'), stateDirectory: directory };
+  await bootstrap(options, storage, { assertUnpublished: async () => {}, refresh: async () => ({ applied: true }),
+    run: async (script, args) => { calls.push({ script, args }); return { applied: true }; } });
+  const call = calls.find(row => row.script === 'sync');
+  assert.ok(call.args.includes('--seed-niches'));
+  assert.equal(call.args.includes('--niches-only'), false);
+  assert.equal(syncArgs(call.args).seedNiches, true);
+  assert.throws(() => syncArgs([...call.args, '--niches-only']), /Choose either/);
+});
+
+test('missing runtime executables fail startup before Storage access and trigger an alert', async t => {
+  const { directory } = await fixture(t), alerts = [], commands = [];
+  for (const missing of ['curl', 'flock']) {
+    await assert.rejects(startRuntime({ environment: 'production', stateDirectory: directory }, {
+      checkExecutables: () => checkRuntimeExecutables(command => { commands.push(command); return command === missing ? { error: { code: 'ENOENT' }, status: null } : { status: 0 }; }),
+      storage: { bucket: () => assert.fail('Storage opened before executable check') },
+      alert: async (_options, failed) => alerts.push(failed),
+    }), new RegExp(`executable unavailable: ${missing}`));
+  }
+  assert.deepEqual(alerts, [true, true]); assert.ok(commands.includes('curl')); assert.ok(commands.includes('flock'));
+  assert.throws(() => checkRuntimeExecutables(() => ({ status: 1 })), /unavailable/);
+  assert.deepEqual(checkRuntimeExecutables(() => ({ status: 0 })).executables, ['curl', 'flock']);
+});
+
+for (const failure of ['outage', 'missing bucket']) test(`initial Storage ${failure} alerts once across restarts and closes on recovery`, async t => {
+  const { directory, storage } = await fixture(t), requests = [];
+  let down = true;
+  const options = { environment: 'production', apply: true, confirm: 'stack127-production', stateDirectory: join(directory, 'state'), database: join(directory, 'working.sqlite') };
+  const deps = { checkExecutables: async () => {}, assertUnpublished: async () => {}, step: async () => ({ applied: true }), scheduler: async () => {},
+    storage: { ...storage, bucket: async () => { if (down) { if (failure === 'outage') throw Error('Storage network request failed'); return null; } return { public: false }; },
+      putJson: async (...args) => { if (down) throw Error('Storage unavailable'); return storage.putJson(...args); } },
+    alert: (opts, failed) => jobAlert(opts, failed, { env: { GITHUB_ALERT_TOKEN: 'test-only-token' }, fetch: async (_url, request) => {
+      requests.push(request); return { ok: true, json: async () => request.method === 'GET' ? [] : { number: 42 } };
+    } }),
+  };
+  for (let i = 0; i < 2; i++) await assert.rejects(startRuntime(options, deps), /Storage|Upload a seed/);
+  assert.equal(requests.filter(row => row.method === 'POST').length, 1);
+  assert.equal(JSON.parse(await readFile(join(options.stateDirectory, 'alert-bootstrap.json'), 'utf8')).issue, 42);
+  down = false; await startRuntime(options, deps);
+  assert.equal(requests.filter(row => row.method === 'PATCH').length, 1);
+  assert.equal(JSON.parse(requests.find(row => row.method === 'PATCH').body).state, 'closed');
 });

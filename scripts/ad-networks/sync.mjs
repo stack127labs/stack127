@@ -46,12 +46,13 @@ export function mapSyncRelationship(row) {
 export function syncArgs(argv) {
   const {values} = parseArgs({args:argv, options:{sqlite:{type:'string'},apply:{type:'boolean',default:false},
     environment:{type:'string',default:'development'},confirm:{type:'string'},'batch-size':{type:'string',default:'500'},
-    'niches-only':{type:'boolean',default:false}}});
+    'niches-only':{type:'boolean',default:false},'seed-niches':{type:'boolean',default:false}}});
   if (!values.sqlite) throw new Error('Supply --sqlite with a consistent SQLite snapshot');
   if (!['development','production'].includes(values.environment)) throw new Error('Invalid environment');
   if (values.environment === 'production' && values.confirm !== 'stack127-production') throw new Error('Production requires --environment production --confirm stack127-production');
   if (!/^[1-9]\d*$/.test(values['batch-size']) || Number(values['batch-size']) > 1000) throw new Error('Batch size must be 1–1000');
-  return {...values,batchSize:Number(values['batch-size']),nichesOnly:values['niches-only']};
+  if (values['niches-only'] && values['seed-niches']) throw new Error('Choose either --seed-niches or the reviewed --niches-only correction');
+  return {...values,batchSize:Number(values['batch-size']),nichesOnly:values['niches-only'] || values['seed-niches'],seedNiches:values['seed-niches']};
 }
 const relColumns = relationFields.join(',');
 const relDiff = `(${relationFields.map(f=>`r.${f}`).join(',')}) is distinct from (${relationFields.map(f=>`i.${f}`).join(',')})`;
@@ -61,6 +62,20 @@ const relationshipInput = `select n.id as ad_network_id,p.id as publisher_id,${r
     ended_at timestamptz,consecutive_misses integer,first_missed_at timestamptz,last_missed_at timestamptz)
   join public.ad_network_publishers p on p.normalized_domain=x.domain
   join public.ad_networks n on n.slug=x.network_slug`;
+
+// Seed admission is enforced in the UPDATE, under its row lock. A classifier
+// that wins the race keeps its label; neither an old label nor null replaces it.
+export async function syncNicheBatch(client, source, mode) {
+  if (!['seed', 'correction'].includes(mode)) throw new Error('Explicit niche sync mode required');
+  const payload=JSON.stringify(source.map(({normalized_domain,niche})=>({normalized_domain,niche})));
+  const matched=await client.query(`select count(*)::int as count from public.ad_network_publishers p
+    join jsonb_to_recordset($1::jsonb) i(normalized_domain text,niche text) using(normalized_domain)`,[payload]);
+  if(matched.rows[0].count!==source.length)throw new Error('Niche sync requires a completed full publisher sync first');
+  const admission=mode==='seed' ? 'p.niche is null and i.niche is not null' : 'p.niche is distinct from i.niche';
+  return (await client.query(`update public.ad_network_publishers p set niche=i.niche
+    from jsonb_to_recordset($1::jsonb) i(normalized_domain text,niche text)
+    where p.normalized_domain=i.normalized_domain and ${admission}`,[payload])).rowCount;
+}
 
 export async function syncReviewedData(options) {
   // Do not call openLocalDatabase: it migrates/seeds the working store. This input is strictly read-only.
@@ -128,19 +143,11 @@ export async function syncReviewedData(options) {
         const source=sqlite.prepare(`select p.id,p.normalized_domain,p.niche from publishers p
           where p.id>? and ${nicheScope} order by p.id limit ?`).all(lastId,options.batchSize);
         if(!source.length)break;
-        const payload=JSON.stringify(source.map(({normalized_domain,niche})=>({normalized_domain,niche})));
-        const updated=await batch(async()=>{
-          const matched=await client.query(`select count(*)::int as count from public.ad_network_publishers p
-            join jsonb_to_recordset($1::jsonb) i(normalized_domain text,niche text) using(normalized_domain)`,[payload]);
-          if(matched.rows[0].count!==source.length)throw new Error('Niche sync requires a completed full publisher sync first');
-          return (await client.query(`update public.ad_network_publishers p set niche=i.niche
-            from jsonb_to_recordset($1::jsonb) i(normalized_domain text,niche text)
-            where p.normalized_domain=i.normalized_domain and p.niche is distinct from i.niche`,[payload])).rowCount;
-        });
+        const updated=await batch(()=>syncNicheBatch(client,source,options.seedNiches?'seed':'correction'));
         counts.publishers+=source.length;counts.publishers_updated+=updated;lastId=source.at(-1).id;
         if(counts.publishers%5000===0)console.error(`Niche publishers processed: ${counts.publishers}`);
       }
-      return {applied:true,environment:options.environment,scope:'niches-only',...counts,observations_changed:0,arrivals_recorded:0};
+      return {applied:true,environment:options.environment,scope:options.seedNiches?'niche-seed':'niches-only',...counts,observations_changed:0,arrivals_recorded:0};
     }
     // Keyset batches keep both the SQLite read and PostgreSQL payload bounded.
     let lastId=0;

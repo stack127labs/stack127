@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { deploymentConfig, capacityGate, preflight, activate, waitHealthy, dokployApi, composeEnvironment, appName } from '../../../scripts/ad-networks/deploy-runtime.mjs';
+import { deploymentConfig, capacityGate, preflight, activate, waitHealthy, dokployApi, composeEnvironment, appName, pauseConfig, pauseRuntime } from '../../../scripts/ad-networks/deploy-runtime.mjs';
 const GiB = 1024 ** 3, release = 'a'.repeat(40), createdAppName = `${appName}-abc123`;
 const env = { GITHUB_ACTIONS: 'true', AD_NETWORKS_RUNTIME_ENVIRONMENT: 'production', CONFIRM: 'stack127-production',
   DOKPLOY_API_KEY: 'test-key', CF_ACCESS_CLIENT_ID: 'test-id', CF_ACCESS_CLIENT_SECRET: 'test-secret',
@@ -11,7 +11,7 @@ const manifest = { schema: 1, kind: 'seed', id: 'a'.repeat(64), compressed_sha25
   sqlite_bytes: GiB, compressed_bytes: 100, created_at: new Date().toISOString(), parts: [{ path: `seed/${'a'.repeat(64)}/part-0000`, bytes: 100, sha256: 'c'.repeat(64) }] };
 const health = () => ({ checkedAt: new Date().toISOString(), resources: { cpuCount: 4, memTotalBytes: 8 * GiB }, disk: { totalBytes: 100 * GiB, usedBytes: 20 * GiB } });
 function mock(existing = null) {
-  const calls = [], state = { compose: existing };
+  const calls = [], state = { compose: existing, stopped: false };
   const config = deploymentConfig(env);
   const status = { updated_at: new Date().toISOString(), phase: 'ready', release_sha: release, deployment_id: env.DEPLOYMENT_ID,
     bootstrap: { complete: true, seed_id: manifest.id }, enabled_jobs: config.enabled };
@@ -28,8 +28,9 @@ function mock(existing = null) {
     if (endpoint === 'registry.create') return { registryId: 'jobs-registry' };
     if (endpoint === 'compose.create') { state.compose = { ...body, appName: createdAppName, composeId: 'jobs', serverId: null }; return state.compose; }
     if (endpoint === 'compose.update') { Object.assign(state.compose, body); return state.compose; }
+    if (endpoint === 'compose.stop') { state.stopped = true; return true; }
     if (endpoint === 'compose.deploy') return {};
-    if (endpoint === 'docker.getContainersByAppNameMatch') return [{ name: `${createdAppName}-jobs-1`, containerId: 'jobs-container', state: 'running' }];
+    if (endpoint === 'docker.getContainersByAppNameMatch') return [{ name: `${createdAppName}-jobs-1`, containerId: 'jobs-container', state: state.stopped ? 'exited' : 'running' }];
     if (endpoint === 'docker.getConfig') return { State: { Health: { Status: 'healthy' } }, Config: { Image: `ghcr.io/stack127labs/stack127-ad-networks:${release}`, Env: [`AD_NETWORKS_DEPLOYMENT_ID=${env.DEPLOYMENT_ID}`] } };
     throw Error(`Unexpected API: ${endpoint}`);
   };
@@ -95,15 +96,40 @@ test('Compose variables retain literal dollar signs and reject newline injection
   assert.throws(() => composeEnvironment({ KEY: 'a\nATTACK=b' }), /Multiline/);
 });
 
-test('a rerun can pause an existing service under low capacity; initial deployment still refuses it', async () => {
-  for (const existing of [false, true]) {
-    const m = mock(existing ? { name: 'ad-networks-jobs', appName: createdAppName, composeId: 'jobs', sourceType: 'raw', environmentId: 'prod' } : null);
-    m.config = deploymentConfig({ ...env, ENABLED_JOBS: '' });
-    const api = m.dependencies.api;
-    const deps = { ...m.dependencies, api: (name, ...args) => name === 'docker.getServerHealth' ? Promise.resolve({ ...health(), resources: { cpuCount: 1, memTotalBytes: 8 * GiB } }) : api(name, ...args) };
-    if (existing) assert.equal((await preflight(m.config, deps)).capacity.admitted, false);
-    else await assert.rejects(preflight(m.config, deps), /capacity gate failed/);
+test('confirmed emergency pause needs only service identity when website, capacity and Storage fail', async () => {
+  const original = "DATABASE_POOLER_URL='keep$literal'\nAD_NETWORKS_ACTIVATED_AT='2026-10-18T00:00:00.000Z'\nAD_NETWORKS_ENABLED_JOBS='verification'\n";
+  const m = mock({ name: 'ad-networks-jobs', appName: createdAppName, composeId: 'jobs', sourceType: 'raw', composeType: 'docker-compose', environmentId: 'prod', env: original });
+  const config = pauseConfig({ GITHUB_ACTIONS: 'true', CONFIRM: env.CONFIRM, DOKPLOY_API_KEY: env.DOKPLOY_API_KEY,
+    CF_ACCESS_CLIENT_ID: env.CF_ACCESS_CLIENT_ID, CF_ACCESS_CLIENT_SECRET: env.CF_ACCESS_CLIENT_SECRET });
+  const api = m.dependencies.api;
+  const allowed = ['application.one', 'environment.one', 'compose.one', 'compose.stop', 'compose.update', 'docker.getContainersByAppNameMatch'];
+  const deps = { ...m.dependencies, api: (name, ...args) => { assert.ok(allowed.includes(name), `Unexpected pause dependency: ${name}`); return api(name, ...args); },
+    fetch: () => assert.fail('Website is returning 503'), storage: { bucket: () => assert.fail('Storage unavailable') },
+    assertUnpublished: () => assert.fail('Database unavailable') };
+  assert.equal((await pauseRuntime(config, deps)).paused, true);
+  assert.equal((await pauseRuntime(config, deps)).paused, true);
+  assert.equal(m.calls.filter(call => call.endpoint === 'compose.stop').length, 2);
+  assert.equal(m.calls.some(call => call.endpoint === 'compose.deploy'), false);
+  assert.equal(m.state.compose.env, original.replace("AD_NETWORKS_ENABLED_JOBS='verification'", "AD_NETWORKS_ENABLED_JOBS=''"));
+  await assert.rejects(pauseRuntime({ env: { ...config.env, CONFIRM: '' } }, deps), /confirmation/);
+});
+
+test('emergency pause refuses missing or mismatched services without any mutation', async () => {
+  const base = { name: 'ad-networks-jobs', appName: createdAppName, composeId: 'jobs', sourceType: 'raw', composeType: 'docker-compose', environmentId: 'prod' };
+  for (const existing of [null, { ...base, serverId: 'another-server' }, { ...base, environmentId: 'another-environment' }, { ...base, name: 'unrelated-app' }]) {
+    const m = mock(existing);
+    await assert.rejects(pauseRuntime(pauseConfig(env), m.dependencies), /No verified|mismatch|Ambiguous/);
+    assert.ok(m.calls.every(call => call.method === 'GET'));
   }
+});
+
+test('pause never reports success while a jobs container is still running', async () => {
+  const m = mock({ name: 'ad-networks-jobs', appName: createdAppName, composeId: 'jobs', sourceType: 'raw', composeType: 'docker-compose', environmentId: 'prod' });
+  const api = m.dependencies.api; let time = Date.now();
+  await assert.rejects(pauseRuntime(pauseConfig(env), { ...m.dependencies,
+    api: (name, ...args) => name === 'compose.stop' ? Promise.resolve(true) : api(name, ...args),
+    timeout: 10, now: () => time, delay: async () => { time += 20; } }), /pause deadline/);
+  assert.equal(m.calls.some(call => call.endpoint === 'compose.update'), false);
 });
 
 test('a lost response after Compose creation is recovered by discovery on the next activation', async () => {

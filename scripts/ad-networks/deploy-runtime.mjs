@@ -17,6 +17,13 @@ export const serviceName = 'ad-networks-jobs';
 export const appName = 'stack127-ad-networks-jobs';
 const registryName = `${appName}-ghcr`;
 const GiB = 1024 ** 3;
+export function pauseConfig(env = process.env) {
+  if (env.GITHUB_ACTIONS !== 'true' || env.CONFIRM !== 'stack127-production') throw new Error('Protected GitHub workflow and stack127-production confirmation required');
+  for (const name of ['DOKPLOY_API_KEY', 'CF_ACCESS_CLIENT_ID', 'CF_ACCESS_CLIENT_SECRET']) if (!env[name]) throw new Error(`Missing production secret: ${name}`);
+  const apiUrl = (env.DOKPLOY_API_URL || 'https://dokploy.stack127.com').trim().replace(/\/$/, '');
+  if (apiUrl !== 'https://dokploy.stack127.com') throw new Error('Unexpected production Dokploy target');
+  return { env, apiUrl };
+}
 export function deploymentConfig(env = process.env) {
   if (env.GITHUB_ACTIONS !== 'true' || env.CONFIRM !== 'stack127-production') throw new Error('Protected GitHub workflow and stack127-production confirmation required');
   const names = ['DOKPLOY_API_KEY', 'CF_ACCESS_CLIENT_ID', 'CF_ACCESS_CLIENT_SECRET', 'DATABASE_POOLER_URL', 'SUPABASE_URL', 'SUPABASE_SECRET_KEY', 'GITHUB_ALERT_TOKEN', 'GHCR_DOKPLOY_TOKEN', 'GHCR_DOKPLOY_USERNAME', 'RELEASE_SHA', 'DEPLOYMENT_ID'];
@@ -34,7 +41,7 @@ export function dokployApi(config, fetchImpl = fetch) {
     const query = new URLSearchParams(Object.entries(data).filter(([, v]) => v !== null && v !== undefined).map(([k, v]) => [k, String(v)]));
     let response;
     try { response = await fetchImpl(`${config.apiUrl}/api/${endpoint}${method === 'GET' && query.size ? `?${query}` : ''}`, {
-      method, redirect: 'manual', signal: AbortSignal.timeout(60000), headers: { 'Content-Type': 'application/json',
+      method, redirect: 'manual', signal: AbortSignal.timeout(endpoint === 'compose.stop' ? 240000 : 60000), headers: { 'Content-Type': 'application/json',
         'x-api-key': config.env.DOKPLOY_API_KEY, 'CF-Access-Client-Id': config.env.CF_ACCESS_CLIENT_ID,
         'CF-Access-Client-Secret': config.env.CF_ACCESS_CLIENT_SECRET }, ...(method === 'GET' ? {} : { body: JSON.stringify(data) }),
     }); } catch { throw new Error(`Dokploy ${endpoint} network request failed`); }
@@ -56,9 +63,8 @@ export function capacityGate(health, proc, seedBytes, now = Date.now()) {
     gate: { cpu_count: 2, available_ram_gib: 2, free_disk_gib: +(diskGate / GiB).toFixed(2), load_1m_below: cpu - 0.5 } };
   return { ...result, admitted: cpu >= 2 && available >= 2 * GiB && free >= diskGate && load < cpu - 0.5 };
 }
-export async function preflight(config, dependencies = {}) {
+export async function runtimeService(config, dependencies = {}) {
   const api = dependencies.api ?? dokployApi(config);
-  const storage = dependencies.storage ?? privateStorage(storageConfig({ environment: 'production' }, config.env));
   const target = JSON.parse(await readFile(new URL('../stack127/deployment/targets.json', import.meta.url), 'utf8')).production;
   const site = await api('application.one', { applicationId: target.dokploy.applicationId });
   if (site.appName !== target.dokploy.appName || !site.environmentId) throw new Error('Production application identity mismatch');
@@ -67,7 +73,14 @@ export async function preflight(config, dependencies = {}) {
   const matches = (environment.compose || []).filter(row => row.name === serviceName || row.appName?.startsWith(`${appName}-`));
   if (matches.length > 1 || matches.some(row => row.name !== serviceName || !new RegExp(`^${appName}-[a-z0-9]{6}$`).test(row.appName))) throw new Error('Ambiguous jobs Compose identity');
   const existing = matches[0] ? await api('compose.one', { composeId: matches[0].composeId }) : null;
-  if (existing && (existing.sourceType !== 'raw' || existing.environmentId !== site.environmentId || (existing.serverId || null) !== (site.serverId || null))) throw new Error('Jobs service target or source mismatch');
+  if (existing && (existing.name !== serviceName || !new RegExp(`^${appName}-[a-z0-9]{6}$`).test(existing.appName)
+    || existing.composeType !== 'docker-compose' || existing.sourceType !== 'raw' || existing.environmentId !== site.environmentId || (existing.serverId || null) !== (site.serverId || null))) throw new Error('Jobs service target or source mismatch');
+  return { api, site, server, existing };
+}
+
+export async function preflight(config, dependencies = {}) {
+  const { api, site, server, existing } = await runtimeService(config, dependencies);
+  const storage = dependencies.storage ?? privateStorage(storageConfig({ environment: 'production' }, config.env));
   if (!await storage.bucket()) throw new Error('Upload the homelab seed to the private handoff bucket first');
   const seed = validateManifest(await storage.getJson('handoff/seed.json'), 'seed');
   await (dependencies.assertUnpublished ?? assertUnpublished)({ environment: 'production' });
@@ -84,12 +97,33 @@ export async function preflight(config, dependencies = {}) {
   };
   const health = await api('docker.getServerHealth', { ...server, sinceHours: 1 });
   const capacity = capacityGate(health, { loadavg: await readProc('/proc/loadavg'), meminfo: await readProc('/proc/meminfo') }, seed.sqlite_bytes);
-  // An existing service can always be paused for recovery, even under pressure.
-  // First activation and every nonempty enable request must pass admission.
-  const pause = !!existing && config.enabled.length === 0;
-  if (!capacity.admitted && !pause) throw new Error(`OVH capacity gate failed: ${JSON.stringify(capacity)}`);
-  console.log(JSON.stringify({ preflight: true, capacity, pause, compose_exists: !!existing, seed_id: seed.id }));
+  if (!capacity.admitted) throw new Error(`OVH capacity gate failed: ${JSON.stringify(capacity)}`);
+  console.log(JSON.stringify({ preflight: true, capacity, compose_exists: !!existing, seed_id: seed.id }));
   return { site, existing, capacity, server, storage, api };
+}
+
+// An emergency stop must work without the website, database, Storage, an
+// image build, registry credentials, or resource inspection.
+export async function pauseRuntime(config, dependencies = {}) {
+  config = pauseConfig(config.env);
+  const { api, existing, server } = await runtimeService(config, dependencies);
+  if (!existing) throw new Error('No verified ad-network jobs service exists to pause');
+  console.log(JSON.stringify({ stopping: true, compose_id: existing.composeId }));
+  await api('compose.stop', { composeId: existing.composeId }, 'POST');
+  const now = dependencies.now ?? Date.now, deadline = now() + (dependencies.timeout ?? 10 * 60000);
+  while (true) {
+    const containers = await api('docker.getContainersByAppNameMatch', { appName: existing.appName, appType: 'docker-compose', ...server });
+    if (!Array.isArray(containers)) throw new Error('Cannot verify jobs containers stopped');
+    if (containers.every(row => ['exited', 'created', 'dead'].includes(row.state))) break;
+    if (now() >= deadline) throw new Error('Jobs service did not stop before the pause deadline');
+    await (dependencies.delay ?? delay)(5000);
+  }
+  // Preserve every other runtime value verbatim, including credentials. Clear
+  // admissions for a future start as well as stopping the current containers.
+  const env = (existing.env || '').replace(/^AD_NETWORKS_ENABLED_JOBS=.*(?:\n|$)/gm, '').replace(/\n?$/, '\n') + "AD_NETWORKS_ENABLED_JOBS=''\n";
+  await api('compose.update', { composeId: existing.composeId, env }, 'POST');
+  console.log(JSON.stringify({ paused: true, compose_id: existing.composeId, enabled_jobs: [], containers_stopped: true }));
+  return { paused: true, composeId: existing.composeId };
 }
 
 export function composeEnvironment(values) {
@@ -101,6 +135,7 @@ export function composeEnvironment(values) {
   }).join('\n') + '\n';
 }
 export async function activate(config, dependencies = {}) {
+  if (!config.enabled.length) return pauseRuntime(config, dependencies);
   const context = await preflight(config, dependencies), { api, site, existing, server, storage } = context;
   const composeFile = await readFile(new URL('./runtime/compose.yml', import.meta.url), 'utf8');
   const prior = parseEnv(existing?.env || '');
@@ -158,9 +193,10 @@ export async function waitHealthy(config, dependencies) {
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
+    if (process.argv[2] === 'pause') { await pauseRuntime(pauseConfig()); process.exit(0); }
     const config = deploymentConfig();
     if (process.argv[2] === 'preflight') await preflight(config);
     else if (process.argv[2] === 'activate') await activate(config);
-    else throw new Error('Use preflight or activate');
+    else throw new Error('Use preflight, activate or pause');
   } catch (error) { console.error(safeError(error)); process.exitCode = 1; }
 }

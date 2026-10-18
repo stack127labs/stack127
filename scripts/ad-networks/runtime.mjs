@@ -10,6 +10,7 @@ import { refresh, refreshArgs, run } from './refresh.mjs';
 import { targetPool } from './runtime-db.mjs';
 import { jobAlert, safeError } from './alerts.mjs';
 import { assertTargetCatalog } from './identity-catalog.mjs';
+import { checkRuntimeExecutables } from './runtime/check-executables.mjs';
 
 export const activationMigrations = ['20261015183928', '20261015193817', '20261016032034', '20261016032558',
   '20261016060000', '20261016084059', '20261016131455', '20261016133410', '20261016134827', '20261016144329'];
@@ -70,7 +71,7 @@ export async function bootstrap(options, storage, dependencies = {}) {
   const executeStep = dependencies.step ?? (async name => {
     const target = targetArgs(options), local = ['--local-database', options.database];
     if (name === 'catalog') return execute('catalog', local, process.env);
-    if (name === 'seed-niches') return execute('sync', ['--sqlite', options.database, '--niches-only', ...target], process.env);
+    if (name === 'seed-niches') return execute('sync', ['--sqlite', options.database, '--seed-niches', ...target], process.env);
     if (name === 'seed-revalidation') return execute('revalidate', [...target, ...(options.site ? ['--site', options.site] : [])], process.env);
     if (name === 'snapshot') return execute('snapshot', target, process.env);
     if (name === 'backup') return execute('backup-local', [...local, '--backup-directory', join(options.stateDirectory, 'backups'), '--keep', '7'], process.env);
@@ -128,29 +129,35 @@ export async function publishRuntimeStatus(options, storage, extra = {}) {
 }
 
 export async function startRuntime(options, dependencies = {}) {
-  const storage = dependencies.storage ?? privateStorage(storageConfig(options));
-  if (!await storage.bucket()) throw new Error('Upload a seed to the private handoff bucket before activation');
-  await mkdir(options.stateDirectory, { recursive: true, mode: 0o700 });
-  let publishing = Promise.resolve(), phase = 'starting', currentStep;
+  let storage, heartbeat, publishing = Promise.resolve(), phase = 'starting', currentStep;
+  const alert = failed => (dependencies.alert ?? jobAlert)({ ...options, job: 'bootstrap', 'state-directory': options.stateDirectory }, failed);
   const publish = (extra = {}) => {
-    const next = publishing.catch(() => {}).then(() => publishRuntimeStatus(options, storage, { phase, current_step: currentStep, ...extra }));
+    const next = publishing.catch(() => {}).then(() => storage && publishRuntimeStatus(options, storage, { phase, current_step: currentStep, ...extra }));
     publishing = next; return next;
   };
-  const heartbeat = setInterval(() => { void publish().catch(error => console.error(safeError(error))); }, 30000);
   try {
+    // Make alert state durable before any external startup request. Missing
+    // tools, invalid Storage config, missing buckets and outages all alert.
+    await mkdir(options.stateDirectory, { recursive: true, mode: 0o700 });
+    await (dependencies.checkExecutables ?? checkRuntimeExecutables)();
+    storage = dependencies.storage ?? privateStorage(storageConfig(options));
+    if (!await storage.bucket()) throw new Error('Upload a seed to the private handoff bucket before activation');
+    heartbeat = setInterval(() => { void publish().catch(error => console.error(safeError(error))); }, 30000);
     await publish();
     phase = 'bootstrapping';
     await bootstrap(options, storage, { ...dependencies, onStep: step => { currentStep = step; return publish(); } });
     phase = 'ready'; currentStep = undefined;
-    await jobAlert({ ...options, job: 'bootstrap', 'state-directory': options.stateDirectory }, false);
+    await alert(false);
     await publish();
     // Import lazily so the scheduler can use runtime helpers without a cycle.
     const { runScheduler } = await import('./scheduler.mjs');
-    await runScheduler(options, { publish, rdap: () => consumeRdap(options, storage) });
+    await (dependencies.scheduler ?? runScheduler)(options, { publish, rdap: () => consumeRdap(options, storage) });
   } catch (error) {
     phase = 'failed';
+    // Alert first: a Storage outage must not delay the issue behind another
+    // failing Storage request. jobAlert reuses its persisted issue on restart.
+    try { await alert(true); } catch (alertError) { console.error(safeError(alertError)); }
     await publish({ error: safeError(error) }).catch(() => {});
-    try { await jobAlert({ ...options, job: 'bootstrap', 'state-directory': options.stateDirectory }, true); } catch (alertError) { console.error(safeError(alertError)); }
     throw error;
   } finally { clearInterval(heartbeat); await publishing.catch(() => {}); }
 }
