@@ -24,7 +24,7 @@ The current decision is to refresh production automatically while every ad-netwo
 - [x] Private external runtime/niche status includes counts and sync/revalidation outcomes without a migration.
 - [x] Existing Supabase shared transaction-pooler credentials select session port 5432 for reliable OVH/homelab advisory locks. No env-file or secret rotation is needed.
 - [x] Development private-bucket upload/download/bootstrap/restart/RDAP/status test; anonymous access denied and test bucket removed. Corruption, size, domain validation, lock, idempotence, capacity and API activation tests cover failures.
-- [ ] Owner adds existing `GITHUB_ALERT_TOKEN` to GitHub's protected production environment. Other required secret/variable names already exist. No SSH identity or new API key is needed.
+- [x] Existing alert token stored as `AD_NETWORKS_ALERT_TOKEN` in GitHub's protected production environment (October 18). Other required secret/variable names already exist. No SSH identity or new API key is needed.
 - [ ] Actual OVH capacity inventory and installed Dokploy API compatibility: the protected workflow measures CPU/RAM/disk/load and fails closed before mutation if unavailable or below the documented gate. GitHub-only Access credentials cannot be read locally.
 - [ ] Merge/release, check migrations, upload seed on homelab, dispatch the single activation workflow, inspect private status, then start the homelab niche timer. No production bucket/data/server changes occurred in this round.
 

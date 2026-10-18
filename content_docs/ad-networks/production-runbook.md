@@ -2,9 +2,9 @@
 
 Coordinator commands only, after Sol review and release authorization. OVH activation uses GitHub Actions and the authenticated Dokploy API. The seed and status use private Supabase Storage. No OVH shell, SSH identity, Tailscale connection, dashboard edits, or manual sync is needed. All ad-network pages remain unpublished. No history backfill runs.
 
-## 1. Add the one missing GitHub secret
+## 1. Alert token secret
 
-The owner adds **`GITHUB_ALERT_TOKEN`** to the repository's protected **production** environment, using the existing issue-alert token from homelab `.env.deploy`. Do not paste it into chat or commit it.
+Done on October 18: the existing issue-alert token from homelab `.env.deploy` (`GITHUB_ALERT_TOKEN`) is stored as **`AD_NETWORKS_ALERT_TOKEN`** in the protected **production** environment. GitHub rejects secret names that start with `GITHUB_`. The workflow passes it to the jobs service as `GITHUB_ALERT_TOKEN`. Do not paste it into chat or commit it.
 
 Read-only name checks on October 18 found the other credentials already present: repository secret `DATABASE_POOLER_URL`; production secrets `DOKPLOY_API_KEY`, `CF_ACCESS_CLIENT_ID`, `CF_ACCESS_CLIENT_SECRET`, `GHCR_DOKPLOY_TOKEN`, `SUPABASE_URL`, `SUPABASE_SECRET_KEY`; production variable `GHCR_DOKPLOY_USERNAME`. The runtime selects session port 5432 when the existing production URL uses the Supabase shared transaction pooler on 6543. Host, user, password and project stay the same; no credential change is needed. Neither an SSH key nor a new API key is required.
 
