@@ -92,6 +92,42 @@ test("identical private copies become links and read-only main files stay untouc
   assert.equal((await lstat(source)).mode & 0o777, 0o400);
 });
 
+test("Mac sync never recreates a mirrored source removed after planning", async (t) => {
+  const { main, checkout, env } = await fixture(t);
+  const source = path.join(main, ".env.affiliate");
+  await chmod(source, 0o400);
+  await writeFile(path.join(checkout, ".env.affiliate"), await readFile(source), { mode: 0o600 });
+  const result = spawnSync(process.execPath, ["--input-type=module", "-e", `
+    import assert from "node:assert/strict";
+    import fs from "node:fs/promises";
+    import { syncBuiltinESMExports } from "node:module";
+    import path from "node:path";
+    import { pathToFileURL } from "node:url";
+    const [runner, main, checkout] = process.argv.slice(1);
+    process.argv.length = 1;
+    // Exercise the Mac rule on Linux CI too, in this isolated child only.
+    Object.defineProperty(process, "platform", { value: "darwin" });
+    const source = path.join(main, ".env.affiliate");
+    const mkdir = fs.mkdir;
+    let removed = false;
+    fs.mkdir = async (directory, options) => {
+      // The store mkdir marks the boundary between planning and applying links.
+      if (directory === main) { await fs.rm(source); removed = true; }
+      return mkdir(directory, options);
+    };
+    syncBuiltinESMExports();
+    const { syncSharedEnvs } = await import(pathToFileURL(runner));
+    await assert.rejects(syncSharedEnvs({ root: checkout }), /Missing mirrored environment file: \\.env\\.affiliate/);
+    assert.equal(removed, true);
+    await assert.rejects(fs.lstat(source), { code: "ENOENT" });
+    const local = path.join(checkout, ".env.affiliate");
+    assert.equal((await fs.lstat(local)).isSymbolicLink(), false);
+    assert.equal(await fs.readFile(local, "utf8"), "FIXTURE_VALUE=shared\\n");
+    await assert.rejects(fs.lstat(path.join(checkout, ".env.local")), { code: "ENOENT" });
+  `, syncRunner, main, checkout], { cwd: checkout, encoding: "utf8", env });
+  assert.equal(result.status, 0, result.stderr);
+});
+
 test("new private env names are discovered without linking examples or backups", async (t) => {
   const { main, checkout, run } = await fixture(t);
   for (const name of [".env.new-service", ".env.new-service.example", ".env.new-service.backup"]) {

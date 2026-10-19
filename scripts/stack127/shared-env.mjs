@@ -218,6 +218,9 @@ async function syncLocked({ store, checkouts }, { requireLocal = false } = {}) {
   await mkdir(store, { recursive: true, mode: 0o700 });
   for (const { source, value, destinations } of plans) {
     if (!await existing(source)) {
+      if (process.platform === "darwin") {
+        throw new Error(`Missing mirrored environment file: ${path.basename(source)}. Restore it from homelab; Mac setup cannot create it.`);
+      }
       // Publish only a complete file, without ever replacing an existing source.
       const temporary = `${source}.tmp-${randomUUID()}`;
       const handle = await open(temporary, "wx", 0o600);
