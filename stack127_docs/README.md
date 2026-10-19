@@ -15,6 +15,7 @@ Keep each current decision in the operating doc it belongs to. Page-specific pla
 | `directory-pages.md` | Where directory titles, card text, and records live, how pages render, and how to edit them. |
 | `page-publishing.md` | Publishing tools, directories, and courses: manifests, readiness, plans, and production. |
 | `stack127-repos.md` | Boundaries, inventory, automation, and revision tracking for repositories stack127 owns. |
+| [automation-monitor.md](automation-monitor.md) | The monitoring dashboard, and how to keep [monitoring.json](monitoring.json) current when jobs change. |
 | `brand-assets.md` | Logo originals, production variants, favicon choice, and how to regenerate them. |
 | [listed-on.md](listed-on.md) | Concise list of stack127 submissions, launch dates, links, and future actions. |
 | [directory-submission-status.md](directory-submission-status.md) | stack127's directory submissions, listing links, launch dates, and remaining requirements. |
