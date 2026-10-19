@@ -21,3 +21,4 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 - Main phrase: DNS tools, DNS checker, DNS lookup.
 - Words top titles add: free, all records, propagation, online.
 - SEO title: Free DNS tools: lookup, propagation, and DNSSEC checks.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

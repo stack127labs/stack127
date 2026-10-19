@@ -104,3 +104,4 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 - Main phrase: SaaS launch directories, startup directories, where to launch.
 - Words top titles add: a count (100+, 15 best), free, list, the year, dofollow.
 - SEO title: 150+ SaaS launch directories: free, paid, and wait times. The count is rounded down; update it when the records pass the next round number.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

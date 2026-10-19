@@ -21,3 +21,4 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 - Main phrase: RAID calculator, storage calculator.
 - Words top titles add: free, usable capacity, RAID levels, ZFS, backup.
 - SEO title: 15+ free storage calculators for RAID, ZFS, and backups. The count is rounded down; update it when the records pass the next round number.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

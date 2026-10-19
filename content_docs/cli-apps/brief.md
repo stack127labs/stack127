@@ -23,3 +23,4 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 - Main phrase: CLI tools, terminal apps, best CLI tools.
 - Words top titles add: a count, best, list, the year, modern.
 - SEO title: 300+ CLI tools and terminal apps, sorted by what they do. The count is rounded down; update it when the records pass the next round number.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

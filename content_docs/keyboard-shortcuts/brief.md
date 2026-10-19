@@ -37,3 +37,4 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 - Main phrase: keyboard shortcuts, <app> shortcuts cheat sheet.
 - Words top titles add: printable, PDF, Mac and Windows, an app count.
 - SEO title: Keyboard shortcuts for 200+ apps on Mac, Windows, and Linux. The count is rounded down; update it when the records pass the next round number.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

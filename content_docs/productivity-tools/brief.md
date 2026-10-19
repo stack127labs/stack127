@@ -12,3 +12,4 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 - Main phrase: keyboard shortcuts cheat sheet, printable cheat sheet.
 - Words top titles add: free, printable, PDF, an app count.
 - SEO title: Free printable keyboard shortcut cheat sheets for 200+ apps. The count is rounded down; update it when the records pass the next round number.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

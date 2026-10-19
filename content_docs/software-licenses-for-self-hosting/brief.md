@@ -24,3 +24,4 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 - Main phrase: open source licenses explained, MIT vs GPL vs AGPL.
 - Words top titles add: explained, compared, vs, commercial use.
 - SEO title: 30+ software licenses explained: MIT, GPL, AGPL, and BSL. The count is rounded down; update it when the records pass the next round number.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

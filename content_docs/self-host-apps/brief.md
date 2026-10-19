@@ -31,3 +31,4 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 - Main phrase: self-hosted apps list, awesome self-hosted.
 - Words top titles add: a count (1,000+ apps), list, categories, filter.
 - SEO title: 4,900+ self-hosted apps you can filter by RAM and Docker. The count is rounded down; update it when the records pass the next round number.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

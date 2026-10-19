@@ -12,3 +12,4 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 - Main phrase: developer tools, chmod calculator, dockerignore tester.
 - Words top titles add: free, online, test, in your browser.
 - SEO title: Free developer tools: test chmod, Docker, and rsync configs.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

@@ -34,4 +34,6 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 
 - Main phrase: Matter devices list, Matter certified devices.
 - Words top titles add: a count, Thread, Wi-Fi, list.
-- SEO title: Matter devices list: 2,300+ certified products by brand. The count is rounded down; update it when the records pass the next round number.
+- SEO title: Matter devices list: 2,200+ certified products by brand. The count is rounded down; update it when the records pass the next round number.
+- Count end products only. On 2026-10-19 there were 2,272 of 2,388 records; the rest are software components and compliant platforms.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

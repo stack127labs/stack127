@@ -119,3 +119,4 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 - Words top titles add: vs, compared, the year, real pricing, cheapest.
 - SEO title: Platform fees compared (2026): 500+ places to sell online. The count is rounded down; update it when the records pass the next round number.
 - Category titles lead with the names people compare, such as "Gumroad vs Payhip vs Etsy fees", plus the year. Update the year when the fees are rechecked.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

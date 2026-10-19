@@ -35,4 +35,6 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 
 - Main phrase: NUT compatible UPS list, Network UPS Tools hardware.
 - Words top titles add: compatibility list, driver, a model count.
-- SEO title: NUT compatible UPS list: 1,200+ models and their drivers. The count is rounded down; update it when the records pass the next round number.
+- SEO title: NUT compatible UPS list: 1,100+ models and their drivers. The count is rounded down; update it when the records pass the next round number.
+- Count named models only. On 2026-10-19 there were 1,138 of 1,218 records; the rest are product-family rows.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

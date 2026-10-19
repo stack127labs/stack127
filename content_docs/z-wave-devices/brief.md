@@ -35,3 +35,4 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 - Main phrase: Z-Wave devices list, Z-Wave JS supported devices.
 - Words top titles add: a count, certified, Home Assistant.
 - SEO title: 3,100+ Z-Wave devices for Z-Wave JS and Home Assistant. The count is rounded down; update it when the records pass the next round number.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

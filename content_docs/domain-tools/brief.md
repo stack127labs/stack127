@@ -21,3 +21,4 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 - Main phrase: domain tools, WHOIS lookup.
 - Words top titles add: free, a count, age, expiry, availability.
 - SEO title: 10+ free domain tools: WHOIS, age, expiry, and availability. The count is rounded down; update it when the records pass the next round number.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

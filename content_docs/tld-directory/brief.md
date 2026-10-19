@@ -19,3 +19,4 @@ Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.m
 - Main phrase: list of all TLDs, domain extensions list.
 - Words top titles add: a count, all, every, full list.
 - SEO title: TLD list: 1,400+ domain extensions and who runs each one. The count is rounded down; update it when the records pass the next round number.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.
