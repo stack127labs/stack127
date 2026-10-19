@@ -11,6 +11,19 @@ import { inspectAssets, staticHeaders, assertNoPrivateCredentials } from "./asse
 
 const run = promisify(execFile);
 
+export async function readFrontendSourceRevisions(client) {
+  // Check publication in the same snapshot as each revision read. Draft data
+  // cannot change the export; page fingerprints still detect publication edits.
+  const { rows } = await client.query(`select source.*, exists (
+      select 1 from public.stack127_pages page where page.is_published
+        and (page.slug = 'ad-networks' or page.slug like 'ad-networks/%' or page.slug = 'ad-network-checker')
+    ) as ad_networks_published
+    from public.stack127_cache_source_revisions() source order by entity_type, slug`);
+  return JSON.stringify(rows
+    .filter(row => row.entity_type !== "ad_networks" || row.ad_networks_published)
+    .map(({ ad_networks_published, ...revision }) => revision));
+}
+
 export async function buildFrontend({ output, environment = process.env } = {}) {
   if (environment.GITHUB_ACTIONS !== "true") throw new Error("Frontend builds run on GitHub, not on the homelab.");
   if (!output) throw new Error("--output is required.");
@@ -29,7 +42,7 @@ export async function buildFrontend({ output, environment = process.env } = {}) 
         when 'catalog' then catalog.page_id is not null else true end order by page.slug`);
     const indexingPages = (await pool.query('select slug,is_published,is_indexable from public.stack127_pages')).rows;
     const canonicalOrigin = environment.NEXT_PUBLIC_SITE_URL || 'https://stack127.com';
-    const revisions = async () => JSON.stringify((await pool.query("select * from public.stack127_cache_source_revisions() order by entity_type, slug")).rows);
+    const revisions = () => readFrontendSourceRevisions(pool);
     const before = await revisions();
     const loadConfig = loadNextConfig.default ?? loadNextConfig;
     const config = await loadConfig("phase-production-build", process.cwd());

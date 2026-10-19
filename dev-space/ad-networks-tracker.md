@@ -13,6 +13,7 @@ Production refreshes automatically while every ad-network page stays unpublished
 - [x] Full sync preserves existing Postgres niches. Homelab classifies new unsorted production sites through its logged-in Haiku CLI, validates exact domains/labels/confidence, withholds uncertain labels, and writes only niches. The import waits for the sync lock instead of timing out.
 - [x] Failure alerts reuse the existing GitHub issue token and close on job recovery. Development does not send alerts.
 - [x] Per-network Top niches works for any sorted sample and states its sample count. Broad index/child coverage and publication gates remain.
+- [x] The build guard ignores ad-network revisions only while those pages are unpublished; before publishing, the build must cope with syncs that run during it.
 - [ ] Homelab niche timer installed and its 2-site smoke run passed.
 - [ ] Late RDAP merge from homelab once the original RDAP pass and gather supervisor finish, then retire the homelab backup timer.
 
