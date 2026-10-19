@@ -26,6 +26,13 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - name: Connect to the production database network
+        if: vars.STACK127_DB_PRIVATE_NETWORK == 'tailscale'
+        uses: tailscale/github-action@d1b6cd204f8dceda5b3eaad7f1f767be390056cd # v4.2.0
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
       - run: npm run self-host-apps:discover-selfhostedworld -- --limit 5000 --write
       - run: npm run self-host-apps:discover-openalternative -- --limit 5000 --write
       - run: npm run self-host-apps:dedupe-candidates -- --limit 20000

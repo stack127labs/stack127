@@ -70,6 +70,13 @@ jobs:
           cache: npm
 
       - run: npm ci
+      - name: Connect to the production database network
+        if: vars.STACK127_DB_PRIVATE_NETWORK == 'tailscale'
+        uses: tailscale/github-action@d1b6cd204f8dceda5b3eaad7f1f767be390056cd # v4.2.0
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
 
       - name: Prepare production environment
         env:
@@ -122,7 +129,7 @@ jobs:
           fi
 
       - name: Install Supabase CLI
-        if: steps.migrations.outputs.run == 'true' || steps.migrations.outputs.functions == 'true'
+        if: steps.migrations.outputs.run == 'true' || (steps.migrations.outputs.functions == 'true' && vars.STACK127_DB_PRIVATE_NETWORK != 'tailscale')
         uses: supabase/setup-cli@v1
         with:
           version: latest
@@ -151,6 +158,18 @@ jobs:
         run: node scripts/stack127/frontend/deploy.mjs --directory "$RUNNER_TEMP/frontend-assets" --preview
 
       - uses: docker/setup-buildx-action@v3
+        if: vars.STACK127_DB_PRIVATE_NETWORK != 'tailscale'
+
+      - name: Set up BuildKit on the production database network
+        if: vars.STACK127_DB_PRIVATE_NETWORK == 'tailscale'
+        uses: docker/setup-buildx-action@v3
+        with:
+          # Prerendering runs inside BuildKit. Share the runner's Tailscale
+          # routes and resolve tailnet hostnames through its MagicDNS resolver.
+          driver-opts: network=host
+          buildkitd-config-inline: |
+            [dns]
+              nameservers = ["100.100.100.100"]
 
       - uses: docker/login-action@v3
         with:
@@ -174,6 +193,8 @@ jobs:
             ${{ steps.image.outputs.image }}:${{ env.RELEASE_SHA }}
             ${{ steps.image.outputs.image }}:production
           secret-files: stack127-database-env=.env.database
+          network: ${{ vars.STACK127_DB_PRIVATE_NETWORK == 'tailscale' && 'host' || 'default' }}
+          allow: ${{ vars.STACK127_DB_PRIVATE_NETWORK == 'tailscale' && 'network.host' || '' }}
           build-args: |
             STACK127_BUILD_SHA=${{ env.RELEASE_SHA }}
             GOOGLE_ANALYTICS_ID=${{ vars.GOOGLE_ANALYTICS_ID || 'G-ZJNG8SCGE1' }}
@@ -213,7 +234,7 @@ jobs:
         run: node scripts/stack127/frontend/content-queue.mjs complete --snapshot "$RUNNER_TEMP/frontend-queue.json" --directory "$RUNNER_TEMP/frontend-assets"
 
       - name: Deploy Supabase Edge Functions
-        if: steps.migrations.outputs.functions == 'true'
+        if: steps.migrations.outputs.functions == 'true' && vars.STACK127_DB_PRIVATE_NETWORK != 'tailscale'
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
           SUPABASE_PROJECT_REF: ${{ vars.SUPABASE_PROJECT_REF }}
