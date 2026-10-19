@@ -26,5 +26,5 @@ A job with no entry still shows up, marked "No description yet".
 
 ## What the dashboard can't see
 
-- On OVH, the `ubuntu` account can't read Docker or the system journal, so containers aren't listed and timer logs are empty. Ad network jobs report through `/srv/stack127-data/logs/<job>.log`, using the `== <time> start <job>` and `== <time> end <job> exit <code>` lines that `run-job.sh` writes. Exit 76 means the previous run was still going, and shows as skipped.
+- On OVH, the `ubuntu` account can't read Docker or the system journal, so containers aren't listed and timer logs are empty. Ad network jobs report through `/srv/stack127-data/logs/<job>.log`, using the `== <time> start <job>` and `== <time> end <job> exit <code>` lines that `run-job.sh` writes. Exit 76 (the previous run was still going) shows as skipped. Exit 75 (another job held the database lock) shows as skipped when the run gave up within an hour, as verification does, and as failed when a job gave up after hours of retries.
 - GitHub often starts scheduled workflows late. The dashboard only calls a workflow "behind schedule" after three missed gaps plus an hour.
