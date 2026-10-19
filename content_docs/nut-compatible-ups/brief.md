@@ -28,3 +28,13 @@ Cards use the shared hardware fact-card variant of the app design: a large conta
 - A five-row table explains the NUT support-level scale.
 - Sentences warn that a family-level record does not prove every regional suffix.
 - No chart or marker drawing is needed.
+
+## Search words
+
+Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.md`.
+
+- Main phrase: NUT compatible UPS list, Network UPS Tools hardware.
+- Words top titles add: compatibility list, driver, a model count.
+- SEO title: NUT compatible UPS list: 1,100+ models and their drivers. The count is rounded down; update it when the records pass the next round number.
+- Count named models only. On 2026-10-19 there were 1,138 of 1,218 records; the rest are product-family rows.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

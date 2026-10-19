@@ -7,6 +7,7 @@ import { inspectAssets, assertNoPrivateCredentials, routeParameters, freeFileSiz
 import { prepareFrontend } from "../../scripts/stack127/frontend/prepare.mjs";
 import { activateFrontend } from "../../scripts/stack127/frontend/cloudflare.mjs";
 import { verifyFrontend } from "../../scripts/stack127/frontend/deploy.mjs";
+import { readFrontendSourceRevisions } from "../../scripts/stack127/frontend/build.mjs";
 
 async function temporary(t) {
   const directory = await mkdtemp(path.join(os.tmpdir(), "stack127-static-test-"));
@@ -146,4 +147,46 @@ test("deployment retries preserve release-body, document and missing-page checks
     }), error);
     assert.equal(waits, 1);
   }
+});
+
+
+test("draft ad-network syncs leave build revisions stable while page and other sources remain guarded", async () => {
+  let token = "before-sync";
+  let pageFingerprint = "draft-page";
+  let cliFingerprint = "cli-before";
+  const client = { query: async () => ({ rows: [
+    { entity_type: "ad_networks", slug: "all", fingerprint: token, ad_networks_published: false },
+    { entity_type: "cli_apps", slug: "cli-apps", fingerprint: cliFingerprint, ad_networks_published: false },
+    { entity_type: "page", slug: "ad-networks", fingerprint: pageFingerprint, ad_networks_published: false },
+  ] }) };
+  const before = await readFrontendSourceRevisions(client);
+  assert.deepEqual(JSON.parse(before), [
+    { entity_type: "cli_apps", slug: "cli-apps", fingerprint: "cli-before" },
+    { entity_type: "page", slug: "ad-networks", fingerprint: "draft-page" },
+  ]);
+  token = "after-sync";
+  assert.equal(await readFrontendSourceRevisions(client), before);
+  cliFingerprint = "cli-after";
+  assert.notEqual(await readFrontendSourceRevisions(client), before);
+  cliFingerprint = "cli-before";
+  pageFingerprint = "publication-changed";
+  assert.notEqual(await readFrontendSourceRevisions(client), before);
+});
+
+test("each build revision read checks current publication and guards published ad-network data", async () => {
+  let published = false;
+  let token = "before-sync";
+  let reads = 0;
+  const client = { query: async () => {
+    reads++;
+    return { rows: [{ entity_type: "ad_networks", slug: "all", fingerprint: token, ad_networks_published: published }] };
+  } };
+  const draft = await readFrontendSourceRevisions(client);
+  published = true;
+  const live = await readFrontendSourceRevisions(client);
+  assert.notEqual(live, draft);
+  assert.deepEqual(JSON.parse(live), [{ entity_type: "ad_networks", slug: "all", fingerprint: token }]);
+  token = "after-sync";
+  assert.notEqual(await readFrontendSourceRevisions(client), live);
+  assert.equal(reads, 3);
 });

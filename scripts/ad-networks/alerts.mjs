@@ -29,7 +29,7 @@ export async function jobAlert(options, failed, dependencies = {}) {
     const title = `Ad network job failed: ${options.job}`;
     const issues = await request('/issues?state=open&per_page=100');
     const issue = issues.find(row => row.title === title) ?? await request('/issues', 'POST', {
-      title, body: `The production ${options.job} job failed at ${new Date().toISOString()}.\n\nInspect the ad-networks scheduler logs and persistent state. The scheduler retries automatically. This issue closes after that job succeeds.\n\nRaw errors and credentials are kept out of alerts.`,
+      title, body: `The production ${options.job} job failed at ${new Date().toISOString()}.\n\nInspect the ad-network job logs and persistent state. This issue closes after that job succeeds.\n\nRaw errors and credentials are kept out of alerts.`,
     });
     state = { issue: issue.number };
   } else if (!failed && state.issue) {

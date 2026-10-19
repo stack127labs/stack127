@@ -1,6 +1,6 @@
 # Ad networks: simple OVH cron plan
 
-Status on October 19, 2026: steps 1 to 6 are done and cron runs on OVH. The homelab steps and the clean-up remain. Pages stay unpublished.
+Status on October 19, 2026: cron runs on OVH, the first attempt is removed, and the homelab checkout tracks main again. Left: the homelab niche timer, the RDAP merge, and deleting the Storage bucket and GitHub secret. Pages stay unpublished. The [production runbook](../content_docs/ad-networks/production-runbook.md) describes the running setup; this file is the history.
 
 ## Goal
 
@@ -26,13 +26,13 @@ Done on October 19:
 Things to know:
 
 - Every job ends with a full sync and a refresh. A sync with no changes still takes about 12 minutes, so verification runs about every 15 minutes, not every 5.
-- `/srv/stack127-data/run-job.sh` wraps each job. A daily or weekly job that finds the database lock taken retries every minute for up to 6 hours. Verification skips its turn while one is waiting. Exit 75 means the lock was taken, and exit 76 means the same job is already running.
-- Each sync leaves two small temp files in `state/`. The wrapper deletes them after 3 hours. The proper fix belongs in `snapshot-local.mjs`.
+- `scripts/ad-networks/ovh/run-job.sh` wraps each job (it started as `/srv/stack127-data/run-job.sh`). A daily or weekly job that finds the database lock taken retries every minute for up to 6 hours. Verification skips its turn while one is waiting. Exit 75 means the lock was taken, and exit 76 means the same job is already running.
+- Each sync used to leave two small temp files in `state/`. `snapshot-local.mjs` now removes them.
 
 Not done:
 
-- Homelab checkout `/srv/data/projects/stack127` is 112 commits behind main. It has uncommitted work that is not on main: `scripts/stack127/shared-env.mjs`, plus changes to `setup-worktree.mjs`, `AGENTS.md`, `exchange-code.mjs` and two docs. The owner decides what happens to it. The niche timer needs current code.
-- Homelab niche timer is not installed.
+- Homelab checkout: done. Its uncommitted env-sharing work went into PR #58, a backup is in `/srv/data/tmp/stack127-homelab-wip-2026-10-19/`, and the checkout now tracks main.
+- Homelab niche timer is not installed. The first 2-site smoke run hit the sync lock and timed out; the import now waits for it.
 - RDAP merge (step 7.5) and turning off the homelab backup timer.
 - A clean export of `a4fd0397` sits in `/tmp/s127-adnet-a4fd0397` on homelab. Delete it when finished.
 - Still running on homelab: the domain-age RDAP pass (pid 348650) and the gather supervisor (pid 4134573). Both run from `/tmp/s127-gather-2038dd94`.
@@ -91,7 +91,7 @@ Run once, in this order, from `/srv/stack127`:
 6. `platform` and `verification` on one site
 7. `backup`
 
-`scripts/ad-networks/runtime.mjs` (`bootstrapSteps`) has the exact commands. Check the pages refresh and stay unpublished (404).
+Done on October 19. The bootstrap script was removed with the first attempt. Pages refreshed and stayed unpublished (404).
 
 ### 5. Cron (UTC)
 
@@ -122,25 +122,20 @@ After a release, run `git -C /srv/stack127 pull --ff-only && npm ci --omit=dev -
 
 ### 7. Homelab
 
-1. Resolve the uncommitted work in `/srv/data/projects/stack127`, then fast-forward it to main.
+1. Done: resolve the uncommitted work in `/srv/data/projects/stack127`, then fast-forward it to main.
 2. Smoke-test niche sorting on 2 sites:
    `node --env-file=.env.deploy --experimental-strip-types scripts/ad-networks/niche-sort.mjs --environment production --confirm stack127-production --apply --limit 2 --claude /home/teja/.local/bin/claude`
 3. Install and enable `scripts/ad-networks/systemd/stack127-ad-network-niche.service` and `.timer` (Sunday 06:00 UTC).
-4. After the first OVH sync, confirm the niche labels in production weren't overwritten.
-5. When the RDAP pass and the gather supervisor finish: take a snapshot, copy it to OVH, and merge only the newer RDAP data with `scripts/ad-networks/merge-rdap.mjs`. Then sync once.
+4. Done: after the first OVH sync, production had niche labels on 85,810 sites.
+5. When the RDAP pass and the gather supervisor finish, follow "Merge the homelab RDAP pass" in the runbook.
 6. Then disable the homelab `stack127-ad-network-backup.timer`.
 
 ### 8. Clean up the first attempt
 
-Once cron works, remove what is no longer used:
+Removed in the clean-up PR: the workflow, `runtime/`, `runtime.mjs`, `scheduler.mjs`, `deploy-runtime.mjs`, `check-activation.mjs`, `handoff.mjs`, `handoff-storage.mjs` and their tests. The docs were rewritten for cron. Still to remove after that PR merges:
 
-- `.github/workflows/ad-networks-runtime.yml`, `scripts/ad-networks/runtime/` (Dockerfile, compose, init-volume), `deploy-runtime.mjs`, `check-activation.mjs` if unused, the Storage parts of `handoff.mjs`/`handoff-storage.mjs`, and their tests.
 - The private Storage bucket `stack127-ad-networks-jobs` and its seed upload.
 - The GitHub secret `AD_NETWORKS_ALERT_TOKEN`.
-- `content_docs/ad-networks/production-runbook.md`: rewrite it for cron.
-- Update `content_docs/ad-networks/maintenance.md`, `stack127_docs/environment-inventory.md`, `AGENTS.md` and `dev-space/ad-networks-tracker.md`.
 - `/tmp/s127-adnet-a4fd0397` on homelab.
-
-Keep `scheduler.mjs` only if it still has a use. With cron it is not needed.
 
 Then publish the pages in a separate round.

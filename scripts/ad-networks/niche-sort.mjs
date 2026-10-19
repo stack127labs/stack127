@@ -11,7 +11,6 @@ import { publicNiche, validateNicheResult } from './niche-import.mjs';
 import { progressFile } from './enrichment-store.mjs';
 import { revalidateAdNetworks } from './revalidate.mjs';
 import { jobAlert, safeError } from './alerts.mjs';
-import { privateStorage, storageConfig } from './handoff-storage.mjs';
 
 export function validateNicheBatch(input, output) {
   const domains = new Set(input.map(row => row.domain));
@@ -58,21 +57,39 @@ export async function classifyNiches(input, rubric, options) {
   } finally { await rm(directory, { recursive: true, force: true }); }
 }
 
-export async function importNiches(client, rows) {
+export async function importNiches(client, rows, dependencies = {}) {
   // Share the existing sync lock, then change only still-unsorted publishers.
   // A full OVH sync deliberately never updates existing niche values.
-  await client.query("select pg_advisory_lock(hashtext('ad-networks-reviewed-sync'))");
+  // Queue behind other lock requests. Server-side timeouts keep each attempt
+  // below the pool's 120-second query timeout while OVH finishes its full sync.
+  const now = dependencies.now ?? (() => performance.now());
+  const deadline = now() + 60 * 60 * 1000;
+  let locked = false;
   try {
-    await client.query('begin');
-    const result = await client.query(`update public.ad_network_publishers p set niche=i.niche
-      from jsonb_to_recordset($1::jsonb) i(domain text,niche text)
-      where p.normalized_domain=i.domain and p.niche is null and i.niche is not null
-        and exists(select 1 from public.ad_network_publisher_relationships r where r.publisher_id=p.id and r.status='confirmed')`,
-    [JSON.stringify(rows.map(row => ({ domain: row.domain, niche: publicNiche(row) })))]);
-    await client.query('commit');
-    return result.rowCount;
-  } catch (error) { await client.query('rollback').catch(() => {}); throw error; }
-  finally { await client.query("select pg_advisory_unlock(hashtext('ad-networks-reviewed-sync'))").catch(() => {}); }
+    try {
+      while (!locked) {
+        const remaining = deadline - now();
+        if (remaining <= 0) throw new Error('Timed out waiting 60 minutes for ad-network sync lock');
+        await client.query(`set lock_timeout = '${Math.max(1, Math.min(100000, Math.floor(remaining)))}ms'`);
+        try {
+          await client.query("select pg_advisory_lock(hashtext('ad-networks-reviewed-sync'))");
+          locked = true;
+        } catch (error) { if (error.code !== '55P03') throw error; }
+      }
+    } finally { await client.query('reset lock_timeout'); }
+    try {
+      await client.query('begin');
+      const result = await client.query(`update public.ad_network_publishers p set niche=i.niche
+        from jsonb_to_recordset($1::jsonb) i(domain text,niche text)
+        where p.normalized_domain=i.domain and p.niche is null and i.niche is not null
+          and exists(select 1 from public.ad_network_publisher_relationships r where r.publisher_id=p.id and r.status='confirmed')`,
+      [JSON.stringify(rows.map(row => ({ domain: row.domain, niche: publicNiche(row) })))]);
+      await client.query('commit');
+      return result.rowCount;
+    } catch (error) { await client.query('rollback').catch(() => {}); throw error; }
+  } finally {
+    if (locked) await client.query("select pg_advisory_unlock(hashtext('ad-networks-reviewed-sync'))").catch(() => {});
+  }
 }
 
 export async function sortNiches(options, dependencies = {}) {
@@ -151,13 +168,12 @@ export function nicheSortArgs(argv) {
 
 export async function runNicheJob(options, dependencies = {}) {
   if (!options.apply) return (dependencies.sort ?? sortNiches)(options);
-  const storage = dependencies.storage ?? privateStorage(storageConfig(options));
   const startedAt = new Date().toISOString();
-  const status = async value => storage.putJson('status/niche-sort.json', { schema: 1, job: 'niche-sort',
+  const status = async value => progressFile(join(options['state-directory'], 'niche-status.json'), { schema: 1, job: 'niche-sort',
     environment: options.environment, started_at: startedAt, updated_at: new Date().toISOString(), ...value });
   try {
     const result = await (dependencies.sort ?? sortNiches)(options, { onStart: () => status({ status: 'running', synced: false, revalidated: false }) });
-    // A concurrent run owns the status object and its existing progress.
+    // A concurrent run owns the local status and its existing progress.
     if (result.skipped) return result;
     await status({ status: 'complete', result, synced: result.synced, revalidated: result.revalidated });
     await (dependencies.alert ?? jobAlert)(options, false);

@@ -84,7 +84,7 @@ The planning session fills this section, after the frontend, with `skills/stack1
 
 ### Search intent and title
 
-The main query, what the searcher wants, the visible title, and the SEO title and description direction.
+The main query and search words from `research.md`, what the searcher wants, the visible title, and the SEO title and description direction. Follow "Titles and search" in `stack127_docs/writing-style.md`.
 
 ### Reader questions
 

@@ -233,7 +233,13 @@ export async function refreshApiRecords(snapshot, signingKey, { site = "https://
   const token = [...new Uint8Array(signature)].map(byte => byte.toString(16).padStart(2, "0")).join("");
   const headers = { Authorization: `Bearer ${token}`, "Content-Type": "application/json" };
   const signed = async (pathname, body) => {
-    const response = await siteRequest(site, pathname, { method: "POST", headers, body: JSON.stringify(body) }, fetchImplementation);
+    const init = { method: "POST", headers, body: JSON.stringify(body) };
+    let response = await siteRequest(site, pathname, init, fetchImplementation);
+    if (pathname === "/api/cache/refresh" && response.status === 503) {
+      // Cold API loads can outlast the backend's first verification attempt.
+      await response.body?.cancel();
+      response = await siteRequest(site, pathname, init, fetchImplementation);
+    }
     if (response.status !== 200) throw new Error(`Backend cache refresh failed: HTTP ${response.status} ${pathname}`);
     return await response.json();
   };
