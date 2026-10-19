@@ -320,6 +320,59 @@ test("retained APIs invalidate, verify origin data, purge, then verify public by
   await assert.rejects(refreshApiRecords(captured, "cache-key", await apiOptions(true)), /Public API content is stale/);
 });
 
+test("retained API refresh retries one 503 with identical signed targets before verifying public bytes", async () => {
+  const captured = snapshot([{ ...event, entity_type: "cli_apps", slug: "cli-apps" }]);
+  const options = await apiOptions();
+  const requests = [];
+  const attempts = [];
+  await refreshApiRecords(captured, "cache-key", { ...options, fetchImplementation: async (url, init) => {
+    const pathname = new URL(url).pathname;
+    requests.push(pathname);
+    if (pathname === "/api/cache/refresh") {
+      attempts.push({ method: init.method, headers: init.headers, body: init.body });
+      if (attempts.length === 1) return json({ error: "Origin refresh failed" }, 503);
+    }
+    return options.fetchImplementation(url, init);
+  } });
+  assert.equal(attempts.length, 2);
+  assert.deepEqual(attempts[1], attempts[0]);
+  assert.deepEqual(requests, ["/api/cache/revalidate", "/api/cache/refresh", "/api/cache/refresh",
+    "/client/v4/zones/zone/purge_cache", "/api/cli-apps/index"]);
+});
+
+test("retained API refresh stops after the second 503 and does not retry other failures", async () => {
+  const captured = snapshot([{ ...event, entity_type: "cli_apps", slug: "cli-apps" }]);
+  for (const [failedPath, status, expectedAttempts] of [
+    ["/api/cache/refresh", 503, 2], ["/api/cache/refresh", 500, 1], ["/api/cache/revalidate", 503, 1],
+  ]) {
+    const options = await apiOptions();
+    let attempts = 0;
+    await assert.rejects(refreshApiRecords(captured, "cache-key", { ...options, fetchImplementation: async (url, init) => {
+      if (new URL(url).pathname === failedPath) { attempts++; return json({ error: "Unavailable" }, status); }
+      return options.fetchImplementation(url, init);
+    } }), new RegExp(`HTTP ${status} ${failedPath}`));
+    assert.equal(attempts, expectedAttempts);
+    assert(!options.calls.some(path => path.includes("purge_cache") || path === "/api/cli-apps/index"));
+  }
+});
+
+test("a successful refresh retry still requires complete proofs and fresh public API bytes", async () => {
+  const captured = snapshot([{ ...event, entity_type: "cli_apps", slug: "cli-apps" }]);
+  for (const invalidProof of [true, false]) {
+    const options = await apiOptions(!invalidProof);
+    let attempts = 0;
+    await assert.rejects(refreshApiRecords(captured, "cache-key", { ...options, fetchImplementation: async (url, init) => {
+      if (new URL(url).pathname === "/api/cache/refresh") {
+        if (++attempts === 1) return json({ error: "Unavailable" }, 503);
+        if (invalidProof) return json({ verified: [] });
+      }
+      return options.fetchImplementation(url, init);
+    } }), invalidProof ? /Backend did not verify every API path/ : /Public API content is stale/);
+    assert.equal(attempts, 2);
+    if (invalidProof) assert(!options.calls.some(path => path.includes("purge_cache")));
+  }
+});
+
 test("a large page edit batch invalidates every tag without exceeding the backend limit", async () => {
   const events = Array.from({ length: 50 }, (_, index) => ({ ...event, id: String(index + 1), slug: `page-${index}` }));
   const captured = snapshot(events);

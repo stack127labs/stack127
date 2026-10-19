@@ -20,7 +20,11 @@ function load(file,imports,globals={}) {
 function sourceProbe({published=true}={}) {
   const calls=[];
   const api=load('../../../lib/ad-networks-cache-verification.ts',{
-    './db':{getPool:()=>({query:async(sql,args)=>sql.includes('select is_published')?{rows:[{is_published:published}]}:{rows:[{domain:'collegefashion.net',network:'mediavine'}]}})},
+    './db':{getPool:()=>({query:async sql=>{
+      if(sql.includes('select is_published'))return {rows:[{is_published:published}]};
+      if(!published)throw Error('Unpublished sources must not sample publishers');
+      return {rows:[{domain:'collegefashion.net',network:'mediavine'}]};
+    }})},
     './ad-network-niches':niches,
     './ad-networks':{
       defaultAdNetworkSitesQuery:network=>({network,niche:null,q:'',page:1,pageSize:10,sort:'domain'}),
@@ -57,6 +61,18 @@ test('representative API checks use direct source loaders and real request param
   assert.equal(site.expected.site.site.managed_by.slug,'mediavine');
   const hidden=sourceProbe({published:false});assert.equal((await hidden.getAdNetworkApiVerification('/api/ad-networks/site')).expected,null);
   assert.equal(hidden.calls.length,0);
+});
+
+test('unpublished API verification returns valid 404 probes without sampling or loading publishers',async()=>{
+  for(const published of [false,null]) {
+    const probe=sourceProbe({published});
+    for(const path of ['/api/ad-networks/sites','/api/ad-networks/site']) {
+      const result=await probe.getAdNetworkApiVerification(path);
+      assert.equal(result.expected,null);
+      assert.equal(result.requestPath,path==='/api/ad-networks/site'?`${path}?domain=stack127.com`:path);
+    }
+    assert.equal(probe.calls.length,0);
+  }
 });
 
 test('stats and niche refreshes do not look up reserved names as network identities',async()=>{

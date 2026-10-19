@@ -21,6 +21,7 @@ export async function getAdNetworkApiVerification(path: string): Promise<{ reque
   const parent = checker ? "ad-network-checker" : "ad-networks";
   const visible = (await getPool().query<{is_published:boolean}>(
     "select is_published from public.stack127_pages where slug=$1", [parent])).rows[0]?.is_published;
+  if (!visible) return { requestPath: checker ? `${path}?domain=stack127.com` : path, expected: null };
 
   // Inspect a recently changed site rather than whichever domain sorts first.
   // Table requests use a published network, matching the handler's visibility rules.
@@ -29,17 +30,16 @@ export async function getAdNetworkApiVerification(path: string): Promise<{ reque
     from public.ad_network_publishers p join public.ad_network_publisher_relationships r on r.publisher_id=p.id
     join public.ad_networks n on n.id=r.ad_network_id
     where r.status in (${checker ? "'confirmed','stale','ended'" : "'confirmed','stale'"})
-      ${checker || !visible ? "" : "and exists(select 1 from public.stack127_pages page where page.slug='ad-networks/'||n.slug and page.is_published)"}
+      ${checker ? "" : "and exists(select 1 from public.stack127_pages page where page.slug='ad-networks/'||n.slug and page.is_published)"}
     order by greatest(p.updated_at,r.updated_at,n.updated_at) desc,p.normalized_domain,n.slug limit 1`)).rows[0];
   if (checker) {
     const domain=sample?.domain??"stack127.com";
     const requestPath=`${path}?${new URLSearchParams({domain})}`;
-    if (!visible) return {requestPath,expected:null};
     const site=await loadAdNetworkCheckerSite(domain);
     return {requestPath,expected:{domain,found:site!==null,site}};
   }
   const query=defaultAdNetworkSitesQuery(sample?.network??null);
   const params=new URLSearchParams();
   if (sample) {query.q=sample.domain.slice(0,100);params.set("network",sample.network);params.set("q",query.q);}
-  return {requestPath:params.size ? `${path}?${params}` : path,expected:visible ? await loadAdNetworkSites(query) : null};
+  return {requestPath:params.size ? `${path}?${params}` : path,expected:await loadAdNetworkSites(query)};
 }
