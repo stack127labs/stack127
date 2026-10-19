@@ -164,6 +164,10 @@ Everything above is legacy mode. In Cloudflare mode the worker dispatches a GitH
 
 When the function or its shared cache scripts change, the release deploys the function after the new app is live.
 
+#### After the database move
+
+The self-hosted Postgres on OVH has no Edge Functions, pg_cron, or pg_net. The same work runs as a Node job from cron on the OVH server: `scripts/stack127/cache/worker.mjs`, every minute, behind `flock`. It reuses the queue, the 150-second lease, the signing key in `public.stack127_cache_credentials`, the retry delays, the 15-minute reconcile, and the GitHub delay alert. It refuses to run while the Edge Function's wake URL, trigger, or cron job still exists, so it starts only after the switch SQL in `scripts/stack127/selfhost-db/switch/` has run. That folder's README lists the cron line, the environment file, and the switch order.
+
 ### Reliability gate
 
 `public.stack127_cache_observation` records how long the cache has run reliably without a break. These reset the clock:
