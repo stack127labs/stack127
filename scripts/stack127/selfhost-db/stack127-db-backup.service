@@ -7,6 +7,7 @@ ConditionPathExists=/srv/stack127-db/BACKUPS_ENABLED
 [Service]
 Type=oneshot
 User=root
+ExecStartPre=/usr/bin/install -d -m 700 -o ubuntu -g ubuntu /srv/stack127-db/backups
 ExecStart=/srv/stack127-db/backup.sh
 UMask=0077
 Nice=10

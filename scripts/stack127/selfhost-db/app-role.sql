@@ -22,6 +22,12 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO stack127_
 REVOKE INSERT, UPDATE, DELETE ON public.stack127_cache_credentials, public.stack127_cache_worker_wake FROM stack127_app;
 GRANT USAGE, SELECT, UPDATE ON ALL SEQUENCES IN SCHEMA public TO stack127_app;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO stack127_app;
+-- Migrations run as the restored object owner. Defaults cover object ACLs only:
+-- new tables still need enabled RLS and reviewed backend policies before use.
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public
+  GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO stack127_app;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public
+  GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO stack127_app;
 GRANT SELECT ON ALL TABLES IN SCHEMA supabase_migrations TO stack127_app;
 REVOKE CREATE ON SCHEMA public, extensions, supabase_migrations FROM stack127_app;
 -- The Node worker verifies retirement of the old scheduled wake. pg_cron hides

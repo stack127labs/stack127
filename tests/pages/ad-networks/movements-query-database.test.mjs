@@ -3,6 +3,8 @@ import test from 'node:test';
 import pg from 'pg';
 import {captureNetworkObservations,classifyNetworkArrivals} from '../../../scripts/ad-networks/movements.mjs';
 
+// CI does not set AD_NETWORKS_MOVEMENTS_TEST_DATABASE_URL, so this test is
+// opt-in and skips there. Run it explicitly against a disposable PostgreSQL DB.
 // Opt in to any disposable test connection. Both queries use ONLY transaction-local
 // temporary fixtures; no public data, observations, events or triggers are touched.
 const connectionString=process.env.AD_NETWORKS_MOVEMENTS_TEST_DATABASE_URL;

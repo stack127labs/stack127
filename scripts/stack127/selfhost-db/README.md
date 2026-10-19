@@ -95,7 +95,12 @@ perform migrations. The separate migration credential uses restored owner
 nine source memberships revoked and a five-connection limit. `migration-role.sql`
 reads its password privately from the process environment. Real Tailscale app reads,
 owner DDL with rollback, and CLI migration dry-run passed. Keep the app and migration
-URLs separate. The app also has SELECT-only access to the single retired cache-job
+URLs separate. Defaults for objects created by migration owner `postgres` grant
+public table DML and sequence USAGE/SELECT/UPDATE to the app. They do not enable
+RLS or create policies. New tables must enable RLS and include reviewed backend
+policies; re-run `app-role.sql` after migrations adding tables and check app access
+before builds/consumers use them. Prefer policy SQL in the migration because the
+automated release builds immediately after migration push. The app also has SELECT-only access to the single retired cache-job
 name in `cron.job`, through an explicit RLS policy, so the Node worker can detect
 legacy wiring without permission to schedule jobs. PUBLIC EXECUTE on cron
 functions is revoked on this isolated cluster; only the migration owner retains
@@ -106,7 +111,14 @@ Other image login passwords were cleared. Socket administration requires OS post
 
 - OVH: `stack127-db-backup.timer`, nightly **02:40 UTC**; writes custom-format
   `pg_dump` archives, matching `.dump.vault-key` and password-free `.dump.roles.sql`
-  files under `/srv/stack127-db/backups/`, mode 600. Seven complete bundles are
+  files under `/srv/stack127-db/backups/`, mode 600. The directory is explicitly
+  recreated as `ubuntu:ubuntu`, mode 0700, by both the script and service.
+  Before publishing a bundle, `check-backup.py` requires archived TABLE DATA
+  for `stack127_pages` and `ad_network_publishers`, at least one page and
+  1,000 publishers. These counts come from the archive snapshot. An empty/recreated
+  volume or undersized snapshot fails the service and cannot enter retention.
+  Review the publisher floor explicitly if intentionally shrinking that dataset.
+  Seven complete bundles are
   retained after a successful homelab copy.
 - Homelab: `stack127-db-backup-pull.timer`, nightly **03:10 UTC**; uses existing
   homelab-to-OVH SSH access to copy the bundles into
@@ -127,7 +139,9 @@ Other image login passwords were cleared. Socket administration requires OS post
   bundle was copied to homelab in **32.865s**, with exact byte equality and mode
   600 verified for all three files. Acceptance markers were removed afterward.
 - Inspect failures with `journalctl -u stack127-db-backup.service` on OVH and
-  `journalctl -u stack127-db-backup-pull.service` on homelab. Timers do not send alerts.
+  `journalctl -u stack127-db-backup-pull.service` on homelab. Backup/copy failures exit nonzero; the copy also fails when its newest bundle
+  is over 36 hours old, preserving retained archives. GitHub failure/freshness
+  notification delivery remains a follow-up; these units do not send issues yet.
 
 After the coordinator has restored and accepted data, enable on each host:
 
@@ -153,14 +167,43 @@ rows are imported. `prepare-target.sql` then preserves the extension schema and
 initdb public-schema baseline, while removing conflicting image helper functions.
 Do not run these over rehearsal or live data.
 
-The source application dump omits data for the four large ad-network tables,
-retains all other public data and migration history, and keeps owners/ACLs. Filter
-only SCHEMA creation entries for `public` and `extensions` out of its use-list,
-retaining their ACL/comment entries. Restore pre-data, then data, with
-`pg_restore --exit-on-error`. Clear `stack127_cache_worker_wake.function_url`
-before restoring post-data triggers. Apply `app-role.sql` and refill only from a
-consistent SQLite snapshot, with the guarded process-local target URL described
-in the plan. Never change the live collector env during rehearsal.
+The initial source application archive omits data for the four large ad-network
+tables, retains other public data and migration history, and keeps owners/ACLs.
+After the matching roles and pg_net SQL have been prepared, use the committed
+entry point on an **empty** OVH target:
+
+```sh
+/srv/stack127-db/restore-core.sh \
+  --archive /srv/stack127-db/rehearsal-reduced/source.dump \
+  --work-directory /srv/stack127-db/initial-restore-NEW \
+  --confirm stack127-empty-restore
+```
+
+Copy `restore-core.sh`, `restore-core.mjs`, `prepare-target.sql` and `app-role.sql`
+from this directory into `/srv/stack127-db/` together. The script requires the
+mode-0600 staged env file, a prepared PostgreSQL 17 target with pg_net 0.20.4 SQL
+installed, no HTTP preload, cron off, matching roles and no public tables. It
+compares `pg_control_system().system_identifier` through the app's loopback TCP
+connection with the selected container's Unix socket before any database mutation.
+It filters only the two conflicting SCHEMA creation entries, preserves ACL/owner
+entries, and restores pre-data/data/post-data with `--exit-on-error`. The wake URL
+is set NULL before post-data triggers. No roles/passwords are imported from the
+archive.
+
+It then applies app grants, rechecks target identity/isolation, creates a consistent
+snapshot through `snapshot-local.mjs`, and runs `sync.mjs` against that snapshot.
+The child receives only the target `DATABASE_POOLER_URL`, explicit production
+marker and a small OS environment allowlist. Alternate URLs, administrator/API
+credentials and Node injection options are excluded. Neither the live SQLite file
+nor `/srv/stack127-data/ad-networks.env` is edited. The private work directory
+contains stage logs, snapshot and measured timings. A failed restore is not
+retried over partially populated data; the operator must prepare a fresh target.
+
+For an isolated scratch test only, `--container stack127-db-rehearsal-scratch
+--loopback-host 127.0.0.2 --sqlite-source <synthetic-store>` selects the dedicated
+loopback test binding. The production invocation always uses 127.0.0.1:5432.
+The populated rehearsal target is refused. The final cutover keeps the frozen
+refill and uses `core-restore.py` below, rather than running this empty-target path.
 
 The separate observation-query optimization in commit `9ac15544` was tested and
 committed for later review; it was not copied into OVH's `/srv/stack127` checkout.
