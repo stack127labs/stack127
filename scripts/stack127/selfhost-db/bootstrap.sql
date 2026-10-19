@@ -22,5 +22,5 @@ ALTER ROLE stack127_app SET statement_timeout = '60s';
 ALTER ROLE stack127_app SET idle_in_transaction_session_timeout = '60s';
 CREATE EXTENSION IF NOT EXISTS pg_cron WITH SCHEMA pg_catalog;
 CREATE EXTENSION IF NOT EXISTS pg_trgm WITH SCHEMA extensions;
--- pg_net remains available but is not installed or preloaded before cutover.
--- The app role intentionally has no table or RLS bypass grants before migration.
+-- Install pg_net separately during empty-target preparation; keep its worker off.
+-- Apply app-role.sql after restore. Bootstrap grants no table access or RLS bypass.

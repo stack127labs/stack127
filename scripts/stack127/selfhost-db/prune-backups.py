@@ -15,11 +15,17 @@ for path in archives[7:]:
     if not re.fullmatch(r'stack127-[0-9]{8}T[0-9]+Z[.]dump', path.name):
         continue
     key = path.with_name(path.name + '.vault-key')
+    roles = path.with_name(path.name + '.roles.sql')
     if acknowledged.get(path.name) != path.stat().st_size:
         continue
     if not key.is_file() or key.stat().st_size != 64:
         continue
+    if not roles.is_file() or roles.stat().st_size == 0:
+        continue
+    if acknowledged.get(key.name) != key.stat().st_size or acknowledged.get(roles.name) != roles.stat().st_size:
+        continue
     path.unlink()
     key.unlink()
+    roles.unlink()
     removed += 1
-print(f'Pruned {removed} copied OVH archive pairs.')
+print(f'Pruned {removed} copied OVH backup bundles.')

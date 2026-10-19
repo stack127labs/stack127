@@ -1,8 +1,9 @@
 # Isolated stack127 database on OVH
 
-This is an empty migration destination, not the current application database.
-Managed Supabase and the website are unchanged. No managed-production dump was run.
-Supabase image bootstrap schemas exist; there are no application tables in `public`.
+This is the isolated migration rehearsal database. It contains a reduced production
+application copy and a refill from a consistent OVH SQLite snapshot. Managed Supabase
+and the website still use their existing configuration. See measured results and
+the final-copy procedure in `dev-space/self-hosted-database-plan.md`, section 4.
 
 ## Service and access
 
@@ -19,12 +20,17 @@ Supabase image bootstrap schemas exist; there are no application tables in `publ
   configuration. A one-time `docker service update --network-add stack127-db-private
   app-navigate-1080p-matrix-3pmfy6` also attaches it, but can be lost at redeploy.
   The website was not changed or attached during setup.
-- PostgreSQL TLS is off inside the encrypted overlay / local loopback. External access
-  and its authentication/TLS method remain the owner's decision.
+- PostgreSQL TLS is off inside the encrypted overlay / local loopback. The owner
+  selected Tailscale for remote access, hostname `ovh-stack127`. Enrollment, a
+  tailnet-only listener, HBA and tailnet ACLs remain a separate cutover step.
+  The current configuration still publishes loopback only.
 
 Memory is capped at 2 GiB, with 512 MiB shared buffers, 4 MiB work memory,
 60 connections, two parallel workers, checksums, fsync and synchronous commits.
-Idle memory was 75.53 MiB after container recreation and the backup check; measure with
+Initial empty idle memory was 75.53 MiB after container recreation and the backup check.
+After refill and backup, warm idle memory was **613.5 MiB** (Docker), with an
+observed cgroup peak of **1.562 GiB**, including charged file cache.
+Measure with
 `sudo docker stats --no-stream stack127-db`.
 
 ## Compatibility and credentials
@@ -38,7 +44,7 @@ Source settings include logical WAL, 60 connections, 224 MiB shared buffers,
 | Extension | Production | Destination |
 | --- | --- | --- |
 | pg_cron | 1.6.4 | 1.6.4 installed; jobs disabled |
-| pg_net | 0.20.3 | 0.20.4 available; not installed or preloaded |
+| pg_net | 0.20.3 | 0.20.4 installed; worker not preloaded |
 | pg_stat_statements | 1.11 | 1.11 installed |
 | pg_trgm | 1.6 | 1.6 installed |
 | pgcrypto | 1.3 | 1.3 installed |
@@ -47,8 +53,10 @@ Source settings include logical WAL, 60 connections, 224 MiB shared buffers,
 | uuid-ossp | 1.1 | 1.1 installed |
 
 The official Supabase image matches the Postgres minor version and supplies the
-extensions and baseline roles. Its newer pg_net package needs a restore rehearsal;
-0.20.3 cannot be installed from this image. Do not assume extension parity.
+extensions and baseline roles. Its pg_net 0.20.3 → 0.20.4 upgrade script has no SQL
+changes. Installation and
+restoration were rehearsed with HTTP processing disabled. All eight extension
+inventory entries matched the source, with only that reviewed patch difference.
 
 All 16 source non-system roles exist with matching source attributes:
 `anon`, `authenticated`, `authenticator`, `dashboard_user`, `pgbouncer`, `postgres`,
@@ -56,8 +64,8 @@ All 16 source non-system roles exist with matching source attributes:
 `supabase_functions_admin`, `supabase_privileged_role`, `supabase_read_only_user`,
 `supabase_realtime_admin`, `supabase_replication_admin`, `supabase_storage_admin`.
 The functions and realtime roles were added explicitly because the image does not
-start those services. Source memberships and per-role settings still need review
-as part of the coordinator's restore, rather than copying managed login passwords.
+start those services. All 21 source memberships and per-role settings were
+verified before application grants. Managed login passwords were not copied.
 
 Credentials were generated on homelab in `/srv/data/projects/stack127/.env.selfhost-db`
 (owner `teja`, mode 600), then copied directly to `/srv/stack127-db/.env`
@@ -65,24 +73,38 @@ Credentials were generated on homelab in `/srv/data/projects/stack127/.env.selfh
 `STACK127_APP_PASSWORD`, connection metadata and `SELFHOST_*` connection URLs.
 No credential values belong in Git. These names do not change the running app's URL.
 `supabase_admin` is the superuser. `stack127_app` is a separate login with no
-superuser, role creation, replication or RLS bypass rights and no table grants yet.
+superuser, database/role creation, replication or RLS bypass rights. `app-role.sql`
+grants public DML, sequence access, function execution and migration-history reads
+through 38 explicit backend RLS policies. The seven source policies and object
+owners are preserved. Signing credentials and wake configuration are directly
+readable but writable only by the admin. The app cannot create schema objects or
+perform migrations; use the separate admin credential for reviewed DDL.
 Other image login passwords were cleared. Socket administration requires OS postgres.
 
 ## Backups
 
 - OVH: `stack127-db-backup.timer`, nightly **02:40 UTC**; writes custom-format
-  `pg_dump` archives and matching `.dump.vault-key` files under
-  `/srv/stack127-db/backups/`, retaining seven pairs after a successful homelab copy, mode 600.
+  `pg_dump` archives, matching `.dump.vault-key` and password-free `.dump.roles.sql`
+  files under `/srv/stack127-db/backups/`, mode 600. Seven complete bundles are
+  retained after a successful homelab copy.
 - Homelab: `stack127-db-backup-pull.timer`, nightly **03:10 UTC**; uses existing
-  homelab-to-OVH SSH access to copy the pairs into
-  `/srv/data/backups/stack127-db/archives/`, retaining seven pairs.
+  homelab-to-OVH SSH access to copy the bundles into
+  `/srv/data/backups/stack127-db/archives/`, retaining seven bundles.
   OVH does not have a homelab SSH route or key, so homelab pulls the files.
-  Only copied archive/key pairs are pruned on OVH; a failed copy can leave more
-  than seven local pairs until the next successful pull.
+  Only complete copied dump/key/roles bundles are pruned on OVH; a failed copy
+  can leave more than seven local bundles until the next successful pull. The pull
+  rejects a latest archive older than 36 hours.
 - Both timers are installed, **disabled and inactive**. Both scripts also require
   marker files. A missing marker makes a manual invocation harmless.
-- One empty-database archive was dumped, checked with `pg_restore --list`, and
-  copied to homelab. No managed Supabase data has been backed up or copied.
+- Role exports omit password hashes. During recovery, set the new admin/app login
+  credentials privately from homelab's protected env file before reconnecting
+  consumers; the role SQL alone does not restore login passwords.
+- A populated **70,428,235-byte** backup was restored into an isolated scratch
+  container: backup **15.145s**, restore **47.385s**, complete successful recovery
+  **67.786s**. All table counts, migrations, sequences, grants/RLS, functions,
+  triggers and both keys matched. Scratch resources were removed. The complete
+  bundle was copied to homelab in **32.865s**, with exact byte equality and mode
+  600 verified for all three files. Acceptance markers were removed afterward.
 - Inspect failures with `journalctl -u stack127-db-backup.service` on OVH and
   `journalctl -u stack127-db-backup-pull.service` on homelab. Timers do not send alerts.
 
@@ -97,11 +119,31 @@ touch /srv/data/backups/stack127-db/PULL_ENABLED
 sudo systemctl enable --now stack127-db-backup-pull.timer
 ```
 
-Before cutover, grant the app its reviewed table privileges and settle extension
-restore behavior. Keep `cron.launch_active_jobs=off` and pg_net out of preloads
+Keep `cron.launch_active_jobs=off` and pg_net out of preloads
 until it is safe to run copied jobs and HTTP requests. Existing managed Vault
 ciphertext requires its original key or a deliberate decrypt/re-encrypt migration;
-the new local key cannot decrypt it. Keep each backup's root key with its dump.
+the new local key cannot decrypt it. Keep each backup's root key and password-free role export with its dump.
+
+## Empty-target preparation and restore
+
+`install-pgnet.py` refuses a populated target. On an empty destination it temporarily
+preloads pg_net, installs 0.20.4 and removes the preload again before application
+rows are imported. `prepare-target.sql` then preserves the extension schema and
+initdb public-schema baseline, while removing conflicting image helper functions.
+Do not run these over rehearsal or live data.
+
+The source application dump omits data for the four large ad-network tables,
+retains all other public data and migration history, and keeps owners/ACLs. Filter
+only SCHEMA creation entries for `public` and `extensions` out of its use-list,
+retaining their ACL/comment entries. Restore pre-data, then data, with
+`pg_restore --exit-on-error`. Clear `stack127_cache_worker_wake.function_url`
+before restoring post-data triggers. Apply `app-role.sql` and refill only from a
+consistent SQLite snapshot, with the guarded process-local target URL described
+in the plan. Never change the live collector env during rehearsal.
+
+The separate observation-query optimization in commit `9ac15544` was tested and
+committed for later review; it was not copied into OVH's `/srv/stack127` checkout.
+The measured rehearsal refill uses the existing deployed query.
 
 The private overlay and external config volume are created once before first startup:
 `sudo docker network create --driver overlay --attachable --opt encrypted stack127-db-private`

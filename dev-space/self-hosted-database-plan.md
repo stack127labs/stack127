@@ -1,8 +1,8 @@
 # Production database move to OVH
 
-Working plan for 19 October 2026. This agent ran read-only checks and wrote only this plan. The owner has chosen self-hosted production Postgres. Managed development stays unchanged.
+Working plan and measured rehearsal for 19 October 2026. The owner has chosen self-hosted production Postgres. Managed development stays unchanged. The application still uses managed Supabase; the isolated OVH target contains rehearsal data only.
 
-Build and rehearse beside the current Supabase project. Switch production consumers together during one write freeze. Keep Supabase running for rollback and, unless the owner chooses a separate media move, for existing Storage objects.
+Build and rehearse beside the current Supabase project. Switch production consumers together during one write freeze. Keep Supabase running for rollback and existing Storage objects; the owner chose to retain Storage.
 
 ## 1. Verified production inventory
 
@@ -108,7 +108,7 @@ OVH inspection: 7,746 MiB RAM, 4,963 MiB available, 53 GiB disk free; existing s
 
 Keep the worker's initial settings in `scripts/stack127/selfhost-db/{compose.yaml,postgresql.conf}`: 2 GiB memory cap, 2 CPUs, `shared_buffers=512MB`, `effective_cache_size=1536MB` (a planner estimate), `work_mem=4MB`, `maintenance_work_mem=128MB`, `max_connections=60`, `max_parallel_workers_per_gather=1`, `max_wal_size=1GB`, and 512 MiB container shared memory. Keep autovacuum and durability on. Measure peak host/container memory during restore and a collector run before increasing the cap.
 
-The setup worker has prepared `scripts/stack127/selfhost-db/{backup.sh,pull-backups.sh}` and matching systemd units: OVH dump at 02:40 UTC into `/srv/stack127-db/backups/`, homelab pull at 03:10 UTC into `/srv/data/backups/stack127-db/archives/`. Keep seven daily dump/key pairs on each host and retain the cutover dump separately. Timers/marker guards remain disabled pending acceptance. Include the matching `.dump.vault-key`, and add a roles export without password hashes plus failure/freshness alerts; current scripts do not include those. Target recovery point: up to 24 hours; shorter recovery needs WAL archiving later.
+The setup worker has prepared `scripts/stack127/selfhost-db/{backup.sh,pull-backups.sh}` and matching systemd units: OVH dump at 02:40 UTC into `/srv/stack127-db/backups/`, homelab pull at 03:10 UTC into `/srv/data/backups/stack127-db/archives/`. Keep seven daily dump/key/roles bundles on each host and retain the cutover dump separately. Timers/marker guards remain disabled pending acceptance. The scripts now include matching `.dump.vault-key` and `.dump.roles.sql` files, with `--no-role-passwords`; retention requires a complete copy of all three files. The pull refuses a latest backup over 36 hours old. Failure/freshness alert delivery remains to be connected. Target recovery point: up to 24 hours; shorter recovery needs WAL archiving later.
 
 Restore practice: create a separate empty PostgreSQL 17 database/container, install matching extensions/roles, restore the dump with errors fatal, validate counts and migrations, then run a SQL-backed smoke check. Never test a restore over the live database. Restore the target's matching Vault root key from its private backup as well. Source Vault has zero secrets; its original root key must not be assumed to match OVH's new key. Measure recovery time in the rehearsal.
 
@@ -132,73 +132,102 @@ At the switch, unschedule the old `stack127-cache-worker` cron job, clear its wa
 
 ## 4. Test copy, final copy and validation
 
-### Measured rehearsal attempt, 19 October 2026
+### Measured two-part rehearsal, 19 October 2026
 
-**Blocked: the single authorized source dump was stopped after source responsiveness degraded. No complete application archive or rehearsal restore exists.** Production settings, secrets, env values and data were unchanged. The target still has zero public application tables, is healthy, and has cron off and pg_net absent from preloads. Supabase Storage stays in place.
+The reduced source archive and core restore completed. The target is isolated from production consumers: cron is off, pg_net is not preloaded, and the copied HTTP wake URL is NULL. Supabase settings, data, secrets and live connection files were unchanged. Storage stays on Supabase.
 
-The attempt ran from homelab with official `postgres:17` client tools, PostgreSQL 17.11. It used a mode-0600 libpq service file and password file, a serial custom-format dump of `public`, `extensions` and `supabase_migrations`, compression level 6, large objects, owners and ACLs retained. A separate read-only repeatable-read transaction exported the snapshot for the dump and subsequent validation. Counts were scheduled after the dump, so no broad count scan ran alongside it.
+The original full application dump was stopped after source responsiveness degraded: 13,287,424 incomplete bytes after about 400 seconds. Its private `source.dump.partial` remains unusable under homelab `rehearsal-20261019/`. The coordinator then authorized exactly one reduced retry, excluding data for four large, SQLite-derived tables. That retry is the archive used below; there was no additional source dump.
 
-Measured results:
+| Stage | Measured result |
+| --- | --- |
+| Reduced serial source dump | **15,614,963 bytes (14.892 MiB), 1,368.992 seconds (22m 49s)** |
+| Password-free roles export | **5,526 bytes** |
+| Empty-target pg_net installation and worker shutdown | **13.177 seconds** |
+| Core restore: pre-data / data / post-data | **0.540 / 4.839 / 1.538 seconds** |
+| Restore helper total, including preparation and wake neutralisation | **7.718 seconds** |
+| Consistent OVH SQLite snapshot | **840,163,328 bytes, 6.475 seconds** |
+| SQLite refill with the existing deployed query | **3,598.758 seconds (59m 58.8s)**; no restart or deployed query change |
+| Target `stack127_cache_source_revisions()` | **5,534 complete rows: 2,450.890 ms cold / 1,899.486 ms warm** |
+| Populated-target backup and scratch restore drill | **70,428,235 bytes; backup 15.145s; scratch restore 47.385s; successful recovery run 67.786s** |
+| Target memory after rehearsal / observed peak | **613.5 MiB warm idle** (Docker); **1,676,980,224 bytes (1.562 GiB) cgroup peak**, including charged file cache |
 
-- Password-free roles export completed: **5,526 bytes**.
-- The archive file was created at **13:03:48.170 UTC**. The client finished after cancellation at **13:10:26.593 UTC**: **398.424 seconds** of archive-file lifetime, about **400 seconds** including client/snapshot setup. This is an aborted attempt duration, not a completed dump time.
-- Incomplete compressed output: **13,287,424 bytes (12.671875 MiB)**. It remains named `source.dump.partial`, not a usable backup.
-- An early lightweight source activity query completed in **2.086 seconds**. During the slowdown, the COPY-progress query hit the helper's 120-second query timeout and a separate five-second connection/`SELECT 1` probe timed out. The dump was stopped under the owner's instruction to avoid hurting production; these checks do not prove the specific cause of the slowdown.
-- After cancellation, a fresh source connection and `SELECT 1` completed in **1.337 seconds**. The dump container exited, the snapshot transaction rolled back and closed, and both temporary libpq credential files were deleted. No second source dump was attempted.
+Source tools ran from official `postgres:17`, client **17.11**, on homelab. They used mode-0600 libpq service/password files, a read-only exported snapshot, a serial custom-format archive with compression level 6, and retained owners, ACLs and large objects. Credential files were removed and the snapshot transaction closed after the dump. A post-dump source count query timed out; the exact dump-snapshot counts and row comparisons therefore come from parsing the archive's COPY records offline, without another source table scan.
 
-Private artifacts are on homelab under `/srv/data/backups/stack127-db/rehearsal-20261019/`, directory mode 0700 and file modes 0600: `roles.sql`, the incomplete archive, client logs and attempt measurements. Do not restore or promote the partial archive. The source-copy helper and its one-attempt marker prevent an accidental retry in that directory.
+Private archives and inventory stay in `/srv/data/backups/stack127-db/rehearsal-20261019-reduced/` on homelab and `/srv/stack127-db/rehearsal-reduced/` on OVH (directories 0700, files 0600). They contain the signing-key row and must not enter Git or ordinary logs.
 
-The installed pg_net upgrade script from 0.20.3 to 0.20.4 explicitly contains **no SQL changes**. The intended restore therefore installs 0.20.4 with processing still disabled, then verifies the existing wake function's signatures. Installation and functional compatibility remain untested because restoration did not start. Clear `stack127_cache_worker_wake.function_url` after the data phase and before installing application triggers in the post-data phase; keep cron disabled throughout.
+### Repeat this two-part copy for cutover
 
-Privilege choice prepared for the next successful restore: retain `stack127_app` as **NOSUPERUSER, NOCREATEDB, NOCREATEROLE, NOREPLICATION, NOBYPASSRLS**, without owner-role membership. Grant public-schema DML, required sequence access and public-function execution, plus read-only migration-history access. Add explicit backend RLS policies only to the copied public tables, retaining their existing owners and policies. Direct writes to the signing credential and wake configuration remain admin-only. This supplies trusted application/data-job access without a cluster-wide RLS bypass or schema-migration privileges. Schema migrations use the separate admin credential; new tables need reviewed grants and backend policies. **This choice was not applied:** the target app login still has CONNECT only.
-
-Exact table counts, all 219 migration rows and statements, sequence values, function/trigger/constraint/index definitions, ACL/RLS preservation, signing-key equality, target source-revision timing and the populated-target backup/restore drill are **not validated**. A new source attempt needs coordinator scheduling and authorization after source responsiveness is acceptable; do not reuse this interrupted archive. The final-copy window cannot yet be estimated from a successful rehearsal.
-
-### Rehearsal now
-
-Do one serial dump from homelab using PostgreSQL 17 client tools and the source's direct or **session** connection, not transaction pooling. Resolve credentials privately into a 0600 libpq service/password file; do not put URLs in command output or shell tracing.
-
-Example application-copy artifacts, with service names as placeholders:
+Use the source's direct or **session** endpoint, never transaction pooling. Resolve the existing credentials privately; service names below are placeholders.
 
 ```sh
 umask 077
 pg_dumpall --database=service=stack127_source --roles-only --no-role-passwords --file=roles.sql
-pg_dump --dbname=service=stack127_source --format=custom --compress=6 --lock-wait-timeout=10s --schema=public --schema=extensions --schema=supabase_migrations --large-objects --file=stack127-test.dump
+pg_dump --dbname=service=stack127_source --format=custom --compress=6 \
+  --lock-wait-timeout=10s --schema=public --schema=extensions \
+  --schema=supabase_migrations --large-objects \
+  --exclude-table-data=public.ad_network_publishers \
+  --exclude-table-data=public.ad_network_publisher_relationships \
+  --exclude-table-data=public.ad_network_relationship_events \
+  --exclude-table-data=public.ad_network_check_observations \
+  --file=stack127-final.dump
 ```
 
-Do not pass `--no-owner` or `--no-acl`: keep ownership, grants, RLS, functions, triggers and sequences. Roles are a separate export; extension binaries and compatible versions must already exist. Schema-limited dumps do not pull in outside dependencies automatically. Check the restore manifest against the eight extensions and required roles. [PostgreSQL dump behavior](https://www.postgresql.org/docs/17/app-pgdump.html), [roles export](https://www.postgresql.org/docs/17/app-pg-dumpall.html).
+Keep those four tables' schema, and retain all small-table data, including `ad_networks` and `ad_network_daily_counts`. Do not add `--no-owner` or `--no-acl`. Roles are exported separately without passwords. Managed Auth, Storage metadata/services and platform logs stay outside the application copy; no full-source recovery export was authorized in this rehearsal. [PostgreSQL dump behavior](https://www.postgresql.org/docs/17/app-pgdump.html), [roles export](https://www.postgresql.org/docs/17/app-pg-dumpall.html).
 
-This moves application data and the complete migration history; it deliberately leaves managed Auth, Storage metadata/services and platform logs on Supabase. Keep a full logical recovery export as well if source permissions allow, without overwriting the target's image-managed platform schemas. If roles export is denied by managed permissions, reproduce the required non-secret role attributes/memberships from catalog inventory and the image baseline; never omit them silently.
+Prepare an **empty** target with the pinned image and existing 16 source roles. Source role attributes/settings and all 21 memberships matched. The source uses pg_net 0.20.3; the image supplies **0.20.4**, whose packaged upgrade script explicitly has **no SQL changes**. `scripts/stack127/selfhost-db/install-pgnet.py` temporarily preloads pg_net only on an empty target, installs 0.20.4, then removes the preload and restarts before application data is imported. Keep `cron.launch_active_jobs=off` throughout. HTTP signatures, extension schema and the wake function then restore unchanged; the HTTP worker remains absent.
 
-The worker has created the 16 source roles and a new `stack127_app` login, but memberships/settings still need review. **`stack127_app` currently has CONNECT only, no table grants and no RLS bypass. It cannot serve the site yet.** Grant required table/schema/sequence privileges and explicit trusted-backend RLS policies before testing; any BYPASSRLS alternative needs a deliberate privilege review. Keep source ownership and policies intact, and use new login credentials. Do not replay source login passwords or blindly promote platform roles. Restore into a clean target, with `pg_restore --exit-on-error`; restore schema, data and post-data in order. The chosen image has `pg_net` 0.20.4 available, not source 0.20.3; it is intentionally not installed/preloaded, and `cron.launch_active_jobs=off`. Rehearse installing compatible `pg_net` definitions with processing disabled, or remove the obsolete wake function dependency through reviewed target preparation. Do not treat extension restore as solved. Dump/restore across architectures is required; a physical data-directory copy is unsuitable.
+Run `prepare-target.sql` only on that empty target. It preserves extension-owned objects and initdb's special public-schema baseline, including PUBLIC USAGE. Filter only `SCHEMA - public` and `SCHEMA - extensions` creation entries out of the archive use-list; retain their comments/ACLs and restored helper functions. Restore pre-data and data with **`pg_restore --exit-on-error`**, set `public.stack127_cache_worker_wake.function_url=NULL`, then restore post-data with errors fatal. Neutralising the URL between data and post-data prevents ordinary copied triggers from waking the old Edge Function during later test writes. Do not restore source cron jobs or HTTP queues.
 
-Only one source dump at a time, no parallel dump, no concurrent heavy collection or source-wide exact-count sweeps. It reads the application data once and holds a consistent snapshot; the throttled source may make it slow. A long snapshot can retain dead rows, so watch it and stop if source pressure worsens. Archive size and duration are **not measured by this research**; 709.2 MiB is database disk size, not dump size. Record compressed bytes and elapsed dump/restore time during the test; reserve at least 5 GiB working space.
+After the core restore, use `app-role.sql`, then make a consistent SQLite snapshot **through `scripts/ad-networks/snapshot-local.mjs --output <private-snapshot>`**. Never point the refill at the live SQLite file. From `/srv/stack127` run:
 
-Validate the restored database:
+```sh
+node --experimental-strip-types scripts/ad-networks/sync.mjs \
+  --sqlite <private-snapshot> --environment production \
+  --confirm stack127-production --apply
+```
 
-1. Compare exact per-table row counts from the same source snapshot, plus sequence next values, primary/foreign keys, index validity, functions, triggers, grants and RLS. Reuse a `pg_export_snapshot()` / `pg_dump --snapshot` snapshot for counts if writes continue; otherwise label count differences caused by later writes. Avoid a second broad source scan today if it worsens throttling.
-2. Compare all 219 migration rows including statements, and confirm latest version matches the repo. Do not replay historical data migrations into the populated clone. Use a migration dry-run to check pending work.
-3. Compare the copied registry, page publication/indexing counts, directory facts, cache signing-key equality privately, and ad-network source revision tokens. Test trigram search and source fingerprints.
-4. Run trusted GitHub CI/build against staged target credentials, with production REST fallback disabled. Do not replace shared live secrets for this test: use an isolated workflow/job environment. Preview without dispatching publication or acknowledging the production queue. Rehearse the actual runner and BuildKit network paths.
-5. Start an isolated app against the clone. Run SQL-backed directory/search and RDAP checks, page/404 checks, and representative image loads. Test the Node worker and its lease/retry behavior without changing the live frontend. A successful deployment health endpoint is not proof of SQL reads.
-6. Complete one backup/restore drill. Reset the rehearsal target before the final copy so stale rehearsal rows cannot survive.
+The wrapper must set `AD_NETWORKS_RUNTIME_ENVIRONMENT=production` and `DATABASE_POOLER_URL` **only in that child process**, to `stack127_app` on **127.0.0.1:5432/postgres**. Remove inherited alternate database URLs and administrator credentials from the child. Assert the URL host, port, database and login, then match `pg_control_system().system_identifier` through target TCP administration against `docker exec stack127-db` before any sync. Also assert cron off, pg_net absent from preloads and wake NULL. The rehearsal passed these checks. `/srv/stack127-data/ad-networks.env` was never edited; the paused collectors remain paused.
+
+The snapshot contains **107,146 reviewed publishers and 114,284 reviewed relationships**, consistent with production's approximate catalog statistics of 106k and 114k. The completed target has exactly **107,146 publishers, 114,284 relationships, 114,587 rebuilt relationship events and 106,453 observations**. All 44 network rows and 44 daily-count rows remain. The snapshot and target both have **85,810 non-null niche labels**. The sync reported zero new arrivals; it seeded baseline/history from the reviewed relationship dates.
+
+**Movement-history limit:** a fresh `sync.mjs` seeds baseline events and derives current observations from SQLite checks. It does not replay any PostgreSQL-only historical joined/left events from the excluded event table. Existing small daily-count rows are retained, and today's snapshot may be updated by the normal sync. The rehearsal proves the SQLite rebuild, not exact equality to the four excluded source payloads. Before final cutover, accept rebuilding that baseline or separately preserve any source-only history and niche labels that must survive; do not infer their absence from catalog statistics.
+
+A separate reviewed change, commit `9ac15544`, materializes observation cohorts and their event history. Two real 500-row SELECT comparisons were identical: **5.741 → 1.232 seconds** and **5.589 → 0.994 seconds**. Its temporary-fixture PostgreSQL test passed, the ad-network suite passed **154 tests** (two existing opt-in tests skipped), and `npm run quality` passed typecheck and **80 core tests**. **It was not deployed to OVH, and the running refill was not restarted.** The refill timing above therefore measures the existing query. Do not project those batch improvements into an unmeasured full refill time.
+
+### Privileges and database validation
+
+Source `postgres` owns application objects and has BYPASSRLS. `stack127_app` instead remains **NOSUPERUSER, NOCREATEDB, NOCREATEROLE, NOREPLICATION, NOBYPASSRLS**, without owner/admin/service-role membership. It has schema USAGE, public DML, sequence USAGE/SELECT/UPDATE, public-function EXECUTE and read-only migration history. **38 explicit `stack127_backend_access` policies** give this trusted backend access through RLS; the seven original policies and source owners remain. Direct writes to signing credentials and HTTP wake configuration are revoked; those two tables have SELECT-only backend policies. This provides application/job access without a cluster-wide RLS bypass or DDL rights. Schema migrations require the separate admin credential; future tables require reviewed grants and backend policies. Real app-login reads and a rolled-back worker-state UPDATE passed. Direct credential UPDATE and schema CREATE were denied with 42501; all eight checked elevation/membership/create flags were false.
+
+Before applying backend grants or refilling, validation proved:
+
+- Exact COPY row counts and unordered row-value multisets for **34 copied public tables, 54,306 rows**, plus **all 219 migration rows including statements**. The only intentional copied-data difference was the NULL wake URL. Registry, publication and directory rows are covered by these comparisons.
+- All **43 public relation objects** (38 tables and five sequences), **241 constraints**, **119 indexes**, **50 functions**, **107 triggers**, **seven original policies**, schema ownership and semantic ACLs matched the source inventory. All five sequence `last_value`/`is_called` states matched the archive before refill; derived-table sequences advance normally during refill.
+- The **one cache signing-key row** matched the dump privately. No key or credential value was printed. All eight extension identities/schemas matched, allowing only the reviewed pg_net patch difference.
+
+After refill, all **38/38 public tables still have RLS**, all **38 backend policies** are present, no index is invalid, trigram similarity works, and the signing-key row still matches. There are **zero active cron jobs, zero queued HTTP requests, no wake URL and no pg_net preload**. Normal refill triggers increased `stack127_revalidation_events` from **88 to 118** rows; every other copied-table row count stayed unchanged. Both complete source-revision runs returned 5,534 valid fingerprints; fingerprint values were not printed.
+
+The populated target backup is **70,428,235 bytes**, with its **64-byte Vault root key** and **5,846-byte password-free roles export**. A separate PostgreSQL 17.6 scratch container used the same pinned image, no network, no published ports, its own two temporary volumes and a 1.5 GiB cap. Roles and pg_net SQL were prepared before restoration, and the HTTP worker was removed before application rows were imported. `pg_restore --exit-on-error` finished in **47.385 seconds**; complete successful recovery, including startup, all comparisons and cleanup, took **67.786 seconds**. Adding the original backup gives **82.931 seconds** on the successful path. All 38 table counts, all migration statements, constraints/indexes/functions/triggers, semantic grants, policies, schema ownership, five sequence states, signing-key and Vault-key equality, app RLS access and disabled wake/cron matched. Scratch memory peaked at **1,446,944,768 bytes (1.348 GiB)**. The scratch container and both volumes were deleted. Initial scratch startup needed an explicit readable empty init directory; the validator also needed ACL member order normalisation. Neither correction changed the rehearsal database or required another dump. Homelab received the complete bundle in **32.865 seconds**; all three files matched OVH byte for byte, had mode 0600, and the roles export contained no passwords. Only the known obsolete empty-bootstrap smoke pairs were removed. Both scheduled timers remain **disabled/inactive**, and both marker files are absent; the manual rehearsal did not enable recurring backups. Failure alert delivery is still a cutover prerequisite.
+
+The release workflow currently feeds the shared database URL into `supabase db push` (`.github/workflows/stack127-release-e2e.yml`). Before cutover, give that migration step a separate protected admin credential; app/build/data-job URLs continue to use `stack127_app`. Leaving the migration step on the restricted app URL would fail. No workflow or live secret was changed during rehearsal.
 
 ### Final copy and write freeze
 
-The rehearsal determines the window: final dump + restore/indexes + validation + app restart. Target **15 to 30 minutes** only if the measured rehearsal supports it; otherwise book the measured time plus a margin before starting. Do not promise a short window on an IO-throttled source.
+Use the measured dump, refill and validation times plus an operating margin to book the freeze. The reduced dump alone took nearly **23 minutes**; do not promise a 15-minute cutover. The measured source dump + snapshot + core restore + existing-code refill total **4,981.944 seconds (83m 02s)** before validation and consumer restarts. Allow an operating margin beyond that; roughly **100 minutes** is a planning allowance for this measured path, not a guarantee on the throttled source. A shorter window needs a complete refill rehearsal after the query fix is reviewed and released.
 
 Freeze publication/import/enrichment writes, migrations/releases, OVH collectors, homelab niche sorting, both cache processors and GitHub queue acknowledgements. Pause the 13 connecting workflows and drain running jobs; the shared release concurrency group does not cover every writer. Temporarily make the app's old SQL sessions read-only, or block the RDAP write route, then restart/drain old sessions. Freeze media uploads if keeping a full recovery snapshot.
 
-Keep public static pages available. Drain source writes, record the freeze time, then take a **fresh** serial dump and source counts while frozen. Restore into the clean OVH target with the rehearsed role/extension setup. Disable copied HTTP wake configuration again before allowing writes. Do not rerun source migrations or modify source data to make the test pass.
+Keep static public pages available. Drain writes and record the freeze time, then take a **fresh reduced serial dump and fresh consistent SQLite snapshot**. Restore into a clean target, repeat the process-local guarded SQLite refill, and validate with archive-derived exact counts for copied tables plus SQLite-derived expectations for the four rebuilt tables. Preserve the final dump separately. Clear the copied HTTP wake URL before triggers/test writes. Do not modify source data or replay historical migrations to make the test pass.
+
+Database rehearsal does not complete CI/app acceptance. The coordinator still needs the actual GitHub runner and BuildKit network paths, production SQL-only fallback behavior, isolated website/API/search/RDAP and image checks, migration dry-run, and Node-worker lease/retry/dispatch checks. Use staged credentials for these tests, without replacing live secrets or acknowledging the production queue. Tailscale listener/HBA/ACL delivery, backup alerts and owner acceptance of the freeze/recovery gap remain cutover prerequisites.
 
 ## 5. One-go switch checklist
 
 Only the coordinator applies this checklist after owner release authorization and Sol review. Updating many surfaces is not atomic; the write freeze and paused processes make it one controlled switch.
 
-1. **Prepare privately.** Resolve the target app-role/RLS grants, `pg_net` restore difference, Tailscale binding/HBA access and backup alerts/roles export described above. Keep the old URLs, runtime configuration, worker wake configuration/schedule and rollback code/image available. Stage new target credentials for Docker, local host, tailnet and CI. Confirm extension/role compatibility, Node worker handoff, backup restore and no public database listener.
+1. **Prepare privately.** Retain the rehearsed app-role/RLS grants, pg_net preparation and complete backup bundles. Finish Tailscale binding/HBA access and backup alerts described above. Keep the old URLs, runtime configuration, worker wake configuration/schedule and rollback code/image available. Stage new target credentials for Docker, local host, tailnet and CI. Confirm extension/role compatibility, Node worker handoff, backup restore and no public database listener.
 2. **Ship prerequisites while still on Supabase.** Add private networking to all database workflow jobs, disable production REST fallback, and replace the automatic Edge Function deploy step with the reviewed Node-worker delivery process. Preserve Supabase Storage config and development behavior. Rehearse CI against OVH separately.
 3. **Enter the freeze above.** Stop/drain OVH jobs, pause `stack127-ad-network-niche.timer`, connecting Actions/manual runs and cache processing. Unschedule/disable Supabase wake and the Edge Function. Wait out the existing 150-second lease/in-flight work; prevent new invocations. Confirm no relevant write transaction remains.
-4. **Copy and validate.** Take the final archive, restore fresh, compare counts/migration history/permissions and signing key, and ensure the target has no old HTTP wake or active copied cron job.
+4. **Copy and validate.** Take the final reduced archive plus SQLite snapshot, restore fresh, run the guarded SQLite refill, compare copied and rebuilt counts/migration history/permissions and signing key, and ensure the target has no old HTTP wake or active copied cron job.
 5. **Change all connection surfaces before resuming anything.** Homelab `.env.database`: both URLs; GitHub repository secrets: both URLs; saved Dokploy website env: `DATABASE_URL`; OVH `/srv/stack127-data/ad-networks.env`: `DATABASE_POOLER_URL`; new OVH Node worker env: its SQL URL and required worker config. Keep `SUPABASE_URL` / API keys/project ref only for the old Storage/admin scope. Check no production environment override still points at the source.
 6. **Refresh consumers.** Wait for env mirrors, verify each Mac/homelab checkout resolves OVH, and restart the website, niche/manual processes and worker connections. Keep scheduled writers paused. Verify real reads independently from the website container, OVH host, homelab, a Mac and a GitHub runner.
 7. **Verify the site and cache path.** Run a real registry/search SQL query, a representative SQL-backed API, the frontend build/preview, public pages, images, sitemap, robots and an unpublished 404. If deploying code, verify merge SHA = origin/main = image SHA = backend health SHA, plus `/frontend-release.json` in Cloudflare mode. A matching SHA alone does not validate the database.
