@@ -3,10 +3,9 @@ import test from 'node:test';
 import { mkdtemp, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { refreshArgs, refreshCommand, refresh, refreshJobs } from '../../../scripts/ad-networks/refresh.mjs';
+import { refreshArgs, refreshCommand, refresh, refreshJobs, lastJobResult, jobCounts } from '../../../scripts/ad-networks/refresh.mjs';
 import { targetDatabaseUrl, withJobLock, sessionDatabaseUrl } from '../../../scripts/ad-networks/runtime-db.mjs';
 import { revalidateAdNetworks } from '../../../scripts/ad-networks/revalidate.mjs';
-import { latestSlot, nextJob, schedulerTick, scheduledJobs } from '../../../scripts/ad-networks/scheduler.mjs';
 import { jobAlert } from '../../../scripts/ad-networks/alerts.mjs';
 
 const unlocked = (_options, work) => work();
@@ -76,20 +75,7 @@ test('cache failures leave durable events for the existing worker', async () => 
   await assert.rejects(revalidateAdNetworks({ environment: 'development', site: 'https://stack127.com' }), /Invalid revalidation/);
 });
 
-test('scheduler persists completion and retries a failed slot without running two jobs', async () => {
-  const now = new Date('2026-11-05T06:00:00Z'), activatedAt = '2026-11-01T00:00:00.000Z';
-  assert.equal(latestSlot({ day: 5, hour: 4, minute: 0 }, new Date('2026-11-01T00:00:00Z')), '2026-10-05T04:00:00.000Z');
-  assert.equal(latestSlot({ weekday: 2, hour: 4, minute: 0 }, now), '2026-11-03T04:00:00.000Z');
-  assert.equal(nextJob({}, now, activatedAt, []), null);
-  const state = {}, calls = [];
-  const options = { activatedAt, enabled: ['snapshot', 'platform'], environment: 'development', database: '/tmp/test.sqlite', stateDirectory: '/tmp/test-state', concurrency: '4' };
-  const deps = { save: async s => calls.push(JSON.parse(JSON.stringify(s))), refresh: async o => ({ applied: true, job: o.job }) };
-  assert.equal((await schedulerTick(options, state, now, deps)).job, 'snapshot');
-  assert.equal((await schedulerTick(options, state, now, deps)).job, 'platform');
-  assert.equal((await schedulerTick(options, state, now, deps)).idle, true);
-  assert.equal(calls[0].snapshot.status, 'running'); assert.equal(calls[1].snapshot.status, 'complete');
-  assert.equal(nextJob({}, now, activatedAt, ['verification']).job, 'verification');
-  assert.equal(new Set(scheduledJobs).size, 10);
+test('publisher-name refresh checks existing names again', () => {
   assert.ok(refreshCommand(refreshArgs(['--job', 'publisher-names'])).args.includes('--refresh'));
 });
 
@@ -136,4 +122,10 @@ test('Supabase shared transaction credentials select the same-host session poole
   assert.equal(targetDatabaseUrl({ environment: 'production', apply: true, confirm: 'stack127-production' },
     { AD_NETWORKS_RUNTIME_ENVIRONMENT: 'production', DATABASE_POOLER_URL: transaction }), session.toString());
   assert.throws(() => sessionDatabaseUrl('postgresql://user:password@unknown.example:6543/postgres'), /session pooling/);
+});
+
+test('collector output extracts final JSON counts and drops arbitrary raw strings', () => {
+  assert.deepEqual(lastJobResult('progress\n{\n "processed": 4, "outcomes": {"ok": 3}\n}\n'), { processed: 4, outcomes: { ok: 3 } });
+  assert.equal(lastJobResult('{"processed":1,"outcomes":{"platform_found":1}}\n{"review_per_network":{}}').processed, 1);
+  assert.deepEqual(jobCounts({ processed: 4, database: 'private', status: 'complete', outcomes: { ok: 3, detail: 'raw' } }), { processed: 4, status: 'complete', outcomes: { ok: 3 } });
 });

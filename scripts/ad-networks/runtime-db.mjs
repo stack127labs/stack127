@@ -16,7 +16,7 @@ export function targetDatabaseUrl(options, env = process.env) {
   if (options.apply && options.environment === 'production' && options.confirm !== 'stack127-production') {
     throw new Error('Production writes require --confirm stack127-production');
   }
-  // Containers receive Dokploy variables, rather than a checkout's env files.
+  // Cron jobs receive explicitly loaded variables instead of checkout env files.
   // Require an explicit target marker so inherited production credentials can
   // never silently become a development connection.
   if (env.AD_NETWORKS_RUNTIME_ENVIRONMENT) {

@@ -1,0 +1,11 @@
+# stack127 ad-network jobs (server clock is UTC). Wrapper: /srv/stack127/scripts/ad-networks/ovh/run-job.sh
+# Plan: dev-space/ad-networks-ovh-cron-plan.md in the stack127 repo.
+*/5 * * * * /srv/stack127/scripts/ad-networks/ovh/run-job.sh verification --limit 500 --time-budget-minutes 5
+10 0 * * *  /srv/stack127/scripts/ad-networks/ovh/run-job.sh snapshot --limit 5000 --time-budget-minutes 30
+0 1 * * *   /srv/stack127/scripts/ad-networks/ovh/run-job.sh platform --limit 5000 --time-budget-minutes 30
+0 2 * * *   /srv/stack127/scripts/ad-networks/ovh/run-job.sh domain-age --limit 5000 --time-budget-minutes 30
+0 3 * * *   /srv/stack127/scripts/ad-networks/ovh/run-job.sh ads-txt-summary --limit 5000 --time-budget-minutes 30
+0 4 * * 2   /srv/stack127/scripts/ad-networks/ovh/run-job.sh discovery --limit 5000 --time-budget-minutes 30
+0 4 * * 3   /srv/stack127/scripts/ad-networks/ovh/run-job.sh publisher-names --limit 5000 --time-budget-minutes 30
+0 4 5 * *   /srv/stack127/scripts/ad-networks/ovh/run-job.sh traffic --limit 5000 --time-budget-minutes 30
+0 5 * * *   /srv/stack127/scripts/ad-networks/ovh/run-job.sh backup

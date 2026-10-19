@@ -4,31 +4,19 @@ The rule: text that is written once lives in the codebase. Data that changes liv
 
 Mockups: `dev-space/ad-networks-mockups/`. Build plan: [ad-networks-build-plan.md](ad-networks-build-plan.md). Initial working data: homelab SQLite at `~/.local/share/stack127/ad-networks.sqlite`. After cutover, OVH owns the working store; homelab owns only niche sorting.
 
-## Production automation handoff (2026-10-18)
+## Production automation (2026-10-19)
 
-The current decision is to refresh production automatically while every ad-network page stays unpublished (404). The earlier publication plan below is historical and must not be executed in this release. The [production runbook](../content_docs/ad-networks/production-runbook.md) is the cutover procedure.
+Production refreshes automatically while every ad-network page stays unpublished (404). The earlier publication plan below is historical and must not be executed in this round. The [production runbook](../content_docs/ad-networks/production-runbook.md) describes the running setup.
 
-- [x] Repo-defined OVH Compose service, immutable GitHub-built image, persistent SQLite volume, bounded serial scheduler, heavy-job lock, durable retries, and heartbeat health check.
-- [x] Every scheduled collector automatically syncs reviewed data to the selected database and revalidates origin caches. Existing cache events remain queued for verified edge/static refresh.
-- [x] Full sync preserves existing Postgres niches. Homelab classifies new unsorted production sites through its logged-in Haiku CLI, validates exact domains/labels/confidence, withholds uncertain labels, and writes only niches.
-- [x] Weekly homelab niche timer prepared; obsolete homelab collector, sync, discovery, verification, and backup templates retired from the repo. No installed timer changed in this round.
+- [x] Plain cron on OVH (`ssh ovh`) runs every collector against production, then syncs and revalidates. Wrapper and crontab live in `scripts/ad-networks/ovh/`. The first attempt (GitHub activation workflow, Dokploy container, Storage handoff) was removed as too complicated.
+- [x] First OVH run on October 19: 106,685 sites and 113,817 network links synced, niche labels on 85,810 sites, 70 paths revalidated, pages still 404.
+- [x] Full sync preserves existing Postgres niches. Homelab classifies new unsorted production sites through its logged-in Haiku CLI, validates exact domains/labels/confidence, withholds uncertain labels, and writes only niches. The import waits for the sync lock instead of timing out.
 - [x] Failure alerts reuse the existing GitHub issue token and close on job recovery. Development does not send alerts.
-- [x] Late RDAP merge preserves newer OVH work and all other fields. The original RDAP process and gather supervisor remain running. Their installed backup service/timer must stay until both finish because the old loaded code still depends on it; new released code calls the backup script directly.
 - [x] Per-network Top niches works for any sorted sample and states its sample count. Broad index/child coverage and publication gates remain.
-- [x] Development snapshot plus real homepage collector both completed sync and 70-path revalidation. A stale local `gaming` label did not overwrite the target's `food` label. Desktop/mobile EthicalAds showed 3 sorted sites and Tech 100%.
-- [x] Read-only production migration comparison: ten migrations pending; shared cache functions match the baseline; no new-object/column collisions. Production has zero published ad-network pages among 46 existing registry rows.
-- [x] Review fixes: automatic niche seed only fills null targets from non-null source labels; emergency pause needs identity/Dokploy only; curl is installed and the image is smoke-tested before push; initial Storage failures use deduplicated startup alerts.
-- [ ] Independent coordinator Sol review and PR CI of this local implementation commit.
-- [x] Shell-free GitHub activation: protected production environment, explicit confirmation, idempotent Dokploy Compose create/update, private environment and GHCR setup, deploy and fresh deployment-specific health/status checks. Enabled list supports pause/resume reruns.
-- [x] Private Supabase Storage handoff: homelab consistent snapshot, compression, bounded immutable chunks/checksums, exclusive verified container install, resumable automatic seed/niche/first-check bootstrap, and one-time later RDAP imports. No source RDAP interruption or manual sync.
-- [x] Private external runtime/niche status includes counts and sync/revalidation outcomes without a migration.
-- [x] Existing Supabase shared transaction-pooler credentials select session port 5432 for reliable OVH/homelab advisory locks. No env-file or secret rotation is needed.
-- [x] Development private-bucket upload/download/bootstrap/restart/RDAP/status test; anonymous access denied and test bucket removed. Corruption, size, domain validation, lock, idempotence, capacity and API activation tests cover failures.
-- [x] Existing alert token stored as `AD_NETWORKS_ALERT_TOKEN` in GitHub's protected production environment (October 18). Other required secret/variable names already exist. No SSH identity or new API key is needed.
-- [ ] Actual OVH capacity inventory and installed Dokploy API compatibility: the protected workflow measures CPU/RAM/disk/load and fails closed before mutation if unavailable or below the documented gate. GitHub-only Access credentials cannot be read locally.
-- [ ] Merge/release, check migrations, upload seed on homelab, dispatch the single activation workflow, inspect private status, then start the homelab niche timer. No production bucket/data/server changes occurred in this round.
+- [ ] Homelab niche timer installed and its 2-site smoke run passed.
+- [ ] Late RDAP merge from homelab once the original RDAP pass and gather supervisor finish, then retire the homelab backup timer.
 
-Schedules, UTC: continuous verification; counts 00:10 daily; platform/favicon 01:00 daily; age 02:00 daily; ads.txt 03:00 daily; backup 05:00 daily; discovery Tuesday 04:00; names Wednesday 04:00; traffic on day 5 at 04:00; homelab niches Sunday 06:00. No Wayback or history backfill.
+Schedules, UTC: verification every 5 minutes (about every 15 in practice); counts 00:10 daily; platform/favicon 01:00 daily; age 02:00 daily; ads.txt 03:00 daily; backup 05:00 daily; discovery Tuesday 04:00; names Wednesday 04:00; traffic on day 5 at 04:00; homelab niches Sunday 06:00. No Wayback or history backfill.
 
 ## Release preparation (2026-10-16)
 
@@ -216,7 +204,7 @@ Wayback note (2026-10-16): Technically, CDX can find captures for exact /ads.txt
 - [x] `gather-parallel`: independent one-shot steps, shared host limits, incremental immutable niche batches and snapshot syncs after step completion
 - [x] `enrichment:status`: read-only filled/null counts and queue outcomes
 - [x] `catalog`: validate identities read-only, or repair catalog drift with `--apply`; export and sync reject stale catalogs
-- [x] Replace homelab refresh templates with the OVH runtime and a single homelab niche service/timer; activation remains coordinator work.
+- [x] Replace homelab refresh templates with OVH cron and a single homelab niche service/timer.
 
 ### Original one-shot gathering (still finishing RDAP)
 
