@@ -27,3 +27,11 @@ Cards use the shared hardware fact-card variant of the app design: a large conta
 - Internal import totals and source revisions stay off the public page.
 - Sentences explain that firmware can change local protocol behavior.
 - No chart or marker drawing is needed.
+
+## Search words
+
+Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.md`.
+
+- Main phrase: Frigate compatible cameras, best cameras for Frigate.
+- Words top titles add: RTSP, ONVIF, PoE, list.
+- SEO title: 3,100+ RTSP and ONVIF cameras for Frigate and Home Assistant. The count is rounded down; update it when the records pass the next round number.

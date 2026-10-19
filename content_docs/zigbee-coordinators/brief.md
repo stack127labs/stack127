@@ -27,3 +27,11 @@ Cards use the shared hardware fact-card variant of the app design: a large conta
 - Internal import totals and source revisions stay off the public page.
 - Sentences cover the migration and firmware caveats that cannot fit in a field.
 - No chart or marker drawing is needed because the page compares exact hardware facts.
+
+## Search words
+
+Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.md`.
+
+- Main phrase: best Zigbee coordinator, Zigbee coordinator comparison.
+- Words top titles add: compared, ZHA, Zigbee2MQTT, best.
+- SEO title: 75+ Zigbee coordinators compared for ZHA and Zigbee2MQTT. The count is rounded down; update it when the records pass the next round number.

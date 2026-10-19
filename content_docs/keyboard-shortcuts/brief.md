@@ -29,3 +29,11 @@ through `public.stack127_pages`.
 ## Approved keycap and layout treatment
 
 Use the raised-edge keycaps selected from the removed preview. Render real keyboard text on the server, with plus signs inside chords and plain words between sequence steps. Each reference table has two columns, action and shortcuts. Merge identical platform bindings only when alternatives and caveats also match. Keep platform notes and unknown bindings visible. Stack the cells on small screens. The directory and app pages have no sidebar. Category headings replace generic descriptions.
+
+## Search words
+
+Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.md`.
+
+- Main phrase: keyboard shortcuts, <app> shortcuts cheat sheet.
+- Words top titles add: printable, PDF, Mac and Windows, an app count.
+- SEO title: Keyboard shortcuts for 200+ apps on Mac, Windows, and Linux. The count is rounded down; update it when the records pass the next round number.

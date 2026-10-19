@@ -27,3 +27,11 @@ Cards use the shared hardware fact-card variant of the app design: a large conta
 - Internal import totals and source revisions stay off the public page.
 - Sentences explain that Matter certification does not promise every optional feature or ecosystem behavior.
 - No chart or marker drawing is needed.
+
+## Search words
+
+Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.md`.
+
+- Main phrase: Matter devices list, Matter certified devices.
+- Words top titles add: a count, Thread, Wi-Fi, list.
+- SEO title: Matter devices list: 2,300+ certified products by brand. The count is rounded down; update it when the records pass the next round number.

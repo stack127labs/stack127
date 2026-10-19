@@ -31,6 +31,8 @@ The page should be the best place to find, compare, or look up these things. Bef
 2. Where do the top results fail them? Common failures: outdated entries, missing conditions, no sources, padded lists, and paid placements presented as advice.
 3. What will this page do better?
 
+Write the main phrase, the words top titles add, and the questions people ask under "Search words" in the brief. Follow "Find the words first" in `writing-style.md`.
+
 Most directory searches are about choosing or checking: "Gumroad fees", "where to launch my app", "VS Code shortcuts". Put the listing and the answer first. Explanations come after.
 
 ## Stay on the core
@@ -69,14 +71,14 @@ Write the plan in a "Copy plan" section of `content_docs/<slug>/brief.md`.
 
 | Part | Where it shows | Where it lives | What to write |
 | --- | --- | --- | --- |
-| SEO title | Search results | Database | What the visitor can find or compare, in search words. Name well-known entries when people search for them. |
-| Title (H1) | Page heading | Database | Close to the SEO title and plain. Not a bare category name. |
-| SEO description | Search results | Database | What is listed, what can be compared, and why to trust it, in about 150 characters. |
-| Intro | Above the listing | `content/intro.mdx` | 2 to 3 sentences. What is here, how to start, and when entries were checked if the records say so. |
+| SEO title | Search results | Database | A count, what is listed, and who it's for, in search words. Name well-known entries when people search for them. Add the year for fees, prices, and other facts that change. |
+| Title (H1) | Page heading | Database | The same promise as the SEO title, said to the visitor. Keep the count. Not a bare category name. |
+| SEO description | Search results | Database | What is listed, what can be compared, and why to trust it, in 140 to 160 characters. Talk to the reader as "you". |
+| Intro | Above the listing | `content/intro.mdx` | 2 to 3 sentences. Start with the visitor's situation, then what is here and how to start. Say when entries were checked if the records say so. |
 | Content | After the listing | One `content/<section>.mdx` per section | Short sections with `##` question headings, each answered in its first sentence. |
 | Card name and description | Homepage, catalogs, and sidebars | Database | Short and focused on the task. |
 
-Counts change. Use a count in a title only when the page computes it from the records.
+Titles, H1s, and descriptions follow "Titles and search" in `writing-style.md`. Lead with a count when the page has one. Stored titles can't update themselves, so round the count down and add a plus, such as "150+" for 155 records. Update the title when the list passes the next round number or records are removed. The intro and sections can use the exact count when the page computes it.
 
 ### Child pages
 
@@ -106,13 +108,14 @@ Never publish or change production. Release goes through the coordinator.
 
 ## Final pass
 
-Reread everything as a first-time visitor. Cut repetition, padding, and any section that goes beyond the core. Remove research notes and insider wording. Keep source links that help the visitor.
+Reread everything as a first-time visitor. Read the title and intro out loud; if they sound like a label, rewrite them. Cut repetition, padding, and any section that goes beyond the core. Remove research notes and insider wording. Keep source links that help the visitor.
 
 ## Hand off
 
 Return:
 
 - the pages changed, with development links;
+- the search words you targeted;
 - the SEO title, SEO description, H1, intro, and word count of the content before and after;
 - each MDX file, script, and row you changed, and how the copy was applied;
 - a `touch_reason` when the content change matters to readers;

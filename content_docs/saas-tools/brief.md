@@ -17,3 +17,11 @@ The catalog hero and homepage card use one wordless marker drawing: a starting r
 `public.stack127_pages` owns the flat `/saas-tools` URL, publication and SEO. `public.stack127_catalog_pages` owns the heading, intro, section heading, order, and art keys. `public.stack127_tool_catalog_memberships` owns card placement; `public.stack127_tool_pages` owns each tool's card copy and art.
 
 Create the catalog registry and content rows unpublished. The first tool integration adds its tool row and primary membership at display order 1. Review the real desktop and mobile page with that card, its link, title, canonical, both themes, and homepage art before publishing the catalog. Never publish an empty catalog.
+
+## Search words
+
+Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.md`.
+
+- Main phrase: SaaS calculators, MRR calculator, SaaS metrics.
+- Words top titles add: free, no signup, a count, churn, LTV, CAC.
+- SEO title: 20+ free SaaS calculators for MRR, churn, LTV, and CAC. The count is rounded down; update it when the records pass the next round number.

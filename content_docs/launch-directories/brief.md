@@ -96,3 +96,11 @@ Use the site's own form, policy, pricing, and published listing as the main sour
 The `public.stack127_pages` row controls publication. Data changes refresh the page through the `launch_directories` revalidation trigger.
 
 New reviewed records use `node scripts/stack127/database/import-launch-directories.mjs --input-file <records.json> --environment development`. This previews the insert and rolls it back. Add `--apply` to insert the selected records. The importer rejects slug and website collisions, leaves existing records untouched, and skips an identical record on retry. Production uses the same reviewed file with `--environment production --apply --confirm stack127-production`, after the supporting code and icons are deployed. Then prepare, preview, and dispatch the directory publication plan with the selected slugs and expected public count in `scripts/launch-directories/ready.sql`.
+
+## Search words
+
+Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.md`.
+
+- Main phrase: SaaS launch directories, startup directories, where to launch.
+- Words top titles add: a count (100+, 15 best), free, list, the year, dofollow.
+- SEO title: 150+ SaaS launch directories: free, paid, and wait times. The count is rounded down; update it when the records pass the next round number.
