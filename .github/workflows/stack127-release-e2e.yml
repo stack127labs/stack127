@@ -137,7 +137,7 @@ jobs:
       - name: Apply database migrations
         if: steps.migrations.outputs.run == 'true'
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
+          DATABASE_URL: ${{ secrets.DATABASE_MIGRATION_URL || env.DATABASE_URL }}
         run: supabase --yes db push --db-url "$DATABASE_URL" --include-all
 
       - name: Run production target preflight
