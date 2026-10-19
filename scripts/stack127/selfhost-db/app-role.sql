@@ -24,6 +24,18 @@ GRANT USAGE, SELECT, UPDATE ON ALL SEQUENCES IN SCHEMA public TO stack127_app;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO stack127_app;
 GRANT SELECT ON ALL TABLES IN SCHEMA supabase_migrations TO stack127_app;
 REVOKE CREATE ON SCHEMA public, extensions, supabase_migrations FROM stack127_app;
+-- The Node worker verifies retirement of the old scheduled wake. pg_cron hides
+-- other users' jobs with RLS, so expose only this one job name to that reader.
+-- pg_cron normally exposes scheduling through PUBLIC EXECUTE. Schema access
+-- must not turn the worker's read check into permission to create jobs. This
+-- isolated cluster has no other scheduler clients; the owner retains access.
+REVOKE EXECUTE ON ALL FUNCTIONS IN SCHEMA cron FROM PUBLIC;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA cron TO postgres;
+GRANT USAGE ON SCHEMA cron TO stack127_app;
+GRANT SELECT ON cron.job TO stack127_app;
+DROP POLICY IF EXISTS stack127_worker_wiring_read ON cron.job;
+CREATE POLICY stack127_worker_wiring_read ON cron.job FOR SELECT TO stack127_app
+  USING (jobname = 'stack127-cache-worker');
 DO $$
 DECLARE item record;
 BEGIN

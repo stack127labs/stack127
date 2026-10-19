@@ -86,7 +86,7 @@ This saves building `pg_net` and Vault and reduces restore/replay changes. Costs
 
 The worker's `scripts/stack127/selfhost-db/README.md` describes OVH `/srv/stack127-db/compose.yaml`, container `stack127-db`, volumes `stack127-db-data` and `stack127-db-config`, and encrypted attachable overlay `stack127-db-private`. The website remains on `dokploy-network`; persistently attach its Dokploy/Swarm service to the private overlay at cutover. Its SQL URL then uses `stack127-db:5432`. Never use Dokploy's own Postgres or rely on a one-time network attachment that redeploy loses.
 
-Host jobs use the existing loopback-bound port 5432. Remote clients need a new tailnet-IP-only binding on 5432 after enrollment. The worker's `pg_hba.conf` currently rejects Tailscale's 100.64.0.0/10 range; add a reviewed rule for approved tailnet access alongside the network ACL. Avoid Swarm's public routing-mesh publication and Docker's all-interface default. Verify IPv4 and IPv6 reachability from outside. BaseBuddy and Dokploy databases stay separate.
+Host jobs use `127.0.0.1:5432`. Remote access now uses the exact tailnet binding `100.117.88.8:5432`, also named `ovh-stack127.tail13b5bd.ts.net`. Compose publishes neither a public IP nor an all-interface port; it does not use Swarm routing mesh. HBA permits SCRAM for `stack127_app` and migration owner `postgres` on the tailnet and private Docker paths. Docker forwarding reports the bridge gateway as the client, so the same role restriction is enforced there. The bootstrap superuser is socket-only. BaseBuddy and Dokploy databases stay separate.
 
 ### Remote access choices
 
@@ -155,7 +155,7 @@ Source tools ran from official `postgres:17`, client **17.11**, on homelab. They
 
 Private archives and inventory stay in `/srv/data/backups/stack127-db/rehearsal-20261019-reduced/` on homelab and `/srv/stack127-db/rehearsal-reduced/` on OVH (directories 0700, files 0600). They contain the signing-key row and must not enter Git or ordinary logs.
 
-### Repeat this two-part copy for cutover
+### Initial two-part rehearsal copy
 
 Use the source's direct or **session** endpoint, never transaction pooling. Resolve the existing credentials privately; service names below are placeholders.
 
@@ -208,43 +208,298 @@ After refill, all **38/38 public tables still have RLS**, all **38 backend polic
 
 The populated target backup is **70,428,235 bytes**, with its **64-byte Vault root key** and **5,846-byte password-free roles export**. A separate PostgreSQL 17.6 scratch container used the same pinned image, no network, no published ports, its own two temporary volumes and a 1.5 GiB cap. Roles and pg_net SQL were prepared before restoration, and the HTTP worker was removed before application rows were imported. `pg_restore --exit-on-error` finished in **47.385 seconds**; complete successful recovery, including startup, all comparisons and cleanup, took **67.786 seconds**. Adding the original backup gives **82.931 seconds** on the successful path. All 38 table counts, all migration statements, constraints/indexes/functions/triggers, semantic grants, policies, schema ownership, five sequence states, signing-key and Vault-key equality, app RLS access and disabled wake/cron matched. Scratch memory peaked at **1,446,944,768 bytes (1.348 GiB)**. The scratch container and both volumes were deleted. Initial scratch startup needed an explicit readable empty init directory; the validator also needed ACL member order normalisation. Neither correction changed the rehearsal database or required another dump. Homelab received the complete bundle in **32.865 seconds**; all three files matched OVH byte for byte, had mode 0600, and the roles export contained no passwords. Only the known obsolete empty-bootstrap smoke pairs were removed. Both scheduled timers remain **disabled/inactive**, and both marker files are absent; the manual rehearsal did not enable recurring backups. Failure alert delivery is still a cutover prerequisite.
 
-The release workflow currently feeds the shared database URL into `supabase db push` (`.github/workflows/stack127-release-e2e.yml`). Before cutover, give that migration step a separate protected admin credential; app/build/data-job URLs continue to use `stack127_app`. Leaving the migration step on the restricted app URL would fail. No workflow or live secret was changed during rehearsal.
+The staged migration login is the restored object owner `postgres`, with a new random password, BYPASSRLS, no superuser/database-creation/role-creation/replication rights, a five-connection limit, and **all nine inherited memberships revoked**. This allows ownership-based application DDL and migration-history writes without the image superuser. `supabase_admin` remains available only through the local Unix socket. Homelab ran real reads and rolled-back DDL over Tailscale; the app login remained unable to create schema objects. A real `supabase db push --dry-run --include-all` reported no pending migrations. The installed homelab CLI 2.75.0 required process-local `PGSSLMODE=disable` for this encrypted tailnet path because it ignored the URL SSL mode; do not weaken source SSL or set that globally. The release workflow now prefers `secrets.DATABASE_MIGRATION_URL` for this step, falling back to its existing `DATABASE_URL` when unset (worker-branch commit `ee09d821`). Commit `54488872` independently gates Edge Function delivery on `STACK127_CACHE_WORKER_RUNTIME != node`; transport selection no longer selects the cache runtime. No live GitHub secret or variable has been changed.
 
-### Final copy and write freeze
+### Final core-only copy: retain the frozen refill
 
-Use the measured dump, refill and validation times plus an operating margin to book the freeze. The reduced dump alone took nearly **23 minutes**; do not promise a 15-minute cutover. The measured source dump + snapshot + core restore + existing-code refill total **4,981.944 seconds (83m 02s)** before validation and consumer restarts. Allow an operating margin beyond that; roughly **100 minutes** is a planning allowance for this measured path, not a guarantee on the throttled source. A shorter window needs a complete refill rehearsal after the query fix is reviewed and released.
+The owner chose to retain the completed refill at cutover. **Do not drop the target or run the hour-long SQLite refill again.** Dump fresh **data only** for the other 31 public tables and migration history, excluding every `public.ad_network*` object and `public.stack127_ad_network_source_revision`. Existing owners, definitions, ACLs, RLS, extension versions and the two derived-table sequences stay in place. This requires unchanged source schema/migration contents and no PostgreSQL large objects; the preflight checks both. Storage objects remain managed separately.
 
-Freeze publication/import/enrichment writes, migrations/releases, OVH collectors, homelab niche sorting, both cache processors and GitHub queue acknowledgements. Pause the 13 connecting workflows and drain running jobs; the shared release concurrency group does not cover every writer. Temporarily make the app's old SQL sessions read-only, or block the RDAP write route, then restart/drain old sessions. Freeze media uploads if keeping a full recovery snapshot.
+A cheap source revision-token check matched the original reduced-dump snapshot (**one row, 8.652 seconds**). It would detect a normal niche-sort or ad-network report update since that snapshot. Homelab's niche service was inactive and its timer had no recorded last trigger, which alone is not proof of no writes. Repeat the token check after freezing; abort and reconcile if it changes. Also compare the target's seven frozen tables and two sequence states against the private backup-derived baseline `/srv/stack127-db/frozen-ad-networks.json`. `ad-network-guard.py` hashes all rows privately; it never prints row values or hashes.
 
-Keep static public pages available. Drain writes and record the freeze time, then take a **fresh reduced serial dump and fresh consistent SQLite snapshot**. Restore into a clean target, repeat the process-local guarded SQLite refill, and validate with archive-derived exact counts for copied tables plus SQLite-derived expectations for the four rebuilt tables. Preserve the final dump separately. Clear the copied HTTP wake URL before triggers/test writes. Do not modify source data or replay historical migrations to make the test pass.
+`core-restore.py` first checks that baseline and disabled cron/HTTP processing, then applies the approved wake-retirement script on the target. It selects only core TABLE DATA and SEQUENCE SET entries from the archive. One transaction truncates/copies the 32 core tables, keeps the wake URL NULL, checks every archive-derived row count and all **24 core foreign keys**, and commits with SQL errors fatal. It never truncates a frozen table or uses CASCADE. A failed COPY rolls back rows/triggers; because `setval` is not transactional, the helper explicitly restores the saved core sequence states on failure.
 
-Database rehearsal does not complete CI/app acceptance. The coordinator still needs the actual GitHub runner and BuildKit network paths, production SQL-only fallback behavior, isolated website/API/search/RDAP and image checks, migration dry-run, and Node-worker lease/retry/dispatch checks. Use staged credentials for these tests, without replacing live secrets or acknowledging the production queue. Tailscale listener/HBA/ACL delivery, backup alerts and owner acceptance of the freeze/recovery gap remain cutover prerequisites.
+The populated-backup scratch drill tested this path without another source dump: **32 core tables, all 219 migrations, 6.086 seconds for the SQL transaction, 30.035 seconds including frozen-data checks**. An intentionally changed scratch row was restored; seven frozen tables and their two sequences were unchanged. An injected failure proved both the original row and the original sequence state survived. A repeat target backup was **70,428,365 bytes** and took **13.813 seconds**. Its scratch full restore took **47.534 seconds** and again passed all table/migration/definition/grant/RLS/key comparisons. Scratch resources were removed.
 
-## 5. One-go switch checklist
+Networking survived a database service restart. Homelab connected in **0.273 seconds**, read **107,146 publishers and 219 migrations** with both app and migration logins, and was denied network access as the bootstrap superuser. The public IPv4 port **54.39.99.47:5432 timed out after five seconds** from homelab. Both explicit bind addresses remained after restart. Warm idle after these tests was **523.8 MiB** (earlier post-refill idle: 613.5 MiB).
 
-Only the coordinator applies this checklist after owner release authorization and Sol review. Updating many surfaces is not atomic; the write freeze and paused processes make it one controlled switch.
+The worker app can read only the legacy job name in `cron.job`; cron function EXECUTE was revoked from PUBLIC on this isolated cluster and retained for migration owner `postgres`. A rolled-back two-job fixture proved the app sees only the worker job and is denied an actual `cron.schedule` call.
 
-1. **Prepare privately.** Retain the rehearsed app-role/RLS grants, pg_net preparation and complete backup bundles. Finish Tailscale binding/HBA access and backup alerts described above. Keep the old URLs, runtime configuration, worker wake configuration/schedule and rollback code/image available. Stage new target credentials for Docker, local host, tailnet and CI. Confirm extension/role compatibility, Node worker handoff, backup restore and no public database listener.
-2. **Ship prerequisites while still on Supabase.** Add private networking to all database workflow jobs, disable production REST fallback, and replace the automatic Edge Function deploy step with the reviewed Node-worker delivery process. Preserve Supabase Storage config and development behavior. Rehearse CI against OVH separately.
-3. **Enter the freeze above.** Stop/drain OVH jobs, pause `stack127-ad-network-niche.timer`, connecting Actions/manual runs and cache processing. Unschedule/disable Supabase wake and the Edge Function. Wait out the existing 150-second lease/in-flight work; prevent new invocations. Confirm no relevant write transaction remains.
-4. **Copy and validate.** Take the final reduced archive plus SQLite snapshot, restore fresh, run the guarded SQLite refill, compare copied and rebuilt counts/migration history/permissions and signing key, and ensure the target has no old HTTP wake or active copied cron job.
-5. **Change all connection surfaces before resuming anything.** Homelab `.env.database`: both URLs; GitHub repository secrets: both URLs; saved Dokploy website env: `DATABASE_URL`; OVH `/srv/stack127-data/ad-networks.env`: `DATABASE_POOLER_URL`; new OVH Node worker env: its SQL URL and required worker config. Keep `SUPABASE_URL` / API keys/project ref only for the old Storage/admin scope. Check no production environment override still points at the source.
-6. **Refresh consumers.** Wait for env mirrors, verify each Mac/homelab checkout resolves OVH, and restart the website, niche/manual processes and worker connections. Keep scheduled writers paused. Verify real reads independently from the website container, OVH host, homelab, a Mac and a GitHub runner.
-7. **Verify the site and cache path.** Run a real registry/search SQL query, a representative SQL-backed API, the frontend build/preview, public pages, images, sitemap, robots and an unpublished 404. If deploying code, verify merge SHA = origin/main = image SHA = backend health SHA, plus `/frontend-release.json` in Cloudflare mode. A matching SHA alone does not validate the database.
-8. **Open writes in order.** Enable the OVH Node worker and GitHub maintenance fallback. Test one controlled change through queue, build/refresh and acknowledgement, then resume publication, homelab niche timer and the existing OVH crontab from `scripts/ad-networks/ovh/crontab.txt`. Resume GitHub discovery/enrichment and API cache writes last. Verify job locks work across hosts and no writer/function still targets Supabase.
-9. **Observe and retain recovery.** Watch errors, pool counts, queue age and memory through the first collector and nightly backup. Keep the old Supabase application tables frozen and the project online for at least seven days; independent Storage metadata may continue changing if media uploads resume. Retain Storage as long as live media URLs require it. Do not delete or downgrade it as part of today's switch.
+`stack127-db.service` waits for the actual tailnet address before `compose up --wait`, retries on failure, and is enabled for boot. It orders only this project after Docker/tailscaled, so other Docker services do not depend on Tailscale. Docker's automatic restart can race the address at boot; the scoped unit retries the start after the address exists. A full host reboot was not performed. Backup timers are still disabled, wake is NULL, cron is off and pg_net is not preloaded. The main target still has the old wake trigger; only the authorized switch retires it.
 
-### Rollback
+Book **35 to 45 minutes** for the core-only path, provided all preflight gates pass. The source reduced dump previously took **22m 49s**; a fresh core-only dump is not yet timed. This estimate includes that measured source time, sub-minute target replacement, release/build and connection restart margin. It is not a guarantee on the throttled source. Any drift or source degradation stops the switch; rebuilding the refill adds roughly an hour with the measured existing code. Keep static pages online throughout the write freeze. GitHub runner/BuildKit Tailscale acceptance, owner-provided OAuth/worker tokens and backup alert delivery remain prerequisites.
 
-**Before business writers resume:** stop the OVH worker and any target writes; restore both GitHub database secrets, homelab `.env.database`, saved Dokploy `DATABASE_URL`, and OVH ad-network env to the preserved Supabase values. Wait for mirrors, recreate app pools, verify real source SQL reads, remove the temporary source write freeze, restore the old cache wake URL/cron/function, then resume the old jobs. Rebuild/refresh public content from the source if the target changed what was served. Keep hosting mode unchanged.
+## 5. Owner switch commands
 
-**After OVH accepts business writes:** pointing back would lose those new writes. Freeze both sides, preserve an OVH dump and identify every changed table first. The coordinator must reconcile the new application rows/sequence state into Supabase or obtain explicit owner acceptance of lost writes before switching back. Disposable RDAP/cache state can be rebuilt; publication and research data cannot. Never run both writer sets at once.
+Run only after release authorization and review. Commands below are for the **owner**, not automatic migration steps. No command in this section has been applied to the live source. Keep one homelab shell open for its variables/functions. Do not print env files, service files or full Docker inspection/config output.
+
+1. **Before any freeze or merge, check the reviewed branches and credentials.** From the Mac infra worktree:
+
+   ```sh
+   cd /Users/ravitejaknts/.t3/worktrees/stack127/t3-fa7d0fc8
+   export GH_REPO=stack127labs/stack127
+   umask 077
+   gh variable list --json name,value > /private/tmp/stack127-variables.before.json
+   gh secret list --json name > /private/tmp/stack127-secret-names.before.json
+   git fetch origin
+   gh pr view 58 --json headRefName,state
+   gh pr view refactor/ad-networks-cron --json number,state,mergeStateStatus
+   gh pr view feat/node-cache-worker --json number,state,mergeStateStatus
+   gh pr checks 58 --required
+   gh pr checks refactor/ad-networks-cron --required
+   gh pr checks feat/node-cache-worker --required
+   test "$(git grep -l 'tailscale/github-action@' origin/feat/node-cache-worker -- .github/workflows | wc -l | tr -d ' ')" = 13
+   git show origin/feat/node-cache-worker:.github/workflows/stack127-release-e2e.yml | rg 'DATABASE_MIGRATION_URL|STACK127_CACHE_WORKER_RUNTIME'
+   test -z "$(git diff origin/main...origin/refactor/ad-networks-cron -- supabase/migrations)"
+   test -z "$(git diff origin/main...origin/feat/node-cache-worker -- supabase/migrations)"
+   gh secret list --json name --jq '.[].name'
+   ```
+
+   Owner opens both branch PRs first. All required checks/review must pass; resolve conflicts/stale bases before freezing. Confirm the migration step prefers `DATABASE_MIGRATION_URL`, with its existing URL fallback; the two Edge Function guards use `STACK127_CACHE_WORKER_RUNTIME`, independently of transport. For Tailscale, repository secrets **TS_OAUTH_CLIENT_ID**, **TS_OAUTH_SECRET** must exist with the approved CI tag/ACL. A variable alone does not connect runners. The remote-access step below must include a successful trusted runner **and BuildKit** connection to the staged target before freezing; existing live URL secrets stay unchanged for that acceptance test. Missing OAuth secrets stop this preflight; missing connectivity evidence stops before step 4. Also prepare owner-supplied Node-worker dispatch/alert tokens and backup failure notifications. Do not include PR #60.
+
+2. **Remote access, the single swappable step.** Current choice: Tailscale, exact host `100.117.88.8`, port 5432. Keep the scoped listener/service/HBA from section 4 and allow approved devices/CI tag to this port in the tailnet ACL. Verify real SQL from the Mac and homelab using the staged app credential, then set:
+
+   ```sh
+   gh variable set STACK127_DB_PRIVATE_NETWORK --body tailscale
+   ssh ovh 'systemctl is-enabled stack127-db.service; systemctl is-active stack127-db.service; sudo docker port stack127-db 5432'
+   nc -z -w 5 54.39.99.47 5432 && exit 1
+   ```
+
+   The last command must fail to connect. URLs are `postgresql://stack127_app:<encoded-password>@100.117.88.8:5432/postgres?sslmode=disable`; the Tailscale tunnel encrypts this path. The migration URL uses login `postgres` with its separate password. Keep Docker/loopback URLs below unchanged.
+
+   **Alternative, only after separate owner approval/provisioning:** replace this step with a certificate-backed public `54.39.99.47:5432`, SCRAM and `hostssl` HBA, `sslmode=require` (prefer certificate verification where supported), and firewall rules limited to PostgreSQL/client access. Do not use an all-interface Compose bind or Swarm routing mesh. Prove TLS and runner reachability before freezing, replace only the staged remote app/migration URLs, and clear `STACK127_DB_PRIVATE_NETWORK` so workflows skip Tailscale. The helper accepts only the two documented OVH addresses and requires TLS for the public address. `STACK127_CACHE_WORKER_RUNTIME=node` still controls Edge Function retirement. No public alternative has been enabled by this task.
+
+3. **Prepare private tools, connection files and rollback material.** Still on the Mac:
+
+   ```sh
+   ssh homelab 'umask 077; mkdir /srv/data/backups/stack127-db/cutover; mkdir /srv/data/backups/stack127-db/cutover/tools'
+   scp /private/tmp/stack127-variables.before.json /private/tmp/stack127-secret-names.before.json homelab:/srv/data/backups/stack127-db/cutover/
+   git archive origin/refactor/ad-networks-cron scripts/stack127/selfhost-db | ssh homelab 'tar -xf - -C /srv/data/backups/stack127-db/cutover/tools'
+   git show origin/feat/node-cache-worker:scripts/stack127/selfhost-db/switch/010_retire_supabase_cache_worker_wake.sql | ssh homelab 'umask 077; cat > /srv/data/backups/stack127-db/cutover/010.sql'
+   ssh homelab
+   ```
+
+   On homelab:
+
+   ```sh
+   cd /srv/data/projects/stack127
+   umask 077
+   export FINAL=/srv/data/backups/stack127-db/cutover
+   export TOOLS="$FINAL/tools/scripts/stack127/selfhost-db"
+   cp .env.database "$FINAL/env.database.before"
+   scp ovh:/srv/stack127-data/ad-networks.env "$FINAL/ovh-ad-networks.env.before"
+   node --env-file=.env.deploy "$TOOLS/make-services.mjs" --directory "$FINAL"
+   pg17() { docker run --rm --network host --user "$(id -u):$(id -g)" --mount "type=bind,src=$FINAL,dst=/run/db" -e PGSERVICEFILE=/run/db/pg_service.conf postgres:17 "$@"; }
+   python3 "$TOOLS/source-check.py" --directory "$FINAL" \
+     --inventory /srv/data/backups/stack127-db/rehearsal-20261019-reduced/archive-copy-inventory.json \
+     --metadata /srv/data/backups/stack127-db/rehearsal-20261019-reduced/source-inventory.json \
+     --queries /srv/data/backups/stack127-db/rehearsal-20261019-reduced/inventory-queries.json
+   install -m 600 /dev/null "$FINAL/source-rollback.sql"
+   pg17 psql -X -v ON_ERROR_STOP=1 --dbname=service=stack127_source --file=/run/db/tools/scripts/stack127/selfhost-db/snapshot-source.sql > "$FINAL/source-snapshot.log" 2>&1
+   test -s "$FINAL/source-rollback.sql"
+   node --env-file=.env.selfhost-db --input-type=module <<'NODE' > "$FINAL/migration-dry-run.log" 2>&1
+   import {spawnSync} from 'node:child_process';
+   const url=process.env.DATABASE_MIGRATION_URL;
+   if(new URL(url).host!==new URL(process.env.SELFHOST_DATABASE_URL_REMOTE).host)throw Error('Wrong migration target');
+   if(spawnSync('supabase',['db','push','--dry-run','--include-all','--db-url',url],{env:{...process.env,PGSSLMODE:new URL(url).searchParams.get('sslmode')||'require'},stdio:'inherit'}).status)throw Error('Migration preflight failed');
+   NODE
+   pg17 psql -X -At -v ON_ERROR_STOP=1 --dbname=service=stack127_target --command 'select current_user,(select count(*) from public.ad_network_publishers),(select count(*) from supabase_migrations.schema_migrations);'
+   scp "$TOOLS/"{ad-network-guard.py,core-restore.py} ovh:/srv/stack127-db/
+   scp "$FINAL/010.sql" ovh:/srv/stack127-db/010.sql
+   ssh ovh 'python3 /srv/stack127-db/ad-network-guard.py --manifest /srv/stack127-db/frozen-ad-networks.json'
+   ```
+
+   Save Dokploy's **entire current environment and network configuration privately**, plus the current repo variables and production image SHA, before changing them. GitHub secret values cannot be read back: confirm the saved homelab URLs match the old repository secrets, or obtain their exact old values privately. Prepare homelab source-of-truth **`.env.cache-worker`**, mode 0600, with `DATABASE_URL` set to the staged **loopback** app URL, `STACK127_FRONTEND_HOSTING=cloudflare`, `STACK127_SITE_URL=https://stack127.com`, `GITHUB_FRONTEND_REPO=stack127labs/stack127`, owner-provided `GITHUB_FRONTEND_TOKEN` and `GITHUB_ALERT_TOKEN`. Do not print tokens or copy a tailnet URL unnecessarily into this OVH-host job. Its timer stays off. Check the staged migration credential with `supabase db push --dry-run --include-all`; on homelab CLI 2.75.0 use `PGSSLMODE=disable` only in that target child process and capture CLI output privately. Stop if migrations are pending.
+
+4. **Freeze all writers; retire the source wake and drain.** On homelab, record/disable only currently enabled connecting workflows, then wait for existing runs to finish:
+
+   ```sh
+   gh workflow list --repo stack127labs/stack127 --json id,path,state > "$FINAL/workflows.before.json"
+   node --input-type=module <<'NODE'
+   import {readFileSync,writeFileSync} from 'node:fs'; import {spawnSync} from 'node:child_process';
+   const names=new Set(['stack127-ci.yml','stack127-release-e2e.yml','stack127-frontend-refresh.yml','stack127-publish-pages.yml','stack127-cache-maintenance.yml','self-host-apps-discovery-github.yml','self-host-apps-discovery-directories.yml','self-host-apps-discovery-catalogs.yml','self-host-apps-discovery-lists.yml','self-host-apps-refresh-github.yml','self-host-apps-refresh-source-hosts.yml','self-host-apps-refresh-technical.yml','ad-network-verification.yml']);
+   const paused=JSON.parse(readFileSync(process.env.FINAL+'/workflows.before.json')).filter(w=>w.state==='active'&&names.has(w.path.split('/').at(-1)));
+   writeFileSync(process.env.FINAL+'/workflows.paused.json',JSON.stringify(paused),{mode:0o600});
+   for(const w of paused){if(spawnSync('gh',['workflow','disable',String(w.id),'--repo','stack127labs/stack127'],{stdio:'inherit'}).status)throw Error('Workflow pause failed');}
+   NODE
+   gh run list --repo stack127labs/stack127 --status in_progress
+   gh run list --repo stack127labs/stack127 --status queued
+   systemctl --user stop stack127-ad-network-niche.timer
+   systemctl --user is-active stack127-ad-network-niche.service
+   ssh ovh 'crontab -l; pgrep -af "scripts/ad-networks/|scripts/stack127/cache/" || true'
+   ```
+
+   The niche service must be inactive, OVH crontab still empty and no collector/sync/processor running. Drain running GitHub jobs, manual scripts, media uploads and publication/enrichment work; prevent new manual starts. Pause any ad-network verification UI writes too. On homelab, delete only the old deployed Edge Function (local code and project/Storage stay):
+
+   ```sh
+   node --env-file=.env.deploy --env-file=.env.database --input-type=module <<'NODE' > "$FINAL/edge-disable.log" 2>&1
+   import {spawnSync} from 'node:child_process';
+   const ref=new URL(process.env.SUPABASE_URL).hostname.split('.')[0];
+   if(spawnSync('supabase',['functions','delete','cache-worker','--project-ref',ref,'--yes'],{stdio:'inherit'}).status)throw Error('Old function disable failed');
+   NODE
+   pg17 psql -X -v ON_ERROR_STOP=1 --dbname=service=stack127_source_switch --file=/run/db/010.sql > "$FINAL/source-retire.log" 2>&1
+   pg17 psql -X -v ON_ERROR_STOP=1 --dbname=service=stack127_source_switch --command "ALTER ROLE postgres SET default_transaction_read_only=on; SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE usename='postgres' AND pid<>pg_backend_pid();" > "$FINAL/source-freeze.log" 2>&1
+   date -u +%FT%TZ > "$FINAL/freeze-started-at"
+   ```
+
+   Wait at least **150 seconds** and confirm the Edge Function has no in-flight run and no relevant write transaction remains. Role-default read-only is an operational freeze, so all privileged/manual writers must also remain stopped. Existing website RDAP-cache writes may fail during this window; static pages stay online. Re-run `source-check.py` with `--directory` and `--inventory` only (the intentional wiring/role changes now differ from rehearsal metadata). Any source-token mismatch or target frozen-baseline mismatch stops the switch; reconcile niche/report changes instead of silently retaining stale data.
+
+5. **One fresh, serial core-only source dump; replace only core target data.** On homelab:
+
+   ```sh
+   install -m 600 /dev/null "$FINAL/roles.sql"
+   install -m 600 /dev/null "$FINAL/core.dump.partial"
+   date -u +%s > "$FINAL/dump-started-at"
+   pg17 pg_dumpall --database=service=stack127_source --roles-only --no-role-passwords --file=/run/db/roles.sql > "$FINAL/roles.log" 2>&1
+   pg17 pg_dump --dbname=service=stack127_source --format=custom --data-only --compress=6 \
+     --lock-wait-timeout=10s --schema=public --schema=extensions --schema=supabase_migrations \
+     --exclude-table='public.ad_network*' --exclude-table=public.stack127_ad_network_source_revision \
+     --file=/run/db/core.dump.partial > "$FINAL/dump.log" 2>&1
+   mv "$FINAL/core.dump.partial" "$FINAL/core.dump"
+   date -u +%s > "$FINAL/dump-finished-at"
+   stat -c '%s' "$FINAL/core.dump"
+   scp "$FINAL/core.dump" ovh:/srv/stack127-db/core-final.dump
+   ssh ovh 'python3 /srv/stack127-db/core-restore.py --archive /srv/stack127-db/core-final.dump --manifest /srv/stack127-db/frozen-ad-networks.json --retire-sql /srv/stack127-db/010.sql --confirm stack127-core-cutover'
+   ```
+
+   Watch source health from a separate shell. Stop that one client if production latency degrades; do not retry automatically. No `--no-owner`/`--no-acl` overrides: this data-only replacement preserves the already-restored ownership/grants/schema. Do not import the source roles file over the target credentials. Do not run `prepare-target.sql`, truncate the ad-network tables, or change their sequences. Preserve the final dump and rollback files separately from seven-day retention. Require helper output `migration_rows=219`, `frozen_refill_unchanged=true`; counts/FKs must pass before commit. Before changing connections, run:
+
+   ```sh
+   pg17 psql -X -At -v ON_ERROR_STOP=1 --dbname=service=stack127_target --command 'select (select count(*) from public.stack127_cache_credentials)=1 and (select count(*) from supabase_migrations.schema_migrations)=219 and not exists(select from public.stack127_cache_worker_wake where function_url is not null);'
+   pg17 psql -X -v ON_ERROR_STOP=1 --dbname=service=stack127_target --command '\timing on' --command 'select * from public.stack127_cache_source_revisions();' > "$FINAL/revision-timing.private.log"
+   ```
+
+   The boolean must be true; privately check 5,534 returned revision rows and full-query timing. These checks reveal no signing key. Inspect private logs on failure.
+
+6. **Change every connection while processes remain paused.** On homelab, stage the Docker env and update only the three GitHub database secrets plus the two homelab URL names:
+
+   ```sh
+   node --env-file=.env.selfhost-db --input-type=module <<'NODE'
+   import {readFileSync,writeFileSync,renameSync} from 'node:fs'; import {parseEnv} from 'node:util'; import {spawnSync} from 'node:child_process';
+   const remote=process.env.SELFHOST_DATABASE_URL_REMOTE, migration=process.env.DATABASE_MIGRATION_URL;
+   for(const [name,value] of Object.entries({DATABASE_URL:remote,DATABASE_POOLER_URL:remote,DATABASE_MIGRATION_URL:migration})){
+     if(!value)throw Error('Missing staged '+name);
+     if(spawnSync('gh',['secret','set',name,'--repo','stack127labs/stack127'],{input:value,stdio:['pipe','ignore','pipe']}).status)throw Error('Secret update failed: '+name);
+   }
+   const env=parseEnv(readFileSync('.env.database','utf8')); env.DATABASE_URL=remote;env.DATABASE_POOLER_URL=remote;
+   writeFileSync('.env.database.cutover',Object.entries(env).map(([k,v])=>k+'='+JSON.stringify(v)).join('\n')+'\n',{mode:0o600});renameSync('.env.database.cutover','.env.database');
+   writeFileSync(process.env.FINAL+'/website-database.env','DATABASE_URL='+process.env.SELFHOST_DATABASE_URL_DOCKER+'\n',{mode:0o600});
+   NODE
+   gh secret list --repo stack127labs/stack127 --json name --jq '.[].name'
+   ```
+
+   In **https://dokploy.stack127.com**, app `_oKhy4YdVBc513i_qjVHC`, replace saved **DATABASE_URL** using the private `website-database.env`: `postgresql://stack127_app:<encoded-password>@stack127-db:5432/postgres?sslmode=disable`. Persistently add overlay **stack127-db-private** to this app's network configuration alongside `dokploy-network`; save both settings before redeploy. Do not edit Dokploy's own database/service. A one-time `docker service update --network-add` is insufficient unless its persistent Dokploy configuration also retains that network.
+
+   On OVH, update only the host-job URL, retaining every other env value:
+
+   ```sh
+   ssh ovh 'node --env-file=/srv/stack127-db/.env --input-type=module' <<'NODE'
+   import {readFileSync,writeFileSync,renameSync} from 'node:fs';import {parseEnv} from 'node:util';
+   const file='/srv/stack127-data/ad-networks.env',env=parseEnv(readFileSync(file,'utf8'));
+   env.DATABASE_POOLER_URL=process.env.SELFHOST_DATABASE_URL_LOOPBACK;
+   writeFileSync(file+'.cutover',Object.entries(env).map(([k,v])=>k+'='+JSON.stringify(v)).join('\n')+'\n',{mode:0o600});renameSync(file+'.cutover',file);
+   NODE
+   scp .env.cache-worker ovh:/srv/stack127-data/cache-worker.env
+   ssh ovh 'chmod 600 /srv/stack127-data/cache-worker.env'
+   ```
+
+   Host jobs/Node worker use `127.0.0.1:5432`; GitHub, homelab and Mac use `100.117.88.8:5432`. The release migration secret uses `postgres`, all other consumers use `stack127_app`. Keep `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_ACCESS_TOKEN`, `SUPABASE_PROJECT_REF`, existing Storage URLs and hosting variables unchanged. Confirm no protected-environment database secret overrides these repo secrets. Wait about two minutes for env mirrors; restart running Mac/homelab consumers instead of editing their mirrors.
+
+7. **Merge exactly #58, infra branch, then worker branch.** Keep release/cache/data workflows disabled until the merges finish. Re-enable CI only if required for fresh merge checks; CI now reads OVH and must pass. On the Mac:
+
+   ```sh
+   gh pr merge 58 --merge
+   gh pr view refactor/ad-networks-cron --json number,mergeStateStatus
+   gh pr checks refactor/ad-networks-cron --required
+   gh pr merge refactor/ad-networks-cron --merge
+   gh pr view feat/node-cache-worker --json number,mergeStateStatus
+   gh pr checks feat/node-cache-worker --required
+   gh pr merge feat/node-cache-worker --merge
+   git fetch origin main
+   export SWITCH_SHA="$(git rev-parse origin/main)"
+   ```
+
+   Do not merge #60 or delete branches attached to worktrees. If a PR becomes blocked, resolve it through review; do not bypass protections. This order puts #58 before worker changes that already contain its commits. Before enabling release, set the cache runtime variable in the activation step below, so a source-function diff cannot redeploy the retired Edge Function.
+
+8. **Install and activate the Node worker, then release the exact SHA.** On the Mac, suppress Edge Function delivery independently of transport:
+
+   ```sh
+   gh variable set STACK127_CACHE_WORKER_RUNTIME --body node
+   ssh ovh 'cd /srv/stack127 && git pull --ff-only origin main && sudo install -m 644 scripts/stack127/cache/ovh/stack127-cache-worker.service scripts/stack127/cache/ovh/stack127-cache-worker.timer /etc/systemd/system/ && sudo systemctl daemon-reload'
+   ssh ovh 'cd /srv/stack127 && CACHE_WORKER_DRY_RUN=1 scripts/stack127/cache/ovh/run-worker.sh'
+   gh workflow enable stack127-release-e2e.yml
+   gh workflow run stack127-release-e2e.yml --ref main -f commit_sha="$SWITCH_SHA"
+   ```
+
+   Do not reset the OVH checkout or deploy unreviewed branch code; stop if fast-forward fails. The dry run must report retired wake wiring and valid settings, without acquiring/acknowledging queue work. The ordinary queue triggers, lease, signing key and event versions remain intact. Watch the release through completion; the release must use the new owner URL for migrations and the app URL for builds, prove runner and BuildKit networking, replace website pools, and retain its saved private overlay attachment. Require merge SHA = `origin/main` = deployed image SHA = `/api/health` SHA, and Cloudflare `/frontend-release.json` SHA. Check real SQL reads from the website container, OVH host, homelab, Mac and GitHub; check a directory/search API, RDAP, images, sitemap, robots and unpublished 404. Production SQL errors must not fall back to the old Data API.
+
+   Then enable the frontend-refresh workflow needed by worker dispatch and the timer:
+
+   ```sh
+   gh workflow enable stack127-frontend-refresh.yml
+   ssh ovh 'sudo systemctl enable --now stack127-cache-worker.timer; sudo systemctl start stack127-cache-worker.service; sudo journalctl -u stack127-cache-worker.service -n 30 --no-pager'
+   ```
+
+   Run one controlled cache/publication change through queue → dispatch → frontend verification → acknowledgement before allowing business writers. Check queue age/lease and that all source wake/Edge invocation remains disabled. If worker dispatch tokens or real GitHub connectivity fail, keep writers paused and fix or roll back.
+
+9. **Enable backups, verify one offsite bundle, then resume only the previous writers.** On homelab:
+
+   ```sh
+   ssh ovh 'sudo touch /srv/stack127-db/BACKUPS_ENABLED; sudo systemctl enable --now stack127-db-backup.timer; sudo systemctl start stack127-db-backup.service'
+   touch /srv/data/backups/stack127-db/PULL_ENABLED
+   sudo systemctl enable --now stack127-db-backup-pull.timer
+   sudo systemctl start stack127-db-backup-pull.service
+   systemctl --user start stack127-ad-network-niche.timer
+   ssh ovh 'cd /srv/stack127 && crontab scripts/ad-networks/ovh/crontab.txt'
+   node --input-type=module <<'NODE'
+   import {readFileSync} from 'node:fs';import {spawnSync} from 'node:child_process';
+   for(const w of JSON.parse(readFileSync(process.env.FINAL+'/workflows.paused.json'))){
+     if(spawnSync('gh',['workflow','enable',String(w.id),'--repo','stack127labs/stack127'],{stdio:'inherit'}).status)throw Error('Workflow resume failed');
+   }
+   NODE
+   date -u +%FT%TZ > "$FINAL/writes-resumed-at"
+   ```
+
+   Confirm both backup services succeed, all three bundle files reach homelab, and failure/freshness alerts arrive. Resume scheduled/manual publications, niche sorting and discovery only after the SQL/cache checks. Monitor first collector, advisory locks, memory and nightly backup. Keep source application tables frozen and Supabase/Storage online for at least seven days. Retain Storage while media URLs require it. Remove only the temporary libpq credential files after acceptance; retain the secret-bearing rollback SQL, final dump and saved env files privately.
+
+### Rollback commands
+
+**Before business writes resume:** disable/drain the new worker, jobs and connecting workflows again. Keep both writer sets paused. On homelab restore `.env.database` from `$FINAL/env.database.before`, restore its old `DATABASE_URL` / `DATABASE_POOLER_URL` GitHub secrets through stdin as in step 6, and delete the newly introduced `DATABASE_MIGRATION_URL` secret if it did not previously exist (otherwise restore its saved old value). Restore saved Dokploy environment/network configuration and its old release image, and copy `$FINAL/ovh-ad-networks.env.before` back to `/srv/stack127-data/ad-networks.env` with mode 0600. Wait for mirrors and recreate website/script pools. Restore the previous `STACK127_DB_PRIVATE_NETWORK` and `STACK127_CACHE_WORKER_RUNTIME` values; an unset runtime variable restores Edge Function delivery.
+
+On homelab, restore the old function code before re-enabling its wake. Keep the old code snapshot/revision available:
+
+```sh
+ssh ovh 'sudo systemctl disable --now stack127-cache-worker.timer; sudo systemctl stop stack127-cache-worker.service'
+cp "$FINAL/env.database.before" .env.database
+node --input-type=module <<'NODE'
+import {readFileSync} from 'node:fs';import {parseEnv} from 'node:util';import {spawnSync} from 'node:child_process';
+const env=parseEnv(readFileSync('.env.database','utf8'));
+for(const name of ['DATABASE_URL','DATABASE_POOLER_URL'])if(spawnSync('gh',['secret','set',name,'--repo','stack127labs/stack127'],{input:env[name],stdio:['pipe','ignore','pipe']}).status)throw Error('Secret rollback failed: '+name);
+const oldNames=JSON.parse(readFileSync(process.env.FINAL+'/stack127-secret-names.before.json'));
+if(!oldNames.some(x=>x.name==='DATABASE_MIGRATION_URL'))if(spawnSync('gh',['secret','delete','DATABASE_MIGRATION_URL','--repo','stack127labs/stack127'],{stdio:'inherit'}).status)throw Error('Migration secret removal failed');
+const oldVars=JSON.parse(readFileSync(process.env.FINAL+'/stack127-variables.before.json'));
+for(const name of ['STACK127_DB_PRIVATE_NETWORK','STACK127_CACHE_WORKER_RUNTIME']){
+ const old=oldVars.find(x=>x.name===name),args=old?['variable','set',name,'--body',old.value]:['variable','delete',name];
+ if(spawnSync('gh',[...args,'--repo','stack127labs/stack127'],{stdio:'inherit'}).status)throw Error('Variable rollback failed: '+name);
+}
+NODE
+scp "$FINAL/ovh-ad-networks.env.before" ovh:/srv/stack127-data/ad-networks.env
+node --env-file=.env.deploy --env-file=.env.database --input-type=module <<'NODE' > "$FINAL/edge-restore.log" 2>&1
+import {spawnSync} from 'node:child_process';
+const ref=new URL(process.env.SUPABASE_URL).hostname.split('.')[0];
+if(spawnSync('supabase',['functions','deploy','cache-worker','--project-ref',ref,'--use-api','--no-verify-jwt'],{stdio:'inherit'}).status)throw Error('Old function restore failed');
+NODE
+pg17 psql -X -v ON_ERROR_STOP=1 --dbname=service=stack127_source_switch --file=/run/db/source-rollback.sql > "$FINAL/source-rollback.log" 2>&1
+```
+
+The private rollback SQL restores the two function definitions, wake trigger/URL/grants, prior cron schedule/active state and prior role read-only setting. Verify real source SQL reads and a controlled old queue/refresh before resuming the saved writers. Keep Storage/hosting configuration unchanged and retain the target for investigation.
+
+**After OVH accepts business writes:** stop both writer sets and preserve a new OVH backup. Do not point consumers back: reconcile new publication/research rows and sequence states into Supabase, or obtain explicit owner acceptance of lost writes first. Rebuild disposable RDAP/cache state separately. Never run both writer sets concurrently.
 
 ## 6. Owner decisions
 
 Decided on October 19, 2026:
 
-1. **Remote access: Tailscale.** OVH joins the tailnet, and GitHub jobs use a tagged Tailscale OAuth client stored as repository secrets `TS_OAUTH_CLIENT_ID` and `TS_OAUTH_SECRET`. There is no public database port.
+1. **Remote access currently uses Tailscale.** OVH is enrolled and its exact tailnet listener works. GitHub OAuth secrets and real runner/BuildKit acceptance are owner prerequisites. The owner may instead approve a separately provisioned public TLS endpoint; section 5 keeps that choice in one replaceable step. There is currently no public database port.
 2. **Storage stays on Supabase** for this move. Only the database moves; media URLs keep working.
 
-Still open: confirm the final freeze window after the timed rehearsal, and accept the nightly backups' maximum 24-hour recovery gap.
+Still open: accept the estimated 35 to 45 minute core-only freeze (the final source dump is not yet timed), provision/verify GitHub OAuth and worker dispatch credentials, connect backup failure alerts, and accept the nightly backups' maximum 24-hour recovery gap.

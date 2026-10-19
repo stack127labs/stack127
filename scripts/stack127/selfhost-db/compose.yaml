@@ -20,6 +20,7 @@ services:
     command: [postgres, -c, config_file=/etc/stack127/postgresql.conf]
     ports:
       - 127.0.0.1:5432:5432
+      - 100.117.88.8:5432:5432
     volumes:
       - postgres-data:/var/lib/postgresql/data
       - postgres-config:/etc/postgresql-custom

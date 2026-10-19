@@ -12,7 +12,7 @@ the final-copy procedure in `dev-space/self-hosted-database-plan.md`, section 4.
   `sha256:49c938c7918f1543618b60568f5a995e52d98f19883075a14f89643e8b1571fe`.
 - Source and destination: PostgreSQL **17.6**. Source is aarch64; OVH is x86_64.
 - Volumes: `stack127-db-data` (database) and `stack127-db-config` (including the Vault root key).
-- Published host socket: **127.0.0.1:5432 only**. No public database port or Traefik route.
+- Published host sockets: **127.0.0.1:5432 and 100.117.88.8:5432 only**. No public database port or Traefik route.
 - Network: `stack127-db-private`, an encrypted, attachable Swarm overlay.
   Future containers on that network use `stack127-db:5432`.
 - The website is Swarm service `app-navigate-1080p-matrix-3pmfy6` on `dokploy-network`.
@@ -20,15 +20,20 @@ the final-copy procedure in `dev-space/self-hosted-database-plan.md`, section 4.
   configuration. A one-time `docker service update --network-add stack127-db-private
   app-navigate-1080p-matrix-3pmfy6` also attaches it, but can be lost at redeploy.
   The website was not changed or attached during setup.
-- PostgreSQL TLS is off inside the encrypted overlay / local loopback. The owner
-  selected Tailscale for remote access, hostname `ovh-stack127`. Enrollment, a
-  tailnet-only listener, HBA and tailnet ACLs remain a separate cutover step.
-  The current configuration still publishes loopback only.
+- PostgreSQL TLS is off inside the encrypted overlay / local loopback. Remote SQL works over Tailscale at `100.117.88.8` /
+  `ovh-stack127.tail13b5bd.ts.net`. HBA allows only `stack127_app` and migration
+  owner `postgres` on tailnet/private TCP paths, using SCRAM. Docker port forwarding
+  presents a bridge gateway as the client, so private Docker rules enforce the same
+  role restriction. The bootstrap superuser uses only the local Unix socket.
+- `stack127-db.service` is enabled, waits for the actual tailnet address and starts
+  this Compose project with health waiting/retries. It leaves other Docker services
+  independent of Tailscale. A scoped service restart passed; no host reboot was run.
+  The public IPv4 port timed out from homelab while real tailnet SQL succeeded.
 
 Memory is capped at 2 GiB, with 512 MiB shared buffers, 4 MiB work memory,
 60 connections, two parallel workers, checksums, fsync and synchronous commits.
 Initial empty idle memory was 75.53 MiB after container recreation and the backup check.
-After refill and backup, warm idle memory was **613.5 MiB** (Docker), with an
+After refill and backup, warm idle memory was **613.5 MiB** (Docker); after networking tests it was **523.8 MiB**, with an
 observed cgroup peak of **1.562 GiB**, including charged file cache.
 Measure with
 `sudo docker stats --no-stream stack127-db`.
@@ -58,7 +63,7 @@ changes. Installation and
 restoration were rehearsed with HTTP processing disabled. All eight extension
 inventory entries matched the source, with only that reviewed patch difference.
 
-All 16 source non-system roles exist with matching source attributes:
+All 16 source non-system roles were restored and checked before intentional migration-login restrictions:
 `anon`, `authenticated`, `authenticator`, `dashboard_user`, `pgbouncer`, `postgres`,
 `service_role`, `supabase_admin`, `supabase_auth_admin`, `supabase_etl_admin`,
 `supabase_functions_admin`, `supabase_privileged_role`, `supabase_read_only_user`,
@@ -71,14 +76,30 @@ Credentials were generated on homelab in `/srv/data/projects/stack127/.env.selfh
 (owner `teja`, mode 600), then copied directly to `/srv/stack127-db/.env`
 (owner `ubuntu`, mode 600). The files contain `POSTGRES_PASSWORD`,
 `STACK127_APP_PASSWORD`, connection metadata and `SELFHOST_*` connection URLs.
+The staged files now also contain `DATABASE_MIGRATION_URL`,
+`SELFHOST_DB_MIGRATION_USER`, `SELFHOST_DB_MIGRATION_PASSWORD`,
+`SELFHOST_DATABASE_URL_REMOTE`, `SELFHOST_DATABASE_URL_LOOPBACK`,
+`SELFHOST_DATABASE_URL_DOCKER` and `SELFHOST_DB_MIGRATION_URL_LOOPBACK`.
 No credential values belong in Git. These names do not change the running app's URL.
+The old staged `SELFHOST_DB_ADMIN_URL` is retained but its bootstrap login is now
+blocked on network paths; use the migration URL for remote DDL, or the Unix socket
+for emergency superuser administration.
 `supabase_admin` is the superuser. `stack127_app` is a separate login with no
 superuser, database/role creation, replication or RLS bypass rights. `app-role.sql`
 grants public DML, sequence access, function execution and migration-history reads
 through 38 explicit backend RLS policies. The seven source policies and object
 owners are preserved. Signing credentials and wake configuration are directly
 readable but writable only by the admin. The app cannot create schema objects or
-perform migrations; use the separate admin credential for reviewed DDL.
+perform migrations. The separate migration credential uses restored owner
+`postgres`, NOSUPERUSER/NOCREATEDB/NOCREATEROLE/NOREPLICATION/BYPASSRLS, with all
+nine source memberships revoked and a five-connection limit. `migration-role.sql`
+reads its password privately from the process environment. Real Tailscale app reads,
+owner DDL with rollback, and CLI migration dry-run passed. Keep the app and migration
+URLs separate. The app also has SELECT-only access to the single retired cache-job
+name in `cron.job`, through an explicit RLS policy, so the Node worker can detect
+legacy wiring without permission to schedule jobs. PUBLIC EXECUTE on cron
+functions is revoked on this isolated cluster; only the migration owner retains
+that access. An actual app scheduling attempt was denied.
 Other image login passwords were cleared. Socket administration requires OS postgres.
 
 ## Backups
@@ -148,8 +169,34 @@ The measured rehearsal refill uses the existing deployed query.
 The private overlay and external config volume are created once before first startup:
 `sudo docker network create --driver overlay --attachable --opt encrypted stack127-db-private`
 and `sudo docker volume create stack127-db-config`.
-Recreate with `cd /srv/stack127-db && sudo docker compose up -d`.
+Start/restart this database with `sudo systemctl restart stack127-db.service`.
 Never remove either volume. After file edits, `docker compose up -d` does not
 restart a container for changed bind-mounted file contents; explicitly restart
 only `postgres` when required. Do not print `docker compose config` or full
 container environment inspection, which would expand credentials.
+
+## Final core copy without refilling again
+
+The accepted refill stays frozen. Follow section 5 of the plan, not the empty-target
+instructions above. `make-services.mjs` prepares mode-0600 source/app/migration libpq
+files on homelab without opening a database. `source-check.py` compares the source's
+small ad-network revision token and optionally its catalog metadata against the
+rehearsal; it never scans the four large tables. `snapshot-source.sql` writes a
+private, secret-bearing source rollback script before the owner retires old wiring.
+
+`ad-network-guard.py` compares all seven frozen tables and their two sequences with
+a backup-derived private baseline. `core-restore.py` retains these tables and the
+existing schema/ACL/RLS, replaces the other 31 public tables plus migration history
+inside one transaction, verifies archive counts and 24 foreign keys, and preserves
+the disabled wake. A failed data transaction also restores original core sequence
+states, since `setval` itself does not roll back. An injected failure and successful
+core replacement both passed on an isolated scratch container: 6.086s SQL, 30.035s
+including frozen-data checks, all 219 migrations and the refill preserved. No final
+source dump or main-target core replacement has been run yet.
+
+The two branch PRs are opened by the owner. Merge order is #58, then
+`refactor/ad-networks-cron`, then `feat/node-cache-worker`; #60 is outside this move.
+The worker branch includes Tailscale workflow delivery, the separate migration
+secret fallback and independent `STACK127_CACHE_WORKER_RUNTIME=node` activation.
+The plan keeps transport selection in one step so a separately reviewed public-TLS
+endpoint can replace Tailscale without changing cache-worker activation.
