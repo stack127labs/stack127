@@ -1,6 +1,6 @@
 # Ad networks: simple OVH cron plan
 
-Status on October 18, 2026: planned, not started. Pages stay unpublished.
+Status on October 19, 2026: steps 1 to 6 are done and cron runs on OVH. The homelab steps and the clean-up remain. Pages stay unpublished.
 
 ## Goal
 
@@ -14,20 +14,28 @@ We had no direct way into OVH: no SSH key, no Tailscale, and the Dokploy dashboa
 
 ## Where things stand
 
-Done:
+Done on October 19:
 
-- PR #53 merged (`a4fd0397`) and released. Main, backend health and the Cloudflare frontend all match.
-- Production database: 10 ad-network migrations applied, 44 networks, 0 published pages.
-- Production GitHub secret `AD_NETWORKS_ALERT_TOKEN` holds the issue-alert token. Not needed for the cron plan.
-- A seed copy was uploaded to the private Storage bucket `stack127-ad-networks-jobs`. Not needed for the cron plan.
+- SSH: `ssh ovh` works from all three devices as `ubuntu`.
+- OVH has Node 22 from nodejs.org in `/usr/local`, the checkout in `/srv/stack127`, and the env file `/srv/stack127-data/ad-networks.env`.
+- The working store `/srv/stack127-data/ad-networks.sqlite` came from a homelab snapshot taken at 06:21 UTC.
+- First run passed. Production now has 106,685 sites and 113,817 network links, with niche labels on 85,810 sites. The 70 ad-network paths were refreshed, and every page still returns 404.
+- Cron is installed (`crontab -l` as `ubuntu`). Logs are in `/srv/stack127-data/logs/` and rotate weekly. Backups are in `/srv/stack127-data/state/backups/`.
+- The first verification run checked 300 sites in its 5-minute budget. Most errors are 403s from sites that block bots. Homelab gets the same 403s.
+
+Things to know:
+
+- Every job ends with a full sync and a refresh. A sync with no changes still takes about 12 minutes, so verification runs about every 15 minutes, not every 5.
+- `/srv/stack127-data/run-job.sh` wraps each job. A daily or weekly job that finds the database lock taken retries every minute for up to 6 hours. Verification skips its turn while one is waiting. Exit 75 means the lock was taken, and exit 76 means the same job is already running.
+- Each sync leaves two small temp files in `state/`. The wrapper deletes them after 3 hours. The proper fix belongs in `snapshot-local.mjs`.
 
 Not done:
 
-- Nothing runs on OVH yet. The GitHub activation run failed at its read-only check and changed nothing on OVH.
-- Homelab checkout `/srv/data/projects/stack127` is 98 commits behind main and has someone's uncommitted work from October 8–14 (shared env changes and an untracked `scripts/stack127/shared-env.mjs`). Decide what to do with it before updating.
+- Homelab checkout `/srv/data/projects/stack127` is 112 commits behind main. It has uncommitted work that is not on main: `scripts/stack127/shared-env.mjs`, plus changes to `setup-worktree.mjs`, `AGENTS.md`, `exchange-code.mjs` and two docs. The owner decides what happens to it. The niche timer needs current code.
 - Homelab niche timer is not installed.
+- RDAP merge (step 7.5) and turning off the homelab backup timer.
 - A clean export of `a4fd0397` sits in `/tmp/s127-adnet-a4fd0397` on homelab. Delete it when finished.
-- Still running on homelab: the domain-age RDAP pass (pid 348650, about 4.5 days left on October 18) and the gather supervisor (pid 4134573). Both run from `/tmp/s127-gather-2038dd94`.
+- Still running on homelab: the domain-age RDAP pass (pid 348650) and the gather supervisor (pid 4134573). Both run from `/tmp/s127-gather-2038dd94`.
 
 ## Steps
 
