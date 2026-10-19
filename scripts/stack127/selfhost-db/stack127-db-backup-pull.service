@@ -1,0 +1,13 @@
+[Unit]
+Description=Copy stack127 PostgreSQL backups from OVH to homelab
+After=network-online.target
+Wants=network-online.target
+ConditionPathExists=/srv/data/backups/stack127-db/PULL_ENABLED
+
+[Service]
+Type=oneshot
+User=teja
+ExecStart=/srv/data/backups/stack127-db/bin/pull-backups.sh
+UMask=0077
+Nice=10
+TimeoutStartSec=1h

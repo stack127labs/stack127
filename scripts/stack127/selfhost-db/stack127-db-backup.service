@@ -1,0 +1,15 @@
+[Unit]
+Description=Back up the isolated stack127 PostgreSQL database
+After=docker.service
+Requires=docker.service
+ConditionPathExists=/srv/stack127-db/BACKUPS_ENABLED
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/srv/stack127-db/backup.sh
+UMask=0077
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+TimeoutStartSec=1h

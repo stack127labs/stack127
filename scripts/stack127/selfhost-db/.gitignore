@@ -1,0 +1,5 @@
+/.env
+/backups/
+/BACKUPS_ENABLED
+/PULL_ENABLED
+/*.dump

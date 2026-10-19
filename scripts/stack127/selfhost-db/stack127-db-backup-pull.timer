@@ -1,0 +1,10 @@
+[Unit]
+Description=Nightly homelab copy of stack127 PostgreSQL backups
+
+[Timer]
+OnCalendar=*-*-* 03:10:00 UTC
+Persistent=true
+Unit=stack127-db-backup-pull.service
+
+[Install]
+WantedBy=timers.target
