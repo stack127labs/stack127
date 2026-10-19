@@ -246,3 +246,135 @@ test("settings follow the Edge Function defaults", () => {
   assert.equal(cloudflare.alertAfterMinutes, 30);
   assert.equal(cloudflare.siteUrl, "https://stack127.com");
 });
+
+
+test("recovered alerts retain their issue number while the token is unavailable", async () => {
+  const client = fakeClient({ alertIssue: 42 });
+  const fetch = fakeFetch();
+  const result = await runCacheWorker(client, { env: {}, fetchImplementation: fetch.fetchImplementation, log: quiet });
+  assert.equal(result.error, null);
+  assert.ok(!statements(client).some(text => text.includes("set alert_issue_number = null")));
+  assert.equal(fetch.calls.length, 0);
+});
+
+test("an active frontend run suppresses dispatch and retains the shared lease", async () => {
+  const client = fakeClient({ events: [pageEvent] });
+  const fetch = fakeFetch({ github: () => json({ total_count: 1, workflow_runs: [{}] }) });
+  const result = await runCacheWorker(client, {
+    env: { STACK127_FRONTEND_HOSTING: "cloudflare", GITHUB_FRONTEND_TOKEN: "token" },
+    fetchImplementation: fetch.fetchImplementation, log: quiet,
+  });
+  assert.equal(result.error, null);
+  assert.ok(fetch.calls.every(call => !call.init.method));
+  assert.deepEqual(client.calls.at(-1).values.slice(1), [true, null, true]);
+  assert.ok(!statements(client).some(text => text.startsWith("delete from")));
+});
+
+test("Cloudflare alerts use the frontend latency target rather than the legacy target", async () => {
+  for (const [minutes, expected] of [[29, 0], [30, 1]]) {
+    const client = fakeClient({ queue: { pending: 1, minutes } });
+    const fetch = fakeFetch();
+    await runCacheWorker(client, { env: { STACK127_FRONTEND_HOSTING: "cloudflare", GITHUB_ALERT_TOKEN: "token" },
+      fetchImplementation: fetch.fetchImplementation, log: quiet });
+    assert.equal(fetch.calls.filter(call => call.url.endsWith("/issues")).length, expected);
+  }
+});
+
+test("a rejected purge retains the event and never warms public pages", async () => {
+  const client = fakeClient({ events: [pageEvent] });
+  const fetch = fakeFetch();
+  const result = await runCacheWorker(client, { env: legacyEnv, log: quiet,
+    fetchImplementation: (url, init) => url.includes("api.cloudflare.com")
+      ? json({ success: false, errors: [{ message: "denied" }] }) : fetch.fetchImplementation(url, init),
+  });
+  assert.match(result.error, /rejected a tag purge/);
+  assert.ok(!statements(client).some(text => text.startsWith("delete from")));
+  assert.ok(!fetch.calls.some(call => new URL(call.url).pathname === "/about"));
+});
+
+test("fingerprint failure rolls the acknowledgement back", async () => {
+  const client = fakeClient({ events: [pageEvent] });
+  const query = client.query.bind(client);
+  client.query = (sql, values) => {
+    if (sql.startsWith("insert into public.stack127_cache_processed")) throw new Error("fingerprint write failed");
+    return query(sql, values);
+  };
+  const result = await runCacheWorker(client, { env: legacyEnv, fetchImplementation: fakeFetch().fetchImplementation, log: quiet });
+  assert.match(result.error, /fingerprint write failed/);
+  assert.ok(statements(client).includes("rollback"));
+  assert.ok(!statements(client).includes("commit"));
+  assert.equal(result.processed, 0);
+});
+
+test("deadline exhaustion stops legacy network work and preserves the event for retry", async () => {
+  let clock = 1_000;
+  const client = fakeClient({ events: [pageEvent] });
+  const fetch = fakeFetch();
+  const result = await runCacheWorker(client, { env: legacyEnv, log: quiet, now: () => clock,
+    fetchImplementation: (url, init) => {
+      const response = fetch.fetchImplementation(url, init);
+      clock += 91_000;
+      return response;
+    },
+  });
+  assert.match(result.error, /exceeded its run budget/);
+  assert.equal(fetch.calls.length, 1);
+  assert.ok(statements(client).some(text => text.includes("attempts = event.attempts + 1")));
+  assert.ok(!statements(client).some(text => text.startsWith("delete from")));
+});
+
+test("frontend dispatch respects the worker deadline as well as helper timeouts", async () => {
+  let clock = 1_000;
+  const client = fakeClient({ events: [pageEvent] });
+  const fetch = fakeFetch({ github: () => json({ total_count: 0, workflow_runs: [] }) });
+  const result = await runCacheWorker(client, {
+    env: { STACK127_FRONTEND_HOSTING: "cloudflare", GITHUB_FRONTEND_TOKEN: "token" }, log: quiet, now: () => clock,
+    fetchImplementation: (url, init) => {
+      const response = fetch.fetchImplementation(url, init);
+      clock += 91_000;
+      return response;
+    },
+  });
+  assert.match(result.error, /exceeded its run budget/);
+  assert.equal(fetch.calls.length, 1);
+  assert.ok(!fetch.calls.some(call => call.init.method === "POST"));
+  assert.ok(!statements(client).some(text => text.startsWith("delete from")));
+});
+
+test("observation errors still release only this run's lease", async () => {
+  const client = fakeClient();
+  const query = client.query.bind(client);
+  client.query = (sql, values) => {
+    if (sql.includes("healthy_since = case")) throw new Error("observation failed");
+    return query(sql, values);
+  };
+  await assert.rejects(runCacheWorker(client, { env: legacyEnv, fetchImplementation: fakeFetch().fetchImplementation, log: quiet }), /observation failed/);
+  assert.match(client.calls.at(-1).text, /where id = true and lease_id = \$1/);
+});
+
+
+test("stale API bytes and launch-directory source revisions remain queued", async () => {
+  for (const proof of [{ digest: "0".repeat(64) }, { sourceRevision: "f".repeat(32) }]) {
+    const client = fakeClient({ events: [pageEvent] });
+    const fetch = fakeFetch({ verified: paths => paths.map(path => ({ path, status: 200, ...proof })) });
+    const result = await runCacheWorker(client, { env: legacyEnv, fetchImplementation: fetch.fetchImplementation, log: quiet });
+    assert.match(result.error, /Public (API|launch directory data) is stale/);
+    assert.ok(!statements(client).some(sql => sql.startsWith("delete from")));
+    assert.ok(statements(client).some(sql => sql.includes("attempts = event.attempts + 1")));
+  }
+});
+
+test("verified deletion responses are warmed as 404s and acknowledged as deleted", async () => {
+  const client = fakeClient({ events: [pageEvent] });
+  const query = client.query.bind(client);
+  client.query = (sql, values) => sql.includes("stack127_cache_source_revisions($1") ? { rows: [] } : query(sql, values);
+  const fetch = fakeFetch({ verified: paths => paths.map(path => ({ path, status: 404 })) });
+  const result = await runCacheWorker(client, { env: legacyEnv, log: quiet,
+    fetchImplementation: (url, init) => new URL(url).hostname === "stack127.com" && !new URL(url).pathname.startsWith("/api/cache/")
+      ? new Response("missing", { status: 404 }) : fetch.fetchImplementation(url, init),
+  });
+  assert.equal(result.error, null);
+  assert.equal(result.processed, 1);
+  const recorded = client.calls.find(call => call.text.startsWith("insert into public.stack127_cache_processed"));
+  assert.deepEqual(recorded.values[2], ["deleted"]);
+});

@@ -2,19 +2,19 @@
 // the Supabase `cache-worker` Edge Function for the self-hosted database on the
 // OVH server, where pg_cron and pg_net no longer wake a function.
 //
-// Run it from cron every minute, only after the database switch:
+// Run it with the OVH systemd timer every 30 seconds, only after the switch:
 //   scripts/stack127/selfhost-db/switch/010_retire_supabase_cache_worker_wake.sql
 // has removed the pg_cron schedule and the pg_net wake trigger. The worker
 // refuses to run while the Edge Function wake URL, its trigger, or its cron job
 // is still present, so two processors never work the same queue. A 150-second
 // database lease is the overlap guard between runs, and it is shared with the
-// GitHub backup processor. Add `flock -n` to the cron line as well.
+// GitHub backup processor. The OVH wrapper also takes a host flock.
 //
-// Environment: DATABASE_URL (or DATABASE_POOLER_URL), STACK127_SITE_URL,
+// Environment: DATABASE_URL, STACK127_SITE_URL,
 // CLOUDFLARE_API_TOKEN and CLOUDFLARE_ZONE_ID (legacy hosting),
 // STACK127_FRONTEND_HOSTING=cloudflare with GITHUB_FRONTEND_TOKEN and optional
-// GITHUB_FRONTEND_REPO (static hosting), GITHUB_ALERT_TOKEN and optional
-// GITHUB_ALERT_REPO (delay alerts), CACHE_WORKER_DRY_RUN=1 (report only).
+// GITHUB_FRONTEND_REPO (static hosting), GITHUB_ALERT_TOKEN (delay alerts),
+// CACHE_WORKER_DRY_RUN=1 (report only).
 import { createHmac, randomUUID } from "node:crypto";
 import { targetsForEvents } from "./targets.mjs";
 import { refreshTargets, cacheBodyDigest, selectRevalidationBatch } from "./refresh.mjs";
@@ -23,6 +23,8 @@ import { dispatchFrontendRefresh, frontendLatencyMinutes } from "../frontend/con
 
 export const runBudgetMs = 90_000;
 export const leaseSeconds = 150;
+// Leave time for the server to cancel a 15-second SQL statement before expiry.
+export const hardLimitMs = 120_000;
 export const switchScript = "scripts/stack127/selfhost-db/switch/010_retire_supabase_cache_worker_wake.sql";
 
 export const revalidationToken = key => createHmac("sha256", key).update("stack127-cache-revalidation-v1").digest("hex");
@@ -35,7 +37,7 @@ export function workerSettings(env = process.env) {
     cloudflareFrontend,
     hosting: cloudflareFrontend ? "cloudflare" : "legacy",
     alertAfterMinutes: cloudflareFrontend ? frontendLatencyMinutes : 5,
-    alertRepo: env.GITHUB_ALERT_REPO || "stack127labs/stack127",
+    alertRepo: "stack127labs/stack127",
     alertToken: env.GITHUB_ALERT_TOKEN || "",
     cloudflareZone: env.CLOUDFLARE_ZONE_ID || "",
     cloudflareToken: env.CLOUDFLARE_API_TOKEN || "",
@@ -81,9 +83,17 @@ export async function runCacheWorker(client, {
   const { dryRun, siteUrl, cloudflareFrontend } = settings;
   let deadline = Infinity;
 
-  const timeout = () => AbortSignal.timeout(Math.max(1, Math.min(20_000, deadline - now())));
+  const timeout = () => {
+    const remaining = deadline - now();
+    if (remaining <= 0) throw new Error("Cache worker exceeded its run budget.");
+    return AbortSignal.timeout(Math.min(20_000, remaining));
+  };
+  // Preserve the dispatch helper's timeout while applying this run's deadline.
+  const budgetFetch = (url, init = {}) => fetchImplementation(url, {
+    ...init, signal: init.signal ? AbortSignal.any([init.signal, timeout()]) : timeout(),
+  });
   async function request(url, init = {}) {
-    const response = await fetchImplementation(url, { ...init, signal: timeout() });
+    const response = await budgetFetch(url, init);
     if (!response.ok) throw new Error(`${new URL(url).pathname} returned HTTP ${response.status}`);
     return response;
   }
@@ -203,7 +213,7 @@ export async function runCacheWorker(client, {
         purge: purgeCloudflare,
         warm: async proofs => {
           await Promise.all(proofs.map(async proof => {
-            const response = await fetchImplementation(`${siteUrl}${proof.requestPath ?? proof.path}`, { signal: timeout() });
+            const response = await budgetFetch(`${siteUrl}${proof.requestPath ?? proof.path}`);
             const body = await response.text();
             if (response.status !== proof.status) throw new Error(`Public warm failed for ${proof.path}: HTTP ${response.status}`);
             if (proof.digest && await cacheBodyDigest(body) !== proof.digest) throw new Error(`Public API is stale: ${proof.path}`);
@@ -314,16 +324,14 @@ export async function runCacheWorker(client, {
         body: [
           `${queue.pending} site changes have been waiting for ${queue.minutes} minutes.`,
           lastError ? `Last error: \`${lastError}\`` : "",
-          "Check `public.stack127_revalidation_events` and the cache worker cron log on the OVH server.",
+          "Check `public.stack127_revalidation_events` and `journalctl -u stack127-cache-worker.service` on OVH.",
           "This issue closes itself when the queue catches up.",
         ].filter(Boolean).join("\n\n"),
       });
       if (issue?.number) await client.query("update public.stack127_cache_worker_state set alert_issue_number = $1 where id = true", [issue.number]);
-    } else if (!stale && state.alert_issue_number) {
-      if (settings.alertToken) {
-        await github(`/issues/${state.alert_issue_number}/comments`, { body: "The cache queue has caught up." });
-        await github(`/issues/${state.alert_issue_number}`, { state: "closed" }, "PATCH");
-      }
+    } else if (!stale && state.alert_issue_number && settings.alertToken) {
+      await github(`/issues/${state.alert_issue_number}/comments`, { body: "The cache queue has caught up." });
+      await github(`/issues/${state.alert_issue_number}`, { state: "closed" }, "PATCH");
       await client.query("update public.stack127_cache_worker_state set alert_issue_number = null where id = true");
     }
   }
@@ -361,7 +369,7 @@ export async function runCacheWorker(client, {
       const events = await readyEvents();
       if (events.length) {
         try {
-          const result = await dispatchFrontendRefresh({ repo: settings.frontendRepo, token: settings.frontendToken, fetchImplementation });
+          const result = await dispatchFrontendRefresh({ repo: settings.frontendRepo, token: settings.frontendToken, fetchImplementation: budgetFetch });
           keepDispatchLease = result.dispatched || result.active === true;
           log.log(JSON.stringify({ hosting: "cloudflare", ...result, acknowledged: 0 }));
         } catch (error) {
@@ -421,7 +429,7 @@ export async function runCacheWorker(client, {
 
 export async function cacheWorkerMain(env = process.env) {
   const settings = workerSettings(env);
-  const databaseUrl = env.DATABASE_URL || env.DATABASE_POOLER_URL;
+  const databaseUrl = env.DATABASE_URL;
   if (!databaseUrl) throw new Error("DATABASE_URL is required.");
   if (!settings.dryRun) {
     if (settings.cloudflareFrontend && !settings.frontendToken) throw new Error("GITHUB_FRONTEND_TOKEN is required in Cloudflare hosting mode.");
@@ -436,15 +444,14 @@ export async function cacheWorkerMain(env = process.env) {
   const watchdog = setTimeout(() => {
     console.error("Cache worker exceeded its time limit and stopped.");
     process.exit(2);
-  }, leaseSeconds * 1000 + 10_000);
+  }, hardLimitMs);
   watchdog.unref();
-  await client.connect();
   try {
+    await client.connect();
     const result = await runCacheWorker(client, { env });
     if (result.error) process.exitCode = 1;
   } finally {
-    clearTimeout(watchdog);
-    await client.end();
+    try { await client.end(); } finally { clearTimeout(watchdog); }
   }
 }
 

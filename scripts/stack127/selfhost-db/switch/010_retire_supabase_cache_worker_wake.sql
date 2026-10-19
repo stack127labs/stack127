@@ -1,34 +1,26 @@
--- Retire the Supabase Edge Function wake-up for the cache worker.
+-- Apply only at the authorized database switch, not as a release migration.
+-- During the source write freeze, retire its wake before the final copy, disable
+-- invocation of the old function, and drain in-flight runs and the 150s lease.
+-- Also apply on the restored OVH target BEFORE test mutations or Node processing.
+-- Disabling wiring cannot cancel an already running function or HTTP request.
 --
--- When to run: at the database switch, on the new self-hosted Postgres right
--- after the restore and BEFORE the cron job for scripts/stack127/cache/worker.mjs
--- starts. Run it on the old Supabase database as well once traffic has moved,
--- so a retired database never calls the function URL again.
---
--- Why it is not in supabase/migrations: the release workflow applies that folder
--- to the Supabase project at release time. This change must land at one exact
--- moment (the switch), not at the next release, and it must never run on the
--- old database while it is still the live one. The restored database may also
--- lack pg_cron and pg_net, so every step checks before it touches them.
---
--- The script is idempotent. It:
---   1. unschedules the pg_cron job `stack127-cache-worker` when pg_cron exists;
---   2. drops the pg_net wake trigger on public.stack127_revalidation_events;
---   3. drops the trigger function and replaces stack127_wake_cache_worker(boolean)
---      with a no-op, so manual calls in old runbooks do nothing instead of failing;
---   4. clears stack127_cache_worker_wake.function_url, which worker.mjs checks
---      before it processes anything.
--- The queue, lease, credentials, observation, and processed tables stay as they
--- are. The Node worker reuses all of them.
-
+-- Idempotent; does not need pg_cron/pg_net installed. Keep ordinary queue triggers,
+-- event versions, credentials, observations, fingerprints and leases unchanged.
+-- Requires a trusted administrator. Run with psql -v ON_ERROR_STOP=1.
 begin;
+set local lock_timeout = '5s';
+set local statement_timeout = '15s';
 
 do $$
 begin
   if exists (select 1 from pg_extension where extname = 'pg_cron') then
-    perform cron.unschedule(jobid)
-    from cron.job
-    where jobname = 'stack127-cache-worker';
+    execute 'select cron.unschedule(jobid) from cron.job where jobname = ''stack127-cache-worker''';
+  end if;
+  -- Remove only queued cache-worker HTTP calls, preserving other pg_net work.
+  -- Requests already taken by pg_net still require the cutover drain above.
+  if to_regclass('net.http_request_queue') is not null then
+    execute $sql$delete from net.http_request_queue
+      where url ~ '^https://[a-z0-9.-]+/functions/v1/cache-worker$'$sql$;
   end if;
 end;
 $$;
@@ -39,8 +31,7 @@ drop function if exists public.stack127_queue_wake_cache_worker();
 create or replace function public.stack127_wake_cache_worker(p_force boolean default false)
 returns void language plpgsql security definer set search_path = pg_catalog, public as $$
 begin
-  -- The cache worker runs from cron on the OVH server (scripts/stack127/cache/worker.mjs).
-  -- There is no Edge Function to wake. Kept so old runbooks that call it do not fail.
+  -- The Node worker runs from the OVH systemd timer. Keep old manual calls safe.
   return;
 end;
 $$;
@@ -48,14 +39,24 @@ revoke all on function public.stack127_wake_cache_worker(boolean) from public, a
 
 update public.stack127_cache_worker_wake set function_url = null where id;
 
-commit;
+-- Dynamic SQL avoids resolving cron.job on targets without pg_cron. Checks are
+-- inside the transaction, so failed verification rolls back the switch.
+do $$
+declare
+  cron_jobs bigint := 0;
+begin
+  if exists (select 1 from pg_extension where extname = 'pg_cron') then
+    execute 'select count(*) from cron.job where jobname = ''stack127-cache-worker''' into cron_jobs;
+  end if;
+  if not exists (select 1 from public.stack127_cache_worker_wake where id and function_url is null)
+    or exists (select 1 from pg_trigger where tgname = 'stack127_wake_cache_worker'
+      and not tgisinternal and tgrelid = 'public.stack127_revalidation_events'::regclass)
+    or to_regprocedure('public.stack127_queue_wake_cache_worker()') is not null
+    or cron_jobs <> 0 then
+    raise exception 'Cache worker wake retirement did not verify';
+  end if;
+  raise notice 'Cache worker wake retired; cron jobs: %', cron_jobs;
+end;
+$$;
 
--- Verification. Every value must be false or 0 before the Node worker starts.
-select
-  (select function_url is not null from public.stack127_cache_worker_wake where id) as wake_url_configured,
-  exists (select 1 from pg_trigger
-    where tgname = 'stack127_wake_cache_worker' and not tgisinternal
-      and tgrelid = 'public.stack127_revalidation_events'::regclass) as wake_trigger_present,
-  exists (select 1 from pg_proc where proname = 'stack127_queue_wake_cache_worker') as trigger_function_present,
-  case when exists (select 1 from pg_extension where extname = 'pg_cron')
-    then (select count(*) from cron.job where jobname = 'stack127-cache-worker') else 0 end as cron_jobs;
+commit;
