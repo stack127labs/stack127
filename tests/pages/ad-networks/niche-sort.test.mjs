@@ -24,9 +24,10 @@ test('niche imports withhold uncertain guesses, serialize against sync, and roll
   const calls = [];
   const client = { query: async (sql, args) => { calls.push({ sql, args }); return { rowCount: 1, rows: [{ locked: true }] }; } };
   assert.equal(await importNiches(client, [result('example.com'), result('example.org', 'gaming', 'low')]), 1);
-  assert.deepEqual(JSON.parse(calls[2].args[0]), [{ domain: 'example.com', niche: 'food' }, { domain: 'example.org', niche: null }]);
-  assert.match(calls[0].sql, /ad-networks-reviewed-sync/);
-  assert.match(calls[2].sql, /p.niche is null/);
+  const update = calls.find(call => call.sql.startsWith('update'));
+  assert.deepEqual(JSON.parse(update.args[0]), [{ domain: 'example.com', niche: 'food' }, { domain: 'example.org', niche: null }]);
+  assert.ok(calls.some(call => call.sql.includes("pg_advisory_lock(hashtext('ad-networks-reviewed-sync'))")));
+  assert.match(update.sql, /p.niche is null/);
   calls.length = 0;
   await assert.rejects(importNiches({ query: async sql => { calls.push(sql); if (sql.startsWith('update')) throw Error('database failed'); return { rows: [{ locked: true }] }; } }, []));
   assert.ok(calls.includes('rollback')); assert.match(calls.at(-1), /unlock/);
@@ -39,43 +40,68 @@ test('small network niche shares use sorted sites while broad comparison gates s
   assert.deepEqual(adNetworkNicheShares([]), []);
 });
 
-test('niche import waits through a twelve-minute sync without starting a transaction early', async () => {
-  let elapsed = 0, attempts = 0;
-  const calls = [], waits = [];
+test('niche import queues through a twelve-minute sync with bounded server lock timeouts', async () => {
+  let elapsed = 0, attempts = 0, timeout;
+  const calls = [];
   const client = { query: async sql => {
     calls.push(sql);
-    if (sql.includes('pg_try_advisory_lock')) {
+    if (sql.startsWith('set lock_timeout')) {
+      timeout = Number(sql.match(/'(\d+)ms'/)[1]);
+      assert.ok(timeout > 0 && timeout <= 100000);
+    } else if (sql.includes('pg_advisory_lock')) {
       attempts++;
-      return { rows: [{ locked: elapsed >= 12 * 60000 }] };
+      const wait = Math.min(timeout, 12 * 60000 - elapsed);
+      elapsed += wait;
+      if (elapsed < 12 * 60000) throw Object.assign(Error('lock unavailable'), { code: '55P03' });
+    } else {
+      assert.ok(elapsed >= 12 * 60000);
     }
-    assert.ok(elapsed >= 12 * 60000);
     return { rowCount: 1 };
   } };
-  const imported = await importNiches(client, [result('example.com')], {
-    now: () => elapsed, delay: async ms => { waits.push(ms); elapsed += ms; },
-  });
-  assert.equal(imported, 1);
-  assert.equal(attempts, 145);
-  assert.ok(waits.every(ms => ms === 5000));
+  assert.equal(await importNiches(client, [result('example.com')], { now: () => elapsed }), 1);
+  assert.equal(attempts, 8);
   assert.equal(calls.filter(sql => sql === 'begin').length, 1);
+  assert.equal(calls[calls.indexOf('begin') - 1], 'reset lock_timeout');
   assert.match(calls.at(-1), /pg_advisory_unlock/);
 });
 
-test('niche import stops after an hour of contention without importing or unlocking', async () => {
-  let elapsed = 0;
+test('niche import stops after an hour of contention and resets the timeout without importing or unlocking', async () => {
+  let elapsed = 0, timeout;
   const calls = [];
   await assert.rejects(importNiches({ query: async sql => {
     calls.push(sql);
-    return { rows: [{ locked: false }] };
-  } }, [], { now: () => elapsed, delay: async ms => { elapsed += ms; } }), /Timed out waiting 60 minutes/);
-  assert.equal(elapsed, 60 * 60000);
-  assert.ok(calls.every(sql => sql.includes('pg_try_advisory_lock')));
+    if (sql.startsWith('set lock_timeout')) timeout = Number(sql.match(/'(\d+)ms'/)[1]);
+    if (sql.includes('pg_advisory_lock')) {
+      // Include time spent sending queries so the last wait has to be shorter.
+      elapsed += timeout + 1;
+      throw Object.assign(Error('lock unavailable'), { code: '55P03' });
+    }
+  } }, [], { now: () => elapsed }), /Timed out waiting 60 minutes/);
+  assert.ok(timeout < 100000);
+  assert.ok(elapsed >= 60 * 60000 && elapsed <= 60 * 60000 + 1);
+  assert.equal(calls.at(-1), 'reset lock_timeout');
+  assert.equal(calls.includes('begin'), false);
+  assert.equal(calls.some(sql => sql.includes('pg_advisory_unlock')), false);
 });
 
-test('a lock query failure fails immediately instead of retrying a broken connection', async () => {
-  await assert.rejects(importNiches({ query: async () => { throw Error('connection lost'); } }, [], {
-    delay: () => assert.fail('must not retry query errors'),
-  }), /connection lost/);
+test('a lock query failure resets the timeout and fails immediately without retrying', async () => {
+  const calls = [];
+  await assert.rejects(importNiches({ query: async sql => {
+    calls.push(sql);
+    if (sql.includes('pg_advisory_lock')) throw Object.assign(Error('connection lost'), { code: '08006' });
+  } }, []), /connection lost/);
+  assert.equal(calls.filter(sql => sql.includes('pg_advisory_lock')).length, 1);
+  assert.equal(calls.at(-1), 'reset lock_timeout');
+});
+
+test('a timeout reset failure after acquisition still releases the advisory lock', async () => {
+  const calls = [];
+  await assert.rejects(importNiches({ query: async sql => {
+    calls.push(sql);
+    if (sql === 'reset lock_timeout') throw Error('reset failed');
+  } }, []), /reset failed/);
+  assert.equal(calls.includes('begin'), false);
+  assert.match(calls.at(-1), /pg_advisory_unlock/);
 });
 
 test('niche job keeps local completion and partial failure status and sends recovery alerts', async t => {

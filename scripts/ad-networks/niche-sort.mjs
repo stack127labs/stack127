@@ -6,7 +6,6 @@ import { homedir, tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { parseArgs } from 'node:util';
 import { pathToFileURL } from 'node:url';
-import { setTimeout as delay } from 'node:timers/promises';
 import { targetPool } from './runtime-db.mjs';
 import { publicNiche, validateNicheResult } from './niche-import.mjs';
 import { progressFile } from './enrichment-store.mjs';
@@ -61,27 +60,36 @@ export async function classifyNiches(input, rubric, options) {
 export async function importNiches(client, rows, dependencies = {}) {
   // Share the existing sync lock, then change only still-unsorted publishers.
   // A full OVH sync deliberately never updates existing niche values.
-  // Short, nonblocking queries avoid the pool's 120-second query timeout
-  // while OVH holds this lock for its full sync.
+  // Queue behind other lock requests. Server-side timeouts keep each attempt
+  // below the pool's 120-second query timeout while OVH finishes its full sync.
   const now = dependencies.now ?? (() => performance.now());
-  const wait = dependencies.delay ?? delay;
   const deadline = now() + 60 * 60 * 1000;
-  while (!(await client.query("select pg_try_advisory_lock(hashtext('ad-networks-reviewed-sync')) as locked")).rows[0].locked) {
-    const remaining = deadline - now();
-    if (remaining <= 0) throw new Error('Timed out waiting 60 minutes for ad-network sync lock');
-    await wait(Math.min(5000, remaining));
-  }
+  let locked = false;
   try {
-    await client.query('begin');
-    const result = await client.query(`update public.ad_network_publishers p set niche=i.niche
-      from jsonb_to_recordset($1::jsonb) i(domain text,niche text)
-      where p.normalized_domain=i.domain and p.niche is null and i.niche is not null
-        and exists(select 1 from public.ad_network_publisher_relationships r where r.publisher_id=p.id and r.status='confirmed')`,
-    [JSON.stringify(rows.map(row => ({ domain: row.domain, niche: publicNiche(row) })))]);
-    await client.query('commit');
-    return result.rowCount;
-  } catch (error) { await client.query('rollback').catch(() => {}); throw error; }
-  finally { await client.query("select pg_advisory_unlock(hashtext('ad-networks-reviewed-sync'))").catch(() => {}); }
+    try {
+      while (!locked) {
+        const remaining = deadline - now();
+        if (remaining <= 0) throw new Error('Timed out waiting 60 minutes for ad-network sync lock');
+        await client.query(`set lock_timeout = '${Math.max(1, Math.min(100000, Math.floor(remaining)))}ms'`);
+        try {
+          await client.query("select pg_advisory_lock(hashtext('ad-networks-reviewed-sync'))");
+          locked = true;
+        } catch (error) { if (error.code !== '55P03') throw error; }
+      }
+    } finally { await client.query('reset lock_timeout'); }
+    try {
+      await client.query('begin');
+      const result = await client.query(`update public.ad_network_publishers p set niche=i.niche
+        from jsonb_to_recordset($1::jsonb) i(domain text,niche text)
+        where p.normalized_domain=i.domain and p.niche is null and i.niche is not null
+          and exists(select 1 from public.ad_network_publisher_relationships r where r.publisher_id=p.id and r.status='confirmed')`,
+      [JSON.stringify(rows.map(row => ({ domain: row.domain, niche: publicNiche(row) })))]);
+      await client.query('commit');
+      return result.rowCount;
+    } catch (error) { await client.query('rollback').catch(() => {}); throw error; }
+  } finally {
+    if (locked) await client.query("select pg_advisory_unlock(hashtext('ad-networks-reviewed-sync'))").catch(() => {});
+  }
 }
 
 export async function sortNiches(options, dependencies = {}) {
