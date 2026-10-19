@@ -15,3 +15,12 @@ App icons use normalized upstream images stored in the public stack127 Supabase 
 Use the same approved Fact rows card as self-host apps. Show the app image, name, primary category and +N count, full summary, then labeled rows for Stars, Pricing, License, Platforms, Version, and Last commit. Include all platforms and one small semantic icon beside every label. Do not repeat the app type below each name. Three cards fit beside the desktop sidebar, then two and one at narrower widths. Clicking a card opens its existing details drawer.
 
 Filters and the card grid do all discovery work. The dotted header uses one small terminal drawing to identify the collection. Each card uses the stored app image; a generated initial tile is the fallback when that image is missing or fails to load. Additional facts such as app type, install methods, and source model stay in the existing details drawer and server-rendered records. The one accent mark in the h1 names the page. Unknown values render as "unknown" so unverified facts are visible, not hidden. Sentences say what the directory includes and that open and closed tools both belong here. There is no article section: this page is a directory, not an essay about command-line software.
+
+## Search words
+
+Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.md`.
+
+- Main phrase: CLI tools, terminal apps, best CLI tools.
+- Words top titles add: a count, best, list, the year, modern.
+- SEO title: 300+ CLI tools and terminal apps, sorted by what they do. The count is rounded down; update it when the records pass the next round number.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

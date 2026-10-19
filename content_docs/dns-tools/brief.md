@@ -13,3 +13,12 @@ They should reach the tool that matches the symptom, run one bounded check, and 
 The hub sidebar links to published tool catalogs and marks the current catalog. Individual tools appear once in the main card grid. Tool pages retain their family-specific sidebar.
 
 The hub uses the shared three-column catalog grid. Each card has one simple tool name, one scope sentence, and one small marker drawing of the DNS relationship it checks. There is no second heading or symptom label inside a card. Individual tools put the form and conclusion first, use tables for repeated records or server replies, and use small chain figures for referrals and DNSSEC relationships. Sentences carry only interpretation, caveats, and the next useful action.
+
+## Search words
+
+Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.md`.
+
+- Main phrase: DNS tools, DNS checker, DNS lookup.
+- Words top titles add: free, all records, propagation, online.
+- SEO title: Free DNS tools: lookup, propagation, and DNSSEC checks.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

@@ -110,3 +110,13 @@ All from `scripts/platform-fees/data/directory.json`, checked 2026-09-30, with s
 - Redbubble: 50%, 20%, 0% of earnings by account. TeePublic and Displate: fixed pay per item. Spring, Printful: retail minus base cost.
 
 Links: each category page from the hub table, and `/platform-fees/payments` from the category tax section.
+
+## Search words
+
+Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.md`.
+
+- Main phrase: platform fees compared, Gumroad vs Payhip vs Lemon Squeezy, app store fees.
+- Words top titles add: vs, compared, the year, real pricing, cheapest.
+- SEO title: Platform fees compared (2026): 500+ places to sell online. The count is rounded down; update it when the records pass the next round number.
+- Category titles lead with the names people compare, such as "Gumroad vs Payhip vs Etsy fees", plus the year. Update the year when the fees are rechecked.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

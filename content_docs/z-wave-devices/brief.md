@@ -27,3 +27,12 @@ Cards use the shared hardware fact-card variant of the app design: a large conta
 - Internal import totals and source revisions stay off the public page.
 - Sentences explain why region, firmware, and product IDs matter.
 - No chart or marker drawing is needed.
+
+## Search words
+
+Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.md`.
+
+- Main phrase: Z-Wave devices list, Z-Wave JS supported devices.
+- Words top titles add: a count, certified, Home Assistant.
+- SEO title: 3,100+ Z-Wave devices for Z-Wave JS and Home Assistant. The count is rounded down; update it when the records pass the next round number.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

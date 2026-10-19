@@ -28,6 +28,7 @@ Focus on written content and the page as a reading/learning experience:
 - clarity for a new user
 - usefulness for a technical reader
 - search intent and competitor comparison
+- title, SEO title, description, and intro, checked against "Titles and search" and "Intros" in `stack127_docs/writing-style.md`
 - internal links, external source quality, and next-step handoff
 - visuals only insofar as they explain the written idea
 - UI/layout only insofar as it affects reading, scanning, or comprehension

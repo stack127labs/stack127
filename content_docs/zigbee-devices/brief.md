@@ -28,3 +28,12 @@ Cards use the shared hardware fact-card variant of the app design: a large conta
 - Sentences explain why an exact model matters, why ZHA has no complete official device list, and why firmware or white-label variants can still behave differently.
 - No chart is useful because the page does not compare a measured quantity.
 - No marker art is useful because the main problem is exact model evidence, not a vague concept.
+
+## Search words
+
+Checked 2026-10-19. See "Find the words first" in `stack127_docs/writing-style.md`.
+
+- Main phrase: Zigbee2MQTT supported devices, Zigbee compatible devices.
+- Words top titles add: a device count, supported, list.
+- SEO title: 6,300+ Zigbee devices: Zigbee2MQTT and ZHA support checked. The count is rounded down; update it when the records pass the next round number.
+- Questions people ask and gaps in top results: not assessed in this title pass. Check them before the next content rewrite.

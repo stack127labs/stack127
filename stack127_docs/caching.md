@@ -115,6 +115,10 @@ In Cloudflare mode, public pages are files in Cloudflare's static storage. OVH s
 
 The rules for adding a page or data source don't change. The export reads the same registry and source tables, and the same triggers queue the events.
 
+`stack127_cache_source_revisions` checks whether source data changed during an export or before queued events are acknowledged. Ad-network revisions read one stored UUID, maintained in the source transaction by `stack127_touch_ad_network_reports`. The existing public-value comparison ignores leases, retries, and identical imports. Inserts, updates, deletes, and truncates on the five ad-network source tables update the token when public data changes. Rollbacks restore it too.
+
+Every network and the shared `all` revision use this token, because rankings and comparisons depend on other networks. This can invalidate an unchanged network after another network changes. Revision reads scan only the network list and the singleton `stack127_ad_network_source_revision` row, so growing publisher and history tables don't slow build checks. Keep new public data sources covered by these triggers; writes with triggers disabled need an explicit token update and refresh event.
+
 ## Adding a data source or page family
 
 1. Name one tag for the source in the shared tag list, for example `stack127-platform-fees`.

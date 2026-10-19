@@ -41,6 +41,14 @@ What job this tool covers and what it leaves out. List the search queries you tr
 
 Add the "People also ask" questions and related searches that matter. Note which ones no top result answers well.
 
+### Search words
+
+How the top results title themselves. See "Find the words first" in `stack127_docs/writing-style.md`.
+
+- Main phrase:
+- Words top titles add, such as free, online, list, vs, the year, or a count:
+- What top titles promise and the pages don't deliver:
+
 ## User problems
 
 | Problem people repeat | Evidence link | What it means for the tool |
