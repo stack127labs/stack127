@@ -23,6 +23,7 @@ Builds and release checks run on GitHub, not on the homelab. Don't run `npm run 
 - Confirm migrations were applied and checked on the development database. PR CI doesn't run migrations.
 - For pages going public or changing data, confirm each publish manifest ran cleanly in development through `prepare`, `preview`, and `apply`.
 - Review `registry.is_indexable` separately from publication. Thin child pages, filtered views, and public pages still being improved can use `false` while staying published. Reprepare plans made before this field existed.
+- Once production runs on the self-hosted database, a migration that adds a table must enable RLS on it. Then rerun `scripts/stack127/selfhost-db/app-role.sql`, or put its reviewed policy changes in the migration, before builds, and check that `stack127_app` can read the table.
 
 ## Pull request
 
