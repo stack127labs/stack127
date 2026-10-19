@@ -8,7 +8,8 @@ Last reconciled: 28 September 2026.
 
 ## Rules
 
-- Real local env files are ignored by Git and must be mode `0600`.
+- Real local env files are ignored by Git. Homelab files use mode `0600`; Mac mirrors use mode `0400` and must never be edited or recreated locally.
+- The homelab main checkout `/srv/data/projects/stack127` holds the real private `.env.*` files at mode `0600`. Worktrees link directly to those files. Git ignores both the files and links. Worktree setup and the homelab timer discover new names automatically.
 - Each real file has a tracked, secret-free `*.example` schema.
 - Development and production use separate managed Supabase projects. stack127 doesn't start or depend on a local Docker Supabase stack.
 - GitHub Actions secrets can be scoped to the repository or to the protected `production` environment. Check both scopes when rotating.

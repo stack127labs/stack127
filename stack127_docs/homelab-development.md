@@ -1,6 +1,6 @@
 # Homelab development
 
-The main stack127 workspace is `/home/teja/projects/stack127` on `teja-homelab`. Work here unless the user names another checkout.
+The main stack127 workspace is `/srv/data/projects/stack127` on `teja-homelab`. Work here unless the user names another checkout.
 
 ## Environment
 
@@ -11,7 +11,7 @@ The main stack127 workspace is `/home/teja/projects/stack127` on `teja-homelab`.
 - `.env.homelab`: homelab administration
 - `.env.repos`: repository automation
 
-Do not start a local Supabase Docker stack. Do not print, copy, or commit secrets.
+Do not start a local Supabase Docker stack. Do not print or commit secrets. Store real private `.env.*` files in the main checkout `/srv/data/projects/stack127`. Worktrees link directly to those files; the files stay at mode `0600` and ignored by Git.
 
 For a replacement development project, follow [development database recovery](development-database.md).
 Production supplies the published website records. Both databases hold private drafts for platform fees, launch directories, and ad networks. These drafts stay unpublished in production. Keep development previews when refreshing records.
@@ -31,9 +31,13 @@ Do not run a development server as a blocking test and wait for it to exit.
 
 ### T3 Code actions
 
-Import the actions from the root `t3.json` in T3 Code's project settings. **Setup worktree** runs automatically when a new worktree is created. Its `async: false` setting makes T3 wait for setup to finish before the first agent turn. It links the main checkout's available split environment files, installs dependencies with `npm ci`, creates an empty `tmp/` folder, and generates Next.js types. `.env.local` is required; missing optional files are reported. Setup errors appear in T3. Fix them and rerun setup before working in that checkout.
+Import the actions from the root `t3.json` in T3 Code's project settings. **Setup worktree** runs automatically when a new worktree is created. Its `async: false` setting makes T3 wait for setup to finish before the first agent turn. It discovers and links all active private `.env.*` files from the main checkout, installs dependencies with `npm ci`, creates an empty `tmp/` folder, and generates Next.js types. `.env.local` is required. Setup errors appear in T3. Fix them and rerun setup before working in that checkout.
 
-Existing checkout-specific environment files are preserved. An existing link to a different source is an error. Environment files must stay private at mode `0600`. The setup action can also be rerun manually. Outside T3, run `node scripts/stack127/setup-worktree.mjs` from the checkout; it finds the main checkout through Git.
+Identical checkout-specific environment files become links to the main checkout. Conflicting private copies are rejected without overwriting their values. The homelab env-sync timer also covers worktrees from older branches every 30 seconds. Environment files must stay private at mode `0600`. The setup action can also be rerun manually. Outside T3, run `node scripts/stack127/setup-worktree.mjs` from the checkout; it finds the main checkout through Git.
+
+On Macs, main checkout env files are mirrored from homelab at mode `0400`. Setup only links existing mirrored files. Create new env files on homelab and wait for the mirror; never create, edit, or chmod a Mac copy.
+
+Sync and setup share a lock at `~/.config/stack127/shared-env-sync-lock`. If another sync holds it, retry when it finishes. Dead-process locks are recovered automatically. A lock without a valid PID is recovered after 30 seconds. Lock acquisition, recovery, and release use a short exclusive guard at `shared-env-sync-lock.takeover` beside the lock. If a crash leaves that guard behind, verify no sync is running before removing only the guard directory. The lock path and PID format remain compatible with the installed homelab timer; update its `~/.local/lib/stack127/shared-env.mjs` copy to use guarded recovery.
 
 The preview and quality actions are:
 
@@ -75,4 +79,4 @@ Build output such as `.next`, `.next-*`, `test-results`, and temporary logs is d
 
 ## Other repositories
 
-Independent stack127 repositories have separate checkouts under `/home/teja/projects/`. They are not nested dependencies of this repository. Read `stack127_docs/stack127-repos.md` before editing one.
+Independent stack127 repositories have separate checkouts under `/srv/data/projects/`. They are not nested dependencies of this repository. Read `stack127_docs/stack127-repos.md` before editing one.

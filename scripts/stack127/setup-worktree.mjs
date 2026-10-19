@@ -1,12 +1,9 @@
 import { execFileSync, spawn } from "node:child_process";
-import { access, lstat, mkdir, readFile, realpath, stat, symlink } from "node:fs/promises";
+import { access, lstat, mkdir, readFile, realpath } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const envFiles = [
-  ".env.local", ".env.database", ".env.deploy", ".env.analytics",
-  ".env.homelab", ".env.repos", ".env.affiliate", ".env.search",
-];
+import { syncSharedEnvs } from "./shared-env.mjs";
 
 function git(root, args) {
   return execFileSync("git", args, { cwd: root, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }).trim();
@@ -15,13 +12,6 @@ function git(root, args) {
 async function existing(file) {
   try { return await lstat(file); }
   catch (error) { if (error.code === "ENOENT") return null; throw error; }
-}
-
-async function checkEnvironmentFile(file) {
-  const info = await stat(file);
-  if (!info.isFile()) throw new Error(`Expected an environment file: ${file}`);
-  if ((info.mode & 0o077) !== 0) throw new Error(`Environment file must be private. Run chmod 600 on ${file}`);
-  await access(file);
 }
 
 function run(root, command, args) {
@@ -56,34 +46,11 @@ export async function setupWorktree() {
     }
   }
 
-  // Inspect every destination before creating links. Existing local files stay intact.
-  const links = [];
-  const missing = [];
-  for (const name of envFiles) {
-    const destination = path.join(root, name);
-    const current = await existing(destination);
-    const source = path.join(main, name);
-    if (current) {
-      if (current.isSymbolicLink() && root !== main && await realpath(destination) !== await realpath(source)) {
-        throw new Error(`Environment link points somewhere else: ${destination}`);
-      }
-      await checkEnvironmentFile(destination);
-      continue;
-    }
-    if (!await existing(source)) {
-      if (name === ".env.local") throw new Error(`Missing development environment: ${source}`);
-      missing.push(name);
-      continue;
-    }
-    await checkEnvironmentFile(source);
-    links.push({ source, destination });
-  }
-  for (const { source, destination } of links) await symlink(source, destination);
+  const shared = await syncSharedEnvs({ root, requireLocal: true });
   await mkdir(path.join(root, "tmp"), { recursive: true });
 
   console.log(`Checkout: ${root}`);
-  console.log(`Environment files linked: ${links.length}. Existing files preserved.`);
-  if (missing.length) console.log(`Optional environment files unavailable: ${missing.join(", ")}`);
+  console.log(`Shared environment: ${shared.store}. Files: ${shared.names.length}. Links updated: ${shared.linked}.`);
   console.log("Installing this checkout's dependencies...");
   await run(root, "npm", ["ci", "--include=dev", "--no-audit", "--no-fund"]);
   console.log("Generating this checkout's Next.js types...");
