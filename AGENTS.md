@@ -1,5 +1,12 @@
 # stack127 agent guide
 
+## Talking to the owner
+
+- Write small, direct messages in simple, everyday English.
+- Give the clear details: what you did, what's next, and what you need from the owner.
+- Use short lists instead of long paragraphs.
+- Avoid jargon. If a technical word is needed, explain it in a few plain words.
+
 stack127 publishes tools, directories, references, courses, and useful content for indie hackers, solo developers, and digital creators. Read `stack127_docs/product-direction.md` for product scope.
 
 ## Agent roles
