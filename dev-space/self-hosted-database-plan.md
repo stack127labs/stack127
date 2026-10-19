@@ -132,6 +132,28 @@ At the switch, unschedule the old `stack127-cache-worker` cron job, clear its wa
 
 ## 4. Test copy, final copy and validation
 
+### Measured rehearsal attempt, 19 October 2026
+
+**Blocked: the single authorized source dump was stopped after source responsiveness degraded. No complete application archive or rehearsal restore exists.** Production settings, secrets, env values and data were unchanged. The target still has zero public application tables, is healthy, and has cron off and pg_net absent from preloads. Supabase Storage stays in place.
+
+The attempt ran from homelab with official `postgres:17` client tools, PostgreSQL 17.11. It used a mode-0600 libpq service file and password file, a serial custom-format dump of `public`, `extensions` and `supabase_migrations`, compression level 6, large objects, owners and ACLs retained. A separate read-only repeatable-read transaction exported the snapshot for the dump and subsequent validation. Counts were scheduled after the dump, so no broad count scan ran alongside it.
+
+Measured results:
+
+- Password-free roles export completed: **5,526 bytes**.
+- The archive file was created at **13:03:48.170 UTC**. The client finished after cancellation at **13:10:26.593 UTC**: **398.424 seconds** of archive-file lifetime, about **400 seconds** including client/snapshot setup. This is an aborted attempt duration, not a completed dump time.
+- Incomplete compressed output: **13,287,424 bytes (12.671875 MiB)**. It remains named `source.dump.partial`, not a usable backup.
+- An early lightweight source activity query completed in **2.086 seconds**. During the slowdown, the COPY-progress query hit the helper's 120-second query timeout and a separate five-second connection/`SELECT 1` probe timed out. The dump was stopped under the owner's instruction to avoid hurting production; these checks do not prove the specific cause of the slowdown.
+- After cancellation, a fresh source connection and `SELECT 1` completed in **1.337 seconds**. The dump container exited, the snapshot transaction rolled back and closed, and both temporary libpq credential files were deleted. No second source dump was attempted.
+
+Private artifacts are on homelab under `/srv/data/backups/stack127-db/rehearsal-20261019/`, directory mode 0700 and file modes 0600: `roles.sql`, the incomplete archive, client logs and attempt measurements. Do not restore or promote the partial archive. The source-copy helper and its one-attempt marker prevent an accidental retry in that directory.
+
+The installed pg_net upgrade script from 0.20.3 to 0.20.4 explicitly contains **no SQL changes**. The intended restore therefore installs 0.20.4 with processing still disabled, then verifies the existing wake function's signatures. Installation and functional compatibility remain untested because restoration did not start. Clear `stack127_cache_worker_wake.function_url` after the data phase and before installing application triggers in the post-data phase; keep cron disabled throughout.
+
+Privilege choice prepared for the next successful restore: retain `stack127_app` as **NOSUPERUSER, NOCREATEDB, NOCREATEROLE, NOREPLICATION, NOBYPASSRLS**, without owner-role membership. Grant public-schema DML, required sequence access and public-function execution, plus read-only migration-history access. Add explicit backend RLS policies only to the copied public tables, retaining their existing owners and policies. Direct writes to the signing credential and wake configuration remain admin-only. This supplies trusted application/data-job access without a cluster-wide RLS bypass or schema-migration privileges. Schema migrations use the separate admin credential; new tables need reviewed grants and backend policies. **This choice was not applied:** the target app login still has CONNECT only.
+
+Exact table counts, all 219 migration rows and statements, sequence values, function/trigger/constraint/index definitions, ACL/RLS preservation, signing-key equality, target source-revision timing and the populated-target backup/restore drill are **not validated**. A new source attempt needs coordinator scheduling and authorization after source responsiveness is acceptable; do not reuse this interrupted archive. The final-copy window cannot yet be estimated from a successful rehearsal.
+
 ### Rehearsal now
 
 Do one serial dump from homelab using PostgreSQL 17 client tools and the source's direct or **session** connection, not transaction pooling. Resolve credentials privately into a 0600 libpq service/password file; do not put URLs in command output or shell tracing.
