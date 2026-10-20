@@ -154,5 +154,5 @@ Scheduled ad-networks collectors, syncs, snapshots, and backups run on OVH. Week
 - Read relevant page docs and script manifests before changing data or structure.
 - Keep migrations, scripts, docs, and UI aligned when a schema or data workflow changes.
 - `public.self_host_apps` owns published self-host app data. Discovery candidates do not publish or assign editorial facts.
-- Independent stack127 repositories live under `stack127labs` and are cloned separately under `/home/teja/projects/`.
+- Independent stack127 repositories live under `stack127labs` and are cloned separately under `/srv/data/projects/`.
 - Do not add nested checkouts, submodules, copied repositories, or hidden cross-repository dependencies.
