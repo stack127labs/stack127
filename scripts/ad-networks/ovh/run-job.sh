@@ -1,6 +1,6 @@
 #!/bin/sh
 # Run one ad-network job against production. Usage: run-job.sh <job> [refresh.mjs options]
-# Jobs share one database lock (refresh.mjs exits 75 when it is taken). Scheduled
+# Only sync holds a database lock (refresh.mjs exits 75 when it is taken). Scheduled
 # jobs retry for up to 6 hours, and verification steps aside while one waits.
 set -u
 job=$1; shift
@@ -24,13 +24,15 @@ if [ "$job" != verification ]; then
 fi
 echo "== $(date -u +%FT%TZ) start $job $*"
 tries=0
+sync_only=
 while :; do
   rc=0
   nice -n 10 flock -n -E 76 "/tmp/adn-$job.lock" node --no-warnings --experimental-strip-types scripts/ad-networks/refresh.mjs \
     --job "$job" --environment production --confirm stack127-production --apply \
-    --local-database "$AD_NETWORK_DB_PATH" --state-directory "$AD_NETWORKS_STATE_DIRECTORY" "$@" || rc=$?
+    --local-database "$AD_NETWORK_DB_PATH" --state-directory "$AD_NETWORKS_STATE_DIRECTORY" $sync_only "$@" || rc=$?
   [ "$rc" = 76 ] && { echo "already running"; break; }
   [ "$rc" = 75 ] && [ "$job" != verification ] && [ "$tries" -lt 360 ] || break
+  sync_only=--sync-only
   tries=$((tries + 1)); sleep 60
 done
 echo "== $(date -u +%FT%TZ) end $job exit $rc"

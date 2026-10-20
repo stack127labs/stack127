@@ -1,13 +1,11 @@
 #!/usr/bin/env node
 import { spawn } from 'node:child_process';
-import { mkdir, rm } from 'node:fs/promises';
+import { mkdir } from 'node:fs/promises';
 import { homedir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 import { defaultLocalDatabasePath } from './local-db.mjs';
-import { snapshotLocal } from './snapshot-local.mjs';
-import { withJobLock } from './runtime-db.mjs';
 import { jobAlert, safeError } from './alerts.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
@@ -22,6 +20,7 @@ export function refreshArgs(argv) {
     'state-directory': { type: 'string', default: join(homedir(), '.local/state/stack127/ad-networks') },
     concurrency: { type: 'string', default: '4' }, limit: { type: 'string', default: '500' },
     'time-budget-minutes': { type: 'string', default: '10' }, 'source-sqlite': { type: 'string' },
+    'sync-only': { type: 'boolean', default: false }, full: { type: 'boolean', default: false },
   } });
   if (!refreshJobs.includes(values.job)) throw new Error(`Choose --job ${refreshJobs.join('|')}`);
   if (!['development', 'production'].includes(values.environment)) throw new Error('Invalid environment');
@@ -38,7 +37,8 @@ const targetArgs = options => ['--environment', options.environment,
 
 export function refreshCommand(options) {
   const state = options['state-directory'], local = ['--local-database', options['local-database']];
-  if (options.job === 'sync') return { script: 'sync', args: ['--sqlite', join(state, `sync-${process.pid}.sqlite`), ...targetArgs(options), '--apply'] };
+  if (options.job === 'sync') return { script: 'sync', args: ['--sqlite', options['local-database'],
+    '--state-file', join(state, 'sync-state.sqlite'), ...targetArgs(options), '--apply', ...(options.full ? ['--full'] : [])] };
   if (options.job === 'snapshot') return { script: 'snapshot', args: [...targetArgs(options), '--apply'] };
   if (options.job === 'catalog') return { script: 'catalog', args: [...local, '--apply'] };
   if (options.job === 'backup') return { script: 'backup-local', args: [...local, '--backup-directory', join(state, 'backups'), '--keep', '7'] };
@@ -74,6 +74,7 @@ export function run(script, args, env, signal) {
     child.once('close', (code, signal) => {
       clean();
       if (code === 0) resolveRun(lastJobResult(output));
+      else if (script === 'sync' && code === 75) resolveRun({ ...lastJobResult(output), skipped: true });
       else reject(Object.assign(new Error(`${script} stopped: ${signal ?? code}`), { result: lastJobResult(output) }));
     });
   });
@@ -110,35 +111,29 @@ export async function refresh(options, dependencies = {}) {
   const env = { ...process.env, UV_THREADPOOL_SIZE: '8', AD_NETWORK_DB_PATH: options['local-database'],
     AD_NETWORK_FETCH_THROTTLE_DB: join(options['state-directory'], 'fetch-throttle.sqlite') };
   const publication = { synced: false, revalidated: false, counts: {} };
-  const publish = async signal => {
-    if (signal?.aborted) throw new Error('Heavy-job lock was lost');
-    const snapshot = sync.args[1];
-    let synced;
-    try {
-      await (dependencies.snapshot ?? snapshotLocal)(options['local-database'], snapshot);
-      synced = await execute(sync.script, sync.args, env, signal);
-      publication.synced = true; publication.counts.sync = jobCounts(synced);
-    } finally {
-      for (const path of [snapshot, `${snapshot}-wal`, `${snapshot}-shm`]) await (dependencies.remove ?? rm)(path, { force: true });
-    }
-    const revalidated = await execute(revalidation.script, revalidation.args, env, signal);
+  const publish = async () => {
+    const synced = await execute(sync.script, sync.args, env);
+    if (synced?.skipped) return synced;
+    publication.synced = true; publication.counts.sync = jobCounts(synced);
+    // sync.mjs has closed its session before the cache credential is read.
+    const revalidated = await execute(revalidation.script, revalidation.args, env);
     publication.revalidated = true; publication.counts.revalidation = jobCounts(revalidated);
     return { sync: jobCounts(synced), revalidation: jobCounts(revalidated) };
   };
   try {
-    const result = await (dependencies.lock ?? withJobLock)(options, async signal => {
-      let collectorError, collector;
-      if (options.job !== 'sync') {
-        try { collector = await execute(command.script, command.args, env, signal); } catch (error) { collectorError = error; collector = error.result; }
-        publication.counts.collector = jobCounts(collector);
-      }
-      const published = await publish(signal);
-      if (collectorError) throw collectorError;
-      return { applied: true, environment: options.environment, job: options.job, synced: true, revalidated: true,
-        counts: { collector: jobCounts(collector), ...published } };
-    });
-    if (!result.skipped) await (dependencies.alert ?? jobAlert)(options, false);
-    return result;
+    let collectorError, collector;
+    // The sync already captures daily counts. All remaining collectors use
+    // only SQLite and HTTP, with no production session or advisory lock held.
+    if (!options['sync-only'] && !['sync', 'snapshot'].includes(options.job)) {
+      try { collector = await execute(command.script, command.args, env); } catch (error) { collectorError = error; collector = error.result; }
+      publication.counts.collector = jobCounts(collector);
+    }
+    const published = await publish();
+    if (collectorError) throw collectorError;
+    if (published.skipped) return { ...published, job: options.job, ...publication };
+    await (dependencies.alert ?? jobAlert)(options, false);
+    return { applied: true, environment: options.environment, job: options.job, synced: true, revalidated: true,
+      counts: { collector: jobCounts(collector), ...published } };
   } catch (error) {
     error.jobResult = { job: options.job, ...publication };
     try { await (dependencies.alert ?? jobAlert)(options, true); } catch (alertError) { console.error(`Alert failed: ${safeError(alertError)}`); }

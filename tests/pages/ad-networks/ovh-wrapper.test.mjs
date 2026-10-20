@@ -12,22 +12,23 @@ async function fixture(t) {
   t.after(() => rm(directory, { recursive: true, force: true }));
   const repo = join(directory, 'repo'), data = join(directory, 'data'), bin = join(directory, 'bin');
   await mkdir(repo); await mkdir(join(data, 'logs'), { recursive: true }); await mkdir(bin);
-  await writeFile(join(data, 'ad-networks.env'), `AD_NETWORK_DB_PATH=${join(data, 'unused.sqlite')}\nAD_NETWORKS_STATE_DIRECTORY=${data}\n`);
+  await writeFile(join(data, 'ad-networks.env'), `AD_NETWORK_DB_PATH="${join(data, 'unused store.sqlite')}"\nAD_NETWORKS_STATE_DIRECTORY="${data}"\nDATABASE_POOLER_URL="postgresql://stack127_app:test-only@127.0.0.1:5432/postgres"\n`);
   const wrapper = join(directory, 'run-job.sh'), calls = join(directory, 'calls');
   const source = await readFile(new URL('../../../scripts/ad-networks/ovh/run-job.sh', import.meta.url), 'utf8');
   // Redirect host paths into this fixture and replace the collector launcher.
   // No database, production env file, or real collector is opened.
   await writeFile(wrapper, source.replaceAll('/srv/stack127-data', data).replaceAll('/srv/stack127', repo)
     .replaceAll('/tmp/adn-', join(directory, 'adn-')));
-  await writeFile(join(bin, 'nice'), '#!/bin/sh\nprintf "run\\n" >> "$WRAPPER_CALLS"\nif [ "${WRAPPER_HOLD:-0}" = 1 ]; then while :; do sleep 1; done; fi\n', { mode: 0o755 });
-  const launch = (job, hold = false) => {
+  await writeFile(join(bin, 'nice'), '#!/bin/sh\n[ -f "$AD_NETWORKS_STATE_DIRECTORY/ad-networks.env" ] || exit 98\ncase "$AD_NETWORK_DB_PATH" in *"unused store.sqlite") ;; *) exit 99 ;; esac\nprintf "run\\n" >> "$WRAPPER_CALLS"\nif [ "${WRAPPER_HOLD:-0}" = 1 ]; then while :; do sleep 1; done; fi\n', { mode: 0o755 });
+  const launch = (job, hold = false, extraEnv = {}) => {
     const child = spawn('/bin/sh', [wrapper, job], { detached: true,
-      env: { ...process.env, PATH: `${bin}:${process.env.PATH}`, WRAPPER_CALLS: calls, WRAPPER_HOLD: hold ? '1' : '0' },
+      env: { ...process.env, PATH: `${bin}:${process.env.PATH}`, WRAPPER_CALLS: calls, WRAPPER_HOLD: hold ? '1' : '0', ...extraEnv },
       stdio: 'ignore' });
     t.after(() => { try { process.kill(-child.pid, 'SIGKILL'); } catch { /* Already exited. */ } });
     return { child, completed: once(child, 'close') };
   };
-  return { directory, calls, launch };
+  await writeFile(join(bin, 'sleep'), '#!/bin/sh\n[ "${WRAPPER_CODE:-0}" = 75 ] && exit 0\nexec /bin/sleep "$@"\n', { mode: 0o755 });
+  return { directory, calls, launch, bin };
 }
 
 test('verification ignores empty, invalid and dead PID markers but yields to a live wrapper', async t => {
@@ -61,4 +62,23 @@ for (const signal of ['SIGKILL', 'SIGTERM']) test(`verification recovers after a
   assert.equal((await readdir(directory)).some(name => name.startsWith('adn-pending-')), signal === 'SIGKILL');
   assert.deepEqual(await launch('verification').completed, [0, null]);
   assert.equal(await readFile(calls, 'utf8'), 'run\nrun\n');
+});
+
+for (const code of [75, 76]) test(`wrapper preserves exit ${code} and retries only a busy scheduled sync`, async t => {
+  const { bin, calls, launch } = await fixture(t);
+  await writeFile(join(bin, 'nice'), `#!/bin/sh
+[ "$DATABASE_POOLER_URL" = 'postgresql://stack127_app:test-only@127.0.0.1:5432/postgres' ] || exit 99
+printf '%s\\n' "$*" >> "$WRAPPER_CALLS"
+if [ "$WRAPPER_CODE" = 75 ] && [ ! -f "$WRAPPER_CALLS.once" ]; then
+  touch "$WRAPPER_CALLS.once"
+  exit 75
+fi
+[ "$WRAPPER_CODE" = 76 ] && exit 76
+exit 0
+`, { mode: 0o755 });
+  assert.deepEqual(await launch('platform', false, { WRAPPER_CODE: String(code) }).completed, [code === 75 ? 0 : 76, null]);
+  const runs = (await readFile(calls, 'utf8')).trim().split('\n');
+  assert.equal(runs.length, code === 75 ? 2 : 1);
+  assert.equal(runs[0].includes('--sync-only'), false);
+  if (code === 75) assert.ok(runs[1].includes('--sync-only'));
 });

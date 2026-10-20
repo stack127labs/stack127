@@ -8,7 +8,7 @@ export function sessionDatabaseUrl(value) {
   // Supabase shared session/transaction poolers use the same host, user and
   // password, with different ports. Never guess a different hostname/project.
   if (url.hostname.endsWith('.pooler.supabase.com') && url.port === '6543') { url.port = '5432'; return url.toString(); }
-  throw new Error('Ad-network jobs require session pooling on port 5432');
+  throw new Error('Ad-network jobs require a direct or session pooling connection on port 5432');
 }
 
 export function targetDatabaseUrl(options, env = process.env) {
@@ -37,13 +37,20 @@ export async function withJobLock(options, work, dependencies = {}) {
   const pool = dependencies.pool ?? targetPool(options);
   let client, locked = false, lockError;
   const controller = new AbortController();
-  const lost = () => { lockError = new Error('Heavy-job database lock connection lost'); controller.abort(); };
+  const lost = () => { lockError = new Error('Sync database lock connection lost'); controller.abort(); };
   try {
-    client = await pool.connect();
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try { client = await pool.connect(); break; }
+      catch (error) {
+        if (attempt === 2 || !['ENOTFOUND', 'EAI_AGAIN', 'ETIMEDOUT', 'ECONNRESET', 'ECONNREFUSED'].includes(error.code)) throw error;
+        await new Promise(resolve => setTimeout(resolve, 2000 * 2 ** attempt));
+      }
+    }
     client.on?.('error', lost);
     locked = (await client.query("select pg_try_advisory_lock(hashtext('ad-networks-runtime-heavy')) as locked")).rows[0].locked;
-    if (!locked) return { skipped: true, reason: 'another heavy job is running' };
-    const result = await work(controller.signal);
+    if (!locked) return { skipped: true, reason: 'another sync is running' };
+    // The lock and every sync query share this one session.
+    const result = await work(controller.signal, client);
     if (lockError) throw lockError;
     return result;
   } finally {
