@@ -26,7 +26,7 @@ const granted = new Set((token.scope || '').split(/\s+/));
 for (const scope of ['https://www.googleapis.com/auth/webmasters', 'https://www.googleapis.com/auth/analytics.readonly']) {
   if (!granted.has(scope)) throw new Error('Google did not grant the requested scopes');
 }
-const path = '/home/teja/projects/stack127/.env.search';
+const path = '/srv/data/projects/stack127/.env.search';
 const contents = await readFile(path, 'utf8');
 if (!/^GOOGLE_OAUTH_REFRESH_TOKEN=.*$/m.test(contents)) throw new Error('Missing refresh-token env key');
 const updated = contents.replace(/^GOOGLE_OAUTH_REFRESH_TOKEN=.*$/m, `GOOGLE_OAUTH_REFRESH_TOKEN=${token.refresh_token}`);

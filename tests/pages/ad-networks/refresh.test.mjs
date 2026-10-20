@@ -129,3 +129,19 @@ test('collector output extracts final JSON counts and drops arbitrary raw string
   assert.equal(lastJobResult('{"processed":1,"outcomes":{"platform_found":1}}\n{"review_per_network":{}}').processed, 1);
   assert.deepEqual(jobCounts({ processed: 4, database: 'private', status: 'complete', outcomes: { ok: 3, detail: 'raw' } }), { processed: 4, status: 'complete', outcomes: { ok: 3 } });
 });
+
+test('self-hosted production URLs preserve the endpoint and credentials for session advisory locks', () => {
+  for (const protocol of ['postgres', 'postgresql']) {
+    for (const host of ['ovh-stack127', 'ovh-stack127.example.ts.net', '100.86.117.125', 'stack127-db', '127.0.0.1']) {
+      const url = `${protocol}://stack127_app:p%24ass@${host}:5432/postgres?application_name=ad-networks`;
+      assert.equal(sessionDatabaseUrl(url), url);
+      assert.equal(targetDatabaseUrl({ environment: 'production', apply: true, confirm: 'stack127-production' },
+        { AD_NETWORKS_RUNTIME_ENVIRONMENT: 'production', DATABASE_POOLER_URL: url }), url);
+      assert.equal(targetDatabaseUrl({ environment: 'production' },
+        { AD_NETWORKS_RUNTIME_ENVIRONMENT: 'production', DATABASE_URL: url }), url);
+    }
+  }
+  assert.equal(sessionDatabaseUrl('postgres://stack127_app:password@stack127-db/postgres'),
+    'postgres://stack127_app:password@stack127-db/postgres');
+  assert.throws(() => sessionDatabaseUrl('https://ovh-stack127:5432/postgres'), /Postgres database URL required/);
+});
