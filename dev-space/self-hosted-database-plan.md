@@ -31,7 +31,7 @@ The project reference is also embedded in existing connection/API URLs, public m
 
 ### Every workflow that connects
 
-All paths below are under `.github/workflows/`. Add private connectivity before the first database step in each database job, including the Docker BuildKit build.
+All paths below are under `.github/workflows/`. Each database job, including the Docker BuildKit build, reaches `database.stack127.com` with a password over verified TLS. No network add-on is needed.
 
 | Workflow files | Use |
 | --- | --- |
@@ -86,19 +86,11 @@ This saves building `pg_net` and Vault and reduces restore/replay changes. Costs
 
 The worker's `scripts/stack127/selfhost-db/README.md` describes OVH `/srv/stack127-db/compose.yaml`, container `stack127-db`, volumes `stack127-db-data` and `stack127-db-config`, and encrypted attachable overlay `stack127-db-private`. The website remains on `dokploy-network`; persistently attach its Dokploy/Swarm service to the private overlay at cutover. Its SQL URL then uses `stack127-db:5432`. Never use Dokploy's own Postgres or rely on a one-time network attachment that redeploy loses.
 
-Host jobs use `127.0.0.1:5432`. Remote access now uses the exact tailnet binding `100.117.88.8:5432`, also named `ovh-stack127.tail13b5bd.ts.net`. Compose publishes neither a public IP nor an all-interface port; it does not use Swarm routing mesh. HBA permits SCRAM for `stack127_app` and migration owner `postgres` on the tailnet and private Docker paths. Docker forwarding reports the bridge gateway as the client, so the same role restriction is enforced there. The bootstrap superuser is socket-only. BaseBuddy and Dokploy databases stay separate.
+Host jobs use `127.0.0.1:5432`. Remote access uses `database.stack127.com:5432`, a DNS-only Cloudflare record for OVH, over IPv4 (no AAAA record). Compose publishes `0.0.0.0:5432`; `firewall.sh` keeps a 5432 accept rule above the Version127 Docker firewall, which otherwise lets only Cloudflare web traffic in. PostgreSQL TLS uses a Let's Encrypt certificate that certbot renews on OVH through Cloudflare DNS. From the internet, HBA permits only `stack127_app` and migration owner `postgres`, only over TLS (`hostssl`), using SCRAM; plain-text and admin logins are refused. Docker forwarding keeps the real client address for public IPv4 traffic, and reports the bridge gateway for loopback, so the private Docker rules enforce the same role restriction. The bootstrap superuser is socket-only. BaseBuddy and Dokploy databases stay separate.
 
-### Remote access choices
+### Remote access
 
-| Choice | Tradeoff |
-| --- | --- |
-| Public TLS port | Familiar URLs and no VPN client, but needs valid PostgreSQL TLS, SCRAM, firewall rules and stable client IPs. GitHub's default runners have large changing IP ranges; an allowlist is awkward. Do not solve that by opening Postgres worldwide. [GitHub runner networking](https://docs.github.com/en/actions/reference/runners/github-hosted-runners). |
-| **Tailscale, recommended** | Existing homelab/Macs already use it. Join OVH once, allow only approved devices and a CI tag to database port 5432, and add `tailscale/github-action` to the 13 workflows above. No public database port or per-run firewall changes. Check runner and BuildKit-container connectivity. |
-| Cloudflare Tunnel | Existing Dokploy tunnel does not expose PostgreSQL automatically. Arbitrary TCP needs a new route/Access policy plus client-side `cloudflared` or WARP on every runner/device. Extra daemons and local forwarding are less simple here. [Cloudflare TCP requirements](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/non-http/cloudflared-authentication/arbitrary-tcp/). |
-
-Owner action: enroll OVH and supply a tagged Tailscale OAuth client as **repository** secrets `TS_OAUTH_CLIENT_ID`, `TS_OAUTH_SECRET`, usable by jobs without the protected environment. Restrict the CI tag to this database, not the whole tailnet. Add `tailscale/github-action@v4`, pinned to a reviewed commit. Workload federation is an alternative if preferred. [Tailscale Action setup](https://tailscale.com/docs/integrations/github/github-action).
-
-Use password authentication even over Tailscale. No public Postgres listener is needed. The overlay provides remote encryption; use verified PostgreSQL TLS too if provisioned, and avoid carrying over Supabase-specific TLS settings blindly.
+On October 20, 2026 the owner chose a password-protected public port over Tailscale, the way Supabase works today. Clients use `sslmode=verify-full`. Long random SCRAM passwords protect the two remote logins. Tailscale was removed from OVH and from the workflows. The libpq service files from `make-services.mjs` verify the target against Node's CA list (`ca.pem`), because the `postgres:17` image has none.
 
 No PgBouncer initially: the app already pools at four connections, scripts use one to four, and one cache process suffices. Start `max_connections=60`, monitor peaks, and serialize heavy jobs. If pooling becomes necessary, use session mode for ad-network advisory locks. `scripts/ad-networks/runtime-db.mjs` currently accepts only port 5432 for non-Supabase endpoints; a different local port needs a reviewed code change.
 
@@ -211,7 +203,7 @@ After refill, all **38/38 public tables still have RLS**, all **38 backend polic
 
 The populated target backup is **70,428,235 bytes**, with its **64-byte Vault root key** and **5,846-byte password-free roles export**. A separate PostgreSQL 17.6 scratch container used the same pinned image, no network, no published ports, its own two temporary volumes and a 1.5 GiB cap. Roles and pg_net SQL were prepared before restoration, and the HTTP worker was removed before application rows were imported. `pg_restore --exit-on-error` finished in **47.385 seconds**; complete successful recovery, including startup, all comparisons and cleanup, took **67.786 seconds**. Adding the original backup gives **82.931 seconds** on the successful path. All 38 table counts, all migration statements, constraints/indexes/functions/triggers, semantic grants, policies, schema ownership, five sequence states, signing-key and Vault-key equality, app RLS access and disabled wake/cron matched. Scratch memory peaked at **1,446,944,768 bytes (1.348 GiB)**. The scratch container and both volumes were deleted. Initial scratch startup needed an explicit readable empty init directory; the validator also needed ACL member order normalisation. Neither correction changed the rehearsal database or required another dump. Homelab received the complete bundle in **32.865 seconds**; all three files matched OVH byte for byte, had mode 0600, and the roles export contained no passwords. Only the known obsolete empty-bootstrap smoke pairs were removed. Both scheduled timers remain **disabled/inactive**, and both marker files are absent; the manual rehearsal did not enable recurring backups. Failure alert delivery is still a cutover prerequisite.
 
-The staged migration login is the restored object owner `postgres`, with a new random password, BYPASSRLS, no superuser/database-creation/role-creation/replication rights, a five-connection limit, and **all nine inherited memberships revoked**. This allows ownership-based application DDL and migration-history writes without the image superuser. `supabase_admin` remains available only through the local Unix socket. Homelab ran real reads and rolled-back DDL over Tailscale; the app login remained unable to create schema objects. A real `supabase db push --dry-run --include-all` reported no pending migrations. The installed homelab CLI 2.75.0 required process-local `PGSSLMODE=disable` for this encrypted tailnet path because it ignored the URL SSL mode; do not weaken source SSL or set that globally. The release workflow now prefers `secrets.DATABASE_MIGRATION_URL` for this step, falling back to its existing `DATABASE_URL` when unset (worker-branch commit `ee09d821`). Commit `54488872` independently gates Edge Function delivery on `STACK127_CACHE_WORKER_RUNTIME != node`; transport selection no longer selects the cache runtime. No live GitHub secret or variable has been changed.
+The staged migration login is the restored object owner `postgres`, with a new random password, BYPASSRLS, no superuser/database-creation/role-creation/replication rights, a five-connection limit, and **all nine inherited memberships revoked**. This allows ownership-based application DDL and migration-history writes without the image superuser. `supabase_admin` remains available only through the local Unix socket. Homelab ran real reads and rolled-back DDL remotely; the app login remained unable to create schema objects. A real `supabase db push --dry-run --include-all` reported no pending migrations. The installed homelab CLI 2.75.0 required process-local `PGSSLMODE=disable` for this encrypted tailnet path because it ignored the URL SSL mode; do not weaken source SSL or set that globally. The release workflow now prefers `secrets.DATABASE_MIGRATION_URL` for this step, falling back to its existing `DATABASE_URL` when unset (worker-branch commit `ee09d821`). Commit `54488872` independently gates Edge Function delivery on `STACK127_CACHE_WORKER_RUNTIME != node`; transport selection no longer selects the cache runtime. No live GitHub secret or variable has been changed.
 
 ### Final core-only copy: retain the frozen refill
 
@@ -227,7 +219,7 @@ Networking survived a database service restart. Homelab connected in **0.273 sec
 
 The worker app can read only the legacy job name in `cron.job`; cron function EXECUTE was revoked from PUBLIC on this isolated cluster and retained for migration owner `postgres`. A rolled-back two-job fixture proved the app sees only the worker job and is denied an actual `cron.schedule` call.
 
-`stack127-db.service` waits for the actual tailnet address before `compose up --wait`, retries on failure, and is enabled for boot. It orders only this project after Docker/tailscaled, so other Docker services do not depend on Tailscale. Docker's automatic restart can race the address at boot; the scoped unit retries the start after the address exists. A full host reboot was not performed. Backup timers are still disabled, wake is NULL, cron is off and pg_net is not preloaded. The main target still has the old wake trigger; only the authorized switch retires it.
+`stack127-db.service` runs `compose up --wait`, retries on failure, and is enabled for boot. `stack127-db-firewall.service` and the Docker drop-in reapply the 5432 rule. A full host reboot was not performed. Backup timers are still disabled, wake is NULL, cron is off and pg_net is not preloaded. The main target still has the old wake trigger; only the authorized switch retires it.
 
 Book **35 to 45 minutes** for the core-only path, provided all preflight gates pass. The source reduced dump previously took **22m 49s**; a fresh core-only dump is not yet timed. This estimate includes that measured source time, sub-minute target replacement, release/build and connection restart margin. It is not a guarantee on the throttled source. Any drift or source degradation stops the switch; rebuilding the refill adds roughly an hour with the measured existing code. Keep static pages online throughout the write freeze. GitHub runner/BuildKit Tailscale acceptance, owner-provided OAuth/worker tokens and backup alert delivery remain prerequisites.
 
@@ -250,26 +242,22 @@ Run only after release authorization and review. Commands below are for the **ow
    gh pr checks 58 --required
    gh pr checks refactor/ad-networks-cron --required
    gh pr checks feat/node-cache-worker --required
-   test "$(git grep -l 'tailscale/github-action@' origin/feat/node-cache-worker -- .github/workflows | wc -l | tr -d ' ')" = 13
+   test -z "$(git grep -l -i tailscale origin/feat/node-cache-worker -- .github/workflows)"
    git show origin/feat/node-cache-worker:.github/workflows/stack127-release-e2e.yml | rg 'DATABASE_MIGRATION_URL|STACK127_CACHE_WORKER_RUNTIME'
    test -z "$(git diff origin/main...origin/refactor/ad-networks-cron -- supabase/migrations)"
    test -z "$(git diff origin/main...origin/feat/node-cache-worker -- supabase/migrations)"
    gh secret list --json name --jq '.[].name'
    ```
 
-   Owner opens both branch PRs first. All required checks/review must pass; resolve conflicts/stale bases before freezing. Confirm the migration step prefers `DATABASE_MIGRATION_URL`, with its existing URL fallback; the two Edge Function guards use `STACK127_CACHE_WORKER_RUNTIME`, independently of transport. For Tailscale, repository secrets **TS_OAUTH_CLIENT_ID**, **TS_OAUTH_SECRET** must exist with the approved CI tag/ACL. A variable alone does not connect runners. The remote-access step below must include a successful trusted runner **and BuildKit** connection to the staged target before freezing; existing live URL secrets stay unchanged for that acceptance test. Missing OAuth secrets stop this preflight; missing connectivity evidence stops before step 4. Also prepare owner-supplied Node-worker dispatch/alert tokens and backup failure notifications. Do not include PR #60.
+   Owner opens both branch PRs first. All required checks/review must pass; resolve conflicts/stale bases before freezing. Confirm the migration step prefers `DATABASE_MIGRATION_URL`, with its existing URL fallback; the two Edge Function guards use `STACK127_CACHE_WORKER_RUNTIME`, independently of transport. The remote-access step below must pass before freezing. Also prepare owner-supplied Node-worker dispatch/alert tokens and backup failure notifications. Do not include PR #60.
 
-2. **Remote access, the single swappable step.** Current choice: Tailscale, exact host `100.117.88.8`, port 5432. Keep the scoped listener/service/HBA from section 4 and allow approved devices/CI tag to this port in the tailnet ACL. Verify real SQL from the Mac and homelab using the staged app credential, then set:
+2. **Remote access.** The target is `database.stack127.com:5432`. Verify real SQL from the Mac and homelab using the staged app credential, then check the refusals:
 
    ```sh
-   gh variable set STACK127_DB_PRIVATE_NETWORK --body tailscale
-   ssh ovh 'systemctl is-enabled stack127-db.service; systemctl is-active stack127-db.service; sudo docker port stack127-db 5432'
-   nc -z -w 5 54.39.99.47 5432 && exit 1
+   ssh ovh 'systemctl is-active stack127-db.service stack127-db-firewall.service; sudo iptables -S DOCKER-USER | head -3; sudo docker port stack127-db 5432'
    ```
 
-   The last command must fail to connect. URLs are `postgresql://stack127_app:<encoded-password>@100.117.88.8:5432/postgres?sslmode=disable`; the Tailscale tunnel encrypts this path. The migration URL uses login `postgres` with its separate password. Keep Docker/loopback URLs below unchanged.
-
-   **Alternative, only after separate owner approval/provisioning:** replace this step with a certificate-backed public `54.39.99.47:5432`, SCRAM and `hostssl` HBA, `sslmode=require` (prefer certificate verification where supported), and firewall rules limited to PostgreSQL/client access. Do not use an all-interface Compose bind or Swarm routing mesh. Prove TLS and runner reachability before freezing, replace only the staged remote app/migration URLs, and clear `STACK127_DB_PRIVATE_NETWORK` so workflows skip Tailscale. The helper accepts only the two documented OVH addresses and requires TLS for the public address. `STACK127_CACHE_WORKER_RUNTIME=node` still controls Edge Function retirement. No public alternative has been enabled by this task.
+   `DOCKER-USER` must start with the 5432 accept rule. From the Mac, a plain-text login (`sslmode=disable`) and a `supabase_admin` login must both be refused by `pg_hba.conf`. URLs are `postgresql://stack127_app:<encoded-password>@database.stack127.com:5432/postgres?sslmode=verify-full`. The migration URL uses login `postgres` with its separate password. Keep Docker/loopback URLs below unchanged. GitHub runners and BuildKit need nothing extra; the first release run after step 4 is their real connection test, and its migration and build steps stop the release if they can't connect.
 
 3. **Prepare private tools, connection files and rollback material.** Still on the Mac:
 
@@ -312,7 +300,7 @@ Run only after release authorization and review. Commands below are for the **ow
    ssh ovh 'python3 /srv/stack127-db/ad-network-guard.py --manifest /srv/stack127-db/frozen-ad-networks.json'
    ```
 
-   Save Dokploy's **entire current environment and network configuration privately**, plus the current repo variables and production image SHA, before changing them. GitHub secret values cannot be read back: confirm the saved homelab URLs match the old repository secrets, or obtain their exact old values privately. Prepare homelab source-of-truth **`.env.cache-worker`**, mode 0600, with `DATABASE_URL` set to the staged **loopback** app URL, `STACK127_FRONTEND_HOSTING=cloudflare`, `STACK127_SITE_URL=https://stack127.com`, `GITHUB_FRONTEND_REPO=stack127labs/stack127`, owner-provided `GITHUB_FRONTEND_TOKEN` and `GITHUB_ALERT_TOKEN`. Do not print tokens or copy a tailnet URL unnecessarily into this OVH-host job. Its timer stays off. Check the staged migration credential with `supabase db push --dry-run --include-all`; on homelab CLI 2.75.0 use `PGSSLMODE=disable` only in that target child process and capture CLI output privately. Stop if migrations are pending.
+   Save Dokploy's **entire current environment and network configuration privately**, plus the current repo variables and production image SHA, before changing them. GitHub secret values cannot be read back: confirm the saved homelab URLs match the old repository secrets, or obtain their exact old values privately. Prepare homelab source-of-truth **`.env.cache-worker`**, mode 0600, with `DATABASE_URL` set to the staged **loopback** app URL, `STACK127_FRONTEND_HOSTING=cloudflare`, `STACK127_SITE_URL=https://stack127.com`, `GITHUB_FRONTEND_REPO=stack127labs/stack127`, owner-provided `GITHUB_FRONTEND_TOKEN` and `GITHUB_ALERT_TOKEN`. Do not print tokens or copy a remote URL unnecessarily into this OVH-host job. Its timer stays off. Check the staged migration credential with `supabase db push --dry-run --include-all`; on homelab CLI 2.75.0 use `PGSSLMODE=disable` only in that target child process and capture CLI output privately. Stop if migrations are pending.
 
 4. **Freeze all writers; retire the source wake and drain.** On homelab, record/disable only currently enabled connecting workflows, then wait for existing runs to finish:
 
@@ -407,7 +395,7 @@ Run only after release authorization and review. Commands below are for the **ow
    ssh ovh 'chmod 600 /srv/stack127-data/cache-worker.env'
    ```
 
-   Host jobs/Node worker use `127.0.0.1:5432`; GitHub, homelab and Mac use `100.117.88.8:5432`. The release migration secret uses `postgres`, all other consumers use `stack127_app`. Keep `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_ACCESS_TOKEN`, `SUPABASE_PROJECT_REF`, existing Storage URLs and hosting variables unchanged. Confirm no protected-environment database secret overrides these repo secrets. Wait about two minutes for env mirrors; restart running Mac/homelab consumers instead of editing their mirrors.
+   Host jobs/Node worker use `127.0.0.1:5432`; GitHub, homelab and Mac use `database.stack127.com:5432` with `sslmode=verify-full`. The release migration secret uses `postgres`, all other consumers use `stack127_app`. Keep `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_ACCESS_TOKEN`, `SUPABASE_PROJECT_REF`, existing Storage URLs and hosting variables unchanged. Confirm no protected-environment database secret overrides these repo secrets. Wait about two minutes for env mirrors; restart running Mac/homelab consumers instead of editing their mirrors.
 
 7. **Merge exactly #58, infra branch, then worker branch.** Keep release/cache/data workflows disabled until the merges finish. Re-enable CI only if required for fresh merge checks; CI now reads OVH and must pass. On the Mac:
 
@@ -468,7 +456,7 @@ Run only after release authorization and review. Commands below are for the **ow
 
 ### Rollback commands
 
-**Before business writes resume:** disable/drain the new worker, jobs and connecting workflows again. Keep both writer sets paused. On homelab restore `.env.database` from `$FINAL/env.database.before`, restore its old `DATABASE_URL` / `DATABASE_POOLER_URL` GitHub secrets through stdin as in step 6, and delete the newly introduced `DATABASE_MIGRATION_URL` secret if it did not previously exist (otherwise restore its saved old value). Restore saved Dokploy environment/network configuration and its old release image, and copy `$FINAL/ovh-ad-networks.env.before` back to `/srv/stack127-data/ad-networks.env` with mode 0600. Wait for mirrors and recreate website/script pools. Restore the previous `STACK127_DB_PRIVATE_NETWORK` and `STACK127_CACHE_WORKER_RUNTIME` values; an unset runtime variable restores Edge Function delivery.
+**Before business writes resume:** disable/drain the new worker, jobs and connecting workflows again. Keep both writer sets paused. On homelab restore `.env.database` from `$FINAL/env.database.before`, restore its old `DATABASE_URL` / `DATABASE_POOLER_URL` GitHub secrets through stdin as in step 6, and delete the newly introduced `DATABASE_MIGRATION_URL` secret if it did not previously exist (otherwise restore its saved old value). Restore saved Dokploy environment/network configuration and its old release image, and copy `$FINAL/ovh-ad-networks.env.before` back to `/srv/stack127-data/ad-networks.env` with mode 0600. Wait for mirrors and recreate website/script pools. Restore the previous `STACK127_CACHE_WORKER_RUNTIME` value; an unset runtime variable restores Edge Function delivery.
 
 On homelab, restore the old function code before re-enabling its wake. Keep the old code snapshot/revision available:
 
@@ -482,7 +470,7 @@ for(const name of ['DATABASE_URL','DATABASE_POOLER_URL'])if(spawnSync('gh',['sec
 const oldNames=JSON.parse(readFileSync(process.env.FINAL+'/stack127-secret-names.before.json'));
 if(!oldNames.some(x=>x.name==='DATABASE_MIGRATION_URL'))if(spawnSync('gh',['secret','delete','DATABASE_MIGRATION_URL','--repo','stack127labs/stack127'],{stdio:'inherit'}).status)throw Error('Migration secret removal failed');
 const oldVars=JSON.parse(readFileSync(process.env.FINAL+'/stack127-variables.before.json'));
-for(const name of ['STACK127_DB_PRIVATE_NETWORK','STACK127_CACHE_WORKER_RUNTIME']){
+for(const name of ['STACK127_CACHE_WORKER_RUNTIME']){
  const old=oldVars.find(x=>x.name===name),args=old?['variable','set',name,'--body',old.value]:['variable','delete',name];
  if(spawnSync('gh',[...args,'--repo','stack127labs/stack127'],{stdio:'inherit'}).status)throw Error('Variable rollback failed: '+name);
 }
@@ -504,7 +492,7 @@ The private rollback SQL restores the two function definitions, wake trigger/URL
 
 Decided on October 19, 2026:
 
-1. **Remote access currently uses Tailscale.** OVH is enrolled and its exact tailnet listener works. GitHub OAuth secrets and real runner/BuildKit acceptance are owner prerequisites. The owner may instead approve a separately provisioned public TLS endpoint; section 5 keeps that choice in one replaceable step. There is currently no public database port.
+1. **Remote access uses a password over verified TLS** at `database.stack127.com` (changed October 20, 2026). Tailscale is removed. Tested from the Mac and homelab; GitHub is tested by the first release run.
 2. **Storage stays on Supabase** for this move. Only the database moves; media URLs keep working.
 
-Still open: accept the estimated 35 to 45 minute core-only freeze (the final source dump is not yet timed), provision/verify GitHub OAuth and worker dispatch credentials, connect backup failure alerts, and accept the nightly backups' maximum 24-hour recovery gap.
+Still open: accept the estimated 35 to 45 minute core-only freeze (the final source dump is not yet timed), provide worker dispatch credentials, connect backup failure alerts, and accept the nightly backups' maximum 24-hour recovery gap.
