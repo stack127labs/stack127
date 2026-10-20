@@ -30,6 +30,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run test:core
+      - name: Check production SQL failure handling
+        run: npm run test:focused -- tests/stack127/public-data-api.test.mjs
       - name: Check ad-network data and report behavior
         run: npm run test:focused -- tests/pages/ad-networks/*.test.mjs
       - name: Check page publishing and recovery

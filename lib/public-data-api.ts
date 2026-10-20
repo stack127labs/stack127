@@ -47,7 +47,9 @@ export async function readPublicData<T>({
   try {
     return await postgresRead();
   } catch (postgresError) {
-    if (!canReadPublicDataApi(environment)) throw postgresError;
+    // Production SQL is authoritative; the retained Supabase project may hold
+    // frozen pre-migration data while continuing to serve Storage objects.
+    if (environment.NODE_ENV === "production" || !canReadPublicDataApi(environment)) throw postgresError;
 
     try {
       return await dataApiRead();
