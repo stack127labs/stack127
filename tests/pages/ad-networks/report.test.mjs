@@ -56,6 +56,10 @@ test('site controls disappear and reappear when their source fields fill',()=>{
   for(const field of ['niche','traffic','domain_age','platform','publisher','manager','network'])assert.ok(full.availableColumns.includes(field));
   assert.deepEqual(full.filters.niches.map(n=>n.slug),['food']);
   assert.deepEqual(full.availableFilters,['niche','network']);
+  // A network with some unsorted sites still gets the niche column and filter.
+  const partial=adNetworkSiteAvailability({...emptyCoverage,listed:1000,classified:790,niches:['food']});
+  assert.ok(partial.availableColumns.includes('niche'));
+  assert.deepEqual(partial.availableFilters,['niche']);
 });
 const point=(date,listed=10)=>({date,listed,confirmed:listed,stale:0});
 test('history excludes partial months, needs two real month ends, and handles leap days',()=>{
