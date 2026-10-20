@@ -12,7 +12,7 @@ On OVH (`ssh ovh`, user `ubuntu`, UTC):
 - `/srv/stack127-data/ad-networks.env`: mode 600, shell-sourced variables. Values may be double-quoted, for example `AD_NETWORKS_RUNTIME_ENVIRONMENT="production"`.
 - `DATABASE_POOLER_URL`: direct connection to `127.0.0.1:5432`, database `postgres`, login `stack127_app`. There is no PgBouncer.
 - `/srv/stack127-data/ad-networks.sqlite`: working store, including full evidence.
-- `/srv/stack127-data/state/sync-state.sqlite`: hashes of the last successful sync, separated by database target. Keep this file between jobs.
+- `/srv/stack127-data/state/sync-state.sqlite`: hashes of committed batches, separated by database target. Keep this file between jobs.
 - `/srv/stack127-data/state/`: progress, fetch throttle, and `backups/` with seven SQLite copies.
 - `/srv/stack127-data/logs/<job>.log`: logs, rotated weekly by `/etc/logrotate.d/stack127-ad-networks`.
 
@@ -22,9 +22,9 @@ The wrapper is [`run-job.sh`](../../scripts/ad-networks/ovh/run-job.sh). The ful
 
 ## How a job runs
 
-Collectors use HTTP and SQLite without holding a production connection. Sync then opens one connection, takes the existing runtime and reviewed-sync locks, and pins a read-only SQLite view. It sends only rows whose compact contents differ from the last successful sync. Hashes are committed only after the database work succeeds. A failed sync can safely replay committed batches.
+Collectors use HTTP and SQLite without holding a production connection. Sync then opens one connection, takes the existing runtime and reviewed-sync locks, and pins a read-only SQLite view. It sends only rows whose compact contents differ from the last successful sync. Before each target batch, its old hashes are durably invalidated. New hashes are saved after that batch commits. An interrupted sync cannot reuse an obsolete hash, even if the source later returns to its old value.
 
-Sync captures daily counts and arrival observations, then closes its connection. `revalidate.mjs` refreshes the 70 ad-network paths. It leaves durable queue events for the Node cache worker to verify and acknowledge. Neither step publishes pages.
+Sync captures daily counts and arrival observations, then closes its connection. `revalidate.mjs` refreshes the 70 ad-network paths. It leaves durable queue events for the Node cache worker to verify and acknowledge. Neither step publishes pages. A relationship batch checks and locks its target parents before writing. Missing parents fail the sync; use `sync --full` to repair them before retrying.
 
 - Exit 75 means the sync lock is held. Scheduled jobs retry every minute for up to six hours, skipping the collector on retries.
 - Verification yields while a scheduled job waits. Its local checkpoints will be picked up by the next sync.
@@ -38,11 +38,11 @@ Verification runs at minute 40 each hour, with four workers, a 1,000-site limit,
 
 Publisher evidence keeps `manager_domains` and `confirmed_networks`, plus four homepage fields used by niche sorting: `title`, `description`, `h1`, and `language`. Relationship evidence keeps `manager_domain`, `matched_signal`, `checked_url`, `checked_at`, and `parser_version`. The last three are required confirmation metadata. These preserve existing manager resolution, observations, and database constraints.
 
-Full fetch diagnostics, redirects, seller records, parser errors, and traffic evidence stay in SQLite. `discovery_sources` stops being written. Page facts, complete seller-domain summaries, bounded ads.txt previews, names, platforms, dates, traffic groups, and favicons keep their existing behavior. Existing target niches are never replaced by a collector sync.
+Full fetch diagnostics, redirects, seller records, parser errors, and traffic evidence stay in SQLite. `discovery_sources` keeps compact `source_key` attribution, which preserves the discovered/checker weekly chart. Source URLs, domain spellings, licenses, and collection dates stay local. Page facts, complete seller-domain summaries, bounded ads.txt previews, names, platforms, dates, traffic groups, and favicons keep their existing behavior. Existing target niches are never replaced by a collector sync.
 
 Read-only checks on October 20 found `stack127_app` has the required table, identity-sequence, and function grants, with `stack127_backend_access` RLS policies. PostgreSQL planned all five sync write paths as that login without executing them. No change to `app-role.sql` is needed. Development tests execute the real upserts against temporary copies of the production schema, including checks and generated columns.
 
-Production measured 627 MB: publishers 383 MB, relationships 116 MB. Its 107,146 publishers held 162 MB of check evidence; 114,284 relationships held 58 MB. Projecting existing values gives about 38 MB of publisher evidence and 25 MB of relationship evidence. Removing 34 MB of source lists saves about 190 MB of live column data in total. Table files and indexes are separate from this estimate.
+Production measured 627 MB: publishers 383 MB, relationships 116 MB. Its 107,146 publishers held 162 MB of check evidence; 114,284 relationships held 58 MB. Projecting existing values gives about 38 MB of publisher evidence and 25 MB of relationship evidence. Evidence alone can save about 157 MB of live column data. Full source lists occupied another 34 MB; compact attribution retains part of that, so source savings need a separate measurement. Table files and indexes are separate from this estimate.
 
 The separate [`trim-production-evidence.sql`](../../scripts/ad-networks/trim-production-evidence.sql) clears existing unused values in batches. It preserves every retained field and never runs automatically. The first full sync also replaces evidence for its reviewed cohort; the SQL handles old rows outside that cohort and source lists. Neither has been run against production during implementation.
 
@@ -60,11 +60,16 @@ The coordinator performs these steps after review and release authorization. Kee
    ```
 
    Check that SHA against the released revision. Check the env target privately: `AD_NETWORKS_RUNTIME_ENVIRONMENT=production`, loopback port 5432, and login `stack127_app`. Source it with `set -a; . /srv/stack127-data/ad-networks.env; set +a`. Do not use a parser that leaves surrounding quotes in values.
-3. If the separate evidence cleanup is approved, run its SQL as the database administrator. Each invocation handles at most 5,000 rows per table. Repeat until both counts are zero. For example, on OVH from `/srv/stack127`:
+3. If the separate evidence cleanup is approved, run its SQL as the database administrator. Each pass selects at most 5,000 keys per table before projecting JSON. Temporary cursors advance in one database session, including through unchanged batches. Stop when both scanned counts are zero, even if earlier trimmed counts were zero. For example, on OVH from `/srv/stack127`:
 
    ```bash
-   sudo -n docker exec -i --user postgres stack127-db psql -X -U supabase_admin -d postgres -v ON_ERROR_STOP=1 < scripts/ad-networks/trim-production-evidence.sql
+   set -euo pipefail
+   for pass in $(seq 1 30); do
+     cat scripts/ad-networks/trim-production-evidence.sql
+   done | sudo -n docker exec -i --user postgres stack127-db psql -X -U supabase_admin -d postgres -v ON_ERROR_STOP=1
    ```
+
+   Thirty passes cover the measured table sizes. Require final `publishers_scanned=0` and `relationships_scanned=0`. If more rows exist, increase the pass count and rerun; reconnecting safely starts the scan over. Do not run each pass in a fresh session.
 
    After the final batch, run ordinary `VACUUM (ANALYZE)` on the two tables as the administrator. Do not run `VACUUM FULL` as part of resume.
 4. Refresh the local catalog, then establish and check the new sync baseline:
@@ -96,7 +101,7 @@ The coordinator performs these steps after review and release authorization. Kee
    Confirm verification starts at minute 40. Do not install the saved five-minute schedule.
 7. Check connections, table sizes, queue age, logs, and disk space after the first hour and first day. Collectors should hold no production session; each sync uses one. Compare the live revision and unpublished HTTP responses again.
 
-A local synthetic benchmark scanned 107,146 publishers and 114,284 relationships in 10.8 seconds with no changed rows, zero row payloads, and 12 SQL calls. PostgreSQL responses were simulated; this measures the SQLite scan and hash work. Measure actual OVH sync time during step 4. The old no-change sync took about 12 minutes.
+A local synthetic benchmark scanned 107,146 publishers and 114,284 relationships in 12.4 seconds with no changed rows, zero row payloads, and 12 SQL calls. PostgreSQL responses were simulated; this measures the SQLite scan and hash work. Measure actual OVH sync time during step 4. The old no-change sync took about 12 minutes.
 
 ## Routine checks and recovery
 
@@ -107,7 +112,7 @@ ssh homelab 'systemctl --user list-timers stack127-ad-network-niche.timer; cat ~
 
 Pause OVH with `crontab -r` and wait for running jobs to finish. Pause homelab with `systemctl --user disable --now stack127-ad-network-niche.timer`. Killed verification claims become available after their 70-minute leases expire.
 
-After a code release, update the OVH checkout and reinstall the crontab if it changed. Keep `sync-state.sqlite`. If the target database was restored at the same address, run `run-job.sh sync --full` once to repair target drift. A changed host, database, or login gets a fresh baseline automatically. Losing the hash store safely causes a full replay; it never loses the working evidence.
+After a code release, update the OVH checkout and reinstall the crontab if it changed. Keep `sync-state.sqlite`. If the target database was restored at the same address, run `run-job.sh sync --full` once to repair target drift. A changed host, database, or login gets a fresh baseline automatically. This reviewed sync projection also starts a new baseline, so older hash records cannot hide drift from the previous implementation. Losing the hash store safely causes a full replay; it never loses the working evidence.
 
 To rebuild OVH, install Node and dependencies, restore a checked SQLite backup, load the env file, and follow the resume sequence. Keep existing target niches. Use a separately reviewed `sync.mjs --seed-niches` only for an empty target; never use `--niches-only` during routine recovery.
 

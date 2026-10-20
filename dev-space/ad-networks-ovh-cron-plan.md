@@ -16,14 +16,14 @@ State at the pause:
 
 The resume changes are prepared:
 
-1. Compare compact row hashes in OVH's persistent `state/sync-state.sqlite`; send only changed rows.
+1. Compare compact row hashes in OVH's persistent `state/sync-state.sqlite`; send only changed rows. Invalidate old hashes before target writes and save each committed batch.
 2. Collect without a production connection. Sync takes both existing locks on one direct connection, then releases it before revalidation.
-3. Keep full evidence and source lists in SQLite. Retain manager/check facts, niche homepage text, and required confirmation metadata in production.
+3. Keep full evidence and source lists in SQLite. Retain compact source attribution, manager/check facts, niche homepage text, and required confirmation metadata in production.
 4. Verify hourly at minute 40, with four workers, at most 1,000 sites, and a ten-minute budget.
 
 The [production runbook](../content_docs/ad-networks/production-runbook.md#resume-after-release) has the exact resume order. Keep cron and niche sorting paused until the reviewed release, optional reviewed evidence cleanup, full sync, no-change sync, small collector checks, backup, and cache checks pass. Install the new crontab last. Do not change publication rows or a publish manifest.
 
-Read-only production checks found the `stack127_app` grants and RLS policies already cover sync and its triggers. No role migration is needed. Existing evidence and source lists can shed about 190 MB of live column values; this does not promise smaller files without later maintenance. The separate cleanup SQL is not automatic.
+Read-only production checks found the `stack127_app` grants and RLS policies already cover sync and its triggers. No role migration is needed. Evidence alone can shed about 157 MB of live column values, with further savings from compact source attribution; this does not promise smaller files without later maintenance. The separate cleanup SQL is not automatic.
 
 Earlier status (before the pause): cron ran on OVH, the first attempt was removed, and the homelab checkout tracked main again. The [production runbook](../content_docs/ad-networks/production-runbook.md) describes the cron setup; this file is the history.
 
@@ -50,7 +50,7 @@ Done on October 19:
 
 Things to know:
 
-- Every job ends with an incremental sync and refresh. The old full sync took 12 minutes without changes. A local 107,146-site benchmark now takes 10.8 seconds with simulated database replies; measure OVH during resume.
+- Every job ends with an incremental sync and refresh. The old full sync took 12 minutes without changes. A local 107,146-site benchmark now takes 12.4 seconds with simulated database replies; measure OVH during resume.
 - `scripts/ad-networks/ovh/run-job.sh` wraps each job (it started as `/srv/stack127-data/run-job.sh`). A daily or weekly job that finds the sync lock taken retries the sync every minute for up to 6 hours, without rerunning its collector. Verification skips its turn while one is waiting. Exit 75 means the lock was taken, and exit 76 means the same job is already running.
 - Sync reads a pinned SQLite view without making a full-store copy. Checked snapshots remain available for backups and RDAP handoff.
 
