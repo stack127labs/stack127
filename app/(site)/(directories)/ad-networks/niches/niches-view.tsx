@@ -7,7 +7,6 @@ import { DirectoryTitleIcon } from "@/app/ui/directories/directory-title-icon";
 import { NichesTable, type NicheTableRow } from "@/app/ui/ad-networks/niches-table";
 import { AdSection } from "@/app/ui/ad-networks/section";
 import { Heatmap } from "@/app/ui/ad-networks/viz/heatmap";
-import { Treemap } from "@/app/ui/ad-networks/viz/treemap";
 import { AppShell } from "@/app/ui/site/app-shell";
 import { EntryHero } from "@/app/ui/site/entry-hero";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
@@ -28,7 +27,7 @@ const shortName = (name: string) => name.replace(/^Google /, "").replace(/ by Me
 const networkHref = (slug: string) => `/ad-networks/${slug}`;
 
 /**
- * The niches index (mockup `niches.html`): sites per niche, each niche's top networks, and the
+ * The niches index (mockup `niches.html`): each niche's sites and top networks in one table, and the
  * niche by network grid. Takes loader data so it can be checked with any data.
  */
 export function NichesView({ breadcrumbs, data, nicheHref, title, updatedAt }: {
@@ -73,9 +72,6 @@ export function NichesView({ breadcrumbs, data, nicheHref, title, updatedAt }: {
         {/* data-gate: the niche run sorts sites into niches; until it reaches coverage the loader returns none and these sections hide. */}
         {niches.length ? (
           <>
-            <AdSection description="Each block is one niche, sized by how many of our sites belong to it." id="sizes" title="Which niches have the most sites?">
-              <Treemap caption="Sites per niche" items={niches.map((niche) => ({ label: niche.name, value: niche.listed, href: nicheHref(niche.slug) }))} total={data.classified} />
-            </AdSection>
             <NichesTable
               description="The three networks used most in each niche, and the easiest of those three to join."
               id="by-niche"
