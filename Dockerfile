@@ -26,6 +26,9 @@ ARG GOOGLE_ANALYTICS_ID=G-ZJNG8SCGE1
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
+# Listen on every network. The app joins two overlays, and the container hostname
+# can resolve to the database network, where Traefik can't reach it.
+ENV HOSTNAME=0.0.0.0
 ENV STACK127_BUILD_SHA=$STACK127_BUILD_SHA
 ENV GOOGLE_ANALYTICS_ID=$GOOGLE_ANALYTICS_ID
 
