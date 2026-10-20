@@ -27,6 +27,7 @@ services:
       - ./postgresql.conf:/etc/stack127/postgresql.conf:ro
       - ./pg_hba.conf:/etc/stack127/pg_hba.conf:ro
       - ./pg_ident.conf:/etc/stack127/pg_ident.conf:ro
+      - ./tls:/etc/stack127/tls:ro
       - ./bootstrap.sql:/etc/postgresql.schema.sql:ro
     networks:
       database:

@@ -20,7 +20,12 @@ the final-copy procedure in `dev-space/self-hosted-database-plan.md`, section 4.
   configuration. A one-time `docker service update --network-add stack127-db-private
   app-navigate-1080p-matrix-3pmfy6` also attaches it, but can be lost at redeploy.
   The website was not changed or attached during setup.
-- PostgreSQL TLS is off inside the encrypted overlay / local loopback. Remote SQL works over Tailscale at `100.117.88.8` /
+- PostgreSQL TLS is on, with a Let's Encrypt certificate for `database.stack127.com`
+  (a DNS-only Cloudflare record pointing at OVH). Certbot on OVH renews it through
+  Cloudflare DNS, using `/etc/letsencrypt/stack127-cloudflare.ini`. Its deploy hook,
+  `install-tls.sh` (installed as `/etc/letsencrypt/renewal-hooks/deploy/stack127-db.sh`),
+  copies it to `/srv/stack127-db/tls` and reloads PostgreSQL.
+  Remote SQL works over Tailscale at `100.117.88.8` /
   `ovh-stack127.tail13b5bd.ts.net`. HBA allows only `stack127_app` and migration
   owner `postgres` on tailnet/private TCP paths, using SCRAM. Docker port forwarding
   presents a bridge gateway as the client, so private Docker rules enforce the same
