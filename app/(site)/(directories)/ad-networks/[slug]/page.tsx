@@ -77,6 +77,7 @@ export default async function AdNetworkPage({ params }: { params: Promise<{ slug
             noun="sites"
             route={`/ad-networks/${slug}`}
             scope={{ network: slug }}
+            sorts={["traffic", "oldest", "newest", "domain"]}
           />
         ) : null}
         <NetworkDetails content={content} name={network.name} slug={slug} />

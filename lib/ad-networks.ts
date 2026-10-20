@@ -264,7 +264,7 @@ const scopedManagerSites = `with sites as materialized (select p.id,
     and ($2::text is null or p.niche=$2))`;
 export const getAdNetworkSitesAvailability=cached("ad-network-sites-availability",loadAdNetworkSitesAvailability);
 const siteSort: Record<AdNetworkSitesQuery["sort"], string> = {
-  domain: "p.normalized_domain", traffic: "case p.traffic_group when 'top-1k' then 0 when 'top-10k' then 1 when 'top-100k' then 2 when 'top-1m' then 3 when 'not-ranked' then 4 else 5 end,p.normalized_domain",
+  domain: "p.normalized_domain", traffic: "case p.traffic_group when 'top-1k' then 0 when 'top-10k' then 1 when 'top-100k' then 2 when 'top-1m' then 3 when 'not-ranked' then 4 else 5 end,p.domain_created_on asc nulls last,p.normalized_domain,p.id",
   oldest: "p.domain_created_on asc nulls last,p.normalized_domain",
   newest: "p.domain_created_on desc nulls last,p.normalized_domain",
   checked: "p.last_checked_at desc nulls last,p.normalized_domain",
@@ -298,7 +298,7 @@ export async function loadAdNetworkSites(query: AdNetworkSitesQuery): Promise<Ad
 }
 export const getAdNetworkSites=cached("ad-network-sites",loadAdNetworkSites);
 export function defaultAdNetworkSitesQuery(network: string | null = null, niche: AdNetworkNicheSlug | null = null, pageSize = AD_NETWORK_SITES_PAGE_SIZE): AdNetworkSitesQuery {
-  return { network, niche, q: "", sort: "domain", page: 1, pageSize };
+  return { network, niche, q: "", sort: network ? "traffic" : "domain", page: 1, pageSize };
 }
 
 const scopedSites = `with sites as materialized (select p.id,p.normalized_domain,p.niche,p.publisher_name,p.traffic_group,p.platform,p.domain_created_on

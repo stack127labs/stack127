@@ -7,6 +7,10 @@ import * as niches from '../../../lib/ad-network-niches.ts';
 import {cacheBodyDigest} from '../../../scripts/stack127/cache/refresh.mjs';
 import {targetsForEvents} from '../../../scripts/stack127/cache/targets.mjs';
 import {refreshApiRecords} from '../../../scripts/stack127/frontend/content-queue.mjs';
+import {parseAdNetworkSitesParams} from '../../../app/api/ad-networks/input.ts';
+import {adNetworksLibrary} from './loader-harness.mjs';
+
+const {defaultAdNetworkSitesQuery}=adNetworksLibrary(()=>{throw Error('Defaults must not query the database');});
 
 function load(file,imports,globals={}) {
   const exports={};
@@ -27,7 +31,7 @@ function sourceProbe({published=true}={}) {
     }})},
     './ad-network-niches':niches,
     './ad-networks':{
-      defaultAdNetworkSitesQuery:network=>({network,niche:null,q:'',page:1,pageSize:10,sort:'domain'}),
+      defaultAdNetworkSitesQuery,
       loadAdNetworkSites:async query=>{calls.push(['sites',query]);return {rows:[{domain:query.q}],total:1};},
       loadAdNetworkCheckerSite:async domain=>{calls.push(['site',domain]);return {site:{domain,managed_by:{slug:'mediavine'}}};},
       getAdNetworkSites:()=>{throw Error('Cached getter used as source');},getAdNetworkCheckerSite:()=>{throw Error('Cached getter used as source');},
@@ -56,6 +60,9 @@ test('representative API checks use direct source loaders and real request param
   const sites=await probe.getAdNetworkApiVerification('/api/ad-networks/sites');
   assert.equal(new URL(sites.requestPath,'https://stack127.com').searchParams.get('q'),'collegefashion.net');
   assert.equal(probe.calls[0][0],'sites');assert.equal(probe.calls[0][1].network,'mediavine');
+  assert.equal(probe.calls[0][1].sort,'traffic');
+  assert.deepEqual(JSON.parse(JSON.stringify(probe.calls[0][1])),
+    parseAdNetworkSitesParams(new URL(sites.requestPath,'https://stack127.com').searchParams));
   const site=await probe.getAdNetworkApiVerification('/api/ad-networks/site');
   assert.equal(site.requestPath,'/api/ad-networks/site?domain=collegefashion.net');
   assert.equal(site.expected.site.site.managed_by.slug,'mediavine');
