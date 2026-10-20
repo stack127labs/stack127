@@ -296,9 +296,9 @@ export async function loadAdNetworkSites(query: AdNetworkSitesQuery): Promise<Ad
   ]);
   return { rows: result.rows.map(row => toSite(row, identities)), total, page, pageSize: query.pageSize, totalPages, effectiveSort, ...availability };
 }
-export const getAdNetworkSites=cached("ad-network-sites",loadAdNetworkSites);
+export const getAdNetworkSites=cached("ad-network-sites-traffic-age",loadAdNetworkSites);
 export function defaultAdNetworkSitesQuery(network: string | null = null, niche: AdNetworkNicheSlug | null = null, pageSize = AD_NETWORK_SITES_PAGE_SIZE): AdNetworkSitesQuery {
-  return { network, niche, q: "", sort: network ? "traffic" : "domain", page: 1, pageSize };
+  return { network, niche, q: "", sort: network || niche ? "traffic" : "domain", page: 1, pageSize };
 }
 
 const scopedSites = `with sites as materialized (select p.id,p.normalized_domain,p.niche,p.publisher_name,p.traffic_group,p.platform,p.domain_created_on
@@ -545,7 +545,8 @@ export async function loadAdNetworkTrafficShares(niche: string | null): Promise<
   return aggregateAdNetworkTrafficShares(groups.rows,identities);
 }
 const loadTrafficShares = cached("ad-network-traffic-shares",loadAdNetworkTrafficShares);
-export const getAdNetworkNichePageData = cached("ad-network-niche-page", async (slug: string): Promise<AdNetworkNichePageData | null> => {
+// This payload includes the default table view; retire cached A–Z initial rows.
+export const getAdNetworkNichePageData = cached("ad-network-niche-page-traffic", async (slug: string): Promise<AdNetworkNichePageData | null> => {
   const asOf=new Date().toISOString().slice(0,10);
   const definition=getAdNetworkNiche(slug);
   if (!definition) return null;

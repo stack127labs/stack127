@@ -10,14 +10,14 @@ import {targetsForEvents} from '../../../scripts/stack127/cache/targets.mjs';
 import {networkIdentities} from '../../../scripts/ad-networks/network-identities.mjs';
 
 const emptyCoverage={listed:1000,classified:0,traffic:0,age:0,platform:0,publisher:0,checked:1000,manager:0,niches:[],networks:[]};
-test('network defaults agree between server and API while niche and directory defaults stay A to Z',()=>{
+test('network and niche defaults agree between server and API while the directory stays A to Z',()=>{
   const {defaultAdNetworkSitesQuery}=adNetworksLibrary(()=>{throw Error('Defaults must not query the database');});
   for(const [network,niche] of [[null,null],[null,'food'],['mediavine',null],['mediavine','food']]) {
     const params=new URLSearchParams();
     if(network)params.set('network',network);
     if(niche)params.set('niche',niche);
     const query=defaultAdNetworkSitesQuery(network,niche);
-    assert.equal(query.sort,network?'traffic':'domain');
+    assert.equal(query.sort,network||niche?'traffic':'domain');
     assert.deepEqual(JSON.parse(JSON.stringify(query)),parseAdNetworkSitesParams(params));
     params.set('sort','domain');assert.equal(parseAdNetworkSitesParams(params).sort,'domain');
     params.set('sort','traffic');assert.equal(parseAdNetworkSitesParams(params).sort,'traffic');
@@ -98,6 +98,8 @@ test('sites loader and parser default to 10, preserve explicit sizes, and bound 
   assert.deepEqual(Array.from(table.args).slice(-2),[10,70]);
   const explicit=await loadAdNetworkSites({...query,page:99,pageSize:50});
   assert.equal(explicit.pageSize,50);assert.equal(explicit.page,2);assert.equal(explicit.totalPages,2);
+  const niche=await loadAdNetworkSites(defaultAdNetworkSitesQuery(null,'tech'));
+  assert.equal(niche.effectiveSort,'domain');
   assert.equal(parseAdNetworkSitesParams(new URLSearchParams('pageSize=50')).pageSize,50);
 });
 test('default and explicit traffic sort use age, domain and id ties in both paging and final rows',async()=>{
@@ -109,9 +111,10 @@ test('default and explicit traffic sort use age, domain and id ties in both pagi
     if(sql.includes('p.normalized_domain as domain')){tables.push({sql,args});return {rows:[]};}
     throw Error(`Unexpected SQL: ${sql}`);
   });
-  const query=defaultAdNetworkSitesQuery('mediavine');
-  assert.equal((await loadAdNetworkSites(query)).effectiveSort,'traffic');
-  assert.equal((await loadAdNetworkSites({...query,sort:'traffic',page:2})).effectiveSort,'traffic');
+  for(const query of [defaultAdNetworkSitesQuery('mediavine'),defaultAdNetworkSitesQuery(null,'tech')]) {
+    assert.equal((await loadAdNetworkSites(query)).effectiveSort,'traffic');
+    assert.equal((await loadAdNetworkSites({...query,sort:'traffic',page:2})).effectiveSort,'traffic');
+  }
   const order="case p.traffic_group when 'top-1k' then 0 when 'top-10k' then 1 when 'top-100k' then 2 when 'top-1m' then 3 when 'not-ranked' then 4 else 5 end,p.domain_created_on asc nulls last,p.normalized_domain,p.id";
   for(const {sql} of tables) {
     assert.ok(sql.includes(`order by ${order} limit $4 offset $5`));
@@ -119,6 +122,8 @@ test('default and explicit traffic sort use age, domain and id ties in both pagi
   }
   assert.deepEqual(Array.from(tables[0].args),['mediavine',null,'',10,0]);
   assert.deepEqual(Array.from(tables[1].args),['mediavine',null,'',10,10]);
+  assert.deepEqual(Array.from(tables[2].args),[null,'tech','',10,0]);
+  assert.deepEqual(Array.from(tables[3].args),[null,'tech','',10,10]);
 });
 test('an all-network data event refreshes every network, niches and both APIs',()=>{
   const targets=targetsForEvents([{entity_type:'ad_networks',slug:'all'}]);

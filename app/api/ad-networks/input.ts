@@ -17,7 +17,7 @@ export function parseAdNetworkSitesParams(params: URLSearchParams): AdNetworkSit
   const network = params.get("network") || null;
   const niche = params.get("niche") || null;
   const q = (params.get("q") ?? "").trim().toLowerCase();
-  const sort = params.get("sort") ?? (network ? "traffic" : "domain");
+  const sort = params.get("sort") ?? (network || niche ? "traffic" : "domain");
   if (network && (network.length > 100 || !slug.test(network))) throw new AdNetworkInputError("Invalid network.");
   if (niche && !getAdNetworkNiche(niche)) throw new AdNetworkInputError("Invalid niche.");
   if (q.length > 100 || /[\x00-\x1f\x7f]/.test(q)) throw new AdNetworkInputError("Search must be at most 100 characters.");
