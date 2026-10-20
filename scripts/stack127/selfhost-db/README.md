@@ -147,8 +147,17 @@ Other image login passwords were cleared. Socket administration requires OS post
   600 verified for all three files. Acceptance markers were removed afterward.
 - Inspect failures with `journalctl -u stack127-db-backup.service` on OVH and
   `journalctl -u stack127-db-backup-pull.service` on homelab. Backup/copy failures exit nonzero; the copy also fails when its newest bundle
-  is over 36 hours old, preserving retained archives. GitHub failure/freshness
-  notification delivery remains a follow-up; these units do not send issues yet.
+  is over 36 hours old, preserving retained archives, so a stopped OVH backup
+  also fails the homelab copy.
+- Failure alerts: when either job fails, its `OnFailure=` unit runs
+  `backup-alert.py`, which opens a GitHub issue named
+  `Database backup failed: <job>`. The next good run closes it. The script reads
+  only `GITHUB_ALERT_TOKEN`: on OVH from `/srv/stack127-data/ad-networks.env`, on
+  homelab from `/srv/data/projects/stack127/.env.deploy`. Install it as
+  `/srv/stack127-db/backup-alert.py` on OVH and
+  `/srv/data/backups/stack127-db/bin/backup-alert.py` on homelab, with
+  `stack127-db-backup-alert.service` and `stack127-db-backup-pull-alert.service`
+  beside the backup units.
 
 After the coordinator has restored and accepted data, enable on each host:
 

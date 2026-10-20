@@ -3,12 +3,15 @@ Description=Back up the isolated stack127 PostgreSQL database
 After=docker.service
 Requires=docker.service
 ConditionPathExists=/srv/stack127-db/BACKUPS_ENABLED
+OnFailure=stack127-db-backup-alert.service
 
 [Service]
 Type=oneshot
 User=root
 ExecStartPre=/usr/bin/install -d -m 700 -o ubuntu -g ubuntu /srv/stack127-db/backups
 ExecStart=/srv/stack127-db/backup.sh
+# Close an open failure issue. A GitHub outage must not fail the backup.
+ExecStartPost=-/srv/stack127-db/backup-alert.py --env-file /srv/stack127-data/ad-networks.env stack127-db-backup ok
 UMask=0077
 Nice=10
 IOSchedulingClass=best-effort
