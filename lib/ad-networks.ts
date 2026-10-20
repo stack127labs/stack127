@@ -158,7 +158,7 @@ function cached<T extends unknown[], R>(key: string, loader: (...args: T) => Pro
     const result = await loader(...args);
     if (Buffer.byteLength(JSON.stringify(result)) >= 1_900_000) throw new Error(`${key} exceeds cache entry budget`);
     return result;
-  }, [key, "v13"], { revalidate: false, tags: [AD_NETWORKS_TAG] });
+  }, [key, "v14"], { revalidate: false, tags: [AD_NETWORKS_TAG] });
 }
 const iso = (value: Date | string | null): string | null => value === null ? null : new Date(value).toISOString();
 const ref = (network: AdNetworkRef): AdNetworkRef => ({ slug: network.slug, name: network.name });
