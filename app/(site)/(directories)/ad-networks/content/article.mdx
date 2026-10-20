@@ -53,15 +53,15 @@ We read the site's `ads.txt` file, the public list of companies allowed to sell 
 
 ### What do "listed" and "confirmed live" mean?
 
-`Confirmed live` means our last check found the network. `Listed` adds the sites where we haven't seen it lately.
+`Confirmed live` means we found the network on the site and it hasn't gone missing long enough to count as not seen lately. `Listed` adds the sites where we haven't seen it lately.
 
 | Status | When it happens |
 | --- | --- |
-| Confirmed live | Our last check found the network. |
+| Confirmed live | A check found the network, and it hasn't been missing for two checks yet. One missed check doesn't change this. |
 | Not seen lately | Two checks at least 48 hours apart didn't find it. It stays listed and may come back. |
 | Ended | Three checks over seven days or more didn't find it. The site leaves the network's list but keeps the history in the checker. |
 
-A check that fails, such as a timeout or a blocked request, never counts as missing. Only a readable `ads.txt` file without the network does.
+A check that fails, such as a timeout or a blocked request, never counts as missing. A check that works but doesn't find the network does: a readable `ads.txt` file without it, or no `ads.txt` file at all.
 
 ### How often do we check again?
 
@@ -71,7 +71,7 @@ Checks run every hour in small batches. Each confirmed site gets checked about o
 
 | Fact | Where it comes from | How often |
 | --- | --- | --- |
-| Traffic | The site's rank group in Google's [Chrome UX Report](https://developer.chrome.com/docs/crux), a list of the million most visited sites by Chrome users: top 10k, top 100k, or top 1M. `Not ranked` means outside the top million, not zero visits. | Monthly |
+| Traffic | The site's rank group in Google's [Chrome UX Report](https://developer.chrome.com/docs/crux), a list of the million most visited sites by Chrome users: top 10k, top 100k, or top 1M. `Not ranked` means the site wasn't in this month's Chrome UX Report list. That doesn't mean zero traffic: the list only covers sites with enough Chrome visitors. | Monthly |
 | Niche | An AI model reads the site's homepage title, description, and main heading, then picks one of 20 niches. Sites it isn't sure about stay unsorted. | Weekly, for new sites |
 | Domain age | The registration date in the domain registry's public RDAP record. | Daily, for new sites |
 | Platform | Signs in the homepage code, such as WordPress. | Daily, refreshed every 30 days |

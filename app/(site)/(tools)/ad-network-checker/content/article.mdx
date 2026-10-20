@@ -51,7 +51,7 @@ Ad buyers use this file to check who may sell your space, and they can skip sell
 
 We only show sites our checker has read. We find sites from public lists and each network's own seller list, then read their ads.txt on a schedule. A new or small site may not be in our list yet.
 
-A site also stays out when we can't confirm a network we track. That includes sites with no ads.txt file, sites that block our checker, and sites that use a network outside our list. The [ad networks directory](/ad-networks) lists every network we track.
+A site also stays out when we can't confirm a network we track. That includes most sites with no ads.txt file (a few networks can be confirmed from homepage ad code alone), sites that block our checker, and sites that use a network outside our list. The [ad networks directory](/ad-networks) lists every network we track.
 
 ## How current is the result?
 
@@ -63,6 +63,6 @@ One missed check never removes a network. A timeout or a blocked request counts 
 
 ## What does the traffic group mean?
 
-It's the site's place in Google's list of the million most visited sites by Chrome users: `top 10k`, `top 100k`, or `top 1M`. `Not ranked` means outside the top million, not zero visits.
+It's the site's place in Google's list of the million most visited sites by Chrome users: `top 10k`, `top 100k`, or `top 1M`. `Not ranked` means the site wasn't in this month's list. That doesn't mean zero traffic: the list only covers sites with enough Chrome visitors.
 
 We don't show visit counts or estimate earnings, because there's no public source we can check them against.
