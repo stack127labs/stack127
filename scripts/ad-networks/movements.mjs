@@ -35,27 +35,36 @@ export async function captureNetworkObservations(client, {baseline=false,batchSi
   }
   let after='0';let observations=0;let arrivals=0;
   while (true) {
-    const result=await client.query(`select p.id::text,p.last_checked_at::text as checked_at,
-      o.checked_at::text as previous_checked_at,o.confirmed_network_ids as previous_network_ids,
-      array(select n.id::text from public.ad_networks n
-        where coalesce(p.last_check_evidence->'confirmed_networks','[]'::jsonb) ? n.slug order by n.id) as network_ids,
-      array(select distinct e.ad_network_id::text from public.ad_network_relationship_events e
-        where e.publisher_id=p.id and e.event in ('baseline','newly_found','joined')) as known_network_ids,
-      array(select r.ad_network_id::text from public.ad_network_publisher_relationships r
-        where r.publisher_id=p.id and r.first_confirmed_at<p.last_checked_at) as established_network_ids,
-      array(select e.ad_network_id::text from (
-        select distinct on (e.ad_network_id) e.ad_network_id,e.event
-        from public.ad_network_relationship_events e where e.publisher_id=p.id and e.observed_at<p.last_checked_at
-        order by e.ad_network_id,e.observed_at desc,case when e.event='left' then 0 else 1 end desc
-      ) e where e.event='left') as departed_network_ids,
-      exists(select 1 from public.ad_network_relationship_events e where e.publisher_id=p.id) as known_site
+    // Limit before reading large evidence JSON; materialize its small network slice
+    // once per publisher and share the batch event history across all subqueries.
+    const result=await client.query(`with cohort as materialized (
+      select p.id,p.last_checked_at,p.last_check_evidence->'confirmed_networks' as confirmed_networks,
+        o.checked_at as previous_checked_at,o.confirmed_network_ids as previous_network_ids
       from public.ad_network_publishers p left join public.ad_network_check_observations o on o.publisher_id=p.id
       where p.id>$1::bigint and p.last_check_outcome in ('matched','no_match','no_ads_txt','not_modified')
         and p.last_checked_at=p.last_successful_check_at
         and (o.publisher_id is null or p.last_checked_at>o.checked_at)
         and exists(select 1 from public.ad_network_publisher_relationships r where r.publisher_id=p.id
           and (r.status in ('confirmed','stale') or (r.status='ended' and r.first_confirmed_at is not null)))
-      order by p.id limit $2`,[after,batchSize]);
+      order by p.id limit $2
+    ), cohort_events as materialized (
+      select e.* from public.ad_network_relationship_events e join cohort p on p.id=e.publisher_id
+    )
+    select p.id::text,p.last_checked_at::text as checked_at,
+      p.previous_checked_at::text as previous_checked_at,p.previous_network_ids as previous_network_ids,
+      array(select n.id::text from public.ad_networks n
+        where coalesce(p.confirmed_networks,'[]'::jsonb) ? n.slug order by n.id) as network_ids,
+      array(select distinct e.ad_network_id::text from cohort_events e
+        where e.publisher_id=p.id and e.event in ('baseline','newly_found','joined')) as known_network_ids,
+      array(select r.ad_network_id::text from public.ad_network_publisher_relationships r
+        where r.publisher_id=p.id and r.first_confirmed_at<p.last_checked_at) as established_network_ids,
+      array(select e.ad_network_id::text from (
+        select distinct on (e.ad_network_id) e.ad_network_id,e.event
+        from cohort_events e where e.publisher_id=p.id and e.observed_at<p.last_checked_at
+        order by e.ad_network_id,e.observed_at desc,case when e.event='left' then 0 else 1 end desc
+      ) e where e.event='left') as departed_network_ids,
+      exists(select 1 from cohort_events e where e.publisher_id=p.id) as known_site
+      from cohort p order by p.id`,[after,batchSize]);
     if (!result.rows.length) break;
     const events=[];
     const rows=result.rows.map(row=>{

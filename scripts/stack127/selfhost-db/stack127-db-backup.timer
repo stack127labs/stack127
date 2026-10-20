@@ -1,0 +1,10 @@
+[Unit]
+Description=Nightly stack127 PostgreSQL backup
+
+[Timer]
+OnCalendar=*-*-* 02:40:00 UTC
+Persistent=true
+Unit=stack127-db-backup.service
+
+[Install]
+WantedBy=timers.target

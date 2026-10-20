@@ -1,0 +1,16 @@
+[Unit]
+Description=Copy stack127 PostgreSQL backups from OVH to homelab
+After=network-online.target
+Wants=network-online.target
+ConditionPathExists=/srv/data/backups/stack127-db/PULL_ENABLED
+OnFailure=stack127-db-backup-pull-alert.service
+
+[Service]
+Type=oneshot
+User=teja
+ExecStart=/srv/data/backups/stack127-db/bin/pull-backups.sh
+# Close an open failure issue. A GitHub outage must not fail the copy.
+ExecStartPost=-/srv/data/backups/stack127-db/bin/backup-alert.py --env-file /srv/data/projects/stack127/.env.deploy stack127-db-backup-pull ok
+UMask=0077
+Nice=10
+TimeoutStartSec=1h
