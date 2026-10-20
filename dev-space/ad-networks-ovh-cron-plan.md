@@ -1,6 +1,6 @@
 # Ad networks: simple OVH cron plan
 
-**Paused since October 19, 2026 at 12:15 UTC.** OVH cron is removed. Production moved to self-hosted Postgres on October 20. The sync changes and resume steps await review and release. Pages stay unpublished (404).
+**Running again since October 20, 2026, 15:00 UTC.** It was paused on October 19 at 12:15 UTC. Production moved to self-hosted Postgres on October 20, and the sync now sends only changed rows (PR #69). Verification runs hourly at minute 40. Pages stay unpublished (404).
 
 ## Pause: why and how to resume
 
@@ -54,13 +54,18 @@ Things to know:
 - `scripts/ad-networks/ovh/run-job.sh` wraps each job (it started as `/srv/stack127-data/run-job.sh`). A daily or weekly job that finds the sync lock taken retries the sync every minute for up to 6 hours, without rerunning its collector. Verification skips its turn while one is waiting. Exit 75 means the lock was taken, and exit 76 means the same job is already running.
 - Sync reads a pinned SQLite view without making a full-store copy. Checked snapshots remain available for backups and RDAP handoff.
 
-Not done:
+Resumed on October 20:
 
-- Homelab checkout: done. Its uncommitted env-sharing work went into PR #58, a backup is in `/srv/data/tmp/stack127-homelab-wip-2026-10-19/`, and the checkout now tracks main.
-- Homelab niche timer is installed for Sunday 06:00 UTC. Keep it paused until the OVH resume checks pass.
-- RDAP merge (step 7.5) and turning off the homelab backup timer.
-- A clean export of `a4fd0397` sits in `/tmp/s127-adnet-a4fd0397` on homelab. Delete it when finished.
-- Still running on homelab: the domain-age RDAP pass (pid 348650) and the gather supervisor (pid 4134573). Both run from `/tmp/s127-gather-2038dd94`.
+- The first full sync took under 2 minutes. A sync with no changes takes about a minute, including the page refresh. The old one took about 12 minutes.
+- The evidence trim found nothing left to trim, because the first sync already sent compact evidence. Live evidence is now about 72 MB, down from about 254 MB. Table files stay at their size until a separate maintenance window.
+- The homelab RDAP pass and gather supervisor were stopped. 88 `.au` domains were still rate-limited; the daily OVH domain-age job retries them. The RDAP merge added 64 checkpoints and 1,674 domain dates. Those dates belong to sites that aren't reviewed yet, so they reach production only when the sites do.
+- The homelab `stack127-ad-network-backup.timer` is disabled. The niche timer is enabled for Sunday 06:00 UTC.
+- The homelab checkout tracks main. `/tmp/s127-adnet-a4fd0397` is already gone.
+
+Still waiting on the owner:
+
+- Delete the Storage bucket `stack127-ad-networks-jobs` and the GitHub secret `AD_NETWORKS_ALERT_TOKEN`.
+- Publish the pages, in a separate round.
 
 ## Steps
 

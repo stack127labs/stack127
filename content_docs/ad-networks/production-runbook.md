@@ -2,7 +2,7 @@
 
 Ad-network collectors, syncs, snapshots, and backups run as cron jobs on OVH. Weekly niche sorting runs on homelab. All ad-network pages stay unpublished and return 404. Resuming automation does not authorize publication.
 
-Cron has been paused since October 19, 2026, 12:15 UTC. Production moved to self-hosted Postgres 17 on October 20. The changes below must be reviewed and released before cron resumes. History: [OVH cron plan](../../dev-space/ad-networks-ovh-cron-plan.md).
+Cron is running again since October 20, 2026, 15:00 UTC, on self-hosted Postgres 17. It was paused from October 19, 12:15 UTC, until the sync sent only changed rows. History: [OVH cron plan](../../dev-space/ad-networks-ovh-cron-plan.md).
 
 ## Where things live
 
