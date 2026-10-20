@@ -8,7 +8,7 @@ export function loadTypeScript(file, imports) {
     compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.CommonJS },
   }).outputText;
   vm.runInNewContext(code, {
-    exports, URL, URLSearchParams, Response,
+    exports, URL, URLSearchParams, Response, process,
     require(name) {
       if (Object.hasOwn(imports, name)) return imports[name];
       throw new Error(`Unexpected import: ${name}`);

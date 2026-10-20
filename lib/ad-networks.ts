@@ -18,19 +18,28 @@ import type { AdNetworkSiteCoverage } from "./ad-networks-report";
 import { adNetworkFacts } from "../app/(site)/(directories)/ad-networks/network-facts";
 
 import { getPool } from "./db";
-import type { QueryResultRow } from "pg";
+import type { QueryResult, QueryResultRow } from "pg";
 import { unstable_cache } from "next/cache";
 import { AD_NETWORKS_TAG } from "./cache-tags";
 
 let reportQueries = 0;
 const waitingReports: (() => void)[] = [];
-/** Leave one of the shared pool's four connections for page registry queries. */
-export async function queryAdNetworkReport<Row extends QueryResultRow>(sql: string, values?: unknown[]) {
+// The managed development database stalls when cold reports compete for its CPU.
+// Production keeps three readers, leaving one pool connection for page registry queries.
+const reportQueryLimit = process.env.NODE_ENV === "development" ? 1 : 3;
+export async function queryAdNetworkReport<Row extends QueryResultRow>(sql: string, values?: unknown[]): Promise<QueryResult<Row>> {
   await new Promise<void>(resolve => {
-    if (reportQueries < 3) { reportQueries++; resolve(); }
+    if (reportQueries < reportQueryLimit) { reportQueries++; resolve(); }
     else waitingReports.push(resolve);
   });
-  try { return await getPool().query<Row>(sql, values); }
+  try {
+    // Cold scans on the managed dev instance can exceed the shared pool's 15s
+    // budget even when reading cached database pages. Keep production unchanged.
+    const developmentQuery = { text: sql, values, query_timeout: 60000 };
+    return await (process.env.NODE_ENV === "development"
+      ? getPool().query<Row>(developmentQuery)
+      : getPool().query<Row>(sql, values));
+  }
   finally {
     const next = waitingReports.shift();
     if (next) next();
@@ -154,10 +163,22 @@ export async function listVerifiedPublishers(networkId: string, query: string, p
 
 /** Every cached response is an aggregate or a bounded page. Never cache an entire site catalog. */
 function cached<T extends unknown[], R>(key: string, loader: (...args: T) => Promise<R>) {
+  // Concurrent pages can miss the same Next cache entry during a cold refresh.
+  // Share the pending read, then let Next own the stored result and invalidation.
+  const pending = new Map<string, Promise<R>>();
   return unstable_cache(async (...args: T) => {
-    const result = await loader(...args);
-    if (Buffer.byteLength(JSON.stringify(result)) >= 1_900_000) throw new Error(`${key} exceeds cache entry budget`);
-    return result;
+    const argumentKey = JSON.stringify(args);
+    let read = pending.get(argumentKey);
+    if (!read) {
+      read = (async () => {
+        const result = await loader(...args);
+        if (Buffer.byteLength(JSON.stringify(result)) >= 1_900_000) throw new Error(`${key} exceeds cache entry budget`);
+        return result;
+      })();
+      pending.set(argumentKey, read);
+    }
+    try { return await read; }
+    finally { if (pending.get(argumentKey) === read) pending.delete(argumentKey); }
   }, [key, "v14"], { revalidate: false, tags: [AD_NETWORKS_TAG] });
 }
 const iso = (value: Date | string | null): string | null => value === null ? null : new Date(value).toISOString();
@@ -189,7 +210,7 @@ const siteProjection = `p.normalized_domain as domain, p.publisher_name, p.niche
 
 // Reports need the same evidence as individual rows, but must aggregate the
 // relationship table once instead of running JSON subqueries per publisher.
-const reportMemberships = `with relationship_facts as materialized (
+const reportMemberships = `with relationship_facts as (
   select r.publisher_id,n.slug,r.status,r.relationship_type,
     case when r.status='confirmed' and r.relationship_type='primary_or_exclusive_manager'
       then jsonb_build_object('manager_domain',r.report_retained_manager) end as manager_evidence
@@ -205,7 +226,7 @@ const reportManagerEvidence = `jsonb_build_object('manager_domains',p.last_check
 export async function loadAdNetworkManagerStatistics() {
   const [groups,identities]=await Promise.all([
     queryAdNetworkReport<{evidence:unknown;manager_relationships:SiteRecord["manager_relationships"];network_slugs:string[];has_summary:boolean;count:number}>(`
-      with memberships as materialized (${reportMemberships}), publishers as materialized (
+      with memberships as (${reportMemberships}), publishers as (
         select p.id,jsonb_build_object('manager_domains',p.report_manager_domains) as last_check_evidence,
           p.report_has_ads_txt_summary as has_summary from public.ad_network_publishers p
       ), records as (
@@ -394,9 +415,11 @@ async function queryDomainAgeStrips(network: string | null,niche: string | null,
     from records group by scope_key,name
   ), bins as (
     select scope_key,year,count(*)::int as count from records group by scope_key,year
-  ) select summaries.*,coalesce((select jsonb_agg(jsonb_build_object('year',b.year,'count',b.count) order by b.year)
-    from bins b where b.scope_key=summaries.scope_key),'[]'::jsonb) as bins
-    from summaries order by scope_key`,[network,niche,byNetwork])).rows;
+  ), histograms as (
+    select scope_key,jsonb_agg(jsonb_build_object('year',year,'count',count) order by year) as bins
+    from bins group by scope_key
+  ) select summaries.*,coalesce(histograms.bins,'[]'::jsonb) as bins
+    from summaries left join histograms using (scope_key) order by scope_key`,[network,niche,byNetwork])).rows;
 }
 
 function toDomainAgeStrip(row: DomainAgeRecord | undefined): AdNetworkDomainAgeStrip | null {
@@ -532,7 +555,7 @@ export const getAdNetworkNichesPageData = cached("ad-network-niches-page", async
 export async function loadAdNetworkTrafficShares(niche: string | null): Promise<AdNetworkTrafficShare[]> {
   const [groups,identities] = await Promise.all([
     queryAdNetworkReport<{traffic_group:string;evidence:unknown;manager_relationships:SiteRecord["manager_relationships"];count:number}>(`
-      with memberships as materialized (${reportMemberships}), publishers as materialized (
+      with memberships as (${reportMemberships}), publishers as (
         select p.id,p.traffic_group,jsonb_build_object('manager_domains',p.report_manager_domains) as last_check_evidence
         from public.ad_network_publishers p
         where p.traffic_group is not null and ($1::text is null or p.niche=$1)
@@ -632,6 +655,27 @@ export async function loadAdNetworkCheckerSite(domain: string): Promise<AdNetwor
 }
 export const getAdNetworkCheckerSite=cached("ad-network-checker-site-v2",loadAdNetworkCheckerSite);
 
+/** Scan each partial source-ID index once instead of fetching JSON or probing per site.
+ * The events publisher foreign key guarantees that every first discovery has a publisher.
+ */
+export async function loadAdNetworkWeeklyDiscoveries(): Promise<AdNetworkStatsPageData["freshness"]["weekly"]> {
+  return (await queryAdNetworkReport<AdNetworkStatsPageData["freshness"]["weekly"][number]>(`with first_listed as (
+      select publisher_id,min(observed_at) as first_seen_at from public.ad_network_relationship_events
+      where event='newly_found' group by publisher_id
+    ), checker_sources as materialized (
+      select id from public.ad_network_publishers where discovery_sources @> '[{"source_key":"checker"}]'
+    ), attributed_sources as materialized (
+      select id from public.ad_network_publishers where jsonb_array_length(discovery_sources)>0
+    ) select date_trunc('week',f.first_seen_at at time zone 'UTC')::date::text as week,
+      count(*) filter(where checker.id is null)::int as discovered,
+      count(*) filter(where checker.id is not null)::int as checker
+      from first_listed f left join checker_sources checker on checker.id=f.publisher_id
+      left join attributed_sources attributed on attributed.id=f.publisher_id
+      where f.first_seen_at>=date_trunc('week',now() at time zone 'UTC')-interval '12 weeks'
+      and f.first_seen_at<date_trunc('week',now() at time zone 'UTC') group by 1
+      having bool_and(attributed.id is not null) order by 1 limit 12`)).rows;
+}
+
 export const getAdNetworkStatsPageData = cached("ad-network-market-report", async (): Promise<AdNetworkStatsPageData> => {
   const pool={query:queryAdNetworkReport};
   const observedDay=new Date();
@@ -677,16 +721,7 @@ export const getAdNetworkStatsPageData = cached("ad-network-market-report", asyn
       select count(*) filter(where last_checked_at>=now()-interval '7 days')::int as checked_last_7_days,
       (select count(*)::int from first_listed where first_seen_at>=date_trunc('week',now() at time zone 'UTC')-interval '7 days'
         and first_seen_at<date_trunc('week',now() at time zone 'UTC')) as new_last_week from active`),
-    pool.query<AdNetworkStatsPageData["freshness"]["weekly"][number]>(`with first_listed as (
-      select publisher_id,min(observed_at) as first_seen_at from public.ad_network_relationship_events
-      where event='newly_found' group by publisher_id)
-      select date_trunc('week',f.first_seen_at at time zone 'UTC')::date::text as week,
-      count(*) filter(where not discovery_sources @> '[{"source_key":"checker"}]')::int as discovered,
-      count(*) filter(where discovery_sources @> '[{"source_key":"checker"}]')::int as checker
-      from first_listed f join public.ad_network_publishers p on p.id=f.publisher_id
-      where f.first_seen_at>=date_trunc('week',now() at time zone 'UTC')-interval '12 weeks'
-      and f.first_seen_at<date_trunc('week',now() at time zone 'UTC') group by 1
-      having bool_and(jsonb_array_length(discovery_sources)>0) order by 1 limit 12`),
+    loadAdNetworkWeeklyDiscoveries(),
     loadMovements(null,asOf),getAdNetworkManagerStatistics(),loadReportMetadata(null),
     pool.query<{total:number;checked:number;waiting:number}>(`select count(*)::int as total,
       count(*) filter(where last_checked_at is not null)::int as checked,
@@ -724,7 +759,7 @@ export const getAdNetworkStatsPageData = cached("ad-network-market-report", asyn
       // data-gate: real new-site observations populate the weekly count; imported baselines are excluded.
       new_last_week:movements.some(row=>(row.newly_found??0)>0) ? freshness.rows[0].new_last_week : null,
       // data-gate: every site in a week needs source attribution before scan/checker stacks are shown.
-      weekly:weekly.rows}};
+      weekly}};
 });
 
 function joiningRules(networks: AdNetworkRef[]): AdNetworkJoiningRule[] {

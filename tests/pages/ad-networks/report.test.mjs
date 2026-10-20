@@ -38,6 +38,45 @@ test('cold reports bound concurrent queries and release capacity after a databas
   assert.equal(results.filter(result=>result.status==='rejected').length,1);
   assert.equal((await queryAdNetworkReport('after')).rows[0].value,'after');
 });
+test('development serializes cold reports while retaining capacity after a failed query',async()=>{
+  let active=0,maximum=0;
+  const {queryAdNetworkReport}=adNetworksLibrary(async(sql)=>{
+    sql=sql.text;
+    active++;maximum=Math.max(maximum,active);
+    await new Promise(resolve=>setTimeout(resolve,5));
+    active--;
+    if(sql==='fail')throw Error('database failed');
+    return {rows:[]};
+  },{}, {process:{env:{NODE_ENV:'development'}}});
+  const results=await Promise.allSettled(['first','fail','last'].map(sql=>queryAdNetworkReport(sql)));
+  assert.equal(maximum,1);
+  assert.equal(active,0);
+  assert.equal(results.filter(result=>result.status==='rejected').length,1);
+  await queryAdNetworkReport('after');
+});
+test('simultaneous cold niche reports share reads and recover after a shared database failure',async()=>{
+  let counts=0,fail=true;
+  const library=adNetworksLibrary(async sql=>{
+    if(sql.includes('as classified')) {
+      counts++;
+      await new Promise(resolve=>setTimeout(resolve,5));
+      if(fail)throw Error('database failed');
+      return {rows:[{listed:0,confirmed:0,classified:0}]};
+    }
+    if(sql.includes('select niche,count(*)'))return {rows:[]};
+    if(sql.includes('as updated_at'))return {rows:[{updated_at:null}]};
+    if(sql.includes('r.verification_method as key'))return {rows:[]};
+    throw Error(`Unexpected SQL: ${sql}`);
+  });
+  const failed=await Promise.allSettled([library.getAdNetworkNichesPageData(),library.getAdNetworkNichesPageData()]);
+  assert.equal(counts,1);
+  assert.ok(failed.every(result=>result.status==='rejected'));
+  fail=false;
+  const [first,second]=await Promise.all([library.getAdNetworkNichesPageData(),library.getAdNetworkNichesPageData()]);
+  assert.equal(counts,2);
+  assert.deepEqual(first,second);
+  assert.equal(first.listed,0);
+});
 test('niches need 100 classified sites and 80 percent scope coverage',()=>{
   assert.equal(hasAdNetworkNicheCoverage(0,0),false);
   assert.equal(hasAdNetworkNicheCoverage(99,99),false);

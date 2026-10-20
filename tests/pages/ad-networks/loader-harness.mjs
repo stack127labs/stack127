@@ -20,7 +20,7 @@ export function adNetworksLibrary(query, overrides={}, globals={}) {
   const code=ts.transpileModule(fs.readFileSync(new URL('../../../lib/ad-networks.ts',import.meta.url),'utf8'),{
     compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS},
   }).outputText;
-  vm.runInNewContext(code,{exports,Buffer,URL,URLSearchParams,require(name){
+  vm.runInNewContext(code,{exports,Buffer,URL,URLSearchParams,process,require(name){
     if(Object.hasOwn(imports,name))return imports[name];throw Error(`Unexpected import: ${name}`);
   },...globals});
   return exports;
