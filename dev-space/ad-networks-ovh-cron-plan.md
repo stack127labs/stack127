@@ -1,6 +1,6 @@
 # Ad networks: simple OVH cron plan
 
-**Paused on October 19, 2026 at 12:15 UTC.** OVH cron is removed and no ad-network job runs. Pages stay unpublished.
+**Paused since October 19, 2026 at 12:15 UTC.** OVH cron is removed. Production moved to self-hosted Postgres on October 20. The sync changes and resume steps await review and release. Pages stay unpublished (404).
 
 ## Pause: why and how to resume
 
@@ -8,18 +8,22 @@ The first day of syncing filled the production Supabase database. It grew to 709
 
 State at the pause:
 
-- OVH: the crontab is saved at `/srv/stack127-data/crontab.paused-2026-10-19.txt` (the same as `scripts/ad-networks/ovh/crontab.txt`). The working store `/srv/stack127-data/ad-networks.sqlite` and its backups are intact. The last verification run was stopped mid-sync (exit 1); batches that committed are kept.
+- OVH: the crontab is saved at `/srv/stack127-data/crontab.paused-2026-10-19.txt` (the old five-minute schedule). The working store `/srv/stack127-data/ad-networks.sqlite` and its backups are intact. The last verification run was stopped mid-sync (exit 1); batches that committed are kept.
 - Production data: 105,981 publishers and 113,788 relationships. No ad-network page is published.
 - Homelab: the niche timer `stack127-ad-network-niche.timer` is installed and enabled (next run Sunday 06:00 UTC). Disable it, or let it fail harmlessly, until the database move is done. The RDAP pass and gather supervisor are still running and need the later merge.
 - PR #58 (env sharing) is reviewed and green but held. After it merges, replace homelab's `~/.local/lib/stack127/shared-env.mjs`: stop the timer, copy the file, start the timer.
 - Not yet deleted: Storage bucket `stack127-ad-networks-jobs` and GitHub secret `AD_NETWORKS_ALERT_TOKEN`. Both are unused; delete them only with the owner's OK.
 
-Before resuming cron, against whatever database is production then:
+The resume changes are prepared:
 
-1. Sync only changed rows instead of sending every row each run.
-2. Don't hold a database connection while collectors run; take the lock only around the sync.
-3. Keep the large check evidence in OVH's SQLite store and sync only the fields the pages need.
-4. Run verification less often (for example hourly), and watch database size and connection count after the first day.
+1. Compare compact row hashes in OVH's persistent `state/sync-state.sqlite`; send only changed rows.
+2. Collect without a production connection. Sync takes both existing locks on one direct connection, then releases it before revalidation.
+3. Keep full evidence and source lists in SQLite. Retain manager/check facts, niche homepage text, and required confirmation metadata in production.
+4. Verify hourly at minute 40, with four workers, at most 1,000 sites, and a ten-minute budget.
+
+The [production runbook](../content_docs/ad-networks/production-runbook.md#resume-after-release) has the exact resume order. Keep cron and niche sorting paused until the reviewed release, optional reviewed evidence cleanup, full sync, no-change sync, small collector checks, backup, and cache checks pass. Install the new crontab last. Do not change publication rows or a publish manifest.
+
+Read-only production checks found the `stack127_app` grants and RLS policies already cover sync and its triggers. No role migration is needed. Existing evidence and source lists can shed about 190 MB of live column values; this does not promise smaller files without later maintenance. The separate cleanup SQL is not automatic.
 
 Earlier status (before the pause): cron ran on OVH, the first attempt was removed, and the homelab checkout tracked main again. The [production runbook](../content_docs/ad-networks/production-runbook.md) describes the cron setup; this file is the history.
 
@@ -46,14 +50,14 @@ Done on October 19:
 
 Things to know:
 
-- Every job ends with a full sync and a refresh. A sync with no changes still takes about 12 minutes, so verification runs about every 15 minutes, not every 5.
-- `scripts/ad-networks/ovh/run-job.sh` wraps each job (it started as `/srv/stack127-data/run-job.sh`). A daily or weekly job that finds the database lock taken retries every minute for up to 6 hours. Verification skips its turn while one is waiting. Exit 75 means the lock was taken, and exit 76 means the same job is already running.
-- Each sync used to leave two small temp files in `state/`. `snapshot-local.mjs` now removes them.
+- Every job ends with an incremental sync and refresh. The old full sync took 12 minutes without changes. A local 107,146-site benchmark now takes 10.8 seconds with simulated database replies; measure OVH during resume.
+- `scripts/ad-networks/ovh/run-job.sh` wraps each job (it started as `/srv/stack127-data/run-job.sh`). A daily or weekly job that finds the sync lock taken retries the sync every minute for up to 6 hours, without rerunning its collector. Verification skips its turn while one is waiting. Exit 75 means the lock was taken, and exit 76 means the same job is already running.
+- Sync reads a pinned SQLite view without making a full-store copy. Checked snapshots remain available for backups and RDAP handoff.
 
 Not done:
 
 - Homelab checkout: done. Its uncommitted env-sharing work went into PR #58, a backup is in `/srv/data/tmp/stack127-homelab-wip-2026-10-19/`, and the checkout now tracks main.
-- Homelab niche timer is not installed. The first 2-site smoke run hit the sync lock and timed out; the import now waits for it.
+- Homelab niche timer is installed for Sunday 06:00 UTC. Keep it paused until the OVH resume checks pass.
 - RDAP merge (step 7.5) and turning off the homelab backup timer.
 - A clean export of `a4fd0397` sits in `/tmp/s127-adnet-a4fd0397` on homelab. Delete it when finished.
 - Still running on homelab: the domain-age RDAP pass (pid 348650) and the gather supervisor (pid 4134573). Both run from `/tmp/s127-gather-2038dd94`.
@@ -80,11 +84,11 @@ mkdir -p /srv/stack127-data/state /srv/stack127-data/backups /srv/stack127-data/
 One env file, `/srv/stack127-data/ad-networks.env`, mode 600:
 
 ```bash
-AD_NETWORKS_RUNTIME_ENVIRONMENT=production
-DATABASE_POOLER_URL=   # production session pooler, port 5432
-GITHUB_ALERT_TOKEN=    # same token as homelab .env.deploy
-AD_NETWORK_DB_PATH=/srv/stack127-data/ad-networks.sqlite
-AD_NETWORKS_STATE_DIRECTORY=/srv/stack127-data/state
+AD_NETWORKS_RUNTIME_ENVIRONMENT="production"
+DATABASE_POOLER_URL="<direct stack127_app URL at 127.0.0.1:5432/postgres>"
+GITHUB_ALERT_TOKEN="<same token as homelab .env.deploy>"
+AD_NETWORK_DB_PATH="/srv/stack127-data/ad-networks.sqlite"
+AD_NETWORKS_STATE_DIRECTORY="/srv/stack127-data/state"
 ```
 
 Copy the values from homelab `.env.database` and `.env.deploy` over SSH. Never paste them into chat. Homelab stays the source for env files, so update this file when those values change.
@@ -116,24 +120,9 @@ Done on October 19. The bootstrap script was removed with the first attempt. Pag
 
 ### 5. Cron (UTC)
 
-Each line runs one job through `scripts/ad-networks/refresh.mjs`. Every job takes a database lock, so overlapping runs skip instead of clashing. `flock` stops the same job from starting twice.
+Install [`scripts/ad-networks/ovh/crontab.txt`](../scripts/ad-networks/ovh/crontab.txt) through the resume steps in the runbook. Verification starts at minute 40 each hour. The daily, weekly, and monthly start times stay the same.
 
-```cron
-CRON_TZ=UTC
-# J = cd /srv/stack127 && set -a && . /srv/stack127-data/ad-networks.env && set +a && nice -n 10 flock -n /tmp/adn-JOB.lock node --experimental-strip-types scripts/ad-networks/refresh.mjs --environment production --confirm stack127-production --apply --local-database /srv/stack127-data/ad-networks.sqlite --state-directory /srv/stack127-data/state --concurrency 4
-
-*/5 * * * *  J --job verification --limit 500 --time-budget-minutes 5
-10 0 * * *   J --job snapshot --limit 5000 --time-budget-minutes 30
-0 1 * * *    J --job platform --limit 5000 --time-budget-minutes 30
-0 2 * * *    J --job domain-age --limit 5000 --time-budget-minutes 30
-0 3 * * *    J --job ads-txt-summary --limit 5000 --time-budget-minutes 30
-0 4 * * 2    J --job discovery --limit 5000 --time-budget-minutes 30
-0 4 * * 3    J --job publisher-names --limit 5000 --time-budget-minutes 30
-0 4 5 * *    J --job traffic --limit 5000 --time-budget-minutes 30
-0 5 * * *    J --job backup --limit 5000 --time-budget-minutes 30
-```
-
-Write the real crontab with the full command on each line, or a small `run-job.sh` wrapper that takes the job name. Append output to `/srv/stack127-data/logs/<job>.log` and rotate it.
+Each line calls `run-job.sh`. Only sync holds a production lock and connection. `flock` stops duplicate copies of the same job. The wrapper accepts the shell-sourced, double-quoted env values and writes `/srv/stack127-data/logs/<job>.log`.
 
 Failures open a GitHub issue through `alerts.mjs` and close it on recovery.
 
@@ -159,4 +148,4 @@ Removed in the clean-up PR: the workflow, `runtime/`, `runtime.mjs`, `scheduler.
 - The GitHub secret `AD_NETWORKS_ALERT_TOKEN`.
 - `/tmp/s127-adnet-a4fd0397` on homelab.
 
-Then publish the pages in a separate round.
+Pages stay unpublished. Any future publication needs a separate task and authorization.

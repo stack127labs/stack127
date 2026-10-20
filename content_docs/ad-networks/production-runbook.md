@@ -1,86 +1,123 @@
 # Ad-network production runbook
 
-The ad-network jobs run as plain cron on the OVH server and write straight to the production database. Weekly niche sorting runs on homelab. All ad-network pages stay unpublished (404) until a separate publication round.
+Ad-network collectors, syncs, snapshots, and backups run as cron jobs on OVH. Weekly niche sorting runs on homelab. All ad-network pages stay unpublished and return 404. Resuming automation does not authorize publication.
 
-**Paused since October 19, 2026, 12:15 UTC:** the OVH crontab is removed while production moves to a self-hosted database. See the pause notes in the [OVH cron plan](../../dev-space/ad-networks-ovh-cron-plan.md) before resuming.
-
-Set up on October 19, 2026. History: [OVH cron plan](../../dev-space/ad-networks-ovh-cron-plan.md).
+Cron has been paused since October 19, 2026, 12:15 UTC. Production moved to self-hosted Postgres 17 on October 20. The changes below must be reviewed and released before cron resumes. History: [OVH cron plan](../../dev-space/ad-networks-ovh-cron-plan.md).
 
 ## Where things live
 
-On OVH (`ssh ovh`, user `ubuntu`, clock in UTC):
+On OVH (`ssh ovh`, user `ubuntu`, UTC):
 
-| Path | What |
-| --- | --- |
-| `/srv/stack127` | Plain checkout of `main` with `npm ci --omit=dev --ignore-scripts`. Node 22 from nodejs.org in `/usr/local`. |
-| `/srv/stack127-data/ad-networks.env` | Mode 600. `AD_NETWORKS_RUNTIME_ENVIRONMENT=production`, `DATABASE_POOLER_URL` (session port 5432), `GITHUB_ALERT_TOKEN`, `AD_NETWORK_DB_PATH`, `AD_NETWORKS_STATE_DIRECTORY`. Never print it. |
-| `/srv/stack127-data/ad-networks.sqlite` | Working SQLite store. |
-| `/srv/stack127-data/state/` | Job progress files, fetch throttle, and `backups/` (seven daily copies). |
-| `/srv/stack127-data/logs/<job>.log` | One log per job. `/etc/logrotate.d/stack127-ad-networks` rotates them weekly. |
+- `/srv/stack127`: checkout of released `main`, Node 22 or newer, production npm dependencies.
+- `/srv/stack127-data/ad-networks.env`: mode 600, shell-sourced variables. Values may be double-quoted, for example `AD_NETWORKS_RUNTIME_ENVIRONMENT="production"`.
+- `DATABASE_POOLER_URL`: direct connection to `127.0.0.1:5432`, database `postgres`, login `stack127_app`. There is no PgBouncer.
+- `/srv/stack127-data/ad-networks.sqlite`: working store, including full evidence.
+- `/srv/stack127-data/state/sync-state.sqlite`: hashes of the last successful sync, separated by database target. Keep this file between jobs.
+- `/srv/stack127-data/state/`: progress, fetch throttle, and `backups/` with seven SQLite copies.
+- `/srv/stack127-data/logs/<job>.log`: logs, rotated weekly by `/etc/logrotate.d/stack127-ad-networks`.
 
-The wrapper [`scripts/ad-networks/ovh/run-job.sh`](../../scripts/ad-networks/ovh/run-job.sh) and the crontab [`scripts/ad-networks/ovh/crontab.txt`](../../scripts/ad-networks/ovh/crontab.txt) are in the repo. Install the crontab with `crontab /srv/stack127/scripts/ad-networks/ovh/crontab.txt`.
+The env file also sets `GITHUB_ALERT_TOKEN`, `AD_NETWORK_DB_PATH`, and `AD_NETWORKS_STATE_DIRECTORY`. Never print it. Homelab owns env values; Mac copies must not be edited.
 
-On homelab, the user timer `stack127-ad-network-niche.timer` runs `niche-sort.mjs` from `/srv/data/projects/stack127` every Sunday at 06:00 UTC.
+The wrapper is [`run-job.sh`](../../scripts/ad-networks/ovh/run-job.sh). The full schedule is [`crontab.txt`](../../scripts/ad-networks/ovh/crontab.txt). Homelab's `stack127-ad-network-niche.timer` runs Sunday at 06:00 UTC.
 
 ## How a job runs
 
-Each cron line calls `run-job.sh <job>`, which loads the env file and runs `refresh.mjs` for that job against production. Every job collects, then syncs the reviewed data to production and refreshes the 70 ad-network paths. A sync with nothing to change still takes about 12 minutes, so verification runs about every 15 minutes even though cron starts it every 5.
+Collectors use HTTP and SQLite without holding a production connection. Sync then opens one connection, takes the existing runtime and reviewed-sync locks, and pins a read-only SQLite view. It sends only rows whose compact contents differ from the last successful sync. Hashes are committed only after the database work succeeds. A failed sync can safely replay committed batches.
 
-All jobs share one database lock.
+Sync captures daily counts and arrival observations, then closes its connection. `revalidate.mjs` refreshes the 70 ad-network paths. It leaves durable queue events for the Node cache worker to verify and acknowledge. Neither step publishes pages.
 
-- `refresh.mjs` exits 75 when another job holds the lock. Scheduled jobs then retry every minute for up to 6 hours. Verification skips its turn while any scheduled job is waiting.
-- `flock` stops the same job from starting twice; the wrapper exits 76 for that.
-- Niche sorting waits up to 60 minutes for the sync lock before it imports.
+- Exit 75 means the sync lock is held. Scheduled jobs retry every minute for up to six hours, skipping the collector on retries.
+- Verification yields while a scheduled job waits. Its local checkpoints will be picked up by the next sync.
+- Exit 76 means the same job is already running under `flock`.
+- Niche imports use the reviewed-sync lock and preserve existing labels during collector syncs.
+- Failures open one GitHub issue per job. The next successful run closes it.
 
-Failures open one GitHub issue per job through `alerts.mjs` and close it when the job next succeeds.
+Verification runs at minute 40 each hour, with four workers, a 1,000-site limit, and a ten-minute budget. Daily jobs start at 00:10, 01:00, 02:00, 03:00, and 05:00 UTC. Weekly discovery and publisher-name jobs, and monthly traffic, start at 04:00 UTC.
 
-## Check on it
+## What stays in production
+
+Publisher evidence keeps `manager_domains` and `confirmed_networks`, plus four homepage fields used by niche sorting: `title`, `description`, `h1`, and `language`. Relationship evidence keeps `manager_domain`, `matched_signal`, `checked_url`, `checked_at`, and `parser_version`. The last three are required confirmation metadata. These preserve existing manager resolution, observations, and database constraints.
+
+Full fetch diagnostics, redirects, seller records, parser errors, and traffic evidence stay in SQLite. `discovery_sources` stops being written. Page facts, complete seller-domain summaries, bounded ads.txt previews, names, platforms, dates, traffic groups, and favicons keep their existing behavior. Existing target niches are never replaced by a collector sync.
+
+Read-only checks on October 20 found `stack127_app` has the required table, identity-sequence, and function grants, with `stack127_backend_access` RLS policies. PostgreSQL planned all five sync write paths as that login without executing them. No change to `app-role.sql` is needed. Development tests execute the real upserts against temporary copies of the production schema, including checks and generated columns.
+
+Production measured 627 MB: publishers 383 MB, relationships 116 MB. Its 107,146 publishers held 162 MB of check evidence; 114,284 relationships held 58 MB. Projecting existing values gives about 38 MB of publisher evidence and 25 MB of relationship evidence. Removing 34 MB of source lists saves about 190 MB of live column data in total. Table files and indexes are separate from this estimate.
+
+The separate [`trim-production-evidence.sql`](../../scripts/ad-networks/trim-production-evidence.sql) clears existing unused values in batches. It preserves every retained field and never runs automatically. The first full sync also replaces evidence for its reviewed cohort; the SQL handles old rows outside that cohort and source lists. Neither has been run against production during implementation.
+
+Ordinary vacuum makes dead space reusable; it does not generally shrink files on disk. A disk-reclaiming rewrite needs a separately reviewed maintenance window. See [Postgres vacuum behavior](https://www.postgresql.org/docs/17/routine-vacuuming.html).
+
+## Resume after release
+
+The coordinator performs these steps after review and release authorization. Keep cron removed and pause homelab's niche timer while doing the first sync.
+
+1. Confirm the latest database backup and SQLite backup are usable. Wait for any old ad-network processes to stop. Keep the existing OVH working store.
+2. Update OVH to the reviewed release:
+
+   ```bash
+   ssh ovh 'cd /srv/stack127 && git pull --ff-only && npm ci --omit=dev --ignore-scripts && git rev-parse HEAD'
+   ```
+
+   Check that SHA against the released revision. Check the env target privately: `AD_NETWORKS_RUNTIME_ENVIRONMENT=production`, loopback port 5432, and login `stack127_app`. Source it with `set -a; . /srv/stack127-data/ad-networks.env; set +a`. Do not use a parser that leaves surrounding quotes in values.
+3. If the separate evidence cleanup is approved, run its SQL as the database administrator. Each invocation handles at most 5,000 rows per table. Repeat until both counts are zero. For example, on OVH from `/srv/stack127`:
+
+   ```bash
+   sudo -n docker exec -i --user postgres stack127-db psql -X -U supabase_admin -d postgres -v ON_ERROR_STOP=1 < scripts/ad-networks/trim-production-evidence.sql
+   ```
+
+   After the final batch, run ordinary `VACUUM (ANALYZE)` on the two tables as the administrator. Do not run `VACUUM FULL` as part of resume.
+4. Refresh the local catalog, then establish and check the new sync baseline:
+
+   ```bash
+   ssh ovh 'cd /srv/stack127 && node --experimental-strip-types scripts/ad-networks/catalog.mjs --local-database /srv/stack127-data/ad-networks.sqlite --apply'
+   ssh ovh '/srv/stack127/scripts/ad-networks/ovh/run-job.sh sync --full'
+   ssh ovh '/srv/stack127/scripts/ad-networks/ovh/run-job.sh sync'
+   ```
+
+   The second sync should report `publishers_sent:0` and `relationships_sent:0` if SQLite has not changed. Both must report `synced:true` and `revalidated:true`. There is no need to reseed niches from the old store.
+5. Run the small collector checks and backup:
+
+   ```bash
+   ssh ovh '/srv/stack127/scripts/ad-networks/ovh/run-job.sh platform --limit 1 --time-budget-minutes 1'
+   ssh ovh '/srv/stack127/scripts/ad-networks/ovh/run-job.sh verification --limit 1 --time-budget-minutes 1'
+   ssh ovh '/srv/stack127/scripts/ad-networks/ovh/run-job.sh snapshot'
+   ssh ovh '/srv/stack127/scripts/ad-networks/ovh/run-job.sh backup'
+   ```
+
+   Check the job logs and Node cache-worker service. The queue must drain without retries or permission errors. Check `/ad-networks`, `/ad-network-checker`, and an existing network child URL: all must return 404.
+6. Install the new schedule and re-enable the niche timer:
+
+   ```bash
+   ssh ovh 'crontab /srv/stack127/scripts/ad-networks/ovh/crontab.txt && crontab -l'
+   ssh homelab 'systemctl --user enable --now stack127-ad-network-niche.timer && systemctl --user list-timers stack127-ad-network-niche.timer'
+   ```
+
+   Confirm verification starts at minute 40. Do not install the saved five-minute schedule.
+7. Check connections, table sizes, queue age, logs, and disk space after the first hour and first day. Collectors should hold no production session; each sync uses one. Compare the live revision and unpublished HTTP responses again.
+
+A local synthetic benchmark scanned 107,146 publishers and 114,284 relationships in 10.8 seconds with no changed rows, zero row payloads, and 12 SQL calls. PostgreSQL responses were simulated; this measures the SQLite scan and hash work. Measure actual OVH sync time during step 4. The old no-change sync took about 12 minutes.
+
+## Routine checks and recovery
 
 ```bash
 ssh ovh 'crontab -l; tail -3 /srv/stack127-data/logs/verification.log; ls -l /srv/stack127-data/state/backups'
 ssh homelab 'systemctl --user list-timers stack127-ad-network-niche.timer; cat ~/.local/state/stack127/ad-networks-niche/niche-status.json'
 ```
 
-Each run writes `== <time> start <job>` and `== <time> end <job> exit <code>` to its log. Exit 0 is success. Most verification errors are 403 responses from sites that block bots; homelab gets the same.
+Pause OVH with `crontab -r` and wait for running jobs to finish. Pause homelab with `systemctl --user disable --now stack127-ad-network-niche.timer`. Killed verification claims become available after their 70-minute leases expire.
 
-## Update the code
+After a code release, update the OVH checkout and reinstall the crontab if it changed. Keep `sync-state.sqlite`. If the target database was restored at the same address, run `run-job.sh sync --full` once to repair target drift. A changed host, database, or login gets a fresh baseline automatically. Losing the hash store safely causes a full replay; it never loses the working evidence.
 
-After a release that changes ad-network scripts:
-
-```bash
-ssh ovh 'cd /srv/stack127 && git pull --ff-only && npm ci --omit=dev --ignore-scripts'
-```
-
-Running jobs keep their loaded code. If `crontab.txt` changed, run `crontab /srv/stack127/scripts/ad-networks/ovh/crontab.txt` too. Homelab's checkout follows `main` through T3 auto-pull, or `git pull --ff-only`.
-
-## Run one job by hand
-
-```bash
-ssh ovh '/srv/stack127/scripts/ad-networks/ovh/run-job.sh platform --limit 50 --time-budget-minutes 10'
-```
-
-The output goes to that job's log.
-
-## Pause and resume
-
-Pause OVH with `crontab -r`, then wait for running jobs to finish (`pgrep -af scripts/ad-networks`). Resume by installing the crontab again. Pause homelab niche sorting with `systemctl --user disable --now stack127-ad-network-niche.timer`.
-
-Nothing needs restoring after a pause. If a job is killed, its claimed rows free up again when their 70-minute leases expire.
-
-## Rebuild OVH from scratch
-
-1. Install Node 22 or newer, clone to `/srv/stack127`, and run `npm ci --omit=dev --ignore-scripts`.
-2. Create `/srv/stack127-data/{state,logs}` and the env file at mode 600, with values copied from homelab `.env.database` and `.env.deploy` over SSH.
-3. Restore the newest backup from `state/backups/`, or take a fresh homelab snapshot with `snapshot-local.mjs --output <file>` and copy it over. Never copy an open SQLite file directly. Run `PRAGMA quick_check`.
-4. Run `run-job.sh sync` once, then install the crontab.
+To rebuild OVH, install Node and dependencies, restore a checked SQLite backup, load the env file, and follow the resume sequence. Keep existing target niches. Use a separately reviewed `sync.mjs --seed-niches` only for an empty target; never use `--niches-only` during routine recovery.
 
 ## Merge the homelab RDAP pass
 
-The one-time domain-age pass and the gather supervisor on homelab write to homelab's SQLite store. When both have finished:
+When the original domain-age pass and gather supervisor have both finished:
 
 ```bash
 ssh homelab 'cd /srv/data/projects/stack127 && node --experimental-strip-types scripts/ad-networks/snapshot-local.mjs --local-database /home/teja/.local/share/stack127/ad-networks.sqlite --output /srv/data/tmp/ad-networks-rdap.sqlite && scp /srv/data/tmp/ad-networks-rdap.sqlite ovh:/srv/stack127-data/state/rdap.sqlite && rm /srv/data/tmp/ad-networks-rdap.sqlite'
 ssh ovh '/srv/stack127/scripts/ad-networks/ovh/run-job.sh rdap-import --source-sqlite /srv/stack127-data/state/rdap.sqlite && rm /srv/stack127-data/state/rdap.sqlite'
 ```
 
-`merge-rdap.mjs` copies only newer RDAP checkpoints and registration dates. The job then syncs and refreshes the pages as usual. After that, disable homelab's user timer with `systemctl --user disable --now stack127-ad-network-backup.timer`.
+The importer copies only newer RDAP checkpoints and dates, then syncs and refreshes. After its successful backup, disable homelab's old `stack127-ad-network-backup.timer`. This does not affect the niche timer. Pages stay unpublished.

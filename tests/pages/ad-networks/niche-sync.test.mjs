@@ -28,7 +28,7 @@ for(const scenario of ['present','missing','catalog-drift','deadlock-once','seri
   let migrated=false,updateAttempts=0;
   const client={release(){},async query(sql,args){
     if(['begin','commit','rollback'].includes(sql))transactions.push(sql);
-    if(sql.startsWith('select pg_advisory_lock')){migrated=true;return {rows:[]};}
+    if(sql.startsWith('select pg_try_advisory_lock')){migrated=true;return {rows:[{locked:true}]};}
     if(sql.startsWith('select slug,manager_domains'))return {rows:drift&&migrated
       ?networks.map(row=>row.slug==='she-media'?{...row,program_signatures:[]}:row):networks};
     if(sql.includes('as initial'))return {rows:[{initial:false}]};

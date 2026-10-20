@@ -8,7 +8,6 @@ import { targetDatabaseUrl, withJobLock, sessionDatabaseUrl } from '../../../scr
 import { revalidateAdNetworks } from '../../../scripts/ad-networks/revalidate.mjs';
 import { jobAlert } from '../../../scripts/ad-networks/alerts.mjs';
 
-const unlocked = (_options, work) => work();
 test('every automatic job plans without opening storage and rejects unconfirmed production writes', async () => {
   for (const job of refreshJobs) {
     const args = ['--job', job, ...(job === 'rdap-import' ? ['--source-sqlite', '/tmp/later.sqlite'] : [])];
@@ -24,38 +23,37 @@ test('every automatic job plans without opening storage and rejects unconfirmed 
   assert.throws(() => targetDatabaseUrl({ environment: 'production', apply: true }, { AD_NETWORKS_RUNTIME_ENVIRONMENT: 'production', DATABASE_URL: 'production' }), /confirm/);
 });
 
-for (const scenario of ['success', 'collector-failure', 'sync-failure', 'snapshot-failure', 'revalidation-failure']) test(`collector publishes checkpoints, revalidates, and reports ${scenario}`, async () => {
+for (const scenario of ['success', 'collector-failure', 'sync-failure', 'revalidation-failure']) test(`collector publishes checkpoints, revalidates, and reports ${scenario}`, async () => {
   const state = await mkdtemp(join(tmpdir(), 's127-refresh-'));
   const options = refreshArgs(['--job', 'platform', '--state-directory', state, '--apply']);
   const calls = [];
-  const dependencies = { lock: unlocked,
-    snapshot: async () => { calls.push('snapshot'); if (scenario === 'snapshot-failure') throw Error('snapshot failed'); },
+  const dependencies = { lock: () => assert.fail('collector must not hold a database lock'),
+    snapshot: () => assert.fail('sync pins its own read-only SQLite view'),
     run: async (script, args, env) => {
       calls.push(script);
       assert.equal(env.AD_NETWORK_FETCH_THROTTLE_DB, join(state, 'fetch-throttle.sqlite'));
       if (script === 'platform' && scenario === 'collector-failure' || script === 'sync' && scenario === 'sync-failure'
         || script === 'revalidate' && scenario === 'revalidation-failure') throw Error(scenario);
     },
-    remove: async () => calls.push('cleanup'), alert: async (_options, failed) => calls.push(failed ? 'alert-failed' : 'alert-recovered'),
+    alert: async (_options, failed) => calls.push(failed ? 'alert-failed' : 'alert-recovered'),
   };
   try {
     if (scenario === 'success') assert.equal((await refresh(options, dependencies)).synced, true);
     else await assert.rejects(refresh(options, dependencies));
-    assert.equal(calls.filter(x => x === 'cleanup').length, 3);
-    assert.equal(calls.includes('revalidate'), !['sync-failure', 'snapshot-failure'].includes(scenario));
+    assert.equal(calls.includes('revalidate'), scenario !== 'sync-failure');
     assert.equal(calls.at(-1), scenario === 'success' ? 'alert-recovered' : 'alert-failed');
-    if (scenario === 'collector-failure') assert.deepEqual(calls.slice(0, 3), ['platform', 'snapshot', 'sync']);
+    if (scenario === 'collector-failure') assert.deepEqual(calls.slice(0, 2), ['platform', 'sync']);
   } finally { await rm(state, { recursive: true, force: true }); }
 });
 
-test('lock contention starts no collector and releases the database connection', async () => {
+test('sync lock contention releases the database connection and releases the database connection', async () => {
   const calls = [];
   const pool = { connect: async () => ({ query: async () => ({ rows: [{ locked: false }] }), release: () => calls.push('released') }), end: async () => calls.push('ended') };
   const result = await withJobLock({}, () => assert.fail('overlapping heavy job'), { pool });
   assert.equal(result.skipped, true); assert.deepEqual(calls, ['released', 'ended']);
 });
 
-test('collector failures release the heavy lock', async () => {
+test('sync failures release the shared lock', async () => {
   const calls = [];
   const pool = { connect: async () => ({ query: async sql => { calls.push(sql); return { rows: [{ locked: true }] }; }, release() {} }), end: async () => {} };
   await assert.rejects(withJobLock({}, async () => { throw Error('collector'); }, { pool }), /collector/);
@@ -94,7 +92,7 @@ test('failure issues are deduplicated and close after recovery without raw error
   } finally { await rm(state, { recursive: true, force: true }); }
 });
 
-test('a lost database lock aborts the collector instead of publishing without its lock', async () => {
+test('a lost database lock aborts the sync', async () => {
   const { EventEmitter } = await import('node:events');
   const client = new EventEmitter();
   client.query = async () => ({ rows: [{ locked: true }] }); client.release = () => {};
@@ -144,4 +142,31 @@ test('self-hosted production URLs preserve the endpoint and credentials for sess
   assert.equal(sessionDatabaseUrl('postgres://stack127_app:password@stack127-db/postgres'),
     'postgres://stack127_app:password@stack127-db/postgres');
   assert.throws(() => sessionDatabaseUrl('https://ovh-stack127:5432/postgres'), /Postgres database URL required/);
+});
+
+for (const job of ['platform', 'snapshot', 'sync']) test(`${job} opens no parent lock, and refreshes only after the sync finishes`, async t => {
+  const state = await mkdtemp(join(tmpdir(), 's127-refresh-order-'));
+  t.after(() => rm(state, { recursive: true, force: true }));
+  const calls = [];
+  const options = refreshArgs(['--job', job, '--state-directory', state, '--apply']);
+  await refresh(options, {
+    lock: () => assert.fail('no connection around collector'),
+    snapshot: () => assert.fail('no full-file copy for sync'),
+    run: async script => { calls.push(script); return {}; }, alert: async () => {},
+  });
+  assert.deepEqual(calls, [...(job === 'platform' ? ['platform'] : []), 'sync', 'revalidate']);
+});
+
+test('sync contention preserves collected checkpoints and retries skip the collector', async t => {
+  const state = await mkdtemp(join(tmpdir(), 's127-refresh-busy-'));
+  t.after(() => rm(state, { recursive: true, force: true }));
+  const calls = [];
+  const options = refreshArgs(['--job', 'verification', '--state-directory', state, '--apply']);
+  const deps = { run: async script => { calls.push(script); return script === 'sync' ? { skipped: true } : {}; },
+    alert: () => assert.fail('contention is not an alert') };
+  assert.equal((await refresh(options, deps)).skipped, true);
+  assert.deepEqual(calls, ['verify', 'sync']);
+  calls.length = 0;
+  assert.equal((await refresh({ ...options, 'sync-only': true }, deps)).skipped, true);
+  assert.deepEqual(calls, ['sync']);
 });
