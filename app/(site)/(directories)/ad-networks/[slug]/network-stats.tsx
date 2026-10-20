@@ -95,6 +95,15 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
   const age = stats.domain_age_strip;
   const platforms = stats.platform_mix ?? [];
   const measuredPlatforms = platforms.filter((row) => row.key !== "unknown");
+  // A short legend: the four most used platforms, the rest as Other, then Unknown.
+  const topPlatforms = [...measuredPlatforms].sort((a, b) => b.count - a.count).slice(0, 4);
+  const otherPlatforms = measuredPlatforms.filter((row) => !topPlatforms.includes(row)).reduce((sum, row) => sum + row.count, 0);
+  const unknownPlatforms = platforms.find((row) => row.key === "unknown")?.count ?? 0;
+  const platformParts = [
+    ...topPlatforms.map((row) => ({ label: row.label, value: row.count })),
+    ...(otherPlatforms > 0 ? [{ label: "Other", value: otherPlatforms }] : []),
+    ...(unknownPlatforms > 0 ? [{ label: "Unknown", value: unknownPlatforms, tone: "track" as const }] : []),
+  ];
   const topEndings = stats.domain_endings.slice(0, 5);
   const otherEndings = stats.domain_endings.slice(5).reduce((sum, row) => sum + (row.share ?? 0), 0);
   const endings = [
@@ -136,28 +145,29 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
       </ReportBlock>
     ) : null,
   ];
+  // Domain age is a wide timeline, so it gets its own row; platforms and endings share the next.
+  const ageBlock = age ? (
+    <ReportBlock description="When each site's domain was first registered. A domain can be older than the site on it." key="age" label="Domain age">
+      {stats.median_domain_age !== null ? (
+        <ReportFigure note={`median, registered ${Math.round(age.median_year)}`} value={`${Math.round(stats.median_domain_age)} ${Math.round(stats.median_domain_age) === 1 ? "yr" : "yrs"}`} />
+      ) : null}
+      <AgeStrip
+        binYears={age.bin_years}
+        bins={age.bins}
+        caption={`Domain registration years of ${name} sites`}
+        median={age.median_year}
+        middleHalf={age.middle_half}
+        newest={{ year: age.newest.year, domain: age.newest.domain }}
+        oldest={{ year: age.oldest.year, domain: age.oldest.domain }}
+      />
+    </ReportBlock>
+  ) : null;
   const buildBlocks = [
-    age ? (
-      <ReportBlock description="When each site's domain was first registered. A domain can be older than the site on it." key="age" label="Domain age">
-        {stats.median_domain_age !== null ? (
-          <ReportFigure note={`median, registered ${Math.round(age.median_year)}`} value={`${Math.round(stats.median_domain_age)} ${Math.round(stats.median_domain_age) === 1 ? "yr" : "yrs"}`} />
-        ) : null}
-        <AgeStrip
-          binYears={age.bin_years}
-          bins={age.bins}
-          caption={`Domain registration years of ${name} sites`}
-          median={age.median_year}
-          middleHalf={age.middle_half}
-          newest={{ year: age.newest.year, domain: age.newest.domain }}
-          oldest={{ year: age.oldest.year, domain: age.oldest.domain }}
-        />
-      </ReportBlock>
-    ) : null,
     measuredPlatforms.length ? (
       <ReportBlock description="What the sites are built with, from clues in their page code." key="platforms" label="Platforms">
         <Donut
           caption={`Platforms ${name} sites are built with`}
-          parts={platforms.map((row) => ({ label: row.label, value: row.count, ...(row.key === "unknown" ? { tone: "track" as const } : {}) }))}
+          parts={platformParts}
         />
       </ReportBlock>
     ) : null,
@@ -204,7 +214,7 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
     },
     { title: `What kind of sites use ${name}?`, has: kindBlocks.some(Boolean), content: <Row blocks={kindBlocks} layout="1-1" /> },
     { title: `Which sites joined or left ${name}?`, has: moveBlocks.some(Boolean), content: <Row blocks={moveBlocks} layout="1-1" /> },
-    { title: `How are ${name} sites built?`, has: buildBlocks.some(Boolean), content: <Row blocks={buildBlocks} layout={age ? "2-1-1" : "1-1"} /> },
+    { title: `How are ${name} sites built?`, has: Boolean(ageBlock) || buildBlocks.some(Boolean), content: <>{ageBlock}<Row blocks={buildBlocks} layout="1-1" /></> },
     { title: "What else is in their ads.txt?", has: adsTxtBlocks.some(Boolean), content: <Row blocks={adsTxtBlocks} layout="1-1" /> },
   ];
 
