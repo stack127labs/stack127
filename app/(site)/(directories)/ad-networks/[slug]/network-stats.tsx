@@ -85,7 +85,7 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
     ...(otherNiches > 0 ? [{ label: "Other", value: otherNiches, display: pct(otherNiches) }] : []),
   ];
   const traffic = stats.traffic.map((row) => ({
-    label: trafficLabel(row.key).replace(/^top /, ""),
+    label: trafficLabel(row.key),
     value: row.count,
     tone: row.key.startsWith("not") ? "n2" as const : "ac" as const,
   }));
