@@ -2,6 +2,8 @@
 
 The ad-network jobs run as plain cron on the OVH server and write straight to the production database. Weekly niche sorting runs on homelab. All ad-network pages stay unpublished (404) until a separate publication round.
 
+**Paused since October 19, 2026, 12:15 UTC:** the OVH crontab is removed while production moves to a self-hosted database. See the pause notes in the [OVH cron plan](../../dev-space/ad-networks-ovh-cron-plan.md) before resuming.
+
 Set up on October 19, 2026. History: [OVH cron plan](../../dev-space/ad-networks-ovh-cron-plan.md).
 
 ## Where things live

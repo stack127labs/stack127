@@ -1,0 +1,7 @@
+[Unit]
+Description=Open a GitHub issue because the stack127 backup copy to homelab failed
+
+[Service]
+Type=oneshot
+User=teja
+ExecStart=/srv/data/backups/stack127-db/bin/backup-alert.py --env-file /srv/data/projects/stack127/.env.deploy stack127-db-backup-pull fail

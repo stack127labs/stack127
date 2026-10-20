@@ -1,6 +1,27 @@
 # Ad networks: simple OVH cron plan
 
-Status on October 19, 2026: cron runs on OVH, the first attempt is removed, and the homelab checkout tracks main again. Left: the homelab niche timer, the RDAP merge, and deleting the Storage bucket and GitHub secret. Pages stay unpublished. The [production runbook](../content_docs/ad-networks/production-runbook.md) describes the running setup; this file is the history.
+**Paused on October 19, 2026 at 12:15 UTC.** OVH cron is removed and no ad-network job runs. Pages stay unpublished.
+
+## Pause: why and how to resume
+
+The first day of syncing filled the production Supabase database. It grew to 709 MB, against the free plan's 500 MB, and about 540 MB of that is ad-network data. `ad_network_publishers` alone is 387 MB, mostly the stored check evidence. The jobs also ran back to back. Each one held two session-mode connections for about 20 minutes and pushed every row again. The session pool filled up, the instance was IO-throttled, and other work timed out: builds, the cache worker, and another session's page publication. The owner chose to move production to a self-hosted Postgres on the OVH server before resuming; see [self-hosted database plan](self-hosted-database-plan.md).
+
+State at the pause:
+
+- OVH: the crontab is saved at `/srv/stack127-data/crontab.paused-2026-10-19.txt` (the same as `scripts/ad-networks/ovh/crontab.txt`). The working store `/srv/stack127-data/ad-networks.sqlite` and its backups are intact. The last verification run was stopped mid-sync (exit 1); batches that committed are kept.
+- Production data: 105,981 publishers and 113,788 relationships. No ad-network page is published.
+- Homelab: the niche timer `stack127-ad-network-niche.timer` is installed and enabled (next run Sunday 06:00 UTC). Disable it, or let it fail harmlessly, until the database move is done. The RDAP pass and gather supervisor are still running and need the later merge.
+- PR #58 (env sharing) is reviewed and green but held. After it merges, replace homelab's `~/.local/lib/stack127/shared-env.mjs`: stop the timer, copy the file, start the timer.
+- Not yet deleted: Storage bucket `stack127-ad-networks-jobs` and GitHub secret `AD_NETWORKS_ALERT_TOKEN`. Both are unused; delete them only with the owner's OK.
+
+Before resuming cron, against whatever database is production then:
+
+1. Sync only changed rows instead of sending every row each run.
+2. Don't hold a database connection while collectors run; take the lock only around the sync.
+3. Keep the large check evidence in OVH's SQLite store and sync only the fields the pages need.
+4. Run verification less often (for example hourly), and watch database size and connection count after the first day.
+
+Earlier status (before the pause): cron ran on OVH, the first attempt was removed, and the homelab checkout tracked main again. The [production runbook](../content_docs/ad-networks/production-runbook.md) describes the cron setup; this file is the history.
 
 ## Goal
 

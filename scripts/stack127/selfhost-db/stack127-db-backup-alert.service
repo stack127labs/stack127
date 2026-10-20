@@ -1,0 +1,7 @@
+[Unit]
+Description=Open a GitHub issue because the stack127 database backup failed
+
+[Service]
+Type=oneshot
+User=ubuntu
+ExecStart=/srv/stack127-db/backup-alert.py --env-file /srv/stack127-data/ad-networks.env stack127-db-backup fail
