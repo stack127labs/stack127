@@ -1,0 +1,12 @@
+[Unit]
+Description=Open the stack127 database port above the Version127 Docker firewall
+Requires=docker.service
+After=docker.service version127-docker-firewall.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/srv/stack127-db/firewall.sh
+
+[Install]
+WantedBy=multi-user.target

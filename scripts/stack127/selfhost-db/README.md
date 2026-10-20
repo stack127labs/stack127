@@ -12,7 +12,10 @@ the final-copy procedure in `dev-space/self-hosted-database-plan.md`, section 4.
   `sha256:49c938c7918f1543618b60568f5a995e52d98f19883075a14f89643e8b1571fe`.
 - Source and destination: PostgreSQL **17.6**. Source is aarch64; OVH is x86_64.
 - Volumes: `stack127-db-data` (database) and `stack127-db-config` (including the Vault root key).
-- Published host sockets: **127.0.0.1:5432 and 100.117.88.8:5432 only**. No public database port or Traefik route.
+- Published host socket: **0.0.0.0:5432** (IPv4), reached as `database.stack127.com`.
+  Version127's Docker firewall drops public Docker ports except Cloudflare web traffic.
+  `firewall.sh` puts a 5432 accept rule above it, from `stack127-db-firewall.service`
+  at boot and the `11-stack127-db-firewall.conf` Docker drop-in after Docker restarts.
 - Network: `stack127-db-private`, an encrypted, attachable Swarm overlay.
   Future containers on that network use `stack127-db:5432`.
 - The website is Swarm service `app-navigate-1080p-matrix-3pmfy6` on `dokploy-network`.
@@ -25,15 +28,14 @@ the final-copy procedure in `dev-space/self-hosted-database-plan.md`, section 4.
   Cloudflare DNS, using `/etc/letsencrypt/stack127-cloudflare.ini`. Its deploy hook,
   `install-tls.sh` (installed as `/etc/letsencrypt/renewal-hooks/deploy/stack127-db.sh`),
   copies it to `/srv/stack127-db/tls` and reloads PostgreSQL.
-  Remote SQL works over Tailscale at `100.117.88.8` /
-  `ovh-stack127.tail13b5bd.ts.net`. HBA allows only `stack127_app` and migration
-  owner `postgres` on tailnet/private TCP paths, using SCRAM. Docker port forwarding
-  presents a bridge gateway as the client, so private Docker rules enforce the same
-  role restriction. The bootstrap superuser uses only the local Unix socket.
-- `stack127-db.service` is enabled, waits for the actual tailnet address and starts
-  this Compose project with health waiting/retries. It leaves other Docker services
-  independent of Tailscale. A scoped service restart passed; no host reboot was run.
-  The public IPv4 port timed out from homelab while real tailnet SQL succeeded.
+  From the internet, HBA allows only `stack127_app` and migration owner `postgres`,
+  only over TLS (`hostssl`), using SCRAM. Docker keeps the real client address for
+  public IPv4 traffic, so plain-text and admin logins from outside are refused.
+  Docker port forwarding presents a bridge gateway for loopback, so private Docker
+  rules enforce the same role restriction. The bootstrap superuser uses only the
+  local Unix socket. Remote URLs use `sslmode=verify-full`.
+- `stack127-db.service` is enabled and starts this Compose project with health
+  waiting/retries. It leaves other Docker services alone.
 
 Memory is capped at 2 GiB, with 512 MiB shared buffers, 4 MiB work memory,
 60 connections, two parallel workers, checksums, fsync and synchronous commits.
@@ -98,7 +100,7 @@ readable but writable only by the admin. The app cannot create schema objects or
 perform migrations. The separate migration credential uses restored owner
 `postgres`, NOSUPERUSER/NOCREATEDB/NOCREATEROLE/NOREPLICATION/BYPASSRLS, with all
 nine source memberships revoked and a five-connection limit. `migration-role.sql`
-reads its password privately from the process environment. Real Tailscale app reads,
+reads its password privately from the process environment. Real remote app reads,
 owner DDL with rollback, and CLI migration dry-run passed. Keep the app and migration
 URLs separate. Defaults for objects created by migration owner `postgres` grant
 public table DML and sequence USAGE/SELECT/UPDATE to the app. They do not enable
@@ -244,7 +246,6 @@ source dump or main-target core replacement has been run yet.
 
 The two branch PRs are opened by the owner. Merge order is #58, then
 `refactor/ad-networks-cron`, then `feat/node-cache-worker`; #60 is outside this move.
-The worker branch includes Tailscale workflow delivery, the separate migration
-secret fallback and independent `STACK127_CACHE_WORKER_RUNTIME=node` activation.
-The plan keeps transport selection in one step so a separately reviewed public-TLS
-endpoint can replace Tailscale without changing cache-worker activation.
+The worker branch includes the separate migration secret fallback and independent
+`STACK127_CACHE_WORKER_RUNTIME=node` activation. GitHub reaches the database at
+`database.stack127.com` with a password over verified TLS; no network add-on is needed.

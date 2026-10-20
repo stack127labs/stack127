@@ -1,14 +1,13 @@
 [Unit]
-Description=Start the isolated Stack127 database after its tailnet address exists
+Description=Start the stack127 database
 Requires=docker.service
-Wants=tailscaled.service network-online.target
-After=docker.service tailscaled.service network-online.target
+Wants=network-online.target
+After=docker.service network-online.target
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
 WorkingDirectory=/srv/stack127-db
-ExecStartPre=/srv/stack127-db/wait-tailnet.sh
 ExecStart=/usr/bin/docker compose --file /srv/stack127-db/compose.yaml up --detach --wait
 ExecStop=/usr/bin/docker compose --file /srv/stack127-db/compose.yaml stop --timeout 90
 TimeoutStartSec=300
