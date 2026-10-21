@@ -50,10 +50,17 @@ function TabWords({ Words }: { Words?: MDXContent }) {
   return Words ? <div className={`${proseClassName} ${proseFlowClassName} ${styles.tabWords}`}><Words components={tabComponents} /></div> : null;
 }
 
-/** Fact rows for one tab, or nothing when the network publishes none of them. */
-function factRows(rows: readonly { label: string; value: string | null; note?: string }[]): Fact[] {
-  if (!rows.some((row) => row.value)) return [];
-  return rows.map((row) => ({ label: row.label, value: row.value ?? <NotPublic />, note: row.note }));
+type FactRow = { label: string; value: string | null; note?: string };
+
+/**
+ * Fact rows for one tab: each published fact on its own row, then one `Not public` row naming
+ * everything the network doesn't publish, so a tab doesn't read as a column of blanks.
+ */
+function factRows(rows: readonly FactRow[]): Fact[] {
+  const known: Fact[] = rows.filter((row) => row.value).map((row) => ({ label: row.label, value: row.value, note: row.note }));
+  // Later labels read in lower case, except names such as "Google standing".
+  const missing = rows.filter((row) => !row.value).map((row, index) => (index && !/^Google\b/.test(row.label) ? row.label.toLowerCase() : row.label));
+  return missing.length ? [...known, { label: "Not public", value: <NotPublic label={missing.join(", ")} /> }] : known;
 }
 
 /**
@@ -70,17 +77,15 @@ export function NetworkDetails({ content, name, slug }: { content: AdNetworkCont
   const keyNumbers = shown.map((item) => keyNumber(item, joining.includes(item)));
 
   // Researched joining rows in network-facts.ts, in the mockup's order. "Not public" is a finding, not missing data.
-  const joiningRows: Fact[] = facts ? facts.joining.map((row) => ({
-    label: row.label,
-    value: row.value === NOT_PUBLIC ? <NotPublic /> : row.value,
-    note: row.note,
-  })) : [];
-  const payRows = facts ? factRows([
+  const joiningRows = facts ? factRows(facts.joining.map((row) => ({ ...row, value: row.value === NOT_PUBLIC ? null : row.value }))) : [];
+  const payFacts: FactRow[] = facts ? [
     { label: "Revenue share", value: facts.revenueShare },
     { label: "Pay day", value: facts.paymentTerms },
     { label: "Minimum payout", value: facts.paymentThreshold },
     { label: "Paid by", value: facts.paymentMethods.length ? facts.paymentMethods.join(", ") : null },
-  ]) : [];
+  ] : [];
+  // A Pay tab with nothing published leaves the rows out and lets the words explain.
+  const payRows = payFacts.some((row) => row.value) ? factRows(payFacts) : [];
 
   const tabs: UiTab[] = [
     { id: "joining", title: "Joining", rows: joiningRows, Words: Joining },

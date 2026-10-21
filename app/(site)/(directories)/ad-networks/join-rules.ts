@@ -15,12 +15,15 @@ export function trafficRule(facts: AdNetworkFacts) {
   return `${rule.amount.toLocaleString("en-US")} ${rule.unit} a month`;
 }
 
-// Key numbers about pay, fees, or contracts. Everything else is a rule for joining.
-const payNumber = /pay|share|fee|payout|terms|threshold|notice|timing|schedule|floor|minimums?$/i;
+// Key numbers about pay, fees, or contracts.
+const payNumber = /pay|share|split|fee|payout|terms|threshold|notice|timing|schedule|floor|minimums?$/i;
+// Key numbers that are a bar to clear: traffic, users, or revenue to join. Others, such as a typical
+// CPM or a review time, stay plain key numbers and never become the page's joining rule.
+const joinNumber = /join|traffic|users|visitors|pageviews|sessions|revenue benchmark|top markets/i;
 
 /** Key numbers that say what it takes to join, such as revenue or traffic to apply. */
 export function joiningNumbers(facts: AdNetworkFacts) {
-  return facts.keyNumbers.filter((item) => !payNumber.test(item.label));
+  return facts.keyNumbers.filter((item) => !payNumber.test(item.label) && joinNumber.test(item.label));
 }
 
 // Notes that say the number isn't a rule anyone has to meet.
