@@ -122,7 +122,7 @@ export async function snapshotQueue(client, { sha, force = false, now = () => ne
     await client.query("commit");
     return snapshot;
   } catch (error) {
-    await client.query("rollback");
+    await client.query("rollback").catch(() => {});
     throw error;
   }
 }
@@ -362,7 +362,7 @@ async function commitCapturedSnapshot(client, snapshot, verifiedCompletion) {
     await client.query("commit");
     return { acknowledged: result.rowCount, captured: snapshot.events.length };
   } catch (error) {
-    await client.query("rollback");
+    await client.query("rollback").catch(() => {});
     throw error;
   }
 }
@@ -393,22 +393,64 @@ export async function completeRefresh(client, snapshot, directory, options = {})
   return await commitCapturedSnapshot(client, snapshot, true);
 }
 
-// Pass this callback to the publisher after its SQL commit and before its
-// public checks. The coordinator supplies the build and deploy operations so
-// everything runs in the existing production concurrency job.
-export async function refreshCommittedContent(client, { sha, directory, buildDeploy, hosting = globalThis.process?.env.STACK127_FRONTEND_HOSTING, ...options } = {}) {
-  if (hosting !== "cloudflare") return { skipped: true, hosting: "legacy" };
-  await checkCurrentRelease({ ...options, sha });
-  const snapshot = await snapshotQueue(client, { sha, force: true });
-  if (options.dryRun) return { dryRun: true, captured: snapshot.events.length, acknowledged: 0 };
-  if (typeof buildDeploy !== "function" || !directory) throw new Error("A build/deploy callback and export directory are required.");
+async function withRefreshConnection(pool, operation, poolError = () => undefined) {
+  let connectionError;
+  const client = await new Promise((resolve, reject) => {
+    pool.connect((error, client) => {
+      if (error) { reject(error); return; }
+      // pg-pool removes its idle listener before calling back. Attach ours
+      // synchronously, before another protocol message or promise continuation.
+      client.on("error", error => { connectionError ??= error; });
+      resolve(client);
+    });
+  });
+  const checkConnection = () => {
+    const error = connectionError ?? poolError();
+    if (error) throw error;
+  };
   try {
-    await buildDeploy(snapshot);
-    return await completeRefresh(client, snapshot, directory, options);
-  } catch (error) {
-    await retrySnapshot(client, snapshot, error);
-    throw error;
+    checkConnection();
+    const result = await operation({ async query(...args) {
+      checkConnection();
+      const result = await client.query(...args);
+      checkConnection();
+      return result;
+    } });
+    checkConnection();
+    return result;
+  } finally {
+    // Even healthy phase connections are closed, so none sit idle during a
+    // build or get reused for completion/retry. Keep the listener for late
+    // socket errors while pg finishes closing the discarded client.
+    client.release(true);
   }
+}
+
+// Pass the publisher's pool after its SQL commit and before its public checks.
+// Each database phase owns a connection; build/deploy holds none.
+export async function refreshCommittedContent(pool, { sha, directory, buildDeploy, hosting = globalThis.process?.env.STACK127_FRONTEND_HOSTING, ...options } = {}) {
+  if (hosting !== "cloudflare") return { skipped: true, hosting: "legacy" };
+  let poolError;
+  const onPoolError = error => { poolError ??= error; };
+  pool.on("error", onPoolError);
+  try {
+    await checkCurrentRelease({ ...options, sha });
+    const snapshot = await withRefreshConnection(pool, client => snapshotQueue(client, { sha, force: true }), () => poolError);
+    if (options.dryRun) return { dryRun: true, captured: snapshot.events.length, acknowledged: 0 };
+    if (typeof buildDeploy !== "function" || !directory) throw new Error("A build/deploy callback and export directory are required.");
+    try {
+      await buildDeploy(snapshot);
+      if (poolError) throw poolError;
+      return await withRefreshConnection(pool, client => completeRefresh(client, snapshot, directory, options), () => poolError);
+    } catch (error) {
+      try {
+        await withRefreshConnection(pool, client => retrySnapshot(client, snapshot, error));
+      } catch (retryError) {
+        console.error(`Could not record the frontend refresh retry: ${retryError.message}`);
+      }
+      throw error;
+    }
+  } finally { pool.removeListener("error", onPoolError); }
 }
 
 export async function contentQueueMain(args = process.argv.slice(2), environment = process.env) {

@@ -113,19 +113,16 @@ jobs:
           await publishingMain(plan.kind, ['apply', '--plan', `${process.env.RUNNER_TEMP}/page-plan.json`, '--environment', 'production', '--confirm', 'stack127-production', '--release-sha', publication.releaseSha], {
             afterCommit: async ({ pool }) => {
               if (options.hosting !== 'cloudflare') return;
-              const client = await pool.connect();
-              try {
-                await refreshCommittedContent(client, {
-                  ...options,
-                  buildDeploy: async () => {
-                    await buildFrontend({ output: options.directory });
-                    await checkCurrentRelease(options);
-                    await deployFrontend({ directory: options.directory, preview: true });
-                    await checkCurrentRelease(options);
-                    await deployFrontend({ directory: options.directory });
-                  },
-                });
-              } finally { client.release(); }
+              await refreshCommittedContent(pool, {
+                ...options,
+                buildDeploy: async () => {
+                  await buildFrontend({ output: options.directory });
+                  await checkCurrentRelease(options);
+                  await deployFrontend({ directory: options.directory, preview: true });
+                  await checkCurrentRelease(options);
+                  await deployFrontend({ directory: options.directory });
+                },
+              });
             },
           });
           NODE

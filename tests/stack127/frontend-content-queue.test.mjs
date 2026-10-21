@@ -4,6 +4,10 @@ import { mkdtemp, readFile, writeFile, rm } from "node:fs/promises";
 import path from "node:path";
 import os from "node:os";
 import { createHmac } from "node:crypto";
+import { EventEmitter } from "node:events";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+import pg from "pg";
 import ts from "typescript";
 import { targetsForEvents } from "../../scripts/stack127/cache/targets.mjs";
 import { cacheBodyDigest } from "../../scripts/stack127/cache/refresh.mjs";
@@ -578,31 +582,249 @@ test("main advancing during API refresh prevents acknowledgement", async () => {
   } finally { await files.close(); }
 });
 
-test("the publishing callback is inactive by default and preserves failed captured edits", async () => {
+// Use real pg.Client event emitters without a database. Query models above
+// supply the rows; every checkout must be discarded before another phase.
+function refreshPool(...models) {
+  const pool = new EventEmitter();
+  pool.clients = [];
+  pool.attempts = 0;
+  pool.connect = callback => {
+    const model = models[pool.attempts++];
+    if (model instanceof Error) { callback(model); return; }
+    assert(model, "Unexpected database checkout");
+    const client = new pg.Client();
+    client.discarded = false;
+    client.query = (...args) => {
+      assert.equal(client.discarded, false, "A discarded connection was reused");
+      return model.query(...args);
+    };
+    client.release = destroy => {
+      assert.equal(destroy, true, "Refresh connections must not return to the idle pool");
+      assert.equal(client.discarded, false, "Connection released twice");
+      client.discarded = true;
+    };
+    pool.clients.push(client);
+    callback(null, client);
+  };
+  return pool;
+}
+
+function refreshOptions(files) {
+  return { hosting: "cloudflare", sha, directory: files?.directory ?? "/unused", token: "read", zone: "zone", cloudflareToken: "purge",
+    fetchImplementation: async (url, init) => {
+      if (url.endsWith("/api/cache/revalidate")) return json({ ok: true });
+      if (url.includes("purge_cache")) return json({ success: true });
+      if (files) return files.fetchImplementation(url, init);
+      return url.includes("api.github.com") ? json({ object: { sha } }) : json({ ok: true, build: { sha } });
+    },
+  };
+}
+
+function refreshCompletionClient() {
+  const client = ackClient();
+  const query = client.query;
+  client.query = async (text, values) => {
+    if (text.includes("select signing_key")) {
+      client.calls.push({ text, values });
+      return { rows: [{ signing_key: "cache-key" }] };
+    }
+    return query(text, values);
+  };
+  return client;
+}
+
+test("real pg checkout handles a fatal response in the ready packet during snapshot and retry acquisition", async t => {
+  for (const phase of ["snapshot", "retry"]) await t.test(phase, async () => {
+    // A child process makes an uncaught client error an observable failure.
+    // The local peer speaks only enough PostgreSQL to exercise real checkout.
+    const source = `
+      import assert from 'node:assert/strict';
+      import { createServer } from 'node:net';
+      import { EventEmitter } from 'node:events';
+      import pg from 'pg';
+      import { refreshCommittedContent } from ${JSON.stringify(new URL("../../scripts/stack127/frontend/content-queue.mjs", import.meta.url).href)};
+      const sha = ${JSON.stringify(sha)};
+      const revision = ${JSON.stringify(revision)};
+      const event = ${JSON.stringify(event)};
+      const pages = ${JSON.stringify(pages)};
+      const captureClient = ${captureClient.toString()};
+      const original = new Error('Original build failure');
+      const phase = ${JSON.stringify(phase)};
+      const packet = (type, body) => {
+        const header = Buffer.alloc(5);
+        header.write(type); header.writeInt32BE(body.length + 4, 1);
+        return Buffer.concat([header, body]);
+      };
+      let connections = 0, builds = 0;
+      const server = createServer(socket => {
+        connections++;
+        socket.on('error', () => {});
+        socket.once('data', () => socket.end(Buffer.concat([
+          packet('R', Buffer.alloc(4)), packet('Z', Buffer.from('I')),
+          packet('E', Buffer.from('SFATAL\\0C57P01\\0MCheckout terminated\\0\\0')),
+        ])));
+      });
+      await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+      const realPool = new pg.Pool({ host:'127.0.0.1', port:server.address().port,
+        user:'test', database:'test', password:'unused', ssl:false,
+        connectionTimeoutMillis:2000, max:1 });
+      const pool = new EventEmitter();
+      realPool.on('error', error => pool.emit('error', error));
+      let checkouts = 0;
+      pool.connect = callback => {
+        if (phase === 'retry' && checkouts++ === 0) {
+          const client = new pg.Client();
+          client.query = captureClient().query;
+          client.release = destroy => assert.equal(destroy, true);
+          if (callback) { callback(null, client); return; }
+          return Promise.resolve(client);
+        }
+        return realPool.connect(callback);
+      };
+      try {
+        await assert.rejects(refreshCommittedContent(pool, { hosting:'cloudflare', sha,
+          directory:'/unused', token:'read',
+          fetchImplementation: async url => Response.json(url.includes('api.github.com')
+            ? {object:{sha}} : {ok:true,build:{sha}}),
+          buildDeploy: async () => { builds++; throw original; },
+        }), error => phase === 'retry' ? error === original
+          : error.code === '57P01' && error.message === 'Checkout terminated');
+        assert.equal(builds, phase === 'retry' ? 1 : 0);
+        assert.equal(connections, 1);
+      } finally {
+        await realPool.end();
+        await new Promise(resolve => server.close(resolve));
+      }
+    `;
+    await promisify(execFile)(process.execPath, ["--input-type=module", "--eval", source], { timeout: 10000 });
+  });
+});
+
+test("the publishing callback is inactive by default and records failed captured edits on a fresh connection", async () => {
   assert.deepEqual(await refreshCommittedContent(null, { hosting: "legacy" }), { skipped: true, hosting: "legacy" });
   const client = captureClient();
-  const fetchImplementation = async url => url.includes("api.github.com") ? json({ object: { sha } }) : json({ ok: true, build: { sha } });
-  await assert.rejects(refreshCommittedContent(client, { hosting: "cloudflare", sha, directory: "/unused", token: "read", fetchImplementation,
+  const failure = captureClient();
+  const pool = refreshPool(client, failure);
+  await assert.rejects(refreshCommittedContent(pool, { ...refreshOptions(),
     buildDeploy: async captured => {
       assert.equal(client.calls.at(-1).text, "commit");
       assert.equal(captured.events[0].created_at, event.created_at);
+      assert.equal(pool.clients[0].discarded, true);
       throw new Error("Build failed");
     },
   }), /Build failed/);
-  const retry = client.calls.at(-1);
+  const retry = failure.calls.at(-1);
   assert.match(retry.text, /update public.stack127_revalidation_events/);
   assert.equal(JSON.parse(retry.values[0])[0].created_at, event.created_at);
+  assert.equal(pool.clients.length, 2);
+  assert(pool.clients.every(connection => connection.discarded));
+  assert(client.calls.every(call => !/update |delete |insert /i.test(call.text)));
+});
+
+test("build holds no connection, late async client errors are handled, and completion uses a fresh client", async () => {
+  const files = await fixture();
+  const captured = captureClient();
+  const completion = refreshCompletionClient();
+  const pool = refreshPool(captured, completion);
+  try {
+    const result = await refreshCommittedContent(pool, { ...refreshOptions(files), buildDeploy: async () => {
+      assert.equal(pool.clients.length, 1);
+      assert(pool.clients.every(client => client.discarded));
+      // An error outside a query promise must not escape as an uncaught event,
+      // even when the old socket finishes closing during the build pause.
+      await new Promise(resolve => setImmediate(() => {
+        pool.clients[0].emit("error", new Error("Late socket close"));
+        resolve();
+      }));
+      assert.equal(completion.calls.length, 0);
+    } });
+    assert.deepEqual(result, { acknowledged: 1, captured: 1 });
+    assert.equal(completion.queued, null);
+    assert.equal(pool.clients.length, 2);
+    assert(pool.clients.every(client => client.discarded));
+    assert.equal(pool.listenerCount("error"), 0);
+  } finally { await files.close(); }
+});
+
+test("async disconnect during completion keeps edits queued and records retry with a third client", async () => {
+  const files = await fixture();
+  const completion = refreshCompletionClient();
+  const retry = captureClient();
+  const pool = refreshPool(captureClient(), completion, retry);
+  const disconnect = new Error("Connection terminated unexpectedly");
+  const options = refreshOptions(files);
+  let disconnected = false;
+  try {
+    await assert.rejects(refreshCommittedContent(pool, { ...options, buildDeploy: async () => {},
+      fetchImplementation: async (url, init) => {
+        if (url.endsWith("/api/cache/revalidate")) {
+          await new Promise(resolve => setImmediate(() => {
+            assert.equal(pool.clients[1].discarded, false);
+            pool.clients[1].emit("error", disconnect);
+            disconnected = true;
+            resolve();
+          }));
+        }
+        return options.fetchImplementation(url, init);
+      },
+    }), error => error === disconnect);
+    assert.equal(disconnected, true);
+    assert.equal(completion.queued, event);
+    assert(completion.calls.every(call => !/delete |insert |update |^begin$/i.test(call.text)));
+    assert.equal(pool.clients.length, 3);
+    assert(pool.clients.every(client => client.discarded));
+    assert.match(retry.calls.at(-1).text, /update public.stack127_revalidation_events/);
+    assert.equal(retry.calls.at(-1).values[1], String(disconnect));
+  } finally { await files.close(); }
+});
+
+test("async pool errors during a paused build stay in the failure path and preserve the queue", async () => {
+  const retry = captureClient();
+  const pool = refreshPool(captureClient(), retry);
+  const disconnect = new Error("Idle pool connection lost");
+  await assert.rejects(refreshCommittedContent(pool, { ...refreshOptions(), buildDeploy: async () => {
+    assert(pool.clients.every(client => client.discarded));
+    await new Promise(resolve => setImmediate(() => { pool.emit("error", disconnect); resolve(); }));
+  } }), error => error === disconnect);
+  assert.equal(pool.clients.length, 2);
+  assert(pool.clients.every(client => client.discarded));
+  assert.equal(retry.calls.length, 1);
+  assert.match(retry.calls[0].text, /update public.stack127_revalidation_events/);
+  assert.equal(retry.calls[0].values[1], String(disconnect));
+});
+
+test("retry connection, query, and async errors preserve the original refresh failure", async t => {
+  const messages = [];
+  t.mock.method(console, "error", message => { messages.push(message); });
+  for (const mode of ["connect", "query", "async"]) {
+    const original = new Error(`Build failed before ${mode} retry failure`);
+    const retryError = new Error(`Retry ${mode} failed`);
+    let pool;
+    const retry = mode === "connect" ? retryError : { async query() {
+      if (mode === "query") throw retryError;
+      await new Promise(resolve => setImmediate(() => { pool.clients[1].emit("error", retryError); resolve(); }));
+      return { rows: [] };
+    } };
+    pool = refreshPool(captureClient(), retry);
+    await assert.rejects(refreshCommittedContent(pool, { ...refreshOptions(), buildDeploy: async () => { throw original; } }), error => error === original);
+    assert.equal(pool.attempts, 2, "Failed retry writes must not be repeated blindly");
+    assert(pool.clients.every(client => client.discarded));
+    assert(messages.at(-1).includes(retryError.message));
+  }
 });
 
 test("the publishing callback dry run captures without building, deploying, or writing", async () => {
   const client = captureClient();
-  const result = await refreshCommittedContent(client, { hosting: "cloudflare", sha, directory: "/unused", token: "read", dryRun: true,
+  const pool = refreshPool(client);
+  const result = await refreshCommittedContent(pool, { hosting: "cloudflare", sha, directory: "/unused", token: "read", dryRun: true,
     fetchImplementation: async url => url.includes("api.github.com") ? json({ object: { sha } }) : json({ ok: true, build: { sha } }),
     buildDeploy: () => assert.fail("Unexpected build or deploy"),
   });
   assert.equal(result.acknowledged, 0);
   assert.equal(result.captured, 1);
   assert(client.calls.every(call => !/update |delete |insert /i.test(call.text)));
+  assert.equal(pool.clients.length, 1);
+  assert.equal(pool.clients[0].discarded, true);
 });
 
 // Exercise the real Edge Function entry point without a Supabase connection.
