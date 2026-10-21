@@ -15,18 +15,24 @@ import { jobAlert, safeError } from './alerts.mjs';
 export function validateNicheBatch(input, output) {
   const domains = new Set(input.map(row => row.domain));
   if (domains.size !== input.length) throw new Error('Duplicate input domains');
-  const rows = [], seen = new Set();
+  // The model sometimes drops a site, mangles a line, or answers a site twice in a long batch. Keep
+  // only clean answers to sites it was asked about, once each. A site without one isn't checkpointed,
+  // so the next run asks again. An answer with nothing usable is still a failed call.
+  const answers = new Map(), counts = new Map();
   for (const line of output.split(/\r?\n/).filter(line => line.trim())) {
-    const raw = JSON.parse(line);
-    if (!raw || Object.keys(raw).sort().join(',') !== 'confidence,domain,niche') throw new Error('Unexpected niche result fields');
-    const row = validateNicheResult(raw);
-    if (row.domain !== raw.domain || !domains.has(row.domain)) throw new Error(`Unexpected domain: ${row.domain}`);
-    if (seen.has(row.domain)) throw new Error(`Duplicate result: ${row.domain}`);
-    seen.add(row.domain); rows.push(row);
+    let raw;
+    try { raw = JSON.parse(line); } catch { continue; }
+    // Count every answer to an input site before checking it, so a bad second answer still
+    // marks the site as answered twice.
+    if (domains.has(raw?.domain)) counts.set(raw.domain, (counts.get(raw.domain) ?? 0) + 1);
+    try {
+      if (!raw || Object.keys(raw).sort().join(',') !== 'confidence,domain,niche') continue;
+      const row = validateNicheResult(raw);
+      if (row.domain === raw.domain && domains.has(row.domain)) answers.set(row.domain, row);
+    } catch { continue; }
   }
-  // The model sometimes drops a site from a long batch. Keep the answers it gave: a missing site
-  // isn't checkpointed, so the next run asks again. An empty answer is still a failed call.
-  if (!seen.size) throw new Error(`No niche results for a batch of ${domains.size}`);
+  const rows = [...answers.values()].filter(row => counts.get(row.domain) === 1);
+  if (!rows.length) throw new Error(`No usable niche results for a batch of ${domains.size}`);
   return rows;
 }
 

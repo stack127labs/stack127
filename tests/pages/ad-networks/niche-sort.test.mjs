@@ -9,18 +9,24 @@ import { adNetworkNicheShares, hasAdNetworkNicheCoverage } from '../../../lib/ad
 const input = [{ domain: 'example.com' }, { domain: 'example.org' }];
 const result = (domain, niche = 'food', confidence = 'high') => ({ domain, niche, confidence });
 const lines = rows => rows.map(row => JSON.stringify(row)).join('\n');
-test('model validation takes only input domains once each, with known labels and confidence', () => {
+test('model validation keeps only clean answers to input domains, once each', () => {
   const correct = [result('example.com'), result('example.org', null, 'low')];
   assert.deepEqual(validateNicheBatch(input, lines(correct)), correct);
-  // A dropped site is left for the next run; an empty answer fails.
+  // A dropped, mangled, or repeated answer is left for the next run; nothing usable fails.
   assert.deepEqual(validateNicheBatch(input, lines([correct[0]])), [correct[0]]);
-  assert.throws(() => validateNicheBatch(input, ''), /No niche results/);
-  for (const bad of [[correct[0], correct[0]], [...correct, result('extra.com')],
-    [result('example.com', 'invented'), correct[1]], [result('example.com', 'food', 1.5), correct[1]],
-    [{ ...correct[0], comment: 'extra' }, correct[1]], [result('https://example.com'), correct[1]]]) {
-    assert.throws(() => validateNicheBatch(input, lines(bad)));
+  for (const bad of [result('extra.com'), result('example.com', 'invented'), result('example.com', 'food', 1.5),
+    { ...correct[0], comment: 'extra' }, result('https://example.com'), result('bad domain')]) {
+    assert.deepEqual(validateNicheBatch(input, lines([bad, correct[1]])), [correct[1]]);
   }
-  assert.throws(() => validateNicheBatch(input, '```json\n{}\n```'));
+  assert.deepEqual(validateNicheBatch(input, `not json\n${lines([correct[1]])}`), [correct[1]]);
+  // A site answered twice is dropped, even when one of the answers is malformed, in either order.
+  const malformed = { ...result('example.com', 'tech'), comment: 'extra' };
+  for (const twice of [[correct[0], result('example.com', 'tech')], [correct[0], malformed], [malformed, correct[0]]]) {
+    assert.deepEqual(validateNicheBatch(input, lines([...twice, correct[1]])), [correct[1]]);
+  }
+  for (const empty of ['', '```json\n{}\n```', lines([correct[0], correct[0]])]) {
+    assert.throws(() => validateNicheBatch(input, empty), /No usable niche results/);
+  }
   assert.throws(() => nicheSortArgs(['--environment', 'production', '--apply']), /confirmation/);
 });
 test('niche imports withhold uncertain guesses, serialize against sync, and rollback on failure', async () => {
