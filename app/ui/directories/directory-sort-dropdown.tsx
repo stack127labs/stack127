@@ -4,10 +4,13 @@ type SortOption = {
 };
 
 export function SortDropdown({
+  form,
   name,
   options,
   value,
 }: {
+  /** The filter form's id, when the dropdown sits outside it, such as in a results toolbar. */
+  form?: string;
   name: string;
   options: readonly SortOption[];
   value: string;
@@ -20,7 +23,7 @@ export function SortDropdown({
   return (
     <div className="directory-select" data-custom-select>
       <span className="field-label-line">Sort</span>
-      <input name={name} type="hidden" value={selected} />
+      <input form={form} name={name} type="hidden" value={selected} />
       <div className="custom-select">
         <button
           aria-expanded="false"

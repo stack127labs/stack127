@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Compare launch directories | stack127</title>
+<link rel="stylesheet" href="assets/mock.css">
+<link rel="stylesheet" href="assets/ld.css">
+<script src="assets/data.js"></script>
+<script src="assets/ld.js"></script>
+<style>
+  /* ---------- Sidebar ---------- */
+  .picked { display: grid; gap: var(--space-1); list-style: none; margin: 0; padding: 0; }
+  .picked li { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--space-4); align-items: center; min-height: 38px; padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius); font-size: var(--text-small); }
+  .picked .ld-logo { width: 20px; height: 20px; font-size: 11px; }
+  .picked .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: var(--weight-semibold); }
+  .picked li.empty { grid-template-columns: 1fr; border-style: dashed; color: var(--color-text-muted); font-family: var(--font-mono); }
+  .icon-btn { display: inline-grid; place-items: center; width: 28px; height: 28px; background: none; border: 0; border-radius: var(--radius); color: var(--color-text-muted); cursor: pointer; }
+  .icon-btn:hover { background: var(--color-surface-2); color: var(--color-text); }
+  .icon-btn svg { width: 14px; height: 14px; }
+  .side-note { margin: var(--space-3) 0 0; font: var(--text-small) / 1.45 var(--font-mono); color: var(--color-text-muted); }
+  .side-sel { position: relative; display: flex; align-items: center; height: 40px; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius); }
+  .side-sel select { appearance: none; -webkit-appearance: none; width: 100%; height: 100%; padding: 0 34px 0 10px; background: none; border: 0; outline: 0; color: var(--color-text); font: var(--text-small) var(--font-mono); cursor: pointer; }
+  .side-sel::after { content: ""; position: absolute; right: 13px; top: 50%; width: 6px; height: 6px; border-right: 1.5px solid var(--color-text-muted); border-bottom: 1.5px solid var(--color-text-muted); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+  .side-search:focus-within, .side-sel:focus-within { border-color: var(--color-accent-text); box-shadow: var(--focus-ring); }
+  .side-find { display: grid; gap: var(--space-3); }
+  .side-groups { display: grid; gap: var(--space-8); }
+  .slist label .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .slist label.off { cursor: not-allowed; color: var(--color-text-muted); }
+  .slist label.off:hover { background: none; }
+  .slist label.off input { opacity: 0.5; }
+  .side-empty { margin: 0; font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+
+  /* ---------- Header and toolbar ---------- */
+  .cmp-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-5); margin: var(--space-12) 0 var(--space-7); }
+  .switch { display: inline-flex; align-items: center; gap: var(--space-4); font-size: var(--text-small); cursor: pointer; user-select: none; }
+  .switch input { appearance: none; -webkit-appearance: none; position: relative; width: 34px; height: 20px; margin: 0; border: 1px solid var(--color-border-strong); border-radius: 10px; background: var(--color-surface); cursor: pointer; }
+  .switch input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 12px; height: 12px; border-radius: 50%; background: var(--color-text-muted); transition: transform 120ms ease; }
+  .switch input:checked { border-color: var(--color-accent-text); }
+  .switch input:checked::after { transform: translateX(14px); background: var(--color-accent-text); }
+  .legend { display: inline-flex; align-items: center; gap: var(--space-3); font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+  .tools-right { display: inline-flex; align-items: center; gap: var(--space-8); }
+  .copy-link { display: inline-flex; align-items: center; gap: var(--space-2); background: none; border: 0; padding: 0; color: var(--color-text-muted); font: var(--text-small) var(--font-mono); cursor: pointer; }
+  .copy-link:hover { color: var(--color-text); }
+  .copy-link svg { width: 14px; height: 14px; }
+  .diff { display: inline-grid; place-items: center; width: 16px; height: 16px; border: 1px solid var(--color-border-strong); border-radius: var(--radius); font: 600 11px / 1 var(--font-mono); color: var(--color-text-muted); flex: none; }
+
+  /* ---------- Column heads  ---------- */
+  .heads { display: grid; grid-template-columns: var(--label-col, 200px) repeat(3, minmax(0, 1fr)); border: 1px solid var(--color-border); border-bottom: 0; border-radius: var(--radius) var(--radius) 0 0; background: var(--color-bg); }
+  .heads.sticky { position: sticky; top: var(--stick-top, 58px); z-index: 5; }
+  .heads .corner { padding: var(--space-7) var(--space-8); font: var(--text-small) var(--font-mono); color: var(--color-text-muted); align-self: end; }
+  .head { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-2) var(--space-5); align-content: start; padding: var(--space-7) var(--space-8); border-left: 1px solid var(--color-border); min-width: 0; }
+  .head .ld-logo { grid-row: span 2; }
+  .head h2 { margin: 0; padding-right: 26px; font: var(--weight-bold) 1.06rem / 1.2 var(--font-display); letter-spacing: -0.01em; overflow-wrap: anywhere; }
+  .head h2 a { color: var(--color-text); }
+  .head h2 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .head .cat { font: 0.8rem var(--font-mono); color: var(--color-text-muted); }
+  .head .sub { grid-column: 1 / -1; margin-top: var(--space-3); font: var(--weight-semibold) var(--text-small) var(--font-mono); }
+  .head .sub a { display: inline-flex; align-items: center; gap: var(--space-2); }
+  .head .sub a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .head .sub svg { width: 13px; height: 13px; }
+  .head .sub .none { color: var(--color-text-muted); font-weight: 400; }
+  .head .icon-btn { position: absolute; top: 10px; right: 8px; }
+  .head.slot { grid-template-columns: 1fr; align-content: center; justify-items: start; gap: var(--space-2); }
+  .head.slot button { display: inline-flex; align-items: center; gap: var(--space-3); height: 36px; padding: 0 12px; background: none; border: 1px dashed var(--color-border-strong); border-radius: var(--radius); color: var(--color-text-muted); font: var(--text-small) var(--font-mono); cursor: pointer; }
+  .head.slot button:hover { color: var(--color-text); border-color: var(--color-text-muted); }
+  .head.slot button svg { width: 14px; height: 14px; }
+
+  /* ---------- Layout A and C: table ---------- */
+  .cmp { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed; border: 1px solid var(--color-border); border-radius: 0 0 var(--radius) var(--radius); }
+  .cmp col.lab { width: var(--label-col, 200px); }
+  .cmp th, .cmp td { padding: var(--space-6) var(--space-8); border-top: 1px solid var(--color-border); text-align: left; vertical-align: top; }
+  .cmp td { border-left: 1px solid var(--color-border); }
+  .cmp th { font: var(--text-small) / 1.4 var(--font-mono); color: var(--color-text-muted); font-weight: 400; }
+  .cmp th .lab-in { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-3); }
+  .cmp th small { display: block; font-size: 0.75rem; opacity: 0.85; }
+  .cmp tr.same th { color: var(--color-text-muted); }
+  .cmp tr.group th { padding: var(--space-9) var(--space-8) var(--space-3); border-top: 1px solid var(--color-border-strong); color: var(--color-text); font: var(--weight-bold) var(--text-small) var(--font-display); letter-spacing: 0; }
+  .v { font: var(--weight-semibold) 1rem / 1.35 var(--font-mono); overflow-wrap: anywhere; }
+  .v.txt { font: 400 var(--text-body) / 1.45 var(--font-sans); }
+  .v.unk { color: var(--color-text-muted); font-weight: 400; }
+  .v.low { font-weight: var(--weight-bold); }
+  .v a { display: inline-flex; align-items: center; gap: var(--space-2); font: 400 var(--text-small) var(--font-mono); overflow-wrap: anywhere; }
+  .v a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .v a svg { width: 13px; height: 13px; flex: none; }
+  .d { margin-top: var(--space-2); font-size: var(--text-small); line-height: 1.45; overflow-wrap: anywhere; }
+  .cbar { height: 6px; margin-top: var(--space-4); max-width: 180px; background: var(--color-surface-2); border-radius: 1px; overflow: hidden; }
+  .cbar i { display: block; height: 100%; background: var(--viz-n1); }
+  .pips { display: inline-flex; gap: 3px; margin-top: var(--space-4); }
+  .pips i { width: 14px; height: 6px; border-radius: 1px; background: var(--color-surface-2); }
+  .pips i.on { background: var(--viz-n1); }
+  .cmp tbody tr:not(.group):hover th, .cmp tbody tr:not(.group):hover td { background: color-mix(in srgb, var(--color-surface) 60%, transparent); }
+  .hidden-row { display: none; }
+
+  /* ---------- Layout C: quick read ---------- */
+  .quick { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: var(--space-9); border: 1px solid var(--color-border); border-radius: var(--radius); }
+  .quick > div { display: grid; gap: var(--space-2); align-content: start; padding: var(--space-8) var(--space-9); min-width: 0; }
+  .quick > div + div { border-left: 1px solid var(--color-border); }
+  .quick dt { font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+  .quick dd { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); font: var(--weight-bold) 1.15rem / 1.25 var(--font-display); letter-spacing: -0.01em; }
+  .quick dd .ld-logo { width: 22px; height: 22px; font-size: 11px; }
+  .quick dd.none { color: var(--color-text-muted); font: 400 var(--text-body) var(--font-sans); }
+  .quick dd .nm { display: inline-flex; align-items: center; gap: var(--space-3); }
+  .quick dd .and { font: 400 var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+  .quick .why { font-size: var(--text-small); line-height: 1.45; }
+
+
+  /* ---------- Empty state ---------- */
+  .empty-state { display: grid; justify-items: start; gap: var(--space-5); padding: var(--space-12) var(--space-11); border: 1px solid var(--color-border); border-top: 0; border-radius: 0 0 var(--radius) var(--radius); }
+  .empty-state h2 { margin: 0; font: var(--weight-bold) var(--text-h3) / 1.2 var(--font-display); letter-spacing: var(--tracking-display); }
+  .empty-state p { margin: 0; }
+  .add-chip { display: inline-flex; align-items: center; gap: var(--space-3); height: 36px; padding: 0 12px 0 6px; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius); color: var(--color-text); font: var(--text-small) var(--font-mono); cursor: pointer; }
+  .add-chip:hover { border-color: var(--color-text-muted); }
+  .add-chip .ld-logo { width: 22px; height: 22px; font-size: 11px; }
+  .add-chip svg { width: 13px; height: 13px; color: var(--color-text-muted); }
+
+  /* ---------- Add one more ---------- */
+  .more-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-3) var(--space-7); margin-bottom: var(--space-3); }
+  .more-head h2 { margin: 0; font: var(--weight-bold) var(--text-h2) / 1.2 var(--font-display); letter-spacing: var(--tracking-display); }
+  .more-head a { font: var(--text-small) var(--font-mono); }
+  .more-head a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .more-lede { margin: 0 0 var(--space-9); }
+
+  .v a .short { display: none; }
+  .lone-top { margin-top: var(--space-12); }
+
+  /* ---------- Narrow: values sit under each fact name, all columns stay visible ---------- */
+  @container (max-width: 700px) {
+    .heads { grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); }
+    .heads .corner { display: none; }
+    .head { grid-template-columns: 1fr; justify-items: start; padding: var(--space-5) var(--space-4) var(--space-5); gap: var(--space-2); }
+    .head:first-of-type, .heads .corner + .head { border-left: 0; }
+    .head .ld-logo { grid-row: auto; width: 28px; height: 28px; }
+    .head h2 { font-size: 0.95rem; padding-right: 0; }
+    .head .cat { display: none; }
+    .head .sub { margin-top: 0; font-size: 0.8rem; }
+    .head .icon-btn { top: 4px; right: 2px; width: 26px; height: 26px; }
+    .head.slot button { padding: 0 8px; }
+    .cmp, .cmp tbody { display: block; }
+    .cmp colgroup { display: none; }
+    .cmp tr { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); }
+    .cmp tr.hidden-row { display: none; }
+    .cmp tbody th { grid-column: 1 / -1; padding: var(--space-5) var(--space-4) 0; background: none; }
+    .cmp tbody tr.group th { padding: var(--space-8) var(--space-4) var(--space-3); }
+    .cmp td { border-top: 0; padding: var(--space-3) var(--space-4) var(--space-6); }
+    .cmp td:nth-child(2) { border-left: 0; }
+    .cmp tbody tr:not(.group):hover th, .cmp tbody tr:not(.group):hover td { background: none; }
+    .v { font-size: 0.9rem; }
+    .v.txt { font-size: var(--text-small); }
+    .v a { font-size: 0.78rem; }
+    .d { font-size: 0.8rem; }
+    .quick { grid-template-columns: minmax(0, 1fr); }
+    .quick > div + div { border-left: 0; border-top: 1px solid var(--color-border); }
+    .quick > div { padding: var(--space-6) var(--space-7); }
+    .empty-state { padding: var(--space-9) var(--space-7); }
+    .cmp-toolbar { margin-top: var(--space-9); }
+    .legend { display: none; }
+    .v a .full { display: none; }
+    .v a .short { display: inline; }
+  }
+</style>
+</head>
+<body data-section="Compare">
+<div class="shell">
+  <aside class="sidebar" data-menu="Pick directories">
+    <div class="panel">
+      <div class="panel-head">
+        <h2 class="panel-title">Compare</h2>
+        <p class="panel-note">Pick up to 3 directories.</p>
+      </div>
+      <section aria-labelledby="picked-label">
+        <p class="side-label" id="picked-label">Picked</p>
+        <ul class="picked" id="picked"></ul>
+        <p class="side-note">Three at a time keeps it readable.</p>
+      </section>
+      <section class="side-find" aria-labelledby="all-label">
+        <p class="side-label" id="all-label">All directories</p>
+        <label class="side-search"><span data-icon="search"></span><span class="sr-only">Search directories</span><input id="q" type="search" placeholder="Search by name" autocomplete="off" spellcheck="false"></label>
+        <label class="side-sel"><span class="sr-only">Category</span><select id="cat"></select></label>
+      </section>
+      <div class="side-groups" id="groups"></div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="content">
+      <div class="canvas">
+        <header class="page-header">
+          <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="#">stack127</a></li><li><a href="launch-directories.html">launch directories</a></li><li><span aria-current="page">compare</span></li></ol></nav>
+          <h1>Compare <mark>launch directories</mark></h1>
+          <p>Put up to three side by side and see what each one costs, how long review takes, and what kind of link you get.</p>
+        </header>
+
+        <div class="cmp-toolbar" id="toolbar">
+          <label class="switch"><input type="checkbox" id="only-diff"> Only show differences</label>
+          <div class="tools-right">
+            <span class="legend"><span class="diff" aria-hidden="true">≠</span> values differ</span>
+            <button class="copy-link" type="button" id="copy"><span data-icon="link"></span><span>Copy link</span></button>
+          </div>
+        </div>
+
+        <div id="compare"></div>
+
+        <section class="block" id="more" aria-labelledby="more-h"></section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const U = window.LDUI, LD = window.LD, CATS = window.LD_CATS;
+  const MAX = 3;
+  const bySlug = Object.fromEntries(LD.map((r) => [r.slug, r]));
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  /* ---------- State ---------- */
+  const params = new URLSearchParams(location.search);
+  let picks = (params.get("d") ?? "product-hunt,uneed,devhunt").split(",").filter((s) => bySlug[s]);
+  picks = [...new Set(picks)].slice(0, MAX);
+  let onlyDiff = false, q = "", cat = "";
+
+  const syncUrl = () => {
+    const p = new URLSearchParams(location.search);
+    p.set("d", picks.join(","));
+    history.replaceState(null, "", `${location.pathname}?${p.toString().replace(/%2C/g, ",")}`);
+  };
+
+  /* ---------- Value helpers ---------- */
+  const UNSTATED = /^(not stated|couldn't verify|no (fixed|eta|approval|review)|manual review; time not stated)/i;
+  const clean = (t) => (!t || /^(not stated|couldn't verify)/i.test(t) ? null : t);
+  const NUM = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, twelve: 12 };
+  const HOURS = { minute: 1 / 60, hour: 1, day: 24, week: 168, month: 720 };
+  /** Shortest time the site states, or null. "Instant" counts. Scheduling windows ("30 days ahead") don't. */
+  const fastest = (r) => {
+    const t = r.review || "";
+    if (!t || UNSTATED.test(t)) return null;
+    let best = null;
+    const consider = (n, biz, unit, label) => {
+      const h = n * HOURS[unit] * (biz ? 1.4 : 1);
+      if (!best || h < best.h) best = { h, label };
+    };
+    if (/\b(instant|instantly|immediate)/i.test(t)) consider(0, false, "hour", "Instant");
+    const re = /\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten|twelve)(?:\s*(?:to|-)\s*(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten|twelve))?\s+(business\s+)?(minute|hour|day|week|month)s?\b(\s+(?:ahead|out))?/gi;
+    let m;
+    while ((m = re.exec(t))) {
+      if (m[5] && /ahead/i.test(m[5])) continue;
+      const n = NUM[m[1].toLowerCase()] ?? Number(m[1]);
+      const unit = m[3].toLowerCase();
+      consider(n, !!m[2], unit, `${n} ${m[2] ? "business " : ""}${unit}${n === 1 ? "" : "s"}`);
+    }
+    return best;
+  };
+  const POP = { "Top 1k": 5, "Top 10k": 4, "Top 100k": 3, "Top 1M": 2, "Below 1M": 1 };
+  const IDX = { yes: "Yes", no: "No", mixed: "Some pages" };
+  const host = (u) => { try { const x = new URL(u); return (x.hostname.replace(/^www\./, "") + x.pathname).replace(/\/$/, ""); } catch (e) { return u; } };
+  const hostParts = (u) => { const h = host(u); const i = h.indexOf("/"); return i < 0 ? esc(h) : `<span>${esc(h.slice(0, i))}<span class="path">${esc(h.slice(i))}</span></span>`; };
+  const fullDate = (iso) => new Date(iso + "T00:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+  const unk = (txt = "Not stated") => `<div class="v unk">${txt}</div>`;
+  const sample = (s) => `<span class="sample" title="Sample value for the mockup">${s}</span>`;
+
+  /* Each fact: label, icon, group, and per-directory cell. `key` decides if values differ. */
+  const FACTS = [
+    { id: "cost", label: "Cost", icon: "coins", group: "Cost", key: (r) => r.cost,
+      cell: (r) => { const s = U.costShort(r); const d = clean(r.costLabel); return s ? `<div class="v">${s}</div>${d && d !== s ? `<div class="d">${esc(d)}</div>` : ""}` : unk(); } },
+    { id: "price", label: "Cheapest paid option", icon: "coins", group: "Cost", key: (r) => r.price ?? r.cost,
+      cell: (r, ctx) => r.price != null
+        ? `<div class="v${ctx.lowPrice === r.price && ctx.priced > 1 ? " low" : ""}">${U.fmtPrice(r.price)}</div>${ctx.priced > 1 ? `<div class="cbar" aria-hidden="true"><i style="width:${Math.max(3, (r.price / ctx.maxPrice) * 100)}%"></i></div>` : ""}`
+        : r.cost === "free" ? unk("No paid option") : unk() },
+    { id: "review", label: "Review time", note: "free path", icon: "clock", group: "Getting listed", key: (r) => U.waitShort(r) || "x",
+      cell: (r) => { const w = U.waitShort(r); const t = clean(r.review); return `${w ? `<div class="v${w === "No set time" ? " unk" : ""}">${esc(w)}</div>` : unk()}${t ? `<div class="d">${esc(t)}</div>` : ""}`; } },
+    { id: "elig", label: "Who can submit", icon: "file", group: "Getting listed", key: (r) => r.elig, wide: true,
+      cell: (r) => { const t = clean(r.elig); return t ? `<div class="v txt">${esc(t)}</div>` : unk(); } },
+    { id: "submit", label: "Submission page", icon: "external", group: "Getting listed", key: (r) => r.subStatus + r.submit, wide: true,
+      cell: (r) => r.subStatus === "verified" && r.submit
+        ? `<div class="v"><a href="${r.submit}" rel="nofollow noopener" target="_blank"><span class="full">${hostParts(r.submit)}</span><span class="short">Open</span> ${U.icon("external")}</a></div>`
+        : unk(r.subStatus === "unavailable" ? "Page was down" : "No page found") },
+    { id: "link", label: "Link type", icon: "link", group: "What you get", key: (r) => r.link,
+      cell: (r) => { const s = U.linkShort(r); return s ? `<div class="v">${s}</div>` : unk(); } },
+    { id: "dr", label: "Domain Rating", note: "Ahrefs · sample", icon: "chart", group: "What you get", key: (r) => r.dr,
+      cell: (r) => r.dr != null ? `<div class="v">${sample(r.dr)}<span class="d" style="font-weight:400"> / 100</span></div><div class="cbar" aria-hidden="true"><i style="width:${r.dr}%"></i></div>` : unk() },
+    { id: "pop", label: "Popularity", note: "traffic rank · sample", icon: "activity", group: "What you get", key: (r) => r.pop,
+      cell: (r) => r.pop ? `<div class="v">${sample(r.pop)}</div><div class="pips" aria-hidden="true">${[1, 2, 3, 4, 5].map((i) => `<i class="${i <= POP[r.pop] ? "on" : ""}"></i>`).join("")}</div>` : unk() },
+    { id: "indexed", label: "Listing pages indexed", note: "by Google · sample", icon: "search", group: "What you get", key: (r) => r.indexed,
+      cell: (r) => r.indexed ? `<div class="v">${sample(IDX[r.indexed] || r.indexed)}</div>` : unk() },
+    { id: "checked", label: "Last checked", icon: "calendar", group: "What you get", key: (r) => r.checked,
+      cell: (r) => r.checked ? `<div class="v" style="font-weight:400">${fullDate(r.checked)}</div>` : unk() },
+  ];
+
+  const context = (recs) => {
+    const prices = recs.map((r) => r.price).filter((p) => p != null);
+    return { lowPrice: prices.length ? Math.min(...prices) : null, maxPrice: prices.length ? Math.max(...prices) : 1, priced: new Set(prices).size };
+  };
+  const differs = (f, recs) => new Set(recs.map((r) => String(f.key(r)))).size > 1;
+
+  /* ---------- Column heads ---------- */
+  const heads = (recs, sticky) => {
+    const cols = recs.map((r) => {
+      const sub = r.subStatus === "verified" && r.submit
+        ? `<a href="${r.submit}" rel="nofollow noopener" target="_blank">Submit ${U.icon("arrow")}</a>`
+        : `<span class="none">${r.subStatus === "unavailable" ? "Submit page down" : "No submit page"}</span>`;
+      return `<div class="head">${U.logo(r)}
+        <h2><a href="directory.html?d=${r.slug}">${esc(r.name)}</a></h2>
+        <span class="cat">${U.catLabel(r.cats[0])}</span>
+        <div class="sub">${sub}</div>
+        <button class="icon-btn" type="button" data-remove="${r.slug}" aria-label="Remove ${esc(r.name)}">${U.icon("x")}</button></div>`;
+    });
+    for (let i = recs.length; i < MAX; i++) cols.push(`<div class="head slot"><button type="button" data-open-picker>${U.icon("plus")} Add</button></div>`);
+    return `<div class="heads${sticky ? " sticky" : ""}${recs.length < 2 ? "" : ""}" style="--n:${MAX}"><div class="corner">${recs.length} of ${MAX} picked</div>${cols.join("")}</div>`;
+  };
+
+  /* ---------- Layout A / C table ---------- */
+  const table = (recs) => {
+    const ctx = context(recs);
+    let group = "", rows = "";
+    for (const f of FACTS) {
+      const d = differs(f, recs);
+      if (f.group !== group) {
+        group = f.group;
+        const shown = FACTS.some((g) => g.group === group && (!onlyDiff || differs(g, recs)));
+        if (shown) rows += `<tr class="group"><th colspan="${MAX + 1}">${group}</th></tr>`;
+      }
+      const hide = onlyDiff && !d;
+      if (hide) continue;
+      rows += `<tr class="${d ? "" : "same"}${hide ? " hidden-row" : ""}" data-g="${group}">
+        <th scope="row"><div class="lab-in"><span>${f.label}${f.note ? `<small>${f.note}</small>` : ""}</span>${d ? '<span class="diff" title="Values differ">≠</span>' : ""}</div></th>
+        ${recs.map((r) => `<td>${f.cell(r, ctx)}</td>`).join("")}${"<td></td>".repeat(MAX - recs.length)}
+      </tr>`;
+    }
+    return `<table class="cmp" style="--n:${MAX}"><caption class="sr-only">Comparison of ${recs.map((r) => esc(r.name)).join(", ")}</caption>
+      <colgroup><col class="lab">${"<col>".repeat(MAX)}</colgroup><tbody>${rows}</tbody></table>`;
+  };
+
+  /* ---------- Quick read ---------- */
+  const names = (rs) => rs.map((r) => `<span class="nm">${U.logo(r)}${esc(r.name)}</span>`).join('<span class="and">and</span>');
+  const quick = (recs) => {
+    // Lowest cost: free entry counts as $0. Otherwise the lowest stated price.
+    const free = recs.filter((r) => r.cost === "free" || r.cost === "free_and_paid");
+    let cheap;
+    if (free.length) {
+      const paid = recs.filter((r) => r.price != null).sort((a, b) => a.price - b.price);
+      cheap = { rs: free, all: free.length === recs.length && recs.length > 2, why: free.length === recs.length ? `${paid.length ? `Cheapest paid option: ${esc(paid[0].name)} at ${U.fmtPrice(paid[0].price)}.` : ""}` : "Free to submit." };
+    } else {
+      const priced = recs.filter((r) => r.price != null);
+      if (priced.length) { const low = Math.min(...priced.map((r) => r.price)); cheap = { rs: priced.filter((r) => r.price === low), why: `From ${U.fmtPrice(low)}.` }; }
+    }
+    const timed = recs.map((r) => ({ r, f: fastest(r) })).filter((x) => x.f);
+    let fast;
+    if (timed.length) { const low = Math.min(...timed.map((x) => x.f.h)); const w = timed.filter((x) => x.f.h === low); fast = { rs: w.map((x) => x.r), why: `${w[0].f.label === "Instant" ? "Instant" : "From " + w[0].f.label} on any plan, as stated on their site.${timed.length < recs.length ? ` ${recs.length - timed.length} of ${recs.length} don't state a time.` : ""}` }; }
+    const ranked = recs.filter((r) => POP[r.pop]);
+    let pop;
+    if (ranked.length) { const hi = Math.max(...ranked.map((r) => POP[r.pop])); const w = ranked.filter((r) => POP[r.pop] === hi); pop = { rs: w, why: `${sample(w[0].pop)} by traffic.` }; }
+    const cell = (label, x) => `<div><dt>${label}</dt>${x ? `<dd>${x.all ? `All ${x.rs.length} start free` : names(x.rs)}</dd><span class="why">${x.why}</span>` : '<dd class="none">None of them state one</dd>'}</div>`;
+    return `<dl class="quick">${cell("Cheapest", cheap)}${cell("Fastest stated review", fast)}${cell("Most popular", pop)}</dl>`;
+  };
+
+  /* ---------- Empty state ---------- */
+  const SUGGEST = ["product-hunt", "uneed", "devhunt", "betalist", "peerlist-launchpad", "micro-launch", "tinylaunch", "fazier"];
+  const empty = (recs) => {
+    const pool = SUGGEST.filter((s) => bySlug[s] && !picks.includes(s));
+    const extra = LD.filter((r) => !picks.includes(r.slug) && !pool.includes(r.slug) && r.cats.includes("launch-boards")).sort((a, b) => (b.dr ?? 0) - (a.dr ?? 0)).map((r) => r.slug);
+    const sug = [...pool, ...extra].slice(0, 3).map((s) => bySlug[s]);
+    return `<div class="empty-state">
+      <h2>${recs.length ? `Pick one more to compare with ${esc(recs[0].name)}` : "Pick two or three to compare"}</h2>
+      <p>Choose from the list, or start with a popular one.</p>
+      <div class="chips">${sug.map((r) => `<button class="add-chip" type="button" data-add="${r.slug}">${U.logo(r)}${esc(r.name)} ${U.icon("plus")}</button>`).join("")}</div>
+    </div>`;
+  };
+
+  /* ---------- Add one more ---------- */
+  const more = (recs) => {
+    const el = $("#more");
+    if (!recs.length) { el.innerHTML = ""; return; }
+    const c = recs[0].cats[0];
+    const list = LD.filter((r) => r.cats.includes(c) && !picks.includes(r.slug)).sort((a, b) => (b.dr ?? -1) - (a.dr ?? -1)).slice(0, 3);
+    const full = picks.length >= MAX;
+    el.innerHTML = `<div class="more-head"><h2 id="more-h">Add one more</h2><a href="launch-directories.html?cat=${c}">All ${U.catLabel(c).toLowerCase()} ${U.icon("arrow")}</a></div>
+      <p class="more-lede">More ${U.catLabel(c).toLowerCase()} like ${esc(recs[0].name)}.${full ? ` You can compare ${MAX} at a time, so picking one swaps out ${esc(recs[recs.length - 1].name)}.` : ""}</p>
+      <div class="ld-grid">${list.map((r) => U.card(r, { pick: true })).join("")}</div>`;
+  };
+
+  /* ---------- Sidebar ---------- */
+  $("#cat").innerHTML = `<option value="">All categories · ${LD.length}</option>` + CATS.map(([v, l]) => `<option value="${v}">${l} · ${LD.filter((r) => r.cats[0] === v).length}</option>`).join("");
+  const sidebar = () => {
+    $("#picked").innerHTML = picks.map((s) => bySlug[s]).map((r) => `<li>${U.logo(r)}<span class="nm">${esc(r.name)}</span><button class="icon-btn" type="button" data-remove="${r.slug}" aria-label="Remove ${esc(r.name)}">${U.icon("x")}</button></li>`).join("")
+      + Array.from({ length: MAX - picks.length }, (_, i) => `<li class="empty">Slot ${picks.length + i + 1} is empty</li>`).join("");
+    const full = picks.length >= MAX;
+    const needle = q.trim().toLowerCase();
+    const rows = LD.filter((r) => (!cat || r.cats[0] === cat) && (!needle || r.name.toLowerCase().includes(needle) || (r.bestFor || "").toLowerCase().includes(needle)));
+    const groups = CATS.map(([v, l]) => [l, rows.filter((r) => r.cats[0] === v).sort((a, b) => a.name.localeCompare(b.name))]).filter(([, rs]) => rs.length);
+    $("#groups").innerHTML = groups.length ? groups.map(([l, rs]) => `<section><p class="side-label">${l}</p><ul class="slist">${rs.map((r) => {
+      const on = picks.includes(r.slug), off = full && !on;
+      return `<li class="${on ? "on" : ""}"><label class="${off ? "off" : ""}" title="${off ? "Remove one to add another" : ""}"><input type="checkbox" data-toggle="${r.slug}"${on ? " checked" : ""}${off ? " disabled" : ""}><span class="nm">${esc(r.name)}</span><span class="ct">${r.dr != null ? sample(r.dr) : "—"}</span></label></li>`;
+    }).join("")}</ul></section>`).join("") : '<p class="side-empty">No directory matches that.</p>';
+  };
+
+  /* ---------- Render ---------- */
+  const render = () => {
+    const recs = picks.map((s) => bySlug[s]);
+    const enough = recs.length >= 2;
+    $("#toolbar").style.display = enough ? "" : "none";
+    let html;
+    $("#compare").classList.toggle("lone-top", !enough);
+    if (!enough) html = heads(recs, false) + empty(recs);
+    else html = quick(recs) + heads(recs, true) + table(recs);
+    $("#compare").innerHTML = html;
+    more(recs);
+    sidebar();
+    syncUrl();
+    setStick();
+  };
+
+  const setStick = () => {
+    const bar = document.querySelector(".sidebar-bar");
+    const topbar = document.querySelector(".topbar");
+    const h = (topbar ? topbar.offsetHeight : 58) + (bar && getComputedStyle(bar).display !== "none" ? bar.offsetHeight : 0);
+    document.documentElement.style.setProperty("--stick-top", h + "px");
+  };
+  window.addEventListener("resize", setStick);
+
+  const add = (slug) => {
+    if (picks.includes(slug)) return;
+    if (picks.length >= MAX) picks[picks.length - 1] = slug; else picks.push(slug);
+    render();
+  };
+  const remove = (slug) => { picks = picks.filter((s) => s !== slug); render(); };
+
+  document.addEventListener("click", (e) => {
+    const t = e.target;
+    const rm = t.closest("[data-remove]"); if (rm) { remove(rm.dataset.remove); return; }
+    const ad = t.closest("[data-add]"); if (ad) { add(ad.dataset.add); return; }
+    const pk = t.closest("[data-pick]"); if (pk) { e.preventDefault(); add(pk.dataset.pick); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
+    if (t.closest("[data-open-picker]")) {
+      const tog = document.querySelector("[data-drawer]");
+      if (tog && getComputedStyle(tog.parentElement).display !== "none") tog.click();
+      setTimeout(() => $("#q").focus(), 60);
+      return;
+    }
+    if (t.closest("#copy")) {
+      const lbl = $("#copy span:last-child");
+      try { navigator.clipboard.writeText(location.href); } catch (err) {}
+      lbl.textContent = "Copied"; setTimeout(() => (lbl.textContent = "Copy link"), 1400);
+    }
+  });
+  document.addEventListener("change", (e) => {
+    const t = e.target;
+    if (t.matches("[data-toggle]")) { t.checked ? add(t.dataset.toggle) : remove(t.dataset.toggle); }
+    if (t.id === "only-diff") { onlyDiff = t.checked; render(); }
+    if (t.id === "cat") { cat = t.value; sidebar(); }
+  });
+  $("#q").addEventListener("input", (e) => { q = e.target.value; sidebar(); });
+  document.addEventListener("DOMContentLoaded", () => {
+    render();
+    if (params.get("diff") === "1") { $("#only-diff").checked = true; onlyDiff = true; render(); }
+  });
+})();
+</script>
+</body>
+</html>

@@ -114,15 +114,34 @@ test("recommended link ranks put unknown last and use name then slug to break ti
   ]);
 });
 
-test("recommended is the default sort while ready and name retain their ordering", () => {
-  const rows = [row("a-free"), row("z-paid-pin", { slug: "saashub", cost_kind: "paid" })];
+test("recommended is the default sort and unknown sorts fall back to it", () => {
+  const rows = [row("a-free"), row("saashub")];
   assert.deepEqual(sortLaunchDirectories(rows).map((item) => item.slug), ["saashub", "a-free"]);
-  assert.deepEqual(queryLaunchDirectories(rows).items.map((item) => item.slug), ["saashub", "a-free"]);
-  for (const sort of ["ready", "name"]) {
-    assert.deepEqual(sortLaunchDirectories(rows, sort).map((item) => item.slug), ["a-free", "saashub"]);
-  }
-  const readyRows = [row("a-paid", { cost_kind: "paid" }), row("b-free"), row("c-unknown", { cost_kind: "unknown" }), row("d-unavailable", { submission_status: "unavailable" })];
-  assert.deepEqual(sortLaunchDirectories(readyRows, "ready").map((item) => item.slug), ["a-paid", "b-free", "c-unknown", "d-unavailable"]);
+  assert.deepEqual(sortLaunchDirectories(rows, "ready").map((item) => item.slug), ["saashub", "a-free"]);
+  assert.deepEqual(sortLaunchDirectories(rows, "name").map((item) => item.slug), ["a-free", "saashub"]);
+});
+
+test("metric sorts put places with no value last and the DR filter drops them", () => {
+  const rows = [
+    row("a-none"), row("b-low", { domain_rating: 12, traffic_bucket: "top_1m" }),
+    row("c-high", { domain_rating: 80, traffic_bucket: "top_10k" }), row("d-mid", { domain_rating: 45, traffic_bucket: "top_10k" }),
+  ];
+  assert.deepEqual(sortLaunchDirectories(rows, "dr").map((item) => item.slug), ["c-high", "d-mid", "b-low", "a-none"]);
+  assert.deepEqual(sortLaunchDirectories(rows, "popular").map((item) => item.slug), ["c-high", "d-mid", "b-low", "a-none"]);
+  assert.deepEqual(queryLaunchDirectories(rows, { minDr: 40, sort: "name" }).items.map((item) => item.slug), ["c-high", "d-mid"]);
+});
+
+test("cost sort puts free ways in first, then the lowest stated price, then unknown", () => {
+  const rows = [
+    row("a-unknown", { cost_kind: "unknown" }), row("b-paid-99", { cost_kind: "paid", lowest_paid_price_usd: 99 }),
+    row("c-free"), row("d-paid-9", { cost_kind: "paid", lowest_paid_price_usd: 9 }), row("e-paid-unstated", { cost_kind: "paid" }),
+  ];
+  assert.deepEqual(sortLaunchDirectories(rows, "cost").map((item) => item.slug), ["c-free", "d-paid-9", "b-paid-99", "a-unknown", "e-paid-unstated"]);
+});
+
+test("recently checked sorts by the record date, newest first", () => {
+  const rows = [row("a", { checked_on: "2026-09-01" }), row("b", { checked_on: "2026-10-07" }), row("c", { checked_on: null })];
+  assert.deepEqual(sortLaunchDirectories(rows, "checked").map((item) => item.slug), ["b", "a", "c"]);
 });
 
 test("pagination recovers from invalid and out-of-range URLs and empty results", () => {

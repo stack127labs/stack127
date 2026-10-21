@@ -1,0 +1,3 @@
+# Append to ubuntu's existing OVH crontab. Do not replace the ad-network jobs.
+# Server clock is UTC. Starts on the 2nd of each month at 06:00 UTC.
+0 6 2 * * /srv/stack127/scripts/launch-directories/ovh/run-job.sh launch-directory-metrics

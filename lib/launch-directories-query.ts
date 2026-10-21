@@ -33,6 +33,8 @@ export type LaunchDirectoryQuery = {
   links?: string[];
   submission?: string;
   backlink?: string;
+  /** Lowest Ahrefs domain rating to show. Places with no rating drop out. */
+  minDr?: number;
   sort?: string;
   page?: string | number;
   pageSize?: number;
@@ -81,18 +83,53 @@ export function filterLaunchDirectories(
       && (!query.costs?.length || query.costs.some((cost) => matchesCost(directory, cost)))
       && (!query.links?.length || query.links.includes(directory.link_type_kind))
       && (query.backlink !== "not_required" || launchDirectoryFreeWithoutRequiredBacklink(directory))
+      && (!query.minDr || (directory.domain_rating ?? -1) >= query.minDr)
       && (query.submission !== "verified" || verified)
       && (query.submission !== "unverified" || !verified);
   });
 }
 
+const trafficRanks: Record<NonNullable<LaunchDirectory["traffic_bucket"]>, number> = {
+  top_1k: 0, top_10k: 1, top_100k: 2, top_1m: 3, below_1m: 4,
+};
+
+/** What a maker pays to get listed: 0 with a free way in, else the lowest stated price. */
+export function launchDirectoryEntryPrice(directory: LaunchDirectory) {
+  if (launchDirectoryHasFreeOption(directory)) return 0;
+  return directory.cost_kind === "paid" ? directory.lowest_paid_price_usd ?? null : null;
+}
+
+/** Compares two values where a missing one always goes last, whatever the direction. */
+function knownFirst(left: number | null | undefined, right: number | null | undefined, direction: 1 | -1) {
+  const a = left ?? null, b = right ?? null;
+  if (a === b) return 0;
+  if (a === null) return 1;
+  if (b === null) return -1;
+  return (a - b) * direction;
+}
+
+const isReady = (directory: LaunchDirectory) => Number(directory.submission_status === "verified" && Boolean(directory.submit_url));
+
 export function sortLaunchDirectories(directories: LaunchDirectory[], sort = "recommended") {
   return [...directories].sort((left, right) => {
-    if (sort === "recommended") {
+    if (sort === "dr") {
+      const dr = knownFirst(left.domain_rating, right.domain_rating, -1);
+      if (dr) return dr;
+    } else if (sort === "popular") {
+      const rank = knownFirst(left.traffic_bucket ? trafficRanks[left.traffic_bucket] : null, right.traffic_bucket ? trafficRanks[right.traffic_bucket] : null, 1);
+      if (rank) return rank;
+      const dr = knownFirst(left.domain_rating, right.domain_rating, -1);
+      if (dr) return dr;
+    } else if (sort === "cost") {
+      const price = knownFirst(launchDirectoryEntryPrice(left), launchDirectoryEntryPrice(right), 1);
+      if (price) return price;
+    } else if (sort === "checked") {
+      const checked = (right.checked_on ?? "").localeCompare(left.checked_on ?? "");
+      if (checked) return checked;
+    } else if (sort !== "name") {
       const pinned = (recommendedPins.get(left.slug) ?? recommendedPins.size) - (recommendedPins.get(right.slug) ?? recommendedPins.size);
       if (pinned) return pinned;
-      const ready = (directory: LaunchDirectory) => Number(directory.submission_status === "verified" && Boolean(directory.submit_url));
-      const availability = ready(right) - ready(left);
+      const availability = isReady(right) - isReady(left);
       if (availability) return availability;
       const tier = categoryTier(left) - categoryTier(right);
       if (tier) return tier;
@@ -100,12 +137,6 @@ export function sortLaunchDirectories(directories: LaunchDirectory[], sort = "re
       if (cost) return cost;
       const link = linkRanks[left.link_type_kind] - linkRanks[right.link_type_kind];
       if (link) return link;
-    } else if (sort !== "name") {
-      const ready = (directory: LaunchDirectory) => Number(directory.submission_status === "verified" && Boolean(directory.submit_url));
-      const availability = ready(right) - ready(left);
-      if (availability) return availability;
-      const knownCost = Number(right.cost_kind !== "unknown") - Number(left.cost_kind !== "unknown");
-      if (knownCost) return knownCost;
     }
     return left.name.localeCompare(right.name, "en", { sensitivity: "base" }) || left.slug.localeCompare(right.slug, "en");
   });

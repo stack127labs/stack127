@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launch planner: where to submit your product, week by week · stack127</title>
+<link rel="stylesheet" href="assets/mock.css">
+<link rel="stylesheet" href="assets/ld.css">
+<script src="assets/data.js"></script>
+<script src="assets/ld.js"></script>
+<style>
+/* ---------- Workbench ---------- */
+.wb { border-bottom: 1px solid var(--color-border); }
+.wb-in { max-width: 66rem; }
+.wb-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr); gap: var(--space-13); align-items: start; }
+.form { display: grid; gap: var(--space-9); }
+.field { display: grid; gap: var(--space-3); margin: 0; padding: 0; border: 0; min-width: 0; }
+.field legend, .field > .lab { padding: 0; display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-small); font-weight: var(--weight-semibold); }
+.req { color: var(--color-text-muted); font-weight: 400; }
+.hint-q { display: inline-grid; place-items: center; width: 17px; height: 17px; border: 1px solid var(--color-border-strong); border-radius: 50%; background: none; color: var(--color-text-muted); font: 600 0.7rem var(--font-mono); cursor: help; padding: 0; }
+.choices { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.choice { position: relative; }
+.choice input { position: absolute; opacity: 0; pointer-events: none; }
+.choice span { display: inline-flex; align-items: center; gap: var(--space-3); height: 40px; padding: 0 14px; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius); font-size: var(--text-small); cursor: pointer; white-space: nowrap; }
+.choice span .icon { width: 15px; height: 15px; color: var(--color-text-muted); }
+.choice span:hover { background: var(--color-surface-2); }
+.choice input:checked + span { background: var(--color-surface-2); border-color: var(--color-text); font-weight: var(--weight-semibold); }
+.choice input:checked + span .icon { color: var(--color-text); }
+.choice input:focus-visible + span { box-shadow: var(--focus-ring); }
+.adv { border-top: 1px dashed var(--color-border-strong); padding-top: var(--space-7); }
+.adv summary { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); cursor: pointer; list-style: none; font-size: var(--text-small); font-weight: var(--weight-semibold); }
+.adv summary::-webkit-details-marker { display: none; }
+.adv summary::before { content: ""; width: 7px; height: 7px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: rotate(-45deg); transition: transform 120ms; }
+.adv[open] summary::before { transform: rotate(45deg); }
+.adv summary .set { margin-left: auto; color: var(--color-text-muted); font: 400 var(--text-small) var(--font-mono); }
+.adv-body { display: grid; gap: var(--space-6); padding-top: var(--space-8); }
+.checkline { display: flex; align-items: center; gap: var(--space-4); font-size: var(--text-small); cursor: pointer; width: fit-content; }
+.tick { appearance: none; -webkit-appearance: none; flex: none; margin: 0; width: 18px; height: 18px; border: 1px solid var(--color-border-strong); border-radius: var(--radius); background: var(--color-surface); display: inline-grid; place-items: center; cursor: pointer; }
+.tick:checked { border-color: var(--color-accent-text); background: var(--color-surface); }
+.tick:checked::after { content: ""; width: 9px; height: 5px; margin-top: -2px; border-left: 2px solid var(--color-accent-text); border-bottom: 2px solid var(--color-accent-text); transform: rotate(-45deg); }
+.date { display: inline-flex; align-items: center; gap: var(--space-4); height: 42px; width: fit-content; padding: 0 12px; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius); }
+.date .k { font: 0.78rem var(--font-mono); color: var(--color-text-muted); }
+.date input { background: none; border: 0; color: var(--color-text); font: var(--text-small) var(--font-mono); color-scheme: inherit; }
+.date input:focus-visible { box-shadow: none; outline: 0; }
+.date:focus-within { border-color: var(--color-accent-text); box-shadow: var(--focus-ring); }
+.actrow { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-7); }
+.actrow .btn.primary { height: 46px; }
+.quiet { background: none; border: 0; padding: 0; color: var(--color-text-muted); font: var(--text-small) var(--font-mono); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.status { font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+
+/* Live summary */
+.sum { display: grid; gap: var(--space-9); align-content: start; }
+.wb-grid > .sum { padding-left: var(--space-12); border-left: 1px solid var(--color-border); min-height: 100%; }
+.sum-tag { font: var(--text-small) var(--font-mono); color: var(--color-text-muted); display: flex; align-items: center; gap: var(--space-3); }
+.answer { margin: 0; font: var(--weight-bold) 1.55rem / 1.22 var(--font-display); letter-spacing: var(--tracking-display); text-wrap: balance; }
+.answer .n { font-family: var(--font-display); }
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--color-border); }
+.tiles > div { display: grid; gap: var(--space-2); align-content: start; padding: var(--space-7) var(--space-7) var(--space-7) 0; border-bottom: 1px solid var(--color-border); min-width: 0; }
+.tiles > div:nth-child(even) { padding-left: var(--space-7); border-left: 1px solid var(--color-border); }
+.tiles dt { font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+.tiles dd { margin: 0; font: var(--weight-bold) 1.75rem / 1.05 var(--font-display); letter-spacing: var(--tracking-display); white-space: nowrap; }
+.tiles dd small { font: 400 var(--text-small) var(--font-mono); color: var(--color-text-muted); letter-spacing: 0; }
+.meterbar { display: block; height: 4px; background: var(--color-surface-2); border-radius: 1px; overflow: hidden; margin-top: var(--space-2); }
+.meterbar i { display: block; height: 100%; background: var(--color-data-cyan); }
+.wide .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.wide .tiles > div:nth-child(n) { padding-left: var(--space-7); border-left: 1px solid var(--color-border); }
+.wide .tiles > div:first-child { padding-left: 0; border-left: 0; }
+
+/* ---------- Result ---------- */
+.divider { border: 0; border-top: 1px solid var(--color-border); margin: var(--space-12) 0; }
+.result { display: flex; flex-direction: column; gap: var(--space-14); }
+.r-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-4) var(--space-8); margin-bottom: var(--space-8); }
+.r-head h2 { margin: 0; font: var(--weight-bold) var(--text-h3) / 1.2 var(--font-display); letter-spacing: -0.01em; }
+.r-head .hint { margin: 0; }
+.stale { opacity: 0.55; }
+
+/* Week list */
+.weeks { display: grid; }
+.wk { border-top: 1px solid var(--color-border-strong); padding: var(--space-7) 0 var(--space-5); }
+.wk-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2) var(--space-6); margin-bottom: var(--space-4); }
+.wk-h h3 { margin: 0; font: var(--weight-bold) 1.06rem / 1.2 var(--font-display); }
+.wk-h .d { font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+.wk-h .what { font-size: var(--text-small); color: var(--color-text-muted); }
+.wk-h .what::before { content: "·"; margin-right: var(--space-6); }
+.sub-h { display: flex; align-items: center; gap: var(--space-3); margin: var(--space-5) 0 var(--space-2); font: var(--weight-semibold) var(--text-small) var(--font-sans); }
+.sub-h .icon { width: 15px; height: 15px; color: var(--color-text-muted); }
+.sub-h .d { font: 400 var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+.cols, .prow { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr) 118px 88px 150px 92px; gap: var(--space-6); align-items: center; }
+.cols { padding: 0 0 var(--space-3); font: 0.8rem var(--font-mono); color: var(--color-text-muted); }
+.cols span:last-child, .prow .done { justify-self: end; }
+.prow { padding: var(--space-4) 0; border-top: 1px solid var(--color-border); font-size: var(--text-small); }
+.prow:first-of-type { border-top: 0; }
+.pname { display: flex; align-items: center; gap: var(--space-5); min-width: 0; }
+.pname .ld-logo { width: 28px; height: 28px; font-size: 13px; flex: none; }
+.pname a { color: var(--color-text); font-weight: var(--weight-semibold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pname a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.pname .go { color: var(--color-text-muted); display: inline-flex; flex: none; }
+.pname .go svg { width: 13px; height: 13px; }
+.pname .go:hover { color: var(--color-link); }
+.why { color: var(--color-text-muted); min-width: 0; }
+.mono { font-family: var(--font-mono); }
+.c-cost { white-space: nowrap; }
+.unk { color: var(--color-text-muted); }
+.done { display: inline-flex; align-items: center; gap: var(--space-3); font: var(--text-small) var(--font-mono); color: var(--color-text-muted); cursor: pointer; }
+.prow.is-done .pname a { text-decoration: line-through; text-decoration-color: var(--color-text-muted); }
+.prow.is-done .done { color: var(--color-text); }
+.prep-line { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); font-size: var(--text-small); }
+.prep-line .chips { gap: var(--space-2); }
+.prep-line .chip { height: 26px; }
+.prep-line .chip.ok { color: var(--color-text-muted); text-decoration: line-through; }
+.prep-line a { color: var(--color-link); font: var(--text-small) var(--font-mono); }
+
+/* Gantt */
+.gantt-box { position: relative; border: 1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-7) var(--space-7) var(--space-5); overflow-x: auto; }
+.gantt-box svg text { font: 11.5px var(--font-mono); }
+.gantt-box svg .nm { font: 12.5px var(--font-sans); fill: var(--color-text); }
+.gantt-box svg .nm.done { fill: var(--color-text-muted); text-decoration: line-through; }
+.g-live { fill: var(--color-data-cyan); }
+.g-open { fill: none; stroke: var(--color-text-muted); stroke-dasharray: 3 3; }
+.g-lead { stroke: var(--color-border-strong); }
+.g-dot { fill: var(--color-text); }
+.g-grid { stroke: var(--color-border); }
+.g-launch { stroke: var(--color-text); stroke-dasharray: 2 3; }
+.g-band { fill: var(--color-surface-2); opacity: 0.5; }
+.legend { margin-top: var(--space-5); }
+.legend .lg-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--color-text); }
+.legend .lg-live { background: var(--color-data-cyan); width: 16px; height: 7px; }
+.legend .lg-open { border: 1px dashed var(--color-text-muted); width: 16px; height: 7px; }
+.legend .lg-launch { width: 0; height: 12px; border-left: 1px dashed var(--color-text); border-radius: 0; }
+
+/* Prep checklist */
+.prep { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--space-12); }
+.prep label { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--space-5); align-items: center; padding: var(--space-5) 0; border-top: 1px solid var(--color-border); font-size: var(--text-small); cursor: pointer; }
+.prep label b { font-weight: var(--weight-semibold); }
+.prep label .spec { font: var(--text-small) var(--font-mono); color: var(--color-text-muted); text-align: right; }
+.prep label .spec.real { color: var(--color-text); }
+.prep label:has(input:checked) b { text-decoration: line-through; color: var(--color-text-muted); }
+
+.actions { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+.actions .btn.secondary .icon { width: 15px; height: 15px; }
+.copied { font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+
+/* ---------- Tool page shell ---------- */
+.tool-head { padding-bottom: var(--space-11); }
+.tool-head .page-header > p a { color: var(--color-text); text-decoration: underline; text-decoration-color: var(--color-border-strong); text-underline-offset: 3px; }
+.tool-article { margin-top: var(--space-13); }
+.use { margin: 0; padding-left: 1.3em; display: grid; gap: var(--space-4); }
+.use li::marker { font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+.use b { font-weight: var(--weight-semibold); }
+
+/* ---------- Content below the tool ---------- */
+.rules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-7); }
+.rule { display: grid; gap: var(--space-4); align-content: start; padding: var(--space-8); border: 1px solid var(--color-border); border-radius: var(--radius); }
+.rule .icon { width: 20px; height: 20px; color: var(--color-text-muted); }
+.rule b { font: var(--weight-semibold) 1.02rem / 1.3 var(--font-display); }
+.rule p { margin: 0; font-size: var(--text-small); color: var(--color-text-muted); line-height: 1.5; }
+.assets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-7); align-items: end; }
+.asset { display: grid; gap: var(--space-4); }
+.frame { display: grid; place-items: center; border: 1px dashed var(--color-border-strong); border-radius: var(--radius); color: var(--color-text-muted); font: 0.78rem var(--font-mono); text-align: center; padding: 4px; }
+.frame.text { align-content: center; justify-items: start; gap: 6px; padding: 12px; aspect-ratio: 4 / 3; }
+.frame.text i { display: block; height: 6px; background: var(--color-surface-2); border-radius: 1px; }
+.asset b { font: var(--weight-semibold) var(--text-small) var(--font-sans); }
+.asset span { font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+.faq { display: grid; max-width: var(--measure-prose); }
+.faq details { border-top: 1px solid var(--color-border); }
+.faq details:last-child { border-bottom: 1px solid var(--color-border); }
+.faq summary { display: flex; justify-content: space-between; gap: var(--space-7); padding: var(--space-7) 0; cursor: pointer; list-style: none; font: var(--weight-semibold) 1.02rem / 1.35 var(--font-display); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font: 400 1.2rem / 1 var(--font-mono); color: var(--color-text-muted); }
+.faq details[open] summary::after { content: "–"; }
+.faq p { margin: 0 0 var(--space-8); }
+
+@container (max-width: 1100px) {
+  .cols, .prow { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr) 112px 80px 128px 86px; }
+}
+@container (max-width: 860px) {
+  .wb-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-11); }
+  .wb-grid > .sum { padding-left: 0; border-left: 0; border-top: 1px solid var(--color-border); padding-top: var(--space-9); }
+  .cols { display: none; }
+  .prow { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "n d" "w w" "f f"; gap: var(--space-2) var(--space-6); padding: var(--space-6) 0; }
+  .prow .pname { grid-area: n; } .prow .done { grid-area: d; } .prow .why { grid-area: w; padding-left: 40px; }
+  .prow .c-cost, .prow .c-link, .prow .c-live { display: none; }
+  .prow .facts-m { grid-area: f; display: flex !important; flex-wrap: wrap; gap: var(--space-1) var(--space-6); padding-left: 40px; font: var(--text-small) var(--font-mono); }
+  .wide .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wide .tiles > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+}
+.facts-m { display: none !important; }
+@container (max-width: 560px) {
+  .prep { grid-template-columns: minmax(0, 1fr); }
+  .rules { grid-template-columns: minmax(0, 1fr); }
+  .assets { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .answer { font-size: 1.32rem; }
+  .tiles dd { font-size: 1.45rem; }
+  .prow .done span { display: none; }
+}
+</style>
+</head>
+<body data-section="Launch planner">
+<div class="shell">
+  <aside class="sidebar" data-menu="SaaS tools">
+    <div class="panel">
+      <div class="panel-head"><h2 class="panel-title">SaaS tools</h2></div>
+      <nav aria-label="SaaS tools">
+        <ul class="slist tools">
+          <li><a href="launch-planner.html" aria-current="page"><span class="ic"><span data-icon="route"></span></span><span>Launch planner</span><span></span></a></li>
+          <li><a href="#"><span class="ic"><span data-icon="chart"></span></span><span>MRR calculator</span><span></span></a></li>
+          <li><a href="#"><span class="ic"><span data-icon="chart"></span></span><span>ARR calculator</span><span></span></a></li>
+          <li><a href="#"><span class="ic"><span data-icon="activity"></span></span><span>MRR goal calculator</span><span></span></a></li>
+          <li><a href="#"><span class="ic"><span data-icon="coins"></span></span><span>Break-even MRR calculator</span><span></span></a></li>
+          <li><a href="#"><span class="ic"><span data-icon="clock"></span></span><span>Startup runway calculator</span><span></span></a></li>
+          <li><a href="#"><span class="ic"><span data-icon="coins"></span></span><span>CAC payback calculator</span><span></span></a></li>
+          <li><a href="#"><span class="ic"><span data-icon="chart"></span></span><span>LTV to CAC calculator</span><span></span></a></li>
+          <li><a href="#"><span class="ic"><span data-icon="activity"></span></span><span>Customer churn calculator</span><span></span></a></li>
+          <li><a href="#"><span class="ic"><span data-icon="coins"></span></span><span>Annual plan discount calculator</span><span></span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="main"><div class="content">
+    <div class="canvas tool-head">
+      <header class="page-header">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="#">stack127</a></li><li><a href="#">saas tools</a></li><li><span aria-current="page">launch planner</span></li></ol></nav>
+        <h1><span class="title-icon"><span data-icon="route"></span></span><mark>Launch planner</mark></h1>
+        <div class="meta"><a href="#"><span data-icon="code"></span>GitHub</a><span><span data-icon="bookmark"></span>Version 1.0</span><span><span data-icon="calendar"></span>Updated Oct 10, 2026</span></div>
+        <p>Answer four questions and get a week-by-week list of where to submit your product, what it costs, and when each listing should go live. It picks from <a href="launch-directories.html">155 launch directories</a> we check every month.</p>
+      </header>
+    </div>
+
+    <section class="wb canvas" aria-label="Launch planner">
+      <div class="wb-in">
+          <div class="wb-grid">
+            <form class="form" id="formA" data-mock>
+              <fieldset class="field"><legend>What are you launching? <span class="req">*</span></legend><div class="choices" data-name="type"></div></fieldset>
+              <fieldset class="field"><legend>Budget for the whole launch <span class="req">*</span></legend><div class="choices" data-name="budget"></div></fieldset>
+              <fieldset class="field"><legend>Main goal <span class="req">*</span> <button type="button" class="hint-q" title="Backlinks puts places with dofollow links first. Users puts places with bigger audiences first.">?</button></legend><div class="choices" data-name="goal"></div></fieldset>
+              <fieldset class="field"><legend>Time before you're done <span class="req">*</span></legend><div class="choices" data-name="weeks"></div></fieldset>
+              <details class="adv" id="advA">
+                <summary>Badges, submit pages, and launch day <span class="set" data-adv-set>Nothing set</span></summary>
+                <div class="adv-body">
+                  <label class="checkline"><input class="tick" type="checkbox" data-adv="noBadge"> Skip places that ask for a badge or link back</label>
+                  <label class="checkline"><input class="tick" type="checkbox" data-adv="checkedOnly"> Only places whose submit page we opened</label>
+                  <label class="date"><span class="k">Launch day</span><input type="date" data-adv="launch"></label>
+                </div>
+              </details>
+              <div class="actrow"><button class="btn primary" type="submit" id="buildA">Build my plan</button><button class="quiet" type="button" data-reset>Reset</button><span class="status" data-status></span></div>
+            </form>
+            <div class="sum" id="sumA" aria-live="polite"></div>
+          </div>
+
+        <hr class="divider">
+
+        <div class="result" id="result">
+          <section class="r-weeks" aria-labelledby="h-weeks">
+            <div class="r-head"><h2 id="h-weeks">Week by week</h2><p class="hint" id="weeksHint">Tick each place when you submit it.</p></div>
+            <div id="weeks"></div>
+          </section>
+          <section class="r-gantt" aria-labelledby="h-gantt">
+            <div class="r-head"><h2 id="h-gantt">When each listing should go live</h2><p class="hint">From the review times each place publishes</p></div>
+            <div class="gantt-box" id="gantt"></div>
+            <ul class="legend"><li><i class="lg-dot"></i>You submit</li><li><i class="lg-live"></i>Expected to go live</li><li><i class="lg-open"></i>Not stated</li><li><i class="lg-launch"></i>Launch day</li></ul>
+          </section>
+          <section class="r-prep" id="prep-list" aria-labelledby="h-prep">
+            <div class="r-head"><h2 id="h-prep">Get these ready first</h2><p class="hint"><span class="sample">Dotted</span> sizes are samples</p></div>
+            <div class="prep" id="prep"></div>
+          </section>
+          <div class="actions" id="actions">
+            <button class="btn secondary" type="button" data-act="csv"><span data-icon="file"></span>Export CSV</button>
+            <button class="btn secondary" type="button" data-act="copy"><span data-icon="check"></span>Copy as checklist</button>
+            <a class="btn secondary" id="toCompare" href="compare.html"><span data-icon="columns"></span>Compare the first 3</a>
+            <span class="copied" id="copied" aria-live="polite"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="canvas">
+      <article class="prose tool-article">
+        <section aria-labelledby="h-use">
+          <h2 id="h-use">How to use the launch planner</h2>
+          <ol class="use">
+            <li><b>Pick what you're launching.</b> A SaaS, an AI tool, a dev tool, or something else.</li>
+            <li><b>Set a budget and a goal.</b> Free only is fine. Pick backlinks or users.</li>
+            <li><b>Choose how many weeks you have.</b> Slow places start in week 1.</li>
+            <li><b>Tick each place as you submit.</b> Your ticks stay in this browser.</li>
+          </ol>
+        </section>
+
+        <section aria-labelledby="h-how">
+          <h2 id="h-how">How we build your plan</h2>
+          <p>Four simple rules, applied to every place in the directory.</p>
+          <div class="rules">
+            <div class="rule"><span data-icon="grid"></span><b>Fits what you make</b><p>Only places that list your kind of product.</p></div>
+            <div class="rule"><span data-icon="coins"></span><b>Fits your budget</b><p>Free first. A paid place joins only if its price is stated and fits.</p></div>
+            <div class="rule"><span data-icon="link"></span><b>Matches your goal</b><p>Backlinks puts dofollow first. Users puts bigger audiences first.</p></div>
+            <div class="rule"><span data-icon="clock"></span><b>Slow queues go first</b><p>A known wait and a working submit page move a place up.</p></div>
+          </div>
+        </section>
+
+        <section aria-labelledby="h-assets">
+          <h2 id="h-assets">What to prepare</h2>
+          <p>Most places ask for the same few things. Make them once and reuse them.</p>
+          <div class="assets">
+            <div class="asset"><div class="frame" style="aspect-ratio:1/1;width:62%"><span class="sample">240 × 240</span></div><b>Square logo</b><span>PNG or SVG</span></div>
+            <div class="asset"><div class="frame" style="aspect-ratio:1270/760"><span class="sample">1270 × 760</span></div><b>Screenshots</b><span>3 to 5</span></div>
+            <div class="asset"><div class="frame" style="aspect-ratio:1200/630"><span class="sample">1200 × 630</span></div><b>Social image</b><span>For link previews</span></div>
+            <div class="asset"><div class="frame" style="aspect-ratio:16/9"><span data-icon="activity"></span></div><b>Short demo</b><span>Video or GIF, <span class="sample">under 60 s</span></span></div>
+            <div class="asset"><div class="frame text"><i style="width:80%"></i><span class="sample">60 characters</span></div><b>Tagline</b><span>What it does</span></div>
+            <div class="asset"><div class="frame text"><i style="width:92%"></i><i style="width:86%"></i><i style="width:60%"></i><span class="sample">260 characters</span></div><b>Description</b><span>Who it's for</span></div>
+          </div>
+        </section>
+
+        <section aria-labelledby="h-faq">
+          <h2 id="h-faq">Questions</h2>
+          <div class="faq">
+            <details open><summary>Why does Uneed go in week 1?</summary><p>Its free queue takes 30 days to 5 months. Submitting early gives the listing the best chance of going live near your launch.</p></details>
+            <details><summary>What does "Not stated" mean?</summary><p>The place doesn't publish a review time, so we don't guess one. Check back on it a week after you submit.</p></details>
+            <details><summary>Do I have to pay for anything?</summary><p>No. With "Free only", every place in your plan has a free way in. Some sell an upgrade that skips the queue; that's the top of the cost range.</p></details>
+            <details><summary>Where are my ticks saved?</summary><p>In this browser only. Nothing is sent to us. Use Export CSV to keep a copy.</p></details>
+          </div>
+        </section>
+      </article>
+    </div>
+  </div></div>
+</div>
+<script>
+/* Launch planner mockup. Builds a plan from window.LD with simple rules:
+   1. Category fits the product type.  2. Price fits the budget (free paths first).
+   3. Goal: dofollow first for backlinks, bigger audience first for users.
+   4. A known review time and a checked submit page add a nudge. Long queues go in week 1. */
+document.addEventListener("DOMContentLoaded", () => {
+  const U = window.LDUI, LD = window.LD, $ = (s, el = document) => el.querySelector(s), $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const ic = (n) => U.icon(n);
+
+  /* ---------- Options ---------- */
+  const OPTS = {
+    type: [
+      ["saas", "SaaS", "briefcase", ["startup-software", "launch-boards"], ["software-reviews-alternatives", "prelaunch-beta"], "SaaS"],
+      ["ai", "AI tool", "bot", ["ai-tools"], ["launch-boards", "startup-software"], "AI tools"],
+      ["dev", "Developer tool or open source", "code", ["developer-open-source"], ["launch-boards", "startup-software"], "dev tools"],
+      ["mobile", "Mobile app", "grid", ["launch-boards", "prelaunch-beta"], ["startup-software"], "apps"],
+      ["design", "Design or no-code", "pen", ["design-nocode-creator"], ["launch-boards", "startup-software"], "design and no-code"],
+      ["other", "Something else", "rocket", ["launch-boards"], ["startup-software", "prelaunch-beta"], "new products"],
+    ],
+    budget: [["0", "Free only", "$0"], ["50", "Up to $50", "$50"], ["200", "Up to $200", "$200"], ["any", "Any budget", "No limit"]],
+    goal: [["users", "Users", "Bigger audiences first"], ["links", "Backlinks", "Dofollow first"], ["both", "Both", "A mix of the two"]],
+    weeks: [["1", "1 week", "8 places"], ["2", "2 weeks", "12 places"], ["4", "4 weeks", "18 places"], ["8", "8 weeks", "26 places"]],
+  };
+  const SIZE = { 1: 8, 2: 12, 4: 18, 8: 26 };
+  const DEFAULT = { type: "saas", budget: "0", goal: "both", weeks: "4", noBadge: false, checkedOnly: false, launch: "" };
+  const state = { ...DEFAULT };
+  let built = false, plan = null;
+
+  const store = (k, v) => { try { if (v === undefined) return JSON.parse(localStorage.getItem(k) || "null"); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } };
+  let done = new Set(store("ld:planner:done") || []);
+  let prepDone = new Set(store("ld:planner:prep") || []);
+  let saved = store("ld:saved") || ["product-hunt", "betalist", "alternativeto", "open-source-alternative"];
+  let pinned = new Set(store("ld:planner:pinned") || []);
+
+  /* ---------- Review time parser: the free path, in days ---------- */
+  const NUM = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10 };
+  function parseWait(r) {
+    const t = (r.review || "").replace(/[–—]/g, "-");
+    if (/choose a launch day/i.test(t)) return { kind: "scheduled" };
+    const parts = t.split(/;|\.\s/).map((s) => s.trim()).filter(Boolean);
+    const NEG = /no (fixed |stated |review |editorial |separate |publication )?(eta|wait|review time|approval|deadline|turnaround)|not stated|couldn't verify|conflicting|no approval|days ahead/;
+    const INFO = /\d|instant|immediate|few|several|months|weeks|next monday|daily|one|two|three|five|six/i;
+    const PAID = /fast|premium|paid|priority|upgrade|skip|pro\b|featured/i;
+    let c = parts.find((p) => /\bfree\b/i.test(p)) || parts[0] || "";
+    if (!/\bfree\b/i.test(c) && !INFO.test(c) && !NEG.test(c.toLowerCase())) c = parts.find((p) => INFO.test(p) && !PAID.test(p)) || c;
+    c = c.toLowerCase().replace(/\b(one|two|three|four|five|six|seven|eight|nine|ten)\b/g, (m) => NUM[m]);
+    if (/days ahead/.test(c)) return null;
+    if (NEG.test(c) && !/\d+ (hours|days|weeks|months)/.test(c)) return null;
+    const R = (a, b) => ({ kind: "range", min: Math.round(a), max: Math.max(Math.round(b), Math.round(a)) });
+    let m;
+    if (/instant|immediate|minutes|seconds/.test(c)) return R(0, 0);
+    if ((m = c.match(/(\d+) hours? to (\d+) week/))) return R(Math.ceil(m[1] / 24), m[2] * 7);
+    if ((m = c.match(/(\d+) days? to (\d+) months?/))) return R(+m[1], +m[2] * 30);
+    if ((m = c.match(/few days to (\d+) months?/))) return R(3, +m[1] * 30);
+    if ((m = c.match(/(\d+)\+? months?/))) return /\+|at least/.test(c) ? R(m[1] * 30, m[1] * 40) : R(m[1] * 26, m[1] * 34);
+    if (/can take months/.test(c)) return R(30, 120);
+    if ((m = c.match(/(\d+) weeks?/)) && !/weekly/.test(c)) return /more than|at least|\+/.test(c) ? R(m[1] * 7, m[1] * 10) : /about|roughly/.test(c) ? R(m[1] * 6, m[1] * 8) : R(m[1] * 7, m[1] * 7);
+    if ((m = c.match(/(\d+)-week/))) return R(m[1] * 7, m[1] * 7);
+    const biz = /business/.test(c) ? 1.4 : 1;
+    if ((m = c.match(/(\d+)\s*(?:to|-)\s*(\d+)\s*(?:business )?days/))) return R(m[1] * biz, m[2] * biz);
+    if ((m = c.match(/(\d+)\s*(?:to|-)\s*(\d+)\s*h/))) return R(Math.ceil(m[1] / 24), Math.ceil(m[2] / 24));
+    if ((m = c.match(/(?:about|roughly|averages?)\s+(\d+) days/))) return R(m[1] * 0.85, m[1] * 1.15);
+    if ((m = c.match(/at least (\d+) days/))) return R(+m[1], m[1] * 1.25);
+    if ((m = c.match(/(?:up to|within|under) (\d+) (business )?days?/))) return R(0, m[1] * (m[2] ? 1.4 : 1));
+    if ((m = c.match(/(\d+) (business )?days/))) return R(m[1] * (m[2] ? 1.4 : 1), m[1] * (m[2] ? 1.4 : 1));
+    if ((m = c.match(/(?:within|under|in) (\d+)\s*(?:hours|h\b)|(\d+)\s*(?:hours|h)\b|(\d+)-hour/))) return R(0, Math.ceil(+(m[1] || m[2] || m[3]) / 24));
+    if (/few hours/.test(c)) return R(0, 1);
+    if (/several (business )?days/.test(c)) return R(3, 7);
+    if (/next monday/.test(c)) return R(1, 7);
+    if (/reviewed daily/.test(c)) return R(1, 3);
+    return null;
+  }
+  const needsBadge = (r) => /badge|backlink|reciprocal|link back/i.test(`${r.elig} ${r.costLabel}`) && !/optional/i.test(r.elig);
+  const POP = { "Top 1k": 4, "Top 10k": 3, "Top 100k": 2, "Top 1M": 1, "Below 1M": 0 };
+
+  /* ---------- Dates ---------- */
+  const DAY = 864e5;
+  const today = (() => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; })();
+  const addDays = (d, n) => new Date(d.getTime() + n * DAY);
+  const fmt = (d, wd) => d.toLocaleDateString("en-US", wd ? { weekday: "short", month: "short", day: "numeric" } : { month: "short", day: "numeric" });
+  const iso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const money = (n) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`;
+  const span = (w) => !w ? null : w.kind === "scheduled" ? "On launch day" : w.max === 0 ? "Same day" : w.max <= 2 ? `${w.max === 1 ? "1 day" : "1 to 2 days"}` : waitText(w.min, w.max);
+  function waitText(a, b) {
+    const u = (n) => n >= 60 ? `${Math.round(n / 30)} mo` : n >= 14 ? `${Math.round(n / 7)} wk` : `${n} days`;
+    if (a === b) return u(a);
+    if (b >= 60) return a >= 60 ? `${Math.round(a / 30)} to ${Math.round(b / 30)} mo` : `${u(a)} to ${Math.round(b / 30)} mo`;
+    if (b >= 14) return a >= 14 ? `${Math.round(a / 7)} to ${Math.round(b / 7)} wk` : `${a} days to ${Math.round(b / 7)} wk`;
+    return `${a} to ${b} days`;
+  }
+
+  /* ---------- The planner ---------- */
+  function build(s) {
+    const T = OPTS.type.find((t) => t[0] === s.type);
+    const [, , , main, also, catWord] = T;
+    const budget = s.budget === "any" ? Infinity : +s.budget;
+    const wantLinks = s.goal !== "users", wantUsers = s.goal !== "links";
+    const size = SIZE[s.weeks];
+    const pool = [];
+    for (const r of LD) {
+      const pin = pinned.has(r.slug);
+      if (r.subStatus === "unavailable") continue;
+      if (s.checkedOnly && r.subStatus !== "verified") continue;
+      if (s.noBadge && needsBadge(r)) continue;
+      const fitMain = r.cats.some((c) => main.includes(c)), fitAlso = r.cats.some((c) => also.includes(c));
+      if (!fitMain && !fitAlso && !pin) continue;
+      // Cost of the free path, or the stated price.
+      let pay = null, upgrade = null;
+      if (r.cost === "free") pay = 0;
+      else if (r.cost === "free_and_paid") { pay = 0; upgrade = r.price || null; }
+      else if (r.cost === "paid" && r.price) pay = r.price;
+      if (pay == null && budget !== Infinity) continue; // price not stated: only with any budget
+      const wait = parseWait(r);
+      let score = fitMain ? 4 : 2;
+      if (wantLinks) score += { dofollow: 3, varies: 2 }[r.link] || 0;
+      if (wantUsers) score += (POP[r.pop] || 0) + (r.dr || 0) / 30;
+      if (wait) score += 1;
+      if (r.subStatus === "verified") score += 1;
+      if (pay) score -= pay / 100;
+      // A queue that ends long after the plan is little help: push it down.
+      if (wait && wait.kind === "range" && wait.min > +s.weeks * 7 + 28) score -= 4;
+      if (pin) score += 100;
+      pool.push({ r, pay, upgrade, wait, score, fitMain });
+    }
+    pool.sort((a, b) => b.score - a.score || a.r.name.localeCompare(b.r.name));
+    let left = budget; const pick = [];
+    for (const p of pool) {
+      if (pick.length >= size) break;
+      if (p.pay && p.pay > left) continue;
+      if (p.pay) left -= p.pay;
+      pick.push(p);
+    }
+    // Upgrades that skip queues, cheapest first, while the budget lasts.
+    let upTotal = 0;
+    pick.filter((p) => p.upgrade).sort((a, b) => a.upgrade - b.upgrade).forEach((p) => { if (p.upgrade <= left) { left -= p.upgrade; upTotal += p.upgrade; p.upFits = true; } });
+    const low = pick.reduce((t, p) => t + (p.pay || 0), 0);
+    const unpriced = pick.filter((p) => p.pay == null).length;
+
+    // Schedule.
+    const N = +s.weeks, L = Math.max(1, Math.ceil(N / 2));
+    let week0 = today;
+    if (s.launch) week0 = addDays(new Date(s.launch + "T00:00:00"), -(7 * L + 1));
+    const wStart = (k) => addDays(week0, 7 * k);
+    const launchDay = addDays(wStart(L), 1);
+    const isSlow = (p) => p.wait && p.wait.kind === "range" && p.wait.min >= 14;
+    const boards = pick.filter((p) => p.r.cats.includes("launch-boards") && !isSlow(p))
+      .sort((a, b) => (b.wait?.kind === "scheduled") - (a.wait?.kind === "scheduled") || (POP[b.r.pop] || 0) + (b.r.dr || 0) / 30 - (POP[a.r.pop] || 0) - (a.r.dr || 0) / 30)
+      .slice(0, N === 1 ? 2 : 3);
+    const rest = [];
+    pick.forEach((p) => {
+      if (isSlow(p)) { p.group = "slow"; p.week = 1; p.submit = wStart(1); }
+      else if (boards.includes(p)) { p.group = "launch"; p.week = L; p.submit = addDays(launchDay, -7 < 0 ? 0 : 0); p.submit = p.wait?.kind === "scheduled" ? addDays(wStart(L), -6) : launchDay; }
+      else if (p.r.cats.includes("prelaunch-beta") && L > 1) { p.group = "before"; p.week = L - 1; p.submit = wStart(L - 1); }
+      else rest.push(p);
+    });
+    const after = N > L ? N - L : 0;
+    rest.sort((a, b) => b.score - a.score).forEach((p, i) => {
+      p.group = "rest";
+      if (after) { p.week = L + 1 + (i % after); p.submit = wStart(p.week); }
+      else { p.week = L; p.submit = addDays(launchDay, 1); }
+    });
+    pick.forEach((p) => {
+      const w = p.wait;
+      if (!w) { p.live = null; return; }
+      if (w.kind === "scheduled") { p.live = [launchDay, launchDay]; return; }
+      p.live = [addDays(p.submit, w.min), addDays(p.submit, w.max)];
+    });
+    // Why it's here: cost, link, fit.
+    pick.forEach((p) => {
+      const bits = [];
+      bits.push(p.pay === 0 ? "free" : p.pay ? money(p.pay) : "price not stated");
+      if (p.r.link === "dofollow") bits.push("dofollow");
+      else if (p.r.link === "varies") bits.push("dofollow sometimes");
+      if (pinned.has(p.r.slug)) bits.push("saved pick");
+      else if (p.r.cats.includes("ai-tools") && s.type === "ai") bits.push("AI tools");
+      else if (p.group === "launch") bits.push(p.wait?.kind === "scheduled" ? "you pick the day" : "busy launch board");
+      else if (isSlow(p)) bits.push("long queue");
+      else if (p.fitMain) bits.push(catWord);
+      else bits.push(U.catLabel(p.r.cats[0]).toLowerCase());
+      if (wantUsers && POP[p.r.pop] >= 3 && bits.length < 3) bits.push("big audience");
+      const t = bits.slice(0, 3).join(", ");
+      p.why = t[0].toUpperCase() + t.slice(1);
+    });
+    const order = { slow: 0, before: 1, launch: 2, rest: 3 };
+    pick.sort((a, b) => a.week - b.week || order[a.group] - order[b.group] || b.score - a.score);
+    return { s, N, L, pick, low, high: low + upTotal, unpriced, wStart, launchDay, week0,
+      dofollow: pick.filter((p) => p.r.link === "dofollow").length,
+      varies: pick.filter((p) => p.r.link === "varies").length,
+      known: pick.filter((p) => p.wait).length,
+      badge: pick.filter((p) => needsBadge(p.r)).length,
+      ph: pick.some((p) => p.r.slug === "product-hunt") };
+  }
+
+  /* ---------- Inputs: A (workbench) ---------- */
+  const formA = $("#formA");
+  $$(".choices", formA).forEach((box) => {
+    const name = box.dataset.name;
+    box.innerHTML = OPTS[name].map((o) => `<label class="choice"><input type="radio" name="${name}" value="${o[0]}"><span>${name === "type" ? ic(o[2]) : ""}${o[1]}</span></label>`).join("");
+  });
+  function syncInputs() {
+    $$("input[type=radio]", formA).forEach((i) => (i.checked = state[i.name] === i.value));
+    $$("[data-adv]").forEach((i) => { if (i.type === "checkbox") i.checked = !!state[i.dataset.adv]; else i.value = state.launch; });
+    const set = [state.noBadge && "No badges", state.checkedOnly && "Checked pages only", state.launch && `Launch ${fmt(new Date(state.launch + "T00:00:00"))}`].filter(Boolean);
+    $$("[data-adv-set]").forEach((el) => (el.textContent = set.length ? set.join(", ") : "Nothing set"));
+  }
+  formA.addEventListener("change", (e) => {
+    const i = e.target;
+    if (i.type === "radio") state[i.name] = i.value;
+    else if (i.dataset.adv) state[i.dataset.adv] = i.type === "checkbox" ? i.checked : i.value;
+    syncInputs();
+    if (built) run();
+  });
+  formA.addEventListener("submit", (e) => { e.preventDefault(); run(); });
+  $$("[data-reset]").forEach((b) => b.addEventListener("click", () => { Object.assign(state, DEFAULT); syncInputs(); built = false; plan = null; render(); }));
+
+  /* ---------- Rendering ---------- */
+  function run() { built = true; plan = build(state); render(); }
+
+  function summary(p) {
+    const D = "—";
+    const cost = !p ? D : p.low === p.high ? money(p.low) : `${money(p.low)}–${money(p.high)}`;
+    const answer = !p ? `Here's a plan with ${D} places. Total cost ${D}.`
+      : `Here's a ${p.N}-week plan with ${p.pick.length} places. Total cost ${p.low === p.high ? money(p.low) : `${money(p.low)} to ${money(p.high)}`}${p.unpriced ? `, plus ${p.unpriced} with no stated price` : ""}.`;
+    const meter = (n) => (p ? `<span class="meterbar"><i style="width:${(100 * n) / Math.max(1, p.pick.length)}%"></i></span>` : `<span class="meterbar"></span>`);
+    return `<div class="sum-tag">${ic("route")}${p ? `Launch day ${fmt(p.launchDay, true)}` : "Your plan shows here"}</div>
+      <p class="answer">${answer}</p>
+      <dl class="tiles">
+        <div><dt>Places</dt><dd>${p ? p.pick.length : D}</dd></div>
+        <div><dt>Total cost</dt><dd>${cost}</dd></div>
+        <div><dt>Dofollow</dt><dd>${p ? `${p.dofollow} <small>of ${p.pick.length}</small>` : D}</dd>${meter(p?.dofollow)}</div>
+        <div><dt>Known review time</dt><dd>${p ? `${p.known} <small>of ${p.pick.length}</small>` : D}</dd>${meter(p?.known)}</div>
+      </dl>`;
+  }
+
+  const liveLabel = (p) => (p.group === "launch" && p.wait?.kind === "scheduled" ? "On launch day" : U.waitShort(p.r) || span(p.wait));
+  const rowHTML = (p) => {
+    const r = p.r, d = done.has(r.slug);
+    const cost = p.pay === 0 ? (p.upgrade ? `Free <span class="unk">· ${money(p.upgrade)}</span>` : "Free") : p.pay ? money(p.pay) : '<span class="unk">Not stated</span>';
+    const link = U.linkShort(r) || '<span class="unk">Not stated</span>';
+    const ws = liveLabel(p), live = ws && ws !== "No set time" ? ws : `<span class="unk">${ws || "Not stated"}</span>`;
+    const sub = r.subStatus === "verified" && r.submit ? `<a class="go" href="${r.submit}" target="_blank" rel="nofollow noopener" title="Open the submit page" aria-label="Submit to ${r.name}">${ic("external")}</a>` : "";
+    return `<div class="prow${d ? " is-done" : ""}" data-slug="${r.slug}">
+      <div class="pname">${U.logo(r, 28)}<a href="directory.html?d=${r.slug}">${r.name}</a>${sub}</div>
+      <div class="why">${p.why}</div>
+      <div class="mono c-cost">${cost}</div>
+      <div class="mono c-link">${link}</div>
+      <div class="mono c-live">${live}</div>
+      <div class="facts-m"><span>${cost}</span><span>${link}</span><span>${live}</span></div>
+      <label class="done"><input class="tick" type="checkbox" data-done="${r.slug}" ${d ? "checked" : ""}><span>Submitted</span></label>
+    </div>`;
+  };
+
+  const PREP = [
+    ["logo", "Square logo", '<span class="sample">240 × 240</span>'],
+    ["shots", "3 to 5 screenshots", '<span class="sample">1270 × 760</span>'],
+    ["tagline", "Tagline", '<span class="sample">60 characters</span>'],
+    ["desc", "Short description", '<span class="sample">260 characters</span>'],
+    ["demo", "Short demo video or GIF", '<span class="sample">under 60 s</span>'],
+    ["site", "Live site on HTTPS", "Most places check"],
+  ];
+  const prepItems = (p) => {
+    const items = [...PREP];
+    if (!p || p.badge) items.push(["badge", "A spot for badges on your site", p ? `<span class="real">${p.badge} ${p.badge === 1 ? "place asks" : "places ask"}</span>` : "—"]);
+    if (p && p.ph) items.push(["ph", "Product Hunt account", "1 week old or more"]);
+    return items;
+  };
+
+  function weeksHTML(p) {
+    if (!p) {
+      const ghost = `<div class="prow"><div class="pname"><span class="ld-logo" style="width:28px;height:28px;background:var(--color-surface-2)"></span><span class="unk">—</span></div><div class="why unk">—</div><div class="mono c-cost unk">—</div><div class="mono c-link unk">—</div><div class="mono c-live unk">—</div><div class="facts-m unk"><span>—</span></div><span class="done unk">—</span></div>`;
+      return `<div class="cols"><span>Place</span><span>Why it's in the plan</span><span>Cost</span><span>Link</span><span>Goes live in</span><span>Submitted</span></div>
+        ${["Week 0", "Week 1", "Launch day", "After launch"].map((w, i) => `<div class="wk"><div class="wk-h"><h3>${w}</h3><span class="d">—</span></div>${i ? ghost + ghost : '<div class="prep-line unk">—</div>'}</div>`).join("")}`;
+    }
+    const range = (k) => `${fmt(p.wStart(k))} to ${fmt(addDays(p.wStart(k), 6))}`;
+    const pi = prepItems(p), ready = pi.filter((x) => prepDone.has(x[0])).length;
+    let html = `<div class="cols"><span>Place</span><span>Why it's in the plan</span><span>Cost</span><span>Link</span><span>Goes live in</span><span>Submitted</span></div>
+      <div class="wk"><div class="wk-h"><h3>Week 0</h3><span class="d">${range(0)}</span><span class="what">Get ready</span></div>
+        <div class="prep-line"><span class="chips">${pi.map((x) => `<span class="chip${prepDone.has(x[0]) ? " ok" : ""}">${x[1]}</span>`).join("")}</span><a href="#prep-list">${ready} of ${pi.length} ready</a></div></div>`;
+    for (let k = 1; k <= p.N; k++) {
+      const items = p.pick.filter((x) => x.week === k);
+      const what = [];
+      if (k === 1 && items.some((x) => x.group === "slow")) what.push("Long queues first");
+      if (k === p.L) what.push(`Launch day ${fmt(p.launchDay, true)}`);
+      if (k === p.L - 1 && items.some((x) => x.group === "before")) what.push("Beta lists before launch");
+      if (k > p.L) what.push("Keep listing");
+      html += `<div class="wk"><div class="wk-h"><h3>Week ${k}</h3><span class="d">${range(k)}</span>${what.length ? `<span class="what">${what.join(" · ")}</span>` : ""}</div>`;
+      if (!items.length) html += `<p class="hint" style="margin:0">Nothing new this week. Answer comments and follow up on pending listings.</p>`;
+      const groups = [["slow", null], ["before", null], ["launch", `${ic("rocket")}Launch day <span class="d">${fmt(p.launchDay, true)}</span>`], ["rest", k === p.L && p.N === p.L ? `${ic("arrow")}After launch` : null]];
+      for (const [g, label] of groups) {
+        const gi = items.filter((x) => x.group === g);
+        if (!gi.length) continue;
+        if (label && (g === "launch" || items.length > gi.length)) html += `<div class="sub-h">${label}</div>`;
+        html += gi.map(rowHTML).join("");
+      }
+      html += `</div>`;
+    }
+    return html;
+  }
+
+  function ganttSVG(p) {
+    const box = $("#gantt");
+    const narrow = box.clientWidth < 600;
+    const W = Math.max(narrow ? 330 : 640, box.clientWidth - 32);
+    const LW = narrow ? 104 : 168, RW = narrow ? 58 : 76, rowH = 26, top = 42;
+    const rows = p ? p.pick.slice().sort((a, b) => a.submit - b.submit || (a.live ? a.live[0] : Infinity) - (b.live ? b.live[0] : Infinity)) : Array.from({ length: 6 });
+    const N = p ? p.N : 4;
+    const days = (N + 1) * 7 + 14;
+    const H = top + rows.length * rowH + 8;
+    const x = (d) => LW + (Math.min(Math.max(d, 0), days) / days) * (W - LW - RW);
+    const day = (dt) => (dt - (p ? p.week0 : today)) / DAY;
+    let g = "";
+    for (let k = 0; k <= N + 2; k++) {
+      const xx = x(k * 7);
+      if (k * 7 > days) break;
+      if (k % 2 === 1) g += `<rect class="g-band" x="${xx}" y="${top - 6}" width="${x(Math.min((k + 1) * 7, days)) - xx}" height="${H - top}"/>`;
+      g += `<line class="g-grid" x1="${xx}" x2="${xx}" y1="${top - 6}" y2="${H}"/>`;
+      if (!narrow || k % 2 === 0 || N <= 4) g += `<text class="t-mu" x="${xx + 4}" y="${top - 10}">W${k}</text>`;
+    }
+    if (p) {
+      const lx = x(day(p.launchDay)) + 0.5;
+      g += `<line class="g-launch" x1="${lx}" x2="${lx}" y1="${top - 34}" y2="${H}"/><text class="t-tx" x="${lx + 4}" y="${top - 26}" style="font-weight:600">${narrow ? "Launch" : `Launch ${fmt(p.launchDay)}`}</text>`;
+    }
+    rows.forEach((p2, i) => {
+      const y = top + i * rowH, cy = y + rowH / 2;
+      if (!p) { g += `<text class="t-mu" x="0" y="${cy + 4}">—</text><rect class="g-open" x="${LW}" y="${cy - 4}" width="${(W - LW - RW) * 0.5}" height="8" rx="1"/>`; return; }
+      const r = p2.r, nm = r.name.length > (narrow ? 14 : 21) ? r.name.slice(0, narrow ? 13 : 20) + "…" : r.name;
+      g += `<text class="nm${done.has(r.slug) ? " done" : ""}" x="0" y="${cy + 4}">${nm}</text>`;
+      const sx = x(day(p2.submit));
+      if (!p2.live) {
+        g += `<rect class="g-open" x="${sx}" y="${cy - 4}" width="${Math.max(24, x(days) - sx)}" height="8" rx="1"/><text class="t-mu" x="${x(days) + 6}" y="${cy + 4}">${narrow ? "?" : "Not stated"}</text>`;
+      } else {
+        const a = day(p2.live[0]), b = day(p2.live[1]) + 1;
+        const ax = x(a), bx = x(b);
+        if (ax > sx + 2) g += `<line class="g-lead" x1="${sx}" x2="${ax}" y1="${cy}" y2="${cy}"/>`;
+        g += `<rect class="g-live" x="${ax}" y="${cy - 5}" width="${Math.max(4, bx - ax)}" height="10" rx="1"/>`;
+        if (b > days) g += `<text class="t-mu" x="${x(days) + 6}" y="${cy + 4}">→ ${narrow ? p2.live[1].toLocaleDateString("en-US", { month: "short" }) : fmt(p2.live[1])}</text>`;
+      }
+      g += `<circle class="g-dot" cx="${sx}" cy="${cy}" r="3"/>`;
+    });
+    return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Timeline of when each listing should go live">${g}</svg>`;
+  }
+
+  function compareLink(p) {
+    $("#toCompare").href = p ? `compare.html?d=${p.pick.slice(0, 3).map((x) => x.r.slug).join(",")}` : "compare.html";
+  }
+
+  function render() {
+    const p = built ? plan : null;
+    $("#sumA").innerHTML = summary(p);
+    $("#weeks").innerHTML = weeksHTML(p);
+    $("#gantt").innerHTML = ganttSVG(p);
+    $("#prep").innerHTML = prepItems(p).map(([k, name, spec]) => `<label><input class="tick" type="checkbox" data-prep="${k}" ${prepDone.has(k) ? "checked" : ""}><b>${name}</b><span class="spec${/class="real"/.test(spec) ? " real" : ""}">${spec}</span></label>`).join("");
+    $$("#actions button, #actions a").forEach((b) => b.toggleAttribute("disabled", !p));
+    $("#actions").classList.toggle("stale", !p);
+    $$("[data-status]").forEach((s) => (s.textContent = p ? "Updates as you change answers" : ""));
+    $("#buildA").textContent = p ? "Rebuild plan" : "Build my plan";
+    compareLink(p);
+  }
+
+  /* ---------- Ticks, pins, actions ---------- */
+  document.addEventListener("change", (e) => {
+    const d = e.target.closest("[data-done]");
+    if (d) { d.checked ? done.add(d.dataset.done) : done.delete(d.dataset.done); store("ld:planner:done", [...done]); render(); }
+    const pr = e.target.closest("[data-prep]");
+    if (pr) { pr.checked ? prepDone.add(pr.dataset.prep) : prepDone.delete(pr.dataset.prep); store("ld:planner:prep", [...prepDone]); render(); }
+  });
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("[data-act]");
+    if (!a || !plan) return;
+    const rows = plan.pick.map((p) => ({ week: p.group === "launch" ? `Week ${p.week} (launch day)` : `Week ${p.week}`, name: p.r.name, submit: p.r.submit || p.r.site, cost: p.pay === 0 ? "Free" : p.pay ? money(p.pay) : "Not stated", link: U.linkShort(p.r) || "Not stated", live: liveLabel(p) || "Not stated", why: p.why, submitted: done.has(p.r.slug) ? "yes" : "no" }));
+    if (a.dataset.act === "csv") {
+      const q = (v) => `"${String(v).replace(/"/g, '""')}"`;
+      const csv = [Object.keys(rows[0]).join(","), ...rows.map((r) => Object.values(r).map(q).join(","))].join("\n");
+      const url = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
+      Object.assign(document.createElement("a"), { href: url, download: "launch-plan.csv" }).click();
+      $("#copied").textContent = "Saved launch-plan.csv";
+    } else {
+      const txt = rows.map((r) => `- [${r.submitted === "yes" ? "x" : " "}] ${r.week}: ${r.name} (${r.cost}) ${r.submit}`).join("\n");
+      navigator.clipboard?.writeText(txt).then(() => ($("#copied").textContent = `Copied ${rows.length} items`), () => ($("#copied").textContent = "Couldn't copy"));
+    }
+  });
+  let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => ($("#gantt").innerHTML = ganttSVG(built ? plan : null)), 120); });
+
+  syncInputs(); render();
+  // Mockup convenience: ?run opens with a built plan.
+  const qp = new URLSearchParams(location.search);
+  ["type", "budget", "goal", "weeks"].forEach((k) => qp.get(k) && (state[k] = qp.get(k)));
+  if (qp.has("run")) { syncInputs(); run(); }
+});
+// ?run=1 opens the page with a plan already built, for review.
+if (new URLSearchParams(location.search).get("run")) window.addEventListener("load", () => document.getElementById("buildA")?.click());
+</script>
+</body>
+</html>

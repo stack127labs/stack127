@@ -25,14 +25,31 @@ export const linkOptions = [
 
 export const submissionOptions = [
   { value: "", label: "Any" },
-  { value: "verified", label: "Has a checked submission page" },
-  { value: "unverified", label: "No checked submission page" },
+  { value: "verified", label: "Submit page works" },
+  { value: "unverified", label: "No working submit page" },
+];
+
+export const drOptions = [
+  { value: "", label: "Any" },
+  { value: "20", label: "20 and up" },
+  { value: "40", label: "40 and up" },
+  { value: "60", label: "60 and up" },
 ];
 
 export const sortOptions = [
   { value: "recommended", label: "Recommended" },
-  { value: "ready", label: "Checked pages first" },
+  { value: "dr", label: "Highest DR" },
+  { value: "popular", label: "Most popular" },
+  { value: "cost", label: "Lowest cost" },
+  { value: "checked", label: "Recently checked" },
   { value: "name", label: "Name A to Z" },
+] as const;
+
+/** One-click views in the sidebar. Each sets ordinary filters, so the chips and URL stay the same. */
+export const quickPicks = [
+  { value: "free-dofollow", label: "Free with a dofollow link", params: [["cost", "free"], ["link", "dofollow"]] },
+  { value: "no-backlink", label: "Free, no backlink needed", params: [["backlink", "not_required"]] },
+  { value: "ai-tools", label: "AI tool directories", params: [["category", "ai-tools"]] },
 ] as const;
 
 export const correctionEmail = "stack127@proton.me";

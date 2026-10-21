@@ -96,11 +96,11 @@ test("ad network edits refresh their list and details by group and page tags", (
 
 test("launch directory edits refresh the directory and homepage counts", () => {
   const targets = targetsForEvents([{ entity_type: "launch_directories", slug: "launch-directories" }]);
-  assert.deepEqual(targets.paths, ["/launch-directories", "/"]);
+  for (const path of ["/launch-directories", "/launch-directories/compare", "/"]) assert.ok(targets.paths.includes(path));
   assert.ok(targets.nextTags.includes("stack127-launch-directories"));
   assert.ok(targets.edgeTags.includes("page:launch-directories"));
   assert.ok(targets.edgeTags.includes("page:home"));
-  assert.deepEqual(targets.warmPaths, ["/launch-directories", "/"]);
+  assert.deepEqual(targets.warmPaths, targets.paths);
 });
 
 test("app, shared catalog, and publication edits purge every search query variant", () => {

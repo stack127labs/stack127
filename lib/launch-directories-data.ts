@@ -1,3 +1,5 @@
+import type { LaunchDirectory } from "./launch-directories";
+
 export type LaunchDirectorySource = { label: string; url: string; checked_on: string | null };
 
 export type LaunchSubmissionDetails = {
@@ -51,6 +53,20 @@ export function launchSubmissionDetails(evidence: unknown): LaunchSubmissionDeta
 }
 
 export const LAUNCH_DIRECTORY_REVISION_SQL = `select md5(coalesce(string_agg(to_jsonb(directory)::text, '' order by directory.slug), '')) as fingerprint from public.launch_directories directory`;
+
+// PR builds read production before the release applies additive migrations.
+// Missing JSON keys read as null during that one compatibility window. After
+// migration, the same projection reads the typed, constrained table columns.
+export const LAUNCH_DIRECTORY_FACT_SELECT_SQL = `
+  (to_jsonb(directory)->>'domain_rating')::smallint as domain_rating,
+  to_jsonb(directory)->>'domain_rating_checked_on' as domain_rating_checked_on,
+  to_jsonb(directory)->>'traffic_bucket' as traffic_bucket,
+  (to_jsonb(directory)->>'listing_indexed')::boolean as listing_indexed,
+  to_jsonb(directory)->>'review_wait_label' as review_wait_label,
+  (to_jsonb(directory)->>'review_wait_min_days')::numeric as review_wait_min_days,
+  (to_jsonb(directory)->>'review_wait_max_days')::numeric as review_wait_max_days,
+  (to_jsonb(directory)->>'lowest_paid_price_usd')::numeric as lowest_paid_price_usd,
+  to_jsonb(directory)->'price_tiers' as price_tiers`;
 
 const evidenceLabels: Record<string, string> = {
   submission: "Submission", cost: "Cost", review_time: "Review time",
@@ -132,4 +148,36 @@ export function latestLaunchEvidenceDate(evidence: unknown): string | null {
 export function launchDirectoryRevisionMatches(html: string, revision: string) {
   if (revision === "unpublished") return !html.includes("data-launch-directories-revision=");
   return /^[a-f0-9]{32}$/.test(revision) && html.includes(`data-launch-directories-revision="${revision}"`);
+}
+
+export const launchLinkTypes = ["dofollow", "nofollow", "ugc", "sponsored", "multiple", "varies", "estimated_nofollow", "none", "unknown"] as const;
+export const launchBillingPeriods = ["once", "week", "month", "year", "listing"] as const;
+
+/** PostgreSQL numeric values arrive as strings; reject blanks and nonfinite values. */
+export function launchDirectoryNumber(value: unknown): number | null {
+  if (typeof value !== "number" && (typeof value !== "string" || !/^(?:\d+(?:\.\d*)?|\.\d+)$/.test(value))) return null;
+  const number = Number(value);
+  return Number.isFinite(number) && number >= 0 ? number : null;
+}
+
+/** Validate every tier independently so one bad row does not hide sound prices. */
+export function parseLaunchPriceTiers(value: unknown): LaunchDirectory["price_tiers"] {
+  if (!Array.isArray(value)) return [];
+  const tiers: LaunchDirectory["price_tiers"] = [];
+  const text = (value: unknown, limit: number): value is string => typeof value === "string"
+    && value.length > 0 && value === value.trim() && [...value].length <= limit;
+  for (const entry of value) {
+    if (!entry || typeof entry !== "object" || Array.isArray(entry)) continue;
+    const tier = entry as Record<string, unknown>;
+    if (Object.keys(tier).some(key => !["name", "price_usd", "billing", "gets", "link_type"].includes(key))
+      || !text(tier.name, 120)
+      || !(tier.price_usd === null || launchDirectoryNumber(tier.price_usd) !== null)
+      || !(tier.billing === null || launchBillingPeriods.some(billing => billing === tier.billing))
+      || !(tier.gets === null || text(tier.gets, 1000))
+      || !(tier.link_type === null || launchLinkTypes.some(type => type === tier.link_type))) continue;
+    tiers.push({ name: tier.name, price_usd: launchDirectoryNumber(tier.price_usd),
+      billing: tier.billing as LaunchDirectory["price_tiers"][number]["billing"],
+      gets: tier.gets as string | null, link_type: tier.link_type as LaunchDirectory["link_type_kind"] | null });
+  }
+  return tiers;
 }

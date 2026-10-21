@@ -1,8 +1,8 @@
 "use client";
 
-import { ArrowUpRight, Clock3, Globe, Link2, Search, ShieldCheck, WalletCards, type LucideIcon } from "lucide-react";
+import { LayoutGrid, List, Search } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import { DirectoryFilterController } from "@/app/ui/directories/directory-filter-controller";
 import {
   DirectoryCheckboxGroup,
@@ -13,271 +13,76 @@ import {
 import { pageParamHref, paramString, paramValues, removeParamHref, type DirectoryParams } from "@/app/ui/directories/directory-params";
 import { useDirectoryQuery } from "@/app/ui/directories/directory-query";
 import { SortDropdown } from "@/app/ui/directories/directory-sort-dropdown";
-import { DetailDialog, DetailDialogClose } from "@/app/ui/detail-dialog";
 import { Pagination } from "@/app/ui/pagination";
-import { CategoryIcon } from "@/app/ui/site/category-icon";
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/ui/site/sidebar-panel";
 import { StatePanel } from "@/app/ui/state-panel";
 import type { LaunchDirectory } from "@/lib/launch-directories";
-import { launchDirectoryHasFreeOption, queryLaunchDirectories } from "@/lib/launch-directories-query";
-import { backlinkOptions, correctionEmail, costOptions, linkOptions, sortOptions, submissionOptions } from "./launch-directory-options";
+import { queryLaunchDirectories } from "@/lib/launch-directories-query";
+import { LaunchCard, LaunchGrid, launchHref, type LaunchCategory } from "./launch-card";
+import { costShort, isSubmitReady, linkShort, submitStatusText, waitShort } from "./launch-format";
+import { LaunchLogo } from "./launch-logo";
+import { AhrefsCredit } from "./ahrefs-credit";
+import { backlinkOptions, costOptions, drOptions, linkOptions, quickPicks, sortOptions, submissionOptions } from "./launch-directory-options";
 import styles from "./launch-directories.module.css";
 
 const route = "/launch-directories";
+const formId = "launch-directory-filters";
 const sortValues = new Set<string>(sortOptions.map((option) => option.value));
+const drValues = new Set(drOptions.map((option) => option.value).filter(Boolean));
 
-type Category = { value: string; label: string; iconKey: string };
-
-const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-/** Formats a YYYY-MM-DD record date the same way on the server and in the browser. */
-function formatDate(value: string | null | undefined) {
-  const match = value?.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (!match) return null;
-  const month = months[Number(match[2]) - 1];
-  return month ? `${month} ${Number(match[3])}, ${match[1]}` : null;
+/** The quick pick whose filters are exactly the ones in the URL, ignoring sort, view, and page. */
+function activePick(params: DirectoryParams) {
+  const own = Object.entries(params).flatMap(([key, value]) => ["sort", "view", "page"].includes(key) ? []
+    : (Array.isArray(value) ? value : value ? [value] : []).map((item) => `${key}=${item}`)).sort().join("&");
+  return quickPicks.find((pick) => pick.params.map(([key, value]) => `${key}=${value}`).sort().join("&") === own)?.value ?? null;
 }
 
-/** A short, readable address for a source link: host plus the first path segment. */
-function shortUrl(value: string) {
-  try {
-    const url = new URL(value);
-    const host = url.hostname.replace(/^www\./, "");
-    const path = url.pathname.replace(/\/+$/, "");
-    if (!path) return host;
-    const [first, ...rest] = path.slice(1).split("/");
-    return `${host}/${first}${rest.length ? "/…" : ""}`;
-  } catch {
-    return value;
+function pickHref(params: DirectoryParams, pick: (typeof quickPicks)[number]) {
+  const next = new URLSearchParams(pick.params.map(([key, value]) => [key, value]));
+  for (const key of ["sort", "view"]) {
+    const value = paramString(params, key);
+    if (value) next.set(key, value);
   }
+  return `${route}?${next}`;
 }
 
-function domainOf(value: string) {
-  try {
-    return new URL(value).hostname.replace(/^www\./, "");
-  } catch {
-    return value;
+function hrefWith(params: DirectoryParams, key: string, value: string | null) {
+  const next = new URLSearchParams();
+  for (const [paramKey, paramValue] of Object.entries(params)) {
+    if (paramKey === key || paramKey === "page") continue;
+    for (const current of Array.isArray(paramValue) ? paramValue : paramValue ? [paramValue] : []) next.append(paramKey, current);
   }
+  if (value) next.set(key, value);
+  const query = next.toString();
+  return query ? `${route}?${query}` : route;
 }
 
-function SiteIcon({ eager, iconUrl, name }: { eager: boolean; iconUrl: string | null; name: string }) {
-  const [failed, setFailed] = useState(false);
-  const imageRef = useRef<HTMLImageElement>(null);
-
-  // An image can fail before hydration attaches onError, so check once after mount.
-  useEffect(() => {
-    const image = imageRef.current;
-    if (image?.complete && image.naturalWidth === 0) setFailed(true);
-  }, [iconUrl]);
-
-  const showImage = Boolean(iconUrl) && !failed;
-  return <span className={showImage ? `${styles.siteIcon} ${styles.logoPlate}` : styles.siteIcon}>
-    {iconUrl && showImage
-      ? <img
-        alt=""
-        decoding="async"
-        height={40}
-        loading={eager ? "eager" : "lazy"}
-        onError={() => setFailed(true)}
-        ref={imageRef}
-        src={iconUrl}
-        width={40}
-      />
-      : <span aria-hidden="true">{name.slice(0, 1)}</span>}
-  </span>;
-}
-
-const costCardLabels = new Map(costOptions.map((option) => [option.value, option.card]));
-const linkCardLabels = new Map(linkOptions.map((option) => [option.value, option.card]));
-
-function categoriesOf(categoryMap: Record<string, Category>, directory: LaunchDirectory) {
-  return directory.categories.map((slug) => categoryMap[slug] ?? { value: slug, label: slug.replaceAll("-", " "), iconKey: "box" });
-}
-
-function freeRequirements(directory: LaunchDirectory) {
-  const details = directory.submission_details;
-  if (!details) return [];
-  const labels = [...details.requirements];
-  if (!labels.some((label) => /backlink/i.test(label))) {
-    if (details.backlink === "required") labels.unshift("Backlink required");
-    else if (details.backlink === "optional") labels.unshift("Backlink optional");
-    else if (details.backlink === "not_required") labels.unshift("No backlink required in checked flow");
-  }
-  return labels;
-}
-
-const observationMethods = {
-  public_page: "Public rule",
-  signed_in_flow: "Our submission",
-  email: "Email about our submission",
-};
-
-/** The full record, server-rendered into the page HTML and shown in the side panel. */
-function DirectoryDetails({ categories, directory }: { categories: Category[]; directory: LaunchDirectory }) {
-  const sources = directory.source_links ?? [];
-  const checked = formatDate(directory.checked_on);
-  const subject = encodeURIComponent(`Correction: ${directory.name} on launch directories`);
-  const submitUrl = directory.submission_status === "verified" ? directory.submit_url : null;
-  const submission = directory.submission_details;
-  const requirements = launchDirectoryHasFreeOption(directory) ? freeRequirements(directory) : [];
-  const facts: Array<[string, string, LucideIcon]> = [
-    ["Cost", directory.cost_label, WalletCards],
-    [submission ? "Approval / review" : "Review / scheduling", submission?.review_time ?? (submission ? "Not confirmed" : directory.review_time_label), Clock3],
-    ...(submission ? [["Launch queue", submission.launch_queue ?? "Not confirmed", Clock3] as [string, string, LucideIcon]] : []),
-    ["Link type", directory.link_type_label, Link2],
-    ["Who can submit", directory.eligibility_label, ShieldCheck],
-    ...(requirements.length ? [["Free-plan requirements", requirements.join(" · "), ShieldCheck] as [string, string, LucideIcon]] : []),
-  ];
-
-  return <div className={styles.details}>
-    <div className="app-detail-categories">
-      {categories.map((category) => <span className="category-badge" key={category.value}>
-        <CategoryIcon iconKey={category.iconKey} />{category.label}
-      </span>)}
-    </div>
-    <p className={styles.detailsSummary}>{directory.summary}</p>
-    <div className="app-detail-primary-links">
-      {submitUrl ? <a className="primary" href={submitUrl} rel="noopener noreferrer" target="_blank">
-        <span>submit your product<span className={styles.srOnly}> to {directory.name}</span></span>
-        <ArrowUpRight aria-hidden="true" size={14} strokeWidth={2.2} />
-      </a> : <p className={styles.submissionNote}>
-        {directory.submission_status === "unavailable" ? "Submission page unavailable" : "Submission page not found"}
-      </p>}
-      <a className={submitUrl ? "secondary" : "primary"} href={directory.website_url} rel="noopener noreferrer" target="_blank">
-        <span><Globe aria-hidden="true" size={15} />{domainOf(directory.website_url)}</span>
-        <ArrowUpRight aria-hidden="true" size={14} strokeWidth={2.2} />
-      </a>
-    </div>
-    <section>
-      <h3>Listing details</h3>
-      <dl className={styles.facts}>
-        {facts.map(([label, value, Icon]) => <div key={label}>
-          <dt><Icon aria-hidden="true" size={14} strokeWidth={2.2} />{label}</dt>
-          <dd>{value}</dd>
-        </div>)}
-      </dl>
-    </section>
-    {submission ? <section className={styles.observations}>
-      <h3>What we checked</h3>
-      <p>Our submission results describe that attempt. Other products may receive different dates or decisions.</p>
-      <ul>
-        {submission.observations.map((observation, index) => <li key={index}>
-          <span className={styles.checked}>{observationMethods[observation.method]} · {formatDate(observation.checked_at)}</span>
-          <p>{observation.text}</p>
-          {observation.source_url ? <a href={observation.source_url} rel="noopener noreferrer" target="_blank">{shortUrl(observation.source_url)}</a> : null}
-        </li>)}
-      </ul>
-    </section> : null}
-    <section className={styles.sources}>
-      <h3>Sources</h3>
-      {checked ? <p className={styles.checked}>Record checked {checked}</p> : null}
-      <ul>
-        {sources.map((source) => {
-          const sourceDate = formatDate(source.checked_on);
-          return <li key={`${source.label}-${source.url}`}>
-            <span className={styles.sourceLabel}>{source.label}</span>
-            <a href={source.url} rel="noopener noreferrer" target="_blank">{shortUrl(source.url)}</a>
-            {sourceDate ? <span className={styles.checked}>checked {sourceDate}</span> : null}
-          </li>;
-        })}
-        {directory.example_listing_url ? <li>
-          <span className={styles.sourceLabel}>Sample listing</span>
-          <a href={directory.example_listing_url} rel="noopener noreferrer" target="_blank">{shortUrl(directory.example_listing_url)}</a>
-        </li> : null}
-        {sources.length === 0 && !directory.example_listing_url ? <li className={styles.sourceLabel}>No public source links for this place yet.</li> : null}
-      </ul>
-      <a href={`mailto:${correctionEmail}?subject=${subject}`}>
-        Report a correction<span className={styles.srOnly}> for {directory.name}</span>
-      </a>
-    </section>
-  </div>;
-}
-
-function CardIdentity({ categories, directory, eager, heading: Heading }: {
-  /** Pass none in the panel heading, where the full category list follows. */
-  categories: Category[];
-  directory: LaunchDirectory;
-  eager: boolean;
-  heading: "h2" | "p";
-}) {
-  const [primary, ...more] = categories;
-  return <div className={styles.identity}>
-    <SiteIcon eager={eager} iconUrl={directory.icon_url ?? null} name={directory.name} />
-    <div className={styles.identityText}>
-      <Heading className={styles.name}>{directory.name}</Heading>
-      {primary ? <span className={styles.category}>
-        <CategoryIcon iconKey={primary.iconKey} />
-        <span>{primary.label}</span>
-        {more.length > 0 ? <span className={styles.extraCategories} title={more.map((category) => category.label).join(", ")}>
-          +{more.length}<span className={styles.srOnly}> more: {more.map((category) => category.label).join(", ")}</span>
-        </span> : null}
-      </span> : null}
-    </div>
-  </div>;
-}
-
-// The details stay inside <details> in the HTML, so search engines read them. With JavaScript,
-// the summary opens the shared side panel instead. It also stretches over the card, so a click
-// anywhere on the card opens the panel.
-function DirectoryCard({ categoryMap, directory, eager }: { categoryMap: Record<string, Category>; directory: LaunchDirectory; eager: boolean }) {
-  const [open, setOpen] = useState(false);
-  const close = () => setOpen(false);
-  const categories = categoriesOf(categoryMap, directory);
-  const requirements = launchDirectoryHasFreeOption(directory) ? freeRequirements(directory) : [];
-  const submitUrl = directory.submission_status === "verified" ? directory.submit_url : null;
-  const details = <DirectoryDetails categories={categories} directory={directory} />;
-
-  return (
-    <article className={styles.card}>
-      <CardIdentity categories={categories} directory={directory} eager={eager} heading="h2" />
-      <p className={styles.bestFor}><span>Best for</span> {directory.best_for}</p>
-      <dl className={styles.answers}>
-        <div>
-          <dt>Cost</dt>
-          <dd>{directory.cost_tag ?? costCardLabels.get(directory.cost_kind) ?? directory.cost_label}</dd>
-          {directory.cost_note ? <dd className={styles.answerNote}>{directory.cost_note}</dd> : null}
-        </div>
-        <div><dt>Link</dt><dd>{linkCardLabels.get(directory.link_type_kind) ?? directory.link_type_label}</dd></div>
-      </dl>
-      {requirements.length ? <p className={styles.requirements}>
-        <span>Free plan</span> {requirements.join(" · ")}
-      </p> : null}
-      <div className={styles.cardFooter}>
-        <details className={styles.more}>
-          <summary onClick={(event) => { event.preventDefault(); setOpen(true); }}>
-            Details<span className={styles.srOnly}> for {directory.name}</span>
-          </summary>
-          {details}
-        </details>
-        {submitUrl ? <a className={styles.submit} href={submitUrl} rel="noopener noreferrer" target="_blank">
-          Submit<span className={styles.srOnly}> to {directory.name}</span> <ArrowUpRight aria-hidden="true" size={15} />
-        </a> : <span className={styles.submissionNote}>
-          {directory.submission_status === "unavailable" ? "Submission page unavailable" : "Submission page not found"}
-        </span>}
-      </div>
-      {open ? <DetailDialog ariaLabel={`${directory.name} details`} onClose={close}>
-        <div className={styles.panel}>
-          <div className={styles.panelHeading}>
-            <CardIdentity categories={[]} directory={directory} eager heading="p" />
-            <DetailDialogClose ariaLabel="Close details" onClose={close} />
-          </div>
-          {details}
-        </div>
-      </DetailDialog> : null}
-    </article>
-  );
-}
-
-export function LaunchDirectoryFilters({ categoryOptions, costOptions, heading, linkOptions }: {
+export function LaunchDirectoryFilters({ categoryOptions, costOptions, drAvailable, heading, linkOptions, pickCounts }: {
   categoryOptions: DirectoryFilterOption[];
   costOptions: DirectoryFilterOption[];
+  /** False until DR data is loaded; the DR filter stays hidden. */
+  drAvailable: boolean;
   heading: ReactNode;
   linkOptions: DirectoryFilterOption[];
+  pickCounts: Record<string, number>;
 }) {
   const { formKey, params } = useDirectoryQuery();
-  const sort = paramString(params, "sort");
-  return <form action={route} className={sidebarPanelClassName} data-default-sort="recommended" data-live-filter-form key={formKey}>
+  const current = activePick(params);
+  const view = paramString(params, "view");
+  return <form action={route} className={sidebarPanelClassName} data-default-sort="recommended" data-live-filter-form id={formId} key={formKey}>
     <div className={sidebarPanelHeadingClassName}>{heading}</div>
+    <nav aria-label="Quick picks" className={styles.picks}>
+      <p className={styles.sideLabel}>Quick picks</p>
+      <ul>
+        {quickPicks.map((pick) => <li key={pick.value}>
+          <Link aria-current={current === pick.value ? "true" : undefined} href={current === pick.value ? route : pickHref(params, pick)} prefetch={false}>
+            <span aria-hidden="true" className={styles.pickDot} />
+            <span>{pick.label}</span>
+            <span className={styles.pickCount}>{pickCounts[pick.value] ?? 0}</span>
+          </Link>
+        </li>)}
+      </ul>
+    </nav>
     <label className="directory-search">
       <span>Search</span>
       <span className="directory-search-field">
@@ -285,24 +90,26 @@ export function LaunchDirectoryFilters({ categoryOptions, costOptions, heading, 
         <input defaultValue={paramString(params, "q")} name="q" placeholder="Product Hunt, betalist.com..." type="search" />
       </span>
     </label>
-    <SortDropdown name="sort" options={sortOptions} value={sortValues.has(sort) ? sort : "recommended"} />
     <DirectoryTagSelectGroup name="category" options={categoryOptions} selected={paramValues(params, "category")} title="Category" />
-    <DirectoryRadioGroup name="submission" options={submissionOptions} selected={paramString(params, "submission")} title="Submission page" />
     <DirectoryCheckboxGroup name="cost" options={costOptions} selected={paramValues(params, "cost")} title="Cost" />
-    <DirectoryRadioGroup name="backlink" options={backlinkOptions} selected={paramString(params, "backlink")} title="Free-plan backlink" />
     <DirectoryCheckboxGroup name="link" options={linkOptions} selected={paramValues(params, "link")} title="Link type" />
-    <div className="filter-actions"><Link href={route}>clear filters</Link></div>
+    {drAvailable ? <DirectoryRadioGroup name="dr" options={drOptions} selected={paramString(params, "dr")} title="Domain rating" /> : null}
+    <DirectoryRadioGroup name="submission" options={submissionOptions} selected={paramString(params, "submission")} title="Submit page" />
+    <DirectoryRadioGroup name="backlink" options={backlinkOptions} selected={paramString(params, "backlink")} title="Free-plan backlink" />
+    {view === "table" ? <input name="view" type="hidden" value="table" /> : null}
+    <div className="filter-actions"><Link href={view === "table" ? `${route}?view=table` : route}>clear filters</Link></div>
     <DirectoryFilterController />
   </form>;
 }
 
-function ActiveFilters({ categoryMap, params }: { categoryMap: Record<string, Category>; params: DirectoryParams }) {
+function ActiveFilters({ categoryMap, params }: { categoryMap: Record<string, LaunchCategory>; params: DirectoryParams }) {
   const groups: Array<{ key: string; title: string; labels: Map<string, string> }> = [
     { key: "category", title: "Category", labels: new Map(Object.values(categoryMap).map((category) => [category.value, category.label])) },
-    { key: "submission", title: "Submission page", labels: new Map(submissionOptions.map((option) => [option.value, option.label])) },
     { key: "cost", title: "Cost", labels: new Map(costOptions.map((option) => [option.value, option.label])) },
-    { key: "backlink", title: "Free-plan backlink", labels: new Map(backlinkOptions.map((option) => [option.value, option.label])) },
-    { key: "link", title: "Link type", labels: new Map(linkOptions.map((option) => [option.value, option.label])) },
+    { key: "link", title: "Link", labels: new Map(linkOptions.map((option) => [option.value, option.label])) },
+    { key: "dr", title: "DR", labels: new Map(drOptions.map((option) => [option.value, option.label])) },
+    { key: "submission", title: "Submit page", labels: new Map(submissionOptions.map((option) => [option.value, option.label])) },
+    { key: "backlink", title: "Backlink", labels: new Map(backlinkOptions.map((option) => [option.value, option.label])) },
   ];
   const chips: Array<{ href: string; label: string }> = [];
   const query = paramString(params, "q").trim();
@@ -310,35 +117,119 @@ function ActiveFilters({ categoryMap, params }: { categoryMap: Record<string, Ca
   for (const group of groups) {
     for (const value of paramValues(params, group.key)) {
       const label = group.labels.get(value);
-      if (label) chips.push({ href: removeParamHref(route, params, group.key, value), label: `${group.title}: ${label}` });
+      if (label && value) chips.push({ href: removeParamHref(route, params, group.key, value), label: `${group.title}: ${label}` });
     }
   }
   if (chips.length === 0) return null;
+  const view = paramString(params, "view");
 
   return <div aria-label="Active filters" className="active-filter-row" role="group">
     {chips.map((chip) => <Link aria-label={`Remove ${chip.label}`} href={chip.href} key={chip.label} prefetch={false}>
       {chip.label}
       <span aria-hidden="true">×</span>
     </Link>)}
-    <Link className="clear-filters" href={route} prefetch={false}>clear all</Link>
+    <Link className="clear-filters" href={view === "table" ? `${route}?view=table` : route} prefetch={false}>clear all</Link>
+  </div>;
+}
+
+/** Sort and the cards or table switch. Sort writes into the sidebar form through its `form` id. */
+function Toolbar({ count, credit, params, sort }: { count: ReactNode; credit: boolean; params: DirectoryParams; sort: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const view = paramString(params, "view") === "table" ? "table" : "cards";
+
+  // The filter controller closes its own selects; this one sits outside the form.
+  useEffect(() => {
+    const root = () => ref.current?.querySelector<HTMLElement>("[data-custom-select]");
+    const close = (focusTrigger: boolean) => {
+      const select = root();
+      const trigger = select?.querySelector<HTMLButtonElement>("[data-custom-select-trigger]");
+      const menu = select?.querySelector<HTMLElement>("[data-custom-select-menu]");
+      if (!trigger || !menu || menu.hidden) return;
+      trigger.setAttribute("aria-expanded", "false");
+      menu.hidden = true;
+      if (focusTrigger) trigger.focus();
+    };
+    const onClick = (event: MouseEvent) => {
+      if (event.target instanceof Node && root()?.contains(event.target)) return;
+      close(false);
+    };
+    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") close(true); };
+    document.addEventListener("click", onClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("click", onClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, []);
+
+  return <div className={styles.toolbar} ref={ref}>
+    <div className={styles.countLine}>
+      <p aria-atomic="true" aria-live="polite" className={styles.count}>{count}</p>
+      {credit ? <AhrefsCredit prefix="DR is" /> : null}
+    </div>
+    <div className={styles.toolbarControls}>
+      <SortDropdown form={formId} name="sort" options={sortOptions} value={sort} />
+      <div aria-label="View" className={styles.viewToggle} role="group">
+        <Link aria-current={view === "cards" ? "true" : undefined} href={hrefWith(params, "view", null)} prefetch={false}>
+          <LayoutGrid aria-hidden="true" size={15} strokeWidth={2.2} />Cards
+        </Link>
+        <Link aria-current={view === "table" ? "true" : undefined} href={hrefWith(params, "view", "table")} prefetch={false}>
+          <List aria-hidden="true" size={15} strokeWidth={2.2} />Table
+        </Link>
+      </div>
+    </div>
+  </div>;
+}
+
+function Cell({ value }: { value: string | null }) {
+  return value ? <>{value}</> : <span className={styles.unknown}>Not stated</span>;
+}
+
+function ResultsTable({ categoryMap, directories, paged }: { categoryMap: Record<string, LaunchCategory>; directories: LaunchDirectory[]; paged: Set<string> }) {
+  return <div className={styles.tableFrame}>
+    <table className={styles.table}>
+      <thead><tr><th scope="col">Place</th><th scope="col">Category</th><th scope="col">Cost</th><th scope="col">Link</th><th scope="col">Review</th><th scope="col"><AhrefsCredit /></th><th scope="col"><span className={styles.srOnly}>Submit</span></th></tr></thead>
+      <tbody>
+        {directories.map((directory) => <tr key={directory.slug}>
+          <th scope="row">{paged.has(directory.slug)
+            ? <Link href={launchHref(directory.slug)} prefetch={false}><LaunchLogo iconUrl={directory.icon_url} name={directory.name} size="row" />{directory.name}</Link>
+            : <span className={styles.tableName}><LaunchLogo iconUrl={directory.icon_url} name={directory.name} size="row" />{directory.name}</span>}</th>
+          <td>{categoryMap[directory.categories[0] ?? ""]?.label ?? ""}</td>
+          <td className={styles.mono}><Cell value={costShort(directory)} /></td>
+          <td className={styles.mono}><Cell value={linkShort(directory)} /></td>
+          <td className={styles.mono}><Cell value={waitShort(directory)} /></td>
+          <td className={styles.mono}>{directory.domain_rating ?? "—"}</td>
+          <td className={styles.mono}>{isSubmitReady(directory)
+            ? <a className={styles.cardSubmit} href={directory.submit_url ?? undefined} rel="noopener noreferrer" target="_blank">Submit<span className={styles.srOnly}> to {directory.name}</span></a>
+            : <span className={styles.unknown}>{submitStatusText(directory)}</span>}</td>
+        </tr>)}
+      </tbody>
+    </table>
   </div>;
 }
 
 function countText(start: number, end: number, total: number, filtered: boolean) {
   const noun = total === 1 ? "place" : "places";
   const matching = filtered ? `matching ${noun}` : noun;
-  if (total === 0) return `No ${filtered ? "matching " : ""}places`;
-  if (start === 1 && end === total) return `${total} ${matching}`;
-  return `Showing ${start} to ${end} of ${total} ${matching}`;
+  if (total === 0) return <>No {filtered ? "matching " : ""}places</>;
+  if (start === 1 && end === total) return <><b>{total}</b> {matching}</>;
+  return <>Showing <b>{start}</b> to <b>{end}</b> of <b>{total}</b> {matching}</>;
 }
 
-// All places (under 200) ship with the static page. The URL's filters, sort, and page apply in the browser.
-export function LaunchDirectoryResults({ categories, directories }: { categories: Category[]; directories: LaunchDirectory[] }) {
-  const { params } = useDirectoryQuery();
+// All places (under 200) ship with the static page. The URL's filters, sort, view, and page apply in the browser.
+export function LaunchDirectoryResults({ categories, directories, pagedSlugs }: {
+  categories: LaunchCategory[];
+  directories: LaunchDirectory[];
+  /** Places with a published page of their own. Others show no page link. */
+  pagedSlugs: string[];
+}) {
+  const { formKey, params } = useDirectoryQuery();
+  const paged = new Set(pagedSlugs);
   const categoryMap = Object.fromEntries(categories.map((category) => [category.value, category]));
   const categoryLabels = Object.fromEntries(categories.map((category) => [category.value, category.label]));
   const sortParam = paramString(params, "sort");
   const sort = sortValues.has(sortParam) ? sortParam : "recommended";
+  const drParam = paramString(params, "dr");
   const result = queryLaunchDirectories(directories, {
     q: paramString(params, "q"),
     categories: paramValues(params, "category"),
@@ -346,36 +237,36 @@ export function LaunchDirectoryResults({ categories, directories }: { categories
     links: paramValues(params, "link"),
     submission: paramString(params, "submission"),
     backlink: paramString(params, "backlink"),
+    minDr: drValues.has(drParam) ? Number(drParam) : undefined,
     sort,
     page: paramString(params, "page") || 1,
   }, categoryLabels);
   const filtered = result.total !== directories.length;
+  const view = paramString(params, "view") === "table" ? "table" : "cards";
+  const clearHref = view === "table" ? `${route}?view=table` : route;
 
-  return <div className={styles.results}>
-    <div className={styles.resultsIntro}>
-      <p aria-atomic="true" aria-live="polite" className={styles.count}>{countText(result.start, result.end, result.total, filtered)}</p>
-      <p className={styles.order}>
-        {sort === "name" ? "Sorted by name." : sort === "ready" ? "Checked submission pages first, then known prices. Launch slots may be full." : "Well-known launch sites first, then checked submission pages. Launch slots may be full."}{" "}
-        <a href={sort === "recommended" ? "#recommended-order" : "#how-we-check"}>{sort === "recommended" ? "How we order them" : "How we check listings"}</a>
-      </p>
-    </div>
+  return <div className={styles.results} id="places">
+    <Toolbar count={countText(result.start, result.end, result.total, filtered)} credit={result.items.some((directory) => directory.domain_rating !== null)} key={formKey} params={params} sort={sort} />
     <ActiveFilters categoryMap={categoryMap} params={params} />
     {result.items.length > 0 ? <>
-      <div className={`directory-card-grid ${styles.grid}`}>
-        {result.items.map((directory, index) => <DirectoryCard
-          categoryMap={categoryMap}
-          directory={directory}
-          eager={result.currentPage === 1 && index < 3}
-          key={directory.slug}
-        />)}
-      </div>
+      {view === "table"
+        ? <ResultsTable categoryMap={categoryMap} directories={result.items} paged={paged} />
+        : <LaunchGrid>
+          {result.items.map((directory, index) => <LaunchCard
+            category={categoryMap[directory.categories[0] ?? ""]}
+            directory={directory}
+            eager={result.currentPage === 1 && index < 3}
+            key={directory.slug}
+            linked={paged.has(directory.slug)}
+          />)}
+        </LaunchGrid>}
       <Pagination
         ariaLabel="Launch directory pages"
         currentPage={result.currentPage}
         hrefForPage={(page) => pageParamHref(route, params, page)}
         totalPages={result.totalPages}
       />
-    </> : <StatePanel title="No places match those filters" action={<Link href={route} prefetch={false}>show all places</Link>}>
+    </> : <StatePanel title="No places match those filters" action={<Link href={clearHref} prefetch={false}>show all places</Link>}>
       <p>Try removing one filter or searching for a shorter name.</p>
     </StatePanel>}
   </div>;
