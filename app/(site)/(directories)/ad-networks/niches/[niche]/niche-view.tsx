@@ -106,6 +106,7 @@ export function NicheView({ breadcrumbs, data, Intro, title, updatedAt }: {
           noun={noun}
           route={`/ad-networks/niches/${niche.slug}`}
           scope={{ niche: niche.slug }}
+          sorts={["traffic", "oldest", "newest", "domain"]}
         />
 
         {niche.networks.length ? (

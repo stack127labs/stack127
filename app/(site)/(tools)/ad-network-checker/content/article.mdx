@@ -1,3 +1,13 @@
+## What can I do with the result?
+
+It depends on why you're checking:
+
+| If you're | Look at |
+| --- | --- |
+| Choosing a network | Check a few sites in your niche that are a little bigger than yours. If they run the same network, open its page in the [ad networks directory](/ad-networks) to see what it takes to join and how it pays. `Similar sites` shows more sites on that network. |
+| Checking your own site | After you join a network, check that its `MANAGERDOMAIN` line or seller lines show here. If a network you left still shows, its lines are probably still in your ads.txt file. |
+| Buying a site | See which networks it runs and how that changed over time. A recent switch is worth asking the seller about. |
+
 ## How do I find out which ad network a website uses?
 
 Open the site's ads.txt file by adding `/ads.txt` to its address, such as `example.com/ads.txt`. Look for a line that starts with `MANAGERDOMAIN`. If it's there, it names the company that manages the site's ads.
@@ -20,11 +30,28 @@ Each line authorizes one ad account to sell the site's space. `DIRECT` means the
 
 A network such as Mediavine works with dozens of ad exchanges, and each one needs its own line. That's why one network can add dozens of lines. The [IAB's ads.txt page](https://iabtechlab.com/ads-txt/) explains the format in full.
 
+## How do I set up ads.txt on my own site?
+
+Put a plain text file named `ads.txt` at the root of your domain, so it opens at `yoursite.com/ads.txt`. Your ad network gives you the lines to add. Each line has up to four parts:
+
+```text
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+```
+
+| Part | What it is |
+| --- | --- |
+| `google.com` | The ad system that sells your space. |
+| `pub-0000000000000000` | Your account ID with that ad system. |
+| `DIRECT` | You hold the account yourself. `RESELLER` means a partner sells on your behalf. |
+| `f08c47fec0942fa0` | Optional. The ad system's ID with the Trustworthy Accountability Group. |
+
+Ad buyers use this file to check who may sell your space, and they can skip sellers it doesn't list. When you switch networks, replace the old network's lines with the new ones.
+
 ## Why isn't a site in the results?
 
 We only show sites our checker has read. We find sites from public lists and each network's own seller list, then read their ads.txt on a schedule. A new or small site may not be in our list yet.
 
-A site also stays out when we can't confirm a network we track. That includes sites with no ads.txt file, sites that block our checker, and sites that use a network outside our list. The [ad networks directory](/ad-networks) lists every network we track.
+A site also stays out when we can't confirm a network we track. That includes most sites with no ads.txt file (a few networks can be confirmed from homepage ad code alone), sites that block our checker, and sites that use a network outside our list. The [ad networks directory](/ad-networks) lists every network we track.
 
 ## How current is the result?
 
@@ -34,8 +61,8 @@ The `Since` month is when we first confirmed a network. If that was our first ch
 
 One missed check never removes a network. A timeout or a blocked request counts as unknown. A network moves to `Not seen lately`, then `Ended`, only after repeated checks find it missing.
 
-## Does stack127 show traffic or earnings?
+## What does the traffic group mean?
 
-Not yet. Traffic and niche join the site facts as our data runs finish. We don't estimate earnings, because there's no public source we can check them against.
+It's the site's place in Google's list of the million most visited sites by Chrome users: `top 10k`, `top 100k`, or `top 1M`. `Not ranked` means the site wasn't in this month's list. That doesn't mean zero traffic: the list only covers sites with enough Chrome visitors.
 
-If you're choosing a network for your own site, the [ad networks directory](/ad-networks) shows each network's sites and how to join.
+We don't show visit counts or estimate earnings, because there's no public source we can check them against.

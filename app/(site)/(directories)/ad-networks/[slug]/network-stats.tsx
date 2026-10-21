@@ -9,7 +9,6 @@ import { ColumnChart } from "@/app/ui/ad-networks/viz/columns";
 import { Donut } from "@/app/ui/ad-networks/viz/donut";
 import { formatNumber, formatSigned } from "@/app/ui/ad-networks/viz/format";
 import { JoinedLeftBars } from "@/app/ui/ad-networks/viz/joined-left";
-import { PublisherBlocks } from "@/app/ui/ad-networks/viz/publisher-blocks";
 import { SwitchFlow } from "@/app/ui/ad-networks/viz/switch-flow";
 import { TypeScale } from "@/app/ui/ad-networks/viz/type-scale";
 import { nicheName } from "@/app/ui/ad-networks/site-format";
@@ -52,6 +51,8 @@ const shortName = (name: string) => name.replace(/^Google /, "").replace(/ by Me
 /** A row of blocks with only the blocks that have data. Nothing renders when none do. */
 function Row({ blocks, layout }: { blocks: readonly ReactNode[]; layout: "1-1" | "2-1" | "1-1-1" | "2-1-1" }) {
   const shown = blocks.filter(Boolean);
+  // A lone block takes the full width instead of leaving an empty column beside it.
+  if (shown.length === 1) return <>{shown}</>;
   return shown.length ? <ReportRow layout={layout}>{shown}</ReportRow> : null;
 }
 
@@ -61,7 +62,7 @@ function Row({ blocks, layout }: { blocks: readonly ReactNode[]; layout: "1-1" |
  * lib/ad-networks*.ts; each field's data run is in dev-space/ad-networks-data-contract.md.
  */
 export function NetworkStats({ network, stats }: { network: AdNetworkListRow; stats: AdNetworkStatsReport }) {
-  const { name, slug } = network;
+  const { name } = network;
   if (!stats.listed) return null;
 
   // How many sites use it?
@@ -72,10 +73,6 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
     ...(stats.change_year !== null ? [{ label: "sites in a year", value: formatSigned(stats.change_year), accent: stats.change_year > 0 }] : []),
   ];
   const history = stats.history.map((row) => ({ label: monthShort.format(day(row.date)), fullLabel: monthLong.format(day(row.date)), value: row.listed }));
-  const rankRows: RankedBar[] = stats.ranking
-    .map((row, index) => ({ row, index }))
-    .filter(({ row, index }) => row.count > 0 && (index < 5 || row.slug === slug))
-    .map(({ row }) => ({ label: row.name, value: row.count, href: row.slug === slug ? undefined : `/ad-networks/${row.slug}`, highlight: row.slug === slug }));
 
   // What kind of sites?
   const topNiches = stats.niches.slice(0, 6);
@@ -85,11 +82,10 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
     ...(otherNiches > 0 ? [{ label: "Other", value: otherNiches, display: pct(otherNiches) }] : []),
   ];
   const traffic = stats.traffic.map((row) => ({
-    label: trafficLabel(row.key).replace(/^top /, ""),
+    label: trafficLabel(row.key),
     value: row.count,
     tone: row.key.startsWith("not") ? "n2" as const : "ac" as const,
   }));
-  const publishers = stats.publishers.slice(0, 5).map((row) => ({ label: row.label, count: row.count }));
 
   // Joined, left, and switches.
   const periods = timeline(stats.movement_periods ?? []);
@@ -99,6 +95,15 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
   const age = stats.domain_age_strip;
   const platforms = stats.platform_mix ?? [];
   const measuredPlatforms = platforms.filter((row) => row.key !== "unknown");
+  // A short legend: the four most used platforms, the rest as Other, then Unknown.
+  const topPlatforms = [...measuredPlatforms].sort((a, b) => b.count - a.count).slice(0, 4);
+  const otherPlatforms = measuredPlatforms.filter((row) => !topPlatforms.includes(row)).reduce((sum, row) => sum + row.count, 0);
+  const unknownPlatforms = platforms.find((row) => row.key === "unknown")?.count ?? 0;
+  const platformParts = [
+    ...topPlatforms.map((row) => ({ label: row.label, value: row.count })),
+    ...(otherPlatforms > 0 ? [{ label: "Other", value: otherPlatforms }] : []),
+    ...(unknownPlatforms > 0 ? [{ label: "Unknown", value: unknownPlatforms, tone: "track" as const }] : []),
+  ];
   const topEndings = stats.domain_endings.slice(0, 5);
   const otherEndings = stats.domain_endings.slice(5).reduce((sum, row) => sum + (row.share ?? 0), 0);
   const endings = [
@@ -122,11 +127,6 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
         <ColumnChart caption={`${name} sites per Chrome rank group`} items={traffic} />
       </ReportBlock>
     ) : null,
-    publishers.length ? (
-      <ReportBlock description={`Companies that run the most ${name} sites, from ${name}'s seller list. Personal names are left out.`} key="publishers" label="Biggest publishers">
-        <PublisherBlocks items={publishers} />
-      </ReportBlock>
-    ) : null,
   ];
   const moveBlocks = [
     periods.length ? (
@@ -145,28 +145,29 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
       </ReportBlock>
     ) : null,
   ];
+  // Domain age is a wide timeline, so it gets its own row; platforms and endings share the next.
+  const ageBlock = age ? (
+    <ReportBlock description="When each site's domain was first registered. A domain can be older than the site on it." key="age" label="Domain age">
+      {stats.median_domain_age !== null ? (
+        <ReportFigure note={`median, registered ${Math.round(age.median_year)}`} value={`${Math.round(stats.median_domain_age)} ${Math.round(stats.median_domain_age) === 1 ? "yr" : "yrs"}`} />
+      ) : null}
+      <AgeStrip
+        binYears={age.bin_years}
+        bins={age.bins}
+        caption={`Domain registration years of ${name} sites`}
+        median={age.median_year}
+        middleHalf={age.middle_half}
+        newest={{ year: age.newest.year, domain: age.newest.domain }}
+        oldest={{ year: age.oldest.year, domain: age.oldest.domain }}
+      />
+    </ReportBlock>
+  ) : null;
   const buildBlocks = [
-    age ? (
-      <ReportBlock description="When each site's domain was first registered. A domain can be older than the site on it." key="age" label="Domain age">
-        {stats.median_domain_age !== null ? (
-          <ReportFigure note={`median, registered ${Math.round(age.median_year)}`} value={`${Math.round(stats.median_domain_age)} ${Math.round(stats.median_domain_age) === 1 ? "yr" : "yrs"}`} />
-        ) : null}
-        <AgeStrip
-          binYears={age.bin_years}
-          bins={age.bins}
-          caption={`Domain registration years of ${name} sites`}
-          median={age.median_year}
-          middleHalf={age.middle_half}
-          newest={{ year: age.newest.year, domain: age.newest.domain }}
-          oldest={{ year: age.oldest.year, domain: age.oldest.domain }}
-        />
-      </ReportBlock>
-    ) : null,
     measuredPlatforms.length ? (
       <ReportBlock description="What the sites are built with, from clues in their page code." key="platforms" label="Platforms">
         <Donut
           caption={`Platforms ${name} sites are built with`}
-          parts={platforms.map((row) => ({ label: row.label, value: row.count, ...(row.key === "unknown" ? { tone: "track" as const } : {}) }))}
+          parts={platformParts}
         />
       </ReportBlock>
     ) : null,
@@ -207,18 +208,13 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
                 <AreaLine caption={`${name} sites at the end of each month`} points={history} />
               </ReportBlock>
             ) : null,
-            rankRows.length ? (
-              <ReportBlock description={`Where ${name} sits among the networks we track, by number of sites.`} key="rank" label="Rank among networks">
-                <RankedBars ariaLabel="Sites per network" rows={rankRows} tone="highlight" />
-              </ReportBlock>
-            ) : null,
           ]} />
         </>
       ),
     },
-    { title: `What kind of sites use ${name}?`, has: kindBlocks.some(Boolean), content: <Row blocks={kindBlocks} layout="1-1-1" /> },
+    { title: `What kind of sites use ${name}?`, has: kindBlocks.some(Boolean), content: <Row blocks={kindBlocks} layout="1-1" /> },
     { title: `Which sites joined or left ${name}?`, has: moveBlocks.some(Boolean), content: <Row blocks={moveBlocks} layout="1-1" /> },
-    { title: `How are ${name} sites built?`, has: buildBlocks.some(Boolean), content: <Row blocks={buildBlocks} layout={age ? "2-1-1" : "1-1"} /> },
+    { title: `How are ${name} sites built?`, has: Boolean(ageBlock) || buildBlocks.some(Boolean), content: <>{ageBlock}<Row blocks={buildBlocks} layout="1-1" /></> },
     { title: "What else is in their ads.txt?", has: adsTxtBlocks.some(Boolean), content: <Row blocks={adsTxtBlocks} layout="1-1" /> },
   ];
 

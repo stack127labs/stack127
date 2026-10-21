@@ -116,8 +116,9 @@ export function AdNetworkCheckerTool({ initialSite = "", logos = {} }: { initial
     if (initialSite) void check(initialSite, false);
   }, [initialSite]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Stop a check still running when the tool goes away. A remount starts its own check.
-  useEffect(() => () => request.current?.abort(), []);
+  // A check still running when the tool goes away is left to finish: its result is ignored, and
+  // its own `finally` clears loading if the tool comes back (Fast Refresh keeps state). Aborting
+  // here raised an unhandled AbortError in development. A new check or Reset still aborts it.
 
   useEffect(() => {
     if (!focusTitle.current || loading) return;

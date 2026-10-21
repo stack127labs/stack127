@@ -127,9 +127,15 @@ export default async function AdNetworkStatsPage() {
     label: rule.name,
     shortLabel: shortName(rule.name),
     x: logStepPosition(rule.amount, ruleSteps),
-    xDisplay: rule.amount ? `${formatCount(rule.amount)} ${rule.unit}` : "none",
+    // The network's own wording when it has one, such as "Typically 1,000,000 pageviews a month".
+    xDisplay: rule.amount ? rule.label ?? `${formatCount(rule.amount)} ${rule.unit}` : "none",
     y: rule.sites,
   }));
+  // Networks whose traffic rule is a typical level rather than a firm minimum, named under the chart.
+  const guideNames = data.joining_rules.filter((rule) => /^(typically|around|about)\b/i.test(rule.label ?? "")).map((rule) => shortName(rule.name));
+  const guideNote = guideNames.length
+    ? ` ${guideNames.length === 1 ? guideNames[0] : `${guideNames.slice(0, -1).join(", ")} and ${guideNames.at(-1)}`} give a typical level, not a firm minimum.`
+    : "";
   const ageRows = data.median_domain_age.slice(0, 9).map((row) => ({ label: row.name, shortLabel: shortName(row.name), value: Math.round(row.years) }));
   const wordpressRows = data.wordpress_share.slice(0, 8)
     .map((row) => ({ label: row.name, value: row.share, display: percent(row.share), href: `/ad-networks/${row.slug}` }));
@@ -236,8 +242,8 @@ export default async function AdNetworkStatsPage() {
             <ReportGroup level={2} title="How do the networks compare?">
               <ReportRow layout="1-1-1">
                 {scatter.length > 1 ? (
-                  <ReportBlock description="Each dot is a network, placed by its monthly traffic minimum and how many sites run it. Networks without a public traffic minimum are left out." label="joining rule vs sites">
-                    <ScatterPlot caption="Monthly traffic minimum and sites per network" points={scatter} xLabels={ruleStepLabels} xTitle="traffic minimum →" />
+                  <ReportBlock description={`Each dot is a network, placed by the monthly traffic it asks for and how many sites run it.${guideNote} Networks without a public traffic rule are left out.`} label="joining rule vs sites">
+                    <ScatterPlot caption="Monthly traffic rule and sites per network" points={scatter} xLabels={ruleStepLabels} xTitle="traffic to join →" />
                   </ReportBlock>
                 ) : null}
                 {ageRows.length ? (

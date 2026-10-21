@@ -44,8 +44,8 @@ export function FactsList({ items }: { items: readonly Fact[] }) {
 }
 
 /** For a fact the network doesn't publish. Research says so; it isn't missing data. */
-export function NotPublic() {
-  return <span className={styles.notPublic}>Not public</span>;
+export function NotPublic({ label = "Not public" }: { label?: string }) {
+  return <span className={styles.notPublic}>{label}</span>;
 }
 
 /**

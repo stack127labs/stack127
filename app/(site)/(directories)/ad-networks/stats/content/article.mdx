@@ -1,3 +1,46 @@
-## How do we count a site for a network?
+## What does market share mean here?
 
-A site counts for a network when its own ads.txt file, or the ad setup on its pages, shows the network. A network's seller list can point us to a site, but it never counts one on its own. We re-check sites on a schedule, so these numbers move as sites join and leave.
+It's the share of sites we list that run a network. It says nothing about ad revenue or how much traffic each network serves. One big news site and one small blog count the same.
+
+Many sites run more than one network, so the shares add up to more than 100%. A site counts once in `sites listed`, and once for each network it runs.
+
+Google AdSense leads because it takes sites of any size. To compare managed networks, look past it to the ones below.
+
+## How do you read the other charts?
+
+| Chart | What to keep in mind |
+| --- | --- |
+| Net change | A site counts as lost only after its network has ended, which takes three missed checks over seven days or more. A short gap doesn't move it. |
+| Biggest switches | A switch is one main ad network replacing another within seven days. A site that adds a second network isn't a switch. |
+| Sites of each size | Groups come from Chrome's list of the most visited sites. `Not ranked` means the site wasn't in that month's list, not that it has no visits. |
+| Joining rule vs sites | Only networks with a public traffic minimum appear. Revenue rules, like Mediavine's, aren't on this chart. |
+| Domain age | The middle age of each network's sites. Half are older and half are newer. |
+| ads.txt files | `Broken lines` are lines that don't follow the ads.txt format. Ad systems skip them. |
+
+Charts that need history, such as share over time, fill in as our daily counts build up. We don't invent past numbers.
+
+## What can't these numbers tell you?
+
+- The whole market. We count only sites we've found and confirmed, across 44 networks. Networks that publish a full seller list are easier for us to find, so smaller networks without one may be undercounted.
+- When a site joined. Our history starts with our first check of each site, in 2026. A network may have run there for years before that.
+- Earnings or visits. We don't estimate either. There's no public source we can check them against.
+- Sites that block us. If a site blocks our checks, we can't confirm it. Without a readable ads.txt file, we can confirm only the few networks we can spot from homepage ad code alone.
+
+## How do we collect this data?
+
+Which networks a site runs comes from our own checks of its `ads.txt` file and, for some networks, its homepage ad code. A network's seller list only tells us which sites to check. The other facts come from the sources below. The [ad networks directory](/ad-networks) explains what counts as confirmed and what we leave out.
+
+| Data | Where it comes from | How often |
+| --- | --- | --- |
+| New sites | Networks' public seller lists and official publisher lists | Weekly |
+| Network checks | Each site's `ads.txt` file and homepage ad code | Every hour in batches; each confirmed site about once a week |
+| Counts for the charts | A snapshot of every network's totals | Daily |
+| ads.txt summary | Line counts, companies, and format errors from each file | Daily |
+| Platform | Signs in the homepage code, such as WordPress | Daily, refreshed every 30 days |
+| Domain age | The registration date in the registry's public RDAP record | Daily, for new sites |
+| Traffic groups | Google's [Chrome UX Report](https://developer.chrome.com/docs/crux) top-million list | Monthly |
+| Niches | We sort each site into one of 20 niches | Weekly, for new sites |
+
+A network moves to `Not seen lately` after two checks at least 48 hours apart miss it, and to `Ended` after three checks over seven days or more. A failed check, such as a timeout, never counts as missing.
+
+Traffic groups use Chrome UX Report data from Google, under the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).

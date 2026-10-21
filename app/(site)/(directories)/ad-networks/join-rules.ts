@@ -12,19 +12,22 @@ export function trafficRule(facts: AdNetworkFacts) {
   const rule = facts.minTraffic;
   if (!rule) return null;
   if (rule.amount === 0) return "No traffic minimum";
-  return `${rule.amount.toLocaleString("en-US")} ${rule.unit} a month`;
+  return rule.label ?? `${rule.amount.toLocaleString("en-US")} ${rule.unit} a month`;
 }
 
-// Key numbers about pay, fees, or contracts. Everything else is a rule for joining.
-const payNumber = /pay|share|fee|payout|terms|threshold|notice|timing|schedule|floor|minimums?$/i;
+// Key numbers about pay, fees, or contracts.
+const payNumber = /pay|share|split|fee|payout|terms|threshold|notice|timing|schedule|floor|minimums?$/i;
+// Key numbers that are a bar to clear: traffic, users, or revenue to join. Others, such as a typical
+// CPM or a review time, stay plain key numbers and never become the page's joining rule.
+const joinNumber = /join|traffic|users|visitors|pageviews|sessions|revenue benchmark/i;
+
+// Notes that say the number isn't a rule anyone has to meet, such as a benchmark or a referral bar.
+const notARule = /not a general minimum|not the main rule/i;
 
 /** Key numbers that say what it takes to join, such as revenue or traffic to apply. */
 export function joiningNumbers(facts: AdNetworkFacts) {
-  return facts.keyNumbers.filter((item) => !payNumber.test(item.label));
+  return facts.keyNumbers.filter((item) => !payNumber.test(item.label) && joinNumber.test(item.label) && !notARule.test(item.note ?? ""));
 }
-
-// Notes that say the number isn't a rule anyone has to meet.
-const notARule = /not a general minimum|not the main rule/i;
 
 /**
  * A joining key number as one phrase: the value, then the first part of its note, worded the
@@ -44,9 +47,9 @@ export function joinPhrase(item: AdNetworkFacts["keyNumbers"][number]) {
 export function joinLabel(slug: string): { value: string } {
   const facts = networkFacts(slug);
   if (!facts) return { value: "Not listed" };
-  const rule = trafficRule(facts);
+  const rule = facts.joinSummary ?? trafficRule(facts);
   if (rule) return { value: rule };
-  const first = joiningNumbers(facts).find((item) => !notARule.test(item.note ?? ""));
+  const first = joiningNumbers(facts)[0];
   return { value: first ? joinPhrase(first) : NOT_PUBLIC };
 }
 
@@ -57,9 +60,9 @@ export function joinLabel(slug: string): { value: string } {
 export function joinRule(slug: string): string | null {
   const facts = networkFacts(slug);
   if (!facts) return null;
-  const rule = trafficRule(facts);
+  const rule = facts.joinSummary ?? trafficRule(facts);
   if (rule) return rule;
-  const first = joiningNumbers(facts).find((item) => !notARule.test(item.note ?? ""));
+  const first = joiningNumbers(facts)[0];
   return first ? joinPhrase(first) : null;
 }
 

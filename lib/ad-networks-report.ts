@@ -30,7 +30,9 @@ export function adNetworkSiteAvailability(coverage: AdNetworkSiteCoverage): AdNe
   const availableColumns: AdNetworkSitesAvailability["availableColumns"] = ["domain"];
   const availableSorts: AdNetworkSitesAvailability["availableSorts"] = ["domain"];
   const availableFilters: AdNetworkSitesAvailability["availableFilters"] = [];
-  const nicheReady = hasAdNetworkNicheCoverage(coverage.listed, coverage.classified);
+  // The table shows niches as soon as any site in scope has one; unsorted rows read "Not listed".
+  // Niche charts and pages keep the stricter hasAdNetworkNicheCoverage gate.
+  const nicheReady = coverage.classified > 0;
   // data-gate: niche run; traffic run; RDAP run; platform run; publisher-name run; verifier.
   if (nicheReady) { availableColumns.push("niche"); availableFilters.push("niche"); }
   if (coverage.traffic > 0) { availableColumns.push("traffic"); availableSorts.push("traffic"); }
