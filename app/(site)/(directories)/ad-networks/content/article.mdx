@@ -72,7 +72,7 @@ Checks run every hour in small batches. Each confirmed site gets checked about o
 | Fact | Where it comes from | How often |
 | --- | --- | --- |
 | Traffic | The site's rank group in Google's [Chrome UX Report](https://developer.chrome.com/docs/crux), a list of the million most visited sites by Chrome users: top 10k, top 100k, or top 1M. `Not ranked` means the site wasn't in this month's Chrome UX Report list. That doesn't mean zero traffic: the list only covers sites with enough Chrome visitors. | Monthly |
-| Niche | An AI model reads the site's homepage title, description, and main heading, then picks one of 20 niches. Sites it isn't sure about stay unsorted. | Weekly, for new sites |
+| Niche | We sort each site into one of 20 niches. Sites we aren't sure about stay unsorted. | Weekly, for new sites |
 | Domain age | The registration date in the domain registry's public RDAP record. | Daily, for new sites |
 | Platform | Signs in the homepage code, such as WordPress. | Daily, refreshed every 30 days |
 | Publisher | The business name in the network's own seller list, when the domain matches. | Weekly |
