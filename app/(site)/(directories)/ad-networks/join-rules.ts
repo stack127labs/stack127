@@ -47,7 +47,7 @@ export function joinPhrase(item: AdNetworkFacts["keyNumbers"][number]) {
 export function joinLabel(slug: string): { value: string } {
   const facts = networkFacts(slug);
   if (!facts) return { value: "Not listed" };
-  const rule = trafficRule(facts);
+  const rule = facts.joinSummary ?? trafficRule(facts);
   if (rule) return { value: rule };
   const first = joiningNumbers(facts)[0];
   return { value: first ? joinPhrase(first) : NOT_PUBLIC };
@@ -60,7 +60,7 @@ export function joinLabel(slug: string): { value: string } {
 export function joinRule(slug: string): string | null {
   const facts = networkFacts(slug);
   if (!facts) return null;
-  const rule = trafficRule(facts);
+  const rule = facts.joinSummary ?? trafficRule(facts);
   if (rule) return rule;
   const first = joiningNumbers(facts)[0];
   return first ? joinPhrase(first) : null;

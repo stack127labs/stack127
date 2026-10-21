@@ -127,7 +127,8 @@ export default async function AdNetworkStatsPage() {
     label: rule.name,
     shortLabel: shortName(rule.name),
     x: logStepPosition(rule.amount, ruleSteps),
-    xDisplay: rule.amount ? `${formatCount(rule.amount)} ${rule.unit}` : "none",
+    // The network's own wording when it has one, such as "Typically 1,000,000 pageviews a month".
+    xDisplay: rule.amount ? rule.label ?? `${formatCount(rule.amount)} ${rule.unit}` : "none",
     y: rule.sites,
   }));
   const ageRows = data.median_domain_age.slice(0, 9).map((row) => ({ label: row.name, shortLabel: shortName(row.name), value: Math.round(row.years) }));
