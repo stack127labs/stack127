@@ -179,7 +179,7 @@ function cached<T extends unknown[], R>(key: string, loader: (...args: T) => Pro
     }
     try { return await read; }
     finally { if (pending.get(argumentKey) === read) pending.delete(argumentKey); }
-  }, [key, "v14"], { revalidate: false, tags: [AD_NETWORKS_TAG] });
+  }, [key, "v15"], { revalidate: false, tags: [AD_NETWORKS_TAG] });
 }
 const iso = (value: Date | string | null): string | null => value === null ? null : new Date(value).toISOString();
 const ref = (network: AdNetworkRef): AdNetworkRef => ({ slug: network.slug, name: network.name });
