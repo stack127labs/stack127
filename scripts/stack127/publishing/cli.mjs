@@ -177,6 +177,9 @@ export async function publishingMain(kind, argv = process.argv.slice(2), { after
   const configuredOrigin = process.env.NEXT_PUBLIC_SITE_URL ?? localEnvironment.match(/^\s*NEXT_PUBLIC_SITE_URL\s*=\s*(.*?)\s*$/m)?.[1]?.replace(/^['"]|['"]$/g, '') ?? 'https://stack127.com';
   const canonicalOrigin = args.environment === 'production' ? 'https://stack127.com' : new URL(configuredOrigin).origin;
   const pool = new pg.Pool({ connectionString: resolveDatabaseUrl({ environment: args.environment, ...(['apply', 'restore'].includes(args.command) ? { apply: true, confirm: args.confirm } : {}) }), max: 1, connectionTimeoutMillis: 15000, query_timeout: 60000 });
+  // pg removes disconnected idle clients itself, but emits an error that must
+  // have a listener, including while discarded refresh connections close.
+  pool.on('error', error => { console.error(`Publication database pool error: ${error.message}`); });
   let applied = false;
   try {
     if (args.command === 'prepare') {
