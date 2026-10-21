@@ -24,7 +24,9 @@ export function validateNicheBatch(input, output) {
     if (seen.has(row.domain)) throw new Error(`Duplicate result: ${row.domain}`);
     seen.add(row.domain); rows.push(row);
   }
-  if (seen.size !== domains.size) throw new Error(`Domain set mismatch: expected ${domains.size}, received ${seen.size}`);
+  // The model sometimes drops a site from a long batch. Keep the answers it gave: a missing site
+  // isn't checkpointed, so the next run asks again. An empty answer is still a failed call.
+  if (!seen.size) throw new Error(`No niche results for a batch of ${domains.size}`);
   return rows;
 }
 
@@ -145,7 +147,7 @@ export async function sortNiches(options, dependencies = {}) {
     }
     // Also retry revalidation when a previous run committed before it failed.
     await (dependencies.revalidate ?? revalidateAdNetworks)(options);
-    return { applied: true, environment: options.environment, classified: input.length, imported, withheld, synced: true, revalidated: true };
+    return { applied: true, environment: options.environment, classified, imported, withheld, synced: true, revalidated: true };
   } catch (error) {
     error.jobResult = { classified, imported, withheld, synced: imported > 0, revalidated: false }; throw error;
   } finally {
