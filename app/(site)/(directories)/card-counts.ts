@@ -1,4 +1,5 @@
 import type { PageCardCount } from "@/app/ui/cards/page-card";
+import { cardCounts as adNetworks } from "./ad-networks/card-counts";
 import { cardCounts as cliApps } from "./cli-apps/card-counts";
 import { cardCounts as eppStatusCodes } from "./epp-status-codes/card-counts";
 import { cardCounts as keyboardShortcuts } from "./keyboard-shortcuts/card-counts";
@@ -10,6 +11,7 @@ import { cardCounts as tldDirectory } from "./tld-directory/card-counts";
 
 /** Live homepage card counts. Each directory computes its own from its records. */
 const counts: Record<string, () => Promise<PageCardCount[]>> = {
+  "ad-networks": adNetworks,
   "cli-apps": cliApps,
   "epp-status-codes": eppStatusCodes,
   "keyboard-shortcuts": keyboardShortcuts,

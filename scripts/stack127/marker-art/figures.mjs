@@ -1554,6 +1554,16 @@ function toolSpot(spec, A) {
     }
     for (const [x, y] of nodes) A.dot(x, y, 3.8, "@primary");
     return;
+  } else if (d.motif === "adSlotSites") {
+    // A website window in front of quieter ones. Its marked banner is the ad slot a network fills.
+    A.linearPath([[34, 10], [132, 10], [132, 74]], { stroke: "@sub", strokeWidth: 1.4, roughness: 0.8 });
+    A.linearPath([[24, 18], [122, 18], [122, 84]], { stroke: "@sub", strokeWidth: 1.6, roughness: 0.8 });
+    A.rect(12, 26, 100, 74, { stroke: "@ink", strokeWidth: 1.9, roughness: 0.9 });
+    A.line(12, 39, 112, 39, { stroke: "@ink", strokeWidth: 1.4, roughness: 0.6 });
+    A.rect(22, 48, 80, 20, { stroke: "@primary", fill: "@primary", strokeWidth: 2, roughness: 1 });
+    A.line(22, 79, 92, 79, { stroke: "@sub", strokeWidth: 1.5, roughness: 0.6 });
+    A.line(22, 89, 70, 89, { stroke: "@sub", strokeWidth: 1.5, roughness: 0.6 });
+    return;
   } else if (d.motif === "seriesSpines") {
     // Three spines stand on one baseline, the first a little taller. Each hop is a thinner arrow than the one before.
     const baseline = 96;
