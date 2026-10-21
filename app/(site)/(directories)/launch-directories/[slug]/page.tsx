@@ -206,7 +206,10 @@ export default async function LaunchDirectoryPage({ params }: { params: Promise<
   >
     <EntryHero art={null}>
       <PageHeader breadcrumbs={breadcrumbs} className={styles.header}>
-        <h1><LaunchLogo eager iconUrl={directory.icon_url} name={directory.name} size="title" /><DirectoryPageTitle title={directoryPage.title} /></h1>
+        <div className={styles.title}>
+          <LaunchLogo eager iconUrl={directory.icon_url} name={directory.name} size="title" />
+          <h1><DirectoryPageTitle title={directoryPage.title} /></h1>
+        </div>
         <p>{directory.summary}</p>
         <div className={styles.meta}>
           {category ? <span><CategoryIcon iconKey={category.iconKey} />{category.label}</span> : null}
