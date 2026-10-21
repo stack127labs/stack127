@@ -44,9 +44,11 @@ export async function inspectAssets(directory) {
   return { files: uploaded.length, bytes: uploaded.reduce((sum, file) => sum + file.size, 0), remainingFiles: freeFileLimit - uploaded.length };
 }
 
-export function routeParameters(template, pages) {
+/** Pages matching a dynamic route. Paths owned by a static sibling, such as `/launch-directories/compare`, stay with it. */
+export function routeParameters(template, pages, staticRoutes = new Set()) {
   const parts = template.split("/");
   return pages.flatMap(page => {
+    if (staticRoutes.has(`/${page.slug}`)) return [];
     const values = (`/${page.slug}`).split("/");
     if (values.length !== parts.length) return [];
     const parameters = {};

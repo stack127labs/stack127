@@ -1,0 +1,1357 @@
+[
+  {
+    "slug": "ai-tools-board",
+    "expected_updated_at": "2026-10-10T10:27:00.168406+00:00",
+    "before": {
+      "cost_kind": "unknown",
+      "cost_label": "Standard price not published; Fast Track Review $99",
+      "cost_tag": "Not stated",
+      "cost_note": "Fast Track $99",
+      "evidence": {
+        "cost": {
+          "note": "Fast Track is $99; standard fee is not stated.",
+          "method": "official submission form",
+          "status": "not_published",
+          "checked_at": "2026-09-29",
+          "source_url": "https://aitoolsboard.com/submit"
+        },
+        "link_type": {
+          "rel": [
+            "nofollow"
+          ],
+          "href": "https://v0.app/",
+          "method": "public listing HTML",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://aitoolsboard.com/categories/developer-tools",
+          "sampled_tier": "standard listing"
+        },
+        "submission": {
+          "date": "2026-10-02",
+          "note": "Browser GET could not verify the official submission page (403). Final URL: https://aitoolsboard.com/submit. This is an access or availability check, not proof the service is closed.",
+          "method": "browser GET",
+          "status": "unverified",
+          "checked_at": "2026-10-02T16:37:02.336Z",
+          "source_url": "https://aitoolsboard.com/submit",
+          "observations": [
+            {
+              "date": "2026-10-02",
+              "note": "Browser GET could not verify the official submission page (403). Final URL: https://aitoolsboard.com/submit. This is an access or availability check, not proof the service is closed.",
+              "method": "browser GET",
+              "status": "unverified",
+              "checked_at": "2026-10-02T16:37:02.336Z",
+              "source_url": "https://aitoolsboard.com/submit"
+            }
+          ]
+        },
+        "eligibility": {
+          "note": "Form is for AI tools but gives no detailed acceptance checklist.",
+          "method": "official submission form",
+          "status": "not_published",
+          "checked_at": "2026-09-29",
+          "source_url": "https://aitoolsboard.com/submit"
+        },
+        "review_time": {
+          "method": "official submission form",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://aitoolsboard.com/submit"
+        }
+      },
+      "checked_on": "2026-10-02"
+    },
+    "changes": {
+      "cost_kind": "free_and_paid",
+      "cost_label": "Free review; promotion slots $5, $6, and $8",
+      "cost_tag": "Free",
+      "cost_note": "Paid promotion from $5",
+      "evidence": {
+        "cost": {
+          "date": "2026-10-21",
+          "note": "Standard Review is free. Optional promotion slots cost $5, $6, and $8 and bypass the 5 to 7 business day review wait.",
+          "method": "Official submission form",
+          "status": "verified",
+          "checked_at": "2026-10-21",
+          "source_url": "https://aitoolsboard.com/submit",
+          "observations": [
+            {
+              "date": "2026-10-21",
+              "note": "The current form lists Standard Review at $0 and promotion slots at $5, $6, and $8.",
+              "method": "Official submission form",
+              "status": "verified",
+              "checked_at": "2026-10-21",
+              "source_url": "https://aitoolsboard.com/submit"
+            }
+          ]
+        },
+        "link_type": {
+          "rel": [
+            "nofollow"
+          ],
+          "href": "https://v0.app/",
+          "method": "public listing HTML",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://aitoolsboard.com/categories/developer-tools",
+          "sampled_tier": "standard listing"
+        },
+        "submission": {
+          "date": "2026-10-02",
+          "note": "Browser GET could not verify the official submission page (403). Final URL: https://aitoolsboard.com/submit. This is an access or availability check, not proof the service is closed.",
+          "method": "browser GET",
+          "status": "unverified",
+          "checked_at": "2026-10-02T16:37:02.336Z",
+          "source_url": "https://aitoolsboard.com/submit",
+          "observations": [
+            {
+              "date": "2026-10-02",
+              "note": "Browser GET could not verify the official submission page (403). Final URL: https://aitoolsboard.com/submit. This is an access or availability check, not proof the service is closed.",
+              "method": "browser GET",
+              "status": "unverified",
+              "checked_at": "2026-10-02T16:37:02.336Z",
+              "source_url": "https://aitoolsboard.com/submit"
+            }
+          ]
+        },
+        "eligibility": {
+          "note": "Form is for AI tools but gives no detailed acceptance checklist.",
+          "method": "official submission form",
+          "status": "not_published",
+          "checked_at": "2026-09-29",
+          "source_url": "https://aitoolsboard.com/submit"
+        },
+        "review_time": {
+          "method": "official submission form",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://aitoolsboard.com/submit"
+        }
+      },
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "aura-plus-plus",
+    "expected_updated_at": "2026-10-10T10:27:00.168406+00:00",
+    "before": {
+      "cost_label": "Free; Premium $29/launch; Premium Plus $69 (billing interval not stated). A current banner says Premium launches are temporarily free; offer conditions could not be verified.",
+      "cost_note": "Premium promo; see details",
+      "evidence": {
+        "cost": {
+          "note": "Free is $0/launch; Premium is $29/launch; Premium Plus is $69. Couldn’t verify Premium Plus billing interval: the official pricing page gives no interval. A banner also says Premium launches are temporarily free.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://auraplusplus.com/pricing"
+        },
+        "link_type": {
+          "rel": [
+            "noopener"
+          ],
+          "href": "https://polytender.com/?utm_source=auraplusplus&utm_medium=project_page&utm_campaign=project_launch&ref=auraplusplus&source=auraplusplus",
+          "note": "The maker-site anchor has rel=noopener only, so this sample is followable. Couldn’t verify its tier: the public listing does not show the plan.",
+          "method": "public HTML GET; raw anchor inspection",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://auraplusplus.com/projects/polytender",
+          "sampled_tier": "unknown"
+        },
+        "submission": {
+          "note": "HTTP 200 on the official Submit Project page. No form was submitted.",
+          "method": "public HTTP GET",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://auraplusplus.com/projects/submit"
+        },
+        "eligibility": {
+          "note": "Free dofollow requires a top-three daily ranking and the site badge.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://auraplusplus.com/pricing"
+        },
+        "link_policy": {
+          "note": "Free requires top-three daily rank and badge for a dofollow link. Premium guarantees one; Premium Plus adds a dofollow blog link.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://auraplusplus.com/pricing"
+        },
+        "review_time": {
+          "note": "Free has five slots daily, standard queue, and up to 365 days of scheduling. Paid plans offer priority scheduling. All launches go live at 08:00 UTC.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://auraplusplus.com/pricing"
+        },
+        "public_submission": {
+          "backlink": "optional",
+          "review_time": null,
+          "launch_queue": "Five free slots daily; standard queue; scheduling up to 365 days ahead; launches go live at 08:00 UTC.",
+          "observations": [
+            {
+              "text": "Checked the official page: Submit product details and choose a free launch date.  Five free slots daily; standard queue; scheduling up to 365 days ahead; launches go live at 08:00 UTC.",
+              "method": "public_page",
+              "checked_at": "2026-10-10",
+              "source_url": "https://auraplusplus.com/pricing"
+            }
+          ],
+          "requirements": [
+            "Submit product details and choose a free launch date"
+          ]
+        }
+      },
+      "checked_on": "2026-10-10"
+    },
+    "changes": {
+      "cost_label": "Free; Premium $29/launch, Premium Plus $69/launch",
+      "cost_note": "40% off with LAUNCHOFF40",
+      "evidence": {
+        "cost": {
+          "date": "2026-10-21",
+          "note": "The page lists Free at $0, Premium at $29 per launch, and Premium Plus at $69 per launch. A banner offers 40% off every launch with code LAUNCHOFF40; the record and facts file use listed prices.",
+          "method": "Official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-21",
+          "source_url": "https://auraplusplus.com/pricing",
+          "observations": [
+            {
+              "date": "2026-10-21",
+              "note": "The pricing page lists Premium at $29 per launch and Premium Plus at $69 per launch. Its current banner offers 40% off with LAUNCHOFF40.",
+              "method": "Official pricing page",
+              "status": "verified",
+              "checked_at": "2026-10-21",
+              "source_url": "https://auraplusplus.com/pricing"
+            }
+          ]
+        },
+        "link_type": {
+          "rel": [
+            "noopener"
+          ],
+          "href": "https://polytender.com/?utm_source=auraplusplus&utm_medium=project_page&utm_campaign=project_launch&ref=auraplusplus&source=auraplusplus",
+          "note": "The maker-site anchor has rel=noopener only, so this sample is followable. Couldn’t verify its tier: the public listing does not show the plan.",
+          "method": "public HTML GET; raw anchor inspection",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://auraplusplus.com/projects/polytender",
+          "sampled_tier": "unknown"
+        },
+        "submission": {
+          "note": "HTTP 200 on the official Submit Project page. No form was submitted.",
+          "method": "public HTTP GET",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://auraplusplus.com/projects/submit"
+        },
+        "eligibility": {
+          "note": "Free dofollow requires a top-three daily ranking and the site badge.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://auraplusplus.com/pricing"
+        },
+        "link_policy": {
+          "note": "Free requires top-three daily rank and badge for a dofollow link. Premium guarantees one; Premium Plus adds a dofollow blog link.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://auraplusplus.com/pricing"
+        },
+        "review_time": {
+          "note": "Five free slots daily; standard queue; scheduling up to 365 days ahead; launches go live at 08:00 UTC.",
+          "method": "official terms",
+          "status": "verified",
+          "checked_at": "2026-10-10",
+          "source_url": "https://auraplusplus.com/pricing"
+        },
+        "public_submission": {
+          "backlink": "optional",
+          "review_time": null,
+          "launch_queue": "Five free slots daily; standard queue; scheduling up to 365 days ahead; launches go live at 08:00 UTC.",
+          "observations": [
+            {
+              "text": "Checked the official page: Submit product details and choose a free launch date.  Five free slots daily; standard queue; scheduling up to 365 days ahead; launches go live at 08:00 UTC.",
+              "method": "public_page",
+              "checked_at": "2026-10-10",
+              "source_url": "https://auraplusplus.com/pricing"
+            }
+          ],
+          "requirements": [
+            "Submit product details and choose a free launch date"
+          ]
+        }
+      },
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "devhunt",
+    "expected_updated_at": "2026-10-10T10:27:00.168406+00:00",
+    "before": {
+      "cost_label": "Free queue; $49 queue skip. Billing period for the $49 fee: Not stated on their site",
+      "cost_note": "Paid from $49",
+      "sources": [
+        "https://devhunt.org/",
+        "https://devhunt.org/the-story",
+        "https://devhunt.org/login",
+        "https://devhunt.org/tool/mcpindex"
+      ],
+      "evidence": {
+        "cost": {
+          "date": "2026-09-29",
+          "note": "Free queue; $49 queue skip. Billing period for the $49 fee: Not stated on their site.",
+          "method": "Official page review",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://devhunt.org/the-story",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Free queue; $49 queue skip. Billing period for the $49 fee: Not stated on their site.",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/the-story"
+            },
+            {
+              "date": "2026-09-29",
+              "note": "A specific detail in this field is not stated on the official site.",
+              "method": "Official page review",
+              "status": "not_published",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/the-story"
+            }
+          ]
+        },
+        "link_type": {
+          "rel": [
+            "nofollow",
+            "noopener"
+          ],
+          "date": "2026-09-29",
+          "href": "https://www.npmjs.com/package/@mcpindex/server?ref=devhunt",
+          "note": "Observed on this sample only; no site-wide guarantee.",
+          "method": "public listing HTML",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://devhunt.org/tool/mcpindex",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Sample only (MCPIndex, tier not stated): nofollow (`rel=\"nofollow noopener\"`). No site-wide rule was found.",
+              "method": "Official page review; raw HTML sample check",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/tool/mcpindex"
+            }
+          ],
+          "sampled_tier": "not stated"
+        },
+        "submission": {
+          "date": "2026-10-02",
+          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+          "method": "browser GET",
+          "status": "verified",
+          "checked_at": "2026-10-02T16:37:02.336Z",
+          "source_url": "https://devhunt.org/login",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Official maker start route verified: https://devhunt.org/login",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/login"
+            },
+            {
+              "date": "2026-10-02",
+              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+              "method": "browser GET",
+              "status": "verified",
+              "checked_at": "2026-10-02T16:37:02.336Z",
+              "source_url": "https://devhunt.org/login"
+            }
+          ]
+        },
+        "eligibility": {
+          "date": "2026-09-29",
+          "note": "Developer tools in the listed categories; sign-in uses GitHub or Google.",
+          "method": "Official page review",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://devhunt.org/",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Developer tools in the listed categories; sign-in uses GitHub or Google.",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/"
+            }
+          ]
+        },
+        "review_time": {
+          "date": "2026-10-07",
+          "note": "The public free-launch queue average is about 6 months; no separate approval ETA is published.",
+          "method": "Official page review",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://devhunt.org/the-story",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Free queue averages about six months; paid makers can choose a launch week.",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/"
+            }
+          ]
+        },
+        "public_submission": {
+          "backlink": "unknown",
+          "review_time": "No separate approval-time estimate is published.",
+          "launch_queue": "The public page says the free queue averages 6 months. Our free launch is assigned April 2, 2030; that date is specific to our account, not a general promise.",
+          "observations": [
+            {
+              "text": "The official page states that the average wait for a free launch is 6 months.",
+              "method": "public_page",
+              "checked_at": "2026-10-07",
+              "source_url": "https://devhunt.org/the-story"
+            },
+            {
+              "text": "Our signed-in free submission was assigned April 2, 2030. This is our account-specific date, separate from the public six-month average.",
+              "method": "signed_in_flow",
+              "checked_at": "2026-10-07",
+              "source_url": "https://devhunt.org/login"
+            }
+          ],
+          "requirements": [
+            "Developer tool in supported categories"
+          ]
+        }
+      },
+      "checked_on": "2026-10-07"
+    },
+    "changes": {
+      "cost_label": "Free; Launch $19, Boosted launch $49",
+      "cost_note": "Paid from $19 once",
+      "sources": [
+        "https://devhunt.org/",
+        "https://devhunt.org/the-story",
+        "https://devhunt.org/login",
+        "https://devhunt.org/tool/mcpindex",
+        "https://devhunt.org/faq"
+      ],
+      "evidence": {
+        "cost": {
+          "date": "2026-10-21",
+          "note": "The current official pages list a free tool page, Launch at $19 once, and Boosted launch at $49. Boosted adds tie-break placement and an X post.",
+          "method": "Official About and FAQ pages",
+          "status": "verified",
+          "checked_at": "2026-10-21",
+          "source_url": "https://devhunt.org/the-story",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Free queue; $49 queue skip. Billing period for the $49 fee: Not stated on their site.",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/the-story"
+            },
+            {
+              "date": "2026-09-29",
+              "note": "A specific detail in this field is not stated on the official site.",
+              "method": "Official page review",
+              "status": "not_published",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/the-story"
+            },
+            {
+              "date": "2026-10-21",
+              "note": "The About page lists Launch at $19 and Boosted launch at $49. The FAQ confirms the $19 one-time launch and says paid launches get a dofollow link.",
+              "method": "Official About and FAQ pages",
+              "status": "verified",
+              "checked_at": "2026-10-21",
+              "source_url": "https://devhunt.org/the-story",
+              "related_source_urls": [
+                "https://devhunt.org/the-story",
+                "https://devhunt.org/faq"
+              ]
+            }
+          ],
+          "related_source_urls": [
+            "https://devhunt.org/the-story",
+            "https://devhunt.org/faq"
+          ]
+        },
+        "link_type": {
+          "rel": [
+            "nofollow",
+            "noopener"
+          ],
+          "date": "2026-09-29",
+          "href": "https://www.npmjs.com/package/@mcpindex/server?ref=devhunt",
+          "note": "Observed on this sample only; no site-wide guarantee.",
+          "method": "public listing HTML",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://devhunt.org/tool/mcpindex",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Sample only (MCPIndex, tier not stated): nofollow (`rel=\"nofollow noopener\"`). No site-wide rule was found.",
+              "method": "Official page review; raw HTML sample check",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/tool/mcpindex"
+            }
+          ],
+          "sampled_tier": "not stated"
+        },
+        "submission": {
+          "date": "2026-10-02",
+          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+          "method": "browser GET",
+          "status": "verified",
+          "checked_at": "2026-10-02T16:37:02.336Z",
+          "source_url": "https://devhunt.org/login",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Official maker start route verified: https://devhunt.org/login",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/login"
+            },
+            {
+              "date": "2026-10-02",
+              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+              "method": "browser GET",
+              "status": "verified",
+              "checked_at": "2026-10-02T16:37:02.336Z",
+              "source_url": "https://devhunt.org/login"
+            }
+          ]
+        },
+        "eligibility": {
+          "date": "2026-09-29",
+          "note": "Developer tools in the listed categories; sign-in uses GitHub or Google.",
+          "method": "Official page review",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://devhunt.org/",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Developer tools in the listed categories; sign-in uses GitHub or Google.",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/"
+            }
+          ]
+        },
+        "review_time": {
+          "date": "2026-10-07",
+          "note": "The public free-launch queue average is about 6 months; no separate approval ETA is published.",
+          "method": "Official page review",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://devhunt.org/the-story",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Free queue averages about six months; paid makers can choose a launch week.",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://devhunt.org/"
+            }
+          ]
+        },
+        "public_submission": {
+          "backlink": "unknown",
+          "review_time": "No separate approval-time estimate is published.",
+          "launch_queue": "The public page says the free queue averages 6 months. Our free launch is assigned April 2, 2030; that date is specific to our account, not a general promise.",
+          "observations": [
+            {
+              "text": "The official page states that the average wait for a free launch is 6 months.",
+              "method": "public_page",
+              "checked_at": "2026-10-07",
+              "source_url": "https://devhunt.org/the-story"
+            },
+            {
+              "text": "Our signed-in free submission was assigned April 2, 2030. This is our account-specific date, separate from the public six-month average.",
+              "method": "signed_in_flow",
+              "checked_at": "2026-10-07",
+              "source_url": "https://devhunt.org/login"
+            }
+          ],
+          "requirements": [
+            "Developer tool in supported categories"
+          ]
+        }
+      },
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "indieneed",
+    "expected_updated_at": "2026-10-10T10:27:00.168406+00:00",
+    "before": {
+      "cost_label": "Free Basic; Starter $15/7 days, Pro $30/14 days, Premium $60/14 days, Ultimate $120/30 days; sidebar ad $21/week. Paid launch plans are one-time payments, not subscriptions.",
+      "cost_note": "Paid from $15 once",
+      "evidence": {
+        "cost": {
+          "note": "Free Basic; Starter $15 for 7 days, Pro $30 for 14 days, Premium $60 for 14 days, Ultimate $120 for 30 days. A right-sidebar ad costs $21/week. Paid launch prices are one-time.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://www.indieneed.com/pricing"
+        },
+        "link_type": {
+          "rel": [
+            "noopener",
+            "noreferrer"
+          ],
+          "href": "https://www.peregrineintell.com",
+          "note": "The public sample's maker-site anchor has no nofollow, ugc, or sponsored rel value. Couldn't verify its tier: the public listing does not show the plan.",
+          "method": "public HTML GET; raw anchor inspection",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://www.indieneed.com/products/Peregrine-OS",
+          "sampled_tier": "unknown"
+        },
+        "submission": {
+          "note": "HTTP 200. The official start page says to add product details and choose a listing option; the form content remained at a loading message. No form was submitted.",
+          "method": "public HTTP GET",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://www.indieneed.com/submit"
+        },
+        "eligibility": {
+          "note": "The site describes itself as a launch directory for independent makers and lists SaaS, AI tools, apps, and startups.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://www.indieneed.com/pricing"
+        },
+        "link_policy": {
+          "note": "Free Basic is listed as nofollow. Starter lists a sponsored website link. The sample's tier is unclear, so its followable link does not establish the free-tier policy.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://www.indieneed.com/pricing"
+        },
+        "review_time": {
+          "note": "Free listings are reviewed by staff. Couldn’t verify an exact review time: the official pricing page gives no ETA. Paid plans skip review and publish on the chosen date.",
+          "method": "official pricing page and FAQ",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://www.indieneed.com/pricing"
+        }
+      },
+      "checked_on": "2026-10-05"
+    },
+    "changes": {
+      "cost_label": "Free; $3 dofollow add-on; launches from $15",
+      "cost_note": "Paid launches from $15; $3 link add-on",
+      "evidence": {
+        "cost": {
+          "date": "2026-10-21",
+          "note": "The $3 permanent dofollow link is an add-on to the free listing. It does not buy a listing by itself. Paid launch listings start at $15 for 7 days.",
+          "method": "Official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-21",
+          "source_url": "https://www.indieneed.com/pricing",
+          "observations": [
+            {
+              "date": "2026-10-21",
+              "note": "The pricing page labels the $3 permanent dofollow link as an add-on to Free. The first paid launch listing is Starter at $15 for 7 days.",
+              "method": "Official pricing page",
+              "status": "verified",
+              "checked_at": "2026-10-21",
+              "source_url": "https://www.indieneed.com/pricing"
+            }
+          ]
+        },
+        "link_type": {
+          "rel": [
+            "noopener",
+            "noreferrer"
+          ],
+          "href": "https://www.peregrineintell.com",
+          "note": "The public sample's maker-site anchor has no nofollow, ugc, or sponsored rel value. Couldn't verify its tier: the public listing does not show the plan.",
+          "method": "public HTML GET; raw anchor inspection",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://www.indieneed.com/products/Peregrine-OS",
+          "sampled_tier": "unknown"
+        },
+        "submission": {
+          "note": "HTTP 200. The official start page says to add product details and choose a listing option; the form content remained at a loading message. No form was submitted.",
+          "method": "public HTTP GET",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://www.indieneed.com/submit"
+        },
+        "eligibility": {
+          "note": "The site describes itself as a launch directory for independent makers and lists SaaS, AI tools, apps, and startups.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://www.indieneed.com/pricing"
+        },
+        "link_policy": {
+          "note": "Free Basic is listed as nofollow. Starter lists a sponsored website link. The sample's tier is unclear, so its followable link does not establish the free-tier policy.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://www.indieneed.com/pricing"
+        },
+        "review_time": {
+          "note": "Free listings are reviewed by staff. Couldn’t verify an exact review time: the official pricing page gives no ETA. Paid plans skip review and publish on the chosen date.",
+          "method": "official pricing page and FAQ",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://www.indieneed.com/pricing"
+        }
+      },
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "launching-next",
+    "expected_updated_at": "2026-10-10T10:27:00.168406+00:00",
+    "before": {
+      "cost_label": "Free; express $99 on submission page (other site prices conflict)",
+      "cost_note": "Paid from $99",
+      "evidence": {
+        "cost": {
+          "date": "2026-09-29",
+          "note": "Conflicting info: express is $49 on Advertise, $99 (discounted from $199) in an official checkout record, and starts at $149 once in official LLM info. Free submission is listed.",
+          "method": "Official page review",
+          "status": "conflicting",
+          "checked_at": "2026-09-29",
+          "source_url": "https://www.launchingnext.com/advertise",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Conflicting info: express is $49 on Advertise, $99 (discounted from $199) in an official checkout record, and starts at $149 once in official LLM info. Free submission is listed.",
+              "method": "Official page review",
+              "status": "conflicting",
+              "checked_at": "2026-09-29",
+              "source_url": "https://www.launchingnext.com/advertise",
+              "related_source_urls": [
+                "https://www.launchingnext.com/advertise",
+                "https://www.launchingnext.com/submit/",
+                "https://www.launchingnext.com/thanks/?i=120106",
+                "https://launchingnext.com/llm-info.html"
+              ]
+            }
+          ],
+          "related_source_urls": [
+            "https://www.launchingnext.com/advertise",
+            "https://www.launchingnext.com/submit/",
+            "https://www.launchingnext.com/thanks/?i=120106",
+            "https://launchingnext.com/llm-info.html"
+          ]
+        },
+        "link_type": {
+          "date": "2026-09-29",
+          "note": "Varies by plan: paid placement promises a permanent dofollow link; free listing link type: Not stated on their site.",
+          "method": "Official page review",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://www.launchingnext.com/advertise",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Varies by plan: paid placement promises a permanent dofollow link; free listing link type: Not stated on their site.",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://www.launchingnext.com/advertise"
+            },
+            {
+              "date": "2026-09-29",
+              "note": "A specific detail in this field is not stated on the official site.",
+              "method": "Official page review",
+              "status": "not_published",
+              "checked_at": "2026-09-29",
+              "source_url": "https://www.launchingnext.com/advertise"
+            }
+          ]
+        },
+        "submission": {
+          "date": "2026-10-02",
+          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+          "method": "browser GET",
+          "status": "verified",
+          "checked_at": "2026-10-02T16:37:02.336Z",
+          "source_url": "https://www.launchingnext.com/submit/",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "No verified usable maker submission route; known route findings are in research_notes.",
+              "method": "Official page review",
+              "status": "unverified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://www.launchingnext.com/submit/",
+              "observations": [
+                {
+                  "date": "2026-09-29",
+                  "note": "No verified usable maker submission route; known route findings are in research_notes.",
+                  "method": "Official page review",
+                  "status": "unverified",
+                  "checked_at": "2026-09-29",
+                  "source_url": "https://www.launchingnext.com/submit/"
+                }
+              ]
+            },
+            {
+              "date": "2026-10-02",
+              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+              "method": "browser GET",
+              "status": "verified",
+              "checked_at": "2026-10-02T16:37:02.336Z",
+              "source_url": "https://www.launchingnext.com/submit/"
+            }
+          ]
+        },
+        "eligibility": {
+          "date": "2026-09-29",
+          "note": "Startup must have a founder-controlled website; submissions receive manual review.",
+          "method": "Official page review",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://www.launchingnext.com/submit/",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Startup must have a founder-controlled website; submissions receive manual review.",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://www.launchingnext.com/submit/"
+            }
+          ]
+        },
+        "review_time": {
+          "date": "2026-09-29",
+          "note": "The current official form says free submissions are reviewed every day and a $99 upgrade gets consideration within 1 business day.",
+          "method": "browser GET",
+          "status": "verified",
+          "checked_at": "2026-10-02T16:49:36Z",
+          "source_url": "https://www.launchingnext.com/submit/",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Paid express: one business day; free queue: Conflicting info (three or four months).",
+              "method": "Official page review",
+              "status": "conflicting",
+              "checked_at": "2026-09-29",
+              "source_url": "https://www.launchingnext.com/submit/",
+              "related_source_urls": [
+                "https://www.launchingnext.com/advertise",
+                "https://www.launchingnext.com/submit/",
+                "https://www.launchingnext.com/thanks/?i=120106",
+                "https://launchingnext.com/llm-info.html"
+              ]
+            }
+          ],
+          "related_source_urls": [
+            "https://www.launchingnext.com/advertise",
+            "https://www.launchingnext.com/submit/",
+            "https://www.launchingnext.com/thanks/?i=120106",
+            "https://launchingnext.com/llm-info.html"
+          ]
+        }
+      },
+      "checked_on": "2026-10-02"
+    },
+    "changes": {
+      "cost_label": "Free; express $49 on Advertise, $99 on Submit",
+      "cost_note": "Express price conflict: $49 vs $99",
+      "evidence": {
+        "cost": {
+          "date": "2026-10-21",
+          "note": "Conflicting info: Advertise lists $49 express approval, while Submit says the free submission has a $99 next-page upgrade. The pages do not explain the difference.",
+          "method": "Official Advertise and Submit pages",
+          "status": "conflicting",
+          "checked_at": "2026-10-21",
+          "source_url": "https://www.launchingnext.com/advertise",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Conflicting info: express is $49 on Advertise, $99 (discounted from $199) in an official checkout record, and starts at $149 once in official LLM info. Free submission is listed.",
+              "method": "Official page review",
+              "status": "conflicting",
+              "checked_at": "2026-09-29",
+              "source_url": "https://www.launchingnext.com/advertise",
+              "related_source_urls": [
+                "https://www.launchingnext.com/advertise",
+                "https://www.launchingnext.com/submit/",
+                "https://www.launchingnext.com/thanks/?i=120106",
+                "https://launchingnext.com/llm-info.html"
+              ]
+            },
+            {
+              "date": "2026-10-21",
+              "note": "Advertise lists express approval at $49; Submit says free submissions can upgrade for $99 to be considered within one business day.",
+              "method": "Official Advertise and Submit pages",
+              "status": "conflicting",
+              "checked_at": "2026-10-21",
+              "source_url": "https://www.launchingnext.com/advertise",
+              "related_source_urls": [
+                "https://www.launchingnext.com/advertise",
+                "https://www.launchingnext.com/submit/"
+              ]
+            }
+          ],
+          "related_source_urls": [
+            "https://www.launchingnext.com/advertise",
+            "https://www.launchingnext.com/submit/"
+          ]
+        },
+        "link_type": {
+          "date": "2026-09-29",
+          "note": "Varies by plan: paid placement promises a permanent dofollow link; free listing link type: Not stated on their site.",
+          "method": "Official page review",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://www.launchingnext.com/advertise",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Varies by plan: paid placement promises a permanent dofollow link; free listing link type: Not stated on their site.",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://www.launchingnext.com/advertise"
+            },
+            {
+              "date": "2026-09-29",
+              "note": "A specific detail in this field is not stated on the official site.",
+              "method": "Official page review",
+              "status": "not_published",
+              "checked_at": "2026-09-29",
+              "source_url": "https://www.launchingnext.com/advertise"
+            }
+          ]
+        },
+        "submission": {
+          "date": "2026-10-02",
+          "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+          "method": "browser GET",
+          "status": "verified",
+          "checked_at": "2026-10-02T16:37:02.336Z",
+          "source_url": "https://www.launchingnext.com/submit/",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "No verified usable maker submission route; known route findings are in research_notes.",
+              "method": "Official page review",
+              "status": "unverified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://www.launchingnext.com/submit/",
+              "observations": [
+                {
+                  "date": "2026-09-29",
+                  "note": "No verified usable maker submission route; known route findings are in research_notes.",
+                  "method": "Official page review",
+                  "status": "unverified",
+                  "checked_at": "2026-09-29",
+                  "source_url": "https://www.launchingnext.com/submit/"
+                }
+              ]
+            },
+            {
+              "date": "2026-10-02",
+              "note": "Browser GET loaded the official submission start page (HTTP 200). Login, account, and payment gates were not completed.",
+              "method": "browser GET",
+              "status": "verified",
+              "checked_at": "2026-10-02T16:37:02.336Z",
+              "source_url": "https://www.launchingnext.com/submit/"
+            }
+          ]
+        },
+        "eligibility": {
+          "date": "2026-09-29",
+          "note": "Startup must have a founder-controlled website; submissions receive manual review.",
+          "method": "Official page review",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://www.launchingnext.com/submit/",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Startup must have a founder-controlled website; submissions receive manual review.",
+              "method": "Official page review",
+              "status": "verified",
+              "checked_at": "2026-09-29",
+              "source_url": "https://www.launchingnext.com/submit/"
+            }
+          ]
+        },
+        "review_time": {
+          "date": "2026-09-29",
+          "note": "The current official form says free submissions are reviewed every day and a $99 upgrade gets consideration within 1 business day.",
+          "method": "browser GET",
+          "status": "verified",
+          "checked_at": "2026-10-02T16:49:36Z",
+          "source_url": "https://www.launchingnext.com/submit/",
+          "observations": [
+            {
+              "date": "2026-09-29",
+              "note": "Paid express: one business day; free queue: Conflicting info (three or four months).",
+              "method": "Official page review",
+              "status": "conflicting",
+              "checked_at": "2026-09-29",
+              "source_url": "https://www.launchingnext.com/submit/",
+              "related_source_urls": [
+                "https://www.launchingnext.com/advertise",
+                "https://www.launchingnext.com/submit/",
+                "https://www.launchingnext.com/thanks/?i=120106",
+                "https://launchingnext.com/llm-info.html"
+              ]
+            }
+          ],
+          "related_source_urls": [
+            "https://www.launchingnext.com/advertise",
+            "https://www.launchingnext.com/submit/",
+            "https://www.launchingnext.com/thanks/?i=120106",
+            "https://launchingnext.com/llm-info.html"
+          ]
+        }
+      },
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "saasgrow",
+    "expected_updated_at": "2026-10-10T10:27:00.168406+00:00",
+    "before": {
+      "cost_label": "Free with badge; Basic $9/listing once; Pro $9/month for up to 10 listings.",
+      "cost_note": "Paid from $9 once",
+      "evidence": {
+        "cost": {
+          "note": "Free listing with badge verification; Basic $9 one-time per listing; Pro $9/month for up to 10 listings.",
+          "method": "official pricing page and FAQ",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://saasgrow.app/pricing"
+        },
+        "link_type": {
+          "rel": [
+            "noopener",
+            "noreferrer"
+          ],
+          "href": "https://voxscreen.com?ref=saasgrow.app",
+          "note": "VoxScreen's maker-site anchor has no nofollow, ugc, or sponsored value. Couldn't verify the sampled tier: the public page does not show it.",
+          "method": "public HTML GET; raw anchor inspection",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://saasgrow.app/saas/voxscreen/timeline",
+          "sampled_tier": "unknown"
+        },
+        "submission": {
+          "note": "HTTP 200 after redirect to the official login page with /submit as the return target. No account was created.",
+          "method": "public HTTP GET",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://saasgrow.app/submit"
+        },
+        "eligibility": {
+          "note": "Free listing requires a verified SaaSGrow badge. Basic removes badge verification. The product is listed as a SaaS/startup project.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://saasgrow.app/pricing"
+        },
+        "link_policy": {
+          "note": "Basic explicitly includes a dofollow backlink. Free requires a badge, but the pricing page does not state its link type. SaaSGrow free projects post on LaunchIgniter.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://saasgrow.app/pricing"
+        },
+        "review_time": {
+          "note": "The free listing is approved after badge verification. Couldn’t verify an approval ETA: the official pricing page gives none. Basic advertises instant approval.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://saasgrow.app/pricing"
+        },
+        "public_submission": {
+          "backlink": "required",
+          "review_time": "Free listings are approved after badge verification; no ETA is published.",
+          "launch_queue": null,
+          "observations": [
+            {
+              "text": "Checked the official page: Verify the SaaSGrow badge on your site for a free listing. Free listings are approved after badge verification; no ETA is published.",
+              "method": "public_page",
+              "checked_at": "2026-10-10",
+              "source_url": "https://saasgrow.app/pricing"
+            }
+          ],
+          "requirements": [
+            "Verify the SaaSGrow badge on your site for a free listing"
+          ]
+        }
+      },
+      "checked_on": "2026-10-10"
+    },
+    "changes": {
+      "cost_label": "Free with badge; Basic $9 once, or $5 after Pro ends",
+      "cost_note": "Basic $9 table; $5 after Pro ends",
+      "evidence": {
+        "cost": {
+          "date": "2026-10-21",
+          "note": "The pricing table lists Basic at $9 per listing once. The FAQ says new listings cost $5 each after a Pro subscription is cancelled.",
+          "method": "Official pricing table and FAQ",
+          "status": "conflicting",
+          "checked_at": "2026-10-21",
+          "source_url": "https://saasgrow.app/pricing",
+          "observations": [
+            {
+              "date": "2026-10-21",
+              "note": "The current pricing table lists Basic at $9 once. Its FAQ says new submissions after Pro cancellation require Basic at $5 per listing.",
+              "method": "Official pricing table and FAQ",
+              "status": "conflicting",
+              "checked_at": "2026-10-21",
+              "source_url": "https://saasgrow.app/pricing"
+            }
+          ]
+        },
+        "link_type": {
+          "rel": [
+            "noopener",
+            "noreferrer"
+          ],
+          "href": "https://voxscreen.com?ref=saasgrow.app",
+          "note": "VoxScreen's maker-site anchor has no nofollow, ugc, or sponsored value. Couldn't verify the sampled tier: the public page does not show it.",
+          "method": "public HTML GET; raw anchor inspection",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://saasgrow.app/saas/voxscreen/timeline",
+          "sampled_tier": "unknown"
+        },
+        "submission": {
+          "note": "HTTP 200 after redirect to the official login page with /submit as the return target. No account was created.",
+          "method": "public HTTP GET",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://saasgrow.app/submit"
+        },
+        "eligibility": {
+          "note": "Free listing requires a verified SaaSGrow badge. Basic removes badge verification. The product is listed as a SaaS/startup project.",
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-10-05",
+          "source_url": "https://saasgrow.app/pricing"
+        },
+        "link_policy": {
+          "note": "Free requires the verified badge, but its link type is not stated. Basic includes a dofollow backlink; free projects are posted on LaunchIgniter.",
+          "method": "official pricing or submission page",
+          "status": "verified",
+          "checked_at": "2026-10-10",
+          "source_url": "https://saasgrow.app/pricing"
+        },
+        "review_time": {
+          "note": "Free listings are approved after badge verification; no ETA is published.",
+          "method": "official terms",
+          "status": "verified",
+          "checked_at": "2026-10-10",
+          "source_url": "https://saasgrow.app/pricing"
+        },
+        "public_submission": {
+          "backlink": "required",
+          "review_time": "Free listings are approved after badge verification; no ETA is published.",
+          "launch_queue": null,
+          "observations": [
+            {
+              "text": "Checked the official page: Verify the SaaSGrow badge on your site for a free listing. Free listings are approved after badge verification; no ETA is published.",
+              "method": "public_page",
+              "checked_at": "2026-10-10",
+              "source_url": "https://saasgrow.app/pricing"
+            }
+          ],
+          "requirements": [
+            "Verify the SaaSGrow badge on your site for a free listing"
+          ]
+        }
+      },
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "startupbase",
+    "expected_updated_at": "2026-10-10T10:27:00.168406+00:00",
+    "before": {
+      "cost_label": "Free; paid Launch $39, Boost $99, or Ultimate $499 once",
+      "cost_note": "Paid from $39",
+      "evidence": {
+        "cost": {
+          "method": "official pricing page",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://startupbase.io/about"
+        },
+        "link_type": {
+          "note": "Paid plans promise permanent dofollow. The free standard link type is not stated; badge-verified free entry requires a reciprocal badge.",
+          "method": "official plan policy",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://startupbase.io/about"
+        },
+        "submission": {
+          "date": "2026-10-02",
+          "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://startupbase.io/login. Login, account, and payment gates were not completed.",
+          "method": "browser GET",
+          "status": "verified",
+          "checked_at": "2026-10-02T16:37:02.336Z",
+          "source_url": "https://startupbase.io/submit",
+          "observations": [
+            {
+              "date": "2026-10-02",
+              "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://startupbase.io/login. Login, account, and payment gates were not completed.",
+              "method": "browser GET",
+              "status": "verified",
+              "checked_at": "2026-10-02T16:37:02.336Z",
+              "source_url": "https://startupbase.io/submit"
+            }
+          ]
+        },
+        "eligibility": {
+          "method": "official submission rules",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://startupbase.io/about"
+        },
+        "review_time": {
+          "note": "Every submission is reviewed. The 10+ week standard and 4 to 5 week badge estimates describe queue waits, not approval time.",
+          "method": "official About page",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://startupbase.io/about"
+        },
+        "public_submission": {
+          "backlink": "optional",
+          "review_time": "Every submission is reviewed before launch; no approval-time estimate is published.",
+          "launch_queue": "The public page estimates 10+ weeks for the standard free queue and about 4 to 5 weeks for the badge-verified free queue.",
+          "observations": [
+            {
+              "text": "The About page describes a standard free queue with no badge and a badge-verified free queue that asks for a reciprocal link. It estimates 10+ weeks and 4 to 5 weeks respectively. Its rejection examples do not list free online utilities.",
+              "method": "public_page",
+              "checked_at": "2026-10-07",
+              "source_url": "https://startupbase.io/about"
+            },
+            {
+              "text": "Our standard free submission was rejected by email on October 7 because it was a free online utility. The public About page does not list this exclusion; this is our case, not a published general rule.",
+              "method": "email",
+              "checked_at": "2026-10-07",
+              "source_url": null
+            }
+          ],
+          "requirements": [
+            "Working website and real product",
+            "Priority free queue needs reciprocal backlink"
+          ]
+        }
+      },
+      "checked_on": "2026-10-07"
+    },
+    "changes": {
+      "cost_label": "Free; Launch $39, Boost $99, Growth $299, Ultimate $499",
+      "cost_note": "Paid launches from $39 once",
+      "evidence": {
+        "cost": {
+          "date": "2026-10-21",
+          "note": "Paid launches are one-time payments: Launch $39, Boost $99, Growth $299, and Ultimate $499.",
+          "method": "Official pricing FAQ",
+          "status": "verified",
+          "checked_at": "2026-10-21",
+          "source_url": "https://startupbase.io/about",
+          "observations": [
+            {
+              "date": "2026-10-21",
+              "note": "The current FAQ lists Launch at $39, Boost at $99, Growth at $299, and Ultimate at $499, all as one-time payments.",
+              "method": "Official pricing FAQ",
+              "status": "verified",
+              "checked_at": "2026-10-21",
+              "source_url": "https://startupbase.io/about"
+            }
+          ]
+        },
+        "link_type": {
+          "note": "Paid plans promise permanent dofollow. The free standard link type is not stated; badge-verified free entry requires a reciprocal badge.",
+          "method": "official plan policy",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://startupbase.io/about"
+        },
+        "submission": {
+          "date": "2026-10-02",
+          "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://startupbase.io/login. Login, account, and payment gates were not completed.",
+          "method": "browser GET",
+          "status": "verified",
+          "checked_at": "2026-10-02T16:37:02.336Z",
+          "source_url": "https://startupbase.io/submit",
+          "observations": [
+            {
+              "date": "2026-10-02",
+              "note": "Browser GET loaded the official submission start page (HTTP 200) and ended at https://startupbase.io/login. Login, account, and payment gates were not completed.",
+              "method": "browser GET",
+              "status": "verified",
+              "checked_at": "2026-10-02T16:37:02.336Z",
+              "source_url": "https://startupbase.io/submit"
+            }
+          ]
+        },
+        "eligibility": {
+          "method": "official submission rules",
+          "status": "verified",
+          "checked_at": "2026-09-29",
+          "source_url": "https://startupbase.io/about"
+        },
+        "review_time": {
+          "note": "Every submission is reviewed. The 10+ week standard and 4 to 5 week badge estimates describe queue waits, not approval time.",
+          "method": "official About page",
+          "status": "verified",
+          "checked_at": "2026-10-07",
+          "source_url": "https://startupbase.io/about"
+        },
+        "public_submission": {
+          "backlink": "optional",
+          "review_time": "Every submission is reviewed before launch; no approval-time estimate is published.",
+          "launch_queue": "The public page estimates 10+ weeks for the standard free queue and about 4 to 5 weeks for the badge-verified free queue.",
+          "observations": [
+            {
+              "text": "The About page describes a standard free queue with no badge and a badge-verified free queue that asks for a reciprocal link. It estimates 10+ weeks and 4 to 5 weeks respectively. Its rejection examples do not list free online utilities.",
+              "method": "public_page",
+              "checked_at": "2026-10-07",
+              "source_url": "https://startupbase.io/about"
+            },
+            {
+              "text": "Our standard free submission was rejected by email on October 7 because it was a free online utility. The public About page does not list this exclusion; this is our case, not a published general rule.",
+              "method": "email",
+              "checked_at": "2026-10-07",
+              "source_url": null
+            }
+          ],
+          "requirements": [
+            "Working website and real product",
+            "Priority free queue needs reciprocal backlink"
+          ]
+        }
+      },
+      "checked_on": "2026-10-21"
+    }
+  }
+]

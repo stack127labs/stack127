@@ -106,6 +106,8 @@ export function validateState(state, family = state?.family) {
             || (family === "course" && field === "content_markdown")
             || (["directory", "course"].includes(family) && ["card_icon_key", "card_art_key"].includes(field)),
           trimmed: !(family === "tool" && ["card_name", "card_description"].includes(field)),
+          empty: family === "directory" && ["card_name", "card_description"].includes(field)
+            && state.content.card_name === "" && state.content.card_description === "",
         });
       if (field.endsWith("_key") && content[field] !== null && !/^[a-z0-9-]+$/.test(content[field])) {
         throw new Error(`content.${field} must use lowercase letters, numbers, and hyphens`);

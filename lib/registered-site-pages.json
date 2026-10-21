@@ -281,6 +281,8 @@
   "/kindle-unlimited-kenp-earnings-calculator",
   "/labs",
   "/launch-directories",
+  "/launch-directories/[slug]",
+  "/launch-directories/compare",
   "/local-security-cameras",
   "/ltv-cac-calculator",
   "/lxc-idmap-checker",

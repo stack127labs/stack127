@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>Launch directory | stack127</title>
+<link rel="stylesheet" href="assets/mock.css">
+<link rel="stylesheet" href="assets/ld.css">
+<script src="assets/data.js"></script>
+<script src="assets/ld.js"></script>
+<style>
+  /* ---------- Hero ---------- */
+  .hero { display: grid; gap: var(--space-6); }
+  .hero .page-header { gap: var(--space-6); }
+  .hero .lead { margin: 0; max-width: var(--measure-prose); }
+  .hero .status { color: var(--color-warning-text); }
+  .actions { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: var(--space-3); }
+  .actions .btn { height: 44px; padding: 0 18px; font-size: var(--text-small); }
+  .actions .btn .icon { width: 15px; height: 15px; }
+  .title-logo { overflow: hidden; }
+  .title-logo img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ---------- Section heads ---------- */
+  .sec { margin-top: var(--space-14); scroll-margin-top: calc(var(--top-bar-height) + 16px); }
+  .sec > h2 { margin: 0 0 var(--space-3); font: var(--weight-bold) var(--text-h2) / 1.2 var(--font-display); letter-spacing: var(--tracking-display); }
+  .sec > .lede { margin: 0 0 var(--space-9); max-width: var(--measure-prose); color: var(--color-text-muted); font-size: var(--text-small); }
+  .muted { color: var(--color-text-muted); }
+  .mono { font-family: var(--font-mono); }
+  .gap-line { margin: var(--space-6) 0 0; font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+
+  /* ---------- Fact tiles (option A) ---------- */
+  .tiles { display: grid; margin: 0; border: 1px solid var(--color-border); border-radius: var(--radius); }
+  .tiles + .tiles { margin-top: var(--space-5); }
+  .tiles > div { display: grid; align-content: start; gap: var(--space-3); padding: var(--space-8) var(--space-9); min-width: 0; border-left: 1px solid var(--color-border); }
+  .tiles > div:first-child { border-left: 0; }
+  .tiles dt { display: flex; align-items: center; gap: var(--space-2); color: var(--color-text-muted); font: var(--text-small) var(--font-mono); }
+  .tiles dt .icon { width: 14px; height: 14px; }
+  .tiles dd { margin: 0; font: var(--weight-semibold) 1.3rem / 1.2 var(--font-mono); letter-spacing: -0.02em; overflow-wrap: anywhere; }
+  .tiles dd.big { font: var(--weight-bold) 2rem / 1 var(--font-display); }
+  .tiles small { display: block; color: var(--color-text-muted); font: var(--text-small) / 1.4 var(--font-mono); letter-spacing: 0; }
+  .tiles-label { margin: var(--space-9) 0 var(--space-4); font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+  .tiles-label:first-child { margin-top: 0; }
+
+  /* ---------- Fact list (option B) ---------- */
+
+  /* ---------- Pricing ---------- */
+  table.data td.price { font: var(--weight-semibold) 0.95rem var(--font-mono); white-space: nowrap; }
+  table.data td.tier { font-weight: var(--weight-semibold); white-space: nowrap; }
+  table.data td { font-size: var(--text-small); }
+  table.data .np { color: var(--color-text-muted); }
+  .footnote { margin: var(--space-5) 0 0; font-size: var(--text-small); color: var(--color-text-muted); max-width: var(--measure-prose); }
+  .sentence { margin: 0; font-size: var(--text-body); max-width: var(--measure-prose); }
+
+  /* ---------- Prepare ---------- */
+  .prep { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--space-9); align-items: start; }
+  .prep .rule { margin: 0; padding: var(--space-9); border: 1px solid var(--color-border); border-radius: var(--radius); }
+  .prep .rule p { margin: var(--space-3) 0 0; }
+  .prep .rule .k { font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+  .assets { list-style: none; margin: 0; padding: 0; border: 1px solid var(--color-border); border-radius: var(--radius); }
+  .assets li { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: var(--space-5); align-items: center; padding: var(--space-6) var(--space-8); border-top: 1px solid var(--color-border); font-size: var(--text-small); }
+  .assets li:first-child { border-top: 0; }
+  .assets .box { width: 16px; height: 16px; border: 1px solid var(--color-border-strong); border-radius: var(--radius); }
+  .assets .spec { font: var(--text-small) var(--font-mono); color: var(--color-text-muted); white-space: nowrap; }
+
+  /* ---------- Steps ---------- */
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-7); counter-reset: s; }
+  .steps li { counter-increment: s; display: grid; align-content: start; gap: var(--space-3); padding-top: var(--space-7); border-top: 1px solid var(--color-border-strong); min-width: 0; }
+  .steps li::before { content: counter(s, decimal-leading-zero); font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+  .steps b { font: var(--weight-bold) 1.05rem / 1.25 var(--font-display); }
+  .steps p { margin: 0; font-size: var(--text-small); color: var(--color-text-muted); }
+  .steps p strong { color: var(--color-text); font-weight: var(--weight-semibold); }
+
+  /* ---------- Link check ---------- */
+  .codeline { margin: 0; padding: var(--space-8) var(--space-9); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); font: 0.92rem / 1.6 var(--font-mono); overflow-x: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .codeline .t { color: var(--color-text-muted); }
+  .codeline .v { color: var(--color-text); font-weight: var(--weight-semibold); }
+  .rels { margin: var(--space-7) 0 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--space-4) var(--space-8); font-size: var(--text-small); }
+  .rels dt { font: var(--weight-semibold) var(--text-small) var(--font-mono); }
+  .rels dd { margin: 0; color: var(--color-text-muted); }
+  .linkfacts { margin: var(--space-7) 0 0; display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-11); font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+  .linkfacts b { color: var(--color-text); font-weight: var(--weight-semibold); }
+  .linkfacts a { color: var(--color-text-muted); text-decoration: underline; text-decoration-color: var(--color-border-strong); text-underline-offset: 3px; }
+
+  /* ---------- History and sources ---------- */
+  .hist, .srcs { list-style: none; margin: 0; padding: 0; }
+  .hist li, .srcs li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: var(--space-7); padding: var(--space-5) 0; border-top: 1px solid var(--color-border); font-size: var(--text-small); }
+  .hist li:last-child, .srcs li:last-child { border-bottom: 1px solid var(--color-border); }
+  .hist time, .srcs time { font-family: var(--font-mono); color: var(--color-text-muted); }
+  .hist .arrow { color: var(--color-text-muted); padding-inline: var(--space-2); }
+  .hist .num { font-family: var(--font-mono); }
+  .srcs a { color: var(--color-text); font-family: var(--font-mono); overflow-wrap: anywhere; text-decoration: underline; text-decoration-color: var(--color-border-strong); text-underline-offset: 3px; }
+  .srcs a:hover { text-decoration-color: currentColor; }
+
+  .fix { margin: var(--space-14) 0 0; padding-top: var(--space-7); border-top: 1px solid var(--color-border); font-size: var(--text-small); color: var(--color-text-muted); }
+  .fix a { color: var(--color-link); }
+
+  /* ---------- Sidebar ---------- */
+  .slist .ic img { width: 16px; height: 16px; border-radius: var(--radius); background: #fff; }
+  .slist .ic .ltr { width: 16px; height: 16px; display: grid; place-items: center; background: #fff; border-radius: var(--radius); color: #141414; font: 700 10px var(--font-display); }
+  .slist a span:nth-child(2) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .side-more { margin-top: var(--space-3); font: var(--text-small) var(--font-mono); }
+  .side-more a { color: var(--color-text-muted); text-decoration: underline; text-underline-offset: 3px; }
+
+  @container (max-width: 900px) {
+    .prep { grid-template-columns: minmax(0, 1fr); }
+  }
+  @container (max-width: 700px) {
+    .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    .tiles > div { border-left: 0; border-top: 1px solid var(--color-border); padding: var(--space-6) var(--space-7); }
+    .tiles > div:nth-child(even) { border-left: 1px solid var(--color-border); }
+    .tiles > div:nth-child(-n+2) { border-top: 0; }
+    .tiles > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .tiles dd { font-size: 1.1rem; }
+    .tiles dd.big { font-size: 1.6rem; }
+    .steps { grid-template-columns: minmax(0, 1fr) !important; }
+    .hist li, .srcs li { grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }
+    .rels { grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }
+    .rels dd { margin-bottom: var(--space-4); }
+  }
+</style>
+</head>
+<body data-section="Directory">
+<div class="shell">
+  <aside class="sidebar" data-menu="On this page">
+    <div class="panel" id="side"></div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="canvas" id="page"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const U = window.LDUI, ALL = window.LD;
+  const slug = new URLSearchParams(location.search).get("d") || "uneed";
+  const r = ALL.find((x) => x.slug === slug) || ALL.find((x) => x.slug === "uneed");
+  const ic = U.icon;
+  const S = (v, t = "Sample value for the mockup") => `<span class="sample" title="${t}">${v}</span>`;
+  const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return u; } };
+  const path = (u) => { try { const x = new URL(u); return (x.hostname.replace(/^www\./, "") + x.pathname).replace(/\/$/, ""); } catch (e) { return u; } };
+  const longDate = (iso) => new Date(iso + "T00:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+  const unknownText = (t) => !t || /^(not stated|couldn't verify|conflicting)/i.test(t);
+  const cat = r.cats[0], catName = U.catLabel(cat);
+  const verified = r.subStatus === "verified" && r.submit;
+  document.title = `${r.name}: cost, review time, and link type | stack127`;
+
+  /* ---------- Derived facts ---------- */
+  const badgeText = (() => {
+    const t = `${r.elig} ${r.costLabel}`;
+    if (!/badge|backlink|link back|footer link|reciprocal/i.test(t)) return null;
+    if (/optional/i.test(r.elig)) return { v: "Optional", note: "Changes the free link" };
+    if (/free|basic/i.test(t)) return { v: "For free listing", note: "Paid tiers may skip it" };
+    return { v: "Yes", note: null };
+  })();
+  const POP = { "Top 1k": "Top 1k sites", "Top 10k": "Top 10k sites", "Top 100k": "Top 100k sites", "Top 1M": "Top 1M sites", "Below 1M": "Below top 1M" };
+  const IDX = { yes: "Yes", no: "No", mixed: "Mixed" };
+  const reviewFull = unknownText(r.review) || /^No (separate )?approval/i.test(r.review) ? null
+    : r.review.replace(/\.$/, "").split(/;\s*/).filter((p) => !/not stated/i.test(p)).join("; ") || null;
+  const wait = U.waitShort(r);
+  const linkV = U.linkShort(r);
+
+  // Listing facts: real data. Unknown ones collapse into one line.
+  const listing = [
+    { k: "Cost", icon: "coins", v: r.cost === "free_and_paid" ? "Free" : U.costShort(r), note: r.cost === "free_and_paid" ? (r.price ? `Paid options from ${U.fmtPrice(r.price)}` : "Paid options too") : null },
+    { k: "Review time", icon: "clock", v: wait, note: reviewFull && reviewFull.split(/;\s*/).length > 1 ? reviewFull.split(/;\s*/).slice(1).join("; ").replace(/^./, (c) => c.toUpperCase()) : (wait && /^No fixed/i.test(wait) && reviewFull ? reviewFull.split(/;\s*/)[1] : null) },
+    { k: "Link type", icon: "link", v: linkV, note: r.link === "varies" ? "Depends on the tier" : null },
+    { k: "Badge or backlink", icon: "check", v: badgeText && badgeText.v, note: badgeText && badgeText.note },
+  ];
+  // Site facts: samples.
+  const site = [
+    { k: "Domain rating", icon: "chart", v: r.dr != null ? String(r.dr) : null, note: "Ahrefs", big: true, sample: true },
+    { k: "Popularity", icon: "activity", v: POP[r.pop] || null, note: "Traffic rank bucket", sample: true },
+    { k: "Listing pages indexed", icon: "search", v: IDX[r.indexed] || null, note: "In Google, by site: check", sample: true },
+  ];
+  const known = (a) => a.filter((f) => f.v);
+  const missing = [...listing, ...site].filter((f) => !f.v).map((f) => f.k.toLowerCase());
+  const missLine = missing.length ? `<p class="gap-line">Not stated on their site: ${missing.join(", ")}.</p>` : "";
+  const tile = (f) => `<div><dt>${ic(f.icon)}${f.k}</dt><dd class="${f.big ? "big" : ""}">${f.sample ? S(f.v) : f.v}</dd>${f.note ? `<small>${f.note}</small>` : ""}</div>`;
+  const tileRow = (a) => a.length ? `<dl class="tiles" style="grid-template-columns:repeat(${a.length}, minmax(0, 1fr))">${a.map(tile).join("")}</dl>` : "";
+  const oneRow = known(listing).length + known(site).length <= 4;
+  const factsA = `<div>
+      ${oneRow ? tileRow([...known(listing), ...known(site)]) : `${known(listing).length ? `<p class="tiles-label">Listing</p>${tileRow(known(listing))}` : ""}
+      ${known(site).length ? `<p class="tiles-label">Their site</p>${tileRow(known(site))}` : ""}`}
+      ${missLine}</div>`;
+
+  /* ---------- Pricing: best-effort parse of costLabel ---------- */
+  const pricing = (() => {
+    if (r.cost === "unknown" || unknownText(r.costLabel)) return null;
+    const notes = [], tiers = [];
+    const MONEY = /([$€][\d,]+(?:\.\d+)?)/;
+    const BILL = /^\s*(once|one-time|one-off|per launch|per product|per listing|\/\s*(?:launch|month|year|week|listing|issue)|\/\d+ days|for \d+ days|\/mo)\b/i;
+    const parts = r.costLabel.split(/;\s*|\.\s+(?=[A-Z])/).map((s) => s.trim().replace(/\.$/, "")).filter(Boolean);
+    for (const p of parts) {
+      if (/not stated|couldn't|unclear|conflict|not published|unverified|not posted|no standard|banner|not yet/i.test(p) && !/^Free\b/.test(p)) { notes.push(p); continue; }
+      if (/^free\b/i.test(p) && !MONEY.test(p)) {
+        const rest = p.replace(/^free\s*/i, "").replace(/^\((.*)\)$/, "$1");
+        const one = rest && !/\s/.test(rest);
+        tiers.push({ name: one ? `Free ${rest}` : "Free", price: "$0", extra: rest && !one ? rest.replace(/^./, (c) => c.toUpperCase()) : null });
+        continue;
+      }
+      // One part may hold several priced tiers: "Fast-track $14.99 and Skip $29.99 once".
+      const chunks = p.split(/,\s*|\s+and\s+|\s+or\s+/).filter((c) => MONEY.test(c));
+      if (!chunks.length) { notes.push(p); continue; }
+      let lastBill = null;
+      const made = chunks.map((c) => {
+        const m = c.match(MONEY), before = c.slice(0, m.index), after = c.slice(m.index + m[0].length);
+        const bill = (after.match(BILL) || [])[1] || null;
+        if (bill) lastBill = bill;
+        let name = before.replace(/\b(is|are|currently|from|costs?|paid)\b/gi, "").replace(/[:\s]+$/, "").trim();
+        let rest = after.replace(BILL, "").trim();
+        if (!name) { name = rest.replace(/^\(.*?\)\s*/, ""); rest = ""; }
+        const paren = (rest.match(/\(([^)]*)\)/) || [])[1];
+        return { name: name ? name.replace(/^./, (x) => x.toUpperCase()) : "Paid", amount: m[1], bill, extra: paren ? paren.replace(/^./, (x) => x.toUpperCase()) : null };
+      });
+      made.forEach((t) => tiers.push({ name: t.name, price: `${t.amount}${(t.bill || lastBill) ? " " + (t.bill || lastBill) : ""}`, extra: t.extra }));
+    }
+    return { tiers, notes };
+  })();
+
+  // What each tier gets: from the review text when it names the tier, else a sample guess.
+  const reviewParts = (r.review || "").split(/;\s*/);
+  const tierGets = (t) => {
+    const first = t.name.toLowerCase().split(/[\s-]/)[0];
+    const hit = reviewParts.find((p) => p.toLowerCase().startsWith(first) || p.toLowerCase().startsWith(t.name.toLowerCase()));
+    if (hit && /^free queue:?\s*/i.test(hit)) return "Queue: " + hit.replace(/^free queue:?\s*/i, "");
+    if (hit) return hit.replace(/^[^:]*:\s*/, (m) => (m.toLowerCase().includes(first) ? "" : m)).replace(new RegExp("^" + t.name + "\\s*", "i"), "").replace(/^date\b/i, "launch date").replace(/^./, (c) => c.toUpperCase());
+    if (/^free/i.test(t.name)) return S("Standard listing");
+    if (/skip|fast|priority|express|faster|queue|lane/i.test(t.name)) return S("Earlier launch date");
+    if (/featur|spotlight|highlight|premium|sponsor|boost|pro|plus|ultimate|gold|diamond/i.test(t.name)) return S("Extra placement on the site");
+    if (/verif/i.test(t.name)) return S("Verified mark on your listing");
+    return `<span class="np">Not stated</span>`;
+  };
+  const tierLink = (t) => {
+    if (r.link === "varies") return S(/^free/i.test(t.name) ? "Nofollow" : "Dofollow");
+    return linkV || `<span class="np">Not stated</span>`;
+  };
+  const pricingHTML = (() => {
+    if (!pricing) return "";
+    const p = pricing;
+    if (p.tiers.length < 2 && r.cost === "free") return "";
+    const body = p.tiers.length >= 2
+      ? `<div class="tbl-wrap"><table class="data"><thead><tr><th>tier</th><th>price</th><th>what you get</th><th>link</th></tr></thead><tbody>
+          ${p.tiers.map((t) => `<tr><td class="tier">${t.name}</td><td class="price">${t.price}</td><td>${tierGets(t)}${t.extra ? `<div class="muted">${t.extra}</div>` : ""}</td><td class="mono">${tierLink(t)}</td></tr>`).join("")}
+        </tbody></table></div>${p.notes.length ? `<p class="footnote">${p.notes.join(". ")}.</p>` : ""}`
+      : `<p class="sentence">${r.costLabel.replace(/\.?$/, ".")}</p>`;
+    return `<section class="sec" id="pricing"><h2>Pricing</h2><p class="lede">Prices as listed on their site on ${U.shortDate(r.checked)}.</p>${body}</section>`;
+  })();
+
+  /* ---------- Prepare ---------- */
+  const assetList = [
+    ["Logo", "Square PNG, 240 × 240"],
+    ["Screenshots", "1270 × 760, up to 5"],
+    ["Tagline", "Up to 60 characters"],
+    ["Description", "Up to 260 characters"],
+  ];
+  if (badgeText) assetList.push(["Badge or link on your site", "Before review"]);
+  const prepHTML = `<section class="sec" id="prepare"><h2>Who can submit</h2>
+    <div class="prep">
+      <div class="rule"><span class="k">their rule</span><p>${r.elig.replace(/\.?$/, ".")}</p><p class="muted" style="font-size:var(--text-small)">Best for: ${r.bestFor}.</p></div>
+      ${verified ? `<div><ul class="assets">${assetList.map(([a, s]) => `<li><span class="box" aria-hidden="true"></span><span>${a}</span><span class="spec">${a.startsWith("Badge") ? s : S(s)}</span></li>`).join("")}</ul></div>`
+        : `<div class="rule"><span class="k">submit page</span><p>${r.subStatus === "unavailable" ? "It was down when we checked." : "We could not find one."} We'll list what to prepare once it works.</p></div>`}
+    </div></section>`;
+
+  /* ---------- Steps ---------- */
+  const stepsHTML = (() => {
+    if (!verified) return "";
+    const isBoard = cat === "launch-boards" || cat === "prelaunch-beta";
+    const signIn = (r.elig.match(/sign-in uses [^;.]+|account required|account must[^;.]+|account[^;.]*old/i) || [])[0];
+    const steps = [
+      ["Submit", `Fill in the form on <strong>${host(r.submit)}</strong>.${signIn ? ` ${signIn.replace(/^./, (c) => c.toUpperCase())}.` : ""}`],
+      [isBoard ? "Wait in the queue" : "Review", reviewFull ? reviewFull.replace(/\.?$/, ".") : "They don't say how long review takes."],
+      ...(badgeText && !/optional/i.test(badgeText.v) ? [["Add their badge", "Free listings need their badge or a link on your site."]] : []),
+      [isBoard ? "Launch day" : "Goes live", isBoard ? `Your product shows on the ${/weekly/i.test(r.review) ? "weekly" : "daily"} board with other launches.` : "Your listing is published on their site."],
+      ["Listing stays", `Your page stays up after launch.${r.link === "varies" ? " The link type depends on your tier." : linkV ? ` It links to you with a <strong>${linkV.toLowerCase()}</strong> link.` : ""}`],
+    ];
+    return `<section class="sec" id="steps"><h2>How a launch works here</h2><p class="lede">From their own pages. Times are what they state.</p>
+      <ol class="steps" style="grid-template-columns:repeat(${steps.length}, minmax(0, 1fr))">${steps.map(([t, d]) => `<li><b>${t}</b><p>${d}</p></li>`).join("")}</ol></section>`;
+  })();
+
+  /* ---------- Link check ---------- */
+  const REL = {
+    nofollow: "Search engines are told not to pass ranking credit.",
+    ugc: "Marks the link as user-submitted. Treated much like nofollow.",
+    sponsored: "Marks the link as paid. Passes no ranking credit.",
+    noopener: "Security setting only. No effect on search.",
+    noreferrer: "Hides that the visit came from them, so your analytics may show it as direct.",
+    external: "Labels the link as leaving their site. No effect on search.",
+  };
+  const linkHTML = (() => {
+    if (!r.relSample) return "";
+    const rel = r.rel && r.rel.length ? r.rel : null;
+    const dofollow = rel && !rel.some((t) => /nofollow|ugc|sponsored/.test(t));
+    return `<section class="sec" id="links"><h2>Link check</h2><p class="lede">What the link to your site looks like on a live listing.</p>
+      <pre class="codeline"><span class="t">&lt;a href=</span><span class="v">"https://your-product.com"</span>${rel ? ` <span class="t">rel=</span><span class="v">"${rel.join(" ")}"</span>` : ""}<span class="t">&gt;</span></pre>
+      ${rel ? `<dl class="rels">${rel.map((t) => `<dt>${t}</dt><dd>${REL[t] || "Not a search setting."}</dd>`).join("")}${dofollow ? `<dt>result</dt><dd>Nothing tells search engines to skip it, so it counts as dofollow.</dd>` : ""}</dl>`
+        : `<p class="gap-line">We couldn't read the link's rel attribute on this listing.</p>`}
+      <div class="linkfacts">
+        <span>listing checked <a href="${r.relSample}" rel="nofollow noopener" target="_blank">${path(r.relSample)}</a></span>
+        ${IDX[r.indexed] ? `<span>listing pages indexed <b>${S(IDX[r.indexed])}</b></span>` : ""}
+        <span>checked <b>${U.shortDate(r.checked)}</b></span>
+      </div></section>`;
+  })();
+
+  /* ---------- What changed (samples) ---------- */
+  const hist = [];
+  if (r.slug === "uneed") hist.push(["Sep 14", `Fast-track price <span class="num">$9.99</span><span class="arrow">→</span><span class="num">$14.99</span>`], ["Aug 2", `Free queue <span class="num">2 to 4 months</span><span class="arrow">→</span><span class="num">30 days to 5 months</span>`]);
+  else if (r.price) hist.push(["Sep 20", `Paid price <span class="num">$${Math.round(r.price * 0.7)}</span><span class="arrow">→</span><span class="num">${U.fmtPrice(r.price)}</span>`]);
+  if (r.subStatus === "unavailable") hist.push([U.shortDate(r.checked), "Submit page stopped loading"]);
+  hist.push(["Jun 12", "First checked by stack127"]);
+  const histHTML = `<section class="sec" id="changes"><h2>What changed</h2><p class="lede">Changes we saw between checks. <span class="sample">Sample entries.</span></p>
+    <ul class="hist">${hist.map(([d, t]) => `<li><time>${S(d)}</time><span>${t}</span></li>`).join("")}</ul></section>`;
+
+  /* ---------- Sources ---------- */
+  const srcHTML = r.sources && r.sources.length ? `<section class="sec" id="sources"><h2>Sources</h2><p class="lede">The pages we read for these facts.</p>
+    <ul class="srcs">${r.sources.map((s) => `<li><time>${longDate(r.checked)}</time><a href="${s}" rel="nofollow noopener" target="_blank">${path(s)}</a></li>`).join("")}</ul></section>` : "";
+
+  /* ---------- Similar ---------- */
+  const same = ALL.filter((x) => x.slug !== r.slug && x.cats[0] === cat).sort((a, b) => (b.subStatus === "verified") - (a.subStatus === "verified") || (b.dr || 0) - (a.dr || 0));
+  const similarHTML = same.length ? `<section class="sec" id="similar"><h2>Similar places</h2><p class="lede">More ${catName.toLowerCase()} to launch on.</p>
+    <div class="ld-grid">${same.slice(0, 3).map((x) => U.card(x)).join("")}</div></section>` : "";
+
+  /* ---------- Hero ---------- */
+  const buttons = `<div class="actions">
+      ${verified ? `<a class="btn primary" href="${r.submit}" rel="nofollow noopener" target="_blank">Submit your product ${ic("arrow")}</a>` : ""}
+      <a class="btn secondary" href="${r.site}" rel="nofollow noopener" target="_blank">Visit site ${ic("external")}</a></div>`;
+  const crumbs = `<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="#">stack127</a></li><li><a href="launch-directories.html">launch directories</a></li><li><span aria-current="page">${r.name.toLowerCase()}</span></li></ol></nav>`;
+  const meta = `<div class="meta"><span>${ic(U.catIcon(cat))}${catName}</span><span>${ic("calendar")}Checked ${U.shortDate(r.checked)}</span>${!verified ? `<span class="status">${r.subStatus === "unavailable" ? "Submit page down" : "No submit page found"}</span>` : ""}</div>`;
+  const heroA = `<div class="hero"><header class="page-header">${crumbs}
+      <h1><span class="title-logo${r.icon ? "" : " letter"}" aria-hidden="true">${r.icon ? `<img src="${r.icon}" alt="">` : r.name[0]}</span><mark>${r.name}</mark></h1>
+      <p class="lead">${r.summary}</p>${meta}</header>${buttons}</div>`;
+
+  /* ---------- Assemble ---------- */
+  document.getElementById("page").innerHTML = `
+    ${heroA}
+    <section class="sec" id="facts" style="margin-top:var(--space-13)"><h2 class="sr-only">Key facts</h2>
+      ${factsA}</section>
+    ${pricingHTML}${prepHTML}${stepsHTML}${linkHTML}${histHTML}${srcHTML}${similarHTML}
+    <p class="fix">See something wrong or out of date? <a href="#">Tell us</a> and we'll check it again.</p>`;
+
+  /* ---------- Sidebar ---------- */
+  const jumps = [
+    ["facts", "Key facts", "chart"], ["pricing", "Pricing", "coins"], ["prepare", "Who can submit", "file"],
+    ["steps", "How it works", "route"], ["links", "Link check", "link"],
+    ["changes", "What changed", "history"], ["sources", "Sources", "bookmark"], ["similar", "Similar places", "grid"],
+  ].filter(([id]) => document.getElementById(id));
+  const mini = (x) => x.icon ? `<img src="${x.icon}" alt="">` : `<span class="ltr">${x.name[0]}</span>`;
+  const more = same.slice(3, 8).length >= 3 ? same.slice(3, 8) : same.slice(0, 5);
+  document.getElementById("side").innerHTML = `
+    <div class="panel-head"><p class="panel-title">${r.name}</p><p class="panel-note">${catName}</p></div>
+    <div><p class="side-label">On this page</p><ul class="slist" id="jumps">${jumps.map(([id, l, i]) => `<li><a href="#${id}" data-jump="${id}"><span class="ic">${ic(i)}</span><span>${l}</span><span></span></a></li>`).join("")}</ul></div>
+    ${more.length ? `<div><p class="side-label">More in ${catName.toLowerCase()}</p><ul class="slist">${more.map((x) => `<li><a href="directory.html?d=${x.slug}"><span class="ic">${mini(x)}</span><span>${x.name}</span><span class="ct">${x.dr != null ? S(x.dr) : "—"}</span></a></li>`).join("")}</ul>
+      <p class="side-more"><a href="launch-directories.html?cat=${cat}">All ${catName.toLowerCase()}</a></p></div>` : ""}`;
+
+  // Highlight the section in view.
+  const links = [...document.querySelectorAll("[data-jump]")];
+  const setOn = (id) => links.forEach((a) => a.toggleAttribute("aria-current", a.dataset.jump === id));
+  const spy = () => {
+    let cur = jumps[0][0];
+    for (const [id] of jumps) if (document.getElementById(id).getBoundingClientRect().top < 160) cur = id;
+    if (innerHeight + scrollY >= document.body.scrollHeight - 4) cur = jumps[jumps.length - 1][0];
+    setOn(cur);
+  };
+  addEventListener("scroll", spy, { passive: true });
+  addEventListener("load", spy);
+  spy();
+  document.getElementById("jumps").addEventListener("click", (e) => {
+    if (e.target.closest("a")) { document.querySelector(".sidebar").classList.remove("open"); document.querySelector(".backdrop")?.classList.remove("open"); }
+  });
+})();
+</script>
+</body>
+</html>

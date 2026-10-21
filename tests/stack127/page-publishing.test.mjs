@@ -103,6 +103,19 @@ test('frozen plans cannot be applied to another family or environment', () => {
   assert.throws(() => validatePlan(wrongIdentity, 'directories', 'production'), /identity/);
 });
 
+test('directory children accept paired empty cards but reject half-empty or whitespace cards', () => {
+  const empty = plan();
+  empty.pages[0].after.content.card_name = '';
+  empty.pages[0].after.content.card_description = '';
+  assert.equal(validatePlan(empty, 'directories', 'production').pages[0].after.content.card_name, '');
+  for (const [name, description] of [['', 'A description'], ['A name', ''], [' ', ' ']]) {
+    const bad = plan();
+    bad.pages[0].after.content.card_name = name;
+    bad.pages[0].after.content.card_description = description;
+    assert.throws(() => validatePlan(bad, 'directories', 'production'), /nonempty|trimmed/);
+  }
+});
+
 test('GitHub publication events must agree on repository, task, commit and environment', () => {
   const planBlob = { sha: 'b'.repeat(40), sha256: 'c'.repeat(64), size: 1000, kind: 'directories' };
   const event = { repository: { full_name: 'stack127labs/stack127' }, deployment: { id: 42, environment: 'stack127-page-publication', task: 'page-publication', sha, ref: sha, payload: { schema_version: 2, release_sha: sha, plan_blob: planBlob } } };

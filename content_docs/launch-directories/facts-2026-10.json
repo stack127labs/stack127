@@ -1,0 +1,4288 @@
+[
+  {
+    "slug": "aeo-tools-space",
+    "domain_rating": {
+      "value": 24,
+      "checked_on": "2026-10-21",
+      "source_url": "https://launchdirectories.com/api/domain-rating-checker?target=mihirnaik.com"
+    },
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "ai-agent-store",
+    "domain_rating": {
+      "value": 56,
+      "checked_on": "2026-10-21",
+      "source_url": "https://launchdirectories.com/api/domain-rating-checker?target=aiagentstore.ai"
+    },
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 554371,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:aiagentstore.ai/ai-agent/telemetry-dev"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "ai-agents-directory",
+    "domain_rating": {
+      "value": 75,
+      "checked_on": "2026-10-21",
+      "source_url": "https://launchdirectories.com/api/domain-rating-checker?target=aiagentsdirectory.com"
+    },
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 562685,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:aiagentsdirectory.com/agent/nano-pro"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 19,
+      "source_url": "https://aiagentsdirectory.com/sponsor"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Badge listing; permanent page",
+          "link_type": "nofollow"
+        },
+        {
+          "name": "Fast Track",
+          "price_usd": 19,
+          "billing": "once",
+          "gets": "Skip the review wait",
+          "link_type": null
+        },
+        {
+          "name": "Starter",
+          "price_usd": 49,
+          "billing": "once",
+          "gets": "5-day visibility boost",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Growth",
+          "price_usd": 99,
+          "billing": "once",
+          "gets": "Featured placement and newsletter",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Ecosystem Partner",
+          "price_usd": 499,
+          "billing": "once",
+          "gets": "Sitewide partner placement",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://aiagentsdirectory.com/sponsor",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "ai-depot",
+    "domain_rating": {
+      "value": 28,
+      "checked_on": "2026-10-21",
+      "source_url": "https://launchdirectories.com/api/domain-rating-checker?target=aidepot.co"
+    },
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "ai-finder",
+    "domain_rating": {
+      "value": 11,
+      "checked_on": "2026-10-21",
+      "source_url": "https://launchdirectories.com/api/domain-rating-checker?target=ai-finder.net"
+    },
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "ai-hubs",
+    "domain_rating": {
+      "value": 39,
+      "checked_on": "2026-10-21",
+      "source_url": "https://launchdirectories.com/api/domain-rating-checker?target=aihubs.ai"
+    },
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:aihubs.ai/item/photo-to-video"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 4.9,
+      "source_url": "https://aihubs.ai/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Three dofollow links with a site badge",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Pro",
+          "price_usd": 4.9,
+          "billing": null,
+          "gets": "Featured placement and three dofollow links",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Pro Plus",
+          "price_usd": 9.9,
+          "billing": null,
+          "gets": "Pro benefits plus a Uneed submission",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://aihubs.ai/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "ai-hunt-list",
+    "domain_rating": {
+      "value": 57,
+      "checked_on": "2026-10-21",
+      "source_url": "https://launchdirectories.com/api/domain-rating-checker?target=aihuntlist.com"
+    },
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:aihuntlist.com/tool/kane-cli-by-testmu-ai"
+    },
+    "review_wait": {
+      "label": "3 days to 1 week",
+      "min_days": 3,
+      "max_days": 7,
+      "source_url": "https://aihuntlist.com/pricing"
+    },
+    "lowest_paid_price_usd": {
+      "value": 6.9,
+      "source_url": "https://aihuntlist.com/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free Listing",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Listing in the review queue",
+          "link_type": null
+        },
+        {
+          "name": "Fastpass Listing",
+          "price_usd": 6.9,
+          "billing": "once",
+          "gets": "Priority review",
+          "link_type": null
+        },
+        {
+          "name": "Featured Listing",
+          "price_usd": 9.9,
+          "billing": "once",
+          "gets": "Featured placement",
+          "link_type": null
+        },
+        {
+          "name": "Sponsored Listing",
+          "price_usd": 69.9,
+          "billing": "once",
+          "gets": "Sponsored visibility",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://aihuntlist.com/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "ai-parabellum",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:aiparabellum.com/10web-ai/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 39,
+      "source_url": "https://aiparabellum.com/submit-your-ai-tool/"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Basic listing",
+          "price_usd": 39,
+          "billing": "once",
+          "gets": "Permanent listing; standard visibility",
+          "link_type": null
+        },
+        {
+          "name": "Featured listing",
+          "price_usd": 89,
+          "billing": "once",
+          "gets": "Featured badge and higher exposure",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://aiparabellum.com/submit-your-ai-tool/",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "ai-scout",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "ai-tools-aitools-inc",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": {
+      "label": "30 to 90 days",
+      "min_days": 30,
+      "max_days": 90,
+      "source_url": "https://aitools.inc/submit"
+    },
+    "lowest_paid_price_usd": {
+      "value": 129,
+      "source_url": "https://aitools.inc/submit"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free Listing",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Join the 30 to 90 day queue",
+          "link_type": null
+        },
+        {
+          "name": "Fast Lane",
+          "price_usd": 129,
+          "billing": "once",
+          "gets": "Guaranteed placement; 24 to 48 hours",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://aitools.inc/submit",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "ai-tools-board",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:aitoolsboard.com/categories/developer-tools"
+    },
+    "review_wait": {
+      "label": "5 to 7 work days",
+      "min_days": 5,
+      "max_days": 7,
+      "source_url": "https://aitoolsboard.com/submit"
+    },
+    "lowest_paid_price_usd": {
+      "value": 5,
+      "source_url": "https://aitoolsboard.com/submit"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Standard Review",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Editorial review within 5 to 7 work days",
+          "link_type": null
+        },
+        {
+          "name": "First Row Directory Slot",
+          "price_usd": 5,
+          "billing": null,
+          "gets": "Instant approval and top-grid placement",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Spotlight Showcase Slot",
+          "price_usd": 6,
+          "billing": null,
+          "gets": "Instant approval and spotlight placement",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Featured Showcase Slot",
+          "price_usd": 8,
+          "billing": null,
+          "gets": "Instant approval and hero placement",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://aitoolsboard.com/submit",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "ai-tools-corner",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 433137,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "ai-tools-directory",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:aitoolsdirectory.com/tool/videogen"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 99,
+      "source_url": "https://aitoolsdirectory.com/ads"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Fast Track Listing",
+          "price_usd": 99,
+          "billing": "once",
+          "gets": "Permanent listing; skip the queue",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://aitoolsdirectory.com/ads",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "ai-tools-list",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:aitoolslist.io/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "ai-tools-love",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "ai-valley",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "ainave",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:ainave.com/products/kane-cli-by-testmu-ai"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 5,
+      "source_url": "https://ainave.com/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Launch on the weekly board",
+          "link_type": null
+        },
+        {
+          "name": "Verified",
+          "price_usd": 5,
+          "billing": "once",
+          "gets": "Shown first with a verified spotlight",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://ainave.com/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "aitoolboard",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:aitoolboard.com/tools/menuforma-qr-menu-online-ordering"
+    },
+    "review_wait": {
+      "label": "Instant to under 24 hours",
+      "min_days": 0,
+      "max_days": 1,
+      "source_url": "https://aitoolboard.com/pricing"
+    },
+    "lowest_paid_price_usd": {
+      "value": 75,
+      "source_url": "https://aitoolboard.com/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "One free tool listing",
+          "link_type": null
+        },
+        {
+          "name": "Starter",
+          "price_usd": 75,
+          "billing": "once",
+          "gets": "Five tool listings; approval within 24 hours",
+          "link_type": null
+        },
+        {
+          "name": "Premium",
+          "price_usd": 99,
+          "billing": "month",
+          "gets": "Unlimited listings and three monthly job posts",
+          "link_type": null
+        },
+        {
+          "name": "Enterprise",
+          "price_usd": 499,
+          "billing": "month",
+          "gets": "Unlimited listings and job posts",
+          "link_type": null
+        },
+        {
+          "name": "Yearly Membership",
+          "price_usd": 550,
+          "billing": "year",
+          "gets": "Unlimited jobs and Premium membership",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://aitoolboard.com/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "aitoptools",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:aitoptools.com/tool/atoms/"
+    },
+    "review_wait": {
+      "label": "Instant",
+      "min_days": 0,
+      "max_days": 0,
+      "source_url": "https://aitoptools.com/claim-your-tool/"
+    },
+    "lowest_paid_price_usd": {
+      "value": 59,
+      "source_url": "https://aitoptools.com/sponsorships/"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Instant Listing",
+          "price_usd": 59,
+          "billing": "once",
+          "gets": "Permanent listing and fast publication",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://aitoptools.com/sponsorships/",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "aixploria",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 310969,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.aixploria.com/en/ultimate-list-ai/"
+    },
+    "review_wait": {
+      "label": "5 work days",
+      "min_days": 5,
+      "max_days": 5,
+      "source_url": "https://www.aixploria.com/en/featured-on-aixploria/"
+    },
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "alltopstartups",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 615167,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:alltopstartups.com/directory/listing/ego-lite-fastest-browser-for-ai-agents-to-run-web-automation/"
+    },
+    "review_wait": {
+      "label": "Under 48 hours",
+      "min_days": 0,
+      "max_days": 2,
+      "source_url": "https://alltopstartups.com/directory/submit-startup/"
+    },
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "alternative-me",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 50317,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:alternative.me/spotify"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "alternativeto",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 16210,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:alternativeto.net/software/obsidian/about/"
+    },
+    "review_wait": {
+      "label": "Months",
+      "min_days": null,
+      "max_days": null,
+      "source_url": "https://alternativeto.net/faq/"
+    },
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "apprater",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 321226,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:apprater.net/a/trok"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 5,
+      "source_url": "https://apprater.net/#submit"
+    },
+    "price_tiers": null
+  },
+  {
+    "slug": "aura-plus-plus",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:auraplusplus.com/projects/polytender"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 29,
+      "source_url": "https://auraplusplus.com/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free Launch",
+          "price_usd": 0,
+          "billing": "listing",
+          "gets": "Standard launch; schedule up to 365 days",
+          "link_type": null
+        },
+        {
+          "name": "Premium Launch",
+          "price_usd": 29,
+          "billing": "listing",
+          "gets": "Priority scheduling and dofollow backlink",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Premium Plus",
+          "price_usd": 69,
+          "billing": "listing",
+          "gets": "Spotlight and sitewide ads",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://auraplusplus.com/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "awesome-self-hosted",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 601805,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:awesome-selfhosted.net/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "betabound",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:betabound.com/fitbit-community-private-beta/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "betalist",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 144999,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "betterlaunch",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.betterlaunch.co/product/prepstate"
+    },
+    "review_wait": {
+      "label": "30+ days (Monday date)",
+      "min_days": 30,
+      "max_days": null,
+      "source_url": "https://www.betterlaunch.co/pricing"
+    },
+    "lowest_paid_price_usd": {
+      "value": 9,
+      "source_url": "https://www.betterlaunch.co/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Monday launch date at least 30 days ahead",
+          "link_type": "varies"
+        },
+        {
+          "name": "Queue skip",
+          "price_usd": 9,
+          "billing": "once",
+          "gets": "Skip the Monday queue",
+          "link_type": null
+        },
+        {
+          "name": "Starter",
+          "price_usd": 19,
+          "billing": "once",
+          "gets": "7 days pinned on top",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Pro",
+          "price_usd": 49,
+          "billing": "once",
+          "gets": "30 days pinned; newsletter feature",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Ultra",
+          "price_usd": 119,
+          "billing": "once",
+          "gets": "Pinned placement and founder X post",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Launch Bundle",
+          "price_usd": 219,
+          "billing": "once",
+          "gets": "Launch plan plus directory submissions",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://www.betterlaunch.co/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "capterra",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_10k",
+      "rank": 6010,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.capterra.com/p/10017069/Vendor-Portal/"
+    },
+    "review_wait": {
+      "label": "Over 6 weeks",
+      "min_days": 42,
+      "max_days": null,
+      "source_url": "https://www.softwareadvice.com/vendor-listing-faq/"
+    },
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "coglist-ai",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "comingup",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.comingup.io/p/aurevia-shopify-ai-sales-agent"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "comparecamp",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 235537,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "cool-startups",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "crozdesk",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 85834,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:crozdesk.com/software/liveagent"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "crunchbase",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_10k",
+      "rank": 3155,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.crunchbase.com/organization/openai"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "devhunt",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 919038,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:devhunt.org/tool/mcpindex"
+    },
+    "review_wait": {
+      "label": "About 6 months",
+      "min_days": 180,
+      "max_days": 180,
+      "source_url": "https://devhunt.org/the-story"
+    },
+    "lowest_paid_price_usd": {
+      "value": 19,
+      "source_url": "https://devhunt.org/the-story"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Launch",
+          "price_usd": 19,
+          "billing": "listing",
+          "gets": "Choose a launch week",
+          "link_type": null
+        },
+        {
+          "name": "Boosted launch",
+          "price_usd": 49,
+          "billing": "listing",
+          "gets": "Move ahead of other launches",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://devhunt.org/the-story",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "easy-with-ai",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 500413,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:easywithai.com/ai-lifestyle-tools/dressx-me/"
+    },
+    "review_wait": {
+      "label": "Under 24 hours",
+      "min_days": 0,
+      "max_days": 1,
+      "source_url": "https://easywithai.com/submit-tool/"
+    },
+    "lowest_paid_price_usd": {
+      "value": 125,
+      "source_url": "https://easywithai.com/submit-tool/"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Tool listing",
+          "price_usd": 125,
+          "billing": "once",
+          "gets": "Permanent tool listing",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://easywithai.com/submit-tool/",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "eliteai-tools",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 374044,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:eliteai.tools/tool/sitesgpt"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "erli-bird",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "everydev-ai",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.everydev.ai/tools/claude-code"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "extensionboss",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "f6s",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 19657,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "fastlaunch",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:fastlaunch.io/projects/soro-2"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 9.9,
+      "source_url": "https://fastlaunch.io/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free Launch",
+          "price_usd": 0,
+          "billing": "listing",
+          "gets": "Standard launch; schedule up to 180 days",
+          "link_type": null
+        },
+        {
+          "name": "Premium Launch",
+          "price_usd": 9.9,
+          "billing": "listing",
+          "gets": "Priority scheduling and faster launch dates",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://fastlaunch.io/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "favors-dev",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:favors.dev/apps/voko"
+    },
+    "review_wait": {
+      "label": "Instant with favor or badge",
+      "min_days": 0,
+      "max_days": 0,
+      "source_url": "https://favors.dev/projects/new"
+    },
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "fazier",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 198436,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:fazier.com/launches/launching-today"
+    },
+    "review_wait": {
+      "label": "Within 30 days",
+      "min_days": 0,
+      "max_days": 30,
+      "source_url": "https://fazier.com/submit"
+    },
+    "lowest_paid_price_usd": {
+      "value": 29,
+      "source_url": "https://fazier.com/submit"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Lite",
+          "price_usd": 29,
+          "billing": "once",
+          "gets": "Launch plan",
+          "link_type": null
+        },
+        {
+          "name": "Premium",
+          "price_usd": 49,
+          "billing": "once",
+          "gets": "Premium badge and added visibility",
+          "link_type": null
+        },
+        {
+          "name": "Super",
+          "price_usd": 99,
+          "billing": "once",
+          "gets": "Top homepage placement",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://fazier.com/submit",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "featuredcustomers",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 238300,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.featuredcustomers.com/vendor/spendhq"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "financesonline",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 18886,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:reviews.financesonline.com/p/pangram/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "findmyaitool",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:findmyaitool.com/tool/researchgpt"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 79.99,
+      "source_url": "https://findmyaitool.com/submit-tool"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Basic",
+          "price_usd": 79.99,
+          "billing": "once",
+          "gets": "Permanent directory listing",
+          "link_type": null
+        },
+        {
+          "name": "Featured",
+          "price_usd": 99.99,
+          "billing": "once",
+          "gets": "Featured placement",
+          "link_type": null
+        },
+        {
+          "name": "Standard",
+          "price_usd": 149.99,
+          "billing": "once",
+          "gets": "Homepage rotation and category placement",
+          "link_type": null
+        },
+        {
+          "name": "Premium",
+          "price_usd": 499.99,
+          "billing": null,
+          "gets": "Highest visibility placement",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://findmyaitool.com/submit-tool",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "firsto",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:firsto.co/projects/seed-audio-1-5"
+    },
+    "review_wait": {
+      "label": "About 180 days",
+      "min_days": 180,
+      "max_days": 180,
+      "source_url": "https://firsto.co/pricing"
+    },
+    "lowest_paid_price_usd": {
+      "value": 19.9,
+      "source_url": "https://firsto.co/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": "listing",
+          "gets": "Free launch with queue",
+          "link_type": null
+        },
+        {
+          "name": "Premium Launch",
+          "price_usd": 19.9,
+          "billing": "listing",
+          "gets": "24-hour turnaround",
+          "link_type": null
+        },
+        {
+          "name": "Pro Launch",
+          "price_usd": 59.9,
+          "billing": "listing",
+          "gets": "Priority launch package",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://firsto.co/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "free-for-dev",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 529257,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:github.com/ripienaar/free-for-dev/blob/master/README.md"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "free-software-directory",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_10k",
+      "rank": 6009,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:directory.fsf.org/wiki/Cinfony"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "futurepedia",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 132441,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.futurepedia.io/tool/where-to"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "futuretools",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 188432,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:futuretools.io/tools/ankon-ai-kos341"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "g2",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_10k",
+      "rank": 4034,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.g2.com/products/slack/reviews"
+    },
+    "review_wait": {
+      "label": "3 to 5 work days",
+      "min_days": 3,
+      "max_days": 5,
+      "source_url": "https://sell.g2.com/create-a-profile"
+    },
+    "lowest_paid_price_usd": {
+      "value": 299,
+      "source_url": "https://sell.g2.com/plans"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free profile",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Create a vendor profile",
+          "link_type": null
+        },
+        {
+          "name": "Starter",
+          "price_usd": 299,
+          "billing": "month",
+          "gets": "Starter vendor profile plan",
+          "link_type": null
+        },
+        {
+          "name": "Starter annual",
+          "price_usd": 2999,
+          "billing": "year",
+          "gets": "Starter plan billed for year one",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://sell.g2.com/plans",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "getapp",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 32892,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.getapp.com/collaboration-software/a/slack/"
+    },
+    "review_wait": {
+      "label": "Over 6 weeks",
+      "min_days": 42,
+      "max_days": null,
+      "source_url": "https://www.softwareadvice.com/vendor-listing-faq/"
+    },
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "goodfirms",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 25491,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.goodfirms.co/software/bitrix24"
+    },
+    "review_wait": {
+      "label": "5 to 10 work days",
+      "min_days": 5,
+      "max_days": 10,
+      "source_url": "https://www.goodfirms.co/goodfirms-pro"
+    },
+    "lowest_paid_price_usd": {
+      "value": 49,
+      "source_url": "https://www.goodfirms.co/goodfirms-pro"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Free vendor profile",
+          "link_type": null
+        },
+        {
+          "name": "PRO",
+          "price_usd": 49,
+          "billing": "month",
+          "gets": "Premium visibility and verified badge",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://www.goodfirms.co/goodfirms-pro",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "hype-desk",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "ignlab-launch",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:launch.ignlab.net/t/schemaextract"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "indieextensions",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "indiehunt",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:indiehunt.io/project/product-hunt-the-best-new-products-in-tech"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 19,
+      "source_url": "https://indiehunt.io/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": "listing",
+          "gets": "Free launch with badge option",
+          "link_type": null
+        },
+        {
+          "name": "Premium",
+          "price_usd": 19,
+          "billing": "listing",
+          "gets": "Launch kit, priority handling, dofollow link",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://indiehunt.io/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "indieneed",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.indieneed.com/products/Peregrine-OS"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 15,
+      "source_url": "https://www.indieneed.com/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": "listing",
+          "gets": "Basic listing with community review",
+          "link_type": "nofollow"
+        },
+        {
+          "name": "Starter",
+          "price_usd": 15,
+          "billing": "listing",
+          "gets": "7 days featured placement",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Pro",
+          "price_usd": 30,
+          "billing": "listing",
+          "gets": "14 days featured placement",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Premium",
+          "price_usd": 60,
+          "billing": "listing",
+          "gets": "14 days plus blog and X promotion",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Ultimate",
+          "price_usd": 120,
+          "billing": "listing",
+          "gets": "30 days featured placement",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://www.indieneed.com/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "indieproducts",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "insidr-ai",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.insidr.ai/ai-tools/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "itqlick",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 292706,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.itqlick.com/dynamic-pricing"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "kick-product",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "killerstartups",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 207399,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:killerstartups.com/jamie-ai-saas/3/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "kittylaunch",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:kittylaunch.com/p/funparty"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "land-book",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 63237,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:land-book.com/websites/100472-aloud-say-it-ship-it-feedback-your-coding-agent-can-run"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "lapa-ninja",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 236223,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.lapa.ninja/post/createwithplay/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "launchboard",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:www.launchboard.dev/launch/tutorgpt-1246"
+    },
+    "review_wait": {
+      "label": "1 to 2 work days",
+      "min_days": 1,
+      "max_days": 2,
+      "source_url": "https://www.launchboard.dev/how-it-works"
+    },
+    "lowest_paid_price_usd": {
+      "value": 19,
+      "source_url": "https://www.launchboard.dev/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free Launch",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Badge required; weekly free slots",
+          "link_type": null
+        },
+        {
+          "name": "Single Launch",
+          "price_usd": 19,
+          "billing": "listing",
+          "gets": "Permanent listing and instant approval",
+          "link_type": null
+        },
+        {
+          "name": "Launch Pack",
+          "price_usd": 39,
+          "billing": "once",
+          "gets": "Five launches; reusable credits",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://www.launchboard.dev/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "launchdb",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:bigideasdb.com/launchdb/launches/allocera-intelligence"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "launchfree",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:launchfree.io/listings/intakio.html"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "launchigniter",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 899636,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 12,
+      "source_url": "https://launchigniter.com/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Free listing with manual review",
+          "link_type": null
+        },
+        {
+          "name": "Basic",
+          "price_usd": 12,
+          "billing": "once",
+          "gets": "Basic launch listing",
+          "link_type": null
+        },
+        {
+          "name": "Pro",
+          "price_usd": 15,
+          "billing": "once",
+          "gets": "Pro launch listing",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://launchigniter.com/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "launching-next",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 935890,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": {
+      "label": "About 3 months",
+      "min_days": 90,
+      "max_days": 90,
+      "source_url": "https://www.launchingnext.com/advertise"
+    },
+    "lowest_paid_price_usd": {
+      "value": 49,
+      "source_url": "https://www.launchingnext.com/advertise"
+    },
+    "price_tiers": null
+  },
+  {
+    "slug": "launchit",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:launchit.fast/tools/posterly"
+    },
+    "review_wait": {
+      "label": "About 2 months",
+      "min_days": 60,
+      "max_days": 60,
+      "source_url": "https://launchit.fast/pricing"
+    },
+    "lowest_paid_price_usd": {
+      "value": 14.99,
+      "source_url": "https://launchit.fast/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Basic",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Free launch requires reciprocal badge and link",
+          "link_type": null
+        },
+        {
+          "name": "Premium Launch",
+          "price_usd": 14.99,
+          "billing": "once",
+          "gets": "Launch on a selected date",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://launchit.fast/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "launchvault",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.launchvault.dev/projects/shipboost"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 9.99,
+      "source_url": "https://www.launchvault.dev/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free Launch",
+          "price_usd": 0,
+          "billing": "listing",
+          "gets": "Permanent listing; backlink badge route",
+          "link_type": "varies"
+        },
+        {
+          "name": "Premium Launch",
+          "price_usd": 9.99,
+          "billing": "listing",
+          "gets": "Permanent listing with dofollow backlink",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Premium + JustTools",
+          "price_usd": 14.99,
+          "billing": "listing",
+          "gets": "Two permanent listings and dofollow links",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://www.launchvault.dev/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "letslaunch",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:letslaunch.today/product/formsubmit"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 9,
+      "source_url": "https://letslaunch.today/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free Launch",
+          "price_usd": 0,
+          "billing": "listing",
+          "gets": "Weekly launch; badge for dofollow link",
+          "link_type": "varies"
+        },
+        {
+          "name": "Premium",
+          "price_usd": 9,
+          "billing": "listing",
+          "gets": "Launch today with permanent dofollow link",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Premium+",
+          "price_usd": 29,
+          "billing": "listing",
+          "gets": "Premium launch plus promotion and article",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://letslaunch.today/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "libhunt",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 63399,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.libhunt.com/r/react"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "makerlist",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:makerlist.io/tool/53108-listai-tools"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "marketingtools-com",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "mcp-so",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 198948,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:mcp.so/servers/firecrawl"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 39,
+      "source_url": "https://mcp.so/submit?type=server"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Paid submission",
+          "price_usd": 39,
+          "billing": "once",
+          "gets": "Immediate publishing and featured placement",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://mcp.so/submit?type=server",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "micro-launch",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:microlaunch.net/p/statable"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 39,
+      "source_url": "https://microlaunch.net/premium"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Launch Pro",
+          "price_usd": 39,
+          "billing": null,
+          "gets": "Launch date choice, featuring and distribution",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Launch Plus",
+          "price_usd": 79,
+          "billing": null,
+          "gets": "Launch Pro plus four SEO pages",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://microlaunch.net/premium",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "nextbigwhat",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 540055,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:nextbigwhat.com/justreviews-by-elfsight/"
+    },
+    "review_wait": {
+      "label": "Published within 24 hours",
+      "min_days": null,
+      "max_days": 1.0,
+      "source_url": "https://submit.nextbigwhat.com/"
+    },
+    "lowest_paid_price_usd": {
+      "value": 39,
+      "source_url": "https://submit.nextbigwhat.com/"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Lite",
+          "price_usd": 39,
+          "billing": "once",
+          "gets": "Product launch listing",
+          "link_type": null
+        },
+        {
+          "name": "Pro",
+          "price_usd": 79,
+          "billing": "once",
+          "gets": "Premium product launch listing",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://submit.nextbigwhat.com/",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "nick-launches",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 741412,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:nicklaunches.com/products/oyyo-ai/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "nocode-tech",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.nocode.tech/tools/adalo"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "nocodefinder",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.nocodefinder.com/app/tools/webflow"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "nocodelist",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:nocodelist.co/software/tango"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "omr-reviews",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 51469,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:omr.com/en/reviews/product/vercel"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "one-page-love",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 117360,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:onepagelove.com/flowjam-2"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "open-source-alternative",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:opensourcealternative.to/project/fider"
+    },
+    "review_wait": {
+      "label": "Over 6 months",
+      "min_days": 180,
+      "max_days": null,
+      "source_url": "https://opensourcealternative.to/submit"
+    },
+    "lowest_paid_price_usd": {
+      "value": 29,
+      "source_url": "https://opensourcealternative.to/submit"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free waitlist",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Waitlist estimated at 6+ months",
+          "link_type": null
+        },
+        {
+          "name": "48-hour review",
+          "price_usd": 29,
+          "billing": "once",
+          "gets": "Review within 48 hours",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://opensourcealternative.to/submit",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "open-source-software-directory",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "openalternative",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 363342,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:openalternative.co/autumn"
+    },
+    "review_wait": {
+      "label": "2 days",
+      "min_days": 2,
+      "max_days": 2,
+      "source_url": "https://openalternative.co/submit/send"
+    },
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "openfuture-ai",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "openhunts",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:openhunts.com/projects/launch"
+    },
+    "review_wait": {
+      "label": "About 60 weeks",
+      "min_days": 420,
+      "max_days": 420,
+      "source_url": "https://openhunts.com/pricing"
+    },
+    "lowest_paid_price_usd": {
+      "value": 9.9,
+      "source_url": "https://openhunts.com/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free Launch",
+          "price_usd": 0,
+          "billing": "listing",
+          "gets": "Free weekly launch slot",
+          "link_type": null
+        },
+        {
+          "name": "Premium Launch",
+          "price_usd": 9.9,
+          "billing": "listing",
+          "gets": "Skip wait; launch next Monday",
+          "link_type": null
+        },
+        {
+          "name": "Highlight",
+          "price_usd": null,
+          "billing": "week",
+          "gets": "Instant highlight; demand-based weekly rate",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://openhunts.com/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "opentools",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 187383,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:opentools.ai/tools/naiseai"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "peerlist-launchpad",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 202241,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:peerlist.io/firstexhotic/project/ai-that-applies-for-you--ai-applyd"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "peerpush",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 449682,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:peerpush.com/p/home-page"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 39,
+      "source_url": "https://peerpush.com/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Join the free queue",
+          "link_type": null
+        },
+        {
+          "name": "Standard Launch",
+          "price_usd": 39,
+          "billing": "once",
+          "gets": "Product goes live instantly",
+          "link_type": null
+        },
+        {
+          "name": "Featured week",
+          "price_usd": 89,
+          "billing": "once",
+          "gets": "Featured for one week",
+          "link_type": null
+        },
+        {
+          "name": "Featured month",
+          "price_usd": 229,
+          "billing": "once",
+          "gets": "Featured for one month",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://peerpush.com/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "pitchwall",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 194875,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:pitchwall.co/product/deadwallet-blockchain-intelligence-platform"
+    },
+    "review_wait": {
+      "label": "At least 30 days",
+      "min_days": 30,
+      "max_days": null,
+      "source_url": "https://pitchwall.co/submit"
+    },
+    "lowest_paid_price_usd": {
+      "value": 49,
+      "source_url": "https://pitchwall.co/submit"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Pro",
+          "price_usd": 49,
+          "billing": "once",
+          "gets": "Two-day homepage visibility",
+          "link_type": null
+        },
+        {
+          "name": "Premium",
+          "price_usd": 99,
+          "billing": "once",
+          "gets": "Premium launch placement",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://pitchwall.co/submit",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "product-fifty-one",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "product-hunt",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_10k",
+      "rank": 4302,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.producthunt.com/products/visualph"
+    },
+    "review_wait": {
+      "label": "You pick a day within 30 days",
+      "min_days": 0,
+      "max_days": 30,
+      "source_url": "https://help.producthunt.com/en/articles/2724119-how-to-schedule-a-post"
+    },
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "productivity-directory",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "promoteproject",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 226513,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.promoteproject.com/startup/197104/promote-startup"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "rankmyai",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:www.rankmyai.com/tools/1204d142-366b-47ef-9110-ac345b2737ca/chatgpt"
+    },
+    "review_wait": {
+      "label": "Up to 7 days",
+      "min_days": 0,
+      "max_days": 7,
+      "source_url": "https://www.rankmyai.com/tool-addition"
+    },
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "saas-ai-tools",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:saasaitools.com/listing-category/writing/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "saas-browser",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 154349,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:saasbrowser.com/en/saas/1497796/saaslaunch"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "saas-landing-page",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 892934,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:saaslandingpage.com/slite/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "saascity",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:saascity.io/live/ai-image-detector"
+    },
+    "review_wait": {
+      "label": "About 266 days",
+      "min_days": 266,
+      "max_days": 266,
+      "source_url": "https://saascity.io/pricing"
+    },
+    "lowest_paid_price_usd": {
+      "value": 19.99,
+      "source_url": "https://saascity.io/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Free listing with badge option",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Quick Pass",
+          "price_usd": 19.99,
+          "billing": "once",
+          "gets": "Map placement and priority submission",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Premium",
+          "price_usd": 39.99,
+          "billing": "once",
+          "gets": "Premium map placement",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Max",
+          "price_usd": 79.99,
+          "billing": "once",
+          "gets": "Large map placement and launch post",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://saascity.io/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "saasgenius",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.saasgenius.com/reviews/trellis/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "saasgrow",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:saasgrow.app/saas/voxscreen/timeline"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 5,
+      "source_url": "https://saasgrow.app/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Badge-verified listing",
+          "link_type": null
+        },
+        {
+          "name": "Basic",
+          "price_usd": 9,
+          "billing": "listing",
+          "gets": "Instant listing and dofollow backlink",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Pro",
+          "price_usd": 9,
+          "billing": "month",
+          "gets": "Up to 10 listings and priority support",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://saasgrow.app/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "saashub",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 23867,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.saashub.com/obsidian"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "saasworthy",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 134693,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.saasworthy.com/product/mapp-cloud"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "scrolllaunch",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.scrolllaunch.com/products/getbirthchart"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 39,
+      "source_url": "https://www.scrolllaunch.com/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free Launch",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Up to 25 free listings per week; badge for follow link",
+          "link_type": "varies"
+        },
+        {
+          "name": "Premium",
+          "price_usd": 39,
+          "billing": "listing",
+          "gets": "Featured launch and launch blog",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://www.scrolllaunch.com/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "selecthub",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 133819,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.selecthub.com/p/collaboration-software-tools/slack/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "selfhst-apps",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 161125,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:selfh.st/apps/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "selljam",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:selljam.ai/tools/anchor-browser"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "serchen",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 167939,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.serchen.com/company/slack-2"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 49.95,
+      "source_url": "https://www.serchen.com/get-listed/new"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Basic membership",
+          "price_usd": 49.95,
+          "billing": "year",
+          "gets": "Basic membership; annual billing",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://www.serchen.com/get-listed/new",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "sideprojectors",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 145672,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.sideprojectors.com/project/16155/where-to-post"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "siteinspire",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 143117,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "smol-launch",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:smollaunch.com/products/kandidate-ai"
+    },
+    "review_wait": {
+      "label": "24 to 48 hours",
+      "min_days": 1,
+      "max_days": 2,
+      "source_url": "https://smollaunch.com/methodology"
+    },
+    "lowest_paid_price_usd": null,
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": "listing",
+          "gets": "Free standard launch",
+          "link_type": null
+        },
+        {
+          "name": "Premium",
+          "price_usd": 19,
+          "billing": "listing",
+          "gets": "Premium launch with weekly board appearance",
+          "link_type": null
+        },
+        {
+          "name": "Maker Pass",
+          "price_usd": 99,
+          "billing": "year",
+          "gets": "Unlimited premium launches for a year",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://smollaunch.com/maker-pass",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "softpedia",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_10k",
+      "rank": 5181,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.softpedia.com/get/Antivirus/Network-Malware-Cleaner.shtml"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "software-advice",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 18951,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:www.softwareadvice.com/remote-support/slack-profile/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "softwareworld",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 153872,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.softwareworld.co/software/storeforce-reviews/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 99,
+      "source_url": "https://www.softwareworld.co/help-center/"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "New vendor listing",
+          "price_usd": 99,
+          "billing": "once",
+          "gets": "One-time listing approval fee",
+          "link_type": null
+        },
+        {
+          "name": "Claim existing profile",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Claim an existing profile",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://www.softwareworld.co/help-center/",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "sourceforge",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1k",
+      "rank": 244,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:sourceforge.net/projects/keepass/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "stackshare",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 46918,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:stackshare.io/websitepulse-test-tools"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "starthq",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "startup-buffer",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 624537,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:startupbuffer.com/startup/workonflow"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "startup-fame",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 193244,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:startupfa.me/s/liinks"
+    },
+    "review_wait": {
+      "label": "Several work days",
+      "min_days": null,
+      "max_days": null,
+      "source_url": "https://startupfa.me/"
+    },
+    "lowest_paid_price_usd": {
+      "value": 19,
+      "source_url": "https://startupfa.me/"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Verified",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Free with homepage badge and review",
+          "link_type": null
+        },
+        {
+          "name": "Highlight",
+          "price_usd": 19,
+          "billing": "month",
+          "gets": "Instant listing without a badge",
+          "link_type": null
+        },
+        {
+          "name": "Spotlight",
+          "price_usd": 149,
+          "billing": "month",
+          "gets": "Premium placement without a badge",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://startupfa.me/",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "startup-ranking",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 220044,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.startupranking.com/startup/pop-up-world"
+    },
+    "review_wait": {
+      "label": "80 days",
+      "min_days": 80,
+      "max_days": 80,
+      "source_url": "https://www.startupranking.com/how-it-works"
+    },
+    "lowest_paid_price_usd": {
+      "value": 49,
+      "source_url": "https://www.startupranking.com/faster-approval"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Basic",
+          "price_usd": 49,
+          "billing": "once",
+          "gets": "Approval in under 24 hours; week of features",
+          "link_type": null
+        },
+        {
+          "name": "Premium",
+          "price_usd": 99,
+          "billing": "once",
+          "gets": "Approval in under 24 hours; week of features",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://www.startupranking.com/faster-approval",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "startup-stash",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 268335,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:startupstash.com/tools/notion-for-startups/"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "startupbase",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 698587,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:startupbase.io/products/ai-content-drop"
+    },
+    "review_wait": {
+      "label": "4 to 5 weeks with badge",
+      "min_days": 28,
+      "max_days": 35,
+      "source_url": "https://startupbase.io/about"
+    },
+    "lowest_paid_price_usd": {
+      "value": 39,
+      "source_url": "https://startupbase.io/about"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Standard free launch queue",
+          "link_type": null
+        },
+        {
+          "name": "Launch",
+          "price_usd": 39,
+          "billing": "once",
+          "gets": "Choose date and homepage feature",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Boost",
+          "price_usd": 99,
+          "billing": "once",
+          "gets": "30 days on homepage",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Growth",
+          "price_usd": 299,
+          "billing": "once",
+          "gets": "60 days, newsletter and editorial review",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Ultimate",
+          "price_usd": 499,
+          "billing": "once",
+          "gets": "Adds X and LinkedIn promotion",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://startupbase.io/about",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "startupblink",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 165541,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "startuplift",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "startuplist-in",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "startups-fyi",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.startups.fyi/product/capme"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "startups-gallery",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:startups.gallery/companies/default"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "startups-lab",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:startupslab.site/products/kaomojihub"
+    },
+    "review_wait": {
+      "label": "Next Monday",
+      "min_days": null,
+      "max_days": null,
+      "source_url": "https://startupslab.site/pricing"
+    },
+    "lowest_paid_price_usd": {
+      "value": 6,
+      "source_url": "https://startupslab.site/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": "listing",
+          "gets": "Weekly launch feed",
+          "link_type": null
+        },
+        {
+          "name": "Skip the queue",
+          "price_usd": 6,
+          "billing": "listing",
+          "gets": "Skip the queue",
+          "link_type": null
+        },
+        {
+          "name": "Spotlight",
+          "price_usd": 29,
+          "billing": "once",
+          "gets": "30-day spotlight placement",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://startupslab.site/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "startuptrusted",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:startuptrusted.com/startup/aevral"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 11,
+      "source_url": "https://startuptrusted.com/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Free with verified site badge",
+          "link_type": null
+        },
+        {
+          "name": "Pro",
+          "price_usd": 11,
+          "billing": "once",
+          "gets": "Instant listing and permanent backlink",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Featured",
+          "price_usd": 19,
+          "billing": "once",
+          "gets": "Homepage placement and backlink",
+          "link_type": "dofollow"
+        }
+      ],
+      "source_url": "https://startuptrusted.com/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "startuups",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:startuups.com/projects/stable-commerce"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 5,
+      "source_url": "https://startuups.com/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": "listing",
+          "gets": "Free weekly launch slots",
+          "link_type": null
+        },
+        {
+          "name": "Premium",
+          "price_usd": 5,
+          "billing": "listing",
+          "gets": "Premium weekly launch slot",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://startuups.com/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "submithunt",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:www.submithunt.com/startup/turbostarter"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "superlaunch",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:superlaunch.io/product/prodigent"
+    },
+    "review_wait": {
+      "label": "A few hours",
+      "min_days": null,
+      "max_days": null,
+      "source_url": "https://superlaunch.io/how-it-works"
+    },
+    "lowest_paid_price_usd": {
+      "value": 49,
+      "source_url": "https://superlaunch.io/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Permanent listing in the review queue",
+          "link_type": null
+        },
+        {
+          "name": "Launch Plus",
+          "price_usd": 49,
+          "billing": "once",
+          "gets": "Faster launch and founder story",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://superlaunch.io/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "the-next-ai-tool",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:nextaitool.com/t/minexa-ai"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "theres-an-ai-for-that",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 27854,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "tinylaunch",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.tinylaunch.com/launch/7830-submit-handler"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": {
+      "value": 39,
+      "source_url": "https://www.tinylaunch.com/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Free standard launch queue",
+          "link_type": null
+        },
+        {
+          "name": "Premium Launch",
+          "price_usd": 39,
+          "billing": "listing",
+          "gets": "Guaranteed high-authority backlink",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://www.tinylaunch.com/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "tinystartups",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.tinystartups.com/tools/pop-site"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "tooldirs",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:tooldirs.com/product/one-wish-willow"
+    },
+    "review_wait": {
+      "label": "Within 2 days",
+      "min_days": 0,
+      "max_days": 2,
+      "source_url": "https://tooldirs.com/submit"
+    },
+    "lowest_paid_price_usd": {
+      "value": 9.99,
+      "source_url": "https://tooldirs.com/pricing"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Basic",
+          "price_usd": 9.99,
+          "billing": "once",
+          "gets": "Lifetime basic directory listing",
+          "link_type": null
+        },
+        {
+          "name": "Featured",
+          "price_usd": 14.99,
+          "billing": "month",
+          "gets": "Featured placement; first month",
+          "link_type": null
+        },
+        {
+          "name": "Free Listing",
+          "price_usd": 0,
+          "billing": null,
+          "gets": "Free basic directory listing",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://tooldirs.com/pricing",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "toolfound",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:toolfound.com/tool/sendhq"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "toolify",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 49403,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": false,
+      "checked_on": "2026-10-21",
+      "query": "site:www.toolify.ai/tool/faceframer-io"
+    },
+    "review_wait": {
+      "label": "Within 48 hours",
+      "min_days": 0,
+      "max_days": 2,
+      "source_url": "https://www.toolify.ai/submit"
+    },
+    "lowest_paid_price_usd": {
+      "value": 99,
+      "source_url": "https://www.toolify.ai/submit"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Tool submission",
+          "price_usd": 99,
+          "billing": null,
+          "gets": null,
+          "link_type": null
+        }
+      ],
+      "source_url": "https://www.toolify.ai/submit",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "toolpilot-ai",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 547958,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.toolpilot.ai/products/sunoh-ai"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "toolsforcreators",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "topai-tools",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 207629,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": {
+      "label": "24 to 48 hours",
+      "min_days": 1,
+      "max_days": 2,
+      "source_url": "https://topai.tools/submit"
+    },
+    "lowest_paid_price_usd": {
+      "value": 47,
+      "source_url": "https://topai.tools/submit"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Fast Track",
+          "price_usd": 47,
+          "billing": "once",
+          "gets": "Permanent listing; 24 to 48 hour review",
+          "link_type": null
+        },
+        {
+          "name": "Featured Listing",
+          "price_usd": 229,
+          "billing": "once",
+          "gets": "Featured for 7 days",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://topai.tools/submit",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "trustradius",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 25373,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.trustradius.com/products/slack/reviews"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "uneed",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_1m",
+      "rank": 359643,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:www.uneed.best/tool/the-check-in"
+    },
+    "review_wait": {
+      "label": "30 days to 5 months",
+      "min_days": 30,
+      "max_days": 150,
+      "source_url": "https://www.uneed.best/how-it-works"
+    },
+    "lowest_paid_price_usd": {
+      "value": 14.99,
+      "source_url": "https://www.uneed.best/how-it-works"
+    },
+    "price_tiers": {
+      "tiers": [
+        {
+          "name": "Free waiting line",
+          "price_usd": 0,
+          "billing": "listing",
+          "gets": "Launch date 30 days to 5 months out",
+          "link_type": "varies"
+        },
+        {
+          "name": "Fast-track",
+          "price_usd": 14.99,
+          "billing": "once",
+          "gets": "Launch date around 2 weeks out",
+          "link_type": "varies"
+        },
+        {
+          "name": "Skip the waiting line",
+          "price_usd": 29.99,
+          "billing": "once",
+          "gets": "Choose the exact launch date",
+          "link_type": "dofollow"
+        },
+        {
+          "name": "Relaunch",
+          "price_usd": 15,
+          "billing": "once",
+          "gets": "Second launch day after a significant change",
+          "link_type": null
+        }
+      ],
+      "source_url": "https://www.uneed.best/how-it-works",
+      "checked_on": "2026-10-21"
+    }
+  },
+  {
+    "slug": "webcurate",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "below_1m",
+      "rank": null,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": {
+      "value": true,
+      "checked_on": "2026-10-21",
+      "query": "site:webcurate.co/mindgrasp-ai"
+    },
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  },
+  {
+    "slug": "yourstory",
+    "domain_rating": null,
+    "traffic": {
+      "bucket": "top_100k",
+      "rank": 16888,
+      "checked_on": "2026-10-21",
+      "source": "tranco:262W9"
+    },
+    "listing_indexed": null,
+    "review_wait": null,
+    "lowest_paid_price_usd": null,
+    "price_tiers": null
+  }
+]

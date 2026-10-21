@@ -33,6 +33,18 @@ export async function prepareFrontend(source, target, pages) {
   }
   const published = new Set(pages.map(page => page.slug ? `/${page.slug}` : "/"));
   const rendered = new Set();
+  const staticRoutes = new Set();
+  async function collect(directory) {
+    for (const entry of await readdir(directory, { withFileTypes: true })) {
+      const file = path.join(directory, entry.name);
+      if (entry.isDirectory()) await collect(file);
+      else if (entry.name === "page.tsx") {
+        const route = pageRoute(path.relative(target, file));
+        if (!route.includes("[")) staticRoutes.add(route);
+      }
+    }
+  }
+  await collect(path.join(target, "app/(site)"));
   async function walk(directory) {
     for (const entry of await readdir(directory, { withFileTypes: true })) {
       const file = path.join(directory, entry.name);
@@ -41,7 +53,7 @@ export async function prepareFrontend(source, target, pages) {
         const relative = path.relative(target, file);
         const route = pageRoute(relative);
         if (route.includes("[")) {
-          const parameters = routeParameters(route, pages);
+          const parameters = routeParameters(route, pages, staticRoutes);
           if (!parameters.length) {
             await rm(file);
             await rm(path.join(directory, "layout.tsx"), { force: true });

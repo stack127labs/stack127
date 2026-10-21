@@ -2,6 +2,7 @@ import { COURSE_PAGES_TAG, PAGE_REGISTRY_TAG, HOME_PAGES_TAG, TOOL_PAGES_TAG, DI
 import { networkIdentities } from "../../ad-networks/network-identities.mjs";
 import { adNetworkNiches } from "../../../lib/ad-network-niches.ts";
 import { feeGroups, groupPath } from "../../../lib/platform-fees/groups.ts";
+import { launchDirectoryPageSlugs } from "../../launch-directories/page-slugs.mjs";
 const clean = (value) => String(value ?? "").replace(/^\/+|\/+$/g, "").toLowerCase();
 const pageTag = (path) => `page:${clean(path).replaceAll("/", ":") || "home"}`;
 
@@ -34,6 +35,15 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
       if (slug === "self-host-apps") {
         addPage("/api/self-host-apps/search", false);
         edgeTags.add("self-host-catalog");
+      }
+      if (slug === "launch-directories" || slug.startsWith("launch-directories/")) {
+        // Children inherit the parent icon and use the complete dataset snapshot.
+        if (slug === "launch-directories") {
+          for (const child of launchDirectoryPageSlugs) {
+            addPage(`/${child}`);
+          }
+          addPage("/launch-directories/compare");
+        }
       }
       // Child headings inherit these parent directory icons.
       if (slug === "keyboard-shortcuts") edgeTags.add("keyboard-shortcuts-catalog");
@@ -108,6 +118,14 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
       if (slug && slug !== "all") addPage(`/ad-networks/${slug}`);
     } else if (event.entity_type === "launch_directories") {
       nextTags.add(LAUNCH_DIRECTORIES_TAG);
+      nextTags.add(`${PAGE_REGISTRY_TAG}:launch-directories`);
+      nextTags.add(`${DIRECTORY_PAGES_TAG}:launch-directories`);
+      // revalidatePath expires each child's implicit data tags as well. Avoid
+      // sending two explicit tags per child through the 200-tag endpoint limit.
+      for (const child of launchDirectoryPageSlugs) {
+        addPage(`/${child}`);
+      }
+      addPage("/launch-directories/compare");
       addPage("/launch-directories");
       addPage("/");
     } else {

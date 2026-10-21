@@ -41,6 +41,8 @@ test("export contains published pages and registry-selected dynamic parameters",
   }
   await assert.rejects(prepareFrontend(source, path.join(root, "missing"), [{ slug: "absent", page_family: "site" }]), /no exportable source/);
   assert.deepEqual(routeParameters("/platform-fees/[section]", [{ slug: "platform-fees/payments", page_family: "directory" }, { slug: "unrelated", page_family: "directory" }]), [{ section: "payments" }]);
+  const launchPages = [{ slug: "launch-directories/uneed", page_family: "directory" }, { slug: "launch-directories/compare", page_family: "directory" }];
+  assert.deepEqual(routeParameters("/launch-directories/[slug]", launchPages, new Set(["/launch-directories/compare"])), [{ slug: "uneed" }]);
 });
 
 test("static upload rejects missing pages, oversized assets, symlinks and private credentials", async t => {

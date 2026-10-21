@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product launch directories: costs, links, and wait times | stack127</title>
+<link rel="stylesheet" href="assets/mock.css">
+<link rel="stylesheet" href="assets/ld.css">
+<script src="assets/data.js"></script>
+<script src="assets/ld.js"></script>
+<style>
+  /* Hero statline sits on the dotted band, so each figure gets the page background. */
+  .band .statline div { background: var(--color-bg); padding-right: var(--space-3); }
+  .lists { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-7); }
+  .lists a { display: inline-flex; align-items: center; gap: var(--space-2); height: 32px; padding: 0 12px; border: 1px solid var(--color-border-strong); border-radius: var(--radius); background: var(--color-bg); color: var(--color-text); font: var(--text-small) var(--font-mono); }
+  .lists a:hover { border-color: var(--color-text-muted); }
+  .lists a span { color: var(--color-text-muted); }
+  .view-toggle { display: inline-flex; border: 1px solid var(--color-border-strong); border-radius: var(--radius); }
+  .view-toggle button { display: inline-flex; align-items: center; gap: var(--space-2); height: 40px; padding: 0 12px; background: var(--color-surface); border: 0; color: var(--color-text-muted); font: var(--text-small) var(--font-mono); cursor: pointer; }
+  .view-toggle button + button { border-left: 1px solid var(--color-border-strong); }
+  .view-toggle button[aria-pressed="true"] { background: var(--color-surface-2); color: var(--color-text); }
+  .tools-right { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  /* Table view */
+  table.data td.name { white-space: nowrap; }
+  table.data td.name a { display: inline-flex; align-items: center; gap: var(--space-4); color: var(--color-text); font-weight: var(--weight-semibold); }
+  table.data td.name .ld-logo { width: 24px; height: 24px; font-size: 12px; }
+  table.data td .unk { color: var(--color-text-muted); }
+  /* Charts */
+  .glance { display: grid; gap: var(--space-7); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @container (max-width: 760px) { .glance { grid-template-columns: minmax(0, 1fr); } }
+  .chart h3 { margin: 0 0 2px; font: var(--weight-bold) var(--text-h3) / 1.25 var(--font-display); letter-spacing: var(--tracking-display); }
+  .chart .hint { margin: 0 0 var(--space-8); }
+  .stack { display: flex; height: 14px; border-radius: var(--radius); overflow: hidden; gap: 2px; }
+  .stack i { display: block; height: 100%; }
+  .legend { display: grid; gap: var(--space-3); margin-top: var(--space-7); font: var(--text-small) var(--font-mono); }
+  .legend div { display: grid; grid-template-columns: 10px 1fr auto; gap: var(--space-4); align-items: center; }
+  .legend i { width: 10px; height: 10px; border-radius: 1px; }
+  .legend span:last-child { color: var(--color-text-muted); }
+  .hbars { display: grid; gap: var(--space-4); }
+  .hbars div { display: grid; grid-template-columns: minmax(0, 11rem) 1fr 2.5rem; gap: var(--space-5); align-items: center; font: var(--text-small) var(--font-mono); }
+  .hbars .lab { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .hbars .bar { height: 10px; background: var(--color-surface-2); border-radius: 1px; }
+  .hbars .bar i { display: block; height: 100%; background: var(--color-data-chartreuse); border-radius: 1px; }
+  .hbars .n { text-align: right; color: var(--color-text-muted); }
+  .hist { display: grid; grid-template-columns: repeat(10, 1fr); align-items: end; gap: 4px; height: 130px; }
+  .hist i { display: block; background: var(--color-data-cyan); border-radius: 1px 1px 0 0; min-height: 2px; }
+  .hist-x { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; margin-top: var(--space-3); font: 0.72rem var(--font-mono); color: var(--color-text-muted); text-align: center; }
+  .dots { position: relative; height: 54px; border-bottom: 1px solid var(--color-border-strong); }
+  .dots i { position: absolute; bottom: 6px; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: var(--color-data-violet); opacity: 0.8; }
+  .dots-x { display: flex; justify-content: space-between; margin-top: var(--space-3); font: 0.72rem var(--font-mono); color: var(--color-text-muted); }
+  /* Promo pair */
+  .duo { display: grid; gap: var(--space-7); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @container (max-width: 760px) { .duo { grid-template-columns: minmax(0, 1fr); } }
+  .promo { display: grid; gap: var(--space-5); align-content: start; }
+  .promo h3 { margin: 0; display: flex; align-items: center; gap: var(--space-4); font: var(--weight-bold) var(--text-h3) var(--font-display); }
+  .promo h3 svg { color: var(--color-accent-text); width: 20px; height: 20px; }
+  .promo p { margin: 0; }
+  .promo .btn.secondary { justify-self: start; }
+  /* Launch kit */
+  .kit { display: grid; gap: var(--space-5); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @container (max-width: 760px) { .kit { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .kit div { display: grid; gap: var(--space-3); align-content: start; padding: var(--space-8); border: 1px solid var(--color-border); border-radius: var(--radius); }
+  .kit svg { width: 20px; height: 20px; color: var(--color-text-muted); }
+  .kit b { font: var(--weight-semibold) var(--text-body) var(--font-display); }
+  .kit span { font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+  .kit em { font-style: normal; font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+  /* How we check */
+  .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: s; border: 1px solid var(--color-border); border-radius: var(--radius); }
+  @container (max-width: 760px) { .steps { grid-template-columns: minmax(0, 1fr); } }
+  .steps div { padding: var(--space-8); counter-increment: s; }
+  .steps div + div { border-left: 1px solid var(--color-border); }
+  @container (max-width: 760px) { .steps div + div { border-left: 0; border-top: 1px solid var(--color-border); } }
+  .steps div::before { content: counter(s, decimal-leading-zero); display: block; margin-bottom: var(--space-4); font: var(--text-small) var(--font-mono); color: var(--color-accent-text); }
+  .steps b { display: block; margin-bottom: var(--space-2); font-family: var(--font-display); }
+  .steps p { margin: 0; font-size: var(--text-small); line-height: 1.5; }
+  .labels { display: grid; grid-template-columns: max-content 1fr; gap: var(--space-4) var(--space-9); margin: var(--space-9) 0 0; font-size: var(--text-small); }
+  .labels dt { font-family: var(--font-mono); font-weight: var(--weight-semibold); }
+  .labels dd { margin: 0; }
+  /* FAQ */
+  .faq { border-top: 1px solid var(--color-border); max-width: var(--measure-prose); }
+  .faq details { border-bottom: 1px solid var(--color-border); }
+  .faq summary { display: flex; justify-content: space-between; gap: var(--space-7); padding: var(--space-7) 0; font-weight: var(--weight-semibold); cursor: pointer; list-style: none; }
+  .faq summary::after { content: "+"; font-family: var(--font-mono); color: var(--color-text-muted); }
+  .faq details[open] summary::after { content: "−"; }
+  .faq p { margin: 0 0 var(--space-8); }
+  .fineprint { margin-top: var(--space-13); font: var(--text-small) var(--font-mono); color: var(--color-text-muted); }
+</style>
+</head>
+<body data-section="Directory">
+<div class="shell">
+  <aside class="sidebar" data-menu="Filters" aria-label="Filters">
+    <div class="panel">
+      <div class="panel-head">
+        <p class="panel-title">Launch directories</p>
+        <p class="panel-note">155 places · checked monthly</p>
+      </div>
+      <label class="side-search"><span data-icon="search"></span><input id="f-q" type="search" placeholder="Search by name" autocomplete="off"></label>
+      <div>
+        <p class="side-label">Quick picks</p>
+        <ul class="slist">
+          <li data-preset-li="fd"><label><input type="radio" name="preset" data-preset="fd"><span>Free + dofollow</span><span class="ct" id="n-fd">—</span></label></li>
+          <li data-preset-li="nb"><label><input type="radio" name="preset" data-preset="nb"><span>No backlink needed</span><span class="ct" id="n-nb">—</span></label></li>
+          <li data-preset-li="ai"><label><input type="radio" name="preset" data-preset="ai"><span>AI tools</span><span class="ct" id="n-ai">—</span></label></li>
+        </ul>
+      </div>
+      <div>
+        <p class="side-label">Category</p>
+        <ul class="slist" id="f-cat"></ul>
+      </div>
+      <div>
+        <p class="side-label">Cost</p>
+        <ul class="slist" id="f-cost"></ul>
+      </div>
+      <div>
+        <p class="side-label">Link type</p>
+        <ul class="slist" id="f-link"></ul>
+      </div>
+      <div>
+        <p class="side-label">Domain rating</p>
+        <div class="side-range"><input id="f-dr" type="range" min="0" max="90" step="10" value="0"><span id="f-dr-out">Any DR</span></div>
+      </div>
+      <div>
+        <p class="side-label">Submission</p>
+        <ul class="slist">
+          <li><label><input type="checkbox" id="f-sub"><span>Has a working submit page</span><span class="ct" id="n-sub">—</span></label></li>
+        </ul>
+      </div>
+      <button class="side-clear" type="button" id="f-clear">Clear all filters</button>
+    </div>
+  </aside>
+
+  <div class="main"><div class="content">
+    <div class="band canvas">
+      <header class="page-header">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="#">stack127</a></li><li><span aria-current="page">launch directories</span></li></ol></nav>
+        <h1><span class="title-icon"><span data-icon="rocket"></span></span>Product <mark>launch directories</mark></h1>
+        <div class="meta"><span><span data-icon="calendar"></span>Checked monthly · last check Oct 10, 2026</span></div>
+        <p>Every place worth submitting your product to, with what it costs, what link you get, and how long you'll wait. We check each one against its own site.</p>
+        <div class="statline">
+          <div><b>155</b><span>places</span></div>
+          <div><b id="s-free">—</b><span>have a free option</span></div>
+          <div><b id="s-do">—</b><span>give a dofollow link</span></div>
+          <div><b id="s-sub">—</b><span>submit pages work</span></div>
+        </div>
+      </header>
+    </div>
+
+    <div class="canvas">
+      <div class="toolbar">
+        <div class="count" id="count">—</div>
+        <div class="tools-right">
+          <label class="sel"><span class="k">Sort</span><select id="sort">
+            <option value="rec">Recommended</option><option value="dr">Highest DR</option><option value="pop">Most popular</option><option value="cost">Lowest cost</option><option value="checked">Recently checked</option><option value="name">Name A to Z</option>
+          </select></label>
+          <div class="view-toggle" role="group" aria-label="View"><button type="button" id="v-grid" aria-pressed="true"><span data-icon="grid"></span>Cards</button><button type="button" id="v-table" aria-pressed="false"><span data-icon="list"></span>Table</button></div>
+        </div>
+      </div>
+      <div class="chips" id="chips" style="margin:-8px 0 18px"></div>
+      <div id="results"></div>
+      <nav class="pager" aria-label="Pages" id="pager"></nav>
+
+      <section class="block" aria-labelledby="glance">
+        <h2 id="glance">At a glance</h2>
+        <p class="lede">What 155 launch places look like when you line them up.</p>
+        <div class="glance">
+          <div class="chart panel-box"><h3>What it costs</h3><p class="hint">Most places have a free way in.</p><div class="stack" id="c-cost"></div><div class="legend" id="c-cost-l"></div></div>
+          <div class="chart panel-box"><h3>What link you get</h3><p class="hint">From a real listing page on each site.</p><div class="hbars" id="c-link"></div></div>
+          <div class="chart panel-box"><h3>Domain rating spread</h3><p class="hint"><span class="sample">Sample</span> Ahrefs DR, in steps of 10.</p><div class="hist" id="c-dr"></div><div class="hist-x"><span>0</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span><span>70</span><span>80</span><span>90</span></div></div>
+          <div class="chart panel-box"><h3>Cheapest paid option</h3><p class="hint">Each dot is one place's lowest paid price.</p><div class="dots" id="c-price"></div><div class="dots-x"><span>$0</span><span>$50</span><span>$100</span><span>$150</span><span>$200+</span></div></div>
+        </div>
+      </section>
+
+      <section class="block duo" aria-label="Plan and compare">
+        <div class="promo panel-box"><h3><span data-icon="route"></span>Plan your launch</h3><p>Tell us what you're launching and your budget. Get a week-by-week list, the total cost, and a checklist.</p><a class="btn secondary" href="launch-planner.html">Open the launch planner</a></div>
+        <div class="promo panel-box"><h3><span data-icon="columns"></span>Compare side by side</h3><p>Pick up to three places and see cost, link, wait, and reach in one table.</p><a class="btn secondary" href="compare.html">Compare places</a></div>
+      </section>
+
+      <section class="block" aria-labelledby="kit">
+        <h2 id="kit">Your launch kit</h2>
+        <p class="lede">Get these ready once and most submissions take five minutes.</p>
+        <div class="kit">
+          <div><span data-icon="image"></span><b>Square logo</b><span class="sample">240 × 240 PNG</span><em>Asked by most places</em></div>
+          <div><span data-icon="image"></span><b>Screenshots</b><span class="sample">1270 × 760, 3 to 5</span><em>Product Hunt size fits most</em></div>
+          <div><span data-icon="file"></span><b>Tagline</b><span class="sample">Up to 60 characters</span><em>One plain line</em></div>
+          <div><span data-icon="file"></span><b>Short description</b><span class="sample">Up to 260 characters</span><em>What it does, for whom</em></div>
+          <div><span data-icon="link"></span><b>Badge spot</b><span>Footer or about page</span><em>Some free plans need one</em></div>
+          <div><span data-icon="star"></span><b>Maker profile</b><span>Photo, name, X or LinkedIn</span><em>Needed by community boards</em></div>
+        </div>
+      </section>
+
+      <section class="block" aria-labelledby="how">
+        <h2 id="how">How we check</h2>
+        <p class="lede">Every fact comes from the place's own site, with a date.</p>
+        <div class="steps">
+          <div><b>Read their rules</b><p>Pricing, review time, and who can submit, from their own pages.</p></div>
+          <div><b>Open the submit page</b><p>We load it to see that it works. We don't pay or sign up.</p></div>
+          <div><b>Inspect a real listing</b><p>We read the link on a published product page to see its type.</p></div>
+          <div><b>Recheck monthly</b><p>Prices and rules change. Each page shows when we last looked.</p></div>
+        </div>
+        <dl class="labels">
+          <dt>Dofollow</dt><dd>A plain link that passes search value. It doesn't promise rankings.</dd>
+          <dt>Varies</dt><dd>Free and paid listings get different links.</dd>
+          <dt>Not stated</dt><dd>The site doesn't say. We don't guess.</dd>
+          <dt>Couldn't verify</dt><dd>The page blocked us or needs an account.</dd>
+        </dl>
+      </section>
+
+      <section class="block" aria-labelledby="faq">
+        <h2 id="faq">Questions</h2>
+        <div class="faq">
+          <details open><summary>How many places should I submit to?</summary><p>Start with 10 to 15 that fit your product. A few good fits beat 100 random listings.</p></details>
+          <details><summary>Are paid launches worth it?</summary><p>Usually only to skip a long free queue. Check the free wait first, it's on every card.</p></details>
+          <details><summary>Will a dofollow link help my rankings?</summary><p>A little, sometimes. It helps most when the listing page itself gets indexed, which we show on each place's page.</p></details>
+          <details><summary>What's DR?</summary><p>Ahrefs' Domain Rating, a 0 to 100 score of a site's link strength. Treat it as a rough guide, not a promise.</p></details>
+          <details><summary>Do you get paid by these sites?</summary><p>No. Nobody pays to be listed or ranked here. We list our own product's launches openly.</p></details>
+          <details><summary>Something's wrong. How do I fix it?</summary><p>Email us with the page and what changed. We recheck and update, usually within a week.</p></details>
+        </div>
+        <p class="fineprint">Spotted a change? <a href="#">stack127@proton.me</a> · Our own listings are marked on their pages.</p>
+      </section>
+    </div>
+  </div></div>
+</div>
+
+<script>
+const { card, catLabel, catIcon, costShort, linkShort, waitShort, icon, logo } = LDUI;
+const all = LD;
+const COST = [["free", "Free"], ["free_and_paid", "Free + paid"], ["paid", "Paid only"], ["unknown", "Not stated"]];
+const LINKS = [["dofollow", "Dofollow"], ["varies", "Varies by plan"], ["nofollow", "Nofollow"], ["ugc", "UGC"], ["none", "No link"], ["unknown", "Couldn't verify"]];
+const hasFree = (r) => r.cost === "free" || r.cost === "free_and_paid";
+const noBacklink = (r) => hasFree(r) && !/backlink|badge/i.test(r.elig + " " + r.costLabel);
+const state = { preset: "", q: "", cats: new Set(), cost: new Set(), link: new Set(), dr: 0, sub: false, sort: "rec", view: "grid", page: 1 };
+
+// Counts in the sidebar and stats.
+const count = (fn) => all.filter(fn).length;
+document.getElementById("n-fd").textContent = count((r) => hasFree(r) && r.link === "dofollow");
+document.getElementById("n-nb").textContent = count(noBacklink);
+document.getElementById("n-ai").textContent = count((r) => r.cats.includes("ai-tools"));
+document.getElementById("n-sub").textContent = count((r) => r.subStatus === "verified");
+document.getElementById("s-free").textContent = count(hasFree);
+document.getElementById("s-do").textContent = count((r) => r.link === "dofollow");
+document.getElementById("s-sub").textContent = count((r) => r.subStatus === "verified");
+
+const opt = (name, value, label, n, icn) => `<li><label><input type="checkbox" data-f="${name}" value="${value}">${icn ? "" : ""}<span>${label}</span><span class="ct">${n}</span></label></li>`;
+document.getElementById("f-cat").innerHTML = LD_CATS.map(([v, l]) => opt("cats", v, l, count((r) => r.cats.includes(v)))).join("");
+document.getElementById("f-cost").innerHTML = COST.map(([v, l]) => opt("cost", v, l, count((r) => r.cost === v))).join("");
+document.getElementById("f-link").innerHTML = LINKS.map(([v, l]) => opt("link", v, l, count((r) => r.link === v))).filter((h) => !h.includes('<span class="ct">0</')).join("");
+
+// "Recommended": a few well-known boards first, then places with the most checked facts.
+const known = (r) => [costShort(r), linkShort(r), waitShort(r)].filter(Boolean).length + (r.subStatus === "verified" ? 1 : 0);
+const pinned = ["product-hunt", "uneed", "peerlist-launchpad", "devhunt", "fazier", "microlaunch"];
+const sorters = {
+  rec: (a, b) => (pinned.indexOf(b.slug) + 1 ? 100 - pinned.indexOf(b.slug) : 0) - (pinned.indexOf(a.slug) + 1 ? 100 - pinned.indexOf(a.slug) : 0) || known(b) - known(a) || (b.dr || 0) - (a.dr || 0),
+  dr: (a, b) => (b.dr ?? -1) - (a.dr ?? -1),
+  pop: (a, b) => ["Top 1k", "Top 10k", "Top 100k", "Top 1M", "Below 1M"].indexOf(a.pop || "Below 1M") - ["Top 1k", "Top 10k", "Top 100k", "Top 1M", "Below 1M"].indexOf(b.pop || "Below 1M"),
+  cost: (a, b) => (a.cost === "unknown") - (b.cost === "unknown") || (hasFree(b) - hasFree(a)) || (a.price ?? 999) - (b.price ?? 999),
+  checked: (a, b) => (b.checked || "").localeCompare(a.checked || ""),
+  name: (a, b) => a.name.localeCompare(b.name),
+};
+
+const PER = 24;
+function filtered() {
+  const q = state.q.toLowerCase();
+  const P = { fd: (r) => hasFree(r) && r.link === "dofollow", nb: noBacklink, ai: (r) => r.cats.includes("ai-tools") }[state.preset];
+  return all.filter((r) => (!P || P(r)) && (!q || (r.name + " " + r.bestFor).toLowerCase().includes(q))
+    && (!state.cats.size || r.cats.some((c) => state.cats.has(c)))
+    && (!state.cost.size || state.cost.has(r.cost))
+    && (!state.link.size || state.link.has(r.link))
+    && (!state.dr || (r.dr ?? 0) >= state.dr)
+    && (!state.sub || r.subStatus === "verified")).sort(sorters[state.sort]);
+}
+const cell = (v) => (v ? v : '<span class="unk">Not stated</span>');
+function render() {
+  const list = filtered(), pages = Math.max(1, Math.ceil(list.length / PER));
+  state.page = Math.min(state.page, pages);
+  const slice = list.slice((state.page - 1) * PER, state.page * PER);
+  document.getElementById("count").innerHTML = `Showing <b>${slice.length}</b> of <b>${list.length}</b> places`;
+  document.getElementById("results").innerHTML = state.view === "grid"
+    ? `<div class="ld-grid cards-a">${slice.map((r) => card(r)).join("")}</div>`
+    : `<div class="tbl-wrap"><table class="data"><thead><tr><th>Place</th><th>Category</th><th>Cost</th><th>Link</th><th>Review time</th><th>DR</th><th></th></tr></thead><tbody>${slice.map((r) => `<tr>
+        <td class="name"><a href="directory.html?d=${r.slug}">${logo(r)}${r.name}</a></td><td>${catLabel(r.cats[0])}</td>
+        <td class="mono">${cell(costShort(r))}</td><td class="mono">${cell(linkShort(r))}</td><td class="mono">${cell(waitShort(r))}</td>
+        <td class="mono">${r.dr != null ? `<span class="sample">${r.dr}</span>` : "—"}</td>
+        <td class="mono">${r.subStatus === "verified" ? `<a href="${r.submit}">Submit</a>` : ""}</td></tr>`).join("")}</tbody></table></div>`;
+  document.getElementById("pager").innerHTML = pages > 1 ? Array.from({ length: pages }, (_, i) => i + 1).map((p) => p === state.page ? `<span aria-current="page">${p}</span>` : `<a href="#" data-page="${p}">${p}</a>`).join("") : "";
+  const chips = [];
+  if (state.preset) chips.push(["preset", "", { fd: "Free + dofollow", nb: "No backlink needed", ai: "AI tools" }[state.preset]]);
+  if (state.q) chips.push(["q", "", `"${state.q}"`]);
+  state.cats.forEach((v) => chips.push(["cats", v, catLabel(v)]));
+  state.cost.forEach((v) => chips.push(["cost", v, COST.find((c) => c[0] === v)[1]]));
+  state.link.forEach((v) => chips.push(["link", v, LINKS.find((c) => c[0] === v)[1]]));
+  if (state.dr) chips.push(["dr", "", `DR ${state.dr}+`]);
+  if (state.sub) chips.push(["sub", "", "Working submit page"]);
+  document.getElementById("chips").innerHTML = chips.map(([k, v, l]) => `<span class="chip">${l}<button type="button" data-unchip="${k}" data-v="${v}" aria-label="Remove">×</button></span>`).join("");
+}
+
+document.addEventListener("change", (e) => {
+  if (e.target.dataset.preset) { state.preset = e.target.dataset.preset; document.querySelectorAll("[data-preset-li]").forEach((li) => li.classList.toggle("on", li.dataset.presetLi === state.preset)); }
+  const f = e.target.dataset.f;
+  if (f) { e.target.checked ? state[f].add(e.target.value) : state[f].delete(e.target.value); e.target.closest("li").classList.toggle("on", e.target.checked); }
+  if (e.target.id === "f-sub") state.sub = e.target.checked;
+  if (e.target.id === "sort") state.sort = e.target.value;
+  state.page = 1; render();
+});
+document.getElementById("f-q").addEventListener("input", (e) => { state.q = e.target.value.trim(); state.page = 1; render(); });
+document.getElementById("f-dr").addEventListener("input", (e) => { state.dr = +e.target.value; document.getElementById("f-dr-out").textContent = state.dr ? `DR ${state.dr} and up` : "Any DR"; state.page = 1; render(); });
+document.addEventListener("click", (e) => {
+  const p = e.target.closest("[data-page]");
+  if (p) { e.preventDefault(); state.page = +p.dataset.page; render(); document.querySelector(".toolbar").scrollIntoView({ behavior: "smooth" }); }
+  const u = e.target.closest("[data-unchip]");
+  if (u) {
+    const k = u.dataset.unchip;
+    if (k === "preset") { state.preset = ""; document.querySelectorAll("[data-preset]").forEach((i) => { i.checked = false; i.closest("li").classList.remove("on"); }); }
+    else if (k === "q") { state.q = ""; document.getElementById("f-q").value = ""; }
+    else if (k === "dr") { state.dr = 0; document.getElementById("f-dr").value = 0; document.getElementById("f-dr-out").textContent = "Any DR"; }
+    else if (k === "sub") { state.sub = false; document.getElementById("f-sub").checked = false; }
+    else { state[k].delete(u.dataset.v); const box = document.querySelector(`[data-f="${k}"][value="${u.dataset.v}"]`); box.checked = false; box.closest("li").classList.remove("on"); }
+    render();
+  }
+  if (e.target.closest("#f-clear")) {
+    Object.assign(state, { preset: "", q: "", dr: 0, sub: false, page: 1 }); ["cats", "cost", "link"].forEach((k) => state[k].clear());
+    document.querySelectorAll(".sidebar input").forEach((i) => { if (i.type === "checkbox" || i.type === "radio") { i.checked = false; i.closest("li")?.classList.remove("on"); } else if (i.type === "range") i.value = 0; else i.value = ""; });
+    document.getElementById("f-dr-out").textContent = "Any DR"; render();
+  }
+  const v = e.target.closest(".view-toggle button");
+  if (v) { state.view = v.id === "v-table" ? "table" : "grid"; document.querySelectorAll(".view-toggle button").forEach((b) => b.setAttribute("aria-pressed", b === v)); render(); }
+});
+
+// Charts from the real records (DR is sample).
+const COL = { free: "var(--color-data-chartreuse)", free_and_paid: "var(--color-data-cyan)", paid: "var(--color-data-violet)", unknown: "var(--color-surface-2)" };
+document.getElementById("c-cost").innerHTML = COST.map(([v]) => `<i style="flex:${count((r) => r.cost === v)};background:${COL[v]}"></i>`).join("");
+document.getElementById("c-cost-l").innerHTML = COST.map(([v, l]) => `<div><i style="background:${COL[v]}"></i><span>${l}</span><span>${count((r) => r.cost === v)}</span></div>`).join("");
+const maxL = Math.max(...LINKS.map(([v]) => count((r) => r.link === v)));
+document.getElementById("c-link").innerHTML = LINKS.map(([v, l]) => { const n = count((r) => r.link === v); return n ? `<div><span class="lab">${l}</span><span class="bar"><i style="width:${(n / maxL) * 100}%"></i></span><span class="n">${n}</span></div>` : ""; }).join("");
+const buckets = Array(10).fill(0); all.forEach((r) => { if (r.dr != null) buckets[Math.min(9, Math.floor(r.dr / 10))]++; });
+const maxB = Math.max(...buckets);
+document.getElementById("c-dr").innerHTML = buckets.map((n) => `<i style="height:${(n / maxB) * 100}%" title="${n} places"></i>`).join("");
+document.getElementById("c-price").innerHTML = all.filter((r) => r.price && r.cost !== "free").map((r, i) => `<i style="left:${Math.min(100, (r.price / 200) * 100)}%;bottom:${6 + (i % 3) * 12}px" title="${r.name}: $${r.price}"></i>`).join("");
+
+render();
+</script>
+</body>
+</html>
