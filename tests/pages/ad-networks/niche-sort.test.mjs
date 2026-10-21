@@ -9,10 +9,13 @@ import { adNetworkNicheShares, hasAdNetworkNicheCoverage } from '../../../lib/ad
 const input = [{ domain: 'example.com' }, { domain: 'example.org' }];
 const result = (domain, niche = 'food', confidence = 'high') => ({ domain, niche, confidence });
 const lines = rows => rows.map(row => JSON.stringify(row)).join('\n');
-test('model validation requires the exact input set once each, known labels, and confidence', () => {
+test('model validation takes only input domains once each, with known labels and confidence', () => {
   const correct = [result('example.com'), result('example.org', null, 'low')];
   assert.deepEqual(validateNicheBatch(input, lines(correct)), correct);
-  for (const bad of [[correct[0]], [correct[0], correct[0]], [...correct, result('extra.com')],
+  // A dropped site is left for the next run; an empty answer fails.
+  assert.deepEqual(validateNicheBatch(input, lines([correct[0]])), [correct[0]]);
+  assert.throws(() => validateNicheBatch(input, ''), /No niche results/);
+  for (const bad of [[correct[0], correct[0]], [...correct, result('extra.com')],
     [result('example.com', 'invented'), correct[1]], [result('example.com', 'food', 1.5), correct[1]],
     [{ ...correct[0], comment: 'extra' }, correct[1]], [result('https://example.com'), correct[1]]]) {
     assert.throws(() => validateNicheBatch(input, lines(bad)));
