@@ -86,10 +86,11 @@ test("platform fee changes refresh all categories, including when a section move
 
 test("ad network edits refresh their list and details by group and page tags", () => {
   const targets = targetsForEvents([{ entity_type: "ad_networks", slug: "mediavine" }]);
-  for (const path of ["/ad-networks", "/ad-networks/mediavine", "/ad-networks/stats", "/ad-networks/niches", "/ad-networks/niches/food", "/ad-network-checker", "/api/ad-networks/sites", "/api/ad-networks/site"]) assert.ok(targets.paths.includes(path));
+  for (const path of ["/ad-networks", "/ad-networks/mediavine", "/ad-networks/stats", "/ad-networks/niches", "/ad-networks/niches/food", "/ad-network-checker", "/api/ad-networks/sites", "/api/ad-networks/site", "/"]) assert.ok(targets.paths.includes(path));
   assert.ok(targets.nextTags.includes("stack127-ad-networks"));
   assert.ok(targets.edgeTags.includes("ad-networks-catalog"));
   assert.ok(targets.edgeTags.includes("page:ad-networks:mediavine"));
+  assert.ok(targets.edgeTags.includes("page:home"));
   assert.deepEqual(targets.warmPaths, targets.paths.filter(path => !path.startsWith("/api/")));
 });
 

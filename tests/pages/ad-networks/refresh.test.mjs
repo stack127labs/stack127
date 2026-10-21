@@ -62,15 +62,35 @@ test('sync failures release the shared lock', async () => {
 
 test('cache failures leave durable events for the existing worker', async () => {
   let query;
-  const pool = { query: async sql => { query = sql; return { rows: [{ signing_key: 'test-only' }] }; }, end: async () => {} };
+  const calls = [];
+  const client = { query: async sql => { query = sql; calls.push('credential'); return { rows: [{ signing_key: 'test-only' }] }; },
+    release: () => calls.push('released') };
+  const pool = { connect: async () => client, end: async () => calls.push('ended') };
+  const refreshCopyCounts = async (connection, options) => {
+    assert.equal(connection, client); assert.equal(options.apply, true); calls.push('counts');
+  };
   const options = { environment: 'development', apply: true };
-  const result = await revalidateAdNetworks(options, { pool, fetch: async (_url, request) => {
+  const result = await revalidateAdNetworks(options, { pool, refreshCopyCounts, fetch: async (_url, request) => {
+    calls.push('http');
     const body = JSON.parse(request.body); assert.ok(body.tags.includes('stack127-ad-networks'));
     return { ok: true, json: async () => ({ ok: true }) };
   } });
   assert.equal(result.durable_cache_queue, true); assert.match(query, /^select signing_key/);
-  await assert.rejects(revalidateAdNetworks(options, { pool, fetch: async () => ({ ok: false, status: 503 }) }), /503/);
+  assert.deepEqual(calls, ['counts', 'credential', 'http', 'released', 'ended']);
+  await assert.rejects(revalidateAdNetworks(options, { pool, refreshCopyCounts, fetch: async () => ({ ok: false, status: 503 }) }), /503/);
+  assert.deepEqual(calls.slice(-2), ['released', 'ended']);
   await assert.rejects(revalidateAdNetworks({ environment: 'development', site: 'https://stack127.com' }), /Invalid revalidation/);
+});
+
+test('copy refresh failures prevent HTTP revalidation and always release the session', async () => {
+  const calls = [];
+  const client = { release: () => calls.push('released') };
+  const pool = { connect: async () => client, end: async () => calls.push('ended') };
+  await assert.rejects(revalidateAdNetworks({ environment: 'development', apply: true }, {
+    pool, refreshCopyCounts: async () => { throw Error('copy mismatch'); }, fetch: () => assert.fail('HTTP after failure'),
+  }), /copy mismatch/);
+  assert.deepEqual(calls, ['released', 'ended']);
+  await revalidateAdNetworks({ environment: 'development' }, { pool: { connect: () => assert.fail('preview opens database') } });
 });
 
 test('publisher-name refresh checks existing names again', () => {

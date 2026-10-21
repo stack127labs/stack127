@@ -1,6 +1,6 @@
 # Ad-network production runbook
 
-Ad-network collectors, syncs, snapshots, and backups run as cron jobs on OVH. Weekly niche sorting runs on homelab. All ad-network pages stay unpublished and return 404. Resuming automation does not authorize publication.
+Ad-network collectors, syncs, snapshots, and backups run as cron jobs on OVH. Weekly niche sorting runs on homelab. The directory, stats, 21 niche pages, 44 network pages, and checker were published on October 21, 2026. Snigel stays retired and returns 404. Automation updates existing pages; it does not publish new ones.
 
 Cron is running again since October 20, 2026, 15:00 UTC, on self-hosted Postgres 17. It was paused from October 19, 12:15 UTC, until the sync sent only changed rows. History: [OVH cron plan](../../dev-space/ad-networks-ovh-cron-plan.md).
 
@@ -19,6 +19,18 @@ On OVH (`ssh ovh`, user `ubuntu`, UTC):
 The env file also sets `GITHUB_ALERT_TOKEN`, `AD_NETWORK_DB_PATH`, and `AD_NETWORKS_STATE_DIRECTORY`. Never print it. Homelab owns env values; Mac copies must not be edited.
 
 The wrapper is [`run-job.sh`](../../scripts/ad-networks/ovh/run-job.sh). The full schedule is [`crontab.txt`](../../scripts/ad-networks/ovh/crontab.txt). Homelab's `stack127-ad-network-niche.timer` runs Sunday at 06:00 UTC.
+
+## Counts in titles and headings
+
+The approved titles and headings use rounded site counts. The existing revalidation step refreshes only those count tokens from the target database, including decreases. The cache worker repeats this before processing ad-network events, so a stopped sync or direct data import can recover through the durable queue. No separate schedule is needed.
+
+Editorial wording stays in the page tables. The count refresher recognizes only the approved page and phrase combinations. Descriptions use no site-count snapshots. Publir, EthicalAds, Concert, Sovrn, and Media.net keep their approved count-free titles and headings. The 20-niche taxonomy stays fixed. A refresh within the same rounding bucket makes no page-field update.
+
+Before the new copy is published, older wording is skipped. If a page matches only part of the approved count phrases, the refresh fails and rolls back rather than rewriting its words. Counts below ten lose their numeric prefix and can regain it when the count recovers.
+
+Before preparing a publication plan, render its desired count tokens from that target's current data. Keep the publisher's exact conflict checks: if a scheduled refresh changes a frozen row, prepare a new plan. Check the live page after publishing. A static rebuild still takes several minutes, so data and heading changes reach the public site through the normal verified refresh process.
+
+Restoring an older plan also refuses to overwrite newer count changes. To recover old wording after that conflict, prepare a new plan with the previous wording and current counts. Do not force an old numeric snapshot back into the page tables.
 
 ## How a job runs
 
@@ -90,7 +102,7 @@ The coordinator performs these steps after review and release authorization. Kee
    ssh ovh '/srv/stack127/scripts/ad-networks/ovh/run-job.sh backup'
    ```
 
-   Check the job logs and Node cache-worker service. The queue must drain without retries or permission errors. Check `/ad-networks`, `/ad-network-checker`, and an existing network child URL: all must return 404.
+   Check the job logs and Node cache-worker service. The queue must drain without retries or permission errors. Check `/ad-networks`, `/ad-network-checker`, and an existing network child URL: all must return 200. `/ad-networks/snigel` must return 404.
 6. Install the new schedule and re-enable the niche timer:
 
    ```bash
@@ -99,7 +111,7 @@ The coordinator performs these steps after review and release authorization. Kee
    ```
 
    Confirm verification starts at minute 40. Do not install the saved five-minute schedule.
-7. Check connections, table sizes, queue age, logs, and disk space after the first hour and first day. Collectors should hold no production session; each sync uses one. Compare the live revision and unpublished HTTP responses again.
+7. Check connections, table sizes, queue age, logs, and disk space after the first hour and first day. Collectors should hold no production session; each sync uses one. Compare the live revision and publication responses again.
 
 A local synthetic benchmark scanned 107,146 publishers and 114,284 relationships in 12.4 seconds with no changed rows, zero row payloads, and 12 SQL calls. PostgreSQL responses were simulated; this measures the SQLite scan and hash work. Measure actual OVH sync time during step 4. The old no-change sync took about 12 minutes.
 
@@ -125,4 +137,4 @@ ssh homelab 'cd /srv/data/projects/stack127 && node --experimental-strip-types s
 ssh ovh '/srv/stack127/scripts/ad-networks/ovh/run-job.sh rdap-import --source-sqlite /srv/stack127-data/state/rdap.sqlite && rm /srv/stack127-data/state/rdap.sqlite'
 ```
 
-The importer copies only newer RDAP checkpoints and dates, then syncs and refreshes. After its successful backup, disable homelab's old `stack127-ad-network-backup.timer`. This does not affect the niche timer. Pages stay unpublished.
+The importer copies only newer RDAP checkpoints and dates, then syncs and refreshes. After its successful backup, disable homelab's old `stack127-ad-network-backup.timer`. This does not affect the niche timer or change which pages are published.

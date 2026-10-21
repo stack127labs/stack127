@@ -1,0 +1,11 @@
+{
+  "id": "site--spot-ad-networks",
+  "type": "toolSpot",
+  "takeaway": "Website after website carries an ad slot, and an ad network fills each one.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-21",
+  "width": 140,
+  "height": 110,
+  "seed": 127,
+  "data": { "motif": "adSlotSites" }
+}

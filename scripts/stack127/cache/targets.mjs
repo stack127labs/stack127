@@ -116,6 +116,8 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
       // New DB identities also receive their own registry page event from the report trigger.
       for (const network of networkIdentities) addPage(`/ad-networks/${network.slug}`);
       if (slug && slug !== "all") addPage(`/ad-networks/${slug}`);
+      // The homepage card shows network and site counts.
+      addPage("/");
     } else if (event.entity_type === "launch_directories") {
       nextTags.add(LAUNCH_DIRECTORIES_TAG);
       nextTags.add(`${PAGE_REGISTRY_TAG}:launch-directories`);

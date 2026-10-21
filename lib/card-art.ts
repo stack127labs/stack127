@@ -1,3 +1,4 @@
+import { siteSpotAdNetworksArt } from "@/app/(site)/art/site--spot-ad-networks";
 import { siteSpotPlatformFeesArt } from "@/app/(site)/art/site--spot-platform-fees";
 import { siteSpotLaunchDirectoriesArt } from "@/app/(site)/art/site--spot-launch-directories";
 import { siteSpotLicensesArt } from "@/app/(site)/art/site--spot-licenses";
@@ -95,6 +96,7 @@ import { siteSpotStorageToolsArt } from "@/app/(site)/art/site--spot-storage-too
 
 /** Approved generated SVGs keyed by references stored in the content tables. */
 const art: Record<string, string> = {
+  "ad-networks": siteSpotAdNetworksArt,
   "cli-apps": siteSpotCliAppsArt,
   "epp-status-codes": eppStatusArt,
   "keyboard-shortcuts": siteSpotKeyboardShortcutsArt,

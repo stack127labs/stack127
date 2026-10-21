@@ -40,6 +40,7 @@ export async function resolvePagePublicationState<Page extends RegistryPublicati
 /** Curated collection, course, reference, and utility pages shown on the homepage. */
 export const homePageSlugs = [
   "about",
+  "ad-networks",
   "cli-apps",
   "epp-status-codes",
   "keyboard-shortcuts",
