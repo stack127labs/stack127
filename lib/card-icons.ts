@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 
 const icons: Record<string, LucideIcon> = {
+  "ad-networks": Network,
   "cli-apps": SquareTerminal,
   "epp-status-codes": ListChecks,
   "keyboard-shortcuts": Keyboard,

@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createHmac } from "node:crypto";
-import { edgeFunctionRetired, revalidationToken, runCacheWorker, workerSettings } from "../../scripts/stack127/cache/worker.mjs";
+import { edgeFunctionRetired, isAdNetworkCopyEvent, revalidationToken, runCacheWorker, workerSettings } from "../../scripts/stack127/cache/worker.mjs";
 
 const key = "a".repeat(64);
 const token = createHmac("sha256", key).update("stack127-cache-revalidation-v1").digest("hex");
@@ -13,7 +13,7 @@ const legacyEnv = { CLOUDFLARE_API_TOKEN: "cf-token", CLOUDFLARE_ZONE_ID: "zone1
 
 // Routes the worker's SQL by its distinctive text, like the content-queue tests.
 function fakeClient({ events = [], wiring = {}, cronJobs = 0, leaseTaken = false, queue = { pending: 0, minutes: null },
-  alertIssue = null, lastReconcileAt = new Date().toISOString(), recovered = 0, history = true, deleted } = {}) {
+  alertIssue = null, lastReconcileAt = new Date().toISOString(), recovered = 0, history = true, deleted, copyEvents } = {}) {
   const calls = [];
   const rows = list => ({ rows: list, rowCount: list.length });
   const client = { calls, async query(text, values = []) {
@@ -26,6 +26,7 @@ function fakeClient({ events = [], wiring = {}, cronJobs = 0, leaseTaken = false
     if (sql.includes("select last_reconcile_at")) return rows([{ last_reconcile_at: lastReconcileAt }]);
     if (sql.includes("with sources as materialized")) return rows(Array.from({ length: recovered }, () => ({})));
     if (sql.includes("from public.stack127_cache_processed limit 1")) return rows(history ? [{ 1: 1 }] : []);
+    if (sql.includes("and (entity_type = 'ad_networks'")) return rows(copyEvents ?? events.filter(isAdNetworkCopyEvent));
     if (sql.includes("entity_type <> 'self_host_app'")) return rows(events.filter(event => event.entity_type !== "self_host_app"));
     if (sql.includes("entity_type = 'self_host_app' and")) return rows(events.filter(event => event.entity_type === "self_host_app"));
     if (sql.includes("where page.page_family = 'catalog'")) return rows([]);
@@ -377,4 +378,97 @@ test("verified deletion responses are warmed as 404s and acknowledged as deleted
   assert.equal(result.processed, 1);
   const recorded = client.calls.find(call => call.text.startsWith("insert into public.stack127_cache_processed"));
   assert.deepEqual(recorded.values[2], ["deleted"]);
+});
+
+test("only ad-network source and registry/directory events trigger copy refresh", () => {
+  for (const event of [
+    { entity_type: "ad_networks", slug: "all" },
+    { entity_type: "page", slug: "ad-networks" },
+    { entity_type: "page", slug: "ad-networks/niches/food" },
+    { entity_type: "directory", slug: "ad-networks/mediavine" },
+  ]) assert.equal(isAdNetworkCopyEvent(event), true);
+  for (const event of [pageEvent, { entity_type: "page", slug: "ad-networks-other" },
+    { entity_type: "self_host_app", slug: "ad-networks" }]) assert.equal(isAdNetworkCopyEvent(event), false);
+});
+
+for (const hosting of ["legacy", "cloudflare"]) {
+  const env = hosting === "legacy" ? legacyEnv : { STACK127_FRONTEND_HOSTING: "cloudflare", GITHUB_FRONTEND_TOKEN: "token" };
+  test(`${hosting} refreshes counts before any ad-network HTTP processing or dispatch`, async () => {
+    for (const event of [{ ...pageEvent, entity_type: "ad_networks", slug: "all" },
+      { ...pageEvent, slug: "ad-networks/niches/food" }]) {
+      const client = fakeClient({ events: [event] });
+      let refreshed = 0;
+      const fetch = fakeFetch({ github: (_url, init) => init.method === "POST"
+        ? new Response(null, { status: 204 }) : json({ total_count: 0, workflow_runs: [] }) });
+      const result = await runCacheWorker(client, {
+        env, log: quiet,
+        refreshCounts: async (connection, options) => {
+          assert.equal(connection, client); assert.deepEqual(options, { apply: true });
+          assert.equal(fetch.calls.length, 0); refreshed++;
+          assert.ok(!statements(client).some(sql => sql.includes("stack127_cache_source_revisions($1")));
+          return { changes: [] }; // a no-op adds no follow-up work
+        },
+        fetchImplementation: (url, init) => {
+          assert.equal(refreshed, 1); return fetch.fetchImplementation(url, init);
+        },
+      });
+      assert.equal(refreshed, 1);
+      assert.equal(result.error, null);
+      assert.equal(result.processed, hosting === "legacy" ? 1 : 0);
+    }
+  });
+
+  test(`${hosting} copy refresh failure retains events, retries, and releases the lease`, async () => {
+    const event = { ...pageEvent, entity_type: "ad_networks", slug: "all" };
+    const client = fakeClient({ events: [event] });
+    const fetch = fakeFetch();
+    const result = await runCacheWorker(client, { env, log: quiet, fetchImplementation: fetch.fetchImplementation,
+      refreshCounts: async () => { throw Error("count phrase missing"); },
+    });
+    assert.match(result.error, /count phrase missing/);
+    assert.equal(result.processed, 0);
+    assert.ok(!statements(client).some(sql => sql.startsWith("delete from")));
+    assert.ok(statements(client).some(sql => sql.includes("attempts = event.attempts + 1")));
+    assert.equal(fetch.calls.length, 0);
+    assert.equal(client.calls.at(-1).values[1], false);
+  });
+}
+
+test("copy refresh queue mutations preserve newer event versions for the next run", async () => {
+  const event = { ...pageEvent, slug: "ad-networks" };
+  const client = fakeClient({ events: [event], deleted: [] });
+  const result = await runCacheWorker(client, { env: legacyEnv, log: quiet,
+    fetchImplementation: fakeFetch().fetchImplementation, refreshCounts: async () => ({ changes: [{ slug: event.slug }] }),
+  });
+  assert.equal(result.error, null);
+  assert.equal(result.processed, 0);
+  assert.ok(!statements(client).some(sql => sql.startsWith("insert into public.stack127_cache_processed")));
+});
+
+test("unrelated and dry-run events never invoke the copy refresher", async () => {
+  for (const [events, env] of [[[pageEvent], legacyEnv],
+    [[{ ...pageEvent, slug: "ad-networks" }], { ...legacyEnv, CACHE_WORKER_DRY_RUN: "1" }]]) {
+    await runCacheWorker(fakeClient({ events }), { env, log: quiet,
+      fetchImplementation: fakeFetch().fetchImplementation, refreshCounts: () => assert.fail("unexpected copy refresh"),
+    });
+  }
+});
+
+test("frontend exports refresh due ad-network events beyond the sampled batch and retry their exact versions", async () => {
+  const hidden = { ...pageEvent, id: "9007199254740994", slug: "ad-networks/niches" };
+  const client = fakeClient({ events: [pageEvent], copyEvents: [hidden] });
+  const fetch = fakeFetch();
+  let refreshed = 0;
+  const result = await runCacheWorker(client, {
+    env: { STACK127_FRONTEND_HOSTING: "cloudflare", GITHUB_FRONTEND_TOKEN: "token" }, log: quiet,
+    fetchImplementation: fetch.fetchImplementation,
+    refreshCounts: async () => { refreshed++; throw Error("hidden copy mismatch"); },
+  });
+  assert.equal(refreshed, 1);
+  assert.match(result.error, /hidden copy mismatch/);
+  assert.equal(fetch.calls.length, 0);
+  const retry = client.calls.find(call => call.text.includes("attempts = event.attempts + 1"));
+  assert.deepEqual(retry.values[0], [pageEvent.id, hidden.id]);
+  assert.deepEqual(retry.values[1], [pageEvent.created_at, hidden.created_at]);
+  assert.ok(!statements(client).some(sql => sql.startsWith("delete from")));
 });

@@ -20,6 +20,7 @@ import { targetsForEvents } from "./targets.mjs";
 import { refreshTargets, cacheBodyDigest, selectRevalidationBatch } from "./refresh.mjs";
 import { launchDirectoryRevisionMatches } from "../../../lib/launch-directories-data.ts";
 import { dispatchFrontendRefresh, frontendLatencyMinutes } from "../frontend/content-queue.mjs";
+import { refreshCopyCounts } from "../../ad-networks/refresh-copy-counts.mjs";
 
 export const runBudgetMs = 90_000;
 export const leaseSeconds = 150;
@@ -75,9 +76,13 @@ const processedRows = `(select id, created_at::timestamptz as created_at
   from unnest($1::bigint[], $2::text[]) as input(id, created_at)) done`;
 const eventColumns = events => [events.map(event => event.id), events.map(event => event.created_at)];
 
+export const isAdNetworkCopyEvent = event => event.entity_type === "ad_networks"
+  || (["page", "directory"].includes(event.entity_type) && /^ad-networks(?:\/|$)/.test(event.slug));
+
 export async function runCacheWorker(client, {
   env = process.env, fetchImplementation = fetch, now = Date.now, log = console,
   sleep = ms => new Promise(resolve => setTimeout(resolve, ms)),
+  refreshCounts = refreshCopyCounts,
 } = {}) {
   const settings = workerSettings(env);
   const { dryRun, siteUrl, cloudflareFrontend } = settings;
@@ -195,10 +200,12 @@ export async function runCacheWorker(client, {
   }
 
   async function processBatch(events, key) {
-    const targets = await targetsFor(events);
-    const versions = await fingerprints(events);
-    const token = revalidationToken(key);
+    let versions;
     try {
+      if (events.some(isAdNetworkCopyEvent)) await refreshCounts(client, { apply: true });
+      const targets = await targetsFor(events);
+      versions = await fingerprints(events);
+      const token = revalidationToken(key);
       await refreshTargets(targets, {
         invalidate: () => invalidateNext(targets, token),
         rebuild: async paths => {
@@ -368,14 +375,24 @@ export async function runCacheWorker(client, {
     if (cloudflareFrontend) {
       const events = await readyEvents();
       if (events.length) {
+        let dispatchEvents = events;
         try {
+          // The full export captures all due edits, beyond readyEvents' sampled
+          // batch (and even edits still settling). Include their copy dependency.
+          const { rows: copyEvents } = await client.query(`select id::text, entity_type, slug, created_at::text as created_at
+            from public.stack127_revalidation_events where next_attempt_at <= now()
+              and (entity_type = 'ad_networks' or (entity_type in ('page', 'directory')
+                and (slug = 'ad-networks' or slug like 'ad-networks/%')))
+            order by first_queued_at, id`);
+          dispatchEvents = [...new Map([...events, ...copyEvents].map(event => [event.id, event])).values()];
+          if (dispatchEvents.some(isAdNetworkCopyEvent)) await refreshCounts(client, { apply: true });
           const result = await dispatchFrontendRefresh({ repo: settings.frontendRepo, token: settings.frontendToken, fetchImplementation: budgetFetch });
           keepDispatchLease = result.dispatched || result.active === true;
           log.log(JSON.stringify({ hosting: "cloudflare", ...result, acknowledged: 0 }));
         } catch (error) {
           // A failed dispatch never removes work or penalizes a newer edit.
           lastError = String(error).slice(0, 500);
-          await scheduleRetry(events, error);
+          await scheduleRetry(dispatchEvents, error);
           await checkQueueAge(lastError);
           throw error;
         }
