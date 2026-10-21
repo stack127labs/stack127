@@ -4,8 +4,10 @@
 .muted { color: var(--color-text-muted); }
 
 /* ---------- Hero ---------- */
-.header h1 { display: flex; align-items: center; gap: var(--space-6); }
-.header h1 > span:first-child { flex: none; }
+/* The logo sits beside the h1, not inside it, so the heading text is only the title. */
+.title { display: flex; align-items: center; gap: var(--space-6); max-width: 820px; min-width: 0; }
+.title > span:first-child { flex: none; }
+.title h1 { min-width: 0; }
 
 .meta {
   display: flex;
