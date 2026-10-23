@@ -230,7 +230,7 @@ export function AdRevenueCalculator({ initialInput }: { initialInput?: AdRevenue
               <UiTextField
                 dataFocusKey="cpm"
                 error={errors.cpm}
-                hint="What advertisers pay for every 1,000 ad impressions."
+                hint="What you earn for every 1,000 ad impressions, after your network's cut."
                 inputMode="decimal"
                 label="CPM"
                 onChange={(value) => setField("cpm", value)}

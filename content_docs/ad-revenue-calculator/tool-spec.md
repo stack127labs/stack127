@@ -16,7 +16,7 @@ One unit choice, Pageviews or Sessions, drives the whole tool. In CPM to RPM it 
 | --- | --- | --- | --- | --- |
 | All | Monthly traffic: number + `Pageviews` / `Sessions` select | Revenue, Find RPM: yes. CPM to RPM: optional | One month, from your analytics or ad dashboard. | Revenue, and every `Page` / `Session` label |
 | Revenue | Page RPM (Session RPM), `$` | yes | What you earn per 1,000 pageviews (sessions). | Revenue |
-| CPM to RPM | CPM, `$` | yes | What advertisers pay per 1,000 ad impressions. | RPM |
+| CPM to RPM | CPM, `$` | yes | What you earn for every 1,000 ad impressions, after your network's cut. | RPM |
 | CPM to RPM | Ad impressions: number + `per pageview` / `per session` select | yes | Ads that load on an average page (in an average visit). | RPM, and the shared unit |
 | Find RPM | Monthly ad revenue, `$` | yes | Ad earnings for the same month as the traffic. | RPM |
 
@@ -42,7 +42,7 @@ Example (opens filled, result marked `Example`): 50,000 pageviews a month.
 ## How it works
 
 - Revenue = traffic × RPM ÷ 1,000. Yearly = monthly × 12.
-- RPM = CPM × ad impressions per pageview (or session). Impressions = traffic × impressions per unit.
+- RPM = CPM × ad impressions per pageview (or session). CPM is the publisher's CPM after the network's cut, so every result is what the publisher is paid. Impressions = traffic × impressions per unit.
 - RPM = revenue ÷ traffic × 1,000.
 - Sources: [AdSense RPM](https://support.google.com/adsense/answer/190515), [MonetizeMore session RPM](https://www.monetizemore.com/blog/what-is-rpm-session-page-ad/).
 - Money in cents with exact integer math, shown to 2 decimals, rounded half up. RPM shown to 2 decimals; under $0.01 shows `Under $0.01`.
