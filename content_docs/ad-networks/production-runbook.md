@@ -1,6 +1,6 @@
 # Ad-network production runbook
 
-Ad-network collectors, syncs, snapshots, and backups run as cron jobs on OVH. Weekly niche sorting runs on homelab. The directory, stats, 21 niche pages, 44 network pages, and checker were published on October 21, 2026. Snigel stays retired and returns 404. Automation updates existing pages; it does not publish new ones.
+Ad-network collectors, syncs, snapshots, and backups run as cron jobs on OVH. Daily niche sorting runs on homelab. The directory, stats, 21 niche pages, 44 network pages, and checker were published on October 21, 2026. Snigel stays retired and returns 404. Automation updates existing pages; it does not publish new ones.
 
 Cron is running again since October 20, 2026, 15:00 UTC, on self-hosted Postgres 17. It was paused from October 19, 12:15 UTC, until the sync sent only changed rows. History: [OVH cron plan](../../dev-space/ad-networks-ovh-cron-plan.md).
 
@@ -18,7 +18,7 @@ On OVH (`ssh ovh`, user `ubuntu`, UTC):
 
 The env file also sets `GITHUB_ALERT_TOKEN`, `AD_NETWORK_DB_PATH`, and `AD_NETWORKS_STATE_DIRECTORY`. Never print it. Homelab owns env values; Mac copies must not be edited.
 
-The wrapper is [`run-job.sh`](../../scripts/ad-networks/ovh/run-job.sh). The full schedule is [`crontab.txt`](../../scripts/ad-networks/ovh/crontab.txt). Homelab's `stack127-ad-network-niche.timer` runs Sunday at 06:00 UTC.
+The wrapper is [`run-job.sh`](../../scripts/ad-networks/ovh/run-job.sh). The full schedule is [`crontab.txt`](../../scripts/ad-networks/ovh/crontab.txt). Homelab's `stack127-ad-network-niche.timer` runs daily at 06:00 UTC (11:30 IST), with up to 3,000 sites per run.
 
 ## Counts in titles and headings
 
@@ -41,7 +41,9 @@ Sync captures daily counts and arrival observations, then closes its connection.
 - Exit 75 means the sync lock is held. Scheduled jobs retry every minute for up to six hours, skipping the collector on retries.
 - Verification yields while a scheduled job waits. Its local checkpoints will be picked up by the next sync.
 - Exit 76 means the same job is already running under `flock`.
-- Niche imports use the reviewed-sync lock and preserve existing labels during collector syncs.
+- Niche imports use the reviewed-sync lock and preserve existing labels during collector syncs. Model calls retry once, then split failed batches from 100 to 50 to 25 sites. Valid partial answers are saved before retrying the missing sites.
+- Niche sorting stops on operator signals, database failures, login failures, or Claude usage limits. Wait for a subscription limit to reset; do not enable paid extra usage. Keep the existing checkpoint files when resuming.
+- Niche status reports `candidates`, `classified`, `imported`, `withheld`, and `unresolved`. A run with unresolved sites reports `partial` and keeps its failure alert open; those sites remain eligible for the next run. CLI diagnostics are bounded and sanitized.
 - Failures open one GitHub issue per job. The next successful run closes it.
 
 Verification runs at minute 40 each hour, with four workers, a 1,000-site limit, and a ten-minute budget. Daily jobs start at 00:10, 01:00, 02:00, 03:00, and 05:00 UTC. Weekly discovery and publisher-name jobs, and monthly traffic, start at 04:00 UTC.
