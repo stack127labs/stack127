@@ -7,7 +7,7 @@ Development checked 2026-10-16: 45 networks; 35,816 unique listed sites; 35,719 
 Shared rules:
 
 - `listed` includes confirmed and stale links; confirmed site totals count a site once if any link is confirmed. Network totals count that network's links. Percentages are 0 to 100.
-- Niche comparisons need at least **100 classified sites and 80% classification coverage**, in the comparison's scope. A niche page returns null before the whole-directory gate passes. The separate publication rule remains 500 sites for indexing.
+- Niche comparisons need at least **100 classified sites**. Sites still waiting for the weekly niche sort don't hide published niche pages (the 80% coverage rule was removed on Oct 23, 2026). A niche page returns null before the whole-directory gate passes. The separate publication rule remains 500 sites for indexing.
 - Other enrichment columns/series appear when at least one value exists in their scope. Missing cells can say “Not listed”. No missing datum becomes zero. All-unknown manager groups hide.
 - Trends contain exact month-end observations only and require two points. No interpolation. `change_year` requires a snapshot on the exact year-ago date (February 28 for a leap-day anniversary). Keep the “sites in a year” label only with that field. `change_90_days` requires a 90-day-old snapshot. Market `net_change` then counts observed joins minus departures, excluding imports.
 - Movement/newest/weekly arrival counts exclude `baseline`. Switches require one unambiguous manager departure/arrival within seven days. Current overlapping networks never imply a switch.

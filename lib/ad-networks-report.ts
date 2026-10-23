@@ -6,12 +6,11 @@ import { adNetworkNiches } from "./ad-network-niches.ts";
 
 export const AD_NETWORK_SITES_PAGE_SIZE = 10;
 export const AD_NETWORK_NICHE_MIN_SITES = 100;
-export const AD_NETWORK_NICHE_MIN_SHARE = 0.8;
 
-/** A broad niche comparison needs both a useful sample and broad coverage. */
+/** A niche comparison needs a useful sample. Sites still waiting for the weekly sort don't hide published niche pages. */
 export function hasAdNetworkNicheCoverage(listed: number, classified: number) {
-  // data-gate: the niche classification run fills at least 100 sites and 80% of the scope.
-  return listed > 0 && classified >= AD_NETWORK_NICHE_MIN_SITES && classified / listed >= AD_NETWORK_NICHE_MIN_SHARE;
+  // data-gate: the niche classification run has sorted at least 100 sites.
+  return listed > 0 && classified >= AD_NETWORK_NICHE_MIN_SITES;
 }
 
 /** A network's own breakdown describes only its sorted sites, even a sample of one. */
@@ -31,7 +30,7 @@ export function adNetworkSiteAvailability(coverage: AdNetworkSiteCoverage): AdNe
   const availableSorts: AdNetworkSitesAvailability["availableSorts"] = ["domain"];
   const availableFilters: AdNetworkSitesAvailability["availableFilters"] = [];
   // The table shows niches as soon as any site in scope has one; unsorted rows read "Not listed".
-  // Niche charts and pages keep the stricter hasAdNetworkNicheCoverage gate.
+  // Niche charts and pages need hasAdNetworkNicheCoverage's 100-site sample.
   const nicheReady = coverage.classified > 0;
   // data-gate: niche run; traffic run; RDAP run; platform run; publisher-name run; verifier.
   if (nicheReady) { availableColumns.push("niche"); availableFilters.push("niche"); }
