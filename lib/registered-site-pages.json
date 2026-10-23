@@ -9,6 +9,7 @@
   "/ad-networks/niches",
   "/ad-networks/niches/[niche]",
   "/ad-networks/stats",
+  "/ad-revenue-calculator",
   "/annual-plan-discount-calculator",
   "/arpu-arpa-calculator",
   "/arr-calculator",

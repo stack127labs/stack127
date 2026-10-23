@@ -104,3 +104,56 @@ export function UiTabs({ headingLevel = 3, label, tabs }: { headingLevel?: Headi
     </div>
   );
 }
+
+export type UiTabRowItem = { id: string; title: string };
+
+/**
+ * A tab row over one panel the caller renders, such as a tool with several ways to calculate.
+ * The caller owns the active tab, so a shared link can open any of them, and spreads
+ * `uiTabPanelProps(panelId, value)` on the panel. Same look and keys as `UiTabs`.
+ */
+export function UiTabRow({ label, onChange, panelId, tabs, value }: {
+  label: string;
+  onChange: (id: string) => void;
+  panelId: string;
+  tabs: readonly UiTabRowItem[];
+  value: string;
+}) {
+  const buttons = useRef<(HTMLButtonElement | null)[]>([]);
+  const active = Math.max(0, tabs.findIndex((tab) => tab.id === value));
+
+  const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    const count = tabs.length;
+    const next = { ArrowRight: (active + 1) % count, ArrowLeft: (active - 1 + count) % count, Home: 0, End: count - 1 }[event.key];
+    if (next === undefined) return;
+    event.preventDefault();
+    onChange(tabs[next].id);
+    buttons.current[next]?.focus();
+  };
+
+  return (
+    <div aria-label={label} className={styles.list} onKeyDown={onKeyDown} role="tablist">
+      {tabs.map((tab, index) => (
+        <button
+          aria-controls={panelId}
+          aria-selected={index === active}
+          className={styles.tab}
+          id={`${panelId}-tab-${tab.id}`}
+          key={tab.id}
+          onClick={() => onChange(tab.id)}
+          ref={(element) => { buttons.current[index] = element; }}
+          role="tab"
+          tabIndex={index === active ? 0 : -1}
+          type="button"
+        >
+          {tab.title}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/** Props for the panel under a `UiTabRow`. */
+export function uiTabPanelProps(panelId: string, value: string) {
+  return { "aria-labelledby": `${panelId}-tab-${value}`, id: panelId, role: "tabpanel" } as const;
+}

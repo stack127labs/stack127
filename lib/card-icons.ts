@@ -1,6 +1,6 @@
 import {
   Activity, ArrowLeftRight, BadgeCheck, Barcode, BookOpen, Building2, CalendarClock, Calculator,
-  CalendarX, ChevronsRight, ClipboardList, Columns3, Database, FileClock,
+  CalendarX, ChevronsRight, ClipboardList, Coins, Columns3, Database, FileClock,
   FileKey, FileSearch, GitBranch, Globe, HardDrive, HouseWifi, Image, Keyboard,
   FlaskConical, ListChecks, Receipt, Rocket, Scale, Languages, Layers3, LayoutGrid, Network, RefreshCw, Route, Search,
   Server, ServerCog, ShieldCheck, SquareTerminal, TrendingDown, TrendingUp, UserSearch,
@@ -31,6 +31,7 @@ const icons: Record<string, LucideIcon> = {
   calculator: Calculator,
   "chevrons-right": ChevronsRight,
   "clipboard-list": ClipboardList,
+  coins: Coins,
   columns3: Columns3,
   database: Database,
   "file-clock": FileClock,

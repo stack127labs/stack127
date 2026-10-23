@@ -1,0 +1,46 @@
+.form {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+/* Two fields per row on wide screens, so a field left alone on its row keeps the same width. */
+.pairRow {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.head {
+  display: flex;
+}
+
+.lead {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+/* Monthly and yearly side by side, on the same columns as the fields above. */
+.pair {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.working {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  margin: 0;
+}
+
+.share {
+  display: flex;
+}
+
+@media (max-width: 640px) {
+  .pairRow,
+  .pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1067,6 +1067,28 @@ function toolSpot(spec, A) {
     A.line(111, 29, 129, 29, { stroke: "@ink", strokeWidth: 1.6 });
     drawIcon(A, "tag", 120, 52, 20, "@primary");
     return;
+  } else if (d.motif === "adRevenue") {
+    // A stack of site pages turns into a stack of coins: traffic becomes ad revenue.
+    A.line(21, 23, 76, 23, { stroke: "@sub" });
+    A.line(76, 23, 76, 72, { stroke: "@sub" });
+    drawIcon(A, "browserPage", 40, 57, 44, "@ink");
+    A.arrow(81, 58, 96, 58, { tone: "@sub", sw: 2.0 });
+    const coinX = 117;
+    const rx = 16;
+    const ry = 5.5;
+    const rim = (y) => {
+      const points = [];
+      for (let step = 0; step <= 12; step += 1) {
+        const angle = (step * Math.PI) / 12;
+        points.push([coinX + Math.cos(angle) * rx, y + Math.sin(angle) * ry]);
+      }
+      return points;
+    };
+    A.ellipse(coinX, 36, rx * 2, ry * 2, { stroke: "@primary" });
+    A.line(coinX - rx, 36, coinX - rx, 84, { stroke: "@primary" });
+    A.line(coinX + rx, 36, coinX + rx, 84, { stroke: "@primary" });
+    for (const y of [52, 68, 84]) A.linearPath(rim(y), { stroke: "@primary" });
+    return;
   } else if (d.motif === "customerEconomics") {
     drawIcon(A, "user", 28, cy, 23, "@ink");
     A.line(49, cy, 58, cy, { stroke: "@sub" });

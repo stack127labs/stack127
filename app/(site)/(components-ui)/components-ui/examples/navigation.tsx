@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/app/ui/site/breadcrumbs";
 import { SidebarList } from "@/app/ui/site/sidebar-list";
 import { UiTabs } from "@/app/ui/tabs";
 import { Example } from "../gallery";
+import { TabRowDemo } from "./tab-row-demo";
 import styles from "../components-ui.module.css";
 
 const here = "/components-ui/navigation";
@@ -72,6 +73,16 @@ export function NavigationExamples() {
           { id: "pay", title: "Pay", content: <p>Your share, when you get paid, and the payment minimum.</p> },
           { id: "rules", title: "Rules", content: <p>Ad placement, other ad partners, and the contract.</p> },
         ]} />
+      </Example>
+      <Example
+        components={["UiTabRow", "uiTabPanelProps"]}
+        note="A tab row over one panel you render, for a tool with a few ways to calculate. You hold the active tab, so a shared link can open any of them. Same look and keys as Tabs."
+        source="app/ui/tabs.tsx"
+        title="Tab row"
+        usage={{ label: "TSX", code: `<UiTabRow label="What to calculate" onChange={setTab} panelId={panelId} tabs={tabs} value={tab} />
+<form {...uiTabPanelProps(panelId, tab)}>…</form>` }}
+      >
+        <TabRowDemo />
       </Example>
     </>
   );

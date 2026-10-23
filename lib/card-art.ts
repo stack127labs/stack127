@@ -6,6 +6,7 @@ import { siteSpotCourseArt } from "@/app/(site)/art/site--spot-course";
 import { siteSpotCliAppsArt } from "@/app/(site)/art/site--spot-cli-apps";
 import { adNetworkCheckerArt } from "@/app/ui/art/ad-network-checker";
 import { adNetworkRequirementsCheckerArt } from "@/app/ui/art/ad-network-requirements-checker";
+import { adRevenueCalculatorArt } from "@/app/ui/art/ad-revenue-calculator";
 import { arpuArpaCalculatorArt } from "@/app/ui/art/arpu-arpa-calculator";
 import { arrCalculatorArt } from "@/app/ui/art/arr-calculator";
 import { backup321Art } from "@/app/ui/art/backup-321";
@@ -111,6 +112,7 @@ const art: Record<string, string> = {
 
   "ad-network-checker": adNetworkCheckerArt,
   "ad-network-requirements-checker": adNetworkRequirementsCheckerArt,
+  "ad-revenue-calculator": adRevenueCalculatorArt,
   "annual-plan-discount-calculator": annualPlanDiscountCalculatorArt,
   "arpu-arpa-calculator": arpuArpaCalculatorArt,
   "arr-calculator": arrCalculatorArt,
