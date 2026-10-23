@@ -1,4 +1,0 @@
-interface:
-  display_name: "stack127 Tool Backend"
-  short_description: "Build one stack127 tool's backend from its contract"
-  default_prompt: "Use $stack127-tool-backend to build this tool's backend from the contract in tool-spec.md, add focused correctness tests, and stop before any UI work."

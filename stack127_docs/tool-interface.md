@@ -131,7 +131,7 @@ Use the shared components in `app/ui/` and the `/components-ui` gallery. When no
 
 ## Plan before you build
 
-New tools and major redesigns need the Interface section of `content_docs/<slug>/tool-spec.md` first, from `skills/stack127/tools/stack127-tool-interface-plan/SKILL.md`. Small fixes that don't change inputs, results, or layout can skip it.
+New tools and major redesigns need an agreed plan in `content_docs/<slug>/tool-spec.md` first, from `skills/stack127/stack127-tool-page/SKILL.md`. Small fixes that don't change inputs, results, or layout can skip it.
 
 ## Review
 

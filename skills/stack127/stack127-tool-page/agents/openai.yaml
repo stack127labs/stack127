@@ -1,0 +1,4 @@
+interface:
+  display_name: "stack127 tool page"
+  short_description: "Plan, build, write, and publish one tool page with the owner"
+  default_prompt: "Use $stack127-tool-page to take this tool from the owner's idea to a published page, stopping for the owner's yes on the plan and the copy."

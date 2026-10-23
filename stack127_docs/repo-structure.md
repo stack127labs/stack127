@@ -86,14 +86,14 @@ Repo-owned Codex skills live in `skills/`:
 
 ```text
 skills/self-host-apps/<skill-name>/
-skills/stack127/tools/<skill-name>/
+skills/stack127/<skill-name>/
 ```
 
 For example:
 
 ```text
 skills/self-host-apps/enrichment/
-skills/stack127/tools/stack127-tool-backend/
+skills/stack127/stack127-tool-page/
 ```
 
 Sitewide skills live in `skills/stack127/<skill-name>/`.

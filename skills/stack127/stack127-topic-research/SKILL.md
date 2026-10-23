@@ -7,7 +7,7 @@ description: Find evidence-backed resource and product ideas for stack127's indi
 
 ## Pipeline role and model routing
 
-When topic research feeds the full tool pipeline, the main orchestrator starts it with the newest Luna model at `max` reasoning. This worker never starts another pipeline worker or silently turns a topic idea into implementation. Read `stack127_docs/tool-pipeline.md` when proposing a tool so its feasibility verdict and promise boundary are explicit.
+Topic research proposes ideas. It never turns one into a tool on its own: the owner picks each tool and builds it with `skills/stack127/stack127-tool-page/SKILL.md`. When you propose a tool, say plainly whether it can be built and what it would promise.
 
 Use this skill from the stack127 repository root when researching resources or products. Find concrete tasks where existing resources are fragmented, weak, too vendor-specific, or missing a useful tool.
 
@@ -37,7 +37,7 @@ Read `stack127_docs/product-direction.md` before choosing subjects or scoring au
 
 2. Build a demand signal for each candidate:
    - Search web results for the exact problem phrasing.
-   - When available, run `node skills/stack127/tools/stack127-tool-research/scripts/searxng-search.mjs --engines bing,duckduckgo "<query>"` and preserve the query, engines, date, and result URLs in the research notes.
+   - When available, run `node scripts/stack127/search-services/searxng-search.mjs --engines bing,duckduckgo "<query>"` and preserve the query, engines, date, and result URLs in the research notes.
    - Check Reddit, forums, GitHub issues/discussions, vendor docs, and community docs when accessible.
    - Prefer repeated pain patterns over one-off curiosity.
    - If Reddit is blocked, say so and use public search snippets, forum pages, official docs, and issue trackers instead.

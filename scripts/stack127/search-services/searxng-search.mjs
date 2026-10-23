@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const HELP = `Usage:
-  node skills/stack127/tools/stack127-tool-research/scripts/searxng-search.mjs [options] <query>
+  node scripts/stack127/search-services/searxng-search.mjs [options] <query>
 
 Options:
   --url <url>             SearXNG base URL or /search URL
