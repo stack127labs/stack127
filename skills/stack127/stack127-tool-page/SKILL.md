@@ -21,6 +21,8 @@ You run this yourself. Use helpers where they do a part better, as "Agent roles"
 6. **Finish.** When the owner approves the copy, add it to the route's `content/*.mdx`. Make the card art with `$marker-art-draw`. Publish to development with the tools publisher, as `stack127_docs/page-publishing.md` describes, and check the real page and its catalog card.
 7. **Release.** Get a Sol review of the diff and fix what it finds. Then ask the owner once before running `$stack127-release-e2e`.
 
+Preview with `npm run dev`, which refreshes the page list first. Draft titles in development are fine before the copy is approved, and you should stop any server you started once you're done.
+
 ## Judgement
 
 The plan is where a tool goes right or wrong. Check each point before you show it:
