@@ -79,7 +79,7 @@ export function AnalyticsSettingsButton() {
       onClick={() => window.dispatchEvent(new Event(openSettingsEvent))}
       type="button"
     >
-      analytics settings
+      consent
     </button>
   );
 }
