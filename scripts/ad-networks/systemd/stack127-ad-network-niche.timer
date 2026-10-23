@@ -1,8 +1,8 @@
 [Unit]
-Description=Weekly production ad-network niche sorting on homelab
+Description=Daily production ad-network niche sorting on homelab
 
 [Timer]
-OnCalendar=Sun *-*-* 06:00:00 UTC
+OnCalendar=*-*-* 06:00:00 UTC
 Persistent=true
 Unit=stack127-ad-network-niche.service
 
