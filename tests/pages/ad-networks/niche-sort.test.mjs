@@ -131,6 +131,25 @@ test('login errors and usage limits stop even when the CLI returns exit code zer
   }
 });
 
+test('CLI failure errors never include raw stdout, with or without stderr', async () => {
+  for (const [stdout, exitCode, code] of [
+    ['raw-model-output-private-marker', 1, 'NICHE_MODEL_FAILED'],
+    ['Not logged in raw-model-output-private-marker', 0, 'NICHE_MODEL_FAILED'],
+    ['503 raw-model-output-private-marker', 1, 'NICHE_MODEL_RETRYABLE'],
+  ]) {
+    for (const stderr of ['', 'safe stderr diagnostic']) {
+      await assert.rejects(classifyNiches(input, '', {}, fakeModel(child => {
+        child.stdout.write(stdout); child.stderr.write(stderr); child.emit('close', exitCode);
+      })), error => {
+        assert.equal(error.code, code);
+        assert.doesNotMatch(error.message, /raw-model-output-private-marker|Not logged in|503/);
+        assert.ok(error.message.endsWith(stderr || 'no stderr diagnostic output'));
+        return true;
+      });
+    }
+  }
+});
+
 async function sortFixture(t, sites, classify, update) {
   const directory = await mkdtemp(join(tmpdir(), 's127-niche-recovery-'));
   t.after(() => rm(directory, { recursive: true, force: true }));
@@ -148,7 +167,7 @@ async function sortFixture(t, sites, classify, update) {
   const options = nicheSortArgs(['--apply', '--state-directory', directory, '--limit', String(sites.length)]);
   const run = () => sortNiches(options, { classify, delay: noDelay, revalidate: async () => {},
     pool: { connect: async () => client, end: async () => {} } });
-  return { run, writes, checkpoint: async () => JSON.parse(await readFile(join(directory, 'niche-results.json'), 'utf8')) };
+  return { run, writes, client, checkpoint: async () => JSON.parse(await readFile(join(directory, 'niche-results.json'), 'utf8')) };
 }
 
 test('unresolved batches do not block later sites, and only completed answers get checkpoints', async t => {
@@ -204,6 +223,56 @@ test('an operator stop after classification prevents imports and releases signal
   await assert.rejects(fixture.run(), error => error.code === 'NICHE_STOPPED');
   assert.deepEqual(fixture.writes, []);
   assert.equal(process.listenerCount('SIGTERM'), priorListeners);
+});
+
+test('SIGTERM during import lock contention prevents another lock attempt or update', async t => {
+  let calls = 0, attempts = 0;
+  const fixture = await sortFixture(t, [{ domain: 'example.com', title: 'Food' }], async () => {
+    calls++; return lines([result('example.com')]);
+  });
+  const query = fixture.client.query;
+  const queries = [];
+  fixture.client.query = async (sql, args) => {
+    queries.push(sql);
+    if (sql.includes('pg_advisory_lock')) {
+      if (++attempts === 1) {
+        process.emit('SIGTERM');
+        throw Object.assign(Error('lock unavailable'), { code: '55P03' });
+      }
+    }
+    return query(sql, args);
+  };
+  await assert.rejects(fixture.run(), error => {
+    assert.equal(error.jobResult.imported, 0);
+    assert.equal(error.jobResult.unresolved, 1);
+    return error.code === 'NICHE_STOPPED';
+  });
+  assert.equal(calls, 1); assert.equal(attempts, 1);
+  assert.deepEqual(fixture.writes, []);
+  assert.ok(queries.includes('reset lock_timeout'));
+  assert.ok(!queries.includes('begin'));
+  await assert.rejects(fixture.checkpoint(), { code: 'ENOENT' });
+});
+
+test('aborted imports release acquired locks and roll back before writing or committing', async () => {
+  for (const stage of ['before import', 'set timeout', 'lock acquired', 'begin', 'update']) {
+    const controller = new AbortController(), queries = [];
+    const stop = () => controller.abort(Object.assign(Error('Model interrupted'), { code: 'NICHE_STOPPED' }));
+    if (stage === 'before import') stop();
+    await assert.rejects(importNiches({ query: async sql => {
+      queries.push(sql);
+      if ((stage === 'set timeout' && sql.startsWith('set lock_timeout')) ||
+        (stage === 'lock acquired' && sql.includes('pg_advisory_lock')) ||
+        (stage === 'begin' && sql === 'begin') || (stage === 'update' && sql.startsWith('update'))) stop();
+      return { rowCount: 1 };
+    } }, [result('example.com')], { signal: controller.signal }), error => error.code === 'NICHE_STOPPED');
+    assert.ok(!queries.includes('commit'));
+    if (stage !== 'update') assert.ok(!queries.some(sql => sql.startsWith('update')));
+    if (stage === 'before import') assert.deepEqual(queries, []);
+    if (stage === 'set timeout') assert.ok(!queries.some(sql => sql.includes('pg_advisory_lock')));
+    if (['lock acquired', 'begin', 'update'].includes(stage)) assert.match(queries.at(-1), /pg_advisory_unlock/);
+    if (['begin', 'update'].includes(stage)) assert.ok(queries.includes('rollback'));
+  }
 });
 test('model validation keeps only clean answers to input domains, once each', () => {
   const correct = [result('example.com'), result('example.org', null, 'low')];

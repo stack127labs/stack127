@@ -82,12 +82,12 @@ export async function classifyNiches(input, rubric, options, dependencies = {}) 
         const diagnostic = `${stderr}\n${output}`;
         if (nicheUsageLimited(diagnostic)) return reject(Object.assign(new Error('Claude subscription usage limit reached; pause until it resets'), { code: 'NICHE_USAGE_LIMIT' }));
         if (/not logged in|authentication failed|invalid (?:api key|access token|refresh token)|token (?:has )?expired|login required|please log in|run \/login/i.test(diagnostic)) {
-          return reject(Object.assign(new Error(`Claude login failed: ${nicheModelDetail(stderr || output)}`), { code: 'NICHE_MODEL_FAILED' }));
+          return reject(Object.assign(new Error(`Claude login failed: ${nicheModelDetail(stderr) || 'no stderr diagnostic output'}`), { code: 'NICHE_MODEL_FAILED' }));
         }
         if (failure) return reject(failure);
         if (code !== 0) {
           const transient = signal || /ECONNRESET|ETIMEDOUT|EAI_AGAIN|connection (?:reset|closed)|fetch failed|network error|overloaded|temporarily unavailable|\b50[234]\b/i.test(diagnostic);
-          return reject(Object.assign(new Error(`Model CLI exited ${code}${signal ? ` (${signal})` : ''}: ${nicheModelDetail(stderr || output) || 'no diagnostic output'}`), { code: transient ? 'NICHE_MODEL_RETRYABLE' : 'NICHE_MODEL_FAILED' }));
+          return reject(Object.assign(new Error(`Model CLI exited ${code}${signal ? ` (${signal})` : ''}: ${nicheModelDetail(stderr) || 'no stderr diagnostic output'}`), { code: transient ? 'NICHE_MODEL_RETRYABLE' : 'NICHE_MODEL_FAILED' }));
         }
         resolveModel(output);
       });
@@ -127,27 +127,34 @@ export async function importNiches(client, rows, dependencies = {}) {
   // Queue behind other lock requests. Server-side timeouts keep each attempt
   // below the pool's 120-second query timeout while OVH finishes its full sync.
   const now = dependencies.now ?? (() => performance.now());
+  const { signal } = dependencies;
+  signal?.throwIfAborted();
   const deadline = now() + 60 * 60 * 1000;
   let locked = false;
   try {
     try {
       while (!locked) {
+        signal?.throwIfAborted();
         const remaining = deadline - now();
         if (remaining <= 0) throw new Error('Timed out waiting 60 minutes for ad-network sync lock');
         await client.query(`set lock_timeout = '${Math.max(1, Math.min(100000, Math.floor(remaining)))}ms'`);
+        signal?.throwIfAborted();
         try {
           await client.query("select pg_advisory_lock(hashtext('ad-networks-reviewed-sync'))");
           locked = true;
         } catch (error) { if (error.code !== '55P03') throw error; }
       }
     } finally { await client.query('reset lock_timeout'); }
+    signal?.throwIfAborted();
     try {
       await client.query('begin');
+      signal?.throwIfAborted();
       const result = await client.query(`update public.ad_network_publishers p set niche=i.niche
         from jsonb_to_recordset($1::jsonb) i(domain text,niche text)
         where p.normalized_domain=i.domain and p.niche is null and i.niche is not null
           and exists(select 1 from public.ad_network_publisher_relationships r where r.publisher_id=p.id and r.status='confirmed')`,
       [JSON.stringify(rows.map(row => ({ domain: row.domain, niche: publicNiche(row) })))]);
+      signal?.throwIfAborted();
       await client.query('commit');
       return result.rowCount;
     } catch (error) { await client.query('rollback').catch(() => {}); throw error; }
@@ -203,7 +210,7 @@ export async function sortNiches(options, dependencies = {}) {
       const batch = input.slice(i, i + +options['batch-size']);
       for await (const rows of recoverNicheBatch(batch, rubric, options, dependencies)) {
         options.signal.throwIfAborted();
-        imported += await importNiches(client, rows);
+        imported += await importNiches(client, rows, { signal: options.signal });
         classified += rows.length;
         for (const row of rows) {
           if (publicNiche(row) === null) withheld++;
