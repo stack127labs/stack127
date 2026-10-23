@@ -58,7 +58,7 @@ Show each look once. When a thin wrapper renders the same thing as another compo
 
 - Use the existing component when its behavior fits.
 - Page copy and content pages use existing components only.
-- New or extended shared components come from the Opus planning step for a tool, when more than one page type needs them.
+- New or extended shared components come from a tool's build step, when more than one page type needs them.
 - Keep calculations, data sources, and unusual interactions with the page or tool that owns them.
 - Static displays go in server-renderable modules. Interactive controls go in client modules.
 

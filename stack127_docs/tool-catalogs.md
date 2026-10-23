@@ -21,7 +21,7 @@ Keep each published catalog populated with at least one published tool.
 
 ## Page copy
 
-Catalogs share one route, `app/(site)/(catalogs)/[slug]/page.tsx`. Each catalog's intro and article live in `content/<slug>/intro.mdx` and `content/<slug>/article.mdx` under that route, as [page-content.md](page-content.md) describes. Use the [tool writing skill](../skills/stack127/tools/stack127-tool-writing/SKILL.md) to write them.
+Catalogs share one route, `app/(site)/(catalogs)/[slug]/page.tsx`. Each catalog's intro and article live in `content/<slug>/intro.mdx` and `content/<slug>/article.mdx` under that route, as [page-content.md](page-content.md) describes. Use the [tool copywriting skill](../skills/stack127/stack127-tool-copywriting/SKILL.md) to write them.
 
 `title` must be trimmed, nonempty text. The intro and article live in MDX, and the database has no catalog content columns.
 
@@ -69,7 +69,7 @@ Each step has an owner:
 | --- | --- |
 | Name the primary catalog, any secondary catalogs, and a specific card art brief | Product plan |
 | Generate and register the drawing | Integration worker |
-| Write one card name and description, shared across catalogs | Opus planning session, in its writing step |
+| Write one card name and description, shared across catalogs | The agent running the tool page, in its copy step |
 | Apply the card fields and memberships to development together | Integration worker |
 
 The integration worker runs:

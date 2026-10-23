@@ -1042,7 +1042,54 @@ function toolSpot(spec, A) {
   const d = spec.data;
   const cx = A.w / 2;
   const cy = A.h / 2;
-  if (d.motif === "customerEconomics") {
+  if (d.motif === "adNetworkShortlist") {
+    // Three choices point from one post; the longest, picked route gets the accent.
+    A.line(42, 16, 42, 82, { stroke: "@ink", strokeWidth: 2.4 });
+    A.line(32, 83, 52, 83, { stroke: "@ink", strokeWidth: 1.7 });
+    A.arrow(46, 28, 108, 28, { tone: "@primary", sw: 2.3 });
+    A.arrow(46, 49, 97, 49, { tone: "@ink", sw: 2.0 });
+    A.arrow(46, 70, 83, 70, { tone: "@ink", sw: 2.0 });
+    const star = [];
+    for (let point = 0; point < 10; point += 1) {
+      const radius = point % 2 === 0 ? 4.3 : 1.9;
+      const angle = -Math.PI / 2 + (point * Math.PI) / 5;
+      star.push([119 + Math.cos(angle) * radius, 21 + Math.sin(angle) * radius]);
+    }
+    A.polygon(star, { stroke: "@primary", fill: "@primary", fillStyle: "solid", strokeWidth: 1.4 });
+    drawIcon(A, "browserPage", 42, 96, 23, "@ink");
+    return;
+  } else if (d.motif === "publisherTools") {
+    // One site page sits beside a measured traffic gate and a separate network-tag gate.
+    drawIcon(A, "browserPage", 34, 56, 35, "@ink");
+    drawIcon(A, "heightGate", 79, 56, 43, "@ink");
+    A.line(111, 22, 111, 94, { stroke: "@ink", strokeWidth: 2.1 });
+    A.line(111, 94, 130, 94, { stroke: "@ink", strokeWidth: 1.6 });
+    A.line(111, 29, 129, 29, { stroke: "@ink", strokeWidth: 1.6 });
+    drawIcon(A, "tag", 120, 52, 20, "@primary");
+    return;
+  } else if (d.motif === "adRevenue") {
+    // A stack of site pages turns into a stack of coins: traffic becomes ad revenue.
+    A.line(21, 23, 76, 23, { stroke: "@sub" });
+    A.line(76, 23, 76, 72, { stroke: "@sub" });
+    drawIcon(A, "browserPage", 40, 57, 44, "@ink");
+    A.arrow(81, 58, 96, 58, { tone: "@sub", sw: 2.0 });
+    const coinX = 117;
+    const rx = 16;
+    const ry = 5.5;
+    const rim = (y) => {
+      const points = [];
+      for (let step = 0; step <= 12; step += 1) {
+        const angle = (step * Math.PI) / 12;
+        points.push([coinX + Math.cos(angle) * rx, y + Math.sin(angle) * ry]);
+      }
+      return points;
+    };
+    A.ellipse(coinX, 36, rx * 2, ry * 2, { stroke: "@primary" });
+    A.line(coinX - rx, 36, coinX - rx, 84, { stroke: "@primary" });
+    A.line(coinX + rx, 36, coinX + rx, 84, { stroke: "@primary" });
+    for (const y of [52, 68, 84]) A.linearPath(rim(y), { stroke: "@primary" });
+    return;
+  } else if (d.motif === "customerEconomics") {
     drawIcon(A, "user", 28, cy, 23, "@ink");
     A.line(49, cy, 58, cy, { stroke: "@sub" });
     A.line(58, 23, 58, 87, { stroke: "@sub" });

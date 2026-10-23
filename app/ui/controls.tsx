@@ -815,7 +815,9 @@ export function UiComboBox({ description, error, hint, label, onChange, onInputC
   return (
     <ComboBox
       className={styles.field}
-      items={options}
+      // With onInputChange the caller filters the options itself. Without it, the combo box filters them as people type.
+      defaultItems={onInputChange ? undefined : options}
+      items={onInputChange ? options : undefined}
       isInvalid={Boolean(error)}
       isRequired={required}
       onChange={(key) => onChange?.(key === null ? null : String(key))}

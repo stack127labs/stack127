@@ -1,0 +1,11 @@
+{
+  "id": "catalog--ad-network-requirements-checker",
+  "type": "toolSpot",
+  "takeaway": "A signpost points to three ad networks, with the top choice marked as the pick.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-23",
+  "width": 140,
+  "height": 110,
+  "seed": 527,
+  "data": { "motif": "adNetworkShortlist" }
+}

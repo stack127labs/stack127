@@ -1,6 +1,6 @@
 # Tool copy rewrite
 
-Rewrite every tool page in the new writing style, one catalog at a time. Follow `stack127_docs/writing-style.md` and `skills/stack127/tools/stack127-tool-writing/SKILL.md`.
+Rewrite every tool page in the new writing style, one catalog at a time. Follow `stack127_docs/writing-style.md` and `skills/stack127/stack127-tool-copywriting/SKILL.md`.
 
 - Drafts go in `/home/teja/stack127-drafts/tool-rewrites/<slug>/`.
 - Each catalog section also lists the catalog page itself, for its intro and card copy.

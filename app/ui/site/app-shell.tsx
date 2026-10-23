@@ -49,12 +49,6 @@ function SiteFooter() {
           <Link {...intentPrefetch} href="/about">about</Link>
           <Link {...intentPrefetch} href="/labs">labs</Link>
         </nav>
-        <a href="https://letslaunch.today/product/stack127">
-          LetsLaunch reservation
-        </a>
-        <a href="https://www.scrolllaunch.com/products/stack127?ref=badge">
-          ScrollLaunch launch page
-        </a>
         <p>2026 stack127. all rights reserved.</p>
       </div>
     </footer>

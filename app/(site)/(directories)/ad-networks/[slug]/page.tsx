@@ -40,6 +40,7 @@ export default async function AdNetworkPage({ params }: { params: Promise<{ slug
   const { network, sites, stats } = data;
   const { Intro } = content;
   const rule = joinRule(slug);
+  const legacy = slug === "pubnation" || slug === "pubgalaxy";
   const officialHost = network.official_url ? new URL(network.official_url).hostname.replace(/^www\./, "") : null;
 
   return (
@@ -48,17 +49,19 @@ export default async function AdNetworkPage({ params }: { params: Promise<{ slug
         <PageHeader breadcrumbs={breadcrumbs} className={styles.header}>
           <h1><NetworkLogo logo={networkLogo(slug)} name={network.name} size="title" /><DirectoryPageTitle title={directoryPage.title} /></h1>
           <div className={styles.metaRow}>
-            <PageMeta updatedAt={stats.updated_at ?? directoryPage.updated_at} />
+            <PageMeta updatedAt={directoryPage.updated_at} />
             {network.official_url && officialHost ? (
               <a className={styles.official} href={network.official_url} rel="noopener noreferrer" target="_blank"><ExternalLink aria-hidden="true" />{officialHost}</a>
             ) : null}
           </div>
           <p>
             <Intro components={inline} />
-            {rule ? <> {joinSentence(rule)}</> : null}
+            {rule && !legacy ? <> {joinSentence(rule)}</> : null}
             {/* data-gate: the sync fills the listed and confirmed counts. */}
             {network.listed_count ? (
-              network.listed_count === 1
+              legacy
+                ? <> We track <Figure>{network.listed_count}</Figure> {network.listed_count === 1 ? "site" : "sites"} with legacy {network.name} identifiers.</>
+                : network.listed_count === 1
                 ? <> We list <Figure>{1}</Figure> site that uses {network.name}, and it {network.verified_count ? "is" : "isn't"} confirmed live from its own ads.txt file or ad code.</>
                 : <> We list <Figure>{network.listed_count}</Figure> sites that use {network.name}, and <Figure live>{network.verified_count}</Figure> {network.verified_count === 1 ? "is" : "are"} confirmed live from their own ads.txt files or ad code.</>
             ) : null}

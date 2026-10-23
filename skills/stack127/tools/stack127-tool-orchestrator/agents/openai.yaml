@@ -1,4 +1,0 @@
-interface:
-  display_name: "stack127 Tool Orchestrator"
-  short_description: "Build and write a tool through final audit"
-  default_prompt: "Use $stack127-tool-orchestrator to research, plan, build, write, integrate, and audit this tool. Give me its complete spec and verified development preview. Release it only when authorized."

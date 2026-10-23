@@ -4,7 +4,7 @@ Talk like a friend explaining something to another friend, whatever the situatio
 
 Conversational, but not chatty. Talk to the reader in full sentences, with accurate facts. No jokes, no hype, no filler. Engaging doesn't mean longer; most pages should get shorter.
 
-This guide covers how to write, which format to use, titles, intros, and search wording, for every page, doc, and chat. Where page content lives, and how to write each block in MDX, is in [page-content.md](page-content.md). Components are in [shared-ui.md](shared-ui.md). What goes on a tool page lives in `skills/stack127/tools/stack127-tool-writing/SKILL.md`.
+This guide covers how to write, which format to use, titles, intros, and search wording, for every page, doc, and chat. Where page content lives, and how to write each block in MDX, is in [page-content.md](page-content.md). Components are in [shared-ui.md](shared-ui.md). What goes on a tool page lives in `skills/stack127/stack127-tool-copywriting/SKILL.md`.
 
 ## Show first
 
@@ -36,7 +36,9 @@ Don't repeat a visual's values in the text. A caption gives the takeaway. Alt te
 - Talk to the reader as "you". Use contractions.
 - "I" or "we" is fine when it sounds natural.
 - Say each thing once.
-- Cut anything the reader doesn't need.
+- Cut anything the reader doesn't need. If they wouldn't miss a line, it goes.
+- Stay on the page's topic. A page about every option doesn't get headings about one of them.
+- Don't explain what the page already shows, such as a button's name or an example the tool opens with.
 
 ## Before and after
 

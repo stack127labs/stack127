@@ -2,15 +2,39 @@
 
 The reader wants to find an ad network and see which publisher websites currently have a verified relationship with it. The parent directory lists the reviewed network roster. Each network page lists confirmed publisher domains with a precise relationship label and last checked date.
 
-The draft has 45 network identities and uses `/ad-networks` and `/ad-networks/<slug>`, plus `/ad-networks/niches`, `/ad-networks/niches/<niche>`, `/ad-networks/stats`, and the `/ad-network-checker` tool. See [plan.md](plan.md). Search and pagination stay on these routes through query parameters. Candidate domains and ambiguous matches never appear in the public list. Empty network pages explain that no sites have been verified yet. The pages remain unpublished in `stack127_pages` until the data collection and verification work has been reviewed.
+The directory has 44 network identities and uses `/ad-networks` and `/ad-networks/<slug>`, plus `/ad-networks/niches`, `/ad-networks/niches/<niche>`, `/ad-networks/stats`, and the `/ad-network-checker` tool. See [plan.md](plan.md). Search and pagination stay on these routes through query parameters. Candidate domains and ambiguous matches never appear in the public list. Empty network pages explain that no sites have been verified yet.
 
-The source of truth is the three table model in [plan.md](plan.md): network identity, globally deduplicated publisher domain, and a separate verified relationship. A discovery source is a lead, not proof of network use. The relationship row provides the evidence for a public claim. Niche, platform, domain age, and traffic group come from later data runs. Until a run fills a field, the page says "Not listed". The pages make no earnings claims.
+The source of truth is the three table model in [plan.md](plan.md): network identity, globally deduplicated publisher domain, and a separate verified relationship. A discovery source is a lead, not proof of network use. The relationship row provides the evidence for a public claim. Until a data run fills a field, the page says "Not listed". The pages make no earnings claims.
 
 ## Current release boundary
 
-The parent and 45 child registry rows remain unpublished in development and production. Shipping their code, identity data, and docs does not launch the directory. The managed publisher and relationship tables remain empty; the independent homelab SQLite queue is preserved.
+The directory and its network pages are live in production. See [production-runbook.md](production-runbook.md) and [maintenance.md](maintenance.md) for how the data refreshes.
 
-The two GitHub discovery and verification workflows are manual previews. They have no schedules and run without `--apply`, so they do not save candidates or verification results. Enabling production writes, copying reviewed SQLite results, scheduling production refreshes, and publishing pages each need a separate activation review.
+The October 2026 enrichment of network facts and copy, from `recommendation-profiles-a.json`, `recommendation-profiles-b.json`, and `research/<slug>.md`, is development-only until the coordinator reviews and releases it through a pull request.
+
+## Copy plan: network pages
+
+Checked 2026-10-22 to 2026-10-23. All 44 network pages and the parent article were rewritten in two batches of 22. PubNation (moved to Mediavine) and PubGalaxy (moved to Improve Digital) remain tracked legacy pages with no standalone application route. The other 42 profiles cover current services, including sales-led and invitation-only offers.
+
+The problem: network pages said "Not public" over and over instead of telling a reader whom the network suits and how to approach it. The fact rows already show every published number and list what's missing, so the words do a different job.
+
+| Part | Job | Leave out |
+| --- | --- | --- |
+| Intro | What this product is and who it's for, in two sentences. Distinct per network. | Numbers the header and fact rows show. |
+| Joining | How to apply, with the official link, and what the review weighs: program, audience, platform, setup, dated or conflicting rules. | Lists of unpublished fields. |
+| Pay | Only what the rows can't say: which program a rate covers, dated terms, conflicts between sources. | Repeating the rows. |
+| Rules | Exclusivity in plain terms (site-wide, per page, or per slot), contract length, notice. | "Not public" lists. |
+| Service | What the network actually does for you. | Filler when nothing is known. |
+| Article | Fit, alternatives, and the few questions a reader brings, with dated first-hand reports where they help. | The generic ads.txt checker answer on every page. |
+
+Evidence rules:
+
+- Official facts, dated publisher reports, and editorial judgment stay separate. A report names its date and source and says it's one case.
+- Never turn reports into rejection odds or thresholds. No traffic estimates without a published basis.
+- Keep the network's own metric: Ezoic monthly active users, MGID daily or monthly visitors, Mediavine previous calendar year revenue, Monumetric three months in a row, Journey Tier 1 sessions.
+- A missing number is not an easy approval. AdSense and Newor Elevate publish no traffic minimum, but both review sites.
+- Keep separate products apart: Setupad managed versus Self-Serve, Adnimation managed versus MAP, Sovrn Ad Exchange versus Commerce, Playwire's FAQ rule versus its ROI guidance, and referral-program rules (Opti Digital, Snack Media) versus entry rules.
+- Dated sources keep their date in the copy, such as Infolinks' 2015 agreement, AdPushup's 2021 terms, APS's 2023 fee, and Journey's April 2024 domain-history guidance.
 
 ## Search words
 

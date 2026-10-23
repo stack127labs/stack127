@@ -1,0 +1,11 @@
+{
+  "id": "catalog--ad-revenue-calculator",
+  "type": "toolSpot",
+  "takeaway": "A stack of site pages turns into a stack of coins, showing traffic becoming ad revenue.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-23",
+  "width": 140,
+  "height": 110,
+  "seed": 529,
+  "data": { "motif": "adRevenue" }
+}

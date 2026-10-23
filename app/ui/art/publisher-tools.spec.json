@@ -1,0 +1,11 @@
+{
+  "id": "catalog--publisher-tools",
+  "type": "toolSpot",
+  "takeaway": "A site page sits beside a traffic gate and a separate network tag gate.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-10-22",
+  "width": 140,
+  "height": 110,
+  "seed": 528,
+  "data": { "motif": "publisherTools" }
+}

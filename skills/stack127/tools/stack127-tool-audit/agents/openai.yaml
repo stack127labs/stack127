@@ -1,4 +1,0 @@
-interface:
-  display_name: "stack127 tool quality audit"
-  short_description: "Audit tool correctness, UI, writing, and readiness"
-  default_prompt: "Use $stack127-tool-audit to check this tool's answers, common interaction, mobile rendering, content, and release readiness."

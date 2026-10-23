@@ -1,4 +1,0 @@
-interface:
-  display_name: "stack127 Tool Writing"
-  short_description: "Write tool copy using the shared writing guide"
-  default_prompt: "Use $stack127-tool-writing to draft this finished tool's page copy and SEO text from its ready spec and stack127_docs/writing-style.md."

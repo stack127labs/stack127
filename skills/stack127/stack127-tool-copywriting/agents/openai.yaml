@@ -1,0 +1,4 @@
+interface:
+  display_name: "stack127 tool copywriting"
+  short_description: "Write lean, direct copy for a tool page"
+  default_prompt: "Use $stack127-tool-copywriting to write this tool page's title, SEO text, card, intro, usage, content, and methodology, and give it to the owner for approval."

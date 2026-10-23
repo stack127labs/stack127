@@ -137,7 +137,7 @@ export default function PrivacyPage() {
           </p>
           <p>
             You can decline Google Analytics when the consent bar appears. To change your choice
-            later, open <strong>analytics settings</strong> in the site footer. Turning Google
+            later, open <strong>consent</strong> in the site footer. Turning Google
             Analytics off saves your choice, tells the tag that analytics storage is denied, and
             deletes the Google Analytics first-party cookies that stack127 can access. Umami
             doesn&apos;t use cookies and stays on.

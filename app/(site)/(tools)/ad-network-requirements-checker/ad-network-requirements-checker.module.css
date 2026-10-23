@@ -1,0 +1,280 @@
+.form {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.ageWrap {
+  min-width: 0;
+}
+
+.split {
+  align-items: start;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  min-width: 0;
+  padding-top: var(--space-5);
+}
+
+.result {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.leadBlock {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.leadMeta {
+  align-items: center;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--text-small);
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.cards,
+.compactList,
+.plainList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards {
+  border-top: 1px solid var(--color-border);
+  max-width: 48rem;
+}
+
+.card {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-5) 0;
+}
+
+.cardRow,
+.compact {
+  align-items: start;
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.cardRow {
+  grid-template-columns: 1.25rem auto minmax(0, 1fr) auto;
+}
+
+.compact {
+  border-top: 1px solid var(--color-border);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding: var(--space-4) 0;
+}
+
+.rank {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  line-height: 2rem;
+}
+
+.cardMain {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.cardMain p {
+  margin: 0;
+}
+
+.cardTitle {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+}
+
+.cardName {
+  font-weight: var(--weight-semibold);
+}
+
+.status {
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  white-space: nowrap;
+}
+
+.status[data-status="good_fit"] {
+  color: var(--color-accent-text);
+}
+
+.status[data-status="worth_a_try"] {
+  color: var(--color-text);
+}
+
+.status[data-status="growth_target"] {
+  color: var(--color-text-muted);
+}
+
+.reason {
+  overflow-wrap: anywhere;
+}
+
+.meta {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  margin: 0;
+}
+
+.cardActions {
+  align-items: center;
+  display: flex;
+  gap: var(--space-2);
+}
+
+.apply {
+  align-items: center;
+  display: inline-flex;
+  font-weight: var(--weight-semibold);
+  gap: var(--space-2);
+  min-height: var(--control-height-lg);
+  padding: 0 var(--space-3);
+  white-space: nowrap;
+}
+
+.detail {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+  padding-left: calc(1.25rem + 32px + 2 * var(--space-4));
+}
+
+.detail[hidden] {
+  display: none;
+}
+
+.plainList {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.plainList a {
+  overflow-wrap: anywhere;
+}
+
+.suggest {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: space-between;
+  max-width: 48rem;
+}
+
+.suggest p {
+  margin: 0;
+  min-width: 0;
+}
+
+.more {
+  display: grid;
+  gap: var(--space-6);
+  max-width: 48rem;
+  padding-top: var(--space-5);
+}
+
+.moreGroup {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.moreGroup h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.visuallyHidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (max-width: 640px) {
+  .split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ageWrap :global([class*="choiceRow"]) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ageWrap :global([class*="choiceRow"]) > * {
+    min-width: 0;
+  }
+
+  .cardRow {
+    grid-template-columns: 1rem auto minmax(0, 1fr);
+  }
+
+  .cardRow .cardActions {
+    grid-column: 3;
+  }
+
+  .compact {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .compact .cardActions {
+    grid-column: 2;
+  }
+
+  .apply {
+    padding-left: 0;
+  }
+
+  .detail {
+    padding-left: 0;
+  }
+}
+
+.facts {
+  display: grid;
+  margin: 0;
+}
+
+.facts > div {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-1) var(--space-5);
+  grid-template-columns: 9rem minmax(0, 1fr);
+  padding: var(--space-3) 0;
+}
+
+.facts dt {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+}
+
+.facts dd {
+  margin: 0;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .facts > div {
+    grid-template-columns: 1fr;
+  }
+}

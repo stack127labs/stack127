@@ -1,28 +1,31 @@
 # Publir
 
-Checked 2026-10-16.
+Checked 2026-10-22.
 
-## Joining
+## Official facts
 
-- Traffic: No traffic limit. Source: https://publir.com/app/pricing. Read 2026-10-16.
-- Visitor location: Not public. The reviewed official pages do not state this rule. Source checked: https://publir.com/app/pricing. Read 2026-10-16.
-- Content: Not public. The reviewed official pages do not state this rule. Source checked: https://publir.com/app/pricing. Read 2026-10-16.
-- Google standing: Not public. The reviewed official pages do not state this rule. Source checked: https://publir.com/app/pricing. Read 2026-10-16.
-- Must connect: Not public. The reviewed official pages do not state this rule. Source checked: https://publir.com/app/pricing. Read 2026-10-16.
-- Approval time: Not public. The reviewed official pages do not state this rule. Source checked: https://publir.com/app/pricing. Read 2026-10-16.
+Publir is a product suite, not only a display ad network: its public pages describe dynamic ad optimization and programmatic ads as well as subscriptions, ad-block recovery, crowdfunding, and commerce tools. Its pricing page says there is no traffic limit for the product, but that is not an explicit guarantee of admission at every size. The public service agreement (last updated October 15, 2024) describes programmatic revenue with 15% retained and 85% passed to the publisher, at least monthly on Net 60; ad-serving and infrastructure fees may also be deducted. Custom advertising has separate economics (50/50 Net 60); the pricing-page 15% fee applies to a different Pro plan. Do not compress these into one share. Public payment threshold and methods were not found.
 
-## Pay
+## Dated publisher reports
 
-- The pricing page lists a 15% Publir fee for its Pro service. The service agreement separately describes custom ad revenue as a 50/50 split on Net 60 terms. These are different service models, so there is no single universal share. A payment threshold, methods, and currency are not public in these pages. (Sources: https://publir.com/app/pricing and https://publir.com/service_agreement, read 2026-10-16.)
+- Targeted searches found founder interviews, product pages, and unanswered publisher questions, but no detailed independent publisher account tying site niche, dated traffic, and a Publir application or migration outcome. Do not treat product testimonials as independent entry proof.
 
-## Rules
+## Editorial inference
 
-- Publir offers ad optimization, adblock recovery, subscriptions, crowdfunding, and QuickShop. The service agreement allows changes to percentages for costs and fees. Other exclusivity, content, contract-length, and notice rules were not confirmed in the public pages. (Sources: https://publir.com/app/pricing and https://publir.com/service_agreement, read 2026-10-16.)
+Publir may suit a publisher looking for a specific add-on such as subscriptions, ad-block recovery, or crowdfunding, and it can run programmatic monetization as a primary service. A site seeking only a conventional managed ad network has less publicly verifiable fit evidence. Current-network compatibility depends on which product is selected: the agreement says Publir serves 100% of programmatic ads for its programmatic service, but subscription tools are different. No numeric recommendation range is supported.
 
-## Service
+## Directory-ready corrections
 
-- Pro support is by email during business hours; Enterprise includes real-time analytics and phone support. The service agreement says onboarding may take ten business days and support hours are weekdays 8 a.m. to 5 p.m. Eastern, with a 12-hour response target outside those hours. (Sources: https://publir.com/app/pricing and https://publir.com/service_agreement, read 2026-10-16.)
+- Replace “no traffic limit” with “the pricing page lists no traffic limit; admission criteria are not fully disclosed.”
+- Separate 85% publisher share for programmatic, custom-ad 50/50, and 15% Pro fee.
+- Note possible deductions and that the public agreement is dated 2024.
 
-## Logo
+## Evidence gaps
 
-Logo source: https://publir.com/assets/img/publir.svg (read 2026-10-16)
+No standard admission checklist, country preferences, payment minimum, or independent publisher entry case was found. Confirm current contract terms before presenting the 2024 agreement as current.
+
+## Sources
+
+- [Pricing](https://publir.com/app/pricing) — official; checked 2026-10-22; product plans and fee context.
+- [Service agreement](https://publir.com/service_agreement) — official; last updated Oct 15, 2024, checked 2026-10-22; programmatic and custom-ad splits, payment timing and deductions.
+- [Products](https://publir.com/) — official; checked 2026-10-22; broader publisher product suite.

@@ -118,9 +118,8 @@ Read `stack127_docs/quality-workflow.md`.
 ## Skills
 
 - General page work: `skills/stack127/page-build/SKILL.md`.
-- Tool pipeline: `stack127_docs/tool-pipeline.md` and skills under `skills/stack127/tools/`.
-- Existing tool review: `skills/stack127/tools/stack127-tool-audit/SKILL.md`.
-- Tool page copy, including rewrites of live pages: `skills/stack127/tools/stack127-tool-writing/SKILL.md`, with `stack127_docs/writing-style.md` and `stack127_docs/shared-ui.md`. Use these repo files instead of any personal or synced copy skill.
+- Tool pages, new or reworked: `skills/stack127/stack127-tool-page/SKILL.md`. One tool at a time, with the owner: the plan and the copy each wait for their yes.
+- Tool page and tool catalog copy: `skills/stack127/stack127-tool-copywriting/SKILL.md`, with `stack127_docs/writing-style.md`. Use these repo files instead of any personal or synced copy skill.
 - Directory page copy, including rewrites of live pages: `skills/stack127/stack127-directory-writing/SKILL.md`.
 - Production release: `skills/stack127/stack127-release-e2e/SKILL.md`.
 - Self-host app work: skills under `skills/self-host-apps/`.

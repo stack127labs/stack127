@@ -77,12 +77,12 @@ test('simultaneous cold niche reports share reads and recover after a shared dat
   assert.deepEqual(first,second);
   assert.equal(first.listed,0);
 });
-test('niches need 100 classified sites and 80 percent scope coverage',()=>{
+test('niches need 100 classified sites, however many still wait for the weekly sort',()=>{
   assert.equal(hasAdNetworkNicheCoverage(0,0),false);
   assert.equal(hasAdNetworkNicheCoverage(99,99),false);
   assert.equal(hasAdNetworkNicheCoverage(125,99),false);
   assert.equal(hasAdNetworkNicheCoverage(125,100),true);
-  assert.equal(hasAdNetworkNicheCoverage(126,100),false);
+  assert.equal(hasAdNetworkNicheCoverage(112747,87088),true);
 });
 test('site controls disappear and reappear when their source fields fill',()=>{
   const empty=adNetworkSiteAvailability(emptyCoverage);
