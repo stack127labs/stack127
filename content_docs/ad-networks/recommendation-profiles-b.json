@@ -1,0 +1,4949 @@
+[
+  {
+    "slug": "nitropay",
+    "checkedAt": "2026-10-22",
+    "productType": "Managed web display monetization and ad operations",
+    "applicationUrl": "https://nitropay.com/publishers/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Pay day",
+          "value": "Net 7",
+          "sourceUrl": "https://nitropay.com/docs/"
+        },
+        {
+          "label": "Payout minimum",
+          "value": "None",
+          "note": "above transaction fees",
+          "sourceUrl": "https://nitropay.com/docs/"
+        },
+        {
+          "label": "Go-live time",
+          "value": "5–7 business days",
+          "note": "after your site is accepted",
+          "sourceUrl": "https://nitropay.com/docs/"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "Traffic amount, pageviews and sessions are reviewed; no numeric minimum is published",
+          "sourceUrl": "https://nitropay.com/docs/"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Traffic geography is reviewed; accepted regions are not listed",
+          "sourceUrl": "https://nitropay.com/docs/"
+        },
+        {
+          "label": "Content",
+          "value": "Site content and niche are reviewed; guidelines bar adult, illegal, violent, or infringing content",
+          "sourceUrl": "https://blog.nitropay.com/guidelines/"
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Install Nitro ad tags and provide a Google Ad Manager network code for Google MCM; GA4 access can speed review",
+          "sourceUrl": "https://nitropay.com/docs/"
+        },
+        {
+          "label": "Approval time",
+          "value": "Initial review time not published; after quality acceptance it averages 5–7 business days to enough SSP coverage for go-live",
+          "sourceUrl": "https://nitropay.com/docs/",
+          "note": "Post-acceptance activation, not application approval."
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": "Net 7; paid seven days after the start of each month",
+      "paymentThreshold": "No fixed minimum; earnings must exceed the transaction fee",
+      "paymentMethods": [
+        "ACH (US)",
+        "EFT (Canada)",
+        "FPS (UK)",
+        "NPP (Australia)",
+        "BECS (New Zealand)",
+        "FPSHK (Hong Kong)",
+        "SEPA (Europe)",
+        "IACH",
+        "SWIFT wire"
+      ],
+      "sources": [
+        {
+          "label": "Nitro Docs Archive: approval, onboarding, and payments",
+          "url": "https://nitropay.com/docs/"
+        },
+        {
+          "label": "Publisher Guidelines",
+          "url": "https://blog.nitropay.com/guidelines/"
+        },
+        {
+          "label": "Publisher application form",
+          "url": "https://nitropay.com/publishers/"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "independent web publishers",
+        "gaming and enthusiast sites",
+        "single-page applications"
+      ],
+      "nichesStrong": [
+        "gaming",
+        "interactive/enthusiast content"
+      ],
+      "nichesWeak": [],
+      "geographies": [
+        "Traffic geography is reviewed; accepted-country list is not public"
+      ],
+      "role": "primary",
+      "entryPositioning": "Manual review; no public traffic or revenue floor. No evidence supports a numeric estimate.",
+      "compatibilityNotes": [
+        "Confirm programmatic exclusivity; direct sales/affiliate placements may remain.",
+        "Mobile apps are not currently supported."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "traffic amount",
+        "comparator": "reviewed; no numeric minimum stated",
+        "amount": null,
+        "unit": "pageviews and sessions",
+        "period": "not stated",
+        "scope": "website application",
+        "program": "NitroPay",
+        "sourceUrl": "https://nitropay.com/docs/",
+        "note": "Traffic location and content are also reviewed; GA4 access can speed review."
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1vep1yo/gaming-site-getting-133-ad-revenue-despite-600k/",
+        "publishedAt": "2026-07 (approx.; relative date)",
+        "site": "anonymous downloadable-gaming site",
+        "niche": "gaming downloads",
+        "traffic": {
+          "value": 600000,
+          "metric": "pageviews; also 150,000 sessions",
+          "period": "30 days"
+        },
+        "adRevenueMonthlyUsd": 133,
+        "countries": [
+          "US about 16%",
+          "Germany, France, UK, Sweden and other Europe"
+        ],
+        "decision": "reported serving with NitroPay and $133 on 1M ad impressions",
+        "limits": "One site and one period; not a general RPM or entry estimate."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Manual review favors usable analytics, clean content, and willingness to manage an ad-tech integration; gaming has the clearest fit evidence.",
+      "currentNetworkSignals": [
+        "Current network membership does not prove NitroPay acceptance.",
+        "Check exclusive tag terms before recommending migration."
+      ],
+      "geographyPreference": "Reviewed but no preferred-country threshold published.",
+      "agePreference": "No site-age rule found.",
+      "confidence": "medium",
+      "rationale": "Official docs publish qualitative criteria but no floor; one gaming example has variable low revenue and cannot set a cutoff.",
+      "supportingSourceUrls": [
+        "https://nitropay.com/docs/",
+        "https://www.reddit.com/r/adops/comments/1vep1yo/gaming-site-getting-133-ad-revenue-despite-600k/"
+      ],
+      "gaps": [
+        "No public traffic/revenue floor or geo threshold.",
+        "No verified low-end successful application example."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://nitropay.com/docs/",
+        "title": "Nitro approval and integration docs",
+        "kind": "official help",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "traffic factors",
+          "GA4",
+          "mobile app support",
+          "go-live timing"
+        ]
+      },
+      {
+        "url": "https://blog.nitropay.com/guidelines/",
+        "title": "Publisher Guidelines",
+        "kind": "official policy",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "content review"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1vep1yo/gaming-site-getting-133-ad-revenue-despite-600k/",
+        "title": "Gaming site reports 600k views and $133",
+        "kind": "publisher firsthand",
+        "publishedAt": "2026-07",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "traffic",
+          "countries",
+          "revenue"
+        ]
+      },
+      {
+        "url": "https://nitropay.com/publishers/",
+        "title": "Publisher application form",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "publisher application and traffic-band intake"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "opti-digital",
+    "checkedAt": "2026-10-22",
+    "productType": "GAM monetization and yield platform with managed inventory, managed account, and demand tools",
+    "applicationUrl": "https://optidigital.com/request-demo/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Pay day, Managed Inventory",
+          "value": "Net 45",
+          "sourceUrl": "https://knowledge-base.optidigital.com/knowledge/understanding-your-payment-terms"
+        },
+        {
+          "label": "Pay day, Managed Account",
+          "value": "Net 60",
+          "note": "for Opti demand; Google pays its own revenue on a 25-day cycle",
+          "sourceUrl": "https://knowledge-base.optidigital.com/knowledge/understanding-your-payment-terms"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "No universal numeric minimum published",
+          "sourceUrl": "https://optidigital.com/request-demo/"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Content",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Demand Hub needs CMP, ads.txt, and bidder setup",
+          "note": "This is for the Demand Hub product; no general publisher sign-up requirement is stated.",
+          "sourceUrl": "https://knowledge-base.optidigital.com/knowledge/getting-started-with-demand-hub"
+        },
+        {
+          "label": "Approval time",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Referral offer",
+          "value": "Referral-only conditions: tags live 3 months on most traffic, eligible geography, inventory quality, 3 ads/page, registered companies",
+          "sourceUrl": "https://optidigital.com/refer-a-publisher/"
+        }
+      ],
+      "revenueShare": "Share of gross programmatic revenue; percentage not public",
+      "paymentTerms": "Net 45 for Managed Inventory; Net 60 for Opti demand under Managed Account; Google pays direct on its 25-day cycle",
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Payment terms by setup",
+          "url": "https://knowledge-base.optidigital.com/knowledge/understanding-your-payment-terms"
+        },
+        {
+          "label": "Revenue-share and invoice flow",
+          "url": "https://knowledge-base.optidigital.com/knowledge/how-is-the-invoicing-working-at-opti-digital-when-will-i-get-paid"
+        },
+        {
+          "label": "Demand Hub publisher integration",
+          "url": "https://knowledge-base.optidigital.com/knowledge/getting-started-with-demand-hub"
+        },
+        {
+          "label": "Opti Digital publisher referral page (referral terms only)",
+          "url": "https://optidigital.com/refer-a-publisher/"
+        },
+        {
+          "label": "Publisher monetization review",
+          "url": "https://optidigital.com/request-demo/"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "publishers using Google Ad Manager",
+        "digital media groups",
+        "sales houses"
+      ],
+      "nichesStrong": [
+        "digital publishing; fit depends on inventory"
+      ],
+      "nichesWeak": [],
+      "geographies": [
+        "Referral offer requires eligible geographies; full list not public"
+      ],
+      "role": "infrastructure",
+      "entryPositioning": "Sales-led review of an existing ad stack; no public traffic/revenue range. Referral criteria are not universal admission rules.",
+      "compatibilityNotes": [
+        "Managed Inventory can replace an existing managed path.",
+        "Managed Account leaves Google revenue paid directly by Google.",
+        "Demand Hub can add demand; confirm auction overlap."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "traffic and revenue",
+        "comparator": "no universal numeric minimum published",
+        "amount": null,
+        "unit": "not stated",
+        "period": null,
+        "scope": "general publisher application",
+        "program": "Opti Digital",
+        "sourceUrl": "https://optidigital.com/request-demo/"
+      },
+      {
+        "metric": "live tags/geography/quality/ads per page",
+        "comparator": "requirements for referral bonus only",
+        "amount": 3,
+        "unit": "ads per page",
+        "period": null,
+        "scope": "referral offer",
+        "program": "Opti Digital referral",
+        "sourceUrl": "https://optidigital.com/refer-a-publisher/",
+        "note": "Three months of live tags on most traffic; registered businesses."
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://optidigital.com/resources/case-studies/how-1xl-unlocked-incremental-premium-demand-with-opti-digital/",
+        "publishedAt": "2026-05",
+        "site": "1XL (vendor case)",
+        "niche": "digital publishing",
+        "traffic": {
+          "value": null,
+          "metric": "not stated",
+          "period": null
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "case describes incremental premium PMP demand via Demand Hub",
+        "limits": "Vendor-authored; no traffic or entry outcome."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Best for publishers already using GAM who want managed yield or incremental demand and can assess the contract.",
+      "currentNetworkSignals": [
+        "Ask whether the publisher owns GAM and whether its current service is managed or self-operated.",
+        "Current network is context, not acceptance proof."
+      ],
+      "geographyPreference": "Referral offer names eligible geographies; no general preference published.",
+      "agePreference": "No age rule found.",
+      "confidence": "low",
+      "rationale": "Official sources establish products and payments but not general admission scale; independent entry evidence was not found.",
+      "supportingSourceUrls": [
+        "https://optidigital.com/request-demo/",
+        "https://knowledge-base.optidigital.com/knowledge/understanding-your-payment-terms",
+        "https://optidigital.com/refer-a-publisher/"
+      ],
+      "gaps": [
+        "No public universal admission floor.",
+        "No independent traffic-qualified application outcome."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://optidigital.com/request-demo/",
+        "title": "Publisher monetization review",
+        "kind": "official contact",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "sales-led route"
+        ]
+      },
+      {
+        "url": "https://knowledge-base.optidigital.com/knowledge/understanding-your-payment-terms",
+        "title": "Payment terms by setup",
+        "kind": "official help",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "Managed Inventory Net 45",
+          "Managed Account Net 60",
+          "Google 25 days"
+        ]
+      },
+      {
+        "url": "https://optidigital.com/refer-a-publisher/",
+        "title": "Refer a Publisher",
+        "kind": "official referral",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "referral-only rules"
+        ]
+      },
+      {
+        "url": "https://optidigital.com/resources/case-studies/how-1xl-unlocked-incremental-premium-demand-with-opti-digital/",
+        "title": "1XL case study",
+        "kind": "vendor case",
+        "publishedAt": "2026-05",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "supplemental demand"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "playwire",
+    "checkedAt": "2026-10-22",
+    "productType": "Managed ad monetization platform for web, apps, and games",
+    "applicationUrl": "https://www.playwire.com/apply",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Traffic to join",
+          "value": "500,000",
+          "note": "monthly website pageviews; apps need 1,000 daily active users",
+          "sourceUrl": "https://www.playwire.com/faq"
+        },
+        {
+          "label": "Your share",
+          "value": "50% / 75%",
+          "note": "of net direct-sales / indirect-sales revenue",
+          "sourceUrl": "https://www.playwire.com/terms-of-service"
+        },
+        {
+          "label": "Pay day",
+          "value": "Net 60",
+          "sourceUrl": "https://www.playwire.com/terms-of-service"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "FAQ: 500,000 monthly pageviews or 1,000 app DAU; qualification page suggests applying around 100,000 PV for full ROI",
+          "note": "100K guidance is not a confirmed admission cutoff.",
+          "sourceUrl": "https://www.playwire.com/faq"
+        },
+        {
+          "label": "Visitor location",
+          "value": "20% US traffic is linked to higher revenue, not a hard eligibility rule",
+          "note": "At least 20% US traffic is associated with higher average revenue, not stated as an eligibility minimum",
+          "sourceUrl": "https://www.playwire.com/qualification-criteria"
+        },
+        {
+          "label": "Content",
+          "value": "Unique, original content; IVT rating no higher than 7%",
+          "sourceUrl": "https://www.playwire.com/faq"
+        },
+        {
+          "label": "Google standing",
+          "value": "Not blacklisted by Google or other major ad providers",
+          "sourceUrl": "https://www.playwire.com/faq"
+        },
+        {
+          "label": "Must connect",
+          "value": "Implement the Playwire SDK",
+          "note": "Required to access Playwire demand",
+          "sourceUrl": "https://www.playwire.com/faq"
+        },
+        {
+          "label": "Approval time",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Application",
+          "value": "Apply Now branches by website/blog, mobile app, and desktop application.",
+          "sourceUrl": "https://www.playwire.com/apply"
+        }
+      ],
+      "revenueShare": "50% of net direct-sales revenue; 75% of net indirect-sales revenue",
+      "paymentTerms": "Net 60 after month-end; paid in US dollars",
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Publisher FAQ",
+          "url": "https://www.playwire.com/faq"
+        },
+        {
+          "label": "Qualification criteria",
+          "url": "https://www.playwire.com/qualification-criteria"
+        },
+        {
+          "label": "Publisher terms of service",
+          "url": "https://www.playwire.com/terms-of-service"
+        },
+        {
+          "label": "Apply Now page",
+          "url": "https://www.playwire.com/apply"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "web publishers",
+        "mobile app publishers",
+        "gaming and entertainment publishers",
+        "education and tool sites"
+      ],
+      "nichesStrong": [
+        "gaming",
+        "casual games",
+        "education/tools",
+        "entertainment",
+        "travel"
+      ],
+      "nichesWeak": [],
+      "geographies": [
+        "20% US is revenue signal, not a gate"
+      ],
+      "role": "primary",
+      "entryPositioning": "FAQ states 500K monthly website PV or 1K app DAU; separate guidance suggests 100K PV for full ROI, not an admission rule.",
+      "compatibilityNotes": [
+        "FAQ explicitly says AdSense and Ad Exchange ads cannot run alongside its script. Confirm other-provider compatibility in the agreement.",
+        "Treat as primary replacement, not additive bidder.",
+        "Quality and IVT also matter."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "website pageviews",
+        "comparator": "at least",
+        "amount": 500000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "website",
+        "program": "Playwire RAMP",
+        "sourceUrl": "https://www.playwire.com/faq"
+      },
+      {
+        "metric": "app DAU",
+        "comparator": "at least",
+        "amount": 1000,
+        "unit": "daily active users",
+        "period": "day",
+        "scope": "app",
+        "program": "Playwire RAMP",
+        "sourceUrl": "https://www.playwire.com/faq"
+      },
+      {
+        "metric": "pageviews",
+        "comparator": "typically apply at or above for full ROI",
+        "amount": 100000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "website",
+        "program": "Playwire guidance",
+        "sourceUrl": "https://www.playwire.com/qualification-criteria",
+        "note": "Guidance, not stated admission minimum."
+      },
+      {
+        "metric": "invalid traffic",
+        "comparator": "no higher than",
+        "amount": 7,
+        "unit": "percent",
+        "period": null,
+        "scope": "publisher traffic",
+        "program": "Playwire",
+        "sourceUrl": "https://www.playwire.com/faq"
+      },
+      {
+        "metric": "US share",
+        "comparator": "higher revenue signal, not a gate",
+        "amount": 20,
+        "unit": "percent",
+        "period": null,
+        "scope": "publisher audience",
+        "program": "Playwire",
+        "sourceUrl": "https://www.playwire.com/qualification-criteria"
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1wp5uz8/",
+        "publishedAt": "2026-10-21 (relative date)",
+        "site": "anonymous gaming site under consideration",
+        "niche": "gaming",
+        "traffic": {
+          "value": 1400000,
+          "metric": "pageviews/month; 110K MAU",
+          "period": "month"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [
+          "US over 50%"
+        ],
+        "decision": "approached by Playwire, NitroPay and Publift; no decision yet",
+        "limits": "Publift forecast $4K–$10K was unverified and questioned by the poster."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1wp5uz8/",
+        "publishedAt": "2026-10-21 (relative date)",
+        "site": "anonymous Playwire publisher commenter",
+        "niche": "not stated",
+        "traffic": {
+          "value": 1000000,
+          "metric": "pageviews/month",
+          "period": "month"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [
+          "US about 10%"
+        ],
+        "decision": "reported using Playwire and a positive experience",
+        "limits": "Anonymous, no revenue or full application context."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1wp5uz8/",
+        "publishedAt": "2026-10-21 (relative date)",
+        "site": "anonymous rejected publisher commenter",
+        "niche": "not stated",
+        "traffic": {
+          "value": 1000000,
+          "metric": "pageviews/month",
+          "period": "month"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [
+          "US about 25%"
+        ],
+        "decision": "reported rejection two days before posting",
+        "limits": "No content or IVT detail; not a geography rule."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1sza527/venatus_vs_publisher_collective/",
+        "publishedAt": "2026-05 (approx.; Reddit displayed 5 months)",
+        "site": "anonymous HTML5 gaming publisher",
+        "niche": "HTML5 gaming",
+        "traffic": {
+          "value": null,
+          "metric": "pageviews/sessions not disclosed; 10 million ad impressions and 35 million ad requests",
+          "period": "best month; exact month not stated"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [
+          "Tier 1 about 50–60%; remainder Tier 2/3"
+        ],
+        "decision": "reported using Playwire for over a year and considering Publisher Collective or Venatus because of video fill and performance; no migration outcome reported",
+        "limits": "anonymous self-report; no pageviews, sessions, monthly revenue, or exact country list; not an application-acceptance example"
+      }
+    ],
+    "inference": {
+      "trafficRange": {
+        "low": 100000,
+        "high": 500000,
+        "metric": "pageviews",
+        "period": "month",
+        "basisSourceUrls": [
+          "https://www.playwire.com/faq",
+          "https://www.playwire.com/qualification-criteria"
+        ],
+        "confidence": "medium"
+      },
+      "revenueRange": null,
+      "practicalFit": "Near 500K PV with strong original content and acceptable IVT is a clear inquiry fit; around 100K may justify an application discussion but not a guaranteed approval.",
+      "currentNetworkSignals": [
+        "May require replacing other programmatic tags.",
+        "Current provider is only comparison context."
+      ],
+      "geographyPreference": "20% US is associated with better average revenue; not a gate.",
+      "agePreference": "No age rule found.",
+      "confidence": "medium",
+      "rationale": "Two current official pages use different scale values for different purposes; anonymous reports show mixed results near 1M PV.",
+      "supportingSourceUrls": [
+        "https://www.playwire.com/faq",
+        "https://www.playwire.com/qualification-criteria",
+        "https://www.reddit.com/r/adops/comments/1wp5uz8/",
+        "https://www.reddit.com/r/adops/comments/1sza527/venatus_vs_publisher_collective/"
+      ],
+      "gaps": [
+        "Distinguish FAQ threshold from ROI guidance.",
+        "No public payout floor/method."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.playwire.com/faq",
+        "title": "Publisher FAQ",
+        "kind": "official help",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "500K PV / 1K DAU",
+          "IVT",
+          "SDK",
+          "tag compatibility"
+        ]
+      },
+      {
+        "url": "https://www.playwire.com/qualification-criteria",
+        "title": "Qualification criteria",
+        "kind": "official guidance",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "100K ROI guidance",
+          "20% US revenue signal"
+        ]
+      },
+      {
+        "url": "https://www.playwire.com/terms-of-service",
+        "title": "Terms of Service",
+        "kind": "official terms",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "publisher shares",
+          "Net 60"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1wp5uz8/",
+        "title": "Gaming publisher approaches and mixed results",
+        "kind": "publisher firsthand",
+        "publishedAt": "2026-10-21",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "site scale",
+          "vendor approach",
+          "mixed outcomes"
+        ]
+      },
+      {
+        "url": "https://www.playwire.com/apply",
+        "title": "Apply Now page",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "routes applicants to website/blog, mobile app, or desktop application"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1sza527/venatus_vs_publisher_collective/",
+        "title": "Playwire publisher considering other gaming networks",
+        "kind": "publisher firsthand",
+        "publishedAt": "2026-05 (approx.)",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "HTML5 gaming",
+          "50–60% Tier 1 share",
+          "10M impressions and 35M requests in best month",
+          "no alternative-network outcome"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "pubfuture",
+    "checkedAt": "2026-10-23",
+    "productType": "Managed publisher monetization platform with H5 gaming emphasis",
+    "applicationUrl": "https://ssp.pubfuture.com/auth/signup",
+    "directoryPatch": {
+      "checkedAt": "2026-10-23",
+      "keyNumbers": [
+        {
+          "label": "Traffic to join",
+          "value": "100,000",
+          "note": "monthly pageviews",
+          "sourceUrl": "https://pubfuture.com/home"
+        },
+        {
+          "label": "Pay day",
+          "value": "Net 30",
+          "note": "January earnings are released at the end of February.",
+          "sourceUrl": "https://pubfuture.com/home"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "At least 100,000 pageviews a month",
+          "sourceUrl": "https://pubfuture.com/home"
+        },
+        {
+          "label": "Content",
+          "value": "Safe content with no nudity",
+          "sourceUrl": "https://pubfuture.com/home"
+        },
+        {
+          "label": "Must connect",
+          "value": "Add PubFuture lines to ads.txt; tags work inside Google Ad Manager and other ad servers",
+          "sourceUrl": "https://pubfuture.com/home"
+        },
+        {
+          "label": "Application",
+          "value": "Create a publisher account and submit the website for review",
+          "sourceUrl": "https://ssp.pubfuture.com/auth/signup"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": "Net 30; January earnings released at the end of February",
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Publisher FAQ (JavaScript-rendered)",
+          "url": "https://pubfuture.com/home"
+        },
+        {
+          "label": "H5 game vendor case study",
+          "url": "https://blog.pubfuture.com/the-secret-to-400-more-revenue-for-h5-game-sites-pubfutures-winning-formula/1007/"
+        },
+        {
+          "label": "Publisher contact form",
+          "url": "https://pubfuture.com/contact"
+        },
+        {
+          "label": "Publisher onboarding and ads.txt article",
+          "url": "https://blog.pubfuture.com/ads-txt-and-ad-revenue-what-every-publisher-should-know/1236/"
+        },
+        {
+          "label": "Publisher sign-up form",
+          "url": "https://ssp.pubfuture.com/auth/signup"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "web publishers",
+        "H5 game publishers",
+        "interactive-content publishers"
+      ],
+      "nichesStrong": [
+        "H5 games",
+        "gaming"
+      ],
+      "nichesWeak": [
+        "general editorial blogs (limited fit evidence)"
+      ],
+      "geographies": [
+        "No public country rule found"
+      ],
+      "role": "primary",
+      "entryPositioning": "Current publisher FAQ states a 100,000 monthly pageview minimum, safe content, and ads.txt requirements.",
+      "compatibilityNotes": [
+        "Tags can work inside the publisher's ad server or Google Ad Manager; commercial compatibility with existing providers needs confirmation."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "pageviews",
+        "comparator": "gte",
+        "amount": 100000,
+        "unit": "count",
+        "period": "month",
+        "scope": "website",
+        "program": "PubFuture",
+        "sourceUrl": "https://pubfuture.com/home",
+        "note": "Verified in the live JavaScript-rendered FAQ on 2026-10-23."
+      }
+    ],
+    "observations": [],
+    "inference": {
+      "trafficRange": {
+        "low": 100000,
+        "high": null,
+        "metric": "pageviews",
+        "period": "month",
+        "basisSourceUrls": [
+          "https://pubfuture.com/home"
+        ],
+        "confidence": "high"
+      },
+      "revenueRange": null,
+      "practicalFit": "Consider for H5 gaming at or above the 100,000 monthly pageview floor; content and site review still apply.",
+      "currentNetworkSignals": [
+        "Ask about compatibility with existing game ad stack and current tags.",
+        "Other gaming-network membership is not acceptance proof."
+      ],
+      "geographyPreference": "Not public.",
+      "agePreference": "Not public.",
+      "confidence": "low",
+      "rationale": "The live FAQ establishes the traffic floor. H5 product emphasis and vendor cases support niche fit; independent acceptance reports remain sparse.",
+      "supportingSourceUrls": [
+        "https://pubfuture.com/",
+        "https://blog.pubfuture.com/the-secret-to-400-more-revenue-for-h5-game-sites-pubfutures-winning-formula/1007/"
+      ],
+      "gaps": [
+        "No public country percentage or base revenue share.",
+        "No independent success report with traffic and decision.",
+        "The older indexed $50 payout floor and payment methods were not reconfirmed in the live FAQ."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://pubfuture.com/home",
+        "title": "Publisher FAQ, opened in browser including questions5,8,9",
+        "kind": "official product/payment",
+        "publishedAt": null,
+        "checkedAt": "2026-10-23",
+        "claims": [
+          "At least100,000 monthly pageviews; safe content/no nudity; ads.txt.",
+          "Tags can run inside Google Ad Manager and other ad servers.",
+          "Net30:January paid at endofFebruary.",
+          "Older indexed$50payout/methods not reconfirmed in liveFAQ."
+        ]
+      },
+      {
+        "url": "https://blog.pubfuture.com/the-secret-to-400-more-revenue-for-h5-game-sites-pubfutures-winning-formula/1007/",
+        "title": "H5 game case",
+        "kind": "vendor case",
+        "publishedAt": "2025",
+        "checkedAt": "2026-10-16",
+        "claims": [
+          "100K PV context, not a threshold"
+        ]
+      },
+      {
+        "url": "https://pubfuture.com/contact",
+        "title": "Contact",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-16",
+        "claims": [
+          "publisher inquiry"
+        ]
+      },
+      {
+        "url": "https://ssp.pubfuture.com/auth/signup",
+        "title": "Publisher sign-up form",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-23",
+        "claims": [
+          "create account and submit website for monetization review"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "pubgalaxy",
+    "checkedAt": "2026-10-22",
+    "productType": "Retired standalone brand; publisher supply migrated to Improve Digital Yield or SSP",
+    "applicationUrl": null,
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "No standalone PubGalaxy application; publisher supply migrated to Improve Digital",
+          "sourceUrl": "https://www.azerion.com/azerion-unifies-its-publisher-supply-business-under-improve-digital-launching-a-full-circle-solution-for-publishers/"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Content",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Approval time",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Application",
+          "value": "No current PubGalaxy route; Improve Digital has separate Yield and SSP request-access routes",
+          "sourceUrl": "https://improvedigital.com/"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": null,
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Azerion announcement unifying publisher supply under Improve Digital",
+          "url": "https://www.azerion.com/azerion-unifies-its-publisher-supply-business-under-improve-digital-launching-a-full-circle-solution-for-publishers/"
+        },
+        {
+          "label": "Current Improve Digital publisher offering",
+          "url": "https://improvedigital.com/"
+        },
+        {
+          "label": "PubGalaxy official LinkedIn transition update",
+          "url": "https://gl.linkedin.com/company/pubgalaxy"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "legacy PubGalaxy publishers",
+        "current Improve Digital prospects"
+      ],
+      "nichesStrong": [
+        "web/app monetization for current replacement offer"
+      ],
+      "nichesWeak": [],
+      "geographies": [
+        "Improve Digital request form asks country; no published threshold"
+      ],
+      "role": "infrastructure",
+      "entryPositioning": "Unavailable as a standalone option. Azerion announced the consolidation on Sep 23, 2026.",
+      "compatibilityNotes": [
+        "Improve Digital Yield is managed and may replace current stack.",
+        "Improve Digital SSP is for publishers with their own stack and adds demand.",
+        "Do not carry legacy PubGalaxy payment terms to Improve Digital."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "standalone applications",
+        "comparator": "unavailable after migration",
+        "amount": null,
+        "unit": "program status",
+        "period": "current",
+        "scope": "publisher offer",
+        "program": "PubGalaxy",
+        "sourceUrl": "https://www.azerion.com/azerion-unifies-its-publisher-supply-business-under-improve-digital-launching-a-full-circle-solution-for-publishers/"
+      }
+    ],
+    "observations": [],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Do not recommend PubGalaxy as an active option. Offer Improve Digital as a separate current alternative based on managed versus publisher-owned ad operations.",
+      "currentNetworkSignals": [
+        "A legacy PubGalaxy account may have migrated but is not proof of current Improve Digital eligibility."
+      ],
+      "geographyPreference": "No current PubGalaxy preference.",
+      "agePreference": "No current rule.",
+      "confidence": "high",
+      "rationale": "Official Azerion release says publisher supply moved under Improve Digital and names the new Yield and SSP paths.",
+      "supportingSourceUrls": [
+        "https://www.azerion.com/azerion-unifies-its-publisher-supply-business-under-improve-digital-launching-a-full-circle-solution-for-publishers/",
+        "https://improvedigital.com/"
+      ],
+      "gaps": [
+        "No public Improve Digital traffic floor or payment terms.",
+        "Generic linked contact returned 404; access form appears on homepage."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.azerion.com/azerion-unifies-its-publisher-supply-business-under-improve-digital-launching-a-full-circle-solution-for-publishers/",
+        "title": "Publisher supply unification",
+        "kind": "official announcement",
+        "publishedAt": "2026-09-23",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "PubGalaxy transition",
+          "Yield and SSP"
+        ]
+      },
+      {
+        "url": "https://improvedigital.com/",
+        "title": "Improve Digital products/access",
+        "kind": "official product",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "managed Yield",
+          "SSP for own stack",
+          "request-access form"
+        ]
+      },
+      {
+        "url": "https://www.pubgalaxy.com/publishers/",
+        "title": "Legacy publisher URL",
+        "kind": "official legacy redirect",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "redirects to Improve Digital"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "publift",
+    "checkedAt": "2026-10-22",
+    "productType": "Managed publisher ad monetization and yield optimization",
+    "applicationUrl": "https://www.publift.com/lets-talk",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Revenue to join",
+          "value": "More than $2,000",
+          "note": "monthly ad revenue, in USD",
+          "sourceUrl": "https://www.publift.com/blog/publift-requirements"
+        },
+        {
+          "label": "Revenue split",
+          "value": "80/20",
+          "note": "in Publift's 2026 comparison; confirm in your order",
+          "sourceUrl": "https://www.publift.com/blog/best-mediavine-alternatives"
+        },
+        {
+          "label": "Payment minimum",
+          "value": "$200",
+          "sourceUrl": "https://www.publift.com/blog/the-best-cpm-ad-network-for-publishers"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "500,000 monthly pageviews is secondary; more than $2,000 monthly ad revenue is the main qualifying metric",
+          "note": "Monthly; revenue is the main qualifying metric.",
+          "sourceUrl": "https://www.publift.com/blog/publift-requirements"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Best fit: majority of traffic from the Americas, Europe, or Australia/New Zealand",
+          "note": "Publift says it works best with this mix; it does not state a strict geographic cutoff.",
+          "sourceUrl": "https://www.publift.com/how-it-works"
+        },
+        {
+          "label": "Content",
+          "value": "Useful, original, appropriate, and brand-safe content",
+          "sourceUrl": "https://www.publift.com/blog/publift-requirements"
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Approval time",
+          "value": "Ad tags provided within five days",
+          "note": "The guide does not separate review time from the ad-tag delivery window.",
+          "sourceUrl": "https://www.publift.com/blog/the-best-cpm-ad-network-for-publishers"
+        },
+        {
+          "label": "Ad revenue",
+          "value": "More than $2,000 a month",
+          "note": "Primary qualifying metric, in USD.",
+          "sourceUrl": "https://www.publift.com/blog/publift-requirements"
+        },
+        {
+          "label": "Application",
+          "value": "The enquiry form asks for monthly revenue, monthly pageviews, and majority traffic location; these are intake fields, not approval guarantees.",
+          "sourceUrl": "https://www.publift.com/lets-talk"
+        }
+      ],
+      "revenueShare": "80/20 model according to Publift’s 2026 comparison; confirm in the order",
+      "paymentTerms": "Google revenue: Net 30; other ad-network revenue: Net 90",
+      "paymentThreshold": "$200 USD",
+      "paymentMethods": [
+        "Direct bank transfer"
+      ],
+      "sources": [
+        {
+          "label": "Publift requirements",
+          "url": "https://www.publift.com/blog/publift-requirements"
+        },
+        {
+          "label": "How it works and publisher fit",
+          "url": "https://www.publift.com/how-it-works"
+        },
+        {
+          "label": "2026 Mediavine alternatives comparison and revenue split",
+          "url": "https://www.publift.com/blog/best-mediavine-alternatives"
+        },
+        {
+          "label": "2026 CPM network payment and tag timing comparison",
+          "url": "https://www.publift.com/blog/the-best-cpm-ad-network-for-publishers"
+        },
+        {
+          "label": "2026 payment comparison",
+          "url": "https://www.publift.com/blog/ezoic-vs-adsense-vs-publift"
+        },
+        {
+          "label": "Publisher enquiry form",
+          "url": "https://www.publift.com/lets-talk"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "established web publishers",
+        "publishers with material ad revenue",
+        "sites seeking managed yield support"
+      ],
+      "nichesStrong": [
+        "content publishing; no strict niche rule stated"
+      ],
+      "nichesWeak": [],
+      "geographies": [
+        "Publift says traffic origin is not a strict discriminator"
+      ],
+      "role": "primary",
+      "entryPositioning": "Publift says >$2K monthly ad revenue is its main qualifying measure; 500K PV is secondary. Fast-growing smaller sites may contact the team.",
+      "compatibilityNotes": [
+        "Managed service replaces primary display stack.",
+        "Confirm 80/20 and payout details in signed order.",
+        "Sales forecasts are not guaranteed RPMs."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "monthly ad revenue",
+        "comparator": "more than",
+        "amount": 2000,
+        "unit": "USD",
+        "period": "month",
+        "scope": "publisher site",
+        "program": "Publift managed service",
+        "sourceUrl": "https://www.publift.com/blog/publift-requirements",
+        "note": "Primary qualifying metric; rapidly growing sites below may contact the team."
+      },
+      {
+        "metric": "pageviews",
+        "comparator": "secondary indicator, not minimum",
+        "amount": 500000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "publisher site",
+        "program": "Publift",
+        "sourceUrl": "https://www.publift.com/blog/publift-requirements"
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1wp5uz8/",
+        "publishedAt": "2026-10-21 (relative date)",
+        "site": "anonymous gaming site",
+        "niche": "gaming",
+        "traffic": {
+          "value": 1400000,
+          "metric": "pageviews/month; 110K MAU",
+          "period": "month"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [
+          "US over 50%"
+        ],
+        "decision": "publisher said Publift forecast $4K–$10K net monthly potential; had not launched and questioned quote",
+        "limits": "Not realized revenue or general performance."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1w7fix0/",
+        "publishedAt": "2026-09 (approx.)",
+        "site": "anonymous React PWA publisher",
+        "niche": "PWA",
+        "traffic": {
+          "value": null,
+          "metric": "not disclosed",
+          "period": null
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "one user stopped test after fullscreen ad issue; another said service worked well for years",
+        "limits": "Conflicting anecdotes without scale."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": {
+        "minimum": 2000,
+        "currency": "USD",
+        "period": "monthly ad revenue",
+        "nature": "official primary fit criterion; no upper limit published"
+      },
+      "practicalFit": "Prioritize for actual ad revenue above $2K/month; pageviews alone are secondary. Smaller fast-growing sites can ask for review.",
+      "currentNetworkSignals": [
+        "Use actual existing ad revenue, not a vendor estimate.",
+        "Check migration from another managed stack."
+      ],
+      "geographyPreference": "Origin is not stated as strict; fit copy favors Americas, Europe, Australia/New Zealand.",
+      "agePreference": "No age minimum found.",
+      "confidence": "high",
+      "rationale": "Oct 2026 official requirements guide names monthly revenue as its main criterion and expressly welcomes fast-growing smaller publishers to contact them.",
+      "supportingSourceUrls": [
+        "https://www.publift.com/blog/publift-requirements",
+        "https://www.publift.com/how-it-works"
+      ],
+      "gaps": [
+        "No public geo share or Google standing condition.",
+        "No independent acceptance near $2K threshold.",
+        "Comparison-page payment terms should be checked against contract."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.publift.com/blog/publift-requirements",
+        "title": "Publift Requirements 2026",
+        "kind": "official requirements",
+        "publishedAt": "2026-10-08",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          ">$2K monthly revenue",
+          "500K PV secondary"
+        ]
+      },
+      {
+        "url": "https://www.publift.com/how-it-works",
+        "title": "How it works",
+        "kind": "official product",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "managed monetization and geography guidance"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1wp5uz8/",
+        "title": "Publisher inquiry and forecast",
+        "kind": "publisher firsthand",
+        "publishedAt": "2026-10-21",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "1.4M PV",
+          "unverified forecast"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1w7fix0/",
+        "title": "Publisher reviews",
+        "kind": "publisher firsthand",
+        "publishedAt": "2026-09",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "mixed reports"
+        ]
+      },
+      {
+        "url": "https://www.publift.com/lets-talk",
+        "title": "Publisher enquiry form",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "monthly revenue, pageviews, and majority-traffic-location intake fields"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "publir",
+    "checkedAt": "2026-10-22",
+    "productType": "Publisher monetization suite for programmatic ads, subscriptions, adblock recovery, crowdfunding, and commerce",
+    "applicationUrl": "https://publir.com/app/pricing",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Programmatic share",
+          "value": "85%",
+          "note": "publisher share; Publir retains 15%, before applicable service costs",
+          "sourceUrl": "https://publir.com/service_agreement"
+        },
+        {
+          "label": "Custom ad share",
+          "value": "50/50",
+          "note": "publisher and Publir; Net 60",
+          "sourceUrl": "https://publir.com/service_agreement"
+        },
+        {
+          "label": "Pro fee",
+          "value": "15%",
+          "note": "separate from custom ad sales",
+          "sourceUrl": "https://publir.com/app/pricing"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "Pricing lists no traffic limit, but general admission criteria are not fully disclosed",
+          "sourceUrl": "https://publir.com/app/pricing",
+          "note": "Not a guarantee of acceptance at any traffic level."
+        },
+        {
+          "label": "Visitor location",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Content",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Install Publir's software and ad tags",
+          "sourceUrl": "https://publir.com/service_agreement"
+        },
+        {
+          "label": "Approval time",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Exclusivity",
+          "value": "Non-exclusive service agreement",
+          "sourceUrl": "https://publir.com/service_agreement"
+        },
+        {
+          "label": "Notice",
+          "value": "Either party may terminate with 30 days’ notice",
+          "sourceUrl": "https://publir.com/service_agreement"
+        }
+      ],
+      "revenueShare": "Programmatic and subscriptions: 85% to publisher before service costs; custom ads: 50/50; crowdfunding: Publir retains 15%",
+      "paymentTerms": "Programmatic and custom ads: at least monthly on Net 60; subscriptions: paid at least monthly",
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Pricing",
+          "url": "https://publir.com/app/pricing"
+        },
+        {
+          "label": "Service agreement",
+          "url": "https://publir.com/service_agreement"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "digital publications",
+        "publishers adding subscription/crowdfunding tools",
+        "publishers seeking ad optimization"
+      ],
+      "nichesStrong": [
+        "publisher content; no niche focus published"
+      ],
+      "nichesWeak": [],
+      "geographies": [
+        "No geography rule found"
+      ],
+      "role": "infrastructure",
+      "entryPositioning": "Pricing lists no traffic limit for a product tier, but no complete admission checklist is public.",
+      "compatibilityNotes": [
+        "Programmatic agreement says Publir serves 100% of ads in that service.",
+        "Subscriptions, adblock recovery, crowdfunding, and commerce may be additive.",
+        "Agreement last updated in 2024; reconfirm current terms."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "traffic limit",
+        "comparator": "none listed on pricing page; admission criteria not fully disclosed",
+        "amount": null,
+        "unit": "traffic",
+        "period": null,
+        "scope": "pricing/product access",
+        "program": "Publir",
+        "sourceUrl": "https://publir.com/app/pricing"
+      }
+    ],
+    "observations": [],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Fit depends on the module needed. Stronger option when a publisher wants subscriptions, crowdfunding, adblock recovery, or programmatic support; not enough evidence to recommend on traffic scale alone.",
+      "currentNetworkSignals": [
+        "Identify whether the user needs a full programmatic replacement or a specific add-on.",
+        "Check fees for ad serving/infrastructure as well as the share."
+      ],
+      "geographyPreference": "No public rule.",
+      "agePreference": "No public rule.",
+      "confidence": "low",
+      "rationale": "Official pricing and contract detail product economics but no numeric admissions or independent entry examples.",
+      "supportingSourceUrls": [
+        "https://publir.com/app/pricing",
+        "https://publir.com/service_agreement"
+      ],
+      "gaps": [
+        "No public payment floor or methods.",
+        "No independent publisher report with site scale and application decision.",
+        "Public service agreement is dated Oct 2024."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://publir.com/app/pricing",
+        "title": "Pricing and product plans",
+        "kind": "official product",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "no traffic limit language",
+          "Pro fee"
+        ]
+      },
+      {
+        "url": "https://publir.com/service_agreement",
+        "title": "Service Agreement",
+        "kind": "official terms",
+        "publishedAt": "2024-10-15",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "programmatic share and Net 60",
+          "custom ad split",
+          "possible fees"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "publisher-collective",
+    "checkedAt": "2026-10-22",
+    "productType": "Managed publisher monetization and ad-sales collective combined with Snigel technology",
+    "applicationUrl": "https://www.publisher-collective.com/publisher-contact",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Revenue signal",
+          "value": "About €300",
+          "note": "EUR daily review signal; not a hard joining cutoff",
+          "sourceUrl": "https://www.publisher-collective.com/faq"
+        },
+        {
+          "label": "Payment minimum",
+          "value": "€500",
+          "sourceUrl": "https://www.publisher-collective.com/partners-terms-conditions"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "Core niches are reviewed individually; other niches need 3,000,000 monthly pageviews",
+          "note": "Tech, gaming, education, sports and health are core. Hobby coverage needs confirmation. EUR 300 daily revenue is a flexible review signal.",
+          "sourceUrl": "https://www.publisher-collective.com/faq"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Works with publishers globally",
+          "sourceUrl": "https://www.publisher-collective.com/faq"
+        },
+        {
+          "label": "Content",
+          "value": "Unique, high-quality content and reputable traffic",
+          "note": "No bots or fraudulent traffic; partner terms also prohibit specified content",
+          "sourceUrl": "https://www.publisher-collective.com/faq"
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Add Publisher Collective JavaScript tags to the site",
+          "sourceUrl": "https://www.publisher-collective.com/faq"
+        },
+        {
+          "label": "Approval time",
+          "value": "Application decision time not public; setup takes 10–14 days, full ramp target up to 30 days",
+          "note": "The FAQ gives 10 to 14 days for onboarding setup, not application approval",
+          "sourceUrl": "https://www.publisher-collective.com/faq"
+        },
+        {
+          "label": "Niches",
+          "value": "Technology, video gaming, hobbies and casual games, knowledge and education, sports, health and wellbeing",
+          "sourceUrl": "https://www.publisher-collective.com/faq"
+        },
+        {
+          "label": "Ad revenue",
+          "value": "About €300/day is a flexible evaluation signal; lower sites may be considered for growth or quality",
+          "sourceUrl": "https://www.publisher-collective.com/faq"
+        },
+        {
+          "label": "Application",
+          "value": "Site owners can submit a publisher partner enquiry; review is sales-led.",
+          "sourceUrl": "https://www.publisher-collective.com/publisher-contact"
+        }
+      ],
+      "revenueShare": "Set individually in the Advertising Representation Agreement",
+      "paymentTerms": "Paid after the advertiser pays; the partner terms set no fixed interval",
+      "paymentThreshold": "€500",
+      "paymentMethods": [
+        "Bank transfer; GBP, EUR, or USD"
+      ],
+      "sources": [
+        {
+          "label": "Publisher FAQ and current eligibility",
+          "url": "https://www.publisher-collective.com/faq"
+        },
+        {
+          "label": "Partner terms",
+          "url": "https://www.publisher-collective.com/partners-terms-conditions"
+        },
+        {
+          "label": "Publisher contact form",
+          "url": "https://www.publisher-collective.com/publisher-contact"
+        }
+      ],
+      "joinSummary": "Core genres are reviewed individually; other niches need 3 million pageviews a month"
+    },
+    "fit": {
+      "publisherTypes": [
+        "independent/specialist publishers",
+        "gaming, tech, education, sports, health and hobby sites"
+      ],
+      "nichesStrong": [
+        "technology",
+        "gaming",
+        "hobbies/casual games",
+        "education",
+        "sports",
+        "health and wellbeing"
+      ],
+      "nichesWeak": [
+        "non-core genres generally need larger scale"
+      ],
+      "geographies": [
+        "Serves publishers globally"
+      ],
+      "role": "sales_collective",
+      "entryPositioning": "Selective hands-on partner. Core genres are reviewed individually; other niches have a 3M monthly PV rule. €300/day is flexible, not a hard minimum.",
+      "compatibilityNotes": [
+        "Hybrid client/server header bidding and direct advertising are available.",
+        "May replace a current managed stack; confirm contract and demand scope.",
+        "Prior Snigel/PC experience is only a soft signal."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "pageviews",
+        "comparator": "at least for publishers outside core genres",
+        "amount": 3000000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "publisher site",
+        "program": "Publisher Collective",
+        "sourceUrl": "https://www.publisher-collective.com/faq"
+      },
+      {
+        "metric": "monthly ad revenue",
+        "comparator": "approximately; lower sites may be considered for growth/quality",
+        "amount": 300,
+        "unit": "EUR per day",
+        "period": "day",
+        "scope": "publisher site",
+        "program": "Publisher Collective",
+        "sourceUrl": "https://www.publisher-collective.com/faq",
+        "note": "Flexible review signal."
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1mpgmnn/",
+        "publishedAt": "2025-10 (approx.)",
+        "site": "anonymous gaming owner",
+        "niche": "gaming",
+        "traffic": {
+          "value": 90000,
+          "metric": "pageviews/day",
+          "period": "daily"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "considering PC with NitroPay/Playwire; no application outcome",
+        "limits": "Question only."
+      },
+      {
+        "sourceUrl": "https://www.trustpilot.com/review/www.publisher-collective.com",
+        "publishedAt": "2026-04-03",
+        "site": "reviewer says prior Snigel publisher",
+        "niche": "not stated",
+        "traffic": {
+          "value": null,
+          "metric": "not disclosed",
+          "period": null
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "reviewer alleged payment issues after merger",
+        "limits": "Single, unverified complaint with no metrics."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1sza527/venatus_vs_publisher_collective/",
+        "publishedAt": "2026-05 (approx.; Reddit displayed 5 months)",
+        "site": "anonymous HTML5 gaming publisher",
+        "niche": "HTML5 gaming",
+        "traffic": {
+          "value": null,
+          "metric": "pageviews/sessions not disclosed; 10 million ad impressions and 35 million ad requests",
+          "period": "best month; exact month not stated"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [
+          "Tier 1 about 50–60%; remainder Tier 2/3"
+        ],
+        "decision": "considered Publisher Collective and Venatus as alternatives while still using Playwire; no application outcome reported",
+        "limits": "anonymous self-report; figures describe the publisher’s Playwire site, not a Publisher Collective client; no pageviews, sessions, or revenue"
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Prioritize for publishers in the named core niches with meaningful monetization opportunity; for other genres, apply the stated 3M PV floor. Growth/quality can justify asking below €300/day.",
+      "currentNetworkSignals": [
+        "Current provider is comparator only, not acceptance proof.",
+        "Check whether prior Snigel/PC contracts migrated."
+      ],
+      "geographyPreference": "Global service; no country-share gate published.",
+      "agePreference": "No domain-age minimum found.",
+      "confidence": "high",
+      "rationale": "Official FAQ gives specific core genres, a separate rule for other niches, and a flexible revenue review signal.",
+      "supportingSourceUrls": [
+        "https://www.publisher-collective.com/faq",
+        "https://www.publisher-collective.com/partners-terms-conditions",
+        "https://www.reddit.com/r/adops/comments/1sza527/venatus_vs_publisher_collective/"
+      ],
+      "gaps": [
+        "No acceptance rate or core-niche traffic floor.",
+        "Current share is negotiated.",
+        "Recent negative Trustpilot reports are unverified."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.publisher-collective.com/faq",
+        "title": "Current Publisher Collective FAQ",
+        "kind": "official program",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "company structure",
+          "core niches",
+          "3M outside core",
+          "flexible revenue evaluation"
+        ]
+      },
+      {
+        "url": "https://www.publisher-collective.com/partners-terms-conditions",
+        "title": "Partner terms",
+        "kind": "official contract",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "payment threshold/terms"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1mpgmnn/",
+        "title": "Gaming publisher discussion",
+        "kind": "publisher discussion",
+        "publishedAt": "2025-10",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "traffic context, no decision"
+        ]
+      },
+      {
+        "url": "https://www.trustpilot.com/review/www.publisher-collective.com",
+        "title": "Customer reviews",
+        "kind": "publisher-submitted",
+        "publishedAt": "2026-04",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "unverified complaints"
+        ]
+      },
+      {
+        "url": "https://www.publisher-collective.com/publisher-contact",
+        "title": "Publisher contact form",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "site-owner partner enquiry route"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1sza527/venatus_vs_publisher_collective/",
+        "title": "Gaming publisher comparing Publisher Collective and Venatus",
+        "kind": "publisher firsthand",
+        "publishedAt": "2026-05 (approx.)",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "Playwire customer considering alternatives",
+          "traffic and ad-request context",
+          "no Publisher Collective application outcome"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "pubnation",
+    "checkedAt": "2026-10-22",
+    "productType": "Discontinued standalone offer; sites migrated to Mediavine",
+    "applicationUrl": null,
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "No current standalone PubNation offer; migration to Mediavine is complete",
+          "sourceUrl": "https://help.mediavine.com/"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Content",
+          "value": "Mentions gaming, sports, tech, entertainment, and other genres",
+          "sourceUrl": "https://www.pubnation.com/"
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Approval time",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Application",
+          "value": "Discontinued; use a current Mediavine route if eligible",
+          "sourceUrl": "https://help.mediavine.com/"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": null,
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Official publisher homepage",
+          "url": "https://www.pubnation.com/"
+        },
+        {
+          "label": "Mediavine migration status",
+          "url": "https://help.mediavine.com/"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "historical PubNation accounts"
+      ],
+      "nichesStrong": [
+        "historically gaming, sports, tech and entertainment"
+      ],
+      "nichesWeak": [],
+      "geographies": [
+        "No current PubNation rules"
+      ],
+      "role": "primary",
+      "entryPositioning": "Not available as a separate application. Current Mediavine Help Center says migration is complete.",
+      "compatibilityNotes": [
+        "Historical PubNation acceptance does not prove present Mediavine eligibility.",
+        "Ask which active Mediavine program account uses."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "standalone publisher applications",
+        "comparator": "unavailable; migration completed",
+        "amount": null,
+        "unit": "program status",
+        "period": "current",
+        "scope": "publisher offer",
+        "program": "PubNation",
+        "sourceUrl": "https://help.mediavine.com/"
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/Blogging/comments/1s0ly5b/",
+        "publishedAt": "2026-03 (approx.; Reddit displayed 7 months)",
+        "site": "anonymous gaming blog; owner reported nearly 9 years old",
+        "niche": "gaming",
+        "traffic": {
+          "value": "30000–40000",
+          "metric": "sessions/month",
+          "period": "month"
+        },
+        "adRevenueMonthlyUsd": 621,
+        "countries": [
+          "Mostly Google; country mix not stated"
+        ],
+        "decision": "reported accepted to PubNation; about $621 last month and $614 month-to-date in current month",
+        "limits": "Historical program; sessions are not pageviews and current-month revenue is incomplete."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Do not shortlist as current. Keep historical gaming acceptance for context only, not as present Mediavine eligibility evidence.",
+      "currentNetworkSignals": [
+        "If user reports PubNation, verify migration and current Mediavine program."
+      ],
+      "geographyPreference": "No current preference.",
+      "agePreference": "No current age rule.",
+      "confidence": "high",
+      "rationale": "Official Mediavine help says PubNation migration is complete and the offer is no longer available.",
+      "supportingSourceUrls": [
+        "https://help.mediavine.com/",
+        "https://www.pubnation.com/"
+      ],
+      "gaps": [
+        "Migration timing/contract details per publisher not public.",
+        "Historical anecdote is anonymous."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://help.mediavine.com/",
+        "title": "Mediavine Help Center",
+        "kind": "official support",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "migration completed; offer unavailable"
+        ]
+      },
+      {
+        "url": "https://www.pubnation.com/",
+        "title": "Legacy PubNation homepage",
+        "kind": "official legacy page",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "legacy marketing does not override current support status"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/Blogging/comments/1s0ly5b/",
+        "title": "PubNation historical acceptance report",
+        "kind": "publisher firsthand",
+        "publishedAt": "2026-03 (approx.)",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "site age",
+          "gaming",
+          "sessions",
+          "earnings"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "pubpower",
+    "checkedAt": "2026-10-23",
+    "productType": "Managed publisher monetization and custom-bidder infrastructure",
+    "applicationUrl": "https://apps.pubpower.io/register",
+    "directoryPatch": {
+      "checkedAt": "2026-10-23",
+      "keyNumbers": [
+        {
+          "label": "Dated traffic figure",
+          "value": "100,000",
+          "note": "approximate and dated; not a confirmed joining cutoff",
+          "sourceUrl": "https://help.pubpower.io/article/website-requirements"
+        },
+        {
+          "label": "Pay day",
+          "value": "Net 0 or Net 30",
+          "note": "Net 0 above $3,000 a month in revenue",
+          "sourceUrl": "https://help.pubpower.io/article/payment-methods-terms"
+        },
+        {
+          "label": "Payoneer minimum",
+          "value": "$50",
+          "sourceUrl": "https://help.pubpower.io/article/payment-methods-terms"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "Around 100,000 monthly visitors in an old help page; current threshold needs reconfirmation",
+          "note": "Page last updated about three years ago; not a confirmed current strict floor.",
+          "sourceUrl": "https://help.pubpower.io/article/website-requirements"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Content",
+          "value": "Follow PubPower’s content policy; no pop-ups or redirects",
+          "note": "Policy bars or restricts sexual, explicit, violent, illegal, gambling, and infringing content.",
+          "sourceUrl": "https://help.pubpower.io/article/website-requirements"
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Add PubPower ads.txt lines and install its ad tag",
+          "sourceUrl": "https://help.pubpower.io/article/quick-start-to-your-monetization"
+        },
+        {
+          "label": "Approval time",
+          "value": "Usually 24–48 hours to 2–4 days",
+          "note": "Quick-start says 24–48 hours; FAQ says 2–4 days and warns weekends can take longer.",
+          "sourceUrl": "https://help.pubpower.io/article/quick-start-to-your-monetization"
+        },
+        {
+          "label": "Application",
+          "value": "Create a PubPower publisher account, add the domain, then wait for the publisher QA review.",
+          "sourceUrl": "https://help.pubpower.io/article/quick-start-to-your-monetization"
+        }
+      ],
+      "revenueShare": "Essential publisher revenue share is tailored; Advanced custom bidders have no revenue share",
+      "paymentTerms": "Net 0 above $3,000 monthly revenue; otherwise Net 30",
+      "paymentThreshold": "Bank: $1,000; PayPal: $100; Payoneer: $50; crypto: BCH $100, BTC $1,000, USDT-ERC20 $1,000",
+      "paymentMethods": [
+        "Bank transfer",
+        "PayPal",
+        "Payoneer",
+        "Cryptocurrency (BCH, BTC, USDT-ERC20)"
+      ],
+      "sources": [
+        {
+          "label": "PubPower publisher packages and revenue-sharing model",
+          "url": "https://pubpower.io/"
+        },
+        {
+          "label": "Website requirements",
+          "url": "https://help.pubpower.io/article/website-requirements"
+        },
+        {
+          "label": "Content policies",
+          "url": "https://help.pubpower.io/article/content-policies"
+        },
+        {
+          "label": "Quick-start and domain review",
+          "url": "https://help.pubpower.io/article/quick-start-to-your-monetization"
+        },
+        {
+          "label": "Publisher FAQ and review timing",
+          "url": "https://help.pubpower.io/article/getting-started-faqs"
+        },
+        {
+          "label": "Payment methods and terms",
+          "url": "https://help.pubpower.io/article/payment-methods-terms"
+        },
+        {
+          "label": "Publisher account registration",
+          "url": "https://apps.pubpower.io/register"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "small/mid-size publishers",
+        "anime and gaming sites",
+        "publishers seeking managed stack or custom bidders"
+      ],
+      "nichesStrong": [
+        "anime and entertainment",
+        "gaming (limited evidence)"
+      ],
+      "nichesWeak": [],
+      "geographies": [
+        "No country preference found"
+      ],
+      "role": "primary",
+      "entryPositioning": "Dated official guidance says around 100K monthly visitors. Treat as low-confidence conversation cue, not current cutoff.",
+      "compatibilityNotes": [
+        "Managed service may replace display stack.",
+        "Advanced custom bidders can layer on a publisher-owned setup.",
+        "Some first-hand report says AdSense ran alongside; confirm package."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "visitors",
+        "comparator": "around; dated help guidance",
+        "amount": 100000,
+        "unit": "visitors",
+        "period": "month",
+        "scope": "publisher site",
+        "program": "PubPower",
+        "sourceUrl": "https://help.pubpower.io/article/website-requirements",
+        "note": "Page update was about three years before check; not confirmed as current strict cutoff."
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1dpv6e3/",
+        "publishedAt": "2024-06 (approx.)",
+        "site": "anonymous anime website",
+        "niche": "anime",
+        "traffic": {
+          "value": 100000,
+          "metric": "“traffic” (metric unclear)",
+          "period": "not stated"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "seven-month-old site reported using AdSense and PubPower; PubPower CPM below AdSense",
+        "limits": "Traffic metric undefined; no approval/revenue total."
+      }
+    ],
+    "inference": {
+      "trafficRange": {
+        "low": 100000,
+        "high": null,
+        "metric": "visitors",
+        "period": "month",
+        "basisSourceUrls": [
+          "https://help.pubpower.io/article/website-requirements"
+        ],
+        "confidence": "low"
+      },
+      "revenueRange": null,
+      "practicalFit": "Potentially worth exploring near old ~100K visitor guidance, especially for managed monetization or bidder tools; stale help material means eligibility remains uncertain.",
+      "currentNetworkSignals": [
+        "AdSense may coexist in some setup, based on one report; confirm contract.",
+        "Distinguish managed service from bidder-only platform."
+      ],
+      "geographyPreference": "No public preference.",
+      "agePreference": "No official age minimum; one seven-month-old site was reported but outcome unclear.",
+      "confidence": "low",
+      "rationale": "Official site requirement is old; the lone independent report uses ambiguous traffic and no final result.",
+      "supportingSourceUrls": [
+        "https://help.pubpower.io/article/website-requirements",
+        "https://help.pubpower.io/article/payment-methods-terms",
+        "https://www.reddit.com/r/adops/comments/1dpv6e3/",
+        "https://pubpower.io/"
+      ],
+      "gaps": [
+        "Reconfirm traffic rule.",
+        "No geography profile or unambiguous acceptance report.",
+        "Payment article is about two years old."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://help.pubpower.io/article/website-requirements",
+        "title": "Website requirements",
+        "kind": "official help",
+        "publishedAt": "2023 approx.",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "around 100K visitors",
+          "site quality"
+        ]
+      },
+      {
+        "url": "https://help.pubpower.io/article/payment-methods-terms",
+        "title": "Payment methods and terms",
+        "kind": "official help",
+        "publishedAt": "2024 approx.",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "method thresholds",
+          "Net 0 / Net 30"
+        ]
+      },
+      {
+        "url": "https://help.pubpower.io/article/quick-start-to-your-monetization",
+        "title": "Quick-start",
+        "kind": "official help",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "tag setup and timing"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1dpv6e3/",
+        "title": "Anime publisher question",
+        "kind": "publisher firsthand",
+        "publishedAt": "2024-06 approx.",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "seven-month age",
+          "ambiguous 100K traffic",
+          "AdSense coexistence"
+        ]
+      },
+      {
+        "url": "https://apps.pubpower.io/register",
+        "title": "PubPower publisher account registration",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-23",
+        "claims": [
+          "publisher account registration route"
+        ]
+      },
+      {
+        "url": "https://pubpower.io/",
+        "title": "Publisher packages and revenue-share options (official indexed page excerpt)",
+        "kind": "official product",
+        "publishedAt": null,
+        "checkedAt": "2026-10-23",
+        "claims": [
+          "Essential plan share is tailored; the rate is not published",
+          "Advanced custom-bidder package advertises no revenue share",
+          "direct page could not be opened in this check"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "raptive",
+    "checkedAt": "2026-10-23",
+    "productType": "Managed display advertising and publisher growth platform",
+    "applicationUrl": "https://dashboard.raptive.com/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-23",
+      "keyNumbers": [
+        {
+          "label": "Traffic to join",
+          "value": "25,000",
+          "note": "monthly pageviews",
+          "sourceUrl": "https://help.raptive.com/hc/en-us/articles/360032840891-Who-is-eligible-for-Raptive"
+        },
+        {
+          "label": "Your share",
+          "value": "75%",
+          "sourceUrl": "https://help.raptive.com/hc/en-us/articles/360035078152-Getting-Started-with-Raptive"
+        },
+        {
+          "label": "Pay day",
+          "value": "Net 45",
+          "sourceUrl": "https://help.raptive.com/hc/en-us/articles/202052255-When-do-I-get-paid"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "At least 25,000 monthly pageviews; 50% named-country share below 100K PV and 40% at/above 100K",
+          "note": "Monthly",
+          "sourceUrl": "https://help.raptive.com/hc/en-us/articles/360032840891-Who-is-eligible-for-Raptive"
+        },
+        {
+          "label": "Visitor location",
+          "value": "50% from five countries at 25k–99,999 pageviews; 40% at 100k+",
+          "note": "US, UK, Canada, New Zealand, or Australia",
+          "sourceUrl": "https://help.raptive.com/hc/en-us/articles/360032840891-Who-is-eligible-for-Raptive"
+        },
+        {
+          "label": "Content",
+          "value": "High-quality, original, human-led content",
+          "note": "Long-form content on most pages at 25k–99,999 pageviews",
+          "sourceUrl": "https://help.raptive.com/hc/en-us/articles/360032840891-Who-is-eligible-for-Raptive"
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Google Analytics access",
+          "note": "Read-only authorization",
+          "sourceUrl": "https://help.raptive.com/hc/en-us/articles/6681661647515-Applying-to-Raptive-with-Google-Analytics"
+        },
+        {
+          "label": "Approval time",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Domain age",
+          "value": "At least six months",
+          "sourceUrl": "https://help.raptive.com/hc/en-us/articles/360032840891-Who-is-eligible-for-Raptive"
+        },
+        {
+          "label": "Application",
+          "value": "Apply in the Raptive dashboard after confirming traffic, country share, domain age, and Google Analytics criteria.",
+          "sourceUrl": "https://help.raptive.com/hc/en-us/articles/360032840891-Who-is-eligible-for-Raptive"
+        }
+      ],
+      "revenueShare": "75%",
+      "paymentTerms": "Net 45; paid on the 15th",
+      "paymentThreshold": "$25 for most methods; $100 for wire transfer",
+      "paymentMethods": [
+        "US direct deposit",
+        "eCheck or local bank transfer",
+        "PayPal",
+        "Paper check",
+        "Wire transfer"
+      ],
+      "sources": [
+        {
+          "label": "Creator eligibility",
+          "url": "https://help.raptive.com/hc/en-us/articles/360032840891-Who-is-eligible-for-Raptive"
+        },
+        {
+          "label": "Applying with Google Analytics",
+          "url": "https://help.raptive.com/hc/en-us/articles/6681661647515-Applying-to-Raptive-with-Google-Analytics"
+        },
+        {
+          "label": "Getting started and share",
+          "url": "https://help.raptive.com/hc/en-us/articles/360035078152-Getting-Started-with-Raptive"
+        },
+        {
+          "label": "Payment timing",
+          "url": "https://help.raptive.com/hc/en-us/articles/202052255-When-do-I-get-paid"
+        },
+        {
+          "label": "Payment methods",
+          "url": "https://help.raptive.com/hc/en-us/articles/360013465192-Payment-Methods"
+        },
+        {
+          "label": "Payment thresholds",
+          "url": "https://help.raptive.com/hc/en-us/articles/360025379831-Why-didn-t-I-get-my-Raptive-payment"
+        },
+        {
+          "label": "Raptive publisher dashboard application route (direct preview is session-gated)",
+          "url": "https://dashboard.raptive.com/"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "content publishers and creators",
+        "recipe/lifestyle/editorial sites",
+        "original-content websites"
+      ],
+      "nichesStrong": [
+        "food/recipes",
+        "lifestyle",
+        "editorial",
+        "gaming where content and geo qualify"
+      ],
+      "nichesWeak": [
+        "thin/copycat/fully AI-generated content"
+      ],
+      "geographies": [
+        "US/UK/CA/NZ/AU share: 50% at 25K–99,999 PV; 40% at 100K+"
+      ],
+      "role": "primary",
+      "entryPositioning": "Official floor at 25K PV/month, with country bands and a six-month domain age. No ad-revenue minimum published.",
+      "compatibilityNotes": [
+        "Primary managed display stack.",
+        "Named five-country rule is not equivalent to all Tier 1 share.",
+        "Current network is a benchmark, not proof of acceptance."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "pageviews",
+        "comparator": "at least",
+        "amount": 25000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "publisher site",
+        "program": "Raptive",
+        "sourceUrl": "https://help.raptive.com/hc/en-us/articles/360032840891-Who-is-eligible-for-Raptive"
+      },
+      {
+        "metric": "traffic share in US/UK/CA/NZ/AU",
+        "comparator": "at least below 100K pageviews",
+        "amount": 50,
+        "unit": "percent",
+        "period": null,
+        "scope": "publisher audience",
+        "program": "Raptive",
+        "sourceUrl": "https://help.raptive.com/hc/en-us/articles/360032840891-Who-is-eligible-for-Raptive"
+      },
+      {
+        "metric": "traffic share in US/UK/CA/NZ/AU",
+        "comparator": "at least at 100K+ pageviews",
+        "amount": 40,
+        "unit": "percent",
+        "period": null,
+        "scope": "publisher audience",
+        "program": "Raptive",
+        "sourceUrl": "https://help.raptive.com/hc/en-us/articles/360032840891-Who-is-eligible-for-Raptive"
+      },
+      {
+        "metric": "domain age",
+        "comparator": "at least",
+        "amount": 6,
+        "unit": "months",
+        "period": "domain age",
+        "scope": "publisher site",
+        "program": "Raptive",
+        "sourceUrl": "https://help.raptive.com/hc/en-us/articles/360032840891-Who-is-eligible-for-Raptive"
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/Blogging/comments/1x8brun/",
+        "publishedAt": "2026-10-17 (approx.; Reddit showed 5 days)",
+        "site": "anonymous commenter site",
+        "niche": "gaming",
+        "traffic": {
+          "value": 25000,
+          "metric": "views (analytics metric unclear)",
+          "period": "at acceptance"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "commenter said Raptive accepted six months after launch; reported 80% Google traffic",
+        "limits": "Country share and revenue absent; original poster was a separate recipe site with 9K–12K sessions/day."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Strong fit at 25K monthly pageviews if domain age, named-country share, content, analytics, and implementation checks pass.",
+      "currentNetworkSignals": [
+        "Compare current revenue and UX goals, but do not infer approval from another network."
+      ],
+      "geographyPreference": "At least 50% named-country share below 100K PV, then at least 40%.",
+      "agePreference": "Domain at least six months old.",
+      "confidence": "high",
+      "rationale": "Current official eligibility guide supplies exact traffic, geography, age, content, and analytics rules.",
+      "supportingSourceUrls": [
+        "https://help.raptive.com/hc/en-us/articles/360032840891-Who-is-eligible-for-Raptive",
+        "https://help.raptive.com/hc/en-us/articles/202052255-When-do-I-get-paid",
+        "https://help.raptive.com/hc/en-us/articles/360035078152-Getting-Started-with-Raptive"
+      ],
+      "gaps": [
+        "No official revenue minimum or approval time.",
+        "One anonymous 25K acceptance report lacks country-share detail."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://help.raptive.com/hc/en-us/articles/360032840891-Who-is-eligible-for-Raptive",
+        "title": "Who is eligible for Raptive?",
+        "kind": "official eligibility",
+        "publishedAt": "2026-09-26",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "25K PV",
+          "country bands",
+          "six-month domain",
+          "quality/analytics"
+        ]
+      },
+      {
+        "url": "https://help.raptive.com/hc/en-us/articles/202052255-When-do-I-get-paid",
+        "title": "Payment timing",
+        "kind": "official help",
+        "publishedAt": "2023-11-08",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "Net 45",
+          "payout floor"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/Blogging/comments/1x8brun/",
+        "title": "Raptive acceptance anecdote",
+        "kind": "publisher firsthand",
+        "publishedAt": "2026-10-17 approx.",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "25K views",
+          "six-month domain"
+        ]
+      },
+      {
+        "url": "https://help.raptive.com/hc/en-us/articles/360035078152-Getting-Started-with-Raptive",
+        "title": "Getting Started with Raptive",
+        "kind": "official help",
+        "publishedAt": "2026-08-24",
+        "checkedAt": "2026-10-23",
+        "claims": [
+          "75% publisher share",
+          "Net 45 payments",
+          "managed ad-service details"
+        ]
+      },
+      {
+        "url": "https://dashboard.raptive.com/",
+        "title": "Raptive Dashboard (application destination; session-gated preview)",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-23",
+        "claims": [
+          "official application destination linked from Raptive guidance",
+          "direct preview returned a browser-session verification screen; application requirements are sourced from the eligibility article"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "refinery89",
+    "checkedAt": "2026-10-23",
+    "productType": "Managed web/app monetization using a publisher single tag or SDK",
+    "applicationUrl": "https://refinery89.com/get-started/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-23",
+      "keyNumbers": [
+        {
+          "label": "Payment minimum",
+          "value": "€250 or $250",
+          "note": "a month, by region",
+          "sourceUrl": "https://refinery89.com/docs/faqs/finance/is-there-a-minimum-threshold-for-getting-paid/"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "No numeric traffic minimum published; contact team for site review",
+          "sourceUrl": "https://refinery89.com/docs/faqs/requirements/am-i-eligible/"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Worldwide service availability; no qualifying country share published",
+          "sourceUrl": "https://refinery89.com/docs/faqs/about-refinery89/where-does-refinery89-operate-and-offer-its-services/"
+        },
+        {
+          "label": "Content",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Single Tag for websites or SDK for apps",
+          "sourceUrl": "https://refinery89.com/docs/faqs/onboarding/how-can-i-start-working-with-refinery89/"
+        },
+        {
+          "label": "Approval time",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Application",
+          "value": "Get Started form accepts a site or app and asks for a pageview band and country; no admission cutoff is published.",
+          "sourceUrl": "https://refinery89.com/get-started/"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": "Ask your Publisher Success Manager; no standard schedule is published",
+      "paymentThreshold": "€250 or $250, based on region",
+      "paymentMethods": [
+        "Bank transfer",
+        "eCheck",
+        "Wire transfer",
+        "PayPal"
+      ],
+      "sources": [
+        {
+          "label": "Eligibility",
+          "url": "https://refinery89.com/docs/faqs/requirements/am-i-eligible/"
+        },
+        {
+          "label": "Publisher service locations",
+          "url": "https://refinery89.com/docs/faqs/about-refinery89/where-does-refinery89-operate-and-offer-its-services/"
+        },
+        {
+          "label": "How to start and connect",
+          "url": "https://refinery89.com/docs/faqs/onboarding/how-can-i-start-working-with-refinery89/"
+        },
+        {
+          "label": "Payment threshold",
+          "url": "https://refinery89.com/docs/faqs/finance/is-there-a-minimum-threshold-for-getting-paid/"
+        },
+        {
+          "label": "Payment timing",
+          "url": "https://refinery89.com/docs/faqs/finance/when-do-publishers-get-paid/"
+        },
+        {
+          "label": "Payment methods",
+          "url": "https://refinery89.com/docs/faqs/finance/what-are-the-payment-methods-available/"
+        },
+        {
+          "label": "Publisher and app Get Started form",
+          "url": "https://refinery89.com/get-started/"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "web publishers",
+        "app publishers",
+        "publishers seeking managed single-tag monetization"
+      ],
+      "nichesStrong": [
+        "local news",
+        "lifestyle",
+        "publisher portfolios"
+      ],
+      "nichesWeak": [],
+      "geographies": [
+        "Worldwide service; no preferred country mix"
+      ],
+      "role": "primary",
+      "entryPositioning": "Contact-based manual review with no public traffic or revenue minimum. €250/$250 is a payout floor, not an entry rule.",
+      "compatibilityNotes": [
+        "Managed web service may replace current display stack.",
+        "App SDK is a separate path.",
+        "Confirm payment timing and share in contract."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "traffic/revenue",
+        "comparator": "no numeric minimum published; discuss site with team",
+        "amount": null,
+        "unit": "not stated",
+        "period": null,
+        "scope": "publisher site or app",
+        "program": "Refinery89",
+        "sourceUrl": "https://refinery89.com/docs/faqs/requirements/am-i-eligible/"
+      },
+      {
+        "metric": "application pageview and country fields",
+        "comparator": "collected as intake data, not published eligibility cutoffs",
+        "amount": null,
+        "unit": "pageview band and country",
+        "period": "application form",
+        "scope": "publisher site or app",
+        "program": "Refinery89",
+        "sourceUrl": "https://refinery89.com/get-started/"
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.trustpilot.com/review/refinery89.com",
+        "publishedAt": "2025-2026 (review and company response)",
+        "site": "anonymous applicant",
+        "niche": "not stated",
+        "traffic": {
+          "value": null,
+          "metric": "not disclosed",
+          "period": null
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "reviewer said no response; company later said review includes traffic and content",
+        "limits": "Single unverified report; no scale or final result."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Could fit publishers needing managed web/app monetization with human support; ask the team for review because no public scale band exists.",
+      "currentNetworkSignals": [
+        "Share the current stack and ask whether this replaces it or adds formats.",
+        "Worldwide availability does not imply equal demand or approval everywhere."
+      ],
+      "geographyPreference": "Worldwide availability; no qualifying share published.",
+      "agePreference": "No site-age rule found.",
+      "confidence": "low",
+      "rationale": "Official FAQ provides a contact route and worldwide availability, but no numeric entry example.",
+      "supportingSourceUrls": [
+        "https://refinery89.com/docs/faqs/requirements/am-i-eligible/",
+        "https://refinery89.com/docs/faqs/about-refinery89/where-does-refinery89-operate-and-offer-its-services/",
+        "https://refinery89.com/get-started/"
+      ],
+      "gaps": [
+        "No public share or standard pay date.",
+        "No successful independent application with traffic metrics.",
+        "Regional payout floor can vary."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://refinery89.com/docs/faqs/requirements/am-i-eligible/",
+        "title": "Eligibility FAQ",
+        "kind": "official FAQ",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "no numeric threshold",
+          "contact review"
+        ]
+      },
+      {
+        "url": "https://refinery89.com/docs/faqs/about-refinery89/where-does-refinery89-operate-and-offer-its-services/",
+        "title": "Service locations",
+        "kind": "official FAQ",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "worldwide service"
+        ]
+      },
+      {
+        "url": "https://refinery89.com/docs/faqs/finance/is-there-a-minimum-threshold-for-getting-paid/",
+        "title": "Payout threshold",
+        "kind": "official FAQ",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "250 EUR/USD payout floor"
+        ]
+      },
+      {
+        "url": "https://www.trustpilot.com/review/refinery89.com",
+        "title": "Publisher reviews",
+        "kind": "publisher-submitted",
+        "publishedAt": "2025-2026",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "unverified support complaint and reply"
+        ]
+      },
+      {
+        "url": "https://refinery89.com/get-started/",
+        "title": "Publisher and app Get Started form",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-23",
+        "claims": [
+          "accepts publisher website or app details",
+          "asks pageview band and country",
+          "form intake is not a published admission threshold"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "revcontent",
+    "checkedAt": "2026-10-22",
+    "productType": "Native content recommendation widget and sponsored discovery demand",
+    "applicationUrl": "https://www.revcontent.com/resources/revcontent-publisher-application",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Agreement payment floor",
+          "value": "$250",
+          "note": "payment-method minimums may differ",
+          "sourceUrl": "https://help.revcontent.com/knowledge/publisher-terms"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "No minimum pageviews or traffic; publisher account and every domain are reviewed case by case",
+          "sourceUrl": "https://help.revcontent.com/knowledge/creating-a-revcontent-publisher-account",
+          "note": "Applications are reviewed case by case"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Content",
+          "value": "No illegal, infringing, pornographic, obscene, illicit-drug, or unlawful-gambling content",
+          "sourceUrl": "https://help.revcontent.com/knowledge/publisher-terms"
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "After domain approval, Revcontent sends placement choices and widget code",
+          "sourceUrl": "https://help.revcontent.com/knowledge/creating-a-revcontent-publisher-account"
+        },
+        {
+          "label": "Approval time",
+          "value": "Each application and domain is reviewed by a human team; no timing is stated",
+          "sourceUrl": "https://help.revcontent.com/knowledge/creating-a-revcontent-publisher-account"
+        }
+      ],
+      "revenueShare": "Set in the applicable account or order terms; no standard public rate",
+      "paymentTerms": null,
+      "paymentThreshold": "$250 in the agreement; method minimums are $100 for US ACH, $100 for international PayPal, and $1,000 for international wire",
+      "paymentMethods": [
+        "ACH (US)",
+        "PayPal (international)",
+        "Wire transfer (international)"
+      ],
+      "sources": [
+        {
+          "label": "Publisher account creation and approval",
+          "url": "https://help.revcontent.com/knowledge/creating-a-revcontent-publisher-account"
+        },
+        {
+          "label": "Publisher terms",
+          "url": "https://help.revcontent.com/knowledge/publisher-terms"
+        },
+        {
+          "label": "Publisher payment requirements and methods",
+          "url": "https://help.revcontent.com/knowledge/publisher-payment-requirements-methods"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "content publishers",
+        "news/editorial sites",
+        "publishers testing native recommendation inventory"
+      ],
+      "nichesStrong": [
+        "policy-compliant editorial content"
+      ],
+      "nichesWeak": [
+        "publishers wanting a full display-stack replacement",
+        "sites with prohibited content"
+      ],
+      "geographies": [
+        "Payment method depends on location; no admission geo rule found"
+      ],
+      "role": "supplemental",
+      "entryPositioning": "No numeric traffic floor, but human review applies to each account and each domain.",
+      "compatibilityNotes": [
+        "A recommendation widget can supplement a display stack, subject to terms.",
+        "No-minimum does not mean automatic approval.",
+        "Payment floors vary by method/location."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "pageviews/traffic",
+        "comparator": "no minimum; human case-by-case review",
+        "amount": null,
+        "unit": "traffic",
+        "period": null,
+        "scope": "publisher account and every domain",
+        "program": "Revcontent",
+        "sourceUrl": "https://help.revcontent.com/knowledge/creating-a-revcontent-publisher-account"
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/bx97d2/",
+        "publishedAt": "2019",
+        "site": "anonymous publisher",
+        "niche": "not stated",
+        "traffic": {
+          "value": null,
+          "metric": "not stated",
+          "period": null
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "publisher alleged a balance was held after an invalid-traffic flag",
+        "limits": "Unverified, old dispute without site or traffic details."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "A possible low-volume test for a publisher specifically seeking native recommendations, with compliant content and UX fit. Not a display replacement.",
+      "currentNetworkSignals": [
+        "Check whether another recommendation product conflicts with exclusivity.",
+        "Ask how site-level reviews and appeals work."
+      ],
+      "geographyPreference": "No admission geo rule published.",
+      "agePreference": "No public site-age rule.",
+      "confidence": "medium",
+      "rationale": "Official help explicitly says no traffic minimum, while preserving discretionary account/domain reviews; recent independent entry reports are sparse.",
+      "supportingSourceUrls": [
+        "https://help.revcontent.com/knowledge/creating-a-revcontent-publisher-account",
+        "https://help.revcontent.com/knowledge/publisher-terms"
+      ],
+      "gaps": [
+        "No recent independent approval example with traffic and outcome.",
+        "No standard share or pay interval publicly stated.",
+        "Old user dispute is unverified."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://help.revcontent.com/knowledge/creating-a-revcontent-publisher-account",
+        "title": "Creating a publisher account",
+        "kind": "official help",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "no traffic minimum",
+          "human reviews"
+        ]
+      },
+      {
+        "url": "https://www.revcontent.com/resources/revcontent-publisher-application",
+        "title": "Publisher application",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "application route"
+        ]
+      },
+      {
+        "url": "https://help.revcontent.com/knowledge/publisher-payment-requirements-methods",
+        "title": "Payment requirements",
+        "kind": "official help",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "tax/payee setup",
+          "location payment methods"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/bx97d2/",
+        "title": "Publisher payment dispute",
+        "kind": "publisher firsthand",
+        "publishedAt": "2019",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "unverified invalid-traffic complaint"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "setupad",
+    "checkedAt": "2026-10-22",
+    "productType": "Managed header-bidding service plus separate self-serve Prebid/GAM platform",
+    "applicationUrl": "https://signup.setupad.com/?lang=en&type=7",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Self-Serve entry",
+          "value": "10M+ monthly visits",
+          "note": "Free plan; separate from managed-service admission",
+          "sourceUrl": "https://setupad.com/setupad-self-serve/"
+        },
+        {
+          "label": "Business Self-Serve fee",
+          "value": "€0.05 per 1,000 ad requests",
+          "note": "€50 minimum prepayment",
+          "sourceUrl": "https://setupad.com/setupad-self-serve/"
+        },
+        {
+          "label": "Enterprise spend",
+          "value": "€1,000 minimum monthly spend",
+          "note": "50M+ visits; separate self-serve offer",
+          "sourceUrl": "https://setupad.com/setupad-self-serve/"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "Self-Serve plans start at 10M monthly visits; managed service has no verified current public cutoff",
+          "note": "Company articles conflict between 100,000 monthly visitors and sessions. Self-Serve is separate.",
+          "sourceUrl": "https://setupad.com/setupad-self-serve/"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Main traffic from the US, UK, Canada, or Australia",
+          "sourceUrl": "https://setupad.com/blog/best-ad-networks-for-publishers/"
+        },
+        {
+          "label": "Content",
+          "value": "Follow Setupad’s quality policy; low-quality sites are not accepted",
+          "sourceUrl": "https://setupad.com/blog/best-ad-networks-for-publishers/"
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Add ads.txt and use Setupad demand sources, including Google",
+          "sourceUrl": "https://setupad.com/blog/best-ad-networks-for-publishers/"
+        },
+        {
+          "label": "Approval time",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Self-Serve",
+          "value": "Requires own GAM, direct SSPs, a high-quality site, and internal approval",
+          "sourceUrl": "https://setupad.com/setupad-self-serve/"
+        },
+        {
+          "label": "Application",
+          "value": "The live form is for Self-Serve and requests a plan plus Google Analytics domain verification; it does not define managed-service eligibility.",
+          "sourceUrl": "https://signup.setupad.com/?lang=en&type=7"
+        }
+      ],
+      "revenueShare": "Optional Setupad reseller demand takes 20%; Self-Serve direct demand uses a €0.05 CPM fee",
+      "paymentTerms": "Net 60 for published managed terms and optional reseller demand; direct SSP partners pay under their own agreements",
+      "paymentThreshold": "$100 in published managed guidance; reseller-demand threshold not stated",
+      "paymentMethods": [
+        "Bank transfer",
+        "PayPal",
+        "Payoneer",
+        "Wise",
+        "Revolut",
+        "Paysera"
+      ],
+      "sources": [
+        {
+          "label": "Setupad publisher requirements and payment guidance",
+          "url": "https://setupad.com/blog/best-ad-networks-for-publishers/"
+        },
+        {
+          "label": "Setupad Self-Serve plans, requirements and billing",
+          "url": "https://setupad.com/setupad-self-serve/"
+        },
+        {
+          "label": "Setupad current platform overview",
+          "url": "https://setupad.com/"
+        },
+        {
+          "label": "Setupad SSP guide",
+          "url": "https://setupad.com/blog/top-ssps-for-publishers/"
+        },
+        {
+          "label": "Setupad Self-Serve application",
+          "url": "https://signup.setupad.com/?lang=en&type=7"
+        }
+      ],
+      "joinSummary": "Self-Serve: 10M+ monthly visits; managed service has no confirmed current public floor"
+    },
+    "fit": {
+      "publisherTypes": [
+        "mid/large web publishers",
+        "publishers with their own GAM and SSPs",
+        "publishers seeking managed wrapper or auction controls"
+      ],
+      "nichesStrong": [
+        "content publishing; country fit depends on demand"
+      ],
+      "nichesWeak": [],
+      "geographies": [
+        "One 2024 report shows a mostly Asian traffic site, not a policy preference"
+      ],
+      "role": "infrastructure",
+      "entryPositioning": "Separate managed and Self-Serve offers. Self-Serve has explicit visit bands starting at 10M; managed-service ~100K descriptions are older/unclear.",
+      "compatibilityNotes": [
+        "Self-Serve layers over publisher-owned GAM/SSPs.",
+        "Managed service may replace a current managed provider.",
+        "Visits are not pageviews or sessions."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "monthly visits",
+        "comparator": "at least for Free Self-Serve",
+        "amount": 10000000,
+        "unit": "visits",
+        "period": "month",
+        "scope": "publisher website",
+        "program": "Setupad Self-Serve Free",
+        "sourceUrl": "https://setupad.com/setupad-self-serve/"
+      },
+      {
+        "metric": "monthly visits",
+        "comparator": "10M to 50M for Business plan",
+        "amount": "10M–50M",
+        "unit": "visits",
+        "period": "month",
+        "scope": "publisher website",
+        "program": "Setupad Self-Serve Business",
+        "sourceUrl": "https://setupad.com/setupad-self-serve/",
+        "note": "€0.05 per thousand ad requests and €50 prepayment."
+      },
+      {
+        "metric": "monthly visits",
+        "comparator": "at least for Enterprise",
+        "amount": 50000000,
+        "unit": "visits",
+        "period": "month",
+        "scope": "publisher website",
+        "program": "Setupad Self-Serve Enterprise",
+        "sourceUrl": "https://setupad.com/setupad-self-serve/",
+        "note": "€1,000 minimum monthly spend."
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://medium.com/@vibrant_mango_impala_136/setupad-review-my-1-year-with-setupad-and-why-i-ultimately-switched-back-to-google-adsense-150fd77506d5",
+        "publishedAt": "2024-10-11",
+        "site": "anonymous Japanese publisher",
+        "niche": "web content site",
+        "traffic": {
+          "value": 3000000,
+          "metric": "pageviews",
+          "period": "month"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [
+          "mostly Asia",
+          "Europe and North America"
+        ],
+        "decision": "used Setupad for one year, then returned to AdSense; described implementation/performance concerns",
+        "limits": "No revenue amount; one anonymous report."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Self-Serve fits publishers at 10M+ monthly visits with own GAM and direct SSP accounts. Managed service may be available lower, but public ~100K wording is old and inconsistent.",
+      "currentNetworkSignals": [
+        "Owned GAM/SSPs align with Self-Serve.",
+        "Current managed partner may overlap with managed Setupad."
+      ],
+      "geographyPreference": "No reliable managed geography gate; one report with mainly Asian traffic.",
+      "agePreference": "No age rule found.",
+      "confidence": "high",
+      "rationale": "Current official Self-Serve plan bands are clear; managed admission remains uncertain.",
+      "supportingSourceUrls": [
+        "https://setupad.com/setupad-self-serve/",
+        "https://medium.com/@vibrant_mango_impala_136/setupad-review-my-1-year-with-setupad-and-why-i-ultimately-switched-back-to-google-adsense-150fd77506d5"
+      ],
+      "gaps": [
+        "No current managed-service minimum.",
+        "Historical 100K visitor/session wording conflicts.",
+        "No independent self-serve approval example."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://setupad.com/setupad-self-serve/",
+        "title": "Self-Serve plans and requirements",
+        "kind": "official pricing",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "10M/10-50M/50M visit bands",
+          "GAM/SSP",
+          "fees"
+        ]
+      },
+      {
+        "url": "https://signup.setupad.com/?lang=en&type=7",
+        "title": "Setupad Self-Serve application",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "application route"
+        ]
+      },
+      {
+        "url": "https://setupad.com/blog/best-ad-networks-for-publishers/",
+        "title": "Managed Setupad guidance",
+        "kind": "company article",
+        "publishedAt": null,
+        "checkedAt": "2026-10-16",
+        "claims": [
+          "older unclear 100K claim"
+        ]
+      },
+      {
+        "url": "https://medium.com/@vibrant_mango_impala_136/setupad-review-my-1-year-with-setupad-and-why-i-ultimately-switched-back-to-google-adsense-150fd77506d5",
+        "title": "One-year publisher review",
+        "kind": "publisher firsthand",
+        "publishedAt": "2024-10-11",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "3M PV",
+          "geography",
+          "left for AdSense"
+        ]
+      },
+      {
+        "url": "https://signup.setupad.com/?lang=en&type=7",
+        "title": "Setupad Self-Serve application",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "plan selection and domain verification for the separate Self-Serve product"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "she-media",
+    "checkedAt": "2026-10-23",
+    "productType": "Managed publisher/creator collective with display, video, native, and sponsored programs",
+    "applicationUrl": "https://apply.shemedia.com/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-23",
+      "keyNumbers": [
+        {
+          "label": "Traffic to join",
+          "value": "50,000+",
+          "note": "monthly pageviews; smaller sites may be considered case by case",
+          "sourceUrl": "https://www.shemedia.com/partner-network/faqs"
+        },
+        {
+          "label": "Your share",
+          "value": "75%",
+          "note": "gross open-marketplace programmatic revenue; guide updated March 2023",
+          "sourceUrl": "https://www.shemedia.com/member-spotlight/member-guide-for-partners"
+        },
+        {
+          "label": "Pay day",
+          "value": "Net 35",
+          "sourceUrl": "https://www.shemedia.com/partner-network/faqs"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "At least 50,000 pageviews/month for standard approval; smaller sites may be considered case by case",
+          "note": "Smaller sites can receive individual review; no lower numeric requirement is published",
+          "sourceUrl": "https://www.shemedia.com/partner-network/faqs"
+        },
+        {
+          "label": "Visitor location",
+          "value": "At least 30% US traffic",
+          "sourceUrl": "https://www.shemedia.com/partner-network/faqs"
+        },
+        {
+          "label": "Content",
+          "value": "Original, high-quality, brand-safe, human-led content",
+          "note": "AI-generated images need a clear disclaimer",
+          "sourceUrl": "https://www.shemedia.com/partner-network/faqs"
+        },
+        {
+          "label": "Google standing",
+          "value": "Good track record with Google ad products and platforms",
+          "sourceUrl": "https://www.shemedia.com/partner-network/faqs"
+        },
+        {
+          "label": "Must connect",
+          "value": "Google MCM and ads.txt",
+          "note": "MCM and ads.txt are part of the onboarding requirements",
+          "sourceUrl": "https://support.shemedia.com/hc/en-us/articles/19361668032027-Onboarding-Guide-for-Wordpress-Sites"
+        },
+        {
+          "label": "Approval time",
+          "value": "3–4 weeks for a response",
+          "note": "Response timing, not a final decision guarantee",
+          "sourceUrl": "https://www.shemedia.com/partner-network/faqs"
+        },
+        {
+          "label": "Analytics",
+          "value": "Google Analytics access",
+          "sourceUrl": "https://apply.shemedia.com/"
+        },
+        {
+          "label": "Site age",
+          "value": "At least 90 days",
+          "sourceUrl": "https://www.shemedia.com/partner-network/faqs"
+        },
+        {
+          "label": "Ad inventory",
+          "value": "Exclusive mobile and desktop banner ads",
+          "note": "Affiliate links and banners are exceptions",
+          "sourceUrl": "https://www.shemedia.com/partner-network/faqs"
+        },
+        {
+          "label": "Application",
+          "value": "Form asks average monthly GA pageviews, current ad networks, and publishing platform; it says Wix-built sites are ineligible and asks for GA access to verify traffic.",
+          "sourceUrl": "https://apply.shemedia.com/"
+        }
+      ],
+      "revenueShare": "75% of gross open-marketplace programmatic revenue; up to 75% of direct and private marketplace revenue (Member Guide updated 2023)",
+      "paymentTerms": "Net 35 after the month closes",
+      "paymentThreshold": "$20 (Member Guide updated 2023)",
+      "paymentMethods": [
+        "US direct deposit/ACH",
+        "US check if ACH is unavailable",
+        "PayPal for international publishers",
+        "Wise/ACH or wire for international publishers if approved"
+      ],
+      "sources": [
+        {
+          "label": "Partner FAQ",
+          "url": "https://www.shemedia.com/partner-network/faqs"
+        },
+        {
+          "label": "Publisher application",
+          "url": "https://apply.shemedia.com/"
+        },
+        {
+          "label": "WordPress onboarding guide",
+          "url": "https://support.shemedia.com/hc/en-us/articles/19361668032027-Onboarding-Guide-for-Wordpress-Sites"
+        },
+        {
+          "label": "Blogger onboarding guide",
+          "url": "https://support.shemedia.com/hc/en-us/articles/30950543170971-Onboarding-Guide-for-Blogger-Sites"
+        },
+        {
+          "label": "Member Guide, updated March 2023",
+          "url": "https://www.shemedia.com/member-spotlight/member-guide-for-partners"
+        },
+        {
+          "label": "International payment options, updated April 2025",
+          "url": "https://support.shemedia.com/hc/en-us/articles/35987097977627-Payment-Options-for-Publishers-Outside-the-US"
+        }
+      ],
+      "joinSummary": "50,000 pageviews a month; smaller sites need individual review"
+    },
+    "fit": {
+      "publisherTypes": [
+        "bloggers and creator-led sites",
+        "US-focused content publishers",
+        "community-oriented publications"
+      ],
+      "nichesStrong": [
+        "lifestyle",
+        "food",
+        "parenting",
+        "DIY",
+        "women-focused editorial"
+      ],
+      "nichesWeak": [
+        "sites without original human-led content or sufficient US audience"
+      ],
+      "geographies": [
+        "At least 30% US traffic"
+      ],
+      "role": "primary",
+      "entryPositioning": "50K monthly PV is standard approval requirement; lower-volume exceptions depend on content, publishing consistency, and growth.",
+      "compatibilityNotes": [
+        "Exclusive mobile and desktop banner inventory is part of standard relationship; affiliate exceptions exist.",
+        "Managed primary display service may replace current network.",
+        "Do not compare sessions directly to pageviews."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "pageviews",
+        "comparator": "at least standard requirement; smaller sites may be case-by-case",
+        "amount": 50000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "publisher website",
+        "program": "SHE Media",
+        "sourceUrl": "https://www.shemedia.com/partner-network/faqs"
+      },
+      {
+        "metric": "US traffic share",
+        "comparator": "at least",
+        "amount": 30,
+        "unit": "percent",
+        "period": null,
+        "scope": "publisher audience",
+        "program": "SHE Media",
+        "sourceUrl": "https://www.shemedia.com/partner-network/faqs"
+      },
+      {
+        "metric": "site age",
+        "comparator": "at least",
+        "amount": 90,
+        "unit": "days",
+        "period": "age",
+        "scope": "publisher site",
+        "program": "SHE Media",
+        "sourceUrl": "https://www.shemedia.com/partner-network/faqs"
+      },
+      {
+        "metric": "site platform",
+        "comparator": "Wix-built sites are ineligible",
+        "amount": null,
+        "unit": "platform restriction",
+        "period": "current application",
+        "scope": "publisher website",
+        "program": "SHE Media",
+        "sourceUrl": "https://apply.shemedia.com/",
+        "note": "The application form says sites built using Wix are ineligible."
+      },
+      {
+        "metric": "Google Analytics authorization",
+        "comparator": "required to verify pageviews during application review",
+        "amount": null,
+        "unit": "analytics access",
+        "period": "application review",
+        "scope": "publisher website",
+        "program": "SHE Media",
+        "sourceUrl": "https://apply.shemedia.com/"
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://imperfectidealist.com/she-media-review/",
+        "publishedAt": "2020-10 (approx.)",
+        "site": "Imperfect Idealist",
+        "niche": "lifestyle",
+        "traffic": {
+          "value": 25500,
+          "metric": "sessions",
+          "period": "month"
+        },
+        "adRevenueMonthlyUsd": 124,
+        "countries": [],
+        "decision": "publisher blog reported $124 for October",
+        "limits": "Old data; session count cannot be compared to the 50K PV standard and is not proof of an exception."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Recommend when 50K pageviews, 30% US, age 90 days, and editorial/content conditions match. Below that, treat as discretionary exception only.",
+      "currentNetworkSignals": [
+        "Exclusive display inventory may require replacing current managed network.",
+        "The application asks which ad networks the site currently uses; treat this as compatibility context, not proof of eligibility."
+      ],
+      "geographyPreference": "At least 30% US.",
+      "agePreference": "At least 90 days.",
+      "confidence": "high",
+      "rationale": "Current official FAQ describes 50K as approval requirement and expressly allows selective lower-volume approvals.",
+      "supportingSourceUrls": [
+        "https://www.shemedia.com/partner-network/faqs",
+        "https://imperfectidealist.com/she-media-review/",
+        "https://apply.shemedia.com/"
+      ],
+      "gaps": [
+        "No recent independent below-50K PV approval.",
+        "Share and $20 payout floor appear in March 2023 member guide."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.shemedia.com/partner-network/faqs",
+        "title": "Partner FAQ",
+        "kind": "official eligibility",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "50K standard",
+          "exceptions",
+          "30% US",
+          "90 days",
+          "human-led content"
+        ]
+      },
+      {
+        "url": "https://www.shemedia.com/member-spotlight/member-guide-for-partners",
+        "title": "Member Guide",
+        "kind": "official guide",
+        "publishedAt": "2023-03",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "75% share and $20 floor; dated"
+        ]
+      },
+      {
+        "url": "https://support.shemedia.com/hc/en-us/articles/35987097977627-Payment-Options-for-Publishers-Outside-the-US",
+        "title": "International payout options",
+        "kind": "official support",
+        "publishedAt": "2025-04",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "international methods"
+        ]
+      },
+      {
+        "url": "https://imperfectidealist.com/she-media-review/",
+        "title": "SHE Media publisher review",
+        "kind": "publisher firsthand",
+        "publishedAt": "2020-10 approx.",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "25.5K sessions",
+          "October earnings"
+        ]
+      },
+      {
+        "url": "https://apply.shemedia.com/",
+        "title": "SHE Media publisher application",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-23",
+        "claims": [
+          "asks average monthly pageviews in Google Analytics",
+          "asks current ad networks and publishing platform",
+          "Wix websites are ineligible",
+          "requests Google Analytics authorization for pageview verification"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "snack-media",
+    "checkedAt": "2026-10-22",
+    "productType": "Sports-rooted managed monetization, direct sales, ad tech, video, and bespoke demand",
+    "applicationUrl": "https://www.snack-media.com/publishers/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Referral program traffic",
+          "value": "1 million",
+          "note": "impressions; not a general minimum, only for referral eligibility",
+          "sourceUrl": "https://www.snack-media.com/referral/"
+        },
+        {
+          "label": "Notice to leave",
+          "value": "30 days",
+          "sourceUrl": "https://cdn.snack-media.com/wp-content/uploads/2025/08/Snack-Ad-Network-Agreement-TCs.pdf"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "No universal traffic floor in 2025 agreement; 1M impressions applies only to referral eligibility",
+          "note": "This is referral-program eligibility; the publisher agreement does not state a universal traffic floor",
+          "sourceUrl": "https://cdn.snack-media.com/wp-content/uploads/2025/08/Snack-Ad-Network-Agreement-TCs.pdf"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Content",
+          "value": "No hateful, pornographic, illegal, or infringing content",
+          "note": "The referral program also excludes sensitive and gambling sites",
+          "sourceUrl": "https://www.snack-media.com/brand-safety-policy/"
+        },
+        {
+          "label": "Google standing",
+          "value": "Must comply with Google policies for the referral program",
+          "sourceUrl": "https://www.snack-media.com/referral/"
+        },
+        {
+          "label": "Must connect",
+          "value": "Share live traffic stats and install network tags",
+          "note": "Tags must be live within 14 days of the agreement date",
+          "sourceUrl": "https://cdn.snack-media.com/wp-content/uploads/2025/08/Snack-Ad-Network-Agreement-TCs.pdf"
+        },
+        {
+          "label": "Approval time",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Exclusivity",
+          "value": "Standard agreement gives Snack exclusive rights for its defined services and specified ad/content sales scope; confirm cover sheet",
+          "sourceUrl": "https://cdn.snack-media.com/wp-content/uploads/2025/08/Snack-Ad-Network-Agreement-TCs.pdf"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": "Within 30 days after the month when Snack Media receives the advertiser funds",
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Publisher referral eligibility",
+          "url": "https://www.snack-media.com/referral/"
+        },
+        {
+          "label": "Brand safety policy",
+          "url": "https://www.snack-media.com/brand-safety-policy/"
+        },
+        {
+          "label": "2025 publisher agreement terms",
+          "url": "https://cdn.snack-media.com/wp-content/uploads/2025/08/Snack-Ad-Network-Agreement-TCs.pdf"
+        },
+        {
+          "label": "Terms page",
+          "url": "https://www.snack-media.com/Ad_Network_Terms_and_Conditions_for_Publishers/"
+        },
+        {
+          "label": "Snack publisher services",
+          "url": "https://www.snack-media.com/publishers/"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "sports publishers and rights holders",
+        "sports/entertainment communities",
+        "publishers wanting direct-sales/video support"
+      ],
+      "nichesStrong": [
+        "sports",
+        "sports communities",
+        "entertainment"
+      ],
+      "nichesWeak": [],
+      "geographies": [
+        "No country preference found"
+      ],
+      "role": "sales_collective",
+      "entryPositioning": "Sales-led partnership; standard agreement has no universal traffic minimum. Referral-program 1M impression condition is not admission.",
+      "compatibilityNotes": [
+        "Fully managed service may replace current stack.",
+        "Bespoke service says publisher can keep wrapper and use Snack demand.",
+        "Check standard agreement’s scoped exclusivity and cover sheet."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "publisher traffic",
+        "comparator": "no universal minimum published in standard agreement",
+        "amount": null,
+        "unit": "not stated",
+        "period": null,
+        "scope": "publisher property",
+        "program": "Snack Media",
+        "sourceUrl": "https://cdn.snack-media.com/wp-content/uploads/2025/08/Snack-Ad-Network-Agreement-TCs.pdf"
+      },
+      {
+        "metric": "impressions",
+        "comparator": "minimum for referral offer only",
+        "amount": 1000000,
+        "unit": "impressions",
+        "period": null,
+        "scope": "publisher property",
+        "program": "Snack referral",
+        "sourceUrl": "https://www.snack-media.com/referral/",
+        "note": "Not general admission."
+      },
+      {
+        "metric": "tag setup",
+        "comparator": "within",
+        "amount": 14,
+        "unit": "days",
+        "period": "after agreement",
+        "scope": "agreed ad positions",
+        "program": "Snack Media",
+        "sourceUrl": "https://cdn.snack-media.com/wp-content/uploads/2025/08/Snack-Ad-Network-Agreement-TCs.pdf"
+      }
+    ],
+    "observations": [],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Strongest evidence supports sports and sports-community publishers that want managed monetization, direct sales, or video. Generic small blogs are not a clear fit from public material.",
+      "currentNetworkSignals": [
+        "Clarify managed replacement versus demand over own wrapper.",
+        "Review exclusivity and direct-sales rights against current contract."
+      ],
+      "geographyPreference": "No preference published.",
+      "agePreference": "No age rule found.",
+      "confidence": "medium",
+      "rationale": "Official offer differentiates fully managed and bespoke routes; contract sets commission and scope without traffic threshold.",
+      "supportingSourceUrls": [
+        "https://www.snack-media.com/publishers/",
+        "https://cdn.snack-media.com/wp-content/uploads/2025/08/Snack-Ad-Network-Agreement-TCs.pdf"
+      ],
+      "gaps": [
+        "No independent entry example.",
+        "No published revenue share, payout floor, or payment method."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.snack-media.com/publishers/",
+        "title": "Publisher solutions",
+        "kind": "official product",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "managed and bespoke services"
+        ]
+      },
+      {
+        "url": "https://cdn.snack-media.com/wp-content/uploads/2025/08/Snack-Ad-Network-Agreement-TCs.pdf",
+        "title": "2025 ad network terms",
+        "kind": "official contract",
+        "publishedAt": "2025-08",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "exclusivity scope",
+          "commission",
+          "payment after advertiser funds",
+          "setup"
+        ]
+      },
+      {
+        "url": "https://www.snack-media.com/referral/",
+        "title": "Referral offer",
+        "kind": "official referral",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "1M impressions referral condition"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "sovrn",
+    "checkedAt": "2026-10-22",
+    "productType": "Sovrn Ad Exchange demand plus separate Sovrn Commerce affiliate product",
+    "applicationUrl": "https://platform.sovrn.com/account/signup",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Visits to join",
+          "value": "More than 100,000",
+          "note": "visits a month, strictly more than 100,000",
+          "sourceUrl": "https://knowledge.sovrn.com/kb/what-is-required-for-sovrn-to-approve-my-property"
+        },
+        {
+          "label": "Pay day",
+          "value": "Net 45",
+          "note": "for most direct publishers; terms may vary",
+          "sourceUrl": "https://authcore.atlassian.net/wiki/spaces/KB/pages/2693627510846"
+        },
+        {
+          "label": "Payment minimum",
+          "value": "$25",
+          "note": "$50 for wire",
+          "sourceUrl": "https://knowledge.sovrn.com/kb/what-is-the-minimum-payment-threshold-for-sovrn"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "Strictly more than 100,000 visits/month for Ad Exchange; visits are not sessions",
+          "sourceUrl": "https://knowledge.sovrn.com/kb/what-is-required-for-sovrn-to-approve-my-property",
+          "note": "Visits are not sessions."
+        },
+        {
+          "label": "Visitor location",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Content",
+          "value": "Current content published within 4 months, privacy and brand-safety policies, not child-directed or exclusively under 16",
+          "sourceUrl": "https://knowledge.sovrn.com/kb/what-is-required-for-sovrn-to-approve-my-property"
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Provide an operational business domain and current ads.txt ownership details; intermediaries also need sellers.json",
+          "sourceUrl": "https://knowledge.sovrn.com/kb/what-is-required-for-sovrn-to-approve-my-property"
+        },
+        {
+          "label": "Approval time",
+          "value": "Depends on external checks and possible manual review; no fixed estimate. File updates often show within about two business days.",
+          "sourceUrl": "https://knowledge.sovrn.com/kb/what-is-sovrn-s-approval-process-for-the-ad-exchange"
+        },
+        {
+          "label": "Application",
+          "value": "Create a platform account first, then start Ad Exchange onboarding; Sovrn Commerce is a separate product.",
+          "sourceUrl": "https://platform.sovrn.com/account/signup"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": "Net 45 for most Ad Exchange publishers; individual publisher terms may vary",
+      "paymentThreshold": "$25 standard; $50 for wire transfer",
+      "paymentMethods": [
+        "PayPal",
+        "ACH (US)",
+        "Wire transfer",
+        "eCheck/local transfer",
+        "Paper check (US)"
+      ],
+      "sources": [
+        {
+          "label": "Property approval requirements",
+          "url": "https://knowledge.sovrn.com/kb/what-is-required-for-sovrn-to-approve-my-property"
+        },
+        {
+          "label": "Approval process and timing",
+          "url": "https://knowledge.sovrn.com/kb/what-is-sovrn-s-approval-process-for-the-ad-exchange"
+        },
+        {
+          "label": "Current payment methods",
+          "url": "https://knowledge.sovrn.com/kb/how-do-i-get-paid-for-the-ad-exchange"
+        },
+        {
+          "label": "Payment thresholds",
+          "url": "https://knowledge.sovrn.com/kb/what-is-the-minimum-payment-threshold-for-sovrn"
+        },
+        {
+          "label": "Payment timing guide",
+          "url": "https://authcore.atlassian.net/wiki/spaces/KB/pages/2693627510846"
+        },
+        {
+          "label": "Ad Exchange account sign-up",
+          "url": "https://platform.sovrn.com/account/signup"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "independent web publishers",
+        "publishers adding programmatic demand",
+        "sites with maintained content and ads.txt ownership records"
+      ],
+      "nichesStrong": [
+        "general web publishing with current content"
+      ],
+      "nichesWeak": [
+        "sites below >100K visits/month",
+        "child-directed/exclusively under-16 sites"
+      ],
+      "geographies": [
+        "No country-share gate found"
+      ],
+      "role": "supplemental",
+      "entryPositioning": "Ad Exchange requires strictly >100K monthly visits plus content/privacy/safety checks. Commerce is separate.",
+      "compatibilityNotes": [
+        "Ad Exchange can supplement publisher-owned stack.",
+        "Do not conflate Ad Exchange with affiliate Commerce eligibility/payments.",
+        "Visits are not sessions, users, or pageviews."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "traffic volume",
+        "comparator": "strictly more than",
+        "amount": 100000,
+        "unit": "visits",
+        "period": "month",
+        "scope": "publisher property",
+        "program": "Sovrn Ad Exchange",
+        "sourceUrl": "https://knowledge.sovrn.com/kb/what-is-required-for-sovrn-to-approve-my-property",
+        "note": "Do not map visits to sessions."
+      },
+      {
+        "metric": "recent content",
+        "comparator": "publication within prior",
+        "amount": 4,
+        "unit": "months",
+        "period": "lookback",
+        "scope": "publisher site",
+        "program": "Sovrn Ad Exchange",
+        "sourceUrl": "https://knowledge.sovrn.com/kb/what-is-required-for-sovrn-to-approve-my-property"
+      },
+      {
+        "metric": "audience age",
+        "comparator": "not child-directed or exclusively under",
+        "amount": 16,
+        "unit": "years",
+        "period": null,
+        "scope": "publisher audience",
+        "program": "Sovrn Ad Exchange",
+        "sourceUrl": "https://knowledge.sovrn.com/kb/what-is-required-for-sovrn-to-approve-my-property"
+      }
+    ],
+    "observations": [],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Not a likely fit below the strict visit floor. Above it, may add programmatic demand for publishers able to maintain the required ownership records and policies.",
+      "currentNetworkSignals": [
+        "Can be supplemental to owned stack.",
+        "Commerce account does not prove Ad Exchange approval."
+      ],
+      "geographyPreference": "No qualifying country share published.",
+      "agePreference": "Audience not child-directed or exclusively under 16; no domain age rule found.",
+      "confidence": "high",
+      "rationale": "Official help article search extract states strict >100K visits plus ongoing-content and ownership checks; direct page open was unavailable in this pass.",
+      "supportingSourceUrls": [
+        "https://knowledge.sovrn.com/kb/what-is-required-for-sovrn-to-approve-my-property",
+        "https://knowledge.sovrn.com/kb/what-is-sovrn-s-approval-process-for-the-ad-exchange"
+      ],
+      "gaps": [
+        "Direct page open unavailable during check.",
+        "No recent independent Ad Exchange entry report with outcome."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://knowledge.sovrn.com/kb/what-is-required-for-sovrn-to-approve-my-property",
+        "title": "Property approval requirements",
+        "kind": "official help search result",
+        "publishedAt": "2026-10-22",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          ">100K visits",
+          "ownership and ads.txt"
+        ]
+      },
+      {
+        "url": "https://knowledge.sovrn.com/kb/what-is-sovrn-s-approval-process-for-the-ad-exchange",
+        "title": "Approval process",
+        "kind": "official help",
+        "publishedAt": "2026-10-16",
+        "checkedAt": "2026-10-16",
+        "claims": [
+          "content recency and safety"
+        ]
+      },
+      {
+        "url": "https://knowledge.sovrn.com/kb/how-do-i-get-paid-for-the-ad-exchange",
+        "title": "Ad Exchange payments",
+        "kind": "official help",
+        "publishedAt": "2026-10-16",
+        "checkedAt": "2026-10-16",
+        "claims": [
+          "payment methods"
+        ]
+      },
+      {
+        "url": "https://platform.sovrn.com/account/signup",
+        "title": "Ad Exchange account sign-up",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "create a platform account before starting Ad Exchange onboarding"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "sparteo",
+    "checkedAt": "2026-10-22",
+    "productType": "Managed ad monetization and publisher technology suite",
+    "applicationUrl": "https://corporate.sparteo.com/contact",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "Sales-led; no public numeric entry minimum found",
+          "sourceUrl": "https://corporate.sparteo.com/"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Content",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Approval time",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Application",
+          "value": "Contact the team for a sales-led publisher discussion; no self-serve application gate is published.",
+          "sourceUrl": "https://corporate.sparteo.com/contact"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": null,
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Company and publisher services",
+          "url": "https://corporate.sparteo.com/"
+        },
+        {
+          "label": "Publisher technology privacy notice",
+          "url": "https://corporate.sparteo.com/services-privacy-notice"
+        },
+        {
+          "label": "Publisher platform case study",
+          "url": "https://corporate.sparteo.com/post/w3schools-rpm-uplift-unified-monetisation-stack"
+        },
+        {
+          "label": "Company expansion update",
+          "url": "https://corporate.sparteo.com/post/sparteo-strengthens-supply-leadership-to-accelerate-global-expansion"
+        },
+        {
+          "label": "Sparteo company LinkedIn",
+          "url": "https://www.linkedin.com/company/sparteo"
+        },
+        {
+          "label": "Publisher contact form",
+          "url": "https://corporate.sparteo.com/contact"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "growing/large content publishers",
+        "publishers needing managed yield, video, analytics, or consent tools"
+      ],
+      "nichesStrong": [
+        "education/reference publishing (W3Schools case)"
+      ],
+      "nichesWeak": [
+        "typical solo blogs (limited public entry evidence)"
+      ],
+      "geographies": [
+        "No public regional rule found"
+      ],
+      "role": "infrastructure",
+      "entryPositioning": "Sales-led, with public traffic, revenue, age, country, and payment terms undisclosed.",
+      "compatibilityNotes": [
+        "May replace or supplement stack depending on modules.",
+        "Ask about GAM, wrapper, and current SSPs.",
+        "Anonymous list of ad partners does not identify a Sparteo customer."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "traffic/revenue/age/geography",
+        "comparator": "no public criteria found",
+        "amount": null,
+        "unit": "not stated",
+        "period": null,
+        "scope": "publisher services",
+        "program": "Sparteo",
+        "sourceUrl": "https://corporate.sparteo.com/"
+      }
+    ],
+    "observations": [],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Do not force into typical blogger shortlist. Consider for a publisher with meaningful operations needs, especially education/reference, after direct sales review.",
+      "currentNetworkSignals": [
+        "Current partner does not establish Sparteo use or eligibility.",
+        "Clarify managed replacement versus selected technology modules."
+      ],
+      "geographyPreference": "Not public.",
+      "agePreference": "Not public.",
+      "confidence": "low",
+      "rationale": "Evidence is mostly official product pages and company-authored W3Schools case; no independent publisher report identifies Sparteo with scale/outcome.",
+      "supportingSourceUrls": [
+        "https://corporate.sparteo.com/",
+        "https://corporate.sparteo.com/post/w3schools-rpm-uplift-unified-monetisation-stack"
+      ],
+      "gaps": [
+        "No public admission or payment terms.",
+        "No independent entry case tied to Sparteo."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://corporate.sparteo.com/",
+        "title": "Publisher services",
+        "kind": "official product",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "managed yield and technology"
+        ]
+      },
+      {
+        "url": "https://corporate.sparteo.com/post/w3schools-rpm-uplift-unified-monetisation-stack",
+        "title": "W3Schools case",
+        "kind": "vendor case",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "education publisher, no scale data"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1sjz5b7/3_million_monthly_page_views_and_23k_monthly_ad/",
+        "title": "Gaming partner report",
+        "kind": "publisher firsthand",
+        "publishedAt": "2026-04 approx.",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "3M PV/$2K-$3K but partner unnamed; not attributable"
+        ]
+      },
+      {
+        "url": "https://corporate.sparteo.com/contact",
+        "title": "Publisher contact form",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "sales-led publisher contact route"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "taboola",
+    "checkedAt": "2026-10-22",
+    "productType": "Native content recommendation and audience discovery service",
+    "applicationUrl": "https://pubhelp.taboola.com/hc/en-us/articles/39280014062487-How-To-Get-New-Account",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Pay day",
+          "value": "Within 45 days",
+          "note": "after the month ends",
+          "sourceUrl": "https://www.taboola.com/policies/publisher-revshare-terms-and-conditions-1-3-US"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "No numeric minimum stated in current account guide",
+          "sourceUrl": "https://pubhelp.taboola.com/hc/en-us/articles/39280014062487-How-To-Get-New-Account"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Content",
+          "value": "Own or properly license content and follow the Publisher Policy",
+          "sourceUrl": "https://pubhelp.taboola.com/hc/en-us/articles/39280014062487-How-To-Get-New-Account"
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Install Taboola widget code",
+          "sourceUrl": "https://developers.taboola.com/web-integrations/docs/welcome"
+        },
+        {
+          "label": "Approval time",
+          "value": "Team responds within 48 hours",
+          "note": "This is response timing, not final approval",
+          "sourceUrl": "https://pubhelp.taboola.com/hc/en-us/articles/39280014062487-How-To-Get-New-Account"
+        },
+        {
+          "label": "Applicant age",
+          "value": "At least 18 years old",
+          "sourceUrl": "https://pubhelp.taboola.com/hc/en-us/articles/39280014062487-How-To-Get-New-Account"
+        },
+        {
+          "label": "Exclusivity",
+          "value": "Exclusive only against other third-party recommendation services under current guide",
+          "sourceUrl": "https://pubhelp.taboola.com/hc/en-us/articles/39280014062487-How-To-Get-New-Account"
+        }
+      ],
+      "revenueShare": "Set in the applicable publisher Order; no standard public percentage",
+      "paymentTerms": "Within 45 days after month-end; paid in US dollars",
+      "paymentThreshold": null,
+      "paymentMethods": [
+        "Payoneer (most publishers); exceptions vary by location"
+      ],
+      "sources": [
+        {
+          "label": "New publisher account guide",
+          "url": "https://pubhelp.taboola.com/hc/en-us/articles/39280014062487-How-To-Get-New-Account"
+        },
+        {
+          "label": "Publisher policy",
+          "url": "https://pubhelp.taboola.com/hc/en-us/articles/360033751274-Taboola-Publisher-Policy"
+        },
+        {
+          "label": "Web integration guide",
+          "url": "https://developers.taboola.com/web-integrations/docs/welcome"
+        },
+        {
+          "label": "Publisher revenue-share terms",
+          "url": "https://www.taboola.com/policies/publisher-revshare-terms-and-conditions-1-3-US"
+        },
+        {
+          "label": "Account setup and payment methods",
+          "url": "https://pubhelp.taboola.com/hc/en-us/articles/360003157054-Account-Set-Up"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "news/editorial publishers",
+        "large content sites",
+        "publishers adding native recommendations"
+      ],
+      "nichesStrong": [
+        "news",
+        "editorial/content discovery"
+      ],
+      "nichesWeak": [
+        "sites seeking standard display replacement only"
+      ],
+      "geographies": [
+        "No country-share threshold found"
+      ],
+      "role": "supplemental",
+      "entryPositioning": "No numeric traffic minimum in current guide; human/policy review remains. Response within 48 hours is not approval.",
+      "compatibilityNotes": [
+        "Exclusive against other third-party recommendation services; ordinary display stack may remain.",
+        "Share is order-specific and payment method varies by geography."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "traffic",
+        "comparator": "no numeric minimum stated",
+        "amount": null,
+        "unit": "not stated",
+        "period": null,
+        "scope": "publisher website",
+        "program": "Taboola",
+        "sourceUrl": "https://pubhelp.taboola.com/hc/en-us/articles/39280014062487-How-To-Get-New-Account"
+      },
+      {
+        "metric": "applicant age",
+        "comparator": "at least",
+        "amount": 18,
+        "unit": "years",
+        "period": null,
+        "scope": "applicant",
+        "program": "Taboola",
+        "sourceUrl": "https://pubhelp.taboola.com/hc/en-us/articles/39280014062487-How-To-Get-New-Account"
+      },
+      {
+        "metric": "recommendation exclusivity",
+        "comparator": "exclusive against third-party recommendation services",
+        "amount": null,
+        "unit": "contract condition",
+        "period": "agreement term",
+        "scope": "recommendation inventory",
+        "program": "Taboola",
+        "sourceUrl": "https://pubhelp.taboola.com/hc/en-us/articles/39280014062487-How-To-Get-New-Account"
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.taboola.com/resources/case-studies/the-independent-uk",
+        "publishedAt": "date not shown; checked 2026-10-22",
+        "site": "The Independent (vendor case)",
+        "niche": "news",
+        "traffic": {
+          "value": 63000000,
+          "metric": "global visitors",
+          "period": "not stated in reviewed case summary"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [
+          "UK publisher; global audience"
+        ],
+        "decision": "case reports 14% more Taboola ad revenue after in-article recommendation deployment",
+        "limits": "Vendor case, large publisher, not an entry example or typical performance forecast."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Established content publisher with recommendation inventory and editorial controls; do not turn historical industry 500K–1M PV claims into current policy.",
+      "currentNetworkSignals": [
+        "Check existing native recommendation providers; those conflict with Taboola exclusivity.",
+        "Separate display ad partners may remain subject to order."
+      ],
+      "geographyPreference": "No public geo threshold.",
+      "agePreference": "Applicant 18+; no domain-age minimum found.",
+      "confidence": "medium",
+      "rationale": "Current guide gives no numeric floor and narrowly defines recommendation-service exclusivity.",
+      "supportingSourceUrls": [
+        "https://pubhelp.taboola.com/hc/en-us/articles/39280014062487-How-To-Get-New-Account",
+        "https://pubhelp.taboola.com/hc/en-us/articles/360033751274-Taboola-Publisher-Policy",
+        "https://www.taboola.com/resources/case-studies/the-independent-uk"
+      ],
+      "gaps": [
+        "No independent current small-publisher entry report.",
+        "No payment floor; share order-specific."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://pubhelp.taboola.com/hc/en-us/articles/39280014062487-How-To-Get-New-Account",
+        "title": "New account guide",
+        "kind": "official help",
+        "publishedAt": "2026-10-22",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "18+",
+          "ownership/content",
+          "recommendation exclusivity",
+          "48h response"
+        ]
+      },
+      {
+        "url": "https://pubhelp.taboola.com/hc/en-us/articles/360033751274-Taboola-Publisher-Policy",
+        "title": "Publisher policy",
+        "kind": "official policy",
+        "publishedAt": "2026-10-20",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "content rules"
+        ]
+      },
+      {
+        "url": "https://www.taboola.com/resources/case-studies/the-independent-uk",
+        "title": "The Independent case",
+        "kind": "vendor case",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "scale and 14% reported uplift"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "teads",
+    "checkedAt": "2026-10-22",
+    "productType": "Sales-led premium media-owner monetization, video formats, and cross-screen demand",
+    "applicationUrl": "https://www.teads.com/teads-contact/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "Sales-led media-owner partnership; no public numeric threshold",
+          "sourceUrl": "https://www.teads.com/media-owners"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Content",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Approval time",
+          "value": "Not public",
+          "sourceUrl": null
+        }
+      ],
+      "revenueShare": "Terms vary by contract; revenue-share rates may vary with pageview volume or total revenue",
+      "paymentTerms": "Negotiated in the media-partner contract; no standard payment interval is published",
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Media owner partnership",
+          "url": "https://www.teads.com/media-owners"
+        },
+        {
+          "label": "2025 annual filing describing publisher agreements and negotiated payment timing",
+          "url": "https://www.sec.gov/Archives/edgar/data/1454938/000145493826000015/tead-20251231.htm"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "established editorial publishers",
+        "publishers with video/in-article inventory",
+        "web/app/CTV media owners"
+      ],
+      "nichesStrong": [
+        "news/editorial",
+        "education/history",
+        "local publishing"
+      ],
+      "nichesWeak": [
+        "small sites seeking self-serve display ads (limited evidence)"
+      ],
+      "geographies": [
+        "No country minimum; local consent/market can affect activation"
+      ],
+      "role": "supplemental",
+      "entryPositioning": "No public traffic or revenue floor; qualification appears sales-led and depends on format and market.",
+      "compatibilityNotes": [
+        "Often supplements existing stack with video/premium demand.",
+        "Confirm whether tags are additive or exclusive for a format.",
+        "Setup and demand activation are separate steps."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "traffic/revenue/age/geography",
+        "comparator": "no universal numeric rule published",
+        "amount": null,
+        "unit": "not stated",
+        "period": null,
+        "scope": "media-owner partnership",
+        "program": "Teads",
+        "sourceUrl": "https://www.teads.com/media-owners"
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1rr1frr/",
+        "publishedAt": "2026-03-11 approx.",
+        "site": "anonymous Italian educational/history site",
+        "niche": "education/history",
+        "traffic": {
+          "value": null,
+          "metric": "volume not reported; 2.7 pages/session and ~7-minute average session",
+          "period": "not stated"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [
+          "Italy"
+        ],
+        "decision": "publisher said recently approved and installed in-article tags, but demand had not activated",
+        "limits": "No PV/revenue data; 11-day activation comment was a separate publisher’s client."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Most promising for established publishers with premium editorial or video inventory. Engagement/country mix may help the sales conversation but is not an official gate.",
+      "currentNetworkSignals": [
+        "Ask whether Teads is incremental to current video/display stack.",
+        "Current network does not prove admission."
+      ],
+      "geographyPreference": "No hard rule; EU consent checks may affect activation.",
+      "agePreference": "No site-age rule found.",
+      "confidence": "low",
+      "rationale": "Official pages and filing describe sales-led media-owner relationships; recent acceptance report lacks volume.",
+      "supportingSourceUrls": [
+        "https://www.teads.com/media-owners",
+        "https://www.teads.com/teads-contact/",
+        "https://www.reddit.com/r/adops/comments/1rr1frr/"
+      ],
+      "gaps": [
+        "No public floor/share/payment method.",
+        "No recent detailed acceptance example."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.teads.com/media-owners",
+        "title": "Media owners",
+        "kind": "official product",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "premium formats and cross-screen publisher offer"
+        ]
+      },
+      {
+        "url": "https://www.teads.com/teads-contact/",
+        "title": "Contact",
+        "kind": "official contact",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "sales route"
+        ]
+      },
+      {
+        "url": "https://investors.teads.com/static-files/4f470000-7ee3-4919-9e4d-506e65a44af4",
+        "title": "Publisher agreement filing",
+        "kind": "company filing",
+        "publishedAt": "2025",
+        "checkedAt": "2026-10-16",
+        "claims": [
+          "negotiated contract terms"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1rr1frr/",
+        "title": "Italian publisher discussion",
+        "kind": "publisher firsthand",
+        "publishedAt": "2026-03 approx.",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "approval",
+          "engagement",
+          "activation lag"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "the-moneytizer",
+    "checkedAt": "2026-10-22",
+    "productType": "Managed multi-format website advertising monetization",
+    "applicationUrl": "https://us.themoneytizer.com/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Organic audience to join",
+          "value": "300,000 unique visitors",
+          "note": "Organic traffic in prior 30 days; US/UK/CA",
+          "sourceUrl": "https://us.themoneytizer.com/faq/validation-criteria"
+        },
+        {
+          "label": "Publisher share",
+          "value": "At least 70%",
+          "note": "pre-tax advertiser billings under terms",
+          "sourceUrl": "https://www.themoneytizer.com/cgu"
+        },
+        {
+          "label": "Payout threshold",
+          "value": "€50 or $50",
+          "note": "market-specific",
+          "sourceUrl": "https://us.themoneytizer.com/category/payments-invoices"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "At least 300,000 unique visitors from organic traffic in the 30 days before registration; qualifying countries US/UK/CA",
+          "sourceUrl": "https://us.themoneytizer.com/faq/validation-criteria"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Qualifying organic unique visitors must be from the US, UK, or Canada",
+          "sourceUrl": "https://us.themoneytizer.com/faq/validation-criteria"
+        },
+        {
+          "label": "Content",
+          "value": "Own domain/server access, sufficient current content; listed restricted categories excluded",
+          "sourceUrl": "https://us.themoneytizer.com/faq/validation-criteria"
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Install ads.txt and ad tags; use a consent banner for EU traffic",
+          "sourceUrl": "https://us.themoneytizer.com/publisherguide"
+        },
+        {
+          "label": "Approval time",
+          "value": "A quality review follows website registration; no timing stated",
+          "sourceUrl": "https://us.themoneytizer.com/publisherguide"
+        },
+        {
+          "label": "Application",
+          "value": "Register an account, add the owned website in the portal, then wait for a quality review.",
+          "sourceUrl": "https://us.themoneytizer.com/"
+        }
+      ],
+      "revenueShare": "At least 70% of the pre-tax amount billed to advertisers under published Terms",
+      "paymentTerms": "An invoice is generated automatically at the threshold and is payable 60 days after its issue date",
+      "paymentThreshold": "€50 under the published Terms; $50 in the US publisher FAQ",
+      "paymentMethods": [
+        "Bank transfer",
+        "PayPal"
+      ],
+      "sources": [
+        {
+          "label": "Publisher terms and conditions",
+          "url": "https://www.themoneytizer.com/cgu"
+        },
+        {
+          "label": "Publisher guide",
+          "url": "https://us.themoneytizer.com/publisherguide"
+        },
+        {
+          "label": "US payments FAQ",
+          "url": "https://us.themoneytizer.com/category/payments-invoices"
+        },
+        {
+          "label": "US validation criteria",
+          "url": "https://us.themoneytizer.com/faq/validation-criteria"
+        },
+        {
+          "label": "US publisher sign-up page",
+          "url": "https://us.themoneytizer.com/"
+        }
+      ],
+      "joinSummary": "300,000 unique organic visitors in prior 30 days from US/UK/CA"
+    },
+    "fit": {
+      "publisherTypes": [
+        "established owned-domain websites",
+        "publishers with measurable organic audience and server access"
+      ],
+      "nichesStrong": [
+        "current content with organic US/UK/CA audience"
+      ],
+      "nichesWeak": [
+        "subdomains/subpages",
+        "Wix/Jimdo",
+        "streaming, illegal downloads, sexual/violent, dating, crypto, social, gambling"
+      ],
+      "geographies": [
+        "300K organic unique visitors in 30 days; countries US/UK/CA"
+      ],
+      "role": "primary",
+      "entryPositioning": "Specific metric is organic unique visitors, not pageviews/sessions/all-source visitors. The current checker inputs cannot establish eligibility without new data.",
+      "compatibilityNotes": [
+        "Managed multi-format monetization may replace current display stack.",
+        "Requires owned domain/server access for ads.txt.",
+        "Do not infer organic share from current network or traffic totals."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "unique organic visitors",
+        "comparator": "at least",
+        "amount": 300000,
+        "unit": "unique visitors",
+        "period": "30 days before registration",
+        "scope": "traffic from US/UK/CA",
+        "program": "The Moneytizer",
+        "sourceUrl": "https://us.themoneytizer.com/faq/validation-criteria"
+      },
+      {
+        "metric": "domain ownership",
+        "comparator": "must own; subdomains/subpages not accepted",
+        "amount": null,
+        "unit": "domain",
+        "period": null,
+        "scope": "publisher website",
+        "program": "The Moneytizer",
+        "sourceUrl": "https://us.themoneytizer.com/faq/validation-criteria"
+      },
+      {
+        "metric": "content/server access",
+        "comparator": "sufficient current content and server access required; listed categories excluded",
+        "amount": null,
+        "unit": "quality/technology",
+        "period": "content maintained over time",
+        "scope": "publisher site",
+        "program": "The Moneytizer",
+        "sourceUrl": "https://us.themoneytizer.com/faq/validation-criteria"
+      }
+    ],
+    "observations": [],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Only shortlist when the publisher can report organic unique visitors and country breakdown for the prior 30 days. If they know only PV/sessions/visits, mark eligibility unknown.",
+      "currentNetworkSignals": [
+        "Request channel-specific unique visitors; do not infer from another ad partner.",
+        "Confirm ads.txt/server access and EU consent setup."
+      ],
+      "geographyPreference": "Qualifying organic uniques in US, UK, and Canada.",
+      "agePreference": "No fixed domain age; enough updated content developed over time required.",
+      "confidence": "high",
+      "rationale": "Current official validation page states exact metric, period, country set, ownership, and content restrictions.",
+      "supportingSourceUrls": [
+        "https://us.themoneytizer.com/faq/validation-criteria",
+        "https://us.themoneytizer.com/publisherguide",
+        "https://www.themoneytizer.com/cgu"
+      ],
+      "gaps": [
+        "No first-hand report with exact organic-unique metric and result.",
+        "Page says “as of this year” with no policy effective date.",
+        "Checker needs organic unique visitor input to model this accurately."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://us.themoneytizer.com/faq/validation-criteria",
+        "title": "Validation Criteria",
+        "kind": "official eligibility",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "300K organic uniques/30 days",
+          "US/UK/CA",
+          "domain and content rules"
+        ]
+      },
+      {
+        "url": "https://us.themoneytizer.com/publisherguide",
+        "title": "Publisher guide",
+        "kind": "official onboarding",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "registration, review, tags, consent"
+        ]
+      },
+      {
+        "url": "https://www.themoneytizer.com/cgu",
+        "title": "Terms",
+        "kind": "official contract",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "share and euro threshold"
+        ]
+      },
+      {
+        "url": "https://us.themoneytizer.com/category/payments-invoices",
+        "title": "US payment FAQ",
+        "kind": "official help",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "US minimum and timing"
+        ]
+      },
+      {
+        "url": "https://us.themoneytizer.com/",
+        "title": "US publisher sign-up page",
+        "kind": "official application",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "publisher account registration and website submission entry point"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "venatus",
+    "checkedAt": "2026-10-22",
+    "productType": "Managed monetization/direct-demand for gaming, sports, and entertainment publishers",
+    "applicationUrl": "https://www.venatus.com/contact/for-publishers",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "Sales-led publisher review; no numeric threshold published",
+          "sourceUrl": "https://www.venatus.com/contact/for-publishers"
+        },
+        {
+          "label": "Visitor location",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Content",
+          "value": "Must pass a human audit; prohibited content includes hate speech, adult, illegal filesharing/downloads/streaming or hacking, and promotion of drugs/tobacco/firearms",
+          "sourceUrl": "https://www.venatus.com/brand-safety"
+        },
+        {
+          "label": "Google standing",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Must connect",
+          "value": "Not public",
+          "sourceUrl": null
+        },
+        {
+          "label": "Approval time",
+          "value": "Not public",
+          "sourceUrl": null
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": null,
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Publisher brand-safety standards",
+          "url": "https://www.venatus.com/brand-safety"
+        },
+        {
+          "label": "Publisher contact page",
+          "url": "https://www.venatus.com/contact/for-publishers"
+        },
+        {
+          "label": "Venatus company site",
+          "url": "https://www.venatus.com/"
+        },
+        {
+          "label": "Venatus company LinkedIn",
+          "url": "https://www.linkedin.com/company/we-are-venatus"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "gaming site and game-platform publishers",
+        "sports publishers",
+        "entertainment publishers"
+      ],
+      "nichesStrong": [
+        "gaming",
+        "HTML5 games",
+        "sports",
+        "entertainment"
+      ],
+      "nichesWeak": [
+        "sites with prohibited adult/illegal/hate content"
+      ],
+      "geographies": [
+        "No country-share threshold found"
+      ],
+      "role": "primary",
+      "entryPositioning": "Sales-led and niche-focused with human content audit; no public traffic or revenue minimum.",
+      "compatibilityNotes": [
+        "Can replace a managed display partner or provide selected gaming/video demand.",
+        "Ask about server-side setup, country demand, video fill, and exclusivity.",
+        "Do not transfer other vendor metrics from comparison threads."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "traffic/revenue/age/geography",
+        "comparator": "no numeric threshold published",
+        "amount": null,
+        "unit": "not stated",
+        "period": null,
+        "scope": "publisher property",
+        "program": "Venatus",
+        "sourceUrl": "https://www.venatus.com/contact/for-publishers"
+      },
+      {
+        "metric": "publisher content",
+        "comparator": "must pass human audit and terms",
+        "amount": null,
+        "unit": "quality criteria",
+        "period": null,
+        "scope": "website or app",
+        "program": "Venatus",
+        "sourceUrl": "https://www.venatus.com/brand-safety"
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1sza527/venatus_vs_publisher_collective/",
+        "publishedAt": "2026-05 approx.",
+        "site": "anonymous gaming publisher commenter",
+        "niche": "gaming",
+        "traffic": {
+          "value": null,
+          "metric": "not disclosed",
+          "period": null
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "commenter said they moved from Publisher Collective to Venatus in Jan 2026; no results",
+        "limits": "Original poster’s 10M impressions and Tier 1 share referred to another Playwire site."
+      },
+      {
+        "sourceUrl": "https://www.trustpilot.com/review/www.venatus.com",
+        "publishedAt": "2025-05-01",
+        "site": "anonymous gaming publisher",
+        "niche": "gaming",
+        "traffic": {
+          "value": null,
+          "metric": "not disclosed",
+          "period": null
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "after four months, reviewer said RPM was about 3x prior AdSense",
+        "limits": "Trustpilot sample is sparse; no pageviews, geography or revenue amount."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Potentially strong for established gaming, sports, or entertainment publishers needing niche direct demand/managed ad ops. Not enough evidence to call it a beginner option.",
+      "currentNetworkSignals": [
+        "Existing gaming partner is only a soft comparison.",
+        "Compare video fill, server-side setup, and terms for current Playwire/PC/Nitro publishers."
+      ],
+      "geographyPreference": "No public preference; use actual country-level demand in sales discussion.",
+      "agePreference": "No public age rule.",
+      "confidence": "low",
+      "rationale": "Official pages give niche and brand-safety criteria but no admission floor; anecdotes are low-detail and mixed.",
+      "supportingSourceUrls": [
+        "https://www.venatus.com/brand-safety",
+        "https://www.venatus.com/contact/for-publishers",
+        "https://www.reddit.com/r/adops/comments/1sza527/venatus_vs_publisher_collective/",
+        "https://www.trustpilot.com/review/www.venatus.com"
+      ],
+      "gaps": [
+        "No numeric threshold or payment terms.",
+        "No successful entry example with traffic and countries.",
+        "Positive Trustpilot report lacks scale."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.venatus.com/contact/for-publishers",
+        "title": "Publisher contact",
+        "kind": "official contact",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "sales-led route"
+        ]
+      },
+      {
+        "url": "https://www.venatus.com/brand-safety",
+        "title": "Brand Safety",
+        "kind": "official policy",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "human audit",
+          "prohibited content"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1sza527/venatus_vs_publisher_collective/",
+        "title": "Publisher comparison",
+        "kind": "publisher firsthand",
+        "publishedAt": "2026-05 approx.",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "gaming",
+          "migration mention, no result"
+        ]
+      },
+      {
+        "url": "https://www.trustpilot.com/review/www.venatus.com",
+        "title": "Publisher review",
+        "kind": "publisher-submitted",
+        "publishedAt": "2025-05-01",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "four months",
+          "3x AdSense RPM claim",
+          "no scale"
+        ]
+      }
+    ]
+  }
+]

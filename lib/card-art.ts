@@ -5,6 +5,7 @@ import { siteSpotLicensesArt } from "@/app/(site)/art/site--spot-licenses";
 import { siteSpotCourseArt } from "@/app/(site)/art/site--spot-course";
 import { siteSpotCliAppsArt } from "@/app/(site)/art/site--spot-cli-apps";
 import { adNetworkCheckerArt } from "@/app/ui/art/ad-network-checker";
+import { adNetworkRequirementsCheckerArt } from "@/app/ui/art/ad-network-requirements-checker";
 import { arpuArpaCalculatorArt } from "@/app/ui/art/arpu-arpa-calculator";
 import { arrCalculatorArt } from "@/app/ui/art/arr-calculator";
 import { backup321Art } from "@/app/ui/art/backup-321";
@@ -52,6 +53,7 @@ import { nameserverArt } from "@/app/ui/art/nameserver";
 import { netRevenueRetentionCalculatorArt } from "@/app/ui/art/net-revenue-retention-calculator";
 import { pixelsToPrintSizeArt } from "@/app/ui/art/pixels-to-print-size";
 import { punycodeArt } from "@/app/ui/art/punycode";
+import { publisherToolsArt } from "@/app/ui/art/publisher-tools";
 import { raidArt } from "@/app/ui/art/raid";
 import { raidzExpansionArt } from "@/app/ui/art/raidz-expansion";
 import { rebuildArt } from "@/app/ui/art/rebuild";
@@ -108,6 +110,7 @@ const art: Record<string, string> = {
   "software-licenses-for-self-hosting": siteSpotLicensesArt,
 
   "ad-network-checker": adNetworkCheckerArt,
+  "ad-network-requirements-checker": adNetworkRequirementsCheckerArt,
   "annual-plan-discount-calculator": annualPlanDiscountCalculatorArt,
   "arpu-arpa-calculator": arpuArpaCalculatorArt,
   "arr-calculator": arrCalculatorArt,
@@ -171,6 +174,7 @@ const art: Record<string, string> = {
   "nginx-proxy-pass-calculator": siteSpotNginxProxyPassArt,
   "pixels-to-print-size": pixelsToPrintSizeArt,
   "productivity-tools": siteSpotKeyboardShortcutsArt,
+  "publisher-tools": publisherToolsArt,
   "punycode": punycodeArt,
   "raid": raidArt,
   "raidz-expansion": raidzExpansionArt,

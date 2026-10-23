@@ -1,29 +1,96 @@
-# Mediavine
+# mediavine: recommendation research
 
-Checked 2026-10-16.
+Checked: 2026-10-22
 
-## Joining
+## Product and application
 
-- Traffic: no traffic minimum listed. The official requirements page sets a $5,000 yearly ad revenue minimum instead of a traffic rule. Source checked: https://help.mediavine.com/mediavine-official. Read 2026-10-16.
-- Visitor location: Not public. The reviewed official pages do not state this rule. Source checked: https://help.mediavine.com/mediavine-official. Read 2026-10-16.
-- Content: Original, quality, evergreen content. Source: https://help.mediavine.com/mediavine-official. Read 2026-10-16.
-- Google standing: No active AdSense ban. Note: You do not need prior AdSense use. Source: https://help.mediavine.com/mediavine-official. Read 2026-10-16.
-- Must connect: Not public. The reviewed official pages do not state this rule. Source checked: https://help.mediavine.com/mediavine-official. Read 2026-10-16.
-- Approval time: Not public. The reviewed official pages do not state this rule. Source checked: https://help.mediavine.com/mediavine-official. Read 2026-10-16.
-- Ad revenue: $5,000 a year. Note: Minimum annual ad revenue. Source: https://help.mediavine.com/mediavine-official. Read 2026-10-16.
+- Product: Managed display ad network with multiple publisher growth tiers.
+- Application or contact route: [https://www.mediavine.com/application-requirements/](https://www.mediavine.com/application-requirements/).
+- Recommendation role: **primary**. Official requires $5k ad revenue from the prior calendar year. Current-month earnings can estimate opportunity, but cannot prove this exact requirement.
 
-## Pay
+## Official facts
 
-- Mediavine Official states a 75% publisher share. Payments are Net 65 on the 5th or first business day after it. Most methods have a $100 threshold; international ACH is $200. Methods include PayPal, domestic and international ACH, and US and international wire. Supported currency depends on method and setup. (Sources: https://help.mediavine.com/mediavine-official, https://help.mediavine.com/mediavine-payment-faq, and https://help.mediavine.com/mediavine-payment-methods, read 2026-10-16.)
+Facts below apply to the named program. Missing numeric amounts mean the source did not publish a number.
 
-## Rules
+- **Site ad revenue — minimum**: 5,000 USD; period: previous calendar year; scope: site; program: Official. Source: [https://help.mediavine.com/programs-and-the-publisher-path-to-growth](https://help.mediavine.com/programs-and-the-publisher-path-to-growth). Note: Not last month or trailing 12 months.
+- **Content — must be original, audience-first, human and brand-safe**; period: ongoing; scope: site; program: Official. Source: [https://help.mediavine.com/mediavine-official](https://help.mediavine.com/mediavine-official).
+- **Google standing — must be in good standing**; period: ongoing; scope: account; program: Official. Source: [https://help.mediavine.com/mediavine-official](https://help.mediavine.com/mediavine-official).
+- **Traffic source/geography — reviewed; no fixed share published**; period: review; scope: site; program: Official. Source: [https://help.mediavine.com/mediavine-official](https://help.mediavine.com/mediavine-official).
 
-- Mediavine says there is no long-term contract. Publisher controls include ad settings and controls in the dashboard. Public content and placement rules are in its publisher help center. (Sources: https://help.mediavine.com/mediavine-official and https://help.mediavine.com/, read 2026-10-16.)
+## Publisher-reported observations
 
-## Service
+Individual reports, not acceptance-rate evidence or revenue forecasts.
 
-- The dashboard reports traffic source, country, device, page-level, gross/net, and ad-unit performance. Support is available seven days a week through its help center and publisher community. Tools include Grow and ad management settings. (Source: https://help.mediavine.com/mediavine-official, read 2026-10-16.)
+- **2026 — Unidentified publisher** (Not stated). Poster said they expected Official eligibility based on prior-year earnings but application path routed them to Journey; they were 45 days into Journey. Limits: Anonymous; exact revenue and site quality/country data not provided; app routing may have changed. Source: [https://www.reddit.com/r/adops/comments/1wz7cw6](https://www.reddit.com/r/adops/comments/1wz7cw6).
+- **2026 — Norwegian local site** (Local popular site; niche not stated). Traffic: 12046 pageviews (first 5 days after network acceptance). Countries: Norway. Poster reported acceptance to a Mediavine-branded program and $41.47 revenue from those first five days; the program tier (Official vs Journey) was not specified. Limits: Very early five-day result and program unspecified; not a revenue forecast or evidence against the Official prior-year gate. Source: [https://www.reddit.com/r/Blogging/comments/1s7kf5e](https://www.reddit.com/r/Blogging/comments/1s7kf5e).
+- **2026 — Unidentified existing publisher** (Not stated). Traffic: 1600000 monthly users (reported during application discussion). Publisher described repeated application declines and a 60-day reapply wait despite later traffic growth. Limits: Exact application target tier, niche, geography and prior-year ad revenue not established. Source: [https://www.reddit.com/r/adops/comments/1xb1r9c](https://www.reddit.com/r/adops/comments/1xb1r9c).
 
-## Logo
+## Editorial inference
 
-Logo source: https://www.mediavine.com/wp-content/uploads/2025/11/Mediavine-Logo-Black.svg (read 2026-10-16)
+### Practical fit
+
+Shortlist for content publishers that can document $5k site ad revenue from the previous calendar year and pass quality review. Last month's revenue is only a planning estimate and cannot satisfy the exact criterion.
+
+### Estimated range and confidence
+
+- Traffic range: not estimated; available figures are absent or not comparable enough to support a practical band.
+- Revenue reference: **5,000–5,000 USD site ad revenue per previous calendar year**; confidence: high.
+  - Exact Official gate, not monthly revenue.
+  - Basis: [https://help.mediavine.com/programs-and-the-publisher-path-to-growth](https://help.mediavine.com/programs-and-the-publisher-path-to-growth).
+
+- Geography: No fixed share; traffic source and geography are reviewed.
+- Site age: No public age minimum found.
+- Confidence: **high**. Current official Publisher Path specifies the previous calendar year, not last month or rolling 12 months. Reddit reports show routing and quality review can add discretion.
+
+### Current-network compatibility
+
+- Journey acceptance is a separate path and does not prove Official eligibility.
+- Journey is a separate lower-volume program and not proof of Official eligibility.
+- Official rate tiers apply to new 2026 sites; legacy agreements can differ.
+
+## Directory-ready corrections and additions
+
+Proposed complete AdNetworkFacts record, excluding minTraffic. Keep published values with their dates and qualifications.
+
+### Key numbers
+
+- **Official revenue gate:** $5,000 — Site ad revenue in the previous calendar year; not last month or trailing 12 months. Source: [https://help.mediavine.com/programs-and-the-publisher-path-to-growth](https://help.mediavine.com/programs-and-the-publisher-path-to-growth).
+- **Official share:** 75% — For new Official sites in 2026; Select/Signature/Premiere tiers are higher and legacy terms differ. Source: [https://help.mediavine.com/revenue-share](https://help.mediavine.com/revenue-share).
+- **Pay day:** Net 65 — Processed from month end. Source: [https://help.mediavine.com/when-am-i-getting-paid-0](https://help.mediavine.com/when-am-i-getting-paid-0).
+
+### Joining and payment
+
+- **Revenue:** At least $5k site ad revenue in previous calendar year. Source: [https://help.mediavine.com/programs-and-the-publisher-path-to-growth](https://help.mediavine.com/programs-and-the-publisher-path-to-growth).
+- **Content:** Original, audience-first, human and brand-safe; traffic sources and demographics reviewed. Source: [https://help.mediavine.com/mediavine-official](https://help.mediavine.com/mediavine-official).
+- **Google standing:** Good standing with AdSense and Ad Exchange; no active policy issues. Source: [https://help.mediavine.com/mediavine-official](https://help.mediavine.com/mediavine-official).
+- **Traffic:** No separate public PV/session gate for Official; revenue rule controls. Source: [https://help.mediavine.com/programs-and-the-publisher-path-to-growth](https://help.mediavine.com/programs-and-the-publisher-path-to-growth).
+- **Application:** Provide analytics and allow site review; exact verification may vary. Source: [https://prod.mediavine.com/blog/mediavine-application-process-faq/](https://prod.mediavine.com/blog/mediavine-application-process-faq/).
+- Revenue share: 75% for new Official sites in 2026; 80% Select, 85% Signature, 90% Premiere/Premiere Plus; legacy differs.
+- Payment terms: Net 65 from month end; processed first business day.
+- Payment threshold: $100 most methods; $200 eCheck/local transfer.
+- Payment methods: PayPal, Domestic ACH, Wise, US wire, eCheck/local bank transfer, International wire.
+- Join summary: $5,000 in site ad revenue in the prior calendar year.
+
+## Unresolved conflicts and gaps
+
+- One recent accepted case did not specify Official versus Journey.
+- Anonymous application reports do not expose review inputs; they cannot establish an acceptance rate.
+- Do not use last-month earnings as an exact substitute for prior-year total.
+
+## Research attempts and sources
+
+Attempts are stated explicitly so missing evidence is not mistaken for an unavailable or reviewed source.
+
+- Reviewed current Publisher Path, Official criteria, 2026 share tiers and payment terms.
+- Searched recent publisher application/rejection reports; found one Official-to-Journey routing complaint and one acceptance report where program tier was unclear.
+- Did not infer the Official gate from last-month revenue or from Journey entry.
+
+### Sources checked
+
+- [Programs and Publisher Path](https://help.mediavine.com/programs-and-the-publisher-path-to-growth) — official; checked 2026-10-22. Supports: $5k based on previous calendar year.
+- [Mediavine Official criteria](https://help.mediavine.com/mediavine-official) — official; checked 2026-10-22. Supports: content and Google standing.
+- [Revenue share](https://help.mediavine.com/revenue-share) — official; checked 2026-10-22. Supports: new 2026 tier shares; legacy differs.
+- [Payment timing](https://help.mediavine.com/when-am-i-getting-paid-0) — official; checked 2026-10-22. Supports: Net65.
+- [Official application routing discussion](https://www.reddit.com/r/adops/comments/1wz7cw6) — publisher_forum, published 2026; checked 2026-10-22. Supports: poster claimed previous-year revenue above $5k and was routed to Journey.
+- [New Mediavine-branded account start](https://www.reddit.com/r/Blogging/comments/1s7kf5e) — publisher_forum, published 2026; checked 2026-10-22. Supports: Norway site and first five-day results; program tier unclear.
+- [Publisher reapplication complaint](https://www.reddit.com/r/adops/comments/1xb1r9c) — publisher_forum, published 2026-10-21; checked 2026-10-22. Supports: 1.6m monthly users and repeated declines; tier/niche unclear.

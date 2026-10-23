@@ -1,10 +1,11 @@
+import Link from "next/link";
 import type { MDXContent } from "mdx/types";
 import type { ReactNode } from "react";
 import { DetailsLayout, FactsList, KeyNumbers, NotPublic, SourcesLine, type Fact, type KeyNumber } from "@/app/ui/ad-networks/details";
 import { formatDay } from "@/app/ui/ad-networks/site-format";
 import { proseClassName, proseFlowClassName } from "@/app/ui/site/prose";
 import { UiTabs, type UiTab } from "@/app/ui/tabs";
-import { NOT_PUBLIC, joinPhrase, joiningNumbers, networkFacts } from "../ad-networks-shared";
+import { NOT_PUBLIC, networkFacts } from "../ad-networks-shared";
 import type { AdNetworkFacts } from "../network-facts";
 import type { AdNetworkContent } from "./content";
 import styles from "./network.module.css";
@@ -14,24 +15,10 @@ type KeyFact = AdNetworkFacts["keyNumbers"][number];
 // The mockup's words for the labels research uses.
 const keyLabels: Record<string, string> = { "your share": "revenue share" };
 
-/**
- * One key number in the mockup's form: the value, then a short label. A joining rule reads as
- * `sessions a month to join`; anything after the first `;` in its note stays as a caveat.
- */
-function keyNumber(item: KeyFact, joining: boolean): KeyNumber {
-  const [first = "", ...rest] = (item.note ?? "").split(";");
-  if (joining) {
-    const phrase = joinPhrase(item);
-    if (phrase.startsWith(item.value) && phrase.length > item.value.length) {
-      // joinPhrase keeps only the unit; whatever it drops ("or 2 million …", ", for new sites") stays as the caveat.
-      const alternative = first.match(/\s(or\s+[^,]*\d.*)$/i)?.[1];
-      const clause = first.replace(/\s+or\s+(?=[^,]*\d).*$/i, "").split(",").slice(1).join(",").trim();
-      const caveat = [alternative, clause, rest.join(";").trim()].filter(Boolean).join("; ");
-      return { value: item.value, label: `${phrase.slice(item.value.length).trim()} to join`, note: caveat || undefined };
-    }
-  }
+/** Keep the researched label and caveat intact, including product and regional limits. */
+function keyNumber(item: KeyFact): KeyNumber {
   const label = item.label.charAt(0).toLowerCase() + item.label.slice(1);
-  return { value: item.value, label: keyLabels[label] ?? label, note: [first, ...rest].join(";").trim() || undefined };
+  return { value: item.value, label: keyLabels[label] ?? label, note: item.note };
 }
 
 /** Tab files start at `##`. They sit under the h3 panel heading UiTabs adds, so they render one level down. */
@@ -73,8 +60,7 @@ export function NetworkDetails({ content, name, slug }: { content: AdNetworkCont
   const { Article, Joining, Pay, Rules, Service } = content;
 
   const shown = facts?.keyNumbers.slice(0, 3) ?? [];
-  const joining = facts ? joiningNumbers(facts) : [];
-  const keyNumbers = shown.map((item) => keyNumber(item, joining.includes(item)));
+  const keyNumbers = shown.map(keyNumber);
 
   // Researched joining rows in network-facts.ts, in the mockup's order. "Not public" is a finding, not missing data.
   const joiningRows = facts ? factRows(facts.joining.map((row) => ({ ...row, value: row.value === NOT_PUBLIC ? null : row.value }))) : [];
@@ -94,7 +80,19 @@ export function NetworkDetails({ content, name, slug }: { content: AdNetworkCont
     { id: "service", title: "Service", rows: [] as Fact[], Words: Service },
   ]
     .filter((tab) => tab.rows.length || tab.Words)
-    .map(({ id, rows, title, Words }) => ({ id, title, content: <>{rows.length ? <FactsList items={rows} /> : null}<TabWords Words={Words} /></> }));
+    .map(({ id, rows, title, Words }) => ({
+      id,
+      title,
+      content: <>
+        {rows.length ? <FactsList items={rows} /> : null}
+        {id === "joining" ? (
+          <div className={`${proseClassName} ${proseFlowClassName} ${styles.tabWords}`}>
+            <p>Use the <Link href="/ad-network-requirements-checker">free ad network requirements checker</Link> to see which published rules your numbers meet.</p>
+          </div>
+        ) : null}
+        <TabWords Words={Words} />
+      </>,
+    }));
 
   const checked = facts ? formatDay(facts.checkedAt, true) : null;
 

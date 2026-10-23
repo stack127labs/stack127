@@ -22,7 +22,7 @@ const payNumber = /pay|share|split|fee|payout|terms|threshold|notice|timing|sche
 const joinNumber = /join|traffic|users|visitors|pageviews|sessions|revenue benchmark/i;
 
 // Notes that say the number isn't a rule anyone has to meet, such as a benchmark or a referral bar.
-const notARule = /not a general minimum|not the main rule/i;
+const notARule = /not a general minimum|not the main rule|not a joining cutoff|not a confirmed joining cutoff|not a hard joining cutoff|case.study|unconfirmed|dated|unit unclear|not a cutoff|not a threshold|editorial estimate/i;
 
 /** Key numbers that say what it takes to join, such as revenue or traffic to apply. */
 export function joiningNumbers(facts: AdNetworkFacts) {
@@ -66,13 +66,10 @@ export function joinRule(slug: string): string | null {
   return first ? joinPhrase(first) : null;
 }
 
-/** The header sentence for a join rule: `It takes sites with 50,000 sessions a month.` */
+/** A short entry summary that also supports program notes and sales-led applications. */
 export function joinSentence(rule: string) {
-  if (rule === "No traffic minimum") return "It takes sites of any size.";
-  const typical = /^Typically\s+/i.test(rule);
-  const phrase = rule.replace(/^Typically\s+/i, "");
-  const words = /^[A-Z][a-z]/.test(phrase) ? phrase.charAt(0).toLowerCase() + phrase.slice(1) : phrase;
-  return `It ${typical ? "typically " : ""}takes sites with ${words}.`;
+  if (rule === "No traffic minimum") return "It publishes no traffic minimum; each site is reviewed.";
+  return `Joining: ${rule.replace(/[.!?]+$/, "")}.`;
 }
 
 /** Monthly traffic needed, for ordering by how easy a network is to join. Unknown sorts last. */

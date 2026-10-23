@@ -1,0 +1,5270 @@
+[
+  {
+    "slug": "adapex",
+    "productType": "Managed yield optimization and ad-stack infrastructure",
+    "applicationUrl": "https://adapex.io/get-in-touch/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Pay day",
+          "value": "Net 60",
+          "note": "Monthly net terms; no public threshold or share.",
+          "sourceUrl": "https://adapex.io/faqs/"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Application inputs",
+          "value": "Publisher form asks monthly revenue, monthly pageviews, and USA traffic share",
+          "note": "These are intake fields, not a published cutoff.",
+          "sourceUrl": "https://adapex.io/get-in-touch/"
+        },
+        {
+          "label": "Traffic",
+          "value": "No numeric minimum published; positioned for mid-sized publishers",
+          "sourceUrl": "https://adapex.io/faqs/"
+        },
+        {
+          "label": "Must connect",
+          "value": "Google Ad Manager through MCM",
+          "note": "Adapex says it works with existing AdSense, AdX and Prebid.",
+          "sourceUrl": "https://adapex.io/faqs/"
+        },
+        {
+          "label": "Contract",
+          "value": "No long-term contract required to start; longer terms can be offered",
+          "sourceUrl": "https://adapex.io/faqs/"
+        }
+      ],
+      "revenueShare": "Not public",
+      "paymentTerms": "Net 60; paid monthly through the publisher's established method",
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Publisher FAQ",
+          "url": "https://adapex.io/faqs/"
+        },
+        {
+          "label": "Contact",
+          "url": "https://adapex.io/get-in-touch/"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "mid-sized web publishers with an existing ad stack"
+      ],
+      "nichesStrong": [
+        "established editorial and content inventory"
+      ],
+      "nichesWeak": [
+        "new low-volume blogs without GAM"
+      ],
+      "geographies": [
+        "No public mix"
+      ],
+      "role": "infrastructure",
+      "entryPositioning": "Contact-led managed yield service. It targets mid-sized publishers, asks for monthly revenue, monthly pageviews and US traffic share, but publishes no numeric floor.",
+      "compatibilityNotes": [
+        "Current FAQ says it integrates with existing AdSense, AdX and Prebid and does not force publishers to remove partners.",
+        "GAM via MCM is required; flexible short-term testing is available."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Traffic",
+        "comparator": "no numeric floor published",
+        "amount": null,
+        "unit": "not stated",
+        "period": "not stated",
+        "scope": "web publishers",
+        "program": "Managed service",
+        "sourceUrl": "https://adapex.io/faqs/",
+        "note": "FAQ uses substantial-traffic language."
+      },
+      {
+        "metric": "Ad server",
+        "comparator": "requires",
+        "amount": null,
+        "unit": "Google Ad Manager / MCM",
+        "period": "during service",
+        "scope": "managed publishers",
+        "program": "Managed service",
+        "sourceUrl": "https://adapex.io/faqs/",
+        "note": null
+      },
+      {
+        "metric": "Content",
+        "comparator": "must comply",
+        "amount": null,
+        "unit": "publisher policies",
+        "period": "ongoing",
+        "scope": "site content",
+        "program": "Managed service",
+        "sourceUrl": "https://adapex.io/faqs/",
+        "note": null
+      },
+      {
+        "metric": "Application form",
+        "comparator": "asks for",
+        "amount": null,
+        "unit": "monthly revenue, monthly pageviews, USA traffic share",
+        "period": "at application",
+        "scope": "publisher site",
+        "program": "Managed service",
+        "sourceUrl": "https://adapex.io/get-in-touch/",
+        "note": "Intake fields are not eligibility thresholds."
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/yvtwkr",
+        "publishedAt": null,
+        "site": "Unidentified publisher",
+        "niche": "Not stated",
+        "traffic": null,
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Thread asked whether publishers were making money with Adapex; no verifiable acceptance or earnings example emerged.",
+        "limits": "Question only; no site, traffic, revenue or outcome."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Shortlist when an established publisher wants an optimization partner that works around its current stack. A beginner without GAM has no confirmed application path.",
+      "currentNetworkSignals": [
+        "Existing AdSense, AdX or Prebid can be integrated; this is compatibility evidence, not a guarantee of selection."
+      ],
+      "geographyPreference": "Publisher contact form asks for USA traffic share; no target percentage is published.",
+      "agePreference": "No public site-age minimum found.",
+      "confidence": "low",
+      "rationale": "Current FAQ gives mid-sized publisher positioning, MCM, compatibility and payment terms; contact form requests monthly revenue, monthly PV and US traffic share without publishing thresholds.",
+      "supportingSourceUrls": [
+        "https://adapex.io/faqs/"
+      ],
+      "gaps": [
+        "No numeric traffic, revenue, country-share or site-age gate published.",
+        "No reliable independent acceptance or revenue case found; the located forum thread was a question."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://adapex.io/faqs/",
+        "title": "Publisher FAQ",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "mid-sized positioning",
+          "GAM/MCM and compatibility",
+          "Net60"
+        ]
+      },
+      {
+        "url": "https://adapex.io/contact/",
+        "title": "Contact route",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "application route"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/yvtwkr",
+        "title": "Adapex publisher question",
+        "kind": "publisher_forum",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "no verified application outcome"
+        ]
+      },
+      {
+        "url": "https://adapex.io/get-in-touch/",
+        "title": "Publisher contact form",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "collects monthly revenue, monthly pageviews and US traffic percentage as application inputs; no listed cutoff"
+        ]
+      }
+    ],
+    "checkedAt": "2026-10-22"
+  },
+  {
+    "slug": "aditude",
+    "productType": "Publisher ad-tech platform and managed monetization support",
+    "applicationUrl": "https://www.aditude.com/contact",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [],
+      "joining": [
+        {
+          "label": "Application",
+          "value": "Book a demo/contact sales; no self-serve gate found.",
+          "note": "Web/app platform with tailored service.",
+          "sourceUrl": "https://www.aditude.com/contact"
+        },
+        {
+          "label": "Traffic",
+          "value": "No public numeric requirement found.",
+          "sourceUrl": "https://www.aditude.com/case-studies"
+        },
+        {
+          "label": "Publisher types",
+          "value": "Case studies cover media, gaming, audio and apps.",
+          "sourceUrl": "https://www.aditude.com/case-studies"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": null,
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Publisher platform",
+          "url": "https://www.aditude.com/"
+        },
+        {
+          "label": "Case studies",
+          "url": "https://www.aditude.com/case-studies"
+        },
+        {
+          "label": "Dexerto case study",
+          "url": "https://www.aditude.com/case-studies/dexerto"
+        },
+        {
+          "label": "Publisher contact",
+          "url": "https://www.aditude.com/contact"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "large or technically complex web/app publishers with ad-ops needs"
+      ],
+      "nichesStrong": [
+        "gaming",
+        "digital media",
+        "audio",
+        "apps"
+      ],
+      "nichesWeak": [
+        "small solo blogs seeking a quick self-serve tag"
+      ],
+      "geographies": [
+        "No public target mix"
+      ],
+      "role": "infrastructure",
+      "entryPositioning": "Demo-led platform; customer examples suggest enterprise fit, but no public traffic gate.",
+      "compatibilityNotes": [
+        "Public materials do not settle exclusivity or network coexistence; ask during sales review."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Application",
+        "comparator": "contact-led demo",
+        "amount": null,
+        "unit": "not stated",
+        "period": "not stated",
+        "scope": "publisher businesses",
+        "program": "Publisher platform",
+        "sourceUrl": "https://www.aditude.com/",
+        "note": null
+      },
+      {
+        "metric": "Traffic",
+        "comparator": "not published",
+        "amount": null,
+        "unit": "not stated",
+        "period": "not stated",
+        "scope": "publisher sites",
+        "program": "Publisher platform",
+        "sourceUrl": "https://www.aditude.com/case-studies",
+        "note": null
+      },
+      {
+        "metric": "Product scope",
+        "comparator": "supports",
+        "amount": null,
+        "unit": "web and app inventory",
+        "period": "ongoing",
+        "scope": "publisher inventory",
+        "program": "Publisher platform",
+        "sourceUrl": "https://www.aditude.com/",
+        "note": null
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1ozpww8",
+        "publishedAt": null,
+        "site": "Unnamed visual-design web app",
+        "niche": "Free visual-design app",
+        "traffic": {
+          "value": 1100000,
+          "metric": "monthly GA users",
+          "period": "month"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Poster said they started with Aditude and later tested other partners after reliability issues with ad placements/integration.",
+        "limits": "Anonymous; no revenue or admission detail."
+      },
+      {
+        "sourceUrl": "https://www.aditude.com/case-studies/dexerto",
+        "publishedAt": null,
+        "site": "Dexerto",
+        "niche": "Gaming/esports media",
+        "traffic": null,
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Vendor case reports a 15% revenue lift and 10% more ads per session against prior setup.",
+        "limits": "Vendor case, no traffic/revenue baseline; comparison windows differ."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Consider for sizeable publishers with ad-ops/product/engineering needs and the capacity to evaluate a demo. Not a default for a new blog.",
+      "currentNetworkSignals": [
+        "Existing managed ad-tech peers are not proof of Aditude acceptance."
+      ],
+      "geographyPreference": "No public country mix found.",
+      "agePreference": "No public site-age minimum found.",
+      "confidence": "low",
+      "rationale": "Case studies show customer types, not a floor; one independent operator describes scale and integration concerns, not eligibility.",
+      "supportingSourceUrls": [
+        "https://www.aditude.com/",
+        "https://www.aditude.com/case-studies",
+        "https://www.reddit.com/r/adops/comments/1ozpww8"
+      ],
+      "gaps": [
+        "No public traffic, revenue, age, geography, payment or share rules.",
+        "No named first-person acceptance story with application metrics."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.aditude.com/",
+        "title": "Publisher ad-tech platform",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "web/app platform",
+          "contact route"
+        ]
+      },
+      {
+        "url": "https://www.aditude.com/case-studies",
+        "title": "Case studies",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "publisher categories"
+        ]
+      },
+      {
+        "url": "https://www.aditude.com/case-studies/dexerto",
+        "title": "Dexerto case",
+        "kind": "vendor_case_study",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "reported lift; no entry data"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1ozpww8",
+        "title": "Visual design app ad discussion",
+        "kind": "publisher_forum",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "1.1m monthly GA users; reliability concerns"
+        ]
+      },
+      {
+        "url": "https://www.aditude.com/contact",
+        "title": "Publisher contact",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "sales-led contact route"
+        ]
+      }
+    ],
+    "checkedAt": "2026-10-22"
+  },
+  {
+    "slug": "adnimation",
+    "productType": "Managed ad monetization plus a separate self-serve MAP program",
+    "applicationUrl": "https://www.adnimation.com/get-started/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Pay day",
+          "value": "Net 35",
+          "note": "Standard managed service; MAP has separate terms.",
+          "sourceUrl": "https://www.adnimation.com/faqs/"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Standard traffic",
+          "value": "Substantial; no official number.",
+          "note": "CEO described 1–20m monthly visitors as a historical sweet spot, not a cutoff.",
+          "sourceUrl": "https://www.adnimation.com/adnimation-co-founder-talks-plans-for-growth-with-mergermarket/"
+        },
+        {
+          "label": "MAP traffic",
+          "value": "No PV minimum; all sites reviewed.",
+          "sourceUrl": "https://www.adnimation.com/map/"
+        },
+        {
+          "label": "Content",
+          "value": "No gambling, pornography, drugs or similar content.",
+          "sourceUrl": "https://www.adnimation.com/faqs/"
+        },
+        {
+          "label": "Payment methods",
+          "value": "US ACH; international wire; PayPal by arrangement.",
+          "sourceUrl": "https://www.adnimation.com/faqs/"
+        }
+      ],
+      "revenueShare": "Revenue-share model; percentage not public",
+      "paymentTerms": "Net 35 after month end",
+      "paymentThreshold": null,
+      "paymentMethods": [
+        "ACH (US)",
+        "International wire",
+        "PayPal by arrangement"
+      ],
+      "sources": [
+        {
+          "label": "Publisher FAQ",
+          "url": "https://www.adnimation.com/faqs/"
+        },
+        {
+          "label": "MAP program",
+          "url": "https://www.adnimation.com/map/"
+        },
+        {
+          "label": "Co-founder interview",
+          "url": "https://www.adnimation.com/adnimation-co-founder-talks-plans-for-growth-with-mergermarket/"
+        },
+        {
+          "label": "Case study",
+          "url": "https://www.adnimation.com/case-study/"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "established web, app and CTV publishers",
+        "smaller publishers using MAP"
+      ],
+      "nichesStrong": [
+        "original content",
+        "news",
+        "automotive",
+        "US foreign-language audiences"
+      ],
+      "nichesWeak": [
+        "very small sites for standard service"
+      ],
+      "geographies": [
+        "Global; historical interview said 65% of customers were US-based"
+      ],
+      "role": "infrastructure",
+      "entryPositioning": "Separate paths: standard service asks for substantial traffic; MAP has no PV floor but manually reviews all sites.",
+      "compatibilityNotes": [
+        "Standard service allows direct campaigns to continue; confirm other-network exclusivity.",
+        "MAP payment terms are separate."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Traffic",
+        "comparator": "substantial; no number",
+        "amount": null,
+        "unit": "not stated",
+        "period": "not stated",
+        "scope": "standard managed sites",
+        "program": "Standard",
+        "sourceUrl": "https://www.adnimation.com/faqs/",
+        "note": null
+      },
+      {
+        "metric": "Traffic",
+        "comparator": "no minimum",
+        "amount": 0,
+        "unit": "pageviews",
+        "period": "not stated",
+        "scope": "all site sizes subject to review",
+        "program": "MAP",
+        "sourceUrl": "https://www.adnimation.com/map/",
+        "note": null
+      },
+      {
+        "metric": "Content",
+        "comparator": "must exclude",
+        "amount": null,
+        "unit": "gambling/porn/drugs and similar",
+        "period": "ongoing",
+        "scope": "site/app/CTV",
+        "program": "Standard",
+        "sourceUrl": "https://www.adnimation.com/faqs/",
+        "note": null
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.adnimation.com/adnimation-co-founder-talks-plans-for-growth-with-mergermarket/",
+        "publishedAt": null,
+        "site": "Aggregate customer base",
+        "niche": "Original-content sites; examples include conservative news, automotive and Mandarin publishers",
+        "traffic": {
+          "value": 1000000,
+          "metric": "monthly visitors",
+          "period": "lower end of quoted customer sweet spot"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [
+          "United States"
+        ],
+        "decision": "Co-founder described 1–20m monthly visitors as sweet spot and 65% of customers in US.",
+        "limits": "Company interview circa 2022; positioning, not admission floor."
+      },
+      {
+        "sourceUrl": "https://www.adnimation.com/case-study/",
+        "publishedAt": null,
+        "site": "Unnamed conservative news site",
+        "niche": "Conservative news",
+        "traffic": {
+          "value": 1000000,
+          "metric": "monthly users",
+          "period": "site reached scale before engagement"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Company case says the site exceeded 1m monthly users before monetization engagement.",
+        "limits": "Vendor case, not an entrant threshold."
+      }
+    ],
+    "inference": {
+      "trafficRange": {
+        "low": 1000000,
+        "high": 20000000,
+        "metric": "visitors",
+        "period": "month",
+        "basisSourceUrls": [
+          "https://www.adnimation.com/adnimation-co-founder-talks-plans-for-growth-with-mergermarket/"
+        ],
+        "confidence": "low",
+        "note": "Historical vendor interview sweet spot, not admission range."
+      },
+      "revenueRange": null,
+      "practicalFit": "Standard service is plausible for established sites around the historical 1–20m visitor sweet spot. MAP is a lower-volume route with no PV minimum, subject to review.",
+      "currentNetworkSignals": [
+        "GAM/header-bidding experience can support implementation but does not prove acceptance."
+      ],
+      "geographyPreference": "Global; historical interview says US publishers were a majority, including foreign-language US audiences.",
+      "agePreference": "No site-age minimum found.",
+      "confidence": "low",
+      "rationale": "Official FAQ confirms substantial traffic and MAP without PV minimum; the 1–20m band is dated company positioning only.",
+      "supportingSourceUrls": [
+        "https://www.adnimation.com/faqs/",
+        "https://www.adnimation.com/map/",
+        "https://www.adnimation.com/adnimation-co-founder-talks-plans-for-growth-with-mergermarket/"
+      ],
+      "gaps": [
+        "No current standard-service threshold or country-share rule.",
+        "No independent first-person application case with dated metrics found.",
+        "Verify MAP-specific payment terms separately."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.adnimation.com/faqs/",
+        "title": "Publisher FAQ",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "substantial traffic",
+          "content exclusions",
+          "Net+35",
+          "revenue share"
+        ]
+      },
+      {
+        "url": "https://www.adnimation.com/map/",
+        "title": "MAP program",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "no PV floor",
+          "manual review"
+        ]
+      },
+      {
+        "url": "https://www.adnimation.com/adnimation-co-founder-talks-plans-for-growth-with-mergermarket/",
+        "title": "Co-founder interview",
+        "kind": "company_interview",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "1–20m monthly visitors sweet spot",
+          "65% US mix; not admission rule"
+        ]
+      },
+      {
+        "url": "https://www.adnimation.com/case-study/",
+        "title": "Publisher case study",
+        "kind": "vendor_case_study",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "conservative-news niche and scale"
+        ]
+      }
+    ],
+    "checkedAt": "2026-10-22"
+  },
+  {
+    "slug": "adpushup",
+    "productType": "Managed ad-revenue optimization and header-bidding platform",
+    "applicationUrl": "https://www.adpushup.com/publisher/get-started/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Vendor-published revenue signal",
+          "value": "$3,000/month",
+          "note": "Soft signal in vendor small-publisher article; current onboarding does not confirm it as a hard gate.",
+          "sourceUrl": "https://www.adpushup.com/blog/best-ad-networks-for-small-publishers/"
+        },
+        {
+          "label": "Payment minimum",
+          "value": "$50",
+          "note": "Publisher terms last revised April 20, 2021; verify current offer.",
+          "sourceUrl": "https://www.adpushup.com/wp-content/uploads/2022/04/Terms-of-Service.pdf"
+        },
+        {
+          "label": "Pay day",
+          "value": "Net 45",
+          "note": "2021-revised terms; verify current offer.",
+          "sourceUrl": "https://www.adpushup.com/wp-content/uploads/2022/04/Terms-of-Service.pdf"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "No confirmed current minimum.",
+          "note": "Vendor article says no PV minimum; onboarding page is silent.",
+          "sourceUrl": "https://www.adpushup.com/blog/best-ad-networks-for-small-publishers/"
+        },
+        {
+          "label": "Revenue",
+          "value": "About $3k/month is cited in vendor eligibility article.",
+          "note": "Not confirmed by current application route.",
+          "sourceUrl": "https://www.adpushup.com/blog/best-ad-networks-for-small-publishers/"
+        },
+        {
+          "label": "Application",
+          "value": "Submit site for review and install approved code.",
+          "sourceUrl": "https://www.adpushup.com/publisher/get-started/"
+        }
+      ],
+      "revenueShare": "Separate publisher agreement sets share; not public",
+      "paymentTerms": "Net 45 under 2021 terms",
+      "paymentThreshold": "$50 under 2021 terms",
+      "paymentMethods": [
+        "Direct deposit",
+        "Wire transfer",
+        "PayPal"
+      ],
+      "sources": [
+        {
+          "label": "Onboarding",
+          "url": "https://www.adpushup.com/publisher/get-started/"
+        },
+        {
+          "label": "Small-publisher article",
+          "url": "https://www.adpushup.com/blog/best-ad-networks-for-small-publishers/"
+        },
+        {
+          "label": "Terms (revised 2021)",
+          "url": "https://www.adpushup.com/wp-content/uploads/2022/04/Terms-of-Service.pdf"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "established content publishers seeking managed optimization"
+      ],
+      "nichesStrong": [
+        "developer/technical",
+        "media",
+        "consumer content"
+      ],
+      "nichesWeak": [
+        "very low-volume blogs without material ad revenue"
+      ],
+      "geographies": [
+        "No public country mix"
+      ],
+      "role": "infrastructure",
+      "entryPositioning": "Application-led optimization service. A vendor article mentions $3k/month revenue, but current onboarding does not verify a minimum.",
+      "compatibilityNotes": [
+        "Designed to optimize existing demand; check current agreement for same-slot competition/exclusivity."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Traffic",
+        "comparator": "not confirmed by current onboarding",
+        "amount": null,
+        "unit": "not stated",
+        "period": "not stated",
+        "scope": "publisher sites",
+        "program": "Publisher service",
+        "sourceUrl": "https://www.adpushup.com/publisher/get-started/",
+        "note": null
+      },
+      {
+        "metric": "Ad revenue",
+        "comparator": "vendor article mentions",
+        "amount": 3000,
+        "unit": "USD",
+        "period": "month",
+        "scope": "small publisher discussion",
+        "program": "Vendor article",
+        "sourceUrl": "https://www.adpushup.com/blog/best-ad-networks-for-small-publishers/",
+        "note": "Not confirmed as current hard minimum."
+      },
+      {
+        "metric": "Content",
+        "comparator": "must not contain",
+        "amount": null,
+        "unit": "illegal/pornographic/hateful/fraudulent/infringing material",
+        "period": "ongoing",
+        "scope": "approved sites",
+        "program": "Publisher terms",
+        "sourceUrl": "https://www.adpushup.com/wp-content/uploads/2022/04/Terms-of-Service.pdf",
+        "note": null
+      }
+    ],
+    "observations": [],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": {
+        "low": 3000,
+        "high": 3000,
+        "metric": "USD ad revenue",
+        "period": "month",
+        "basisSourceUrls": [
+          "https://www.adpushup.com/blog/best-ad-networks-for-small-publishers/"
+        ],
+        "confidence": "low",
+        "note": "One vendor article; current onboarding does not confirm minimum."
+      },
+      "practicalFit": "Compare when a publisher already earns material display revenue and wants managed testing/header bidding. Treat $3k/month only as a vendor-published soft signal.",
+      "currentNetworkSignals": [
+        "Existing ad partners are context, not proof of entry."
+      ],
+      "geographyPreference": "No public country or audience mix.",
+      "agePreference": "No public age rule.",
+      "confidence": "low",
+      "rationale": "Current onboarding is sales-led; public terms are revised 2021 and the only revenue signal is a vendor article.",
+      "supportingSourceUrls": [
+        "https://www.adpushup.com/publisher/get-started/",
+        "https://www.adpushup.com/blog/best-ad-networks-for-small-publishers/"
+      ],
+      "gaps": [
+        "No reliable dated first-person application case found.",
+        "Payment terms are dated April 2021; verify current offer.",
+        "No current traffic, geography or revenue-share rule."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.adpushup.com/publisher/get-started/",
+        "title": "Publisher onboarding",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "application route",
+          "managed optimization"
+        ]
+      },
+      {
+        "url": "https://www.adpushup.com/blog/best-ad-networks-for-small-publishers/",
+        "title": "Small-publisher article",
+        "kind": "vendor_article",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "$3,000/month signal and no PV minimum; not confirmed by current onboarding"
+        ]
+      },
+      {
+        "url": "https://www.adpushup.com/wp-content/uploads/2022/04/Terms-of-Service.pdf",
+        "title": "Publisher terms",
+        "kind": "official_terms",
+        "publishedAt": "2021-04-20",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "minimum, payout and content terms; separate share agreement"
+        ]
+      },
+      {
+        "url": "https://adxdesk.com/blog/adpushup-review/",
+        "title": "Publisher roster analysis",
+        "kind": "independent_analysis",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "sellers.json footprint, not visits or acceptance"
+        ]
+      }
+    ],
+    "checkedAt": "2026-10-22"
+  },
+  {
+    "slug": "amazon-publisher-services",
+    "checkedAt": "2026-10-22",
+    "productType": "Invitation-only server-side header-bidding marketplace (UAM)",
+    "applicationUrl": "https://publishers.advertising.a2z.com/aps/unified-ad-marketplace/index.html",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "UAM fee",
+          "value": "10%",
+          "note": "Stated in 2023 FAQ; verify because current page does not repeat the rate.",
+          "sourceUrl": "https://aps.amazon.com/aps/wp-content/uploads/2023/01/aps_uam_update_011123-FINAL.pdf"
+        },
+        {
+          "label": "Payment minimum",
+          "value": "$5 USD",
+          "note": "Current UAM product page confirms.",
+          "sourceUrl": "https://publishers.advertising.a2z.com/aps/unified-ad-marketplace/index.html"
+        },
+        {
+          "label": "Pay day",
+          "value": "Net 60",
+          "note": "Current UAM product page confirms.",
+          "sourceUrl": "https://publishers.advertising.a2z.com/aps/unified-ad-marketplace/index.html"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Application",
+          "value": "Invitation only; approved invite code and site.",
+          "sourceUrl": "https://publishers.advertising.a2z.com/aps/unified-ad-marketplace/index.html"
+        },
+        {
+          "label": "Must connect",
+          "value": "Google Ad Manager; publisher directly or exclusively represents the site.",
+          "sourceUrl": "https://publishers.advertising.a2z.com/aps/unified-ad-marketplace/index.html"
+        },
+        {
+          "label": "Geography",
+          "value": "Worldwide availability; bidder demand varies by country.",
+          "sourceUrl": "https://publishers.advertising.a2z.com/aps/unified-ad-marketplace/index.html"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": "Net 60",
+      "paymentThreshold": "$5 USD",
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Current UAM page",
+          "url": "https://publishers.advertising.a2z.com/aps/unified-ad-marketplace/index.html"
+        },
+        {
+          "label": "UAM FAQ / fee terms",
+          "url": "https://aps.amazon.com/aps/wp-content/uploads/2023/01/aps_uam_update_011123-FINAL.pdf"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "established web publishers using GAM and directly representing their site"
+      ],
+      "nichesStrong": [
+        "news",
+        "large content publishers",
+        "header-bidding operations"
+      ],
+      "nichesWeak": [
+        "new blogs without GAM"
+      ],
+      "geographies": [
+        "Worldwide; demand varies"
+      ],
+      "role": "supplemental",
+      "entryPositioning": "Invitation-only demand layer; not an open beginner network.",
+      "compatibilityNotes": [
+        "Official UAM FAQ allows use beside other header-bidding wrappers."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Invitation",
+        "comparator": "required",
+        "amount": null,
+        "unit": "invite",
+        "period": "before onboarding",
+        "scope": "approved site",
+        "program": "UAM",
+        "sourceUrl": "https://aps.amazon.com/aps/wp-content/uploads/2023/01/aps_uam_update_011123-FINAL.pdf",
+        "note": null
+      },
+      {
+        "metric": "Publisher relationship",
+        "comparator": "must directly/exclusively represent",
+        "amount": null,
+        "unit": "site inventory",
+        "period": "ongoing",
+        "scope": "publisher",
+        "program": "UAM",
+        "sourceUrl": "https://aps.amazon.com/aps/wp-content/uploads/2023/01/aps_uam_update_011123-FINAL.pdf",
+        "note": null
+      },
+      {
+        "metric": "Ad server",
+        "comparator": "requires",
+        "amount": null,
+        "unit": "Google Ad Manager",
+        "period": "ongoing",
+        "scope": "web publisher",
+        "program": "UAM",
+        "sourceUrl": "https://aps.amazon.com/aps/wp-content/uploads/2023/01/aps_uam_update_011123-FINAL.pdf",
+        "note": null
+      },
+      {
+        "metric": "Traffic",
+        "comparator": "not published",
+        "amount": null,
+        "unit": "not stated",
+        "period": "not stated",
+        "scope": "publisher site",
+        "program": "UAM",
+        "sourceUrl": "https://publishers.advertising.a2z.com/aps/unified-ad-marketplace/index.html",
+        "note": null
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/v0ec6t",
+        "publishedAt": "2022",
+        "site": "Unidentified publisher",
+        "niche": "Not stated",
+        "traffic": {
+          "value": 45000000,
+          "metric": "monthly US pageviews",
+          "period": "month"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [
+          "United States"
+        ],
+        "decision": "Reported applying for UAM invitation and no reply after about three weeks.",
+        "limits": "Anonymous single applicant, no final outcome; not an entry floor."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1mss9ei",
+        "publishedAt": "2025",
+        "site": "Unidentified publisher",
+        "niche": "Not stated",
+        "traffic": null,
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Reported using TAM/UAM with good results.",
+        "limits": "No traffic, revenue or application details."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Shortlist only after checking invitation, GAM readiness and direct representation. Most small publishers cannot act on it immediately.",
+      "currentNetworkSignals": [
+        "Compatible with other wrappers; existing network use does not prove an invite."
+      ],
+      "geographyPreference": "Worldwide, with country-dependent demand.",
+      "agePreference": "No public age rule found.",
+      "confidence": "medium",
+      "rationale": "Official terms establish invitation, GAM and compatibility but no traffic floor; one 45m-US-PV applicant waited without response.",
+      "supportingSourceUrls": [
+        "https://publishers.advertising.a2z.com/aps/unified-ad-marketplace/index.html",
+        "https://aps.amazon.com/aps/wp-content/uploads/2023/01/aps_uam_update_011123-FINAL.pdf",
+        "https://www.reddit.com/r/adops/comments/v0ec6t"
+      ],
+      "gaps": [
+        "No verified accepted publisher example with niche and traffic.",
+        "Fee source is from 2023 and should be confirmed in current agreement."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://publishers.advertising.a2z.com/aps/unified-ad-marketplace/index.html",
+        "title": "Current UAM page",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "invite",
+          "GAM",
+          "global availability",
+          "Net60 and $5"
+        ]
+      },
+      {
+        "url": "https://aps.amazon.com/aps/wp-content/uploads/2023/01/aps_uam_update_011123-FINAL.pdf",
+        "title": "UAM FAQ",
+        "kind": "official_document",
+        "publishedAt": "2023-01",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "10% transaction fee",
+          "invitation/GAM/compatibility"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/v0ec6t",
+        "title": "UAM applicant report",
+        "kind": "publisher_forum",
+        "publishedAt": "2022",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "45m monthly US PV; no response after about three weeks"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1mss9ei",
+        "title": "TAM/UAM use",
+        "kind": "publisher_forum",
+        "publishedAt": "2025",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "unquantified positive use"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "anymind-anymanager",
+    "checkedAt": "2026-10-22",
+    "productType": "Publisher ad monetization, ad serving and demand aggregation for web and apps",
+    "applicationUrl": "https://anymindgroup.com/contact/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [],
+      "joining": [
+        {
+          "label": "Product fit",
+          "value": "Web/app monetization with 150+ ad-serving partners, SDK, video and PMP.",
+          "sourceUrl": "https://anymindgroup.com/products/anymanager/"
+        },
+        {
+          "label": "Application",
+          "value": "Contact AnyMind; no self-serve entry gate found.",
+          "sourceUrl": "https://anymindgroup.com/products/anymanager/"
+        },
+        {
+          "label": "Regional fit",
+          "value": "APAC is the clearest published focus; broader coverage also offered.",
+          "sourceUrl": "https://anymindgroup.com/case-study/?business=publishergrowth&pa=2"
+        }
+      ],
+      "revenueShare": "Fixed percentage agreed per publisher; not public",
+      "paymentTerms": null,
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "AnyManager product",
+          "url": "https://anymindgroup.com/products/anymanager/"
+        },
+        {
+          "label": "Publisher cases",
+          "url": "https://anymindgroup.com/case-study/?business=publishergrowth&pa=2"
+        },
+        {
+          "label": "AnyManager terms",
+          "url": "https://anymanager.io/terms-of-service/"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "web and app publishers with programmatic needs"
+      ],
+      "nichesStrong": [
+        "news/media",
+        "gaming/apps",
+        "APAC publishers"
+      ],
+      "nichesWeak": [
+        "small sites wanting self-serve and public payout terms"
+      ],
+      "geographies": [
+        "APAC emphasis; platform supports broader markets"
+      ],
+      "role": "infrastructure",
+      "entryPositioning": "Contact-led commercial platform; no public traffic/revenue gate.",
+      "compatibilityNotes": [
+        "Aggregates demand; exclusivity and share are set in private terms."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Traffic",
+        "comparator": "not published",
+        "amount": null,
+        "unit": "not stated",
+        "period": "not stated",
+        "scope": "web/app publishers",
+        "program": "AnyManager",
+        "sourceUrl": "https://anymindgroup.com/products/anymanager/",
+        "note": null
+      },
+      {
+        "metric": "Revenue share",
+        "comparator": "per-publisher commercial terms",
+        "amount": null,
+        "unit": "percentage",
+        "period": "contract",
+        "scope": "each publisher",
+        "program": "AnyManager",
+        "sourceUrl": "https://anymanager.io/terms-of-service/",
+        "note": null
+      },
+      {
+        "metric": "Integration",
+        "comparator": "requires",
+        "amount": null,
+        "unit": "web tag or app SDK",
+        "period": "onboarding",
+        "scope": "publisher property",
+        "program": "AnyManager",
+        "sourceUrl": "https://anymindgroup.com/products/anymanager/",
+        "note": null
+      }
+    ],
+    "observations": [],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Consider APAC web/app publishers seeking managed demand and analytics, especially multi-property operators. Do not rank a small global blog highly without direct qualification.",
+      "currentNetworkSignals": [
+        "Existing ad stack may ease integration; does not transfer acceptance."
+      ],
+      "geographyPreference": "APAC is clearest published regional emphasis; no country-level admission preference.",
+      "agePreference": "No public age rule found.",
+      "confidence": "low",
+      "rationale": "Official material describes product scope and individually negotiated terms; no quantified independent onboarding example located.",
+      "supportingSourceUrls": [
+        "https://anymindgroup.com/products/anymanager/",
+        "https://anymindgroup.com/case-study/?business=publishergrowth&pa=2",
+        "https://anymanager.io/terms-of-service/"
+      ],
+      "gaps": [
+        "Terms search result showed an Aug 24 2026 update but page redirected on open; confirm in signed contract.",
+        "No first-person application example with traffic, niche or geography.",
+        "No public payout floor, payment methods or site-age rule."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://anymindgroup.com/products/anymanager/",
+        "title": "AnyManager product page",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "web/app platform",
+          "150+ ad serving partners",
+          "SDK/video/PMP"
+        ]
+      },
+      {
+        "url": "https://anymindgroup.com/case-study/?business=publishergrowth&pa=2",
+        "title": "Publisher case studies",
+        "kind": "vendor_case_study",
+        "publishedAt": "2025",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "regional examples in Vietnam, Thailand and Japan; no eligibility threshold"
+        ]
+      },
+      {
+        "url": "https://anymanager.io/terms-of-service/",
+        "title": "AnyManager terms",
+        "kind": "official_terms",
+        "publishedAt": "2026-08-24",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "search excerpt says share/payment set per publisher; page redirected"
+        ]
+      },
+      {
+        "url": "https://anymindgroup.com/ir/faq/",
+        "title": "Investor FAQ",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "fixed percentage individually agreed"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "buysellads-carbon-ads",
+    "checkedAt": "2026-10-22",
+    "productType": "Invitation-only contextual ad marketplace for developer/design audiences",
+    "applicationUrl": "https://www.carbonads.net/join",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Withdrawal balance",
+          "value": "$1",
+          "note": "Method minimums: $20 PayPal, $50 check, $500 wire; fees may apply.",
+          "sourceUrl": "https://www.carbonads.net/faq"
+        },
+        {
+          "label": "Revenue timing",
+          "value": "Posted within 30 days; withdrawable within 60 days",
+          "note": "Open Collective quarterly by request.",
+          "sourceUrl": "https://www.carbonads.net/faq"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Application",
+          "value": "Invite-only; review usually 5–7 business days.",
+          "note": "Reviews traffic, relevance, maintenance and capacity.",
+          "sourceUrl": "https://www.carbonads.net/faq"
+        },
+        {
+          "label": "Audience",
+          "value": "English-speaking developer/design audience; US, Canada, Europe strongest.",
+          "note": "Other areas depend on demand.",
+          "sourceUrl": "https://www.carbonads.net/faq"
+        },
+        {
+          "label": "Exclusivity",
+          "value": "Carbon must be the only ads on the site; no backfill.",
+          "note": "Replacement, not add-on.",
+          "sourceUrl": "https://www.carbonads.net/faq"
+        },
+        {
+          "label": "Traffic",
+          "value": "Monthly pageviews reviewed; no fixed minimum.",
+          "sourceUrl": "https://www.carbonads.net/faq"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": "Earnings posted monthly within 30 days; withdrawal within 60 days",
+      "paymentThreshold": "$1 before method minimums",
+      "paymentMethods": [
+        "PayPal",
+        "Check",
+        "Wire transfer",
+        "Open Collective, quarterly by request"
+      ],
+      "sources": [
+        {
+          "label": "FAQ",
+          "url": "https://www.carbonads.net/faq"
+        },
+        {
+          "label": "Join",
+          "url": "https://www.carbonads.net/join"
+        },
+        {
+          "label": "About",
+          "url": "https://www.carbonads.net/about"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "developer publishers",
+        "OSS product sites",
+        "technology/design publications"
+      ],
+      "nichesStrong": [
+        "software development",
+        "web design",
+        "DevOps",
+        "developer tools"
+      ],
+      "nichesWeak": [
+        "general lifestyle or unrelated non-English sites"
+      ],
+      "geographies": [
+        "US/Canada/Europe strongest; other demand depends on market"
+      ],
+      "role": "primary",
+      "entryPositioning": "Curated invite-only niche network; reviews pageviews without a fixed published floor.",
+      "compatibilityNotes": [
+        "Carbon-only ads across the site, with no other-network backfill; replacement only."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Invitation",
+        "comparator": "required",
+        "amount": null,
+        "unit": "invite",
+        "period": "before service",
+        "scope": "site",
+        "program": "Carbon",
+        "sourceUrl": "https://www.carbonads.net/faq",
+        "note": null
+      },
+      {
+        "metric": "Audience",
+        "comparator": "must be relevant",
+        "amount": null,
+        "unit": "English developer/design audience",
+        "period": "ongoing",
+        "scope": "site audience",
+        "program": "Carbon",
+        "sourceUrl": "https://www.carbonads.net/faq",
+        "note": null
+      },
+      {
+        "metric": "Traffic",
+        "comparator": "reviews",
+        "amount": null,
+        "unit": "monthly pageviews",
+        "period": "application",
+        "scope": "site",
+        "program": "Carbon",
+        "sourceUrl": "https://www.carbonads.net/faq",
+        "note": "No fixed cutoff published."
+      },
+      {
+        "metric": "Exclusivity",
+        "comparator": "requires",
+        "amount": null,
+        "unit": "Carbon-only ads",
+        "period": "ongoing",
+        "scope": "entire site",
+        "program": "Carbon",
+        "sourceUrl": "https://www.carbonads.net/faq",
+        "note": null
+      }
+    ],
+    "observations": [],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Recommend only when niche fit is strong and publisher accepts site-wide exclusivity. Treat as display replacement, not incremental demand.",
+      "currentNetworkSignals": [
+        "Current display provider conflicts with Carbon's exclusivity."
+      ],
+      "geographyPreference": "Developer/design audience; strongest demand in US, Canada and Europe.",
+      "agePreference": "No public age rule found.",
+      "confidence": "medium",
+      "rationale": "FAQ is specific about audience, review and exclusivity but gives no cutoff; targeted search found no first-person entry case.",
+      "supportingSourceUrls": [
+        "https://www.carbonads.net/faq",
+        "https://www.carbonads.net/about"
+      ],
+      "gaps": [
+        "No independent accepted/rejected case with traffic, niche and geography.",
+        "No numeric floor or revenue share.",
+        "Vendor CPM range omitted from revenue forecasts."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.carbonads.net/faq",
+        "title": "Current publisher FAQ",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "invite/review",
+          "audience/regions",
+          "no cutoff",
+          "exclusivity and payout"
+        ]
+      },
+      {
+        "url": "https://www.carbonads.net/about",
+        "title": "About Carbon",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "curated tech/design inventory"
+        ]
+      },
+      {
+        "url": "https://www.carbonads.net/join",
+        "title": "Publisher application",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "join route"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1oxy825",
+        "title": "Partner comparison",
+        "kind": "publisher_forum",
+        "publishedAt": "2025",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "community calls Carbon a dev/open-source niche; not entry evidence"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "clickio",
+    "checkedAt": "2026-10-22",
+    "productType": "Managed display monetization and yield optimization",
+    "applicationUrl": "https://clickio.com/contact/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Indicative traffic guide",
+          "value": "100,000–1,000,000 monthly pageviews",
+          "note": "Country-specific Fully Managed guide; not guaranteed approval.",
+          "sourceUrl": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards"
+        },
+        {
+          "label": "Below-guide route",
+          "value": ">$500 monthly ad revenue",
+          "note": "May require proof for 3 consecutive months.",
+          "sourceUrl": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards"
+        },
+        {
+          "label": "Pay day",
+          "value": "Net 60",
+          "note": "Some demand partners may offer Net30.",
+          "sourceUrl": "https://docs.clickio.com/books/get-started/page/payments-billing"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "100k PV UK/France/US/Australia/Canada; 250k Italy/Spain; 300k rest Europe; 500k Portugal; 750k Brazil/Colombia/Mexico; 1m rest LatAm/world.",
+          "note": "Indicative guide.",
+          "sourceUrl": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards"
+        },
+        {
+          "label": "Revenue alternative",
+          "value": ">$500 monthly ad revenue below regional guide.",
+          "note": "May require proof for 3 consecutive months.",
+          "sourceUrl": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards"
+        },
+        {
+          "label": "Verification",
+          "value": "Six months of GA reports may be used if other verification unavailable.",
+          "note": "Evidence window, not domain-age rule.",
+          "sourceUrl": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards"
+        },
+        {
+          "label": "Technical",
+          "value": "ads.txt, IAB-approved CMP, >50% viewability; follow AdSense policy.",
+          "sourceUrl": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards"
+        }
+      ],
+      "revenueShare": "Variable by demand-partner tariff",
+      "paymentTerms": "Net 60; some demand partners Net30",
+      "paymentThreshold": "$100 ACH/eCheck/SEPA/check/PayPal; $200 wire; $10 WebMoney; GBP100 Payoneer",
+      "paymentMethods": [
+        "ACH",
+        "eCheck",
+        "SEPA",
+        "Wire",
+        "Check",
+        "PayPal",
+        "WebMoney",
+        "Payoneer"
+      ],
+      "sources": [
+        {
+          "label": "Entry standards",
+          "url": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards"
+        },
+        {
+          "label": "Payments",
+          "url": "https://docs.clickio.com/books/get-started/page/payments-billing"
+        },
+        {
+          "label": "Publisher agreement",
+          "url": "https://legal.clickio.com/PublisherAgreement/"
+        }
+      ],
+      "joinSummary": "Country guide varies; below-guide route is >$500 monthly ad revenue, potentially verified across three months"
+    },
+    "fit": {
+      "publisherTypes": [
+        "content publishers with meaningful traffic in eligible countries"
+      ],
+      "nichesStrong": [
+        "original editorial/content"
+      ],
+      "nichesWeak": [
+        "very small sites without verifiable traffic or revenue"
+      ],
+      "geographies": [
+        "100k PV in selected Tier1 markets; up to 1m in other regions"
+      ],
+      "role": "primary",
+      "entryPositioning": "Country-specific indicative traffic guide or >$500/month ad revenue alternative.",
+      "compatibilityNotes": [
+        "Confirm managed-service exclusivity. Six months of analytics is verification evidence, not site age."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Monthly PV",
+        "comparator": "indicative",
+        "amount": 100000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "UK, France, US, Australia, Canada",
+        "program": "Fully Managed",
+        "sourceUrl": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards",
+        "note": null
+      },
+      {
+        "metric": "Monthly PV",
+        "comparator": "indicative",
+        "amount": 250000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "Italy, Spain",
+        "program": "Fully Managed",
+        "sourceUrl": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards",
+        "note": null
+      },
+      {
+        "metric": "Monthly PV",
+        "comparator": "indicative",
+        "amount": 300000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "rest of Europe",
+        "program": "Fully Managed",
+        "sourceUrl": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards",
+        "note": null
+      },
+      {
+        "metric": "Monthly PV",
+        "comparator": "indicative",
+        "amount": 500000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "Portugal",
+        "program": "Fully Managed",
+        "sourceUrl": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards",
+        "note": null
+      },
+      {
+        "metric": "Monthly PV",
+        "comparator": "indicative",
+        "amount": 750000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "Brazil, Colombia, Mexico",
+        "program": "Fully Managed",
+        "sourceUrl": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards",
+        "note": null
+      },
+      {
+        "metric": "Monthly PV",
+        "comparator": "indicative",
+        "amount": 1000000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "rest of Latin America and world",
+        "program": "Fully Managed",
+        "sourceUrl": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards",
+        "note": null
+      },
+      {
+        "metric": "Ad revenue",
+        "comparator": "alternative; greater than",
+        "amount": 500,
+        "unit": "USD",
+        "period": "month",
+        "scope": "below regional PV guide",
+        "program": "Fully Managed",
+        "sourceUrl": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards",
+        "note": "May require three consecutive months of proof."
+      },
+      {
+        "metric": "Viewability",
+        "comparator": "ongoing minimum",
+        "amount": 50,
+        "unit": "percent",
+        "period": "ongoing",
+        "scope": "served inventory",
+        "program": "Fully Managed",
+        "sourceUrl": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards",
+        "note": null
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/vi0i7e",
+        "publishedAt": "2022",
+        "site": "Unidentified site",
+        "niche": "Not stated",
+        "traffic": null,
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Poster said they used Clickio while evaluating emerging-market demand and described more ads than AdSense.",
+        "limits": "No traffic, revenue, country split or application decision."
+      }
+    ],
+    "inference": {
+      "trafficRange": {
+        "low": 100000,
+        "high": 1000000,
+        "metric": "pageviews",
+        "period": "month",
+        "basisSourceUrls": [
+          "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards"
+        ],
+        "confidence": "high",
+        "note": "Indicative regional guide, not guaranteed approval."
+      },
+      "revenueRange": null,
+      "practicalFit": "Shortlist when the audience geography matches official guidance or the site can document >$500 monthly revenue; do not collapse country bars into one global floor.",
+      "currentNetworkSignals": [
+        "Other network membership is not evidence of Clickio approval."
+      ],
+      "geographyPreference": "Country-specific: selected Tier1 markets at 100k PV; some regions at 1m.",
+      "agePreference": "No age minimum; six months of reports is one traffic verification option.",
+      "confidence": "high",
+      "rationale": "Official standards give regional PV values, a revenue route and technical rules; one forum account confirms use but has no metrics.",
+      "supportingSourceUrls": [
+        "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards",
+        "https://docs.clickio.com/books/get-started/page/payments-billing",
+        "https://www.reddit.com/r/adops/comments/vi0i7e"
+      ],
+      "gaps": [
+        "Regional numbers are indicative, not guaranteed.",
+        "No dated first-person outcome with exact traffic.",
+        "Six months of analytics is not a site-age requirement."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://docs.clickio.com/books/clickio-entry-standards/page/clickio-entry-standards",
+        "title": "Clickio entry standards",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "regional pageview guidance",
+          "$500 alternative",
+          "verification/policy/CMP/viewability"
+        ]
+      },
+      {
+        "url": "https://docs.clickio.com/books/get-started/page/payments-billing",
+        "title": "Payments help",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "Net60 and method thresholds"
+        ]
+      },
+      {
+        "url": "https://legal.clickio.com/PublisherAgreement/",
+        "title": "Publisher agreement",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "payment schedule options"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/vi0i7e",
+        "title": "Publisher Clickio discussion",
+        "kind": "publisher_forum",
+        "publishedAt": "2022",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "one use report with no metrics"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "concert",
+    "checkedAt": "2026-10-22",
+    "productType": "Publisher-led curated SSP and premium marketplace",
+    "applicationUrl": "https://www.voxmedia.com/brands/concert",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [],
+      "joining": [
+        {
+          "label": "Product",
+          "value": "Publisher-led curated SSP for premium publisher inventory.",
+          "sourceUrl": "https://www.voxmedia.com/2022/6/7/23157157/vox-media-concert-ssp-publisher-led-supply-side-platform-trade-desk-as-an-exclusive-launch-partner/"
+        },
+        {
+          "label": "Application",
+          "value": "No public publisher form or qualification page found.",
+          "note": "Available terms were advertiser-facing.",
+          "sourceUrl": "https://admanager.concert.io/terms"
+        },
+        {
+          "label": "Publisher fit",
+          "value": "Launch examples are established media groups; examples are not an admission minimum.",
+          "sourceUrl": "https://www.voxmedia.com/about-vox-media/2018/5/31/17413008/top-digital-publishers-join-concert-to-create-largest-premium-advertising-marketplace-online/"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": null,
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "SSP launch",
+          "url": "https://www.voxmedia.com/2022/6/7/23157157/vox-media-concert-ssp-publisher-led-supply-side-platform-trade-desk-as-an-exclusive-launch-partner/"
+        },
+        {
+          "label": "Publisher group",
+          "url": "https://www.voxmedia.com/about-vox-media/2018/5/31/17413008/top-digital-publishers-join-concert-to-create-largest-premium-advertising-marketplace-online/"
+        },
+        {
+          "label": "Advertiser terms",
+          "url": "https://admanager.concert.io/terms"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "premium media groups",
+        "established digital publishers"
+      ],
+      "nichesStrong": [
+        "news",
+        "culture",
+        "entertainment",
+        "editorial"
+      ],
+      "nichesWeak": [
+        "solo blogs seeking an open network"
+      ],
+      "geographies": [
+        "No public publisher geo criteria"
+      ],
+      "role": "sales_collective",
+      "entryPositioning": "Curated publisher-led SSP; no public self-serve route or entry gate.",
+      "compatibilityNotes": [
+        "SSP access is a sales relationship, not a generic extra tag.",
+        "Advertiser terms do not establish publisher eligibility."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Publisher application",
+        "comparator": "not public",
+        "amount": null,
+        "unit": "not stated",
+        "period": "not stated",
+        "scope": "publisher inventory",
+        "program": "Concert",
+        "sourceUrl": "https://www.voxmedia.com/2022/6/7/23157157/vox-media-concert-ssp-publisher-led-supply-side-platform-trade-desk-as-an-exclusive-launch-partner/",
+        "note": null
+      },
+      {
+        "metric": "Traffic/revenue",
+        "comparator": "not public",
+        "amount": null,
+        "unit": "not stated",
+        "period": "not stated",
+        "scope": "publisher",
+        "program": "Concert",
+        "sourceUrl": "https://www.voxmedia.com/2022/6/7/23157157/vox-media-concert-ssp-publisher-led-supply-side-platform-trade-desk-as-an-exclusive-launch-partner/",
+        "note": null
+      }
+    ],
+    "observations": [],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Do not recommend as a routine solo-publisher application. Relevant to established media groups pursuing curated marketplace or sales relationships.",
+      "currentNetworkSignals": [],
+      "geographyPreference": "No public country rule found.",
+      "agePreference": "No public age minimum found.",
+      "confidence": "low",
+      "rationale": "Announcements and trade coverage show curated positioning, but no publisher policy or first-person application story was found.",
+      "supportingSourceUrls": [
+        "https://www.voxmedia.com/2022/6/7/23157157/vox-media-concert-ssp-publisher-led-supply-side-platform-trade-desk-as-an-exclusive-launch-partner/",
+        "https://www.marketingbrew.com/stories/2022/10/19/why-vox-media-continues-to-invest-in-ad-tech"
+      ],
+      "gaps": [
+        "No public publisher application, gate, payout terms or publisher agreement.",
+        "Available terms were advertiser-facing and not used to infer eligibility."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.voxmedia.com/2022/6/7/23157157/vox-media-concert-ssp-publisher-led-supply-side-platform-trade-desk-as-an-exclusive-launch-partner/",
+        "title": "Vox Concert SSP launch",
+        "kind": "official_publisher_announcement",
+        "publishedAt": "2022-06-07",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "publisher-led curated SSP"
+        ]
+      },
+      {
+        "url": "https://www.voxmedia.com/about-vox-media/2018/5/31/17413008/top-digital-publishers-join-concert-to-create-largest-premium-advertising-marketplace-online/",
+        "title": "Concert publisher group announcement",
+        "kind": "official_publisher_announcement",
+        "publishedAt": "2018-05-31",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "established member examples"
+        ]
+      },
+      {
+        "url": "https://www.marketingbrew.com/stories/2022/10/19/why-vox-media-continues-to-invest-in-ad-tech",
+        "title": "Trade coverage",
+        "kind": "independent_trade_press",
+        "publishedAt": "2022-10-19",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "programmatic path; no open enrollment"
+        ]
+      },
+      {
+        "url": "https://admanager.concert.io/terms",
+        "title": "Ad Manager terms",
+        "kind": "official_advertiser_terms",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "advertiser-facing"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "ethicalads",
+    "checkedAt": "2026-10-22",
+    "productType": "Contextual developer-focused ad network",
+    "applicationUrl": "https://www.ethicalads.io/publishers/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Traffic",
+          "value": "50,000 monthly pageviews",
+          "note": "Exceptions may be considered for close/fast-growing high-quality developer sites.",
+          "sourceUrl": "https://www.ethicalads.io/publishers/faq/"
+        },
+        {
+          "label": "Share",
+          "value": "70%",
+          "note": "Published publisher policy.",
+          "sourceUrl": "https://www.ethicalads.io/publisher-policy/"
+        },
+        {
+          "label": "Payment minimum",
+          "value": "$50",
+          "note": "Monthly target by the 15th.",
+          "sourceUrl": "https://www.ethicalads.io/publisher-policy/"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "At least 50k PV/month; discretionary exception path for close-fit developer sites.",
+          "sourceUrl": "https://www.ethicalads.io/publishers/faq/"
+        },
+        {
+          "label": "Audience",
+          "value": "Developer-focused: software, OSS, DevOps, security, data science.",
+          "sourceUrl": "https://www.ethicalads.io/publisher-guide/"
+        },
+        {
+          "label": "Placement",
+          "value": "One EthicalAds placement per page; no simultaneous competing ad on that page.",
+          "sourceUrl": "https://www.ethicalads.io/publisher-policy/"
+        },
+        {
+          "label": "Payment",
+          "value": "70% share; $50 threshold; target by 15th.",
+          "sourceUrl": "https://www.ethicalads.io/publisher-policy/"
+        }
+      ],
+      "revenueShare": "70%",
+      "paymentTerms": "Monthly, target by 15th",
+      "paymentThreshold": "$50",
+      "paymentMethods": [
+        "PayPal",
+        "Open Collective",
+        "GitHub Sponsors",
+        "Stripe Connect/bank transfer"
+      ],
+      "sources": [
+        {
+          "label": "FAQ",
+          "url": "https://www.ethicalads.io/publishers/faq/"
+        },
+        {
+          "label": "Policy",
+          "url": "https://www.ethicalads.io/publisher-policy/"
+        },
+        {
+          "label": "Guide",
+          "url": "https://www.ethicalads.io/publisher-guide/"
+        },
+        {
+          "label": "Terms",
+          "url": "https://www.ethicalads.io/terms-of-service/"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "developer and OSS publishers"
+      ],
+      "nichesStrong": [
+        "software",
+        "open source",
+        "DevOps",
+        "security",
+        "data science"
+      ],
+      "nichesWeak": [
+        "general lifestyle sites without technical audience"
+      ],
+      "geographies": [
+        "North America and Europe strongest; Australia/NZ possible"
+      ],
+      "role": "supplemental",
+      "entryPositioning": "50k monthly pageview threshold with discretionary exceptions for close-fit developer sites.",
+      "compatibilityNotes": [
+        "Different pages/requests may use other providers; no competing ad on the same page."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Traffic",
+        "comparator": "minimum",
+        "amount": 50000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "developer sites",
+        "program": "Publisher program",
+        "sourceUrl": "https://www.ethicalads.io/publishers/faq/",
+        "note": "High-quality fast-growing sites may be considered below."
+      },
+      {
+        "metric": "Content",
+        "comparator": "must fit developer audience and policy",
+        "amount": null,
+        "unit": "site content",
+        "period": "ongoing",
+        "scope": "site",
+        "program": "Publisher program",
+        "sourceUrl": "https://www.ethicalads.io/publisher-guide/",
+        "note": null
+      },
+      {
+        "metric": "Ad placement",
+        "comparator": "maximum",
+        "amount": 1,
+        "unit": "EthicalAds ad",
+        "period": "per page",
+        "scope": "publisher page",
+        "program": "Publisher program",
+        "sourceUrl": "https://www.ethicalads.io/publisher-policy/",
+        "note": null
+      },
+      {
+        "metric": "Publisher share",
+        "comparator": "share",
+        "amount": 70,
+        "unit": "percent",
+        "period": "applicable revenue",
+        "scope": "publisher",
+        "program": "Publisher program",
+        "sourceUrl": "https://www.ethicalads.io/publisher-policy/",
+        "note": null
+      }
+    ],
+    "observations": [],
+    "inference": {
+      "trafficRange": {
+        "low": 50000,
+        "high": 50000,
+        "metric": "pageviews",
+        "period": "month",
+        "basisSourceUrls": [
+          "https://www.ethicalads.io/publishers/faq/"
+        ],
+        "confidence": "high",
+        "note": "Official threshold; exceptions possible."
+      },
+      "revenueRange": null,
+      "practicalFit": "Strong supplemental choice for technical sites near/above 50k PV/month. Below that, an exception is discretionary and should not be treated as routine.",
+      "currentNetworkSignals": [
+        "Can coexist on separate pages/requests; no same-page competing ads."
+      ],
+      "geographyPreference": "North America/Europe strongest; Australia/NZ may work.",
+      "agePreference": "No public age minimum found.",
+      "confidence": "medium",
+      "rationale": "Official threshold and placement facts are clear; no reliable dated publisher acceptance story found.",
+      "supportingSourceUrls": [
+        "https://www.ethicalads.io/publishers/faq/",
+        "https://www.ethicalads.io/publisher-policy/",
+        "https://www.ethicalads.io/publisher-guide/"
+      ],
+      "gaps": [
+        "No dated firsthand acceptance/rejection with traffic, niche and geography.",
+        "CPM statements omitted from forecasts.",
+        "No age or tier-1 share gate."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.ethicalads.io/publishers/faq/",
+        "title": "Publisher FAQ",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "50k threshold and exceptions"
+        ]
+      },
+      {
+        "url": "https://www.ethicalads.io/publisher-policy/",
+        "title": "Publisher policy",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "70% share",
+          "$50 minimum",
+          "monthly timing and placement"
+        ]
+      },
+      {
+        "url": "https://www.ethicalads.io/publisher-guide/",
+        "title": "Publisher guide",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "technical audience fit"
+        ]
+      },
+      {
+        "url": "https://www.ethicalads.io/terms-of-service/",
+        "title": "Terms",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "publisher policy"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "ezoic",
+    "checkedAt": "2026-10-22",
+    "productType": "Managed ad monetization with integration and Incubator path",
+    "applicationUrl": "https://www.ezoic.com/get-started/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "New-site gate",
+          "value": "250,000 monthly active users",
+          "note": "MAU, not PV or sessions.",
+          "sourceUrl": "https://support.ezoic.com/kb/article/getting-started-ezoics-requirements?id=getting-started-ezoics-requirements&lang=es-ES"
+        },
+        {
+          "label": "Share",
+          "value": "At least 82%",
+          "note": "Net display-ad revenue unless separate agreement.",
+          "sourceUrl": "https://www.ezoic.com/terms"
+        },
+        {
+          "label": "Payment minimum",
+          "value": "$20",
+          "note": "Published terms.",
+          "sourceUrl": "https://www.ezoic.com/terms"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "New sites generally need 250k MAU; do not convert to PV/sessions.",
+          "sourceUrl": "https://support.ezoic.com/kb/article/getting-started-ezoics-requirements?id=getting-started-ezoics-requirements&lang=es-ES"
+        },
+        {
+          "label": "Incubator",
+          "value": "Up to 20 sites/month; discretionary review based on growth, site value, backend quality and publisher profile.",
+          "sourceUrl": "https://support.ezoic.com/kb/article/ezoic-incubator-program"
+        },
+        {
+          "label": "Grandfathering",
+          "value": "Sites monetizing before 2026-02-19 may retain access with continuous integration; >7-day removal can end status.",
+          "sourceUrl": "https://support.ezoic.com/kb/article/getting-started-ezoics-requirements?id=getting-started-ezoics-requirements&lang=es-ES"
+        },
+        {
+          "label": "Content/tech",
+          "value": "Original supported-language content, Google policies and JavaScript integration; AdSense approval generally not required.",
+          "sourceUrl": "https://support.ezoic.com/kb/article/getting-started-ezoics-requirements?id=getting-started-ezoics-requirements&lang=es-ES"
+        }
+      ],
+      "revenueShare": "At least 82% of net display-ad revenue",
+      "paymentTerms": "About 35 days after advertiser payment; payment help also describes Net30 and optional longer cycles",
+      "paymentThreshold": "$20",
+      "paymentMethods": [
+        "Wise",
+        "PayPal",
+        "Payoneer",
+        "Check"
+      ],
+      "sources": [
+        {
+          "label": "Requirements",
+          "url": "https://support.ezoic.com/kb/article/getting-started-ezoics-requirements?id=getting-started-ezoics-requirements&lang=es-ES"
+        },
+        {
+          "label": "Incubator",
+          "url": "https://support.ezoic.com/kb/article/ezoic-incubator-program"
+        },
+        {
+          "label": "Terms",
+          "url": "https://www.ezoic.com/terms"
+        },
+        {
+          "label": "Payment help",
+          "url": "https://support.ezoic.com/kb/article/ezoic-payment-schedule-and-thresholds"
+        }
+      ],
+      "joinSummary": "250k monthly active users for new sites; limited Incubator below gate"
+    },
+    "fit": {
+      "publisherTypes": [
+        "established sites with analytics",
+        "selected small sites with exceptional growth potential"
+      ],
+      "nichesStrong": [
+        "blogs",
+        "news",
+        "web tools"
+      ],
+      "nichesWeak": [
+        "new low-MAU sites outside Incubator"
+      ],
+      "geographies": [
+        "No numeric mix published"
+      ],
+      "role": "primary",
+      "entryPositioning": "250k MAU for new sites; Incubator below gate is limited and discretionary.",
+      "compatibilityNotes": [
+        "Typically manages display setup; verify current setup before switching.",
+        "Grandfathered access does not transfer to a newly added site."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Monthly active users",
+        "comparator": "minimum",
+        "amount": 250000,
+        "unit": "MAU",
+        "period": "month",
+        "scope": "new sites",
+        "program": "Ezoic",
+        "sourceUrl": "https://support.ezoic.com/kb/article/getting-started-ezoics-requirements?id=getting-started-ezoics-requirements&lang=es-ES",
+        "note": null
+      },
+      {
+        "metric": "Incubator capacity",
+        "comparator": "limited selection",
+        "amount": 20,
+        "unit": "sites",
+        "period": "month",
+        "scope": "below general gate",
+        "program": "Incubator",
+        "sourceUrl": "https://support.ezoic.com/kb/article/ezoic-incubator-program",
+        "note": null
+      },
+      {
+        "metric": "Google policy",
+        "comparator": "must comply",
+        "amount": null,
+        "unit": "Google publisher policies",
+        "period": "ongoing",
+        "scope": "all sites",
+        "program": "Ezoic",
+        "sourceUrl": "https://support.ezoic.com/kb/article/getting-started-ezoics-requirements?id=getting-started-ezoics-requirements&lang=es-ES",
+        "note": null
+      },
+      {
+        "metric": "Grandfathering",
+        "comparator": "continuous integration required",
+        "amount": null,
+        "unit": "integration",
+        "period": "ongoing",
+        "scope": "pre-2026-02-19 sites",
+        "program": "Ezoic",
+        "sourceUrl": "https://support.ezoic.com/kb/article/getting-started-ezoics-requirements?id=getting-started-ezoics-requirements&lang=es-ES",
+        "note": null
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1ftuclz",
+        "publishedAt": "2024",
+        "site": "Unidentified content publisher",
+        "niche": "Not stated",
+        "traffic": {
+          "value": 200000,
+          "metric": "monthly visits",
+          "period": "200k–250k"
+        },
+        "adRevenueMonthlyUsd": 1078,
+        "countries": [],
+        "decision": "Reported Ezoic plus Google Ads and about $1,078 monthly earnings.",
+        "limits": "Predates 2026 gate; visits are not MAU."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/Blogging/comments/1uv87ne",
+        "publishedAt": "2026",
+        "site": "Unidentified new site",
+        "niche": "Not stated",
+        "traffic": {
+          "value": 2000,
+          "metric": "visitors",
+          "period": "under per month"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Poster said a 3.5-month-old site was not approved by Incubator.",
+        "limits": "Anonymous; niche/reason absent."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Shortlist when new site clears 250k MAU or has exceptional Incubator evidence. For a low-volume solo blog, the limited program is not reliable access.",
+      "currentNetworkSignals": [
+        "Pre-cutoff accounts may retain access only with continuity; not applicable to new site."
+      ],
+      "geographyPreference": "No public country rule found.",
+      "agePreference": "No public age minimum found.",
+      "confidence": "high",
+      "rationale": "Current official pages establish MAU and narrow Incubator. Older earnings examples measure visits, not MAU.",
+      "supportingSourceUrls": [
+        "https://support.ezoic.com/kb/article/getting-started-ezoics-requirements?id=getting-started-ezoics-requirements&lang=es-ES",
+        "https://support.ezoic.com/kb/article/ezoic-incubator-program",
+        "https://www.reddit.com/r/adops/comments/1ftuclz"
+      ],
+      "gaps": [
+        "Anecdotes predate policy or lack exact MAU.",
+        "No current accepted report with measured MAU found."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://support.ezoic.com/kb/article/getting-started-ezoics-requirements?id=getting-started-ezoics-requirements&lang=es-ES",
+        "title": "Current Ezoic requirements",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "250k MAU",
+          "grandfathering",
+          "Google/content"
+        ]
+      },
+      {
+        "url": "https://support.ezoic.com/kb/article/ezoic-incubator-program",
+        "title": "Incubator guidance",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "20 slots/month",
+          "discretionary selection"
+        ]
+      },
+      {
+        "url": "https://www.ezoic.com/terms",
+        "title": "Terms",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "share and payment floor"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1ftuclz",
+        "title": "Ezoic publisher earnings",
+        "kind": "publisher_forum",
+        "publishedAt": "2024",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "200–250k visits and $1,078; not MAU"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/Blogging/comments/1uv87ne",
+        "title": "Incubator rejection",
+        "kind": "publisher_forum",
+        "publishedAt": "2026",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "under 2k visitors/mo; 3.5-month site"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "freestar",
+    "checkedAt": "2026-10-22",
+    "productType": "Managed ad monetization and ad operations",
+    "applicationUrl": "https://freestar.com/contact-us/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Typical scale",
+          "value": "About 1m monthly pageviews",
+          "note": "Typical, not a hard floor.",
+          "sourceUrl": "https://freestar.com/publisher-quality-requirements/"
+        },
+        {
+          "label": "Target-market share",
+          "value": "50%",
+          "note": "US/UK/Canada/NZ/Australia.",
+          "sourceUrl": "https://freestar.com/publisher-quality-requirements/"
+        },
+        {
+          "label": "Organic audience",
+          "value": "50%",
+          "note": "Includes social, News/Discover, YouTube, Reddit and syndication—not only search.",
+          "sourceUrl": "https://freestar.com/publisher-quality-requirements/"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "Typically about 1m PV/mo; all sizes can apply.",
+          "note": "Typical scale, not cutoff.",
+          "sourceUrl": "https://freestar.com/contact-us/"
+        },
+        {
+          "label": "Geography",
+          "value": "At least half from US/UK/Canada/NZ/Australia.",
+          "sourceUrl": "https://freestar.com/publisher-quality-requirements/"
+        },
+        {
+          "label": "Traffic source",
+          "value": "At least 50% from organic audiences; includes social/news/video/community/syndication.",
+          "sourceUrl": "https://freestar.com/publisher-quality-requirements/"
+        },
+        {
+          "label": "Content",
+          "value": "Original, human-focused, mostly long-form, brand-safe; GA4 and history requested.",
+          "sourceUrl": "https://freestar.com/publisher-quality-requirements/"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": null,
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Quality requirements",
+          "url": "https://freestar.com/publisher-quality-requirements/"
+        },
+        {
+          "label": "Contact/onboarding",
+          "url": "https://freestar.com/contact-us/"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "established publishers wanting managed ad operations"
+      ],
+      "nichesStrong": [
+        "sports",
+        "news",
+        "finance",
+        "auto",
+        "gaming",
+        "entertainment"
+      ],
+      "nichesWeak": [
+        "small sites failing source or geography checks"
+      ],
+      "geographies": [
+        "50%+ from US/UK/Canada/NZ/Australia"
+      ],
+      "role": "primary",
+      "entryPositioning": "Typically around 1m PV/month, plus two explicit 50% audience checks; 1m is not a hard gate.",
+      "compatibilityNotes": [
+        "Managed service operates display stack; contract sets exclusivity.",
+        "Organic audience includes social, news, Discover, YouTube, Reddit and syndication."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Monthly pageviews",
+        "comparator": "typical, not hard minimum",
+        "amount": 1000000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "typical publisher scale",
+        "program": "Freestar",
+        "sourceUrl": "https://freestar.com/publisher-quality-requirements/",
+        "note": null
+      },
+      {
+        "metric": "Target markets",
+        "comparator": "minimum",
+        "amount": 50,
+        "unit": "percent",
+        "period": "of traffic",
+        "scope": "US/UK/Canada/NZ/Australia",
+        "program": "Freestar",
+        "sourceUrl": "https://freestar.com/publisher-quality-requirements/",
+        "note": null
+      },
+      {
+        "metric": "Organic audiences",
+        "comparator": "minimum",
+        "amount": 50,
+        "unit": "percent",
+        "period": "of traffic",
+        "scope": "search/social/News/Discover/YouTube/Reddit/syndication",
+        "program": "Freestar",
+        "sourceUrl": "https://freestar.com/publisher-quality-requirements/",
+        "note": null
+      },
+      {
+        "metric": "Content",
+        "comparator": "must be original, human-focused, long-form and brand-safe",
+        "amount": null,
+        "unit": "criteria",
+        "period": "ongoing",
+        "scope": "site",
+        "program": "Freestar",
+        "sourceUrl": "https://freestar.com/publisher-quality-requirements/",
+        "note": null
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/bxgb6c",
+        "publishedAt": "2019",
+        "site": "Several unnamed publishers",
+        "niche": "Not stated",
+        "traffic": {
+          "value": 1000000,
+          "metric": "monthly ad impressions",
+          "period": "one report 1–2m; others 5m and 25m"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Thread includes reports of smaller publishers accepted and larger sites using Freestar.",
+        "limits": "Impressions not pageviews; old, no denominator or detailed niche."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/mcb34i",
+        "publishedAt": "2021",
+        "site": "Unidentified publisher",
+        "niche": "Not stated",
+        "traffic": null,
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Said they used Freestar but could not compare before/after revenue.",
+        "limits": "No traffic, revenue or geography."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Consider near the typical million-PV scale if both 50% geography and audience-source checks fit. Ask directly below that.",
+      "currentNetworkSignals": [
+        "Partner history is reviewed, but other network approval is not Freestar acceptance."
+      ],
+      "geographyPreference": "Explicit 50% from US/UK/Canada/NZ/Australia.",
+      "agePreference": "No public age minimum found.",
+      "confidence": "medium",
+      "rationale": "Current official page has concrete audience rules; old forum accounts report impressions rather than PV.",
+      "supportingSourceUrls": [
+        "https://freestar.com/publisher-quality-requirements/",
+        "https://freestar.com/contact-us/",
+        "https://www.reddit.com/r/adops/comments/bxgb6c"
+      ],
+      "gaps": [
+        "No current entry example with exact PV and outcome.",
+        "No impression-to-pageview conversion.",
+        "Share and payout terms not public."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://freestar.com/publisher-quality-requirements/",
+        "title": "Publisher quality requirements",
+        "kind": "official",
+        "publishedAt": "2026-08-19",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "50% organic includes social/news/Discover/YouTube/Reddit/syndication",
+          "50% target markets",
+          "typical scale"
+        ]
+      },
+      {
+        "url": "https://freestar.com/contact-us/",
+        "title": "Contact/onboarding",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "all sizes may apply"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/bxgb6c",
+        "title": "Freestar publisher discussion",
+        "kind": "publisher_forum",
+        "publishedAt": "2019",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "impression reports only"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/mcb34i",
+        "title": "Freestar comparison",
+        "kind": "publisher_forum",
+        "publishedAt": "2021",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "no reliable before/after revenue comparison"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "geniee-ssp",
+    "checkedAt": "2026-10-22",
+    "productType": "Supply-side platform and managed programmatic demand",
+    "applicationUrl": "https://admin.genieessp.com/app/signup/en_US",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Payment minimum",
+          "value": "$100 PayPal/Payoneer; $200 wire",
+          "note": "From earlier publisher terms; 2025 English terms did not reconfirm the threshold.",
+          "sourceUrl": "https://s.geniee.jp/aladdin/resources/GenieeInternational/terms_geniee_en.pdf"
+        },
+        {
+          "label": "Pay day",
+          "value": "By end of second month after calculation",
+          "note": "Subject to advertiser payment; confirmed in current 2025 terms.",
+          "sourceUrl": "https://geniee.co.jp/doc/terms_of_service_en20250831.pdf"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Application",
+          "value": "Submit publisher signup and accurate site details.",
+          "sourceUrl": "https://admin.genieessp.com/app/signup/en_US"
+        },
+        {
+          "label": "Traffic",
+          "value": "No public numeric floor located.",
+          "sourceUrl": "https://geniee.co.jp/doc/terms_of_service_en20250831.pdf"
+        },
+        {
+          "label": "Content",
+          "value": "No false, obscene, infringing or illegal material.",
+          "sourceUrl": "https://geniee.co.jp/doc/terms_of_service_en20250831.pdf"
+        },
+        {
+          "label": "Integration",
+          "value": "Install and retain Geniee tags.",
+          "sourceUrl": "https://geniee.co.jp/doc/terms_of_service_en20250831.pdf"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": "Current 2025 terms: transfer by end of second month after calculation, conditional on advertiser payment.",
+      "paymentThreshold": "Earlier terms: $100 PayPal/Payoneer; $200 wire; current 2025 terms do not reconfirm",
+      "paymentMethods": [
+        "Bank transfer (current 2025 terms)",
+        "PayPal (current 2025 terms)",
+        "Payoneer (listed in earlier terms; not reconfirmed)",
+        "Wire transfer (listed in earlier terms; not reconfirmed)"
+      ],
+      "sources": [
+        {
+          "label": "Publisher signup",
+          "url": "https://admin.genieessp.com/app/signup/en_US"
+        },
+        {
+          "label": "Publisher terms, 2025",
+          "url": "https://geniee.co.jp/doc/terms_of_service_en20250831.pdf"
+        },
+        {
+          "label": "English publisher terms, older",
+          "url": "https://s.geniee.jp/aladdin/resources/GenieeInternational/terms_geniee_en.pdf"
+        },
+        {
+          "label": "SSP overview",
+          "url": "https://en.geniee.co.jp/services/publishers/"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "established publishers seeking SSP demand/operations"
+      ],
+      "nichesStrong": [
+        "Japanese media",
+        "news and larger publishers",
+        "apps and web inventory"
+      ],
+      "nichesWeak": [
+        "small publishers seeking a transparent self-serve ad network"
+      ],
+      "geographies": [
+        "Japan is a strong company market; global publisher service also offered"
+      ],
+      "role": "infrastructure",
+      "entryPositioning": "Contact/application-led SSP; no public traffic gate. Better fit for publishers with ad operations than a beginner blog.",
+      "compatibilityNotes": [
+        "An SSP can sit in a larger stack; exact tags, demand setup and exclusivity are account-specific."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Traffic",
+        "comparator": "not published",
+        "amount": null,
+        "unit": "not stated",
+        "period": "not stated",
+        "scope": "publisher properties",
+        "program": "Geniee SSP",
+        "sourceUrl": "https://geniee.co.jp/doc/terms_of_service_en20250831.pdf",
+        "note": null
+      },
+      {
+        "metric": "Applicant",
+        "comparator": "must be publisher and provide accurate application details",
+        "amount": null,
+        "unit": "application",
+        "period": "before approval",
+        "scope": "publisher",
+        "program": "Geniee SSP",
+        "sourceUrl": "https://geniee.co.jp/doc/terms_of_service_en20250831.pdf",
+        "note": null
+      },
+      {
+        "metric": "Content",
+        "comparator": "must exclude",
+        "amount": null,
+        "unit": "false/obscene/infringing/illegal content",
+        "period": "ongoing",
+        "scope": "site/app",
+        "program": "Geniee SSP",
+        "sourceUrl": "https://geniee.co.jp/doc/terms_of_service_en20250831.pdf",
+        "note": null
+      },
+      {
+        "metric": "Integration",
+        "comparator": "install required tags",
+        "amount": null,
+        "unit": "ad tags",
+        "period": "ongoing",
+        "scope": "approved site",
+        "program": "Geniee SSP",
+        "sourceUrl": "https://geniee.co.jp/doc/terms_of_service_en20250831.pdf",
+        "note": null
+      }
+    ],
+    "observations": [],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Consider for established Japan/APAC media and app publishers needing SSP infrastructure. Not a strong default solo-blog recommendation without a direct sales conversation.",
+      "currentNetworkSignals": [
+        "Existing SSP/header-bidding partners may be compatible but do not prove admission."
+      ],
+      "geographyPreference": "Japan-centered provider with international publisher support; no public country minimum.",
+      "agePreference": "No public age minimum found.",
+      "confidence": "low",
+      "rationale": "Current official page and 2025 terms describe service and contract basics without a traffic floor. Search found no reliable first-person application evidence.",
+      "supportingSourceUrls": [
+        "https://en.geniee.co.jp/services/publishers/",
+        "https://geniee.co.jp/doc/terms_of_service_en20250831.pdf"
+      ],
+      "gaps": [
+        "2025 current terms did not reconfirm older minimum-payment figures.",
+        "No first-person publisher acceptance story with traffic, niche and country context.",
+        "No public share, site-age or Google-standing gate."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://en.geniee.co.jp/services/publishers/",
+        "title": "Geniee publisher services",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "SSP/RTB publisher service"
+        ]
+      },
+      {
+        "url": "https://geniee.co.jp/products/ssp/",
+        "title": "Geniee Japan SSP",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "Japanese market and full support; aggregate requests are not publisher traffic"
+        ]
+      },
+      {
+        "url": "https://geniee.co.jp/doc/terms_of_service_en20250831.pdf",
+        "title": "English publisher terms",
+        "kind": "official_terms",
+        "publishedAt": "2025-08-31",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "applicant details",
+          "content restrictions",
+          "payment timing and methods"
+        ]
+      },
+      {
+        "url": "https://s.geniee.jp/aladdin/resources/GenieeInternational/terms_geniee_en.pdf",
+        "title": "Older English publisher terms",
+        "kind": "official_terms",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "old payout thresholds; not reconfirmed in 2025 terms"
+        ]
+      },
+      {
+        "url": "https://www.redvolcano.io/data/technologies/geniee-monetization/",
+        "title": "Technology footprint estimate",
+        "kind": "independent_analysis",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "detected sites; not acceptance or traffic"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "google-adsense",
+    "checkedAt": "2026-10-22",
+    "productType": "Self-serve contextual display advertising",
+    "applicationUrl": "https://www.google.com/adsense/start/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Publisher share",
+          "value": "80%",
+          "note": "For AdSense for Content after advertiser platform fee; about 68% with Google Ads demand.",
+          "sourceUrl": "https://support.google.com/adsense/answer/180195?hl=en"
+        },
+        {
+          "label": "Payment minimum",
+          "value": "$100 USD",
+          "note": "Equivalent thresholds vary by account currency.",
+          "sourceUrl": "https://support.google.com/adsense/answer/1709871?hl=en"
+        },
+        {
+          "label": "Pay day",
+          "value": "21st–26th each month",
+          "note": "When balance reaches payment threshold and no holds.",
+          "sourceUrl": "https://support.google.com/adsense/answer/7164701?hl=en"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "No numeric traffic rule on current eligibility checklist.",
+          "note": "This page does not promise that no minimum exists.",
+          "sourceUrl": "https://support.google.com/adsense/answer/9724/eligibility-requirements-for-adsense?hl=en-uk"
+        },
+        {
+          "label": "Content",
+          "value": "Original, high-quality content and publisher-policy compliance.",
+          "sourceUrl": "https://support.google.com/adsense/answer/9724/eligibility-requirements-for-adsense?hl=en-uk"
+        },
+        {
+          "label": "Applicant",
+          "value": "18+, or adult representative; must own/control site HTML and be in a supported signup country.",
+          "sourceUrl": "https://support.google.com/adsense/answer/9724/eligibility-requirements-for-adsense?hl=en-uk"
+        },
+        {
+          "label": "Review",
+          "value": "Usually days; sometimes 2–4 weeks; finish setup within 6 months.",
+          "sourceUrl": "https://support.google.com/adsense/answer/7402256?hl=en-AG"
+        }
+      ],
+      "revenueShare": "80% after advertiser platform fee for AdSense for Content",
+      "paymentTerms": "Monthly; issued 21st–26th after threshold and holds clear",
+      "paymentThreshold": "$100 USD or account-currency equivalent",
+      "paymentMethods": [
+        "Check",
+        "EFT",
+        "SEPA",
+        "Wire",
+        "PayPal Hyperwallet where available"
+      ],
+      "sources": [
+        {
+          "label": "Eligibility",
+          "url": "https://support.google.com/adsense/answer/9724/eligibility-requirements-for-adsense?hl=en-uk"
+        },
+        {
+          "label": "Activation and review",
+          "url": "https://support.google.com/adsense/answer/7402256?hl=en-AG"
+        },
+        {
+          "label": "Share",
+          "url": "https://support.google.com/adsense/answer/180195?hl=en"
+        },
+        {
+          "label": "Payment threshold",
+          "url": "https://support.google.com/adsense/answer/1709871?hl=en"
+        },
+        {
+          "label": "Payment schedule",
+          "url": "https://support.google.com/adsense/answer/7164701?hl=en"
+        },
+        {
+          "label": "Signup countries",
+          "url": "https://support.google.com/adsense/answer/13402307?hl=en"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "new and established web publishers"
+      ],
+      "nichesStrong": [
+        "broad policy-compliant content and tools"
+      ],
+      "nichesWeak": [
+        "content prohibited by Google publisher policies"
+      ],
+      "geographies": [
+        "Countries listed as eligible for AdSense signup"
+      ],
+      "role": "primary",
+      "entryPositioning": "Default self-serve starting point; official checklist publishes no traffic or site-age number, but evaluates site content and policy compliance.",
+      "compatibilityNotes": [
+        "May coexist with other providers only within Google ad density, placement and policy rules.",
+        "Mediavine/Journey standing checks and another network's acceptance do not guarantee AdSense approval."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Traffic",
+        "comparator": "no numeric gate listed",
+        "amount": null,
+        "unit": "not stated",
+        "period": "not stated",
+        "scope": "site",
+        "program": "AdSense",
+        "sourceUrl": "https://support.google.com/adsense/answer/9724/eligibility-requirements-for-adsense?hl=en-uk",
+        "note": "Eligibility page does not explicitly promise no minimum."
+      },
+      {
+        "metric": "Content",
+        "comparator": "requires original, high-quality, policy-compliant content",
+        "amount": null,
+        "unit": "content",
+        "period": "ongoing",
+        "scope": "site",
+        "program": "AdSense",
+        "sourceUrl": "https://support.google.com/adsense/answer/9724/eligibility-requirements-for-adsense?hl=en-uk",
+        "note": null
+      },
+      {
+        "metric": "Applicant age",
+        "comparator": "minimum",
+        "amount": 18,
+        "unit": "years",
+        "period": "at application",
+        "scope": "account holder or guardian arrangement",
+        "program": "AdSense",
+        "sourceUrl": "https://support.google.com/adsense/answer/9724/eligibility-requirements-for-adsense?hl=en-uk",
+        "note": null
+      },
+      {
+        "metric": "Site access",
+        "comparator": "must access/control HTML",
+        "amount": null,
+        "unit": "site code",
+        "period": "verification",
+        "scope": "site owner",
+        "program": "AdSense",
+        "sourceUrl": "https://support.google.com/adsense/answer/9724/eligibility-requirements-for-adsense?hl=en-uk",
+        "note": null
+      },
+      {
+        "metric": "Signup availability",
+        "comparator": "must live in supported country",
+        "amount": null,
+        "unit": "country",
+        "period": "application",
+        "scope": "account holder",
+        "program": "AdSense",
+        "sourceUrl": "https://support.google.com/adsense/answer/13402307?hl=en",
+        "note": null
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/passive_income/comments/1tyq291",
+        "publishedAt": null,
+        "site": "Unidentified calculator site",
+        "niche": "Online calculator/tool",
+        "traffic": null,
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Poster said a three-week-old calculator site was rejected twice.",
+        "limits": "No traffic or full content-quality context; cannot infer a traffic or age gate."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Useful default for a new or small compliant site because no numeric traffic floor appears in the checklist; approval still depends on site quality and policy review.",
+      "currentNetworkSignals": [
+        "Can coexist with some providers subject to Google policies; other provider memberships are not transitive approval."
+      ],
+      "geographyPreference": "No public country rule found.",
+      "agePreference": "No public age minimum found.",
+      "confidence": "high",
+      "rationale": "Official eligibility and activation guides give content, age, ownership and review facts but no traffic number.",
+      "supportingSourceUrls": [
+        "https://support.google.com/adsense/answer/9724/eligibility-requirements-for-adsense?hl=en-uk",
+        "https://support.google.com/adsense/answer/7402256?hl=en-AG",
+        "https://support.google.com/adsense/answer/180195?hl=en"
+      ],
+      "gaps": [
+        "No measured publisher entry example with traffic and successful acceptance found.",
+        "A recent tool-site rejection has no traffic data or detailed review reason."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://support.google.com/adsense/answer/9724/eligibility-requirements-for-adsense?hl=en-uk",
+        "title": "AdSense eligibility requirements",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "content",
+          "age",
+          "site access",
+          "no listed traffic/age gate"
+        ]
+      },
+      {
+        "url": "https://support.google.com/adsense/answer/7402256?hl=en-AG",
+        "title": "AdSense activation",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "review timing and setup window"
+        ]
+      },
+      {
+        "url": "https://support.google.com/adsense/answer/180195?hl=en",
+        "title": "AdSense revenue share",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "80% after fee and approx. 68% Google Ads demand"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/passive_income/comments/1tyq291",
+        "title": "Calculator-site rejection report",
+        "kind": "publisher_forum",
+        "publishedAt": "2026",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "three-week-old site rejected twice; no traffic data"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "infolinks",
+    "checkedAt": "2026-10-22",
+    "productType": "Supplemental in-text, overlay and native advertising",
+    "applicationUrl": "https://www.infolinks.com/publishers/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Traffic",
+          "value": "No minimum PV or visitor count",
+          "note": "Current official support result says all publisher sizes can apply.",
+          "sourceUrl": "https://sites0001.infolinks.com/support/quality/what-are-the-eligibility-criteria-for-my-site-to-qualify-with-infolinks"
+        },
+        {
+          "label": "Payment minimum",
+          "value": "$50 most methods; $100 wire/Western Union",
+          "note": "Current payment help; fees vary by route.",
+          "sourceUrl": "https://sites0001.infolinks.com/support/payments/what-are-my-payment-options"
+        },
+        {
+          "label": "Pay timing",
+          "value": "45 days after month-end",
+          "note": "Service agreement says 45 working days; current help says 45 days after month-end—contract is older.",
+          "sourceUrl": "https://sites0001.infolinks.com/service-agreement"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "No PV/visitor minimum; every site reviewed and may be declined.",
+          "sourceUrl": "https://sites0001.infolinks.com/support/quality/what-are-the-eligibility-criteria-for-my-site-to-qualify-with-infolinks"
+        },
+        {
+          "label": "Review",
+          "value": "Usually within 48 hours.",
+          "sourceUrl": "https://sites0001.infolinks.com/support/account/how-do-i-sign-up-as-an-infolinks-publisher"
+        },
+        {
+          "label": "Content",
+          "value": "No illegal, adult/offensive, hateful or infringing content.",
+          "sourceUrl": "https://sites0001.infolinks.com/service-agreement"
+        },
+        {
+          "label": "Integration",
+          "value": "Install Infolinks JavaScript after approval.",
+          "sourceUrl": "https://sites0001.infolinks.com/support/integration/how-do-i-integrate-infolinks-into-my-website"
+        }
+      ],
+      "revenueShare": "70% for In-Text ads under 2015 agreement; other format rates vary",
+      "paymentTerms": "45 working days after month-end under 2015 agreement",
+      "paymentThreshold": "$50 most methods; $100 wire/Western Union",
+      "paymentMethods": [
+        "PayPal",
+        "Bank wire",
+        "eCheck",
+        "ACH",
+        "Payoneer",
+        "Western Union"
+      ],
+      "sources": [
+        {
+          "label": "Eligibility",
+          "url": "https://sites0001.infolinks.com/support/quality/what-are-the-eligibility-criteria-for-my-site-to-qualify-with-infolinks"
+        },
+        {
+          "label": "Signup",
+          "url": "https://sites0001.infolinks.com/support/account/how-do-i-sign-up-as-an-infolinks-publisher"
+        },
+        {
+          "label": "Payments",
+          "url": "https://sites0001.infolinks.com/support/payments/what-are-my-payment-options"
+        },
+        {
+          "label": "Publisher agreement (2015)",
+          "url": "https://sites0001.infolinks.com/service-agreement"
+        },
+        {
+          "label": "Payment fees",
+          "url": "https://sites0001.infolinks.com/support/payments/do-i-pay-fees-when-receiving-my-infolinks-payment"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "small and medium publishers testing contextual supplemental formats"
+      ],
+      "nichesStrong": [
+        "content sites with contextual text and audience engagement"
+      ],
+      "nichesWeak": [
+        "sites seeking a primary high-yield managed display partner"
+      ],
+      "geographies": [
+        "No public country gate"
+      ],
+      "role": "supplemental",
+      "entryPositioning": "All site sizes can apply; no official PV minimum, but every site is reviewed and earnings depend on ad opportunities.",
+      "compatibilityNotes": [
+        "Treat as supplemental format. Public policy on coexistence with specific display providers was not confirmed; review current agreement."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Traffic",
+        "comparator": "no minimum published",
+        "amount": 0,
+        "unit": "visitors/pageviews",
+        "period": "not stated",
+        "scope": "all sizes subject to review",
+        "program": "Infolinks",
+        "sourceUrl": "https://sites0001.infolinks.com/support/quality/what-are-the-eligibility-criteria-for-my-site-to-qualify-with-infolinks",
+        "note": null
+      },
+      {
+        "metric": "Review timing",
+        "comparator": "usually within",
+        "amount": 48,
+        "unit": "hours",
+        "period": "after signup",
+        "scope": "publisher account",
+        "program": "Infolinks",
+        "sourceUrl": "https://sites0001.infolinks.com/support/account/how-do-i-sign-up-as-an-infolinks-publisher",
+        "note": null
+      },
+      {
+        "metric": "Content",
+        "comparator": "must avoid",
+        "amount": null,
+        "unit": "illegal/adult/offensive/hateful/infringing content",
+        "period": "ongoing",
+        "scope": "site",
+        "program": "Infolinks",
+        "sourceUrl": "https://sites0001.infolinks.com/service-agreement",
+        "note": null
+      },
+      {
+        "metric": "Prior provider history",
+        "comparator": "agreement contains 24-month prior-termination restriction",
+        "amount": null,
+        "unit": "account status",
+        "period": "prior 24 months",
+        "scope": "publisher/entities",
+        "program": "Infolinks",
+        "sourceUrl": "https://sites0001.infolinks.com/service-agreement",
+        "note": "Agreement last updated 2015; current help page does not reconfirm this clause."
+      }
+    ],
+    "observations": [],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Can be shortlisted as a low-bar supplemental experiment because there is no published volume floor, but not as the main network for a publisher expecting meaningful managed-display revenue.",
+      "currentNetworkSignals": [
+        "No confirmed modern coexistence rule; verify the older agreement before combining with another provider."
+      ],
+      "geographyPreference": "No public country rule found.",
+      "agePreference": "No public age minimum found.",
+      "confidence": "medium",
+      "rationale": "Official help covers all publisher sizes and payment choices, but public share terms are from an old agreement and independent reports lack context.",
+      "supportingSourceUrls": [
+        "https://sites0001.infolinks.com/support/quality/what-are-the-eligibility-criteria-for-my-site-to-qualify-with-infolinks",
+        "https://sites0001.infolinks.com/support/payments/what-are-my-payment-options",
+        "https://sites0001.infolinks.com/service-agreement"
+      ],
+      "gaps": [
+        "Agreement last updated 2015; revenue share and 24-month clause may have changed.",
+        "Review sites contain generic positive/low-earning statements without traffic/niche/context.",
+        "No dated application acceptance story with metrics found."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://sites0001.infolinks.com/support/quality/what-are-the-eligibility-criteria-for-my-site-to-qualify-with-infolinks",
+        "title": "Publisher eligibility support",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "no numeric minimum; review all sites"
+        ]
+      },
+      {
+        "url": "https://sites0001.infolinks.com/support/account/how-do-i-sign-up-as-an-infolinks-publisher",
+        "title": "Publisher signup help",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "short form and 48-hour review"
+        ]
+      },
+      {
+        "url": "https://sites0001.infolinks.com/support/payments/what-are-my-payment-options",
+        "title": "Payment options help",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "method-specific min and schedule"
+        ]
+      },
+      {
+        "url": "https://sites0001.infolinks.com/service-agreement",
+        "title": "Publisher service agreement",
+        "kind": "official_terms",
+        "publishedAt": "2015-01-27",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "70% for In-Text only",
+          "other rates vary",
+          "older contract language"
+        ]
+      },
+      {
+        "url": "https://www.trustpilot.com/review/infolinks.com",
+        "title": "Publisher review page",
+        "kind": "review_site",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "generic impressions; no qualified traffic case"
+        ]
+      },
+      {
+        "url": "https://www.g2.com/products/infolinks/reviews",
+        "title": "Software reviews",
+        "kind": "review_site",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "low-earning complaint without site/traffic context"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "journey-by-mediavine",
+    "checkedAt": "2026-10-22",
+    "productType": "Lower-volume managed ad program and Mediavine growth path",
+    "applicationUrl": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Sessions to apply",
+          "value": "1,000 Tier 1 sessions in 30 days",
+          "note": "Current Mediavine application requirement for Journey.",
+          "sourceUrl": "https://www.mediavine.com/application-requirements/"
+        },
+        {
+          "label": "Share",
+          "value": "70%",
+          "note": "Journey publisher share.",
+          "sourceUrl": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/"
+        },
+        {
+          "label": "Pay day",
+          "value": "Net 65",
+          "note": "Journey schedule.",
+          "sourceUrl": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "At least 1k Tier 1 sessions in 30 days.",
+          "sourceUrl": "https://www.mediavine.com/application-requirements/"
+        },
+        {
+          "label": "Setup",
+          "value": "Run Grow for at least 30 days; GA4 is optional.",
+          "sourceUrl": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/"
+        },
+        {
+          "label": "Site age",
+          "value": "The 2024 getting-started guide describes four months of domain history",
+          "sourceUrl": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/",
+          "note": "Dated ad-partner guidance; confirm whether the current application still applies this condition."
+        },
+        {
+          "label": "Review",
+          "value": "Original, human, brand-safe audience; Google account in good standing.",
+          "sourceUrl": "https://help.mediavine.com/what-does-it-take-to-get-approved-by-mediavine/"
+        }
+      ],
+      "revenueShare": "70%",
+      "paymentTerms": "Net 65",
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Journey setup and terms",
+          "url": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/"
+        },
+        {
+          "label": "Current requirements",
+          "url": "https://www.mediavine.com/application-requirements/"
+        },
+        {
+          "label": "Approval criteria",
+          "url": "https://help.mediavine.com/what-does-it-take-to-get-approved-by-mediavine/"
+        },
+        {
+          "label": "Journey FAQ",
+          "url": "https://www.journeymv.com/affiliates-faq/"
+        }
+      ],
+      "joinSummary": "1,000 Tier 1 sessions in 30 days"
+    },
+    "fit": {
+      "publisherTypes": [
+        "growing content blogs and audience-first sites"
+      ],
+      "nichesStrong": [
+        "travel",
+        "food",
+        "lifestyle",
+        "education and evergreen content"
+      ],
+      "nichesWeak": [
+        "low-quality or non-human traffic; sites unable to run Grow"
+      ],
+      "geographies": [
+        "No fixed Tier1 share; quality and audience composition reviewed"
+      ],
+      "role": "primary",
+      "entryPositioning": "1,000 Tier1 sessions in 30 days, 30 days on Grow and at least four months domain history.",
+      "compatibilityNotes": [
+        "Journey is a growth-stage Mediavine program; exact ad-stack overlap and migration conditions depend on onboarding.",
+        "A Journey acceptance does not establish Official eligibility."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Sessions",
+        "comparator": "minimum",
+        "amount": 1000,
+        "unit": "Tier1 sessions",
+        "period": "30 days",
+        "scope": "site",
+        "program": "Journey",
+        "sourceUrl": "https://www.mediavine.com/application-requirements/",
+        "note": null
+      },
+      {
+        "metric": "Grow",
+        "comparator": "must run",
+        "amount": 30,
+        "unit": "days",
+        "period": "before review",
+        "scope": "site",
+        "program": "Journey",
+        "sourceUrl": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/",
+        "note": null
+      },
+      {
+        "metric": "Domain age",
+        "comparator": "minimum",
+        "amount": 4,
+        "unit": "months",
+        "period": "at application",
+        "scope": "domain",
+        "program": "Journey",
+        "sourceUrl": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/",
+        "note": "Getting-started guide dated 2024-04-15 describes four months of domain history and expects the partner condition to continue. Confirm current application; do not encode as a verified 2026 hard gate.",
+        "evidenceStatus": "dated_guidance"
+      },
+      {
+        "metric": "Google standing",
+        "comparator": "must be in good standing",
+        "amount": null,
+        "unit": "AdSense/Ad Exchange policy",
+        "period": "ongoing",
+        "scope": "publisher account",
+        "program": "Journey",
+        "sourceUrl": "https://help.mediavine.com/what-does-it-take-to-get-approved-by-mediavine/",
+        "note": null
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/Blogging/comments/1ezlcpk",
+        "publishedAt": "2024",
+        "site": "Unidentified blog",
+        "niche": "Not stated",
+        "traffic": {
+          "value": 15000,
+          "metric": "sessions",
+          "period": "month near acceptance"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [
+          "United States"
+        ],
+        "decision": "Poster said Journey accepted after a seven-week review; traffic had risen from 5k sessions in May to 10k in July and 15–17k that month; 25% US and 35% Tier1.",
+        "limits": "Niche not given; self-reported and above published threshold."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/Blogging/comments/1dkzgsl",
+        "publishedAt": "2024",
+        "site": "German-language blog",
+        "niche": "Not stated",
+        "traffic": {
+          "value": 70000,
+          "metric": "sessions",
+          "period": "month at acceptance"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [
+          "Germany"
+        ],
+        "decision": "Poster reported Journey acceptance after about 60 days, after Mediavine Official rejection; said about 90% of traffic was German.",
+        "limits": "Reported AdSense income before migration, not Journey entry earnings; anecdote is above minimum."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1vn39i3",
+        "publishedAt": "2026",
+        "site": "Unidentified site",
+        "niche": "Not stated",
+        "traffic": {
+          "value": 4400,
+          "metric": "sessions",
+          "period": "month"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Poster said the Journey application was in review, then after a unified-form reapplication was rejected quickly for traffic/composition despite 77% Tier1.",
+        "limits": "Niche and country breakdown absent; self-reported process."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1wq2v87",
+        "publishedAt": "2026-09",
+        "site": "Unidentified site",
+        "niche": "Not stated",
+        "traffic": {
+          "value": 90000,
+          "metric": "sessions",
+          "period": "month"
+        },
+        "adRevenueMonthlyUsd": {
+          "value": 750,
+          "currency": "USD",
+          "period": "month"
+        },
+        "countries": [],
+        "decision": "Publisher reported September Journey earnings after 90k sessions and over 180k pageviews; earlier daily PV run rate was about 3k.",
+        "limits": "Publisher-reported single month, niche and country mix not supplied; performance is not a forecast."
+      }
+    ],
+    "inference": {
+      "trafficRange": {
+        "low": 1000,
+        "high": 1000,
+        "metric": "Tier1 sessions",
+        "period": "30 days",
+        "basisSourceUrls": [
+          "https://www.mediavine.com/application-requirements/"
+        ],
+        "confidence": "high",
+        "note": "Published minimum; not a general expected entry range."
+      },
+      "revenueRange": null,
+      "practicalFit": "A clear shortlist for small-to-mid content publishers at 1k Tier1 sessions, but review still weighs quality and composition. Sites above this gate can still be rejected.",
+      "currentNetworkSignals": [
+        "Current network membership is only a soft comparable signal; Official and Journey criteria differ."
+      ],
+      "geographyPreference": "No fixed Tier1 share; reported acceptance at 35% Tier1 and rejection at 77% show composition is contextual, not a numeric share rule.",
+      "agePreference": "Four months domain history and 30 days Grow required.",
+      "confidence": "medium",
+      "rationale": "Official gates are clear. First-person accounts show acceptance above threshold at low US mix, a contradictory rejection despite high Tier1 share, and one earnings snapshot.",
+      "supportingSourceUrls": [
+        "https://www.mediavine.com/application-requirements/",
+        "https://www.journeymv.com/getting-started-with-journey-by-mediavine/",
+        "https://help.mediavine.com/what-does-it-take-to-get-approved-by-mediavine/",
+        "https://www.reddit.com/r/Blogging/comments/1ezlcpk",
+        "https://www.reddit.com/r/adops/comments/1vn39i3"
+      ],
+      "gaps": [
+        "A recent applicant report cites changing unified-form routing; official page remains eligibility authority.",
+        "No accepted publisher case exactly at 1,000 sessions found.",
+        "Earnings example is not a stable forecast and lacks niche/geography."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.mediavine.com/application-requirements/",
+        "title": "Mediavine application requirements",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "1k Tier1 sessions for Journey"
+        ]
+      },
+      {
+        "url": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/",
+        "title": "Journey setup and getting started",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "Grow 30 days",
+          "4-month domain history",
+          "70% share and Net65"
+        ]
+      },
+      {
+        "url": "https://help.mediavine.com/what-does-it-take-to-get-approved-by-mediavine/",
+        "title": "Approval criteria",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "content/Google standing/quality"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/Blogging/comments/1ezlcpk",
+        "title": "Journey acceptance report",
+        "kind": "publisher_forum",
+        "publishedAt": "2024",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "15–17k sessions",
+          "35% Tier1",
+          "accepted after seven weeks"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/Blogging/comments/1dkzgsl",
+        "title": "German Journey report",
+        "kind": "publisher_forum",
+        "publishedAt": "2024",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "70k sessions",
+          "90% Germany",
+          "accepted after about 60 days"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1vn39i3",
+        "title": "Journey application routing report",
+        "kind": "publisher_forum",
+        "publishedAt": "2026",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "4.4k sessions, 77% Tier1 and reported rejection"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1wq2v87",
+        "title": "Journey earnings report",
+        "kind": "publisher_forum",
+        "publishedAt": "2026-09",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "90k sessions, 180k+ PV and $750 reported"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "media-net",
+    "checkedAt": "2026-10-22",
+    "productType": "Contextual display, native/video demand and managed Prebid service",
+    "applicationUrl": "https://www.media.net/publishers",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Pay day",
+          "value": "Net 30",
+          "note": "Current publisher agreement says monthly payment for collected click-through revenue.",
+          "sourceUrl": "https://www.media.net/legal/"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic source",
+          "value": "Primarily organic traffic; no public numeric floor.",
+          "sourceUrl": "https://www.media.net/legal/inventorypolicies/"
+        },
+        {
+          "label": "Content",
+          "value": "Original, high-quality, navigable; restricted content excluded.",
+          "sourceUrl": "https://www.media.net/legal/inventorypolicies/"
+        },
+        {
+          "label": "Ads.txt",
+          "value": "Authorized ads.txt/app-ads.txt required.",
+          "sourceUrl": "https://www.media.net/legal/inventorypolicies/"
+        },
+        {
+          "label": "Payment",
+          "value": "Monthly Net30 based on collected click-through revenue less costs/commissions.",
+          "sourceUrl": "https://www.media.net/legal/"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": "Net 30 monthly on collected click-through revenue",
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "Publisher page",
+          "url": "https://www.media.net/publishers"
+        },
+        {
+          "label": "Inventory policy",
+          "url": "https://www.media.net/legal/inventorypolicies/"
+        },
+        {
+          "label": "Publisher agreement",
+          "url": "https://www.media.net/legal/"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "content publishers with mostly organic audiences and ad operations"
+      ],
+      "nichesStrong": [
+        "news",
+        "finance",
+        "how-to and editorial"
+      ],
+      "nichesWeak": [
+        "sites with mostly paid/invalid traffic or prohibited content"
+      ],
+      "geographies": [
+        "No public preferred country share"
+      ],
+      "role": "infrastructure",
+      "entryPositioning": "Managed display/Prebid demand; no public traffic number, but the policy expects mostly organic traffic and compliant inventory.",
+      "compatibilityNotes": [
+        "Current terms prohibit a competing service with substantially similar ads; treat same-inventory use as restricted unless Media.net approves in writing."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Traffic source",
+        "comparator": "primarily organic",
+        "amount": null,
+        "unit": "traffic source",
+        "period": "ongoing",
+        "scope": "site traffic",
+        "program": "Media.net",
+        "sourceUrl": "https://www.media.net/legal/inventorypolicies/",
+        "note": null
+      },
+      {
+        "metric": "Traffic volume",
+        "comparator": "not published",
+        "amount": null,
+        "unit": "not stated",
+        "period": "not stated",
+        "scope": "publisher site",
+        "program": "Media.net",
+        "sourceUrl": "https://www.media.net/publishers",
+        "note": null
+      },
+      {
+        "metric": "Content",
+        "comparator": "must be original and policy-compliant",
+        "amount": null,
+        "unit": "content",
+        "period": "ongoing",
+        "scope": "site",
+        "program": "Media.net",
+        "sourceUrl": "https://www.media.net/legal/inventorypolicies/",
+        "note": null
+      },
+      {
+        "metric": "Ads.txt",
+        "comparator": "authorized file required",
+        "amount": null,
+        "unit": "ads.txt/app-ads.txt",
+        "period": "ongoing",
+        "scope": "site/app",
+        "program": "Media.net",
+        "sourceUrl": "https://www.media.net/legal/inventorypolicies/",
+        "note": null
+      },
+      {
+        "metric": "Exclusivity",
+        "comparator": "no alternative service showing substantially similar ads unless authorized",
+        "amount": null,
+        "unit": "competing ad service",
+        "period": "ongoing",
+        "scope": "same inventory",
+        "program": "Media.net",
+        "sourceUrl": "https://www.media.net/legal/",
+        "note": null
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/15ql4jb",
+        "publishedAt": "2023",
+        "site": "Unidentified publisher",
+        "niche": "Not stated",
+        "traffic": null,
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Poster said they used Media.net across sites and had gone about six months without support responses.",
+        "limits": "No traffic, niche, geography or earnings; service report only."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/ddntw5",
+        "publishedAt": "2019",
+        "site": "Unidentified publisher",
+        "niche": "Not stated",
+        "traffic": null,
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Poster described Media.net as the lowest-performing bidder among their header-bidding partners.",
+        "limits": "Old, subjective, no site metrics."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": null,
+      "practicalFit": "Consider for publishers with mostly organic traffic wanting contextual display/native/video demand and a managed stack. Low confidence for small sites because acceptance and yield criteria are not public.",
+      "currentNetworkSignals": [
+        "Agreement restricts substantially similar competing ads; do not assume it can supplement a current managed display network."
+      ],
+      "geographyPreference": "No public country rule found.",
+      "agePreference": "No public age minimum found.",
+      "confidence": "low",
+      "rationale": "Current policy and agreement establish organic source, content, ads.txt and competition clauses. Independent reports are old and lack scale.",
+      "supportingSourceUrls": [
+        "https://www.media.net/publishers",
+        "https://www.media.net/legal/inventorypolicies/",
+        "https://www.media.net/legal/"
+      ],
+      "gaps": [
+        "No numeric traffic/revenue gate or geographies published.",
+        "Payment contract says Net30, but no threshold/method found.",
+        "Older agreement clauses and specific prior-provider history need confirmation in current publisher contract."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.media.net/publishers",
+        "title": "Media.net publisher page",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "managed Prebid and demand product"
+        ]
+      },
+      {
+        "url": "https://www.media.net/legal/inventorypolicies/",
+        "title": "Inventory policies",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "organic traffic",
+          "content",
+          "ads.txt"
+        ]
+      },
+      {
+        "url": "https://www.media.net/legal/",
+        "title": "Publisher agreement",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "Net30",
+          "no minimum revenue guarantee",
+          "substantially similar competing service restriction"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/15ql4jb",
+        "title": "Publisher support complaint",
+        "kind": "publisher_forum",
+        "publishedAt": "2023",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "six months without support response; no size"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/ddntw5",
+        "title": "Header-bidding comparison",
+        "kind": "publisher_forum",
+        "publishedAt": "2019",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "subjective lowest-performance report"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "mediavine",
+    "checkedAt": "2026-10-22",
+    "productType": "Managed display ad network with multiple publisher growth tiers",
+    "applicationUrl": "https://www.mediavine.com/application-requirements/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Official revenue gate",
+          "value": "$5,000",
+          "note": "Site ad revenue in the previous calendar year; not last month or trailing 12 months.",
+          "sourceUrl": "https://help.mediavine.com/programs-and-the-publisher-path-to-growth"
+        },
+        {
+          "label": "Official share",
+          "value": "75%",
+          "note": "For new Official sites in 2026; Select/Signature/Premiere tiers are higher and legacy terms differ.",
+          "sourceUrl": "https://help.mediavine.com/revenue-share"
+        },
+        {
+          "label": "Pay day",
+          "value": "Net 65",
+          "note": "Processed from month end.",
+          "sourceUrl": "https://help.mediavine.com/when-am-i-getting-paid-0"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Revenue",
+          "value": "At least $5k site ad revenue in previous calendar year.",
+          "sourceUrl": "https://help.mediavine.com/programs-and-the-publisher-path-to-growth"
+        },
+        {
+          "label": "Content",
+          "value": "Original, audience-first, human and brand-safe; traffic sources and demographics reviewed.",
+          "sourceUrl": "https://help.mediavine.com/mediavine-official"
+        },
+        {
+          "label": "Google standing",
+          "value": "Good standing with AdSense and Ad Exchange; no active policy issues.",
+          "sourceUrl": "https://help.mediavine.com/mediavine-official"
+        },
+        {
+          "label": "Traffic",
+          "value": "No separate public PV/session gate for Official; revenue rule controls.",
+          "sourceUrl": "https://help.mediavine.com/programs-and-the-publisher-path-to-growth"
+        },
+        {
+          "label": "Application",
+          "value": "Provide analytics and allow site review; exact verification may vary.",
+          "sourceUrl": "https://prod.mediavine.com/blog/mediavine-application-process-faq/"
+        }
+      ],
+      "revenueShare": "75% for new Official sites in 2026; 80% Select, 85% Signature, 90% Premiere/Premiere Plus; legacy differs",
+      "paymentTerms": "Net 65 from month end; processed first business day",
+      "paymentThreshold": "$100 most methods; $200 eCheck/local transfer",
+      "paymentMethods": [
+        "PayPal",
+        "Domestic ACH",
+        "Wise",
+        "US wire",
+        "eCheck/local bank transfer",
+        "International wire"
+      ],
+      "sources": [
+        {
+          "label": "Publisher Path and previous-year revenue",
+          "url": "https://help.mediavine.com/programs-and-the-publisher-path-to-growth"
+        },
+        {
+          "label": "Official criteria",
+          "url": "https://help.mediavine.com/mediavine-official"
+        },
+        {
+          "label": "Revenue share",
+          "url": "https://help.mediavine.com/revenue-share"
+        },
+        {
+          "label": "Payment timing",
+          "url": "https://help.mediavine.com/when-am-i-getting-paid-0"
+        },
+        {
+          "label": "Payment methods",
+          "url": "https://help.mediavine.com/mediavine-payment-methods"
+        }
+      ],
+      "joinSummary": "$5,000 in site ad revenue in the prior calendar year"
+    },
+    "fit": {
+      "publisherTypes": [
+        "established audience-first content publishers"
+      ],
+      "nichesStrong": [
+        "food",
+        "travel",
+        "lifestyle",
+        "parenting",
+        "finance and evergreen editorial"
+      ],
+      "nichesWeak": [
+        "sites without $5k prior-year ad revenue or with policy/traffic-quality issues"
+      ],
+      "geographies": [
+        "No fixed country share; location, sources and demographics are reviewed"
+      ],
+      "role": "primary",
+      "entryPositioning": "Official requires $5k ad revenue from the prior calendar year. Current-month earnings can estimate opportunity, but cannot prove this exact requirement.",
+      "compatibilityNotes": [
+        "Journey is a separate lower-volume program and not proof of Official eligibility.",
+        "Official rate tiers apply to new 2026 sites; legacy agreements can differ."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Site ad revenue",
+        "comparator": "minimum",
+        "amount": 5000,
+        "unit": "USD",
+        "period": "previous calendar year",
+        "scope": "site",
+        "program": "Official",
+        "sourceUrl": "https://help.mediavine.com/programs-and-the-publisher-path-to-growth",
+        "note": "Not last month or trailing 12 months."
+      },
+      {
+        "metric": "Content",
+        "comparator": "must be original, audience-first, human and brand-safe",
+        "amount": null,
+        "unit": "content/traffic quality",
+        "period": "ongoing",
+        "scope": "site",
+        "program": "Official",
+        "sourceUrl": "https://help.mediavine.com/mediavine-official",
+        "note": null
+      },
+      {
+        "metric": "Google standing",
+        "comparator": "must be in good standing",
+        "amount": null,
+        "unit": "AdSense/Ad Exchange policies",
+        "period": "ongoing",
+        "scope": "account",
+        "program": "Official",
+        "sourceUrl": "https://help.mediavine.com/mediavine-official",
+        "note": null
+      },
+      {
+        "metric": "Traffic source/geography",
+        "comparator": "reviewed; no fixed share published",
+        "amount": null,
+        "unit": "source and country composition",
+        "period": "review",
+        "scope": "site",
+        "program": "Official",
+        "sourceUrl": "https://help.mediavine.com/mediavine-official",
+        "note": null
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1wz7cw6",
+        "publishedAt": "2026",
+        "site": "Unidentified publisher",
+        "niche": "Not stated",
+        "traffic": null,
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Poster said they expected Official eligibility based on prior-year earnings but application path routed them to Journey; they were 45 days into Journey.",
+        "limits": "Anonymous; exact revenue and site quality/country data not provided; app routing may have changed."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/Blogging/comments/1s7kf5e",
+        "publishedAt": "2026",
+        "site": "Norwegian local site",
+        "niche": "Local popular site; niche not stated",
+        "traffic": {
+          "value": 12046,
+          "metric": "pageviews",
+          "period": "first 5 days after network acceptance"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [
+          "Norway"
+        ],
+        "decision": "Poster reported acceptance to a Mediavine-branded program and $41.47 revenue from those first five days; the program tier (Official vs Journey) was not specified.",
+        "limits": "Very early five-day result and program unspecified; not a revenue forecast or evidence against the Official prior-year gate."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1xb1r9c",
+        "publishedAt": "2026",
+        "site": "Unidentified existing publisher",
+        "niche": "Not stated",
+        "traffic": {
+          "value": 1600000,
+          "metric": "monthly users",
+          "period": "reported during application discussion"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Publisher described repeated application declines and a 60-day reapply wait despite later traffic growth.",
+        "limits": "Exact application target tier, niche, geography and prior-year ad revenue not established."
+      }
+    ],
+    "inference": {
+      "trafficRange": null,
+      "revenueRange": {
+        "low": 5000,
+        "high": 5000,
+        "metric": "USD site ad revenue",
+        "period": "previous calendar year",
+        "basisSourceUrls": [
+          "https://help.mediavine.com/programs-and-the-publisher-path-to-growth"
+        ],
+        "confidence": "high",
+        "note": "Exact Official gate, not monthly revenue."
+      },
+      "practicalFit": "Shortlist for content publishers that can document $5k site ad revenue from the previous calendar year and pass quality review. Last month's revenue is only a planning estimate and cannot satisfy the exact criterion.",
+      "currentNetworkSignals": [
+        "Journey acceptance is a separate path and does not prove Official eligibility."
+      ],
+      "geographyPreference": "No fixed share; traffic source and geography are reviewed.",
+      "agePreference": "No public age minimum found.",
+      "confidence": "high",
+      "rationale": "Current official Publisher Path specifies the previous calendar year, not last month or rolling 12 months. Reddit reports show routing and quality review can add discretion.",
+      "supportingSourceUrls": [
+        "https://help.mediavine.com/programs-and-the-publisher-path-to-growth",
+        "https://help.mediavine.com/mediavine-official",
+        "https://help.mediavine.com/revenue-share",
+        "https://www.reddit.com/r/adops/comments/1wz7cw6"
+      ],
+      "gaps": [
+        "One recent accepted case did not specify Official versus Journey.",
+        "Anonymous application reports do not expose review inputs; they cannot establish an acceptance rate.",
+        "Do not use last-month earnings as an exact substitute for prior-year total."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://help.mediavine.com/programs-and-the-publisher-path-to-growth",
+        "title": "Programs and Publisher Path",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "$5k based on previous calendar year"
+        ]
+      },
+      {
+        "url": "https://help.mediavine.com/mediavine-official",
+        "title": "Mediavine Official criteria",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "content and Google standing"
+        ]
+      },
+      {
+        "url": "https://help.mediavine.com/revenue-share",
+        "title": "Revenue share",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "new 2026 tier shares; legacy differs"
+        ]
+      },
+      {
+        "url": "https://help.mediavine.com/when-am-i-getting-paid-0",
+        "title": "Payment timing",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "Net65"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1wz7cw6",
+        "title": "Official application routing discussion",
+        "kind": "publisher_forum",
+        "publishedAt": "2026",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "poster claimed previous-year revenue above $5k and was routed to Journey"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/Blogging/comments/1s7kf5e",
+        "title": "New Mediavine-branded account start",
+        "kind": "publisher_forum",
+        "publishedAt": "2026",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "Norway site and first five-day results; program tier unclear"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1xb1r9c",
+        "title": "Publisher reapplication complaint",
+        "kind": "publisher_forum",
+        "publishedAt": "2026-10-21",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "1.6m monthly users and repeated declines; tier/niche unclear"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "mgid",
+    "checkedAt": "2026-10-22",
+    "productType": "Native advertising and recommendation widget network",
+    "applicationUrl": "https://www.mgid.com/publishers",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Traffic",
+          "value": "3,000 unique visitors daily OR 90,000 monthly visitors",
+          "note": "Official publisher help lists either route.",
+          "sourceUrl": "https://help.mgid.com/publishers-general-information"
+        },
+        {
+          "label": "Publisher share",
+          "value": "65% in Brazil offer",
+          "note": "Offer-specific; current Insertion Order controls global terms.",
+          "sourceUrl": "https://pr.mgid.com/monetize"
+        },
+        {
+          "label": "Payment minimum",
+          "value": "$50–$1,000",
+          "note": "Method-specific in Brazil offer; not a universal threshold.",
+          "sourceUrl": "https://pr.mgid.com/monetize"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "3,000 daily unique visitors OR 90,000 monthly visitors.",
+          "sourceUrl": "https://help.mgid.com/publishers-general-information"
+        },
+        {
+          "label": "Content",
+          "value": "10 current articles; original, policy compliant, no adult/torrent/redirect/low-info content.",
+          "sourceUrl": "https://help.mgid.com/publishers-general-information"
+        },
+        {
+          "label": "Geography",
+          "value": "No traffic-source/country limitation in help; social visitors accepted; 70+ languages/200+ countries.",
+          "sourceUrl": "https://help.mgid.com/publishers-general-information"
+        },
+        {
+          "label": "Review",
+          "value": "Usually email response within 24 hours; weekend to next business day.",
+          "sourceUrl": "https://help.mgid.com/publishers-general-information"
+        }
+      ],
+      "revenueShare": "65% in Brazil offer; current insertion order controls",
+      "paymentTerms": "Net30 post-payment in Brazil offer; current insertion order controls",
+      "paymentThreshold": "Offer-specific: $50 Paymaster24; $100 PayPal/Tipalti; $1,000 ACH/international transfer",
+      "paymentMethods": [
+        "Paymaster24",
+        "PayPal",
+        "Tipalti",
+        "ACH",
+        "International transfer"
+      ],
+      "sources": [
+        {
+          "label": "Publisher information",
+          "url": "https://help.mgid.com/publishers-general-information"
+        },
+        {
+          "label": "Publisher terms updated July 2026",
+          "url": "https://www.mgid.com/services/publishers-tos"
+        },
+        {
+          "label": "Brazil publisher offer",
+          "url": "https://pr.mgid.com/monetize"
+        },
+        {
+          "label": "Publisher program",
+          "url": "https://www.mgid.com/publishers"
+        }
+      ]
+    },
+    "fit": {
+      "publisherTypes": [
+        "content-rich sites with article pages and willingness to add recommendation units"
+      ],
+      "nichesStrong": [
+        "news",
+        "editorial",
+        "entertainment and international content"
+      ],
+      "nichesWeak": [
+        "thin content, adult, piracy/torrent and redirect sites"
+      ],
+      "geographies": [
+        "Global; 70+ languages and 200+ countries supported"
+      ],
+      "role": "supplemental",
+      "entryPositioning": "Published gate is 3,000 daily unique visitors OR 90,000 monthly visitors, plus at least 10 current articles.",
+      "compatibilityNotes": [
+        "Official publisher materials allow use with AdSense; placement and ad-density rules still apply. Native unit is supplemental to display demand."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Daily unique visitors",
+        "comparator": "minimum",
+        "amount": 3000,
+        "unit": "unique visitors",
+        "period": "day",
+        "scope": "site",
+        "program": "MGID",
+        "sourceUrl": "https://help.mgid.com/publishers-general-information",
+        "note": null
+      },
+      {
+        "metric": "Monthly visitors",
+        "comparator": "alternative minimum",
+        "amount": 90000,
+        "unit": "visitors",
+        "period": "month",
+        "scope": "site",
+        "program": "MGID",
+        "sourceUrl": "https://help.mgid.com/publishers-general-information",
+        "note": null
+      },
+      {
+        "metric": "Current articles",
+        "comparator": "minimum",
+        "amount": 10,
+        "unit": "articles",
+        "period": "current",
+        "scope": "site",
+        "program": "MGID",
+        "sourceUrl": "https://help.mgid.com/publishers-general-information",
+        "note": null
+      },
+      {
+        "metric": "Content",
+        "comparator": "must exclude",
+        "amount": null,
+        "unit": "adult/torrent/redirect/low-information and policy-prohibited",
+        "period": "ongoing",
+        "scope": "site",
+        "program": "MGID",
+        "sourceUrl": "https://help.mgid.com/publishers-general-information",
+        "note": null
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1bt3vnt",
+        "publishedAt": "2024",
+        "site": "Unidentified publisher",
+        "niche": "Not stated",
+        "traffic": {
+          "value": 287000,
+          "metric": "views/impressions (poster wording unclear)",
+          "period": "March"
+        },
+        "adRevenueMonthlyUsd": 261,
+        "countries": [],
+        "decision": "Poster reported about $261 earnings for 287k March views/impressions.",
+        "limits": "Traffic unit is ambiguous; no niche/geography; not a traffic-entry case."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1vkueiv",
+        "publishedAt": "2026",
+        "site": "Unidentified web app",
+        "niche": "Web app",
+        "traffic": {
+          "value": 20000,
+          "metric": "monthly active users",
+          "period": "20k–30k"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Poster asked whether MGID was suitable; no onboarding result.",
+        "limits": "No application or publisher outcome."
+      }
+    ],
+    "inference": {
+      "trafficRange": {
+        "low": 90000,
+        "high": 90000,
+        "metric": "visitors",
+        "period": "month",
+        "basisSourceUrls": [
+          "https://help.mgid.com/publishers-general-information"
+        ],
+        "confidence": "high",
+        "note": "Alternative to 3k unique visitors per day."
+      },
+      "revenueRange": null,
+      "practicalFit": "A measurable supplemental shortlist for content sites with at least 3k daily uniques or 90k monthly visitors and 10 current articles. Do not substitute pageviews or sessions for the published visitor metric.",
+      "currentNetworkSignals": [
+        "Official materials say AdSense can be used alongside MGID; current terms/placements still control."
+      ],
+      "geographyPreference": "Global; support materials cite 70+ languages and 200+ countries.",
+      "agePreference": "No public age minimum found.",
+      "confidence": "high",
+      "rationale": "Current official help is clear on alternatives, article count, content exclusions and review time; revenue anecdote has ambiguous traffic unit.",
+      "supportingSourceUrls": [
+        "https://help.mgid.com/publishers-general-information",
+        "https://www.mgid.com/services/publishers-tos",
+        "https://pr.mgid.com/monetize"
+      ],
+      "gaps": [
+        "Payout/share figures from public Brazil offer are not universal; signed IO governs.",
+        "No accepted entry example with exact traffic and niche found.",
+        "Do not convert ambiguous views/impressions into users."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://help.mgid.com/publishers-general-information",
+        "title": "Publisher general information",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "3k daily uniques OR 90k monthly visitors",
+          "10 articles",
+          "geography/language and content rules"
+        ]
+      },
+      {
+        "url": "https://www.mgid.com/services/publishers-tos",
+        "title": "Publisher terms",
+        "kind": "official_terms",
+        "publishedAt": "2026-07-29",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "insertion order controls conflicting terms"
+        ]
+      },
+      {
+        "url": "https://pr.mgid.com/monetize",
+        "title": "Brazil publisher offer",
+        "kind": "official_offer",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "65% share, Net30, method thresholds are offer-specific"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1bt3vnt",
+        "title": "Publisher revenue question",
+        "kind": "publisher_forum",
+        "publishedAt": "2024",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "$261 for ambiguous 287k views/impressions"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1vkueiv",
+        "title": "Web app inquiry",
+        "kind": "publisher_forum",
+        "publishedAt": "2026",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "20–30k monthly active users but no application result"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "monetizemore-pubguru",
+    "checkedAt": "2026-10-22",
+    "productType": "Managed ad optimization and header-bidding service (PubGuru Premium)",
+    "applicationUrl": "https://www.monetizemore.com/solutions/pubguru-premium/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "PubGuru Premium gate",
+          "value": "$5,000 monthly ad revenue OR 2m monthly pageviews",
+          "note": "Premium product criteria, not every MonetizeMore service.",
+          "sourceUrl": "https://www.monetizemore.com/solutions/pubguru-premium/"
+        },
+        {
+          "label": "Revenue share",
+          "value": "Custom performance-based share",
+          "note": "Rate not public.",
+          "sourceUrl": "https://www.monetizemore.com/frequently-asked-questions/"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "PubGuru Premium: 2m monthly PV OR $5k monthly ad revenue.",
+          "sourceUrl": "https://www.monetizemore.com/solutions/pubguru-premium/"
+        },
+        {
+          "label": "Product fit",
+          "value": "Managed yield optimization for larger, growing publishers.",
+          "sourceUrl": "https://www.monetizemore.com/solutions/pubguru-premium/"
+        },
+        {
+          "label": "Terms",
+          "value": "Share and contract scope are set per publisher; confirm lock-in/notice in signed agreement.",
+          "sourceUrl": "https://www.monetizemore.com/frequently-asked-questions/"
+        }
+      ],
+      "revenueShare": "Custom performance share; no fixed percentage public",
+      "paymentTerms": null,
+      "paymentThreshold": null,
+      "paymentMethods": [],
+      "sources": [
+        {
+          "label": "PubGuru Premium requirements",
+          "url": "https://www.monetizemore.com/solutions/pubguru-premium/"
+        },
+        {
+          "label": "MonetizeMore FAQ",
+          "url": "https://www.monetizemore.com/frequently-asked-questions/"
+        },
+        {
+          "label": "Publisher case",
+          "url": "https://www.monetizemore.com/case-study/if-publab-can-5x-their-ad-revenue-using-pubguru-so-can-you/"
+        }
+      ],
+      "joinSummary": "$5,000 monthly ad revenue OR 2 million monthly pageviews"
+    },
+    "fit": {
+      "publisherTypes": [
+        "large web publishers and multi-site portfolios"
+      ],
+      "nichesStrong": [
+        "content publishers",
+        "recipes/food",
+        "international site portfolios"
+      ],
+      "nichesWeak": [
+        "small sites below Premium scale"
+      ],
+      "geographies": [
+        "No public share minimum; vendor cases include US and international publishers"
+      ],
+      "role": "infrastructure",
+      "entryPositioning": "Premium has explicit alternative gates: $5k monthly ad revenue OR 2m monthly PV. This is for PubGuru Premium, not every product.",
+      "compatibilityNotes": [
+        "Managed header bidding/yield service can work with existing GAM/demand; confirm exclusivity and notice period in agreement."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Monthly ad revenue",
+        "comparator": "minimum OR PV alternative",
+        "amount": 5000,
+        "unit": "USD",
+        "period": "month",
+        "scope": "publisher",
+        "program": "PubGuru Premium",
+        "sourceUrl": "https://www.monetizemore.com/solutions/pubguru-premium/",
+        "note": null
+      },
+      {
+        "metric": "Monthly pageviews",
+        "comparator": "minimum OR revenue alternative",
+        "amount": 2000000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "publisher",
+        "program": "PubGuru Premium",
+        "sourceUrl": "https://www.monetizemore.com/solutions/pubguru-premium/",
+        "note": null
+      },
+      {
+        "metric": "Revenue share",
+        "comparator": "custom",
+        "amount": null,
+        "unit": "publisher-specific share",
+        "period": "contract",
+        "scope": "publisher",
+        "program": "PubGuru",
+        "sourceUrl": "https://www.monetizemore.com/frequently-asked-questions/",
+        "note": null
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.monetizemore.com/case-study/if-publab-can-5x-their-ad-revenue-using-pubguru-so-can-you/",
+        "publishedAt": null,
+        "site": "European multi-site publisher / Publab",
+        "niche": "Multi-site publishing portfolio",
+        "traffic": {
+          "value": 100000000,
+          "metric": "monthly visitors",
+          "period": "reported at scale"
+        },
+        "adRevenueMonthlyUsd": {
+          "value": 300000,
+          "currency": "EUR",
+          "period": "monthly"
+        },
+        "countries": [
+          "Europe"
+        ],
+        "decision": "Vendor case describes a portfolio with 20+ sites and more than 100m monthly visitors and reports revenue growth after PubGuru.",
+        "limits": "Vendor case study, not independent; very large portfolio and not entry example."
+      },
+      {
+        "sourceUrl": "https://www.monetizemore.com/case-study/200-increase-from-adsense-only-setups-with-panlasangpinoy/",
+        "publishedAt": "2019-2021",
+        "site": "Panlasang Pinoy",
+        "niche": "Food/recipe",
+        "traffic": {
+          "value": 53500000,
+          "metric": "pageviews",
+          "period": "2019; 88.7m in 2020 and 70.5m in 2021"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Vendor case says managed setup increased net ad revenue versus AdSense-only baseline.",
+        "limits": "Historical vendor case, not a typical result or application threshold."
+      }
+    ],
+    "inference": {
+      "trafficRange": {
+        "low": 2000000,
+        "high": 2000000,
+        "metric": "pageviews",
+        "period": "month",
+        "basisSourceUrls": [
+          "https://www.monetizemore.com/solutions/pubguru-premium/"
+        ],
+        "confidence": "high",
+        "note": "Alternative qualifying route is $5k monthly ad revenue."
+      },
+      "revenueRange": {
+        "low": 5000,
+        "high": 5000,
+        "metric": "USD ad revenue",
+        "period": "month",
+        "basisSourceUrls": [
+          "https://www.monetizemore.com/solutions/pubguru-premium/"
+        ],
+        "confidence": "high",
+        "note": "Premium alternative to 2m monthly PV."
+      },
+      "practicalFit": "Shortlist when a publisher can verify either 2m monthly pageviews or $5k monthly ad revenue and needs managed yield optimization. A solo blog below both is not a PubGuru Premium fit.",
+      "currentNetworkSignals": [
+        "Use of GAM or other demand partners can aid setup; not transitive proof of qualification."
+      ],
+      "geographyPreference": "No public country rule found.",
+      "agePreference": "No public age minimum found.",
+      "confidence": "high",
+      "rationale": "Current PubGuru Premium page explicitly publishes both thresholds. Case studies confirm very large publisher profile but are vendor-reported.",
+      "supportingSourceUrls": [
+        "https://www.monetizemore.com/solutions/pubguru-premium/",
+        "https://www.monetizemore.com/frequently-asked-questions/",
+        "https://www.monetizemore.com/case-study/if-publab-can-5x-their-ad-revenue-using-pubguru-so-can-you/"
+      ],
+      "gaps": [
+        "No independent first-person acceptance example with traffic/revenue found.",
+        "Revenue share and payment terms are not public; contract must be reviewed.",
+        "Do not confuse general MonetizeMore service or PubGuru product pages with Premium criteria."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.monetizemore.com/solutions/pubguru-premium/",
+        "title": "PubGuru Premium",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "$5k/month or 2m PV",
+          "product-specific gate"
+        ]
+      },
+      {
+        "url": "https://www.monetizemore.com/frequently-asked-questions/",
+        "title": "MonetizeMore FAQ",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "share/terms privately agreed"
+        ]
+      },
+      {
+        "url": "https://www.monetizemore.com/case-study/if-publab-can-5x-their-ad-revenue-using-pubguru-so-can-you/",
+        "title": "Publab case",
+        "kind": "vendor_case_study",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "20+ sites, 100m+ visitors, €300k/month reported"
+        ]
+      },
+      {
+        "url": "https://www.monetizemore.com/case-study/200-increase-from-adsense-only-setups-with-panlasangpinoy/",
+        "title": "Panlasang Pinoy case",
+        "kind": "vendor_case_study",
+        "publishedAt": "2019-2021",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "recipe publisher history and PV scale"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "monumetric",
+    "checkedAt": "2026-10-22",
+    "productType": "Managed publisher ad network with program tiers and Propel entry program",
+    "applicationUrl": "https://www.monumetric.com/get-started/",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Propel traffic",
+          "value": "10,000–80,000 pageviews/month",
+          "note": "At least 3 consecutive months; other programs have higher ranges.",
+          "sourceUrl": "https://www.monumetric.com/monumetric-program-overview/"
+        },
+        {
+          "label": "Payment minimum",
+          "value": "$10",
+          "note": "Balance carries forward if below minimum.",
+          "sourceUrl": "https://www.monumetric.com/payment-terms-and-how-you-are-paid/"
+        },
+        {
+          "label": "Pay day",
+          "value": "Net 60",
+          "note": "Paid monthly within first 10 business days.",
+          "sourceUrl": "https://www.monumetric.com/payment-terms-and-how-you-are-paid/"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Traffic",
+          "value": "10k–80k PV/month for Propel for 3 consecutive months.",
+          "note": "No single-month shortcut.",
+          "sourceUrl": "https://www.monumetric.com/monumetric-program-overview/"
+        },
+        {
+          "label": "Top markets",
+          "value": "At least 50% US/UK/Australia/Canada.",
+          "sourceUrl": "https://www.monumetric.com/what-are-the-requirements-to-work-with-monumetric/"
+        },
+        {
+          "label": "Content",
+          "value": "English; no pornography, drugs, hate or copyright violations.",
+          "sourceUrl": "https://www.monumetric.com/what-are-the-requirements-to-work-with-monumetric/"
+        },
+        {
+          "label": "Propel setup",
+          "value": "WordPress or Blogger, 300px sidebar, six ad slots, major-ad-provider approval, $99 implementation fee.",
+          "sourceUrl": "https://www.monumetric.com/requirements-for-the-propel-program/"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": "Net 60; monthly within first 10 business days",
+      "paymentThreshold": "$10",
+      "paymentMethods": [
+        "US direct deposit",
+        "International PayPal"
+      ],
+      "sources": [
+        {
+          "label": "Program overview",
+          "url": "https://www.monumetric.com/monumetric-program-overview/"
+        },
+        {
+          "label": "Eligibility",
+          "url": "https://www.monumetric.com/what-are-the-requirements-to-work-with-monumetric/"
+        },
+        {
+          "label": "Propel requirements",
+          "url": "https://www.monumetric.com/requirements-for-the-propel-program/"
+        },
+        {
+          "label": "Payment terms",
+          "url": "https://www.monumetric.com/payment-terms-and-how-you-are-paid/"
+        }
+      ],
+      "joinSummary": "10,000 pageviews/month for 3 consecutive months (Propel)"
+    },
+    "fit": {
+      "publisherTypes": [
+        "small-to-large English-language content publishers"
+      ],
+      "nichesStrong": [
+        "personal finance",
+        "food",
+        "travel",
+        "lifestyle and informational blogs"
+      ],
+      "nichesWeak": [
+        "non-English sites or sites with low target-country share"
+      ],
+      "geographies": [
+        "At least 50% from US, UK, Australia or Canada"
+      ],
+      "role": "primary",
+      "entryPositioning": "Propel starts at 10k monthly pageviews for three consecutive months; setup is limited to WordPress/Blogger and includes a $99 implementation fee.",
+      "compatibilityNotes": [
+        "Managed ad placements; confirm current scope before combining with an existing display partner. Propel requires six slots and major-ad-provider approval."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Monthly pageviews",
+        "comparator": "minimum",
+        "amount": 10000,
+        "unit": "pageviews",
+        "period": "month for 3 consecutive months",
+        "scope": "Propel",
+        "program": "Monumetric",
+        "sourceUrl": "https://www.monumetric.com/monumetric-program-overview/",
+        "note": null
+      },
+      {
+        "metric": "Monthly pageviews",
+        "comparator": "program range",
+        "amount": 80000,
+        "unit": "pageviews",
+        "period": "month for 3 consecutive months",
+        "scope": "Propel upper tier boundary",
+        "program": "Monumetric",
+        "sourceUrl": "https://www.monumetric.com/monumetric-program-overview/",
+        "note": null
+      },
+      {
+        "metric": "Top-market audience",
+        "comparator": "minimum",
+        "amount": 50,
+        "unit": "percent",
+        "period": "of traffic",
+        "scope": "US/UK/Australia/Canada",
+        "program": "Monumetric",
+        "sourceUrl": "https://www.monumetric.com/what-are-the-requirements-to-work-with-monumetric/",
+        "note": null
+      },
+      {
+        "metric": "Platform",
+        "comparator": "requires",
+        "amount": null,
+        "unit": "WordPress or Blogger",
+        "period": "application",
+        "scope": "Propel",
+        "program": "Monumetric",
+        "sourceUrl": "https://www.monumetric.com/requirements-for-the-propel-program/",
+        "note": null
+      },
+      {
+        "metric": "Ad slots",
+        "comparator": "minimum",
+        "amount": 6,
+        "unit": "placements",
+        "period": "desktop and mobile",
+        "scope": "Propel",
+        "program": "Monumetric",
+        "sourceUrl": "https://www.monumetric.com/requirements-for-the-propel-program/",
+        "note": null
+      },
+      {
+        "metric": "Implementation fee",
+        "comparator": "required",
+        "amount": 99,
+        "unit": "USD",
+        "period": "one-time",
+        "scope": "Propel",
+        "program": "Monumetric",
+        "sourceUrl": "https://www.monumetric.com/requirements-for-the-propel-program/",
+        "note": null
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://perfectionhangover.com/5-financial-adjustments-to-make-if-youve-been-laid-off-from-work/",
+        "publishedAt": "2020-06-17",
+        "site": "Perfection Hangover",
+        "niche": "Personal finance",
+        "traffic": {
+          "value": 10000,
+          "metric": "pageviews",
+          "period": "reached in fourth month blogging"
+        },
+        "adRevenueMonthlyUsd": 436,
+        "countries": [
+          "United States"
+        ],
+        "decision": "Publisher said she waited until about month 12 to apply after reaching 10k PV in month four; reported $436 first-month Monumetric earnings in Feb. 2019.",
+        "limits": "Historical single publisher report, not current approval promise or typical earnings. Traffic was from a personal-finance blog; country mix not reported."
+      }
+    ],
+    "inference": {
+      "trafficRange": {
+        "low": 10000,
+        "high": 80000,
+        "metric": "pageviews",
+        "period": "month",
+        "basisSourceUrls": [
+          "https://www.monumetric.com/monumetric-program-overview/"
+        ],
+        "confidence": "high",
+        "note": "Propel range; requires three consecutive months; higher Monumetric tiers exist."
+      },
+      "revenueRange": null,
+      "practicalFit": "Useful small-blog option when 10k PV has held for three consecutive months, target-country traffic is over half, and the site can pay the $99 Propel fee and use required ad slots.",
+      "currentNetworkSignals": [
+        "Existing ad-provider approval is an explicit Propel condition but does not guarantee Monumetric acceptance."
+      ],
+      "geographyPreference": "At least 50% from US/UK/Australia/Canada.",
+      "agePreference": "No public age rule found.",
+      "confidence": "high",
+      "rationale": "Current overview gives tier ranges and three-month history. A dated personal-finance blogger reported reaching 10k in month four but applied around month twelve; earnings are historical.",
+      "supportingSourceUrls": [
+        "https://www.monumetric.com/monumetric-program-overview/",
+        "https://www.monumetric.com/requirements-for-the-propel-program/",
+        "https://www.monumetric.com/what-are-the-requirements-to-work-with-monumetric/",
+        "https://perfectionhangover.com/5-financial-adjustments-to-make-if-youve-been-laid-off-from-work/"
+      ],
+      "gaps": [
+        "No current acceptance report at the threshold with full geo and content details.",
+        "Historical $436 month is not a forecast.",
+        "No public revenue-share percentage found."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://www.monumetric.com/monumetric-program-overview/",
+        "title": "Program overview",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "Propel 10k–80k PV for three months; higher tiers"
+        ]
+      },
+      {
+        "url": "https://www.monumetric.com/what-are-the-requirements-to-work-with-monumetric/",
+        "title": "General requirements",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "50% target countries",
+          "English and prohibited topics"
+        ]
+      },
+      {
+        "url": "https://www.monumetric.com/requirements-for-the-propel-program/",
+        "title": "Propel program requirements",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "WordPress/Blogger",
+          "sidebar",
+          "six ad slots",
+          "$99 fee"
+        ]
+      },
+      {
+        "url": "https://www.monumetric.com/payment-terms-and-how-you-are-paid/",
+        "title": "Payment terms",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "Net60",
+          "$10",
+          "methods"
+        ]
+      },
+      {
+        "url": "https://perfectionhangover.com/5-financial-adjustments-to-make-if-youve-been-laid-off-from-work/",
+        "title": "Publisher's personal-finance monetization history",
+        "kind": "publisher_blog",
+        "publishedAt": "2020-06-17",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "10k PV by month four; applied at month 12; $436 Feb 2019 first month"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "newor-media",
+    "checkedAt": "2026-10-22",
+    "productType": "Exclusive managed display monetization with Elevate, Catapult and Premier tiers",
+    "applicationUrl": "https://newormedia.com/programs",
+    "directoryPatch": {
+      "checkedAt": "2026-10-22",
+      "keyNumbers": [
+        {
+          "label": "Catapult traffic",
+          "value": "60,000 US pageviews/month",
+          "note": "Program-specific; Elevate has no numeric minimum.",
+          "sourceUrl": "https://newormedia.com/programs"
+        },
+        {
+          "label": "Premier traffic",
+          "value": "420,000 US pageviews/month",
+          "note": "Premier only.",
+          "sourceUrl": "https://newormedia.com/programs"
+        },
+        {
+          "label": "Pay timing",
+          "value": "Net 30 / Net 45",
+          "note": "Public FAQ says Net30; platform agreement says Net45—signed contract controls.",
+          "sourceUrl": "https://newormedia.com/faqs/what-are-your-payment-terms"
+        }
+      ],
+      "joining": [
+        {
+          "label": "Elevate traffic",
+          "value": "No pageview minimum; manual review.",
+          "note": "Current Elevate FAQ.",
+          "sourceUrl": "https://newormedia.com/elevatefaqs"
+        },
+        {
+          "label": "Catapult/Premier",
+          "value": "60k and 420k US PV/month respectively.",
+          "sourceUrl": "https://newormedia.com/programs"
+        },
+        {
+          "label": "Elevate criteria",
+          "value": "English site, navigation, Google policy alignment, at least two ad units/page, GAM account and exclusivity.",
+          "sourceUrl": "https://newormedia.com/elevatefaqs"
+        },
+        {
+          "label": "Language conflict",
+          "value": "Aug 2025 blog says non-English sites may be accepted with 50% US/UK/Canada/Australia traffic; current Elevate FAQ says sites must be English.",
+          "note": "Program-specific FAQ is current; confirm in writing.",
+          "sourceUrl": "https://newormedia.com/blog/ad-monetization-onboarding-with-newor-media/"
+        }
+      ],
+      "revenueShare": null,
+      "paymentTerms": "Net30 in FAQ; Net45 in platform agreement",
+      "paymentThreshold": null,
+      "paymentMethods": [
+        "PayPal",
+        "Payoneer",
+        "Direct wire transfer"
+      ],
+      "sources": [
+        {
+          "label": "Programs",
+          "url": "https://newormedia.com/programs"
+        },
+        {
+          "label": "Elevate FAQ",
+          "url": "https://newormedia.com/elevatefaqs"
+        },
+        {
+          "label": "2025 onboarding blog",
+          "url": "https://newormedia.com/blog/ad-monetization-onboarding-with-newor-media/"
+        },
+        {
+          "label": "Platform agreement",
+          "url": "https://newormedia.com/node/296"
+        },
+        {
+          "label": "Payment terms FAQ",
+          "url": "https://newormedia.com/faqs/what-are-your-payment-terms"
+        }
+      ],
+      "joinSummary": "Elevate: no pageview minimum, but manual review, English, GAM and exclusivity"
+    },
+    "fit": {
+      "publisherTypes": [
+        "developing English sites with ad-manager readiness",
+        "established publishers with US pageview scale"
+      ],
+      "nichesStrong": [
+        "long-form blogs",
+        "sports",
+        "gaming",
+        "niche content"
+      ],
+      "nichesWeak": [
+        "non-English sites under current Elevate FAQ",
+        "publishers unwilling to use exclusive display"
+      ],
+      "geographies": [
+        "Catapult/Premier gates count US pageviews; Elevate review considers traffic origin; 2025 blog states 50% Tier1 for non-English but conflicts with current FAQ"
+      ],
+      "role": "primary",
+      "entryPositioning": "Elevate has no numeric PV minimum but requires manual review, English, GAM, two ad units per page and exclusivity. Catapult/Premier publish US PV thresholds.",
+      "compatibilityNotes": [
+        "Newor requires exclusive display monetization; cannot run other networks or direct display sales on the same website during term."
+      ]
+    },
+    "officialRequirements": [
+      {
+        "metric": "Monthly US pageviews",
+        "comparator": "minimum",
+        "amount": 60000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "Catapult",
+        "program": "Newor Media",
+        "sourceUrl": "https://newormedia.com/programs",
+        "note": null
+      },
+      {
+        "metric": "Monthly US pageviews",
+        "comparator": "minimum",
+        "amount": 420000,
+        "unit": "pageviews",
+        "period": "month",
+        "scope": "Premier",
+        "program": "Newor Media",
+        "sourceUrl": "https://newormedia.com/programs",
+        "note": null
+      },
+      {
+        "metric": "Pageviews",
+        "comparator": "no minimum; manual review",
+        "amount": 0,
+        "unit": "pageviews",
+        "period": "not stated",
+        "scope": "Elevate",
+        "program": "Newor Media",
+        "sourceUrl": "https://newormedia.com/elevatefaqs",
+        "note": null
+      },
+      {
+        "metric": "Language",
+        "comparator": "requires English",
+        "amount": null,
+        "unit": "site language",
+        "period": "ongoing",
+        "scope": "Elevate",
+        "program": "Newor Media",
+        "sourceUrl": "https://newormedia.com/elevatefaqs",
+        "note": null
+      },
+      {
+        "metric": "Ad units",
+        "comparator": "minimum",
+        "amount": 2,
+        "unit": "ad units",
+        "period": "per page",
+        "scope": "Elevate",
+        "program": "Newor Media",
+        "sourceUrl": "https://newormedia.com/elevatefaqs",
+        "note": null
+      },
+      {
+        "metric": "GAM",
+        "comparator": "requires",
+        "amount": null,
+        "unit": "Google Ad Manager account",
+        "period": "onboarding",
+        "scope": "Elevate",
+        "program": "Newor Media",
+        "sourceUrl": "https://newormedia.com/elevatefaqs",
+        "note": null
+      },
+      {
+        "metric": "Exclusivity",
+        "comparator": "requires",
+        "amount": null,
+        "unit": "exclusive display monetization",
+        "period": "contract",
+        "scope": "all sites",
+        "program": "Newor Media",
+        "sourceUrl": "https://newormedia.com/elevatefaqs",
+        "note": null
+      }
+    ],
+    "observations": [
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/1vkm7no/skip_newor_media_by_any_means_possible/",
+        "publishedAt": "2026-10-21",
+        "site": "Two unnamed content blogs",
+        "niche": "Human-written informational content",
+        "traffic": {
+          "value": 10000,
+          "metric": "sessions",
+          "period": "about per month per site"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Poster said both blogs were accepted by AdSense and Journey but rejected by Newor; another commenter reported rejection at 40k monthly sessions.",
+        "limits": "Anonymous; no niche/country split or reason. Sessions are not Newor's published US pageview metric."
+      },
+      {
+        "sourceUrl": "https://www.reddit.com/r/adops/comments/t8wisu",
+        "publishedAt": "2022",
+        "site": "Unnamed finance site",
+        "niche": "Finance",
+        "traffic": {
+          "value": 40000,
+          "metric": "monthly visitors",
+          "period": "publisher reported 40k–60k"
+        },
+        "adRevenueMonthlyUsd": null,
+        "countries": [],
+        "decision": "Poster reported Newor acceptance; comments described ad placements and a $13.29 eCPM.",
+        "limits": "Old anonymous report; visitor unit unclear and conditions may have changed."
+      }
+    ],
+    "inference": {
+      "trafficRange": {
+        "low": 60000,
+        "high": 420000,
+        "metric": "US pageviews",
+        "period": "month",
+        "basisSourceUrls": [
+          "https://newormedia.com/programs"
+        ],
+        "confidence": "high",
+        "note": "Published Catapult and Premier tiers; Elevate has no numeric minimum."
+      },
+      "revenueRange": null,
+      "practicalFit": "Elevate can be considered below typical managed-network scale only when the publisher accepts exclusivity and can run GAM plus two ads/page. The lack of a PV floor does not imply easy approval: 2026 reports describe rejection around 10k and 40k sessions. Catapult/Premier are clearer for US-PV scale.",
+      "currentNetworkSignals": [
+        "Recent posters said AdSense and Journey acceptance did not transfer; they were still rejected by Newor."
+      ],
+      "geographyPreference": "US PV thresholds for larger programs; Elevate reviews traffic origin; English rule conflicts with older blog.",
+      "agePreference": "No public age rule found.",
+      "confidence": "medium",
+      "rationale": "Current program page and FAQ conflict with a 2025 general onboarding blog. Recent firsthand rejections show manual review can screen out sites under the no-minimum Elevate promise.",
+      "supportingSourceUrls": [
+        "https://newormedia.com/programs",
+        "https://newormedia.com/elevatefaqs",
+        "https://newormedia.com/blog/ad-monetization-onboarding-with-newor-media/",
+        "https://www.reddit.com/r/adops/comments/1vkm7no/skip_newor_media_by_any_means_possible/"
+      ],
+      "gaps": [
+        "Resolve current English-only FAQ against 2025 claim that non-English can pass with 50% Tier1.",
+        "Resolve Net30 FAQ vs Net45 agreement using signed IO.",
+        "Publisher anecdotes are anonymous and sessions do not map to posted US PV thresholds."
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://newormedia.com/programs",
+        "title": "Current publisher programs",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "Catapult 60k US PV",
+          "Premier 420k US PV"
+        ]
+      },
+      {
+        "url": "https://newormedia.com/elevatefaqs",
+        "title": "Elevate FAQ",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "no PV min",
+          "English/GAM/two ads",
+          "exclusivity",
+          "manual review"
+        ]
+      },
+      {
+        "url": "https://newormedia.com/blog/ad-monetization-onboarding-with-newor-media/",
+        "title": "Onboarding article",
+        "kind": "official_blog",
+        "publishedAt": "2025-08-11",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "10k display/30k AIVision PV; 50% Tier1 for non-English; conflicts with current FAQ"
+        ]
+      },
+      {
+        "url": "https://newormedia.com/node/296",
+        "title": "Publisher platform agreement",
+        "kind": "official_terms",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "exclusive display terms and Net45 agreement language"
+        ]
+      },
+      {
+        "url": "https://newormedia.com/faqs/what-are-your-payment-terms",
+        "title": "Payment terms FAQ",
+        "kind": "official",
+        "publishedAt": null,
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "Net30 FAQ"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/1vkm7no/skip_newor_media_by_any_means_possible/",
+        "title": "Newor rejections",
+        "kind": "publisher_forum",
+        "publishedAt": "2026-10-21",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "two blogs at about 10k sessions and separate 40k session rejection"
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/adops/comments/t8wisu",
+        "title": "Newor finance publisher report",
+        "kind": "publisher_forum",
+        "publishedAt": "2022",
+        "checkedAt": "2026-10-22",
+        "claims": [
+          "40–60k visitors and claimed acceptance; older anonymous report"
+        ]
+      }
+    ]
+  }
+]

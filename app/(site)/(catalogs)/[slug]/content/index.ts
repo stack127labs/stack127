@@ -8,6 +8,8 @@ import HostingCloudToolsIntro from "./hosting-cloud-tools/intro.mdx";
 import KdpToolsArticle from "./kdp-tools/article.mdx";
 import KdpToolsIntro from "./kdp-tools/intro.mdx";
 import ProductivityToolsIntro from "./productivity-tools/intro.mdx";
+import PublisherToolsArticle from "./publisher-tools/article.mdx";
+import PublisherToolsIntro from "./publisher-tools/intro.mdx";
 import SaasToolsArticle from "./saas-tools/article.mdx";
 import SaasToolsIntro from "./saas-tools/intro.mdx";
 import StorageToolsArticle from "./storage-tools/article.mdx";
@@ -21,6 +23,7 @@ export const catalogContent: Record<string, { Intro: MDXContent; Article?: MDXCo
   "hosting-cloud-tools": { Intro: HostingCloudToolsIntro },
   "kdp-tools": { Intro: KdpToolsIntro, Article: KdpToolsArticle },
   "productivity-tools": { Intro: ProductivityToolsIntro },
+  "publisher-tools": { Intro: PublisherToolsIntro, Article: PublisherToolsArticle },
   "saas-tools": { Intro: SaasToolsIntro, Article: SaasToolsArticle },
   "storage-tools": { Intro: StorageToolsIntro, Article: StorageToolsArticle },
 };

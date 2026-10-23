@@ -105,6 +105,18 @@
   font: var(--weight-semibold) 1.6rem / 1.1 var(--font-mono);
   letter-spacing: -0.02em;
   margin: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 500px) {
+  .keyNumbers {
+    grid-template-columns: 1fr;
+  }
+
+  .keyNumbers > div + div {
+    border-left: 0;
+    border-top: 1px solid var(--color-border);
+  }
 }
 
 /* Facts */

@@ -3,6 +3,7 @@
   "/[slug]",
   "/about",
   "/ad-network-checker",
+  "/ad-network-requirements-checker",
   "/ad-networks",
   "/ad-networks/[slug]",
   "/ad-networks/niches",

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Network } from "lucide-react";
 import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
@@ -68,12 +69,13 @@ export default async function AdNetworksPage() {
           <EntryHero art={null}>
             <PageHeader breadcrumbs={breadcrumbs} className={styles.header}>
               <h1><DirectoryTitleIcon fallback={<Network strokeWidth={2.2} />} iconKey={directoryPage.card_icon_key} /> <DirectoryPageTitle title={directoryPage.title} /></h1>
-              <PageMeta updatedAt={data.updated_at ?? directoryPage.updated_at} />
+              <PageMeta updatedAt={directoryPage.updated_at} />
               <p>
                 A directory of <Figure>{data.networks_tracked}</Figure> ad networks for publishers, from Ezoic and Mediavine to Google AdSense. See what each one takes to join and how many sites run it.
                 {/* data-gate: the sync fills the listed and confirmed counts. */}
                 {data.listed ? <> We list <Figure>{data.listed}</Figure> sites, and <Figure live>{data.confirmed}</Figure> {data.confirmed === 1 ? "is" : "are"} confirmed live from their own ads.txt files or ad code.</> : null}
               </p>
+              <p>Use the <Link href="/ad-network-requirements-checker">free ad network requirements checker</Link> to see which published joining rules your numbers meet.</p>
               <HeroSearch
                 examples={examples}
                 networks={networks}

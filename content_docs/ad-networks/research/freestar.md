@@ -1,28 +1,88 @@
-# Freestar
+# freestar: recommendation research
 
-Checked 2026-10-16.
+Checked: 2026-10-22
 
-## Joining
+## Product and application
 
-- Traffic: Usually 1,000,000 pageviews. Note: Monthly. Source: https://freestar.com/contact-us/. Read 2026-10-16.
-- Visitor location: At least 50% from the US, UK, Canada, New Zealand, or Australia. Source: https://freestar.com/publisher-quality-requirements/. Read 2026-10-16.
-- Content: Original, human-focused, brand-safe content. Source: https://freestar.com/publisher-quality-requirements/. Read 2026-10-16.
-- Google standing: Good standing with major ad providers. Source: https://freestar.com/publisher-quality-requirements/. Read 2026-10-16.
-- Must connect: Provide GA4 access for review. Source: https://freestar.com/publisher-quality-requirements/. Read 2026-10-16.
-- Approval time: Not public. The reviewed official pages do not state this rule. Source checked: https://freestar.com/publisher-quality-requirements/ and https://freestar.com/contact-us/. Read 2026-10-16.
+- Product: Managed ad monetization and ad operations.
+- Application or contact route: [https://freestar.com/contact-us/](https://freestar.com/contact-us/).
+- Recommendation role: **primary**. Typically around 1m PV/month, plus two explicit 50% audience checks; 1m is not a hard gate.
 
-## Pay
+## Official facts
 
-- Revenue share, payment timing, threshold, methods, and currency are not public in the reviewed publisher pages. (Source: https://freestar.com/contact-us/, read 2026-10-16.)
+Facts below apply to the named program. Missing numeric amounts mean the source did not publish a number.
 
-## Rules
+- **Monthly pageviews — typical, not hard minimum**: 1,000,000 pageviews; period: month; scope: typical publisher scale; program: Freestar. Source: [https://freestar.com/publisher-quality-requirements/](https://freestar.com/publisher-quality-requirements/).
+- **Target markets — minimum**: 50 percent; period: of traffic; scope: US/UK/Canada/NZ/Australia; program: Freestar. Source: [https://freestar.com/publisher-quality-requirements/](https://freestar.com/publisher-quality-requirements/).
+- **Organic audiences — minimum**: 50 percent; period: of traffic; scope: search/social/News/Discover/YouTube/Reddit/syndication; program: Freestar. Source: [https://freestar.com/publisher-quality-requirements/](https://freestar.com/publisher-quality-requirements/).
+- **Content — must be original, human-focused, long-form and brand-safe**; period: ongoing; scope: site; program: Freestar. Source: [https://freestar.com/publisher-quality-requirements/](https://freestar.com/publisher-quality-requirements/).
 
-- Public pages do not state exclusivity, placement control, contract duration, or notice. (Source: https://freestar.com/publisher-quality-requirements/, read 2026-10-16.)
+## Publisher-reported observations
 
-## Service
+Individual reports, not acceptance-rate evidence or revenue forecasts.
 
-- Freestar describes a dedicated account manager, technical team, and publisher consultants. The contact page says onboarding commonly takes three to six weeks. (Source: https://freestar.com/contact-us/, read 2026-10-16.)
+- **2019 — Several unnamed publishers** (Not stated). Traffic: 1000000 monthly ad impressions (one report 1–2m; others 5m and 25m). Thread includes reports of smaller publishers accepted and larger sites using Freestar. Limits: Impressions not pageviews; old, no denominator or detailed niche. Source: [https://www.reddit.com/r/adops/comments/bxgb6c](https://www.reddit.com/r/adops/comments/bxgb6c).
+- **2021 — Unidentified publisher** (Not stated). Said they used Freestar but could not compare before/after revenue. Limits: No traffic, revenue or geography. Source: [https://www.reddit.com/r/adops/comments/mcb34i](https://www.reddit.com/r/adops/comments/mcb34i).
 
-## Logo
+## Editorial inference
 
-Logo source: https://freestar.com/wp-content/uploads/2025/12/fav-300x300.png (read 2026-10-16)
+### Practical fit
+
+Consider near the typical million-PV scale if both 50% geography and audience-source checks fit. Ask directly below that.
+
+### Estimated range and confidence
+
+- Traffic range: not estimated; available figures are absent or not comparable enough to support a practical band.
+- Revenue range: not estimated.
+
+- Geography: Explicit 50% from US/UK/Canada/NZ/Australia.
+- Site age: No public age minimum found.
+- Confidence: **medium**. Current official page has concrete audience rules; old forum accounts report impressions rather than PV.
+
+### Current-network compatibility
+
+- Partner history is reviewed, but other network approval is not Freestar acceptance.
+- Managed service operates display stack; contract sets exclusivity.
+- Organic audience includes social, news, Discover, YouTube, Reddit and syndication.
+
+## Directory-ready corrections and additions
+
+Proposed complete AdNetworkFacts record, excluding minTraffic. Keep published values with their dates and qualifications.
+
+### Key numbers
+
+- **Typical scale:** About 1m monthly pageviews — Typical, not a hard floor. Source: [https://freestar.com/publisher-quality-requirements/](https://freestar.com/publisher-quality-requirements/).
+- **Target-market share:** 50% — US/UK/Canada/NZ/Australia. Source: [https://freestar.com/publisher-quality-requirements/](https://freestar.com/publisher-quality-requirements/).
+- **Organic audience:** 50% — Includes social, News/Discover, YouTube, Reddit and syndication—not only search. Source: [https://freestar.com/publisher-quality-requirements/](https://freestar.com/publisher-quality-requirements/).
+
+### Joining and payment
+
+- **Traffic:** Typically about 1m PV/mo; all sizes can apply — Typical scale, not cutoff. Source: [https://freestar.com/contact-us/](https://freestar.com/contact-us/).
+- **Geography:** At least half from US/UK/Canada/NZ/Australia. Source: [https://freestar.com/publisher-quality-requirements/](https://freestar.com/publisher-quality-requirements/).
+- **Traffic source:** At least 50% from organic audiences; includes social/news/video/community/syndication. Source: [https://freestar.com/publisher-quality-requirements/](https://freestar.com/publisher-quality-requirements/).
+- **Content:** Original, human-focused, mostly long-form, brand-safe; GA4 and history requested. Source: [https://freestar.com/publisher-quality-requirements/](https://freestar.com/publisher-quality-requirements/).
+- Revenue share: Not public.
+- Payment terms: Not public.
+- Payment threshold: Not public.
+- Payment methods: Not public.
+
+## Unresolved conflicts and gaps
+
+- No current entry example with exact PV and outcome.
+- No impression-to-pageview conversion.
+- Share and payout terms not public.
+
+## Research attempts and sources
+
+Attempts are stated explicitly so missing evidence is not mistaken for an unavailable or reviewed source.
+
+- Reviewed current quality and contact pages.
+- Searched Reddit for first-person reports; found old impression-only accounts.
+- Kept official organic audience definition broader than search.
+
+### Sources checked
+
+- [Publisher quality requirements](https://freestar.com/publisher-quality-requirements/) — official, published 2026-08-19; checked 2026-10-22. Supports: 50% organic includes social/news/Discover/YouTube/Reddit/syndication; 50% target markets; typical scale.
+- [Contact/onboarding](https://freestar.com/contact-us/) — official; checked 2026-10-22. Supports: all sizes may apply.
+- [Freestar publisher discussion](https://www.reddit.com/r/adops/comments/bxgb6c) — publisher_forum, published 2019; checked 2026-10-22. Supports: impression reports only.
+- [Freestar comparison](https://www.reddit.com/r/adops/comments/mcb34i) — publisher_forum, published 2021; checked 2026-10-22. Supports: no reliable before/after revenue comparison.

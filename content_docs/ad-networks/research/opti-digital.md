@@ -1,28 +1,35 @@
 # Opti Digital
 
-Checked 2026-10-16.
+Checked 2026-10-22.
 
-## Joining
+## Official facts
 
-- Traffic: Not public. The reviewed official pages do not state this rule. Source checked: https://knowledge-base.optidigital.com/knowledge/understanding-your-payment-terms. Read 2026-10-16.
-- Visitor location: Not public. The reviewed official pages do not state this rule. Source checked: https://knowledge-base.optidigital.com/knowledge/understanding-your-payment-terms. Read 2026-10-16.
-- Content: Not public. The reviewed official pages do not state this rule. Source checked: https://knowledge-base.optidigital.com/knowledge/understanding-your-payment-terms. Read 2026-10-16.
-- Google standing: Not public. The reviewed official pages do not state this rule. Source checked: https://knowledge-base.optidigital.com/knowledge/understanding-your-payment-terms. Read 2026-10-16.
-- Must connect: Not public. The reviewed official pages do not state this rule. Source checked: https://knowledge-base.optidigital.com/knowledge/understanding-your-payment-terms. Read 2026-10-16.
-- Approval time: Not public. The reviewed official pages do not state this rule. Source checked: https://knowledge-base.optidigital.com/knowledge/understanding-your-payment-terms. Read 2026-10-16.
+Opti Digital sells Ad Manager Hub, Yield Hub, and Demand Hub. It is a monetization layer around Google Ad Manager, with managed inventory and managed-account arrangements; this is not a single self-serve ad-network offer. The publisher knowledge base distinguishes them: Managed Inventory routes Google and other demand through Opti and pays Net 45; Managed Account leaves Google revenue on Google's 25-day cycle and pays Opti demand Net 60. The public pages do not state one traffic, revenue, age, or country admission minimum, nor a standard share rate or payout floor.
 
-## Pay
+The referral page is a **referral-program checklist**, not a universal admission policy: referred partners should be quality publishers, have tags live on most traffic for at least three months, serve eligible geographies, meet inventory checks, and have at least three ads per page in the recommended layout. Referral payments are not publisher revenue terms. Contact/sales is the general route; do not present the referral form as a universal publisher application.
 
-- Opti Digital uses a revenue-share model but does not publish the share rate. Payment flow depends on setup: Managed Inventory is Net 45; applicable demand under Managed Account is Net 60, while Google pays its revenue on its own 25-day cycle. The order and specific terms control. Threshold, method, and currency are not public in the cited help pages. (Sources: https://knowledge-base.optidigital.com/knowledge/understanding-your-payment-terms and https://knowledge-base.optidigital.com/knowledge/how-is-the-invoicing-working-at-opti-digital-when-will-i-get-paid, read 2026-10-16.)
+## Dated publisher reports
 
-## Rules
+- **May 2026, vendor case study**: Opti describes 1XL adding premium PMP demand with Demand Hub. It demonstrates a supplemental-demand use, but gives no traffic, revenue, approval, or independent customer account. [Case study](https://optidigital.com/resources/case-studies/how-1xl-unlocked-incremental-premium-demand-with-opti-digital/)
+- Targeted searches found no detailed independent publisher report with an application outcome and traffic figures. Vendor case studies and referral testimonials are not independent admission evidence.
 
-- Public exclusivity, content restrictions, term, and notice were not found in the cited pages. The two GAM management setups are different commercial arrangements. (Source: https://knowledge-base.optidigital.com/knowledge/understanding-your-payment-terms, read 2026-10-16.)
+## Editorial inference
 
-## Service
+Fit is strongest for an established publisher already using GAM that wants managed yield work or incremental demand and can evaluate its contract setup. It can supplement an existing stack in some configurations; Managed Inventory can instead replace the existing ad-serving route. Since no validated traffic or revenue floor emerged, leave estimated ranges null. Current network can guide a conversation about GAM ownership and overlap, but cannot establish Opti eligibility.
 
-- Opti Digital explains payment flow and auto-invoices in its publisher knowledge base. Public details on dashboard reports and support level were not found in these sources. (Source: https://knowledge-base.optidigital.com/knowledge/how-is-the-invoicing-working-at-opti-digital-when-will-i-get-paid, read 2026-10-16.)
+## Directory-ready corrections
 
-## Logo
+- Keep traffic, geography, and content thresholds as not public.
+- Add “Three-month live-tag and eligible-geo rules apply to the referral offer only.”
+- Explain payment timing separately by Managed Inventory versus Managed Account; do not imply one default Net term.
 
-Logo source: https://optidigital.com/wp-content/uploads/2025/01/logo.svg (read 2026-10-16)
+## Evidence gaps
+
+No public publisher application checklist, standard share, entry revenue example, or independently reported approval threshold was found. Referral eligibility should not be generalized to every contract.
+
+## Sources
+
+- [Payment terms by setup](https://knowledge-base.optidigital.com/knowledge/understanding-your-payment-terms) — official help; checked 2026-10-22; payment flow and terms.
+- [Demand Hub setup](https://knowledge-base.optidigital.com/knowledge/getting-started-with-demand-hub) — official help; checked 2026-10-22; technical requirements for that product.
+- [Publisher referral program](https://optidigital.com/refer-a-publisher/) — official; checked 2026-10-22; referral-only conditions.
+- [1XL case study](https://optidigital.com/resources/case-studies/how-1xl-unlocked-incremental-premium-demand-with-opti-digital/) — vendor case study; published May 2026; supplemental PMP-demand use, without scale figures.

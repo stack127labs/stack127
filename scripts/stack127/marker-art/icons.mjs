@@ -66,6 +66,27 @@ export const ICONS = {
     ], { ...outline, stroke: "@primary" });
     A.line(cx - 0.13 * s, cy + 0.4 * s, cx + 0.2 * s, cy + 0.4 * s, outline);
   },
+  browserPage(A, cx, cy, s, tone = "@ink") {
+    const x = cx - 0.62 * s;
+    const y = cy - 0.55 * s;
+    const width = 1.24 * s;
+    const height = 1.1 * s;
+    A.rect(x, y, width, height, { stroke: tone });
+    A.line(x, y + 0.27 * s, x + width, y + 0.27 * s, { stroke: tone });
+    for (const dotX of [x + 0.14 * s, x + 0.3 * s, x + 0.46 * s]) {
+      A.dot(dotX, y + 0.14 * s, 1.2, "@sub");
+    }
+    A.line(x + 0.18 * s, y + 0.49 * s, x + 0.91 * s, y + 0.49 * s, { stroke: "@sub" });
+    A.line(x + 0.18 * s, y + 0.69 * s, x + 0.76 * s, y + 0.69 * s, { stroke: "@sub" });
+    A.line(x + 0.18 * s, y + 0.89 * s, x + 0.62 * s, y + 0.89 * s, { stroke: "@sub" });
+  },
+  heightGate(A, cx, cy, s, tone = "@ink") {
+    const postX = cx - 0.2 * s;
+    A.line(postX, cy - 0.58 * s, postX, cy + 0.58 * s, { stroke: tone, strokeWidth: 2.4 });
+    A.line(postX - 0.14 * s, cy + 0.58 * s, postX + 0.3 * s, cy + 0.58 * s, { stroke: tone });
+    A.line(postX, cy - 0.1 * s, cx + 0.44 * s, cy - 0.1 * s, { stroke: "@primary", strokeWidth: 2.1 });
+    A.line(cx + 0.3 * s, cy - 0.23 * s, cx + 0.3 * s, cy + 0.04 * s, { stroke: "@primary" });
+  },
   server(A, cx, cy, s, tone = "@ink") {
     const top = cy - 0.62 * s;
     const h = 1.24 * s;

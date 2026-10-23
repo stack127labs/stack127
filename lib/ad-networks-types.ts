@@ -161,7 +161,7 @@ export type AdNetworkCheckerSiteView = {
 };
 export type AdNetworkSiteResponse = { domain: string; found: boolean; site: AdNetworkCheckerSiteView | null };
 
-export type AdNetworkJoiningRule = AdNetworkRef & { amount: number; unit: "sessions" | "pageviews" | "visitors"; label?: string };
+export type AdNetworkJoiningRule = AdNetworkRef & { amount: number; unit: "sessions" | "pageviews" | "visitors" | "visits" | "monthly active users"; label?: string };
 export type AdNetworkDirectorySort = "most-sites" | "easiest-to-join" | "by-niche";
 export type AdNetworkDirectoryCard = AdNetworkListRow & {
   confirmed_share: number | null; rank: number | null; minTraffic: AdNetworkJoiningRule | null;
