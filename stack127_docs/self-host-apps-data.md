@@ -68,4 +68,29 @@ Other providers keep using the existing `source_*` columns until a provider tabl
 
 They still let QA tell unchecked data apart from an official source that published no value.
 
+## Reviewed artifact cleanup
+
+The cleanup manifest records reviewed helper containers, image variants, and duplicate app rows. Preview it before a change:
+
+```bash
+npm run self-host-apps:apply-artifact-cleanup -- --environment development
+```
+
+Preview is read-only and is the default. It shows each target row's name, source, image, publication state, and whether it needs cleanup. The command stops if a target or canonical app no longer matches the expected slug, name, and source.
+
+Apply to development with:
+
+```bash
+npm run self-host-apps:apply-artifact-cleanup -- --environment development --apply
+```
+
+The apply runs in one transaction. It keeps source links on canonical app rows, fixes reviewed product names, and unpublishes artifact rows. Re-running it accepts rows that are already clean. Production uses the same reviewed manifest, and needs `--confirm stack127-production` for both the preview and the apply:
+
+```bash
+npm run self-host-apps:apply-artifact-cleanup -- --environment production --confirm stack127-production
+npm run self-host-apps:apply-artifact-cleanup -- --environment production --confirm stack127-production --apply
+```
+
+Review the production preview before running the apply command.
+
 The migration `20260901060529_streamline_self_host_apps_data_model.sql` folds the old rows into these tables. It removes pipeline-only tables and compatibility views and keeps the candidate review queue.

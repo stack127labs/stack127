@@ -1,0 +1,222 @@
+{
+  "canonical_apps": [
+    {
+      "slug": "couchdb",
+      "expected_names": [
+        "Couchdb",
+        "CouchDB"
+      ],
+      "source_code_url": "https://github.com/apache/couchdb",
+      "clean_name": "CouchDB"
+    },
+    {
+      "slug": "elasticsearch",
+      "expected_names": [
+        "Elasticsearch"
+      ],
+      "source_code_url": "https://github.com/elastic/elasticsearch",
+      "clean_name": "Elasticsearch"
+    },
+    {
+      "slug": "postgres",
+      "expected_names": [
+        "Postgres",
+        "PostgreSQL"
+      ],
+      "source_code_url": "https://github.com/postgres/postgres",
+      "clean_name": "PostgreSQL"
+    },
+    {
+      "slug": "actual-budget",
+      "expected_names": [
+        "Actual Budget"
+      ],
+      "source_code_url": "https://github.com/actualbudget/actual"
+    },
+    {
+      "slug": "solr",
+      "expected_names": [
+        "Apache Solr"
+      ],
+      "source_code_url": "https://github.com/apache/solr"
+    },
+    {
+      "slug": "babybuddy",
+      "expected_names": [
+        "babybuddy",
+        "Baby Buddy"
+      ],
+      "source_code_url": "https://github.com/babybuddy/babybuddy",
+      "clean_name": "Baby Buddy"
+    },
+    {
+      "slug": "flowise-ai",
+      "expected_names": [
+        "Flowise"
+      ],
+      "source_code_url": "https://github.com/FlowiseAI/Flowise"
+    },
+    {
+      "slug": "lyrion-music-server",
+      "expected_names": [
+        "Lyrion Music Server"
+      ],
+      "source_code_url": "https://github.com/LMS-Community/slimserver"
+    },
+    {
+      "slug": "nginxproxymanager",
+      "expected_names": [
+        "Nginx Proxy Manager"
+      ],
+      "source_code_url": "https://github.com/NginxProxyManager/nginx-proxy-manager"
+    },
+    {
+      "slug": "hydra2",
+      "expected_names": [
+        "NZBHydra 2"
+      ],
+      "source_code_url": "https://github.com/theotherp/nzbhydra2"
+    }
+  ],
+  "records": [
+    {
+      "slug": "immich-redis",
+      "kind": "dependency_container",
+      "name": "immich-redis",
+      "source_code_url": "https://github.com/valkey-io/valkey-container"
+    },
+    {
+      "slug": "immich-postgres",
+      "kind": "dependency_container",
+      "name": "immich-postgres",
+      "source_code_url": "https://github.com/postgres/postgres"
+    },
+    {
+      "slug": "lucia-postgresql",
+      "kind": "dependency_container",
+      "name": "Lucia-PostgreSQL",
+      "source_code_url": "https://github.com/seiggy/lucia-dotnet"
+    },
+    {
+      "slug": "makerworks-postgres",
+      "kind": "dependency_container",
+      "name": "makerworks-postgres",
+      "source_code_url": "https://github.com/schartrand77/makerworks-unraid-templates"
+    },
+    {
+      "slug": "spamfilter-redis",
+      "kind": "dependency_container",
+      "name": "spamfilter-redis",
+      "source_code_url": "https://github.com/marcelverdult/imap-spamfilter"
+    },
+    {
+      "slug": "tubearchivist-redis",
+      "kind": "dependency_container",
+      "name": "TubeArchivist-Redis",
+      "source_code_url": "https://github.com/redis/redis"
+    },
+    {
+      "slug": "onlyoffice-mysql-server",
+      "kind": "dependency_container",
+      "name": "onlyoffice-mysql-server",
+      "source_code_url": null
+    },
+    {
+      "slug": "docker-in-docker-dind",
+      "kind": "dependency_container",
+      "name": "Docker-in-Docker (DinD)",
+      "source_code_url": "https://github.com/docker-library/docker"
+    },
+    {
+      "slug": "couchdb-offical-docker-v1-x",
+      "kind": "image_variant",
+      "name": "CouchDB-Offical-Docker-v1.x",
+      "source_code_url": "https://github.com/docker-library/official-images",
+      "canonical_slug": "couchdb"
+    },
+    {
+      "slug": "couchdb-v2-x",
+      "kind": "image_variant",
+      "name": "CouchDB-v2.x",
+      "source_code_url": "https://github.com/apache/couchdb-docker",
+      "canonical_slug": "couchdb"
+    },
+    {
+      "slug": "elasticsearch7",
+      "kind": "image_variant",
+      "name": "Elasticsearch7",
+      "source_code_url": "https://github.com/elastic/elasticsearch",
+      "canonical_slug": "elasticsearch"
+    },
+    {
+      "slug": "elasticsearch8",
+      "kind": "image_variant",
+      "name": "Elasticsearch8",
+      "source_code_url": "https://github.com/elastic/elasticsearch",
+      "canonical_slug": "elasticsearch"
+    },
+    {
+      "slug": "postgresql18",
+      "kind": "image_variant",
+      "name": "PostgreSQL 18",
+      "source_code_url": "https://github.com/postgres/postgres",
+      "canonical_slug": "postgres"
+    },
+    {
+      "slug": "elastic-search",
+      "kind": "duplicate",
+      "name": "Elastic Search",
+      "source_code_url": "https://github.com/elastic/elasticsearch",
+      "canonical_slug": "elasticsearch"
+    },
+    {
+      "slug": "actualserver",
+      "kind": "duplicate",
+      "name": "Actual Budget",
+      "source_code_url": "https://github.com/actualbudget/actual",
+      "canonical_slug": "actual-budget"
+    },
+    {
+      "slug": "apache-solr",
+      "kind": "duplicate",
+      "name": "Apache Solr",
+      "source_code_url": "https://github.com/apache/solr",
+      "canonical_slug": "solr"
+    },
+    {
+      "slug": "baby-buddy",
+      "kind": "duplicate",
+      "name": "Baby Buddy",
+      "source_code_url": "https://github.com/babybuddy/babybuddy",
+      "canonical_slug": "babybuddy"
+    },
+    {
+      "slug": "flowise",
+      "kind": "duplicate",
+      "name": "Flowise",
+      "source_code_url": "https://github.com/FlowiseAI/Flowise",
+      "canonical_slug": "flowise-ai"
+    },
+    {
+      "slug": "lyrionmusicserver",
+      "kind": "duplicate",
+      "name": "LyrionMusicServer",
+      "source_code_url": "https://github.com/LMS-Community/slimserver",
+      "canonical_slug": "lyrion-music-server"
+    },
+    {
+      "slug": "nginx-proxy-manager",
+      "kind": "duplicate",
+      "name": "Nginx Proxy Manager",
+      "source_code_url": "https://github.com/NginxProxyManager/nginx-proxy-manager",
+      "canonical_slug": "nginxproxymanager"
+    },
+    {
+      "slug": "nzbhydra2",
+      "kind": "duplicate",
+      "name": "NZBHydra 2",
+      "source_code_url": "https://github.com/theotherp/nzbhydra2",
+      "canonical_slug": "hydra2"
+    }
+  ]
+}

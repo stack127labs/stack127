@@ -216,6 +216,11 @@
     "purpose": "Apply reviewed app corrections and append their source URLs."
   },
   {
+    "name": "self-host-apps:apply-artifact-cleanup",
+    "command": "npm run self-host-apps:apply-artifact-cleanup -- --environment development",
+    "purpose": "Preview the reviewed helper-container, image-variant, and duplicate cleanup manifest; requires --apply to write."
+  },
+  {
     "name": "self-host-apps:sync-prod-to-local",
     "command": "npm run self-host-apps:sync-prod-to-local -- --confirm-local-reset",
     "purpose": "Rebuild the disposable local database from the canonical production database and verify counts."

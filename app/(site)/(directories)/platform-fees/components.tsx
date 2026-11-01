@@ -41,9 +41,11 @@ export function SectionIcon({ icon, size = 22 }: { icon: FeeSection['icon']; siz
 }
 
 /** `intro` and `article` are the page's own MDX content. */
-export async function FeeShell({ directoryPage, intro, article, children, group, anchors = [] }: {
+export async function FeeShell({ directoryPage, intro, lead, article, children, group, anchors = [] }: {
   directoryPage: Stack127DirectoryPage;
   intro: ReactNode;
+  /** Content shown above the listing. */
+  lead?: ReactNode;
   article?: ReactNode;
   children: ReactNode;
   group?: FeeGroup;
@@ -73,6 +75,7 @@ export async function FeeShell({ directoryPage, intro, article, children, group,
         </PageHeader>
       </EntryHero>
       <PageCanvas flow className={styles.content}>
+        {lead ? <div className={`${proseClassName} ${proseFlowClassName} ${styles.prose}`}>{lead}</div> : null}
         {children}
         {article ? <div className={`${proseClassName} ${proseFlowClassName} ${styles.prose}`}>{article}</div> : null}
       </PageCanvas>

@@ -52,10 +52,11 @@ export default async function FeeCategoryPage({ params }: { params: Promise<{ se
     };
   });
 
-  const { Intro, Article } = content;
+  const { Intro, Lead, Article } = content;
   return <FeeShell
     directoryPage={directoryPage}
     intro={<Intro />}
+    lead={Lead ? <Lead /> : undefined}
     article={Article ? <Article /> : undefined}
     group={group}
     anchors={blocks.map(block => ({

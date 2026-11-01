@@ -605,8 +605,7 @@ export const shortcutAppCatalog = [
     "category": "Communication",
     "platforms": [
       "windows",
-      "macos",
-      "linux"
+      "macos"
     ],
     "shortcutCount": 24
   },
@@ -682,7 +681,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 28
+    "shortcutCount": 29
   },
   {
     "slug": "filezilla",
@@ -938,8 +937,7 @@ export const shortcutAppCatalog = [
     "category": "Spreadsheet",
     "platforms": [
       "windows",
-      "macos",
-      "linux"
+      "macos"
     ],
     "shortcutCount": 110
   },

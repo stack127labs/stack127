@@ -1,7 +1,7 @@
 import { combo, perPlatform } from "../build.ts";
 import type { AppShortcuts } from "../types.ts";
 
-const platforms = ["windows", "macos", "linux"] as const;
+const platforms = ["windows", "macos"] as const;
 
 export const googleSheets: AppShortcuts = {
   slug: "google-sheets",
@@ -9,7 +9,7 @@ export const googleSheets: AppShortcuts = {
   category: "Spreadsheet",
   platforms: [...platforms],
   versionContext:
-    "Google's official Google Sheets Help page checked in August 2026. Google labels Windows and ChromeOS as PC; Linux browsers generally use the same PC Ctrl and Alt bindings, while browser language, keyboard layout, and compatible spreadsheet shortcuts can change behavior.",
+    "Google's official Google Sheets Help page checked in August 2026. Google labels Windows and ChromeOS as PC and documents Mac separately. Browser language, keyboard layout, and compatible spreadsheet shortcuts can change behavior.",
   sourceUrl: "https://support.google.com/docs/answer/181110",
   sourceLabel: "official Google Sheets keyboard shortcuts",
   lastVerified: "2026-08-26",
@@ -17,7 +17,7 @@ export const googleSheets: AppShortcuts = {
     {
       id: "common-actions",
       title: "Common actions",
-      intro: "Select, edit, save, print, copy, paste, and find in the grid with the bindings Google documents for PC, Mac, and Linux browsers.",
+      intro: "Select, edit, save, print, copy, paste, and find in the grid with the bindings Google documents for PC and Mac.",
       shortcuts: [
         { id: "select-column", action: "Select the current column", keys: perPlatform(platforms, { windows: ["Ctrl", "Space"], macos: ["Ctrl", "Space"], linux: ["Ctrl", "Space"] }) },
         { id: "select-row", action: "Select the current row", keys: combo(platforms, ["Shift", "Space"], ["Shift", "Space"]) },

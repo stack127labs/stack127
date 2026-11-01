@@ -2508,7 +2508,7 @@
         {
           "key": "fact-4",
           "state": "variable",
-          "value": "Subscriptions are included in the agreement’s in-app purchase schedule: 20% Education, 50% mainland-China Games, and 30% other listed categories/markets. Confirm the current seller-specific agreement.",
+          "value": "Subscriptions fall under the agreement's in-app purchase rates: 20% Education, 50% mainland-China Games, and 30% other listed categories and markets. These come from Huawei's 2020 agreement template; your own seller agreement may differ.",
           "source_url": "https://terms-dre.platform.hicloud.com/agreementservice/developer/getAgreementTemplate?agrType=1005&country=ove&language=en_us&version=2020063002",
           "checked_at": "2026-09-30"
         },
@@ -2535,7 +2535,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "The published fee schedule is a 2020 agreement template; confirm current seller terms and regional deductions.",
+      "comparison_basis": "The published fee schedule is a 2020 agreement template. Your seller agreement and regional deductions may differ.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 3,
@@ -3440,21 +3440,21 @@
         {
           "key": "fact-2",
           "state": "unverified",
-          "value": "Developer commission is in the unreadable agreement; the 15% claim is unverified.",
+          "value": "Skich's distribution agreement sets the commission, but its file wouldn't open, so we couldn't check the 15% figure.",
           "source_url": "https://developer.skich.store/Skich_DistributionAgreement.pdf",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-3",
           "state": "unverified",
-          "value": "In-app purchase rate is not verifiable from readable official terms.",
+          "value": "Not public. Skich's readable terms don't list an in-app purchase rate.",
           "source_url": "https://developer.skich.store/Skich_DistributionAgreement.pdf",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-4",
           "state": "unverified",
-          "value": "Subscription rate is not verifiable from readable official terms.",
+          "value": "Not public. Skich's readable terms don't list a subscription rate.",
           "source_url": "https://developer.skich.store/Skich_DistributionAgreement.pdf",
           "checked_at": "2026-09-30"
         },
@@ -3485,16 +3485,16 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Current developer fee terms are in the Distribution Agreement, but its PDF link is unreadable. Accessible developer pages do not publish the fee schedule.",
+      "comparison_basis": "Skich's fee terms are in its Distribution Agreement, but the PDF link wouldn't open. Its other developer pages don't list fees.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 10,
       "card": {
         "owner": "Skich",
         "take": {
-          "value": "Fee not confirmed",
+          "value": "Fee unknown",
           "percent": null,
-          "label": "Agreement inaccessible",
+          "label": "Agreement won't open",
           "fact_key": "fact-2"
         },
         "lines": [
@@ -3516,7 +3516,7 @@
         ],
         "groups": [],
         "tag": "Alternative game store",
-        "note": "Fee terms are in an agreement file we could not read. Ask Skich for current terms."
+        "note": "Skich's fee terms are in an agreement file that wouldn't open."
       }
     },
     {
@@ -5081,7 +5081,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Game Jolt confirms a share for premium sticker packs but publishes no percentage. Shop sales credit as Gems, then pay monthly after a 7-business-day hold and $20 threshold; this does not establish a paid-game rate.",
+      "comparison_basis": "Game Jolt says creators get a share of premium sticker pack sales but doesn't give a percentage. Shop sales are credited as Gems and paid monthly after a 7-business-day hold and a $20 threshold. None of this gives a rate for paid games.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 5,
@@ -5802,7 +5802,7 @@
         },
         {
           "key": "fact-2",
-          "value": "Current payout guide says 70% developer share for most submissions. Two official 2024 announcements conflict on whether the 90% one-time PCVR/XR Elite exception ended Dec 31, 2024; current duration is unconfirmed.",
+          "value": "HTC's current payout guide says developers get 70% for most submissions. Two HTC posts from 2024 disagree on whether the one-time 90% PCVR/XR Elite share ended on Dec 31, 2024, so it's not clear if it still applies.",
           "state": "variable",
           "source_url": "https://developer.vive.com/resources/viveport/store-guide/store-submission-guide/english/payout/",
           "checked_at": "2026-09-30"
@@ -5860,14 +5860,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "The current payout guide says 70% under the standard model. Official 2024 posts disagree on the 90% PCVR/XR Elite exception end date, so its current status is unclear.",
+      "comparison_basis": "HTC's current payout guide says 70% under the standard model. Two HTC posts from 2024 disagree on whether the 90% PCVR/XR Elite share ended on Dec 31, 2024.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 2,
       "card": {
         "owner": "HTC",
         "tag": "VR games and apps",
-        "note": "HTC’s own pages disagree on whether the 90% PC VR share ended in 2024.",
+        "note": "HTC's own pages disagree on whether the 90% PC VR share ended in 2024.",
         "take": {
           "value": "30%",
           "percent": null,
@@ -6561,7 +6561,7 @@
         },
         {
           "key": "fact-2",
-          "value": "Current docs require a review fee for paid solutions and waive it for free solutions, but do not state the current amount. A 2023 Salesforce article quoted $999 per attempt; it is not confirmed as current.",
+          "value": "Salesforce's current docs charge a review fee for paid solutions and waive it for free ones, but don't give the amount. A 2023 Salesforce article said $999 per attempt.",
           "state": "not_public",
           "source_url": "https://developer.salesforce.com/docs/platform/isvforce/guide/security-review-how-it-works.html",
           "checked_at": "2026-09-30"
@@ -6631,7 +6631,7 @@
         "lines": [
           {
             "label": "Review fee",
-            "value": "Paid apps, amount unclear",
+            "value": "Paid apps, amount not public",
             "fact_key": "fact-2"
           },
           {
@@ -7162,7 +7162,7 @@
         "lines": [
           {
             "label": "Listing fee",
-            "value": "Unclear, terms conflict",
+            "value": "Sources disagree",
             "fact_key": "fact-2"
           },
           {
@@ -8376,7 +8376,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "The vendor page advertises up to 70%, while its FAQ says 50%. Vendor terms calculate share on the discounted net price; payout details also conflict.",
+      "comparison_basis": "DealMirror's vendor page says up to 70%; its FAQ says 50%. The vendor terms work out the share on the discounted net price. Payout details also differ between pages.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 2,
@@ -11484,7 +11484,7 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "Launch: table 10 GB/mo vs FAQ 20 GB; Grow: table 20 GB/mo vs FAQ 30 GB. Launch is $39/mo or $32.50/mo annually, with 5k orders and $10k sales/year.",
+          "value": "Launch: SendOwl's plan table says 10 GB a month and its FAQ says 20 GB. Grow: the table says 20 GB a month and the FAQ says 30 GB. Launch is $39/mo or $32.50/mo billed yearly, with 5k orders and $10k sales a year.",
           "state": "variable",
           "source_url": "https://www.sendowl.com/pricing",
           "checked_at": "2026-09-30"
@@ -11541,7 +11541,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "USD seller pricing; the official plan table and FAQ conflict on Launch and Grow bandwidth. Payment processing and overages are separate.",
+      "comparison_basis": "USD seller pricing. SendOwl's plan table and FAQ give different bandwidth for Launch and Grow. Payment processing and overages are separate.",
       "fee_percent": 0,
       "fee_basis": "No per-sale SendOwl commission; fixed plan and possible bandwidth overage apply.",
       "sort_order": 3,
@@ -12310,7 +12310,7 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "Free; Creator $10/mo ($100/yr); Plus $30/mo ($300/yr). Max conflicts: pricing page shows $100/mo and $900/yr ($83.3/mo annual); plan article says $90/mo and $900/yr.",
+          "value": "Free; Creator $10/mo ($100/yr); Plus $30/mo ($300/yr). Max: Beacons' pricing page shows $100/mo or $900/yr ($83.3/mo billed yearly); its Max plan article says $90/mo or $900/yr.",
           "state": "variable",
           "source_url": "https://beacons.ai/i/pricing",
           "checked_at": "2026-09-30"
@@ -12367,14 +12367,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "USD plan pricing; the official Max plan article says $90/mo or $900/yr, while the pricing page also shows $100/mo and $83.3/mo annual alongside $900/yr.",
+      "comparison_basis": "USD plan pricing. Beacons' Max plan article says $90/mo or $900/yr; its pricing page shows $100/mo, or $900/yr ($83.3/mo).",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 9,
       "card": {
         "owner": "Beacons",
         "tag": "Link-in-bio store",
-        "note": "Beacons’ pricing pages list different prices for the Max plan.",
+        "note": "Beacons' pricing pages list different prices for the Max plan.",
         "take": {
           "value": "9%",
           "percent": 9,
@@ -12571,7 +12571,7 @@
         },
         {
           "key": "fact-5",
-          "value": "Terms last modified 2024-03-11: Thinkific collects/remits tax only for Thinkific Payments; current payment and tax setup is not independently confirmed.",
+          "value": "From The Leap's terms, last changed March 11, 2024: Thinkific collects and remits tax only for Thinkific Payments.",
           "state": "variable",
           "source_url": "https://www.theleap.co/apps/terms-of-service/",
           "checked_at": "2026-09-30"
@@ -12599,7 +12599,7 @@
       "card": {
         "owner": "The Leap",
         "tag": "Creator storefront",
-        "note": "Tax handling in The Leap’s terms dates from 2024 and could not be confirmed.",
+        "note": "Tax handling comes from The Leap's terms, last changed in 2024.",
         "take": {
           "value": "0%",
           "percent": 0,
@@ -12701,7 +12701,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "USD seller account; homepage trial ($1 for 14 days) conflicts with account table (first 7 days free). The account table lists $0.05 for orders under $2.",
+      "comparison_basis": "USD seller account. The PayLoadz homepage offers a trial at $1 for 14 days; its account table says the first 7 days are free. The account table lists $0.05 for orders under $2.",
       "fee_percent": 0,
       "fee_basis": "The account fee schedule lists 0% plus $0.05 on orders under $2; the homepage says no transaction fees.",
       "sort_order": 12,
@@ -13214,7 +13214,7 @@
       "id": "digital-download-stores-and-marketplaces--sellsn",
       "section_id": "digital-download-stores-and-marketplaces",
       "name": "SellSN",
-      "summary": "Former digital-goods marketplace; current service status is unconfirmed.",
+      "summary": "Former digital-goods marketplace. It's not clear if it still runs.",
       "website_url": "https://sellsn.io/",
       "icon_path": "/platform-fees/icons/sellsn-io.png",
       "facts": [
@@ -13227,28 +13227,28 @@
         },
         {
           "key": "fact-2",
-          "value": "Current fee terms could not be confirmed after the named operator was deregistered following bankruptcy on Jan 15, 2026.",
+          "value": "Unknown. The company behind SellSN was deregistered after bankruptcy on Jan 15, 2026.",
           "state": "unverified",
           "source_url": "https://www.registrucentras.lt/jar/infleid/download.do?oid=327769",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-3",
-          "value": "Could not verify current payment-processing terms because the official seller site returned errors in this review.",
+          "value": "Unknown. SellSN's seller site returned errors when we checked.",
           "state": "unverified",
           "source_url": "https://sellsn.io/",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-4",
-          "value": "Could not verify current marketplace-sale fees because the official seller site returned errors in this review.",
+          "value": "Unknown.",
           "state": "unverified",
           "source_url": "https://sellsn.io/",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-5",
-          "value": "Could not verify current tax terms because the official demo terms page returned errors in this review.",
+          "value": "Unknown. SellSN's terms page also returned errors.",
           "state": "unverified",
           "source_url": "https://demo.sellsn.io/terms",
           "checked_at": "2026-09-30"
@@ -13273,16 +13273,16 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "The named operator SellSN MB was deregistered after bankruptcy on Jan 15, 2026. The site is currently unreachable and no successor or current fee terms were verified.",
+      "comparison_basis": "The company behind SellSN, SellSN MB, was deregistered after bankruptcy on Jan 15, 2026. The site is down, and we found no successor or current fees.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 17,
       "card": {
         "owner": "SellSN",
         "tag": "Former digital goods marketplace",
-        "note": "The company behind SellSN was deregistered after bankruptcy. Current terms could not be confirmed.",
+        "note": "The company behind SellSN was deregistered after bankruptcy. Its current terms are unknown.",
         "take": {
-          "value": "Terms unconfirmed",
+          "value": "Terms unknown",
           "percent": null,
           "label": "Operator deregistered",
           "fact_key": "fact-2"
@@ -13451,35 +13451,35 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "An official July 2022 release says circle registration was free; current setup terms are unconfirmed.",
+          "value": "A July 2022 DLsite release says circle registration was free.",
           "state": "variable",
           "source_url": "https://media.eisys.co.jp/public/uploads/20220714_doujin90_press.pdf",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-2",
-          "value": "July 2022 examples: ¥110 sale → ¥55 creator payout (50% fee); ¥4,400 sale → ¥3,520 payout (20% fee). These are historical examples, not current rates.",
+          "value": "July 2022 examples: ¥110 sale → ¥55 creator payout (50% fee); ¥4,400 sale → ¥3,520 payout (20% fee). Today's rates may differ.",
           "state": "variable",
           "source_url": "https://media.eisys.co.jp/public/uploads/20220714_doujin90_press.pdf",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-3",
-          "value": "2020 terms: monthly sales were paid by the following month’s 20th; balances under ¥3,000 rolled over. DLsite covered Japanese bank transfer fees; sellers paid overseas transfer-service charges. Current terms unconfirmed.",
+          "value": "From DLsite's 2020 terms: sales were paid by the 20th of the following month, and balances under ¥3,000 rolled over. DLsite covered Japanese bank transfer fees; sellers paid overseas transfer charges.",
           "state": "variable",
           "source_url": "https://info.eisys.co.jp/dlsite/9e180856065589c9?locale=en_US",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-4",
-          "value": "The 2017 Taiwan terms said English DLsite followed Japan’s pricing, payment, and tax standards. They do not confirm today’s Japanese royalty table.",
+          "value": "DLsite's 2017 Taiwan terms said English DLsite followed Japan's pricing, payment, and tax standards. They don't show today's Japanese royalty table.",
           "state": "variable",
           "source_url": "https://www.dlsite.com.tw/circle_regulations",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-5",
-          "value": "2020 terms say non-residents and foreign corporations are subject to withholding. The 2017 Taiwan terms show historical rates; current withholding and invoice rules are unconfirmed.",
+          "value": "DLsite's 2020 terms say non-residents and foreign companies are subject to withholding. The 2017 Taiwan terms show older rates. Current withholding and invoice rules aren't on DLsite's public pages.",
           "state": "variable",
           "source_url": "https://info.eisys.co.jp/dlsite/9e180856065589c9?locale=en_US",
           "checked_at": "2026-09-30"
@@ -13508,14 +13508,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Current DLsite circle terms and royalty table could not be confirmed. The latest accessible official fee examples are from July 2022; payout and withholding terms are from 2020, and the Taiwan terms were last updated in 2017.",
+      "comparison_basis": "DLsite's current circle terms and royalty table aren't on its public pages. The newest official fee examples are from July 2022, payout and withholding terms from 2020, and the Taiwan terms from 2017.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 19,
       "card": {
         "owner": "DLsite",
         "tag": "Japanese digital works",
-        "note": "DLsite’s share depends on price. These are 2022 examples; current rates are not confirmed.",
+        "note": "DLsite's share depends on price. These are its July 2022 examples.",
         "take": {
           "value": "20–50%",
           "percent": null,
@@ -15935,14 +15935,14 @@
         {
           "key": "fact-2",
           "state": "variable",
-          "value": "The August 2025 plan notice says there is no platform transaction fee; current fee terms were not independently confirmed.",
+          "value": "No platform transaction fee, per PayKickstart's August 2025 plan notice.",
           "source_url": "https://support.paykickstart.com/changelog/rocket-introducing-new-paykickstart-pricing-plans-all-features-no-tiers",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-3",
           "state": "variable",
-          "value": "The published fee table lists Connect at 2.80% + $0.25 through $5,000 prior-month volume, then lower tiers. Another current guide says Connect 2.0 is still in development and recommends other gateways.",
+          "value": "PayKickstart's fee table lists Connect at 2.80% + $0.25 up to $5,000 in prior-month volume, then lower tiers. Another PayKickstart guide says Connect 2.0 is still in development and suggests other gateways.",
           "source_url": "https://support.paykickstart.com/en/articles/0071362-connect-payment-gateway-fees-disclosure",
           "checked_at": "2026-09-30"
         },
@@ -15973,14 +15973,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "The August 2025 plan notice lists $79/month, a 14-day trial, and no platform transaction fee; current pricing was not confirmed. The published Connect table lists a $5,000 prior-month tier cap, while another current guide says Connect 2.0 is still in development and recommends other gateways.",
+      "comparison_basis": "PayKickstart's August 2025 plan notice lists $79/month, a 14-day trial, and no platform transaction fee. Its Connect table lists a $5,000 prior-month tier cap, while another PayKickstart guide says Connect 2.0 is still in development and suggests other gateways.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 14,
       "card": {
         "owner": "PayKickstart",
         "tag": "Checkout pages",
-        "note": "These figures come from an August 2025 notice. Current prices could not be confirmed.",
+        "note": "These figures come from PayKickstart's August 2025 plan notice.",
         "take": {
           "value": "0%",
           "percent": null,
@@ -16074,7 +16074,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Default shop share is 50% of list price; shop/product rates may vary. Enterprise-specific rates could not be confirmed from accessible current official terms.",
+      "comparison_basis": "Default shop share is 50% of list price; shop and product rates may vary. Enterprise rates aren't in Creative Market's public terms.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 0,
@@ -16196,7 +16196,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Current seller page advertises 50% default single-sale share and 75% for seller-referred sales. Subscription earnings follow the July 2025 guide; latest posted Designer Terms expired 9 Apr 2026, so current deductions are not confirmed.",
+      "comparison_basis": "Creative Fabrica's seller page says 50% on single sales by default and 75% on sales you refer. Subscription earnings follow the July 2025 guide. The latest posted Designer Terms expired on 9 Apr 2026, so current deductions aren't stated.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 1,
@@ -16953,7 +16953,7 @@
         },
         {
           "key": "fact-5",
-          "value": "Refunds and chargebacks can reverse royalties; tax withholding depends on country and treaty. Terms list a $10 payout threshold, then $10 for non-SWIFT and $20 for SWIFT, so the threshold wording conflicts.",
+          "value": "Refunds and chargebacks can reverse royalties; tax withholding depends on country and treaty. Canva's terms give a $10 payout threshold, then say $10 for non-SWIFT and $20 for SWIFT payouts.",
           "state": "variable",
           "source_url": "https://www.canva.com/policies/contributor-agreement/",
           "checked_at": "2026-09-30"
@@ -17200,7 +17200,7 @@
         },
         {
           "key": "fact-5",
-          "value": "Net revenue deducts set expenses, which can include taxes, fees, disputes, chargebacks, and refunds. PayPal payout starts at $25 and is due by the end of the following month. The creator page still says 40% of shared subscription/API revenue, unlike the terms.",
+          "value": "Net revenue deducts set expenses, which can include taxes, fees, disputes, chargebacks, and refunds. PayPal payout starts at $25 and is due by the end of the following month. The creator page still says 40% of shared subscription and API revenue, which differs from the terms.",
           "state": "variable",
           "source_url": "https://thenounproject.com/legal/creator-terms/icons/",
           "checked_at": "2026-09-30"
@@ -17225,14 +17225,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Current creator terms set different shares for single purchases and subscription/API use; a creator page still shows a conflicting subscription rate.",
+      "comparison_basis": "Current creator terms set different shares for single purchases and subscription or API use. A creator page still shows a different subscription rate.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 11,
       "card": {
         "owner": "Noun Project",
         "tag": "Icons",
-        "note": "The creator page still says creators get 40% of subscriptions, which conflicts with the terms.",
+        "note": "The creator page still says creators get 40% of subscriptions, which differs from the terms.",
         "take": {
           "value": "40%",
           "percent": 40,
@@ -17302,14 +17302,14 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "New contributor intake is closed. Current earnings for existing accounts are not stated on the public closed-registration page.",
+          "value": "New contributor sign-ups are closed. The public page doesn't list earnings for existing accounts.",
           "state": "not_public",
           "source_url": "https://contributor.flaticon.com/closed",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-2",
-          "value": "The only public contributor agreement located is dated 2022; it cannot confirm current rates for existing accounts.",
+          "value": "The only public contributor agreement is from 2022. Today's rates for existing accounts aren't public.",
           "state": "not_public",
           "source_url": "https://contributor.flaticon.com/terms/terms_20221110.pdf",
           "checked_at": "2026-09-30"
@@ -17323,14 +17323,14 @@
         },
         {
           "key": "fact-4",
-          "value": "Current exclusivity terms for existing accounts are not published on the accessible public contributor pages.",
+          "value": "Flaticon's public contributor pages don't list current exclusivity terms for existing accounts.",
           "state": "not_public",
           "source_url": "https://contributor.flaticon.com/",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-5",
-          "value": "Current deductions and payout terms for existing accounts are not published on the accessible public contributor pages.",
+          "value": "Flaticon's public contributor pages don't list current deductions or payout terms for existing accounts.",
           "state": "not_public",
           "source_url": "https://contributor.flaticon.com/",
           "checked_at": "2026-09-30"
@@ -17351,7 +17351,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "New Flaticon contributor registration is closed; current earnings terms for existing accounts are not confirmed by current public documents.",
+      "comparison_basis": "New Flaticon contributor sign-ups are closed. Current earnings terms for existing accounts aren't in public documents.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 12,
@@ -17423,7 +17423,7 @@
         },
         {
           "key": "fact-5",
-          "value": "Each order item costs $0.30. The same page FAQ says no-referrer Marketplace discovery pays a 15% commission, conflicting with the table’s 3% Pro promotion fee.",
+          "value": "Each order item costs $0.30. The FAQ on the same page says Marketplace sales with no referrer pay a 15% commission, but the table lists a 3% Pro promotion fee.",
           "state": "variable",
           "source_url": "https://help.artstation.com/en/articles/16155081-digital-product-earnings-how-much-will-i-make-from-each-sale",
           "checked_at": "2026-09-30"
@@ -17448,14 +17448,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "US sellers, USD. The August 2026 Help table and Sell Goods page list different shares; the Help article also gives a conflicting 15% no-referrer fee.",
+      "comparison_basis": "US sellers, USD. ArtStation's August 2026 Help table and its Sell Goods page list different shares. The Help article also gives a 15% fee for sales with no referrer, which differs from its table.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 13,
       "card": {
         "owner": "ArtStation",
         "tag": "Art and digital products",
-        "note": "Official pages give different rates, from 5% to 30%, plus 30¢ per item. Confirm your rate in your dashboard.",
+        "note": "ArtStation's pages give different rates, from 5% to 30%, plus 30¢ per item.",
         "take": {
           "value": "5–30%",
           "percent": null,
@@ -17859,7 +17859,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "US sellers; commission rates are current support terms. The older participation page advertises a 35% launch bonus not listed in the current commission guide; current applicability is unconfirmed.",
+      "comparison_basis": "US sellers; commission rates are from current support pages. An older participation page offers a 35% launch bonus that the current commission guide doesn't list, so it may no longer apply.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 1,
@@ -18025,7 +18025,7 @@
       "id": "fonts--youworkforthem",
       "section_id": "fonts",
       "name": "YouWorkForThem",
-      "summary": "YouWorkForThem licenses fonts from independent designers, but its current creator share, seller costs, rights, and payout terms are not published on accessible public seller pages.",
+      "summary": "YouWorkForThem licenses fonts from independent designers. Its public pages don't list the creator share, seller costs, rights, or payout terms.",
       "website_url": "https://www.youworkforthem.com/",
       "icon_path": "/platform-fees/icons/www-youworkforthem-com.png",
       "facts": [
@@ -18181,7 +18181,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Default shop share is 50% of list price; shop/product rates may vary. Enterprise-specific rates could not be confirmed from accessible current official terms.",
+      "comparison_basis": "Default shop share is 50% of list price; shop and product rates may vary. Enterprise rates aren't in Creative Market's public terms.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 4,
@@ -18307,7 +18307,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Current seller page advertises 50% default single-sale share and 75% for seller-referred sales. Subscription earnings follow the July 2025 guide; latest posted Designer Terms expired 9 Apr 2026, so current deductions are not confirmed.",
+      "comparison_basis": "Creative Fabrica's seller page says 50% on single sales by default and 75% on sales you refer. Subscription earnings follow the July 2025 guide. The latest posted Designer Terms expired on 9 Apr 2026, so current deductions aren't stated.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 5,
@@ -19891,7 +19891,7 @@
         },
         {
           "key": "fact-3",
-          "value": "Envato says Code authors are not part of the current invitation intake.",
+          "value": "Envato says it isn't inviting new Code authors right now.",
           "state": "not_applicable",
           "source_url": "https://help.author.envato.com/hc/en-us/articles/53981083605913-Author-applications-are-paused-new-authors-join-by-invitation-only",
           "checked_at": "2026-09-30"
@@ -20526,14 +20526,14 @@
         },
         {
           "key": "fact-3",
-          "value": "The publisher guide does not specify a separate seller fee, but the linked Distribution Agreement could not be read in this review.",
+          "value": "The publisher guide doesn't list a separate seller fee. Fab's Distribution Agreement, linked from the guide, wouldn't open when we checked.",
           "state": "unverified",
           "source_url": "https://dev.epicgames.com/documentation/fab/publisher-get-started-in-fab",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-4",
-          "value": "The linked Distribution Agreement could not be read in this review, so exclusivity remains unverified.",
+          "value": "Unknown. The Distribution Agreement that would set this wouldn't open.",
           "state": "unverified",
           "source_url": "https://www.fab.com/distribution-agreement",
           "checked_at": "2026-09-30"
@@ -20569,14 +20569,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Publisher guide states an 88% share; the linked Distribution Agreement was not readable in this review, so seller fees and exclusivity remain unverified.",
+      "comparison_basis": "The publisher guide says 88%. The linked Distribution Agreement wouldn't open, so seller fees and exclusivity are unknown.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 0,
       "card": {
         "owner": "Epic",
         "tag": "3D assets on Fab",
-        "note": "Fab’s distribution agreement could not be read, so exclusivity is not confirmed.",
+        "note": "Fab's distribution agreement wouldn't open, so exclusivity is unknown.",
         "take": {
           "value": "12%",
           "percent": 12,
@@ -21706,7 +21706,7 @@
         },
         {
           "key": "fact-2",
-          "value": "Official pages disagree: the Aug 2026 earnings guide lists 88% Non-Pro and 92–95% Pro; the seller page lists 70% Free and 80–95% Pro.",
+          "value": "ArtStation's pages disagree: the Aug 2026 earnings guide lists 88% Non-Pro and 92–95% Pro; the seller page lists 70% Free and 80–95% Pro.",
           "state": "variable",
           "source_url": "https://help.artstation.com/en/articles/16155081-digital-product-earnings-how-much-will-i-make-from-each-sale",
           "checked_at": "2026-09-30"
@@ -21727,7 +21727,7 @@
         },
         {
           "key": "fact-5",
-          "value": "The earnings guide deducts $0.30 per item; seller-set contract affiliates take 20–80%. Its FAQ still says 15% promotion while current fee breakdowns say 3%.",
+          "value": "The earnings guide deducts $0.30 per item; contract affiliates set by the seller take 20–80%. Its FAQ still says 15% for promotion, while current fee breakdowns say 3%.",
           "state": "variable",
           "source_url": "https://help.artstation.com/en/articles/16155081-digital-product-earnings-how-much-will-i-make-from-each-sale",
           "checked_at": "2026-09-30"
@@ -21752,14 +21752,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Current official pages conflict on marketplace shares. The detailed Aug 2026 help guide lists 88% Non-Pro and 92–95% Pro, while the seller page lists 70% Free and 80–95% Pro.",
+      "comparison_basis": "ArtStation's pages disagree on marketplace shares. The Aug 2026 help guide lists 88% Non-Pro and 92–95% Pro; the seller page lists 70% Free and 80–95% Pro.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 9,
       "card": {
         "owner": "ArtStation",
         "tag": "3D assets",
-        "note": "Official pages give different rates, from 5% to 30%, plus 30¢ per item. Confirm your rate in your dashboard.",
+        "note": "ArtStation's pages give different rates, from 5% to 30%, plus 30¢ per item.",
         "take": {
           "value": "5–30%",
           "percent": null,
@@ -22234,7 +22234,7 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "A 2023 launch post said new stores received one paid-model slot and had a $5 minimum; current creator terms do not confirm whether these limits remain.",
+          "value": "A 2023 launch post said new stores got one paid-model slot and a $5 minimum. Current creator terms don't say if these limits still apply.",
           "state": "variable",
           "source_url": "https://blog.prusa3d.com/printables-store_87810/",
           "checked_at": "2026-09-30"
@@ -22335,7 +22335,7 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "An older Prusa Help page says creators need level 18 to start a Club; current creator terms do not confirm whether this still applies.",
+          "value": "An older Prusa help page says creators need level 18 to start a Club. Current creator terms don't say if this still applies.",
           "state": "variable",
           "source_url": "https://help.prusa3d.com/article/about_493458",
           "checked_at": "2026-09-30"
@@ -22821,14 +22821,14 @@
         },
         {
           "key": "fact-3",
-          "value": "The publisher guide does not specify a separate seller fee, but the linked Distribution Agreement could not be read in this review.",
+          "value": "The publisher guide doesn't list a separate seller fee. Fab's Distribution Agreement, linked from the guide, wouldn't open when we checked.",
           "state": "unverified",
           "source_url": "https://dev.epicgames.com/documentation/fab/publisher-get-started-in-fab",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-4",
-          "value": "The linked Distribution Agreement could not be read in this review, so exclusivity remains unverified.",
+          "value": "Unknown. The Distribution Agreement that would set this wouldn't open.",
           "state": "unverified",
           "source_url": "https://www.fab.com/distribution-agreement",
           "checked_at": "2026-09-30"
@@ -22860,14 +22860,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Publisher guide states an 88% share; the linked Distribution Agreement was not readable in this review, so seller fees and exclusivity remain unverified.",
+      "comparison_basis": "The publisher guide says 88%. The linked Distribution Agreement wouldn't open, so seller fees and exclusivity are unknown.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 1,
       "card": {
         "owner": "Epic",
         "tag": "Game assets on Fab",
-        "note": "Fab’s distribution agreement could not be read, so exclusivity is not confirmed.",
+        "note": "Fab's distribution agreement wouldn't open, so exclusivity is unknown.",
         "take": {
           "value": "12%",
           "percent": 12,
@@ -24340,7 +24340,7 @@
         },
         {
           "key": "fact-5",
-          "value": "Automatic monthly payouts use the account setting, but the payout help does not state its floor. Terms v9 sets $35 for electronic or $500 for checks; some countries also wait 90 days from first approval. The official pages conflict on the minimum.",
+          "value": "Monthly payouts follow your account setting, but the payout help page doesn't give a minimum. Terms v9 sets $35 for electronic payouts or $500 for checks, and some countries wait 90 days from first approval. Shutterstock's pages don't agree on the minimum.",
           "state": "variable",
           "source_url": "https://submit.shutterstock.com/help/en/articles/10617435-how-do-i-get-paid-for-my-work",
           "checked_at": "2026-09-30"
@@ -25313,7 +25313,7 @@
         },
         {
           "key": "fact-2",
-          "value": "Print/product orders: 10% Basic, 9% Standard, or 8% Pro on subtotal excluding shipping/tax; processor fees separate. Image-license fee rate is not confirmed in the accessible schedule.",
+          "value": "Print and product orders: 10% Basic, 9% Standard, or 8% Pro on the subtotal before shipping and tax; processor fees are separate. The fee schedule doesn't list a rate for image licenses.",
           "state": "verified",
           "source_url": "https://support.photoshelter.com/hc/en-us/articles/203373140-Self-Fulfilled-Prints-Products",
           "checked_at": "2026-09-30"
@@ -25351,14 +25351,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "The 10/9/8% schedule applies to self-fulfilled print/product orders; current image-license rate is not confirmed in accessible public sources.",
+      "comparison_basis": "The 10/9/8% schedule covers print and product orders you fulfill yourself. PhotoShelter's public pages don't list a rate for image licenses.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 9,
       "card": {
         "owner": "PhotoShelter",
         "tag": "Photography website",
-        "note": "Processor fees are extra. License sale fees could not be confirmed.",
+        "note": "Processor fees are extra. The fee on license sales isn't public.",
         "take": {
           "value": "10%",
           "percent": 10,
@@ -26304,7 +26304,7 @@
         },
         {
           "key": "fact-5",
-          "value": "Automatic monthly payouts use the account setting, but payout help does not state its floor. Terms v9 sets $35 electronically or $500 by check; some countries also wait 90 days from first approval. Official pages conflict on the minimum.",
+          "value": "Monthly payouts follow your account setting, but the payout help page doesn't give a minimum. Terms v9 sets $35 for electronic payouts or $500 for checks, and some countries wait 90 days from first approval. Shutterstock's pages don't agree on the minimum.",
           "state": "variable",
           "source_url": "https://submit.shutterstock.com/help/en/articles/10617435-how-do-i-get-paid-for-my-work",
           "checked_at": "2026-09-30"
@@ -26427,7 +26427,7 @@
         },
         {
           "key": "fact-3",
-          "value": "No upfront listing fee is stated. The FAQ says no commission, while the per-item terms give creators 50% or 70%; the meaning of commission is unclear.",
+          "value": "No upfront listing fee is listed. The FAQ says MotionElements takes no commission, but its per-item terms give creators 50% or 70%, so it's not clear what the FAQ means by commission.",
           "state": "variable",
           "source_url": "https://help.motionelements.com/en/contributor/docs/does-motionelements-commission-contributors-works",
           "checked_at": "2026-09-30"
@@ -26478,7 +26478,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Creators receive 50% of per-item non-exclusive sales or 70% of exclusive sales. The help page also says it does not commission contributor works, but its use of commission is unclear; no upfront listing fee is stated.",
+      "comparison_basis": "Creators receive 50% of per-item non-exclusive sales or 70% of exclusive sales. The help page says it doesn't commission contributor works, but it's not clear what it means by that. No upfront listing fee is listed.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 3,
@@ -27314,7 +27314,7 @@
         },
         {
           "key": "fact-5",
-          "value": "Artist page says quarterly statements and payment 45 days after quarter-end once earnings reach $25; PayPal is usual, with Wise, Payoneer, or crypto also listed. Older FAQ fees and wire terms are not confirmed there.",
+          "value": "The artist page says statements are quarterly, paid 45 days after quarter-end once earnings reach $25. PayPal is usual; Wise, Payoneer, and crypto are also listed. Fees and wire terms from an older FAQ aren't on that page.",
           "state": "variable",
           "source_url": "https://www.audiosparx.com/module/alliance/infoAS.cfm",
           "checked_at": "2026-09-30"
@@ -30020,7 +30020,7 @@
         },
         {
           "key": "fact-4",
-          "value": "A global Tipalti guide lists PayPal availability, a $200 USD minimum, $5 e-check/$26 wire fees and possible 3% FX. A 2025 Brazil guide says Tipalti became the only method from May 2025 with a $50 minimum. Current global route and minimum are unclear.",
+          "value": "ONErpm's global Tipalti guide lists PayPal, a $200 USD minimum, $5 e-check and $26 wire fees, and possible 3% FX. A 2025 Brazil guide says Tipalti became the only method from May 2025, with a $50 minimum. It's not clear which applies outside Brazil.",
           "state": "variable",
           "source_url": "https://dashboard.onerpm.com/assets/files/EN_Tipalti_new_payment_solution_Artist_Guide.pdf",
           "checked_at": "2026-09-30"
@@ -30587,7 +30587,7 @@
         },
         {
           "key": "fact-3",
-          "value": "English plan page: Lite retains 90%; Core and Max retain 100%. The official pt-BR page says Core retains 90%; the royalty share is inconsistent across current localized pages.",
+          "value": "SoundOn's English plan page says Lite keeps 90% and Core and Max keep 100%. Its Portuguese (Brazil) page says Core keeps 90%.",
           "state": "variable",
           "source_url": "https://www.soundon.global/?lang=en",
           "checked_at": "2026-09-30"
@@ -30626,7 +30626,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Lite keeps 90%; Max 100%; current English and pt-BR Core pages disagree.",
+      "comparison_basis": "Lite keeps 90%; Max 100%. SoundOn's English and Portuguese (Brazil) pages disagree on Core.",
       "fee_percent": 10,
       "fee_basis": "Lite streaming earnings",
       "sort_order": 14,
@@ -31106,7 +31106,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "GBP. Artist subscriptions cover unlimited releases; pay-per-release is also offered. Current FAQ lists Convera or PayPal and a £10 minimum outside the UK; the March 2026 page lists a £3 fee and Western Union, conflicting with newer terms. UK minimum and fees are not published.",
+      "comparison_basis": "GBP. Artist subscriptions cover unlimited releases; pay-per-release is also offered. The current FAQ lists Convera or PayPal and a £10 minimum outside the UK. A March 2026 page lists a £3 fee and Western Union, which differs from the newer terms. The UK minimum and fees aren't public.",
       "fee_percent": 0,
       "fee_basis": "Standard artist distribution royalty fee",
       "sort_order": 18,
@@ -31465,7 +31465,7 @@
         },
         {
           "key": "fact-5",
-          "value": "Current FAQ lists a C$50 payout threshold. The service agreement, last updated in 2012, also lists price ceilings, price-matching rules, and withholding until $100; current applicability is unconfirmed.",
+          "value": "The current FAQ lists a C$50 payout threshold. The service agreement, last updated in 2012, also lists price ceilings, price-matching rules, and withholding until $100. Those 2012 rules may no longer apply.",
           "state": "variable",
           "source_url": "https://www.kobo.com/kobo-writing-life/blog/frequently-asked-questions",
           "checked_at": "2026-09-30"
@@ -32677,41 +32677,41 @@
       "id": "ebooks-and-print-books--xinxii",
       "section_id": "ebooks-and-print-books",
       "name": "XinXii",
-      "summary": "eBook and audiobook distribution; current author terms could not be confirmed from accessible official pages.",
+      "summary": "eBook and audiobook distribution. Its official pages wouldn't load, so current author terms are unknown.",
       "website_url": "https://www.xinxii.com/",
       "icon_path": "/platform-fees/icons/www-xinxii-com.png",
       "facts": [
         {
           "key": "fact-1",
-          "value": "The 2021 Apple listing describes ebook and audiobook distribution; current service status is unverified.",
+          "value": "A 2021 Apple listing describes ebook and audiobook distribution. It's not clear if the service still runs.",
           "state": "unverified",
           "source_url": "https://apps.apple.com/us/app/xinxii/id645485548",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-2",
-          "value": "Current author royalty terms could not be verified from accessible official pages.",
+          "value": "Unknown. XinXii's official pages wouldn't load.",
           "state": "unverified",
           "source_url": "https://www.xinxii.com/",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-3",
-          "value": "Current per-copy deductions could not be verified from accessible official pages.",
+          "value": "Unknown.",
           "state": "unverified",
           "source_url": "https://www.xinxii.com/",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-4",
-          "value": "Current distribution fees could not be verified from accessible official pages.",
+          "value": "Unknown.",
           "state": "unverified",
           "source_url": "https://www.xinxii.com/",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-5",
-          "value": "Current exclusivity, payout, and rights terms could not be verified from accessible official pages.",
+          "value": "Unknown.",
           "state": "unverified",
           "source_url": "https://www.xinxii.com/",
           "checked_at": "2026-09-30"
@@ -32736,18 +32736,18 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Current official pages were inaccessible; an Apple developer listing dated 2021 is not current terms.",
+      "comparison_basis": "XinXii's official pages wouldn't load. A 2021 Apple developer listing isn't current terms.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 12,
       "card": {
         "owner": "XinXii",
         "tag": "Ebooks and audiobooks",
-        "note": "XinXii’s official pages could not be reached, so current terms are unknown.",
+        "note": "XinXii's official pages wouldn't load, so current terms are unknown.",
         "take": {
-          "value": "Royalty unconfirmed",
+          "value": "Royalty unknown",
           "percent": null,
-          "label": "Official terms inaccessible",
+          "label": "Official site unreachable",
           "fact_key": "fact-2"
         },
         "lines": [
@@ -32758,7 +32758,7 @@
           },
           {
             "label": "FAQ",
-            "value": "Could not load",
+            "value": "Wouldn't load",
             "fact_key": "fact-2"
           },
           {
@@ -33846,7 +33846,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "The current US pricing page lists Subscription at $99/year and Lifetime Access at $299, both with 85% of net revenue. Official legal/help material also describes a revenue-share route without fixed costs and charges EUR 0.20 per download of a free audiobook under the 2025 terms update. These are different options; confirm the selected plan and retailer rate in the StreetLib account. Retail audiobook earnings are calculated after store payout and StreetLib charges.",
+      "comparison_basis": "The current US pricing page lists Subscription at $99/year and Lifetime Access at $299, both with 85% of net revenue. Official legal and help pages also describe a revenue-share route without fixed costs and charge EUR 0.20 per download of a free audiobook under the 2025 terms update. These are different options, and the rate depends on which one you pick and the retailer. Retail audiobook earnings are calculated after store payout and StreetLib charges.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 5,
@@ -33931,7 +33931,7 @@
         },
         {
           "key": "fact-5",
-          "value": "Official page conflicts: cost section says $50–$400/PFH ($300–$2,500+ for six hours); its FAQ says $150–$400/PFH ($900–$2,500).",
+          "value": "Author's Republic's page gives two ranges: its cost section says $50–$400 per finished hour ($300–$2,500+ for six hours); its FAQ says $150–$400 per finished hour ($900–$2,500).",
           "state": "variable",
           "source_url": "https://www.authorsrepublic.com/create-audiobooks",
           "checked_at": "2026-09-30"
@@ -34294,7 +34294,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Creators 101 lists viewer-ad eligibility as 40,000+ global monthly views and 1,000+ subscribers, while the January 2026 Terms require over 40,000 views and over 1,000 subscribers; the official pages conflict at the exact boundary. Super Likes require at least 500 likes and age 18+.",
+      "comparison_basis": "Creators 101 lists viewer-ad eligibility as 40,000+ global monthly views and 1,000+ subscribers. The January 2026 Terms say over 40,000 views and over 1,000 subscribers, so exactly 40,000 or 1,000 may not count. Super Likes need at least 500 likes and age 18+.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 0,
@@ -35096,7 +35096,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "The 2026 Writer Benefits page says payments are made on the 10th of the following month, with a $200 bank minimum or $100 PayPal minimum. A current localized official payment FAQ says a $100 accumulated threshold and lists bank/Payoneer, so payout thresholds and methods conflict. Confirm the offered account terms.",
+      "comparison_basis": "The 2026 Writer Benefits page says payments go out on the 10th of the following month, with a $200 bank minimum or $100 PayPal minimum. A localized GoodNovel payment FAQ says $100 total and lists bank and Payoneer. Your account terms decide which applies.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 7,
@@ -35278,7 +35278,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Pocket FM’s Sherpa FAQ lists an invitation and WBP contract as the path to writer earnings, but the accessible public FAQ does not give a standard share or fee schedule. The general service terms grant a non-exclusive content license; a separate WBP contract may add rights or payment terms.",
+      "comparison_basis": "Pocket FM's Sherpa FAQ says writers earn through an invitation and a WBP contract. The public FAQ gives no standard share or fees. The general terms grant a non-exclusive content license; a WBP contract may add rights or payment terms.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 9,
@@ -36124,7 +36124,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Course earnings vary by plays, content type, and engagement; a return-rate bonus is possible. Pricing docs conflict: the learner FAQ says courses aren't sold individually, while the teacher edit guide says course pricing is editable. Optional donations are separate.",
+      "comparison_basis": "Course earnings vary by plays, content type, and engagement; a return-rate bonus is possible. Insight Timer's learner FAQ says courses aren't sold one by one, while its teacher guide says you can edit course pricing. Optional donations are separate.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 5,
@@ -36451,28 +36451,28 @@
         },
         {
           "key": "fact-2",
-          "value": "The official 2021 teacher handbook says italki took 15% of completed lessons, excluding trials. Current rate is unconfirmed; the 2025 commission update and Help Center page were inaccessible.",
+          "value": "italki's 2021 teacher handbook says it took 15% of completed lessons, excluding trials. Its 2025 commission update and Help Center page wouldn't load, so the current rate is unknown.",
           "state": "variable",
           "source_url": "https://uploads-ssl.webflow.com/5f6c06ea5780254500e94751/612cad97d81cf83b991de98b_Handbook%20for%20New%20Teachers%20-%20English%20%282021%29.pdf",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-3",
-          "value": "The 2021 handbook says trials are 30 minutes and paid; completed-lesson commission did not apply. Current trial terms are unconfirmed.",
+          "value": "The 2021 handbook says trials are 30 minutes and paid, with no commission on them. Current trial terms are unknown.",
           "state": "variable",
           "source_url": "https://uploads-ssl.webflow.com/5f6c06ea5780254500e94751/612cad97d81cf83b991de98b_Handbook%20for%20New%20Teachers%20-%20English%20%282021%29.pdf",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-4",
-          "value": "No current teacher signup fee is listed in the accessible official public sources.",
+          "value": "No teacher sign-up fee is listed on italki's public pages.",
           "state": "not_public",
           "source_url": "https://teach.italki.com/",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-5",
-          "value": "The 2021 handbook says teacher profiles need approval after setup. Current openings and approval requirements vary by language and are not confirmed.",
+          "value": "The 2021 handbook says teacher profiles need approval after setup. Openings and approval rules vary by language; current ones are unknown.",
           "state": "variable",
           "source_url": "https://uploads-ssl.webflow.com/5f6c06ea5780254500e94751/612cad97d81cf83b991de98b_Handbook%20for%20New%20Teachers%20-%20English%20%282021%29.pdf",
           "checked_at": "2026-09-30"
@@ -36501,14 +36501,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Current teachers set their own prices, but current commission terms are unconfirmed. The last directly readable official handbook (2021) lists 15% on completed lessons, excluding 30-minute paid trials; current payment processing fees/options and the 2025 commission update could not be confirmed.",
+      "comparison_basis": "Teachers set their own prices; the current commission is unknown. The 2021 handbook, the last one that loaded, lists 15% on completed lessons, excluding 30-minute paid trials. Current processing fees and the 2025 commission update are unknown.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 2,
       "card": {
         "owner": "italki",
         "tag": "Language tutoring",
-        "note": "The current italki rate could not be confirmed. 15% comes from the 2021 handbook.",
+        "note": "italki's current rate is unknown. The 15% comes from its 2021 handbook.",
         "take": {
           "value": "15%",
           "percent": null,
@@ -36586,7 +36586,7 @@
         },
         {
           "key": "fact-5",
-          "value": "New tutor intake limited; no degree needed",
+          "value": "Cambly takes a limited number of new tutors; no degree needed",
           "state": "verified",
           "source_url": "https://email-proxy.cambly.com/english/tutors",
           "checked_at": "2026-09-30"
@@ -37062,7 +37062,7 @@
       "card": {
         "owner": "Lessonface",
         "tag": "Lessons and group classes",
-        "note": "Lessonface’s fee table and terms disagree on the referred group rate.",
+        "note": "Lessonface's fee table and terms disagree on the referred group rate.",
         "take": {
           "value": "5–30%",
           "percent": null,
@@ -37649,7 +37649,7 @@
         },
         {
           "key": "fact-5",
-          "value": "With Kajabi Payments, Kajabi calculates/collects tax; the seller registers and files/remits. Current guide confirms a fee on successful Sales Tax-enabled offers but gives no amount; the Jan 2024 post lists $0.15 per taxable sale.",
+          "value": "With Kajabi Payments, Kajabi calculates and collects tax; you register, file, and remit. Kajabi's tax guide says there's a fee on successful sales with Sales Tax turned on but gives no amount. A January 2024 post lists $0.15 per taxable sale.",
           "state": "variable",
           "source_url": "https://help.kajabi.com/articles/sales/kajabi-payments/kajabi-payments-sales-tax-overview",
           "checked_at": "2026-09-30"
@@ -37670,7 +37670,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "US sellers, USD. Current tax guide confirms a Sales Tax-enabled transaction fee but gives no amount; the 2024 launch post lists $0.15 per taxable sale.",
+      "comparison_basis": "US sellers, USD. Kajabi's tax guide says there's a fee on sales with Sales Tax turned on but gives no amount; a 2024 launch post lists $0.15 per taxable sale.",
       "fee_percent": 0,
       "fee_basis": "No revenue share; US third-party provider fees may apply on supported regions and plans.",
       "sort_order": 3,
@@ -39596,14 +39596,14 @@
         },
         {
           "key": "fact-2",
-          "value": "Direct sale: Basic 4.9%, Intermediate 6.9%, Unity 4.59% above R$1M/year; fixed fee R$2.49. Affiliate 8.9% + R$2.49; international 10.9% + R$3.99. The 4.9% commission is waived per item with original price up to R$30; R$2.49 per invoice remains. Help and plan pricing cover different plans; confirm selected plan.",
+          "value": "Direct sale: Basic 4.9%, Intermediate 6.9%, Unity 4.59% above R$1M/year; fixed fee R$2.49. Affiliate 8.9% + R$2.49; international 10.9% + R$3.99. The 4.9% commission is waived per item with original price up to R$30; R$2.49 per invoice remains. The help page and pricing page cover different plans.",
           "state": "verified",
           "source_url": "https://ajuda.eduzz.com/hc/pt-br/articles/1260807397109-Quais-s%C3%A3o-as-taxas-cobradas-pela-Eduzz",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-3",
-          "value": "Official pricing does not list a separate processor rate. Official pages conflict on bank transfer charges: R$1.99 on pricing and R$9 in Help.",
+          "value": "Eduzz's pricing doesn't list a separate processor rate. Its pricing table says bank transfers cost R$1.99; its help page says R$9.",
           "state": "variable",
           "source_url": "https://ajuda.eduzz.com/hc/pt-br/articles/1260807406729-Como-solicitar-transfer%C3%AAncia-banc%C3%A1ria",
           "checked_at": "2026-09-30"
@@ -39646,7 +39646,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Brazilian seller, BRL. Sale rates depend on plan, channel and ticket. Official pages conflict on transfer fee (R$1.99 pricing table vs R$9 Help article).",
+      "comparison_basis": "Brazilian seller, BRL. Sale rates depend on plan, channel, and price. Eduzz's pricing table says the transfer fee is R$1.99; its help article says R$9.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 20,
@@ -40565,7 +40565,7 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "Official 2026 comparison lists Grow at ₹29,999/year and Enterprise at ₹39,999 for two years; confirm final feature quote.",
+          "value": "Classplus's 2026 comparison lists Grow at ₹29,999/year and Enterprise at ₹39,999 for two years. The final quote depends on the features you pick.",
           "state": "verified",
           "source_url": "https://classplusapp.com/growth/classplus-vs-online-teaching-platforms-india/",
           "checked_at": "2026-09-30"
@@ -41075,7 +41075,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Royalties are paid in the listing currency. The current author page confirms monthly rolling 12-month tiers; fee amounts come from the official FAQ last updated in 2024.",
+      "comparison_basis": "Royalties are paid in the listing currency. The current author page shows monthly rolling 12-month tiers; fee amounts come from the official FAQ last updated in 2024.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 1,
@@ -42438,7 +42438,7 @@
         },
         {
           "key": "fact-2",
-          "value": "Official US page prints “0.99¢” per ticket for both options; the USD fixed-fee amount is unclear.",
+          "value": "TicketSource's US page lists the fixed fee as \"0.99¢\" per ticket for both options, so it's not clear if that means 99 cents or less than a cent.",
           "state": "variable",
           "source_url": "https://www.ticketsource.com/us/pricing",
           "checked_at": "2026-09-30"
@@ -42491,7 +42491,7 @@
       "card": {
         "owner": "TicketSource",
         "tag": "Event tickets",
-        "note": "The US page prints the fixed fee as “0.99¢”, so the real amount is unclear.",
+        "note": "The US page prints the fixed fee as \"0.99¢\", which could mean 99 cents or less than a cent.",
         "take": {
           "value": "3.5%",
           "percent": null,
@@ -42877,7 +42877,7 @@
         },
         {
           "key": "fact-4",
-          "value": "Current exclusivity terms are not accessible in public seller help",
+          "value": "Ravelry's public seller help doesn't list exclusivity terms",
           "state": "not_public",
           "source_url": "https://www.ravelry.com/help/search?query=selling+patterns",
           "checked_at": "2026-09-30"
@@ -43048,7 +43048,7 @@
         },
         {
           "key": "fact-2",
-          "value": "The official chart lists 4% + $0.35 per USD sale and a 5% seller fee in the monthly sales band, but says these rates apply from June 1, 2022. Current rates are unconfirmed.",
+          "value": "LoveCrafts' fee chart lists 4% + $0.35 per USD sale and a 5% seller fee in the monthly sales band, with rates dated from June 1, 2022.",
           "state": "variable",
           "source_url": "https://www.lovecrafts.com/en-us/pages/designer-handbook-payment-pricing-taxes",
           "checked_at": "2026-09-30"
@@ -43091,14 +43091,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "US seller, USD. The linked fee chart says its rates apply from June 1, 2022; 2026 handbook text does not confirm they remain current. GBP/EUR thresholds also differ.",
+      "comparison_basis": "US seller, USD. The linked fee chart says its rates apply from June 1, 2022; the 2026 handbook doesn't repeat them. GBP and EUR thresholds differ.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 2,
       "card": {
         "owner": "LoveCrafts",
         "tag": "Knitting and crochet patterns",
-        "note": "LoveCrafts’ fee chart is dated June 2022, so current rates are not confirmed.",
+        "note": "LoveCrafts' fee chart is dated June 2022.",
         "take": {
           "value": "4%",
           "percent": null,
@@ -43162,28 +43162,28 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "Current seller signup and listing costs could not be verified because the official marketplace was inaccessible.",
+          "value": "Unknown. Craftsuprint's site blocked access when we checked.",
           "state": "unverified",
           "source_url": "https://www.craftsuprint.com/",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-2",
-          "value": "Current seller share and royalty terms could not be verified because the official marketplace was inaccessible.",
+          "value": "Unknown.",
           "state": "unverified",
           "source_url": "https://www.craftsuprint.com/",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-3",
-          "value": "Current seller payment-processing terms could not be verified because the official marketplace was inaccessible.",
+          "value": "Unknown.",
           "state": "unverified",
           "source_url": "https://www.craftsuprint.com/",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-4",
-          "value": "Current exclusivity terms could not be verified because the official marketplace was inaccessible.",
+          "value": "Unknown.",
           "state": "unverified",
           "source_url": "https://www.craftsuprint.com/",
           "checked_at": "2026-09-30"
@@ -43200,18 +43200,18 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "The official marketplace returned 403 to public retrieval; current seller fees and terms remain unavailable in accessible official pages.",
+      "comparison_basis": "Craftsuprint's site blocked public access (error 403), so its seller fees and terms are unknown.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 3,
       "card": {
         "owner": "Craftsuprint",
         "tag": "Card kits and craft designs",
-        "note": "Craftsuprint’s site blocked access, so its terms could not be checked.",
+        "note": "Craftsuprint's site blocked access, so its terms are unknown.",
         "take": {
-          "value": "Share unconfirmed",
+          "value": "Share unknown",
           "percent": null,
-          "label": "Official terms inaccessible",
+          "label": "Site blocked access",
           "fact_key": "fact-2"
         },
         "lines": [
@@ -43258,14 +43258,14 @@
         },
         {
           "key": "fact-3",
-          "value": "Aug 2023 partner terms say processing is deducted before the membership pool; current mechanics are not reconfirmed.",
+          "value": "From Design Bundles' August 2023 partner terms: processing is deducted before the membership pool.",
           "state": "variable",
           "source_url": "https://designbundles.net/designer-termsconditions",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-4",
-          "value": "Aug 2023 partner terms grant a non-exclusive licence; current seller terms are not reconfirmed.",
+          "value": "From the August 2023 partner terms: a non-exclusive licence.",
           "state": "variable",
           "source_url": "https://designbundles.net/designer-termsconditions",
           "checked_at": "2026-09-30"
@@ -44432,7 +44432,7 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "Official pricing lists Starter at $399/month billed yearly ($4,788/year) or $499 monthly. Its 2026 comparison page lists $149/month billed yearly or $199 monthly. Growth pricing matches at $1,500/$1,750; current Starter price is unclear.",
+          "value": "Bettermode's pricing page lists Starter at $399/month billed yearly ($4,788/year) or $499 monthly. Its 2026 comparison page lists Starter at $149/month billed yearly or $199 monthly. Both list Growth at $1,500/$1,750.",
           "state": "variable",
           "source_url": "https://home.bettermode.com/pricing",
           "checked_at": "2026-09-30"
@@ -45507,7 +45507,7 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "Premium is $29/month; official guides conflict on whether billing is per community or per account.",
+          "value": "Premium is $29/month. LaunchPass guides disagree on whether that's per community or per account.",
           "state": "variable",
           "source_url": "https://help.launchpass.com/en/articles/1745573-step-3-select-your-launchpass-plan-complete-pricing-guide",
           "checked_at": "2026-09-30"
@@ -45556,7 +45556,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Premium fee is 3.5%; official guides conflict on whether the $29 monthly plan fee is per community or per account. Former Premium users on Free may pay 12.5%.",
+      "comparison_basis": "Premium fee is 3.5%. LaunchPass guides disagree on whether the $29 monthly plan fee is per community or per account. Former Premium users on Free may pay 12.5%.",
       "fee_percent": 3.5,
       "fee_basis": "LaunchPass fee per paid transaction; Stripe processing is additional",
       "sort_order": 16,
@@ -46208,7 +46208,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "US sellers, USD. The current Terms list 3–7% + $0.30–$0.40 processing and possible 10% flat above $30; the pricing page lists 3–10% + $0.30–$0.40. The official pages conflict.",
+      "comparison_basis": "US sellers, USD. SubscribeStar's terms list 3–7% + $0.30–$0.40 processing, and possibly a flat 10% above $30. Its pricing page lists 3–10% + $0.30–$0.40.",
       "fee_percent": 5,
       "fee_basis": "Regular creator platform fee; payment processing and payout costs vary",
       "sort_order": 22,
@@ -47226,14 +47226,14 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "Jan 2025 Terms list no separate creator plan price; current pricing is unconfirmed.",
+          "value": "No separate creator plan price, per OnlyFans' January 2025 terms. The current terms wouldn't load.",
           "state": "variable",
           "source_url": "https://archive.ph/6mux7",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-2",
-          "value": "Jan 2025 Terms charge 20% of fan payments; current rate is unconfirmed.",
+          "value": "20% of fan payments, per OnlyFans' January 2025 terms.",
           "state": "variable",
           "source_url": "https://archive.ph/6mux7",
           "checked_at": "2026-09-30"
@@ -47254,7 +47254,7 @@
         },
         {
           "key": "fact-5",
-          "value": "Jan 2025 Terms require 18+, valid ID and two photos for creators; current rules are unconfirmed.",
+          "value": "Creators must be 18+ with valid ID and two photos, per the January 2025 terms.",
           "state": "variable",
           "source_url": "https://archive.ph/6mux7",
           "checked_at": "2026-09-30"
@@ -47271,14 +47271,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "The Jan 13, 2025 capture of OnlyFans Terms sets a 20% fee on fan payments. It lists no separate creator plan price, requires a minimum balance for withdrawal without stating the amount or schedule, and says bank or e-wallet charges can vary. It requires creators to be 18+ and submit ID and two photos. Current Terms were inaccessible, so current conditions remain unconfirmed.",
+      "comparison_basis": "OnlyFans' terms from Jan 13, 2025 set a 20% fee on fan payments. They list no separate creator plan price, require a minimum balance to withdraw without giving the amount or schedule, and say bank or e-wallet charges vary. Creators must be 18+ and submit ID and two photos. The current terms wouldn't load.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 0,
       "card": {
         "owner": "OnlyFans",
         "tag": "Fan subscriptions",
-        "note": "The current OnlyFans terms could not be read. The 20% comes from January 2025.",
+        "note": "The current OnlyFans terms wouldn't load. The 20% comes from January 2025.",
         "take": {
           "value": "20%",
           "percent": null,
@@ -47444,7 +47444,7 @@
         },
         {
           "key": "fact-3",
-          "value": "Creator-side processing rate is not published; 2024 fan Payment Terms list a 13% card surcharge, not reconfirmed in 2026 Creator Terms.",
+          "value": "FanFix doesn't publish a creator processing rate. Its 2024 fan payment terms list a 13% card surcharge; the 2026 creator terms don't mention it.",
           "state": "not_public",
           "source_url": "https://auth.fanfix.io/payment-terms-condition",
           "checked_at": "2026-09-30"
@@ -47543,7 +47543,7 @@
         },
         {
           "key": "fact-2",
-          "value": "Standard: 10%; Creators+ Help Center: 20%; Shop: 0%. Shop article says DMs/exclusive content remain 10%, conflicting with Help Center scope.",
+          "value": "Standard: 10%; Creators+: 20% per the Help Center; Shop: 0%. The Shop article says DMs and exclusive content stay at 10%, which differs from the Help Center.",
           "state": "variable",
           "source_url": "https://help.passes.com/article/8cd9e3ec-creators-plan",
           "checked_at": "2026-09-30"
@@ -47597,14 +47597,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Official pages list 10% standard, 20% Creators+, and 0% Shop. The Help Center and Shop article conflict on DMs and exclusive content.",
+      "comparison_basis": "Passes' pages list 10% standard, 20% Creators+, and 0% Shop. The Help Center and Shop article disagree on DMs and exclusive content.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 3,
       "card": {
         "owner": "Passes",
         "tag": "Memberships and paid content",
-        "note": "Passes’ pages disagree on which sales the 20% Creators+ rate covers.",
+        "note": "Passes' pages disagree on which sales the 20% Creators+ rate covers.",
         "take": {
           "value": "10%",
           "percent": null,
@@ -48022,28 +48022,28 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "Current creator signup cost could not be verified because official pages were inaccessible.",
+          "value": "Unknown. JustForFans' official pages wouldn't load.",
           "state": "unverified",
           "source_url": "https://justfor.fans/",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-2",
-          "value": "Last-accessible official commission article (Dec 2021): performers received 80% across sales; exclusive-program performers received 85% on selected sales. Current share is unconfirmed.",
+          "value": "From a December 2021 JustForFans article: performers got 80% across sales, and exclusive-program performers got 85% on selected sales.",
           "state": "variable",
           "source_url": "https://fanshelp.freshdesk.com/support/solutions/articles/47001147016-what-percentage-of-sales-do-i-receive-",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-3",
-          "value": "Current creator-side processing rate could not be verified from accessible official pages.",
+          "value": "Unknown.",
           "state": "unverified",
           "source_url": "https://justfor.fans/",
           "checked_at": "2026-09-30"
         },
         {
           "key": "fact-4",
-          "value": "Last-accessible official payout article (July 2021): weekly or monthly payouts after a $50 minimum. Current schedule and fees are unconfirmed.",
+          "value": "From a July 2021 payout article: weekly or monthly payouts after a $50 minimum.",
           "state": "variable",
           "source_url": "https://fanshelp.freshdesk.com/support/solutions/articles/47001147024-how-often-do-you-pay-performers-",
           "checked_at": "2026-09-30"
@@ -48075,14 +48075,14 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Official articles last updated in 2021 list 80% standard and 85% on selected exclusive-program sales, plus weekly/monthly payouts above $50. Current rates and schedule are unconfirmed.",
+      "comparison_basis": "JustForFans articles last updated in 2021 list 80% standard and 85% on selected exclusive-program sales, plus weekly or monthly payouts above $50. Its current pages wouldn't load.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 7,
       "card": {
         "owner": "JustForFans",
         "tag": "Fan subscriptions",
-        "note": "JustForFans’ current pages could not be reached. These rates are from 2021.",
+        "note": "JustForFans' current pages wouldn't load. These rates are from 2021.",
         "take": {
           "value": "20%",
           "percent": null,
@@ -48092,7 +48092,7 @@
         "lines": [
           {
             "label": "Site",
-            "value": "Could not load",
+            "value": "Wouldn't load",
             "fact_key": "fact-1"
           },
           {
@@ -48249,7 +48249,7 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "Account is free; registration guide says 5 media for certification, while the separate certification page says 3.",
+          "value": "Free account. MYM's registration guide says certification needs 5 media items; its certification page says 3.",
           "state": "variable",
           "source_url": "https://support.mym.fans/hc/en-us/articles/4410309344018-Registration",
           "checked_at": "2026-09-30"
@@ -48277,7 +48277,7 @@
         },
         {
           "key": "fact-5",
-          "value": "Creators must be 18+ and provide ID, selfie and contact details; official guides conflict on certification media (3 vs 5).",
+          "value": "Creators must be 18+ and give ID, a selfie, and contact details.",
           "state": "variable",
           "source_url": "https://support.mym.fans/hc/en-us/articles/360014054079-Certification",
           "checked_at": "2026-09-30"
@@ -48310,7 +48310,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Standard creator fees apply after a 7% transaction charge; official certification guides conflict on the required media count.",
+      "comparison_basis": "Standard creator fees apply after a 7% transaction charge. MYM's certification guides disagree on how many media items are needed.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 9,
@@ -48361,7 +48361,7 @@
                 "value": "20%",
                 "percent": 20,
                 "label": "Private media and tips",
-                "note": "Also shows",
+                "note": "Also covers shows",
                 "fact_key": "fact-2"
               }
             ]
@@ -49100,7 +49100,7 @@
         },
         {
           "key": "fact-2",
-          "value": "At 1,000 members, Publisher is $29/month billed annually. The comparison table lists Starter/Publisher at 1,000, Business at 10,000, Custom unlimited; the overview conflicts on Business.",
+          "value": "At 1,000 members, Publisher is $29/month billed yearly. The comparison table lists Starter and Publisher at 1,000, Business at 10,000, and Custom unlimited; the overview page gives a different figure for Business.",
           "state": "variable",
           "source_url": "https://ghost.org/pricing",
           "checked_at": "2026-09-30"
@@ -49603,7 +49603,7 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "Current product docs describe a site, newsletter and subscriber list, not paid memberships. Terms allow publisher transactions, but current paid-feature availability is unclear.",
+          "value": "Paragraph's product docs describe a site, newsletter, and subscriber list, not paid memberships. Its terms allow publisher transactions, but it's not clear if paid features are available now.",
           "state": "variable",
           "source_url": "https://paragraph.com/terms-of-use",
           "checked_at": "2026-09-30"
@@ -49664,7 +49664,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Current product docs describe publishing and newsletters; terms permit publisher transactions, but current paid-membership availability, fees and processor are not confirmed.",
+      "comparison_basis": "Paragraph's product docs describe publishing and newsletters. Its terms allow publisher transactions, but they don't describe paid memberships, fees, or a processor.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 7,
@@ -49691,7 +49691,7 @@
           },
           {
             "label": "Paid features",
-            "value": "Unclear",
+            "value": "Not clear",
             "fact_key": "fact-1"
           }
         ],
@@ -50353,7 +50353,7 @@
         },
         {
           "key": "fact-5",
-          "value": "July 2026 payout guide conflicts: cadence section says verified streamers may choose weekly/monthly, others monthly; FAQ says monthly except local weekly/daily rules. Country thresholds vary.",
+          "value": "Kick's July 2026 payout guide says two things: one section says verified streamers can pick weekly or monthly payouts and others get monthly; its FAQ says monthly, except where local rules allow weekly or daily. Thresholds vary by country.",
           "state": "variable",
           "source_url": "https://help.kick.com/en/articles/15159725-kick-payout-schedule-thresholds-and-methods",
           "checked_at": "2026-09-30"
@@ -50370,7 +50370,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Subscription price is $5 USD. The July 2026 payout guide conflicts on weekly versus monthly cadence; country thresholds and local rules vary.",
+      "comparison_basis": "Subscription price is $5 USD. Kick's July 2026 payout guide disagrees with itself on weekly versus monthly payouts. Thresholds and local rules vary by country.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 2,
@@ -50771,7 +50771,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Subscription rates above $50K conflict across English and Spanish official help (90% vs 80%). Subscription payout timing also conflicts: Spanish says about 60 days after month-end, English says up to 90 days. Original Content Rewards is separate from the Revenue Sharing program that ended Sep 7, 2026.",
+      "comparison_basis": "X's English and Spanish help pages disagree on subscription rates above $50K: 90% versus 80%. They also disagree on payout timing: about 60 days after month-end in Spanish, up to 90 days in English. Original Content Rewards is separate from the Revenue Sharing program that ended Sep 7, 2026.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 6,
@@ -51702,7 +51702,7 @@
         },
         {
           "key": "fact-2",
-          "value": "Current Help Center does not publish the Series fee rate; 2022 Spanish terms list historical fee categories.",
+          "value": "TikTok's Help Center doesn't list the Series fee rate. Its 2022 Spanish terms list older fee categories.",
           "state": "not_public",
           "source_url": "https://support.tiktok.com/en/business-and-creator/tiktok-series/about-tiktok-series",
           "checked_at": "2026-09-30"
@@ -51744,7 +51744,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Current Help pages confirm Series eligibility, video limits and payout timing but do not publish the creator fee schedule. The 2022 Spanish terms list historical fee categories and are not used as current rates.",
+      "comparison_basis": "TikTok's Help pages cover Series eligibility, video limits, and payout timing but don't list creator fees. The 2022 Spanish terms list older fee categories, which aren't used here as current rates.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 15,
@@ -52532,7 +52532,7 @@
       "id": "selling-video-subscriptions-rentals-and-downloads--gudsho",
       "section_id": "selling-video-subscriptions-rentals-and-downloads",
       "name": "GUDSHO",
-      "summary": "Video hosting and marketing service; current paid VOD monetization is unconfirmed.",
+      "summary": "Video hosting and marketing service. It's not clear if it sells paid video directly.",
       "website_url": "https://www.gudsho.com/",
       "icon_path": "/platform-fees/icons/www-gudsho-com.ico",
       "facts": [
@@ -52599,7 +52599,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Current official pages do not confirm native paid-VOD checkout or publish a transaction-fee schedule. GudSho promotes embedding exclusive videos on membership sites; the official VOD blog is general education, not a product or fee specification.",
+      "comparison_basis": "GudSho's pages don't describe a built-in paid video checkout or list transaction fees. GudSho promotes embedding exclusive videos on membership sites; its VOD blog is general advice, not a product or fee page.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 6,
@@ -53103,7 +53103,7 @@
         },
         {
           "key": "fact-4",
-          "value": "Acast+ terms dated Oct 2022 list a 15% admin fee plus Stripe processing; current applicability is unconfirmed.",
+          "value": "From Acast+ terms dated October 2022: a 15% admin fee plus Stripe processing.",
           "state": "variable",
           "source_url": "https://www.acast.com/terms-and-conditions-acast-plus",
           "checked_at": "2026-09-30"
@@ -53139,7 +53139,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "US creator plans, USD. Standard creator terms give Acast 50% of net ad revenue. Advanced deals use separate term sheets; current Advanced terms may add a variable CPM for HLS. Acast+ terms dated October 2022 list a 15% admin fee plus Stripe processing; current applicability is unconfirmed.",
+      "comparison_basis": "US creator plans, USD. Standard creator terms give Acast 50% of net ad revenue. Advanced deals use separate term sheets; current Advanced terms may add a variable CPM for HLS. Acast+ terms dated October 2022 list a 15% admin fee plus Stripe processing.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 4,
@@ -54802,7 +54802,7 @@
         },
         {
           "key": "fact-4",
-          "value": "Terms say Rp5,000 per withdrawal; Help Center says queued withdrawals are free and instant withdrawals cost Rp5,000. Official sources conflict.",
+          "value": "Trakteer's terms say Rp5,000 per withdrawal. Its Help Center says queued withdrawals are free and instant ones cost Rp5,000.",
           "state": "variable",
           "source_url": "https://new.trakteer.id/terms",
           "checked_at": "2026-09-30"
@@ -56171,7 +56171,7 @@
         },
         {
           "key": "fact-2",
-          "value": "The recently updated mentor FAQ says there is no commission; the Terms say GrowthMentor currently retains 15%. The official pages conflict.",
+          "value": "GrowthMentor's recently updated mentor FAQ says there's no commission. Its Terms say it currently keeps 15%.",
           "state": "variable",
           "source_url": "https://www.growthmentor.com/faq/how-do-mentors-get-paid",
           "checked_at": "2026-09-30"
@@ -56202,7 +56202,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Mentor payouts; the current FAQ and Terms state conflicting commission rates.",
+      "comparison_basis": "Mentor payouts. GrowthMentor's FAQ and Terms give different commission rates.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 4,
@@ -58087,7 +58087,7 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "Published table lists 20% on $0–$300, 10% on $301–$3,000, and 5% from $3,000 per client. Prose says 5% applies above $3,000, leaving that exact boundary ambiguous.",
+          "value": "Workana's table lists 20% on $0–$300, 10% on $301–$3,000, and 5% from $3,000 per client. Its text says 5% applies above $3,000, so it's not clear which rate applies at exactly $3,000.",
           "state": "verified",
           "source_url": "https://help.workana.com/hc/en-us/articles/360041235874-How-is-the-commission-calculated-at-Workana",
           "checked_at": "2026-09-30"
@@ -58987,7 +58987,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "The official platform update from May 2014 raised the completed-commission fee to 15% and said automatic payouts, when used, ran on the 15th of the month. These are historical figures, not confirmed current terms. Current public seller pages show active commission listings but do not publish a current seller fee, signup cost, payment-provider charge or payout schedule.",
+      "comparison_basis": "An official update from May 2014 raised the completed-commission fee to 15% and said automatic payouts, when used, ran on the 15th of the month. These are 2014 figures. Current seller pages show active commission listings but don't list a seller fee, sign-up cost, payment charge, or payout schedule.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 13,
@@ -59199,7 +59199,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Artistree’s official seller guide covers custom digital products and services delivered through its request forms. Artists can apply separately to the marketplace, where Artistree verifies applicants. Its public seller pages reviewed do not state commission, required plan cost, payment-processing charges or payout timing. Third-party fee claims are excluded.",
+      "comparison_basis": "Artistree's seller guide covers custom digital products and services delivered through its request forms. Artists can apply separately to the marketplace, where Artistree checks applicants. Its public seller pages don't list commission, plan cost, processing charges, or payout timing. Fee claims from other sites aren't used here.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 15,
@@ -61147,7 +61147,7 @@
         },
         {
           "key": "fact-3",
-          "value": "Cash-out eligibility is required, but official sources conflict: the user page says Creator Score >10K plus Green; the developer guide says ≥40K plus Bronze/Silver/Gold and excludes Founder/Free.",
+          "value": "You must qualify to cash out, but Civitai's pages disagree: the user page says Creator Score over 10K plus Green; the developer guide says 40K or more plus Bronze, Silver, or Gold, and excludes Founder and Free.",
           "state": "variable",
           "source_url": "https://civitai.red/creator-program",
           "checked_at": "2026-09-30"
@@ -61182,7 +61182,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Current extraction fees are 0% on the first 100,000 Buzz, then 5%, 10%, and 15% across higher brackets. Official user and developer guides conflict on score and membership eligibility; threshold is unresolved. Payout-partner invitation follows $50 Ready to Withdraw.",
+      "comparison_basis": "Extraction fees are 0% on the first 100,000 Buzz, then 5%, 10%, and 15% in higher brackets. Civitai's user and developer guides disagree on the score and membership needed. You're invited to the payout partner after $50 is Ready to Withdraw.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 4,
@@ -62133,7 +62133,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Amazon says royalty is the product offer price less applicable tax and Amazon costs; the exact product-level schedule is linked from the Developer page but requires account access. The accessible page confirms a free account, Amazon product pages, worldwide shipping and customer service.",
+      "comparison_basis": "Amazon says royalty is the offer price minus tax and Amazon costs. The product-level schedule needs account access. The public page shows a free account, Amazon product pages, worldwide shipping, and customer service.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 7,
@@ -62738,7 +62738,7 @@
         },
         {
           "key": "fact-2",
-          "value": "Premium is $39/month. Annual prices conflict: pricing page $24.99/month billed annually, Help $299/year, Terms $299.88/year; exact annual charge is unresolved.",
+          "value": "Premium is $39/month. Printify's pages give different yearly prices: the pricing page says $24.99/month billed yearly, Help says $299/year, and the Terms say $299.88/year.",
           "state": "variable",
           "source_url": "https://printify.com/pricing/",
           "checked_at": "2026-09-30"
@@ -62796,7 +62796,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "USD. Premium costs $39/month. Official sources conflict on annual billing: the pricing page shows $24.99/month billed annually, Help says $299/year, and the Terms list $299.88/year; the exact annual charge is unresolved. Connected stores pay the seller directly; Printify separately bills production and shipping. Pop-Up Store terms are distinct.",
+      "comparison_basis": "USD. Premium costs $39/month. Printify's pages give different yearly prices: the pricing page says $24.99/month billed yearly, Help says $299/year, and the Terms say $299.88/year. Connected stores pay the seller directly; Printify separately bills production and shipping. Pop-Up Store terms are distinct.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 13,
@@ -63273,7 +63273,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "The official earnings table is effective November 1, 2023 and was last updated January 28, 2024; no newer schedule was confirmed. It lists 50% fine-art print earnings, 30% for most other items, and $5 for frames. Promotions or artist-set print prices can change earnings. Balances clear after 30 days; PayPal transfers may take up to 30 business days after request.",
+      "comparison_basis": "The official earnings table took effect November 1, 2023 and was last updated January 28, 2024. It lists 50% fine-art print earnings, 30% for most other items, and $5 for frames. Promotions or artist-set print prices can change earnings. Balances clear after 30 days; PayPal transfers may take up to 30 business days after request.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 18,
@@ -64725,7 +64725,7 @@
         },
         {
           "key": "fact-5",
-          "value": "IVA treatment is unclear: the current pricing page omits it on standard rates; an 11 May 2026 official article adds it.",
+          "value": "Mercado Pago's pricing page doesn't add IVA to standard rates; an official article from 11 May 2026 does. So it's not clear if IVA applies on top.",
           "state": "variable",
           "source_url": "https://www.mercadopago.com.mx/blog/link-de-cobro-hot-sale",
           "checked_at": "2026-09-30"
@@ -64742,7 +64742,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Mexico, MXN, one-time Payment Links. Cards, wallet and SPEI are 3.49%, 3.19% or 2.95% by release time, plus MXN 4; Oxxo/cash is 3.79% plus MXN 4. The main fee page does not add IVA to those rates, while an official 11 May 2026 article does. Tax treatment is unclear. Installment fees separately show IVA. Some new sellers start at seven-day release; international card pricing is not listed.",
+      "comparison_basis": "Mexico, MXN, one-time Payment Links. Cards, wallet and SPEI are 3.49%, 3.19% or 2.95% by release time, plus MXN 4; Oxxo/cash is 3.79% plus MXN 4. The main fee page doesn't add IVA to those rates, while an official 11 May 2026 article does. Installment fees show IVA separately. Some new sellers start at seven-day release; international card pricing is not listed.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 10,
@@ -64777,7 +64777,7 @@
           },
           {
             "label": "IVA",
-            "value": "Unclear",
+            "value": "Not clear",
             "fact_key": "fact-5"
           }
         ],
@@ -65104,7 +65104,7 @@
         },
         {
           "key": "fact-4",
-          "value": "7-day hold; next-business-day transfer. Official sources conflict: THB20 up to THB2M in pricing/transfer guide; May 27 FAQ says THB30 below THB2M and THB150 above, plus a bank fee.",
+          "value": "7-day hold; transfers arrive the next business day. Opn's pricing page and transfer guide say THB20 up to THB2M; its May 27 FAQ says THB30 below THB2M and THB150 above, plus a bank fee.",
           "state": "variable",
           "source_url": "https://docs.omise.co/how-much-does-omise-cost",
           "checked_at": "2026-09-30"
@@ -65136,7 +65136,7 @@
         }
       ],
       "checked_at": "2026-09-30",
-      "comparison_basis": "Thailand, THB. The pricing page says displayed payment rates are subject to 7% VAT: cards/installments 3.65%, PromptPay 1.65%, mobile banking/direct debit THB10. Funds are held seven days; transfers are sent once daily and reach the bank next business day. Pricing and the transfer guide say THB20 up to THB2M and THB150 above; the latest cost FAQ (27 May 2026) says THB30 below THB2M and THB150 above, plus a bank fee over THB2M. Official sources conflict on the lower transfer tier. Other market rates differ.",
+      "comparison_basis": "Thailand, THB. The pricing page says displayed payment rates are subject to 7% VAT: cards/installments 3.65%, PromptPay 1.65%, mobile banking/direct debit THB10. Funds are held seven days; transfers are sent once daily and reach the bank next business day. Pricing and the transfer guide say THB20 up to THB2M and THB150 above; the latest cost FAQ (27 May 2026) says THB30 below THB2M and THB150 above, plus a bank fee over THB2M. Other market rates differ.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 13,
