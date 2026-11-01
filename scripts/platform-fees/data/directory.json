@@ -12367,7 +12367,7 @@
         }
       ],
       "checked_at": "2026-11-01",
-      "comparison_basis": "USD plan pricing. Beacons' Max plan article says $90/mo or $900/yr; its pricing page shows $100/mo, or $900/yr ($83.3/mo).",
+      "comparison_basis": "USD plan pricing. Max is $100/mo or $1,000/yr ($83.3/mo billed yearly). Card processing is separate.",
       "fee_percent": null,
       "fee_basis": null,
       "sort_order": 9,
