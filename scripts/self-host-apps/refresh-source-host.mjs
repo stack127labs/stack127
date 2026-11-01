@@ -3,15 +3,20 @@
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { licenseTypeFromSpdx } from "./lib/schema.mjs";
+import { pathToFileURL } from "node:url";
+import { jobSummary } from "./lib/job-summary.mjs";
 
 const supportedHosts = new Set(["gitlab", "codeberg"]);
 
 function repositoryPath(value, host) {
   const url = new URL(value);
+  if (url.protocol !== "https:" || url.username || url.password) throw new Error(`Invalid ${host} repository URL`);
   const parts = url.pathname.split("/").filter(Boolean).map((part) => part.replace(/\.git$/i, ""));
   if (host === "gitlab") {
     const separator = parts.indexOf("-");
-    return (separator >= 2 ? parts.slice(0, separator) : parts).join("/");
+    const repositoryParts = separator >= 2 ? parts.slice(0, separator) : parts;
+    if (repositoryParts.length < 2) throw new Error("Invalid gitlab repository URL");
+    return repositoryParts.join("/");
   }
   if (parts.length < 2) throw new Error(`Invalid ${host} repository URL`);
   return `${parts[0]}/${parts[1]}`;
@@ -20,16 +25,29 @@ function repositoryPath(value, host) {
 async function fetchJson(url, token) {
   const headers = { Accept: "application/json", "User-Agent": "stack127-source-refresh/1.0" };
   if (token) headers.Authorization = `Bearer ${token}`;
-  const response = await fetch(url, { headers });
-  if (!response.ok) throw new Error(`${response.status}: ${url}`);
-  return response.json();
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      // Refuse redirects so credentials cannot cross instance boundaries.
+      const response = await fetch(url, { headers, redirect: "error", signal: AbortSignal.timeout(20_000) });
+      if (!response.ok) {
+        const error = new Error(`${response.status}: ${url}`);
+        error.status = response.status;
+        throw error;
+      }
+      return await response.json();
+    } catch (error) {
+      if (attempt === 2 || (error.status && ![408, 429].includes(error.status) && error.status < 500)) throw error;
+      await new Promise((resolve) => setTimeout(resolve, 500 * 2 ** attempt));
+    }
+  }
 }
 
 async function optionalJson(url, token) {
   try {
     return await fetchJson(url, token);
-  } catch {
-    return null;
+  } catch (error) {
+    if (error.status === 404) return null;
+    throw error;
   }
 }
 
@@ -48,11 +66,12 @@ function normalizedLicense(value) {
   return license;
 }
 
-async function gitlabFacts(row) {
+export async function gitlabFacts(row) {
   const path = repositoryPath(row.source_code_url, "gitlab");
   const id = encodeURIComponent(path);
-  const token = process.env.GITLAB_TOKEN ?? "";
-  const base = `https://gitlab.com/api/v4/projects/${id}`;
+  const origin = new URL(row.source_code_url).origin;
+  const token = origin === "https://gitlab.com" ? process.env.GITLAB_TOKEN ?? "" : "";
+  const base = `${origin}/api/v4/projects/${id}`;
   const [project, languages, release, commits] = await Promise.all([
     fetchJson(`${base}?license=true`, token),
     optionalJson(`${base}/languages`, token),
@@ -243,11 +262,13 @@ async function main() {
       }
     }
 
-    console.log(JSON.stringify({ host, dry_run: Boolean(args["dry-run"]), selected: rows.length, refreshed, failures }, null, 2));
+    console.log(JSON.stringify({ host, dry_run: Boolean(args["dry-run"]), selected: rows.length, refreshed, failed: failures.length, failures }, null, 2));
+    jobSummary(`${host} facts`, { Selected: rows.length, Refreshed: refreshed, Failed: failures.length, "Dry run": Boolean(args["dry-run"]) }, failures);
+    if (failures.length) process.exitCode = 1;
   }, args["database-url"]);
 }
 
-main().catch((error) => {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((error) => {
   console.error(error);
   process.exit(1);
 });

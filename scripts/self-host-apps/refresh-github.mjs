@@ -5,6 +5,8 @@ import { withClient } from "./lib/db.mjs";
 import { execFileSync } from "node:child_process";
 import { parseRepo } from "./lib/github.mjs";
 import { licenseTypeFromSpdx, sourceModelFromSpdx } from "./lib/schema.mjs";
+import { pathToFileURL } from "node:url";
+import { jobSummary } from "./lib/job-summary.mjs";
 
 const githubGraphqlUrl = "https://api.github.com/graphql";
 let cachedGithubToken;
@@ -131,31 +133,42 @@ function repositoryQuery(rows) {
   return `query Stack127SelfHostGitHubRefresh {${fields}}`;
 }
 
-async function githubGraphql(query) {
+export async function githubGraphql(query) {
   const token = githubToken();
   if (!token) throw new Error("GITHUB_TOKEN is required for scheduled GitHub fact refresh.");
 
-  const response = await fetch(githubGraphqlUrl, {
-    method: "POST",
-    headers: {
-      Accept: "application/vnd.github+json",
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-      "User-Agent": "stack127-self-host-apps",
-    },
-    body: JSON.stringify({ query }),
-  });
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      const response = await fetch(githubGraphqlUrl, {
+        method: "POST",
+        headers: {
+          Accept: "application/vnd.github+json",
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+          "User-Agent": "stack127-self-host-apps",
+        },
+        body: JSON.stringify({ query }),
+        signal: AbortSignal.timeout(30_000),
+      });
 
-  const payload = await response.json();
-  if (!response.ok || payload.errors?.length) {
-    const message = payload.errors?.map((error) => error.message).join("; ") ?? `GitHub ${response.status}`;
-    throw new Error(message);
+      const payload = await response.json();
+      if (!response.ok || !payload.data || payload.errors?.some((error) => !error.path?.length)) {
+        const message = payload.errors?.map((error) => error.message).join("; ") ?? `GitHub ${response.status}`;
+        const error = new Error(message);
+        error.retryable = response.status === 429 || response.status >= 500;
+        throw error;
+      }
+
+      // GitHub returns successful aliases beside errors for deleted/private repos.
+      return payload;
+    } catch (error) {
+      if (attempt === 2 || error.retryable === false) throw error;
+      await new Promise((resolve) => setTimeout(resolve, 500 * 2 ** attempt));
+    }
   }
-
-  return payload.data;
 }
 
-async function rowsToRefresh(client, args) {
+export async function rowsToRefresh(client, args) {
   if (args.repo) return [{ slug: args.slug ?? args.repo, source_code_url: args.repo }];
   const limit = numberArg(args, "limit", 500);
   const params = [];
@@ -178,11 +191,11 @@ async function rowsToRefresh(client, args) {
 
   const result = await client.query(
     `
-      select app.slug, app.source_code_url, app.github_owner, app.github_repo
+      select app.slug, app.source_code_url, app.github_owner, app.github_repo, app.github_project_id
       from public.self_host_apps app
       left join public.github_projects project on project.id = app.github_project_id
       ${where}
-      order by project.checked_at nulls first, app.slug
+      order by greatest(project.last_attempt_at, project.checked_at) nulls first, app.slug
       ${args.all ? "" : `limit $${params.length + 1}`}
     `,
     args.all ? params : [...params, limit],
@@ -190,7 +203,7 @@ async function rowsToRefresh(client, args) {
   return result.rows;
 }
 
-async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) {
+export async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) {
   if (!repository) throw new Error("repository not found or inaccessible");
 
   const owner = String(row.github_owner ?? "").trim().toLowerCase();
@@ -254,11 +267,11 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
           stars, forks, watchers, open_issues, primary_language, languages, topics,
           created_at, updated_at, pushed_at, default_branch, repo_size_kb, archived,
           disabled, is_fork, is_template, latest_release, latest_release_at,
-          last_commit_at, license_spdx_id, checked_at, source_url
+          last_commit_at, license_spdx_id, checked_at, source_url, last_attempt_at, consecutive_failures
         ) values (
           $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13::jsonb,
           $14::text[], $15, $16, $17, $18, $19, $20, $21, $22, $23, $24,
-          $25, $26, $27, $28, $29
+          $25, $26, $27, $28, $29, $28, 0
         )
         on conflict (owner, repo) do update set
           full_name = excluded.full_name,
@@ -287,6 +300,8 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
           last_commit_at = excluded.last_commit_at,
           license_spdx_id = excluded.license_spdx_id,
           checked_at = excluded.checked_at,
+          last_attempt_at = excluded.last_attempt_at,
+          consecutive_failures = 0,
           source_url = excluded.source_url,
           row_updated_at = now()
         returning id
@@ -348,16 +363,43 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
   }
 }
 
+export async function writeFailureAttempt(client, row, attemptedAt, dryRun) {
+  if (dryRun) return;
+  const owner = String(row.github_owner ?? "").trim().toLowerCase();
+  const repo = String(row.github_repo ?? "").trim().replace(/\.git$/i, "").toLowerCase();
+  if (!owner || !repo) {
+    if (!row.github_project_id) throw new Error(`Cannot record failed attempt for ${row.slug}: missing repository identity`);
+    await client.query(`update public.github_projects set last_attempt_at = $2, consecutive_failures = consecutive_failures + 1 where id = $1`, [row.github_project_id, attemptedAt]);
+    return;
+  }
+  const result = await client.query(`
+    insert into public.github_projects (owner, repo, full_name, repository_url, last_attempt_at, consecutive_failures)
+    values ($1, $2, $1 || '/' || $2, $3, $4, 1)
+    on conflict (owner, repo) do update set
+      last_attempt_at = excluded.last_attempt_at,
+      consecutive_failures = github_projects.consecutive_failures + 1
+    returning id
+  `, [owner, repo, `https://github.com/${owner}/${repo}`, attemptedAt]);
+  // Even a previously unlinked repository must move to the back of the queue.
+  // Do not change checked_at or any app fact/verification date on failure.
+  await client.query(`update public.self_host_apps set github_project_id = $2 where slug = $1 and github_project_id is distinct from $2::uuid`, [row.slug, result.rows[0].id]);
+}
+
 async function main() {
   const args = parseArgs();
-  const batchSize = Math.min(numberArg(args, "batch-size", 40), 80);
+  const batchSize = Math.max(1, Math.min(numberArg(args, "batch-size", 40), 80));
   const checkedAt = new Date().toISOString();
 
   await withClient(async (client) => {
     const rows = await rowsToRefresh(client, args);
 
     let refreshed = 0;
-    let failed = 0;
+    const failures = [];
+    async function failed(row, error) {
+      failures.push({ slug: row.slug, repository: row.source_code_url, error: error.message });
+      console.warn(`warning ${row.slug}: ${error.message}`);
+      await writeFailureAttempt(client, row, checkedAt, Boolean(args["dry-run"]));
+    }
 
     for (let index = 0; index < rows.length; index += batchSize) {
       const selectedBatch = rows.slice(index, index + batchSize);
@@ -370,51 +412,46 @@ async function main() {
           row.github_repo = repo.repo;
           batch.push(row);
         } catch (error) {
-          failed += 1;
-          console.warn(`warning ${row.slug}: ${error.message}`);
+          await failed(row, error);
         }
       }
 
       if (batch.length === 0) continue;
-      let data;
+      let payload;
 
       try {
-        data = await githubGraphql(repositoryQuery(batch));
+        payload = await githubGraphql(repositoryQuery(batch));
       } catch (error) {
         console.warn(`warning batch ${index / batchSize + 1}: ${error.message}`);
         for (const row of batch) {
-          try {
-            const singleData = await githubGraphql(repositoryQuery([row]));
-            await writeRepositoryFacts(client, row, singleData.repo0, checkedAt, Boolean(args["dry-run"]));
-            refreshed += 1;
-            console.log(`Refreshed GitHub facts: ${row.slug}`);
-          } catch (singleError) {
-            failed += 1;
-            console.warn(`warning ${row.slug}: ${singleError.message}`);
-          }
+          await failed(row, error);
         }
         continue;
       }
 
       for (const [batchIndex, row] of batch.entries()) {
         try {
-          const repository = data[`repo${batchIndex}`];
+          const alias = `repo${batchIndex}`;
+          const repository = payload.data[alias];
+          const errors = payload.errors?.filter((error) => error.path?.[0] === alias);
+          if (errors?.length) throw new Error(errors.map((error) => error.message).join("; "));
           await writeRepositoryFacts(client, row, repository, checkedAt, Boolean(args["dry-run"]));
           refreshed += 1;
           console.log(`Refreshed GitHub facts: ${row.slug}`);
         } catch (error) {
-          failed += 1;
-          console.warn(`warning ${row.slug}: ${error.message}`);
+          await failed(row, error);
         }
       }
     }
 
     if (args["dry-run"]) console.log("Dry run OK. No GitHub facts committed.");
-    console.log(`GitHub refresh complete: ${refreshed} refreshed, ${failed} failed.`);
+    console.log(`GitHub refresh complete: ${refreshed} refreshed, ${failures.length} failed.`);
+    jobSummary("GitHub facts", { Selected: rows.length, Refreshed: refreshed, Failed: failures.length, "Dry run": Boolean(args["dry-run"]) }, failures);
+    if (failures.length) process.exitCode = 1;
   }, args["database-url"]);
 }
 
-main().catch((error) => {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((error) => {
   console.error(error.message);
   process.exit(1);
 });

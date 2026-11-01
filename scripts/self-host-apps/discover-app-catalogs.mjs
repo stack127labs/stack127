@@ -12,6 +12,7 @@ import {
   parseYunoHostAppsToml,
 } from "./lib/catalog-adapters.mjs";
 import { withClient } from "./lib/db.mjs";
+import { pathToFileURL } from "node:url";
 
 const catalogs = {
   truenas: {
@@ -27,7 +28,7 @@ const catalogs = {
   docker_hub: {
     source: "docker_hub",
     sourceUrl: "https://hub.docker.com/search",
-    searchUrl: "https://hub.docker.com/v2/search/repositories/",
+    searchUrl: "https://registry.hub.docker.com/v2/search/repositories/",
     queries: ["self-hosted", "selfhosted", "homelab", "home-server", "nas", "media-server", "homeassistant"],
   },
   unraid: {
@@ -80,12 +81,13 @@ async function fetchResponse(url, options = {}) {
   throw lastError ?? new Error(`Failed to fetch ${url}`);
 }
 
-async function fetchJson(url) {
+export async function fetchJson(url) {
+  const isGithubApi = new URL(url).origin === "https://api.github.com";
   const response = await fetchResponse(url, {
     headers: {
       Accept: "application/vnd.github+json, application/json",
       "User-Agent": "stack127-self-host-app-catalog-discovery/1.0",
-      ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
+      ...(isGithubApi && process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
     },
   });
   return response.json();
@@ -346,7 +348,7 @@ async function main() {
   if (Object.keys(report.errors).length > 0) process.exitCode = 1;
 }
 
-main().catch((error) => {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((error) => {
   console.error(error.stack ?? error.message);
   process.exit(1);
 });
