@@ -30,10 +30,10 @@ export const microsoftWord: AppShortcuts = {
   category: "Word processing",
   platforms: [...platforms],
   versionContext:
-    "Current Microsoft Word shortcut tables checked September 1, 2026. The official article uses U.S. keyboard layouts and separate Windows and Mac sections. Web, mobile, add-in, and custom shortcut behavior is outside this desktop record.",
+    "Current Microsoft Word shortcut tables checked November 1, 2026. The official article uses U.S. keyboard layouts and separate Windows and Mac sections. Web, mobile, add-in, and custom shortcut behavior is outside this desktop record.",
   sourceUrl: "https://support.microsoft.com/en-us/accessibility/word/keyboard-shortcuts-in-word",
   sourceLabel: "official Microsoft Word keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "document-and-editing",
@@ -56,7 +56,7 @@ export const microsoftWord: AppShortcuts = {
         pair("find", "Find text", ["Ctrl", "F"], ["Cmd", "F"]),
         pair("replace", "Find and replace text", ["Ctrl", "H"], ["Control", "H"]),
         windowsOnly("go-to", "Open the Go To dialog", ["Ctrl", "G"]),
-        macOnly("go-to-macos", "Open the Go To dialog", ["Cmd", "Option", "G"], "F5 is also documented."),
+        { id: "go-to-macos", action: "Open the Go To dialog", keys: [{ platform: "macos", keys: ["Cmd", "Option", "G"], alternatives: [["F5"]] }] },
         pair("cancel", "Cancel a command", ["Esc"], ["Esc"]),
         pair("split-window", "Split the document window", ["Ctrl", "Alt", "S"], ["Cmd", "Option", "S"]),
       ],

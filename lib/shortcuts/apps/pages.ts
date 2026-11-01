@@ -16,7 +16,7 @@ export const pages: AppShortcuts = {
     "Pages for Mac shortcuts from Apple's current Pages User Guide, checked September 1, 2026. Apple notes that portable Macs may require Fn and that paragraph, character, or list styles can also receive user-assigned shortcuts.",
   sourceUrl: "https://support.apple.com/guide/pages/keyboard-shortcuts-tanc0ffef022/mac",
   sourceLabel: "Apple Pages keyboard shortcuts for Mac",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "document",

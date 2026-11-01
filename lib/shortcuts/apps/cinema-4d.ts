@@ -26,7 +26,7 @@ export const cinema4d: AppShortcuts = {
     "Cinema 4D 2026 default shortcut table checked August 31, 2026. Maxon says macOS users press Command instead of Ctrl. Letter pairs are hierarchical shortcuts pressed in sequence. Command Manager presets and manager-specific assignments can change the active set.",
   sourceUrl: "https://help.maxon.net/c4d/2026/en-us/Content/html/Shortcuts.html",
   sourceLabel: "Cinema 4D 2026 keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "animation",

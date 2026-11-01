@@ -22,7 +22,7 @@ export const clipStudioPaint: AppShortcuts = {
     "Clip Studio Paint 5.0 default menu shortcuts at initial startup, checked August 31, 2026. The official guide describes Windows notation and directs macOS users to replace Control with Command and Alt with Option. Canvas switching retains the separately published Control-based Mac chords.",
   sourceUrl: "https://help.clip-studio.com/en-us/manual_en/780_shortcuts/Menu_Shortcuts.htm",
   sourceLabel: "Clip Studio Paint 5.0 menu shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "files-and-settings",

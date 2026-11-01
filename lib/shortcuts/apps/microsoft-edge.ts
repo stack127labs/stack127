@@ -23,10 +23,10 @@ export const microsoftEdge: AppShortcuts = {
   category: "Web browser",
   platforms: [...platforms],
   versionContext:
-    "Current Microsoft Edge desktop shortcuts checked September 1, 2026. The official table has separate Windows and Mac columns; some commands depend on the page type, such as PDF viewing, and extensions can add conflicts.",
+    "Current Microsoft Edge desktop shortcuts checked November 1, 2026. The official table has separate Windows and Mac columns; some commands depend on the page type, such as PDF viewing, and extensions can add conflicts.",
   sourceUrl: "https://support.microsoft.com/en-US/edge/keyboard-shortcuts-in-microsoft-edge",
   sourceLabel: "official Microsoft Edge keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "tabs-and-windows",
@@ -94,7 +94,6 @@ export const microsoftEdge: AppShortcuts = {
         pair("developer-console", "Open the developer console", ["Ctrl", "Shift", "J"], ["Cmd", "Option", "J"]),
         windowsOnly("feedback", "Send feedback", ["Alt", "Shift", "I"]),
         pair("focus-toolbar", "Focus the first item in the toolbar", ["Alt", "Shift", "T"], ["Cmd", "Option", "T"]),
-        pair("mute-tab", "Mute or unmute the current tab", ["Ctrl", "M"], ["Ctrl", "M"]),
         pair("profile", "Open the profile menu", ["Ctrl", "Shift", "M"], ["Cmd", "Shift", "M"]),
         windowsOnly("collections", "Open Collections", ["Ctrl", "Shift", "Y"]),
         pair("clear-browsing-data", "Open the clear browsing data dialog", ["Ctrl", "Shift", "Delete"], ["Cmd", "Shift", "Delete"]),

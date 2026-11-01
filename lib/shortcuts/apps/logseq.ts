@@ -35,10 +35,10 @@ export const logseq: AppShortcuts = {
   category: "Knowledge management",
   platforms: [...platforms],
   versionContext:
-    "Current default Logseq keymap source checked September 1, 2026. The project defines a platform-neutral `mod` modifier, which maps to Ctrl on Windows and Linux and Command on macOS. Users can change the keymap in Logseq settings or the source configuration.",
+    "Current default Logseq keymap source checked November 1, 2026. The project defines a platform-neutral `mod` modifier, which maps to Ctrl on Windows and Linux and Command on macOS. Users can change the keymap in Logseq settings or the source configuration.",
   sourceUrl: "https://github.com/logseq/logseq/blob/master/src/main/frontend/modules/shortcut/config.cljs",
   sourceLabel: "official Logseq shortcut configuration",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "block-editing",

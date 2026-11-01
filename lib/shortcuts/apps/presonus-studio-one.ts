@@ -3,10 +3,13 @@ import type { AppShortcuts, Shortcut } from "../types.ts";
 
 const platforms = ["windows", "macos"] as const;
 
-const dual = (id: string, action: string, pc: string[], mac: string[] = pc, note?: string): Shortcut => ({
+const dual = (id: string, action: string, pc: string[], mac?: string[], note?: string): Shortcut => ({
   id,
   action,
-  keys: perPlatform(platforms, { windows: pc, macos: mac }),
+  keys: perPlatform(platforms, {
+    windows: pc,
+    macos: mac ?? pc.map((key) => key === "Ctrl" ? "Cmd" : key === "Alt" ? "Option" : key),
+  }),
   ...(note ? { note } : {}),
 });
 
@@ -21,7 +24,7 @@ export const presonusStudioOne: AppShortcuts = {
     "Studio One Pro 7 Key Command Sheet checked September 1, 2026. The sheet says its commands are for PC, with Ctrl becoming Cmd on Mac and Alt becoming Option or Alt on Mac. Studio One lets users change commands in Options or General or Keyboard Shortcuts.",
   sourceUrl: "https://pae-web.presonusmusic.com/downloads/products/pdf/Studio_One_Pro_7_Key_Command_Sheet.pdf",
   sourceLabel: "official Studio One Pro 7 key command sheet",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "audio-and-automation",

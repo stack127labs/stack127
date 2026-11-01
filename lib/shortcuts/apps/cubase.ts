@@ -12,7 +12,7 @@ export const cubase: AppShortcuts = {
     "Cubase Pro 15.0 key commands checked September 1, 2026. Steinberg documents Windows and macOS defaults and allows users to customize or reset the key command preset.",
   sourceUrl: "https://www.steinberg.help/r/cubase-pro/15.0/en/cubase_nuendo/topics/key_commands/key_commands_default_c.html",
   sourceLabel: "official Cubase Pro 15.0 default key commands",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "files-and-editing",

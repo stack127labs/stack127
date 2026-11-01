@@ -16,10 +16,10 @@ export const webstorm: AppShortcuts = {
   category: "Code editor",
   platforms: [...platforms],
   versionContext:
-    "JetBrains WebStorm documentation and default reference cards checked September 1, 2026. The current WebStorm 2026.2 keymap is configurable, can be replaced by a plugin or another predefined map, and may vary with keyboard layout or operating-system conflicts.",
+    "JetBrains WebStorm documentation and default reference cards checked November 1, 2026. The current WebStorm 2026.2 keymap is configurable, can be replaced by a plugin or another predefined map, and may vary with keyboard layout or operating-system conflicts.",
   sourceUrl: "https://www.jetbrains.com/help/webstorm/mastering-keyboard-shortcuts.html",
   sourceLabel: "official WebStorm keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "search-and-navigation",

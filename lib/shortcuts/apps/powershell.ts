@@ -20,7 +20,7 @@ export const powershell: AppShortcuts = {
     "Current PSReadLine functions and key handlers documented by Microsoft in August 2026. The active edit mode controls many defaults: Windows mode is common on Windows, while Emacs is the default on non-Windows. Check Get-PSReadLineKeyHandler for the exact local map.",
   sourceUrl: "https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline_functions?view=powershell-7.6",
   sourceLabel: "official Microsoft PSReadLine functions",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "cursor-movement",

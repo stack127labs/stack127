@@ -21,7 +21,7 @@ export const clickup: AppShortcuts = {
     "Current ClickUp Help shortcut table checked August 31, 2026. Workspace shortcuts are disabled by default and must be enabled in personal settings. Most global commands require focus outside a text field. Chat and SyncUps commands depend on those ClickApps being available.",
   sourceUrl: "https://help.clickup.com/hc/en-us/articles/6309030550167-Use-keyboard-shortcuts",
   sourceLabel: "ClickUp keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "global-navigation",

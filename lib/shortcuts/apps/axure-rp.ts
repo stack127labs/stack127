@@ -18,10 +18,10 @@ export const axureRp: AppShortcuts = {
   category: "Prototyping and wireframing",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current Axure RP 11 keyboard shortcut reference checked August 31, 2026. Windows and Mac columns are preserved. Single-key shortcuts are enabled by default but can be disabled in Canvas preferences. Pointer gestures and modifier-only mouse behaviors are omitted.",
+    "Current Axure RP 11 keyboard shortcut reference checked November 1, 2026. Windows and Mac columns are preserved. Single-key shortcuts are enabled by default but can be disabled in Canvas preferences. Pointer gestures and modifier-only mouse behaviors are omitted.",
   sourceUrl: "https://docs.axure.com/axure-rp/reference/keyboard-shortcuts/",
   sourceLabel: "Axure RP 11 keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "common-text",

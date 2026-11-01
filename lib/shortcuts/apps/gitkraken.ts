@@ -12,7 +12,7 @@ const gitkraken: AppShortcuts = {
     "The current GitKraken Desktop reference documents Command for macOS and Control for Windows and Linux. Some keys act on the commit graph or the panel under focus, so the group notes call out those contexts.",
   sourceUrl: "https://help.gitkraken.com/gitkraken-desktop/keyboard-shortcuts/",
   sourceLabel: "official GitKraken Desktop keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "repository-work",
@@ -20,7 +20,7 @@ const gitkraken: AppShortcuts = {
       intro: "Fetch, stage, commit, and open repository tools while keeping the current GitKraken repository in focus.",
       shortcuts: [
         { id: "create-branch", action: "Create a branch", keys: combo(platforms, ["Ctrl", "B"], ["Cmd", "B"]) },
-        { id: "fetch-all", action: "Fetch all", keys: combo(platforms, ["L"]) },
+        { id: "fetch-all", action: "Fetch all", keys: combo(platforms, ["Ctrl", "L"], ["Cmd", "L"]) },
         { id: "stage-current", action: "Stage the current file", keys: combo(platforms, ["S"]) },
         { id: "stage-all", action: "Stage all files", keys: combo(platforms, ["Ctrl", "Shift", "S"], ["Cmd", "Shift", "S"]) },
         { id: "unstage-current", action: "Unstage the current file", keys: combo(platforms, ["U"]) },
@@ -38,12 +38,12 @@ const gitkraken: AppShortcuts = {
       title: "Graph navigation",
       intro: "Move through commits, branches, and panels with the graph navigation keys used by GitKraken Desktop.",
       shortcuts: [
-        { id: "previous-item", action: "Move to the previous graph item", keys: combo(platforms, ["J"]), note: "Down is also documented for this movement." },
-        { id: "next-item", action: "Move to the next graph item", keys: combo(platforms, ["K"]), note: "Up is also documented for this movement." },
-        { id: "move-right", action: "Move right in the graph", keys: combo(platforms, ["L"]), note: "Right is also documented for this movement." },
-        { id: "move-left", action: "Move left in the graph", keys: combo(platforms, ["H"]), note: "Left is also documented for this movement." },
-        { id: "next-branch", action: "Move to the next branch", keys: combo(platforms, ["Shift", "Down"], ["Shift", "J"]) },
-        { id: "previous-branch", action: "Move to the previous branch", keys: combo(platforms, ["Shift", "Up"], ["Shift", "K"]) },
+        { id: "previous-item", action: "Move to the previous graph item", keys: platforms.map((platform) => ({ platform, keys: ["J"], alternatives: [["Down"]] })) },
+        { id: "next-item", action: "Move to the next graph item", keys: platforms.map((platform) => ({ platform, keys: ["K"], alternatives: [["Up"]] })) },
+        { id: "move-right", action: "Move right in the graph", keys: platforms.map((platform) => ({ platform, keys: ["L"], alternatives: [["Right"]] })) },
+        { id: "move-left", action: "Move left in the graph", keys: platforms.map((platform) => ({ platform, keys: ["H"], alternatives: [["Left"]] })) },
+        { id: "next-branch", action: "Move to the next branch", keys: platforms.map((platform) => ({ platform, keys: ["Shift", "Down"], alternatives: [["Shift", "J"]] })) },
+        { id: "previous-branch", action: "Move to the previous branch", keys: platforms.map((platform) => ({ platform, keys: ["Shift", "Up"], alternatives: [["Shift", "K"]] })) },
         {
           id: "first-commit",
           action: "Move to the first commit",

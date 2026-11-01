@@ -12,7 +12,7 @@ export const brave: AppShortcuts = {
     "Documented defaults from the Brave Help Center checked August 26, 2026. The Windows and Linux table shares bindings, while macOS has its own table. Brave also allows shortcut changes in Settings, System, Shortcuts.",
   sourceUrl: "https://support.brave.app/hc/en-us/articles/360032272171-What-keyboard-shortcuts-can-I-use-in-Brave",
   sourceLabel: "official Brave keyboard shortcuts",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "tabs-and-windows",
@@ -41,7 +41,7 @@ export const brave: AppShortcuts = {
         { id: "close-window", action: "Close the current window", keys: combo(platforms, ["Ctrl", "Shift", "W"], ["Cmd", "Shift", "W"]) },
         { id: "minimize-window", action: "Minimize the current window", keys: perPlatform(platforms, { windows: ["Alt", "Space", "N"], macos: ["Cmd", "M"], linux: ["Alt", "Space", "N"] }) },
         { id: "maximize-window", action: "Maximize the current window", keys: perPlatform(platforms, { windows: ["Alt", "Space", "X"], linux: ["Alt", "Space", "X"] }), note: "No macOS shortcut is listed by Brave for this action." },
-        { id: "quit", action: "Quit Brave", keys: perPlatform(platforms, { windows: ["Alt", "F4"], macos: ["Cmd", "Q"], linux: ["Alt", "F4"] }), note: "On Windows and Linux, Alt+F then X is also documented." },
+        { id: "quit", action: "Quit Brave", keys: perPlatform(platforms, { windows: ["Alt", "F"], macos: ["Cmd", "Q"], linux: ["Alt", "F"] }), note: "On Windows and Linux, press Alt+F, then X." },
       ],
     },
     {

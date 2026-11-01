@@ -12,7 +12,7 @@ const freshdesk: AppShortcuts = {
     "The current Freshdesk support reference covers Freshdesk Omni accounts and notes that accounts created before December 2025 may see a different shortcut set. Shortcuts must be enabled from Profile > Keyboard Shortcuts.",
   sourceUrl: "https://support.freshdesk.com/support/solutions/articles/186758-keyboard-shortcuts-in-freshdesk",
   sourceLabel: "official Freshdesk keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "global-navigation",

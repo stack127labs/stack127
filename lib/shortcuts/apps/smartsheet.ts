@@ -12,7 +12,7 @@ export const smartsheet: AppShortcuts = {
     "Smartsheet keyboard shortcuts checked September 1, 2026. The official Learning Center table says Mac users should use Command instead of Ctrl for the paired shortcuts.",
   sourceUrl: "https://help.smartsheet.com/articles/522200-keyboard-shortcuts",
   sourceLabel: "official Smartsheet keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "editing",

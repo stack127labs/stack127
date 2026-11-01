@@ -29,10 +29,10 @@ export const zbrush: AppShortcuts = {
   category: "3D sculpting",
   platforms: [...platforms],
   versionContext:
-    "Maxon ZBrush keyboard shortcut guide and default hotkeys reference checked September 1, 2026. Maxon documents Ctrl to Cmd and Alt to Option equivalents for Mac, while some popup selections are PC-only.",
+    "Maxon ZBrush keyboard shortcut guide and default hotkeys reference checked November 1, 2026. Maxon documents Ctrl to Cmd and Alt to Option equivalents for Mac, while some popup selections are PC-only.",
   sourceUrl: "https://help.maxon.net/zbr/en-us/Content/html/user-guide/keyboard-shortcuts/keyboard-shortcuts.html",
   sourceLabel: "official Maxon ZBrush keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "project-and-interface",

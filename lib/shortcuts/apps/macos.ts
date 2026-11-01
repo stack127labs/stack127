@@ -7,10 +7,10 @@ export const macos: AppShortcuts = {
   category: "Operating system",
   platforms: ["macos"],
   versionContext:
-    "From Apple's Mac keyboard shortcuts article published March 10, 2026, checked again in August 2026. Shortcuts apply to current macOS releases, though individual apps can override common bindings and some keys depend on the keyboard hardware.",
+    "Apple's current Mac keyboard shortcuts checked November 1, 2026. Shortcuts apply across macOS, though individual apps can override common bindings and some keys depend on the keyboard hardware.",
   sourceUrl: "https://support.apple.com/en-us/102650",
   sourceLabel: "official Apple shortcut list",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "essentials",
@@ -40,7 +40,7 @@ export const macos: AppShortcuts = {
         { id: "save", action: "Save the current document", keys: [{ platform: "macos", keys: ["Cmd", "S"] }] },
         { id: "new-tab", action: "Open a new tab", keys: [{ platform: "macos", keys: ["Cmd", "T"] }] },
         { id: "app-settings", action: "Open settings for the front app", keys: [{ platform: "macos", keys: ["Cmd", ","] }] },
-        { id: "character-viewer", action: "Open the Character Viewer", keys: [{ platform: "macos", keys: ["Control", "Cmd", "Space"] }], note: "Fn+E is also documented." },
+        { id: "character-viewer", action: "Open the Character Viewer", keys: [{ platform: "macos", keys: ["Control", "Cmd", "Space"], alternatives: [["Fn", "E"]] }] },
         { id: "quick-note", action: "Create a Quick Note", keys: [{ platform: "macos", keys: ["Fn", "Q"] }] },
       ],
     },
@@ -234,7 +234,7 @@ export const macos: AppShortcuts = {
         { id: "spelling", action: "Open the Spelling and Grammar window", keys: [{ platform: "macos", keys: ["Shift", "Cmd", ":"] }] },
         { id: "find-misspelled", action: "Find misspelled words", keys: [{ platform: "macos", keys: ["Cmd", ";"] }] },
         { id: "delete-left", action: "Delete the character to the left", keys: [{ platform: "macos", keys: ["Control", "H"] }] },
-        { id: "delete-forward", action: "Delete the character to the right", keys: [{ platform: "macos", keys: ["Control", "D"] }], note: "Fn+Delete is also forward delete." },
+        { id: "delete-forward", action: "Delete the character to the right", keys: [{ platform: "macos", keys: ["Control", "D"], alternatives: [["Fn", "Delete"]] }] },
         { id: "cut-to-paragraph-end", action: "Cut to the end of the paragraph", keys: [{ platform: "macos", keys: ["Control", "K"] }], note: "Control+Y pastes this app-local cut buffer." },
         { id: "center-cursor", action: "Center the cursor or selection in view", keys: [{ platform: "macos", keys: ["Control", "L"] }] },
         { id: "control-up", action: "Move up one line", keys: [{ platform: "macos", keys: ["Control", "P"] }] },

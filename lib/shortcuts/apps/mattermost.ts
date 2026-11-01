@@ -23,10 +23,10 @@ export const mattermost: AppShortcuts = {
   category: "Team chat",
   platforms: [...platforms],
   versionContext:
-    "Current Mattermost keyboard shortcuts checked September 1, 2026. The official table covers Windows, Linux, and macOS. Some call controls depend on Mattermost Calls being enabled, and desktop tab commands apply to the Mattermost desktop app.",
+    "Mattermost keyboard shortcuts checked November 1, 2026. The official table covers Windows, Linux, and macOS. Some call controls depend on Mattermost Calls being enabled, and desktop tab commands apply to Mattermost desktop app 6.x.",
   sourceUrl: "https://docs.mattermost.com/end-user-guide/collaborate/keyboard-shortcuts.html",
   sourceLabel: "official Mattermost keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "channels-and-search",
@@ -39,7 +39,7 @@ export const mattermost: AppShortcuts = {
         desktop("next-unread-channel", "Go to the next unread channel", ["Alt", "Shift", "Down"], ["Option", "Shift", "Down"]),
         desktop("find-channels", "Find channels or open a selected link", ["Ctrl", "K"], ["Cmd", "K"]),
         desktop("find-direct-messages", "Find direct messages", ["Ctrl", "Shift", "K"], ["Cmd", "Shift", "K"]),
-        desktop("channel-settings", "Open channel settings", ["Ctrl", "Shift", "A"], ["Cmd", "Shift", "A"]),
+        desktop("channel-settings", "Open the Settings dialog", ["Ctrl", "Shift", "A"], ["Cmd", "Shift", "A"]),
         desktop("mentions", "Open mentions", ["Ctrl", "Shift", "M"], ["Cmd", "Shift", "M"]),
         desktop("focus-message-input", "Focus the message input", ["Ctrl", "Shift", "L"], ["Cmd", "Shift", "L"]),
         desktop("toggle-right-sidebar", "Toggle the right sidebar", ["Ctrl", "."], ["Cmd", "."]),
@@ -79,7 +79,15 @@ export const mattermost: AppShortcuts = {
         desktop("toggle-mute", "Mute or unmute yourself", ["Ctrl", "Shift", "Space"], ["Cmd", "Shift", "Space"]),
         desktop("raise-hand", "Raise or lower your hand", ["Ctrl", "Shift", "Y"], ["Cmd", "Shift", "Y"]),
         desktop("screen-share", "Start or stop screen sharing", ["Ctrl", "Shift", "E"], ["Cmd", "Shift", "E"]),
-        desktop("participants", "Open the participants list", ["Alt", "P"], ["Option", "P"], "Ctrl+Shift+P is also documented for Windows and Linux."),
+        {
+          id: "participants",
+          action: "Open the participants list",
+          keys: platforms.map((platform) => ({
+            platform,
+            keys: platform === "macos" ? ["Option", "P"] : ["Alt", "P"],
+            alternatives: [platform === "macos" ? ["Cmd", "Shift", "P"] : ["Ctrl", "Shift", "P"]],
+          })),
+        },
         desktop("leave-call", "Leave the call", ["Ctrl", "Shift", "L"], ["Cmd", "Shift", "L"]),
         shared("push-to-talk", "Temporarily unmute while held", ["Space"]),
       ],
@@ -91,8 +99,8 @@ export const mattermost: AppShortcuts = {
       shortcuts: [
         desktop("new-window", "Open a new Mattermost window", ["Ctrl", "N"], ["Cmd", "N"]),
         desktop("new-tab", "Open a new tab", ["Ctrl", "T"], ["Cmd", "T"]),
-        desktop("next-tab", "Switch to the next tab", ["Ctrl", "Tab"], ["Cmd", "Option", "Right"]),
-        desktop("previous-tab", "Switch to the previous tab", ["Ctrl", "Shift", "Tab"], ["Cmd", "Option", "Left"]),
+        desktop("next-tab", "Switch to the next tab", ["Ctrl", "Tab"], ["Cmd", "Tab"]),
+        desktop("previous-tab", "Switch to the previous tab", ["Ctrl", "Shift", "Tab"], ["Cmd", "Shift", "Tab"]),
         desktop("tab-1", "Switch to tab 1", ["Ctrl", "1"], ["Cmd", "1"]),
         desktop("tab-2", "Switch to tab 2", ["Ctrl", "2"], ["Cmd", "2"]),
         desktop("tab-3", "Switch to tab 3", ["Ctrl", "3"], ["Cmd", "3"]),

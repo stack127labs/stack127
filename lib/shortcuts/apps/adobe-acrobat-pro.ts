@@ -311,10 +311,10 @@ export const adobeAcrobatPro: AppShortcuts = {
   category: "PDF editor",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current Acrobat desktop defaults from Adobe's September 23, 2025 reference, checked August 31, 2026. Enable Use single-key accelerators to access tools for the one-letter tool commands. Browser-hosted PDFs may reserve some bindings before Acrobat receives them.",
+    "Current Acrobat desktop defaults from Adobe's September 23, 2025 reference, checked November 1, 2026. Enable Use single-key accelerators to access tools for the one-letter tool commands. Browser-hosted PDFs may reserve some bindings before Acrobat receives them.",
   sourceUrl: "https://helpx.adobe.com/acrobat/desktop/get-started/preferences-and-settings/keyboard-shortcuts.html",
   sourceLabel: "Adobe Acrobat desktop keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: acrobatSharedGroups,
 };
 

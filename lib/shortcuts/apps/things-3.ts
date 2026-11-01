@@ -8,10 +8,10 @@ export const things3: AppShortcuts = {
   category: "Task management",
   platforms: ["macos"],
   versionContext:
-    "Things for Mac keyboard shortcuts checked October 10, 2026 against Cultured Code's current support article. The Quick Entry hotkeys can be changed in Things settings.",
+    "Things for Mac keyboard shortcuts checked November 1, 2026 against Cultured Code's current support article. The Quick Entry hotkeys can be changed in Things settings.",
   sourceUrl: "https://culturedcode.com/things/support/articles/2785159/",
   sourceLabel: "official Things for Mac keyboard shortcuts",
-  lastVerified: "2026-10-10",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "create-and-edit",

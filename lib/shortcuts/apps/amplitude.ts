@@ -1,6 +1,6 @@
 import type { AppShortcuts, Shortcut } from "../types.ts";
 
-const platforms = ["windows", "macos", "linux"] as const;
+const platforms = ["windows", "macos"] as const;
 const shared = (items: Array<[string, string, string[], string?]>): Shortcut[] =>
   items.map(([id, action, combination, note]) => ({
     id,
@@ -15,10 +15,10 @@ export const amplitude: AppShortcuts = {
   category: "Product analytics",
   platforms: [...platforms],
   versionContext:
-    "Current Amplitude Analytics chart basics documentation checked August 31, 2026. These browser-app shortcuts work on chart creation pages for all chart types except Data Tables. The official table does not publish operating-system variants, so the documented combinations are shown unchanged across desktop platforms.",
+    "Amplitude Analytics chart basics shortcuts work on chart creation pages for all chart types except Data Tables. The official table publishes no operating-system variants, so the listed combinations are shown for Windows and macOS only.",
   sourceUrl: "https://amplitude.com/docs/analytics/charts/chart-basics#keyboard-shortcuts",
   sourceLabel: "Amplitude chart basics keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "chart-definition",

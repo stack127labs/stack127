@@ -23,16 +23,34 @@ const shared = (id: string, action: string, keys: string[], note?: string): Shor
   ...(note ? { note } : {}),
 });
 
+const dualWithAlternatives = (
+  id: string,
+  action: string,
+  windows: string[],
+  windowsAlternative: string[],
+  macos: string[],
+  macosAlternative: string[],
+  note?: string,
+): Shortcut => ({
+  id,
+  action,
+  keys: [
+    { platform: "windows", keys: windows, alternatives: [windowsAlternative] },
+    { platform: "macos", keys: macos, alternatives: [macosAlternative] },
+  ],
+  ...(note ? { note } : {}),
+});
+
 export const whimsical: AppShortcuts = {
   slug: "whimsical",
   name: "Whimsical",
   category: "Visual collaboration",
   platforms: [...platforms],
   versionContext:
-    "Whimsical shortcut tables checked September 1, 2026. The source lists the Windows and Mac modifiers separately, and some shortcuts depend on the active board or editor.",
+    "Whimsical shortcut tables checked November 1, 2026. The source lists the Windows and Mac modifiers separately, and some shortcuts depend on the active board or editor.",
   sourceUrl: "https://whimsical.com/learn/shortcuts",
   sourceLabel: "official Whimsical keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "workspace",
@@ -43,15 +61,22 @@ export const whimsical: AppShortcuts = {
         dual("select-all", "Select all", ["Ctrl", "A"], ["Cmd", "A"]),
         shared("deselect", "Deselect", ["Escape"]),
         dual("file-search", "Search files", ["Ctrl", "F"], ["Cmd", "F"]),
-        dual("workspace-search", "Search the workspace", ["Ctrl", "J"], ["Cmd", "J"], "Ctrl+Shift+F on Windows and Cmd+Shift+F on Mac also open workspace search."),
+        dualWithAlternatives("workspace-search", "Search the workspace", ["Ctrl", "J"], ["Ctrl", "Shift", "F"], ["Cmd", "J"], ["Cmd", "Shift", "F"]),
         dual("toggle-sidebar", "Show or hide the sidebar", ["Ctrl", "E"], ["Cmd", "E"]),
-        dual("share", "Share the current file", ["Ctrl", "Shift", "S"], ["Cmd", "Shift", "S"]),
+        dualWithAlternatives("share", "Share the current file", ["Ctrl", "Shift", "S"], ["Ctrl", "Alt", "S"], ["Cmd", "Shift", "S"], ["Cmd", "Option", "S"]),
         dual("export", "Export the current file", ["Ctrl", "Shift", "E"], ["Cmd", "Shift", "E"]),
         dual("print", "Print the current file", ["Ctrl", "P"], ["Cmd", "P"]),
         dual("new-file", "Create a new file or folder", ["Ctrl", "Alt", "N"], ["Cmd", "Option", "N"]),
         shared("list-view", "Switch to list view", ["L"]),
         shared("grid-view", "Switch to grid view", ["G"]),
-        dual("delete-file", "Delete the selected file or folder", ["Delete"], ["Delete"], "Backspace is also documented on both platforms."),
+        {
+          id: "delete-file",
+          action: "Delete the selected file or folder",
+          keys: [
+            { platform: "windows", keys: ["Delete"], alternatives: [["Backspace"]] },
+            { platform: "macos", keys: ["Delete"], alternatives: [["Backspace"]] },
+          ],
+        },
       ],
     },
     {
@@ -116,8 +141,8 @@ export const whimsical: AppShortcuts = {
         dual("mind-map-parent", "Add a parent node", ["Alt", "Enter"], ["Option", "Enter"]),
         dual("mind-map-collapse", "Collapse or expand a node", ["Ctrl", "/"], ["Cmd", "/"]),
         dual("mind-map-line-break", "Insert a line break in a node", ["Shift", "Enter"], ["Shift", "Enter"]),
-        dual("mind-map-indent", "Indent a node", ["Ctrl", "Alt", "["], ["Cmd", "Option", "["]),
-        dual("mind-map-outdent", "Outdent a node", ["Ctrl", "Alt", "]"], ["Cmd", "Option", "]"]),
+        dual("mind-map-indent", "Decrease text indent", ["Ctrl", "Alt", "["], ["Cmd", "Ctrl", "["]),
+        dual("mind-map-outdent", "Increase text indent", ["Ctrl", "Alt", "]"], ["Cmd", "Ctrl", "]"]),
       ],
     },
     {
@@ -129,8 +154,8 @@ export const whimsical: AppShortcuts = {
         dual("sticky-size-up", "Increase sticky-note size", ["Ctrl", "Alt", "="], ["Cmd", "Option", "="]),
         dual("sticky-size-down", "Decrease sticky-note size", ["Ctrl", "Alt", "-"], ["Cmd", "Option", "-"]),
         dual("paragraph", "Change paragraph alignment", ["Ctrl", "\\"], ["Cmd", "\\"]),
-        dual("bulleted-list", "Toggle a bulleted list", ["Ctrl", "Shift", "8"], ["Cmd", "Shift", "8"]),
-        dual("numbered-list", "Toggle a numbered list", ["Ctrl", "Shift", "7"], ["Cmd", "Shift", "7"]),
+        dualWithAlternatives("bulleted-list", "Start or toggle a bulleted list", ["*"], ["Ctrl", "Shift", "8"], ["*"], ["Cmd", "Shift", "8"], "Type * then Space, or - then Space, to start a bulleted list."),
+        dualWithAlternatives("numbered-list", "Start or toggle a numbered list", ["1"], ["Ctrl", "Shift", "7"], ["1"], ["Cmd", "Shift", "7"], "Type 1. then Space to start a numbered list."),
         dual("external-link", "Insert an external link", ["Ctrl", "Shift", "U"], ["Cmd", "Shift", "U"]),
       ],
     },

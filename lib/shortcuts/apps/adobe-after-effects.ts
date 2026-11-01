@@ -19,10 +19,10 @@ export const adobeAfterEffects: AppShortcuts = {
   category: "Motion graphics and compositing",
   platforms: ["windows", "macos"],
   versionContext:
-    "After Effects Default preset on a supported U.S. English keyboard, from Adobe's May 5, 2026 reference and checked August 31, 2026. Custom shortcut sets are not listed. Numeric-keypad commands need Num Lock on Windows. macOS function keys can conflict with system shortcuts, and panel shortcuts override application shortcuts while that panel has focus.",
+    "After Effects Default preset on a supported U.S. English keyboard, from Adobe's May 5, 2026 reference and checked November 1, 2026. Custom shortcut sets are not listed. Numeric-keypad commands need Num Lock on Windows. macOS function keys can conflict with system shortcuts, and panel shortcuts override application shortcuts while that panel has focus.",
   sourceUrl: "https://helpx.adobe.com/after-effects/desktop/get-started/keyboard-shortcuts/keyboard-shortcuts-reference.html",
   sourceLabel: "Adobe After Effects keyboard shortcuts reference",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "general-and-projects",

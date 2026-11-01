@@ -13,7 +13,7 @@ const intellijIdea: AppShortcuts = {
     "JetBrains documents predefined Windows and macOS keymaps for IntelliJ IDEA 2026.2. All bindings can be changed in Settings > Keymap, and function keys may also be claimed by the operating system.",
   sourceUrl: "https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html",
   sourceLabel: "official JetBrains IntelliJ IDEA keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "top-commands",

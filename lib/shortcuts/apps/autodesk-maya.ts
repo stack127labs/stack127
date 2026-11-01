@@ -7,7 +7,6 @@ const rows = (items: Row[]): Shortcut[] =>
     action,
     keys: [
       { platform: "windows", keys },
-      { platform: "linux", keys },
       { platform: "macos", keys: macos },
     ],
     ...(note ? { note } : {}),
@@ -17,12 +16,12 @@ export const autodeskMaya: AppShortcuts = {
   slug: "autodesk-maya",
   name: "Autodesk Maya",
   category: "3D modeling and animation",
-  platforms: ["windows", "macos", "linux"],
+  platforms: ["windows", "macos"],
   versionContext:
-    "Maya 2026 default hotkeys from Autodesk's searchable reference checked August 31, 2026. On macOS, Autodesk maps Alt to Option and Ctrl to Control unless a command explicitly lists Command. The Hotkey Editor can replace these defaults. Some function keys and US-keyboard punctuation can conflict with macOS or non-US layouts.",
+    "Maya 2026 default hotkeys from Autodesk's searchable reference checked November 1, 2026. The reference documents Windows and macOS defaults only; no Linux defaults are included. On macOS, Autodesk maps Alt to Option and Ctrl to Control unless a command explicitly lists Command. The Hotkey Editor can replace these defaults. Some function keys and US-keyboard punctuation can conflict with macOS or non-US layouts.",
   sourceUrl: "https://help.autodesk.com/cloudhelp/2026/ENU/Maya-KeyboardShortcuts/files/GUID-30CACC9D-8FBE-4B85-8A8F-C5ADF32DDD4E.htm",
   sourceLabel: "Maya 2026 all hotkeys",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "tools-actions",

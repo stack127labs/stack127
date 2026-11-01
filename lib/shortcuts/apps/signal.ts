@@ -12,7 +12,7 @@ export const signal: AppShortcuts = {
     "Signal Desktop keyboard shortcuts checked September 1, 2026. The official table covers the Mac and Windows/Linux desktop apps; user settings and browser shortcuts are outside this record.",
   sourceUrl: "https://support.signal.org/hc/en-us/articles/360036517511-Signal-Desktop-Keyboard-Shortcuts",
   sourceLabel: "official Signal Desktop keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "display-and-navigation",

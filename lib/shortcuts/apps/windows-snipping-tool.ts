@@ -16,10 +16,10 @@ export const windowsSnippingTool: AppShortcuts = {
   category: "Screen capture",
   platforms: [...platforms],
   versionContext:
-    "Microsoft Snipping Tool help checked September 1, 2026. The capture overlay supports screenshots and screen recordings on current Windows.",
+    "Microsoft Snipping Tool help checked November 1, 2026. The capture overlay supports screenshots and screen recordings on current Windows.",
   sourceUrl: "https://support.microsoft.com/en-US/Windows/Apps/use-snipping-tool-to-capture-screenshots",
   sourceLabel: "official Microsoft Snipping Tool shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "capture",

@@ -18,10 +18,10 @@ export const looker: AppShortcuts = {
   category: "Analytics",
   platforms: [...platforms],
   versionContext:
-    "Shortcuts from the current Google Cloud Looker keyboard-shortcuts page, last updated July 22, 2025 and checked September 1, 2026. Availability depends on the current Looker location, permissions, and browser; the published table covers Windows and macOS.",
+    "Shortcuts from the current Google Cloud Looker keyboard-shortcuts page, last updated July 22, 2025 and checked November 1, 2026. Availability depends on the current Looker location, permissions, and browser; the published table covers Windows and macOS.",
   sourceUrl: "https://docs.cloud.google.com/looker/docs/keyboard-shortcuts?hl=en",
   sourceLabel: "Google Cloud Looker keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "global",
@@ -31,7 +31,7 @@ export const looker: AppShortcuts = {
         pair("search", "Open search", ["Ctrl", "Shift", "K"], ["Cmd", "Shift", "K"]),
         shared("shortcut-help", "Show or hide shortcut help", ["?"]),
         pair("developer-mode", "Toggle Development Mode", ["Ctrl", "Shift", "D"], ["Ctrl", "Shift", "D"]),
-        pair("navigation", "Focus Looker navigation", ["Ctrl", ";"], ["Ctrl", ";"]),
+        pair("navigation", "Show or hide the left navigation menu", ["Ctrl", ";"], ["Ctrl", ";"]),
       ],
     },
     {
@@ -55,7 +55,7 @@ export const looker: AppShortcuts = {
         pair("add-text", "Add a text tile", ["Alt", "Shift", "T"], ["Option", "Shift", "T"]),
         pair("add-query-tile", "Add a query tile", ["Alt", "Shift", "V"], ["Option", "Shift", "V"]),
         pair("save", "Save dashboard changes", ["Ctrl", "S"], ["Cmd", "S"]),
-        pair("filter", "Focus dashboard filters", ["Alt", "Shift", "F"], ["Option", "Shift", "F"]),
+        pair("filter", "Add a dashboard filter", ["Alt", "Shift", "F"], ["Option", "Shift", "F"]),
       ],
     },
     {
@@ -101,17 +101,17 @@ export const looker: AppShortcuts = {
       intro: "Search files, save and format LookML, edit indentation, and move through the IDE's code structure.",
       shortcuts: [
         pair("search-file", "Search for a file", ["Ctrl", "J"], ["Cmd", "J"]),
-        pair("file-browser", "Open the file browser", ["Ctrl", "B"], ["Cmd", "B"]),
+        pair("file-browser", "Show or hide the IDE file browser", ["Ctrl", "B"], ["Cmd", "B"]),
         pair("fold-all", "Fold all code", ["Ctrl", "Alt", "0"], ["Option", "Cmd", "0"]),
         pair("unfold-all", "Unfold all code", ["Ctrl", "Alt", "="], ["Option", "Cmd", "="]),
         pair("save-file", "Save the file", ["Ctrl", "S"], ["Cmd", "S"]),
         pair("undo", "Undo the last edit", ["Ctrl", "Z"], ["Cmd", "Z"]),
         pair("redo", "Redo the last edit", ["Ctrl", "Shift", "Z"], ["Cmd", "Shift", "Z"]),
         pair("comment", "Comment or uncomment a line", ["Ctrl", "/"], ["Cmd", "/"]),
-        pair("indent", "Indent the selected lines", ["Ctrl", "]"], ["Ctrl", "]"]),
-        pair("outdent", "Outdent the selected lines", ["Ctrl", "["], ["Ctrl", "["]),
-        pair("delete-line", "Delete the current line", ["Ctrl", "D"], ["Ctrl", "D"]),
-        pair("duplicate-line", "Duplicate the current line", ["Ctrl", "Shift", "D"], ["Ctrl", "Shift", "D"]),
+        pair("indent", "Indent the selected lines", ["Ctrl", "]"], ["Cmd", "]"]),
+        pair("outdent", "Outdent the selected lines", ["Ctrl", "["], ["Cmd", "["]),
+        pair("delete-line", "Delete the current or selected lines", ["Ctrl", "D"], ["Cmd", "D"]),
+        pair("duplicate-line", "Duplicate the current line", ["Ctrl", "Shift", "D"], ["Cmd", "Shift", "D"]),
         pair("move-line-up", "Move the current line up", ["Alt", "Up"], ["Option", "Up"]),
         pair("move-line-down", "Move the current line down", ["Alt", "Down"], ["Option", "Down"]),
         pair("format", "Format LookML", ["Ctrl", "Shift", "F"], ["Cmd", "Shift", "F"]),

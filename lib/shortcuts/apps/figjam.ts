@@ -36,7 +36,7 @@ export const figjam: AppShortcuts = {
     "Current Figma Help Center FigJam pages checked September 1, 2026. The shortcuts apply to the FigJam board and may require a board, text object, table, or selection to have focus.",
   sourceUrl: "https://help.figma.com/hc/en-us/articles/1500004292221-Select-move-and-order-objects-in-FigJam",
   sourceLabel: "Figma Help Center FigJam shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "selection-and-order",

@@ -12,7 +12,7 @@ export const pycharm: AppShortcuts = {
     "PyCharm 2026.2 keymap reference checked September 1, 2026. JetBrains lets users choose and customize a keymap, so these entries describe the published default reference actions and not every plugin shortcut.",
   sourceUrl: "https://www.jetbrains.com/help/pycharm/keymap-reference.html",
   sourceLabel: "official PyCharm keymap reference",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "search-and-navigation",

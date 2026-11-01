@@ -41,7 +41,7 @@ export const dbeaver: AppShortcuts = {
     "Current DBeaver shortcut wiki edited August 18, 2026 and checked September 1, 2026. The wiki lists Windows/Linux and macOS columns, and notes that users can change bindings or select the DBeaver Keyboard Only scheme.",
   sourceUrl: "https://github.com/dbeaver/dbeaver/wiki/Shortcuts",
   sourceLabel: "DBeaver shortcut reference",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "connection",

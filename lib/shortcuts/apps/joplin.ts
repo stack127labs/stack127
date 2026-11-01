@@ -9,10 +9,10 @@ export const joplin: AppShortcuts = {
   category: "Notes and writing",
   platforms: [...platforms],
   versionContext:
-    "Default Joplin Terminal keymap from the current official terminal-app guide, checked September 1, 2026. The terminal client is available on macOS, Linux, and Windows through WSL; its keymap uses sequential keys rather than simultaneous modifier chords.",
+    "Default Joplin Terminal keymap from the current official terminal-app guide, checked November 1, 2026. The terminal client is available on macOS, Linux, and Windows through WSL; its keymap uses sequential keys rather than simultaneous modifier chords.",
   sourceUrl: "https://joplinapp.org/help/apps/terminal/",
   sourceLabel: "official Joplin Terminal keymap",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "navigation",

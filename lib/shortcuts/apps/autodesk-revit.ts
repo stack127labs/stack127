@@ -15,10 +15,10 @@ export const autodeskRevit: AppShortcuts = {
   category: "Building information modeling",
   platforms: ["windows"],
   versionContext:
-    "Default Revit 2026 shortcuts from Autodesk's versioned PDF checked August 31, 2026. Letter shortcuts are sequences: press the keys in order rather than as a chord. Revit runs on Windows, and its Keyboard Shortcuts dialog can add, remove, or replace non-reserved assignments.",
+    "Default Revit 2026 shortcuts from Autodesk's versioned PDF checked November 1, 2026. Letter shortcuts are sequences: press the keys in order rather than as a chord. Revit runs on Windows, and its Keyboard Shortcuts dialog can add, remove, or replace non-reserved assignments.",
   sourceUrl: "https://www.autodesk.com/revit-keyboard-shortcut-list-pdf-2026-enu",
   sourceLabel: "Revit 2026 default keyboard shortcuts PDF",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "interface-views",

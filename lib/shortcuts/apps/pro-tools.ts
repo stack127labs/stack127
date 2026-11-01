@@ -21,7 +21,7 @@ export const proTools: AppShortcuts = {
     "Avid Pro Tools Shortcuts Guide 2025.10, created September 22, 2025, checked September 1, 2026. Pro Tools lets users customize most commands, and some rows require Pro Tools Ultimate, Studio, a numeric keypad, or a particular transport mode.",
   sourceUrl: "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Shortcuts_2025.10.pdf",
   sourceLabel: "official Avid Pro Tools Shortcuts Guide",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "search-and-focus",

@@ -12,7 +12,7 @@ const iaWriter: AppShortcuts = {
     "The official iA Writer page publishes the Mac app shortcuts and notes that bindings can change with app updates. The Windows page was not used here because the current public reference did not expose an equivalent complete table.",
   sourceUrl: "https://ia.net/writer/support/basics/shortcuts",
   sourceLabel: "official iA Writer Mac shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "files-and-search",

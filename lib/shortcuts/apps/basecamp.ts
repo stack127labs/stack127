@@ -22,7 +22,7 @@ export const basecamp: AppShortcuts = {
     "Current Basecamp 5 keyboard cheat sheet checked August 31, 2026. Commands are shared by Windows and macOS except where Basecamp explicitly publishes Command or Option alternatives.",
   sourceUrl: "https://basecamp.com/keyboard",
   sourceLabel: "Basecamp 5 keyboard cheat sheet",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "jump-and-global",

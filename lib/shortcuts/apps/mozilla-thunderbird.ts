@@ -21,17 +21,25 @@ export const mozillaThunderbird: AppShortcuts = {
   category: "Email",
   platforms: [...platforms],
   versionContext:
-    "Current Thunderbird desktop shortcuts checked September 1, 2026. The official table was updated April 2, 2026. Add-ons can customize or disable some shortcuts, and macOS laptops may need Fn for function keys.",
+    "Current Thunderbird desktop shortcuts checked November 1, 2026. The official table was updated April 2, 2026. Add-ons can customize or disable some shortcuts, and macOS laptops may need Fn for function keys.",
   sourceUrl: "https://support.mozilla.org/en-US/kb/keyboard-shortcuts-thunderbird",
   sourceLabel: "official Thunderbird keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "messages",
       title: "Messages",
       intro: "Use these commands to compose, reply, read, mark, move, and remove messages from the message list or an open message.",
       shortcuts: [
-        dual("new-message", "Start a new message", ["Ctrl", "M"], ["Cmd", "N"]),
+        {
+          id: "new-message",
+          action: "Start a new message",
+          keys: [
+            { platform: "windows", keys: ["Ctrl", "M"], alternatives: [["Ctrl", "N"]] },
+            { platform: "linux", keys: ["Ctrl", "M"], alternatives: [["Ctrl", "N"]] },
+            { platform: "macos", keys: ["Cmd", "N"] },
+          ],
+        },
         dual("reply", "Reply to the sender", ["Ctrl", "R"], ["Cmd", "R"]),
         dual("reply-all", "Reply to all recipients", ["Ctrl", "Shift", "R"], ["Cmd", "Shift", "R"]),
         dual("reply-list", "Reply to the list", ["Ctrl", "Shift", "L"], ["Cmd", "Shift", "L"]),
@@ -62,8 +70,24 @@ export const mozillaThunderbird: AppShortcuts = {
         desktop("next-unread", "Go to the next unread message", ["N"]),
         desktop("previous-unread", "Go to the previous unread message", ["P"]),
         desktop("next-unread-thread", "Go to the next unread thread", ["T"]),
-        desktop("first-message", "Go to the first message", ["Home"]),
-        desktop("last-message", "Go to the last message", ["End"]),
+        {
+          id: "first-message",
+          action: "Go to the first message",
+          keys: [
+            { platform: "windows", keys: ["Home"] },
+            { platform: "linux", keys: ["Home"] },
+            { platform: "macos", keys: ["Fn", "Left"] },
+          ],
+        },
+        {
+          id: "last-message",
+          action: "Go to the last message",
+          keys: [
+            { platform: "windows", keys: ["End"] },
+            { platform: "linux", keys: ["End"] },
+            { platform: "macos", keys: ["Fn", "Right"] },
+          ],
+        },
         dual("next-tab", "Move to the next tab", ["Ctrl", "Tab"], ["Cmd", "Option", "Right"]),
         dual("previous-tab", "Move to the previous tab", ["Ctrl", "Shift", "Tab"], ["Cmd", "Option", "Left"]),
         dual("address-book", "Open the address book", ["Ctrl", "Shift", "B"], ["Cmd", "Shift", "B"]),

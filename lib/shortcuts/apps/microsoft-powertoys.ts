@@ -13,10 +13,10 @@ export const microsoftPowerToys: AppShortcuts = {
   category: "Windows utilities",
   platforms: ["windows"],
   versionContext:
-    "Current Microsoft PowerToys documentation checked September 1, 2026. These are the documented defaults, but every utility can be disabled or remapped in PowerToys settings and the set may change as utilities evolve.",
+    "Current Microsoft PowerToys documentation checked November 1, 2026. These are documented defaults, but utilities can be disabled or remapped in PowerToys settings.",
   sourceUrl: "https://learn.microsoft.com/en-us/windows/powertoys/shortcut-guide",
   sourceLabel: "official Microsoft PowerToys documentation",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "shortcut-guide",
@@ -57,16 +57,13 @@ export const microsoftPowerToys: AppShortcuts = {
       intro: "Open the layout editor and move windows into zones using the default FancyZones bindings.",
       shortcuts: [
         windows("open-zones-editor", "Open the FancyZones editor", ["Win", "Shift", "`"]),
-        windows("move-window-left", "Move the focused window to the zone on the left", ["Win", "Left"]),
-        windows("move-window-right", "Move the focused window to the zone on the right", ["Win", "Right"]),
-        windows("move-window-up", "Move the focused window to the zone above", ["Win", "Up"]),
-        windows("move-window-down", "Move the focused window to the zone below", ["Win", "Down"]),
+        windows("move-window-left", "Move the focused window to the zone on the left", ["Win", "Left"], "Requires the FancyZones Override Windows Snap hotkeys setting."),
+        windows("move-window-right", "Move the focused window to the zone on the right", ["Win", "Right"], "Requires the FancyZones Override Windows Snap hotkeys setting."),
+        windows("move-window-up", "Move the focused window to the zone above", ["Win", "Up"], "Requires Override Windows Snap hotkeys with Relative position selected."),
+        windows("move-window-down", "Move the focused window to the zone below", ["Win", "Down"], "Requires Override Windows Snap hotkeys with Relative position selected."),
         windows("switch-window-up", "Switch windows in the zone above", ["Win", "Page Up"]),
         windows("switch-window-down", "Switch windows in the zone below", ["Win", "Page Down"]),
-        windows("custom-layout", "Apply a custom layout", ["Win", "Ctrl", "Alt", "Number"]),
-        windows("next-zone", "Move to the next zone in the editor", ["Tab"]),
-        windows("divide-zone", "Divide a zone in the editor", ["S"]),
-        windows("merge-zones", "Merge selected zones in the editor", ["Delete"]),
+        windows("custom-layout", "Apply a custom layout", ["Win", "Ctrl", "Alt", "Number"], "Assign a number to the custom layout in the FancyZones editor first."),
       ],
     },
     {

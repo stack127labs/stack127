@@ -10,16 +10,22 @@ const dual = (id: string, action: string, windows: string[], macos: string[], no
   ...(note ? { note } : {}),
 });
 
+const macOnly = (id: string, action: string, keys: string[]): Shortcut => ({
+  id,
+  action,
+  keys: [{ platform: "macos", keys }],
+});
+
 export const milanote: AppShortcuts = {
   slug: "milanote",
   name: "Milanote",
   category: "Notes and docs",
   platforms: [...platforms],
   versionContext:
-    "Current Milanote desktop and browser shortcuts checked September 1, 2026. Milanote also supports an in-app shortcut menu, and several actions depend on whether a note, board, table, or drawing is selected.",
+    "Current Milanote desktop and browser shortcuts checked November 1, 2026. Milanote also supports an in-app shortcut menu, and several actions depend on whether a note, board, table, or drawing is selected.",
   sourceUrl: "https://help.milanote.com/en/articles/111393-keyboard-shortcuts",
   sourceLabel: "official Milanote keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "basics",
@@ -32,13 +38,13 @@ export const milanote: AppShortcuts = {
         dual("redo", "Redo", ["Ctrl", "Shift", "Z"], ["Cmd", "Shift", "Z"]),
         dual("select-all", "Select all", ["Ctrl", "A"], ["Cmd", "A"]),
         dual("stop-editing", "Deselect or stop editing", ["Escape"], ["Escape"]),
-        dual("delete", "Delete an object", ["Delete"], ["Delete"]),
+        macOnly("delete", "Delete an object", ["Delete"]),
         dual("duplicate", "Duplicate by dragging", ["Alt", "drag"], ["Option", "drag"]),
         dual("search", "Search or view recent boards", ["Ctrl", "F"], ["Cmd", "F"]),
-        dual("zoom", "Zoom", ["Z"], ["Z"]),
-        dual("pan", "Move around the board", ["Space", "drag"], ["Space", "drag"]),
-        dual("nudge", "Nudge an object", ["Arrow keys"], ["Arrow keys"]),
-        dual("nudge-more", "Move an object farther", ["Shift", "Arrow keys"], ["Shift", "Arrow keys"]),
+        macOnly("zoom", "Zoom", ["Z"]),
+        macOnly("pan", "Move around the board", ["Space", "drag"]),
+        macOnly("nudge", "Nudge an object", ["Arrow keys"]),
+        macOnly("nudge-more", "Move an object farther", ["Shift", "Arrow keys"]),
       ],
     },
     {

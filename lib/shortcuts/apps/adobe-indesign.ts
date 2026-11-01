@@ -18,10 +18,10 @@ export const adobeInDesign: AppShortcuts = {
   category: "Page layout and publishing",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current InDesign desktop defaults from Adobe's keyboard shortcut reference checked August 31, 2026. The tables use the InDesign Default shortcut set, not its optional Illustrator, Photoshop, PageMaker, QuarkXPress, or custom sets.",
+    "Current InDesign desktop defaults from Adobe's keyboard shortcut reference checked November 1, 2026. The tables use the InDesign Default shortcut set, not its optional Illustrator, Photoshop, PageMaker, QuarkXPress, or custom sets.",
   sourceUrl: "https://helpx.adobe.com/indesign/desktop/get-started/settings-and-preferences/keyboard-shortcuts.html",
   sourceLabel: "Adobe InDesign keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "selection-and-navigation-tools",

@@ -1,6 +1,6 @@
 import type { AppShortcuts, Shortcut } from "../types.ts";
 
-const platforms = ["windows", "macos", "linux"] as const;
+const platforms = ["windows", "macos"] as const;
 const all = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
   id,
   action,
@@ -14,10 +14,10 @@ export const bitbucket: AppShortcuts = {
   category: "Code hosting",
   platforms: [...platforms],
   versionContext:
-    "Current Bitbucket Cloud shortcut reference checked August 31, 2026. Single-letter commands work in the page context named by each group. Bitbucket lets users disable all keyboard shortcuts in Personal Bitbucket settings.",
+    "Current Bitbucket Cloud shortcut reference checked November 1, 2026. Single-letter commands work in the page context named by each group. Bitbucket lets users disable all keyboard shortcuts in Personal Bitbucket settings.",
   sourceUrl: "https://support.atlassian.com/bitbucket-cloud/docs/keyboard-shortcuts/",
   sourceLabel: "Bitbucket Cloud keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "global",

@@ -19,10 +19,10 @@ export const affinityDesigner: AppShortcuts = {
   category: "Vector design",
   platforms: ["windows", "macos"],
   versionContext:
-    "Affinity Designer 2 desktop defaults from Serif's May 23, 2024 Windows and macOS shortcut sheets, cross-checked against the current Affinity V2 online help on August 31, 2026. The sheets use English UK keyboard layouts, so physical key positions can differ. Customized shortcuts are not listed.",
+    "Affinity Designer 2 desktop defaults from Serif's May 23, 2024 Windows and macOS shortcut sheets, cross-checked against the current Affinity V2 online help on November 1, 2026. The sheets use English UK keyboard layouts, so physical key positions can differ. Customized shortcuts are not listed.",
   sourceUrl: "https://affinity.help/designer2/English.lproj/pages/Workspace/shortcuts.html",
   sourceLabel: "Affinity Designer 2 keyboard shortcuts help",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "documents-and-editing",
@@ -106,7 +106,7 @@ export const affinityDesigner: AppShortcuts = {
         ["zoom-200", "Zoom to 200%", [["Ctrl", "2"]], [["Cmd", "2"]]],
         ["zoom-400", "Zoom to 400%", [["Ctrl", "3"]], [["Cmd", "3"]]],
         ["zoom-800", "Zoom to 800%", [["Ctrl", "4"]], [["Cmd", "4"]]],
-        ["opacity", "Set opacity from 10% through 100%", [["1-9", "or", "0"]]],
+        ["opacity", "Set opacity via numeric keys", [["Number keys"]], undefined, "Type one or more digits for the target percentage; for example, 43 sets opacity to 43%."],
         ["brush-smaller", "Decrease brush size", [["["]]],
         ["brush-larger", "Increase brush size", [["]"]]],
         ["toggle-selector", "Switch the active fill or stroke selector", [["X"]]],

@@ -18,7 +18,7 @@ export const coda: AppShortcuts = {
     "Current complete Coda Mac and PC shortcut reference checked August 31, 2026. Coda labels Windows shortcuts as PC. Identical keys are retained where its platform tables agree, including Control-based indentation on Mac.",
   sourceUrl: "https://help.coda.io/hc/en-us/articles/39555894316173-Keyboard-shortcuts",
   sourceLabel: "Coda keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "general",

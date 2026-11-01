@@ -19,7 +19,7 @@ export const reddit: AppShortcuts = {
     "Current Reddit desktop web hotkeys checked September 1, 2026. Reddit says the feature is available on the newest reddit.com interface, not old Reddit. On Windows, the help article maps its CMD references to Alt.",
   sourceUrl: "https://support.reddithelp.com/hc/en-us/articles/38744650091412-How-to-use-keyboard-shortcuts-hotkeys",
   sourceLabel: "official Reddit keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "navigation",
@@ -54,7 +54,10 @@ export const reddit: AppShortcuts = {
       title: "Media playback",
       intro: "Media keys work while a Reddit video is focused. The same letters used for post navigation can have a playback meaning in the media player.",
       shortcuts: [
-        dual("play-pause", "Play or pause", ["Space", "or", "K"], ["Space", "or", "K"]),
+        { id: "play-pause", action: "Play or pause", keys: [
+          { platform: "windows", keys: ["Space"], alternatives: [["K"]] },
+          { platform: "macos", keys: ["Space"], alternatives: [["K"]] },
+        ] },
         dual("fullscreen", "Toggle fullscreen mode", ["F"], ["F"]),
         dual("rewind-five", "Rewind five seconds", ["Left Arrow"], ["Left Arrow"]),
         dual("forward-five", "Fast-forward five seconds", ["Right Arrow"], ["Right Arrow"]),

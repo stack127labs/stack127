@@ -16,10 +16,10 @@ export const netflix: AppShortcuts = {
   category: "Video streaming",
   platforms: [...platforms],
   versionContext:
-    "Netflix Help Center keyboard shortcuts checked September 1, 2026. The shortcuts apply while watching on a computer; Space and Escape also work in the Windows 10 and Windows 11 app where Netflix says so.",
+    "Netflix Help Center keyboard shortcuts checked November 1, 2026. The shortcuts apply while watching on a computer; Space and Escape also work in the Windows 10 and Windows 11 app where Netflix says so.",
   sourceUrl: "https://help.netflix.com/en/node/24855",
   sourceLabel: "official Netflix keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "player",

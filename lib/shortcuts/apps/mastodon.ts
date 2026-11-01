@@ -23,10 +23,10 @@ export const mastodon: AppShortcuts = {
   category: "Social networking",
   platforms: [...platforms],
   versionContext:
-    "Web hotkeys from Mastodon's current main source, checked September 1, 2026. The source ignores shortcuts while focus is in an input, textarea, or select, and user instances can run different releases or customizations. Alt is shown as Option on macOS.",
+    "Web hotkeys from Mastodon's current main source, checked November 1, 2026. The source ignores shortcuts while focus is in an input, textarea, or select, and user instances can run different releases or customizations. Alt is shown as Option on macOS.",
   sourceUrl: "https://github.com/mastodon/mastodon/blob/main/app/javascript/mastodon/components/hotkeys/index.tsx",
   sourceLabel: "Mastodon web hotkeys source",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "post-actions",

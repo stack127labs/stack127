@@ -12,7 +12,7 @@ const intercom: AppShortcuts = {
     "Intercom documents the same direct shortcuts for Mac and Windows with Command or Control modifiers. The direct keys work outside the composer on QWERTY keyboards in Chrome or Edge, and the Command-K menu remains available from the Inbox.",
   sourceUrl: "https://www.intercom.com/help/en/articles/6272267-how-to-use-command-k-with-intercom-inbox",
   sourceLabel: "official Intercom Inbox keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "conversation-actions",

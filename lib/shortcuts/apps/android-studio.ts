@@ -19,10 +19,10 @@ export const androidStudio: AppShortcuts = {
   category: "Android IDE",
   platforms: ["windows", "macos", "linux"],
   versionContext:
-    "Default Android Studio keymaps from Google's reference updated March 6, 2026 and checked August 31, 2026. Android Studio supports preset and custom keymaps, which can replace these defaults. Mouse-only gestures and modifier-plus-pointer alternatives are omitted.",
+    "Default Android Studio keymaps from Google's reference updated March 6, 2026 and checked November 1, 2026. Android Studio supports preset and custom keymaps, which can replace these defaults. Mouse-only gestures and modifier-plus-pointer alternatives are omitted.",
   sourceUrl: "https://developer.android.com/studio/intro/keyboard-shortcuts",
   sourceLabel: "Android Studio keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "tool-windows",

@@ -18,7 +18,7 @@ export const penpot: AppShortcuts = {
     "Penpot workspace shortcuts from the official user guide, checked September 1, 2026. Penpot also publishes the current keymap in its source repository, and many bindings are available only when the workspace has focus.",
   sourceUrl: "https://help.penpot.dev/user-guide/first-steps/shortcuts/",
   sourceLabel: "official Penpot shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "alignment",

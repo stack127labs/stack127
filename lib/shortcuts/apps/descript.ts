@@ -28,7 +28,7 @@ export const descript: AppShortcuts = {
     "Current Descript blog and Help Center pages checked September 1, 2026. Descript's defaults apply to its Mac and Windows editor; focus on the script editor or timeline where noted.",
   sourceUrl: "https://www.descript.com/blog/article/how-to-use-descript",
   sourceLabel: "Descript keyboard shortcuts guide",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "tools",

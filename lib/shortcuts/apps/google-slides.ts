@@ -12,7 +12,7 @@ const googleSlides: AppShortcuts = {
     "Google publishes PC and Mac columns for Slides. Commands such as filmstrip movement and speaker notes require focus in the matching Slides area, while formatting commands apply to selected text or objects.",
   sourceUrl: "https://support.google.com/docs/answer/1696717?hl=en-EN",
   sourceLabel: "official Google Slides keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "slide-editing",

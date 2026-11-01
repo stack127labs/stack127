@@ -1,7 +1,7 @@
-import { combo } from "../build.ts";
+import { combo, perPlatform } from "../build.ts";
 import type { AppShortcuts } from "../types.ts";
 
-const platforms = ["windows", "macos", "linux"] as const;
+const platforms = ["windows", "macos"] as const;
 
 export const tallyForms: AppShortcuts = {
   slug: "tally-forms",
@@ -9,10 +9,10 @@ export const tallyForms: AppShortcuts = {
   category: "Forms",
   platforms: [...platforms],
   versionContext:
-    "Tally keyboard shortcuts checked September 1, 2026. The source describes shortcuts for the Tally editor and uses Cmd on macOS and Ctrl on Windows or Linux.",
+    "Tally keyboard shortcuts checked November 1, 2026. The source describes shortcuts for the Tally editor and uses Cmd on macOS and Ctrl on Windows.",
   sourceUrl: "https://tally.so/help/keyboard-shortcuts",
   sourceLabel: "official Tally keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "editing",
@@ -20,7 +20,7 @@ export const tallyForms: AppShortcuts = {
       intro: "Editing shortcuts select, open, move, duplicate, copy, paste, and delete blocks while a form is being built.",
       shortcuts: [
         { id: "escape", action: "Select the current block", keys: combo(platforms, ["Esc"], ["Esc"]) },
-        { id: "edit-block", action: "Edit the selected block", keys: combo(platforms, ["Enter"], ["Return"]) },
+        { id: "edit-block", action: "Edit the selected block", keys: combo(platforms, ["Enter"]) },
         { id: "select-up", action: "Select the block above", keys: combo(platforms, ["Up"], ["Up"]) },
         { id: "select-down", action: "Select the block below", keys: combo(platforms, ["Down"], ["Down"]) },
         { id: "move-up", action: "Move a block up", keys: combo(platforms, ["Ctrl", "Shift", "Up"], ["Cmd", "Shift", "Up"]) },
@@ -30,7 +30,7 @@ export const tallyForms: AppShortcuts = {
         { id: "paste", action: "Paste a block", keys: combo(platforms, ["Ctrl", "V"], ["Cmd", "V"]) },
         { id: "duplicate", action: "Duplicate a block", keys: combo(platforms, ["Ctrl", "D"], ["Cmd", "D"]) },
         { id: "undo", action: "Undo", keys: combo(platforms, ["Ctrl", "Z"], ["Cmd", "Z"]) },
-        { id: "redo", action: "Redo", keys: combo(platforms, ["Ctrl", "Shift", "Z"], ["Cmd", "Shift", "Z"]) },
+        { id: "redo", action: "Redo", keys: perPlatform(platforms, { windows: ["Ctrl", "Y"], macos: ["Cmd", "Shift", "Z"] }) },
       ],
     },
     {
@@ -38,16 +38,16 @@ export const tallyForms: AppShortcuts = {
       title: "Text and commands",
       intro: "Text shortcuts insert lines and formatting, open the block menu or command menu, and apply common Markdown-style constructs.",
       shortcuts: [
-        { id: "new-line", action: "Insert a line break", keys: combo(platforms, ["Shift", "Enter"], ["Shift", "Return"]) },
+        { id: "new-line", action: "Insert a line break", keys: combo(platforms, ["Shift", "Enter"]) },
         { id: "bold", action: "Bold selected text", keys: combo(platforms, ["Ctrl", "B"], ["Cmd", "B"]) },
         { id: "italic", action: "Italicize selected text", keys: combo(platforms, ["Ctrl", "I"], ["Cmd", "I"]) },
         { id: "underline", action: "Underline selected text", keys: combo(platforms, ["Ctrl", "U"], ["Cmd", "U"]) },
         { id: "link", action: "Add or edit a link", keys: combo(platforms, ["Ctrl", "K"], ["Cmd", "K"]) },
         { id: "block-menu", action: "Open the block menu", keys: combo(platforms, ["/"], ["/"]) },
         { id: "command-menu", action: "Open the command menu", keys: combo(platforms, ["Ctrl", "K"], ["Cmd", "K"]) },
-        { id: "heading-1", action: "Create a heading 1 with Markdown input", keys: combo(platforms, ["#", "Space"], ["#", "Space"]) },
-        { id: "heading-2", action: "Create a heading 2 with Markdown input", keys: combo(platforms, ["#", "#", "Space"], ["#", "#", "Space"]) },
-        { id: "checklist", action: "Create a checklist with Markdown input", keys: combo(platforms, ["[", "]", "Space"], ["[", "]", "Space"]) },
+        { id: "heading-1", action: "Create a heading 1 with Markdown input", keys: combo(platforms, ["#", "then", "Space"]) },
+        { id: "heading-2", action: "Create a heading 2 with Markdown input", keys: combo(platforms, ["#", "then", "#", "then", "Space"]) },
+        { id: "checklist", action: "Create a checklist with Markdown input", keys: combo(platforms, ["[", "then", "]"]) },
         { id: "mention", action: "Open the mention picker", keys: combo(platforms, ["@"], ["@"]) },
       ],
     },

@@ -22,10 +22,10 @@ export const wireshark: AppShortcuts = {
   category: "Network analysis",
   platforms: [...platforms],
   versionContext:
-    "Current Wireshark User's Guide 4.7.3 checked October 10, 2026. The guide uses the same menu shortcuts across desktop platforms, with Option replacing Alt for packet-selection history on macOS.",
+    "Current Wireshark User's Guide 5.1.0 checked November 1, 2026. The guide uses the same menu shortcuts across Windows, macOS, and Linux, with Option replacing Alt for packet-selection history on macOS.",
   sourceUrl: "https://www.wireshark.org/docs/wsug_html/",
   sourceLabel: "official Wireshark User's Guide",
-  lastVerified: "2026-10-10",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "packet-navigation",

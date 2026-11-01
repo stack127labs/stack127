@@ -29,10 +29,10 @@ export const wix: AppShortcuts = {
   category: "Website builder",
   platforms: [...platforms],
   versionContext:
-    "Wix Editor shortcut article checked September 1, 2026. The source lists Windows and Mac combinations and notes that some commands depend on the editor focus.",
+    "Wix Editor shortcut article checked November 1, 2026. The source lists Windows and Mac combinations and notes that some commands depend on the editor focus.",
   sourceUrl: "https://support.wix.com/en/article/wix-editor-keyboard-shortcuts-in-the-editor",
   sourceLabel: "official Wix Editor keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "editing",

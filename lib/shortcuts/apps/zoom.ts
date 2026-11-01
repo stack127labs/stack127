@@ -23,10 +23,10 @@ export const zoom: AppShortcuts = {
   category: "Video conferencing",
   platforms: [...platforms],
   versionContext:
-    "Zoom desktop keyboard shortcut reference checked September 1, 2026. Zoom notes that some shortcuts require a higher app version than the global minimum and that shortcuts can be edited in settings.",
+    "Zoom desktop keyboard shortcut reference checked November 1, 2026. Zoom notes that some shortcuts require a higher app version than the global minimum and that shortcuts can be edited in settings.",
   sourceUrl: "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0067050",
   sourceLabel: "official Zoom desktop keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "meeting",

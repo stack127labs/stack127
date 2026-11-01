@@ -12,7 +12,7 @@ export const keynote: AppShortcuts = {
     "Keyboard shortcuts from Apple's current Keynote for Mac User Guide, checked September 1, 2026. Some commands are context-sensitive, and presentation-mode keys apply only while a slideshow is running.",
   sourceUrl: "https://support.apple.com/guide/keynote/keyboard-shortcuts-tanfde4a3e6d/mac",
   sourceLabel: "Apple Keynote for Mac keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "files-and-window",

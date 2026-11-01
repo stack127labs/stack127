@@ -22,10 +22,10 @@ export const zendesk: AppShortcuts = {
   category: "Customer support",
   platforms: [...platforms],
   versionContext:
-    "Zendesk Agent Workspace keyboard shortcut cheat sheet and dashboard shortcut article checked September 1, 2026. The cheat sheet uses Ctrl or Cmd notation, and some commands depend on the active ticket or editor.",
+    "Zendesk Agent Workspace keyboard shortcut cheat sheet and dashboard shortcut article checked November 1, 2026. The cheat sheet uses Ctrl or Cmd notation, and some commands depend on the active ticket or editor.",
   sourceUrl: "https://static.zdassets.com/agent/assets/keyboard-shortcut-cheatsheet-9bad3e7d4d6f5c2affb9d23e2f23ce22.pdf",
   sourceLabel: "official Zendesk Agent Workspace shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "navigation",
@@ -78,10 +78,10 @@ export const zendesk: AppShortcuts = {
         dual("bold", "Bold text", ["Ctrl", "B"], ["Cmd", "B"]),
         dual("italic", "Italicize text", ["Ctrl", "I"], ["Cmd", "I"]),
         dual("code", "Format inline code", ["Ctrl", "Shift", "5"], ["Cmd", "Shift", "5"]),
-        dual("code-block", "Format a code block", ["Shift", "6"], ["Shift", "6"]),
-        dual("numbered-list", "Toggle a numbered list", ["Shift", "7"], ["Shift", "7"]),
-        dual("bulleted-list", "Toggle a bulleted list", ["Shift", "8"], ["Shift", "8"]),
-        dual("quote", "Format a quote", ["Shift", "9"], ["Shift", "9"]),
+        dual("code-block", "Format a code block", ["Ctrl", "Shift", "6"], ["Cmd", "Shift", "6"]),
+        dual("numbered-list", "Toggle a numbered list", ["Ctrl", "Shift", "7"], ["Cmd", "Shift", "7"]),
+        dual("bulleted-list", "Toggle a bulleted list", ["Ctrl", "Shift", "8"], ["Cmd", "Shift", "8"]),
+        dual("quote", "Format a quote", ["Ctrl", "Shift", "9"], ["Cmd", "Shift", "9"]),
       ],
     },
   ],

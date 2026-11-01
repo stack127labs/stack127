@@ -10,9 +10,9 @@ const googleGemini: AppShortcuts = {
   platforms: [...platforms],
   versionContext:
     "Gemini in Chrome is an opt-in feature that Google is rolling out gradually. Its shortcuts can be changed in Chrome settings, and this record does not present them as shortcuts for the general Gemini web app.",
-  sourceUrl: "https://support.google.com/gemini/answer/16988996?hl=en-GP",
-  sourceLabel: "official Google Gemini in Chrome keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  sourceUrl: "https://support.google.com/chrome/answer/16988996?hl=en",
+  sourceLabel: "official Google Chrome Help for Gemini keyboard shortcuts",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "gemini-in-chrome",

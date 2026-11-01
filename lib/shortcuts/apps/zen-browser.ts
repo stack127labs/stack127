@@ -16,10 +16,10 @@ export const zenBrowser: AppShortcuts = {
   category: "Web browser",
   platforms: [...platforms],
   versionContext:
-    "Zen Browser shortcut reference checked October 10, 2026. The published table uses Ctrl and Alt notation without operating-system variants, so this record keeps the published notation for Windows, macOS, and Linux.",
+    "Zen Browser shortcut reference checked November 1, 2026. The published table uses Ctrl and Alt notation without operating-system variants, so this record keeps the published notation for Windows, macOS, and Linux.",
   sourceUrl: "https://docs.zen-browser.app/user-manual/shortcuts",
   sourceLabel: "official Zen Browser shortcuts",
-  lastVerified: "2026-10-10",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "zen-layout",

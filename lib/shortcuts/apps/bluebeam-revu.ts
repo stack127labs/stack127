@@ -18,7 +18,7 @@ export const bluebeamRevu: AppShortcuts = {
     "Official Revu 21 and Revu 20 keyboard reference checked August 31, 2026. These are default Windows assignments. Revu can reassign existing commands and add custom shortcuts, so a customized installation may differ.",
   sourceUrl: "https://support.bluebeam.com/revu/resources/keyboard-shortcuts.html",
   sourceLabel: "Bluebeam Revu keyboard shortcuts and mouse navigation",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "markup",

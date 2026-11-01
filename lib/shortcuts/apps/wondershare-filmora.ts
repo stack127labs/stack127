@@ -29,10 +29,10 @@ export const wondershareFilmora: AppShortcuts = {
   category: "Video editing",
   platforms: [...platforms],
   versionContext:
-    "Filmora V15 release notes and current Windows and Mac shortcut lists checked September 1, 2026. Filmora lets users edit or switch shortcut presets.",
+    "Filmora V15 release notes and current Windows and Mac shortcut lists checked November 1, 2026. Filmora lets users edit or switch shortcut presets.",
   sourceUrl: "https://filmora.wondershare.com/guide/keyboard-shortcuts-on-windows.html",
   sourceLabel: "official Wondershare Filmora keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "file-and-edit",
@@ -49,7 +49,7 @@ export const wondershareFilmora: AppShortcuts = {
         dual("cut", "Cut", ["Ctrl", "X"], ["Cmd", "X"]),
         dual("copy", "Copy", ["Ctrl", "C"], ["Cmd", "C"]),
         dual("paste", "Paste", ["Ctrl", "V"], ["Cmd", "V"]),
-        shared("delete", "Delete the selected clip", ["Delete"], "Filmora also documents separate ripple-delete commands."),
+        { id: "delete", action: "Delete the selected clip", keys: perPlatform(platforms, { windows: ["Delete"], macos: ["Backspace"] }), note: "Filmora also documents separate ripple-delete commands." },
         shared("ripple-delete", "Ripple-delete the selected clip", ["Shift", "Delete"]),
         dual("select-all", "Select all", ["Ctrl", "A"], ["Cmd", "A"]),
         dual("duplicate", "Duplicate the selected clip", ["Ctrl", "D"], ["Cmd", "D"]),
@@ -67,7 +67,7 @@ export const wondershareFilmora: AppShortcuts = {
         dual("trim-end", "Trim the clip end to the playhead", ["Alt", "]"], ["Option", "]"]),
         dual("move-clip-left", "Move the selected clip left", ["Alt", "Left Arrow"], ["Option", "Left Arrow"]),
         dual("move-clip-right", "Move the selected clip right", ["Alt", "Right Arrow"], ["Option", "Right Arrow"]),
-        dual("audio-mixer", "Open the audio mixer", ["Alt", "E"], ["Option", "E"]),
+        { id: "audio-mixer", action: "Open the audio mixer", keys: perPlatform(platforms, { windows: ["Alt", "E"] }) },
         dual("crop", "Open crop and zoom", ["Alt", "C"], ["Option", "C"]),
         dual("group", "Group selected clips", ["Ctrl", "G"], ["Cmd", "G"]),
         dual("ungroup", "Ungroup selected clips", ["Ctrl", "Alt", "G"], ["Cmd", "Option", "G"]),
@@ -75,7 +75,7 @@ export const wondershareFilmora: AppShortcuts = {
         dual("rename", "Rename the selected item", ["F2"], ["F2"]),
         dual("reveal", "Reveal the selected item in the media panel", ["Ctrl", "Shift", "R"], ["Cmd", "Shift", "R"]),
         dual("favorite", "Add the selected item to favorites", ["Shift", "F"], ["Shift", "F"]),
-        dual("shortcut-panel", "Open the keyboard shortcuts panel", ["Ctrl", "Alt", "K"], ["Cmd", "Option", "K"]),
+        dual("shortcut-panel", "Open the keyboard shortcuts panel", ["Ctrl", "Alt", "K"], ["Ctrl", "Cmd", "K"]),
       ],
     },
     {
@@ -84,8 +84,8 @@ export const wondershareFilmora: AppShortcuts = {
       intro: "Use these controls to play the timeline, move the playhead, and change the timeline zoom.",
       shortcuts: [
         shared("play-pause", "Play or pause", ["Space"]),
-        dual("stop", "Stop playback", ["Ctrl", "/"], ["Cmd", "/"]),
-        dual("fullscreen", "Enter or leave full screen", ["Alt", "Enter"], ["Cmd", "Option", "Enter"]),
+        dual("stop", "Stop playback", ["Ctrl", "/"], ["Ctrl", "/"]),
+        dual("fullscreen", "Play the preview full screen", ["Alt", "Enter"], ["Option", "Enter"]),
         shared("previous-frame", "Move to the previous frame", ["Left Arrow"]),
         shared("next-frame", "Move to the next frame", ["Right Arrow"]),
         shared("previous-second", "Move backward by one second", ["Shift", "Left Arrow"]),

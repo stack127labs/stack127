@@ -26,7 +26,7 @@ export const otterAi: AppShortcuts = {
     "Otter Help Center keyboard shortcuts checked September 1, 2026. The source article was updated February 4, 2025 and labels the modifier differences for Mac and Windows.",
   sourceUrl: "https://help.otter.ai/hc/en-us/articles/29431724341399-Keyboard-Shortcuts",
   sourceLabel: "official Otter.ai keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "audio-playback",

@@ -29,10 +29,10 @@ export const youtrack: AppShortcuts = {
   category: "Project management",
   platforms: [...platforms],
   versionContext:
-    "YouTrack Cloud 2026.2 keyboard shortcuts checked September 1, 2026. The source gives Windows or Linux and macOS variants, and many commands depend on the focused issue list or editor.",
+    "YouTrack Cloud 2026.2 keyboard shortcuts checked November 1, 2026. The source gives Windows or Linux and macOS variants, and many commands depend on the focused issue list or editor.",
   sourceUrl: "https://www.jetbrains.com/help/youtrack/cloud/keyboard-shortcuts.html",
   sourceLabel: "official YouTrack keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "issue-list",
@@ -54,7 +54,7 @@ export const youtrack: AppShortcuts = {
         tri("edit-issue", "Edit the focused issue", ["F2"], ["F2"]),
         tri("open-issue", "Open the focused issue", ["F3"], ["F3"]),
         tri("copy-id", "Copy the issue ID", ["Ctrl", "C"], ["Cmd", "C"]),
-        tri("copy-url", "Copy the issue URL", ["Ctrl", "C", "then", "C"], ["Cmd", "C", "then", "C"]),
+        tri("copy-url", "Copy the issue URL", ["Ctrl", "C"], ["Cmd", "C"], "Then press C."),
         tri("new-issue", "Create a new issue", ["Alt", "Insert"], ["Control", "N"]),
         tri("new-subtask", "Create a subtask", ["Ctrl", "Alt", "Insert"], ["Control", "Option", "N"]),
         tri("assign", "Assign the issue", ["Ctrl", "M"], ["Cmd", "M"]),

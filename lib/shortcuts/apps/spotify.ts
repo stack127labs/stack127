@@ -12,14 +12,17 @@ export const spotify: AppShortcuts = {
     "Spotify desktop and web player shortcuts checked September 1, 2026. Spotify says the app can show the full in-app list, so this record contains the stable actions published in the support article.",
   sourceUrl: "https://support.spotify.com/na-en/article/keyboard-shortcuts/",
   sourceLabel: "official Spotify keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "search-and-navigation",
       title: "Search and navigation",
       intro: "Search and navigation shortcuts reach help, library sections, preferences, and the sidebars without opening the mouse menus.",
       shortcuts: [
-        { id: "open-help", action: "Open Help", keys: combo(platforms, ["Ctrl", "/"], ["Cmd", "/"]) },
+        { id: "open-help", action: "Open Help", keys: [
+          { platform: "windows", keys: ["Ctrl", "/"], alternatives: [["Ctrl", "?"]] },
+          { platform: "macos", keys: ["Cmd", "/"], alternatives: [["Cmd", "?"]] },
+        ] },
         { id: "open-search", action: "Open Search", keys: combo(platforms, ["Ctrl", "K"], ["Cmd", "K"]) },
         { id: "select-all", action: "Select all", keys: combo(platforms, ["Ctrl", "A"], ["Cmd", "A"]) },
         { id: "filter", action: "Filter", keys: combo(platforms, ["Ctrl", "F"], ["Cmd", "F"]) },

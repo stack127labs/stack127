@@ -16,10 +16,10 @@ export const zulip: AppShortcuts = {
   category: "Team chat",
   platforms: [...platforms],
   versionContext:
-    "Zulip keyboard shortcut reference checked September 1, 2026. The official Web and Desktop table uses Ctrl notation and includes the same app-level map for the listed desktop platforms.",
+    "Zulip keyboard shortcut reference checked November 1, 2026. The official Web and Desktop table uses Ctrl notation and includes the same app-level map for the listed desktop platforms.",
   sourceUrl: "https://zulip.com/help/keyboard-shortcuts",
   sourceLabel: "official Zulip keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "basics",
@@ -74,13 +74,12 @@ export const zulip: AppShortcuts = {
     {
       id: "compose",
       title: "Compose",
-      intro: "Write replies, topics, and direct messages with formatting and preview controls.",
+      intro: "Write replies, topics, and direct messages with formatting and preview controls. To send, press Tab then Enter, or use the configured Enter or Ctrl+Enter binding.",
       shortcuts: [
         shared("quote", "Quote the selected message", [">"]),
         shared("forward", "Forward the selected message", ["<"]),
         shared("direct-reply", "Reply directly to the selected message", ["Shift", "R"]),
         shared("mention", "Mention a user", ["@"]),
-        shared("send", "Send the message", ["Tab", "then", "Enter"], "Enter or Ctrl+Enter may send based on the compose settings."),
         shared("new-line", "Insert a new line", ["Shift", "Enter"]),
         shared("bold", "Bold text", ["Ctrl", "B"]),
         shared("italic", "Italicize text", ["Ctrl", "I"]),

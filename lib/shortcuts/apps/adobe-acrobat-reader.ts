@@ -7,10 +7,10 @@ export const adobeAcrobatReader: AppShortcuts = {
   category: "PDF reader",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current Acrobat Reader desktop defaults checked August 31, 2026. Adobe's June 21, 2026 Reader accessibility guide states that Reader and Acrobat use the same keyboard shortcuts and links to the September 23, 2025 Acrobat table. Enable Use single-key accelerators to access tools for one-letter commands.",
-  sourceUrl: "https://helpx.adobe.com/reader/desktop/accessibility-features.html",
-  sourceLabel: "official Adobe Acrobat Reader keyboard shortcuts",
-  lastVerified: "2026-08-31",
+    "Current Acrobat Reader desktop defaults from Adobe's September 23, 2025 Acrobat reference, checked November 1, 2026. Adobe's Reader accessibility guide states that Reader and Acrobat use the same keyboard shortcuts. Enable Use single-key accelerators to access tools for one-letter commands.",
+  sourceUrl: "https://helpx.adobe.com/acrobat/desktop/get-started/preferences-and-settings/keyboard-shortcuts.html",
+  sourceLabel: "Adobe Acrobat desktop keyboard shortcuts (shared with Reader)",
+  lastVerified: "2026-11-01",
   groups: acrobatReaderGroups,
 };
 

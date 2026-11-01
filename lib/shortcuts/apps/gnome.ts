@@ -9,7 +9,7 @@ export const gnome: AppShortcuts = {
     "Defaults from the current GNOME Help keyboard-shortcuts page checked in August 2026. Window-manager and terminal shortcuts can vary when a distribution changes GNOME settings or when another desktop component claims the same key.",
   sourceUrl: "https://help.gnome.org/gnome-help/shell-keyboard-shortcuts.html",
   sourceLabel: "official GNOME Help keyboard shortcuts",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "shell-navigation",

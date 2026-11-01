@@ -16,7 +16,7 @@ export const paintNet: AppShortcuts = {
     "Paint.NET keyboard and mouse commands from the official documentation, checked September 1, 2026. This reference is for the Windows desktop application and keeps mouse gestures only where the official command is a keyboard-plus-mouse action.",
   sourceUrl: "https://www.getpaint.net/doc/latest/KeyboardMouseCommands.html",
   sourceLabel: "official Paint.NET keyboard and mouse commands",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "canvas",

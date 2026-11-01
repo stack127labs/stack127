@@ -12,7 +12,7 @@ const githubDesktop: AppShortcuts = {
     "GitHub publishes separate macOS and Windows tables. This record covers the desktop application, not browser shortcuts or terminal commands. Windows uses Control where macOS uses Command, with the platform-specific full-screen and developer-tool commands preserved.",
   sourceUrl: "https://docs.github.com/en/desktop/overview/github-desktop-keyboard-shortcuts",
   sourceLabel: "official GitHub Desktop keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "application",

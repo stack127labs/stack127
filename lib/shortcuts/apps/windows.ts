@@ -8,10 +8,10 @@ export const windows: AppShortcuts = {
   category: "Operating system",
   platforms: ["windows"],
   versionContext:
-    "Default Windows 10 and Windows 11 bindings from Microsoft Support checked in August 2026. Individual apps may override general bindings, and some keys depend on a feature, keyboard layout, taskbar focus, or an enabled accessibility setting.",
+    "Default Windows 10 and Windows 11 bindings from Microsoft Support checked November 1, 2026. Individual apps may override general bindings, and some keys depend on a feature, keyboard layout, taskbar focus, or an enabled accessibility setting.",
   sourceUrl: "https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec",
   sourceLabel: "official Microsoft Windows shortcut reference",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "text-editing",
