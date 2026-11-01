@@ -33,7 +33,7 @@ Record sync scripts own the records and the generated route files. They leave ex
 | Directory | Record script | Page fields |
 | --- | --- | --- |
 | Keyboard shortcuts | `scripts/keyboard-shortcuts/sync-pages.mjs` | `--apply` inserts missing child rows, then syncs app records and the hub snapshot. Existing page fields stay as written. |
-| Platform fees | `scripts/platform-fees/sync-development.mjs`, `sync-records.mjs`, then `prepare-category-manifest.mjs` | Syncs records and inserts missing page rows. The manifest takes reviewed page fields from development. |
+| Platform fees | `scripts/platform-fees/sync-development.mjs`, `sync-records.mjs`, then `prepare-category-manifest.mjs` | Syncs records and inserts missing page rows. The manifest takes reviewed page fields from development. For records only, use [`sync-dataset.mjs`](../scripts/platform-fees/README.md): preview first, then apply with production confirmation; deletions need `--allow-delete`. |
 
 The managed-development hardware preview scripts, `scripts/stack127/preview-hardware-directories.mjs` and `scripts/zigbee-devices/preview-local-page.mjs`, insert starting rows only when missing. Existing titles, cards, and search fields stay as written. MDX owns the page words. Normal runs publish drafts; published pages stay unchanged. `--remove` unpublishes without deleting rows. Zigbee removal still requires the original preview metadata. Add `--dry-run` to preview either operation and roll back. The old hardware `--refresh` flag overwrote search fields; both scripts now reject it. Use the single-page editor below for reviewed changes.
 
