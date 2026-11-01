@@ -67,7 +67,7 @@ export const slack: AppShortcuts = {
         { id: "threads-view", action: "Open the Threads view", keys: combo(platforms, ["Ctrl", "Shift", "T"], ["Cmd", "Shift", "T"]), note: "Desktop app only." },
         { id: "channels-view", action: "Browse channels", keys: combo(platforms, ["Ctrl", "Shift", "L"], ["Cmd", "Shift", "L"]), note: "Desktop app only." },
         { id: "conversation-details", action: "Open conversation details", keys: combo(platforms, ["Ctrl", "Shift", "I"], ["Cmd", "Shift", "I"]) },
-        { id: "quick-switcher", action: "Jump to a conversation", keys: combo(platforms, ["Ctrl", "K", "Ctrl", "T"]), note: "Windows and Linux desktop apps." },
+        { id: "quick-switcher", action: "Jump to a conversation", keys: perPlatform(platforms, { windows: ["Ctrl", "K"], linux: ["Ctrl", "K"] }).map((entry) => ({ ...entry, alternatives: [["Ctrl", "T"]] })), note: "Ctrl+T works only in the desktop app." },
         { id: "focus-next-section", action: "Move focus to the next section", keys: combo(platforms, ["F6"]) },
         { id: "focus-previous-section", action: "Move focus to the previous section", keys: combo(platforms, ["Shift", "F6"]) },
         { id: "collapse-sidebar-sections", action: "Expand or collapse all sidebar sections", keys: perPlatform(platforms, { windows: ["Alt", "Click"], macos: ["Option", "Click"], linux: ["Alt", "Click"] }) },

@@ -63,9 +63,13 @@ export const figma: AppShortcuts = {
         { id: "comment", action: "Comment", keys: combo(platforms, ["C"]) },
         {
           id: "eyedropper",
-          action: "Pick a color from anywhere",
-          keys: combo(platforms, ["Ctrl", "C"], ["Cmd", "C"]),
-          note: "Hold it to sample while dragging; works outside the canvas too.",
+          action: "Pick a color with the eyedropper",
+          keys: platforms.map((platform) =>
+            platform === "macos"
+              ? { platform, keys: ["Control", "C"], alternatives: [["I"]] }
+              : { platform, keys: ["I"] },
+          ),
+          note: "Sampling outside the canvas works only in the Figma desktop app on macOS.",
         },
         {
           id: "focus-toolbar",
@@ -158,9 +162,14 @@ export const figma: AppShortcuts = {
       intro: "Select through layers, move objects, change the canvas view, and keep the right panels in reach.",
       shortcuts: [
         {
-          id: "show-layers",
-          action: "Show or hide the layers panel",
+          id: "add-auto-layout",
+          action: "Add auto layout to the selection",
           keys: combo(platforms, ["Shift", "A"]),
+        },
+        {
+          id: "remove-auto-layout",
+          action: "Remove auto layout",
+          keys: combo(platforms, ["Alt", "Shift", "A"], ["Option", "Shift", "A"]),
         },
         {
           id: "zoom-to-fit",
