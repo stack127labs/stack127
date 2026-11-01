@@ -64,7 +64,7 @@ export const claudeCode: AppShortcuts = {
         { id: "delete-previous-word", action: "Delete the previous word", keys: combo(platforms, ["Ctrl", "W"]) },
         { id: "delete-next-word", action: "Delete the next word", keys: combo(platforms, ["Alt", "D"]), note: "Requires Option as Meta on macOS." },
         { id: "paste-deleted", action: "Paste the most recently deleted text", keys: combo(platforms, ["Ctrl", "Y"]) },
-        { id: "cycle-paste-history", action: "Cycle through deleted-text history", keys: combo(platforms, ["Alt", "Y"]), note: "Press after Ctrl+Y. Requires Option as Meta on macOS." },
+        { id: "cycle-paste-history", action: "Cycle through deleted-text history", keys: combo(platforms, ["Ctrl", "Y", "then", "Alt", "Y"]), note: "Requires Option as Meta on macOS." },
         { id: "undo-input-edit", action: "Undo the last input edit", keys: combo(platforms, ["Ctrl", "_"]), note: "Ctrl+Shift+- also works." },
         { id: "paste-image", action: "Paste an image from the clipboard", keys: perPlatform(platforms, { macos: ["Ctrl", "V"], windows: ["Alt", "V"], linux: ["Ctrl", "V"] }), note: "iTerm2 on macOS also accepts Cmd+V; Windows and WSL use Alt+V for image paste." },
       ],
