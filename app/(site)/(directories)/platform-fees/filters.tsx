@@ -1,9 +1,12 @@
 "use client";
 import Link from 'next/link';
-import { createContext, Fragment, useContext, useEffect, useState, type MouseEvent, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState, type MouseEvent, type ReactNode } from 'react';
 import { UiButton, UiSearchField } from '@/app/ui/controls';
 import { StatePanel } from '@/app/ui/state-panel';
 import { SidebarList } from '@/app/ui/site/sidebar-list';
+import { feeSearchText, type FeeCardView, type FeeDate } from './card-view';
+import { FeeCard } from './fee-card';
+import { FeeSourceList, FeeSources } from './sources';
 import styles from './page.module.css';
 
 // The pages are static. Search runs in the browser from ?q=, which stays out of the index.
@@ -90,29 +93,36 @@ export function FeeFilters({ action = '/platform-fees' }: { action?: string }) {
   </form>;
 }
 
-export function FeeMatchCount({ items, label }: { items: FeeSearchItem[]; label: string }) {
-  return <>{matchItems(items, useFeeQuery()).length} {label}</>;
-}
-
 export type FeeCategorySection = {
   anchor: string;
   href: string;
   name: string;
   intro: string;
-  checkedLabel: ReactNode;
-  sources: ReactNode;
-  items: Array<FeeSearchItem & { card: ReactNode }>;
+  checked: FeeDate | null;
+  /** Fact labels, in the order of each card's facts. */
+  fields: string[];
+  cards: FeeCardView[];
 };
 
+// Cards arrive as compact data and render here, so the page data holds one copy of each card.
 export function FeeCategoryBody({ path, sections }: { path: string; sections: FeeCategorySection[] }) {
   const query = useFeeQuery();
   const followAnchor = useSamePageAnchor();
-  const visible = sections.flatMap(section => {
+  const indexed = useMemo(() => sections.map(section => ({
+    ...section,
+    items: section.cards.map(card => ({ id: card.id, text: feeSearchText(card), card })),
+  })), [sections]);
+  const visible = indexed.flatMap(section => {
     const items = matchItems(section.items, query);
     if (query && items.length === 0) return [];
     return [{ ...section, items }];
   });
+  const count = visible.reduce((sum, section) => sum + section.items.length, 0);
   return <>
+    <div className={styles.overview}>
+      <p aria-live="polite">{count} platforms</p>
+      <p>US / USD unless labelled</p>
+    </div>
     {visible.length > 0 && <nav aria-label="Jump to a section" onClickCapture={followAnchor}>
       <ul className={styles.jump}>
         {visible.map(section => <li key={section.anchor}><a href={section.href}>{section.name}</a></li>)}
@@ -124,12 +134,12 @@ export function FeeCategoryBody({ path, sections }: { path: string; sections: Fe
       <div className={styles.sectionHeading}>
         <h2>{section.name}</h2>
         <div className={styles.overviewActions}>
-          {section.checkedLabel}
-          {section.sources}
+          {section.checked && <p className={styles.checked}>Last checked <time dateTime={section.checked.iso}>{section.checked.label}</time></p>}
+          <FeeSources><FeeSourceList cards={section.cards} fields={section.fields} /></FeeSources>
         </div>
       </div>
       <p className={styles.sectionIntro}>{section.intro}</p>
-      <div className={styles.grid}>{section.items.map(item => <Fragment key={item.id}>{item.card}</Fragment>)}</div>
+      <div className={styles.grid}>{section.items.map(item => <FeeCard key={item.id} card={item.card} />)}</div>
     </section>)}
   </>;
 }
@@ -147,20 +157,25 @@ export function FeeSidebarAnchors({ anchors }: { anchors: FeeAnchor[] }) {
   </nav>;
 }
 
-export function FeeHubResults({ items, children }: {
-  items: Array<FeeSearchItem & { name: string; section: string; href: string }>;
+export type FeeHubItem = { id: string; name: string; tag: string; summary: string; section: number };
+
+// Section labels and links are sent once; each listing points to its section by index.
+export function FeeHubResults({ sections, items, children }: {
+  sections: Array<{ label: string; path: string }>;
+  items: FeeHubItem[];
   children: ReactNode;
 }) {
   const query = useFeeQuery();
+  const indexed = useMemo(() => items.map(item => ({ ...item, text: feeSearchText(item) })), [items]);
   if (!query) return children;
-  const matches = matchItems(items, query);
+  const matches = matchItems(indexed, query);
   return <>
     <p className={styles.count} aria-live="polite">{matches.length} results</p>
     {!matches.length && <StatePanel title="No platforms match" action={<ShowAll href="/platform-fees">All categories</ShowAll>} />}
     <div className={styles.results}>{matches.map(item =>
-      <Link className={styles.result} key={item.id} href={item.href}>
+      <Link className={styles.result} key={item.id} href={sections[item.section] ? `${sections[item.section].path}#${item.id}` : '/platform-fees'}>
         <strong>{item.name}</strong>
-        <span>{item.section}</span>
+        <span>{sections[item.section]?.label ?? ''}</span>
         <span aria-hidden="true">→</span>
       </Link>,
     )}</div>
