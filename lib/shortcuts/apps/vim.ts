@@ -105,7 +105,7 @@ export const vim: AppShortcuts = {
         { id: "quit", action: "Quit Vim", keys: combo(platforms, [":", "q"]), note: ":wq or :x writes and quits; :q! quits without saving." },
         { id: "write-quit", action: "Write and quit", keys: combo(platforms, [":", "w", "q"]) },
         { id: "quit-without-saving", action: "Quit without saving", keys: combo(platforms, [":", "q", "!"]) },
-        { id: "edit-file", action: "Edit a file", keys: combo(platforms, [":", "e", "then", "{path}", "then", "Enter"]) },
+        { id: "edit-file", action: "Edit a file", keys: combo(platforms, [":", "e", "then", "Space", "then", "{path}", "then", "Enter"]) },
         { id: "next-buffer", action: "Edit the next buffer", keys: combo(platforms, [":", "bn"]) },
         { id: "previous-buffer", action: "Edit the previous buffer", keys: combo(platforms, [":", "bp"]) },
         { id: "command-line", action: "Open the command-line prompt", keys: combo(platforms, [":"]) },

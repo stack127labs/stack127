@@ -22,7 +22,7 @@ export const claudeCode: AppShortcuts = {
         { id: "interrupt-escape", action: "Interrupt Claude mid-turn", keys: combo(platforms, ["Esc"]), note: "Keeps work completed so far." },
         { id: "interrupt-control-c", action: "Cancel current input or generation", keys: combo(platforms, ["Ctrl", "C"]), note: "The first press clears a draft or stops work. A second press exits." },
         { id: "rewind", action: "Clear a draft, or open the rewind menu when the prompt is empty", keys: combo(platforms, ["Esc", "Esc"]) },
-        { id: "stop-background-work", action: "Stop background agents and artifact replies", keys: combo(platforms, ["Ctrl", "X", "Ctrl", "K"]), note: "Repeat the sequence to confirm." },
+        { id: "stop-background-work", action: "Stop background agents and artifact replies", keys: combo(platforms, ["Ctrl", "X", "Ctrl", "K", "then", "Ctrl", "X", "Ctrl", "K"]), note: "The second press confirms." },
         { id: "background-bash", action: "Move a running Bash command to the background", keys: combo(platforms, ["Ctrl", "B"]) },
         { id: "exit-session", action: "Exit the session", keys: combo(platforms, ["Ctrl", "D"]), note: "Claude Code asks for confirmation when needed." },
         { id: "clear-screen", action: "Redraw the terminal screen", keys: combo(platforms, ["Ctrl", "L"]) },
