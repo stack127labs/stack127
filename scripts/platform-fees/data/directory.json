@@ -12310,38 +12310,38 @@
       "facts": [
         {
           "key": "fact-1",
-          "value": "Free; Creator $10/mo ($100/yr); Plus $30/mo ($300/yr). Max: Beacons' pricing page shows $100/mo or $900/yr ($83.3/mo billed yearly); its Max plan article says $90/mo or $900/yr.",
-          "state": "variable",
+          "value": "Free; Creator $10/mo ($100/yr); Plus $30/mo ($300/yr); Max $100/mo ($1,000/yr).",
+          "state": "verified",
           "source_url": "https://beacons.ai/i/pricing",
-          "checked_at": "2026-09-30"
+          "checked_at": "2026-11-01"
         },
         {
           "key": "fact-2",
           "value": "9% on Free and Creator; 0% on Plus and Max",
           "state": "verified",
           "source_url": "https://beacons.ai/i/pricing",
-          "checked_at": "2026-09-30"
+          "checked_at": "2026-11-01"
         },
         {
           "key": "fact-3",
           "value": "Stripe: 2.9% + $0.30; PayPal: 3.49% + currency-fixed fee",
           "state": "verified",
           "source_url": "https://help.beacons.ai/en/articles/4700289",
-          "checked_at": "2026-09-30"
+          "checked_at": "2026-11-01"
         },
         {
           "key": "fact-4",
           "value": "Affiliate commission is creator-set; the plan’s Beacons fee still applies",
           "state": "verified",
           "source_url": "https://help.beacons.ai/en/articles/4701953",
-          "checked_at": "2026-09-30"
+          "checked_at": "2026-11-01"
         },
         {
           "key": "fact-5",
           "value": "Public terms do not say who calculates, collects or remits buyer sales tax",
           "state": "not_public",
           "source_url": "https://shop.beacons.ai/i/terms-and-conditions",
-          "checked_at": "2026-09-30"
+          "checked_at": "2026-11-01"
         }
       ],
       "sources": [
@@ -12366,7 +12366,7 @@
           "label": "Plan pricing article"
         }
       ],
-      "checked_at": "2026-09-30",
+      "checked_at": "2026-11-01",
       "comparison_basis": "USD plan pricing. Beacons' Max plan article says $90/mo or $900/yr; its pricing page shows $100/mo, or $900/yr ($83.3/mo).",
       "fee_percent": null,
       "fee_basis": null,
@@ -12374,7 +12374,7 @@
       "card": {
         "owner": "Beacons",
         "tag": "Link-in-bio store",
-        "note": "Beacons' pricing pages list different prices for the Max plan.",
+        "note": "Plus and Max take no Beacons fee. Card fees still apply.",
         "take": {
           "value": "9%",
           "percent": 9,
@@ -12390,7 +12390,7 @@
         "lines": [
           {
             "label": "Plans",
-            "value": "$0 to $30 a month",
+            "value": "$0 to $100 a month",
             "fact_key": "fact-1"
           },
           {
@@ -12419,7 +12419,7 @@
                 "value": "0%",
                 "percent": 0,
                 "label": "Plus and Max",
-                "note": "Plus is $30 a month",
+                "note": "Plus is $30 a month, Max $100",
                 "fact_key": "fact-2"
               }
             ]
