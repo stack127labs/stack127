@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { selfHostAppCategorySlugs } from "./categories.mjs";
+import { selfHostRecordClassificationError } from "./classification.mjs";
 import { slugify, validateSummary } from "./summary-rules.mjs";
 
 export const enumValues = {
@@ -322,6 +323,11 @@ export function validateRecord(input, { draft = false } = {}) {
   const record = normalizeRecord(input);
   const errors = [];
   const warnings = [];
+
+  if (!draft && record.published) {
+    const classificationError = selfHostRecordClassificationError(record);
+    if (classificationError) errors.push(classificationError);
+  }
 
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(record.slug)) errors.push("slug must be lowercase URL-safe text");
   if (!record.name) errors.push("name is required");
