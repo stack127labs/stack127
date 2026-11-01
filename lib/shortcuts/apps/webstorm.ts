@@ -26,9 +26,9 @@ export const webstorm: AppShortcuts = {
       title: "Search and navigation",
       intro: "Find files, actions, symbols, usages, recent documents, errors, and definitions throughout a WebStorm project.",
       shortcuts: [
-        desktop("search-everywhere", "Search Everywhere", ["Shift", "Shift"], ["Shift", "Shift"], "Press Shift twice."),
+        desktop("search-everywhere", "Search Everywhere", ["Shift", "then", "Shift"], ["Shift", "then", "Shift"]),
         desktop("find-action", "Find and run an action", ["Ctrl", "Shift", "A"], ["Cmd", "Shift", "A"]),
-        desktop("run-anything", "Open Run Anything", ["Ctrl", "Ctrl"], ["Ctrl", "Ctrl"], "Press Ctrl twice."),
+        desktop("run-anything", "Open Run Anything", ["Ctrl", "then", "Ctrl"], ["Ctrl", "then", "Ctrl"]),
         desktop("recent-files", "Open recent files", ["Ctrl", "E"], ["Cmd", "E"]),
         desktop("find", "Find in the current file", ["Ctrl", "F"], ["Cmd", "F"]),
         desktop("replace", "Replace in the current file", ["Ctrl", "R"], ["Cmd", "R"]),

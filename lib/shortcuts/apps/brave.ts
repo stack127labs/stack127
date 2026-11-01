@@ -71,7 +71,7 @@ export const brave: AppShortcuts = {
       shortcuts: [
         { id: "focus-address-bar", action: "Focus the address bar", keys: perPlatform(platforms, { windows: ["Ctrl", "L"], macos: ["Cmd", "L"], linux: ["Ctrl", "L"] }), note: "Alt+D or F6 also works on Windows and Linux." },
         { id: "search-anywhere", action: "Search from anywhere on the page", keys: perPlatform(platforms, { windows: ["Ctrl", "K"], macos: ["Cmd", "K"], linux: ["Ctrl", "K"] }), note: "Ctrl+E also works on Windows and Linux." },
-        { id: "search-other-engine", action: "Search with another search engine", keys: combo(platforms, ["Tab"]), note: "Type the engine's shortcut name in the address bar, then press Tab. Brave documents this for all platforms." },
+        { id: "search-other-engine", action: "Search with another search engine", keys: combo(platforms, ["{shortcut name}", "then", "Tab"]), note: "Type the engine's shortcut name in the address bar first." },
         { id: "address-www-com", action: "Add www. and .com to a site name", keys: combo(platforms, ["Ctrl", "Enter"], ["Ctrl", "Return"]) },
         { id: "address-new-tab", action: "Open an address-bar search in a new tab", keys: perPlatform(platforms, { windows: ["Alt", "Enter"], macos: ["Ctrl", "Return"], linux: ["Alt", "Enter"] }) },
         { id: "remove-prediction", action: "Remove a highlighted address-bar prediction", keys: perPlatform(platforms, { windows: ["Down", "Shift", "Delete"], macos: ["Down", "Shift", "Fn", "Delete"], linux: ["Down", "Shift", "Delete"] }) },

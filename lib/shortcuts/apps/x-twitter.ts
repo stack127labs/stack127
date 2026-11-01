@@ -67,7 +67,7 @@ export const xTwitter: AppShortcuts = {
     {
       id: "go-to",
       title: "Go to areas",
-      intro: "Press G followed by the listed key to open a common X area.",
+      intro: "Press the keys in order to jump to Home, Notifications, Messages, and other X areas.",
       shortcuts: [
         shared("home", "Go to Home", ["G", "then", "H"]),
         shared("notifications", "Go to Notifications", ["G", "then", "N"]),

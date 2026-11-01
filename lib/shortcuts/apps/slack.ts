@@ -31,7 +31,7 @@ export const slack: AppShortcuts = {
         { id: "unsend-message", action: "Unsend a message", keys: perPlatform(platforms, { macos: ["Cmd", "Z"], windows: ["Ctrl", "Z"], linux: ["Ctrl", "Z"] }) },
         { id: "set-status", action: "Set your status", keys: combo(platforms, ["Ctrl", "Shift", "Y"], ["Cmd", "Shift", "Y"]) },
         { id: "preferences", action: "Open preferences", keys: combo(platforms, ["Ctrl", ","], ["Cmd", ","]), note: "Desktop app only." },
-        { id: "resize-sidebar", action: "Resize the left sidebar", keys: combo(platforms, ["Left or Right"]), note: "Press F6 to move focus to the sidebar first." },
+        { id: "resize-sidebar", action: "Resize the left sidebar", keys: combo(platforms, ["F6", "then", "Left or Right"]), note: "F6 moves focus to the sidebar." },
         { id: "hide-right-sidebar", action: "Hide the right sidebar", keys: combo(platforms, ["Ctrl", "."], ["Cmd", "."]) },
         { id: "new-canvas", action: "Create a new canvas", keys: combo(platforms, ["Ctrl", "Shift", "N"], ["Cmd", "Shift", "N"]) },
         { id: "upload-file", action: "Upload a file", keys: combo(platforms, ["Ctrl", "O"], ["Cmd", "O"]), note: "Desktop app only." },

@@ -90,7 +90,7 @@ export const asana: AppShortcuts = {
         ["assign-selected", "Assign the selected task", [["Tab", "A"]]],
         ["focus-subtasks", "Focus the selected task's subtasks", [["Tab", "S"]]],
         ["search", "Search for a project, tag, person, or task", [["Tab", "/"]]],
-        ["field-navigation", "Enable list-view field navigation", [["Right"]], undefined, "Press Right Arrow twice."],
+        ["field-navigation", "Enable list-view field navigation", [["Right", "then", "Right"]]],
       ]),
     },
     {

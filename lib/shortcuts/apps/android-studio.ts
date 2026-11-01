@@ -63,7 +63,7 @@ export const androidStudio: AppShortcuts = {
         "Search actions, symbols, classes, and files, move through editor history and tabs, inspect hierarchies, and jump to a precise line or source location.",
       shortcuts: [
         ...rows([
-          ["search-everywhere", "Search everywhere, including code and menus", ["Shift", "Shift"], undefined, "Press Shift twice."],
+          ["search-everywhere", "Search everywhere, including code and menus", ["Shift", "then", "Shift"]],
           ["find", "Find in the current context", ["Control", "F"], ["Cmd", "F"]],
           ["find-next", "Find the next match", ["F3"], ["Cmd", "G"]],
           ["find-previous", "Find the previous match", ["Shift", "F3"], ["Cmd", "Shift", "G"]],
