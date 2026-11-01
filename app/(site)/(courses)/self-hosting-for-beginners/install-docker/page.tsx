@@ -63,9 +63,34 @@ export default async function Page() {
 
         <CodeBlock>sudo usermod -aG docker $USER</CodeBlock>
 
+        <Callout tone="warning" title="This gives your user full admin power">
+          <p>
+            Docker's own docs say the docker group{" "}
+            <a
+              href="https://docs.docker.com/engine/install/linux-postinstall/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              grants root-level privileges
+            </a>
+            . Anyone who logs in as your user, or any script running as you, can take full control
+            of the server through Docker. Only add an account you'd trust with <code>sudo</code>{" "}
+            anyway.
+          </p>
+          <p>
+            If you'd rather not give that power away, Docker can run without root. It's called{" "}
+            <a href="https://docs.docker.com/engine/security/rootless/" rel="noreferrer" target="_blank">
+              rootless mode
+            </a>
+            , and it takes a few more setup steps. For a home server that only you log in to, the
+            docker group is the usual choice.
+          </p>
+        </Callout>
+
         <p>
-          Log out and back in for that to take effect. Then check the whole thing works by running
-          a tiny test container:
+          Log out and back in for that to take effect. If you're on a virtual machine and it still
+          doesn't work, restart the machine. Then check the whole thing works by running a tiny
+          test container:
         </p>
 
         <CodeBlock>docker run hello-world</CodeBlock>
