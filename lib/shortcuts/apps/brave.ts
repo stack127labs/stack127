@@ -41,7 +41,7 @@ export const brave: AppShortcuts = {
         { id: "close-window", action: "Close the current window", keys: combo(platforms, ["Ctrl", "Shift", "W"], ["Cmd", "Shift", "W"]) },
         { id: "minimize-window", action: "Minimize the current window", keys: perPlatform(platforms, { windows: ["Alt", "Space", "N"], macos: ["Cmd", "M"], linux: ["Alt", "Space", "N"] }) },
         { id: "maximize-window", action: "Maximize the current window", keys: perPlatform(platforms, { windows: ["Alt", "Space", "X"], linux: ["Alt", "Space", "X"] }), note: "No macOS shortcut is listed by Brave for this action." },
-        { id: "quit", action: "Quit Brave", keys: perPlatform(platforms, { windows: ["Alt", "F"], macos: ["Cmd", "Q"], linux: ["Alt", "F"] }), note: "On Windows and Linux, press Alt+F, then X." },
+        { id: "quit", action: "Quit Brave", keys: perPlatform(platforms, { windows: ["Alt", "F", "then", "X"], macos: ["Cmd", "Q"], linux: ["Alt", "F", "then", "X"] }) },
       ],
     },
     {

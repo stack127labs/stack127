@@ -54,7 +54,7 @@ export const youtrack: AppShortcuts = {
         tri("edit-issue", "Edit the focused issue", ["F2"], ["F2"]),
         tri("open-issue", "Open the focused issue", ["F3"], ["F3"]),
         tri("copy-id", "Copy the issue ID", ["Ctrl", "C"], ["Cmd", "C"]),
-        tri("copy-url", "Copy the issue URL", ["Ctrl", "C"], ["Cmd", "C"], "Then press C."),
+        tri("copy-url", "Copy the issue URL", ["Ctrl", "C", "then", "C"], ["Cmd", "C", "then", "C"]),
         tri("new-issue", "Create a new issue", ["Alt", "Insert"], ["Control", "N"]),
         tri("new-subtask", "Create a subtask", ["Ctrl", "Alt", "Insert"], ["Control", "Option", "N"]),
         tri("assign", "Assign the issue", ["Ctrl", "M"], ["Cmd", "M"]),

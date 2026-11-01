@@ -129,7 +129,7 @@ export const microsoftPowerPoint: AppShortcuts = {
           action: "Go to the first slide",
           keys: [
             { platform: "windows", keys: ["Home"] },
-            { platform: "macos", keys: ["Function", "Left"] },
+            { platform: "macos", keys: ["Fn", "Left"] },
           ],
         },
         {
@@ -137,7 +137,7 @@ export const microsoftPowerPoint: AppShortcuts = {
           action: "Go to the last slide",
           keys: [
             { platform: "windows", keys: ["End"] },
-            { platform: "macos", keys: ["Function", "Right"] },
+            { platform: "macos", keys: ["Fn", "Right"] },
           ],
         },
         {

@@ -13,7 +13,7 @@ Research must start with the current first-party shortcut reference for the name
 | Abstract | `abstract` | Blocked | https://www.goabstract.com/release-notes |
 | ActiveCampaign | `activecampaign` | Blocked | https://help.activecampaign.com/hc/en-us/articles/14618639644956-Updated-Link-Modal |
 | Adobe Acrobat Pro | `adobe-acrobat-pro` | Verified | https://helpx.adobe.com/acrobat/desktop/get-started/preferences-and-settings/keyboard-shortcuts.html |
-| Adobe Acrobat Reader | `adobe-acrobat-reader` | Verified | https://helpx.adobe.com/reader/desktop/accessibility-features.html |
+| Adobe Acrobat Reader | `adobe-acrobat-reader` | Verified | https://helpx.adobe.com/acrobat/desktop/get-started/preferences-and-settings/keyboard-shortcuts.html |
 | Adobe After Effects | `adobe-after-effects` | Verified | https://helpx.adobe.com/after-effects/desktop/get-started/keyboard-shortcuts/keyboard-shortcuts-reference.html |
 | Adobe Audition | `adobe-audition` | Verified | https://helpx.adobe.com/audition/desktop/keyboard-shortcuts/default-keyboard-shortcuts.html |
 | Adobe Illustrator | `adobe-illustrator` | Verified | https://helpx.adobe.com/illustrator/using/default-keyboard-shortcuts.html |
@@ -101,7 +101,7 @@ Research must start with the current first-party shortcut reference for the name
 | Google Docs | `google-docs` | Verified | https://support.google.com/docs/answer/179738?hl=en-GB |
 | Google Drive | `google-drive` | Verified | https://support.google.com/drive/answer/2563044?co=GENIE.Platform%3DDesktop&hl=en |
 | Google Forms | `google-forms` | Verified | https://support.google.com/docs/answer/6026976?hl=en |
-| Google Gemini | `google-gemini` | Verified | https://support.google.com/gemini/answer/16988996?hl=en-GP |
+| Google Gemini | `google-gemini` | Verified | https://support.google.com/chrome/answer/16988996?hl=en |
 | Google Meet | `google-meet` | Verified | https://support.google.com/meet/answer/9298571?hl=en |
 | Google Photos | `google-photos` | Blocked | https://support.google.com/photos |
 | Google Slides | `google-slides` | Verified | https://support.google.com/docs/answer/1696717?hl=en-EN |
@@ -133,7 +133,7 @@ Research must start with the current first-party shortcut reference for the name
 | Looker | `looker` | Verified | https://docs.cloud.google.com/looker/docs/keyboard-shortcuts?hl=en |
 | Loom | `loom` | Verified | https://support.atlassian.com/loom/docs/use-looms-keyboard-shortcuts |
 | Lucidchart | `lucidchart` | Blocked | https://help.lucid.co/hc/en-us/articles/11970952773652-Welcome-to-Lucidchart |
-| macOS Finder | `macos-finder` | Verified | https://support.apple.com/102650 |
+| macOS Finder | `macos-finder` | Verified | https://support.apple.com/en-us/102650 |
 | macOS Spotlight | `macos-spotlight` | Verified | https://support.apple.com/guide/mac-help/mh26783/mac |
 | Mailchimp | `mailchimp` | Blocked | https://mailchimp.com/help/add-a-link-in-a-campaign/ |
 | Marvel | `marvel` | Blocked | https://help.marvelapp.com/ |
@@ -161,7 +161,7 @@ Research must start with the current first-party shortcut reference for the name
 | Numbers | `numbers` | Verified | https://support.apple.com/guide/numbers/keyboard-shortcuts-tana45192591/mac |
 | OBS Studio | `obs-studio` | Verified | https://obsproject.com/kb/keyboard-shortcuts |
 | Obsidian | `obsidian` | Verified | https://obsidian.md/help/editing-shortcuts |
-| OmniFocus | `omnifocus` | Verified | https://support.omnigroup.com/documentation/omnifocus/universal/4.8.11/en/commands/ |
+| OmniFocus | `omnifocus` | Verified | https://support.omnigroup.com/documentation/omnifocus/universal/4.9.3/en/commands/ |
 | Opera | `opera` | Verified | https://help.opera.com/en/latest/shortcuts/ |
 | Oracle VirtualBox | `oracle-virtualbox` | Verified | https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html |
 | Otter.ai | `otter-ai` | Verified | https://help.otter.ai/hc/en-us/articles/29431724341399-Keyboard-Shortcuts |
