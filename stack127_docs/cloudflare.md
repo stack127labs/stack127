@@ -113,7 +113,7 @@ Browser revalidation also applies to successful documents with cookies and to 30
 
 New client navigations reuse a page for at most 30 seconds instead of five minutes. Browser Back and Forward keep their normal history behavior.
 
-Query pages keep their canonical base URL and `noindex, follow`. `_rsc` on its own is navigation data. It doesn't make a page a filtered search. Navigation cache keys keep the full query string.
+Query pages keep their canonical base URL. Tracking-only queries rely on that canonical; queries containing non-tracking names get `noindex, follow`. `_rsc` on its own is navigation data. It doesn't make a page a filtered search. Navigation cache keys keep the full query string.
 
 The domain registry (RDAP) cache stays at 24 hours for registered domains and 1 hour for unregistered domains.
 
@@ -340,7 +340,36 @@ Before upload, `assets.mjs` checks the Cloudflare Free limits: at most 20,000 fi
 | `/404` | `no-store` and `noindex` |
 | `/frontend-release.json` | `noindex` |
 
-`proxy.ts` doesn't run on static hosting. A free zone response header transform rule, `Stack127 query pages: noindex`, sets `X-Robots-Tag: noindex, follow` on any query URL outside `/api/`, `/_next/`, and `/vitals/`. Canonicals, robots meta tags, and JSON-LD still come from the registry, inside the exported HTML. Indexable pages send no robots meta tag, so a query URL, which gets the same file, carries only the `noindex` header.
+`proxy.ts` doesn't run on static hosting. The free zone response header transform rule, `Stack127 query pages: noindex`, sets `X-Robots-Tag: noindex, follow` only when a query contains a non-tracking name. It excludes `/api/`, `/_next/`, and `/vitals/`. Tracking-only links rely on the clean HTML canonical. Canonicals, robots meta tags, and JSON-LD still come from the registry in the exported HTML. A tracking query never overrides registry noindex metadata.
+
+`lib/seo/query-indexing.mjs` supplies the origin classifier and the deploy expression. It accepts the `utm_` prefix and the explicit tracking names listed in [seo.md](seo.md#query-parameter-policy). Unknown names, state, filters, search, pagination, and tracking mixed with any of those still get noindex.
+
+The generated expression is:
+
+```text
+(http.host eq "stack127.com" and http.request.uri.query ne "" and (len(http.request.uri.args.names) eq 0 or any(not starts_with(http.request.uri.args.names[*], "utm_") and not http.request.uri.args.names[*] in {"gclid" "dclid" "gbraid" "wbraid" "fbclid" "msclkid" "ref" "mc_cid" "mc_eid"})) and not starts_with(http.request.uri.path, "/api/") and not starts_with(http.request.uri.path, "/_next/") and not starts_with(http.request.uri.path, "/vitals/"))
+```
+
+This is a zone `rewrite` rule in `http_response_headers_transform`, with a static header value. It uses no regular expressions or paid regex features. The two tests inside `any()` apply to the same argument name, so a mix such as `utm_source=x&gclid=123` is exempt, while `utm_source=x&q=test` is not. A non-empty query with no argument names is kept noindex. Names preserve case and encoding at both the edge and origin.
+
+Cloudflare documents [URI argument names](https://developers.cloudflare.com/ruleset-engine/rules-language/fields/reference/http.request.uri.args.names/), [array expressions](https://developers.cloudflare.com/ruleset-engine/rules-language/values/), [functions](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/), and [response transform fields](https://developers.cloudflare.com/rules/transform/response-header-modification/reference/fields-functions/). The exact 452-character expression passed `GET /client/v4/filters/validate-expr?expression=…` on 1 November 2026 (HTTP 200, `success: true`, no errors). That read-only check validates syntax; it does not install the rule or test live response headers. The release must still verify those headers.
+
+`deploy.mjs --activate` finds the existing zone response-header ruleset and patches the rule with this description by its existing ID, enabling it. It creates the rule only if missing. Other rules remain untouched. The rule is installed before frontend routes change, and repeated activation updates the same rule. The normal production release passes `--activate`; a content-only refresh without that flag does not update edge rules.
+
+After release, run:
+
+```bash
+curl -sS -D - -o /dev/null 'https://stack127.com/dockerignore-tester?utm_source=x'
+curl -sS -D - -o /dev/null 'https://stack127.com/dockerignore-tester?utm_source=x&gclid=123&ref=newsletter'
+curl -sS -D - -o /dev/null 'https://stack127.com/dockerignore-tester?state=test'
+curl -sS -D - -o /dev/null 'https://stack127.com/dockerignore-tester?utm_source=x&state=test'
+curl -sS -D - -o /dev/null 'https://stack127.com/self-host-apps?q=backup'
+curl -sS -D - -o /dev/null 'https://stack127.com/self-host-apps?category=storage'
+curl -sS -D - -o /dev/null 'https://stack127.com/self-host-apps?page=2'
+curl -sS -D - -o /dev/null 'https://stack127.com/dockerignore-tester?unknown=x'
+```
+
+All eight should return 200. The first two should have no `X-Robots-Tag` header on this indexable page. The other six must send `X-Robots-Tag: noindex, follow`. Check the HTML canonical on all four Dockerignore URLs: it must remain `https://stack127.com/dockerignore-tester`. After an origin rollback, repeat these checks; origin responses also retain their clean canonical `Link` header.
 
 Static files are public whatever cookies the request carries, so analytics cookies don't lower the hit rate. The JSON routes on OVH keep their cookie bypass. To cache JSON requests that carry analytics cookies, add a strict allowlist of those cookie names. Don't remove the cookie checks.
 
@@ -400,7 +429,7 @@ The repository is private, so its GitHub builds consume the account's included m
 
 1. Build the static export from the merge commit and check it on the preview service, before the backend changes.
 2. Deploy the backend image and confirm its health SHA.
-3. Deploy the static frontend. The first release also writes the routes and the header rule.
+3. Deploy the static frontend. Every release with `--activate` updates the routes and the existing header rule in place.
 4. Check that `/`, `/robots.txt`, `/sitemap.xml`, and `/frontend-release.json` send the release SHA, and that a missing path returns 404.
 
 The release is complete only when:
@@ -417,7 +446,7 @@ To send pages back to OVH:
 2. Set both GitHub variable scopes and the Supabase hosting secret back to legacy.
 3. Check `/api/health?scope=deploy`, the homepage, and a recently edited page.
 
-The API exclusion routes and the header rule can stay. They match what `proxy.ts` does.
+The API exclusion routes and the header rule stay. The header rule and the updated `proxy.ts` use the same query policy. Deploy this updated origin before relying on tracking-only behavior after rollback: an older origin image can still add the former blanket noindex header. Rolling back Worker assets does not roll back the zone header rule.
 
 Cloudflare can also roll `stack127-frontend` back to an earlier version. That version serves exactly its own files, including its own `_next/static` scripts. A tab opened on the newer version can then ask for scripts that no longer exist, and client navigation can fail until a full reload. Test navigation in an open tab before you rely on this kind of rollback.
 

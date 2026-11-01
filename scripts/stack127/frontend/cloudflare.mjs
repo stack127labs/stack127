@@ -1,3 +1,5 @@
+import { queryNoindexExpression } from "../../../lib/seo/query-indexing.mjs";
+
 export async function cloudflare(path, { method = "GET", body, environment = process.env, fetchImplementation = fetch } = {}) {
   if (!environment.CLOUDFLARE_API_TOKEN) throw new Error("Cloudflare API token is required.");
   const response = await fetchImplementation(`https://api.cloudflare.com/client/v4${path}`, {
@@ -34,7 +36,8 @@ export async function activateFrontend({ environment = process.env, api = cloudf
   const headers = sets.find(set => set.phase === "http_response_headers_transform" && set.kind === "zone");
   const definition = {
     action: "rewrite", description: "Stack127 query pages: noindex",
-    expression: '(http.host eq "stack127.com" and http.request.uri.query ne "" and not starts_with(http.request.uri.path, "/api/") and not starts_with(http.request.uri.path, "/_next/") and not starts_with(http.request.uri.path, "/vitals/"))',
+    expression: queryNoindexExpression(),
+    enabled: true,
     action_parameters: { headers: { "X-Robots-Tag": { operation: "set", value: "noindex, follow" } } },
   };
   if (headers) {

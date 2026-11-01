@@ -19,7 +19,7 @@ Shared links prefetch a page only when a reader shows intent, such as hovering o
 
 ## Indexing
 
-- A URL with a query string (`?…`) is never indexed. This includes search, filters, sort, and `?page=`. The proxy sends `X-Robots-Tag: noindex, follow` for these, and the canonical link points to the clean URL. On the static frontend, a Cloudflare response header rule sends the same header.
+- A URL with a query string (`?…`) is never indexed. This includes search, filters, sort, tool state, and `?page=`. The proxy sends `X-Robots-Tag: noindex, follow` for these, and the canonical link points to the clean URL. On the static frontend, a Cloudflare response header rule sends the same header. The one exception is a query made only of tracking parameters, such as `utm_*`, `gclid`, or `ref`. It gets no noindex and relies on the canonical. `lib/seo/query-indexing.mjs` holds the list.
 - A page we want indexed gets its own path, such as `/platform-fees/creators-and-communities` or later `/self-host-apps/categories/<name>`. Its registry row must have both `is_published` and `is_indexable` set to `true`.
 - A published row with `is_indexable = false` stays public, sends noindex metadata, omits JSON-LD, and stays out of the sitemap. Use this for thin child pages and pages still being improved.
 - See [seo.md](seo.md) for the registry and sitemap rules.

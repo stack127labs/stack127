@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import vm from "node:vm";
 import ts from "typescript";
+import * as queryIndexing from "../../lib/seo/query-indexing.mjs";
 
 function publicationProxy({ published = false } = {}) {
   const lookups = [];
@@ -29,6 +30,7 @@ function publicationProxy({ published = false } = {}) {
       if (name === "@/lib/tool-pages") return { getPublishedToolPage: async () => null };
       if (name === "@/lib/page-source") return { sitePageAvailable: () => published };
       if (name === "@/lib/seo") return { absoluteUrl: pathname => new URL(pathname, "https://stack127.com").toString() };
+      if (name === "@/lib/seo/query-indexing.mjs") return queryIndexing;
       throw new Error(`Unexpected import: ${name}`);
     },
   });
@@ -84,9 +86,14 @@ test("query responses send noindex and a clean canonical on every proxy response
   for (const published of [false, true]) {
     const { proxy } = publicationProxy({ published });
     for (const pathname of ["/about", "/missing-page", "/vitals/api/send", "/api/health", "/sitemap.xml", "/robots.txt", "/publication-not-found"]) {
-      for (const query of ["?q=word&page=2", "?q=", "?_rsc=internal"]) {
+      for (const query of ["?q=word&page=2", "?q=", "?_rsc=internal", "?utm_source=email&q=word", "?state=shared&ref=newsletter"]) {
         const response = await proxy(request(pathname + query));
         assert.equal(response.headers.get("X-Robots-Tag"), "noindex, follow", pathname + query);
+        assert.equal(response.headers.get("Link"), `<https://stack127.com${pathname}>; rel="canonical"`, pathname + query);
+      }
+      for (const query of ["?utm_source=email", "?utm_source=email&gclid=123&ref=newsletter"]) {
+        const response = await proxy(request(pathname + query));
+        assert.equal(response.headers.get("X-Robots-Tag"), null, pathname + query);
         assert.equal(response.headers.get("Link"), `<https://stack127.com${pathname}>; rel="canonical"`, pathname + query);
       }
       const clean = await proxy(request(pathname));
