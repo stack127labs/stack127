@@ -71,7 +71,7 @@ test("one inaccessible GraphQL repository does not discard successful repository
   let schemaChecks = 0;
   const client = { async query(sql, values) {
     if (sql.includes("from pg_attribute")) { schemaChecks++; return { rows: [{ available: true }] }; }
-    if (sql.includes("select app.slug")) return { rows: ["available", "deleted"].map(slug => ({
+    if (sql.includes("with memberships as")) return { rows: ["available", "deleted"].map(slug => ({
       slug, source_code_url: `https://github.com/example/${slug}`,
     })) };
     writes.push({ sql, values });
@@ -83,7 +83,7 @@ test("one inaccessible GraphQL repository does not discard successful repository
   assert.ok(writes.some(({ sql, values }) => sql.includes("insert into public.github_projects")
     && values[0] === "example" && values[1] === "available" && values[7] === 42),
   "The successful alias must persist its stars, even when another repository fails");
-  assert.ok(writes.some(({ sql, values }) => sql.includes("update public.self_host_apps app") && values[0] === "available"),
+  assert.ok(writes.some(({ sql, values }) => sql.includes("update public.self_host_apps app") && values[0].includes("available")),
     "The successful repository must also update its app link");
   assert.equal(schemaChecks, 1);
   assert.equal(fetch.mock.callCount(), 1);

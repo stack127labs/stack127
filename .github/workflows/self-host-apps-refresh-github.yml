@@ -1,4 +1,4 @@
-name: Refresh self-host app GitHub facts
+name: Refresh self-host and CLI app GitHub facts
 
 on:
   schedule:
@@ -6,11 +6,11 @@ on:
   workflow_dispatch:
     inputs:
       limit:
-        description: "Maximum rows to refresh. Use 0 with all=true."
+        description: "Maximum unique repositories to refresh. Use 0 with all=true."
         default: "500"
         required: false
       all:
-        description: "Refresh every matching row instead of using limit."
+        description: "Refresh every matching repository instead of using limit."
         default: false
         required: false
         type: boolean

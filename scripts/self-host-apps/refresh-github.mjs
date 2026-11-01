@@ -7,6 +7,7 @@ import { parseRepo } from "./lib/github.mjs";
 import { licenseTypeFromSpdx, sourceModelFromSpdx } from "./lib/schema.mjs";
 import { pathToFileURL } from "node:url";
 import { jobSummary } from "./lib/job-summary.mjs";
+import { maintenanceFrom as cliMaintenanceFrom } from "../cli-apps/lib/maintenance.mjs";
 
 const githubGraphqlUrl = "https://api.github.com/graphql";
 let cachedGithubToken;
@@ -183,29 +184,59 @@ export async function rowsToRefresh(client, args, retryMetadataAvailable = true)
   if (args.repo) return [{ slug: args.slug ?? args.repo, source_code_url: args.repo }];
   const limit = numberArg(args, "limit", 500);
   const params = [];
-  let where = "where (app.source_code_host = 'github' or app.source_code_url like 'https://github.com/%')";
+  const selfHostConditions = ["(app.github_project_id is not null or app.source_code_host = 'github' or app.source_code_url like 'https://github.com/%')"];
+  const cliConditions = ["app.published = true"];
   if (args.slug) {
     params.push(args.slug);
-    where += " and app.slug = $1";
+    selfHostConditions.push(`app.slug = $${params.length}`);
+    cliConditions.push(`app.slug = $${params.length}`);
   }
-  if (args["published-only"]) {
-    where += " and app.published = true";
-  }
+  if (args["published-only"]) selfHostConditions.push("app.published = true");
   if (args["source-model"]) {
     params.push(args["source-model"]);
-    where += ` and app.source_model = $${params.length}::public.self_host_app_source_model`;
+    selfHostConditions.push(`app.source_model::text = $${params.length}`);
+    cliConditions.push(`app.source_model::text = $${params.length}`);
   }
+  let ageCondition = "true";
   if (args["max-age-hours"]) {
     params.push(`${numberArg(args, "max-age-hours", 12)} hours`);
-    where += ` and (project.checked_at is null or project.checked_at <= now() - $${params.length}::interval)`;
+    ageCondition = `(project.checked_at is null or project.checked_at <= now() - $${params.length}::interval)`;
   }
 
   const result = await client.query(
     `
-      select app.slug, app.source_code_url, app.github_owner, app.github_repo, app.github_project_id
-      from public.self_host_apps app
+      with memberships as (
+        select app.slug, app.github_project_id, app.source_code_url as repository_url, app.slug as self_host_slug
+        from public.self_host_apps app
+        where ${selfHostConditions.join(" and ")}
+        union all
+        select app.slug, project.id, project.repository_url, null::text
+        from public.terminal_apps app
+        join public.github_projects project on project.id = app.github_project_id
+        where ${cliConditions.join(" and ")}
+      ), resolved as (
+        select member.slug, member.self_host_slug,
+          coalesce(linked.id, existing.id) as github_project_id,
+          coalesce(linked.repository_url, existing.repository_url, member.repository_url) as source_code_url,
+          coalesce(linked.owner, existing.owner, lower(parsed.parts[1])) as github_owner,
+          coalesce(linked.repo, existing.repo, lower(regexp_replace(parsed.parts[2], '[.]git$', '', 'i'))) as github_repo
+        from memberships member
+        cross join lateral (select regexp_match(member.repository_url, '^https://github[.]com/([^/]+)/([^/#?]+)', 'i') as parts) parsed
+        left join public.github_projects linked on linked.id = member.github_project_id
+        left join public.github_projects existing on linked.id is null
+          and existing.owner = lower(parsed.parts[1])
+          and existing.repo = lower(regexp_replace(parsed.parts[2], '[.]git$', '', 'i'))
+      ), repositories as (
+        select min(slug) as slug, github_project_id, min(source_code_url) as source_code_url,
+          min(github_owner) as github_owner, min(github_repo) as github_repo,
+          coalesce(array_agg(distinct self_host_slug) filter (where self_host_slug is not null), '{}') as self_host_slugs
+        from resolved
+        group by github_project_id, case when github_project_id is null then coalesce(github_owner || '/' || github_repo, lower(source_code_url)) end
+      )
+      select app.*
+      from repositories app
       left join public.github_projects project on project.id = app.github_project_id
-      ${where}
+      where ${ageCondition}
       order by ${retryMetadataAvailable ? "greatest(project.last_attempt_at, project.checked_at)" : "project.checked_at"} nulls first, app.slug
       ${args.all ? "" : `limit $${params.length + 1}`}
     `,
@@ -366,10 +397,20 @@ export async function writeRepositoryFacts(client, row, repository, checkedAt, d
             updated_at = now()
         from public.github_projects project
         where project.owner = $8 and project.repo = $9
-          and app.slug = $1
+          and app.slug = any($1::text[])
       `,
-      [row.slug, facts.license, facts.license_type, facts.maintenance_status, facts.source_model, facts.repository_url, checkedAt, facts.owner, facts.repo],
+      [row.self_host_slugs ?? [row.slug], facts.license, facts.license_type, facts.maintenance_status, facts.source_model, facts.repository_url, checkedAt, facts.owner, facts.repo],
     );
+    // A normal terminal_apps UPDATE lets the existing statement trigger touch
+    // /cli-apps and enqueue cli_apps revalidation; identical values do no work.
+    await client.query(`
+      update public.terminal_apps app
+      set maintenance_status = $3::public.terminal_app_maintenance_status
+      from public.github_projects project
+      where app.github_project_id = project.id and project.owner = $1 and project.repo = $2
+        and app.published = true
+        and app.maintenance_status is distinct from $3::public.terminal_app_maintenance_status
+    `, [facts.owner, facts.repo, cliMaintenanceFrom({ archived: repository.isArchived, pushed_at: repository.pushedAt }, null, new Date(checkedAt).getTime())]);
   }
 }
 
@@ -392,7 +433,7 @@ export async function writeFailureAttempt(client, row, attemptedAt, dryRun, retr
   `, [owner, repo, `https://github.com/${owner}/${repo}`, attemptedAt]);
   // Even a previously unlinked repository must move to the back of the queue.
   // Do not change checked_at or any app fact/verification date on failure.
-  await client.query(`update public.self_host_apps set github_project_id = $2 where slug = $1 and github_project_id is distinct from $2::uuid`, [row.slug, result.rows[0].id]);
+  await client.query(`update public.self_host_apps set github_project_id = $2 where slug = any($1::text[]) and github_project_id is distinct from $2::uuid`, [row.self_host_slugs ?? [row.slug], result.rows[0].id]);
 }
 
 export async function refreshGithub(client, args) {

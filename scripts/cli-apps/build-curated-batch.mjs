@@ -8,17 +8,7 @@ import path from "node:path";
 import { parseArgs } from "./lib/args.mjs";
 import { curated } from "./curated-map.mjs";
 
-function maintenanceFrom(github, override) {
-  if (override) return override.toLowerCase();
-  if (github?.archived) return "archived";
-  if (!github?.pushed_at) return "unknown";
-  const pushedAt = new Date(github.pushed_at).getTime();
-  const ageDays = (Date.now() - pushedAt) / (1000 * 60 * 60 * 24);
-  if (Number.isNaN(ageDays)) return "unknown";
-  if (ageDays < 110) return "active";
-  if (ageDays < 395) return "slow";
-  return "stale";
-}
+import { maintenanceFrom } from "./lib/maintenance.mjs";
 
 async function main() {
   const args = parseArgs();
