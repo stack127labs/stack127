@@ -6,7 +6,7 @@ import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 import { pathToFileURL } from "node:url";
 import { gitlabFacts } from "../../scripts/self-host-apps/refresh-source-host.mjs";
-import { githubGraphql, writeFailureAttempt } from "../../scripts/self-host-apps/refresh-github.mjs";
+import { refreshGithub, writeFailureAttempt } from "../../scripts/self-host-apps/refresh-github.mjs";
 import { fetchJson } from "../../scripts/self-host-apps/discover-app-catalogs.mjs";
 
 function env(t, key, value) {
@@ -60,14 +60,32 @@ test("catalog requests send a GitHub credential only to the GitHub API", async (
   assert.equal(calls[1].options.headers.Authorization, "Bearer github-test-token");
 });
 
-test("one inaccessible GraphQL repository does not discard successful repositories", async (t) => {
+test("one inaccessible GraphQL repository does not discard successful repository writes", async (t) => {
   env(t, "GITHUB_TOKEN", "github-test-token");
   const payload = {
-    data: { repo0: { nameWithOwner: "example/available" }, repo1: null },
+    data: { repo0: { nameWithOwner: "example/available", stargazerCount: 42 }, repo1: null },
     errors: [{ path: ["repo1"], message: "Could not resolve repository example/deleted" }],
   };
   const fetch = t.mock.method(globalThis, "fetch", async () => Response.json(payload));
-  assert.deepEqual(await githubGraphql("query { repo0: repository(owner: \"example\", name: \"available\") { nameWithOwner } }"), payload);
+  const writes = [];
+  let schemaChecks = 0;
+  const client = { async query(sql, values) {
+    if (sql.includes("from pg_attribute")) { schemaChecks++; return { rows: [{ available: true }] }; }
+    if (sql.includes("select app.slug")) return { rows: ["available", "deleted"].map(slug => ({
+      slug, source_code_url: `https://github.com/example/${slug}`,
+    })) };
+    writes.push({ sql, values });
+    return { rows: [{ id: "00000000-0000-0000-0000-000000000001" }] };
+  } };
+  const report = await refreshGithub(client, {});
+  assert.equal(report.refreshed, 1);
+  assert.equal(report.failed, 1);
+  assert.ok(writes.some(({ sql, values }) => sql.includes("insert into public.github_projects")
+    && values[0] === "example" && values[1] === "available" && values[7] === 42),
+  "The successful alias must persist its stars, even when another repository fails");
+  assert.ok(writes.some(({ sql, values }) => sql.includes("update public.self_host_apps app") && values[0] === "available"),
+    "The successful repository must also update its app link");
+  assert.equal(schemaChecks, 1);
   assert.equal(fetch.mock.callCount(), 1);
 });
 
@@ -86,7 +104,7 @@ async function cliFixture(t) {
     registerHooks({ load(url, context, nextLoad) {
       if (url.endsWith('/scripts/self-host-apps/lib/db.mjs')) return {
         format: 'module', shortCircuit: true,
-        source: 'export async function withClient(callback) { return callback({query: async (sql) => ({ rows: sql.includes("count(*)") ? [{count:0}] : JSON.parse(process.env.TEST_ROWS) })}); }'
+        source: 'export async function withClient(callback) { return callback({query: async (sql) => ({ rows: sql.includes("from pg_attribute") ? [{available:true}] : sql.includes("count(*)") ? [{count:0}] : JSON.parse(process.env.TEST_ROWS) })}); }'
       };
       return nextLoad(url, context);
     }});

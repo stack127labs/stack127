@@ -1,4 +1,6 @@
 begin;
+set local lock_timeout = '10s';
+set local statement_timeout = '120s';
 
 alter table public.github_projects
   add column last_attempt_at timestamptz,

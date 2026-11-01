@@ -168,7 +168,18 @@ export async function githubGraphql(query) {
   }
 }
 
-export async function rowsToRefresh(client, args) {
+export async function hasRefreshAttemptColumns(client) {
+  const result = await client.query(`
+    select count(*) = 2 as available
+    from pg_attribute
+    where attrelid = 'public.github_projects'::regclass
+      and attname in ('last_attempt_at', 'consecutive_failures')
+      and not attisdropped
+  `);
+  return result.rows[0].available;
+}
+
+export async function rowsToRefresh(client, args, retryMetadataAvailable = true) {
   if (args.repo) return [{ slug: args.slug ?? args.repo, source_code_url: args.repo }];
   const limit = numberArg(args, "limit", 500);
   const params = [];
@@ -195,7 +206,7 @@ export async function rowsToRefresh(client, args) {
       from public.self_host_apps app
       left join public.github_projects project on project.id = app.github_project_id
       ${where}
-      order by greatest(project.last_attempt_at, project.checked_at) nulls first, app.slug
+      order by ${retryMetadataAvailable ? "greatest(project.last_attempt_at, project.checked_at)" : "project.checked_at"} nulls first, app.slug
       ${args.all ? "" : `limit $${params.length + 1}`}
     `,
     args.all ? params : [...params, limit],
@@ -203,7 +214,7 @@ export async function rowsToRefresh(client, args) {
   return result.rows;
 }
 
-export async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) {
+export async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun, retryMetadataAvailable = true) {
   if (!repository) throw new Error("repository not found or inaccessible");
 
   const owner = String(row.github_owner ?? "").trim().toLowerCase();
@@ -267,11 +278,11 @@ export async function writeRepositoryFacts(client, row, repository, checkedAt, d
           stars, forks, watchers, open_issues, primary_language, languages, topics,
           created_at, updated_at, pushed_at, default_branch, repo_size_kb, archived,
           disabled, is_fork, is_template, latest_release, latest_release_at,
-          last_commit_at, license_spdx_id, checked_at, source_url, last_attempt_at, consecutive_failures
+          last_commit_at, license_spdx_id, checked_at, source_url${retryMetadataAvailable ? ", last_attempt_at, consecutive_failures" : ""}
         ) values (
           $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13::jsonb,
           $14::text[], $15, $16, $17, $18, $19, $20, $21, $22, $23, $24,
-          $25, $26, $27, $28, $29, $28, 0
+          $25, $26, $27, $28, $29${retryMetadataAvailable ? ", $28, 0" : ""}
         )
         on conflict (owner, repo) do update set
           full_name = excluded.full_name,
@@ -300,8 +311,7 @@ export async function writeRepositoryFacts(client, row, repository, checkedAt, d
           last_commit_at = excluded.last_commit_at,
           license_spdx_id = excluded.license_spdx_id,
           checked_at = excluded.checked_at,
-          last_attempt_at = excluded.last_attempt_at,
-          consecutive_failures = 0,
+          ${retryMetadataAvailable ? "last_attempt_at = excluded.last_attempt_at, consecutive_failures = 0," : ""}
           source_url = excluded.source_url,
           row_updated_at = now()
         returning id
@@ -363,8 +373,8 @@ export async function writeRepositoryFacts(client, row, repository, checkedAt, d
   }
 }
 
-export async function writeFailureAttempt(client, row, attemptedAt, dryRun) {
-  if (dryRun) return;
+export async function writeFailureAttempt(client, row, attemptedAt, dryRun, retryMetadataAvailable = true) {
+  if (dryRun || !retryMetadataAvailable) return;
   const owner = String(row.github_owner ?? "").trim().toLowerCase();
   const repo = String(row.github_repo ?? "").trim().replace(/\.git$/i, "").toLowerCase();
   if (!owner || !repo) {
@@ -385,70 +395,77 @@ export async function writeFailureAttempt(client, row, attemptedAt, dryRun) {
   await client.query(`update public.self_host_apps set github_project_id = $2 where slug = $1 and github_project_id is distinct from $2::uuid`, [row.slug, result.rows[0].id]);
 }
 
-async function main() {
-  const args = parseArgs();
+export async function refreshGithub(client, args) {
   const batchSize = Math.max(1, Math.min(numberArg(args, "batch-size", 40), 80));
   const checkedAt = new Date().toISOString();
 
-  await withClient(async (client) => {
-    const rows = await rowsToRefresh(client, args);
+  // Actions can pick up main before the independently deployed migration lands.
+  // Detect once per run and keep the old writer/queue usable until both columns exist.
+  const retryMetadataAvailable = await hasRefreshAttemptColumns(client);
+  if (!retryMetadataAvailable) console.warn("GitHub retry metadata unavailable (migration pending); using checked_at ordering and skipping failed-attempt writes.");
+  const rows = await rowsToRefresh(client, args, retryMetadataAvailable);
 
-    let refreshed = 0;
-    const failures = [];
-    async function failed(row, error) {
-      failures.push({ slug: row.slug, repository: row.source_code_url, error: error.message });
-      console.warn(`warning ${row.slug}: ${error.message}`);
-      await writeFailureAttempt(client, row, checkedAt, Boolean(args["dry-run"]));
-    }
+  let refreshed = 0;
+  const failures = [];
+  async function failed(row, error) {
+    failures.push({ slug: row.slug, repository: row.source_code_url, error: error.message });
+    console.warn(`warning ${row.slug}: ${error.message}`);
+    await writeFailureAttempt(client, row, checkedAt, Boolean(args["dry-run"]), retryMetadataAvailable);
+  }
 
-    for (let index = 0; index < rows.length; index += batchSize) {
-      const selectedBatch = rows.slice(index, index + batchSize);
-      const batch = [];
+  for (let index = 0; index < rows.length; index += batchSize) {
+    const selectedBatch = rows.slice(index, index + batchSize);
+    const batch = [];
 
-      for (const row of selectedBatch) {
-        try {
-          const repo = parseRepo(row.source_code_url);
-          row.github_owner = repo.owner;
-          row.github_repo = repo.repo;
-          batch.push(row);
-        } catch (error) {
-          await failed(row, error);
-        }
-      }
-
-      if (batch.length === 0) continue;
-      let payload;
-
+    for (const row of selectedBatch) {
       try {
-        payload = await githubGraphql(repositoryQuery(batch));
+        const repo = parseRepo(row.source_code_url);
+        row.github_owner = repo.owner;
+        row.github_repo = repo.repo;
+        batch.push(row);
       } catch (error) {
-        console.warn(`warning batch ${index / batchSize + 1}: ${error.message}`);
-        for (const row of batch) {
-          await failed(row, error);
-        }
-        continue;
-      }
-
-      for (const [batchIndex, row] of batch.entries()) {
-        try {
-          const alias = `repo${batchIndex}`;
-          const repository = payload.data[alias];
-          const errors = payload.errors?.filter((error) => error.path?.[0] === alias);
-          if (errors?.length) throw new Error(errors.map((error) => error.message).join("; "));
-          await writeRepositoryFacts(client, row, repository, checkedAt, Boolean(args["dry-run"]));
-          refreshed += 1;
-          console.log(`Refreshed GitHub facts: ${row.slug}`);
-        } catch (error) {
-          await failed(row, error);
-        }
+        await failed(row, error);
       }
     }
 
-    if (args["dry-run"]) console.log("Dry run OK. No GitHub facts committed.");
-    console.log(`GitHub refresh complete: ${refreshed} refreshed, ${failures.length} failed.`);
-    jobSummary("GitHub facts", { Selected: rows.length, Refreshed: refreshed, Failed: failures.length, "Dry run": Boolean(args["dry-run"]) }, failures);
-    if (failures.length) process.exitCode = 1;
-  }, args["database-url"]);
+    if (batch.length === 0) continue;
+    let payload;
+
+    try {
+      payload = await githubGraphql(repositoryQuery(batch));
+    } catch (error) {
+      console.warn(`warning batch ${index / batchSize + 1}: ${error.message}`);
+      for (const row of batch) {
+        await failed(row, error);
+      }
+      continue;
+    }
+
+    for (const [batchIndex, row] of batch.entries()) {
+      try {
+        const alias = `repo${batchIndex}`;
+        const repository = payload.data[alias];
+        const errors = payload.errors?.filter((error) => error.path?.[0] === alias);
+        if (errors?.length) throw new Error(errors.map((error) => error.message).join("; "));
+        await writeRepositoryFacts(client, row, repository, checkedAt, Boolean(args["dry-run"]), retryMetadataAvailable);
+        refreshed += 1;
+        console.log(`Refreshed GitHub facts: ${row.slug}`);
+      } catch (error) {
+        await failed(row, error);
+      }
+    }
+  }
+
+  if (args["dry-run"]) console.log("Dry run OK. No GitHub facts committed.");
+  console.log(`GitHub refresh complete: ${refreshed} refreshed, ${failures.length} failed.`);
+  jobSummary("GitHub facts", { Selected: rows.length, Refreshed: refreshed, Failed: failures.length, "Dry run": Boolean(args["dry-run"]), "Retry metadata available": retryMetadataAvailable }, failures);
+  return { selected: rows.length, refreshed, failed: failures.length, failures, retryMetadataAvailable };
+}
+
+async function main() {
+  const args = parseArgs();
+  const report = await withClient((client) => refreshGithub(client, args), args["database-url"]);
+  if (report.failed) process.exitCode = 1;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((error) => {
