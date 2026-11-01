@@ -1,54 +1,29 @@
 #!/usr/bin/env node
 
-import { readFileSync } from "node:fs";
 import { readFile } from "node:fs/promises";
+import { pathToFileURL } from "node:url";
 import { withClient } from "./lib/db.mjs";
 import { parseArgs } from "./lib/args.mjs";
+import { resolveDatabaseUrl } from "../stack127/tool-pages/lib.mjs";
 
 const manifestPath = new URL("./artifact-cleanup-manifest.json", import.meta.url);
-const developmentProjectRef = "yzasonowwlvritqicatj";
 
-function readEnvFile(path) {
-  const source = requireEnvText(path);
-  return Object.fromEntries(source.split(/\r?\n/).flatMap((line) => {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith("#")) return [];
-    const index = trimmed.indexOf("=");
-    if (index < 0) return [];
-    return [[trimmed.slice(0, index).trim(), trimmed.slice(index + 1).trim().replace(/^['"]|['"]$/g, "")]];
-  }));
-}
-
-function requireEnvText(path) {
-  try {
-    return readFileSync(path, "utf8");
-  } catch {
-    throw new Error(`Could not read ${path}. Run this command from the repository root.`);
+/**
+ * Check the flags and pick the database with the shared resolver: `.env.local` for
+ * development, `.env.database` for production. Production needs the shared confirm
+ * value even for a preview, so a preview can't reach production by accident.
+ */
+export function cleanupOptions(args) {
+  const environment = args.environment;
+  if (!["development", "production"].includes(environment)) {
+    throw new Error("Pass --environment development or --environment production.");
   }
-}
-
-function databaseConfig(environment) {
-  const file = environment === "production" ? ".env.database" : ".env.local";
-  const env = readEnvFile(file);
-  const siteUrl = new URL(env.SUPABASE_URL ?? "");
-  const projectRef = siteUrl.hostname.endsWith(".supabase.co")
-    ? siteUrl.hostname.slice(0, -".supabase.co".length)
-    : "";
-  const connectionString = env.DATABASE_POOLER_URL || env.DATABASE_URL;
-  if (!connectionString || !projectRef) throw new Error(`${file} must contain SUPABASE_URL and a database URL.`);
-
-  const connection = new URL(connectionString);
-  const username = decodeURIComponent(connection.username);
-  const isDirect = connection.hostname === `db.${projectRef}.supabase.co`;
-  const isPooler = connection.hostname.endsWith(".pooler.supabase.com") && username.includes(projectRef);
-  if (!isDirect && !isPooler) throw new Error(`${file} database URL does not match its Supabase project URL.`);
-  if (environment === "development" && projectRef !== developmentProjectRef) {
-    throw new Error("Development cleanup requires the managed development project in .env.local.");
+  if (environment === "production" && args.confirm !== "stack127-production") {
+    throw new Error("Production requires --confirm stack127-production, including previews.");
   }
-  if (environment === "production" && projectRef === developmentProjectRef) {
-    throw new Error("Production cleanup refuses the development project.");
-  }
-  return connectionString;
+  // The resolver rejects a value on --apply, such as --apply=false.
+  const databaseUrl = resolveDatabaseUrl({ environment, apply: args.apply, confirm: args.confirm });
+  return { environment, apply: args.apply === true, databaseUrl };
 }
 
 function identityMatches(row, expected) {
@@ -157,28 +132,18 @@ async function applyCleanup(client, manifest, targetRows, canonicalRows) {
 
 async function main() {
   const args = parseArgs();
-  const environment = args.environment;
-  if (!["development", "production"].includes(environment)) {
-    throw new Error("Pass --environment development or --environment production.");
-  }
-  if (args.apply && environment === "production" && !args["confirm-reviewed-cleanup"]) {
-    throw new Error("Production apply requires --confirm-reviewed-cleanup.");
-  }
-  if (args["confirm-reviewed-cleanup"] && environment !== "production") {
-    throw new Error("--confirm-reviewed-cleanup is only valid with --environment production.");
-  }
+  const { environment, apply, databaseUrl } = cleanupOptions(args);
 
   const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
-  const databaseUrl = databaseConfig(environment);
   await withClient(async (client) => {
-    await client.query(args.apply ? "begin isolation level serializable" : "begin read only");
+    await client.query(apply ? "begin isolation level serializable" : "begin read only");
     try {
-      const { targets, canonicals } = await loadRows(client, manifest, Boolean(args.apply));
+      const { targets, canonicals } = await loadRows(client, manifest, apply);
       const states = validateIdentities(manifest, targets, canonicals);
       console.log(`Artifact cleanup preview (${environment})`);
       for (const state of states) console.log(JSON.stringify(state));
       const needed = states.filter((state) => state.state !== "already_clean");
-      if (!args.apply) {
+      if (!apply) {
         await client.query("rollback");
         console.log(`Preview only: ${needed.length} record(s) need cleanup; ${states.length - needed.length} already clean.`);
         return;
@@ -198,7 +163,9 @@ async function main() {
   }, databaseUrl);
 }
 
-main().catch((error) => {
-  console.error(error.stack ?? error.message);
-  process.exit(1);
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((error) => {
+    console.error(error.stack ?? error.message);
+    process.exit(1);
+  });
+}

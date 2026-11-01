@@ -84,11 +84,11 @@ Apply to development with:
 npm run self-host-apps:apply-artifact-cleanup -- --environment development --apply
 ```
 
-The apply runs in one transaction. It keeps source links on canonical app rows, fixes reviewed product names, and unpublishes artifact rows. Re-running it accepts rows that are already clean. Production uses the same reviewed manifest, but requires an explicit confirmation flag:
+The apply runs in one transaction. It keeps source links on canonical app rows, fixes reviewed product names, and unpublishes artifact rows. Re-running it accepts rows that are already clean. Production uses the same reviewed manifest, and needs `--confirm stack127-production` for both the preview and the apply:
 
 ```bash
-npm run self-host-apps:apply-artifact-cleanup -- --environment production
-npm run self-host-apps:apply-artifact-cleanup -- --environment production --apply --confirm-reviewed-cleanup
+npm run self-host-apps:apply-artifact-cleanup -- --environment production --confirm stack127-production
+npm run self-host-apps:apply-artifact-cleanup -- --environment production --confirm stack127-production --apply
 ```
 
 Review the production preview before running the apply command.
