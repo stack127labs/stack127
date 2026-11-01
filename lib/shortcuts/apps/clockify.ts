@@ -3,7 +3,7 @@ import type { AppShortcuts, Shortcut } from "../types.ts";
 const web = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
   id,
   action,
-  keys: (["windows", "macos", "linux"] as const).map((platform) => ({ platform, keys })),
+  keys: (["windows", "macos"] as const).map((platform) => ({ platform, keys })),
   ...(note ? { note } : {}),
 });
 const mac = (id: string, action: string, keys: string[]): Shortcut => ({ id, action, keys: [{ platform: "macos", keys }] });
@@ -12,12 +12,12 @@ export const clockify: AppShortcuts = {
   slug: "clockify",
   name: "Clockify",
   category: "Time tracking",
-  platforms: ["windows", "macos", "linux"],
+  platforms: ["windows", "macos"],
   versionContext:
-    "Current Clockify web and Mac desktop documentation checked August 31, 2026. Favorite-entry number keys require the workspace feature to be enabled and entries pinned. User-configurable global shortcuts are not listed as defaults.",
+    "Current Clockify web and Mac desktop documentation checked November 1, 2026. Favorite-entry number keys require the workspace feature to be enabled and entries pinned. User-configurable global shortcuts are not listed as defaults.",
   sourceUrl: "https://clockify.me/help/track-time-and-expenses/creating-a-time-entry",
   sourceLabel: "Clockify time-entry keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "web-time-tracker",
@@ -28,7 +28,16 @@ export const clockify: AppShortcuts = {
         web("continue", "Continue the latest time entry", ["C"]),
         web("stop", "Stop the current timer", ["S"]),
         web("manual", "Switch to manual time-entry mode", ["M"]),
-        web("favorite", "Quick-start favorite time entry 1 through 5", ["1-5"], "Requires Favorite entries to be enabled and pinned in the favorites bar."),
+        {
+          id: "favorite",
+          action: "Quick-start a favorite time entry",
+          keys: (["windows", "macos"] as const).map((platform) => ({
+            platform,
+            keys: ["1"],
+            alternatives: [["2"], ["3"], ["4"], ["5"]],
+          })),
+          note: "Requires Favorite entries to be enabled and pinned in the favorites bar.",
+        },
       ],
     },
     {

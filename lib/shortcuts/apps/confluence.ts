@@ -18,7 +18,7 @@ export const confluence: AppShortcuts = {
     "Current Confluence Cloud reference checked August 31, 2026. Windows and Mac columns are preserved literally, including Control-based Mac commands and the Option-based text-formatting rows published by Atlassian. Confluence Data Center and the legacy editor are outside scope.",
   sourceUrl: "https://support.atlassian.com/confluence-cloud/docs/keyboard-shortcuts-markdown-and-autocomplete/",
   sourceLabel: "Atlassian Confluence Cloud keyboard shortcuts and autocomplete",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "global",

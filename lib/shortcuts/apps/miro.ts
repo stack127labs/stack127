@@ -37,17 +37,17 @@ export const miro: AppShortcuts = {
   category: "Design tool",
   platforms: [...platforms],
   versionContext:
-    "Current Miro browser and desktop shortcuts checked September 1, 2026. Miro lets users turn single-character shortcuts off from Accessibility, and the desktop app adds reload, tab, exit, and board-link commands.",
+    "Current Miro browser and desktop shortcuts checked November 1, 2026. Miro lets users turn single-character shortcuts off from Accessibility, and the desktop app adds reload, tab, exit, and board-link commands.",
   sourceUrl: "https://help.miro.com/hc/en-us/articles/360017731033-Shortcuts-and-hotkeys",
   sourceLabel: "official Miro shortcuts and hotkeys",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "tools",
       title: "Board tools",
       intro: "Single keys switch the active board tool. Miro documents these as defaults that can be disabled together for assistive technology use.",
       shortcuts: [
-        dualAlt("select-hand", "Select tool or hand mode", ["V"], ["V"], [["/"], ["H"]], [["/"], ["H"]]),
+        dualAlt("select-hand", "Select tool or hand mode", ["V"], ["V"], [["H"]], [["H"]]),
         dual("text", "Text tool", ["T"], ["T"]),
         dual("sticky-notes", "Sticky notes", ["N"], ["N"]),
         dual("shapes", "Shapes", ["S"], ["S"]),
@@ -123,7 +123,7 @@ export const miro: AppShortcuts = {
         dual("toolbar-next", "Move between toolbars", ["Tab"], ["Tab"]),
         dual("toolbar-previous", "Move back between toolbars", ["Shift", "Tab"], ["Shift", "Tab"]),
         dual("toolbar-item", "Move between toolbar items", ["Arrow keys"], ["Arrow keys"]),
-        dualAlt("activate", "Activate a menu item", ["Enter"], ["Enter"], [["/"], ["Space"]], [["/"], ["Space"]]),
+        dualAlt("activate", "Activate a menu item", ["Enter"], ["Enter"], [["Space"]], [["Space"]]),
         dual("bulk-sticky", "Create a sticky note in bulk mode", ["Enter"], ["Return"]),
         dual("exit-bulk", "Exit sticky-note bulk mode", ["Esc"], ["Esc"]),
         dual("card-panel", "Open the card panel", ["Ctrl", "Shift", "Enter"], ["Cmd", "Shift", "Enter"]),

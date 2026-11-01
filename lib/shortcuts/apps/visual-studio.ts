@@ -16,10 +16,10 @@ export const visualStudio: AppShortcuts = {
   category: "Code editor",
   platforms: [...platforms],
   versionContext:
-    "Microsoft Learn's Visual Studio default keyboard shortcut reference checked September 1, 2026. The map uses the General profile; Visual C#, Visual Basic, keyboard layout, language settings, extensions, and user changes can assign different bindings.",
+    "Microsoft Learn's Visual Studio default keyboard shortcut reference checked November 1, 2026. The map uses the General profile; Visual C#, Visual Basic, keyboard layout, language settings, extensions, and user changes can assign different bindings.",
   sourceUrl: "https://learn.microsoft.com/en-us/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio?view=visualstudio",
   sourceLabel: "official Visual Studio default keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "build-and-debug",

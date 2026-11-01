@@ -19,10 +19,10 @@ export const asana: AppShortcuts = {
   category: "Work management",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current defaults from Asana's official Help Center, checked August 31, 2026. Some shortcuts may not work with non-English keyboard input. Desktop-window commands apply to the Asana desktop app. Tab+B requires the Tab-B hack to be enabled in Settings.",
+    "Current defaults from Asana's official Help Center, checked November 1, 2026. Some shortcuts may not work with non-English keyboard input. Desktop-window commands apply to the Asana desktop app. Tab+B requires the Tab-B hack to be enabled in Settings.",
   sourceUrl: "https://help.asana.com/s/article/keyboard-shortcuts",
   sourceLabel: "Asana keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "inbox",
@@ -90,7 +90,7 @@ export const asana: AppShortcuts = {
         ["assign-selected", "Assign the selected task", [["Tab", "A"]]],
         ["focus-subtasks", "Focus the selected task's subtasks", [["Tab", "S"]]],
         ["search", "Search for a project, tag, person, or task", [["Tab", "/"]]],
-        ["field-navigation", "Enable list-view field navigation", [["Right"]], undefined, "Press Right Arrow twice."],
+        ["field-navigation", "Enable list-view field navigation", [["Right", "then", "Right"]]],
       ]),
     },
     {

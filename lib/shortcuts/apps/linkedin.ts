@@ -1,7 +1,7 @@
 import { combo } from "../build.ts";
 import type { AppShortcuts } from "../types.ts";
 
-const platforms = ["windows", "macos", "linux"] as const;
+const platforms = ["windows", "macos"] as const;
 
 export const linkedin: AppShortcuts = {
   slug: "linkedin",
@@ -9,10 +9,10 @@ export const linkedin: AppShortcuts = {
   category: "Social networking",
   platforms: [...platforms],
   versionContext:
-    "Desktop-only shortcuts from LinkedIn's current Keyboard Shortcuts FAQ, checked September 1, 2026. LinkedIn says the shortcuts can be enabled or disabled from the keyboard menu and are not available in its mobile apps.",
+    "Desktop-only shortcuts from LinkedIn's Keyboard Shortcuts FAQ, checked November 1, 2026. LinkedIn says the shortcuts can be enabled or disabled from the keyboard menu and are not available in its mobile apps.",
   sourceUrl: "https://www.linkedin.com/help/linkedin/answer/a6246187?lang=en-US",
   sourceLabel: "official LinkedIn Keyboard Shortcuts FAQ",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "feed",

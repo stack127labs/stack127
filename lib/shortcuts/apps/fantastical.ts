@@ -35,7 +35,7 @@ export const fantastical: AppShortcuts = {
     "Current Fantastical keyboard shortcut pages checked September 1, 2026. The Mac page lists more commands than the Windows page, and the global open shortcut can be customized.",
   sourceUrl: "https://flexibits.com/fantastical/help/keyboard-shortcuts",
   sourceLabel: "Fantastical keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "application",

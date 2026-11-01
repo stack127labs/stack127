@@ -29,10 +29,10 @@ export const youtrack: AppShortcuts = {
   category: "Project management",
   platforms: [...platforms],
   versionContext:
-    "YouTrack Cloud 2026.2 keyboard shortcuts checked September 1, 2026. The source gives Windows or Linux and macOS variants, and many commands depend on the focused issue list or editor.",
+    "YouTrack Cloud 2026.2 keyboard shortcuts checked November 1, 2026. The source gives Windows or Linux and macOS variants, and many commands depend on the focused issue list or editor.",
   sourceUrl: "https://www.jetbrains.com/help/youtrack/cloud/keyboard-shortcuts.html",
   sourceLabel: "official YouTrack keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "issue-list",

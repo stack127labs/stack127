@@ -5,11 +5,17 @@ import { useEffect, useState } from "react";
 import { UiButton, UiCheckbox, UiChoiceGroup, UiSearchField, uiOption } from "@/app/ui/controls";
 import { UiStatus } from "@/app/ui/display";
 import { buildCheatSheet, type CheatSheetAppSelection, type CheatSheetAppSection } from "@/lib/shortcuts/cheatsheet";
+import { keycapParts } from "@/lib/shortcuts/presentation";
 import { platformLabels, type AppShortcuts, type PlatformId } from "@/lib/shortcuts/types";
 import type { ShortcutAppSummary } from "@/lib/shortcuts";
 import styles from "./shortcuts-cheatsheet-generator.module.css";
 
 type Props = { catalog: readonly ShortcutAppSummary[]; initialSlugs: readonly string[] };
+
+/** Print a binding the way the reference shows it: "Ctrl + K then Ctrl + C". */
+function keyText(keys: string[]) {
+  return keycapParts(keys).map(({ key, connector, separator }) => connector ? ` ${key} ` : `${separator}${key}`).join("");
+}
 
 async function loadApp(slug: string): Promise<AppShortcuts> {
   const response = await fetch(`/api/shortcuts/${encodeURIComponent(slug)}`);
@@ -26,7 +32,7 @@ function SheetTable({ entry }: { entry: CheatSheetAppSection }) {
       <tr><th className={styles.sheetGroup} colSpan={entry.platforms.length + 1} scope="rowgroup">{section.group.title}</th></tr>
       {section.shortcuts.map((shortcut) => <tr key={shortcut.id}>
         <th scope="row">{shortcut.action}</th>
-        {entry.platforms.map((platform) => { const binding = shortcut.keys.find((key) => key.platform === platform); const bindings = binding ? [binding.keys, ...(binding.alternatives ?? [])] : []; return <td key={platform}>{bindings.length ? bindings.map((keys) => keys.join(" ")).join(" or ") : "Not documented"}</td>; })}
+        {entry.platforms.map((platform) => { const binding = shortcut.keys.find((key) => key.platform === platform); const bindings = binding ? [binding.keys, ...(binding.alternatives ?? [])] : []; return <td key={platform}>{bindings.length ? bindings.map(keyText).join(" or ") : "Not documented"}</td>; })}
       </tr>)}
     </tbody>)}
   </table>;

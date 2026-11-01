@@ -43,7 +43,7 @@ export const craft: AppShortcuts = {
     "Current Craft keyboard shortcut reference checked September 1, 2026. Craft publishes separate Mac and Windows lists; users can also add app-specific shortcuts through macOS settings.",
   sourceUrl: "https://support.craft.do/en/introduction/shortcuts",
   sourceLabel: "Craft keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "general",

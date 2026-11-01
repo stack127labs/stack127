@@ -9,10 +9,10 @@ export const obsStudio: AppShortcuts = {
   category: "Streaming and recording",
   platforms: [...platforms],
   versionContext:
-    "The official OBS keyboard reference was last updated August 25, 2021 and was checked again September 1, 2026. OBS lets users assign or change hotkeys in Settings, so these entries describe the published defaults rather than a user's custom profile.",
+    "The official OBS keyboard reference was last updated August 25, 2021 and was checked again November 1, 2026. OBS lets users assign or change hotkeys in Settings, so these entries describe the published defaults rather than a user's custom profile.",
   sourceUrl: "https://obsproject.com/kb/keyboard-shortcuts",
   sourceLabel: "official OBS Studio keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "general",

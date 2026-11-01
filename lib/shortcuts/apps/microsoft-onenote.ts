@@ -30,10 +30,10 @@ export const microsoftOneNote: AppShortcuts = {
   category: "Notes and writing",
   platforms: [...platforms],
   versionContext:
-    "Current Microsoft OneNote desktop shortcut tables checked September 1, 2026. Windows, macOS, and web versions have different maps, so this record separates the Windows and Mac desktop commands and leaves web-only access keys out.",
+    "Current Microsoft OneNote desktop shortcut tables checked November 1, 2026. Windows, macOS, and web versions have different maps, so this record separates the Windows and Mac desktop commands and leaves web-only access keys out.",
   sourceUrl: "https://support.microsoft.com/en-us/accessibility/onenote/keyboard-shortcuts-in-onenote",
   sourceLabel: "official Microsoft OneNote keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "editing",
@@ -61,9 +61,17 @@ export const microsoftOneNote: AppShortcuts = {
       intro: "Use these commands in OneNote for Windows to open notes, dock the window, sync, and lock the notebook.",
       shortcuts: [
         windowsOnly("new-window", "Open a new OneNote window", ["Ctrl", "M"]),
-        windowsOnly("quick-note", "Open a new Quick Note", ["Ctrl", "Shift", "M"], "Alt+Windows logo key+N is also documented."),
+        {
+          id: "quick-note",
+          action: "Open a new Quick Note",
+          keys: [{ platform: "windows", keys: ["Ctrl", "Shift", "M"], alternatives: [["Alt", "Win", "N"]] }],
+        },
         windowsOnly("dock-window", "Dock the OneNote window", ["Ctrl", "Alt", "D"]),
-        windowsOnly("sync-current-windows", "Synchronize the current notebook", ["Ctrl", "S"], "Shift+F9 is also documented."),
+        {
+          id: "sync-current-windows",
+          action: "Synchronize the current notebook",
+          keys: [{ platform: "windows", keys: ["Ctrl", "S"], alternatives: [["Shift", "F9"]] }],
+        },
         windowsOnly("sync-all-windows", "Synchronize all notebooks", ["F9"]),
         windowsOnly("lock-notebooks", "Lock password-protected sections", ["Ctrl", "Alt", "L"]),
       ],

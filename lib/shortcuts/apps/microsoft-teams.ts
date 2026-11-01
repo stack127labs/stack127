@@ -39,17 +39,24 @@ export const microsoftTeams: AppShortcuts = {
   category: "Team chat",
   platforms: [...platforms],
   versionContext:
-    "Current Microsoft Teams desktop and web shortcut tables checked September 1, 2026. Several commands have separate desktop and web forms, and Teams can reserve or customize shortcuts depending on the client and account.",
+    "Current Microsoft Teams desktop and web shortcut tables checked November 1, 2026. Several commands have separate desktop and web forms, and Teams can reserve or customize shortcuts depending on the client and account.",
   sourceUrl: "https://support.microsoft.com/en-us/accessibility/teams/keyboard-shortcuts-for-microsoft-teams",
   sourceLabel: "official Microsoft Teams keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "navigation-and-search",
       title: "Navigation and search",
       intro: "Search Teams, open a chat or channel, filter results, and move focus through the application shell.",
       shortcuts: [
-        pair("shortcut-help", "Open keyboard shortcut help", ["Ctrl", "."], ["Cmd", "."], "Alt+/ is also documented on Windows; Command+Period is the Mac desktop form."),
+        {
+          id: "shortcut-help",
+          action: "Open keyboard shortcut help",
+          keys: [
+            { platform: "windows", keys: ["Ctrl", "."], alternatives: [["Alt", "/"]] },
+            { platform: "macos", keys: ["Cmd", "."] },
+          ],
+        },
         desktopWeb("search", "Search Teams", ["Ctrl", "E"], ["Cmd", "E"], ["Ctrl", "Alt", "E"], ["Option", "Cmd", "E"]),
         pair("filter", "Filter the current view", ["Ctrl", "Shift", "F"], ["Cmd", "Shift", "F"]),
         desktopWeb("new-chat", "Start a new chat", ["Ctrl", "N"], ["Cmd", "N"], ["Alt", "N"], ["Ctrl", "Cmd", "N"]),
@@ -90,9 +97,8 @@ export const microsoftTeams: AppShortcuts = {
         pair("mute", "Mute or unmute the microphone", ["Ctrl", "Shift", "M"], ["Cmd", "Shift", "M"]),
         pair("camera", "Turn the camera on or off", ["Ctrl", "Shift", "O"], ["Cmd", "Shift", "O"]),
         pair("raise-hand", "Raise or lower your hand", ["Ctrl", "Shift", "K"], ["Cmd", "Shift", "K"]),
-        pair("screen-share", "Start or stop screen sharing", ["Ctrl", "Shift", "E"], ["Cmd", "Shift", "E"]),
-        pair("background", "Open background effects", ["Ctrl", "Shift", "P"], ["Cmd", "Shift", "P"]),
-        pair("captions", "Turn live captions on or off", ["Ctrl", "Shift", "C"], ["Cmd", "Shift", "C"]),
+        pair("screen-share", "Toggle the share content tray", ["Ctrl", "Shift", "E"], ["Cmd", "Shift", "E"]),
+        pair("captions", "Turn live captions on or off", ["Ctrl", "Shift", "A"], ["Cmd", "Shift", "A"]),
       ],
     },
   ],

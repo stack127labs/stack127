@@ -9,10 +9,10 @@ export const squarespace: AppShortcuts = {
   category: "Website builder",
   platforms: [...platforms],
   versionContext:
-    "Squarespace keyboard shortcuts checked September 1, 2026. The official guide was updated November 5, 2025 and warns that some shortcuts do not work in products or panels outside direct site editing.",
+    "Squarespace keyboard shortcuts checked November 1, 2026. The official guide was updated November 5, 2025 and warns that some shortcuts do not work in products or panels outside direct site editing.",
   sourceUrl: "https://support.squarespace.com/hc/en-us/articles/214491097-Squarespace-keyboard-shortcuts-and-tips",
   sourceLabel: "official Squarespace keyboard shortcuts and tips",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "navigation",
@@ -62,7 +62,10 @@ export const squarespace: AppShortcuts = {
         { id: "align-center", action: "Align center", keys: perPlatform(platforms, { windows: ["Shift", "Ctrl", "E"], macos: ["Shift", "Cmd", "E"] }) },
         { id: "align-right", action: "Align right", keys: perPlatform(platforms, { windows: ["Shift", "Ctrl", "R"], macos: ["Shift", "Cmd", "R"] }) },
         { id: "undo", action: "Undo", keys: combo(platforms, ["Ctrl", "Z"], ["Cmd", "Z"]) },
-        { id: "redo", action: "Redo", keys: perPlatform(platforms, { windows: ["Ctrl", "Y"], macos: ["Cmd", "Y"] }) },
+        { id: "redo", action: "Redo", keys: [
+          { platform: "windows", keys: ["Ctrl", "Y"], alternatives: [["Ctrl", "Shift", "Z"]] },
+          { platform: "macos", keys: ["Cmd", "Y"], alternatives: [["Shift", "Cmd", "Z"]] },
+        ] },
         { id: "paste-plain", action: "Paste as plain text", keys: combo(platforms, ["Ctrl", "Shift", "V"], ["Cmd", "Shift", "V"]) },
         { id: "indent-more", action: "Increase text indent", keys: combo(platforms, ["Ctrl", "]"], ["Cmd", "]"]) },
         { id: "indent-less", action: "Decrease text indent", keys: combo(platforms, ["Ctrl", "["], ["Cmd", "["]) },

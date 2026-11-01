@@ -16,7 +16,7 @@ export const deepl: AppShortcuts = {
     "Current DeepL desktop-app defaults checked August 31, 2026. Translation and improvement shortcuts can be disabled or customized in app settings, so these entries describe the published defaults.",
   sourceUrl: "https://support.deepl.com/hc/en-us/articles/360020613059-Use-DeepL-shortcuts-for-desktop-apps",
   sourceLabel: "DeepL desktop app shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "selected-text-and-app",

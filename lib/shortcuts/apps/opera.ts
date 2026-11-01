@@ -1,13 +1,14 @@
-import { perPlatform } from "../build.ts";
-import type { AppShortcuts, Shortcut } from "../types.ts";
+import type { AppShortcuts, Shortcut, ShortcutKey } from "../types.ts";
 
 const platforms = ["windows", "macos", "linux"] as const;
-const browser = (id: string, action: string, windowsLinux: string[], mac: string[], note?: string): Shortcut => ({
-  id,
-  action,
-  keys: perPlatform(platforms, { windows: windowsLinux, linux: windowsLinux, macos: mac }),
-  ...(note ? { note } : {}),
-});
+const browser = (id: string, action: string, windowsLinux: string[], mac: string[] | undefined, note?: string): Shortcut => {
+  const keys: ShortcutKey[] = [
+    { platform: "windows", keys: windowsLinux },
+    { platform: "linux", keys: windowsLinux },
+    ...(mac ? [{ platform: "macos" as const, keys: mac }] : []),
+  ];
+  return { id, action, keys, ...(note ? { note } : {}) };
+};
 
 export const opera: AppShortcuts = {
   slug: "opera",
@@ -15,10 +16,10 @@ export const opera: AppShortcuts = {
   category: "Web browser",
   platforms: [...platforms],
   versionContext:
-    "Current Opera desktop shortcuts checked September 1, 2026. The official page covers macOS and Windows/Linux defaults and notes that shortcuts can be customized under Settings > Browser > Shortcuts.",
+    "Current Opera desktop shortcuts checked November 1, 2026. The official page covers macOS and Windows/Linux defaults and notes that shortcuts can be customized under Settings > Browser > Shortcuts.",
   sourceUrl: "https://help.opera.com/en/latest/shortcuts/",
   sourceLabel: "official Opera shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "commands",
@@ -28,13 +29,13 @@ export const opera: AppShortcuts = {
         browser("downloads", "Open the Downloads page", ["Ctrl", "J"], ["Cmd", "J"]),
         browser("extensions", "Open the Extensions page", ["Ctrl", "Shift", "E"], ["Cmd", "Shift", "E"]),
         browser("history", "Open History", ["Ctrl", "H"], ["Cmd", "Shift", "H"]),
-        browser("open-file", "Open a local file", ["Ctrl", "O"], ["Cmd", "O"]),
+        browser("open-file", "Open a local file", ["Ctrl", "O"], undefined),
         browser("address-bar", "Focus the address bar", ["Ctrl", "L"], ["Cmd", "L"]),
         browser("settings", "Open Settings", ["Alt", "P"], ["Cmd", ","]),
         browser("print", "Print the current page", ["Ctrl", "P"], ["Cmd", "P"]),
         browser("save", "Save the page locally", ["Ctrl", "S"], ["Cmd", "S"]),
         browser("quit", "Quit Opera", ["Ctrl", "Shift", "X"], ["Cmd", "Q"]),
-        browser("help", "Open Opera help", ["F1"], ["F1"], "The official table lists F1 for Windows/Linux; macOS users can use the Help menu."),
+        browser("help", "Open Opera help", ["F1"], undefined),
       ],
     },
     {

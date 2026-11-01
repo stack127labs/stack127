@@ -18,7 +18,7 @@ export const oracleVirtualBox: AppShortcuts = {
     "Oracle VirtualBox 7.2 User Guide keyboard and host-key behavior checked September 1, 2026. The default host key is Right Ctrl on Windows and Linux hosts and Left Command on a Mac host; users can change it in Preferences.",
   sourceUrl: "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html",
   sourceLabel: "Oracle VirtualBox User Guide host-key shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "special-combinations",

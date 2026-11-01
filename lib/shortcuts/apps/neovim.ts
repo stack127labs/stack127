@@ -122,7 +122,7 @@ export const neovim: AppShortcuts = {
         { id: "window-down", action: "Move to the window below", keys: combo(platforms, ["Ctrl", "w", "j"]) },
         { id: "window-up", action: "Move to the window above", keys: combo(platforms, ["Ctrl", "w", "k"]) },
         { id: "window-right", action: "Move to the window on the right", keys: combo(platforms, ["Ctrl", "w", "l"]) },
-        { id: "open-terminal", action: "Open a terminal buffer", keys: combo(platforms, [":", "terminal"]), note: "Press Enter after the :terminal command." },
+        { id: "open-terminal", action: "Open a terminal buffer", keys: combo(platforms, [":", "terminal", "then", "Enter"]) },
         { id: "terminal-to-normal", action: "Leave terminal mode for normal mode", keys: combo(platforms, ["Ctrl", "\\", "Ctrl", "n"]) },
         { id: "shell-command-prev", action: "Jump to the previous shell command", keys: combo(platforms, ["[", "["]), note: "Requires shell integration that emits OSC 133 markers." },
         { id: "shell-command-next", action: "Jump to the next shell command", keys: combo(platforms, ["]", "]"]), note: "Requires shell integration that emits OSC 133 markers." },

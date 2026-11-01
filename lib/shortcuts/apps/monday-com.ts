@@ -16,10 +16,10 @@ export const mondayCom: AppShortcuts = {
   category: "Project management",
   platforms: [...platforms],
   versionContext:
-    "Current monday.com web shortcuts checked September 1, 2026. The shortcut list is available from the account menu or Shift + ?. Labels differ slightly between Mac and PC, but the actions are shared.",
+    "Current monday.com web shortcuts checked November 1, 2026. The shortcut list is available from the account menu or Shift + ?. Labels differ slightly between Mac and PC, but the actions are shared.",
   sourceUrl: "https://support.monday.com/hc/en-us/articles/115005339905-monday-com-Shortcuts",
   sourceLabel: "official monday.com shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "system-navigation",

@@ -28,7 +28,7 @@ export const rstudio: AppShortcuts = {
     "RStudio User Guide version 2026.08.2 checked September 1, 2026. The guide warns that Emacs, Vim, and Sublime Text keybindings change the defaults. This record uses the standard keybinding set and omits rows where the guide says no shortcut.",
   sourceUrl: "https://docs.posit.co/ide/user/ide/reference/shortcuts.html",
   sourceLabel: "official Posit RStudio keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "command-palette-and-accessibility",

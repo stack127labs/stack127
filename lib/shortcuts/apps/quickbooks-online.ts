@@ -21,7 +21,7 @@ export const quickbooksOnline: AppShortcuts = {
     "Intuit's QuickBooks Help article was updated August 28, 2026 and checked September 1, 2026. The article covers Internet Explorer, Firefox, and Chrome, with Mac substitutions where Intuit documents them. The in-product reference opens with Control+Option+Question mark on Mac.",
   sourceUrl: "https://quickbooks.intuit.com/learn-support/en-us/help-article/product-setup/keyboard-shortcuts-quickbooks-online/L49aUqVh2_US_en_US",
   sourceLabel: "official QuickBooks Online keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "browser-and-help",

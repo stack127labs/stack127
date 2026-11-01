@@ -16,7 +16,7 @@ export const powerBi: AppShortcuts = {
     "Power BI Desktop keyboard shortcuts from Microsoft Learn, checked September 1, 2026. The shortcut overlay opens with Shift+? and several bindings work only when a visual, pane, formula bar, or model object has focus.",
   sourceUrl: "https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts",
   sourceLabel: "Microsoft Power BI Desktop keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "general",

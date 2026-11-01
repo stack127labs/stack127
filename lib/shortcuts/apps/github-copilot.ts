@@ -12,7 +12,7 @@ const githubCopilot: AppShortcuts = {
     "GitHub's current shortcut page separates Visual Studio Code, JetBrains, Visual Studio, Eclipse, Vim/Neovim, and Xcode. This record uses the Visual Studio Code defaults for Windows, macOS, and Linux. Host keymaps and user rebinding can change the active commands.",
   sourceUrl: "https://docs.github.com/en/copilot/reference/keyboard-shortcuts?tool=vscode",
   sourceLabel: "official GitHub Copilot IDE keyboard shortcuts",
-  lastVerified: "2026-10-10",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "inline-suggestions",

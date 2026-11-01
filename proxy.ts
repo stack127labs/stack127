@@ -5,6 +5,7 @@ import { getPublishedToolPage } from "@/lib/tool-pages";
 import { getPublishedDirectoryPage } from "@/lib/directory-pages";
 import { sitePageAvailable } from "@/lib/page-source";
 import { absoluteUrl } from "@/lib/seo";
+import { queryNeedsNoindex } from "@/lib/seo/query-indexing.mjs";
 
 export async function proxy(request: NextRequest) {
   const headers = new Headers(request.headers);
@@ -13,7 +14,9 @@ export async function proxy(request: NextRequest) {
   userQuery.delete("_rsc");
   const withQueryIndexing = (response: NextResponse) => {
     if (request.nextUrl.search) {
-      response.headers.set("X-Robots-Tag", "noindex, follow");
+      if (queryNeedsNoindex(request.nextUrl.search)) {
+        response.headers.set("X-Robots-Tag", "noindex, follow");
+      }
       response.headers.append("Link", `<${absoluteUrl(pathname)}>; rel="canonical"`);
     }
     return response;

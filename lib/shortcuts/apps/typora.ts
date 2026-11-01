@@ -23,10 +23,10 @@ export const typora: AppShortcuts = {
   category: "Writing tool",
   platforms: [...platforms],
   versionContext:
-    "Typora's Shortcut Keys reference updated July 19, 2026 and checked September 1, 2026. Typora allows menu bindings to be changed in macOS App Shortcuts or Windows/Linux advanced settings, so this record describes the published defaults.",
+    "Typora's Shortcut Keys reference updated October 31, 2026 and checked November 1, 2026. Typora allows menu bindings to be changed in macOS App Shortcuts or Windows/Linux advanced settings, so this record describes the published defaults.",
   sourceUrl: "https://support.typora.io/Shortcut-Keys/",
   sourceLabel: "official Typora shortcut keys",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "files",

@@ -16,10 +16,10 @@ export const windowsFileExplorer: AppShortcuts = {
   category: "File management",
   platforms: [...platforms],
   versionContext:
-    "Microsoft Windows keyboard shortcuts checked September 1, 2026. The source applies to Windows 10 and Windows 11, and some commands depend on the focused File Explorer pane.",
+    "Microsoft Windows keyboard shortcuts checked November 1, 2026. The source applies to Windows 10 and Windows 11, and some commands depend on the focused File Explorer pane.",
   sourceUrl: "https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec",
   sourceLabel: "official Microsoft Windows keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "file-explorer",

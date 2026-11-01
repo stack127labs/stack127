@@ -1,14 +1,7 @@
-import { combo, perPlatform } from "../build.ts";
+import { combo } from "../build.ts";
 import type { AppShortcuts, Shortcut } from "../types.ts";
 
 const platforms = ["windows", "macos", "linux"] as const;
-
-const desktop = (id: string, action: string, windowsLinux: string[], macos: string[], note?: string): Shortcut => ({
-  id,
-  action,
-  keys: perPlatform(platforms, { windows: windowsLinux, linux: windowsLinux, macos }),
-  ...(note ? { note } : {}),
-});
 
 const shared = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
   id,
@@ -23,10 +16,10 @@ export const rocketChat: AppShortcuts = {
   category: "Team chat",
   platforms: [...platforms],
   versionContext:
-    "Rocket.Chat account and release-note shortcut references checked September 1, 2026. Rocket.Chat says macOS uses Command and Option where Windows and Linux use Control and Alt; server settings, browser extensions, and custom keymaps can change the active bindings.",
+    "Rocket.Chat keyboard shortcuts checked November 1, 2026. The current account guide publishes Ctrl and Alt notation for its Web/Desktop shortcuts without platform-specific variants; server settings and browser extensions can affect the active bindings.",
   sourceUrl: "https://docs.rocket.chat/docs/your-rocketchat-account",
   sourceLabel: "official Rocket.Chat keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "global",
@@ -40,10 +33,10 @@ export const rocketChat: AppShortcuts = {
           keys: [
             { platform: "windows", keys: ["Ctrl", "P"], alternatives: [["Ctrl", "K"]] },
             { platform: "linux", keys: ["Ctrl", "P"], alternatives: [["Ctrl", "K"]] },
-            { platform: "macos", keys: ["Cmd", "P"], alternatives: [["Cmd", "K"]] },
+            { platform: "macos", keys: ["Ctrl", "P"], alternatives: [["Ctrl", "K"]] },
           ],
         },
-        desktop("mark-all-read", "Mark all messages as read", ["Ctrl", "Escape"], ["Cmd", "Escape"]),
+        shared("mark-all-read", "Mark all messages as read", ["Ctrl", "Escape"]),
       ],
     },
     {
@@ -58,7 +51,7 @@ export const rocketChat: AppShortcuts = {
           keys: [
             { platform: "windows", keys: ["Alt", "Left Arrow"], alternatives: [["Alt", "Up Arrow"]] },
             { platform: "linux", keys: ["Alt", "Left Arrow"], alternatives: [["Alt", "Up Arrow"]] },
-            { platform: "macos", keys: ["Option", "Left Arrow"], alternatives: [["Option", "Up Arrow"]] },
+            { platform: "macos", keys: ["Alt", "Left Arrow"], alternatives: [["Alt", "Up Arrow"]] },
           ],
         },
         {
@@ -67,7 +60,7 @@ export const rocketChat: AppShortcuts = {
           keys: [
             { platform: "windows", keys: ["Alt", "Right Arrow"], alternatives: [["Alt", "Down Arrow"]] },
             { platform: "linux", keys: ["Alt", "Right Arrow"], alternatives: [["Alt", "Down Arrow"]] },
-            { platform: "macos", keys: ["Option", "Right Arrow"], alternatives: [["Option", "Down Arrow"]] },
+            { platform: "macos", keys: ["Alt", "Right Arrow"], alternatives: [["Alt", "Down Arrow"]] },
           ],
         },
         shared("new-line", "Insert a new line without sending", ["Shift", "Enter"]),

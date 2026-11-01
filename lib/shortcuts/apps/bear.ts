@@ -16,7 +16,7 @@ export const bear: AppShortcuts = {
     "Current Bear for Mac shortcut reference checked August 31, 2026. Bear Web has a separate beta keymap and is not mixed into this native macOS reference. Back and forward shortcuts can vary with keyboard layout and localization.",
   sourceUrl: "https://bear.app/faq/mac-keyboard-shortcuts/",
   sourceLabel: "Bear for Mac keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "formatting",

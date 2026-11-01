@@ -1,7 +1,7 @@
 import { combo, perPlatform } from "../build.ts";
 import type { AppShortcuts } from "../types.ts";
 
-const platforms = ["windows", "macos", "linux"] as const;
+const platforms = ["windows", "macos"] as const;
 
 export const gmail: AppShortcuts = {
   slug: "gmail",
@@ -12,7 +12,7 @@ export const gmail: AppShortcuts = {
     "Google's official Gmail Help page checked in August 2026. Gmail keyboard shortcuts must be turned on in Settings, and Google notes that language and keyboard layout can affect support. Gmail also lets users customize the single-key actions after enabling custom shortcuts.",
   sourceUrl: "https://support.google.com/mail/answer/6594",
   sourceLabel: "official Gmail keyboard shortcuts",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "compose-and-chat",
@@ -76,12 +76,12 @@ export const gmail: AppShortcuts = {
         { id: "forward", action: "Forward", keys: combo(platforms, ["f"]) },
         { id: "forward-new-window", action: "Forward in a new window", keys: combo(platforms, ["Shift", "f"]) },
         { id: "update-conversation", action: "Update the conversation", keys: combo(platforms, ["Shift", "n"]) },
-        { id: "archive-next", action: "Archive and go to the next conversation", keys: combo(platforms, ["]"]), note: "[ archives and goes to the previous conversation." },
+        { id: "archive-next", action: "Archive and move to the previous or next conversation", keys: combo(platforms, ["]"]).map((entry) => ({ ...entry, alternatives: [["["]] })) },
         { id: "undo", action: "Undo the last action", keys: combo(platforms, ["z"]) },
         { id: "mark-read", action: "Mark as read", keys: combo(platforms, ["Shift", "i"]) },
         { id: "mark-unread", action: "Mark as unread", keys: combo(platforms, ["Shift", "u"]) },
         { id: "mark-unread-selected-message", action: "Mark unread from the selected message", keys: combo(platforms, ["_"]) },
-        { id: "mark-important", action: "Mark as important", keys: combo(platforms, ["+"]), note: "= is also documented." },
+        { id: "mark-important", action: "Mark as important", keys: combo(platforms, ["+"]).map((entry) => ({ ...entry, alternatives: [["="]] })) },
         { id: "mark-not-important", action: "Mark as not important", keys: combo(platforms, ["-"]) },
         { id: "snooze", action: "Snooze the conversation", keys: combo(platforms, ["b"]), note: "Not available in classic Gmail." },
         { id: "expand-conversation", action: "Expand the entire conversation", keys: combo(platforms, [";"]) },
@@ -102,7 +102,7 @@ export const gmail: AppShortcuts = {
         { id: "go-all-mail", action: "Go to All Mail", keys: combo(platforms, ["g", "a"]) },
         { id: "go-tasks", action: "Go to Tasks", keys: combo(platforms, ["g", "k"]) },
         { id: "go-label", action: "Go to a label", keys: combo(platforms, ["g", "l"]) },
-        { id: "side-panel-next", action: "Move between the side panel and inbox", keys: perPlatform(platforms, { windows: ["Ctrl", "Alt", "."], macos: ["Cmd", "Alt", "."], linux: ["Ctrl", "Alt", "."] }), note: "The comma variant moves in the other direction." },
+        { id: "side-panel-next", action: "Switch between the side panel and inbox", keys: perPlatform(platforms, { windows: ["Ctrl", "Alt", "."], macos: ["Cmd", "Alt", "."] }).map((entry) => ({ ...entry, alternatives: [[entry.platform === "macos" ? "Cmd" : "Ctrl", "Alt", ","]] })) },
       ],
     },
     {
@@ -121,7 +121,7 @@ export const gmail: AppShortcuts = {
         { id: "back-to-threadlist", action: "Return to the thread list", keys: combo(platforms, ["u"]) },
         { id: "newer-conversation", action: "Move to a newer conversation", keys: combo(platforms, ["k"]) },
         { id: "older-conversation", action: "Move to an older conversation", keys: combo(platforms, ["j"]) },
-        { id: "open-conversation", action: "Open the selected conversation", keys: combo(platforms, ["o"]), note: "Enter is also documented." },
+        { id: "open-conversation", action: "Open the selected conversation", keys: combo(platforms, ["o"]).map((entry) => ({ ...entry, alternatives: [["Enter"]] })) },
         { id: "next-inbox-section", action: "Go to the next Inbox section", keys: combo(platforms, ["`"]) },
         { id: "previous-inbox-section", action: "Go to the previous Inbox section", keys: combo(platforms, ["~"]) },
       ],

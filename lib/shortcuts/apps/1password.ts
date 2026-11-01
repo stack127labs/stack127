@@ -9,10 +9,10 @@ export const onePassword: AppShortcuts = {
   category: "Password manager",
   platforms: [...platforms],
   versionContext:
-    "Current desktop defaults checked August 31, 2026. Global shortcuts can be changed in 1Password settings. Linux global shortcuts depend on X11 or user-configured Wayland bindings. iPhone and iPad shortcuts are outside stack127's current platform model.",
+    "Current desktop defaults checked November 1, 2026. Global shortcuts can be changed in 1Password settings. Linux global shortcuts depend on X11 or user-configured Wayland bindings. iPhone and iPad shortcuts are outside stack127's current platform model.",
   sourceUrl: "https://support.1password.com/keyboard-shortcuts/",
   sourceLabel: "official 1Password keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "global",
@@ -22,7 +22,11 @@ export const onePassword: AppShortcuts = {
         {
           id: "show-quick-access",
           action: "Show Quick Access",
-          keys: combo(platforms, ["Ctrl", "Shift", "Space"], ["Shift", "Cmd", "Space"]),
+          keys: [
+            { platform: "windows", keys: ["Ctrl", "Shift", "Space"] },
+            { platform: "macos", keys: ["Option", "Cmd", "\\"], alternatives: [["Shift", "Cmd", "Space"]], note: "Use Shift+Cmd+Space on macOS 26 or earlier." },
+            { platform: "linux", keys: ["Ctrl", "Shift", "Space"] },
+          ],
           note: "The Linux default applies to X11. Wayland users configure a desktop-specific global binding.",
         },
         {
@@ -123,7 +127,15 @@ export const onePassword: AppShortcuts = {
       title: "Quick Access",
       intro: "Search accounts and act on the selected result without opening the full 1Password window.",
       shortcuts: [
-        { id: "qa-toggle", action: "Open or close Quick Access", keys: combo(platforms, ["Ctrl", "Shift", "Space"], ["Shift", "Cmd", "Space"]) },
+        {
+          id: "qa-toggle",
+          action: "Open or close Quick Access",
+          keys: [
+            { platform: "windows", keys: ["Ctrl", "Shift", "Space"] },
+            { platform: "macos", keys: ["Option", "Cmd", "\\"], alternatives: [["Shift", "Cmd", "Space"]], note: "Use Shift+Cmd+Space on macOS 26 or earlier." },
+            { platform: "linux", keys: ["Ctrl", "Shift", "Space"] },
+          ],
+        },
         { id: "qa-clear-search", action: "Clear the Quick Access search field", keys: combo(platforms, ["Esc"]) },
         { id: "qa-all-accounts", action: "Switch Quick Access to All Accounts", keys: combo(platforms, ["Ctrl", "1"], ["Cmd", "1"]) },
         { id: "qa-account-by-number", action: "Switch accounts or collections by position", keys: combo(platforms, ["Ctrl", "2-9"], ["Cmd", "2-9"]) },

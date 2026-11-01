@@ -12,7 +12,7 @@ const httpie: AppShortcuts = {
     "The official HTTPie Desktop preview documentation publishes macOS, Windows, and Linux bindings. Some commands are desktop-only, and the preview feature set may change as HTTPie Desktop evolves.",
   sourceUrl: "https://httpie.io/docs/desktop/preview",
   sourceLabel: "official HTTPie Desktop keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "tabs-and-app",

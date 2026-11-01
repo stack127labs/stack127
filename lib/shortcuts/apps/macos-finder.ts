@@ -9,10 +9,10 @@ export const macosFinder: AppShortcuts = {
   category: "File management",
   platforms: [...platforms],
   versionContext:
-    "Finder and system shortcuts from Apple's current Mac keyboard-shortcuts reference, checked September 1, 2026. A command can change with the current Finder selection or window state.",
-  sourceUrl: "https://support.apple.com/102650",
+    "Finder and system shortcuts from Apple's current Mac keyboard-shortcuts reference, checked November 1, 2026. A command can change with the current Finder selection or window state.",
+  sourceUrl: "https://support.apple.com/en-us/102650",
   sourceLabel: "Apple Mac keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "file-actions",

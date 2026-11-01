@@ -21,7 +21,7 @@ export const protopie: AppShortcuts = {
     "ProtoPie Studio shortcuts checked September 1, 2026. The official list says the shortcut modal opens from Help or Control+Shift+Question mark on macOS and Ctrl+Shift+Question mark on Windows. Some actions use a key with a pointer gesture and are left out of this keyboard-only record.",
   sourceUrl: "https://www.protopie.io/learn/docs/basic-features-shortcuts",
   sourceLabel: "official ProtoPie Studio shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "general",

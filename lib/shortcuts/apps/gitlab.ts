@@ -1,7 +1,7 @@
 import { combo } from "../build.ts";
 import type { AppShortcuts } from "../types.ts";
 
-const platforms = ["windows", "macos", "linux"] as const;
+const platforms = ["windows", "macos"] as const;
 
 const gitlab: AppShortcuts = {
   slug: "gitlab",
@@ -9,10 +9,10 @@ const gitlab: AppShortcuts = {
   category: "Code hosting",
   platforms: [...platforms],
   versionContext:
-    "GitLab publishes one web shortcut reference with macOS modifier differences where they matter. Windows and Linux share the Control-based bindings in the source. Some commands depend on the current project, issue, or merge request view.",
+    "GitLab publishes one web shortcut reference with macOS modifier differences where they matter. Some commands depend on the current project, issue, or merge request view.",
   sourceUrl: "https://docs.gitlab.com/user/shortcuts/",
   sourceLabel: "official GitLab keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "global-navigation",
@@ -32,9 +32,9 @@ const gitlab: AppShortcuts = {
         { id: "merge-requests", action: "Open Merge Requests", keys: combo(platforms, ["Shift", "M"]) },
         { id: "review-requests", action: "Open Review Requests", keys: combo(platforms, ["Shift", "R"]) },
         { id: "todo", action: "Open To-Do", keys: combo(platforms, ["Shift", "T"]) },
-        { id: "performance-bar", action: "Open the performance bar", keys: combo(platforms, ["P", "then", "B"]) },
+        { id: "performance-bar", action: "Open the performance bar", keys: combo(platforms, ["P", "B"]) },
         { id: "hide-overlay", action: "Hide the current overlay", keys: combo(platforms, ["Esc"]) },
-        { id: "toggle-gitlab-next", action: "Toggle GitLab Next", keys: combo(platforms, ["G", "then", "X"]) },
+        { id: "toggle-gitlab-next", action: "Toggle GitLab Next", keys: combo(platforms, ["G", "X"]) },
         { id: "web-ide", action: "Open the Web IDE", keys: combo(platforms, ["."]) },
         { id: "duo-chat", action: "Open GitLab Duo Chat", keys: combo(platforms, ["D"]) },
       ],
@@ -44,24 +44,24 @@ const gitlab: AppShortcuts = {
       title: "Project navigation",
       intro: "Jump between project overview, files, commits, pipelines, environments, and collaboration areas with G routes.",
       shortcuts: [
-        { id: "project-overview", action: "Open project overview", keys: combo(platforms, ["G", "then", "O"]) },
-        { id: "project-activity", action: "Open project activity", keys: combo(platforms, ["G", "then", "V"]) },
-        { id: "releases", action: "Open releases", keys: combo(platforms, ["G", "then", "R"]) },
-        { id: "files", action: "Open project files", keys: combo(platforms, ["G", "then", "F"]) },
+        { id: "project-overview", action: "Open project overview", keys: combo(platforms, ["G", "O"]) },
+        { id: "project-activity", action: "Open project activity", keys: combo(platforms, ["G", "V"]) },
+        { id: "releases", action: "Open releases", keys: combo(platforms, ["G", "R"]) },
+        { id: "files", action: "Open project files", keys: combo(platforms, ["G", "F"]) },
         { id: "find-file", action: "Search project files", keys: combo(platforms, ["T"]) },
-        { id: "commits", action: "Open commits", keys: combo(platforms, ["G", "then", "C"]) },
-        { id: "graph", action: "Open the repository graph", keys: combo(platforms, ["G", "then", "N"]) },
-        { id: "analytics", action: "Open analytics", keys: combo(platforms, ["G", "then", "D"]) },
-        { id: "work-items", action: "Open work items", keys: combo(platforms, ["G", "then", "I"]) },
+        { id: "commits", action: "Open commits", keys: combo(platforms, ["G", "C"]) },
+        { id: "graph", action: "Open the repository graph", keys: combo(platforms, ["G", "N"]) },
+        { id: "analytics", action: "Open analytics", keys: combo(platforms, ["G", "D"]) },
+        { id: "work-items", action: "Open work items", keys: combo(platforms, ["G", "I"]) },
         { id: "new-issue", action: "Create a new issue", keys: combo(platforms, ["I"]) },
-        { id: "boards", action: "Open issue boards", keys: combo(platforms, ["G", "then", "B"]) },
-        { id: "project-merge-requests", action: "Open project merge requests", keys: combo(platforms, ["G", "then", "M"]) },
-        { id: "pipelines", action: "Open pipelines", keys: combo(platforms, ["G", "then", "P"]) },
-        { id: "jobs", action: "Open jobs", keys: combo(platforms, ["G", "then", "J"]) },
-        { id: "environments", action: "Open environments", keys: combo(platforms, ["G", "then", "E"]) },
-        { id: "clusters", action: "Open clusters", keys: combo(platforms, ["G", "then", "K"]) },
-        { id: "project-snippets", action: "Open project snippets", keys: combo(platforms, ["G", "then", "S"]) },
-        { id: "wiki", action: "Open the project wiki", keys: combo(platforms, ["G", "then", "W"]) },
+        { id: "boards", action: "Open issue boards", keys: combo(platforms, ["G", "B"]) },
+        { id: "project-merge-requests", action: "Open project merge requests", keys: combo(platforms, ["G", "M"]) },
+        { id: "pipelines", action: "Open pipelines", keys: combo(platforms, ["G", "P"]) },
+        { id: "jobs", action: "Open jobs", keys: combo(platforms, ["G", "J"]) },
+        { id: "environments", action: "Open environments", keys: combo(platforms, ["G", "E"]) },
+        { id: "clusters", action: "Open clusters", keys: combo(platforms, ["G", "K"]) },
+        { id: "project-snippets", action: "Open project snippets", keys: combo(platforms, ["G", "S"]) },
+        { id: "wiki", action: "Open the project wiki", keys: combo(platforms, ["G", "W"]) },
       ],
     },
     {
@@ -73,7 +73,7 @@ const gitlab: AppShortcuts = {
         { id: "assign", action: "Change the assignee", keys: combo(platforms, ["A"]) },
         { id: "milestone", action: "Change the milestone", keys: combo(platforms, ["M"]) },
         { id: "label", action: "Change labels", keys: combo(platforms, ["L"]) },
-        { id: "copy-reference", action: "Copy the issue reference", keys: combo(platforms, ["C", "then", "R"]) },
+        { id: "copy-reference", action: "Copy the issue reference", keys: combo(platforms, ["C", "R"]) },
         { id: "comment", action: "Focus the comment box", keys: combo(platforms, ["R"]) },
         { id: "previous-design", action: "Show the previous design item", keys: combo(platforms, ["Left"]) },
         { id: "next-design", action: "Show the next design item", keys: combo(platforms, ["Right"]) },

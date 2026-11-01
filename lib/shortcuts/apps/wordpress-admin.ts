@@ -29,10 +29,10 @@ export const wordpressAdmin: AppShortcuts = {
   category: "Content management",
   platforms: [...platforms],
   versionContext:
-    "WordPress Block Editor, Classic Editor, and Site Editor references checked September 1, 2026. The Block Editor table and Classic Editor table publish Windows or Linux and Mac variants, while the Site Editor documents its command palette separately.",
+    "WordPress Block Editor, Classic Editor, and Site Editor references checked November 1, 2026. The Block Editor table and Classic Editor table publish Windows or Linux and Mac variants, while the Site Editor documents its command palette separately.",
   sourceUrl: "https://wordpress.org/documentation/article/keyboard-shortcuts-block-editor/",
   sourceLabel: "official WordPress editor keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "block-editor",

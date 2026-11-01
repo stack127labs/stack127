@@ -29,10 +29,10 @@ export const zeplin: AppShortcuts = {
   category: "Design handoff",
   platforms: [...platforms],
   versionContext:
-    "Zeplin keyboard shortcut article checked September 1, 2026. The article also lists a Web app table, while this record uses the published Mac and Windows app maps.",
+    "Zeplin keyboard shortcut article checked November 1, 2026. The article lists Mac and Windows app maps; this record uses those desktop bindings.",
   sourceUrl: "https://support.zeplin.io/en/articles/9685993-keyboard-shortcuts",
   sourceLabel: "official Zeplin keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "navigation",
@@ -41,7 +41,7 @@ export const zeplin: AppShortcuts = {
       shortcuts: [
         dual("search", "Open global search", ["Ctrl", "K"], ["Cmd", "K"]),
         dual("new-project", "Create a new project or styleguide", ["Ctrl", "N"], ["Cmd", "N"]),
-        dual("workspace", "Open workspace switcher", ["Ctrl", "Shift", "A"], ["Cmd", "Shift", "A"]),
+        dual("workspace", "Go to the workspace", ["Ctrl", "Shift", "A"], ["Cmd", "Shift", "A"]),
         dual("dashboard", "Open the dashboard", ["Alt", "A"], ["Option", "A"]),
         dual("styleguide", "Open the styleguide", ["Alt", "S"], ["Option", "S"]),
         dual("flows", "Open flows", ["Alt", "L"], ["Option", "L"]),
@@ -75,11 +75,18 @@ export const zeplin: AppShortcuts = {
       title: "Zoom and layout",
       intro: "Change the canvas zoom or show the grid for the selected screen.",
       shortcuts: [
-        dual("zoom-in", "Zoom in", ["Ctrl", "+"], ["Cmd", ":"]),
+        {
+          id: "zoom-in",
+          action: "Zoom in",
+          keys: [
+            { platform: "windows", keys: ["Ctrl", "+"] },
+            { platform: "macos", keys: ["Cmd", ":"], alternatives: [["Cmd", "*"], ["Cmd", "="]] },
+          ],
+        },
         dual("zoom-out", "Zoom out", ["Ctrl", "-"], ["Cmd", "-"]),
         dual("zoom-actual", "Set zoom to actual size", ["Ctrl", "0"], ["Cmd", "0"]),
         dual("zoom-fit", "Fit the screen to the window", ["Ctrl", "1"], ["Cmd", "1"]),
-        dual("zoom-selection", "Zoom to the selected layer", ["Ctrl", "2"], ["Cmd", "2"]),
+        dual("zoom-selection", "Zoom to the selected layer", ["Ctrl", "2"], ["Cmd", "2"], "Select a layer first."),
         dual("grid", "Show or hide the grid", ["Ctrl", "Alt", "G"], ["Cmd", "Option", "G"]),
       ],
     },

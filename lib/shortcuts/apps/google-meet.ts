@@ -12,7 +12,7 @@ const googleMeet: AppShortcuts = {
     "Google publishes separate Windows and Mac meeting tables. The complete in-meeting shortcut list is available from Meet's help dialog with Shift+question mark; some commands depend on account or meeting permissions.",
   sourceUrl: "https://support.google.com/meet/answer/9298571?hl=en",
   sourceLabel: "official Google Meet keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "meeting-controls",

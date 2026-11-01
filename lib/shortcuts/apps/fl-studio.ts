@@ -42,7 +42,7 @@ export const flStudio: AppShortcuts = {
     "Current FL Studio online manual keyboard shortcut page checked September 1, 2026. The manual says shortcuts depend on the active window or plugin and that its list is not exhaustive.",
   sourceUrl: "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/basics_shortcuts.htm",
   sourceLabel: "FL Studio keyboard and mouse shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "global",

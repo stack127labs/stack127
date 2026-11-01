@@ -14,10 +14,10 @@ export const aider: AppShortcuts = {
   category: "AI pair programming",
   platforms: [...platforms],
   versionContext:
-    "Current Aider command-line documentation checked August 31, 2026. Emacs bindings are the default. The vi group applies only when Aider is started with --vim. Terminal emulators and operating systems can intercept some control or meta combinations before Aider receives them.",
+    "Current Aider command-line documentation checked November 1, 2026. Emacs bindings are the default. The vi group applies only when Aider is started with --vim. Terminal emulators and operating systems can intercept some control or meta combinations before Aider receives them.",
   sourceUrl: "https://aider.chat/docs/usage/commands.html",
   sourceLabel: "Aider in-chat commands and keybindings",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "prompt-and-multiline",

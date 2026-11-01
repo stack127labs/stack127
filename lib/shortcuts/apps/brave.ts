@@ -12,7 +12,7 @@ export const brave: AppShortcuts = {
     "Documented defaults from the Brave Help Center checked August 26, 2026. The Windows and Linux table shares bindings, while macOS has its own table. Brave also allows shortcut changes in Settings, System, Shortcuts.",
   sourceUrl: "https://support.brave.app/hc/en-us/articles/360032272171-What-keyboard-shortcuts-can-I-use-in-Brave",
   sourceLabel: "official Brave keyboard shortcuts",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "tabs-and-windows",
@@ -41,7 +41,7 @@ export const brave: AppShortcuts = {
         { id: "close-window", action: "Close the current window", keys: combo(platforms, ["Ctrl", "Shift", "W"], ["Cmd", "Shift", "W"]) },
         { id: "minimize-window", action: "Minimize the current window", keys: perPlatform(platforms, { windows: ["Alt", "Space", "N"], macos: ["Cmd", "M"], linux: ["Alt", "Space", "N"] }) },
         { id: "maximize-window", action: "Maximize the current window", keys: perPlatform(platforms, { windows: ["Alt", "Space", "X"], linux: ["Alt", "Space", "X"] }), note: "No macOS shortcut is listed by Brave for this action." },
-        { id: "quit", action: "Quit Brave", keys: perPlatform(platforms, { windows: ["Alt", "F4"], macos: ["Cmd", "Q"], linux: ["Alt", "F4"] }), note: "On Windows and Linux, Alt+F then X is also documented." },
+        { id: "quit", action: "Quit Brave", keys: perPlatform(platforms, { windows: ["Alt", "F", "then", "X"], macos: ["Cmd", "Q"], linux: ["Alt", "F", "then", "X"] }) },
       ],
     },
     {
@@ -71,7 +71,7 @@ export const brave: AppShortcuts = {
       shortcuts: [
         { id: "focus-address-bar", action: "Focus the address bar", keys: perPlatform(platforms, { windows: ["Ctrl", "L"], macos: ["Cmd", "L"], linux: ["Ctrl", "L"] }), note: "Alt+D or F6 also works on Windows and Linux." },
         { id: "search-anywhere", action: "Search from anywhere on the page", keys: perPlatform(platforms, { windows: ["Ctrl", "K"], macos: ["Cmd", "K"], linux: ["Ctrl", "K"] }), note: "Ctrl+E also works on Windows and Linux." },
-        { id: "search-other-engine", action: "Search with another search engine", keys: combo(platforms, ["Tab"]), note: "Type the engine's shortcut name in the address bar, then press Tab. Brave documents this for all platforms." },
+        { id: "search-other-engine", action: "Search with another search engine", keys: combo(platforms, ["{shortcut name}", "then", "Tab"]), note: "Type the engine's shortcut name in the address bar first." },
         { id: "address-www-com", action: "Add www. and .com to a site name", keys: combo(platforms, ["Ctrl", "Enter"], ["Ctrl", "Return"]) },
         { id: "address-new-tab", action: "Open an address-bar search in a new tab", keys: perPlatform(platforms, { windows: ["Alt", "Enter"], macos: ["Ctrl", "Return"], linux: ["Alt", "Enter"] }) },
         { id: "remove-prediction", action: "Remove a highlighted address-bar prediction", keys: perPlatform(platforms, { windows: ["Down", "Shift", "Delete"], macos: ["Down", "Shift", "Fn", "Delete"], linux: ["Down", "Shift", "Delete"] }) },

@@ -19,10 +19,10 @@ export const affinityPhoto: AppShortcuts = {
   category: "Photo editing",
   platforms: ["windows", "macos"],
   versionContext:
-    "Affinity Photo 2 desktop defaults from Serif's September 19, 2023 Windows and macOS shortcut sheets, cross-checked against the current Affinity V2 online help on August 31, 2026. The sheets use English UK or British keyboard layouts, so physical key positions can differ. Customized shortcuts are not listed.",
+    "Affinity Photo 2 desktop defaults from Serif's September 19, 2023 Windows and macOS shortcut sheets, cross-checked against the current Affinity V2 online help on November 1, 2026. The sheets use English UK or British keyboard layouts, so physical key positions can differ. Customized shortcuts are not listed.",
   sourceUrl: "https://affinity.help/photo2/English.lproj/pages/Workspace/shortcuts.html",
   sourceLabel: "Affinity Photo 2 keyboard shortcuts help",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "documents-and-layers",
@@ -119,7 +119,6 @@ export const affinityPhoto: AppShortcuts = {
         ["overlay-gradient", "Activate the Overlay Gradient tool", [["G"]]],
         ["develop-crop", "Activate the Crop tool", [["C"]]],
         ["crop-overlay", "Cycle the crop overlay", [["O"]]],
-        ["brush-hardness", "Set brush hardness from 10% through 90%, or 0%", [["1-9", "or", "0"]]],
       ]),
     },
     {
@@ -135,7 +134,7 @@ export const affinityPhoto: AppShortcuts = {
         ["zoom-200", "Zoom to 200%", [["Ctrl", "2"]], [["Cmd", "2"]]],
         ["zoom-400", "Zoom to 400%", [["Ctrl", "3"]], [["Cmd", "3"]]],
         ["zoom-800", "Zoom to 800%", [["Ctrl", "4"]], [["Cmd", "4"]]],
-        ["opacity", "Set opacity from 10% through 100%", [["1-9", "or", "0"]]],
+        ["opacity", "Set opacity via numeric keys", [["Number keys"]], undefined, "Type one or more digits for the target percentage; for example, 43 sets opacity to 43%."],
         ["brush-smaller", "Decrease brush size", [["["]]],
         ["brush-larger", "Increase brush size", [["]"]]],
         ["toggle-selector", "Switch the active colour selector", [["X"]]],

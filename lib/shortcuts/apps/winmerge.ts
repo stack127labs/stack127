@@ -16,10 +16,10 @@ export const winmerge: AppShortcuts = {
   category: "File comparison",
   platforms: [...platforms],
   versionContext:
-    "WinMerge manual shortcut page checked September 1, 2026. Some commands depend on whether a folder comparison, file comparison, or merge view has focus.",
+    "WinMerge manual shortcut page checked November 1, 2026. Some commands depend on whether a folder comparison, file comparison, or merge view has focus.",
   sourceUrl: "https://manual.winmerge.org/en/Shortcut_keys.html",
   sourceLabel: "official WinMerge shortcut keys",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "comparison",

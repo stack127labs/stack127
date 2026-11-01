@@ -35,10 +35,10 @@ export const balsamiqWireframes: AppShortcuts = {
   category: "Wireframing",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current Balsamiq Wireframes shortcut reference checked August 31, 2026. The main table prints Control-based editing commands without a Mac equivalent; those rows are therefore labeled Windows. macOS entries appear only where Balsamiq explicitly publishes a Mac binding or a Control/Command pair.",
+    "Current Balsamiq Wireframes shortcut reference checked November 1, 2026. The main table prints Control-based editing commands without a Mac equivalent; those rows are therefore labeled Windows. macOS entries appear only where Balsamiq explicitly publishes a Mac binding or a Control/Command pair.",
   sourceUrl: "https://balsamiq.com/support/docs/creating-and-editing/shortcuts/",
   sourceLabel: "Balsamiq Wireframes keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "select-and-transform",

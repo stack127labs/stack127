@@ -13,10 +13,10 @@ export const omnifocus: AppShortcuts = {
   category: "Task management",
   platforms: ["macos"],
   versionContext:
-    "OmniFocus 4.8.11 Mac shortcuts from the official reference manual, checked September 1, 2026. Some quick-entry and perspective shortcuts can be customized, and the manual includes separate bindings for iPad and the web app.",
-  sourceUrl: "https://support.omnigroup.com/documentation/omnifocus/universal/4.8.11/en/commands/",
+    "OmniFocus 4.9.3 Mac shortcuts from the official reference manual, checked November 1, 2026. Some Quick Entry and perspective shortcuts can be customized, and the manual includes separate bindings for iPad and the web app.",
+  sourceUrl: "https://support.omnigroup.com/documentation/omnifocus/universal/4.9.3/en/commands/",
   sourceLabel: "official OmniFocus 4 commands and shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "quick-entry-and-items",
@@ -78,9 +78,9 @@ export const omnifocus: AppShortcuts = {
         mac("move-down", "Move the selection down", ["Shift", "Down"]),
         mac("flag", "Set or clear a flag", ["F"], [["Shift", "Cmd", "L"]]),
         mac("forecast-tag", "Apply or remove the Forecast tag", ["Control", "Cmd", "L"]),
-        mac("show-sidebar", "Show or hide the sidebar", ["Shift", "S"]),
-        mac("show-inspector", "Show or hide the inspector", ["Shift", "I"]),
-        mac("view-options", "Show or hide view options", ["V"]),
+        mac("show-sidebar", "Show or hide the sidebar", ["Option", "Cmd", "S"]),
+        mac("show-inspector", "Show or hide the inspector", ["Option", "Cmd", "I"]),
+        mac("view-options", "Show or hide view options", ["Shift", "Cmd", "V"]),
       ],
     },
     {

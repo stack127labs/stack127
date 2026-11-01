@@ -16,19 +16,19 @@ export const webstorm: AppShortcuts = {
   category: "Code editor",
   platforms: [...platforms],
   versionContext:
-    "JetBrains WebStorm documentation and default reference cards checked September 1, 2026. The current WebStorm 2026.2 keymap is configurable, can be replaced by a plugin or another predefined map, and may vary with keyboard layout or operating-system conflicts.",
+    "JetBrains WebStorm documentation and default reference cards checked November 1, 2026. The current WebStorm 2026.2 keymap is configurable, can be replaced by a plugin or another predefined map, and may vary with keyboard layout or operating-system conflicts.",
   sourceUrl: "https://www.jetbrains.com/help/webstorm/mastering-keyboard-shortcuts.html",
   sourceLabel: "official WebStorm keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "search-and-navigation",
       title: "Search and navigation",
       intro: "Find files, actions, symbols, usages, recent documents, errors, and definitions throughout a WebStorm project.",
       shortcuts: [
-        desktop("search-everywhere", "Search Everywhere", ["Shift", "Shift"], ["Shift", "Shift"], "Press Shift twice."),
+        desktop("search-everywhere", "Search Everywhere", ["Shift", "then", "Shift"], ["Shift", "then", "Shift"]),
         desktop("find-action", "Find and run an action", ["Ctrl", "Shift", "A"], ["Cmd", "Shift", "A"]),
-        desktop("run-anything", "Open Run Anything", ["Ctrl", "Ctrl"], ["Ctrl", "Ctrl"], "Press Ctrl twice."),
+        desktop("run-anything", "Open Run Anything", ["Ctrl", "then", "Ctrl"], ["Ctrl", "then", "Ctrl"]),
         desktop("recent-files", "Open recent files", ["Ctrl", "E"], ["Cmd", "E"]),
         desktop("find", "Find in the current file", ["Ctrl", "F"], ["Cmd", "F"]),
         desktop("replace", "Replace in the current file", ["Ctrl", "R"], ["Cmd", "R"]),

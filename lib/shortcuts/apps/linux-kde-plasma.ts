@@ -9,10 +9,10 @@ export const linuxKdePlasma: AppShortcuts = {
   category: "Desktop environment",
   platforms: [...platforms],
   versionContext:
-    "Defaults from the current KDE Plasma 6 Fundamentals and Plasma Desktop handbooks, checked September 1, 2026. Global shortcuts are configurable in System Settings, and distributions or user profiles can change them. The handbooks disagree on the direction of one Meta-plus zoom binding, so that conflicting zoom pair is omitted.",
+    "Defaults from the current KDE Plasma 6 Fundamentals and Plasma Desktop handbooks, checked November 1, 2026. Global shortcuts are configurable in System Settings, and distributions or user profiles can change them. The handbooks disagree on the direction of one Meta-plus zoom binding, so that conflicting zoom pair is omitted.",
   sourceUrl: "https://docs.kde.org/stable_kf6/en/khelpcenter/fundamentals/fundamentals.pdf",
   sourceLabel: "KDE Plasma 6 Fundamentals keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "windows",
@@ -65,7 +65,7 @@ export const linuxKdePlasma: AppShortcuts = {
         { id: "next-widget", action: "Focus the next widget", keys: combo(platforms, ["Alt", "D", "then", "N"]) },
         { id: "previous-widget", action: "Focus the previous widget", keys: combo(platforms, ["Alt", "D", "then", "P"]) },
         { id: "widget-settings", action: "Open widget settings", keys: combo(platforms, ["Alt", "D", "then", "S"]) },
-        { id: "activity-settings", action: "Open activity settings", keys: combo(platforms, ["Alt", "D", "then", "Alt", "S"]) },
+        { id: "activity-settings", action: "Open Desktop Settings", keys: combo(platforms, ["Alt", "D", "then", "Alt", "S"]) },
         { id: "remove-activity", action: "Remove the current activity", keys: combo(platforms, ["Alt", "D", "then", "Alt", "R"]) },
         { id: "add-activity", action: "Open Activities management", keys: combo(platforms, ["Alt", "D", "then", "Alt", "A"]) },
         { id: "associated-application", action: "Run the associated application", keys: combo(platforms, ["Alt", "D", "then", "T"]) },

@@ -141,51 +141,32 @@
   gap: var(--space-7);
 }
 
-.sourceEntry {
+.sourceList > section {
   padding-top: var(--space-7);
   border-top: 1px solid var(--color-border);
   overflow-wrap: anywhere;
 }
 
-.sourceEntry h3 {
+.sourceList > section h3 {
   margin: 0;
   font-family: var(--font-display);
   font-size: var(--text-h3);
 }
 
-.sourceEntry p {
+.sourceList > section p {
   margin: var(--space-2) 0 0;
   color: var(--color-text-muted);
   font-size: var(--text-small);
 }
 
-.sourceEntry ul {
-  display: grid;
-  gap: var(--space-4);
-  padding: var(--space-4) 0 0;
-  margin: 0;
-  list-style: none;
-}
-
-.sourceEntry li {
-  display: grid;
-  gap: var(--space-1);
-}
-
-.sourceEntry li > span {
-  color: var(--color-text-muted);
-  font-size: var(--text-small);
-}
-
-.sourceEntry a {
+.sourceList > section a {
   display: inline-flex;
   align-items: flex-start;
   gap: var(--space-2);
   color: var(--color-text);
 }
 
-.sourceEntry svg {
-  flex: none;
+.sourceList > section a::after {
   margin-top: 4px;
 }
 
@@ -330,23 +311,23 @@
   margin: 0;
 }
 
-.fullFacts {
+.sourceList dl {
   display: grid;
   gap: var(--space-5);
   margin: var(--space-5) 0;
 }
 
-.fullFacts dt {
+.sourceList dl dt {
   font-weight: var(--weight-semibold);
   font-size: var(--text-small);
 }
 
-.fullFacts dd {
+.sourceList dl dd {
   margin: var(--space-1) 0 0;
   font-size: var(--text-small);
   color: var(--color-text-muted);
 }
 
-.fullFacts dd a {
+.sourceList dl dd a {
   white-space: nowrap;
 }

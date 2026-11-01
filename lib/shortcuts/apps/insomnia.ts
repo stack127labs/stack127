@@ -12,7 +12,7 @@ const insomnia: AppShortcuts = {
     "Kong's Insomnia documentation publishes Windows and macOS columns. Several commands depend on the request editor, response panel, or sidebar having focus, and all shortcuts remain user-configurable through the app.",
   sourceUrl: "https://developer.konghq.com/insomnia/keyboard-shortcuts/",
   sourceLabel: "official Insomnia keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "navigation",

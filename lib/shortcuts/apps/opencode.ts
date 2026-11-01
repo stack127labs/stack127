@@ -17,10 +17,10 @@ export const opencode: AppShortcuts = {
   category: "AI coding agent",
   platforms: [...platforms],
   versionContext:
-    "Current default keybinds from opencode.ai, last updated August 25, 2026. The leader is Ctrl+X, leader chords are sequential, and every TUI binding can be remapped in tui.json.",
+    "Current default keybinds from opencode.ai checked November 1, 2026. The leader is Ctrl+X, leader chords are sequential, and every TUI binding can be remapped in tui.json.",
   sourceUrl: "https://opencode.ai/docs/keybinds",
   sourceLabel: "official OpenCode keybinds reference",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "leader-and-app",
@@ -124,7 +124,11 @@ export const opencode: AppShortcuts = {
         { id: "input-delete-start", action: "Delete to the start of the line", keys: combo(platforms, ["Ctrl", "U"]) },
         { id: "input-backspace", action: "Delete the previous character", keys: bindings(["Backspace"], [["Shift", "Backspace"]]) },
         { id: "input-delete", action: "Delete the next character", keys: bindings(["Ctrl", "D"], [["Delete"], ["Shift", "Delete"]]) },
-        { id: "input-undo", action: "Undo prompt editing", keys: bindings(["Ctrl", "-"], [["Super", "Z"]]), note: "Super is the platform's Super or Command key." },
+        { id: "input-undo", action: "Undo prompt editing", keys: platforms.map((platform) => ({
+          platform,
+          keys: ["Ctrl", "-"],
+          alternatives: platform === "windows" ? [["Ctrl", "Z"], ["Super", "Z"]] : [["Super", "Z"]],
+        })), note: "Windows also adds Ctrl+Z by default. Super is the platform's Super or Command key." },
         { id: "input-redo", action: "Redo prompt editing", keys: bindings(["Ctrl", "."], [["Super", "Shift", "Z"]]), note: "Super is the platform's Super or Command key." },
         { id: "input-word-forward", action: "Move forward one word", keys: bindings(["Alt", "F"], [["Alt", "Right"], ["Ctrl", "Right"]]) },
         { id: "input-word-backward", action: "Move backward one word", keys: bindings(["Alt", "B"], [["Alt", "Left"], ["Ctrl", "Left"]]) },

@@ -12,7 +12,7 @@ export const firefox: AppShortcuts = {
     "Mozilla's keyboard reference checked August 26, 2026. Windows and Linux generally share the Ctrl bindings, while macOS uses Command or Option. A few backspace, tab-order, and link-opening shortcuts depend on Firefox preferences.",
   sourceUrl: "https://support.mozilla.org/en-US/kb/keyboard-shortcuts-perform-firefox-tasks-quickly",
   sourceLabel: "official Firefox keyboard shortcuts",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "navigation",

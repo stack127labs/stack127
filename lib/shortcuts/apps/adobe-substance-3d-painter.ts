@@ -19,10 +19,10 @@ export const adobeSubstance3dPainter: AppShortcuts = {
   category: "3D texturing",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current defaults from Adobe's July 3, 2026 shortcut reference, checked August 31, 2026. Editable assignments can be changed in Settings > Shortcuts. Fixed shortcuts are identified by their group, and actions whose official shortcut cell is blank are omitted.",
+    "Current defaults from Adobe's July 3, 2026 shortcut reference, checked November 1, 2026. Editable assignments can be changed in Settings > Shortcuts. Fixed shortcuts are identified by their group, and actions whose official shortcut cell is blank are omitted.",
   sourceUrl: "https://experienceleague.adobe.com/en/docs/substance-3d-painter/using/interface/settings/shortcuts",
   sourceLabel: "Adobe Substance 3D Painter shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "application-and-projects",

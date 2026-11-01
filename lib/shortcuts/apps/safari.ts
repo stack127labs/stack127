@@ -25,7 +25,7 @@ export const safari: AppShortcuts = {
     "Apple's Safari User Guide for Mac checked September 1, 2026. Apple notes that shortcuts can vary with language and keyboard layout, so the Safari menus remain the authority when a local layout changes a key.",
   sourceUrl: "https://support.apple.com/en-az/guide/safari/cpsh003/mac",
   sourceLabel: "official Safari keyboard shortcuts and gestures",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "scroll-and-page",

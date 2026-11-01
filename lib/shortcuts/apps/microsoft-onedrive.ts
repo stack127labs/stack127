@@ -13,10 +13,10 @@ export const microsoftOneDrive: AppShortcuts = {
   category: "Cloud storage",
   platforms: ["windows"],
   versionContext:
-    "Official OneDrive for work or school shortcuts checked September 1, 2026. The source uses Windows keyboard names and documents several commands specifically for the OneDrive web interface.",
+    "Official OneDrive for work or school shortcuts checked November 1, 2026. The source uses Windows keyboard names and documents several commands specifically for the OneDrive web interface.",
   sourceUrl: "https://support.microsoft.com/en-US/accessibility/onedrive/keyboard-shortcuts-for-onedrive-for-work-or-school",
   sourceLabel: "official Microsoft OneDrive keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "files-and-selection",

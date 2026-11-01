@@ -12,7 +12,7 @@ const godotEngine: AppShortcuts = {
     "The Godot 4.6 manual documents separate macOS workspace commands and shared editor commands for Windows, Linux, and macOS. All shortcuts can be changed in Editor Settings > Shortcuts, and some canvas keys depend on the active tool.",
   sourceUrl: "https://docs.godotengine.org/en/4.6/tutorials/editor/default_key_mapping.html",
   sourceLabel: "official Godot default key mapping",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "editor-and-workspaces",
@@ -64,7 +64,6 @@ const godotEngine: AppShortcuts = {
         { id: "save-scene", action: "Save the current scene", keys: combo(platforms, ["Ctrl", "S"], ["Cmd", "S"]) },
         { id: "filter-files", action: "Filter files", keys: combo(platforms, ["Ctrl", "Alt", "P"], ["Option", "Cmd", "P"]) },
         { id: "bottom-panel", action: "Toggle the bottom panel", keys: combo(platforms, ["Ctrl", "J"]) },
-        { id: "output-panel", action: "Open the Output panel", keys: combo(platforms, ["Ctrl", "J", "then", "O"]) },
       ],
     },
     {

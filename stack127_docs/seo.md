@@ -49,12 +49,27 @@ Follow these route rules:
 | Exact published slug with `is_indexable = true` | Render, no robots meta tag (indexing is the default), sitemap included, JSON-LD included |
 | Exact published slug with `is_indexable = false` | Render, `noindex, follow`, sitemap excluded, no JSON-LD, canonical points to itself |
 | Exact unpublished slug, whatever `is_indexable` says | `404`, sitemap excluded |
-| Exact published slug with query params, for example `/self-host-apps?page=2` | Render the same static page, `noindex, follow` through the proxy header (or the Cloudflare header rule on the static frontend), sitemap excluded |
+| Exact published slug with only tracking params, for example `/dockerignore-tester?utm_source=x` | Use the clean canonical; no query-based `noindex` header. The registry still controls whether the page is indexable |
+| Exact published slug with other query params, for example `/self-host-apps?page=2` | Render the same static page, `noindex, follow` through the proxy header (or the Cloudflare header rule on the static frontend), query variant excluded from the sitemap |
 | Child route under a published root, for example `/self-host-apps/page/2` | Render if code exists, `noindex, follow`, sitemap excluded |
 | Exact published child slug in `stack127_pages` | Render; its `is_indexable` value controls indexing and sitemap inclusion |
 | Route outside a published root, for example `/random-test-page` | `404`, even if code exists |
 
-A URL with a query string is never indexed. Search, filters, sort, and `?page=` stay out of the index. To index a category or other view, give it its own path, such as `/self-host-apps/categories/<name>`. Publish that exact slug. See [caching.md](caching.md) for why pages never read the query on the server.
+Tracking-only URLs rely on their clean canonical, following [Google’s duplicate URL guidance](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls). They get no query-based `noindex` header. Search, filters, sort, pagination, tool state, unknown parameters, and any mix of those with tracking still get `noindex, follow`. Only clean published URLs enter the sitemap. To index a category or other view, give it its own path, such as `/self-host-apps/categories/<name>`. Publish that exact slug. See [caching.md](caching.md) for why pages never read the query on the server.
+
+### Query parameter policy
+
+The shared policy is in `lib/seo/query-indexing.mjs`. Both `proxy.ts` and the frontend deploy use it.
+
+| Kind | Parameters found in app and shared-link code | Query header |
+| --- | --- | --- |
+| Tracking only | App code generates no tracking links. Accept incoming `utm_*`, `gclid`, `dclid`, `gbraid`, `wbraid`, `fbclid`, `msclkid`, `ref`, `mc_cid`, and `mc_eid` | No query-based `noindex`; use the clean canonical |
+| Tool state | `state` for storage and configuration tools; `name` and `type` for DNS tools; `site` for the ad-network checker; `query` for IP lookup; `apps` for shortcut sheets; calculator-specific inputs and ad-network inputs such as `niche`, `pv`, `visits`, `rev` | `noindex, follow` |
+| Search and filters | `q`, `category`, `sort`, `license`, `source`, `docker`, `install`, `ram`, `storage`, `maintenance`, `signal`; launch-directory comparison uses `d` | `noindex, follow` |
+| Pagination | `page`, and ad-network table `pageSize` | `noindex, follow` |
+| Other names and mixed queries | Any unknown name, empty name, or tracking mixed with the above; `_rsc` keeps its existing noindex behavior for navigation data | `noindex, follow` |
+
+Names are case-sensitive and are checked without decoding, matching Cloudflare’s argument-name field. `UTM_SOURCE`, `%75tm_source`, and `gcl%69d` therefore remain noindex. Empty values and repeated tracking names are allowed. Values do not affect classification. Do not add generic names such as `source` or `query` to the tracking list: they can change the page state. This exception never removes registry noindex metadata or the static asset/404 rules.
 
 Use `is_indexable = false` for thin child pages, filtered views with their own paths, and useful public pages still being improved. This setting does not hide them from sidebars, catalogs, or homepage lists. Set it to `true` when the page is ready for search.
 
@@ -63,8 +78,8 @@ Use `is_indexable = false` for thin child pages, filtered views with their own p
 Cloudflare hosting mode uses the SEO behavior below. See [cloudflare.md](cloudflare.md#static-frontend-on-cloudflare) for its activation and release checks.
 
 - The export holds all published pages, including noindex pages. Anything unpublished returns the static 404 with `noindex`.
-- Titles, descriptions, canonicals, robots meta tags, and JSON-LD come from the registry, written into the exported HTML at build time. Indexable pages have no robots meta tag. A query URL shares its page's HTML file, so an `index` tag would contradict the `noindex` header it gets.
-- `proxy.ts` doesn't run. A free Cloudflare response header transform rule sends `X-Robots-Tag: noindex, follow` on query URLs. It doesn't add the proxy's canonical `Link` header. The HTML canonical covers that.
+- Titles, descriptions, canonicals, robots meta tags, and JSON-LD come from the registry, written into the exported HTML at build time. Indexable pages have no robots meta tag. A query URL shares its page's HTML file; state queries receive a separate `noindex` header.
+- `proxy.ts` doesn't run. A free Cloudflare response header transform rule sends `X-Robots-Tag: noindex, follow` on queries containing any non-tracking name. It doesn't add the proxy's canonical `Link` header. The HTML canonical covers that.
 - RSC `.txt` files, `/frontend-release.json`, and the `workers.dev` preview send `noindex`.
 - A registry change reaches the public HTML only after the frontend workflow rebuilds and deploys the export.
 
@@ -94,7 +109,7 @@ A parent layout with child routes uses `registryLayout(path, { structuredData: "
 
 `robots.txt` allows normal crawling and asks crawlers to skip `/api/`. It points crawlers to `/sitemap.xml`. The API rule guides crawlers; it does not control access.
 
-Do not block useful pages in `robots.txt` just to handle duplicates. Prefer `noindex, follow` on duplicate URL states. Crawlers can still follow their links.
+Do not block useful pages in `robots.txt` just to handle duplicates. Use clean canonicals for tracking duplicates and `noindex, follow` for search, filters, pagination, and shared tool states. Crawlers can still follow their links.
 
 ## Creating a new public page
 
@@ -102,5 +117,5 @@ Do not block useful pages in `robots.txt` just to handle duplicates. Prefer `noi
 2. Keep page code free of metadata, robots, canonical, sitemap, and JSON-LD exports.
 3. Add or update the page docs under `content_docs/<page-slug>/`.
 4. When the page should become public, insert a reviewed row into `public.stack127_pages` with the correct `page_family`.
-5. Check the indexing setting. Indexable pages send no robots meta tag and enter `/sitemap.xml`. Noindex pages render with their own canonical, send `noindex, follow`, omit JSON-LD, and stay out of the sitemap. Child/query variants stay `noindex, follow`.
+5. Check the indexing setting. Indexable pages send no robots meta tag and enter `/sitemap.xml`. Noindex pages render with their own canonical, send `noindex, follow`, omit JSON-LD, and stay out of the sitemap. Unregistered child routes and non-tracking query variants stay `noindex, follow`.
 6. Follow [caching.md](caching.md). The page must be static and use on-demand revalidation. Its data source must be covered by the revalidation pipeline.

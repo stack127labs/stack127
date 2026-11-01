@@ -12,7 +12,7 @@ const fusion360: AppShortcuts = {
     "Autodesk's current Fusion keyboard reference labels Windows and macOS separately. Command replaces Control on macOS for the shared document and modeling commands, while Autodesk-specific Option and Command combinations remain platform-specific.",
   sourceUrl: "https://help.autodesk.com/view/fusion360/ENU/?guid=GUID-F0491540-0324-470A-B651-2238D0EFAC30",
   sourceLabel: "official Autodesk Fusion keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "documents-and-layout",

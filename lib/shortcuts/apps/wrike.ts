@@ -36,10 +36,10 @@ export const wrike: AppShortcuts = {
   category: "Project management",
   platforms: [...platforms],
   versionContext:
-    "Wrike keyboard shortcut and Gantt chart shortcut pages checked September 1, 2026. Some commands depend on the current view, browser, or focus inside a task description.",
+    "Wrike keyboard shortcut and Gantt chart shortcut pages checked November 1, 2026. Some commands depend on the current view, browser, or focus inside a task description.",
   sourceUrl: "https://help.wrike.com/hc/en-us/articles/210322725-Keyboard-Shortcuts",
   sourceLabel: "official Wrike keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "global",

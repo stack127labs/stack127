@@ -99,7 +99,7 @@ export const appleNotes: AppShortcuts = {
         mac("select-row-range", "Extend the cell selection across a row", ["Shift", "Right"], [["Shift", "Left"]]),
         mac("select-column-range", "Extend the cell selection across a column", ["Shift", "Down"], [["Shift", "Up"]]),
         mac("select-cell", "Select the current cell's contents", ["Cmd", "A"]),
-        mac("select-table", "Select the entire table", ["Cmd", "A"], undefined, "Press Command+A twice while the insertion point is in the table."),
+        mac("select-table", "Select the entire table", ["Cmd", "A", "then", "Cmd", "A"], undefined, "Put the insertion point in the table first."),
       ],
     },
   ],

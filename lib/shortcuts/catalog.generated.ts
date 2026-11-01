@@ -168,7 +168,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 106
+    "shortcutCount": 105
   },
   {
     "slug": "aider",
@@ -206,8 +206,7 @@ export const shortcutAppCatalog = [
     "category": "Product analytics",
     "platforms": [
       "windows",
-      "macos",
-      "linux"
+      "macos"
     ],
     "shortcutCount": 12
   },
@@ -306,8 +305,7 @@ export const shortcutAppCatalog = [
     "category": "3D modeling and animation",
     "platforms": [
       "windows",
-      "macos",
-      "linux"
+      "macos"
     ],
     "shortcutCount": 137
   },
@@ -375,8 +373,7 @@ export const shortcutAppCatalog = [
     "category": "Code hosting",
     "platforms": [
       "windows",
-      "macos",
-      "linux"
+      "macos"
     ],
     "shortcutCount": 15
   },
@@ -417,8 +414,7 @@ export const shortcutAppCatalog = [
     "category": "Social media management",
     "platforms": [
       "windows",
-      "macos",
-      "linux"
+      "macos"
     ],
     "shortcutCount": 16
   },
@@ -479,8 +475,7 @@ export const shortcutAppCatalog = [
     "category": "Time tracking",
     "platforms": [
       "windows",
-      "macos",
-      "linux"
+      "macos"
     ],
     "shortcutCount": 12
   },
@@ -813,8 +808,7 @@ export const shortcutAppCatalog = [
     "category": "Code hosting",
     "platforms": [
       "windows",
-      "macos",
-      "linux"
+      "macos"
     ],
     "shortcutCount": 52
   },
@@ -824,8 +818,7 @@ export const shortcutAppCatalog = [
     "category": "Email",
     "platforms": [
       "windows",
-      "macos",
-      "linux"
+      "macos"
     ],
     "shortcutCount": 85
   },
@@ -858,7 +851,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 34
+    "shortcutCount": 33
   },
   {
     "slug": "goodnotes",
@@ -959,7 +952,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 7
+    "shortcutCount": 6
   },
   {
     "slug": "harvest",
@@ -1046,8 +1039,7 @@ export const shortcutAppCatalog = [
     "category": "Issue tracking",
     "platforms": [
       "windows",
-      "macos",
-      "linux"
+      "macos"
     ],
     "shortcutCount": 10
   },
@@ -1068,8 +1060,7 @@ export const shortcutAppCatalog = [
     "category": "Developer tools",
     "platforms": [
       "windows",
-      "macos",
-      "linux"
+      "macos"
     ],
     "shortcutCount": 6
   },
@@ -1129,8 +1120,7 @@ export const shortcutAppCatalog = [
     "category": "Social networking",
     "platforms": [
       "windows",
-      "macos",
-      "linux"
+      "macos"
     ],
     "shortcutCount": 18
   },
@@ -1172,7 +1162,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 20
+    "shortcutCount": 25
   },
   {
     "slug": "macos",
@@ -1221,7 +1211,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 83
+    "shortcutCount": 82
   },
   {
     "slug": "mattermost",
@@ -1251,7 +1241,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 63
+    "shortcutCount": 62
   },
   {
     "slug": "excel",
@@ -1299,7 +1289,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 61
+    "shortcutCount": 57
   },
   {
     "slug": "microsoft-powertoys",
@@ -1308,7 +1298,7 @@ export const shortcutAppCatalog = [
     "platforms": [
       "windows"
     ],
-    "shortcutCount": 24
+    "shortcutCount": 21
   },
   {
     "slug": "microsoft-teams",
@@ -1318,7 +1308,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 30
+    "shortcutCount": 29
   },
   {
     "slug": "microsoft-word",
@@ -1848,7 +1838,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 33
+    "shortcutCount": 32
   },
   {
     "slug": "tableplus",
@@ -1858,7 +1848,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 37
+    "shortcutCount": 36
   },
   {
     "slug": "tally-forms",
@@ -1866,8 +1856,7 @@ export const shortcutAppCatalog = [
     "category": "Forms",
     "platforms": [
       "windows",
-      "macos",
-      "linux"
+      "macos"
     ],
     "shortcutCount": 26
   },
@@ -1880,7 +1869,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 26
+    "shortcutCount": 23
   },
   {
     "slug": "things-3",
@@ -2224,6 +2213,6 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 65
+    "shortcutCount": 64
   }
 ] as const satisfies readonly ShortcutAppSummary[];

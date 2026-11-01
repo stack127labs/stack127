@@ -7,10 +7,10 @@ export const windowsTerminal: AppShortcuts = {
   category: "Terminal emulator",
   platforms: ["windows"],
   versionContext:
-    "Current Windows Terminal documentation as of August 2026; most bindings listed are defaults from the official Actions reference and can be changed in settings.",
+    "Current Windows Terminal documentation checked November 1, 2026; most bindings listed are defaults from the official Actions reference and can be changed in settings.",
   sourceUrl: "https://learn.microsoft.com/en-us/windows/terminal/customize-settings/actions",
   sourceLabel: "official Windows Terminal actions",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "tabs",

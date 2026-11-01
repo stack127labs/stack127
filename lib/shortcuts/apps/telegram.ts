@@ -9,10 +9,10 @@ export const telegram: AppShortcuts = {
   category: "Messaging",
   platforms: [...platforms],
   versionContext:
-    "Telegram Desktop shortcuts checked September 1, 2026 against the current desktop source and official translation strings. Telegram lets users customize and reset these bindings in Chat Settings > Keyboard shortcuts.",
+    "Telegram Desktop shortcuts checked November 1, 2026 against the current desktop source and official translation strings. Telegram lets users customize and reset these bindings in Chat Settings > Keyboard shortcuts.",
   sourceUrl: "https://github.com/telegramdesktop/tdesktop/blob/dev/Telegram/SourceFiles/core/shortcuts.cpp",
   sourceLabel: "official Telegram Desktop shortcut definitions",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "application",
@@ -53,10 +53,7 @@ export const telegram: AppShortcuts = {
       intro: "Chat actions mark a chat read and expose the desktop chat menu and message controls shown by Telegram's translation settings.",
       shortcuts: [
         { id: "mark-read", action: "Mark the current chat as read", keys: combo(platforms, ["Ctrl", "R"], ["Cmd", "R"]) },
-        { id: "chat-menu", action: "Show the chat menu", keys: combo(platforms, ["Ctrl", "Shift", "M"], ["Cmd", "Shift", "M"]) },
-        { id: "send", action: "Send a message", keys: perPlatform(platforms, { windows: ["Enter"], macos: ["Return"], linux: ["Enter"] }) },
-        { id: "send-silent", action: "Send silently", keys: combo(platforms, ["Ctrl", "Enter"], ["Cmd", "Return"]) },
-        { id: "scheduled", action: "Send or schedule a message", keys: combo(platforms, ["Ctrl", "Shift", "Enter"], ["Cmd", "Shift", "Return"]) },
+        { id: "chat-menu", action: "Show the chat menu", keys: perPlatform(platforms, { windows: ["Ctrl", "\\"], macos: ["Cmd", "\\"], linux: ["Ctrl", "\\"] }) },
         { id: "next-message", action: "Go to the next message", keys: perPlatform(platforms, { windows: ["Down"], macos: ["Down"], linux: ["Down"] }) },
         { id: "previous-message", action: "Go to the previous message", keys: perPlatform(platforms, { windows: ["Up"], macos: ["Up"], linux: ["Up"] }) },
       ],

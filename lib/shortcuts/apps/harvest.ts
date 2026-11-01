@@ -12,7 +12,7 @@ const harvest: AppShortcuts = {
     "Harvest documents Windows defaults and marks several commands as customizable in preferences. Its Mac preferences page describes customization without publishing stable default key values, so this record is Windows-only.",
   sourceUrl: "https://support.getharvest.com/hc/en-us/articles/360048685411-Windows-app-Keyboard-shortcuts",
   sourceLabel: "official Harvest Windows app keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "timer-and-timesheet",

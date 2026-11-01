@@ -12,7 +12,7 @@ export const sparkMail: AppShortcuts = {
     "Spark Desktop shortcuts checked September 1, 2026. Spark supports configurable shortcut presets, so these entries describe the published default desktop bindings rather than a user's custom preset.",
   sourceUrl: "https://sparkmailapp.com/help/tips-tricks/use-keyboard-shortcuts",
   sourceLabel: "official Spark Mail desktop keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "email-triage",
@@ -44,7 +44,7 @@ export const sparkMail: AppShortcuts = {
         { id: "inbox", action: "Open Inbox", keys: combo(platforms, ["Ctrl", "Shift", "1"], ["Cmd", "Shift", "1"]) },
         { id: "archive-view", action: "Open Archive", keys: combo(platforms, ["Ctrl", "Shift", "2"], ["Cmd", "Shift", "2"]) },
         { id: "search", action: "Focus search", keys: perPlatform(platforms, { windows: ["/"], macos: ["/"] }) },
-        { id: "done-view", action: "Open Done", keys: combo(platforms, ["Ctrl", "E"], ["Cmd", "E"]) },
+        { id: "done-view", action: "Show or hide Done emails", keys: combo(platforms, ["Ctrl", "E"], ["Cmd", "E"]) },
         { id: "set-aside", action: "Set aside a message", keys: perPlatform(platforms, { windows: ["G"], macos: ["G"] }) },
         { id: "pinned-view", action: "Open Pinned", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "P"], macos: ["Cmd", "Shift", "P"] }) },
         { id: "snoozed-view", action: "Open Snoozed", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "S"], macos: ["Cmd", "Shift", "S"] }) },

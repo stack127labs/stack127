@@ -12,7 +12,7 @@ const goodnotes: AppShortcuts = {
     "Goodnotes publishes separate Mac, Windows, iPadOS, and web columns. This record includes the Mac and Windows desktop bindings only. Some tools are available only in a document or text editor, as noted by their group.",
   sourceUrl: "https://support.goodnotes.com/hc/en-us/articles/17220521238159-Keyboard-Shortcuts-in-Goodnotes",
   sourceLabel: "official Goodnotes keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "files-and-tabs",

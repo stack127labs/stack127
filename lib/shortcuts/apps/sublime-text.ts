@@ -12,7 +12,7 @@ export const sublimeText: AppShortcuts = {
     "Sublime Text keyboard shortcut tables checked September 1, 2026. Windows and Linux share most bindings, while macOS changes the primary modifier and a few editing commands.",
   sourceUrl: "https://docs.sublimetext.io/reference/keyboard_shortcuts_win.html",
   sourceLabel: "official Sublime Text keyboard shortcut reference",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "editing",
@@ -66,7 +66,7 @@ export const sublimeText: AppShortcuts = {
       intro: "Tabs and folding shortcuts reopen or close files, switch tabs, select groups, and collapse code by nesting level.",
       shortcuts: [
         { id: "reopen-tab", action: "Open the last closed tab", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "T"], linux: ["Ctrl", "Shift", "T"], macos: ["Shift", "Cmd", "T"] }) },
-        { id: "recent-tab", action: "Cycle through recent tabs", keys: perPlatform(platforms, { windows: ["Ctrl", "Tab"], linux: ["Ctrl", "Tab"], macos: ["Ctrl", "Tab"] }) },
+        { id: "recent-tab", action: "Cycle through recent tabs", keys: perPlatform(platforms, { windows: ["Ctrl", "Tab"], linux: ["Ctrl", "Tab"], macos: ["Ctrl", "Tab"] }), note: "To reverse the cycle, use Ctrl+Shift+Tab." },
         { id: "close-tab", action: "Close the current tab", keys: combo(platforms, ["Ctrl", "W"], ["Cmd", "W"]) },
         { id: "tab-number", action: "Switch to a tab by number", keys: perPlatform(platforms, { windows: ["Alt", "1"], linux: ["Alt", "1"], macos: ["Cmd", "1"] }) },
         { id: "fold", action: "Fold", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "["], linux: ["Ctrl", "Shift", "["], macos: ["Ctrl", "Shift", "["] }) },

@@ -18,10 +18,10 @@ export const airtable: AppShortcuts = {
   category: "Collaborative database",
   platforms: ["windows", "macos"],
   versionContext:
-    "Airtable web keyboard shortcuts from the current official support article checked August 31, 2026. At that check, the article displayed a relative 'Last updated 23 days ago' label rather than a stable revision date. Airtable publishes separate Mac and Windows tables. Browser and operating-system shortcuts, screenshots, and modifier-plus-pointer gestures are omitted. No Linux keymap is documented on the source page.",
+    "Airtable web keyboard shortcuts from the official support article, last updated October 20, 2026 and checked November 1, 2026. Airtable publishes separate Mac and Windows tables. Browser and operating-system shortcuts, screenshots, and modifier-plus-pointer gestures are omitted. No Linux keymap is documented on the source page.",
   sourceUrl: "https://support.airtable.com/articles/7980233311-airtable-keyboard-shortcuts",
   sourceLabel: "Airtable keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "general",

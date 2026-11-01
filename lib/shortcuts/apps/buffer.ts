@@ -1,6 +1,6 @@
 import type { AppShortcuts, PlatformId, Shortcut } from "../types.ts";
 
-const platforms: PlatformId[] = ["windows", "macos", "linux"];
+const platforms: PlatformId[] = ["windows", "macos"];
 const same = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
   id,
   action,
@@ -18,7 +18,6 @@ const modified = (
   action,
   keys: [
     { platform: "windows", keys: controlKeys },
-    { platform: "linux", keys: controlKeys },
     { platform: "macos", keys: commandKeys },
   ],
   ...(note ? { note } : {}),
@@ -30,10 +29,10 @@ export const buffer: AppShortcuts = {
   category: "Social media management",
   platforms,
   versionContext:
-    "Current Buffer Help Center shortcut list checked August 31, 2026. Navigation commands are two-key sequences, not simultaneous chords, and global shortcuts are suppressed while the cursor is in a text field. Buffer Home must be enabled for its navigation command.",
+    "Current Buffer Help Center shortcut list checked November 1, 2026. Navigation commands are two-key sequences, not simultaneous chords, and global shortcuts are suppressed while the cursor is in a text field. Buffer Home must be enabled for its navigation command.",
   sourceUrl: "https://support.buffer.com/en-us/articles/using-buffers-keyboard-shortcuts-jvc735UOsa",
   sourceLabel: "Using Buffer's keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "reference-command-bar",
@@ -46,7 +45,6 @@ export const buffer: AppShortcuts = {
           action: "Open the Keyboard Shortcuts dialog",
           keys: [
             { platform: "windows", keys: ["Shift", "/"], alternatives: [["Ctrl", "/"]] },
-            { platform: "linux", keys: ["Shift", "/"], alternatives: [["Ctrl", "/"]] },
             { platform: "macos", keys: ["Shift", "/"], alternatives: [["Cmd", "/"]] },
           ],
           note: "Shift+/ produces the question mark character on standard keyboard layouts.",

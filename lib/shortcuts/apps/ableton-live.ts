@@ -19,10 +19,10 @@ export const abletonLive: AppShortcuts = {
   category: "Digital audio workstation",
   platforms: ["windows", "macos"],
   versionContext:
-    "Documented defaults for Ableton Live 12 checked October 10, 2026. Single-letter commands are affected by the Computer MIDI Keyboard. When it is active, hold Shift with a single-letter shortcut. User Key Map and MIDI Map assignments are not defaults and are not listed.",
+    "Documented defaults for Ableton Live 12 checked November 1, 2026. Single-letter commands are affected by the Computer MIDI Keyboard. When it is active, hold Shift with a single-letter shortcut. User Key Map and MIDI Map assignments are not defaults and are not listed.",
   sourceUrl: "https://www.ableton.com/en/manual/live-keyboard-shortcuts/",
   sourceLabel: "Ableton Live 12 keyboard shortcuts manual",
-  lastVerified: "2026-10-10",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "views",

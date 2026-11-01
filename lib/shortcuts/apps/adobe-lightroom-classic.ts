@@ -27,10 +27,10 @@ export const adobeLightroomClassic: AppShortcuts = {
   category: "Photo catalog and editor",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current Lightroom Classic desktop defaults from Adobe's reference updated July 5, 2026 and checked August 31, 2026. Adobe's August 2026 release notes identify Lightroom Classic 15.5 as the current release.",
+    "Current Lightroom Classic desktop defaults from Adobe's reference updated July 5, 2026 and checked November 1, 2026. Adobe's August 2026 release notes identify Lightroom Classic 15.5 as the current release.",
   sourceUrl: "https://helpx.adobe.com/lightroom-classic/desktop/introduction-to-lightroom-classic/keyboard-shortcuts.html",
   sourceLabel: "Adobe Lightroom Classic keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "workspace-and-modules",

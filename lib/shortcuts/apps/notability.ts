@@ -16,10 +16,10 @@ export const notability: AppShortcuts = {
   category: "Notes and docs",
   platforms: [...platforms],
   versionContext:
-    "Notability keyboard shortcuts checked September 1, 2026. This record uses the official Mac table and the toolbox, color, size, and content manager rows. The separate iPad table is outside this catalog's Windows, macOS, and Linux platform model.",
+    "Notability keyboard shortcuts checked November 1, 2026. This record uses the official Mac table and the toolbox, color, size, and content manager rows. The separate iPad table is outside this catalog's Windows, macOS, and Linux platform model.",
   sourceUrl: "https://support.gingerlabs.com/hc/en-us/articles/360021489291-Keyboard-shortcuts",
   sourceLabel: "official Notability keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "notes-and-navigation",

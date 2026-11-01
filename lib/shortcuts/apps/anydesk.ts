@@ -13,10 +13,10 @@ export const anydesk: AppShortcuts = {
   category: "Remote desktop",
   platforms: ["windows"],
   versionContext:
-    "Current Windows hotkeys from AnyDesk's July 30, 2025 reference, checked August 31, 2026. Mouse capture requires AnyDesk 8 or later. Remote-system shortcuts and keyboard translation examples are not AnyDesk commands and are not listed.",
+    "Current Windows hotkeys from AnyDesk's July 30, 2025 reference, checked November 1, 2026. Mouse capture requires AnyDesk 8 or later. Remote-system shortcuts and keyboard translation examples are not AnyDesk commands and are not listed.",
   sourceUrl: "https://support.anydesk.com/keyboard-hotkeys",
   sourceLabel: "AnyDesk keyboard and hotkeys",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "session-navigation",

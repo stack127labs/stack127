@@ -16,10 +16,10 @@ export const ulysses: AppShortcuts = {
   category: "Writing tool",
   platforms: [...platforms],
   versionContext:
-    "Ulysses Keyboard Shortcuts page checked September 1, 2026. The source publishes the Mac map separately from iPad and iPhone shortcuts; this record uses the Mac defaults and leaves custom macOS App Shortcuts outside the map.",
+    "Ulysses Keyboard Shortcuts page checked November 1, 2026. The source publishes the Mac map separately from iPad and iPhone shortcuts; this record uses the Mac defaults and leaves custom macOS App Shortcuts outside the map.",
   sourceUrl: "https://help.ulysses.app/keyboard-shortcuts-mac-ipad?kb_language=en_US",
   sourceLabel: "official Ulysses Mac keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "sheets-and-navigation",

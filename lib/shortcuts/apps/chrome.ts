@@ -28,7 +28,7 @@ export const chrome: AppShortcuts = {
         { id: "tab-by-number", action: "Jump to a tab by position", keys: combo(platforms, ["Ctrl", "1"], ["Cmd", "1"]), note: "1 through 8 choose a tab by position. 9 goes to the last tab." },
         { id: "last-tab", action: "Jump to the last tab", keys: combo(platforms, ["Ctrl", "9"], ["Cmd", "9"]) },
         { id: "move-tab-left", action: "Move the current tab left", keys: combo(platforms, ["Ctrl", "Shift", "Page Up"], ["Ctrl", "Shift", "Page Up"]), note: "Use Page Down instead of Page Up to move it right. Chrome documents Ctrl for this command on macOS." },
-        { id: "select-tabs", action: "Select multiple tabs", keys: perPlatform(platforms, { windows: ["F6"], macos: ["Ctrl", "F6"], linux: ["F6"] }), note: "Press F6 twice on Windows and Linux. On macOS press Ctrl+F6, then use arrow keys and Shift+arrow keys. The exact focus path matters." },
+        { id: "select-tabs", action: "Select multiple tabs", keys: perPlatform(platforms, { windows: ["F6", "then", "F6", "then", "Shift", "Arrow"], macos: ["Ctrl", "F6", "then", "Shift", "Arrow"], linux: ["F6", "then", "F6", "then", "Shift", "Arrow"] }), note: "Use the arrow keys alone to move between tabs. The exact focus path matters." },
         { id: "fullscreen", action: "Toggle full-screen mode", keys: perPlatform(platforms, { windows: ["F11"], macos: ["Fn", "F"], linux: ["F11"] }) },
         { id: "minimize-window", action: "Minimize the current window", keys: perPlatform(platforms, { windows: ["Alt", "Space", "N"], macos: ["Cmd", "M"], linux: ["Alt", "Space", "N"] }) },
         { id: "maximize-window", action: "Maximize the current window", keys: perPlatform(platforms, { windows: ["Alt", "Space", "X"], linux: ["Alt", "Space", "X"] }), note: "Chrome's official macOS list does not provide a maximize binding." },
@@ -57,7 +57,7 @@ export const chrome: AppShortcuts = {
       shortcuts: [
         { id: "focus-address-bar", action: "Focus the address bar", keys: perPlatform(platforms, { windows: ["Ctrl", "L"], macos: ["Cmd", "L"], linux: ["Ctrl", "L"] }), note: "F6 or Alt+D also works on Windows and Linux." },
         { id: "search-anywhere", action: "Search from anywhere on the page", keys: perPlatform(platforms, { windows: ["Ctrl", "K"], macos: ["Cmd", "K"], linux: ["Ctrl", "K"] }), note: "Ctrl+E also works on Windows and Linux." },
-        { id: "search-other-engine", action: "Search with another search engine", keys: combo(platforms, ["Tab"]), note: "Type the engine's shortcut name in the address bar, then press Tab." },
+        { id: "search-other-engine", action: "Search with another search engine", keys: combo(platforms, ["{shortcut name}", "then", "Tab"]), note: "Type the engine's shortcut name in the address bar first." },
         { id: "add-www-com", action: "Add www. and .com to a site name", keys: combo(platforms, ["Ctrl", "Enter"], ["Cmd", "Enter"]), note: "Type the site name first." },
         { id: "address-new-window", action: "Open the typed address in a new window", keys: combo(platforms, ["Ctrl", "Shift", "Enter"], ["Cmd", "Shift", "Enter"]), note: "Type an address in the address bar first." },
         { id: "address-new-tab", action: "Open the typed address in a new tab", keys: perPlatform(platforms, { windows: ["Alt", "Enter"], macos: ["Cmd", "Return"], linux: ["Alt", "Enter"] }), note: "Type an address or search first." },

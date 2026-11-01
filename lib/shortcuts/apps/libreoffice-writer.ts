@@ -30,7 +30,7 @@ export const libreOfficeWriter: AppShortcuts = {
     "Default shortcuts from LibreOffice 26.8 Help, checked September 1, 2026. The source notes that desktop environments can claim a key and that users can change assignments in Tools > Customize > Keyboard. Windows and Linux use Ctrl or Alt; the documented Command and Option forms are preserved for macOS.",
   sourceUrl: "https://help.libreoffice.org/latest/en-US/text/swriter/04/01020000.html?DbPAR=SHARED",
   sourceLabel: "LibreOffice 26.8 Writer shortcut keys",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "function-keys",

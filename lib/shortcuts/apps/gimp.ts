@@ -12,7 +12,7 @@ const gimp: AppShortcuts = {
     "The official GIMP one-page quick reference publishes one set of desktop bindings without operating-system columns. The listed keys are kept as published on Windows, macOS, and Linux; individual installations may differ.",
   sourceUrl: "https://docs.gimp.org/quickreference/gimp-keys-en.pdf",
   sourceLabel: "official GIMP keyboard shortcuts quick reference",
-  lastVerified: "2026-10-10",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "toolbox",
@@ -24,7 +24,7 @@ const gimp: AppShortcuts = {
         { id: "rectangle-select", action: "Rectangle Select", keys: combo(platforms, ["R"]) },
         { id: "ellipse-select", action: "Ellipse Select", keys: combo(platforms, ["E"]) },
         { id: "free-select", action: "Free Select", keys: combo(platforms, ["F"]) },
-        { id: "fuzzy-select", action: "Fuzzy Select", keys: combo(platforms, ["U"]) },
+        { id: "fuzzy-select", action: "Fuzzy Select", keys: combo(platforms, ["Z"]) },
         { id: "select-by-color", action: "Select by Color", keys: combo(platforms, ["Shift", "O"]) },
         { id: "scissors", action: "Scissors Select", keys: combo(platforms, ["I"]) },
         { id: "paths", action: "Paths", keys: combo(platforms, ["B"]) },
@@ -38,7 +38,7 @@ const gimp: AppShortcuts = {
         { id: "flip", action: "Flip", keys: combo(platforms, ["Shift", "F"]) },
         { id: "text", action: "Text", keys: combo(platforms, ["T"]) },
         { id: "bucket-fill", action: "Bucket Fill", keys: combo(platforms, ["Shift", "B"]) },
-        { id: "blend", action: "Blend", keys: combo(platforms, ["G"]) },
+        { id: "blend", action: "Blend", keys: combo(platforms, ["L"]) },
         { id: "pencil", action: "Pencil", keys: combo(platforms, ["N"]) },
         { id: "paintbrush", action: "Paintbrush", keys: combo(platforms, ["P"]) },
         { id: "eraser", action: "Eraser", keys: combo(platforms, ["Shift", "E"]) },

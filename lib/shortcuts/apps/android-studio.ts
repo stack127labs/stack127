@@ -19,10 +19,10 @@ export const androidStudio: AppShortcuts = {
   category: "Android IDE",
   platforms: ["windows", "macos", "linux"],
   versionContext:
-    "Default Android Studio keymaps from Google's reference updated March 6, 2026 and checked August 31, 2026. Android Studio supports preset and custom keymaps, which can replace these defaults. Mouse-only gestures and modifier-plus-pointer alternatives are omitted.",
+    "Default Android Studio keymaps from Google's reference updated March 6, 2026 and checked November 1, 2026. Android Studio supports preset and custom keymaps, which can replace these defaults. Mouse-only gestures and modifier-plus-pointer alternatives are omitted.",
   sourceUrl: "https://developer.android.com/studio/intro/keyboard-shortcuts",
   sourceLabel: "Android Studio keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "tool-windows",
@@ -63,7 +63,7 @@ export const androidStudio: AppShortcuts = {
         "Search actions, symbols, classes, and files, move through editor history and tabs, inspect hierarchies, and jump to a precise line or source location.",
       shortcuts: [
         ...rows([
-          ["search-everywhere", "Search everywhere, including code and menus", ["Shift", "Shift"], undefined, "Press Shift twice."],
+          ["search-everywhere", "Search everywhere, including code and menus", ["Shift", "then", "Shift"]],
           ["find", "Find in the current context", ["Control", "F"], ["Cmd", "F"]],
           ["find-next", "Find the next match", ["F3"], ["Cmd", "G"]],
           ["find-previous", "Find the previous match", ["Shift", "F3"], ["Cmd", "Shift", "G"]],

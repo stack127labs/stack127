@@ -5,7 +5,7 @@ import { PageMeta } from "@/app/ui/site/page-meta";
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import {
-  CreditCard, ShoppingCart, Files, Cpu, ExternalLink, Smartphone,
+  CreditCard, ShoppingCart, Files, Cpu, Smartphone,
   Monitor, Watch, Gamepad2, Headset, Puzzle, Cloud, Database, Download,
   Palette, Type, LayoutTemplate, Code, Box, Camera, Video, Music, BookOpen,
   GraduationCap, Calendar, Users, Heart, Mail, Mic, Coffee, Briefcase, Shirt,
@@ -21,7 +21,7 @@ import { SidebarList } from '@/app/ui/site/sidebar-list';
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from '@/app/ui/site/sidebar-panel';
 import { feeGroups, groupPath, type FeeGroup } from '@/lib/platform-fees/groups';
 import { getBreadcrumbs } from '@/lib/breadcrumbs';
-import type { FeeEntry, FeeSection } from '@/lib/platform-fees/model';
+import type { FeeSection } from '@/lib/platform-fees/model';
 import { FeeSearch, FeeSidebarAnchors, type FeeAnchor } from './filters';
 import styles from './page.module.css';
 
@@ -31,9 +31,6 @@ const icons = {
   Camera, Video, Music, BookOpen, GraduationCap, Calendar, Files, Users,
   Heart, Mail, Mic, Coffee, Briefcase, Cpu, Shirt,
 };
-const dateFormat = new Intl.DateTimeFormat('en-GB', {
-  day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
-});
 
 export function SectionIcon({ icon, size = 22 }: { icon: FeeSection['icon']; size?: number }) {
   const Icon = icons[icon];
@@ -91,24 +88,4 @@ export function CategoryTile({ group, sections, listings }: { group: FeeGroup; s
     <span>{listings} {listings === 1 ? 'listing' : 'listings'}</span>
     <span className={styles.arrow} aria-hidden="true">→</span>
   </Link>;
-}
-
-export function FeeSourceList({ entries, section }: { entries: FeeEntry[]; section: FeeSection }) {
-  return <div className={styles.sourceList}>{entries.map(entry => {
-    const sources = entry.sources.length
-      ? entry.sources.filter((source, index, all) => all.findIndex(item => item.url === source.url) === index)
-      : [{ url: entry.website_url, label: 'Official website' }];
-    return <section key={entry.id} className={styles.sourceEntry}>
-      <h3>{entry.name}</h3>
-      <p>{entry.checked_at ? <>Checked <time dateTime={entry.checked_at}>{dateFormat.format(new Date(entry.checked_at))}</time></> : 'Not checked'}</p>
-      <dl className={styles.fullFacts}>{entry.facts.map(fact => <div key={fact.key}>
-        <dt>{section.fields.find(field => field.key === fact.key)?.label}</dt>
-        <dd>{fact.value}{fact.source_url && <> <a href={fact.source_url} target="_blank" rel="noopener noreferrer">Source<ExternalLink size={12} aria-hidden="true" /></a></>}</dd>
-      </div>)}</dl>
-      <ul>{sources.map(source => <li key={source.url}>
-        <a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}<ExternalLink size={14} aria-hidden="true" /></a>
-        <span>{new URL(source.url).hostname.replace(/^www\./, '')}</span>
-      </li>)}</ul>
-    </section>;
-  })}</div>;
 }

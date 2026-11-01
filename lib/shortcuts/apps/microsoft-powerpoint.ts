@@ -37,10 +37,10 @@ export const microsoftPowerPoint: AppShortcuts = {
   category: "Presentation software",
   platforms: [...platforms],
   versionContext:
-    "Current Microsoft PowerPoint creation and presentation shortcuts checked September 1, 2026. The official creation table is Windows-focused, while the delivery table documents Windows and Mac separately. Ribbon access keys and presentation commands can vary with the PowerPoint version and keyboard layout.",
+    "Current Microsoft PowerPoint creation and presentation shortcuts checked November 1, 2026. The official creation table is Windows-focused, while the delivery table documents Windows and Mac separately. Ribbon access keys and presentation commands can vary with the PowerPoint version and keyboard layout.",
   sourceUrl: "https://support.microsoft.com/en-us/office/use-keyboard-shortcuts-to-deliver-powerpoint-presentations-1524ffce-bd2a-45f4-9a7f-f18b992b93a0",
   sourceLabel: "official Microsoft PowerPoint presentation shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "windows-authoring",
@@ -60,11 +60,11 @@ export const microsoftPowerPoint: AppShortcuts = {
         windowsOnly("view-tab", "Open the View tab", ["Alt", "then", "W"]),
         windowsOnly("record-tab", "Open the Record tab", ["Alt", "then", "E"]),
         windowsOnly("help-tab", "Open PowerPoint help", ["Alt", "then", "Y", "then", "2"]),
-        windowsOnly("ribbon-focus", "Show ribbon key tips", ["Alt"], "F10 is also documented."),
+        { id: "ribbon-focus", action: "Select the active ribbon tab and activate access keys", keys: [{ platform: "windows", keys: ["Alt"], alternatives: [["F10"]] }] },
         windowsOnly("next-ribbon-control", "Move to the next ribbon control", ["Tab"]),
         windowsOnly("previous-ribbon-control", "Move to the previous ribbon control", ["Shift", "Tab"]),
         windowsOnly("ribbon-tooltip", "Show the tooltip for the focused ribbon control", ["Ctrl", "Shift", "F10"]),
-        windowsOnly("activate-control", "Activate the focused control", ["Space"], "Enter is also documented."),
+        { id: "activate-control", action: "Activate the focused control", keys: [{ platform: "windows", keys: ["Space"], alternatives: [["Enter"]] }] },
         windowsOnly("open-list", "Open the selected list", ["Down"]),
         windowsOnly("open-menu", "Open the selected menu", ["Alt", "Down"]),
         windowsOnly("toggle-ribbon", "Expand or collapse the ribbon", ["Ctrl", "F1"]),
@@ -99,21 +99,82 @@ export const microsoftPowerPoint: AppShortcuts = {
         macOnly("start-show-macos", "Start the slide show from the beginning", ["Cmd", "Shift", "Return"]),
         macOnly("start-current-slide-macos", "Start the slide show from the current slide", ["Cmd", "Return"]),
         macOnly("presenter-view-macos", "Start Presenter view", ["Option", "Return"]),
-        both("next-slide", "Advance to the next slide", ["N"], "Enter, Page Down, Right, Down, or Space also advances."),
-        both("previous-slide", "Return to the previous slide", ["P"], "Page Up, Left, Up, or Backspace also returns."),
-        both("first-slide", "Go to the first slide", ["Home"]),
-        both("last-slide", "Go to the last slide", ["End"]),
-        both("specific-slide", "Go to a specific slide", ["Number", "then", "Enter"]),
-        both("end-show", "End the slide show", ["Esc"], "The hyphen key also ends a show on Windows; Command+Period is documented on Mac."),
+        {
+          id: "next-slide",
+          action: "Advance to the next slide",
+          keys: platforms.map((platform) => ({
+            platform,
+            keys: ["N"],
+            alternatives: [["Enter"], ["Page Down"], ["Right"], ["Down"], ["Space"]],
+          })),
+        },
+        {
+          id: "previous-slide",
+          action: "Return to the previous slide",
+          keys: [
+            {
+              platform: "windows",
+              keys: ["P"],
+              alternatives: [["Page Up"], ["Left"], ["Up"], ["Backspace"]],
+            },
+            {
+              platform: "macos",
+              keys: ["P"],
+              alternatives: [["Page Up"], ["Left"], ["Up"], ["Delete"]],
+            },
+          ],
+        },
+        {
+          id: "first-slide",
+          action: "Go to the first slide",
+          keys: [
+            { platform: "windows", keys: ["Home"] },
+            { platform: "macos", keys: ["Fn", "Left"] },
+          ],
+        },
+        {
+          id: "last-slide",
+          action: "Go to the last slide",
+          keys: [
+            { platform: "windows", keys: ["End"] },
+            { platform: "macos", keys: ["Fn", "Right"] },
+          ],
+        },
+        {
+          id: "specific-slide",
+          action: "Go to a specific slide",
+          keys: [
+            { platform: "windows", keys: ["Number", "then", "Enter"] },
+            { platform: "macos", keys: ["Number", "then", "Return"] },
+          ],
+        },
+        {
+          id: "end-show",
+          action: "End the slide show",
+          keys: [
+            { platform: "windows", keys: ["Esc"] },
+            { platform: "macos", keys: ["Esc"], alternatives: [["-"], ["Cmd", "."]] },
+          ],
+        },
         windowsOnly("all-slides", "Show all slides", ["Ctrl", "S"]),
-        both("help-during-show", "Show slide show help", ["F1"]),
-        both("toggle-pointer", "Show or hide the pointer", ["Ctrl", "H"], "On Mac, use Command+I."),
-        pair("toggle-black-screen", "Show a black screen", ["B"], ["B"]),
-        pair("toggle-white-screen", "Show a white screen", ["W"], ["W"]),
-        macOnly("black-screen-alternative", "Show a black screen", ["Shift", "B"]),
-        macOnly("white-screen-alternative", "Show a white screen", ["Shift", "W"]),
-        macOnly("first-slide-macos", "Go to the first slide", ["Function", "Left"]),
-        macOnly("last-slide-macos", "Go to the last slide", ["Function", "Right"]),
+        windowsOnly("help-during-show", "Show slide show help", ["F1"]),
+        pair("toggle-pointer", "Hide the pointer", ["Ctrl", "H"], ["Cmd", "I"]),
+        {
+          id: "toggle-black-screen",
+          action: "Show or return from a black screen",
+          keys: [
+            { platform: "windows", keys: ["B"], alternatives: [["."]] },
+            { platform: "macos", keys: ["B"], alternatives: [["Shift", "B"], ["."]] },
+          ],
+        },
+        {
+          id: "toggle-white-screen",
+          action: "Show or return from a white screen",
+          keys: [
+            { platform: "windows", keys: ["W"], alternatives: [[","]] },
+            { platform: "macos", keys: ["W"], alternatives: [["Shift", "W"], [","]] },
+          ],
+        },
         both("show-hotspots", "Show clickable hotspots", ["Tab"]),
       ],
     },

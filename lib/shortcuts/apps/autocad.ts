@@ -14,10 +14,10 @@ export const autocad: AppShortcuts = {
   category: "Computer-aided design",
   platforms: ["windows"],
   versionContext:
-    "Default AutoCAD 2026 shortcut keys from Autodesk's CUIx reference checked August 31, 2026. AutoCAD can customize these assignments, so edited CUIx files can differ. Entries marked AutoCAD only exclude AutoCAD LT. Autodesk publishes a separate product and keymap for AutoCAD on Mac, which is not mixed into this Windows record.",
+    "Default AutoCAD 2026 shortcut keys from Autodesk's CUIx reference checked November 1, 2026. AutoCAD can customize these assignments, so edited CUIx files can differ. Entries marked AutoCAD only exclude AutoCAD LT. Autodesk publishes a separate product and keymap for AutoCAD on Mac, which is not mixed into this Windows record.",
   sourceUrl: "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-Customization/files/GUID-B6A9C126-230D-47F5-8973-464BC80E3736.htm",
   sourceLabel: "AutoCAD 2026 shortcut keys reference",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-01",
   groups: [
     {
       id: "application-drawings",
