@@ -7,6 +7,41 @@ const duplicateAliasSlugs = new Set([
   "elastic-search", "actualserver", "apache-solr", "baby-buddy", "flowise",
   "lyrionmusicserver", "nginx-proxy-manager", "nzbhydra2",
 ]);
+const canonicalProductSlugs = new Map([
+  ["postgres", /^postgres(?:ql)?(?:\s+\d+(?:\.\d+)*)?$/i],
+  ["postgresql", /^postgres(?:ql)?(?:\s+\d+(?:\.\d+)*)?$/i],
+  ["elasticsearch", /^elasticsearch(?:\s+\d+(?:\.\d+)*)?$/i],
+  ["couchdb", /^(?:apache\s+)?couchdb(?:\s+\d+(?:\.\d+)*)?$/i],
+  ["redis", /^redis(?:\s+\d+(?:\.\d+)*)?$/i],
+  ["valkey", /^valkey(?:\s+\d+(?:\.\d+)*)?$/i],
+  ["mysql", /^mysql(?:\s+\d+(?:\.\d+)*)?$/i],
+  ["mariadb", /^mariadb(?:\s+\d+(?:\.\d+)*)?$/i],
+  ["mongodb", /^mongodb(?:\s+\d+(?:\.\d+)*)?$/i],
+  ["rabbitmq", /^rabbitmq(?:\s+\d+(?:\.\d+)*)?$/i],
+  ["memcached", /^memcached(?:\s+\d+(?:\.\d+)*)?$/i],
+  ["neo4j", /^neo4j(?:\s+\d+(?:\.\d+)*)?$/i],
+]);
+
+function isCanonicalProductIdentity(slug, name) {
+  return canonicalProductSlugs.get(slug)?.test(name) ?? false;
+}
+
+function hasStrongVersionVariantEvidence(record) {
+  const slug = String(record.slug ?? "").toLowerCase();
+  const name = String(record.name ?? "").toLowerCase();
+  const source = String(record.source_code_url ?? "").replace(/\/$/, "").toLowerCase();
+  const image = String(record.docker_image ?? "").toLowerCase();
+
+  if (/\b(?:official|offical)[ -]docker\b/.test(`${slug} ${name}`) &&
+      source === "https://github.com/docker-library/official-images" &&
+      /couchdb/.test(`${slug} ${name}`) && /^(?:docker\.io\/)?(?:apache\/)?couchdb(?::|$)/.test(image)) return true;
+  if (/^couchdb-v\d+-x$/.test(slug) && /couchdb/.test(name) &&
+      source === "https://github.com/apache/couchdb-docker" &&
+      /^(?:docker\.io\/)?(?:apache\/)?couchdb(?::|$)/.test(image)) return true;
+  if (/^elasticsearch\d+$/.test(slug) && /^elasticsearch\s*\d+$/.test(name) && source === "https://github.com/elastic/elasticsearch") return true;
+  if (/^postgresql\d+$/.test(slug) && /^postgresql\s*\d+$/.test(name) && source === "https://github.com/postgres/postgres" && /^postgres:\d/.test(image)) return true;
+  return false;
+}
 
 /** Classify only records with direct evidence that they are not standalone apps. */
 export function classifySelfHostRecord(record = {}) {
@@ -15,6 +50,11 @@ export function classifySelfHostRecord(record = {}) {
   const summary = String(record.summary ?? "").toLowerCase();
   const image = String(record.docker_image ?? "").trim();
   const identity = `${slug} ${name}`;
+
+  // Versioned canonical names such as PostgreSQL 18 remain the same product.
+  if (isCanonicalProductIdentity(slug, String(record.name ?? "").trim())) {
+    return { kind: "application", reason: "canonical product identity, including its versioned display name" };
+  }
 
   if (duplicateAliasSlugs.has(slug)) {
     return { kind: "duplicate", reason: "reviewed duplicate slug for an existing app record" };
@@ -37,8 +77,8 @@ export function classifySelfHostRecord(record = {}) {
     return { kind: "dependency_container", reason: "app-branded name uses a generic database or cache image" };
   }
 
-  if (/\b(?:official|offical)[ -]docker\b|\b(?:couchdb|elasticsearch|postgres(?:ql)?)[- ]?(?:v)?\d+(?:[.-]x)?\b/i.test(`${slug} ${name}`)) {
-    return { kind: "image_variant", reason: "record names an upstream image or version rather than a distinct product" };
+  if (hasStrongVersionVariantEvidence(record)) {
+    return { kind: "image_variant", reason: "record is an upstream image/version variant of a canonical product" };
   }
 
   return { kind: "application", reason: "no direct artifact evidence matched" };

@@ -116,12 +116,15 @@ test("unclassified records default self-hosting status to unknown", () => {
 test("classification blocks dependency containers and image variants with direct evidence", () => {
   assert.equal(classifySelfHostRecord({ slug: "immich-redis", name: "immich-redis", summary: "Redis-compatible Valkey service used by Immich for background task queues.", docker_image: "valkey/valkey:9" }).kind, "dependency_container");
   assert.equal(classifySelfHostRecord({ slug: "makerworks-postgres", name: "makerworks-postgres", summary: "PostgreSQL database for the MakerWorks suite.", docker_image: "postgres:15" }).kind, "dependency_container");
-  assert.equal(classifySelfHostRecord({ slug: "couchdb-offical-docker-v1-x", name: "CouchDB-Offical-Docker-v1.x" }).kind, "image_variant");
-  assert.equal(classifySelfHostRecord({ slug: "couchdb-v2-x", name: "CouchDB-v2.x" }).kind, "image_variant");
+  assert.equal(classifySelfHostRecord({ slug: "couchdb-offical-docker-v1-x", name: "CouchDB-Offical-Docker-v1.x" }).kind, "application");
+  assert.equal(classifySelfHostRecord({ slug: "couchdb-offical-docker-v1-x", name: "CouchDB-Offical-Docker-v1.x", source_code_url: "https://github.com/docker-library/official-images", docker_image: "couchdb" }).kind, "image_variant");
+  assert.equal(classifySelfHostRecord({ slug: "couchdb-v2-x", name: "CouchDB-v2.x" }).kind, "application");
+  assert.equal(classifySelfHostRecord({ slug: "couchdb-v2-x", name: "CouchDB-v2.x", source_code_url: "https://github.com/apache/couchdb-docker", docker_image: "apache/couchdb" }).kind, "image_variant");
   assert.equal(classifySelfHostRecord({ slug: "docker-in-docker-dind", name: "Docker-in-Docker", summary: "Runs a separate Docker daemon inside a container so build tools can create images.", docker_image: "docker:dind" }).kind, "dependency_container");
   assert.equal(classifySelfHostRecord({ slug: "elastic-search", name: "Elastic Search" }).kind, "duplicate");
   assert.equal(classifySelfHostRecord({ slug: "actualserver", name: "Actual Budget" }).kind, "duplicate");
   assert.equal(classifySelfHostRecord({ slug: "sample-deployment", name: "Sample Deployment", summary: "Example stack for a demo deployment." }).kind, "example_stack");
+  assert.equal(classifySelfHostRecord({ slug: "unrelated-tool", name: "Official Docker v1.x Helper" }).kind, "application");
   const dependency = { slug: "lucia-postgresql", name: "Lucia-PostgreSQL", summary: "PostgreSQL companion for Lucia.", docker_image: "postgres:17", published: true };
   assert.match(selfHostRecordClassificationError(dependency), /dependency_container/);
   assert.ok(validateRecord(dependency).errors.some((error) => /dependency_container/.test(error)));
@@ -134,4 +137,18 @@ test("classification keeps standalone services and companion apps publishable", 
     { slug: "redisinsight", name: "Redis Insight", summary: "Web interface for monitoring Redis databases.", docker_image: "redis/redisinsight:latest" },
     { slug: "pict-rs", name: "Pict-rs", summary: "Image hosting service used by Lemmy for storing and serving uploaded pictures.", docker_image: "asonix/pictrs:latest" },
   ]) assert.equal(classifySelfHostRecord(record).kind, "application", record.slug);
+});
+
+test("classification keeps canonical products when their names include a version", () => {
+  for (const record of [
+    { slug: "postgres", name: "PostgreSQL 18" },
+    { slug: "postgresql", name: "PostgreSQL 18.1" },
+    { slug: "elasticsearch", name: "Elasticsearch 8" },
+    { slug: "couchdb", name: "CouchDB 3" },
+    { slug: "redis", name: "Redis 7" },
+    { slug: "mysql", name: "MySQL 8" },
+    { slug: "mariadb", name: "MariaDB 11" },
+    { slug: "mongodb", name: "MongoDB 8" },
+    { slug: "rabbitmq", name: "RabbitMQ 4" },
+  ]) assert.equal(classifySelfHostRecord(record).kind, "application", `${record.slug}: ${record.name}`);
 });

@@ -62,6 +62,7 @@
     "self-host-apps:qa-gate": "node scripts/self-host-apps/qa-gate.mjs",
     "self-host-apps:icon-integrity": "node scripts/self-host-apps/icon-integrity.mjs",
     "self-host-apps:apply-qa-overrides": "node scripts/self-host-apps/apply-qa-overrides.mjs",
+    "self-host-apps:apply-artifact-cleanup": "node scripts/self-host-apps/apply-artifact-cleanup.mjs",
     "self-host-apps:audit-summary-quality": "node scripts/self-host-apps/audit-summary-quality.mjs",
     "self-host-apps:sync-prod-to-local": "node scripts/self-host-apps/sync-prod-to-local.mjs",
     "self-host-apps:sync-local-to-prod": "node scripts/self-host-apps/sync-local-to-prod.mjs",

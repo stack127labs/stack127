@@ -5,6 +5,7 @@ import pg from "pg";
 import { syncRecords, changedColumns } from '../stack127/database/sync-records.mjs';
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { appColumns } from "./lib/schema.mjs";
+import { selfHostRecordClassificationError } from "./lib/classification.mjs";
 
 const { Pool } = pg;
 
@@ -141,6 +142,13 @@ async function main() {
   const prodClient = await prodPool.connect();
   try {
     const state = await fetchLocalState(localClient);
+    const blockedPublishedApps = state.apps
+      .filter((app) => app.published)
+      .map((app) => ({ slug: app.slug, error: selfHostRecordClassificationError(app) }))
+      .filter((app) => app.error);
+    if (blockedPublishedApps.length > 0) {
+      throw new Error(`Refusing to sync blocked published self-host apps: ${blockedPublishedApps.map((app) => `${app.slug} (${app.error})`).join(", ")}`);
+    }
     await prodClient.query("begin");
     await upsertCategories(prodClient, state.categories);
     await upsertApps(prodClient, state.apps);

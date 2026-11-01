@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 import { isDeepStrictEqual } from 'node:util';
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
-import { appColumns, appColumnTypes } from "./lib/schema.mjs";
+import { appColumns, appColumnTypes, validateRecord } from "./lib/schema.mjs";
 import { guardPartialCorrection, guardInstallCorrection, mergeReviewedInstallOptions } from "./lib/reviewed-corrections.mjs";
 import { installMethods, installOptionsToRow } from "./lib/streamlined-storage.mjs";
 import { changedColumns } from '../stack127/database/sync-records.mjs';
@@ -95,8 +95,17 @@ async function applyRecord(client, record, dryRun) {
   if (current.rowCount === 0) throw new Error(`Missing app row: ${record.slug}`);
   const currentRow = current.rows[0];
   const appId = currentRow.id;
-  if (Object.hasOwn(record, "categories")) {
+  if (Object.hasOwn(record, "categories") || currentRow.published || Boolean(record.published)) {
     currentRow.categories = (await client.query("select category.slug from public.self_host_app_category_links link join public.self_host_app_categories category on category.id = link.category_id where link.app_id = $1 order by category.slug", [appId])).rows.map(row => row.slug);
+  }
+  const mergedRecord = {
+    ...currentRow,
+    ...record,
+    categories: Object.hasOwn(record, "categories") ? record.categories : currentRow.categories,
+  };
+  const validation = validateRecord(mergedRecord);
+  if (validation.record.published && validation.errors.length > 0) {
+    throw new Error(`${record.slug}: correction cannot leave this app published: ${validation.errors.join("; ")}`);
   }
   guardPartialCorrection(record, currentRow);
   columns = columns.filter(column=>!isDeepStrictEqual(currentRow[column],record[column]));
