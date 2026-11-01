@@ -1,0 +1,134 @@
+{
+  "estimates": [
+    {
+      "slug": "forgejo",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Small team Git service; indexing, packages, Actions, and concurrent use increase memory needs.",
+      "source_urls": [
+        "https://forgejo.org/docs/latest/admin/installation/docker/",
+        "https://forgejo.org/docs/latest/admin/installation/binary/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      }
+    },
+    {
+      "slug": "forgejo",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Git repositories, LFS objects, packages, and attachments grow under the persistent /data path.",
+      "source_urls": [
+        "https://forgejo.org/docs/latest/admin/installation/docker/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      }
+    },
+    {
+      "slug": "gitlab",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 8192,
+      "estimate_max": 16384,
+      "estimate_kind": "estimated",
+      "confidence": "high",
+      "basis": "GitLab lists 16 GB as the single-node baseline and at least 8 GB for memory-constrained setups.",
+      "source_urls": [
+        "https://docs.gitlab.com/install/requirements/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      }
+    },
+    {
+      "slug": "gitlab",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 50,
+      "estimate_max": 200,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Application nodes need at least 40 GB plus PostgreSQL (5 to 12 GB) and all repository data.",
+      "source_urls": [
+        "https://docs.gitlab.com/install/requirements/"
+      ],
+      "review": {
+        "method": "app_estimate"
+      }
+    },
+    {
+      "slug": "onedev",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 2048,
+      "estimate_max": 4096,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "The Docker guide says OneDev runs well on a 2 core, 2 GB box; CI jobs and code indexing add load.",
+      "source_urls": [
+        "https://docs.onedev.io/installation-guide/run-as-docker-container"
+      ],
+      "review": {
+        "method": "app_estimate"
+      }
+    },
+    {
+      "slug": "onedev",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 5,
+      "estimate_max": 100,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "Repositories, build artifacts, and packages grow under the persistent /opt/onedev path.",
+      "source_urls": [
+        "https://docs.onedev.io/installation-guide/run-as-docker-container"
+      ],
+      "review": {
+        "method": "app_estimate"
+      }
+    },
+    {
+      "slug": "glitchtip",
+      "resource_kind": "ram",
+      "unit": "mb",
+      "estimate_min": 512,
+      "estimate_max": 2048,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "GlitchTip recommends 512 MB for the app; PostgreSQL, Valkey, and a separate worker add memory.",
+      "source_urls": [
+        "https://glitchtip.com/documentation/install",
+        "https://glitchtip.com/assets/compose.sample.yml"
+      ],
+      "review": {
+        "method": "app_estimate"
+      }
+    },
+    {
+      "slug": "glitchtip",
+      "resource_kind": "storage",
+      "unit": "gb",
+      "estimate_min": 10,
+      "estimate_max": 50,
+      "estimate_kind": "estimated",
+      "confidence": "medium",
+      "basis": "The guide cites about 30 GB for roughly 1 million events per month; retention and volume change this.",
+      "source_urls": [
+        "https://glitchtip.com/documentation/install"
+      ],
+      "review": {
+        "method": "app_estimate"
+      }
+    }
+  ]
+}

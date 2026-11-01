@@ -1,0 +1,1034 @@
+{
+  "records": [
+    {
+      "candidate_id": "06e70463-e572-4fa1-92dd-27d58ff16fb7",
+      "app_id": "2481c783-96b7-4537-a2b0-0ebc5a897465",
+      "decision": "publish",
+      "app": {
+        "slug": "forgejo",
+        "name": "Forgejo",
+        "summary": "Git hosting with code review, issues, wikis, a package registry, and built-in CI through Forgejo Actions.",
+        "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/self-host-apps/icons/forgejo-780b54bfd1e8a93b.png",
+        "icon_source_url": null,
+        "website_url": "https://forgejo.org",
+        "source_code_url": "https://codeberg.org/forgejo/forgejo",
+        "source_code_host": "codeberg",
+        "docs_url": "https://forgejo.org/docs/latest/",
+        "install_docs_url": "https://forgejo.org/docs/latest/admin/installation/docker/",
+        "docker_url": "https://forgejo.org/docs/latest/admin/installation/docker/",
+        "license": "GPL-3.0-or-later",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-or-later",
+        "source_model": "open_source",
+        "publisher_name": "Forgejo",
+        "publisher_type": "community",
+        "publisher_url": "https://forgejo.org",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "binary",
+          "truenas_scale",
+          "umbrel",
+          "yunohost"
+        ],
+        "docker_image": "codeberg.org/forgejo/forgejo:17",
+        "compose_support": true,
+        "compose_url": "https://forgejo.org/docs/latest/admin/installation/docker/",
+        "requires_database": true,
+        "database_types": [
+          "sqlite",
+          "mysql",
+          "mariadb",
+          "postgres"
+        ],
+        "ram_min_mb": null,
+        "ram_recommended_mb": null,
+        "storage_min_gb": null,
+        "resource_requirement_kind": "unknown",
+        "storage_profile": "depends",
+        "persistent_storage": true,
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "developer-tools",
+          "project-task-management"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "technical_facts_checked_at": "2026-11-01",
+        "data_checked_at": "2026-11-01",
+        "data_confidence": "high",
+        "data_source_urls": [
+          "https://forgejo.org",
+          "https://forgejo.org/download/",
+          "https://forgejo.org/faq/",
+          "https://forgejo.org/docs/latest/admin/installation/docker/",
+          "https://forgejo.org/docs/latest/admin/installation/binary/",
+          "https://forgejo.org/docs/latest/admin/installation/database-preparation/",
+          "https://codeberg.org/forgejo/forgejo",
+          "https://codeberg.org/forgejo/forgejo/raw/branch/forgejo/LICENSE",
+          "https://codeberg.org/forgejo/forgejo/raw/branch/forgejo/README.md"
+        ],
+        "technical_fact_status": {
+          "license": {
+            "status": "published",
+            "note": "Forgejo v9.0 and later use GPL v3 or any later version; v8.0 and earlier used MIT.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://forgejo.org/faq/",
+              "https://codeberg.org/forgejo/forgejo/raw/branch/forgejo/README.md"
+            ]
+          },
+          "source": {
+            "status": "published",
+            "note": "The official repository is forgejo/forgejo on Codeberg.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://forgejo.org",
+              "https://codeberg.org/forgejo/forgejo"
+            ]
+          },
+          "publisher": {
+            "status": "published",
+            "note": "Forgejo is a community project; its domains and trademarks are held by Codeberg e.V.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://forgejo.org/faq/"
+            ]
+          },
+          "docker": {
+            "status": "published",
+            "note": "Forgejo publishes official container images, including a rootless variant.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://forgejo.org/docs/latest/admin/installation/docker/"
+            ]
+          },
+          "docker_image": {
+            "status": "published",
+            "note": "The Docker guide uses codeberg.org/forgejo/forgejo:17; the 17 tag follows 17.0.x patches.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://forgejo.org/docs/latest/admin/installation/docker/"
+            ]
+          },
+          "compose": {
+            "status": "published",
+            "note": "The Docker guide includes Docker Compose examples.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://forgejo.org/docs/latest/admin/installation/docker/"
+            ]
+          },
+          "database": {
+            "status": "published",
+            "note": "Forgejo supports SQLite, MySQL 8.4+, MariaDB 10.6+, and PostgreSQL 14+; SQLite is the default.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://forgejo.org/docs/latest/admin/installation/database-preparation/"
+            ]
+          },
+          "persistent_storage": {
+            "status": "published",
+            "note": "The Docker guide mounts Forgejo data at /data.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://forgejo.org/docs/latest/admin/installation/docker/"
+            ]
+          },
+          "release": {
+            "status": "published",
+            "note": "The download page lists 17.0.1 as the latest release.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://forgejo.org/download/"
+            ]
+          },
+          "ram": {
+            "status": "not_published",
+            "note": "The install docs state no RAM requirement; the directory range estimates a small team Git service.",
+            "checked_at": "2026-11-01",
+            "confidence": "medium",
+            "source_urls": [
+              "https://forgejo.org/docs/latest/admin/installation/docker/",
+              "https://forgejo.org/docs/latest/admin/installation/binary/"
+            ]
+          },
+          "storage_capacity": {
+            "status": "not_published",
+            "note": "No disk requirement is published; repositories, LFS objects, and packages drive growth.",
+            "checked_at": "2026-11-01",
+            "confidence": "medium",
+            "source_urls": [
+              "https://forgejo.org/docs/latest/admin/installation/docker/"
+            ]
+          }
+        }
+      },
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://forgejo.org/docs/latest/admin/installation/docker/",
+          "image": "codeberg.org/forgejo/forgejo:17",
+          "support_level": "official",
+          "source_url": "https://forgejo.org/docs/latest/admin/installation/docker/",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://forgejo.org/docs/latest/admin/installation/docker/",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://forgejo.org/docs/latest/admin/installation/docker/",
+          "note": "Official Compose setup.",
+          "sort_order": 20
+        },
+        {
+          "method": "binary",
+          "label": "Binary download",
+          "url": "https://forgejo.org/docs/latest/admin/installation/binary/",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://forgejo.org/download/",
+          "note": null,
+          "sort_order": 25
+        },
+        {
+          "method": "truenas_scale",
+          "label": "TrueNAS SCALE catalog",
+          "url": "https://apps.truenas.com/catalog/forgejo_community/",
+          "image": null,
+          "support_level": "community",
+          "source_url": "https://apps.truenas.com/catalog/forgejo_community/",
+          "note": "Community catalog package; publisher support is not implied.",
+          "sort_order": 30
+        },
+        {
+          "method": "yunohost",
+          "label": "YunoHost catalog",
+          "url": "https://apps.yunohost.org/app/forgejo",
+          "image": null,
+          "support_level": "community",
+          "source_url": "https://apps.yunohost.org/app/forgejo",
+          "note": "Community catalog package; publisher support is not implied.",
+          "sort_order": 50
+        },
+        {
+          "method": "umbrel",
+          "label": "Umbrel catalog",
+          "url": "https://github.com/getumbrel/umbrel-apps/tree/master/forgejo",
+          "image": null,
+          "support_level": "community",
+          "source_url": "https://github.com/getumbrel/umbrel-apps/tree/master/forgejo",
+          "note": "Community catalog package; publisher support is not implied.",
+          "sort_order": 70
+        }
+      ],
+      "sources": [
+        {
+          "source": "official_product_site",
+          "source_url": "https://forgejo.org",
+          "confidence": "high",
+          "note": "Product purpose and publisher."
+        },
+        {
+          "source": "official_docs",
+          "source_url": "https://forgejo.org/docs/latest/admin/installation/docker/",
+          "confidence": "high",
+          "note": "Docker image, Compose, and data path."
+        },
+        {
+          "source": "official_docs",
+          "source_url": "https://forgejo.org/docs/latest/admin/installation/database-preparation/",
+          "confidence": "high",
+          "note": "Supported databases."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://codeberg.org/forgejo/forgejo/raw/branch/forgejo/LICENSE",
+          "confidence": "high",
+          "note": "GPL-3.0 license text."
+        },
+        {
+          "source": "official_docs",
+          "source_url": "https://forgejo.org/faq/",
+          "confidence": "high",
+          "note": "GPL v3+ since v9.0."
+        }
+      ],
+      "data_source_urls": [],
+      "data_confidence": "high"
+    },
+    {
+      "candidate_id": "54ca4fc9-3554-45df-b6c1-de64e9f1e53a",
+      "app_id": "cfd4f72a-713d-4918-bf1b-2eb5ae529f0e",
+      "decision": "publish",
+      "app": {
+        "slug": "gitlab",
+        "name": "GitLab Community Edition",
+        "summary": "Git hosting with merge requests, issue boards, wikis, a container registry, and built-in CI/CD pipelines.",
+        "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/self-host-apps/icons/gitlab-85e85e66a46a1df4.png",
+        "icon_source_url": null,
+        "website_url": "https://about.gitlab.com/gitlab-community-edition/",
+        "source_code_url": "https://gitlab.com/gitlab-org/gitlab-foss",
+        "source_code_host": "gitlab",
+        "docs_url": "https://docs.gitlab.com/",
+        "install_docs_url": "https://docs.gitlab.com/install/docker/installation/",
+        "docker_url": "https://hub.docker.com/r/gitlab/gitlab-ce",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "GitLab Inc.",
+        "publisher_type": "company",
+        "publisher_url": "https://about.gitlab.com",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package",
+          "helm",
+          "umbrel",
+          "yunohost"
+        ],
+        "docker_image": "gitlab/gitlab-ce",
+        "compose_support": true,
+        "compose_url": "https://docs.gitlab.com/install/docker/installation/",
+        "requires_database": true,
+        "database_types": [
+          "postgres",
+          "redis"
+        ],
+        "ram_min_mb": 8192,
+        "ram_recommended_mb": 16384,
+        "storage_min_gb": 40,
+        "resource_requirement_kind": "official_minimum",
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "developer-tools",
+          "project-task-management"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "technical_facts_checked_at": "2026-11-01",
+        "data_checked_at": "2026-11-01",
+        "data_confidence": "high",
+        "data_source_urls": [
+          "https://about.gitlab.com/gitlab-community-edition/",
+          "https://about.gitlab.com/install/",
+          "https://docs.gitlab.com/install/requirements/",
+          "https://docs.gitlab.com/install/docker/installation/",
+          "https://docs.gitlab.com/install/package/",
+          "https://docs.gitlab.com/charts/",
+          "https://hub.docker.com/r/gitlab/gitlab-ce",
+          "https://gitlab.com/gitlab-org/gitlab-foss",
+          "https://gitlab.com/gitlab-org/gitlab-foss/-/raw/master/LICENSE"
+        ],
+        "technical_fact_status": {
+          "license": {
+            "status": "published",
+            "note": "Community Edition code is MIT (Expat); docs are CC BY-SA 4.0. Enterprise code under ee/ is excluded from GitLab FOSS.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://gitlab.com/gitlab-org/gitlab-foss/-/raw/master/LICENSE",
+              "https://gitlab.com/gitlab-org/gitlab/-/raw/master/LICENSE"
+            ]
+          },
+          "source": {
+            "status": "published",
+            "note": "GitLab FOSS is GitLab's read-only mirror of the codebase with proprietary code removed; development happens in gitlab-org/gitlab.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://gitlab.com/gitlab-org/gitlab-foss",
+              "https://about.gitlab.com/gitlab-community-edition/"
+            ]
+          },
+          "publisher": {
+            "status": "published",
+            "note": "GitLab Inc. holds the copyright and publishes CE packages and images.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://gitlab.com/gitlab-org/gitlab-foss/-/raw/master/LICENSE"
+            ]
+          },
+          "docker": {
+            "status": "published",
+            "note": "GitLab publishes the gitlab/gitlab-ce image for Community Edition.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://docs.gitlab.com/install/docker/installation/",
+              "https://hub.docker.com/r/gitlab/gitlab-ce"
+            ]
+          },
+          "docker_image": {
+            "status": "published",
+            "note": "The Docker guide names gitlab/gitlab-ce for CE, tagged <version>-ce.0.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://docs.gitlab.com/install/docker/installation/"
+            ]
+          },
+          "compose": {
+            "status": "published",
+            "note": "The Docker guide includes docker-compose.yml examples.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://docs.gitlab.com/install/docker/installation/"
+            ]
+          },
+          "database": {
+            "status": "published",
+            "note": "PostgreSQL is the only supported database; Redis or Valkey stores sessions and background jobs. Both are bundled in the Linux package and image.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://docs.gitlab.com/install/requirements/"
+            ]
+          },
+          "persistent_storage": {
+            "status": "published",
+            "note": "The Docker guide mounts /etc/gitlab, /var/log/gitlab, and /var/opt/gitlab.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://docs.gitlab.com/install/docker/installation/"
+            ]
+          },
+          "ram": {
+            "status": "published",
+            "note": "Requirements list 16 GB as the single-node baseline and at least 8 GB for memory-constrained setups.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://docs.gitlab.com/install/requirements/"
+            ]
+          },
+          "storage_capacity": {
+            "status": "published",
+            "note": "Application nodes need at least 40 GB plus repository and PostgreSQL storage.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://docs.gitlab.com/install/requirements/"
+            ]
+          },
+          "edition": {
+            "status": "published",
+            "note": "GitLab recommends EE packages for new installs, even on Free; CE stays available as the MIT-licensed package.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://about.gitlab.com/gitlab-community-edition/"
+            ]
+          }
+        }
+      },
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/gitlab/gitlab-ce",
+          "image": "gitlab/gitlab-ce",
+          "support_level": "official",
+          "source_url": "https://docs.gitlab.com/install/docker/installation/",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://docs.gitlab.com/install/docker/installation/",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://docs.gitlab.com/install/docker/installation/",
+          "note": "Official Compose setup.",
+          "sort_order": 20
+        },
+        {
+          "method": "package",
+          "label": "Linux package",
+          "url": "https://docs.gitlab.com/install/package/",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://docs.gitlab.com/install/package/",
+          "note": "Install the gitlab-ce package for Community Edition.",
+          "sort_order": 25
+        },
+        {
+          "method": "helm",
+          "label": "Helm chart",
+          "url": "https://docs.gitlab.com/charts/",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://about.gitlab.com/install/",
+          "note": null,
+          "sort_order": 28
+        },
+        {
+          "method": "yunohost",
+          "label": "YunoHost catalog",
+          "url": "https://apps.yunohost.org/app/gitlab",
+          "image": null,
+          "support_level": "community",
+          "source_url": "https://apps.yunohost.org/app/gitlab",
+          "note": "Community catalog package; publisher support is not implied.",
+          "sort_order": 50
+        },
+        {
+          "method": "umbrel",
+          "label": "Umbrel catalog",
+          "url": "https://github.com/getumbrel/umbrel-apps/tree/master/gitlab",
+          "image": null,
+          "support_level": "community",
+          "source_url": "https://github.com/getumbrel/umbrel-apps/tree/master/gitlab",
+          "note": "Community catalog package; publisher support is not implied.",
+          "sort_order": 70
+        }
+      ],
+      "sources": [
+        {
+          "source": "official_product_site",
+          "source_url": "https://about.gitlab.com/gitlab-community-edition/",
+          "confidence": "high",
+          "note": "Community Edition identity and FOSS mirror."
+        },
+        {
+          "source": "official_docs",
+          "source_url": "https://docs.gitlab.com/install/requirements/",
+          "confidence": "high",
+          "note": "Hardware, PostgreSQL, and Redis requirements."
+        },
+        {
+          "source": "official_docs",
+          "source_url": "https://docs.gitlab.com/install/docker/installation/",
+          "confidence": "high",
+          "note": "CE Docker image, Compose, and volumes."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://gitlab.com/gitlab-org/gitlab-foss/-/raw/master/LICENSE",
+          "confidence": "high",
+          "note": "MIT license for CE code."
+        }
+      ],
+      "data_source_urls": [],
+      "data_confidence": "high"
+    },
+    {
+      "candidate_id": "0348f97a-3fb7-47b5-860b-c5df74dcf066",
+      "app_id": "dc968e17-070c-4a6b-bfc5-84ef68e5e40c",
+      "decision": "publish",
+      "app": {
+        "slug": "onedev",
+        "name": "OneDev",
+        "summary": "Git server with code search, pull requests, issue boards, CI/CD jobs, and a package registry in one app.",
+        "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/self-host-apps/icons/onedev-6fb05a197448f52e.png",
+        "icon_source_url": null,
+        "website_url": "https://onedev.io",
+        "source_code_url": "https://github.com/theonedev/onedev",
+        "source_code_host": "github",
+        "docs_url": "https://docs.onedev.io/",
+        "install_docs_url": "https://docs.onedev.io/installation-guide/run-as-docker-container",
+        "docker_url": "https://hub.docker.com/r/1dev/server",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "OneDev Pty",
+        "publisher_type": "company",
+        "publisher_url": "https://onedev.io",
+        "pricing_model": "freemium",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "native",
+          "umbrel"
+        ],
+        "docker_image": "1dev/server",
+        "compose_support": null,
+        "compose_url": null,
+        "requires_database": true,
+        "database_types": [
+          "mysql",
+          "mariadb",
+          "postgres"
+        ],
+        "ram_min_mb": null,
+        "ram_recommended_mb": 2048,
+        "storage_min_gb": null,
+        "resource_requirement_kind": "official_recommended",
+        "storage_profile": "depends",
+        "persistent_storage": true,
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "developer-tools",
+          "project-task-management"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "technical_facts_checked_at": "2026-11-01",
+        "data_checked_at": "2026-11-01",
+        "data_confidence": "high",
+        "data_source_urls": [
+          "https://onedev.io",
+          "https://onedev.io/pricing",
+          "https://docs.onedev.io/",
+          "https://docs.onedev.io/installation-guide/run-as-docker-container",
+          "https://docs.onedev.io/installation-guide/run-on-bare-metal",
+          "https://hub.docker.com/r/1dev/server",
+          "https://github.com/theonedev/onedev",
+          "https://github.com/theonedev/onedev/blob/main/license.txt",
+          "https://code.onedev.io/onedev/server"
+        ],
+        "technical_fact_status": {
+          "license": {
+            "status": "published",
+            "note": "The repository license is MIT, copyright OneDev Pty.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/theonedev/onedev/blob/main/license.txt"
+            ]
+          },
+          "source": {
+            "status": "published",
+            "note": "OneDev develops at code.onedev.io and mirrors to the official theonedev/onedev GitHub repository.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/theonedev/onedev",
+              "https://code.onedev.io/onedev/server"
+            ]
+          },
+          "publisher": {
+            "status": "published",
+            "note": "OneDev Pty publishes OneDev and sells an Enterprise Edition; Community Edition is free.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://onedev.io/pricing"
+            ]
+          },
+          "docker": {
+            "status": "published",
+            "note": "The install guide runs the official 1dev/server image.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://docs.onedev.io/installation-guide/run-as-docker-container",
+              "https://hub.docker.com/r/1dev/server"
+            ]
+          },
+          "docker_image": {
+            "status": "published",
+            "note": "The guide uses 1dev/server and mounts the host Docker socket for CI jobs.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://docs.onedev.io/installation-guide/run-as-docker-container"
+            ]
+          },
+          "compose": {
+            "status": "not_published",
+            "note": "The Docker guide shows docker run commands, not a Compose file.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://docs.onedev.io/installation-guide/run-as-docker-container"
+            ]
+          },
+          "database": {
+            "status": "published",
+            "note": "OneDev uses an embedded database by default and supports external MySQL, MariaDB, and PostgreSQL.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://docs.onedev.io/installation-guide/run-as-docker-container"
+            ]
+          },
+          "persistent_storage": {
+            "status": "published",
+            "note": "The Docker guide mounts OneDev data at /opt/onedev.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://docs.onedev.io/installation-guide/run-as-docker-container"
+            ]
+          },
+          "ram": {
+            "status": "published",
+            "note": "The Docker guide says OneDev runs happily on a 2 core, 2 GB box.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://docs.onedev.io/installation-guide/run-as-docker-container"
+            ]
+          },
+          "storage_capacity": {
+            "status": "not_published",
+            "note": "No disk requirement is published; repositories, build artifacts, and packages drive growth.",
+            "checked_at": "2026-11-01",
+            "confidence": "medium",
+            "source_urls": [
+              "https://docs.onedev.io/installation-guide/run-as-docker-container"
+            ]
+          }
+        }
+      },
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/1dev/server",
+          "image": "1dev/server",
+          "support_level": "official",
+          "source_url": "https://docs.onedev.io/installation-guide/run-as-docker-container",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "native",
+          "label": "Bare metal install",
+          "url": "https://docs.onedev.io/installation-guide/run-on-bare-metal",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://docs.onedev.io/installation-guide/run-on-bare-metal",
+          "note": null,
+          "sort_order": 30
+        },
+        {
+          "method": "umbrel",
+          "label": "Umbrel catalog",
+          "url": "https://github.com/getumbrel/umbrel-apps/tree/master/onedev",
+          "image": null,
+          "support_level": "community",
+          "source_url": "https://github.com/getumbrel/umbrel-apps/tree/master/onedev",
+          "note": "Community catalog package; publisher support is not implied.",
+          "sort_order": 70
+        }
+      ],
+      "sources": [
+        {
+          "source": "official_product_site",
+          "source_url": "https://onedev.io",
+          "confidence": "high",
+          "note": "Product purpose."
+        },
+        {
+          "source": "official_product_site",
+          "source_url": "https://onedev.io/pricing",
+          "confidence": "high",
+          "note": "Free Community Edition and paid Enterprise Edition; publisher OneDev Pty."
+        },
+        {
+          "source": "official_docs",
+          "source_url": "https://docs.onedev.io/installation-guide/run-as-docker-container",
+          "confidence": "high",
+          "note": "Docker image, databases, data path, and 2 GB guidance."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/theonedev/onedev/blob/main/license.txt",
+          "confidence": "high",
+          "note": "MIT license."
+        }
+      ],
+      "data_source_urls": [],
+      "data_confidence": "high"
+    },
+    {
+      "candidate_id": "60949483-8c14-43f3-8662-88d317ac4859",
+      "app_id": "2891e119-352e-4e56-8aa0-944ff95bc7f2",
+      "decision": "publish",
+      "app": {
+        "slug": "glitchtip",
+        "name": "GlitchTip",
+        "summary": "Error tracking that collects crash reports from Sentry SDKs, with uptime checks and performance monitoring.",
+        "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/self-host-apps/icons/glitchtip-b8fee567f0ec3c56.png",
+        "icon_source_url": null,
+        "website_url": "https://glitchtip.com",
+        "source_code_url": "https://gitlab.com/glitchtip/glitchtip-backend",
+        "source_code_host": "gitlab",
+        "docs_url": "https://glitchtip.com/documentation",
+        "install_docs_url": "https://glitchtip.com/documentation/install",
+        "docker_url": "https://hub.docker.com/r/glitchtip/glitchtip",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "Burke Software and Consulting",
+        "publisher_type": "company",
+        "publisher_url": "https://glitchtip.com",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "helm"
+        ],
+        "docker_image": "glitchtip/glitchtip:6",
+        "compose_support": true,
+        "compose_url": "https://glitchtip.com/assets/compose.sample.yml",
+        "requires_database": true,
+        "database_types": [
+          "postgres",
+          "valkey"
+        ],
+        "ram_min_mb": 256,
+        "ram_recommended_mb": 512,
+        "storage_min_gb": null,
+        "resource_requirement_kind": "official_minimum",
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "monitoring-status",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "technical_facts_checked_at": "2026-11-01",
+        "data_checked_at": "2026-11-01",
+        "data_confidence": "high",
+        "data_source_urls": [
+          "https://glitchtip.com",
+          "https://glitchtip.com/documentation",
+          "https://glitchtip.com/documentation/install",
+          "https://glitchtip.com/assets/compose.sample.yml",
+          "https://hub.docker.com/r/glitchtip/glitchtip",
+          "https://gitlab.com/glitchtip/glitchtip-backend",
+          "https://gitlab.com/glitchtip/glitchtip-backend/-/raw/master/LICENSE",
+          "https://gitlab.com/glitchtip/glitchtip"
+        ],
+        "technical_fact_status": {
+          "license": {
+            "status": "published",
+            "note": "The backend repository is MIT licensed.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://gitlab.com/glitchtip/glitchtip-backend/-/raw/master/LICENSE"
+            ]
+          },
+          "source": {
+            "status": "published",
+            "note": "The Django backend lives in glitchtip/glitchtip-backend; glitchtip/glitchtip is the meta and deploy repo.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://gitlab.com/glitchtip/glitchtip-backend",
+              "https://gitlab.com/glitchtip/glitchtip"
+            ]
+          },
+          "publisher": {
+            "status": "published",
+            "note": "The site footer names Burke Software and Consulting.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://glitchtip.com"
+            ]
+          },
+          "docker": {
+            "status": "published",
+            "note": "The install guide runs the official GlitchTip image with Docker Compose.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://glitchtip.com/documentation/install",
+              "https://hub.docker.com/r/glitchtip/glitchtip"
+            ]
+          },
+          "docker_image": {
+            "status": "published",
+            "note": "The sample Compose file uses glitchtip/glitchtip:6.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://glitchtip.com/assets/compose.sample.yml"
+            ]
+          },
+          "compose": {
+            "status": "published",
+            "note": "The guide provides a sample compose.yml.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://glitchtip.com/documentation/install",
+              "https://glitchtip.com/assets/compose.sample.yml"
+            ]
+          },
+          "database": {
+            "status": "published",
+            "note": "PostgreSQL 14+ is required; Valkey or Redis 7+ is optional and recommended in the sample.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://glitchtip.com/documentation/install",
+              "https://glitchtip.com/assets/compose.sample.yml"
+            ]
+          },
+          "persistent_storage": {
+            "status": "published",
+            "note": "The sample Compose file keeps PostgreSQL data and uploads in volumes.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://glitchtip.com/assets/compose.sample.yml"
+            ]
+          },
+          "ram": {
+            "status": "published",
+            "note": "The guide recommends 512 MB RAM and lists 256 MB as the all-in-one minimum.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://glitchtip.com/documentation/install"
+            ]
+          },
+          "storage_capacity": {
+            "status": "published",
+            "note": "The guide cites about 30 GB for roughly 1 million events per month; use varies.",
+            "checked_at": "2026-11-01",
+            "confidence": "high",
+            "source_urls": [
+              "https://glitchtip.com/documentation/install"
+            ]
+          }
+        }
+      },
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/glitchtip/glitchtip",
+          "image": "glitchtip/glitchtip:6",
+          "support_level": "official",
+          "source_url": "https://glitchtip.com/documentation/install",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://glitchtip.com/documentation/install",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://glitchtip.com/assets/compose.sample.yml",
+          "note": "Official sample Compose file.",
+          "sort_order": 20
+        },
+        {
+          "method": "helm",
+          "label": "Helm chart",
+          "url": "https://glitchtip.com/documentation/install#helm",
+          "image": null,
+          "support_level": "official",
+          "source_url": "https://glitchtip.com/documentation/install",
+          "note": null,
+          "sort_order": 28
+        }
+      ],
+      "sources": [
+        {
+          "source": "official_product_site",
+          "source_url": "https://glitchtip.com",
+          "confidence": "high",
+          "note": "Product purpose and publisher."
+        },
+        {
+          "source": "official_docs",
+          "source_url": "https://glitchtip.com/documentation/install",
+          "confidence": "high",
+          "note": "Install methods, PostgreSQL and Valkey, RAM and disk guidance."
+        },
+        {
+          "source": "official_docs",
+          "source_url": "https://glitchtip.com/assets/compose.sample.yml",
+          "confidence": "high",
+          "note": "Official image and Compose services."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://gitlab.com/glitchtip/glitchtip-backend/-/raw/master/LICENSE",
+          "confidence": "high",
+          "note": "MIT license."
+        }
+      ],
+      "data_source_urls": [],
+      "data_confidence": "high"
+    },
+    {
+      "candidate_id": "2dbc7493-6fd1-4743-8f29-7c8d68430ffc",
+      "decision": "duplicate",
+      "app_id": "2481c783-96b7-4537-a2b0-0ebc5a897465"
+    },
+    {
+      "candidate_id": "5ecdaa5a-cb3a-428c-9d31-9dbe4ef3087a",
+      "decision": "duplicate",
+      "app_id": "cfd4f72a-713d-4918-bf1b-2eb5ae529f0e"
+    },
+    {
+      "candidate_id": "a8309237-ae19-4474-8648-7d12104198c0",
+      "decision": "duplicate",
+      "app_id": "cfd4f72a-713d-4918-bf1b-2eb5ae529f0e"
+    },
+    {
+      "candidate_id": "f9e3f5b4-1f8f-40eb-a594-9a33914793b0",
+      "decision": "duplicate",
+      "app_id": "cfd4f72a-713d-4918-bf1b-2eb5ae529f0e"
+    },
+    {
+      "candidate_id": "2627a441-081f-46ba-975a-bfb49d886838",
+      "decision": "duplicate",
+      "app_id": "2891e119-352e-4e56-8aa0-944ff95bc7f2"
+    },
+    {
+      "candidate_id": "2dd8ddee-8388-4c4a-a714-a558a27d42f0",
+      "decision": "duplicate",
+      "app_id": "dc968e17-070c-4a6b-bfc5-84ef68e5e40c"
+    }
+  ]
+}
