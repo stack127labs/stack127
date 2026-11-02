@@ -5,6 +5,7 @@ import { withClient } from "./lib/db.mjs";
 import { licenseTypeFromSpdx } from "./lib/schema.mjs";
 import { pathToFileURL } from "node:url";
 import { jobSummary } from "./lib/job-summary.mjs";
+import { refreshFailed } from "./lib/refresh-health.mjs";
 
 const supportedHosts = new Set(["gitlab", "codeberg"]);
 
@@ -42,11 +43,11 @@ async function fetchJson(url, token) {
   }
 }
 
-async function optionalJson(url, token) {
+async function optionalJson(url, token, unavailableStatuses = [404]) {
   try {
     return await fetchJson(url, token);
   } catch (error) {
-    if (error.status === 404) return null;
+    if (unavailableStatuses.includes(error.status)) return null;
     throw error;
   }
 }
@@ -72,12 +73,15 @@ export async function gitlabFacts(row) {
   const origin = new URL(row.source_code_url).origin;
   const token = origin === "https://gitlab.com" ? process.env.GITLAB_TOKEN ?? "" : "";
   const base = `${origin}/api/v4/projects/${id}`;
-  const [project, languages, release, commits] = await Promise.all([
+  const [project, languages, releases, commits] = await Promise.all([
     fetchJson(`${base}?license=true`, token),
     optionalJson(`${base}/languages`, token),
-    optionalJson(`${base}/releases/permalink/latest`, token),
+    // The latest permalink redirects. Releases can also be disabled (403)
+    // on a public project; neither should prevent refreshing its stars.
+    optionalJson(`${base}/releases?per_page=1&order_by=released_at&sort=desc`, token, [403, 404]),
     optionalJson(`${base}/repository/commits?per_page=1`, token),
   ]);
+  const release = releases?.[0] ?? null;
   const lastCommitAt = commits?.[0]?.committed_date ?? commits?.[0]?.created_at ?? null;
   const license = normalizedLicense(
     project.license?.key ?? project.license?.spdx_identifier ?? project.license?.name,
@@ -158,9 +162,20 @@ async function codebergFacts(row) {
   };
 }
 
-async function rowsToRefresh(client, host, args) {
+export async function rowsToRefresh(client, host, args) {
   const params = [host];
   const conditions = ["source_code_host = $1", "source_code_url is not null"];
+  if (args.slug !== undefined) {
+    if (typeof args.slug !== "string" || !args.slug.trim()) throw new Error("--slug needs an app slug");
+    const app = await client.query("select source_code_host, source_code_url from public.self_host_apps where slug = $1", [args.slug]);
+    if (!app.rows[0]) throw new Error(`App not found: ${args.slug}`);
+    if (app.rows[0].source_code_host !== host) {
+      throw new Error(`App ${args.slug} belongs to host ${app.rows[0].source_code_host}, not ${host}`);
+    }
+    if (!app.rows[0].source_code_url) throw new Error(`App ${args.slug} has no repository URL`);
+    params.push(args.slug);
+    conditions.push(`slug = $${params.length}`);
+  }
   if (args["published-only"]) conditions.push("published = true");
   if (args["max-age-hours"]) {
     params.push(numberArg(args, "max-age-hours", 24));
@@ -239,33 +254,39 @@ async function writeFacts(client, row, host, facts, checkedAt) {
   );
 }
 
-async function main() {
-  const args = parseArgs();
+export async function refreshSourceHost(client, args) {
   const host = args.host;
   if (!supportedHosts.has(host)) throw new Error("--host must be gitlab or codeberg");
   const checkedAt = new Date().toISOString();
 
-  await withClient(async (client) => {
-    const rows = await rowsToRefresh(client, host, args);
-    let refreshed = 0;
-    const failures = [];
+  const rows = await rowsToRefresh(client, host, args);
+  let refreshed = 0;
+  const failures = [];
 
-    for (const row of rows) {
-      try {
-        const facts = host === "gitlab" ? await gitlabFacts(row) : await codebergFacts(row);
-        if (!args["dry-run"]) await writeFacts(client, row, host, facts, checkedAt);
-        refreshed += 1;
-        console.log(`${args["dry-run"] ? "Checked" : "Refreshed"} ${host} facts: ${row.slug}`);
-      } catch (error) {
-        failures.push({ slug: row.slug, error: error.message });
-        console.warn(`warning ${row.slug}: ${error.message}`);
-      }
+  for (const row of rows) {
+    try {
+      const facts = host === "gitlab" ? await gitlabFacts(row) : await codebergFacts(row);
+      if (!args["dry-run"]) await writeFacts(client, row, host, facts, checkedAt);
+      refreshed += 1;
+      console.log(`${args["dry-run"] ? "Checked" : "Refreshed"} ${host} facts: ${row.slug}`);
+    } catch (error) {
+      failures.push({ slug: row.slug, error: error.message });
+      console.warn(`warning ${row.slug}: ${error.message}`);
     }
+  }
 
-    console.log(JSON.stringify({ host, dry_run: Boolean(args["dry-run"]), selected: rows.length, refreshed, failed: failures.length, failures }, null, 2));
-    jobSummary(`${host} facts`, { Selected: rows.length, Refreshed: refreshed, Failed: failures.length, "Dry run": Boolean(args["dry-run"]) }, failures);
-    if (failures.length) process.exitCode = 1;
-  }, args["database-url"]);
+  const report = { host, dry_run: Boolean(args["dry-run"]), selected: rows.length, refreshed, failed: failures.length, failures };
+  console.log(JSON.stringify(report, null, 2));
+  jobSummary(`${host} facts`, { Selected: rows.length, Refreshed: refreshed, Failed: failures.length, "Allowed failure percentage": 20, "Dry run": Boolean(args["dry-run"]) }, failures);
+  return report;
+}
+
+import { databaseOptions } from "./lib/environment.mjs";
+
+async function main() {
+  const args = parseArgs();
+  const report = await withClient((client) => refreshSourceHost(client, args), args.environment ? databaseOptions(args) : args["database-url"]);
+  if (refreshFailed(report)) process.exitCode = 1;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((error) => {

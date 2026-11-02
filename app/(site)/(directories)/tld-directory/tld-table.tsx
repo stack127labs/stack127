@@ -14,7 +14,6 @@ export type TldRow = {
   isIdn: boolean;
 };
 
-const TYPES = ["generic", "country-code", "sponsored", "infrastructure", "generic-restricted", "test"];
 const PAGE_SIZE = 100;
 
 export function TldTable({ rows }: { rows: TldRow[] }) {
@@ -23,6 +22,11 @@ export function TldTable({ rows }: { rows: TldRow[] }) {
   const [rdap, setRdap] = useState("");
   const [dnssec, setDnssec] = useState("");
   const [limit, setLimit] = useState(PAGE_SIZE);
+
+  const types = useMemo(
+    () => [...new Set(rows.map((row) => row.type).filter((value): value is string => Boolean(value)))].sort(),
+    [rows],
+  );
 
   const filtered = useMemo(() => {
     const needle = query.trim().toLowerCase().replace(/^\./, "");
@@ -65,7 +69,7 @@ export function TldTable({ rows }: { rows: TldRow[] }) {
             <span>Type</span>
             <select onChange={(event) => setType(event.target.value)} value={type}>
               <option value="">All</option>
-              {TYPES.map((entry) => (
+              {types.map((entry) => (
                 <option key={entry} value={entry}>
                   {entry}
                 </option>

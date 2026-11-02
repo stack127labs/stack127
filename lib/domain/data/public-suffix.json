@@ -1,6 +1,6 @@
 {
   "source": "https://publicsuffix.org/list/public_suffix_list.dat",
-  "fetchedAt": "2026-10-14",
+  "fetchedAt": "2026-11-02",
   "section": "ICANN",
   "exceptions": [
     "www.ck",
@@ -6252,7 +6252,6 @@
     "health",
     "healthcare",
     "help",
-    "helsinki",
     "here",
     "hermes",
     "hiphop",

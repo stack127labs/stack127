@@ -8,6 +8,7 @@ import { licenseTypeFromSpdx, sourceModelFromSpdx } from "./lib/schema.mjs";
 import { pathToFileURL } from "node:url";
 import { jobSummary } from "./lib/job-summary.mjs";
 import { maintenanceFrom as cliMaintenanceFrom } from "../cli-apps/lib/maintenance.mjs";
+import { refreshFailed } from "./lib/refresh-health.mjs";
 
 const githubGraphqlUrl = "https://api.github.com/graphql";
 let cachedGithubToken;
@@ -221,7 +222,7 @@ export async function rowsToRefresh(client, args, retryMetadataAvailable = true)
           coalesce(linked.owner, existing.owner, lower(parsed.parts[1])) as github_owner,
           coalesce(linked.repo, existing.repo, lower(regexp_replace(parsed.parts[2], '[.]git$', '', 'i'))) as github_repo
         from memberships member
-        cross join lateral (select regexp_match(member.repository_url, '^https://github[.]com/([^/]+)/([^/#?]+)', 'i') as parts) parsed
+        cross join lateral (select regexp_match(member.repository_url, '^https://github[.]com/([a-z0-9][a-z0-9-]{0,38})/([a-z0-9_.-]+)(?:[/?#].*)?$', 'i') as parts) parsed
         left join public.github_projects linked on linked.id = member.github_project_id
         left join public.github_projects existing on linked.id is null
           and existing.owner = lower(parsed.parts[1])
@@ -231,6 +232,8 @@ export async function rowsToRefresh(client, args, retryMetadataAvailable = true)
           min(github_owner) as github_owner, min(github_repo) as github_repo,
           coalesce(array_agg(distinct self_host_slug) filter (where self_host_slug is not null), '{}') as self_host_slugs
         from resolved
+        where github_project_id is not null
+          or (github_owner is not null and github_repo is not null and github_repo not in ('', '.', '..'))
         group by github_project_id, case when github_project_id is null then coalesce(github_owner || '/' || github_repo, lower(source_code_url)) end
       )
       select app.*
@@ -416,24 +419,32 @@ export async function writeRepositoryFacts(client, row, repository, checkedAt, d
 
 export async function writeFailureAttempt(client, row, attemptedAt, dryRun, retryMetadataAvailable = true) {
   if (dryRun || !retryMetadataAvailable) return;
-  const owner = String(row.github_owner ?? "").trim().toLowerCase();
-  const repo = String(row.github_repo ?? "").trim().replace(/\.git$/i, "").toLowerCase();
-  if (!owner || !repo) {
-    if (!row.github_project_id) throw new Error(`Cannot record failed attempt for ${row.slug}: missing repository identity`);
-    await client.query(`update public.github_projects set last_attempt_at = $2, consecutive_failures = consecutive_failures + 1 where id = $1`, [row.github_project_id, attemptedAt]);
-    return;
+  try {
+    const owner = String(row.github_owner ?? "").trim().toLowerCase();
+    const repo = String(row.github_repo ?? "").trim().replace(/\.git$/i, "").toLowerCase();
+    if (!owner || !repo) {
+      if (!row.github_project_id) {
+        console.warn(`warning ${row.slug}: skipping failed-attempt write: missing repository identity`);
+        return;
+      }
+      await client.query(`update public.github_projects set last_attempt_at = $2, consecutive_failures = consecutive_failures + 1 where id = $1`, [row.github_project_id, attemptedAt]);
+      return;
+    }
+    const result = await client.query(`
+      insert into public.github_projects (owner, repo, full_name, repository_url, last_attempt_at, consecutive_failures)
+      values ($1, $2, $1 || '/' || $2, $3, $4, 1)
+      on conflict (owner, repo) do update set
+        last_attempt_at = excluded.last_attempt_at,
+        consecutive_failures = github_projects.consecutive_failures + 1
+      returning id
+    `, [owner, repo, `https://github.com/${owner}/${repo}`, attemptedAt]);
+    // Even a previously unlinked repository must move to the back of the queue.
+    // Do not change checked_at or any app fact/verification date on failure.
+    await client.query(`update public.self_host_apps set github_project_id = $2 where slug = any($1::text[]) and github_project_id is distinct from $2::uuid`, [row.self_host_slugs ?? [row.slug], result.rows[0].id]);
+  } catch (error) {
+    // Failure bookkeeping must not prevent the remaining repositories or summary.
+    console.warn(`warning ${row.slug}: unable to record failed attempt: ${error.message}`);
   }
-  const result = await client.query(`
-    insert into public.github_projects (owner, repo, full_name, repository_url, last_attempt_at, consecutive_failures)
-    values ($1, $2, $1 || '/' || $2, $3, $4, 1)
-    on conflict (owner, repo) do update set
-      last_attempt_at = excluded.last_attempt_at,
-      consecutive_failures = github_projects.consecutive_failures + 1
-    returning id
-  `, [owner, repo, `https://github.com/${owner}/${repo}`, attemptedAt]);
-  // Even a previously unlinked repository must move to the back of the queue.
-  // Do not change checked_at or any app fact/verification date on failure.
-  await client.query(`update public.self_host_apps set github_project_id = $2 where slug = any($1::text[]) and github_project_id is distinct from $2::uuid`, [row.self_host_slugs ?? [row.slug], result.rows[0].id]);
 }
 
 export async function refreshGithub(client, args) {
@@ -460,7 +471,7 @@ export async function refreshGithub(client, args) {
 
     for (const row of selectedBatch) {
       try {
-        const repo = parseRepo(row.source_code_url);
+        const repo = parseRepo(row.github_owner && row.github_repo ? `${row.github_owner}/${row.github_repo}` : row.source_code_url);
         row.github_owner = repo.owner;
         row.github_repo = repo.repo;
         batch.push(row);
@@ -499,14 +510,17 @@ export async function refreshGithub(client, args) {
 
   if (args["dry-run"]) console.log("Dry run OK. No GitHub facts committed.");
   console.log(`GitHub refresh complete: ${refreshed} refreshed, ${failures.length} failed.`);
-  jobSummary("GitHub facts", { Selected: rows.length, Refreshed: refreshed, Failed: failures.length, "Dry run": Boolean(args["dry-run"]), "Retry metadata available": retryMetadataAvailable }, failures);
+  jobSummary("GitHub facts", { Selected: rows.length, Refreshed: refreshed, Failed: failures.length, "Allowed failure percentage": 20, "Dry run": Boolean(args["dry-run"]), "Retry metadata available": retryMetadataAvailable }, failures);
   return { selected: rows.length, refreshed, failed: failures.length, failures, retryMetadataAvailable };
 }
 
+import { databaseOptions } from "./lib/environment.mjs";
+
 async function main() {
   const args = parseArgs();
-  const report = await withClient((client) => refreshGithub(client, args), args["database-url"]);
-  if (report.failed) process.exitCode = 1;
+  if (args.slug !== undefined && (typeof args.slug !== "string" || !args.slug.trim())) throw new Error("--slug needs an app slug");
+  const report = await withClient((client) => refreshGithub(client, args), args.environment ? databaseOptions(args) : args["database-url"]);
+  if (refreshFailed(report)) process.exitCode = 1;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((error) => {
