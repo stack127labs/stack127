@@ -108,6 +108,25 @@ test("review dry run checks all ten reviewed records using only reads", async ()
   assert.equal(queries.at(-1), "rollback");
 });
 
+test("review apply locks candidates in ID order before its first write", async () => {
+  const queries = [];
+  const later = "00000000-0000-4000-8000-000000000002";
+  const earlier = "00000000-0000-4000-8000-000000000001";
+  const client = { async query(sql, params) {
+    queries.push({ sql, params });
+    if (sql.includes("self_host_app_candidates") && sql.startsWith("select *")) return { rows: [{ id: params[0], status: "enriching" }] };
+    return { rows: [], rowCount: 1 };
+  } };
+  await applyReviews(client, [
+    { candidate_id: later, decision: "reject", reason: "test" },
+    { candidate_id: earlier, decision: "reject", reason: "test" },
+  ]);
+  assert.equal(queries[0].sql, "begin");
+  assert.match(queries[1].sql, /where id = any\(\$1::uuid\[\]\) order by id for no key update$/);
+  assert.deepEqual(queries[1].params[0], [later, earlier]);
+  assert.equal(queries.at(-1).sql, "commit");
+});
+
 test("review preview rejects unclaimed candidates and rolls back", async () => {
   const queries = [];
   const client = { async query(sql) {

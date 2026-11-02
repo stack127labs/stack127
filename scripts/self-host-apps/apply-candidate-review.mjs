@@ -385,6 +385,10 @@ export async function applyReviews(client, reviews, dryRun = false) {
   if (new Set(ids).size !== ids.length) throw new Error("Repeated candidate_id in review batch.");
   await client.query(dryRun ? "begin read only" : "begin");
   try {
+    // Lock in ID order, the same order claims and dedupe use, so batches in any order can't deadlock with them.
+    if (!dryRun) {
+      await client.query("select id from public.self_host_app_candidates where id = any($1::uuid[]) order by id for no key update", [ids.filter(Boolean)]);
+    }
     for (const review of reviews) results.push(await applyReview(client, review, dryRun));
     await client.query(dryRun ? "rollback" : "commit");
     return results;

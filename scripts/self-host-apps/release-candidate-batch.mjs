@@ -21,11 +21,18 @@ async function main() {
   await withClient(async (client) => {
     const result = await client.query(
       `
-        update public.self_host_app_candidates
+        with locked as (
+          select id from public.self_host_app_candidates
+          where id = any($1::uuid[]) and status = 'enriching'
+          order by id
+          for no key update
+        )
+        update public.self_host_app_candidates candidate
         set status = $2, updated_at = now()
-        where id = any($1::uuid[])
-          and status = 'enriching'
-        returning id
+        from locked
+        where candidate.id = locked.id
+          and candidate.status = 'enriching'
+        returning candidate.id
       `,
       [ids, targetStatus],
     );
