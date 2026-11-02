@@ -18,10 +18,10 @@ export const axureRp: AppShortcuts = {
   category: "Prototyping and wireframing",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current Axure RP 11 keyboard shortcut reference checked November 1, 2026. Windows and Mac columns are preserved. Single-key shortcuts are enabled by default but can be disabled in Canvas preferences. Pointer gestures and modifier-only mouse behaviors are omitted.",
+    "Axure RP 11 for Windows and Mac. Single-key shortcuts are on by default, and you can turn them off in Canvas preferences.",
   sourceUrl: "https://docs.axure.com/axure-rp/reference/keyboard-shortcuts/",
   sourceLabel: "Axure RP 11 keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "common-text",
@@ -91,7 +91,7 @@ export const axureRp: AppShortcuts = {
       id: "insert-widgets",
       title: "Insert widgets and drawing objects",
       intro:
-        "Insert common Axure widgets from either the full shortcut or its default single-key Canvas binding when one is documented.",
+        "Insert common Axure widgets from either the full shortcut or its default single-key Canvas binding when one exists.",
       shortcuts: rows([
         ["rectangle", "Insert a rectangle", ["Ctrl", "Shift", "B"], ["Cmd", "Shift", "B"], [["R"]]],
         ["oval", "Insert an oval", ["Ctrl", "Shift", "E"], ["Cmd", "Shift", "E"], [["O"]]],

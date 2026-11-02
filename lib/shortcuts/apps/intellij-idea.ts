@@ -10,10 +10,10 @@ const intellijIdea: AppShortcuts = {
   category: "IDE",
   platforms: [...platforms],
   versionContext:
-    "JetBrains documents predefined Windows and macOS keymaps for IntelliJ IDEA 2026.2. All bindings can be changed in Settings > Keymap, and function keys may also be claimed by the operating system.",
+    "IntelliJ IDEA 2026.2 default keymaps for Windows and macOS. You can change any key in Settings > Keymap, and your system may take over some function keys.",
   sourceUrl: "https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html",
   sourceLabel: "official JetBrains IntelliJ IDEA keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "top-commands",
@@ -26,12 +26,12 @@ const intellijIdea: AppShortcuts = {
         { id: "rebuild", action: "Rebuild the project", keys: platformKeys(["Ctrl", "Shift", "F9"], ["Cmd", "Shift", "F9"]) },
         { id: "intention-actions", action: "Show intention actions", keys: platformKeys(["Alt", "Enter"], ["Option", "Enter"]) },
         { id: "recent-files", action: "Open recent files", keys: platformKeys(["Ctrl", "E"], ["Cmd", "E"]) },
-        { id: "find-usages", action: "Find usages", keys: combo(platforms, ["Alt", "F7"]) },
-        { id: "select-in", action: "Select in another tool window", keys: combo(platforms, ["Alt", "F1"]) },
+        { id: "find-usages", action: "Find usages", keys: platformKeys(["Alt", "F7"], ["Option", "F7"]) },
+        { id: "select-in", action: "Select in another tool window", keys: platformKeys(["Alt", "F1"], ["Option", "F1"]) },
         { id: "settings", action: "Open settings", keys: platformKeys(["Ctrl", "Alt", "S"], ["Cmd", ","]) },
         { id: "generate", action: "Generate code", keys: platformKeys(["Alt", "Insert"], ["Cmd", "N"]) },
         { id: "run-anything", action: "Open Run Anything", keys: combo(platforms, ["Ctrl", "Ctrl"]) },
-        { id: "debug", action: "Debug the current configuration", keys: platformKeys(["Alt", "Shift", "F9"], ["Ctrl", "Alt", "D"]) },
+        { id: "debug", action: "Open the Debug popup", keys: platformKeys(["Alt", "Shift", "F9"], ["Ctrl", "Option", "D"]) },
         { id: "breakpoints", action: "Open breakpoints", keys: platformKeys(["Ctrl", "Shift", "F8"], ["Cmd", "Shift", "F8"]) },
         { id: "vcs-popup", action: "Open the VCS operations popup", keys: platformKeys(["Alt", "`"] , ["Ctrl", "V"]) },
         { id: "refactor-this", action: "Open Refactor This", keys: platformKeys(["Ctrl", "Alt", "Shift", "T"], ["Ctrl", "T"]) },
@@ -71,7 +71,7 @@ const intellijIdea: AppShortcuts = {
       shortcuts: [
         { id: "basic-completion", action: "Open basic completion", keys: combo(platforms, ["Ctrl", "Space"]) },
         { id: "type-completion", action: "Open type-matching completion", keys: combo(platforms, ["Ctrl", "Shift", "Space"]) },
-        { id: "second-completion", action: "Open the second completion list", keys: combo(platforms, ["Ctrl", "Alt", "Space"]) },
+        { id: "second-completion", action: "Open the second completion list", keys: platformKeys(["Ctrl", "Alt", "Space"], ["Ctrl", "Option", "Space"]) },
         { id: "complete-statement", action: "Complete the current statement", keys: platformKeys(["Ctrl", "Shift", "Enter"], ["Cmd", "Shift", "Enter"]) },
         { id: "parameter-info", action: "Show parameter information", keys: platformKeys(["Ctrl", "P"], ["Cmd", "P"]) },
         { id: "quick-documentation", action: "Show quick documentation", keys: platformKeys(["Ctrl", "Q"], ["F1"]) },

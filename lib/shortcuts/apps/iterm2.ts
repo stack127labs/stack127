@@ -8,10 +8,10 @@ export const iterm2: AppShortcuts = {
   category: "Terminal emulator",
   platforms: ["macos"],
   versionContext:
-    "Default bindings documented on iTerm2's official one-page documentation checked in August 2026. Many bindings can be changed in Preferences, Keys, so a local key mapping can differ from these defaults.",
+    "These are iTerm2's Mac defaults. You can change many bindings in Settings > Keys.",
   sourceUrl: "https://iterm2.com/documentation-one-page.html",
   sourceLabel: "official iTerm2 documentation",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "panes",

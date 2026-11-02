@@ -16,10 +16,10 @@ export const opera: AppShortcuts = {
   category: "Web browser",
   platforms: [...platforms],
   versionContext:
-    "Current Opera desktop shortcuts checked November 1, 2026. The official page covers macOS and Windows/Linux defaults and notes that shortcuts can be customized under Settings > Browser > Shortcuts.",
+    "Change shortcuts in Settings > Advanced > Browser > Shortcuts > Configure shortcuts.",
   sourceUrl: "https://help.opera.com/en/latest/shortcuts/",
   sourceLabel: "official Opera shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "commands",

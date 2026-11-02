@@ -19,10 +19,10 @@ export const asana: AppShortcuts = {
   category: "Work management",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current defaults from Asana's official Help Center, checked November 1, 2026. Some shortcuts may not work with non-English keyboard input. Desktop-window commands apply to the Asana desktop app. Tab+B requires the Tab-B hack to be enabled in Settings.",
+    "Some shortcuts may not work with non-English keyboard input. Window commands are for the desktop app, and Tab+B needs the Tab-B hack turned on in Settings.",
   sourceUrl: "https://help.asana.com/s/article/keyboard-shortcuts",
   sourceLabel: "Asana keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "inbox",
@@ -41,7 +41,7 @@ export const asana: AppShortcuts = {
     {
       id: "task-details",
       title: "Task details",
-      intro: "Asana documents product actions such as Tab+Q and Tab+D as Tab-key chords. Return and Escape open or close the selected task's detail view.",
+      intro: "Product actions such as Tab+Q and Tab+D are Tab-key chords. Tab+Return and Escape open or close the selected task's detail view.",
       shortcuts: rows([
         ["quick-add", "Quick-add a task", [["Tab", "Q"]]],
         ["delete-task", "Delete selected tasks", [["Tab", "Delete"]]],
@@ -65,7 +65,7 @@ export const asana: AppShortcuts = {
     {
       id: "task-list-actions",
       title: "Task-list actions",
-      intro: "These commands create, select, reorder, copy, and paste tasks in a project list. Arrow pairs preserve their separate up and down alternatives.",
+      intro: "These commands create, select, reorder, copy, and paste tasks in a project list.",
       shortcuts: rows([
         ["new-task", "Create a new task", [["Return"]]],
         ["new-task-above", "Create a task above the current task", [["Shift", "Return"]]],
@@ -81,12 +81,12 @@ export const asana: AppShortcuts = {
     {
       id: "navigation",
       title: "Navigation",
-      intro: "Navigation uses documented Tab-key chords. Press Right Arrow twice to enable list-view field navigation.",
+      intro: "Navigation uses Tab-key chords. Press Right Arrow twice to enable list-view field navigation.",
       shortcuts: rows([
         ["my-tasks", "Go to My Tasks", [["Tab", "Z"]]],
         ["inbox", "Go to Inbox", [["Tab", "I"]]],
         ["home", "Go to Home", [["Tab", "H"]]],
-        ["sidebar", "Collapse or expand the sidebar", [["Tab", "O"]]],
+        ["sidebar", "Collapse the sidebar", [["Tab", "O"]]],
         ["assign-selected", "Assign the selected task", [["Tab", "A"]]],
         ["focus-subtasks", "Focus the selected task's subtasks", [["Tab", "S"]]],
         ["search", "Search for a project, tag, person, or task", [["Tab", "/"]]],
@@ -125,12 +125,8 @@ export const asana: AppShortcuts = {
         ["minimize", "Minimize the window", [["Ctrl", "M"]], [["Cmd", "M"]]],
         ["hide", "Hide Asana", [["Ctrl", "H"]], [["Cmd", "H"]]],
         ["quit", "Quit Asana", [["Ctrl", "Q"]], [["Cmd", "Q"]]],
-      ]).concat({
-        id: "create-task-desktop",
-        action: "Create a task",
-        keys: [{ platform: "windows" as const, keys: ["Ctrl", "Shift", "+"] }],
-        note: "Asana's current English source prints the macOS binding as 'Command-Shif-+', so the malformed macOS row is not reproduced.",
-      }),
+        ["create-task-desktop", "Create a task", [["Ctrl", "Shift", "+"]], [["Cmd", "Shift", "+"]]],
+      ]),
     },
   ],
 };

@@ -32,10 +32,10 @@ export const evernote: AppShortcuts = {
   category: "Notes and documents",
   platforms: [...platforms],
   versionContext:
-    "Current Evernote keyboard shortcut reference updated July 31, 2026 and checked September 1, 2026. Some shortcuts can be customized or disabled from Evernote's shortcut drawer.",
+    "You can customize or turn off some shortcuts from Evernote's shortcut drawer.",
   sourceUrl: "https://help.evernote.com/hc/en-us/articles/34296687388307-Keyboard-shortcuts",
   sourceLabel: "Evernote keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "global",

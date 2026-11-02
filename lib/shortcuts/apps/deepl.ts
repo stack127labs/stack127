@@ -13,15 +13,15 @@ export const deepl: AppShortcuts = {
   category: "Translation and writing",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current DeepL desktop-app defaults checked August 31, 2026. Translation and improvement shortcuts can be disabled or customized in app settings, so these entries describe the published defaults.",
+    "Default keys for the DeepL desktop app. You can turn off or change the translate and improve shortcuts in settings.",
   sourceUrl: "https://support.deepl.com/hc/en-us/articles/360020613059-Use-DeepL-shortcuts-for-desktop-apps",
   sourceLabel: "DeepL desktop app shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "selected-text-and-app",
       title: "Selected text and app controls",
-      intro: "Select text in another app before using DeepL's translation or improvement commands. DeepL also documents a Mac quit shortcut.",
+      intro: "Select text in another app before using DeepL's translation or improvement commands. There's also a key to quit DeepL on a Mac.",
       shortcuts: [
         dual("translate", "Translate selected text", ["Ctrl", "C", "then", "C"], ["Cmd", "C", "then", "C"]),
         dual("improve", "Improve selected text", ["Ctrl", "Win", "C"], ["Ctrl", "Cmd", "C"]),

@@ -19,10 +19,10 @@ export const affinityDesigner: AppShortcuts = {
   category: "Vector design",
   platforms: ["windows", "macos"],
   versionContext:
-    "Affinity Designer 2 desktop defaults from Serif's May 23, 2024 Windows and macOS shortcut sheets, cross-checked against the current Affinity V2 online help on November 1, 2026. The sheets use English UK keyboard layouts, so physical key positions can differ. Customized shortcuts are not listed.",
+    "Affinity Designer 2 defaults for Windows and macOS, based on an English UK keyboard. Key positions can differ on other layouts, and custom shortcuts aren't listed.",
   sourceUrl: "https://affinity.help/designer2/English.lproj/pages/Workspace/shortcuts.html",
   sourceLabel: "Affinity Designer 2 keyboard shortcuts help",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "documents-and-editing",
@@ -51,7 +51,7 @@ export const affinityDesigner: AppShortcuts = {
     {
       id: "designer-tools",
       title: "Designer Persona tools",
-      intro: "These single-letter defaults select vector tools in the Designer Persona. Repeated letters cycle tools where the sheet names a family.",
+      intro: "These single-letter defaults select vector tools in the Designer Persona. Pressing a letter again cycles through that tool family.",
       shortcuts: rows([
         ["move-tool", "Activate the Move tool", [["V"]]],
         ["node-tool", "Activate the Node tool", [["A"]]],
@@ -125,7 +125,7 @@ export const affinityDesigner: AppShortcuts = {
     {
       id: "drawing-and-selection-modifiers",
       title: "Drawing and selection modifiers",
-      intro: "Hold these modifiers while drawing, transforming, selecting, painting, or zooming. The Windows and macOS sheets use different center-scaling and overlap-selection keys.",
+      intro: "Hold these modifiers while drawing, transforming, selecting, painting, or zooming. Windows and macOS use different center-scaling and overlap-selection keys.",
       shortcuts: rows([
         ["temporary-picker", "Temporarily switch a drawing or painting tool to Colour Picker", [["Alt"]], [["Option"]]],
         ["reverse-aspect", "Reverse the aspect-ratio constraint while scaling", [["Shift"]]],

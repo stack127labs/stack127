@@ -9,10 +9,10 @@ export const figma: AppShortcuts = {
   category: "Design tool",
   platforms: [...platforms],
   versionContext:
-    "The current Figma help page documents canvas navigation, keyboard selection, object creation, and the in-product shortcuts panel. macOS uses Cmd and Option where Windows and Linux use Ctrl and Alt.",
+    "Mac uses Cmd and Option where Windows and Linux use Ctrl and Alt.",
   sourceUrl: "https://help.figma.com/hc/en-us/articles/360040328653-Use-Figma-products-with-a-keyboard",
   sourceLabel: "official Figma keyboard shortcuts",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "canvas-navigation",
@@ -45,7 +45,7 @@ export const figma: AppShortcuts = {
           id: "shortcut-panel",
           action: "Open the keyboard shortcuts panel",
           keys: combo(platforms, ["Ctrl", "Shift", "?" ]),
-          note: "Figma also exposes the panel from Help and resources or the Actions menu.",
+          note: "You can also open it from Help and resources or the actions menu.",
         },
       ],
     },
@@ -55,7 +55,7 @@ export const figma: AppShortcuts = {
       intro: "Switch between the pointer, frame, pen, text, hand, and zoom tools that shape the canvas.",
       shortcuts: [
         { id: "move-tool", action: "Move tool", keys: combo(platforms, ["V"]) },
-        { id: "frame-tool", action: "Frame tool", keys: combo(platforms, ["F"]) },
+        { id: "frame-tool", action: "Frame tool", keys: platforms.map((platform) => ({ platform, keys: ["F"], alternatives: [["A"]] })) },
         { id: "rectangle", action: "Rectangle", keys: combo(platforms, ["R"]) },
         { id: "ellipse", action: "Ellipse", keys: combo(platforms, ["O"]) },
         { id: "pen", action: "Pen", keys: combo(platforms, ["P"]) },
@@ -78,7 +78,7 @@ export const figma: AppShortcuts = {
             windows: ["Ctrl", "F6"],
             macos: ["F6"],
           }),
-          note: "Use the arrow keys to choose a tool after the toolbar is focused. The current help page documents macOS and Windows bindings.",
+          note: "Use the arrow keys to choose a tool after the toolbar is focused.",
         },
         {
           id: "place-object",
@@ -124,7 +124,7 @@ export const figma: AppShortcuts = {
     {
       id: "shapes-and-editing",
       title: "Shapes and editing",
-      intro: "Create shapes, duplicate objects, edit text, and make repeated changes without opening menus.",
+      intro: "Duplicate, group, combine, flip, and resize objects without opening menus.",
       shortcuts: [
         {
           id: "duplicate",
@@ -140,7 +140,7 @@ export const figma: AppShortcuts = {
         {
           id: "boolean-union",
           action: "Boolean union of the selection",
-          keys: combo(platforms, ["Ctrl", "Alt", "U"], ["Cmd", "Option", "U"]),
+          keys: combo(platforms, ["Alt", "Shift", "U"], ["Option", "Shift", "U"]),
         },
         {
           id: "flip-horizontal",

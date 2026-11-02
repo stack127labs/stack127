@@ -13,10 +13,10 @@ export const microsoftPowerToys: AppShortcuts = {
   category: "Windows utilities",
   platforms: ["windows"],
   versionContext:
-    "Current Microsoft PowerToys documentation checked November 1, 2026. These are documented defaults, but utilities can be disabled or remapped in PowerToys settings.",
-  sourceUrl: "https://learn.microsoft.com/en-us/windows/powertoys/shortcut-guide",
+    "PowerToys defaults. You can turn off or remap utilities in PowerToys settings.",
+  sourceUrl: "https://learn.microsoft.com/en-us/windows/powertoys/",
   sourceLabel: "official Microsoft PowerToys documentation",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "shortcut-guide",
@@ -25,7 +25,7 @@ export const microsoftPowerToys: AppShortcuts = {
       shortcuts: [
         windows("open-shortcut-guide", "Open the Shortcut Guide", ["Win", "Shift", "?"]),
         windows("search-shortcut-guide", "Focus Shortcut Guide search", ["Ctrl", "F"]),
-        windows("close-shortcut-guide", "Close the Shortcut Guide", ["Esc"]),
+        windows("close-shortcut-guide", "Close the Shortcut Guide", ["Esc"], "If search is active, press Esc again after clearing it."),
       ],
     },
     {
@@ -35,11 +35,11 @@ export const microsoftPowerToys: AppShortcuts = {
       shortcuts: [
         windows("show-run", "Show or hide PowerToys Run", ["Alt", "Space"]),
         windows("hide-run", "Close PowerToys Run", ["Esc"]),
-        windows("run-as-administrator", "Run the selected result as administrator", ["Ctrl", "Shift", "Enter"]),
-        windows("run-as-different-user", "Run the selected result as a different user", ["Ctrl", "Shift", "U"]),
-        windows("open-containing-folder", "Open the containing folder", ["Ctrl", "Shift", "E"]),
-        windows("copy-result-path", "Copy the selected result path", ["Ctrl", "C"]),
-        windows("next-run-result", "Move to the next result", ["Tab"]),
+        windows("run-as-administrator", "Run the selected result as administrator", ["Ctrl", "Shift", "Enter"], "For application results only."),
+        windows("run-as-different-user", "Run the selected result as a different user", ["Ctrl", "Shift", "U"], "For application results only."),
+        windows("open-containing-folder", "Open the containing folder", ["Ctrl", "Shift", "E"], "For application and file results only."),
+        windows("copy-result-path", "Copy the selected result path", ["Ctrl", "C"], "For folder and file results only."),
+        windows("next-run-result", "Move through results and context-menu buttons", ["Tab"]),
       ],
     },
     {
@@ -57,8 +57,8 @@ export const microsoftPowerToys: AppShortcuts = {
       intro: "Open the layout editor and move windows into zones using the default FancyZones bindings.",
       shortcuts: [
         windows("open-zones-editor", "Open the FancyZones editor", ["Win", "Shift", "`"]),
-        windows("move-window-left", "Move the focused window to the zone on the left", ["Win", "Left"], "Requires the FancyZones Override Windows Snap hotkeys setting."),
-        windows("move-window-right", "Move the focused window to the zone on the right", ["Win", "Right"], "Requires the FancyZones Override Windows Snap hotkeys setting."),
+        windows("move-window-left", "Move the focused window to the zone on the left", ["Win", "Left"], "Requires Override Windows Snap hotkeys with Zone index or Relative position selected."),
+        windows("move-window-right", "Move the focused window to the zone on the right", ["Win", "Right"], "Requires Override Windows Snap hotkeys with Zone index or Relative position selected."),
         windows("move-window-up", "Move the focused window to the zone above", ["Win", "Up"], "Requires Override Windows Snap hotkeys with Relative position selected."),
         windows("move-window-down", "Move the focused window to the zone below", ["Win", "Down"], "Requires Override Windows Snap hotkeys with Relative position selected."),
         windows("switch-window-up", "Switch windows in the zone above", ["Win", "Page Up"]),

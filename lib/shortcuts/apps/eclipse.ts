@@ -24,7 +24,7 @@ export const eclipse: AppShortcuts = {
   category: "Developer tools",
   platforms: [...platforms],
   versionContext:
-    "Eclipse IDE 2026-06 (4.40) documentation and the current Eclipse IDE keybindings card checked September 1, 2026. The entries describe the Default scheme where the documentation provides a default and retain Eclipse's platform-specific Command mappings.",
+    "Eclipse IDE 2026-06 (4.40) with the Default key scheme. Mac keys use Command where Eclipse maps it.",
   sourceUrl: "https://help.eclipse.org/latest/topic/org.eclipse.platform.doc.user/concepts/concepts-keys.htm",
   sourceLabel: "Eclipse Platform keys and keyboard shortcuts",
   lastVerified: "2026-11-01",

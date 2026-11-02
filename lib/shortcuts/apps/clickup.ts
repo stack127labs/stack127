@@ -18,10 +18,10 @@ export const clickup: AppShortcuts = {
   category: "Project management",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current ClickUp Help shortcut table checked August 31, 2026. Workspace shortcuts are disabled by default and must be enabled in personal settings. Most global commands require focus outside a text field. Chat and SyncUps commands depend on those ClickApps being available.",
+    "Shortcuts are off by default; turn them on in your personal settings. Most global keys work only outside a text field, and Chat and SyncUps keys need those ClickApps.",
   sourceUrl: "https://help.clickup.com/hc/en-us/articles/6309030550167-Use-keyboard-shortcuts",
   sourceLabel: "ClickUp keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "global-navigation",
@@ -110,8 +110,8 @@ export const clickup: AppShortcuts = {
           id: "create-open-subtask",
           action: "Create and open a subtask",
           keys: [
-            { platform: "windows", keys: ["Cmd", "Enter"], note: "ClickUp's current source labels this combination for PC." },
-            { platform: "macos", keys: ["Ctrl", "Return"], note: "ClickUp's current source labels this combination for Mac." },
+            { platform: "windows", keys: ["Cmd", "Enter"], note: "ClickUp lists this for PC." },
+            { platform: "macos", keys: ["Ctrl", "Return"], note: "ClickUp lists this for Mac." },
           ],
         },
         {

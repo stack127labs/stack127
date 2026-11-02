@@ -9,10 +9,10 @@ const googleDocs: AppShortcuts = {
   category: "Document editor",
   platforms: [...platforms],
   versionContext:
-    "Google publishes separate PC and Mac columns for Docs. These commands apply while a document or its editor has focus. Browser, screen-reader, and Chromebook tables are outside this desktop record.",
-  sourceUrl: "https://support.google.com/docs/answer/179738?hl=en-GB",
+    "These shortcuts apply while a desktop Google Docs document has focus. Chromebook and screen reader shortcuts differ.",
+  sourceUrl: "https://support.google.com/docs/answer/179738?hl=en",
   sourceLabel: "official Google Docs keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "document-commands",

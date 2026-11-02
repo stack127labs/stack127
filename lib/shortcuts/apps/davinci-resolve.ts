@@ -26,10 +26,10 @@ export const davinciResolve: AppShortcuts = {
   category: "Video editing",
   platforms: [...platforms],
   versionContext:
-    "DaVinci Resolve 20 guides checked October 10, 2026. Blackmagic Design lists a Linux version and lets users change nearly every command in Keyboard Customization, so these entries describe the documented defaults.",
+    "These are DaVinci Resolve 20 defaults for Windows, macOS, and Linux. You can change commands in Keyboard Customization.",
   sourceUrl: "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Editors-Guide.pdf?_v=1757574010000",
   sourceLabel: "DaVinci Resolve 20 Editors Guide",
-  lastVerified: "2026-10-10",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "playback",

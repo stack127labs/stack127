@@ -19,7 +19,7 @@ export const audacity: AppShortcuts = {
   category: "Audio editor",
   platforms: ["windows", "macos", "linux"],
   versionContext:
-    "Current Audacity Development Manual checked November 1, 2026. This record includes the default Standard set only. The manual maps Ctrl to Command and Alt to Option on macOS, with explicit Mac exceptions preserved. Users can customize or replace the defaults in Shortcuts Preferences.",
+    "Audacity's default Standard set. Ctrl becomes Command and Alt becomes Option on macOS unless a Mac key is shown, and you can change keys in Shortcuts Preferences.",
   sourceUrl: "https://manual.audacityteam.org/man/keyboard_shortcut_reference.html",
   sourceLabel: "Audacity commands and keyboard shortcut reference",
   lastVerified: "2026-11-01",

@@ -13,10 +13,10 @@ export const bear: AppShortcuts = {
   category: "Notes and writing",
   platforms: ["macos"],
   versionContext:
-    "Current Bear for Mac shortcut reference checked August 31, 2026. Bear Web has a separate beta keymap and is not mixed into this native macOS reference. Back and forward shortcuts can vary with keyboard layout and localization.",
+    "Bear for Mac. Bear Web has its own beta keymap, and back and forward keys can vary with keyboard layout and language.",
   sourceUrl: "https://bear.app/faq/mac-keyboard-shortcuts/",
   sourceLabel: "Bear for Mac keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "formatting",
@@ -71,7 +71,7 @@ export const bear: AppShortcuts = {
     {
       id: "dates-and-editor",
       title: "Dates and editor control",
-      intro: "Date commands insert Bear's four published relative-date values. Editor control includes selection, printing, folding, links, search, and zoom.",
+      intro: "Date commands insert the date or time in four formats. Editor control includes selection, printing, folding, links, search, and zoom.",
       shortcuts: [
         mac("date-today", "Insert today's date", ["Shift", "Cmd", "7"]),
         mac("date-tomorrow", "Insert tomorrow's date", ["Shift", "Cmd", "8"]),
@@ -98,7 +98,7 @@ export const bear: AppShortcuts = {
     {
       id: "notes-and-navigation",
       title: "Notes and navigation",
-      intro: "Arrow keys move within the focused list or among Bear's panes. Sidebar number shortcuts select the documented built-in sections.",
+      intro: "Arrow keys move within the focused list or among Bear's panes. Sidebar number shortcuts select the built-in sections.",
       shortcuts: [
         mac("new-note", "Create a new note", ["Cmd", "N"]),
         mac("new-window", "Create a note in a new window", ["Option", "Cmd", "N"]),
@@ -119,8 +119,7 @@ export const bear: AppShortcuts = {
         mac("sidebar-today", "Open Today in the sidebar", ["Option", "Cmd", "4"]),
         mac("sidebar-locked", "Open Locked in the sidebar", ["Option", "Cmd", "5"]),
         mac("sidebar-trash", "Open Trash in the sidebar", ["Option", "Cmd", "6"]),
-        mac("sidebar-tags", "Open Tags in the sidebar", ["Option", "Cmd", "9"]),
-        mac("sidebar-search", "Open Search in the sidebar", ["Option", "Cmd", "0"]),
+        mac("sidebar-pinned", "Open Pinned in the sidebar", ["Option", "Cmd", "6"]),
         mac("back", "Go back", ["Cmd", "["]),
         mac("forward", "Go forward", ["Cmd", "]"]),
       ],
@@ -137,7 +136,7 @@ export const bear: AppShortcuts = {
         mac("three-column", "Use the three-column layout", ["Ctrl", "3"]),
         mac("preferences", "Open Bear settings", ["Cmd", ","]),
         mac("full-screen", "Toggle full-screen mode", ["Ctrl", "Cmd", "F"]),
-        mac("main-window", "Show or hide the main Bear window", ["Cmd", "\\"]),
+        mac("main-window", "Open the main Bear window", ["Cmd", "\\"]),
       ],
     },
   ],

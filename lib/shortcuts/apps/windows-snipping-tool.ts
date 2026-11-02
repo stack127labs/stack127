@@ -16,10 +16,10 @@ export const windowsSnippingTool: AppShortcuts = {
   category: "Screen capture",
   platforms: [...platforms],
   versionContext:
-    "Microsoft Snipping Tool help checked November 1, 2026. The capture overlay supports screenshots and screen recordings on current Windows.",
-  sourceUrl: "https://support.microsoft.com/en-US/Windows/Apps/use-snipping-tool-to-capture-screenshots",
+    "Snipping Tool on current Windows. The capture overlay takes screenshots and screen recordings.",
+  sourceUrl: "https://support.microsoft.com/en-us/windows/apps/use-snipping-tool-to-capture-screenshots",
   sourceLabel: "official Microsoft Snipping Tool shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "capture",
@@ -39,7 +39,7 @@ export const windowsSnippingTool: AppShortcuts = {
         shortcut("choose-mode", "Choose a snipping mode", ["Alt", "M"]),
         shortcut("new-snip", "Create a new snip in the current mode", ["Alt", "N"]),
         shortcut("move-mode", "Move between snipping modes", ["Shift", "Arrow keys"]),
-        shortcut("delay", "Choose a capture delay", ["Alt", "D"], "The source lists delay choices from one to five seconds."),
+        shortcut("delay", "Choose a capture delay", ["Alt", "D"], "You can delay a capture by one to five seconds."),
         shortcut("copy", "Copy the snip", ["Ctrl", "C"]),
         shortcut("save", "Save the snip", ["Ctrl", "S"]),
       ],

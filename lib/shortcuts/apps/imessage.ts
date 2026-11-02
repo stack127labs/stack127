@@ -9,10 +9,10 @@ const imessage: AppShortcuts = {
   category: "Messaging",
   platforms: [...platforms],
   versionContext:
-    "The official Apple User Guide publishes the Messages shortcuts for macOS. The app name shown to Mac users is Messages, while this Stack127 record keeps the requested iMessage slug. iPhone and iPad gestures are outside scope.",
+    "These shortcuts are for Messages on Mac. They may vary with your language and keyboard layout.",
   sourceUrl: "https://support.apple.com/guide/messages/keyboard-shortcuts-ichtc78b3bff/mac",
   sourceLabel: "official Apple Messages keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "app-and-conversations",
@@ -40,7 +40,7 @@ const imessage: AppShortcuts = {
       intro: "Send, edit, format, and add a Tapback while the conversation composer has focus.",
       shortcuts: [
         { id: "send", action: "Send the message", keys: combo(platforms, ["Return"]) },
-        { id: "line-break", action: "Insert a line break", keys: combo(platforms, ["Option", "Return"]) },
+        { id: "line-break", action: "Insert a line break", keys: [{ platform: "macos", keys: ["Option", "Return"], alternatives: [["Shift", "Return"]] }] },
         { id: "edit-sent", action: "Edit a sent message", keys: combo(platforms, ["Cmd", "E"]) },
         { id: "copy", action: "Copy selected text", keys: combo(platforms, ["Cmd", "C"]) },
         { id: "paste", action: "Paste text", keys: combo(platforms, ["Cmd", "V"]) },

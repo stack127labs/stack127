@@ -22,10 +22,10 @@ export const davinciResolveFusionPage: AppShortcuts = {
   category: "Compositing and motion graphics",
   platforms: [...platforms],
   versionContext:
-    "DaVinci Resolve Fusion 20.3 Reference Manual checked October 10, 2026. Resolve is available on Linux and supports custom keyboard mappings; the manual's Command-labelled range commands are kept separate from the shared transport keys.",
-  sourceUrl: "https://documents.blackmagicdesign.com/UserManuals/FusionManual.pdf?_v=1724310010000",
-  sourceLabel: "Fusion 20.3 Reference Manual",
-  lastVerified: "2026-10-10",
+    "The Fusion page in DaVinci Resolve. You can remap its keys in DaVinci Resolve > Keyboard Customization.",
+  sourceUrl: "https://documents.blackmagicdesign.com/UserManuals/FusionManual.pdf",
+  sourceLabel: "Fusion 21.1 Reference Manual",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "playback-and-navigation",
@@ -45,7 +45,7 @@ export const davinciResolveFusionPage: AppShortcuts = {
     {
       id: "render-range",
       title: "Render range",
-      intro: "The current Fusion manual documents these range jumps with Command on macOS.",
+      intro: "These range jumps are listed with Command on macOS. Keys for Windows and Linux are not listed.",
       shortcuts: [
         mac("render-in", "Jump to the render range In point", ["Cmd", "Left"]),
         mac("render-out", "Jump to the render range Out point", ["Cmd", "Right"]),

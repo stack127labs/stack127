@@ -17,10 +17,10 @@ export const opencode: AppShortcuts = {
   category: "AI coding agent",
   platforms: [...platforms],
   versionContext:
-    "Current default keybinds from opencode.ai checked November 1, 2026. The leader is Ctrl+X, leader chords are sequential, and every TUI binding can be remapped in tui.json.",
+    "The leader key is Ctrl+X, and leader shortcuts are pressed in order. You can remap every key in the terminal interface in tui.json.",
   sourceUrl: "https://opencode.ai/docs/keybinds",
   sourceLabel: "official OpenCode keybinds reference",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "leader-and-app",
@@ -35,7 +35,7 @@ export const opencode: AppShortcuts = {
           keys: bindings(["Ctrl", "C"], [["Ctrl", "D"], ["Ctrl", "X", "Q"]]),
           note: "Ctrl+X then Q is a leader sequence. Ctrl+C and Ctrl+D are direct bindings.",
         },
-        { id: "editor-open", action: "Open the external editor for the prompt", keys: combo(platforms, ["Ctrl", "X", "E"]), note: "Uses the editor in EDITOR or the configured editor." },
+        { id: "editor-open", action: "Open the external editor for the prompt", keys: combo(platforms, ["Ctrl", "X", "E"]), note: "Uses the editor set in your EDITOR variable." },
         { id: "theme-list", action: "List themes", keys: combo(platforms, ["Ctrl", "X", "T"]) },
         { id: "sidebar-toggle", action: "Toggle the sidebar", keys: combo(platforms, ["Ctrl", "X", "B"]) },
         { id: "status-view", action: "Show the status view", keys: combo(platforms, ["Ctrl", "X", "S"]) },
@@ -158,7 +158,7 @@ export const opencode: AppShortcuts = {
         { id: "autocomplete-select", action: "Select the autocomplete item", keys: combo(platforms, ["Enter"]) },
         { id: "autocomplete-complete", action: "Complete the current token", keys: combo(platforms, ["Tab"]) },
         { id: "permission-fullscreen", action: "Open a permission prompt full-screen", keys: combo(platforms, ["Ctrl", "F"]) },
-        { id: "terminal-suspend", action: "Suspend OpenCode to the shell", keys: perPlatform(platforms, { windows: [], macos: ["Ctrl", "Z"], linux: ["Ctrl", "Z"] }), note: "The current docs disable terminal suspension on Windows; use fg to resume on Unix-like systems." },
+        { id: "terminal-suspend", action: "Suspend OpenCode to the shell", keys: perPlatform(platforms, { windows: [], macos: ["Ctrl", "Z"], linux: ["Ctrl", "Z"] }), note: "Not available in native Windows terminals." },
       ],
     },
   ],

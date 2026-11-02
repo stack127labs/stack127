@@ -21,7 +21,7 @@ export const mozillaThunderbird: AppShortcuts = {
   category: "Email",
   platforms: [...platforms],
   versionContext:
-    "Current Thunderbird desktop shortcuts checked November 1, 2026. The official table was updated April 2, 2026. Add-ons can customize or disable some shortcuts, and macOS laptops may need Fn for function keys.",
+    "Thunderbird desktop. Add-ons can change or turn off some keys, and Mac laptops may need Fn for function keys.",
   sourceUrl: "https://support.mozilla.org/en-US/kb/keyboard-shortcuts-thunderbird",
   sourceLabel: "official Thunderbird keyboard shortcuts",
   lastVerified: "2026-11-01",

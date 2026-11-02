@@ -9,10 +9,10 @@ export const chrome: AppShortcuts = {
   category: "Web browser",
   platforms: [...platforms],
   versionContext:
-    "Documented defaults from Google Chrome Help checked August 26, 2026. Google separates Windows and Linux from macOS, and some commands depend on the focused page, address bar, or dialog.",
+    "Chrome uses different defaults on Mac and Windows/Linux. Some shortcuts depend on whether the page, address bar, or a dialog has focus.",
   sourceUrl: "https://support.google.com/chrome/answer/157179",
   sourceLabel: "official Chrome keyboard shortcuts",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "tabs-and-windows",

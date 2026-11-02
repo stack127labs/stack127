@@ -9,10 +9,10 @@ export const vim: AppShortcuts = {
   category: "Text editor",
   platforms: [...platforms],
   versionContext:
-    "Core Vim 9.2 behavior from the official Vim quick reference checked in August 2026. Commands are typed inside Vim, so the same keys apply on Windows, macOS, and Linux; terminal or GUI mappings can change them.",
+    "These core Vim 9.2 commands work on Windows, macOS, and Linux. Terminal or GUI mappings can change them.",
   sourceUrl: "https://vimhelp.org/quickref.txt.html",
   sourceLabel: "official Vim quick reference",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "modes-and-movement",

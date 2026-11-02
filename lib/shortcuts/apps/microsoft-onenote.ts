@@ -30,10 +30,10 @@ export const microsoftOneNote: AppShortcuts = {
   category: "Notes and writing",
   platforms: [...platforms],
   versionContext:
-    "Current Microsoft OneNote desktop shortcut tables checked November 1, 2026. Windows, macOS, and web versions have different maps, so this record separates the Windows and Mac desktop commands and leaves web-only access keys out.",
+    "The Windows and Mac desktop apps have different keys, shown separately. OneNote for the web isn't covered.",
   sourceUrl: "https://support.microsoft.com/en-us/accessibility/onenote/keyboard-shortcuts-in-onenote",
   sourceLabel: "official Microsoft OneNote keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "editing",

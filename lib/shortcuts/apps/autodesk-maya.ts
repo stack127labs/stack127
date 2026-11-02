@@ -18,10 +18,10 @@ export const autodeskMaya: AppShortcuts = {
   category: "3D modeling and animation",
   platforms: ["windows", "macos"],
   versionContext:
-    "Maya 2026 default hotkeys from Autodesk's searchable reference checked November 1, 2026. The reference documents Windows and macOS defaults only; no Linux defaults are included. On macOS, Autodesk maps Alt to Option and Ctrl to Control unless a command explicitly lists Command. The Hotkey Editor can replace these defaults. Some function keys and US-keyboard punctuation can conflict with macOS or non-US layouts.",
-  sourceUrl: "https://help.autodesk.com/cloudhelp/2026/ENU/Maya-KeyboardShortcuts/files/GUID-30CACC9D-8FBE-4B85-8A8F-C5ADF32DDD4E.htm",
-  sourceLabel: "Maya 2026 all hotkeys",
-  lastVerified: "2026-11-01",
+    "Maya 2027 defaults for Windows and macOS. Change keys in the Hotkey Editor. On Mac, Alt means Option and Ctrl means Control unless Command is shown. Function keys can clash with macOS, and some punctuation keys need a US layout.",
+  sourceUrl: "https://help.autodesk.com/view/MAYAUL/2027/ENU/?guid=GUID-30CACC9D-8FBE-4B85-8A8F-C5ADF32DDD4E",
+  sourceLabel: "Maya 2027 all hotkeys",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "tools-actions",
@@ -108,8 +108,8 @@ export const autodeskMaya: AppShortcuts = {
         ["frame-back", "Move backward one frame", ["Alt", ","]],
         ["next-key", "Go to the next key", ["."]],
         ["previous-key", "Go to the previous key", [","]],
-        ["graph-next", "Select the next Graph Editor key", ["Ctrl", "Alt", "."]],
-        ["graph-previous", "Select the previous Graph Editor key", ["Ctrl", "Alt", ","]],
+        ["graph-next", "Select the next key", ["Ctrl", "Alt", "."]],
+        ["graph-previous", "Select the previous key", ["Ctrl", "Alt", ","]],
         ["minimum-frame", "Go to the minimum frame", ["Alt", "Shift", "V"]],
       ]),
     },

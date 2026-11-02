@@ -18,10 +18,10 @@ export const airtable: AppShortcuts = {
   category: "Collaborative database",
   platforms: ["windows", "macos"],
   versionContext:
-    "Airtable web keyboard shortcuts from the official support article, last updated October 20, 2026 and checked November 1, 2026. Airtable publishes separate Mac and Windows tables. Browser and operating-system shortcuts, screenshots, and modifier-plus-pointer gestures are omitted. No Linux keymap is documented on the source page.",
+    "Airtable on the web, with separate Mac and Windows keys. Browser and system shortcuts aren't included.",
   sourceUrl: "https://support.airtable.com/articles/7980233311-airtable-keyboard-shortcuts",
   sourceLabel: "Airtable keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "general",
@@ -42,7 +42,7 @@ export const airtable: AppShortcuts = {
           ["now", "Set the selected date or date-time field to now", ["Ctrl", ";"], ["Cmd", ";"]],
           ["previous-control", "Move backward between similar interface elements", ["Shift", "Tab"]],
           ["next-control", "Move forward between similar interface elements", ["Tab"]],
-          ["interface-search", "Activate the interface query-container search", ["Alt", "/"], ["Option", "/"]],
+          ["interface-search", "Open the search control on an interface page", ["Alt", "/"], ["Option", "/"]],
         ]),
         {
           id: "find",

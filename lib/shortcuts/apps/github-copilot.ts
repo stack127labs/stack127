@@ -9,10 +9,10 @@ const githubCopilot: AppShortcuts = {
   category: "AI coding assistant",
   platforms: [...platforms],
   versionContext:
-    "GitHub's current shortcut page separates Visual Studio Code, JetBrains, Visual Studio, Eclipse, Vim/Neovim, and Xcode. This record uses the Visual Studio Code defaults for Windows, macOS, and Linux. Host keymaps and user rebinding can change the active commands.",
+    "Default keys in Visual Studio Code. JetBrains, Visual Studio, Xcode, and other editors use different keys, and you can rebind them.",
   sourceUrl: "https://docs.github.com/en/copilot/reference/keyboard-shortcuts?tool=vscode",
   sourceLabel: "official GitHub Copilot IDE keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "inline-suggestions",
@@ -32,7 +32,7 @@ const githubCopilot: AppShortcuts = {
             windows: ["Ctrl", "Enter"],
             linux: ["Ctrl", "Enter"],
           }),
-          note: "GitHub's Visual Studio Code table publishes Ctrl+Enter for all three platforms. JetBrains uses Option or Alt+Enter instead.",
+          note: "In VS Code this is Ctrl+Enter on every platform, Mac included. JetBrains uses Option or Alt+Enter instead.",
         },
       ],
     },

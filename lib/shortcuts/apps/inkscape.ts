@@ -2,17 +2,16 @@ import { combo } from "../build.ts";
 import type { AppShortcuts } from "../types.ts";
 
 const platforms = ["windows", "macos", "linux"] as const;
-
 const inkscape: AppShortcuts = {
   slug: "inkscape",
   name: "Inkscape",
   category: "Vector editor",
   platforms: [...platforms],
   versionContext:
-    "Inkscape's official keyboard reference checked October 10, 2026. The project says its shortcuts use Ctrl rather than Command on macOS; users can change shortcuts in Preferences.",
-  sourceUrl: "https://inkscape.org/sl/doc/keys.html",
-  sourceLabel: "official Inkscape keyboard shortcuts",
-  lastVerified: "2026-10-10",
+    "Inkscape 1.4 defaults use Ctrl on Windows, macOS, and Linux. You can change shortcuts in Preferences.",
+  sourceUrl: "https://inkscape.org/doc/keys.html",
+  sourceLabel: "Inkscape 1.4 keyboard and mouse reference",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "tools",
@@ -28,7 +27,7 @@ const inkscape: AppShortcuts = {
         { id: "calligraphy", action: "Select the Calligraphy tool", keys: combo(platforms, ["C"]) },
         { id: "text", action: "Select the Text tool", keys: combo(platforms, ["T"]) },
         { id: "gradient", action: "Select the Gradient tool", keys: combo(platforms, ["G"]) },
-        { id: "three-d-box", action: "Select the 3D Box tool", keys: combo(platforms, ["X"]) },
+        { id: "three-d-box", action: "Select the 3D Box tool", keys: combo(platforms, ["Shift", "F4"]) },
         { id: "zoom", action: "Select the Zoom tool", keys: combo(platforms, ["Z"]) },
         { id: "measure", action: "Select the Measure tool", keys: combo(platforms, ["M"]) },
         { id: "dropper", action: "Select the Dropper tool", keys: combo(platforms, ["D"]) },
@@ -46,7 +45,7 @@ const inkscape: AppShortcuts = {
         { id: "close", action: "Close the document", keys: combo(platforms, ["Ctrl", "W"]) },
         { id: "quit", action: "Quit Inkscape", keys: combo(platforms, ["Ctrl", "Q"]) },
         { id: "import", action: "Import a file", keys: combo(platforms, ["Ctrl", "I"]) },
-        { id: "export", action: "Export the drawing", keys: combo(platforms, ["Ctrl", "E"]) },
+        { id: "export", action: "Open the Export dialog", keys: combo(platforms, ["Ctrl", "Shift", "E"]) },
         { id: "print", action: "Print the drawing", keys: combo(platforms, ["Ctrl", "P"]) },
         { id: "undo", action: "Undo", keys: combo(platforms, ["Ctrl", "Z"]) },
         { id: "redo", action: "Redo", keys: combo(platforms, ["Ctrl", "Y"]) },
@@ -62,7 +61,7 @@ const inkscape: AppShortcuts = {
     {
       id: "objects-and-view",
       title: "Objects and view",
-      intro: "Group objects, convert paths, change stacking order, and choose a useful canvas view.",
+      intro: "Group objects, convert paths, change stacking order, and zoom the canvas.",
       shortcuts: [
         { id: "group", action: "Group selected objects", keys: combo(platforms, ["Ctrl", "G"]) },
         { id: "ungroup", action: "Ungroup selected objects", keys: combo(platforms, ["Ctrl", "Shift", "G"]) },
@@ -77,12 +76,11 @@ const inkscape: AppShortcuts = {
         { id: "bottom", action: "Lower selection to bottom", keys: combo(platforms, ["End"]) },
         { id: "zoom-drawing", action: "Zoom to drawing", keys: combo(platforms, ["4"]) },
         { id: "zoom-page", action: "Zoom to page", keys: combo(platforms, ["5"]) },
-        { id: "zoom-selection", action: "Zoom to selection", keys: combo(platforms, ["6"]) },
+        { id: "zoom-selection", action: "Zoom to selection", keys: combo(platforms, ["3"]) },
         { id: "zoom-100", action: "Zoom to 100 percent", keys: combo(platforms, ["1"]) },
         { id: "zoom-in", action: "Zoom in", keys: combo(platforms, ["+"]) },
         { id: "zoom-out", action: "Zoom out", keys: combo(platforms, ["-"]) },
         { id: "fullscreen", action: "Toggle fullscreen", keys: combo(platforms, ["F11"]) },
-        { id: "hide-ui", action: "Show or hide the user interface", keys: combo(platforms, ["Tab"]) },
       ],
     },
   ],

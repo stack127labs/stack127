@@ -19,10 +19,10 @@ export const adobeSubstance3dPainter: AppShortcuts = {
   category: "3D texturing",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current defaults from Adobe's July 3, 2026 shortcut reference, checked November 1, 2026. Editable assignments can be changed in Settings > Shortcuts. Fixed shortcuts are identified by their group, and actions whose official shortcut cell is blank are omitted.",
+    "Most keys can be changed in Settings > Shortcuts. Layer keys, material-drag modifiers, and manipulator constraint and mirror modifiers are fixed.",
   sourceUrl: "https://experienceleague.adobe.com/en/docs/substance-3d-painter/using/interface/settings/shortcuts",
   sourceLabel: "Adobe Substance 3D Painter shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "application-and-projects",
@@ -49,7 +49,7 @@ export const adobeSubstance3dPainter: AppShortcuts = {
       title: "Tools and manipulator",
       intro: "Number keys select paint tools. Q, W, E, and R control the transform manipulator, with Shift variants for surface placement and warping.",
       shortcuts: rows([
-        ["show-manipulator", "Show the manipulator", [["Q"]]],
+        ["show-manipulator", "Show or hide the manipulator", [["Q"]]],
         ["manipulator-size-up", "Increase manipulator size", [["+"]]],
         ["manipulator-size-down", "Decrease manipulator size", [["-"]]],
         ["manipulator-space", "Cycle manipulator coordinate spaces", [["T"]]],
@@ -75,7 +75,7 @@ export const adobeSubstance3dPainter: AppShortcuts = {
     {
       id: "painting-and-stencils",
       title: "Painting and stencils",
-      intro: "These editable and fixed chords adjust the active brush, draw constrained strokes, position stencils, and set a clone source.",
+      intro: "These editable keys adjust the active brush, draw constrained strokes, position stencils, and set a clone source.",
       shortcuts: rows([
         ["brush-size-up", "Increase brush size", [["]"]]],
         ["brush-size-down", "Decrease brush size", [["["]]],
@@ -84,11 +84,11 @@ export const adobeSubstance3dPainter: AppShortcuts = {
         ["lazy-mouse", "Toggle Lazy Mouse", [["D"]]],
         ["paint-stroke", "Paint a stroke", [["Left click"]]],
         ["straight-line", "Paint a straight line", [["Shift", "Left click"]]],
-        ["snap-straight-line", "Paint a snapped straight line", [["Ctrl", "Shift", "Left click"]], [["Cmd", "Shift", "Left click"]]],
+        ["snap-straight-line", "Paint a snapped straight line", [["Ctrl", "Shift", "Left click"]]],
         ["stencil-rotate", "Rotate the stencil", [["S", "Left drag"]]],
         ["stencil-snap-rotate", "Rotate the stencil with snapping", [["Shift", "S", "Left drag"]]],
         ["stencil-translate", "Move the stencil", [["S", "Middle drag"]], null],
-        ["stencil-zoom", "Scale the stencil", [["S", "Right drag"]]],
+        ["stencil-zoom", "Zoom the stencil", [["S", "Right drag"]]],
         ["brush-size-hardness", "Adjust brush size and hardness", [["Ctrl", "Right drag"]], [["Cmd", "Right drag"]]],
         ["brush-flow-rotation", "Adjust brush flow and rotation", [["Ctrl", "Left drag"]], [["Cmd", "Left drag"]]],
         ["clone-source", "Set the clone source", [["V", "Left click"]]],
@@ -128,7 +128,7 @@ export const adobeSubstance3dPainter: AppShortcuts = {
     {
       id: "masks-layers-and-animation",
       title: "Masks, layers, and animation",
-      intro: "Quick-mask and animation commands are editable. Layer-stack clipboard commands are fixed defaults in Adobe's reference.",
+      intro: "Quick-mask and animation keys are editable. Layer keys are fixed. Hover the layer stack to copy or paste.",
       shortcuts: rows([
         ["quick-mask", "Toggle Quick Mask", [["U"]]],
         ["clear-mask", "Clear the Quick Mask", [["Y"]]],
@@ -144,7 +144,7 @@ export const adobeSubstance3dPainter: AppShortcuts = {
         ["paste-content", "Paste layer content", [["Ctrl", "Shift", "V"]], [["Option", "Cmd", "V"]]],
         ["display-mask", "Display a layer mask", [["Alt", "Left click"]], [["Option", "Left click"]]],
         ["toggle-mask", "Enable or disable a layer mask", [["Shift", "Left click"]]],
-        ["drag-material", "Drag a material without opening its menu", [["Ctrl", "Drag"]], [["Cmd", "Drag"]]],
+        ["drag-material", "Drag a material onto only part of the model", [["Ctrl", "Drag"]], [["Cmd", "Drag"]]],
         ["manipulator-constraint", "Constrain or snap the manipulator", [["Shift"]]],
         ["manipulator-mirror", "Mirror manipulator-point movement around its pivot", [["Ctrl"]], [["Cmd"]]],
       ]),

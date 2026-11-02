@@ -9,17 +9,17 @@ export const sublimeText: AppShortcuts = {
   category: "Code editor",
   platforms: [...platforms],
   versionContext:
-    "Sublime Text keyboard shortcut tables checked September 1, 2026. Windows and Linux share most bindings, while macOS changes the primary modifier and a few editing commands.",
+    "Windows and Linux share most keys. macOS uses a different main modifier and changes a few editing commands.",
   sourceUrl: "https://docs.sublimetext.io/reference/keyboard_shortcuts_win.html",
-  sourceLabel: "official Sublime Text keyboard shortcut reference",
-  lastVerified: "2026-11-01",
+  sourceLabel: "Sublime Text Community Documentation keyboard shortcuts",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "editing",
       title: "Editing",
       intro: "Editing shortcuts manipulate lines, selections, indentation, comments, completion, and the undo history in the active view.",
       shortcuts: [
-        { id: "cut-line", action: "Cut the current line", keys: combo(platforms, ["Ctrl", "X"], ["Cmd", "X"]) },
+        { id: "cut-line", action: "Cut line", keys: combo(platforms, ["Ctrl", "X"], ["Cmd", "X"]) },
         { id: "insert-after", action: "Insert a line after the current line", keys: perPlatform(platforms, { windows: ["Ctrl", "Enter"], linux: ["Ctrl", "Enter"], macos: ["Cmd", "Return"] }) },
         { id: "insert-before", action: "Insert a line before the current line", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "Enter"], linux: ["Ctrl", "Shift", "Enter"], macos: ["Shift", "Cmd", "Return"] }) },
         { id: "swap-up", action: "Swap the current line up", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "Up"], linux: ["Ctrl", "Shift", "Up"], macos: ["Ctrl", "Cmd", "Up"] }) },
@@ -32,7 +32,7 @@ export const sublimeText: AppShortcuts = {
         { id: "indent", action: "Indent current lines", keys: combo(platforms, ["Ctrl", "]"], ["Cmd", "]"]) },
         { id: "unindent", action: "Unindent current lines", keys: combo(platforms, ["Ctrl", "["], ["Cmd", "["]) },
         { id: "duplicate-line", action: "Duplicate lines", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "D"], linux: ["Ctrl", "Shift", "D"], macos: ["Shift", "Cmd", "D"] }) },
-        { id: "join-lines", action: "Join the line below", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "J"], linux: ["Ctrl", "Shift", "J"], macos: ["Cmd", "J"] }) },
+        { id: "join-lines", action: "Join the line below", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "J"], linux: ["Ctrl", "Shift", "J"], macos: ["Shift", "Cmd", "J"] }) },
         { id: "toggle-comment", action: "Comment or uncomment the current line", keys: combo(platforms, ["Ctrl", "/"], ["Cmd", "/"]) },
         { id: "block-comment", action: "Comment the current selection as a block", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "/"], linux: ["Ctrl", "Shift", "/"], macos: ["Option", "Cmd", "/"] }) },
         { id: "redo", action: "Redo or repeat the last shortcut command", keys: perPlatform(platforms, { windows: ["Ctrl", "Y"], linux: ["Ctrl", "Y"], macos: ["Cmd", "Y"] }) },
@@ -63,14 +63,14 @@ export const sublimeText: AppShortcuts = {
     {
       id: "tabs-and-folding",
       title: "Tabs and folding",
-      intro: "Tabs and folding shortcuts reopen or close files, switch tabs, select groups, and collapse code by nesting level.",
+      intro: "Tabs and folding shortcuts reopen or close tabs, switch tabs, fold code, and set or jump to bookmarks.",
       shortcuts: [
         { id: "reopen-tab", action: "Open the last closed tab", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "T"], linux: ["Ctrl", "Shift", "T"], macos: ["Shift", "Cmd", "T"] }) },
         { id: "recent-tab", action: "Cycle through recent tabs", keys: perPlatform(platforms, { windows: ["Ctrl", "Tab"], linux: ["Ctrl", "Tab"], macos: ["Ctrl", "Tab"] }), note: "To reverse the cycle, use Ctrl+Shift+Tab." },
         { id: "close-tab", action: "Close the current tab", keys: combo(platforms, ["Ctrl", "W"], ["Cmd", "W"]) },
         { id: "tab-number", action: "Switch to a tab by number", keys: perPlatform(platforms, { windows: ["Alt", "1"], linux: ["Alt", "1"], macos: ["Cmd", "1"] }) },
-        { id: "fold", action: "Fold", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "["], linux: ["Ctrl", "Shift", "["], macos: ["Ctrl", "Shift", "["] }) },
-        { id: "unfold", action: "Unfold", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "]"], linux: ["Ctrl", "Shift", "]"], macos: ["Ctrl", "Shift", "]"] }) },
+        { id: "fold", action: "Fold", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "["], linux: ["Ctrl", "Shift", "["], macos: ["Option", "Cmd", "["] }) },
+        { id: "unfold", action: "Unfold", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "]"], linux: ["Ctrl", "Shift", "]"], macos: ["Option", "Cmd", "]"] }) },
         { id: "toggle-bookmark", action: "Toggle a bookmark", keys: perPlatform(platforms, { windows: ["Ctrl", "F2"], linux: ["Ctrl", "F2"], macos: ["Cmd", "F2"] }) },
         { id: "next-bookmark", action: "Go to the next bookmark", keys: perPlatform(platforms, { windows: ["F2"], linux: ["F2"], macos: ["F2"] }) },
         { id: "previous-bookmark", action: "Go to the previous bookmark", keys: perPlatform(platforms, { windows: ["Shift", "F2"], linux: ["Shift", "F2"], macos: ["Shift", "F2"] }) },

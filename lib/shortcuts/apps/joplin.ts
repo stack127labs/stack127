@@ -9,16 +9,16 @@ export const joplin: AppShortcuts = {
   category: "Notes and writing",
   platforms: [...platforms],
   versionContext:
-    "Default Joplin Terminal keymap from the current official terminal-app guide, checked November 1, 2026. The terminal client is available on macOS, Linux, and Windows through WSL; its keymap uses sequential keys rather than simultaneous modifier chords.",
+    "Joplin's terminal app, on macOS, Linux, and Windows through WSL. Press multi-letter shortcuts one key at a time.",
   sourceUrl: "https://joplinapp.org/help/apps/terminal/",
   sourceLabel: "official Joplin Terminal keymap",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "navigation",
       title: "Navigation and selection",
       intro:
-        "Move through the terminal interface with single keys. Delete and Backspace are both documented for deleting the focused item.",
+        "Move through the terminal interface with single keys. Delete and Backspace both delete the focused item.",
       shortcuts: [
         { id: "focus-next", action: "Focus the next control", keys: combo(platforms, ["Tab"]) },
         { id: "focus-previous", action: "Focus the previous control", keys: combo(platforms, ["Shift", "Tab"]) },
@@ -33,16 +33,16 @@ export const joplin: AppShortcuts = {
           keys: platforms.map((platform) => ({ platform, keys: ["Delete"], alternatives: [["Backspace"]] })),
         },
         { id: "toggle-todo", action: "Toggle the focused todo", keys: combo(platforms, ["Space"]) },
-        { id: "next-link", action: "Focus the next link", keys: combo(platforms, ["N"]) },
-        { id: "previous-link", action: "Focus the previous link", keys: combo(platforms, ["B"]) },
-        { id: "open-link", action: "Open the focused link", keys: combo(platforms, ["O"]) },
+        { id: "next-link", action: "Focus the next link", keys: combo(platforms, ["n"]) },
+        { id: "previous-link", action: "Focus the previous link", keys: combo(platforms, ["b"]) },
+        { id: "open-link", action: "Open the focused link", keys: combo(platforms, ["o"]) },
       ],
     },
     {
       id: "commands-and-search",
       title: "Commands and search",
       intro:
-        "Type the documented command sequences one key at a time. The command-line mode lets you pass the focused note or notebook as `$n`.",
+        "Type these command sequences one key at a time. In command-line mode, $n means the selected note and $b the selected notebook.",
       shortcuts: [
         { id: "command-mode", action: "Enter command-line mode", keys: combo(platforms, [":"]) },
         { id: "search", action: "Search", keys: combo(platforms, ["/"]) },

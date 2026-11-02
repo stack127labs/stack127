@@ -30,10 +30,10 @@ export const matlab: AppShortcuts = {
   category: "Developer tools",
   platforms: [...platforms],
   versionContext:
-    "Current MATLAB Editor and desktop keyboard-shortcut tables checked November 1, 2026. The exact set depends on MATLAB release and operating-system keyboard settings; users can inspect or change bindings in Preferences.",
+    "Keys can vary by MATLAB release and your OS keyboard settings. You can view or change them in Settings.",
   sourceUrl: "https://www.mathworks.com/help/matlab/matlab_prog/editor-keyboard-shortcuts.html",
   sourceLabel: "official MathWorks MATLAB Editor shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "editor-window",
@@ -179,7 +179,7 @@ export const matlab: AppShortcuts = {
         pair("previous-desktop-group", "Move to the previous desktop group", ["Ctrl", "Shift", "F6"], ["Cmd", "Shift", "F6"]),
         all("next-control", "Move focus to the next control", ["Tab"]),
         pair("search-desktop", "Search the MATLAB desktop", ["Ctrl", "Shift", "Space"], ["Cmd", "Shift", "Space"]),
-        pair("preferences", "Open MATLAB Preferences", ["Ctrl", ","], ["Cmd", ","]),
+        pair("preferences", "Open MATLAB Settings", ["Ctrl", ","], ["Cmd", ","]),
         {
           id: "interrupt",
           action: "Interrupt execution",

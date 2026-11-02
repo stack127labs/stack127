@@ -9,10 +9,10 @@ export const tallyForms: AppShortcuts = {
   category: "Forms",
   platforms: [...platforms],
   versionContext:
-    "Tally keyboard shortcuts checked November 1, 2026. The source describes shortcuts for the Tally editor and uses Cmd on macOS and Ctrl on Windows.",
+    "Shortcuts for the Tally editor. Use Cmd on Mac and Ctrl on Windows.",
   sourceUrl: "https://tally.so/help/keyboard-shortcuts",
   sourceLabel: "official Tally keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "editing",
@@ -25,7 +25,7 @@ export const tallyForms: AppShortcuts = {
         { id: "select-down", action: "Select the block below", keys: combo(platforms, ["Down"], ["Down"]) },
         { id: "move-up", action: "Move a block up", keys: combo(platforms, ["Ctrl", "Shift", "Up"], ["Cmd", "Shift", "Up"]) },
         { id: "move-down", action: "Move a block down", keys: combo(platforms, ["Ctrl", "Shift", "Down"], ["Cmd", "Shift", "Down"]) },
-        { id: "delete", action: "Delete a block or selection", keys: combo(platforms, ["Backspace"], ["Backspace"]) },
+        { id: "delete", action: "Delete selected blocks", keys: combo(platforms, ["Backspace"], ["Backspace"]), note: "Delete also works." },
         { id: "copy", action: "Copy a block", keys: combo(platforms, ["Ctrl", "C"], ["Cmd", "C"]) },
         { id: "paste", action: "Paste a block", keys: combo(platforms, ["Ctrl", "V"], ["Cmd", "V"]) },
         { id: "duplicate", action: "Duplicate a block", keys: combo(platforms, ["Ctrl", "D"], ["Cmd", "D"]) },
@@ -47,18 +47,18 @@ export const tallyForms: AppShortcuts = {
         { id: "command-menu", action: "Open the command menu", keys: combo(platforms, ["Ctrl", "K"], ["Cmd", "K"]) },
         { id: "heading-1", action: "Create a heading 1 with Markdown input", keys: combo(platforms, ["#", "then", "Space"]) },
         { id: "heading-2", action: "Create a heading 2 with Markdown input", keys: combo(platforms, ["#", "then", "#", "then", "Space"]) },
-        { id: "checklist", action: "Create a checklist with Markdown input", keys: combo(platforms, ["[", "then", "]"]) },
+        { id: "checklist", action: "Create a checkbox with Markdown input", keys: combo(platforms, ["[", "then", "]"]) },
         { id: "mention", action: "Open the mention picker", keys: combo(platforms, ["@"], ["@"]) },
       ],
     },
     {
       id: "block-options",
       title: "Block options",
-      intro: "Block option shortcuts open the required, hidden, and logic controls documented for Tally's editor workflow.",
+      intro: "Block option shortcuts toggle required and hidden settings and insert conditional logic.",
       shortcuts: [
         { id: "required", action: "Toggle the required option", keys: combo(platforms, ["Ctrl", "Shift", "R"], ["Cmd", "Shift", "R"]) },
         { id: "hidden", action: "Toggle the hidden option", keys: combo(platforms, ["Ctrl", "Shift", "H"], ["Cmd", "Shift", "H"]) },
-        { id: "logic", action: "Open logic settings", keys: combo(platforms, ["Ctrl", "Shift", "L"], ["Cmd", "Shift", "L"]) },
+        { id: "logic", action: "Insert conditional logic below the block", keys: combo(platforms, ["Ctrl", "Shift", "L"], ["Cmd", "Shift", "L"]) },
       ],
     },
   ],

@@ -9,10 +9,10 @@ const gitkraken: AppShortcuts = {
   category: "Git client",
   platforms: [...platforms],
   versionContext:
-    "The current GitKraken Desktop reference documents Command for macOS and Control for Windows and Linux. Some keys act on the commit graph or the panel under focus, so the group notes call out those contexts.",
+    "Command on macOS, Control on Windows and Linux. Some keys act on the commit graph or whichever panel has focus.",
   sourceUrl: "https://help.gitkraken.com/gitkraken-desktop/keyboard-shortcuts/",
   sourceLabel: "official GitKraken Desktop keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "repository-work",

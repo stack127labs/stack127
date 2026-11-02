@@ -9,7 +9,7 @@ export const codex: AppShortcuts = {
   category: "AI coding agent",
   platforms: [...platforms],
   versionContext:
-    "Built-in TUI defaults from the official OpenAI Codex source checked August 26, 2026. Codex resolves context-specific bindings and lets users rebind supported actions through /keymap and tui.keymap in config.toml. Alt may be reported as Option on macOS terminals.",
+    "Codex CLI TUI defaults for Windows, macOS, and Linux. You can rebind supported actions with /keymap or tui.keymap in config.toml; some Mac terminals report Alt as Option.",
   sourceUrl: "https://github.com/openai/codex/blob/main/codex-rs/tui/src/keymap.rs",
   sourceLabel: "official Codex CLI TUI keymap",
   lastVerified: "2026-08-26",
@@ -38,7 +38,7 @@ export const codex: AppShortcuts = {
         { id: "clear-terminal", action: "Clear the terminal UI", keys: combo(platforms, ["Ctrl", "L"]) },
         { id: "toggle-raw-output", action: "Toggle raw scrollback mode", keys: combo(platforms, ["Alt", "R"]) },
         { id: "shortcut-overlay", action: "Toggle the composer shortcut overlay", keys: combo(platforms, ["?"]), note: "Shift+? is included as a terminal compatibility binding." },
-        { id: "quit-command", action: "Exit Codex", keys: [], note: "The current keymap source does not assign a default app-exit key. Use /quit or the terminal's exit control." },
+        { id: "quit-command", action: "Exit Codex", keys: [], note: "Use /quit, or press Ctrl+C or Ctrl+D twice to quit." },
       ],
     },
     {
@@ -75,8 +75,8 @@ export const codex: AppShortcuts = {
       shortcuts: [
         { id: "increase-effort", action: "Increase reasoning effort", keys: combo(platforms, ["Alt", "."]), note: "Shift+Up is also a built-in binding." },
         { id: "decrease-effort", action: "Decrease reasoning effort", keys: combo(platforms, ["Alt", ","]), note: "Shift+Down is also a built-in binding." },
-        { id: "toggle-vim-mode", action: "Toggle Vim mode for the composer", keys: [], note: "No built-in key is assigned in the current source. Configure tui.keymap.global.toggle_vim_mode if needed." },
-        { id: "toggle-fast-mode", action: "Toggle Fast mode", keys: [], note: "No built-in key is assigned in the current source. Configure tui.keymap.global.toggle_fast_mode if needed." },
+        { id: "toggle-vim-mode", action: "Toggle Vim mode for the composer", keys: [], note: "No default key is assigned. Set tui.keymap.global.toggle_vim_mode to add one." },
+        { id: "toggle-fast-mode", action: "Toggle Fast mode", keys: [], note: "No default key is assigned. Set tui.keymap.global.toggle_fast_mode to add one." },
       ],
     },
     {

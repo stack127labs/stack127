@@ -1,7 +1,7 @@
 import { combo } from "../build.ts";
 import type { AppShortcuts } from "../types.ts";
 
-const platforms = ["windows", "macos"] as const;
+const platforms = ["windows", "macos", "linux"] as const;
 
 const jira: AppShortcuts = {
   slug: "jira",
@@ -9,10 +9,10 @@ const jira: AppShortcuts = {
   category: "Issue tracking",
   platforms: [...platforms],
   versionContext:
-    "Atlassian says the exact Jira shortcut set depends on the current page and can be inspected from Help > Keyboard shortcuts or with question mark. The direct keys below are published for Jira Cloud and do not assume a platform-specific modifier.",
+    "Jira Cloud, with no platform-specific modifier keys. The set depends on your page, so press ? or open Help > Keyboard shortcuts to see it.",
   sourceUrl: "https://support.atlassian.com/jira-software-cloud/docs/use-keyboard-shortcuts/",
   sourceLabel: "official Atlassian Jira Cloud keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "jira-cloud",

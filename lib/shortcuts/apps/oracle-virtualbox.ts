@@ -5,7 +5,7 @@ const platforms = ["windows", "macos", "linux"] as const;
 const host = (id: string, action: string, keys: string[], macKeys: string[], note?: string): Shortcut => ({
   id,
   action,
-  keys: perPlatform(platforms, { windows: ["Right Ctrl", ...keys], linux: ["Right Ctrl", ...keys], macos: ["Left Cmd", ...macKeys] }),
+  keys: perPlatform(platforms, { windows: [["Right Ctrl", ...keys].join(" + ")], linux: [["Right Ctrl", ...keys].join(" + ")], macos: [["Left Cmd", ...macKeys].join(" + ")] }),
   ...(note ? { note } : {}),
 });
 
@@ -15,20 +15,19 @@ export const oracleVirtualBox: AppShortcuts = {
   category: "Developer tools",
   platforms: [...platforms],
   versionContext:
-    "Oracle VirtualBox 7.2 User Guide keyboard and host-key behavior checked September 1, 2026. The default host key is Right Ctrl on Windows and Linux hosts and Left Command on a Mac host; users can change it in Preferences.",
+    "VirtualBox 7.2. The host key is Right Ctrl on Windows and Linux and Left Command on Mac, and you can change it in Preferences.",
   sourceUrl: "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html",
   sourceLabel: "Oracle VirtualBox User Guide host-key shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "special-combinations",
       title: "Send special combinations to the guest",
       intro: "Prefix a special guest command with the host key when VirtualBox must translate it instead of sending it to the host.",
       shortcuts: [
-        host("guest-ctrl-alt-delete", "Send Ctrl+Alt+Delete to the guest", ["Delete"], ["Delete"]),
+        host("guest-ctrl-alt-delete", "Send Ctrl+Alt+Delete to the guest", ["Delete"], ["Delete"], "The host reserves Ctrl+Alt+Delete, so use this to reach the guest."),
         host("guest-ctrl-alt-backspace", "Send Ctrl+Alt+Backspace to the guest", ["Backspace"], ["Backspace"], "Useful for restarting the graphical interface of a Linux or Oracle Solaris guest."),
         host("guest-function-key", "Send Ctrl+Alt+F1 through F12 to the guest", ["F1-F12"], ["F1-F12"], "Choose the function key for the guest virtual terminal you want to reach."),
-        host("insert-host-key", "Insert the host-key combination in the guest", ["Host key"], ["Host key"]),
       ],
     },
     {
@@ -44,19 +43,13 @@ export const oracleVirtualBox: AppShortcuts = {
             { platform: "linux", keys: ["Right Ctrl"] },
             { platform: "macos", keys: ["Left Cmd"] },
           ],
-          note: "The host key can be changed in VirtualBox Preferences, so treat these as the documented defaults.",
+          note: "The host key can be changed in VirtualBox Preferences, so these are the defaults.",
         },
         {
           id: "alt-tab-routing",
-          action: "Route Alt+Tab to the host or guest",
-          keys: perPlatform(platforms, { windows: ["Alt", "Tab"], macos: ["Option", "Tab"], linux: ["Alt", "Tab"] }),
+          action: "Switch open windows on the host or guest",
+          keys: perPlatform(platforms, { windows: ["Alt", "Tab"], linux: ["Alt", "Tab"] }),
           note: "VirtualBox lets you configure whether this combination affects the host or guest under Preferences > Input.",
-        },
-        {
-          id: "ctrl-alt-delete-routing",
-          action: "Route Ctrl+Alt+Delete according to host and guest rules",
-          keys: perPlatform(platforms, { windows: ["Ctrl", "Alt", "Delete"], macos: ["Control", "Option", "Delete"], linux: ["Ctrl", "Alt", "Delete"] }),
-          note: "Some host operating systems reserve this combination, so it may not be available to the guest without the host-key translation above.",
         },
       ],
     },

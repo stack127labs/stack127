@@ -13,10 +13,10 @@ export const pages: AppShortcuts = {
   category: "Notes and docs",
   platforms: ["macos"],
   versionContext:
-    "Pages for Mac shortcuts from Apple's current Pages User Guide, checked September 1, 2026. Apple notes that portable Macs may require Fn and that paragraph, character, or list styles can also receive user-assigned shortcuts.",
+    "Pages for Mac. Portable Macs may need Fn for some keys, and you can assign your own shortcuts to paragraph, character, and list styles.",
   sourceUrl: "https://support.apple.com/guide/pages/keyboard-shortcuts-tanc0ffef022/mac",
   sourceLabel: "Apple Pages keyboard shortcuts for Mac",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "document",
@@ -26,7 +26,7 @@ export const pages: AppShortcuts = {
         mac("new-document", "Create a new document", ["Cmd", "N"]),
         mac("open", "Open a document", ["Cmd", "O"]),
         mac("save", "Save the document", ["Cmd", "S"]),
-        mac("save-as", "Save as", ["Option", "Cmd", "S"]),
+        mac("save-as", "Save as", ["Option", "Shift", "Cmd", "S"]),
         mac("print", "Print the document", ["Cmd", "P"]),
         mac("close", "Close the window", ["Cmd", "W"]),
         mac("settings", "Open Pages settings", ["Cmd", ","]),
@@ -70,7 +70,7 @@ export const pages: AppShortcuts = {
         mac("deselect-objects", "Deselect all objects", ["Shift", "Cmd", "A"]),
         mac("next-object", "Select the next object", ["Tab"]),
         mac("previous-object", "Select the previous object", ["Shift", "Tab"]),
-        mac("duplicate", "Duplicate the selected object", ["Cmd", "D"], [["Option", "drag"]]),
+        mac("duplicate", "Duplicate the selected object", ["Option", "Arrow keys"], [["Option", "drag"]]),
         mac("group", "Group selected objects", ["Option", "Cmd", "G"]),
         mac("ungroup", "Ungroup selected objects", ["Option", "Shift", "Cmd", "G"]),
         mac("lock", "Lock selected objects", ["Cmd", "L"]),

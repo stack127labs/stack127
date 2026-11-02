@@ -23,10 +23,10 @@ export const microsoftEdge: AppShortcuts = {
   category: "Web browser",
   platforms: [...platforms],
   versionContext:
-    "Current Microsoft Edge desktop shortcuts checked November 1, 2026. The official table has separate Windows and Mac columns; some commands depend on the page type, such as PDF viewing, and extensions can add conflicts.",
+    "Edge desktop for Windows and Mac. Some commands depend on the page type, such as a PDF, and extensions can cause conflicts.",
   sourceUrl: "https://support.microsoft.com/en-US/edge/keyboard-shortcuts-in-microsoft-edge",
   sourceLabel: "official Microsoft Edge keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "tabs-and-windows",

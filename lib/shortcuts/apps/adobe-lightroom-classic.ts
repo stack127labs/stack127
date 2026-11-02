@@ -27,10 +27,10 @@ export const adobeLightroomClassic: AppShortcuts = {
   category: "Photo catalog and editor",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current Lightroom Classic desktop defaults from Adobe's reference updated July 5, 2026 and checked November 1, 2026. Adobe's August 2026 release notes identify Lightroom Classic 15.5 as the current release.",
+    "Main default keys for Lightroom Classic on desktop.",
   sourceUrl: "https://helpx.adobe.com/lightroom-classic/desktop/introduction-to-lightroom-classic/keyboard-shortcuts.html",
   sourceLabel: "Adobe Lightroom Classic keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "workspace-and-modules",
@@ -69,7 +69,7 @@ export const adobeLightroomClassic: AppShortcuts = {
         ["virtual-copy", "Create a virtual copy", "Ctrl+Apostrophe", "Cmd+Apostrophe"],
         ["show-file", "Show the photo in Explorer or Finder", "Ctrl+R", "Cmd+R"],
         ["rename", "Rename the photo", "F2"],
-        ["delete", "Delete selected photos", "Delete"],
+        ["delete", "Delete selected photos", ["Backspace", "Delete"], "Delete"],
         ["remove-catalog", "Remove selected photos from the catalog", "Alt+Backspace", "Option+Delete"],
         ["delete-rejected", "Delete rejected photos", "Ctrl+Backspace", "Cmd+Delete"],
         ["edit-photoshop", "Edit in Photoshop", "Ctrl+E", "Cmd+E"],
@@ -81,7 +81,7 @@ export const adobeLightroomClassic: AppShortcuts = {
         ["page-setup", "Open Page Setup", "Ctrl+Shift+P", "Cmd+Shift+P"],
         ["next-image", "Go to the next image", "Ctrl+Right", "Cmd+Right"],
         ["previous-image", "Go to the previous image", "Ctrl+Left", "Cmd+Left"],
-        ["tethered", "Start tethered capture", "F12"],
+        ["tethered", "Tethered capture", "F12"],
         ["enhance-headless", "Run Enhance without its dialog", "Ctrl+Alt+Shift+I", "Control+Alt+Shift+I"],
         ["enhance", "Open the Enhance dialog", "Ctrl+Alt+I", "Control+Alt+I"],
         ["hdr", "Merge photos to HDR", "Ctrl+H", "Control+H"],
@@ -117,7 +117,7 @@ export const adobeLightroomClassic: AppShortcuts = {
         ["rotate-left", "Rotate the photo counterclockwise", "Ctrl+[", "Cmd+["],
         ["view-options", "Open Library View Options", "Ctrl+J", "Cmd+J"],
         ["select-all", "Select all photos", "Ctrl+A", "Cmd+A"],
-        ["deselect", "Deselect all photos", "Ctrl+D", "Cmd+Shift+A"],
+        ["deselect", "Deselect all photos", "Ctrl+D", ["Cmd+D", "Cmd+Shift+A"]],
         ["active-only", "Select only the active photo", "Ctrl+Shift+D", "Cmd+Shift+D"],
         ["stack", "Group selected photos into a stack", "Ctrl+G", "Cmd+G"],
         ["unstack", "Unstack selected photos", "Ctrl+Shift+G", "Cmd+Shift+G"],
@@ -151,7 +151,7 @@ export const adobeLightroomClassic: AppShortcuts = {
     {
       id: "collections-and-metadata",
       title: "Collections and metadata",
-      intro: "Build collections, assign keywords, move through keyword sets, copy metadata, and save metadata to files.",
+      intro: "Build collections, add keywords, edit face names, and save metadata to files.",
       shortcuts: rows([
         ["new-collection", "Create a collection", "Ctrl+N", "Cmd+N"],
         ["quick-add", "Add to Quick Collection", "B"],

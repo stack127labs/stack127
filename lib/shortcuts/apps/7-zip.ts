@@ -9,7 +9,7 @@ export const sevenZip: AppShortcuts = {
   category: "File archiver",
   platforms: [...platforms],
   versionContext:
-    "7-Zip 26.02 File Manager defaults checked August 31, 2026. These bindings cover the Windows graphical File Manager, not the 7z command-line program or Explorer context-menu access keys.",
+    "7-Zip 26.02 File Manager defaults for Windows. These keys apply to the graphical File Manager, not the 7z command-line program or Explorer context menus.",
   sourceUrl: "https://github.com/ip7z/7zip/blob/26.02/CPP/7zip/UI/FileManager/PanelKey.cpp",
   sourceLabel: "7-Zip 26.02 File Manager key handler",
   lastVerified: "2026-08-31",

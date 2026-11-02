@@ -8,10 +8,10 @@ export const solidworks: AppShortcuts = {
   category: "CAD and engineering",
   platforms: ["windows"],
   versionContext:
-    "SOLIDWORKS 2026 selected keyboard shortcuts checked September 1, 2026. The source calls this a selected list and notes that keyboard assignments can be customized, so this is not a complete custom keymap.",
-  sourceUrl: "https://help.solidworks.com/2026/english/SolidWorks/sldworks/c_time_saving_keyboard_shortcuts.htm",
-  sourceLabel: "official SOLIDWORKS 2026 selected keyboard shortcuts",
-  lastVerified: "2026-09-01",
+    "Selected SOLIDWORKS 2026 and 2027 shortcuts. Keyboard assignments can be customized.",
+  sourceUrl: "https://help.solidworks.com/2027/english/SolidWorks/sldworks/c_time_saving_keyboard_shortcuts.htm",
+  sourceLabel: "official SOLIDWORKS 2027 selected keyboard shortcuts",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "editing-and-documents",
@@ -66,7 +66,7 @@ export const solidworks: AppShortcuts = {
         { id: "copy-component", action: "Copy a component while dragging", keys: key(["Ctrl", "Drag"]) },
         { id: "rotate-insert", action: "Rotate an inserted component 90 degrees", keys: key(["Tab"]) },
         { id: "turn-off-alignment", action: "Turn off automatic alignment for dimensions and annotations", keys: key(["Alt", "Click"]) },
-        { id: "annotation-plane", action: "Change the annotation view plane", keys: key(["Backquote"]) },
+        { id: "annotation-plane", action: "Change the annotation view plane", keys: key(["`"]) },
       ],
     },
   ],

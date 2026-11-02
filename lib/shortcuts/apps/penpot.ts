@@ -15,10 +15,10 @@ export const penpot: AppShortcuts = {
   category: "Design tool",
   platforms: [...platforms],
   versionContext:
-    "Penpot workspace shortcuts from the official user guide, checked September 1, 2026. Penpot also publishes the current keymap in its source repository, and many bindings are available only when the workspace has focus.",
+    "Default shortcuts can be changed. Most work in the workspace.",
   sourceUrl: "https://help.penpot.dev/user-guide/first-steps/shortcuts/",
   sourceLabel: "official Penpot shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "alignment",
@@ -50,7 +50,7 @@ export const penpot: AppShortcuts = {
         dual("find-replace", "Find and replace", ["Ctrl", "H"], ["Cmd", "H"]),
         dual("redo", "Redo", ["Ctrl", "Shift", "Z"], ["Cmd", "Shift", "Z"]),
         dual("undo", "Undo", ["Ctrl", "Z"], ["Cmd", "Z"]),
-        dual("copy-link", "Copy a link to the board", ["Shift", "Alt", "C"], ["Shift", "Option", "C"]),
+        dual("copy-link", "Copy a link to the board", ["Shift", "Alt", "C"], ["Shift", "Alt", "C"]),
         dual("copy-properties", "Copy properties", ["Ctrl", "Alt", "C"], ["Cmd", "Option", "C"]),
         dual("paste-properties", "Paste properties", ["Ctrl", "Alt", "V"], ["Cmd", "Option", "V"]),
       ],
@@ -65,8 +65,8 @@ export const penpot: AppShortcuts = {
         dual("delete", "Delete selected objects", ["Delete"], ["Backspace"]),
         dual("group", "Group selected objects", ["Ctrl", "G"], ["Cmd", "G"]),
         dual("ungroup", "Ungroup selected objects", ["Ctrl", "Shift", "G"], ["Cmd", "Shift", "G"]),
-        dual("bring-front", "Bring to front", ["Ctrl", "Shift", "]"], ["Cmd", "Shift", "]"]),
-        dual("send-back", "Send to back", ["Ctrl", "Shift", "["], ["Cmd", "Shift", "["]),
+        dual("bring-front", "Bring to front", ["Ctrl", "Shift", "Up Arrow"], ["Cmd", "Shift", "Up Arrow"]),
+        dual("send-back", "Send to back", ["Ctrl", "Shift", "Down Arrow"], ["Cmd", "Shift", "Down Arrow"]),
         dual("lock", "Lock selected objects", ["Ctrl", "Shift", "L"], ["Cmd", "Shift", "L"]),
         dual("nudge", "Nudge an object", ["Arrow keys"], ["Arrow keys"]),
         dual("nudge-more", "Move an object farther", ["Shift", "Arrow keys"], ["Shift", "Arrow keys"]),
@@ -79,9 +79,17 @@ export const penpot: AppShortcuts = {
       shortcuts: [
         dual("zoom-in", "Zoom in", ["+"], ["+"]),
         dual("zoom-out", "Zoom out", ["-"], ["-"]),
-        dual("zoom-fit", "Fit the design in view", ["Shift", "1"], ["Shift", "1"]),
-        dual("zoom-selection", "Zoom to selection", ["Shift", "2"], ["Shift", "2"]),
-        dual("measure", "Start or stop measurement", ["Alt"], ["Option"]),
+        dual("zoom-fit", "Fit the design in view", ["Shift", "1"], ["Cmd", "Shift", "1"]),
+        dual("zoom-selection", "Zoom to selection", ["Shift", "2"], ["Cmd", "Shift", "2"]),
+        {
+          id: "measure",
+          action: "Start or stop measurement",
+          keys: [
+            { platform: "windows", keys: ["Alt"], alternatives: [["."]] },
+            { platform: "linux", keys: ["Alt"], alternatives: [["."]] },
+            { platform: "macos", keys: ["Option"], alternatives: [["."]] },
+          ],
+        },
         dual("hand-tool", "Use the hand tool", ["H"], ["H"]),
         dual("selection-tool", "Use the selection tool", ["V"], ["V"]),
         dual("rectangle-tool", "Use the rectangle tool", ["R"], ["R"]),

@@ -7,6 +7,7 @@ export const platformOptions: FilterOption[] = [
   { label: "Windows", value: "windows" },
   { label: "BSD", value: "bsd" },
   { label: "Web", value: "web" },
+  { label: "Android", value: "android" },
 ];
 
 export const pricingOptions: FilterOption[] = [
@@ -49,6 +50,10 @@ export const installLabels = new Map([
   ["binary", "binary"],
   ["docker", "Docker"],
   ["source", "from source"],
+  ["snap", "snap"],
+  ["bun", "bun"],
+  ["pixi", "pixi"],
+  ["script", "install script"],
 ]);
 
 export function labelForValue(map: Map<string, string>, value: string) {

@@ -21,16 +21,22 @@ const shared = (id: string, action: string, keys: string[], note?: string): Shor
   ...(note ? { note } : {}),
 });
 
+const withMac = (id: string, action: string, keys: string[], macKeys: string[]): Shortcut => ({
+  id,
+  action,
+  keys: combo(platforms, keys, macKeys),
+});
+
 export const libreOfficeWriter: AppShortcuts = {
   slug: "libreoffice-writer",
   name: "LibreOffice Writer",
   category: "Word processing",
   platforms: [...platforms],
   versionContext:
-    "Default shortcuts from LibreOffice 26.8 Help, checked September 1, 2026. The source notes that desktop environments can claim a key and that users can change assignments in Tools > Customize > Keyboard. Windows and Linux use Ctrl or Alt; the documented Command and Option forms are preserved for macOS.",
+    "LibreOffice 26.8 defaults, with Ctrl or Alt on Windows and Linux and Command or Option on macOS. Your desktop can claim a key, and you can change keys in Tools > Customize > Keyboard.",
   sourceUrl: "https://help.libreoffice.org/latest/en-US/text/swriter/04/01020000.html?DbPAR=SHARED",
   sourceLabel: "LibreOffice 26.8 Writer shortcut keys",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "function-keys",
@@ -42,7 +48,7 @@ export const libreOfficeWriter: AppShortcuts = {
         shared("complete-autotext", "Complete AutoText", ["F3"]),
         mod("edit-autotext", "Edit AutoText", ["Ctrl", "F3"]),
         shared("next-frame", "Select the next frame", ["Shift", "F4"]),
-        mod("data-source", "Open the Data Source view", ["Ctrl", "Shift", "F4"]),
+        shared("data-source", "Open the Data Source view", ["Ctrl", "Shift", "F4"]),
         shared("navigator", "Toggle the Navigator", ["F5"]),
         shared("last-position", "Move to the last saved cursor position", ["Shift", "F5"]),
         mod("navigator-page", "Open the Navigator and go to a page", ["Ctrl", "Shift", "F5"]),
@@ -51,7 +57,7 @@ export const libreOfficeWriter: AppShortcuts = {
         shared("extension-mode", "Toggle extension mode", ["F8"]),
         mod("field-shading", "Toggle field shadings", ["Ctrl", "F8"]),
         shared("additional-selection", "Toggle additional selection mode", ["Shift", "F8"]),
-        mod("block-selection", "Toggle block selection mode", ["Ctrl", "Shift", "F8"]),
+        shared("block-selection", "Toggle block selection mode", ["Ctrl", "Shift", "F8"]),
         shared("update-fields", "Update fields", ["F9"]),
         mod("show-fields", "Show fields", ["Ctrl", "F9"]),
         shared("calculate-table", "Calculate a table", ["Shift", "F9"]),
@@ -74,7 +80,7 @@ export const libreOfficeWriter: AppShortcuts = {
     {
       id: "editing",
       title: "Editing and text selection",
-      intro: "Find, repeat, select, move, and delete text with platform-specific modifier forms where Writer documents them.",
+      intro: "Find, repeat, select, move, and delete text with platform-specific modifier forms where they differ.",
       shortcuts: [
         mod("find-replace", "Find and replace", ["Ctrl", "H"]),
         {
@@ -83,7 +89,7 @@ export const libreOfficeWriter: AppShortcuts = {
           keys: perPlatform(platforms, { windows: ["Ctrl", "Y"], linux: ["Ctrl", "Y"], macos: ["Cmd", "Shift", "Z"] }),
         },
         mod("calculate-selection", "Calculate selected text and copy the result", ["Ctrl", "+"]),
-        mod("run-macro-field", "Run a macro field", ["Ctrl", "*"] , "The source specifies the numeric keypad multiplication key."),
+        mod("run-macro-field", "Run a macro field", ["Ctrl", "*"] , "Use the * key on the numeric keypad."),
         {
           id: "paste-unformatted",
           action: "Paste unformatted text",
@@ -96,10 +102,10 @@ export const libreOfficeWriter: AppShortcuts = {
         mod("select-all", "Select all", ["Ctrl", "A"]),
         shared("select-left", "Extend the selection one character left", ["Shift", "Left"]),
         shared("select-right", "Extend the selection one character right", ["Shift", "Right"]),
-        mod("select-word-left", "Extend the selection one word left", ["Ctrl", "Shift", "Left"]),
-        mod("select-word-right", "Extend the selection one word right", ["Ctrl", "Shift", "Right"]),
-        mod("select-paragraph-up", "Extend the selection to the previous paragraph", ["Ctrl", "Shift", "Up"]),
-        mod("select-paragraph-down", "Extend the selection to the next paragraph", ["Ctrl", "Shift", "Down"]),
+        withMac("select-word-left", "Extend the selection one word left", ["Ctrl", "Shift", "Left"], ["Option", "Shift", "Left"]),
+        withMac("select-word-right", "Extend the selection one word right", ["Ctrl", "Shift", "Right"], ["Option", "Shift", "Right"]),
+        withMac("select-paragraph-up", "Extend the selection to the start of the paragraph", ["Ctrl", "Shift", "Up"], ["Option", "Shift", "Up"]),
+        withMac("select-paragraph-down", "Extend the selection to the end of the paragraph", ["Ctrl", "Shift", "Down"], ["Option", "Shift", "Down"]),
         shared("select-line-down", "Extend the selection down one line", ["Shift", "Down"]),
         shared("select-line-up", "Extend the selection up one line", ["Shift", "Up"]),
         {
@@ -124,10 +130,10 @@ export const libreOfficeWriter: AppShortcuts = {
         },
         shared("select-page-down", "Extend the selection one screen down", ["Shift", "Page Down"]),
         shared("select-page-up", "Extend the selection one screen up", ["Shift", "Page Up"]),
-        mod("cursor-left-word", "Move to the beginning of the previous word", ["Ctrl", "Left"]),
-        mod("cursor-right-word", "Move to the beginning of the next word", ["Ctrl", "Right"]),
-        mod("cursor-paragraph-up", "Move to the beginning of the paragraph", ["Ctrl", "Up"]),
-        mod("cursor-paragraph-down", "Move to the next paragraph", ["Ctrl", "Down"]),
+        withMac("cursor-left-word", "Move to the beginning of the word", ["Ctrl", "Left"], ["Option", "Left"]),
+        withMac("cursor-right-word", "Move to the beginning of the next word", ["Ctrl", "Right"], ["Option", "Right"]),
+        shared("cursor-paragraph-up", "Move to the beginning of the paragraph", ["Ctrl", "Up"]),
+        withMac("cursor-paragraph-down", "Move to the beginning of the next paragraph", ["Ctrl", "Down"], ["Option", "Down"]),
         {
           id: "cursor-line-start",
           action: "Go to the beginning of the line",
@@ -173,7 +179,7 @@ export const libreOfficeWriter: AppShortcuts = {
           action: "Delete text to the end of the word",
           keys: perPlatform(platforms, { windows: ["Ctrl", "Del"], linux: ["Ctrl", "Del"], macos: ["Option", "Fn", "Backspace"] }),
         },
-        mod("delete-word-start", "Delete text to the beginning of the word", ["Ctrl", "Backspace"]),
+        withMac("delete-word-start", "Delete text to the beginning of the word", ["Ctrl", "Backspace"], ["Option", "Backspace"]),
         {
           id: "delete-sentence-end",
           action: "Delete text to the end of the sentence",
@@ -185,7 +191,7 @@ export const libreOfficeWriter: AppShortcuts = {
     {
       id: "formatting",
       title: "Formatting and paragraphs",
-      intro: "Apply paragraph alignment, text position, and heading styles with Writer's documented formatting defaults.",
+      intro: "Apply paragraph alignment, text position, and heading styles.",
       shortcuts: [
         mod("justify", "Align text justified", ["Ctrl", "J"]),
         mod("double-underline", "Toggle double underline", ["Ctrl", "D"]),
@@ -200,7 +206,7 @@ export const libreOfficeWriter: AppShortcuts = {
         mod("heading-3", "Apply Heading 3", ["Ctrl", "3"]),
         mod("heading-4", "Apply Heading 4", ["Ctrl", "4"]),
         mod("heading-5", "Apply Heading 5", ["Ctrl", "5"]),
-        shared("list-paragraph", "Insert a paragraph inside a list without a bullet", ["Alt", "Enter"]),
+        mod("list-paragraph", "Insert a paragraph inside a list without a bullet", ["Alt", "Enter"]),
         mod("move-paragraph-up", "Move the active paragraph up", ["Ctrl", "Alt", "Up"]),
         mod("move-paragraph-down", "Move the active paragraph down", ["Ctrl", "Alt", "Down"]),
         shared("move-level-down", "Move a heading or list level down", ["Tab"]),
@@ -214,23 +220,23 @@ export const libreOfficeWriter: AppShortcuts = {
       title: "Tables, frames, and objects",
       intro: "Navigate tables and frames, insert paragraphs around them, and resize or move selected objects from the keyboard.",
       shortcuts: [
-        shared("table-paragraph", "Insert a paragraph before or after a table", ["Alt", "Enter"]),
-        mod("table-select-all", "Select all content in the table context", ["Ctrl", "A"]),
-        mod("table-start", "Go to the beginning of the table context", ["Ctrl", "Home"]),
-        mod("table-end", "Go to the end of the table context", ["Ctrl", "End"]),
+        mod("table-paragraph", "Insert a paragraph before or after a table", ["Alt", "Enter"]),
+        mod("table-select-all", "Select the cell contents or the whole table", ["Ctrl", "A"]),
+        mod("table-start", "Go to the beginning of the cell or table", ["Ctrl", "Home"]),
+        mod("table-end", "Go to the end of the cell or table", ["Ctrl", "End"]),
         mod("table-tab", "Insert a tab stop in a table", ["Ctrl", "Tab"]),
         mod("table-cell-protection", "Remove cell protection", ["Ctrl", "Shift", "T"]),
         {
           id: "delete-table-content",
           action: "Delete table contents or selected rows",
-          keys: perPlatform(platforms, { windows: ["Ctrl", "Del"], linux: ["Ctrl", "Del"], macos: ["Shift", "Cmd", "Del"] }),
+          keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "Del"], linux: ["Ctrl", "Shift", "Del"], macos: ["Shift", "Cmd", "Del"] }),
         },
         shared("frame-select", "Select or clear a frame", ["Esc"]),
         shared("frame-edit", "Edit a selected frame", ["F2"]),
         mod("move-object", "Move a selected object", ["Alt", "Arrow keys"]),
         mod("resize-object", "Resize an object from the lower-right corner", ["Ctrl", "Alt", "Arrow keys"]),
         mod("resize-object-top-left", "Resize an object from the top-left corner", ["Ctrl", "Alt", "Shift", "Arrow keys"]),
-        mod("select-anchor", "Select an object's anchor", ["Ctrl", "Tab"]),
+        mod("select-anchor", "Select an object's anchor", ["Ctrl", "Tab"], "Works in Edit Points mode."),
       ],
     },
   ],

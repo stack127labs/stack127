@@ -28,11 +28,10 @@ export const zeplin: AppShortcuts = {
   name: "Zeplin",
   category: "Design handoff",
   platforms: [...platforms],
-  versionContext:
-    "Zeplin keyboard shortcut article checked November 1, 2026. The article lists Mac and Windows app maps; this record uses those desktop bindings.",
+  versionContext: "The Zeplin desktop app for Mac and Windows.",
   sourceUrl: "https://support.zeplin.io/en/articles/9685993-keyboard-shortcuts",
   sourceLabel: "official Zeplin keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "navigation",
@@ -45,8 +44,8 @@ export const zeplin: AppShortcuts = {
         dual("dashboard", "Open the dashboard", ["Alt", "A"], ["Option", "A"]),
         dual("styleguide", "Open the styleguide", ["Alt", "S"], ["Option", "S"]),
         dual("flows", "Open flows", ["Alt", "L"], ["Option", "L"]),
-        dual("collapse", "Collapse the current section", ["Ctrl", "Alt", "Up Arrow"], ["Ctrl", "Cmd", "Up Arrow"]),
-        dual("expand", "Expand the current section", ["Ctrl", "Alt", "Down Arrow"], ["Ctrl", "Cmd", "Down Arrow"]),
+        dual("collapse", "Collapse all sections", ["Ctrl", "Alt", "Up Arrow"], ["Ctrl", "Cmd", "Up Arrow"]),
+        dual("expand", "Expand all sections", ["Ctrl", "Alt", "Down Arrow"], ["Ctrl", "Cmd", "Down Arrow"]),
         dual("new-section", "Create a new section", ["Ctrl", "Shift", "N"], ["Ctrl", "Cmd", "N"]),
         dual("search-screen", "Search screens", ["Ctrl", "F"], ["Cmd", "F"]),
         dual("next-screen", "Open the next screen", ["Right Arrow"], ["Right Arrow"]),
@@ -60,14 +59,14 @@ export const zeplin: AppShortcuts = {
       shortcuts: [
         dual("clip-thumbnails", "Clip screen thumbnails", ["Ctrl", "Alt", "T"], ["Ctrl", "Option", "T"]),
         dual("tags", "Open tags", ["Ctrl", "T"], ["Cmd", "T"]),
-        dual("rename", "Rename the selected item", ["Alt", "R"], ["Option", "R"]),
-        dual("delete", "Delete the selected item", ["Ctrl", "Backspace"], ["Cmd", "Backspace"]),
+        dual("rename", "Rename the selected screen", ["Alt", "R"], ["Option", "R"]),
+        dual("delete", "Delete the selected screen", ["Ctrl", "Backspace"], ["Cmd", "Backspace"]),
         dual("select-all", "Select all", ["Ctrl", "A"], ["Cmd", "A"]),
         shared("escape", "Clear the current selection", ["Escape"]),
         shared("select", "Select the focused item", ["Space"]),
         shared("move-focus", "Move focus through items", ["Tab"]),
         shared("move-focus-back", "Move focus backward through items", ["Shift", "Tab"]),
-        shared("confirm", "Confirm the current field", ["Enter"], "The Mac app also documents Cmd+Return for committing a form."),
+        shared("confirm", "Select the focused list or menu item", ["Enter"], "In a form field, Cmd+Return commits the written item."),
       ],
     },
     {

@@ -19,23 +19,16 @@ const mac = (id: string, action: string, keys: string[], alternatives?: string[]
   ...(note ? { note } : {}),
 });
 
-const shared = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
-  id,
-  action,
-  keys: platforms.map((platform) => ({ platform, keys })),
-  ...(note ? { note } : {}),
-});
-
 export const fantastical: AppShortcuts = {
   slug: "fantastical",
   name: "Fantastical",
   category: "Calendar and tasks",
   platforms: [...platforms],
   versionContext:
-    "Current Fantastical keyboard shortcut pages checked September 1, 2026. The Mac page lists more commands than the Windows page, and the global open shortcut can be customized.",
+    "Fantastical for Mac and Windows. The Mac app has more shortcuts, and you can change the global open shortcut.",
   sourceUrl: "https://flexibits.com/fantastical/help/keyboard-shortcuts",
   sourceLabel: "Fantastical keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "application",
@@ -46,7 +39,7 @@ export const fantastical: AppShortcuts = {
         pair("search", "Search", ["Ctrl", "F"], ["Cmd", "F"]),
         pair("new-event", "Create a new event", ["Ctrl", "N"], ["Cmd", "N"]),
         pair("today", "Go to today", ["Ctrl", "T"], ["Cmd", "T"]),
-        pair("task-list", "Show the task list", ["Ctrl", "R"], ["Cmd", "R"]),
+        pair("task-list", "Show or hide the task list", ["Ctrl", "R"], ["Cmd", "R"]),
         pair("settings", "Open Settings", ["Ctrl", ","], ["Cmd", ","]),
         mac("quit", "Quit Fantastical", ["Cmd", "Q"]),
         mac("print", "Print", ["Cmd", "P"]),
@@ -60,9 +53,11 @@ export const fantastical: AppShortcuts = {
       title: "Navigation",
       intro: "Move through calendar dates and open search results with the keyboard.",
       shortcuts: [
-        shared("date-navigation", "Move through dates", ["Arrow keys"]),
-        mac("details", "Show event or task details", ["Cmd", "E"]),
-        mac("next-search-result", "Move to the next search result", ["Cmd", "Down"]),
+        mac("date-navigation", "Jump to the next or previous month", ["Right"], [["Left"]]),
+        mac("day-navigation", "Jump to the next or previous day", ["Shift", "Right"], [["Shift", "Left"]]),
+        mac("week-navigation", "Jump to the next or previous week", ["Shift", "Down"], [["Shift", "Up"]]),
+        mac("details", "Show or hide details", ["Cmd", "E"]),
+        mac("next-search-result", "Jump from the search field to the first result", ["Cmd", "Down"]),
         mac("delete", "Delete the selected event or task", ["Cmd", "Backspace"], [["Backspace"]]),
         mac("detected-invitees", "Show detected invitees", ["Shift", "Cmd", "I"]),
       ],
@@ -70,7 +65,7 @@ export const fantastical: AppShortcuts = {
     {
       id: "move-items",
       title: "Move events and tasks",
-      intro: "Mac shortcuts move the selected item by a day, fifteen minutes, or its end time.",
+      intro: "Move the selected item by a day or fifteen minutes in Day or Week view on Mac.",
       shortcuts: [
         mac("move-day-forward", "Move the item one day forward", ["Ctrl", "Cmd", "Right"]),
         mac("move-day-back", "Move the item one day backward", ["Ctrl", "Cmd", "Left"]),

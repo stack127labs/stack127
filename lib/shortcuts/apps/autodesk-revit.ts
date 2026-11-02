@@ -15,10 +15,10 @@ export const autodeskRevit: AppShortcuts = {
   category: "Building information modeling",
   platforms: ["windows"],
   versionContext:
-    "Default Revit 2026 shortcuts from Autodesk's versioned PDF checked November 1, 2026. Letter shortcuts are sequences: press the keys in order rather than as a chord. Revit runs on Windows, and its Keyboard Shortcuts dialog can add, remove, or replace non-reserved assignments.",
-  sourceUrl: "https://www.autodesk.com/revit-keyboard-shortcut-list-pdf-2026-enu",
-  sourceLabel: "Revit 2026 default keyboard shortcuts PDF",
-  lastVerified: "2026-11-01",
+    "Revit 2027 defaults on Windows. Letter shortcuts are typed in order, not held together, and you can change any non-reserved one in the Keyboard Shortcuts dialog.",
+  sourceUrl: "https://www.autodesk.com/revit-keyboard-shortcut-list-pdf-2027-enu",
+  sourceLabel: "Revit 2027 default keyboard shortcuts PDF",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "interface-views",
@@ -31,7 +31,7 @@ export const autodeskRevit: AppShortcuts = {
         ["thin-lines", "Toggle Thin Lines", ["T", "L"]],
         ["tab-views", "Tab open views", ["T", "W"]],
         ["tile-views", "Tile open views", ["W", "T"]],
-        ["system-browser", "Toggle the System Browser", ["Fn", "9"]],
+        ["system-browser", "Toggle the System Browser", ["F9"]],
         ["fabrication-browser", "Toggle MEP Fabrication Parts", ["P", "B"]],
         ["shortcuts-dialog", "Open Keyboard Shortcuts", ["K", "S"]],
         ["canvas-theme", "Switch the canvas theme", ["C", "A"]],

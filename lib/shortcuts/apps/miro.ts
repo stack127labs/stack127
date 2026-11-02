@@ -37,15 +37,15 @@ export const miro: AppShortcuts = {
   category: "Design tool",
   platforms: [...platforms],
   versionContext:
-    "Current Miro browser and desktop shortcuts checked November 1, 2026. Miro lets users turn single-character shortcuts off from Accessibility, and the desktop app adds reload, tab, exit, and board-link commands.",
+    "Miro in the browser and desktop app. You can turn off single-character shortcuts in Accessibility, and the desktop app adds reload, tab, exit, and board-link keys.",
   sourceUrl: "https://help.miro.com/hc/en-us/articles/360017731033-Shortcuts-and-hotkeys",
   sourceLabel: "official Miro shortcuts and hotkeys",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "tools",
       title: "Board tools",
-      intro: "Single keys switch the active board tool. Miro documents these as defaults that can be disabled together for assistive technology use.",
+      intro: "Single keys switch the active board tool. You can turn them all off together for assistive technology use.",
       shortcuts: [
         dualAlt("select-hand", "Select tool or hand mode", ["V"], ["V"], [["H"]], [["H"]]),
         dual("text", "Text tool", ["T"], ["T"]),
@@ -103,8 +103,8 @@ export const miro: AppShortcuts = {
         dual("zoom-100", "Zoom to 100%", ["Ctrl", "0"], ["Cmd", "0"]),
         dual("zoom-fit", "Zoom to fit", ["Alt", "1"], ["Option", "1"]),
         dual("zoom-selected", "Zoom to the selected item", ["Alt", "2"], ["Option", "2"]),
-        dual("pan", "Move the canvas", ["Space", "drag"], ["Space", "drag"]),
-        dual("search", "Search", ["Ctrl", "F"], ["Cmd", "F"]),
+        dual("pan", "Move the canvas", ["Space + drag"], ["Space + drag"]),
+        dual("search", "Find and replace", ["Ctrl", "F"], ["Cmd", "F"]),
         dual("next-object", "Move forward through objects", ["Tab"], ["Tab"]),
         dual("previous-object", "Move backward through objects", ["Shift", "Tab"], ["Shift", "Tab"]),
         dual("spatial-object", "Move through board objects spatially", ["Ctrl", "Arrow keys"], ["Cmd", "Arrow keys"]),

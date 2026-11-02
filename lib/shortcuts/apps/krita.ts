@@ -9,10 +9,10 @@ export const krita: AppShortcuts = {
   category: "Digital painting",
   platforms: [...platforms],
   versionContext:
-    "Defaults from the Krita Manual 5.3.0, checked September 1, 2026. Krita lets users replace the default scheme, export custom profiles, and assign alternate shortcuts; this page records the documented defaults. The manual publishes the same Ctrl-based command notation for the cross-platform commands below.",
+    "Krita 5.3 defaults. You can replace the shortcut scheme or assign alternate keys.",
   sourceUrl: "https://docs.krita.org/en/reference_manual/preferences/shortcut_settings.html",
   sourceLabel: "Krita Manual 5.3.0 shortcut settings",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "files",
@@ -32,23 +32,15 @@ export const krita: AppShortcuts = {
     {
       id: "selection-and-clipboard",
       title: "Selection and clipboard",
-      intro: "Copy, cut, paste, and manage selections. The selection source documents Insert and Delete as alternatives where provided.",
+      intro: "Copy, cut, paste, and manage selections in your document.",
       shortcuts: [
         {
           id: "copy",
           action: "Copy the selection",
           keys: platforms.map((platform) => ({ platform, keys: ["Ctrl", "C"], alternatives: [["Ctrl", "Ins"]] })),
         },
-        {
-          id: "paste",
-          action: "Paste the clipboard",
-          keys: platforms.map((platform) => ({ platform, keys: ["Ctrl", "V"], alternatives: [["Shift", "Ins"]] })),
-        },
-        {
-          id: "cut",
-          action: "Cut the selection",
-          keys: platforms.map((platform) => ({ platform, keys: ["Ctrl", "X"], alternatives: [["Shift", "Del"]] })),
-        },
+        { id: "paste", action: "Paste the clipboard", keys: combo(platforms, ["Ctrl", "V"]) },
+        { id: "cut", action: "Cut the selection", keys: combo(platforms, ["Ctrl", "X"]) },
         { id: "copy-merged", action: "Copy from all layers", keys: combo(platforms, ["Ctrl", "Shift", "C"]) },
         { id: "copy-new-layer", action: "Copy the selection to a new layer", keys: combo(platforms, ["Ctrl", "Alt", "J"]) },
         { id: "cut-new-layer", action: "Cut the selection to a new layer", keys: combo(platforms, ["Ctrl", "Shift", "J"]) },
@@ -103,7 +95,7 @@ export const krita: AppShortcuts = {
     {
       id: "text-editor",
       title: "Text editor",
-      intro: "When the vector text editor is active, use its documented editing, find, zoom, and text-formatting commands.",
+      intro: "Save, close, edit, find, and zoom keys work in the SVG source editor. Formatting keys work in the text tool.",
       shortcuts: [
         { id: "text-save", action: "Save text edits", keys: combo(platforms, ["Ctrl", "S"]) },
         { id: "text-close", action: "Close the text editor", keys: combo(platforms, ["Ctrl", "W"]) },

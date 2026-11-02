@@ -19,10 +19,10 @@ export const adobeAudition: AppShortcuts = {
   category: "Audio editor",
   platforms: ["windows", "macos"],
   versionContext:
-    "Adobe's current expert-selected default list, updated June 17, 2026 and checked November 1, 2026. Adobe labels the web reference as partial and directs users to Edit > Keyboard Shortcuts for the complete installed keymap. CD-authoring commands removed in Audition 26.3 are not included, and custom shortcut sets are outside this reference.",
+    "A partial list of Audition defaults. See Edit > Keyboard Shortcuts for all keys. Audition 26.3 removed some CD-authoring features.",
   sourceUrl: "https://helpx.adobe.com/audition/desktop/keyboard-shortcuts/default-keyboard-shortcuts.html",
   sourceLabel: "Adobe Audition default keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "playback-zoom-markers",

@@ -9,10 +9,10 @@ const gitlab: AppShortcuts = {
   category: "Code hosting",
   platforms: [...platforms],
   versionContext:
-    "GitLab publishes one web shortcut reference with macOS modifier differences where they matter. Some commands depend on the current project, issue, or merge request view.",
+    "GitLab on the web, with macOS keys where they differ. Some commands depend on the current project, issue, or merge request view.",
   sourceUrl: "https://docs.gitlab.com/user/shortcuts/",
   sourceLabel: "official GitLab keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "global-navigation",
@@ -33,7 +33,7 @@ const gitlab: AppShortcuts = {
         { id: "review-requests", action: "Open Review Requests", keys: combo(platforms, ["Shift", "R"]) },
         { id: "todo", action: "Open To-Do", keys: combo(platforms, ["Shift", "T"]) },
         { id: "performance-bar", action: "Open the performance bar", keys: combo(platforms, ["P", "B"]) },
-        { id: "hide-overlay", action: "Hide the current overlay", keys: combo(platforms, ["Esc"]) },
+        { id: "hide-overlay", action: "Hide tooltips or popovers", keys: combo(platforms, ["Esc"]) },
         { id: "toggle-gitlab-next", action: "Toggle GitLab Next", keys: combo(platforms, ["G", "X"]) },
         { id: "web-ide", action: "Open the Web IDE", keys: combo(platforms, ["."]) },
         { id: "duo-chat", action: "Open GitLab Duo Chat", keys: combo(platforms, ["D"]) },
@@ -69,12 +69,13 @@ const gitlab: AppShortcuts = {
       title: "Issues and editor",
       intro: "Edit issues, format comments, and submit text from GitLab's issue and merge request editors.",
       shortcuts: [
-        { id: "edit-issue", action: "Edit the current issue", keys: combo(platforms, ["E"]) },
+        { id: "edit-issue", action: "Edit the issue description", keys: combo(platforms, ["E"]) },
         { id: "assign", action: "Change the assignee", keys: combo(platforms, ["A"]) },
         { id: "milestone", action: "Change the milestone", keys: combo(platforms, ["M"]) },
         { id: "label", action: "Change labels", keys: combo(platforms, ["L"]) },
         { id: "copy-reference", action: "Copy the issue reference", keys: combo(platforms, ["C", "R"]) },
         { id: "comment", action: "Focus the comment box", keys: combo(platforms, ["R"]) },
+        { id: "close-design", action: "Close the design", keys: combo(platforms, ["Esc"]) },
         { id: "previous-design", action: "Show the previous design item", keys: combo(platforms, ["Left"]) },
         { id: "next-design", action: "Show the next design item", keys: combo(platforms, ["Right"]) },
         { id: "preview-markdown", action: "Preview Markdown", keys: combo(platforms, ["Ctrl", "Shift", "P"], ["Cmd", "Shift", "P"]) },

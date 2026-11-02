@@ -23,10 +23,10 @@ export const linear: AppShortcuts = {
   category: "Project management",
   platforms: [...platforms],
   versionContext:
-    "Current Linear issue, search, favorites, layout, and editor documentation checked October 10, 2026. Public docs cover common defaults and may not include every workspace- or permission-dependent action.",
+    "Linear web app shortcuts. Some actions depend on your workspace or permissions.",
   sourceUrl: "https://linear.app/docs/select-issues",
   sourceLabel: "official Linear issue-selection and keyboard documentation",
-  lastVerified: "2026-10-10",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "navigation-and-search",

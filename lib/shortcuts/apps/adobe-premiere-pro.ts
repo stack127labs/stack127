@@ -18,10 +18,10 @@ export const adobePremierePro: AppShortcuts = {
   category: "Video editor",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current Adobe Premiere desktop default shortcut set from Adobe's reference updated January 7, 2026 and checked November 1, 2026. Custom presets and unassigned commands are not listed.",
+    "Default shortcut set for Premiere on desktop. Custom presets can change these keys.",
   sourceUrl: "https://helpx.adobe.com/premiere/desktop/get-started/keyboard-shortcuts/default-keyboard-shortcuts.html",
   sourceLabel: "Adobe Premiere default keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "projects-and-files",
@@ -31,7 +31,7 @@ export const adobePremierePro: AppShortcuts = {
         ["new-project", "Create a project", "Ctrl+Alt+N", "Option+Cmd+N"],
         ["new-sequence", "Create a sequence", "Ctrl+N", "Cmd+N"],
         ["open-project", "Open a project", "Ctrl+O", "Cmd+O"],
-        ["close", "Close the active window", "Ctrl+W", "Cmd+W"],
+        ["close", "Close", "Ctrl+W", "Cmd+W"],
         ["close-project", "Close the project", "Ctrl+Shift+W", "Shift+Cmd+W"],
         ["save", "Save", "Ctrl+S", "Cmd+S"],
         ["save-as", "Save as", "Ctrl+Shift+S", "Shift+Cmd+S"],

@@ -9,10 +9,10 @@ export const macosSpotlight: AppShortcuts = {
   category: "Operating system",
   platforms: [...platforms],
   versionContext:
-    "Spotlight keyboard shortcuts from Apple's current Mac User Guide, checked September 1, 2026. Result categories and filters can vary with the macOS version and enabled Spotlight sources.",
-  sourceUrl: "https://support.apple.com/guide/mac-help/mh26783/mac",
-  sourceLabel: "Apple Spotlight keyboard shortcuts",
-  lastVerified: "2026-09-01",
+    "These shortcuts are for Spotlight on Mac. You can also assign quick keys to specific actions.",
+  sourceUrl: "https://support.apple.com/guide/mac-help/spotlight-keyboard-shortcuts-mh26783/mac",
+  sourceLabel: "Spotlight keyboard shortcuts on Mac",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "search",

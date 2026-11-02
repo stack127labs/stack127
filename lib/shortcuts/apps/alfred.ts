@@ -14,10 +14,10 @@ export const alfred: AppShortcuts = {
   category: "Productivity launcher",
   platforms: ["macos"],
   versionContext:
-    "Default Alfred 5 hotkeys from the current official cheatsheet checked November 1, 2026. Alfred lets users change hotkeys, so modified installations can differ. Universal Actions, File System Navigation, Clipboard History, snippets, contacts, email, workflows, and the Music Mini Player require the Powerpack where noted.",
+    "Default Alfred 5 hotkeys, which you can change. Universal Actions, File System Navigation, Clipboard History, snippets, contacts, email, workflows, and the Music Mini Player need the Powerpack.",
   sourceUrl: "https://www.alfredapp.com/help/getting-started/cheatsheet/",
   sourceLabel: "Alfred 5 cheatsheet",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "search-and-results",

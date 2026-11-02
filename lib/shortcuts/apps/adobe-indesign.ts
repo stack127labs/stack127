@@ -18,10 +18,10 @@ export const adobeInDesign: AppShortcuts = {
   category: "Page layout and publishing",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current InDesign desktop defaults from Adobe's keyboard shortcut reference checked November 1, 2026. The tables use the InDesign Default shortcut set, not its optional Illustrator, Photoshop, PageMaker, QuarkXPress, or custom sets.",
+    "InDesign desktop with the InDesign Default shortcut set. The optional Illustrator, Photoshop, and custom sets differ.",
   sourceUrl: "https://helpx.adobe.com/indesign/desktop/get-started/settings-and-preferences/keyboard-shortcuts.html",
   sourceLabel: "Adobe InDesign keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "selection-and-navigation-tools",
@@ -29,7 +29,7 @@ export const adobeInDesign: AppShortcuts = {
       intro: "Choose selection, page, gap, hand, and zoom tools, or temporarily reach navigation tools while another tool is active.",
       shortcuts: rows([
         ["selection", "Selection tool", "V", "V"],
-        ["selection-escape", "Selection tool while not editing text", "Esc", "Esc"],
+        ["selection-escape", "Selection tool (second key)", "Esc", "Esc"],
         ["direct-selection", "Direct Selection tool", "A", "A"],
         ["toggle-selection", "Toggle Selection and Direct Selection tools", "Ctrl+Tab", "Cmd+Control+Tab"],
         ["page", "Page tool", "Shift+P", "Shift+P"],
@@ -46,7 +46,7 @@ export const adobeInDesign: AppShortcuts = {
     {
       id: "drawing-and-layout-tools",
       title: "Drawing and layout tools",
-      intro: "Draw paths, text, frames, shapes, gradients, and transformed objects with InDesign's single-key tool bindings.",
+      intro: "Draw paths, text, frames, shapes, gradients, and transformed objects with InDesign's tool keys.",
       shortcuts: rows([
         ["pen", "Pen tool", "P"],
         ["add-anchor", "Add Anchor Point tool", "="],
@@ -82,7 +82,7 @@ export const adobeInDesign: AppShortcuts = {
     {
       id: "objects-and-transformations",
       title: "Objects and transformations",
-      intro: "Select frame content or containers, duplicate and move selections, resize frames, and change display quality.",
+      intro: "Select frame content or containers, duplicate and move selections, and change display quality.",
       shortcuts: rows([
         ["container", "Select the container of selected content", "Esc"],
         ["content", "Select the content of the selected container", "Shift+Esc"],
@@ -103,7 +103,7 @@ export const adobeInDesign: AppShortcuts = {
     {
       id: "type-formatting",
       title: "Type formatting and movement",
-      intro: "Apply character styles, adjust size and leading, align paragraphs, and move or extend the text selection.",
+      intro: "Apply type styles, set auto leading, align paragraphs, and move or select text.",
       shortcuts: rows([
         ["bold", "Apply the font's bold face", "Shift+Ctrl+B", "Shift+Cmd+B"],
         ["italic", "Apply the font's italic face", "Shift+Ctrl+I", "Shift+Cmd+I"],
@@ -160,7 +160,7 @@ export const adobeInDesign: AppShortcuts = {
       title: "Panels and production",
       intro: "Show panels for typography, pages, layers, color, and stroke, then inspect separations in Overprint Preview.",
       shortcuts: rows([
-        ["hide-panels", "Show or hide all panels", "Tab"],
+        ["hide-panels", "Show or hide all panels with no insertion point", "Tab"],
         ["hide-side-panels", "Show or hide panels except Tools and Control", "Shift+Tab"],
         ["control", "Activate the Control panel", "Ctrl+6", "Cmd+6"],
         ["character-paragraph", "Toggle Character and Paragraph modes in Control", "Ctrl+Alt+7", "Cmd+Option+7"],

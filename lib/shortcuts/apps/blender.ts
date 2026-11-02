@@ -31,10 +31,10 @@ export const blender: AppShortcuts = {
   category: "3D creation suite",
   platforms: ["windows", "macos", "linux"],
   versionContext:
-    "Common shortcuts from the Blender 5.2 LTS Manual, checked August 31, 2026. The page is intentionally not comprehensive. It documents the Blender preset, not the Industry Compatible or legacy Blender 27x presets. On macOS, Command can replace Ctrl except where the operating system conflicts; those Command forms appear as alternatives.",
-  sourceUrl: "https://docs.blender.org/manual/en/latest/interface/keymap/blender_default.html",
+    "These are Blender's default keymap shortcuts, not the Industry Compatible or legacy presets. You can customize the keymap; on macOS, Command can replace Ctrl except where it conflicts with the system.",
+  sourceUrl: "https://docs.blender.org/manual/en/5.2/interface/keymap/blender_default.html",
   sourceLabel: "Blender 5.2 LTS Manual default keymap",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "properties",

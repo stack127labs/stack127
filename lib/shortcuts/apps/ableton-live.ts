@@ -19,10 +19,10 @@ export const abletonLive: AppShortcuts = {
   category: "Digital audio workstation",
   platforms: ["windows", "macos"],
   versionContext:
-    "Documented defaults for Ableton Live 12 checked November 1, 2026. Single-letter commands are affected by the Computer MIDI Keyboard. When it is active, hold Shift with a single-letter shortcut. User Key Map and MIDI Map assignments are not defaults and are not listed.",
+    "Ableton Live 12 defaults. When the Computer MIDI Keyboard is on, hold Shift with single-letter shortcuts.",
   sourceUrl: "https://www.ableton.com/en/manual/live-keyboard-shortcuts/",
   sourceLabel: "Ableton Live 12 keyboard shortcuts manual",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "views",
@@ -57,10 +57,10 @@ export const abletonLive: AppShortcuts = {
           ["focus-learn", "Move focus to Learn View", ["Alt", "7"], ["Option", "7"]],
           ["focus-selected-clip", "Move focus to the selected clip panel", ["Alt", "8"], ["Option", "8"]],
           ["focus-clip-panels", "Move focus to the clip panels", ["Alt", "Shift", "P"], ["Option", "Shift", "P"]],
-          ["next-control", "Move to the next focusable control", ["Tab"]],
-          ["previous-control", "Move to the previous focusable control", ["Shift", "Tab"]],
-          ["next-neighbor", "Move to the next neighboring control", ["Ctrl", "Tab"], ["Option", "Tab"]],
-          ["previous-neighbor", "Move to the previous neighboring control", ["Ctrl", "Shift", "Tab"], ["Option", "Shift", "Tab"]],
+          ["next-control", "Move to the next focusable control", ["Tab"], undefined, "Needs Use Tab to Move Focus turned on."],
+          ["previous-control", "Move to the previous focusable control", ["Shift", "Tab"], undefined, "Needs Use Tab to Move Focus turned on."],
+          ["next-neighbor", "Move to the next neighboring control", ["Ctrl", "Tab"], ["Option", "Tab"], "Needs Use Tab to Move Focus turned on."],
+          ["previous-neighbor", "Move to the previous neighboring control", ["Ctrl", "Shift", "Tab"], ["Option", "Shift", "Tab"], "Needs Use Tab to Move Focus turned on."],
         ]),
         {
           id: "device-clip-view",
@@ -131,11 +131,11 @@ export const abletonLive: AppShortcuts = {
         ["set-loop-start", "Set the loop brace start", ["Ctrl", "F10"], ["Cmd", "F10"]],
         ["set-loop-end", "Set the loop brace end", ["Ctrl", "F11"], ["Cmd", "F11"]],
         ["set-end-marker", "Set the end marker", ["Ctrl", "F12"], ["Cmd", "F12"]],
-        ["nudge-loop", "Nudge the loop brace left or right", ["Left/Right"]],
-        ["move-loop", "Move the loop by its length", ["Up/Down"]],
-        ["halve-double-loop", "Halve or double the loop length", ["Ctrl", "Up/Down"], ["Cmd", "Up/Down"]],
-        ["shorten-lengthen-loop", "Shorten or lengthen the loop", ["Ctrl", "Left/Right"], ["Cmd", "Left/Right"]],
-        ["select-loop-material", "Select the material inside the loop", ["Ctrl", "Shift", "L"], ["Cmd", "Shift", "L"]],
+        ["nudge-loop", "Nudge the loop brace left or right", ["Left/Right"], undefined, "Select the loop brace or markers first."],
+        ["move-loop", "Move the loop by its length", ["Up/Down"], undefined, "Select the loop brace or markers first."],
+        ["halve-double-loop", "Halve or double the loop length", ["Ctrl", "Up/Down"], ["Cmd", "Up/Down"], "Select the loop brace or markers first."],
+        ["shorten-lengthen-loop", "Shorten or lengthen the loop", ["Ctrl", "Left/Right"], ["Cmd", "Left/Right"], "Select the loop brace or markers first."],
+        ["select-loop-material", "Select the material inside the loop", ["Ctrl", "Shift", "L"], ["Cmd", "Shift", "L"], "Select the loop brace or markers first."],
         ["zoom-window-in", "Zoom the window in", ["Ctrl", "+"], ["Cmd", "+"]],
         ["zoom-window-out", "Zoom the window out", ["Ctrl", "-"], ["Cmd", "-"]],
         ["zoom-time-ruler-in", "Zoom the time ruler in", ["+"]],
@@ -223,7 +223,8 @@ export const abletonLive: AppShortcuts = {
       id: "session-and-arrangement",
       title: "Session and Arrangement View",
       intro: "Launch clips and scenes, edit Arrangement time, manage take lanes, and bounce selected material to audio.",
-      shortcuts: shortcuts([
+      shortcuts: [
+        ...shortcuts([
         ["launch-clip", "Launch the selected clip or slot", ["Enter"]],
         ["neighboring-clip", "Select a neighboring clip or slot", ["Arrow keys"]],
         ["select-session-clips", "Select all clips or slots", ["Ctrl", "A"], ["Cmd", "A"]],
@@ -241,8 +242,24 @@ export const abletonLive: AppShortcuts = {
         ["move-nonadjacent-scenes", "Move nonadjacent scenes without collapsing them", ["Ctrl", "Up/Down"], ["Cmd", "Up/Down"]],
         ["deactivate-clip", "Deactivate the selected clip", ["0"]],
         ["jump-track-title", "Jump to the highlighted track title bar in Session or Arrangement View", ["Esc"]],
-        ["jump-first-track", "Jump to the first track in the current scene", ["Home"]],
-        ["jump-last-track", "Jump to the last track or return to the current scene", ["End"]],
+        ]),
+        {
+          id: "jump-first-track",
+          action: "Jump to the first track in the current scene",
+          keys: [
+            { platform: "windows", keys: ["Home"] },
+            { platform: "macos", keys: ["Home"], alternatives: [["Fn", "Left"]] },
+          ],
+        },
+        {
+          id: "jump-last-track",
+          action: "Jump to the last track or return to the current scene",
+          keys: [
+            { platform: "windows", keys: ["End"] },
+            { platform: "macos", keys: ["End"], alternatives: [["Fn", "Right"]] },
+          ],
+        },
+        ...shortcuts([
         ["solo-chain", "Solo the selected chain", ["S"]],
         ["split-clip", "Split the clip at the selection", ["Ctrl", "E"], ["Cmd", "E"]],
         ["consolidate", "Consolidate the selection into a clip", ["Ctrl", "J"], ["Cmd", "J"]],
@@ -279,7 +296,8 @@ export const abletonLive: AppShortcuts = {
         ["replace-main-take", "Replace the main take with the next or previous take", ["Ctrl", "Up/Down"], ["Cmd", "Up/Down"]],
         ["bounce-track", "Bounce to a new track", ["Ctrl", "B"], ["Cmd", "B"]],
         ["paste-bounce", "Paste bounced audio", ["Ctrl", "Alt", "V"], ["Cmd", "Option", "V"]],
-      ]),
+        ]),
+      ],
     },
     {
       id: "tracks-transport-browser",
@@ -306,7 +324,16 @@ export const abletonLive: AppShortcuts = {
           ["play-stop", "Play from the start marker or stop", ["Space"]],
           ["continue-play", "Continue playback from the stop point", ["Shift", "Space"]],
           ["stop-selection-end", "Stop playback at the end of the selection", ["Ctrl", "Space"], ["Option", "Space"]],
-          ["transport-marker-start", "Move the insert marker to the beginning", ["Home"]],
+        ]),
+        {
+          id: "transport-marker-start",
+          action: "Move the insert marker to the beginning",
+          keys: [
+            { platform: "windows", keys: ["Home"] },
+            { platform: "macos", keys: ["Home"], alternatives: [["Fn", "Left"]] },
+          ],
+        },
+        ...shortcuts([
           ["record", "Record", ["F9"]],
           ["arrangement-record", "Arm recording in Arrangement View", ["Shift", "F9"]],
           ["back-arrangement", "Return to Arrangement", ["F10"]],
@@ -334,7 +361,7 @@ export const abletonLive: AppShortcuts = {
           ["key-map", "Toggle Key Map mode", ["Ctrl", "K"], ["Cmd", "K"]],
           ["computer-midi", "Toggle the Computer MIDI Keyboard", ["M"]],
           ["midi-octave", "Move the Computer MIDI Keyboard octave down or up", ["Z/X"]],
-          ["midi-velocity", "Move Computer MIDI Keyboard velocity down or up", ["C/V"]],
+          ["midi-velocity", "Change the Computer MIDI Keyboard velocity", ["C/V"]],
         ]),
         {
           id: "browser-preview",

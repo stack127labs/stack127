@@ -23,10 +23,10 @@ export const zoom: AppShortcuts = {
   category: "Video conferencing",
   platforms: [...platforms],
   versionContext:
-    "Zoom desktop keyboard shortcut reference checked November 1, 2026. Zoom notes that some shortcuts require a higher app version than the global minimum and that shortcuts can be edited in settings.",
+    "Zoom desktop app. Some shortcuts need a newer app version, and you can edit shortcuts in settings.",
   sourceUrl: "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0067050",
   sourceLabel: "official Zoom desktop keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "meeting",
@@ -54,8 +54,8 @@ export const zoom: AppShortcuts = {
         tri("copy-invite", "Copy the meeting invitation", ["Alt", "Shift", "I"], ["Cmd", "Shift", "I"], ["Alt", "Shift", "I"]),
         tri("raise-hand", "Raise or lower your hand", ["Alt", "Y"], ["Option", "Y"], ["Alt", "Y"]),
         tri("leave", "Leave the meeting", ["Alt", "Q"], [], []),
-        tri("remote-control", "Start or stop remote control", ["Alt", "Shift", "R"], ["Ctrl", "Shift", "R"], ["Alt", "Shift", "R"]),
-        tri("remote-control-request", "Request remote control", ["Alt", "Shift", "G"], ["Ctrl", "Shift", "G"], ["Alt", "Shift", "G"]),
+        tri("remote-control", "Begin remote control", ["Alt", "Shift", "R"], ["Ctrl", "Shift", "R"], ["Alt", "Shift", "R"]),
+        tri("remote-control-request", "Revoke or give up remote control permission", ["Alt", "Shift", "G"], ["Ctrl", "Shift", "G"], ["Alt", "Shift", "G"]),
         tri("fullscreen", "Enter or exit full screen", ["Alt", "F"], ["Cmd", "Shift", "F"], []),
       ],
     },
@@ -92,7 +92,7 @@ export const zoom: AppShortcuts = {
         tri("product-one", "Open product tab one", ["Ctrl", "1"], ["Cmd", "1"], []),
         tri("product-eight", "Open product tab eight", ["Ctrl", "8"], ["Cmd", "8"], []),
         tri("last-product", "Open the last product tab", ["Ctrl", "9"], ["Cmd", "9"], []),
-        tri("ai-companion", "Open Zoom AI Companion", ["Ctrl", "Shift", "O"], ["Shift", "Cmd", "O"], []),
+        tri("ai-companion", "Open the AI chat panel", ["Ctrl", "Shift", "O"], ["Shift", "Cmd", "O"], []),
         tri("calendar", "Open Zoom Calendar", ["Ctrl", "Shift", "J"], ["Shift", "Cmd", "J"], []),
         tri("close-window", "Close the active Zoom window", ["Alt", "F4"], ["Cmd", "W"], []),
         tri("diagnostics", "Start the Zoom client health check", ["Ctrl", "Alt", "Shift", "D"], ["Cmd", "Option", "Shift", "D"], []),

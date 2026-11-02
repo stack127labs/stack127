@@ -13,7 +13,7 @@ export const numbers: AppShortcuts = {
   category: "Spreadsheet",
   platforms: ["macos"],
   versionContext:
-    "Numbers for Mac shortcuts from Apple's current Numbers User Guide, checked September 1, 2026. Apple notes that System Settings can change some shortcuts, and portable Macs may require Fn for function keys.",
+    "Numbers for Mac. System Settings can change some shortcuts, and portable Macs may need Fn for function keys.",
   sourceUrl: "https://support.apple.com/guide/numbers/keyboard-shortcuts-tana45192591/mac",
   sourceLabel: "Apple Numbers keyboard shortcuts for Mac",
   lastVerified: "2026-09-01",

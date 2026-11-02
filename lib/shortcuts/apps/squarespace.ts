@@ -9,10 +9,10 @@ export const squarespace: AppShortcuts = {
   category: "Website builder",
   platforms: [...platforms],
   versionContext:
-    "Squarespace keyboard shortcuts checked November 1, 2026. The official guide was updated November 5, 2025 and warns that some shortcuts do not work in products or panels outside direct site editing.",
+    "Some shortcuts don't work outside direct site editing, such as in other products or panels.",
   sourceUrl: "https://support.squarespace.com/hc/en-us/articles/214491097-Squarespace-keyboard-shortcuts-and-tips",
   sourceLabel: "official Squarespace keyboard shortcuts and tips",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "navigation",
@@ -20,7 +20,7 @@ export const squarespace: AppShortcuts = {
       intro: "Site navigation shortcuts open preview, search panels, and the accessible focus order used while editing a Squarespace site.",
       shortcuts: [
         { id: "preview", action: "Open or close the full preview", keys: perPlatform(platforms, { windows: ["Esc"], macos: ["Esc"] }) },
-        { id: "search-panel", action: "Search for a panel", keys: perPlatform(platforms, { windows: ["/"], macos: ["/"] }), note: "The source also lists question mark. Browser search behavior can intercept this key." },
+        { id: "search-panel", action: "Search for a panel", keys: perPlatform(platforms, { windows: ["/"], macos: ["/"] }), note: "Question mark also works. Browser search behavior can intercept this key." },
         { id: "next-element", action: "Highlight the next element", keys: perPlatform(platforms, { windows: ["Tab"], macos: ["Tab"] }) },
         { id: "previous-element", action: "Move to the previous highlighted element", keys: perPlatform(platforms, { windows: ["Shift", "Tab"], macos: ["Shift", "Tab"] }) },
         { id: "select-element", action: "Select highlighted content", keys: perPlatform(platforms, { windows: ["Space"], macos: ["Space"] }) },

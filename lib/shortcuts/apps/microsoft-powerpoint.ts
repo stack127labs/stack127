@@ -24,23 +24,16 @@ const windowsOnly = (id: string, action: string, keys: string[], note?: string):
   ...(note ? { note } : {}),
 });
 
-const macOnly = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
-  id,
-  action,
-  keys: [{ platform: "macos", keys }],
-  ...(note ? { note } : {}),
-});
-
 export const microsoftPowerPoint: AppShortcuts = {
   slug: "microsoft-powerpoint",
   name: "Microsoft PowerPoint",
   category: "Presentation software",
   platforms: [...platforms],
   versionContext:
-    "Current Microsoft PowerPoint creation and presentation shortcuts checked November 1, 2026. The official creation table is Windows-focused, while the delivery table documents Windows and Mac separately. Ribbon access keys and presentation commands can vary with the PowerPoint version and keyboard layout.",
-  sourceUrl: "https://support.microsoft.com/en-us/office/use-keyboard-shortcuts-to-deliver-powerpoint-presentations-1524ffce-bd2a-45f4-9a7f-f18b992b93a0",
-  sourceLabel: "official Microsoft PowerPoint presentation shortcuts",
-  lastVerified: "2026-11-01",
+    "Editing keys are for PowerPoint on Windows; presenting keys cover Windows and Mac. Ribbon keys and presentation commands can vary with version and keyboard layout.",
+  sourceUrl: "https://support.microsoft.com/en-us/accessibility/powerpoint/use-keyboard-shortcuts-to-create-powerpoint-presentations",
+  sourceLabel: "official Microsoft PowerPoint keyboard shortcuts",
+  lastVerified: "2026-11-03",
   groups: [
     {
       id: "windows-authoring",
@@ -69,20 +62,20 @@ export const microsoftPowerPoint: AppShortcuts = {
         windowsOnly("open-menu", "Open the selected menu", ["Alt", "Down"]),
         windowsOnly("toggle-ribbon", "Expand or collapse the ribbon", ["Ctrl", "F1"]),
         windowsOnly("context-menu", "Open the context menu", ["Shift", "F10"]),
-        windowsOnly("new-slide", "Insert a new slide", ["Ctrl", "M"]),
-        windowsOnly("save", "Save the presentation", ["Ctrl", "S"]),
-        windowsOnly("undo", "Undo the last action", ["Ctrl", "Z"]),
-        windowsOnly("redo", "Redo the last action", ["Ctrl", "Y"]),
-        windowsOnly("duplicate", "Duplicate the selected object or slide", ["Ctrl", "D"]),
-        windowsOnly("cut", "Cut the selection", ["Ctrl", "X"]),
-        windowsOnly("copy", "Copy the selection", ["Ctrl", "C"]),
-        windowsOnly("paste", "Paste the clipboard", ["Ctrl", "V"]),
-        windowsOnly("select-all", "Select all objects or text", ["Ctrl", "A"]),
+        pair("new-slide", "Insert a new slide", ["Ctrl", "M"], ['Cmd', 'Shift', 'N']),
+        pair("save", "Save the presentation", ["Ctrl", "S"], ['Cmd', 'S']),
+        pair("undo", "Undo the last action", ["Ctrl", "Z"], ['Cmd', 'Z']),
+        pair("redo", "Redo the last action", ["Ctrl", "Y"], ['Cmd', 'Y']),
+        pair("duplicate", "Duplicate the selected object or slide", ["Ctrl", "D"], ["Ctrl", "D"], "On Mac, Ctrl+D duplicates objects. Use Cmd+Shift+D for slides."),
+        pair("cut", "Cut the selection", ["Ctrl", "X"], ['Cmd', 'X']),
+        pair("copy", "Copy the selection", ["Ctrl", "C"], ['Cmd', 'C']),
+        pair("paste", "Paste the clipboard", ["Ctrl", "V"], ['Cmd', 'V']),
+        pair("select-all", "Select all objects or text", ["Ctrl", "A"], ['Cmd', 'A']),
         windowsOnly("textbox", "Insert a text box", ["Alt", "then", "N", "then", "X"]),
         windowsOnly("picture", "Insert a picture", ["Alt", "then", "N", "then", "P", "then", "D"]),
         windowsOnly("shape", "Insert a shape", ["Alt", "then", "N", "then", "S", "then", "H"]),
         windowsOnly("zoom", "Open the Zoom dialog", ["Alt", "then", "W", "then", "Q"]),
-        windowsOnly("print", "Open the print dialog", ["Alt", "then", "P", "then", "P"]),
+        pair("print", "Open the print dialog", ["Alt", "then", "P", "then", "P"], ['Cmd', 'P']),
         windowsOnly("theme", "Open the theme gallery", ["Alt", "then", "G", "then", "H"]),
         windowsOnly("slide-layout", "Open the slide layout menu", ["Alt", "then", "H", "then", "L"]),
         windowsOnly("notes-pane", "Open or focus the Notes pane", ["Alt", "then", "W", "then", "P", "then", "N"]),
@@ -93,12 +86,9 @@ export const microsoftPowerPoint: AppShortcuts = {
       title: "Presentation navigation",
       intro: "Move through slides and start a show from the beginning, current slide, or presenter view.",
       shortcuts: [
-        windowsOnly("start-show", "Start the slide show from the beginning", ["F5"]),
-        windowsOnly("start-current-slide", "Start the slide show from the current slide", ["Shift", "F5"]),
-        windowsOnly("presenter-view", "Start Presenter view", ["Alt", "F5"]),
-        macOnly("start-show-macos", "Start the slide show from the beginning", ["Cmd", "Shift", "Return"]),
-        macOnly("start-current-slide-macos", "Start the slide show from the current slide", ["Cmd", "Return"]),
-        macOnly("presenter-view-macos", "Start Presenter view", ["Option", "Return"]),
+        pair("start-show", "Start the slide show from the beginning", ["F5"], ['Cmd', 'Shift', 'Return']),
+        pair("start-current-slide", "Start the slide show from the current slide", ["Shift", "F5"], ["Cmd", "Return"]),
+        pair("presenter-view", "Start Presenter view", ["Alt", "F5"], ['Option', 'Return']),
         {
           id: "next-slide",
           action: "Advance to the next slide",
@@ -157,7 +147,7 @@ export const microsoftPowerPoint: AppShortcuts = {
           ],
         },
         windowsOnly("all-slides", "Show all slides", ["Ctrl", "S"]),
-        windowsOnly("help-during-show", "Show slide show help", ["F1"]),
+        pair("help-during-show", "Show slide show help", ["F1"], ["/"]),
         pair("toggle-pointer", "Hide the pointer", ["Ctrl", "H"], ["Cmd", "I"]),
         {
           id: "toggle-black-screen",

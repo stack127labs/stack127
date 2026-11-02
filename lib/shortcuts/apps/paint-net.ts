@@ -13,20 +13,20 @@ export const paintNet: AppShortcuts = {
   category: "Design tool",
   platforms: ["windows"],
   versionContext:
-    "Paint.NET keyboard and mouse commands from the official documentation, checked September 1, 2026. This reference is for the Windows desktop application and keeps mouse gestures only where the official command is a keyboard-plus-mouse action.",
-  sourceUrl: "https://www.getpaint.net/doc/latest/KeyboardMouseCommands.html",
+    "Paint.NET for Windows. Some commands combine a key with a mouse action.",
+  sourceUrl: "https://paint.net/doc/latest/KeyboardMouseCommands.html",
   sourceLabel: "official Paint.NET keyboard and mouse commands",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "canvas",
       title: "Canvas and zoom",
-      intro: "Pan, scroll, zoom, and center the image while working on the canvas. Some commands use a mouse gesture as part of the documented action.",
+      intro: "Pan, scroll, zoom, and center the image while working on the canvas. Some commands include a mouse gesture.",
       shortcuts: [
         win("pan", "Pan the image", ["Space", "Left Mouse Button"]),
         win("scroll-vertical", "Scroll up or down", ["Page Up", "Page Down"], [["Mouse Wheel"]]),
-        win("scroll-left", "Scroll left", ["Shift", "Page Up"], [["Home"]]),
-        win("scroll-right", "Scroll right", ["Shift", "Page Down"], [["End"]]),
+        win("scroll-left", "Scroll left", ["Shift", "Page Up"], [["Shift", "Mouse Wheel Up"], ["Home"]]),
+        win("scroll-right", "Scroll right", ["Shift", "Page Down"], [["Shift", "Mouse Wheel Down"], ["End"]]),
         win("top-left", "Scroll the image to the top left", ["Shift", "Home"], [["Home", "Home"]]),
         win("bottom-right", "Scroll the image to the bottom right", ["Shift", "End"], [["End", "End"]]),
         win("center-selection", "Center the image in the window", ["Ctrl", "B"], undefined, "Press Ctrl+B twice to zoom to the window and then restore the previous zoom level."),

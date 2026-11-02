@@ -10,10 +10,10 @@ export const discord: AppShortcuts = {
   category: "Communication",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current Discord commands, shortcuts, and navigation guide updated April 14, 2025 and checked November 1, 2026. The documented shortcuts apply to browser and desktop Discord, not the mobile app. The guide labels Windows and Mac bindings; Linux shortcuts are not listed.",
+    "Browser and desktop Discord on Windows and Mac, not the mobile app. Linux keys aren't listed.",
   sourceUrl: "https://support.discord.com/hc/en-us/articles/31232432266647-Discord-Commands-Shortcuts-and-Navigation-Guide",
   sourceLabel: "Discord commands, shortcuts, and navigation guide",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "general",

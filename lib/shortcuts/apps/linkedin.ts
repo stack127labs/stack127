@@ -9,10 +9,10 @@ export const linkedin: AppShortcuts = {
   category: "Social networking",
   platforms: [...platforms],
   versionContext:
-    "Desktop-only shortcuts from LinkedIn's Keyboard Shortcuts FAQ, checked November 1, 2026. LinkedIn says the shortcuts can be enabled or disabled from the keyboard menu and are not available in its mobile apps.",
+    "Desktop site only; LinkedIn's mobile apps don't have these. You can turn shortcuts on or off from the keyboard menu.",
   sourceUrl: "https://www.linkedin.com/help/linkedin/answer/a6246187?lang=en-US",
   sourceLabel: "official LinkedIn Keyboard Shortcuts FAQ",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "feed",
@@ -24,7 +24,7 @@ export const linkedin: AppShortcuts = {
         { id: "previous-feed-item", action: "Move to the previous feed item", keys: combo(platforms, ["K"]) },
         { id: "like-post", action: "Like the focused post", keys: combo(platforms, ["L"]) },
         { id: "comment-post", action: "Comment on the focused post", keys: combo(platforms, ["C"]) },
-        { id: "share-post", action: "Share the focused post", keys: combo(platforms, ["R"]) },
+        { id: "share-post", action: "Repost the focused post", keys: combo(platforms, ["R"]) },
         { id: "send-post", action: "Send the focused post", keys: combo(platforms, ["S"]) },
         { id: "next-notification", action: "Move to the next notification", keys: combo(platforms, ["J"]) },
         { id: "previous-notification", action: "Move to the previous notification", keys: combo(platforms, ["K"]) },
@@ -33,7 +33,7 @@ export const linkedin: AppShortcuts = {
     {
       id: "navigation",
       title: "Desktop navigation",
-      intro: "Use slash search and the documented G-prefixed sequences to reach LinkedIn's main destinations.",
+      intro: "Use slash search and the G-prefixed sequences to reach LinkedIn's main destinations.",
       shortcuts: [
         { id: "search", action: "Focus search", keys: combo(platforms, ["/"]) },
         { id: "home", action: "Go to Home", keys: combo(platforms, ["G", "then", "H"]) },

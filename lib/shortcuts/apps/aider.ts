@@ -14,16 +14,16 @@ export const aider: AppShortcuts = {
   category: "AI pair programming",
   platforms: [...platforms],
   versionContext:
-    "Current Aider command-line documentation checked November 1, 2026. Emacs bindings are the default. The vi group applies only when Aider is started with --vim. Terminal emulators and operating systems can intercept some control or meta combinations before Aider receives them.",
+    "Emacs-style keys are the default; the vi keys work only when you start Aider with --vim. Your terminal or OS may catch some Control or Meta keys before Aider sees them.",
   sourceUrl: "https://aider.chat/docs/usage/commands.html",
   sourceLabel: "Aider in-chat commands and keybindings",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "prompt-and-multiline",
       title: "Prompt control and multiline input",
       intro:
-        "Interrupt generation, add a line without submitting, or move the current prompt into an external editor when the terminal supports the documented key sequence.",
+        "Interrupt generation, add a line without submitting, or move the current prompt into an external editor when your terminal passes the keys through.",
       shortcuts: [
         ...keys([
           ["interrupt", "Interrupt Aider while preserving the partial response", ["Ctrl", "C"]],

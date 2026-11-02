@@ -9,7 +9,7 @@ export const superhuman: AppShortcuts = {
   category: "Email",
   platforms: [...platforms],
   versionContext:
-    "Superhuman Mail desktop shortcuts checked September 1, 2026. The official guide and shortcut PDF note that bindings can vary by platform and that the Command menu exposes the current list.",
+    "Superhuman Mail desktop shortcuts for Windows and Mac. Open Superhuman Command to see the current shortcut list.",
   sourceUrl: "https://help.superhuman.com/hc/en-us/articles/46005701270541-Keyboard-Shortcuts-in-Superhuman-Mail",
   sourceLabel: "official Superhuman Mail keyboard shortcuts",
   lastVerified: "2026-09-01",

@@ -9,10 +9,10 @@ export const onePassword: AppShortcuts = {
   category: "Password manager",
   platforms: [...platforms],
   versionContext:
-    "Current desktop defaults checked November 1, 2026. Global shortcuts can be changed in 1Password settings. Linux global shortcuts depend on X11 or user-configured Wayland bindings. iPhone and iPad shortcuts are outside stack127's current platform model.",
+    "Global shortcuts can be changed in 1Password settings. On Linux, they need X11 or your own Wayland bindings.",
   sourceUrl: "https://support.1password.com/keyboard-shortcuts/",
   sourceLabel: "official 1Password keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "global",
@@ -89,7 +89,6 @@ export const onePassword: AppShortcuts = {
           id: "zoom-out",
           action: "Zoom out",
           keys: perPlatform(platforms, { windows: ["Ctrl", "-"], macos: ["Cmd", "-"], linux: ["Ctrl", "W"] }),
-          note: "The current 1Password support page lists Ctrl+W for Linux, while it lists Ctrl+- for Windows.",
         },
         { id: "actual-size", action: "Revert to actual size", keys: combo(platforms, ["Ctrl", "0"], ["Cmd", "0"]) },
         { id: "minimize", action: "Minimize 1Password to the Dock", keys: perPlatform(platforms, { macos: ["Cmd", "M"] }) },

@@ -14,10 +14,10 @@ export const clockify: AppShortcuts = {
   category: "Time tracking",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current Clockify web and Mac desktop documentation checked November 1, 2026. Favorite-entry number keys require the workspace feature to be enabled and entries pinned. User-configurable global shortcuts are not listed as defaults.",
+    "Clockify web app and Mac desktop app. Favorite-entry number keys need an admin to enable the feature and entries pinned, and custom global shortcuts aren't listed.",
   sourceUrl: "https://clockify.me/help/track-time-and-expenses/creating-a-time-entry",
   sourceLabel: "Clockify time-entry keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "web-time-tracker",

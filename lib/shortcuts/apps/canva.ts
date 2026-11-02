@@ -44,7 +44,7 @@ export const canva: AppShortcuts = {
   category: "Design and visual communication",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current Canva Help Center reference checked August 31, 2026. Windows and macOS bindings are preserved independently. Canva Docs-only text styles and desktop-app-only window commands are labeled in their group context; no missing platform equivalent was inferred.",
+    "Canva editor on Windows and macOS. Some keys work only on one platform, in Canva Docs, or in the Mac desktop app.",
   sourceUrl: "https://www.canva.com/help/canva-keyboard-shortcuts/",
   sourceLabel: "Canva keyboard shortcuts",
   lastVerified: "2026-08-31",

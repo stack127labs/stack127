@@ -13,10 +13,10 @@ export const anydesk: AppShortcuts = {
   category: "Remote desktop",
   platforms: ["windows"],
   versionContext:
-    "Current Windows hotkeys from AnyDesk's July 30, 2025 reference, checked November 1, 2026. Mouse capture requires AnyDesk 8 or later. Remote-system shortcuts and keyboard translation examples are not AnyDesk commands and are not listed.",
-  sourceUrl: "https://support.anydesk.com/keyboard-hotkeys",
+    "AnyDesk for Windows. Mouse capture needs AnyDesk 8 or later.",
+  sourceUrl: "https://support.anydesk.com/docs/keyboard-hotkeys",
   sourceLabel: "AnyDesk keyboard and hotkeys",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "session-navigation",
@@ -44,7 +44,7 @@ export const anydesk: AppShortcuts = {
     {
       id: "view-modes",
       title: "View modes",
-      intro: "The three function-key hotkeys select AnyDesk's documented 1:1, shrink, and stretch display modes.",
+      intro: "The three function-key hotkeys select AnyDesk's 1:1, shrink, and stretch display modes.",
       shortcuts: [
         windows("view-one-to-one", "Use 1:1 view mode", ["Ctrl", "Alt", "Shift", "F2"]),
         windows("view-shrink", "Use shrink view mode", ["Ctrl", "Alt", "Shift", "F3"]),

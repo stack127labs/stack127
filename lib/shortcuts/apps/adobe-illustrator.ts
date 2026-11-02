@@ -18,10 +18,10 @@ export const adobeIllustrator: AppShortcuts = {
   category: "Vector graphics editor",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current Adobe Illustrator desktop defaults from Adobe's English reference updated February 17, 2026. Custom shortcut sets and pointer-only gestures are not listed.",
+    "Default keys for Illustrator on the desktop. A custom shortcut set can change them.",
   sourceUrl: "https://helpx.adobe.com/illustrator/using/default-keyboard-shortcuts.html",
   sourceLabel: "Adobe Illustrator default keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "documents-and-editing",
