@@ -9,10 +9,10 @@ export const signal: AppShortcuts = {
   category: "Messaging",
   platforms: [...platforms],
   versionContext:
-    "Signal Desktop keyboard shortcuts checked September 1, 2026. The official table covers the Mac and Windows/Linux desktop apps; user settings and browser shortcuts are outside this record.",
+    "Signal Desktop on Mac, Windows, and Linux.",
   sourceUrl: "https://support.signal.org/hc/en-us/articles/360036517511-Signal-Desktop-Keyboard-Shortcuts",
   sourceLabel: "official Signal Desktop keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "display-and-navigation",
@@ -23,8 +23,24 @@ export const signal: AppShortcuts = {
         { id: "zoom-in", action: "Zoom in", keys: combo(platforms, ["Ctrl", "="], ["Cmd", "="]) },
         { id: "zoom-out", action: "Zoom out", keys: combo(platforms, ["Ctrl", "-"], ["Cmd", "-"]) },
         { id: "navigate-section", action: "Navigate by section", keys: combo(platforms, ["Ctrl", "T"], ["Cmd", "T"]) },
-        { id: "previous-chat", action: "Go to the previous chat", keys: combo(platforms, ["Alt", "Up"], ["Option", "Up"]) },
-        { id: "next-chat", action: "Go to the next chat", keys: combo(platforms, ["Alt", "Down"], ["Option", "Down"]) },
+        {
+          id: "previous-chat",
+          action: "Go to the previous chat",
+          keys: [
+            { platform: "windows", keys: ["Alt", "Up"], alternatives: [["Ctrl", "Shift", "Tab"]] },
+            { platform: "macos", keys: ["Option", "Up"], alternatives: [["Ctrl", "Shift", "Tab"]] },
+            { platform: "linux", keys: ["Alt", "Up"], alternatives: [["Ctrl", "Shift", "Tab"]] },
+          ],
+        },
+        {
+          id: "next-chat",
+          action: "Go to the next chat",
+          keys: [
+            { platform: "windows", keys: ["Alt", "Down"], alternatives: [["Ctrl", "Tab"]] },
+            { platform: "macos", keys: ["Option", "Down"], alternatives: [["Ctrl", "Tab"]] },
+            { platform: "linux", keys: ["Alt", "Down"], alternatives: [["Ctrl", "Tab"]] },
+          ],
+        },
         { id: "previous-unread", action: "Go to the previous unread chat", keys: combo(platforms, ["Alt", "Shift", "Up"], ["Option", "Shift", "Up"]) },
         { id: "next-unread", action: "Go to the next unread chat", keys: combo(platforms, ["Alt", "Shift", "Down"], ["Option", "Shift", "Down"]) },
         { id: "jump-to-chat", action: "Jump to chat 1 through 9", keys: combo(platforms, ["Ctrl", "1"], ["Cmd", "1"]), note: "Use the number for the target chat." },

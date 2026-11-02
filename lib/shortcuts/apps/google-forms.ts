@@ -9,10 +9,10 @@ const googleForms: AppShortcuts = {
   category: "Form builder",
   platforms: [...platforms],
   versionContext:
-    "Google documents shortcuts for the form editor on PC and Mac. Commands that insert an item use a sequential Ctrl or Command sequence, represented with a visible then token here.",
+    "Google Forms editor shortcuts for PC and Mac. Item insertion commands use a sequence of keys held with Ctrl or Command.",
   sourceUrl: "https://support.google.com/docs/answer/6026976?hl=en",
   sourceLabel: "official Google Forms keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "navigation-and-document",
@@ -37,7 +37,7 @@ const googleForms: AppShortcuts = {
       intro: "Insert questions, titles, descriptions, images, videos, and sections, then move or duplicate an item.",
       shortcuts: [
         { id: "insert-question", action: "Insert a question", keys: combo(platforms, ["Ctrl", "Shift", "Enter"], ["Cmd", "Shift", "Enter"]) },
-        { id: "insert-title", action: "Insert a title and description", keys: perPlatform(platforms, { windows: ["Ctrl", "I", "then", "I"], macos: ["Cmd", "I", "then", "I"] }) },
+        { id: "insert-title", action: "Insert a title and description", keys: perPlatform(platforms, { windows: ["Ctrl", "I", "then", "H"], macos: ["Cmd", "I", "then", "H"] }) },
         { id: "insert-image", action: "Insert an image", keys: perPlatform(platforms, { windows: ["Ctrl", "I", "then", "P"], macos: ["Cmd", "I", "then", "P"] }) },
         { id: "insert-video", action: "Insert a video", keys: perPlatform(platforms, { windows: ["Ctrl", "I", "then", "V"], macos: ["Cmd", "I", "then", "V"] }) },
         { id: "insert-section", action: "Insert a section", keys: perPlatform(platforms, { windows: ["Ctrl", "I", "then", "B"], macos: ["Cmd", "I", "then", "B"] }) },
@@ -65,10 +65,10 @@ const googleForms: AppShortcuts = {
       title: "Grading",
       intro: "Use the grading shortcuts when a question or answer key is selected in the form editor.",
       shortcuts: [
-        { id: "copy-grade", action: "Copy a grade", keys: combo(platforms, ["Ctrl", "Shift", "C"], ["Cmd", "Shift", "C"]) },
-        { id: "insert-grade", action: "Insert a grade", keys: combo(platforms, ["Ctrl", "Shift", "I"], ["Cmd", "Shift", "I"]) },
-        { id: "next-grade", action: "Move to the next grading field", keys: combo(platforms, ["Ctrl", "Shift", "Down"], ["Cmd", "Shift", "Down"]) },
-        { id: "previous-grade", action: "Move to the previous grading field", keys: combo(platforms, ["Ctrl", "Shift", "Up"], ["Cmd", "Shift", "Up"]) },
+        { id: "copy-grade", action: "Mark an answer as correct", keys: combo(platforms, ["Ctrl", "Shift", "C"], ["Cmd", "Shift", "C"]) },
+        { id: "insert-grade", action: "Mark an answer as incorrect", keys: combo(platforms, ["Ctrl", "Shift", "I"], ["Cmd", "Shift", "I"]) },
+        { id: "next-grade", action: "Focus the grading field below", keys: combo(platforms, ["Ctrl", "Shift", "Down"], ["Cmd", "Shift", "Down"]) },
+        { id: "previous-grade", action: "Focus the grading field above", keys: combo(platforms, ["Ctrl", "Shift", "Up"], ["Cmd", "Shift", "Up"]) },
       ],
     },
   ],

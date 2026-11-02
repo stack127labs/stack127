@@ -16,10 +16,10 @@ export const raycast: AppShortcuts = {
   category: "Launcher",
   platforms: [...platforms],
   versionContext:
-    "Current Raycast Manual keyboard shortcuts checked September 1, 2026. Raycast supports macOS and Windows, and users can change page navigation, Emacs, Vim, and global hotkeys in settings.",
+    "Raycast has different defaults on Mac and Windows. You can change the global hotkey, page navigation, and Emacs or Vim bindings in Settings.",
   sourceUrl: "https://manual.raycast.com/keyboard-shortcuts",
   sourceLabel: "official Raycast keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "global-and-general",
@@ -45,7 +45,7 @@ export const raycast: AppShortcuts = {
         dual("run-primary", "Run the primary action", ["Return"], ["Enter"]),
         dual("action-panel", "Open or close the Action Panel", ["Cmd", "K"], ["Ctrl", "K"]),
         dual("run-secondary", "Run the secondary action", ["Cmd", "Return"], ["Ctrl", "Enter"]),
-        dual("run-tertiary", "Run the tertiary action", ["Shift", "Cmd", "Return"], ["Ctrl", "Shift", "Enter"]),
+        dual("run-tertiary", "Run the tertiary action", ["Option", "Return"], ["Ctrl", "Shift", "Enter"]),
         dual("parent-directory", "Navigate to the parent directory", ["Shift", "Tab"], ["Shift", "Tab"]),
         dual("favorite", "Add the selected item to Favorites", ["Cmd", "F"], ["Ctrl", "F"]),
         dual("configure-command", "Configure a command", ["Cmd", ","], ["Ctrl", ","]),
@@ -78,7 +78,14 @@ export const raycast: AppShortcuts = {
       title: "AI chat and forms",
       intro: "Raycast's AI chat, form, and text-editing bindings work inside those views and do not replace the global launcher shortcut.",
       shortcuts: [
-        dual("chat-history", "Toggle chat history sidebar", ["Shift", "Cmd", "S"], ["Ctrl", "Shift", "S"]),
+        {
+          id: "chat-history",
+          action: "Toggle chat history sidebar",
+          keys: [
+            { platform: "macos", keys: ["Shift", "Cmd", "S"], alternatives: [["Cmd", "B"]] },
+            { platform: "windows", keys: ["Ctrl", "Shift", "S"], alternatives: [["Ctrl", "B"]] },
+          ],
+        },
         dual("search-chats", "Search chats", ["Shift", "Cmd", "F"], ["Ctrl", "Shift", "F"]),
         dual("send-to-chat", "Send selected item to AI Chat", ["Cmd", "J"], ["Ctrl", "J"]),
         dual("attachment", "Add an attachment to the composer", ["Shift", "Cmd", "A"], ["Ctrl", "Shift", "A"]),

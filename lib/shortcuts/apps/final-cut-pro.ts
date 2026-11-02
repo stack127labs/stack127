@@ -13,10 +13,10 @@ export const finalCutPro: AppShortcuts = {
   category: "Video editing",
   platforms: ["macos"],
   versionContext:
-    "Final Cut Pro for Mac 12.3 keyboard shortcut guide checked September 1, 2026. Shortcuts can be viewed and changed in the Command Editor, so these entries describe Apple's documented defaults.",
+    "These are Final Cut Pro for Mac defaults. You can view and change shortcuts in the Command Editor.",
   sourceUrl: "https://support.apple.com/en-mide/guide/final-cut-pro/ver90ba5929/mac",
   sourceLabel: "Apple Final Cut Pro for Mac keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "application",

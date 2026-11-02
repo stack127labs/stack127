@@ -13,10 +13,10 @@ export const microsoftOneDrive: AppShortcuts = {
   category: "Cloud storage",
   platforms: ["windows"],
   versionContext:
-    "Official OneDrive for work or school shortcuts checked November 1, 2026. The source uses Windows keyboard names and documents several commands specifically for the OneDrive web interface.",
+    "OneDrive for work or school, with Windows key names. Some commands only work in OneDrive on the web.",
   sourceUrl: "https://support.microsoft.com/en-US/accessibility/onedrive/keyboard-shortcuts-for-onedrive-for-work-or-school",
   sourceLabel: "official Microsoft OneDrive keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "files-and-selection",
@@ -28,7 +28,7 @@ export const microsoftOneDrive: AppShortcuts = {
         shortcut("cancel", "Cancel the current action or selection", ["Esc"]),
         shortcut("download", "Download the selected item", ["Ctrl", "S"], "OneDrive web shortcut."),
         shortcut("share", "Share the selected item", ["S"], "OneDrive web shortcut."),
-        shortcut("context-menu", "Open the context menu", ["Shift", "F10"], "The Menu key is also documented."),
+        shortcut("context-menu", "Open the context menu", ["Shift", "F10"], "The Menu key also works."),
         shortcut("select-all", "Select all items", ["Ctrl", "A"]),
         shortcut("deselect-all", "Deselect all items", ["Ctrl", "D"]),
         shortcut("toggle-selection", "Select or clear the focused item", ["Space"]),
@@ -48,8 +48,11 @@ export const microsoftOneDrive: AppShortcuts = {
         shortcut("list-view", "Show the list view", ["V"]),
         shortcut("help", "Open keyboard shortcut help", ["?"]),
         shortcut("details", "Open or close the details pane", ["I"]),
-        shortcut("next-info-item", "Move to the next item in the information pane", ["Right"]),
-        shortcut("previous-info-item", "Move to the previous item in the information pane", ["Left"]),
+        {
+          id: "get-file-information",
+          action: "Get information about the selected file",
+          keys: [{ platform: "windows", keys: ["Right"], alternatives: [["Left"]], note: "OneDrive web shortcut." }],
+        },
       ],
     },
     {

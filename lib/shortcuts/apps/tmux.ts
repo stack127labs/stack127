@@ -16,10 +16,10 @@ export const tmux: AppShortcuts = {
   category: "Terminal",
   platforms: [...platforms],
   versionContext:
-    "Default key bindings from the current tmux master manual and Getting Started guide checked September 1, 2026. A user's tmux.conf can replace or remove any binding, and copy-mode or status-line bindings can change when vi mode is enabled.",
+    "Default bindings for tmux 3.8. Your tmux.conf can change or remove any of them, and copy-mode keys differ when vi mode is on.",
   sourceUrl: "https://github.com/tmux/tmux/blob/master/tmux.1",
   sourceLabel: "official tmux default key bindings",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "sessions-and-windows",
@@ -37,6 +37,7 @@ export const tmux: AppShortcuts = {
         prefix("kill-window", "Kill the current window", ["&"]),
         prefix("previous-window", "Move to the previously selected window", ["l"]),
         prefix("next-window", "Change to the next window", ["n"]),
+        prefix("prev-window", "Change to the previous window", ["p"]),
         prefix("previous-window-bell", "Move to the previous window with a bell or activity marker", ["Alt", "P"]),
         prefix("next-window-bell", "Move to the next window with a bell or activity marker", ["Alt", "N"]),
         prefix("choose-window", "Choose the current window interactively", ["w"]),

@@ -3,10 +3,13 @@ import type { AppShortcuts, Shortcut } from "../types.ts";
 
 const platforms = ["windows", "macos", "linux"] as const;
 
+const macKeys = (keys: string[]) =>
+  keys.map((key) => (key === "Ctrl" ? "Cmd" : key === "Alt" ? "Option" : key));
+
 const shared = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
   id,
   action,
-  keys: combo(platforms, keys),
+  keys: combo(platforms, keys, macKeys(keys)),
   ...(note ? { note } : {}),
 });
 
@@ -22,10 +25,10 @@ export const wireshark: AppShortcuts = {
   category: "Network analysis",
   platforms: [...platforms],
   versionContext:
-    "Current Wireshark User's Guide 5.1.0 checked November 1, 2026. The guide uses the same menu shortcuts across Windows, macOS, and Linux, with Option replacing Alt for packet-selection history on macOS.",
+    "Wireshark 5.1.0.",
   sourceUrl: "https://www.wireshark.org/docs/wsug_html/",
   sourceLabel: "official Wireshark User's Guide",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "packet-navigation",
@@ -39,12 +42,12 @@ export const wireshark: AppShortcuts = {
         {
           id: "next-packet-fast",
           action: "Select the next packet even if the packet list isn't focused",
-          keys: combo(platforms, ["Ctrl", "Down Arrow"]).map((entry) => ({ ...entry, alternatives: [["F8"]] })),
+          keys: combo(platforms, ["Ctrl", "Down Arrow"], ["Cmd", "Down Arrow"]).map((entry) => ({ ...entry, alternatives: [["F8"]] })),
         },
         {
           id: "previous-packet-fast",
           action: "Select the previous packet even if the packet list isn't focused",
-          keys: combo(platforms, ["Ctrl", "Up Arrow"]).map((entry) => ({ ...entry, alternatives: [["F7"]] })),
+          keys: combo(platforms, ["Ctrl", "Up Arrow"], ["Cmd", "Up Arrow"]).map((entry) => ({ ...entry, alternatives: [["F7"]] })),
         },
         shared("next-conversation-packet", "Select the next packet in the conversation", ["Ctrl", "."]),
         shared("previous-conversation-packet", "Select the previous packet in the conversation", ["Ctrl", ","]),
@@ -68,10 +71,10 @@ export const wireshark: AppShortcuts = {
         shared("close-capture", "Close the capture file", ["Ctrl", "W"]),
         shared("save-capture", "Save the capture file", ["Ctrl", "S"]),
         shared("save-as", "Save the capture file as another file", ["Ctrl", "Shift", "S"]),
-        shared("export-packets", "Export packet dissections", ["Ctrl", "H"]),
+        { id: "export-packets", action: "Export packet dissections", keys: combo(["windows", "linux"], ["Ctrl", "H"]) },
         shared("print", "Print the capture", ["Ctrl", "P"]),
         shared("reload", "Reload the capture", ["Ctrl", "R"]),
-        shared("reload-as-file", "Reload the capture as a file", ["Shift", "Ctrl", "F"]),
+        shared("reload-as-file", "Reload as a file format or capture", ["Shift", "Ctrl", "F"]),
         shared("find-packet", "Find a packet", ["Ctrl", "F"]),
         shared("find-next", "Find the next packet match", ["Ctrl", "N"]),
         shared("find-previous", "Find the previous packet match", ["Ctrl", "B"]),
@@ -85,13 +88,13 @@ export const wireshark: AppShortcuts = {
       intro: "Mark packets, add time references or comments, and move between those saved points.",
       shortcuts: [
         shared("mark-packet", "Mark or unmark the selected packet", ["Ctrl", "M"]),
-        shared("mark-all", "Mark all packets", ["Ctrl", "Shift", "M"]),
-        shared("unmark-all", "Unmark all packets", ["Ctrl", "Alt", "M"]),
+        shared("mark-all", "Mark all displayed packets", ["Ctrl", "Shift", "M"]),
+        shared("unmark-all", "Unmark all displayed packets", ["Ctrl", "Alt", "M"]),
         shared("next-mark", "Select the next marked packet", ["Ctrl", "Shift", "N"]),
         shared("previous-mark", "Select the previous marked packet", ["Ctrl", "Shift", "B"]),
         shared("ignore-packet", "Ignore the selected packet", ["Ctrl", "D"]),
-        shared("ignore-all", "Ignore all packets of the selected type", ["Ctrl", "Shift", "D"]),
-        shared("unignore", "Unignore packets", ["Ctrl", "Alt", "D"]),
+        shared("ignore-all", "Ignore all displayed packets", ["Ctrl", "Shift", "D"]),
+        shared("unignore", "Unignore all displayed packets", ["Ctrl", "Alt", "D"]),
         shared("time-reference", "Set or unset a time reference", ["Ctrl", "T"]),
         shared("unset-references", "Unset all time references", ["Ctrl", "Alt", "T"]),
         shared("next-reference", "Select the next time reference", ["Ctrl", "Alt", "N"]),
@@ -111,7 +114,11 @@ export const wireshark: AppShortcuts = {
         shared("apply-as-column", "Apply the selected field as a column", ["Shift", "Ctrl", "I"]),
         shared("enabled-protocols", "Open enabled protocols", ["Shift", "Ctrl", "E"]),
         shared("configuration-profiles", "Open configuration profiles", ["Ctrl", "Shift", "A"]),
-        shared("preferences", "Open preferences", ["Ctrl", "Shift", "P"]),
+        {
+          id: "preferences",
+          action: "Open preferences",
+          keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "P"], macos: ["Cmd", ","], linux: ["Ctrl", "Shift", "P"] }),
+        },
         shared("help", "Open the User's Guide", ["F1"]),
         shared("quit", "Quit Wireshark", ["Ctrl", "Q"]),
       ],

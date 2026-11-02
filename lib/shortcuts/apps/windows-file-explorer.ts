@@ -16,10 +16,10 @@ export const windowsFileExplorer: AppShortcuts = {
   category: "File management",
   platforms: [...platforms],
   versionContext:
-    "Microsoft Windows keyboard shortcuts checked November 1, 2026. The source applies to Windows 10 and Windows 11, and some commands depend on the focused File Explorer pane.",
-  sourceUrl: "https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec",
+    "Windows 10 and Windows 11. Some commands depend on which File Explorer pane has focus.",
+  sourceUrl: "https://support.microsoft.com/en-us/accessibility/windows/keyboard-shortcuts-in-windows",
   sourceLabel: "official Microsoft Windows keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "file-explorer",
@@ -29,8 +29,8 @@ export const windowsFileExplorer: AppShortcuts = {
         shortcut("address-bar", "Focus the address bar", ["Alt", "D"]),
         { id: "search", action: "Focus search", keys: [{ platform: "windows", keys: ["Ctrl", "E"], alternatives: [["Ctrl", "F"]] }] },
         shortcut("new-window", "Open a new File Explorer window", ["Ctrl", "N"]),
-        shortcut("close-window", "Close the active window", ["Ctrl", "W"]),
-        shortcut("expand-parent-folders", "Display all folders above the selected folder", ["Ctrl", "Shift", "E"]),
+        shortcut("close-window", "Close the active tab, or the window if it has one tab", ["Ctrl", "W"]),
+        shortcut("expand-parent-folders", "Expand all folders in the navigation pane", ["Ctrl", "Shift", "E"]),
         shortcut("new-folder", "Create a new folder", ["Ctrl", "Shift", "N"]),
         shortcut("preview-pane", "Show or hide the preview pane", ["Alt", "P"]),
         shortcut("properties", "Open the selected item properties", ["Alt", "Enter"]),
@@ -48,7 +48,7 @@ export const windowsFileExplorer: AppShortcuts = {
     {
       id: "tabs-and-items",
       title: "Tabs and items",
-      intro: "These current Windows commands work with File Explorer tabs and selected files or folders.",
+      intro: "Tabs need Windows 11. The Num Lock keys are listed for Windows 10 only.",
       shortcuts: [
         shortcut("new-tab", "Open a new tab", ["Ctrl", "T"]),
         shortcut("next-tab", "Move to the next tab", ["Ctrl", "Tab"]),
@@ -58,7 +58,7 @@ export const windowsFileExplorer: AppShortcuts = {
         shortcut("address-bar-f4", "Focus the address bar", ["F4"]),
         shortcut("refresh", "Refresh the active window", ["F5"]),
         shortcut("cycle-pane", "Cycle through screen elements", ["F6"]),
-        shortcut("expand-all", "Display all subfolders", ["Num Lock", "+"]),
+        shortcut("expand-all", "Display the contents of the selected folder", ["Num Lock", "+"]),
         shortcut("collapse-all", "Collapse the selected folder", ["Num Lock", "-"]),
         shortcut("display-all", "Display all subfolders under the selected folder", ["Num Lock", "*"]),
       ],

@@ -29,10 +29,10 @@ export const buffer: AppShortcuts = {
   category: "Social media management",
   platforms,
   versionContext:
-    "Current Buffer Help Center shortcut list checked November 1, 2026. Navigation commands are two-key sequences, not simultaneous chords, and global shortcuts are suppressed while the cursor is in a text field. Buffer Home must be enabled for its navigation command.",
+    "Navigation commands are two keys pressed in order, not together. Shortcuts pause while you type in a text field, and the Home command needs Buffer Home turned on.",
   sourceUrl: "https://support.buffer.com/en-us/articles/using-buffers-keyboard-shortcuts-jvc735UOsa",
   sourceLabel: "Using Buffer's keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "reference-command-bar",

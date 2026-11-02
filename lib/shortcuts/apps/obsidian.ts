@@ -21,10 +21,10 @@ export const obsidian: AppShortcuts = {
   category: "Notes and docs",
   platforms: [...platforms],
   versionContext:
-    "Obsidian editing and navigation shortcuts from the current official help, checked September 1, 2026. Command hotkeys can be changed or assigned multiple times in Settings > Hotkeys, and displayed keys follow a US layout.",
+    "These editing keys come from your system and can't be changed in Obsidian. Command hotkeys can be changed in Settings > Hotkeys.",
   sourceUrl: "https://obsidian.md/help/editing-shortcuts",
   sourceLabel: "official Obsidian editing shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "editing",
@@ -36,7 +36,15 @@ export const obsidian: AppShortcuts = {
         dual("paste", "Paste", ["Ctrl", "V"], ["Cmd", "V"]),
         dual("paste-plain", "Paste without formatting", ["Ctrl", "Shift", "V"], ["Cmd", "Shift", "V"]),
         dual("undo", "Undo", ["Ctrl", "Z"], ["Cmd", "Z"]),
-        dual("redo", "Redo", ["Ctrl", "Y"], ["Cmd", "Shift", "Z"], "Windows and Linux list Ctrl+Y; macOS uses Cmd+Shift+Z."),
+        {
+          id: "redo",
+          action: "Redo",
+          keys: platforms.map((platform) =>
+            platform === "macos"
+              ? { platform, keys: ["Cmd", "Shift", "Z"] }
+              : { platform, keys: ["Ctrl", "Shift", "Z"], alternatives: [["Ctrl", "Y"]] },
+          ),
+        },
         dual("delete-line", "Delete the current line", ["Ctrl", "Shift", "K"], ["Cmd", "Shift", "K"], "Only applies when no text is selected."),
         same("new-line", "Insert a new line", ["Enter"]),
         same("backspace", "Delete the previous character", ["Backspace"]),

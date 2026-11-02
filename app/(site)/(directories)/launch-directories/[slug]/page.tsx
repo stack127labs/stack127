@@ -136,8 +136,15 @@ export default async function LaunchDirectoryPage({ params }: { params: Promise<
     { label: "Popularity", value: directory.traffic_bucket ? trafficLabels[directory.traffic_bucket] : null, note: "Tranco list", meter: directory.traffic_bucket ? trafficSteps[directory.traffic_bucket] : null },
     { label: "Listing pages indexed", value: directory.listing_indexed === null ? null : directory.listing_indexed ? "Yes" : "No", note: "In Google" },
   ];
-  const unstated = listing.filter((tile) => !tile.value).map((tile) => tile.label.toLowerCase());
-  const unchecked = site.filter((tile) => !tile.value).map((tile) => tile.label.toLowerCase());
+  // Split missing facts by the two terms the guide defines: not published, or blocked/login/didn't load.
+  const couldNotVerify = (label: string | null) => /^couldn.t verify/i.test(label ?? "");
+  const gaps = [
+    listing[0].value ? null : { label: "cost", unverified: couldNotVerify(directory.cost_label) },
+    listing[1].value ? null : { label: "review time", unverified: couldNotVerify(directory.review_time_label) },
+    listing[2].value ? null : { label: "link type", unverified: true },
+  ].filter((gap) => gap !== null);
+  const unstated = gaps.filter((gap) => !gap.unverified).map((gap) => gap.label);
+  const unverified = gaps.filter((gap) => gap.unverified).map((gap) => gap.label);
 
   /* ---------- Pricing ---------- */
   const tiers = directory.price_tiers;
@@ -232,7 +239,7 @@ export default async function LaunchDirectoryPage({ params }: { params: Promise<
         <Tiles label="Listing" tiles={listing} />
         <Tiles label="Their site" tiles={site} />
         {unstated.length ? <p className={styles.gapLine}>Not stated on their site: {unstated.join(", ")}.</p> : null}
-        {unchecked.length ? <p className={styles.gapLine}>Not checked yet: {unchecked.join(", ")}.</p> : null}
+        {unverified.length ? <p className={styles.gapLine}>Couldn&apos;t verify: {unverified.join(", ")}.</p> : null}
       </section>
 
       {showPricing ? <Section id="pricing" lede="As listed on their own pricing page." title="Pricing">
@@ -272,7 +279,7 @@ export default async function LaunchDirectoryPage({ params }: { params: Promise<
       <Section id="link" lede="What a live listing links to, from one published listing we opened." title="Link check">
         <div className={styles.linkCheck}>
           <p className={styles.linkKind}>{linkShort(directory) ?? "Couldn't verify"}</p>
-          {directory.link_type_label.trim().toLowerCase() !== (linkShort(directory) ?? "").toLowerCase() ? <p>{directory.link_type_label}</p> : null}
+          {directory.link_type_label.trim().toLowerCase() !== (linkShort(directory) ?? "Couldn't verify").toLowerCase() ? <p>{directory.link_type_label}</p> : null}
           {linkMeaning[directory.link_type_kind] ? <p className={styles.muted}>{linkMeaning[directory.link_type_kind]}</p> : null}
           {directory.example_listing_url ? <p className={styles.mono}>Sample listing: <a href={directory.example_listing_url} rel="noopener noreferrer" target="_blank">{shortUrl(directory.example_listing_url)}</a></p> : null}
         </div>

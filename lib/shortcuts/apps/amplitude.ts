@@ -15,10 +15,10 @@ export const amplitude: AppShortcuts = {
   category: "Product analytics",
   platforms: [...platforms],
   versionContext:
-    "Amplitude Analytics chart basics shortcuts work on chart creation pages for all chart types except Data Tables. The official table publishes no operating-system variants, so the listed combinations are shown for Windows and macOS only.",
+    "These work on chart creation pages for all chart types except Data Tables. Amplitude gives one set of keys, shown for Windows and macOS.",
   sourceUrl: "https://amplitude.com/docs/analytics/charts/chart-basics#keyboard-shortcuts",
   sourceLabel: "Amplitude chart basics keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "chart-definition",

@@ -17,10 +17,10 @@ export const piCodingAgent: AppShortcuts = {
   category: "AI coding agent",
   platforms: [...platforms],
   versionContext:
-    "Current defaults from Pi's official coding-agent README and keybindings guide in August 2026. Bindings can be replaced in ~/.pi/agent/keybindings.json and reloaded with /reload. Native Windows and WSL have a few terminal-specific differences.",
+    "Pi uses the same defaults across Windows, macOS, and Linux, with a few terminal-specific differences on Windows and WSL. You can change bindings in `~/.pi/agent/keybindings.json` and reload them with `/reload`.",
   sourceUrl: "https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/keybindings.md",
   sourceLabel: "official Pi keybindings guide",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "application",
@@ -33,7 +33,7 @@ export const piCodingAgent: AppShortcuts = {
         { id: "suspend", action: "Suspend Pi to the background", keys: perPlatform(platforms, { macos: ["Ctrl", "Z"], linux: ["Ctrl", "Z"] }), note: "Native Windows has no default suspend binding. WSL follows the Linux behavior; use fg to resume on Unix-like shells." },
         { id: "external-editor", action: "Open the prompt in an external editor", keys: combo(platforms, ["Ctrl", "G"]), note: "Uses externalEditor, VISUAL, EDITOR, Notepad on Windows, or nano elsewhere." },
         { id: "paste", action: "Paste text or an image", keys: bindings(["Ctrl", "V"], [["Alt", "V"]]), note: "Alt+V is the Windows and WSL fallback." },
-        { id: "copy-message", action: "Copy the last assistant message", keys: combo(platforms, ["Ctrl", "X"]) },
+        { id: "copy-message", action: "Copy the last assistant message", keys: combo(platforms, ["Ctrl", "X"]), note: "In /tree, copies the selected message. In fullscreen mode with fullscreenCopyOnSelect off, copies the active selection. On OAuth screens, copies the sign-in URL." },
       ],
     },
     {
@@ -82,7 +82,7 @@ export const piCodingAgent: AppShortcuts = {
         { id: "yank", action: "Paste the most recently deleted text", keys: combo(platforms, ["Ctrl", "Y"]) },
         { id: "yank-pop", action: "Cycle through deleted text after yanking", keys: combo(platforms, ["Alt", "Y"]) },
         { id: "undo", action: "Undo the last edit", keys: perPlatform(platforms, { windows: ["Ctrl", "Z"], macos: ["Ctrl", "-"], linux: ["Ctrl", "-"] }), note: "Alt+Z is the documented WSL fallback." },
-        { id: "new-line", action: "Insert a line without submitting", keys: bindings(["Shift", "Enter"], [["Ctrl", "J"], ["Ctrl", "Enter"]]), note: "Windows Terminal may need Ctrl+Enter instead of Shift+Enter." },
+        { id: "new-line", action: "Insert a line without submitting", keys: bindings(["Shift", "Enter"], [["Ctrl", "J"]]) },
         { id: "complete-path", action: "Complete a path or accept autocomplete", keys: combo(platforms, ["Tab"]) },
         { id: "send-steering", action: "Send now, or queue a steering message while busy", keys: combo(platforms, ["Enter"]) },
         { id: "queue-follow-up", action: "Queue a follow-up after the current work finishes", keys: bindings(["Alt", "Enter"], [["Ctrl", "Q"]]), note: "Ctrl+Q is the Windows and WSL binding. Windows Terminal may reserve Alt+Enter for full-screen." },
@@ -96,14 +96,22 @@ export const piCodingAgent: AppShortcuts = {
       shortcuts: [
         { id: "transcript-page-up", action: "Scroll the transcript up by a page", keys: combo(platforms, ["PageUp"]) },
         { id: "transcript-page-down", action: "Scroll the transcript down by a page", keys: combo(platforms, ["PageDown"]) },
-        { id: "previous-prompt", action: "Jump to the previous marked prompt", keys: perPlatform(platforms, { windows: ["Ctrl", "Up"], macos: ["Ctrl", "Shift", "Up"], linux: ["Ctrl", "Shift", "Up"] }) },
-        { id: "next-prompt", action: "Jump to the next marked prompt", keys: perPlatform(platforms, { windows: ["Ctrl", "Down"], macos: ["Ctrl", "Shift", "Down"], linux: ["Ctrl", "Shift", "Down"] }) },
+        { id: "previous-prompt", action: "Jump to the previous marked prompt", keys: [
+          { platform: "windows", keys: ["Ctrl", "Shift", "Up"], alternatives: [["Ctrl", "Up"]] },
+          { platform: "macos", keys: ["Ctrl", "Shift", "Up"] },
+          { platform: "linux", keys: ["Ctrl", "Shift", "Up"], alternatives: [["Ctrl", "Up"]], note: "Ctrl+Up also works in WSL." },
+        ] },
+        { id: "next-prompt", action: "Jump to the next marked prompt", keys: [
+          { platform: "windows", keys: ["Ctrl", "Shift", "Down"], alternatives: [["Ctrl", "Down"]] },
+          { platform: "macos", keys: ["Ctrl", "Shift", "Down"] },
+          { platform: "linux", keys: ["Ctrl", "Shift", "Down"], alternatives: [["Ctrl", "Down"]], note: "Ctrl+Down also works in WSL." },
+        ] },
         { id: "transcript-search", action: "Search the rendered transcript", keys: perPlatform(platforms, { windows: ["Ctrl", "F"], macos: ["Ctrl", "Shift", "F"], linux: ["Ctrl", "Shift", "F"] }) },
         { id: "search-next", action: "Select the next transcript search match", keys: bindings(["Enter"], [["Ctrl", "G"]]) },
         { id: "search-previous", action: "Select the previous transcript search match", keys: bindings(["Shift", "Enter"], [["Ctrl", "Shift", "G"]]) },
         { id: "search-close", action: "Close transcript search", keys: combo(platforms, ["Esc"]) },
-        { id: "transcript-top", action: "Scroll to the start of the transcript", keys: combo(platforms, ["Home"]) },
-        { id: "transcript-bottom", action: "Scroll to the end and follow new output", keys: combo(platforms, ["End"]) },
+        { id: "transcript-top", action: "Scroll to the start of the transcript", keys: combo(platforms, ["Ctrl", "Home"]) },
+        { id: "transcript-bottom", action: "Scroll to the end and follow new output", keys: combo(platforms, ["Ctrl", "End"]) },
       ],
     },
     {

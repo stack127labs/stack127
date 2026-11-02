@@ -21,15 +21,15 @@ export const adobeXd: AppShortcuts = {
   category: "Interface design and prototyping",
   platforms: ["windows", "macos"],
   versionContext:
-    "Adobe XD maintenance-mode desktop defaults from Adobe's June 3, 2026 reference, checked August 31, 2026. The page is Adobe's current shortcut list, but XD no longer receives ongoing feature development. Browser gestures and touch-only interactions are omitted.",
+    "Adobe XD desktop defaults for Windows and macOS. XD is in maintenance mode, with no new features. Mouse, trackpad, and touch gestures are not listed.",
   sourceUrl: "https://helpx.adobe.com/xd/desktop/introduction/keyboard-shortcuts.html",
   sourceLabel: "Adobe XD keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "files-and-editing",
       title: "Files and editing",
-      intro: "These application commands manage documents, clipboard actions, imports, and exports. Third-party export has no Windows binding in Adobe's table.",
+      intro: "These application commands manage documents, clipboard actions, imports, and exports. Third-party export has no Windows shortcut.",
       shortcuts: rows([
         ["quit", "Quit Adobe XD", [["Alt", "F4"]], [["Cmd", "Q"]]],
         ["undo", "Undo", [["Ctrl", "Z"]], [["Cmd", "Z"]]],
@@ -154,7 +154,7 @@ export const adobeXd: AppShortcuts = {
     {
       id: "interface-and-view",
       title: "Interface and view",
-      intro: "View commands switch XD modes, zoom the canvas, open panels, and adjust numeric fields. Full screen and window switching are macOS-only in Adobe's list.",
+      intro: "View commands switch XD modes, zoom the canvas, open panels, and adjust numeric fields. Full screen and window switching work only on macOS.",
       shortcuts: rows([
         ["design-mode", "Switch to Design mode", [["Alt", "1"]], [["Option", "1"]]],
         ["prototype-mode", "Switch to Prototype mode", [["Alt", "2"]], [["Option", "2"]]],
@@ -173,7 +173,7 @@ export const adobeXd: AppShortcuts = {
         ["full-screen", "Toggle full-screen mode", null, [["Control", "Cmd", "F"]]],
         ["switch-windows", "Switch between open XD documents", null, [["Cmd", "~"]]],
         ["maximize-window", "Maximize the XD window", [["Windows", "Up"]], null],
-        ["minimize-window", "Minimize the XD window", null, [["Cmd", "M"]]],
+        ["minimize-window", "Minimize the XD window", [["Windows", "Down"]], [["Cmd", "M"]]],
         ["switch-design-prototype", "Switch between Design and Prototype modes", [["Ctrl", "Tab"]]],
         ["value-one", "Increase or decrease a field value by 1", [["Up"], ["Down"]]],
         ["value-ten", "Increase or decrease a field value by 10", [["Shift", "Up"], ["Shift", "Down"]]],

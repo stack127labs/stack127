@@ -22,10 +22,10 @@ export const safari: AppShortcuts = {
   category: "Web browser",
   platforms: [...platforms],
   versionContext:
-    "Apple's Safari User Guide for Mac checked September 1, 2026. Apple notes that shortcuts can vary with language and keyboard layout, so the Safari menus remain the authority when a local layout changes a key.",
-  sourceUrl: "https://support.apple.com/en-az/guide/safari/cpsh003/mac",
-  sourceLabel: "official Safari keyboard shortcuts and gestures",
-  lastVerified: "2026-11-01",
+    "Safari for Mac. Keys can vary with your language and keyboard layout, so check Safari's menus if one doesn't match.",
+  sourceUrl: "https://support.apple.com/en-gb/guide/safari/cpsh003/mac",
+  sourceLabel: "official Safari keyboard shortcuts",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "scroll-and-page",
@@ -51,7 +51,7 @@ export const safari: AppShortcuts = {
     {
       id: "tabs",
       title: "Tabs",
-      intro: "Open, switch, select, close, and restore Safari tabs with the Mac tab commands in Apple's current guide.",
+      intro: "Open, switch, select, close, and restore tabs in Safari windows.",
       shortcuts: [
         mac("tab-overview", "Show tab overview", ["Shift", "Cmd", "\\"]),
         mac("new-tab", "Open a webpage in a new tab from Smart Search", ["Cmd", "Return"]),
@@ -100,7 +100,7 @@ export const safari: AppShortcuts = {
     {
       id: "bookmarks",
       title: "Bookmarks",
-      intro: "Navigate the bookmarks sidebar and edit selected bookmark names with the keyboard commands Apple documents.",
+      intro: "Navigate the bookmarks sidebar and edit selected bookmark names with the keyboard.",
       shortcuts: [
         mac("bookmarks-sidebar", "Show or hide the Bookmarks sidebar", ["Control", "Cmd", "1"]),
         mac("next-bookmark", "Select the next bookmark or folder", ["Down Arrow"], [["Up Arrow"]]),

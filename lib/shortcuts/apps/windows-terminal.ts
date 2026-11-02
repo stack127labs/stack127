@@ -7,10 +7,10 @@ export const windowsTerminal: AppShortcuts = {
   category: "Terminal emulator",
   platforms: ["windows"],
   versionContext:
-    "Current Windows Terminal documentation checked November 1, 2026; most bindings listed are defaults from the official Actions reference and can be changed in settings.",
+    "Most of these are defaults you can change in settings.",
   sourceUrl: "https://learn.microsoft.com/en-us/windows/terminal/customize-settings/actions",
   sourceLabel: "official Windows Terminal actions",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "tabs",
@@ -71,7 +71,7 @@ export const windowsTerminal: AppShortcuts = {
           id: "split-auto",
           action: "Split the pane automatically, duplicating the profile",
           keys: [{ platform: "windows", keys: ["Alt", "Shift", "D"] }],
-          note: "Auto picks the direction with the most surface area.",
+          note: "Auto picks the direction that gives the squarest panes.",
         },
         {
           id: "duplicate-pane-down",
@@ -167,13 +167,13 @@ export const windowsTerminal: AppShortcuts = {
           id: "scroll-page-up",
           action: "Scroll up by a whole page",
           keys: [{ platform: "windows", keys: ["Ctrl", "Shift", "PageUp"] }],
-          note: "The official key name is pgup; PageUp is the readable equivalent.",
+          note: "In settings, this key is named pgup.",
         },
         {
           id: "scroll-page-down",
           action: "Scroll down by a whole page",
           keys: [{ platform: "windows", keys: ["Ctrl", "Shift", "PageDown"] }],
-          note: "The official key name is pgdn; PageDown is the readable equivalent.",
+          note: "In settings, this key is named pgdn.",
         },
         {
           id: "scroll-to-top",
@@ -190,13 +190,12 @@ export const windowsTerminal: AppShortcuts = {
     {
       id: "commands-and-settings",
       title: "Command palette and settings",
-      intro: "Open the command palette, settings, and help when a binding is easier to discover than memorize.",
+      intro: "Open the command palette and settings files when a binding is easier to discover than memorize.",
       shortcuts: [
         {
           id: "command-palette",
           action: "Open the command palette",
-          keys: [],
-          note: "Windows Terminal actions appear in the command palette, but the official reference does not assign a default keyboard binding to open it.",
+          keys: [{ platform: "windows", keys: ["Ctrl", "Shift", "P"] }],
         },
         {
           id: "open-settings-ui",
@@ -226,9 +225,9 @@ export const windowsTerminal: AppShortcuts = {
         },
         {
           id: "quake-mode",
-          action: "Summon the quake mode window snapped to the top of the monitor",
-          keys: [],
-          note: "No default key binding is documented; bind the quakeMode action yourself or launch wt -w _quake.",
+          action: "Summon the quake mode window snapped to the top half of the monitor",
+          keys: [{ platform: "windows", keys: ["Win", "`"] }],
+          note: "The backtick key is left of 1 on a US keyboard. You can also run wt -w _quake.",
         },
       ],
     },

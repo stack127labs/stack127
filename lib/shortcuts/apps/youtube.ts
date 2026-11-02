@@ -29,10 +29,10 @@ export const youtube: AppShortcuts = {
   category: "Video",
   platforms: [...platforms],
   versionContext:
-    "YouTube Help keyboard shortcut reference checked September 1, 2026. Some commands require the player or seek bar to have focus, and frame controls work only while playback is paused.",
+    "Some shortcuts need the player or seek bar to have focus. Frame controls work only while playback is paused.",
   sourceUrl: "https://support.google.com/youtube/answer/7631406?hl=en",
   sourceLabel: "official YouTube keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "playback",

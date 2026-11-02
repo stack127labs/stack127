@@ -36,10 +36,10 @@ export const wrike: AppShortcuts = {
   category: "Project management",
   platforms: [...platforms],
   versionContext:
-    "Wrike keyboard shortcut and Gantt chart shortcut pages checked November 1, 2026. Some commands depend on the current view, browser, or focus inside a task description.",
-  sourceUrl: "https://help.wrike.com/hc/en-us/articles/210322725-Keyboard-Shortcuts",
-  sourceLabel: "official Wrike keyboard shortcuts",
-  lastVerified: "2026-11-01",
+    "Some commands depend on the current view, your browser, or focus inside a task description.",
+  sourceUrl: "https://help.wrike.com/hc/en-us/articles/1500005225202-Gantt-Chart-Keyboard-Shortcuts",
+  sourceLabel: "official Wrike Gantt chart keyboard shortcuts",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "global",
@@ -58,7 +58,7 @@ export const wrike: AppShortcuts = {
         dual("inline-code", "Format inline code", ["Shift", "Ctrl", "C"], ["Shift", "Cmd", "C"]),
         dual("code-block", "Format a code block", ["Shift", "Alt", "Ctrl", "C"], ["Shift", "Option", "Cmd", "C"]),
         shared("skip-description", "Skip the task description", ["Escape"]),
-        dual("submit-comment", "Post a comment", ["Ctrl", "Enter"], ["Cmd", "Enter"], "Enter also posts when the profile uses the default single-key submit behavior."),
+        dual("submit-comment", "Post a comment", ["Ctrl", "Enter"], ["Cmd", "Enter"], "Enter also posts when selected in Profile settings."),
       ],
     },
     {
@@ -76,12 +76,11 @@ export const wrike: AppShortcuts = {
     {
       id: "gantt",
       title: "Gantt charts",
-      intro: "Wrike's Gantt chart reference documents keyboard entry for dates and hierarchy changes.",
+      intro: "Enter dates and change the task hierarchy from the keyboard.",
       shortcuts: [
-        shared("date-number", "Enter a day number in a date field", ["Number"], "The Gantt chart reference documents number entry in a date field."),
+        shared("date-number", "Enter a day number in a date field", ["Number"], "Works in a Gantt chart date field."),
         shared("today", "Set a date field to today", ["T"]),
-        shared("tomorrow", "Set a date field to tomorrow", ["Y"]),
-        shared("this-month", "Set a date field to the current month", ["TOM"]),
+        shared("tomorrow", "Set a date field to tomorrow", ["TOM"]),
         macOnly("task-up", "Move a task up one level in the hierarchy", ["Cmd", "["]),
         macOnly("task-down", "Move a task down one level in the hierarchy", ["Cmd", "]"]),
       ],

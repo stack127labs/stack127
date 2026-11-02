@@ -19,10 +19,10 @@ export const affinityPhoto: AppShortcuts = {
   category: "Photo editing",
   platforms: ["windows", "macos"],
   versionContext:
-    "Affinity Photo 2 desktop defaults from Serif's September 19, 2023 Windows and macOS shortcut sheets, cross-checked against the current Affinity V2 online help on November 1, 2026. The sheets use English UK or British keyboard layouts, so physical key positions can differ. Customized shortcuts are not listed.",
+    "Affinity Photo 2 defaults for Windows and macOS. They're based on a UK English keyboard, so key positions can differ on yours.",
   sourceUrl: "https://affinity.help/photo2/English.lproj/pages/Workspace/shortcuts.html",
   sourceLabel: "Affinity Photo 2 keyboard shortcuts help",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "documents-and-layers",
@@ -35,7 +35,7 @@ export const affinityPhoto: AppShortcuts = {
         ["save", "Save", [["Ctrl", "S"]], [["Cmd", "S"]]],
         ["print", "Print", [["Ctrl", "P"]], [["Cmd", "P"]]],
         ["undo", "Undo", [["Ctrl", "Z"]], [["Cmd", "Z"]]],
-        ["redo", "Redo", [["Ctrl", "Y"]], [["Cmd", "Y"]]],
+        ["redo", "Redo", [["Ctrl", "Shift", "Z"], ["Ctrl", "Y"]], [["Cmd", "Shift", "Z"]]],
         ["cut", "Cut", [["Ctrl", "X"]], [["Cmd", "X"]]],
         ["copy", "Copy", [["Ctrl", "C"]], [["Cmd", "C"]]],
         ["paste", "Paste", [["Ctrl", "V"]], [["Cmd", "V"]]],
@@ -44,20 +44,19 @@ export const affinityPhoto: AppShortcuts = {
         ["merge-down", "Merge the current layer down", [["Ctrl", "E"]], [["Cmd", "E"]]],
         ["duplicate", "Duplicate the current selection", [["Ctrl", "J"]], [["Cmd", "J"]]],
         ["group", "Group selected layers", [["Ctrl", "G"]], [["Cmd", "G"]]],
-        ["hide", "Hide the selection", [["Ctrl", "H"]], [["Cmd", "H"]]],
         ["repeat-filter", "Repeat the last filter", [["Ctrl", "F"]], [["Cmd", "F"]]],
         ["levels", "Open Levels", [["Ctrl", "L"]], [["Cmd", "L"]]],
         ["curves", "Open Curves", [["Ctrl", "M"]], [["Cmd", "M"]]],
         ["hsl", "Open HSL", [["Ctrl", "U"]], [["Cmd", "U"]]],
         ["invert", "Invert", [["Ctrl", "I"]], [["Cmd", "I"]]],
         ["preferences", "Open Settings or Preferences", [["Ctrl", ","]], [["Cmd", ","]]],
-        ["convert-curves", "Convert the selection to curves", [["Enter"]], [["Return"]]],
+        ["convert-curves", "Convert the selection to curves", [["Ctrl", "Enter"]], [["Cmd", "Return"]]],
       ]),
     },
     {
       id: "photo-persona-tools",
       title: "Photo Persona tools",
-      intro: "Repeated tool letters cycle the tool family shown on Serif's Photo Persona sheet. Hold a tool letter for temporary use.",
+      intro: "Press a tool letter again to cycle through its tool family. Hold it for temporary use.",
       shortcuts: rows([
         ["view-tool", "Activate the View tool", [["H"]]],
         ["move-tool", "Activate the Move tool", [["V"]]],
@@ -85,7 +84,7 @@ export const affinityPhoto: AppShortcuts = {
     {
       id: "liquify-persona",
       title: "Liquify Persona",
-      intro: "Liquify Persona assigns single letters to mesh deformation tools. Its A, D, and I commands operate on the liquify mask.",
+      intro: "Liquify Persona assigns single letters to mesh deformation tools. Add Control or Command to A, D, or I for the liquify mask.",
       shortcuts: rows([
         ["liquify-view", "Activate the View tool", [["H"]]],
         ["liquify-zoom", "Activate the Zoom tool", [["Z"]]],
@@ -99,9 +98,9 @@ export const affinityPhoto: AppShortcuts = {
         ["reconstruct", "Activate Reconstruct", [["R"]]],
         ["freeze", "Activate Freeze", [["F"]]],
         ["thaw", "Activate Thaw", [["W"]]],
-        ["liquify-mask-all", "Mask all", [["A"]]],
-        ["liquify-clear-mask", "Clear the mask", [["D"]]],
-        ["liquify-invert-mask", "Invert the mask", [["I"]]],
+        ["liquify-mask-all", "Mask all", [["Ctrl", "A"]], [["Cmd", "A"]]],
+        ["liquify-clear-mask", "Clear the mask", [["Ctrl", "D"]], [["Cmd", "D"]]],
+        ["liquify-invert-mask", "Invert the mask", [["Ctrl", "I"]], [["Cmd", "I"]]],
       ]),
     },
     {
@@ -124,10 +123,10 @@ export const affinityPhoto: AppShortcuts = {
     {
       id: "view-brush-and-colour",
       title: "View, brush, and colour controls",
-      intro: "In Photo Persona, bare number keys set opacity. Add Control or Command to the documented number keys for fixed zoom levels.",
+      intro: "In Photo Persona, bare number keys set opacity. Add Control or Command to the number keys below for fixed zoom levels.",
       shortcuts: rows([
         ["toggle-ui", "Show or hide the interface", [["Tab"]]],
-        ["zoom-in", "Zoom in", [["Ctrl", "+"]], [["Cmd", "+"]]],
+        ["zoom-in", "Zoom in", [["Ctrl", "="]], [["Cmd", "+"]]],
         ["zoom-out", "Zoom out", [["Ctrl", "-"]], [["Cmd", "-"]]],
         ["zoom-fit", "Zoom to fit", [["Ctrl", "0"]], [["Cmd", "0"]]],
         ["zoom-100", "Zoom to 100%", [["Ctrl", "1"]], [["Cmd", "1"]]],
@@ -139,7 +138,7 @@ export const affinityPhoto: AppShortcuts = {
         ["brush-larger", "Increase brush size", [["]"]]],
         ["toggle-selector", "Switch the active colour selector", [["X"]]],
         ["default-colours", "Set selectors to black and white", [["D"]]],
-        ["none", "Set the active selector to none", [["/"]]],
+        ["none", "Set the active selector to none", [["/"]], undefined, "On international and selected keyboards only."],
         ["snapping", "Toggle snapping", [[";"]]],
         ["rulers", "Show or hide rulers", [["Ctrl", "R"]], [["Cmd", "R"]]],
         ["guides", "Show or hide guides", [["Ctrl", ";"]], [["Cmd", ";"]]],
@@ -153,7 +152,7 @@ export const affinityPhoto: AppShortcuts = {
     {
       id: "painting-and-selection-modifiers",
       title: "Painting and selection modifiers",
-      intro: "Hold these modifiers while painting, selecting, transforming, sampling, or zooming. Platform-specific center-scaling and pixel movement remain explicit.",
+      intro: "Hold these modifiers while painting, selecting, transforming, sampling, or zooming.",
       shortcuts: rows([
         ["clone-source", "Choose a source for Clone, Healing, or Liquify Mesh Clone", [["Alt"]], [["Option"]]],
         ["opposite-retouch", "Temporarily switch Dodge, Burn, Blur, or Sharpen to its opposite", [["Alt"]], [["Option"]]],
@@ -165,8 +164,8 @@ export const affinityPhoto: AppShortcuts = {
         ["brush-straight", "Draw a straight line between paint strokes", [["Shift"]]],
         ["brush-picker", "Temporarily switch a painting tool to Colour Picker", [["Alt", "Drag"]], [["Option", "Drag"]]],
         ["brush-size-hardness", "Drag to change brush size and hardness", [["Ctrl", "Alt", "Drag"]], [["Control", "Option", "Drag"]]],
-        ["pixel-add", "Add to a pixel selection", [["Ctrl", "Alt", "Drag"]], [["Control"]]],
-        ["pixel-remove", "Remove from a pixel selection", [["Alt"]], [["Option"]]],
+        ["pixel-add", "Add to a pixel selection", [["Ctrl", "Alt", "Drag"]], [["Control", "Drag"]]],
+        ["pixel-remove", "Remove from a pixel selection", [["Alt", "Drag"]], [["Option", "Drag"]]],
         ["zoom-out-tool", "Zoom out with the Zoom tool", [["Alt", "Click"]], [["Option", "Click"]]],
         ["zoom-marquee", "Drag a zoom marquee", [["Alt", "Drag"]], [["Option", "Drag"]]],
       ]),

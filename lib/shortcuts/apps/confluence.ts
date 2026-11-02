@@ -15,10 +15,10 @@ export const confluence: AppShortcuts = {
   category: "Team knowledge base",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current Confluence Cloud reference checked August 31, 2026. Windows and Mac columns are preserved literally, including Control-based Mac commands and the Option-based text-formatting rows published by Atlassian. Confluence Data Center and the legacy editor are outside scope.",
+    "Confluence Cloud with the current editor, not Data Center or the legacy editor. Some Mac keys use Control or Option, as Atlassian lists them.",
   sourceUrl: "https://support.atlassian.com/confluence-cloud/docs/keyboard-shortcuts-markdown-and-autocomplete/",
   sourceLabel: "Atlassian Confluence Cloud keyboard shortcuts and autocomplete",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "global",
@@ -109,7 +109,7 @@ export const confluence: AppShortcuts = {
       shortcuts: [
         pair("resize-handle", "Focus the table resize handle", ["Ctrl", "Alt", "Shift", "R"], ["Cmd", "Shift", "Option", "R"]),
         shared("cell-options", "Open cell options", ["Shift", "F10"]),
-        { id: "select-row", action: "Select the table row", keys: [key("windows", ["Ctrl", "Alt", "Shift", "Right"]), key("macos", ["Cmd", "Shift", "Option", "Left"], [["Cmd", "Shift", "Option", "Right"]])], note: "The official Windows left-arrow alternative contains a duplicated Shift token and is omitted." },
+        { id: "select-row", action: "Select the table row", keys: [key("windows", ["Ctrl", "Alt", "Shift", "Right"]), key("macos", ["Cmd", "Shift", "Option", "Left"], [["Cmd", "Shift", "Option", "Right"]])] },
         pair("select-column", "Select the table column", ["Ctrl", "Alt", "Shift", "Up"], ["Cmd", "Shift", "Option", "Up"], [["Ctrl", "Alt", "Shift", "Down"]], [["Cmd", "Shift", "Option", "Down"]]),
         pair("insert-column", "Insert a table column", ["Ctrl", "Alt", "="], ["Cmd", "Option", "="], [["Ctrl", "Alt", "-"]], [["Cmd", "Option", "-"]]),
         pair("insert-row", "Insert a table row", ["Ctrl", "Alt", "]"], ["Cmd", "Option", "]"], [["Ctrl", "Alt", "["]], [["Cmd", "Option", "["]]),

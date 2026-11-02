@@ -7,10 +7,10 @@ export const macos: AppShortcuts = {
   category: "Operating system",
   platforms: ["macos"],
   versionContext:
-    "Apple's current Mac keyboard shortcuts checked November 1, 2026. Shortcuts apply across macOS, though individual apps can override common bindings and some keys depend on the keyboard hardware.",
+    "Apps can override common shortcuts, and some keys depend on your keyboard.",
   sourceUrl: "https://support.apple.com/en-us/102650",
   sourceLabel: "official Apple shortcut list",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "essentials",

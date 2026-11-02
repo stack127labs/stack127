@@ -1,7 +1,9 @@
 import { combo, perPlatform } from "../build.ts";
 import type { AppShortcuts } from "../types.ts";
 
-const platforms = ["windows", "macos"] as const;
+const platforms = ["windows", "macos", "linux"] as const;
+/** TablePlus maps Cmd to Ctrl on Linux, but doesn't publish these non-Cmd keys there. */
+const windowsAndMac = ["windows", "macos"] as const;
 
 export const tableplus: AppShortcuts = {
   slug: "tableplus",
@@ -9,30 +11,30 @@ export const tableplus: AppShortcuts = {
   category: "Database tools",
   platforms: [...platforms],
   versionContext:
-    "TablePlus shortcut keys checked November 1, 2026. The documentation says to replace Command with Control on Windows and notes that key mappings can be customized in Preferences.",
-  sourceUrl: "https://docs.tableplus.com/utilities/shortcut-keys",
+    "Windows and Linux use Ctrl for Cmd on most keys. Change some in Settings > Keymap.",
+  sourceUrl: "https://tableplus.com/docs/utilities/shortcut-keys",
   sourceLabel: "official TablePlus shortcut keys",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "global-and-workspace",
       title: "Connections and workspace",
-      intro: "Global and workspace shortcuts open connections, tabs, preferences, plugins, panes, and the database or connection switchers.",
+      intro: "Global and workspace shortcuts open connections, tabs, settings, plugins, panes, and databases.",
       shortcuts: [
-        { id: "new-connection", action: "Open connection list (New Workspace)", keys: combo(platforms, ["Ctrl", "N"], ["Cmd", "N"]) },
+        { id: "new-connection", action: "Open the connection list (New Workspace)", keys: combo(platforms, ["Ctrl", "N"], ["Cmd", "N"]) },
         { id: "preferences", action: "Open Settings", keys: combo(platforms, ["Ctrl", ","], ["Cmd", ","]) },
         { id: "quit", action: "Quit the app", keys: combo(platforms, ["Ctrl", "Q"], ["Cmd", "Q"]) },
         { id: "new-sql-viewer", action: "Open a new SQL Viewer", keys: combo(platforms, ["Ctrl", "Shift", "O"], ["Cmd", "Shift", "O"]) },
-        { id: "close-tab", action: "Close the current tab or window", keys: combo(platforms, ["Ctrl", "W"], ["Cmd", "W"]) },
+        { id: "close-tab", action: "Close the current tab", keys: combo(platforms, ["Ctrl", "W"], ["Cmd", "W"]) },
         { id: "new-tab", action: "Open a new tab", keys: combo(platforms, ["Ctrl", "T"], ["Cmd", "T"]) },
         { id: "plugin-manager", action: "Open the plugin manager", keys: combo(platforms, ["Ctrl", "L"], ["Cmd", "L"]) },
-        { id: "console-log", action: "Toggle the console log", keys: combo(platforms, ["Ctrl", "Shift", "C"], ["Cmd", "Shift", "C"]) },
+        { id: "console-log", action: "Toggle the console log", keys: perPlatform(platforms, { macos: ["Cmd", "Ctrl", "C"] }) },
         { id: "reload", action: "Reload the workspace", keys: combo(platforms, ["Ctrl", "R"], ["Cmd", "R"]) },
-        { id: "left-tab", action: "Navigate to the left tab", keys: combo(platforms, ["Ctrl", "["], ["Cmd", "["]) },
-        { id: "right-tab", action: "Navigate to the right tab", keys: combo(platforms, ["Ctrl", "]"], ["Cmd", "]"]) },
+        { id: "left-tab", action: "Select the previous tab", keys: combo(platforms, ["Ctrl", "["], ["Cmd", "["]) },
+        { id: "right-tab", action: "Select the next tab", keys: combo(platforms, ["Ctrl", "]"], ["Cmd", "]"]) },
         { id: "split-pane", action: "Split the pane to the right", keys: combo(platforms, ["Ctrl", "Shift", "D"], ["Cmd", "Shift", "D"]) },
-        { id: "switch-database", action: "Switch database", keys: combo(platforms, ["Ctrl", "K"], ["Cmd", "K"]) },
-        { id: "switch-connection", action: "Switch connection", keys: combo(platforms, ["Ctrl", "Shift", "K"], ["Cmd", "Shift", "K"]) },
+        { id: "switch-database", action: "Open a database", keys: combo(platforms, ["Ctrl", "K"], ["Cmd", "K"]) },
+        { id: "switch-connection", action: "Open a connection", keys: combo(platforms, ["Ctrl", "Shift", "K"], ["Cmd", "Shift", "K"]) },
       ],
     },
     {
@@ -40,16 +42,16 @@ export const tableplus: AppShortcuts = {
       title: "SQL editor",
       intro: "SQL editor shortcuts execute, open, format, comment, save, and navigate query text while the SQL tab or viewer is focused.",
       shortcuts: [
-        { id: "execute", action: "Execute SQL code", keys: combo(platforms, ["Ctrl", "Enter"], ["Cmd", "Return"]) },
-        { id: "open-sql", action: "Open a SQL file", keys: combo(platforms, ["Ctrl", "O"], ["Cmd", "O"]) },
-        { id: "beautify", action: "Beautify selected SQL statements", keys: combo(platforms, ["Ctrl", "I"], ["Cmd", "I"]) },
-        { id: "uglify", action: "Uglify selected SQL statements", keys: combo(platforms, ["Ctrl", "Shift", "I"], ["Shift", "Cmd", "I"]) },
-        { id: "save-sql", action: "Save selected SQL statements as", keys: combo(platforms, ["Ctrl", "Shift", "S"], ["Shift", "Cmd", "S"]) },
-        { id: "comment", action: "Comment or uncomment SQL lines", keys: combo(platforms, ["Ctrl", "/"], ["Cmd", "/"]) },
-        { id: "next-cursor", action: "Add a cursor above the current line", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "Up"], macos: ["Ctrl", "Shift", "Up"] }) },
-        { id: "next-cursor-below", action: "Add a cursor below the current line", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "Down"], macos: ["Ctrl", "Shift", "Down"] }) },
+        { id: "execute", action: "Run the current statement or selection", keys: combo(platforms, ["Ctrl", "Enter"], ["Cmd", "Return"]) },
+        { id: "open-sql", action: "Open a file", keys: combo(platforms, ["Ctrl", "O"], ["Cmd", "O"]) },
+        { id: "beautify", action: "Beautify the selected SQL", keys: combo(platforms, ["Ctrl", "I"], ["Cmd", "I"]) },
+        { id: "uglify", action: "Uglify the selected SQL", keys: combo(platforms, ["Ctrl", "Shift", "I"], ["Shift", "Cmd", "I"]) },
+        { id: "save-sql", action: "Save the SQL to a file", keys: combo(platforms, ["Ctrl", "Shift", "S"], ["Shift", "Cmd", "S"]) },
+        { id: "comment", action: "Toggle a line comment", keys: combo(platforms, ["Ctrl", "/"], ["Cmd", "/"]) },
+        { id: "next-cursor", action: "Add a caret on the line above", keys: combo(windowsAndMac, ["Ctrl", "Shift", "Up"]) },
+        { id: "next-cursor-below", action: "Add a caret on the line below", keys: combo(windowsAndMac, ["Ctrl", "Shift", "Down"]) },
         { id: "select-next", action: "Select the next occurrence of the current word", keys: combo(platforms, ["Ctrl", "D"], ["Cmd", "D"]) },
-        { id: "select-all-instances", action: "Select all instances of the current highlight", keys: perPlatform(platforms, { windows: ["Ctrl", "Ctrl", "G"], macos: ["Cmd", "Ctrl", "G"] }) },
+        { id: "select-all-instances", action: "Select all occurrences of the current word", keys: perPlatform(platforms, { macos: ["Cmd", "Ctrl", "G"] }) },
       ],
     },
     {
@@ -57,18 +59,18 @@ export const tableplus: AppShortcuts = {
       title: "Table data",
       intro: "Table data shortcuts toggle row details, copy or paste rows, duplicate or insert rows, and open row or column filters.",
       shortcuts: [
-        { id: "row-detail", action: "Toggle row detail view", keys: perPlatform(platforms, { windows: ["Space"], macos: ["Space"] }) },
-        { id: "copy-rows", action: "Copy rows", keys: combo(platforms, ["Ctrl", "C"], ["Cmd", "C"]) },
+        { id: "row-detail", action: "Toggle row detail view", keys: combo(windowsAndMac, ["Space"]) },
+        { id: "copy-rows", action: "Copy the selected rows", keys: combo(platforms, ["Ctrl", "C"], ["Cmd", "C"]) },
         { id: "paste-rows", action: "Paste rows", keys: combo(platforms, ["Ctrl", "V"], ["Cmd", "V"]) },
-        { id: "duplicate-row", action: "Duplicate a row", keys: combo(platforms, ["Ctrl", "D"], ["Cmd", "D"]) },
-        { id: "insert-row", action: "Insert a new row", keys: combo(platforms, ["Ctrl", "I"], ["Cmd", "I"]) },
+        { id: "duplicate-row", action: "Duplicate the selected rows", keys: combo(platforms, ["Ctrl", "D"], ["Cmd", "D"]) },
+        { id: "insert-row", action: "Add a new row", keys: combo(platforms, ["Ctrl", "I"], ["Cmd", "I"]) },
         { id: "row-filter", action: "Show filters", keys: combo(platforms, ["Ctrl", "F"], ["Cmd", "F"]) },
-        { id: "column-filter", action: "Choose columns to show", keys: perPlatform(platforms, { windows: ["Ctrl", "Alt", "F"], macos: ["Cmd", "Option", "F"] }) },
-        { id: "focus-next", action: "Edit the selected cell", keys: perPlatform(platforms, { windows: ["Tab"], macos: ["Tab"] }).map((entry) => ({ ...entry, alternatives: [["Return"]] })) },
+        { id: "column-filter", action: "Choose columns to show", keys: perPlatform(platforms, { macos: ["Cmd", "Option", "F"] }) },
+        { id: "focus-next", action: "Edit the selected cell", keys: combo(windowsAndMac, ["Tab"]).map((entry) => ({ ...entry, alternatives: [[entry.platform === "macos" ? "Return" : "Enter"]] })) },
         { id: "undo", action: "Undo", keys: combo(platforms, ["Ctrl", "Z"], ["Cmd", "Z"]) },
         { id: "redo", action: "Redo", keys: combo(platforms, ["Ctrl", "Shift", "Z"], ["Cmd", "Shift", "Z"]) },
         { id: "open-anything", action: "Open anything", keys: combo(platforms, ["Ctrl", "P"], ["Cmd", "P"]) },
-        { id: "open-query", action: "Open SQL Query", keys: combo(platforms, ["Ctrl", "E"], ["Cmd", "E"]) },
+        { id: "open-query", action: "Open a new SQL query editor tab", keys: combo(platforms, ["Ctrl", "E"], ["Cmd", "E"]) },
       ],
     },
   ],

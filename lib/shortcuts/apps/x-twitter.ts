@@ -29,10 +29,10 @@ export const xTwitter: AppShortcuts = {
   category: "Social media",
   platforms: [...platforms],
   versionContext:
-    "X Help Center keyboard shortcut list checked November 1, 2026. These shortcuts apply to the desktop web experience on x.com. The Help Center still lists a Moments destination that is no longer included here.",
+    "The desktop site at x.com. Moments is not included.",
   sourceUrl: "https://help.x.com/en/using-x/how-to-post",
   sourceLabel: "official X Help Center keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "posts",

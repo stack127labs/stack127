@@ -1,7 +1,7 @@
 import { combo } from "../build.ts";
 import type { AppShortcuts } from "../types.ts";
 
-const platforms = ["windows", "macos"] as const;
+const platforms = ["windows", "macos", "linux"] as const;
 
 export const jupyterNotebook: AppShortcuts = {
   slug: "jupyter-notebook",
@@ -9,10 +9,10 @@ export const jupyterNotebook: AppShortcuts = {
   category: "Developer tools",
   platforms: [...platforms],
   versionContext:
-    "Essential shortcuts from the Jupyter Notebook 7.6.0 documentation, checked November 1, 2026. The full context-sensitive map is available from Help > Keyboard Shortcuts inside the running notebook; this page keeps the defaults explicitly documented in the public guide.",
-  sourceUrl: "https://jupyter-notebook.readthedocs.io/en/v7.6.0/notebook.html",
-  sourceLabel: "Jupyter Notebook 7.6.0 keyboard shortcuts",
-  lastVerified: "2026-11-01",
+    "Jupyter Notebook 7.6. For the full list, open Help > Keyboard Shortcuts in a running notebook.",
+  sourceUrl: "https://jupyter-notebook.readthedocs.io/en/stable/notebook.html",
+  sourceLabel: "Jupyter Notebook keyboard shortcuts",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "notebook-editing",

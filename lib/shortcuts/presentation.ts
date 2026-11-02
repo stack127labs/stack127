@@ -1,6 +1,9 @@
 import type { PlatformId, Shortcut, ShortcutKey } from "./types.ts";
 
-const modifiers = new Set(["ctrl", "control", "cmd", "command", "⌘", "shift", "⇧", "alt", "option", "opt", "⌥", "win", "windows", "super", "meta", "fn", "hyper"]);
+const modifiers = new Set(["ctrl", "control", "cmd", "command", "⌘", "shift", "⇧", "alt", "option", "opt", "⌥", "win", "windows", "super", "meta", "fn", "hyper", "right ctrl", "left ctrl", "right alt", "left alt", "right shift", "left shift"]);
+
+/** Pointer actions happen while the earlier key is held, so they never read as a next step. */
+const heldWith = /^(drag|scroll|click|left click|right click|middle click)$/i;
 
 /** The records list keys in press order. A non-modifier completes a chord. */
 export function keycapParts(keys: string[]) {
@@ -9,7 +12,7 @@ export function keycapParts(keys: string[]) {
     const previous = keys[index - 1];
     const separator = index === 0 || connector || /^(then|or)$/i.test(previous)
       ? ""
-      : modifiers.has(previous.toLowerCase()) ? " + " : " then ";
+      : modifiers.has(previous.toLowerCase()) || heldWith.test(key) ? " + " : " then ";
     return { key, connector, separator };
   });
 }

@@ -54,10 +54,10 @@ export const emacs: AppShortcuts = {
   category: "Text editors",
   platforms: [...platforms],
   versionContext:
-    "GNU Emacs 30.2 manual and current GNU Emacs reference card checked September 1, 2026. Emacs modes can add local bindings, and terminal or operating-system settings can change how Meta, Alt, and function keys reach Emacs.",
+    "GNU Emacs default bindings. Modes can add local bindings, and terminal or operating-system settings can affect how Meta and function keys reach Emacs.",
   sourceUrl: "https://www.gnu.org/software/emacs/manual/html_node/emacs/",
   sourceLabel: "GNU Emacs Manual",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "movement",
@@ -87,7 +87,7 @@ export const emacs: AppShortcuts = {
       intro: "Kill commands remove text into the kill ring, while yank commands put it back.",
       shortcuts: [
         control("delete-forward", "Delete the character at point", ["Ctrl", "D"]),
-        control("delete-backward", "Delete the character before point", ["DEL"], "GNU documents this as DEL, which is commonly the Backspace key on a modern keyboard."),
+        control("delete-backward", "Delete the character before point", ["DEL"], "DEL is usually the Backspace key."),
         control("kill-line", "Kill to the end of the line", ["Ctrl", "K"]),
         meta("kill-word", "Kill the next word", "D"),
         meta("backward-kill-word", "Kill the previous word", "Backspace"),
@@ -130,8 +130,8 @@ export const emacs: AppShortcuts = {
         control("kill-buffer", "Kill a buffer", ["Ctrl", "X", "then", "K"]),
         control("delete-window", "Remove the selected window", ["Ctrl", "X", "then", "0"]),
         control("only-window", "Make the selected window the only window", ["Ctrl", "X", "then", "1"]),
-        control("split-horizontal", "Split the selected window horizontally", ["Ctrl", "X", "then", "2"]),
-        control("split-vertical", "Split the selected window vertically", ["Ctrl", "X", "then", "3"]),
+        control("split-horizontal", "Split the selected window, one above the other", ["Ctrl", "X", "then", "2"]),
+        control("split-vertical", "Split the selected window side by side", ["Ctrl", "X", "then", "3"]),
         control("other-window", "Move to another window", ["Ctrl", "X", "then", "O"]),
       ],
     },

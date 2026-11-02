@@ -19,10 +19,10 @@ const front: AppShortcuts = {
   category: "Shared inbox",
   platforms: [...platforms],
   versionContext:
-    "Front publishes four selectable shortcut sets. This record uses the Front set. Personal preferences and the browser versus desktop app can change what is active; the desktop app excludes single-key alternatives by default. Windows uses Control where the Mac reference uses Command, and Alt where it uses Option.",
+    "Front's own shortcut set, one of four you can pick. Windows uses Ctrl for Cmd and Alt for Option, and the desktop app turns off single-key alternatives by default.",
   sourceUrl: "https://help.front.com/en/articles/2189",
   sourceLabel: "official Front keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "conversation-navigation",
@@ -45,7 +45,6 @@ const front: AppShortcuts = {
           id: "open-by-link",
           action: "Open a conversation by link or ID",
           keys: combo(platforms, ["Ctrl", "O"], ["Cmd", "O"]),
-          note: "The source labels this command Command+O on Mac and Control+O on Windows.",
         },
         {
           id: "search",

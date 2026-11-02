@@ -18,15 +18,15 @@ export const quickbooksOnline: AppShortcuts = {
   category: "Accounting",
   platforms: [...platforms],
   versionContext:
-    "Intuit's QuickBooks Help article was updated August 28, 2026 and checked September 1, 2026. The article covers Internet Explorer, Firefox, and Chrome, with Mac substitutions where Intuit documents them. The in-product reference opens with Control+Option+Question mark on Mac.",
+    "QuickBooks Online in Internet Explorer, Firefox, and Chrome, with Mac keys where they differ. On Mac, Control+Option+? opens the in-product shortcut list.",
   sourceUrl: "https://quickbooks.intuit.com/learn-support/en-us/help-article/product-setup/keyboard-shortcuts-quickbooks-online/L49aUqVh2_US_en_US",
   sourceLabel: "official QuickBooks Online keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "browser-and-help",
       title: "Browser and help",
-      intro: "Open another browser window, find text, and show the QuickBooks Online shortcut reference from the current help article.",
+      intro: "Open another browser window, find text, and show the QuickBooks Online shortcut list.",
       shortcuts: [
         { id: "new-window", action: "Open a second browser window", keys: [{ platform: "windows", keys: ["Ctrl", "N"] }] },
         dual("find", "Find text in the window", ["Ctrl", "F"], ["Cmd", "F"]),
@@ -53,7 +53,7 @@ export const quickbooksOnline: AppShortcuts = {
     {
       id: "forms-and-dropdowns",
       title: "Forms and dropdowns",
-      intro: "Move through form fields, select checkboxes, and choose entries from QuickBooks dropdown lists with these documented keys.",
+      intro: "Move through form fields, select checkboxes, and choose entries from QuickBooks dropdown lists.",
       shortcuts: [
         same("next-field", "Move to the next field", ["Tab"]),
         same("previous-field", "Move to the previous field", ["Shift", "Tab"]),
@@ -77,13 +77,13 @@ export const quickbooksOnline: AppShortcuts = {
             { platform: "windows", keys: ["Alt", "S"], alternatives: [["Alt", "Shift", "S"]] },
             { platform: "macos", keys: ["Option", "Control", "S"] },
           ],
-          note: "The Alt+Shift+S alternative is for Firefox and Chrome on Windows; Intuit lists Option+Control+S for Mac users there.",
+          note: "The Alt+Shift+S alternative is for Firefox and Chrome on Windows; Mac uses Option+Control+S.",
         },
         dual("save-transaction", "Save a selected transaction", ["Alt", "S"], ["Option", "Control", "S"], "Firefox and Chrome use Alt+Shift+S on Windows."),
         dual("edit-transaction", "Edit a saved transaction", ["Alt", "E"], ["Option", "E"]),
         same("increase-reference", "Increase the reference number", ["+"]),
         same("decrease-reference", "Decrease the reference number", ["-"]),
-        same("print-reference", "Enter To Print in the reference field", ["T"], "The source limits this to the Check, Bill Payment, and Paycheck reference fields."),
+        same("print-reference", "Enter To Print in the reference field", ["T"], "Only works in the Check, Bill Payment, and Paycheck reference fields."),
         same("register-up", "Select the transaction above", ["Up Arrow"]),
         same("register-down", "Select the transaction below", ["Down Arrow"]),
       ],

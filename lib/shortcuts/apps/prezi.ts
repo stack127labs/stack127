@@ -15,9 +15,9 @@ export const prezi: AppShortcuts = {
   category: "Presentation",
   platforms: [...platforms],
   versionContext:
-    "Prezi Present keyboard shortcuts from the official Support Center, checked September 1, 2026. The article describes Windows and macOS modifier equivalents; browser focus and presentation mode can change which command receives a key.",
+    "Mac uses Cmd and Option where Windows uses Ctrl and Alt. Some keys act differently while you present.",
   sourceUrl: "https://support.prezi.com/hc/en-us/articles/360003499013-How-to-use-keyboard-shortcuts-in-Prezi-Present",
-  sourceLabel: "official Prezi Present keyboard shortcuts",
+  sourceLabel: "Prezi Present keyboard shortcuts",
   lastVerified: "2026-09-01",
   groups: [
     {

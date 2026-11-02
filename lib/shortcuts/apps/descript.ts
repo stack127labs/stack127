@@ -25,15 +25,15 @@ export const descript: AppShortcuts = {
   category: "Audio and video editing",
   platforms: [...platforms],
   versionContext:
-    "Current Descript blog and Help Center pages checked September 1, 2026. Descript's defaults apply to its Mac and Windows editor; focus on the script editor or timeline where noted.",
-  sourceUrl: "https://www.descript.com/blog/article/how-to-use-descript",
-  sourceLabel: "Descript keyboard shortcuts guide",
-  lastVerified: "2026-11-01",
+    "Descript for Mac and Windows. Single-key shortcuts need the Script Editor with Write and Correct modes off.",
+  sourceUrl: "https://help.descript.com/descript-tour/keyboard-shortcuts",
+  sourceLabel: "Descript keyboard shortcuts",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "tools",
       title: "Editing tools",
-      intro: "These single-key tools apply while the editor is ready for a tool shortcut.",
+      intro: "These single-key tools work in the Script Editor when Write and Correct modes are off.",
       shortcuts: [
         shared("select", "Select", ["A"]),
         shared("range", "Range", ["R"]),
@@ -58,9 +58,8 @@ export const descript: AppShortcuts = {
       intro: "Correction commands act on selected transcript text or the focused script editor.",
       shortcuts: [
         pair("correct-mode", "Enter or exit Correct mode", ["Alt", "C"], ["Option", "C"]),
-        shared("correct-word", "Correct the selected word", ["C"], "Select a word in the script editor first."),
-        pair("new-scene", "Create a new empty scene", ["Ctrl", "Shift", "Enter"], ["Cmd", "Shift", "Enter"]),
-        shared("split-scene", "Split the current scene", ["/"], "Type the slash in the script where the new scene should begin."),
+        shared("correct-word", "Correct the selected text", ["C"], "Highlight text in the script editor first."),
+        shared("split-scene", "Insert a scene", ["/"], "Not while the correction tool is active."),
       ],
     },
   ],

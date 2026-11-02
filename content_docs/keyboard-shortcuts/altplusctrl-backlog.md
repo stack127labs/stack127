@@ -21,7 +21,7 @@ Research must start with the current first-party shortcut reference for the name
 | Adobe Lightroom Classic | `adobe-lightroom-classic` | Verified | https://helpx.adobe.com/lightroom-classic/desktop/introduction-to-lightroom-classic/keyboard-shortcuts.html |
 | Adobe Photoshop | `adobe-photoshop` | Blocked | https://helpx.adobe.com/photoshop/desktop/get-started/settings-and-preferences/view-keyboard-shortcuts.html |
 | Adobe Premiere Pro | `adobe-premiere-pro` | Verified | https://helpx.adobe.com/premiere/desktop/get-started/keyboard-shortcuts/default-keyboard-shortcuts.html |
-| Adobe Premiere Rush | `adobe-premiere-rush` | Verified | https://helpx.adobe.com/premiere-rush/desktop/introduction/keyboard-shortcuts.html |
+| Adobe Premiere Rush | `adobe-premiere-rush` | Verified | https://helpx.adobe.com/premiere-rush/premiere-rush-discontinuation.html |
 | Adobe Substance 3D Painter | `adobe-substance-3d-painter` | Verified | https://experienceleague.adobe.com/en/docs/substance-3d-painter/using/interface/settings/shortcuts |
 | Adobe XD | `adobe-xd` | Verified | https://helpx.adobe.com/xd/desktop/introduction/keyboard-shortcuts.html |
 | Affinity Designer 2 | `affinity-designer` | Verified | https://affinity.help/designer2/English.lproj/pages/Workspace/shortcuts.html |
@@ -31,23 +31,23 @@ Research must start with the current first-party shortcut reference for the name
 | Alfred | `alfred` | Verified | https://www.alfredapp.com/help/getting-started/cheatsheet/ |
 | Amplitude | `amplitude` | Verified | https://amplitude.com/docs/analytics/charts/chart-basics#keyboard-shortcuts |
 | Android Studio | `android-studio` | Verified | https://developer.android.com/studio/intro/keyboard-shortcuts |
-| AnyDesk | `anydesk` | Verified | https://support.anydesk.com/keyboard-hotkeys |
+| AnyDesk | `anydesk` | Verified | https://support.anydesk.com/docs/keyboard-hotkeys |
 | Apple Music | `apple-music` | Verified | https://support.apple.com/guide/music/keyboard-shortcuts-mus1019/mac |
 | Apple Notes | `apple-notes` | Verified | https://support.apple.com/guide/notes/keyboard-shortcuts-and-gestures-apd46c25187e/mac |
-| Arc Browser | `arc-browser` | Verified | https://resources.arc.net/hc/en-us/articles/20595231349911-Keyboard-Shortcuts |
+| Arc Browser | `arc-browser` | Verified | https://start.arc.net/master-multitasking |
 | Asana | `asana` | Verified | https://help.asana.com/s/article/keyboard-shortcuts |
 | Audacity | `audacity` | Verified | https://manual.audacityteam.org/man/keyboard_shortcut_reference.html |
-| AutoCAD | `autocad` | Verified | https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-Customization/files/GUID-B6A9C126-230D-47F5-8973-464BC80E3736.htm |
-| Autodesk Maya | `autodesk-maya` | Verified | https://help.autodesk.com/cloudhelp/2026/ENU/Maya-KeyboardShortcuts/files/GUID-30CACC9D-8FBE-4B85-8A8F-C5ADF32DDD4E.htm |
-| Autodesk Revit | `autodesk-revit` | Verified | https://www.autodesk.com/revit-keyboard-shortcut-list-pdf-2026-enu |
+| AutoCAD | `autocad` | Verified | https://help.autodesk.com/view/OARX/2027/ENU/?guid=GUID-B6A9C126-230D-47F5-8973-464BC80E3736 |
+| Autodesk Maya | `autodesk-maya` | Verified | https://help.autodesk.com/view/MAYAUL/2027/ENU/?guid=GUID-30CACC9D-8FBE-4B85-8A8F-C5ADF32DDD4E |
+| Autodesk Revit | `autodesk-revit` | Verified | https://www.autodesk.com/revit-keyboard-shortcut-list-pdf-2027-enu |
 | Axure RP | `axure-rp` | Verified | https://docs.axure.com/axure-rp/reference/keyboard-shortcuts/ |
 | Azure DevOps | `azure-devops` | Verified | https://learn.microsoft.com/en-us/azure/devops/project/navigation/keyboard-shortcuts?view=azure-devops |
-| Balsamiq Wireframes | `balsamiq-wireframes` | Verified | https://balsamiq.com/support/docs/creating-and-editing/shortcuts/ |
+| Balsamiq Wireframes | `balsamiq-wireframes` | Verified | https://balsamiq.com/support/creating-and-editing/shortcuts/ |
 | Basecamp | `basecamp` | Verified | https://basecamp.com/keyboard |
 | Bear | `bear` | Verified | https://bear.app/faq/mac-keyboard-shortcuts/ |
 | Beyond Compare | `beyond-compare` | Blocked | https://www.scootersoftware.com/v5help/optionscommand.html |
 | Bitbucket | `bitbucket` | Verified | https://support.atlassian.com/bitbucket-cloud/docs/keyboard-shortcuts/ |
-| Blender | `blender` | Verified | https://docs.blender.org/manual/en/latest/interface/keymap/blender_default.html |
+| Blender | `blender` | Verified | https://docs.blender.org/manual/en/5.2/interface/keymap/blender_default.html |
 | Bluebeam Revu | `bluebeam-revu` | Verified | https://support.bluebeam.com/revu/resources/keyboard-shortcuts.html |
 | Bluesky | `bluesky` | Blocked | https://github.com/bluesky-social/social-app/issues/640 |
 | Buffer | `buffer` | Verified | https://support.buffer.com/en-us/articles/using-buffers-keyboard-shortcuts-jvc735UOsa |
@@ -69,10 +69,10 @@ Research must start with the current first-party shortcut reference for the name
 | Craft | `craft` | Verified | https://support.craft.do/en/introduction/shortcuts |
 | Cyberduck | `cyberduck` | Blocked | https://docs.cyberduck.io/cyberduck/ |
 | DaVinci Resolve | `davinci-resolve` | Verified | https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Editors-Guide.pdf?_v=1757574010000 |
-| DaVinci Resolve Fusion Page | `davinci-resolve-fusion-page` | Verified | https://documents.blackmagicdesign.com/UserManuals/FusionManual.pdf?_v=1724310010000 |
+| DaVinci Resolve Fusion Page | `davinci-resolve-fusion-page` | Verified | https://documents.blackmagicdesign.com/UserManuals/FusionManual.pdf |
 | DBeaver | `dbeaver` | Verified | https://github.com/dbeaver/dbeaver/wiki/Shortcuts |
 | DeepL | `deepl` | Verified | https://support.deepl.com/hc/en-us/articles/360020613059-Use-DeepL-shortcuts-for-desktop-apps |
-| Descript | `descript` | Verified | https://www.descript.com/blog/article/how-to-use-descript |
+| Descript | `descript` | Verified | https://help.descript.com/descript-tour/keyboard-shortcuts |
 | Discord | `discord` | Verified | https://support.discord.com/hc/en-us/articles/31232432266647-Discord-Commands-Shortcuts-and-Navigation-Guide |
 | Docker Desktop | `docker-desktop` | Blocked | https://docs.docker.com/desktop/release-notes/ |
 | draw.io (diagrams.net) | `draw-io-diagrams-net` | Verified | https://app.diagrams.net/shortcuts.svg |
@@ -83,7 +83,7 @@ Research must start with the current first-party shortcut reference for the name
 | Evernote | `evernote` | Verified | https://help.evernote.com/hc/en-us/articles/34296687388307-Keyboard-shortcuts |
 | Excalidraw | `excalidraw` | Verified | https://raw.githubusercontent.com/excalidraw/excalidraw/master/packages/excalidraw/actions/shortcuts.ts |
 | Fantastical | `fantastical` | Verified | https://flexibits.com/fantastical/help/keyboard-shortcuts |
-| FigJam | `figjam` | Verified | https://help.figma.com/hc/en-us/articles/1500004292221-Select-move-and-order-objects-in-FigJam |
+| FigJam | `figjam` | Verified | https://help.figma.com/hc/en-us/articles/1500004362321-Guide-to-FigJam |
 | FileZilla | `filezilla` | Verified | https://wiki.filezilla-project.org/Keyboard_shortcuts |
 | Final Cut Pro | `final-cut-pro` | Verified | https://support.apple.com/en-mide/guide/final-cut-pro/ver90ba5929/mac |
 | FL Studio | `fl-studio` | Verified | https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/basics_shortcuts.htm |
@@ -91,20 +91,20 @@ Research must start with the current first-party shortcut reference for the name
 | Freshdesk | `freshdesk` | Verified | https://support.freshdesk.com/support/solutions/articles/186758-keyboard-shortcuts-in-freshdesk |
 | Front | `front` | Verified | https://help.front.com/en/articles/2189 |
 | Fusion 360 | `fusion-360` | Verified | https://help.autodesk.com/view/fusion360/ENU/?guid=GUID-F0491540-0324-470A-B651-2238D0EFAC30 |
-| GIMP | `gimp` | Verified | https://docs.gimp.org/quickreference/gimp-keys-en.pdf |
+| GIMP | `gimp` | Verified | https://docs.gimp.org/3.0/pdf/gimp-keys-en.pdf |
 | GitHub Copilot | `github-copilot` | Verified | https://docs.github.com/en/copilot/reference/keyboard-shortcuts?tool=vscode |
 | GitHub Desktop | `github-desktop` | Verified | https://docs.github.com/en/desktop/overview/github-desktop-keyboard-shortcuts |
 | GitKraken | `gitkraken` | Verified | https://help.gitkraken.com/gitkraken-desktop/keyboard-shortcuts/ |
 | GitLab | `gitlab` | Verified | https://docs.gitlab.com/user/shortcuts/ |
 | Godot Engine | `godot-engine` | Verified | https://docs.godotengine.org/en/4.6/tutorials/editor/default_key_mapping.html |
 | GoodNotes | `goodnotes` | Verified | https://support.goodnotes.com/hc/en-us/articles/17220521238159-Keyboard-Shortcuts-in-Goodnotes |
-| Google Docs | `google-docs` | Verified | https://support.google.com/docs/answer/179738?hl=en-GB |
+| Google Docs | `google-docs` | Verified | https://support.google.com/docs/answer/179738?hl=en |
 | Google Drive | `google-drive` | Verified | https://support.google.com/drive/answer/2563044?co=GENIE.Platform%3DDesktop&hl=en |
 | Google Forms | `google-forms` | Verified | https://support.google.com/docs/answer/6026976?hl=en |
 | Google Gemini | `google-gemini` | Verified | https://support.google.com/chrome/answer/16988996?hl=en |
 | Google Meet | `google-meet` | Verified | https://support.google.com/meet/answer/9298571?hl=en |
 | Google Photos | `google-photos` | Blocked | https://support.google.com/photos |
-| Google Slides | `google-slides` | Verified | https://support.google.com/docs/answer/1696717?hl=en-EN |
+| Google Slides | `google-slides` | Verified | https://support.google.com/docs/answer/1696717?hl=en |
 | Grammarly | `grammarly` | Verified | https://support.grammarly.com/hc/en-us/articles/24059143083277-Can-I-use-my-keyboard-to-navigate-Grammarly-for-Windows-and-Mac |
 | Harvest | `harvest` | Verified | https://support.getharvest.com/hc/en-us/articles/360048685411-Windows-app-Keyboard-shortcuts |
 | Heptabase | `heptabase` | Blocked | https://support.heptabase.com/en/ |
@@ -113,13 +113,13 @@ Research must start with the current first-party shortcut reference for the name
 | HubSpot | `hubspot` | Blocked | https://knowledge.hubspot.com/workflows/use-the-new-workflow-navigation-bar |
 | iA Writer | `ia-writer` | Verified | https://ia.net/writer/support/basics/shortcuts |
 | iMessage | `imessage` | Verified | https://support.apple.com/guide/messages/keyboard-shortcuts-ichtc78b3bff/mac |
-| Inkscape | `inkscape` | Verified | https://inkscape.org/sl/doc/keys.html |
+| Inkscape | `inkscape` | Verified | https://inkscape.org/doc/keys.html |
 | Insomnia | `insomnia` | Verified | https://developer.konghq.com/insomnia/keyboard-shortcuts/ |
 | IntelliJ IDEA | `intellij-idea` | Verified | https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html |
 | Intercom | `intercom` | Verified | https://www.intercom.com/help/en/articles/6272267-how-to-use-command-k-with-intercom-inbox |
 | Jira | `jira` | Verified | https://support.atlassian.com/jira-software-cloud/docs/use-keyboard-shortcuts/ |
 | Joplin | `joplin` | Verified | https://joplinapp.org/help/apps/terminal/ |
-| Jupyter Notebook | `jupyter-notebook` | Verified | https://jupyter-notebook.readthedocs.io/en/v7.6.0/notebook.html |
+| Jupyter Notebook | `jupyter-notebook` | Verified | https://jupyter-notebook.readthedocs.io/en/stable/notebook.html |
 | Keynote | `keynote` | Verified | https://support.apple.com/guide/keynote/keyboard-shortcuts-tanfde4a3e6d/mac |
 | KeyShot | `keyshot` | Blocked | https://manual.keyshot.com/manual/user-interface/hotkeys/ |
 | Krita | `krita` | Verified | https://docs.krita.org/en/reference_manual/preferences/shortcut_settings.html |
@@ -134,7 +134,7 @@ Research must start with the current first-party shortcut reference for the name
 | Loom | `loom` | Verified | https://support.atlassian.com/loom/docs/use-looms-keyboard-shortcuts |
 | Lucidchart | `lucidchart` | Blocked | https://help.lucid.co/hc/en-us/articles/11970952773652-Welcome-to-Lucidchart |
 | macOS Finder | `macos-finder` | Verified | https://support.apple.com/en-us/102650 |
-| macOS Spotlight | `macos-spotlight` | Verified | https://support.apple.com/guide/mac-help/mh26783/mac |
+| macOS Spotlight | `macos-spotlight` | Verified | https://support.apple.com/guide/mac-help/spotlight-keyboard-shortcuts-mh26783/mac |
 | Mailchimp | `mailchimp` | Blocked | https://mailchimp.com/help/add-a-link-in-a-campaign/ |
 | Marvel | `marvel` | Blocked | https://help.marvelapp.com/ |
 | Mastodon | `mastodon` | Verified | https://github.com/mastodon/mastodon/blob/main/app/javascript/mastodon/components/hotkeys/index.tsx |
@@ -143,9 +143,9 @@ Research must start with the current first-party shortcut reference for the name
 | Microsoft Edge | `microsoft-edge` | Verified | https://support.microsoft.com/en-US/edge/keyboard-shortcuts-in-microsoft-edge |
 | Microsoft OneDrive | `microsoft-onedrive` | Verified | https://support.microsoft.com/en-US/accessibility/onedrive/keyboard-shortcuts-for-onedrive-for-work-or-school |
 | Microsoft OneNote | `microsoft-onenote` | Verified | https://support.microsoft.com/en-us/accessibility/onenote/keyboard-shortcuts-in-onenote |
-| Microsoft Outlook | `microsoft-outlook` | Verified | https://support.microsoft.com/en-us/office/keyboard-shortcuts-for-outlook-3cdeb221-7ae5-4c1d-8c1d-9e63216c1efd |
-| Microsoft PowerPoint | `microsoft-powerpoint` | Verified | https://support.microsoft.com/en-us/office/use-keyboard-shortcuts-to-deliver-powerpoint-presentations-1524ffce-bd2a-45f4-9a7f-f18b992b93a0 |
-| Microsoft PowerToys | `microsoft-powertoys` | Verified | https://learn.microsoft.com/en-us/windows/powertoys/shortcut-guide |
+| Microsoft Outlook | `microsoft-outlook` | Verified | https://support.microsoft.com/en-us/accessibility/outlook/keyboard-shortcuts-for-outlook |
+| Microsoft PowerPoint | `microsoft-powerpoint` | Verified | https://support.microsoft.com/en-us/accessibility/powerpoint/use-keyboard-shortcuts-to-create-powerpoint-presentations |
+| Microsoft PowerToys | `microsoft-powertoys` | Verified | https://learn.microsoft.com/en-us/windows/powertoys/ |
 | Microsoft Teams | `microsoft-teams` | Verified | https://support.microsoft.com/en-us/accessibility/teams/keyboard-shortcuts-for-microsoft-teams |
 | Microsoft Word | `microsoft-word` | Verified | https://support.microsoft.com/en-us/accessibility/word/keyboard-shortcuts-in-word |
 | Milanote | `milanote` | Verified | https://help.milanote.com/en/articles/111393-keyboard-shortcuts |
@@ -155,18 +155,18 @@ Research must start with the current first-party shortcut reference for the name
 | Mozilla Thunderbird | `mozilla-thunderbird` | Verified | https://support.mozilla.org/en-US/kb/keyboard-shortcuts-thunderbird |
 | Mural | `mural` | Blocked | https://learn.mural.co/lessons/navigating-around-the-mural |
 | Netflix | `netflix` | Verified | https://help.netflix.com/en/node/24855 |
-| Notability | `notability` | Verified | https://support.gingerlabs.com/hc/en-us/articles/360021489291-Keyboard-shortcuts |
+| Notability | `notability` | Verified | https://support.gingerlabs.com/en-us/articles/16300139-keyboard-shortcuts |
 | Notepad++ | `notepad-plus-plus` | Verified | https://npp-user-manual.org/docs/user-interface/ |
 | Notion Calendar | `notion-calendar` | Blocked | https://www.notion.com/help/notion-calendar-keyboard-shortcuts |
 | Numbers | `numbers` | Verified | https://support.apple.com/guide/numbers/keyboard-shortcuts-tana45192591/mac |
 | OBS Studio | `obs-studio` | Verified | https://obsproject.com/kb/keyboard-shortcuts |
 | Obsidian | `obsidian` | Verified | https://obsidian.md/help/editing-shortcuts |
-| OmniFocus | `omnifocus` | Verified | https://support.omnigroup.com/documentation/omnifocus/universal/4.9.3/en/commands/ |
+| OmniFocus | `omnifocus` | Verified | https://support.omnigroup.com/documentation/omnifocus/universal/4.10.1/en/commands/ |
 | Opera | `opera` | Verified | https://help.opera.com/en/latest/shortcuts/ |
 | Oracle VirtualBox | `oracle-virtualbox` | Verified | https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html |
 | Otter.ai | `otter-ai` | Verified | https://help.otter.ai/hc/en-us/articles/29431724341399-Keyboard-Shortcuts |
 | Pages | `pages` | Verified | https://support.apple.com/guide/pages/keyboard-shortcuts-tanc0ffef022/mac |
-| Paint.NET | `paint-net` | Verified | https://www.getpaint.net/doc/latest/KeyboardMouseCommands.html |
+| Paint.NET | `paint-net` | Verified | https://paint.net/doc/latest/KeyboardMouseCommands.html |
 | Parallels Desktop | `parallels-desktop` | Blocked | https://docs.parallels.com/landing/pdfm-ug/parallels-desktop-for-mac-26-users-guide/parallels-desktop-preferences-and-virtual-machine-settings/parallels-desktop-preferences/shortcuts-preferences |
 | Penpot | `penpot` | Verified | https://help.penpot.dev/user-guide/first-steps/shortcuts/ |
 | Perplexity | `perplexity` | Blocked | https://www.perplexity.ai/help-center/en/articles/19800006-work-with-browsers-and-apps |
@@ -176,12 +176,12 @@ Research must start with the current first-party shortcut reference for the name
 | Power BI | `power-bi` | Verified | https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts |
 | PreSonus Studio One | `presonus-studio-one` | Verified | https://pae-web.presonusmusic.com/downloads/products/pdf/Studio_One_Pro_7_Key_Command_Sheet.pdf |
 | Prezi | `prezi` | Verified | https://support.prezi.com/hc/en-us/articles/360003499013-How-to-use-keyboard-shortcuts-in-Prezi-Present |
-| Pro Tools | `pro-tools` | Verified | https://resources.avid.com/SupportFiles/PT/Pro_Tools_Shortcuts_2025.10.pdf |
+| Pro Tools | `pro-tools` | Verified | https://resources.avid.com/SupportFiles/PT/Pro_Tools_Shortcuts_2026.4.pdf |
 | Procreate | `procreate` | Blocked | https://help.procreate.com/procreate/handbook/interface-gestures/keyboard |
 | Proton Mail | `proton-mail` | Blocked | https://proton.me/support/keyboard-shortcuts |
 | ProtoPie | `protopie` | Verified | https://www.protopie.io/learn/docs/basic-features-shortcuts |
 | PuTTY | `putty` | Blocked | https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html |
-| PyCharm | `pycharm` | Verified | https://www.jetbrains.com/help/pycharm/keymap-reference.html |
+| PyCharm | `pycharm` | Verified | https://www.jetbrains.com/help/pycharm/mastering-keyboard-shortcuts.html |
 | QuickBooks Online | `quickbooks-online` | Verified | https://quickbooks.intuit.com/learn-support/en-us/help-article/product-setup/keyboard-shortcuts-quickbooks-online/L49aUqVh2_US_en_US |
 | Raycast | `raycast` | Verified | https://manual.raycast.com/keyboard-shortcuts |
 | REAPER | `reaper` | Blocked | https://www.cockos.com/reaper/userguide.php |
@@ -193,8 +193,8 @@ Research must start with the current first-party shortcut reference for the name
 | Roam Research | `roam-research` | Blocked | https://roamresearch.com/ |
 | Rocket.Chat | `rocket-chat` | Verified | https://docs.rocket.chat/docs/your-rocketchat-account |
 | RStudio | `rstudio` | Verified | https://docs.posit.co/ide/user/ide/reference/shortcuts.html |
-| Safari | `safari` | Verified | https://support.apple.com/en-az/guide/safari/cpsh003/mac |
-| Salesforce | `salesforce` | Verified | https://help.salesforce.com/s/articleView?id=sf.accessibility_keyboard_shortcuts_lex.htm&language=en_US&type=5 |
+| Safari | `safari` | Verified | https://support.apple.com/en-gb/guide/safari/cpsh003/mac |
+| Salesforce | `salesforce` | Verified | https://help.salesforce.com/s/articleView?id=accessibility_keyboard_shortcuts_lex.htm&language=en_US&type=5 |
 | Scrivener | `scrivener` | Verified | https://www.literatureandlatte.com/docs/Scrivener_Manual-Win.pdf |
 | Shopify Admin | `shopify-admin` | Blocked | https://help.shopify.com/en/manual/shopify-admin/productivity-tools/keyboard-shortcuts |
 | SideFX Houdini | `sidefx-houdini` | Blocked | https://www.sidefx.com/media/uploads/tutorial/H11_lessons/go_pro/hguide_00_introduction.pdf |
@@ -204,7 +204,7 @@ Research must start with the current first-party shortcut reference for the name
 | SketchUp | `sketchup` | Verified | https://help.sketchup.com/en/default-keyboard-shortcuts |
 | Skype | `skype` | Blocked | https://support.microsoft.com/en-us/skype/fa6ea97a-3235-400e-ace1-d10364e6b9be |
 | Smartsheet | `smartsheet` | Verified | https://help.smartsheet.com/articles/522200-keyboard-shortcuts |
-| SolidWorks | `solidworks` | Verified | https://help.solidworks.com/2026/english/SolidWorks/sldworks/c_time_saving_keyboard_shortcuts.htm |
+| SolidWorks | `solidworks` | Verified | https://help.solidworks.com/2027/english/SolidWorks/sldworks/c_time_saving_keyboard_shortcuts.htm |
 | Sourcetree | `sourcetree` | Blocked | https://support.atlassian.com/sourcetree/ |
 | Spark Mail | `spark-mail` | Verified | https://sparkmailapp.com/help/tips-tricks/use-keyboard-shortcuts |
 | Spotify | `spotify` | Verified | https://support.spotify.com/na-en/article/keyboard-shortcuts/ |
@@ -219,7 +219,7 @@ Research must start with the current first-party shortcut reference for the name
 | Superhuman | `superhuman` | Verified | https://help.superhuman.com/hc/en-us/articles/46005701270541-Keyboard-Shortcuts-in-Superhuman-Mail |
 | SurveyMonkey | `surveymonkey` | Blocked | https://help.surveymonkey.com/ |
 | Tableau | `tableau` | Verified | https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm |
-| TablePlus | `tableplus` | Verified | https://docs.tableplus.com/utilities/shortcut-keys |
+| TablePlus | `tableplus` | Verified | https://tableplus.com/docs/utilities/shortcut-keys |
 | Tally Forms | `tally-forms` | Verified | https://tally.so/help/keyboard-shortcuts |
 | Tana | `tana` | Blocked | https://help.tana.inc/ |
 | TeamViewer | `teamviewer` | Blocked | https://community.teamviewer.com/English/discussion/28674/~/English/categories/community-blog-en |
@@ -229,7 +229,7 @@ Research must start with the current first-party shortcut reference for the name
 | Threads | `threads` | Blocked | https://help.instagram.com/ |
 | TickTick | `ticktick` | Blocked | https://help.ticktick.com/ |
 | tmux | `tmux` | Verified | https://github.com/tmux/tmux/blob/master/tmux.1 |
-| Todoist | `todoist` | Verified | https://todoist.com/help/articles/use-keyboard-shortcuts-in-todoist-Wyovn2 |
+| Todoist | `todoist` | Verified | https://www.todoist.com/help/todoist/features/use-keyboard-shortcuts-in-todoist-Wyovn2 |
 | Toggl Track | `toggl-track` | Blocked | https://support.toggl.com/en-us/article/are-there-any-keyboard-shortcuts-1bcagm6/ |
 | Trello | `trello` | Blocked | https://support.atlassian.com/trello/docs/keyboard-shortcuts-in-trello/ |
 | Twitch Studio | `twitch-studio` | Blocked | https://help.twitch.tv/s/topic/0TO3a000000kZfYGAU/twitch-studio?language=en_US |
@@ -241,15 +241,15 @@ Research must start with the current first-party shortcut reference for the name
 | Visual Studio | `visual-studio` | Verified | https://learn.microsoft.com/en-us/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio?view=visualstudio |
 | Vivaldi | `vivaldi` | Blocked | https://help.vivaldi.com/desktop/shortcuts/keyboard-shortcuts/ |
 | VLC Media Player | `vlc-media-player` | Blocked | https://wiki.videolan.org/VLC_command-line_help/ |
-| VMware Workstation | `vmware-workstation` | Verified | https://techdocs2-prod.adobecqms.net/content/dam/broadcom/techdocs/us/en/pdf/vmware/desktop-hypervisors/workstation/vmware-workstation-pro-17-0.pdf |
+| VMware Workstation | `vmware-workstation` | Verified | https://techdocs.broadcom.com/content/dam/broadcom/techdocs/us/en/pdf/vmware/desktop-hypervisors/workstation/vmware-workstation-pro-26h1.pdf |
 | VSCodium | `vscodium` | Blocked | https://github.com/VSCodium/vscodium |
 | Warp | `warp` | Verified | https://docs.warp.dev/getting-started/keyboard-shortcuts |
 | Webflow | `webflow` | Verified | https://help.webflow.com/hc/en-us/articles/33961359609875-Keyboard-shortcuts-in-Webflow |
 | WebStorm | `webstorm` | Verified | https://www.jetbrains.com/help/webstorm/mastering-keyboard-shortcuts.html |
 | WhatsApp Desktop | `whatsapp-desktop` | Blocked | https://faq.whatsapp.com/6204576529560565/ |
 | Whimsical | `whimsical` | Verified | https://whimsical.com/learn/shortcuts |
-| Windows File Explorer | `windows-file-explorer` | Verified | https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec |
-| Windows Snipping Tool | `windows-snipping-tool` | Verified | https://support.microsoft.com/en-US/Windows/Apps/use-snipping-tool-to-capture-screenshots |
+| Windows File Explorer | `windows-file-explorer` | Verified | https://support.microsoft.com/en-us/accessibility/windows/keyboard-shortcuts-in-windows |
+| Windows Snipping Tool | `windows-snipping-tool` | Verified | https://support.microsoft.com/en-us/windows/apps/use-snipping-tool-to-capture-screenshots |
 | Windsurf | `windsurf` | Blocked | https://docs.windsurf.com/windsurf/getting-started/keyboard-shortcuts |
 | WinMerge | `winmerge` | Verified | https://manual.winmerge.org/en/Shortcut_keys.html |
 | WinRAR | `winrar` | Blocked | https://www.win-rar.com/split-download.html |
@@ -257,8 +257,8 @@ Research must start with the current first-party shortcut reference for the name
 | Wix | `wix` | Verified | https://support.wix.com/en/article/wix-editor-keyboard-shortcuts-in-the-editor |
 | Wondershare Filmora | `wondershare-filmora` | Verified | https://filmora.wondershare.com/guide/keyboard-shortcuts-on-windows.html |
 | WordPress Admin | `wordpress-admin` | Verified | https://wordpress.org/documentation/article/keyboard-shortcuts-block-editor/ |
-| WPS Office | `wps-office` | Verified | https://help.wps.com/articles/list-of-keyboard-shortcuts-for-writer |
-| Wrike | `wrike` | Verified | https://help.wrike.com/hc/en-us/articles/210322725-Keyboard-Shortcuts |
+| WPS Office | `wps-office` | Verified | https://www.wps.com/academy/popular/keyboard-shortcuts/ |
+| Wrike | `wrike` | Verified | https://help.wrike.com/hc/en-us/articles/1500005225202-Gantt-Chart-Keyboard-Shortcuts |
 | X (Twitter) | `x-twitter` | Verified | https://help.x.com/en/using-x/how-to-post |
 | Xcode | `xcode` | Blocked | https://developer.apple.com/documentation/xcode |
 | YouTrack | `youtrack` | Verified | https://www.jetbrains.com/help/youtrack/cloud/keyboard-shortcuts.html |

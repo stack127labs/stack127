@@ -23,10 +23,10 @@ export const riversideFm: AppShortcuts = {
   category: "Video and audio",
   platforms: [...platforms],
   versionContext:
-    "Riverside Help Center editor hotkeys checked September 1, 2026. The source documents Windows and macOS modifier variants for editing commands, while arrow, letter, and timeline controls are published as shared editor keys.",
+    "These shortcuts apply in the Riverside editor on Windows and macOS.",
   sourceUrl: "https://support.riverside.com/hc/en-us/articles/6279202420253-Editor-hotkeys-and-keyboard-shortcuts",
   sourceLabel: "official Riverside editor shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "navigation-and-playback",
@@ -61,7 +61,7 @@ export const riversideFm: AppShortcuts = {
       shortcuts: [
         dual("undo", "Undo the last change", ["Ctrl", "Z"], ["Cmd", "Z"]),
         dual("redo", "Redo the last change", ["Ctrl", "Shift", "Z"], ["Cmd", "Shift", "Z"]),
-        shared("delete", "Delete the selected item", ["Delete"], "Backspace is also documented."),
+        shared("delete", "Delete the selected item", ["Delete"], "Backspace also works."),
         shared("restore", "Restore or revert the selection", ["R"]),
         shared("split-recording", "Split the selected recording at the playhead", ["S"]),
         shared("correct-word", "Correct selected transcript words", ["C"]),

@@ -18,15 +18,15 @@ export const protopie: AppShortcuts = {
   category: "Prototyping",
   platforms: [...platforms],
   versionContext:
-    "ProtoPie Studio shortcuts checked September 1, 2026. The official list says the shortcut modal opens from Help or Control+Shift+Question mark on macOS and Ctrl+Shift+Question mark on Windows. Some actions use a key with a pointer gesture and are left out of this keyboard-only record.",
+    "ProtoPie Studio. Open the full list from Help, or with Control+Shift+? on Mac and Ctrl+Shift+? on Windows.",
   sourceUrl: "https://www.protopie.io/learn/docs/basic-features-shortcuts",
   sourceLabel: "official ProtoPie Studio shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "general",
       title: "General",
-      intro: "Create, open, save, upload, and inspect ProtoPie files with the commands in the official Studio shortcut list.",
+      intro: "Create, open, save, upload, and inspect ProtoPie files.",
       shortcuts: [
         dual("new-pie", "Create a new pie", ["Ctrl", "N"], ["Cmd", "N"]),
         dual("open", "Open a pie", ["Ctrl", "O"], ["Cmd", "O"]),
@@ -72,7 +72,7 @@ export const protopie: AppShortcuts = {
     {
       id: "object",
       title: "Objects and text",
-      intro: "Create components, change layer properties, and enter text editing mode with the object commands documented by ProtoPie.",
+      intro: "Create components, change layer properties, and enter text editing mode.",
       shortcuts: [
         dual("create-component", "Create a component", ["Ctrl", "K"], ["Cmd", "K"]),
         dual("detach-instance", "Detach an instance", ["Ctrl", "Alt", "B"], ["Option", "Cmd", "B"]),
@@ -142,11 +142,25 @@ export const protopie: AppShortcuts = {
       title: "Canvas",
       intro: "Change the canvas zoom, return to actual size, pan, and move between scenes or components with these keys.",
       shortcuts: [
-        dual("zoom-in", "Zoom in", ["Ctrl", "+"], ["Cmd", "="]),
-        dual("zoom-out", "Zoom out", ["Ctrl", "-"], ["Cmd", "-"]),
+        {
+          id: "zoom-in",
+          action: "Zoom in",
+          keys: [
+            { platform: "windows", keys: ["Ctrl", "+"], alternatives: [["+"]] },
+            { platform: "macos", keys: ["Cmd", "="], alternatives: [["="]] },
+          ],
+        },
+        {
+          id: "zoom-out",
+          action: "Zoom out",
+          keys: [
+            { platform: "windows", keys: ["Ctrl", "-"], alternatives: [["-"]] },
+            { platform: "macos", keys: ["Cmd", "-"], alternatives: [["-"]] },
+          ],
+        },
         dual("actual-size", "Show actual size", ["Ctrl", "0"], ["Cmd", "0"]),
-        same("previous-scene", "Go to the previous scene or component", ["Home"], "The source also lists Fn+Left Arrow on supported keyboards."),
-        same("next-scene", "Go to the next scene or component", ["End"], "The source also lists Fn+Right Arrow on supported keyboards."),
+        same("previous-scene", "Go to the previous scene or component", ["Home"], "Fn+Left Arrow also works on supported keyboards."),
+        same("next-scene", "Go to the next scene or component", ["End"], "Fn+Right Arrow also works on supported keyboards."),
       ],
     },
     {

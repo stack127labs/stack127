@@ -25,10 +25,10 @@ export const drawIoDiagramsNet: AppShortcuts = {
   category: "Diagramming",
   platforms: ["windows", "macos", "linux"],
   versionContext:
-    "Current official printable draw.io shortcut reference and 2026 documentation checked August 31, 2026. The reference directs macOS users to use Command for Control and Option for Alt. Linux follows Control notation except for the separately published redo binding.",
+    "These are draw.io's documented defaults. On Mac, use Command for Control and Option for Alt; Linux has a separate redo shortcut.",
   sourceUrl: "https://app.diagrams.net/shortcuts.svg",
   sourceLabel: "draw.io printable keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "document-and-tools",

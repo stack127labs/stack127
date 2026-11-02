@@ -16,10 +16,10 @@ export const reddit: AppShortcuts = {
   category: "Social and community",
   platforms: [...platforms],
   versionContext:
-    "Current Reddit desktop web hotkeys checked September 1, 2026. Reddit says the feature is available on the newest reddit.com interface, not old Reddit. On Windows, the help article maps its CMD references to Alt.",
+    "The current reddit.com desktop site, not old Reddit. On Windows, use Alt where Reddit says CMD.",
   sourceUrl: "https://support.reddithelp.com/hc/en-us/articles/38744650091412-How-to-use-keyboard-shortcuts-hotkeys",
   sourceLabel: "official Reddit keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "navigation",

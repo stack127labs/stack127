@@ -30,10 +30,10 @@ export const microsoftWord: AppShortcuts = {
   category: "Word processing",
   platforms: [...platforms],
   versionContext:
-    "Current Microsoft Word shortcut tables checked November 1, 2026. The official article uses U.S. keyboard layouts and separate Windows and Mac sections. Web, mobile, add-in, and custom shortcut behavior is outside this desktop record.",
+    "Word desktop for Windows and Mac, on a U.S. keyboard layout. Web and mobile aren't covered.",
   sourceUrl: "https://support.microsoft.com/en-us/accessibility/word/keyboard-shortcuts-in-word",
   sourceLabel: "official Microsoft Word keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "document-and-editing",
@@ -58,7 +58,7 @@ export const microsoftWord: AppShortcuts = {
         windowsOnly("go-to", "Open the Go To dialog", ["Ctrl", "G"]),
         { id: "go-to-macos", action: "Open the Go To dialog", keys: [{ platform: "macos", keys: ["Cmd", "Option", "G"], alternatives: [["F5"]] }] },
         pair("cancel", "Cancel a command", ["Esc"], ["Esc"]),
-        pair("split-window", "Split the document window", ["Ctrl", "Alt", "S"], ["Cmd", "Option", "S"]),
+        windowsOnly("split-window", "Split the document window", ["Ctrl", "Alt", "S"]),
       ],
     },
     {

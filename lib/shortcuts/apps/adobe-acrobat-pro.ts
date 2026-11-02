@@ -41,7 +41,7 @@ export const acrobatSharedGroups: ShortcutGroup[] = [
   {
     id: "document-tools",
     title: "Document and editing tools",
-    intro: "Single-letter tool accelerators require the Use single-key accelerators to access tools preference. Some editing tools require an Acrobat Pro entitlement.",
+    intro: "Single-letter tool accelerators require the Use single-key accelerators to access tools preference. Some editing tools require an Acrobat Pro plan.",
     shortcuts: rows([
       ["temporary-hand", "Temporarily use the Hand tool", [["Space"]]],
       ["hand-tool", "Select the Hand tool", [["H"]]],
@@ -86,7 +86,7 @@ export const acrobatSharedGroups: ShortcutGroup[] = [
       ["previous-command", "Move to the previous command button in a panel", [["Up"]]],
       ["expand-panel", "Expand or collapse the focused panel", [["Space"], ["Enter"]]],
       ["toggle-task-pane", "Open or close the Task pane", [["Shift", "F4"]]],
-      ["close-action-tasks", "Close the pane that lists an action's tasks", [["Ctrl", "Shift", "F4"]]],
+      ["close-action-tasks", "Close the pane that lists an action's tasks", [["Ctrl", "Shift", "F4"]], [["Control", "Shift", "F4"]]],
       ["open-command-menu", "Open the focused command's menu", [["Space"], ["Enter"]]],
       ["return-parent-command", "Return focus to the parent command", [["Esc"]]],
       ["run-focused-command", "Run the focused command", [["Space"], ["Enter"]]],
@@ -119,7 +119,7 @@ export const acrobatSharedGroups: ShortcutGroup[] = [
   {
     id: "pages-and-zoom",
     title: "Pages, scrolling, and zoom",
-    intro: "Page keys follow the current PDF view. Arrow keys may scroll instead of changing pages when the document is not in a page-by-page layout.",
+    intro: "Move by screen or page, scroll, and zoom in the open PDF.",
     shortcuts: rows([
       ["previous-screen", "Go to the previous screen", [["Page Up"], ["Shift", "Enter"]], [["Page Up"], ["Shift", "Return"]]],
       ["next-screen", "Go to the next screen", [["Page Down"], ["Enter"]], [["Page Down"], ["Return"]]],
@@ -180,8 +180,8 @@ export const acrobatSharedGroups: ShortcutGroup[] = [
       ["top-bar", "Move focus to the toolbar or Home view", [["Shift", "F8"]]],
       ["next-document-tab", "Move to the next open document tab", [["Ctrl", "Tab"]], [["Control", "Tab"]]],
       ["previous-document-tab", "Move to the previous open document tab", [["Ctrl", "Shift", "Tab"]], [["Control", "Shift", "Tab"]]],
-      ["previous-document-window", "Move to the previous open document window", [["Ctrl", "F6"]], [["Cmd", "F6"]]],
-      ["next-document-window", "Move to the next open document window", [["Ctrl", "Shift", "F6"]], [["Cmd", "Shift", "F6"]]],
+      ["previous-document-window", "Move to the previous open document window", [["Ctrl", "Shift", "F6"]], [["Cmd", "Shift", "F6"]]],
+      ["next-document-window", "Move to the next open document window", [["Ctrl", "F6"]], [["Cmd", "F6"]]],
       ["close-document", "Close the current document", [["Ctrl", "F4"]], [["Cmd", "F4"]]],
       ["invoke-menu", "Open the focused hamburger menu", [["Space"], ["Enter"]], null],
       ["hide-other-apps", "Hide other applications", null, [["Option", "Cmd", "T"]]],
@@ -192,7 +192,7 @@ export const acrobatSharedGroups: ShortcutGroup[] = [
       ["focus-document", "Move focus to the document pane", [["F5"]]],
       ["previous-document-control", "Move to the previous comment, link, or form field in the document", [["Shift", "Tab"]]],
       ["activate-focused-item", "Activate the focused tool, item, or command", [["Space"], ["Enter"]], [["Space"], ["Return"]]],
-      ["open-context-menu", "Open the context menu for the focused item", [["Shift", "F10"]], [["Control", "Click"]], "On Windows, press Tab first to move focus to the target menu."],
+      ["open-context-menu", "Open the context menu for the focused item", [["Shift", "F10"]], [["Control", "Click"]], "Press F6 to reach the menu, then on Windows press Tab first."],
       ["close-context-menu", "Close the context menu", [["F10"]], [["Esc"]]],
       ["return-hand-select", "Return to the Hand or Select tool", [["Esc"]]],
       ["next-dialog-tab", "Move to the next tab in a tabbed dialog", [["Ctrl", "Tab"]], null],
@@ -220,9 +220,9 @@ export const acrobatSharedGroups: ShortcutGroup[] = [
       ["toggle-todo-selection", "Select or deselect the focused To Do card", [["Space"]]],
       ["open-file", "Open the focused file", [["Enter"]]],
       ["open-todo", "Open the focused To Do card", [["Enter"]]],
-      ["move-file-row", "Move to the previous or next file row", [["Up"], ["Down"]]],
-      ["extend-file-selection", "Extend the file-row selection", [["Shift", "Up"], ["Shift", "Down"]]],
-      ["move-focus-without-selection", "Move file-row focus without changing selection", [["Ctrl", "Up"], ["Ctrl", "Down"]], [["Cmd", "Up"], ["Cmd", "Down"]]],
+      ["move-file-row", "Move to the previous or next file row", [["Arrow keys"]]],
+      ["extend-file-selection", "Extend the file-row selection", [["Shift", "Arrow keys"]]],
+      ["move-focus-without-selection", "Move file-row focus without changing selection", [["Ctrl", "Arrow keys"]], [["Cmd", "Arrow keys"]]],
       ["expand-bookmark", "Expand the focused bookmark", [["Right"], ["Shift", "+"]]],
       ["collapse-bookmark", "Collapse the focused bookmark", [["Left"], ["-"]]],
       ["expand-all-bookmarks", "Expand all bookmarks", [["Shift", "*"]]],
@@ -256,7 +256,7 @@ export const acrobatSharedGroups: ShortcutGroup[] = [
       ["previous-radio", "Select the previous radio button in a group", [["Up"], ["Left"]]],
       ["next-radio", "Select the next radio button in a group", [["Down"], ["Right"]]],
       ["reject-form-entry", "Reject the entry and deselect the form field", [["Esc"]]],
-      ["exit-full-screen", "Exit full-screen mode", [["Esc"]], undefined, "Adobe notes that full-screen mode can require pressing Esc twice."],
+      ["exit-full-screen", "Exit full-screen mode", [["Esc"]], undefined, "Press Esc twice."],
       ["accept-single-line", "Accept a single-line text entry and deselect the field", [["Enter"]], [["Return"]]],
       ["paragraph-return", "Insert a paragraph return in a multiline text field", [["Enter"]], [["Return"]]],
       ["toggle-checkbox", "Toggle the focused checkbox", [["Enter"]], [["Return"]]],
@@ -290,7 +290,7 @@ export const acrobatReaderGroups: ShortcutGroup[] = acrobatSharedGroups
     if (group.id === "document-tools") {
       return {
         ...group,
-        intro: "Reader includes the viewing tool accelerators from Adobe's shared Acrobat keymap. Authoring and paid editing tools are intentionally excluded here.",
+        intro: "Reader has Acrobat's viewing tool keys, but not the authoring or paid editing tools.",
         shortcuts: group.shortcuts.filter((shortcut) => readerDocumentToolIds.has(shortcut.id)),
       };
     }
@@ -311,10 +311,10 @@ export const adobeAcrobatPro: AppShortcuts = {
   category: "PDF editor",
   platforms: ["windows", "macos"],
   versionContext:
-    "Current Acrobat desktop defaults from Adobe's September 23, 2025 reference, checked November 1, 2026. Enable Use single-key accelerators to access tools for the one-letter tool commands. Browser-hosted PDFs may reserve some bindings before Acrobat receives them.",
+    "Acrobat desktop defaults. One-letter tool keys need the Use single-key accelerators to access tools preference.",
   sourceUrl: "https://helpx.adobe.com/acrobat/desktop/get-started/preferences-and-settings/keyboard-shortcuts.html",
   sourceLabel: "Adobe Acrobat desktop keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: acrobatSharedGroups,
 };
 

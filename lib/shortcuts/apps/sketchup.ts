@@ -10,10 +10,10 @@ export const sketchup: AppShortcuts = {
   category: "3D design",
   platforms: [...platforms],
   versionContext:
-    "SketchUp default keyboard shortcuts checked September 1, 2026. The official help page was updated August 31, 2026 and notes that custom shortcuts can replace these defaults.",
+    "SketchUp's default keys on Windows and Mac. You can replace them with your own shortcuts.",
   sourceUrl: "https://help.sketchup.com/en/default-keyboard-shortcuts",
-  sourceLabel: "official SketchUp default keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  sourceLabel: "SketchUp default keyboard shortcuts",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "selection-and-drawing",
@@ -49,9 +49,9 @@ export const sketchup: AppShortcuts = {
       title: "View and search",
       intro: "View and search shortcuts change the camera, reveal hidden edge states, and find tools or commands in the current SketchUp workspace.",
       shortcuts: [
-        { id: "orbit", action: "Orbit", keys: key(["O"]), note: "The official table also documents click and drag for Orbit." },
-        { id: "pan", action: "Pan", keys: key(["H"]), note: "The official table also documents Shift plus click and drag for Pan." },
-        { id: "zoom", action: "Zoom", keys: key(["Z"]), note: "The official table also documents the scroll wheel for Zoom." },
+        { id: "orbit", action: "Orbit", keys: key(["O"]), note: "You can also click and drag." },
+        { id: "pan", action: "Pan", keys: key(["H"]), note: "You can also hold Shift and click and drag." },
+        { id: "zoom", action: "Zoom", keys: key(["Z"]), note: "You can also use the scroll wheel." },
         { id: "zoom-extents", action: "Zoom Extents", keys: key(["Shift", "Z"]) },
         { id: "image-igloo", action: "Image Igloo", keys: key(["I"]) },
         { id: "back-edges", action: "Back Edges", keys: key(["K"]) },

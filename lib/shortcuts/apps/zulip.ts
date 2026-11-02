@@ -16,10 +16,10 @@ export const zulip: AppShortcuts = {
   category: "Team chat",
   platforms: [...platforms],
   versionContext:
-    "Zulip keyboard shortcut reference checked November 1, 2026. The official Web and Desktop table uses Ctrl notation and includes the same app-level map for the listed desktop platforms.",
+    "Zulip's web and desktop apps use these shortcuts. You can choose Enter or Ctrl+Enter to send messages.",
   sourceUrl: "https://zulip.com/help/keyboard-shortcuts",
   sourceLabel: "official Zulip keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "basics",
@@ -32,7 +32,7 @@ export const zulip: AppShortcuts = {
         shared("new-dm", "Start a direct message", ["X"]),
         shared("paste-formatted", "Paste formatted text", ["Ctrl", "V"]),
         shared("paste-plain", "Paste plain text", ["Ctrl", "Shift", "V"]),
-        shared("cancel", "Cancel or save the current draft", ["Escape"], "Ctrl+[ is also documented."),
+        shared("cancel", "Cancel or save the current draft", ["Escape"], "Ctrl+[ also works."),
         shared("drafts", "Open drafts", ["D"]),
         shared("next-message", "Move to the next message", ["Down Arrow"], "J also moves to the next message."),
         shared("next-message-j", "Move to the next message", ["J"]),

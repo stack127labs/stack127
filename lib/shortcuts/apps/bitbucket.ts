@@ -14,10 +14,10 @@ export const bitbucket: AppShortcuts = {
   category: "Code hosting",
   platforms: [...platforms],
   versionContext:
-    "Current Bitbucket Cloud shortcut reference checked November 1, 2026. Single-letter commands work in the page context named by each group. Bitbucket lets users disable all keyboard shortcuts in Personal Bitbucket settings.",
+    "Bitbucket Cloud. Single-letter keys work on the page each group names, and you can turn off all shortcuts in Personal Bitbucket settings.",
   sourceUrl: "https://support.atlassian.com/bitbucket-cloud/docs/keyboard-shortcuts/",
   sourceLabel: "Bitbucket Cloud keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "global",

@@ -35,10 +35,10 @@ export const logseq: AppShortcuts = {
   category: "Knowledge management",
   platforms: [...platforms],
   versionContext:
-    "Current default Logseq keymap source checked November 1, 2026. The project defines a platform-neutral `mod` modifier, which maps to Ctrl on Windows and Linux and Command on macOS. Users can change the keymap in Logseq settings or the source configuration.",
+    "Mod means Ctrl on Windows and Linux and Command on macOS. You can change the keymap in Logseq settings.",
   sourceUrl: "https://github.com/logseq/logseq/blob/master/src/main/frontend/modules/shortcut/config.cljs",
   sourceLabel: "official Logseq shortcut configuration",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "block-editing",
@@ -69,7 +69,15 @@ export const logseq: AppShortcuts = {
         mod("copy", "Copy the selected block", ["Ctrl", "C"]),
         mod("cut", "Cut the selected block", ["Ctrl", "X"]),
         mod("undo", "Undo the last edit", ["Ctrl", "Z"]),
-        mod("redo", "Redo the last edit", ["Ctrl", "Shift", "Z"]),
+        {
+          id: "redo",
+          action: "Redo the last edit",
+          keys: platforms.map((platform) => ({
+            platform,
+            keys: platform === "macos" ? ["Cmd", "Shift", "Z"] : ["Ctrl", "Shift", "Z"],
+            alternatives: [platform === "macos" ? ["Cmd", "Y"] : ["Ctrl", "Y"]],
+          })),
+        },
         mod("select-parent", "Select the parent block", ["Ctrl", "A"]),
         mod("select-all-blocks", "Select all blocks", ["Ctrl", "Shift", "A"]),
         mod("add-link", "Add a link", ["Ctrl", "L"]),
@@ -90,7 +98,13 @@ export const logseq: AppShortcuts = {
         shared("autocomplete-previous", "Choose the previous autocomplete suggestion", ["Up"]),
         shared("autocomplete-new-block", "Accept an autocomplete suggestion and create a block", ["Shift", "Enter"]),
         mod("autocomplete-new-line", "Accept an autocomplete suggestion and insert it with a modifier", ["Ctrl", "Enter"]),
-        winLinux("zoom-in", "Increase the editor zoom", ["Alt", "Right"], ["Cmd", "."]),
+        {
+          id: "zoom-in",
+          action: "Increase the editor zoom",
+          keys: perPlatform(platforms, { windows: ["Alt", "Right"], linux: ["Alt", "Right"], macos: ["Cmd", "."] }).map((entry) =>
+            entry.platform === "macos" ? { ...entry, alternatives: [["Cmd", "Shift", "."]] } : entry,
+          ),
+        },
         winLinux("zoom-out", "Decrease the editor zoom", ["Alt", "Left"], ["Cmd", ","]),
       ],
     },
@@ -111,7 +125,11 @@ export const logseq: AppShortcuts = {
         mod("back", "Go back", ["Ctrl", "["]),
         mod("forward", "Go forward", ["Ctrl", "]"]),
         mod("reindex", "Re-index the graph", ["Ctrl", "C", "then", "Ctrl", "S"]),
-        shared("flashcards", "Open flashcards", ["G", "then", "F"]),
+        {
+          id: "flashcards",
+          action: "Open flashcards",
+          keys: platforms.map((platform) => ({ platform, keys: ["G", "then", "F"], alternatives: [["T", "then", "C"]] })),
+        },
         shared("document-mode", "Toggle document mode", ["D"]),
         shared("toggle-wide-mode", "Toggle wide mode", ["W"]),
         shared("keyboard-shortcuts", "Open keyboard shortcuts", ["G", "then", "S"]),

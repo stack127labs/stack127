@@ -18,15 +18,15 @@ export const azureDevops: AppShortcuts = {
   category: "Software development platform",
   platforms: ["windows", "macos"],
   versionContext:
-    "Azure DevOps Services and Azure DevOps Server web-portal shortcuts from Microsoft's February 17, 2026 reference, checked August 31, 2026. Portal Control chords are preserved literally on both platforms where Microsoft publishes one shared table. The rich-text editor uses the separate Windows and macOS bindings supplied by Microsoft.",
+    "Web portal keys for Azure DevOps Services and Server. Only the rich-text editor has separate Mac keys.",
   sourceUrl: "https://learn.microsoft.com/en-us/azure/devops/project/navigation/keyboard-shortcuts?view=azure-devops",
   sourceLabel: "Microsoft Azure DevOps web portal keyboard shortcuts",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "global-navigation",
       title: "Global navigation and lists",
-      intro: "Comma-separated letter pairs are sequential. Page navigation is disabled while an input control has focus; list movement applies when a portal list has focus.",
+      intro: "Press letter pairs one after the other. Page keys don't work while an input has focus, and list keys need a list in focus.",
       shortcuts: rows([
         ["show-shortcuts", "Show keyboard shortcuts", [["?"]]],
         ["projects-teams", "Go to Projects and teams", [["P"]]],
@@ -57,7 +57,7 @@ export const azureDevops: AppShortcuts = {
     {
       id: "repos",
       title: "Repos",
-      intro: "Repos keys apply only on the corresponding Git or TFVC page. The same number keys change meaning between the repository overview and Files view.",
+      intro: "These Repos keys work only on the matching Git or TFVC page.",
       shortcuts: rows([
         ["repo-full-screen", "Toggle full-screen mode", [["Z"]]],
         ["repo-explorer", "Open Explorer", [["E"]]],
@@ -101,7 +101,7 @@ export const azureDevops: AppShortcuts = {
     {
       id: "rich-text",
       title: "Rich-text editor",
-      intro: "These commands apply inside Azure DevOps formatted text fields. Microsoft publishes separate Control and Command bindings for Windows and macOS.",
+      intro: "These work inside formatted text fields. Mac uses Cmd where Windows uses Ctrl.",
       shortcuts: rows([
         ["rte-bold", "Bold", [["Ctrl", "B"]], [["Cmd", "B"]]],
         ["rte-copy", "Copy text", [["Ctrl", "C"]], [["Cmd", "C"]]],
@@ -119,7 +119,7 @@ export const azureDevops: AppShortcuts = {
     {
       id: "boards-and-backlogs",
       title: "Boards and backlogs",
-      intro: "Board commands move cards within columns and swimlanes. Backlog letter pairs are sequential, while F+I is the published alternate for Insert.",
+      intro: "Board keys move cards within columns and swimlanes. Press backlog letter pairs one after the other.",
       shortcuts: rows([
         ["board-new", "Add a new board item", [["N"]]],
         ["board-child", "Add a new child item", [["C"]]],
@@ -150,7 +150,7 @@ export const azureDevops: AppShortcuts = {
     {
       id: "queries-and-delivery",
       title: "Queries and Delivery Plans",
-      intro: "Query navigation keeps the letter and Alt-letter alternatives. Delivery Plan arrows move cards or pan the timeline depending on the modifier.",
+      intro: "Query keys have letter and Alt-letter options. Delivery Plan arrows move cards with Ctrl and pan the timeline with Shift.",
       shortcuts: rows([
         ["query-new", "Create a new query", [["C", "then", "Q"]]],
         ["query-refresh", "Refresh the query", [["R"], ["Alt", "R"]]],
@@ -178,7 +178,7 @@ export const azureDevops: AppShortcuts = {
     {
       id: "test-plans",
       title: "Test Plans",
-      intro: "Test-area shortcuts are available in Azure DevOps Services and TFS 2015.2 or later. Test status and view pairs are sequential.",
+      intro: "These work in Azure DevOps Services and TFS 2015.2 or later. Press test status and view pairs one after the other.",
       shortcuts: rows([
         ["tests-open-plans", "Open test plans", [["N"]]],
         ["tests-shared-parameters", "Open shared parameters", [["M"]]],
@@ -206,7 +206,7 @@ export const azureDevops: AppShortcuts = {
     {
       id: "wiki",
       title: "Wiki",
-      intro: "Wiki management commands act on the page tree. Editing commands apply only while the Wiki editor has focus.",
+      intro: "Page keys act on the page tree. Editing keys work only while the Wiki editor has focus.",
       shortcuts: rows([
         ["wiki-new", "Add a new Wiki page", [["N"]]],
         ["wiki-edit", "Edit the Wiki page", [["E"]]],

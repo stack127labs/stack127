@@ -18,9 +18,9 @@ export const arcBrowser: AppShortcuts = {
   category: "Web browser",
   platforms: ["windows", "macos"],
   versionContext:
-    "Default shortcuts from Arc's current official Help Center article, checked August 31, 2026. Arc's article metadata reports an update on November 5, 2024. Arc lets users remap shortcuts in Settings, so this reference covers documented defaults only.",
-  sourceUrl: "https://resources.arc.net/hc/en-us/articles/20595231349911-Keyboard-Shortcuts",
-  sourceLabel: "Arc Browser keyboard shortcuts",
+    "Arc shortcuts can be changed in Preferences > Shortcuts on Mac.",
+  sourceUrl: "https://start.arc.net/master-multitasking",
+  sourceLabel: "Arc keyboard shortcuts and navigation",
   lastVerified: "2026-10-10",
   groups: [
     {

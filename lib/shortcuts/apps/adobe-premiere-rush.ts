@@ -19,9 +19,9 @@ export const adobePremiereRush: AppShortcuts = {
   category: "Video editing",
   platforms: ["windows", "macos"],
   versionContext:
-    "Final desktop defaults from Adobe's June 11, 2026 reference, checked August 31, 2026. Adobe discontinued Premiere Rush and removed it from download after September 30, 2025, but existing installations can still use these documented shortcuts.",
-  sourceUrl: "https://helpx.adobe.com/premiere-rush/desktop/introduction/keyboard-shortcuts.html",
-  sourceLabel: "Adobe Premiere Rush keyboard shortcuts",
+    "Adobe discontinued Premiere Rush on September 30, 2026. These keys are for existing desktop installations and may not work.",
+  sourceUrl: "https://helpx.adobe.com/premiere-rush/premiere-rush-discontinuation.html",
+  sourceLabel: "Adobe Premiere Rush discontinuation",
   lastVerified: "2026-08-31",
   groups: [
     {

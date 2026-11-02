@@ -16,10 +16,10 @@ export const mondayCom: AppShortcuts = {
   category: "Project management",
   platforms: [...platforms],
   versionContext:
-    "Current monday.com web shortcuts checked November 1, 2026. The shortcut list is available from the account menu or Shift + ?. Labels differ slightly between Mac and PC, but the actions are shared.",
+    "monday.com on the web. Open the full list from the account menu or with Shift+?; Mac and PC labels differ slightly, but the actions match.",
   sourceUrl: "https://support.monday.com/hc/en-us/articles/115005339905-monday-com-Shortcuts",
   sourceLabel: "official monday.com shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "system-navigation",
@@ -65,7 +65,7 @@ export const mondayCom: AppShortcuts = {
         dual("activity-log", "Open the activity log", ["Ctrl", "Shift", "L"], ["Cmd", "Shift", "L"]),
         dual("sort-column", "Sort another column", ["Ctrl", "Left click"], ["Cmd", "Left click"]),
         dual("export-excel", "Export to Excel", ["Ctrl", "Shift", "E"], ["Cmd", "Shift", "E"]),
-        dual("collapse-groups", "Collapse or expand all groups", ["Ctrl", "G"], ["Ctrl", "G"], "monday.com documents the same Ctrl + G binding for Mac and PC here."),
+        dual("collapse-groups", "Collapse or expand all groups", ["Ctrl", "G"], ["Ctrl", "G"], "Mac uses Ctrl+G too, not Cmd+G."),
         dual("shift-range", "Select a batch range", ["Shift", "click"], ["Shift", "click"], "Hold Shift while selecting a lower item to include the rows between the two items."),
       ],
     },

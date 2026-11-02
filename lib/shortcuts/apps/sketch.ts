@@ -9,17 +9,17 @@ export const sketch: AppShortcuts = {
   category: "Design tool",
   platforms: [...platforms],
   versionContext:
-    "Sketch Mac app shortcuts checked September 1, 2026. The official page was updated June 22, 2026 and notes that listed combinations use the US English keyboard layout.",
+    "These shortcuts are for the Mac app on a US English keyboard layout. The Command Bar shortcut differs in the beta.",
   sourceUrl: "https://www.sketch.com/docs/shortcuts/mac/",
   sourceLabel: "official Sketch Mac app shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "general-and-documents",
       title: "General and documents",
       intro: "General and document commands open the command bar, manage files and pages, and switch between documents in the Mac app.",
       shortcuts: [
-        { id: "command-bar", action: "Open the Command Bar", keys: mac(["S"], [["Cmd", "K"]]) },
+        { id: "command-bar", action: "Open the Command Bar", keys: mac(["Cmd", "K"], [["S"]]), note: "In the beta, S inserts a section instead." },
         { id: "settings", action: "Open Settings", keys: mac(["Cmd", ","]) },
         { id: "document-settings", action: "Open Document Settings", keys: mac(["Shift", "Cmd", ","]) },
         { id: "prototype-preview", action: "Open the Prototype Preview window", keys: mac(["Cmd", "P"]) },

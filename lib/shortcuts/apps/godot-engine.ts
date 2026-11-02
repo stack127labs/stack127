@@ -9,10 +9,10 @@ const godotEngine: AppShortcuts = {
   category: "Game engine",
   platforms: [...platforms],
   versionContext:
-    "The Godot 4.6 manual documents separate macOS workspace commands and shared editor commands for Windows, Linux, and macOS. All shortcuts can be changed in Editor Settings > Shortcuts, and some canvas keys depend on the active tool.",
+    "Godot 4.6, with separate workspace keys on macOS. You can change any shortcut in Editor Settings > Shortcuts, and some canvas keys depend on the active tool.",
   sourceUrl: "https://docs.godotengine.org/en/4.6/tutorials/editor/default_key_mapping.html",
   sourceLabel: "official Godot default key mapping",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "editor-and-workspaces",
@@ -59,7 +59,7 @@ const godotEngine: AppShortcuts = {
         { id: "next-scene-tab", action: "Select the next scene tab", keys: combo(platforms, ["Ctrl", "Tab"]) },
         { id: "previous-scene-tab", action: "Select the previous scene tab", keys: combo(platforms, ["Ctrl", "Shift", "Tab"]) },
         { id: "open-scene", action: "Open a scene", keys: combo(platforms, ["Ctrl", "O"], ["Cmd", "O"]) },
-        { id: "close-scene", action: "Close the current scene", keys: combo(platforms, ["Ctrl", "Shift", "W"], ["Cmd", "Shift", "W"]) },
+        { id: "close-scene", action: "Close the current scene", keys: perPlatform(platforms, { windows: ["Ctrl", "Shift", "W"], linux: ["Ctrl", "Shift", "W"], macos: ["Cmd", "W"] }) },
         { id: "reopen-scene", action: "Reopen the last closed scene", keys: combo(platforms, ["Ctrl", "Shift", "T"], ["Cmd", "Shift", "T"]) },
         { id: "save-scene", action: "Save the current scene", keys: combo(platforms, ["Ctrl", "S"], ["Cmd", "S"]) },
         { id: "filter-files", action: "Filter files", keys: combo(platforms, ["Ctrl", "Alt", "P"], ["Option", "Cmd", "P"]) },
@@ -71,9 +71,9 @@ const godotEngine: AppShortcuts = {
       title: "Running and scenes",
       intro: "Run the project or current scene, stop execution, and make quick scene-tree changes during development.",
       shortcuts: [
-        { id: "run-project", action: "Run the project", keys: combo(platforms, ["F5"]) },
-        { id: "run-current-scene", action: "Run the current scene", keys: combo(platforms, ["F6"]) },
-        { id: "stop-project", action: "Stop the running project", keys: combo(platforms, ["F8"]) },
+        { id: "run-project", action: "Run the project", keys: perPlatform(platforms, { windows: ["F5"], linux: ["F5"], macos: ["Cmd", "B"] }) },
+        { id: "run-current-scene", action: "Run the current scene", keys: perPlatform(platforms, { windows: ["F6"], linux: ["F6"], macos: ["Cmd", "R"] }) },
+        { id: "stop-project", action: "Stop the running project", keys: perPlatform(platforms, { windows: ["F8"], linux: ["F8"], macos: ["Cmd", "."] }) },
         { id: "add-node", action: "Add a node", keys: combo(platforms, ["Ctrl", "A"], ["Cmd", "A"]) },
         { id: "duplicate-node", action: "Duplicate the selected node", keys: combo(platforms, ["Ctrl", "D"], ["Cmd", "D"]) },
         { id: "move-node-up", action: "Move the selected node up", keys: combo(platforms, ["Ctrl", "Up"], ["Cmd", "Up"]) },

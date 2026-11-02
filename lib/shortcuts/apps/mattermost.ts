@@ -23,10 +23,10 @@ export const mattermost: AppShortcuts = {
   category: "Team chat",
   platforms: [...platforms],
   versionContext:
-    "Mattermost keyboard shortcuts checked November 1, 2026. The official table covers Windows, Linux, and macOS. Some call controls depend on Mattermost Calls being enabled, and desktop tab commands apply to Mattermost desktop app 6.x.",
+    "Some call controls need Mattermost Calls turned on. Desktop tab commands are for the desktop app 6.x.",
   sourceUrl: "https://docs.mattermost.com/end-user-guide/collaborate/keyboard-shortcuts.html",
   sourceLabel: "official Mattermost keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "channels-and-search",
@@ -57,7 +57,7 @@ export const mattermost: AppShortcuts = {
         desktop("upload-file", "Upload a file", ["Ctrl", "U"], ["Cmd", "U"]),
         desktop("previous-message", "Move through message history upward", ["Ctrl", "Up"], ["Cmd", "Up"]),
         desktop("next-message", "Move through message history downward", ["Ctrl", "Down"], ["Cmd", "Down"]),
-        shared("reply-message", "Reply to the selected message", ["Shift", "Up"]),
+        shared("reply-message", "Reply to the most recent message in the current channel", ["Shift", "Up"], "Works when the input field is empty."),
         shared("edit-last-message", "Edit your last message", ["Up"]),
         desktop("react-message", "Open the reaction picker", ["Ctrl", "Shift", "\\"], ["Cmd", "Shift", "\\"]),
         desktop("bold", "Bold selected text", ["Ctrl", "B"], ["Cmd", "B"]),
@@ -89,7 +89,7 @@ export const mattermost: AppShortcuts = {
           })),
         },
         desktop("leave-call", "Leave the call", ["Ctrl", "Shift", "L"], ["Cmd", "Shift", "L"]),
-        shared("push-to-talk", "Temporarily unmute while held", ["Space"]),
+        shared("push-to-talk", "Temporarily unmute while held", ["Space"], "Works in the expanded view or popout window only."),
       ],
     },
     {

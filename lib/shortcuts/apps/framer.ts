@@ -46,10 +46,10 @@ export const framer: AppShortcuts = {
   category: "Website design",
   platforms: [...platforms],
   versionContext:
-    "Current Framer keyboard shortcut table checked September 1, 2026. Framer publishes separate Mac and Windows columns in one searchable reference.",
+    "Framer editor on Mac and Windows. Some keys differ between the two, mainly for zoom, guides, and distribute.",
   sourceUrl: "https://www.framer.com/shortcuts",
   sourceLabel: "Framer keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "agent",

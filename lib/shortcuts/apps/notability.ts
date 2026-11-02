@@ -16,10 +16,10 @@ export const notability: AppShortcuts = {
   category: "Notes and docs",
   platforms: [...platforms],
   versionContext:
-    "Notability keyboard shortcuts checked November 1, 2026. This record uses the official Mac table and the toolbox, color, size, and content manager rows. The separate iPad table is outside this catalog's Windows, macOS, and Linux platform model.",
-  sourceUrl: "https://support.gingerlabs.com/hc/en-us/articles/360021489291-Keyboard-shortcuts",
+    "Notability for Mac. The iPad app has its own shortcut set.",
+  sourceUrl: "https://support.gingerlabs.com/en-us/articles/16300139-keyboard-shortcuts",
   sourceLabel: "official Notability keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "notes-and-navigation",
@@ -48,10 +48,8 @@ export const notability: AppShortcuts = {
         mac("insert-text-box", "Insert a text box", ["Shift", "Cmd", "T"]),
         mac("insert-photo", "Insert a photo", ["Shift", "Cmd", "I"]),
         mac("insert-math", "Insert math", ["Shift", "Cmd", "M"]),
-        mac("bold", "Bold", ["Cmd", "B"]),
         mac("italic", "Italic", ["Cmd", "I"]),
-        mac("night-mode", "Toggle Night Mode", ["Cmd", "I"], "The official Mac table lists this same binding for Night Mode."),
-        mac("underline", "Underline", ["Cmd", "U"]),
+        mac("night-mode", "Toggle Night Mode", ["Cmd", "I"], "Notability gives Italic and Night Mode the same key."),
         mac("undo", "Undo", ["Cmd", "Z"]),
         mac("redo", "Redo", ["Shift", "Cmd", "Z"]),
         mac("search", "Search", ["Cmd", "F"]),

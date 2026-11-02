@@ -9,10 +9,10 @@ export const ghostty: AppShortcuts = {
   category: "Terminal emulator",
   platforms: [...platforms],
   versionContext:
-    "Current default bindings from Ghostty's official keybind documentation and repository source checked in August 2026. Ghostty is supported on macOS and Linux, every keybind is remappable, and ghostty +list-keybinds --default prints the complete build-specific list.",
+    "Ghostty has separate defaults for Mac and Linux, and you can remap every keybind. Run `ghostty +list-keybinds --default` to see the defaults for your build.",
   sourceUrl: "https://ghostty.org/docs/config/keybind",
   sourceLabel: "official Ghostty keybind documentation",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "splits",
@@ -25,7 +25,7 @@ export const ghostty: AppShortcuts = {
         { id: "focus-next-split", action: "Focus the next split", keys: perPlatform(platforms, { macos: ["Cmd", "]"], linux: ["Ctrl", "Super", "]"] }) },
         { id: "focus-split-direction", action: "Focus the split in a direction", keys: perPlatform(platforms, { macos: ["Cmd", "Option", "Up"], linux: ["Ctrl", "Alt", "Up"] }), note: "Use the corresponding arrow for down, left, or right." },
         { id: "toggle-split-zoom", action: "Zoom the focused split to fill the tab", keys: perPlatform(platforms, { macos: ["Cmd", "Shift", "Enter"], linux: ["Ctrl", "Shift", "Enter"] }) },
-        { id: "resize-split", action: "Resize the focused split", keys: perPlatform(platforms, { macos: ["Cmd", "Ctrl", "Up"], linux: ["Cmd", "Ctrl", "Shift", "Up"] }), note: "Use the corresponding arrow for down, left, or right. Ghostty's Linux source calls Super the Cmd key." },
+        { id: "resize-split", action: "Resize the focused split", keys: perPlatform(platforms, { macos: ["Cmd", "Ctrl", "Up"], linux: ["Cmd", "Ctrl", "Shift", "Up"] }), note: "Use the corresponding arrow for down, left, or right. On Linux, Cmd means Super (the Windows key)." },
         { id: "equalize-splits", action: "Equalize split sizes", keys: perPlatform(platforms, { macos: ["Cmd", "Ctrl", "="] , linux: ["Ctrl", "Shift", "="] }) },
         { id: "close-surface", action: "Close the focused surface", keys: perPlatform(platforms, { macos: ["Cmd", "W"], linux: ["Ctrl", "Shift", "W"] }), note: "A surface may be a split, tab, or window depending on the current layout." },
       ],

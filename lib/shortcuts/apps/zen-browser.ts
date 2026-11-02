@@ -16,10 +16,10 @@ export const zenBrowser: AppShortcuts = {
   category: "Web browser",
   platforms: [...platforms],
   versionContext:
-    "Zen Browser shortcut reference checked November 1, 2026. The published table uses Ctrl and Alt notation without operating-system variants, so this record keeps the published notation for Windows, macOS, and Linux.",
+    "Zen lets you change shortcuts in Settings > Keyboard Shortcuts.",
   sourceUrl: "https://docs.zen-browser.app/user-manual/shortcuts",
   sourceLabel: "official Zen Browser shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "zen-layout",
@@ -61,8 +61,8 @@ export const zenBrowser: AppShortcuts = {
       title: "Navigation and search",
       intro: "Move through browser history, focus search fields, and reload pages.",
       shortcuts: [
-        shared("back", "Go back", ["Alt", "Left Arrow"], "Ctrl+[ is also listed for this action."),
-        shared("forward", "Go forward", ["Alt", "Right Arrow"], "Ctrl+] is also listed for this action."),
+        shared("back", "Go back", ["Alt", "Left Arrow"], "Ctrl+[ also works."),
+        shared("forward", "Go forward", ["Alt", "Right Arrow"], "Ctrl+] also works."),
         shared("home", "Open the home page", ["Alt", "Home"]),
         shared("reload", "Reload the page", ["Ctrl", "R"]),
         shared("reload-no-cache", "Reload while bypassing the cache", ["Shift", "Ctrl", "R"]),
@@ -78,7 +78,7 @@ export const zenBrowser: AppShortcuts = {
     {
       id: "page-and-tools",
       title: "Page and developer tools",
-      intro: "Save, print, inspect, and change the current page with Zen's published browser commands.",
+      intro: "Save, print, inspect, and change the page you're currently on.",
       shortcuts: [
         shared("location", "Focus the location bar", ["Ctrl", "L"]),
         shared("alternate-location", "Focus the alternate location bar", ["Alt", "D"]),

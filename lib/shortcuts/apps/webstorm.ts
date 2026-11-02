@@ -16,10 +16,10 @@ export const webstorm: AppShortcuts = {
   category: "Code editor",
   platforms: [...platforms],
   versionContext:
-    "JetBrains WebStorm documentation and default reference cards checked November 1, 2026. The current WebStorm 2026.2 keymap is configurable, can be replaced by a plugin or another predefined map, and may vary with keyboard layout or operating-system conflicts.",
+    "Default WebStorm 2026.2 keymap. You can edit it or switch keymaps, and your keyboard layout or OS shortcuts can change some keys.",
   sourceUrl: "https://www.jetbrains.com/help/webstorm/mastering-keyboard-shortcuts.html",
   sourceLabel: "official WebStorm keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "search-and-navigation",
@@ -95,17 +95,12 @@ export const webstorm: AppShortcuts = {
     {
       id: "files-tabs-and-windows",
       title: "Files, tabs, and windows",
-      intro: "Create, open, save, close, split, and switch WebStorm files, editor tabs, and tool windows.",
+      intro: "Save and close files, switch editor tabs, and open WebStorm tool windows.",
       shortcuts: [
-        desktop("new-project", "Create a new project", ["Ctrl", "Alt", "Insert"], ["Cmd", "Shift", "N"]),
-        desktop("open", "Open a file or project", ["Ctrl", "O"], ["Cmd", "O"]),
         desktop("save", "Save all", ["Ctrl", "S"], ["Cmd", "S"]),
         desktop("close-tab", "Close the active editor tab", ["Ctrl", "F4"], ["Cmd", "W"]),
-        desktop("reopen-tab", "Reopen the last closed tab", ["Ctrl", "Shift", "T"], ["Cmd", "Shift", "T"]),
         desktop("next-tab", "Go to the next tab", ["Alt", "Right"], ["Shift", "Cmd", "]"]),
         desktop("previous-tab", "Go to the previous tab", ["Alt", "Left"], ["Shift", "Cmd", "["] ),
-        desktop("split-right", "Split the editor and move right", ["Ctrl", "Alt", "Right"], ["Cmd", "Option", "Right"]),
-        desktop("split-down", "Split the editor and move down", ["Ctrl", "Alt", "Down"], ["Cmd", "Option", "Down"]),
         desktop("settings", "Open Settings", ["Ctrl", "Alt", "S"], ["Cmd", ","]),
         desktop("project-tool-window", "Open the Project tool window", ["Alt", "1"], ["Cmd", "1"]),
         desktop("terminal", "Open the Terminal tool window", ["Alt", "F12"], ["Option", "F12"]),

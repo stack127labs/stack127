@@ -15,10 +15,10 @@ export const bluebeamRevu: AppShortcuts = {
   category: "PDF editor",
   platforms: ["windows"],
   versionContext:
-    "Official Revu 21 and Revu 20 keyboard reference checked August 31, 2026. These are default Windows assignments. Revu can reassign existing commands and add custom shortcuts, so a customized installation may differ.",
+    "Default Windows keys for Revu 21 and Revu 20. You can reassign commands and add your own shortcuts.",
   sourceUrl: "https://support.bluebeam.com/revu/resources/keyboard-shortcuts.html",
   sourceLabel: "Bluebeam Revu keyboard shortcuts and mouse navigation",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "markup",

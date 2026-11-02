@@ -9,10 +9,10 @@ export const linuxKdePlasma: AppShortcuts = {
   category: "Desktop environment",
   platforms: [...platforms],
   versionContext:
-    "Defaults from the current KDE Plasma 6 Fundamentals and Plasma Desktop handbooks, checked November 1, 2026. Global shortcuts are configurable in System Settings, and distributions or user profiles can change them. The handbooks disagree on the direction of one Meta-plus zoom binding, so that conflicting zoom pair is omitted.",
+    "KDE Plasma 6 defaults. You can change global shortcuts in System Settings, and your distribution may have changed some.",
   sourceUrl: "https://docs.kde.org/stable_kf6/en/khelpcenter/fundamentals/fundamentals.pdf",
   sourceLabel: "KDE Plasma 6 Fundamentals keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "windows",
@@ -20,7 +20,7 @@ export const linuxKdePlasma: AppShortcuts = {
       intro: "Switch, move, resize, minimize, and close windows from the Plasma desktop.",
       shortcuts: [
         { id: "application-launcher", action: "Open the application launcher", keys: combo(platforms, ["Meta"]) },
-        { id: "run-command", action: "Open the run-command interface", keys: combo(platforms, ["Alt", "F2"]) },
+        { id: "run-command", action: "Open the run-command interface", keys: [{ platform: "linux", keys: ["Alt", "F2"], alternatives: [["Alt", "Space"]] }] },
         { id: "window-operations", action: "Open the window operations menu", keys: combo(platforms, ["Alt", "F3"]) },
         { id: "switch-windows", action: "Switch between windows", keys: combo(platforms, ["Alt", "Tab"]) },
         { id: "switch-windows-reverse", action: "Switch between windows in reverse", keys: combo(platforms, ["Alt", "Shift", "Tab"]) },
@@ -48,16 +48,14 @@ export const linuxKdePlasma: AppShortcuts = {
         { id: "next-activity", action: "Switch to the next activity", keys: combo(platforms, ["Meta", "Tab"]) },
         { id: "previous-activity", action: "Switch to the previous activity", keys: combo(platforms, ["Meta", "Shift", "Tab"]) },
         { id: "manage-activities", action: "Open Activities management", keys: combo(platforms, ["Meta", "Q"]) },
-        { id: "move-monitor-left", action: "Move the active window to the left monitor", keys: combo(platforms, ["Shift", "Meta", "Left"]) },
-        { id: "move-monitor-right", action: "Move the active window to the right monitor", keys: combo(platforms, ["Shift", "Meta", "Right"]) },
-        { id: "move-monitor-up", action: "Move the active window to the monitor above", keys: combo(platforms, ["Shift", "Meta", "Up"]) },
-        { id: "move-monitor-down", action: "Move the active window to the monitor below", keys: combo(platforms, ["Shift", "Meta", "Down"]) },
+        { id: "move-monitor-left", action: "Move the active window to the left monitor", keys: combo(platforms, ["Meta", "Left"]) },
+        { id: "move-monitor-right", action: "Move the active window to the right monitor", keys: combo(platforms, ["Meta", "Right"]) },
       ],
     },
     {
       id: "desktop",
       title: "Plasma desktop",
-      intro: "Use the documented Alt+D sequences to manage widgets, activities, and desktop settings without opening System Settings.",
+      intro: "Use the Alt+D sequences to manage widgets, activities, and desktop settings without opening System Settings.",
       shortcuts: [
         { id: "add-widget", action: "Add widgets", keys: combo(platforms, ["Alt", "D", "then", "A"]) },
         { id: "remove-widget", action: "Remove a widget", keys: combo(platforms, ["Alt", "D", "then", "R"]) },
@@ -69,13 +67,13 @@ export const linuxKdePlasma: AppShortcuts = {
         { id: "remove-activity", action: "Remove the current activity", keys: combo(platforms, ["Alt", "D", "then", "Alt", "R"]) },
         { id: "add-activity", action: "Open Activities management", keys: combo(platforms, ["Alt", "D", "then", "Alt", "A"]) },
         { id: "associated-application", action: "Run the associated application", keys: combo(platforms, ["Alt", "D", "then", "T"]) },
-        { id: "peek-desktop", action: "Peek at the desktop", keys: combo(platforms, ["Ctrl", "F12"]) },
+        { id: "peek-desktop", action: "Show the desktop", keys: combo(platforms, ["Ctrl", "F12"]) },
       ],
     },
     {
       id: "common-editing",
       title: "Common document and file actions",
-      intro: "These KDE handbook defaults apply in many standard document and file views, subject to the active application.",
+      intro: "These defaults work in many standard document and file views, depending on the app.",
       shortcuts: [
         { id: "refresh", action: "Refresh the current view", keys: combo(platforms, ["F5"]) },
         { id: "select-all", action: "Select all", keys: combo(platforms, ["Ctrl", "A"]) },

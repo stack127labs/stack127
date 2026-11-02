@@ -9,10 +9,10 @@ export const notion: AppShortcuts = {
   category: "Notes and docs",
   platforms: [...platforms],
   versionContext:
-    "Current shortcuts from the Notion Help Center in August 2026. The source uses cmd on Mac and ctrl on Windows and Linux and assumes an English QWERTY keyboard.",
+    "These shortcuts use Command on Mac and Control on Windows and Linux. They assume an English QWERTY keyboard.",
   sourceUrl: "https://www.notion.com/help/keyboard-shortcuts",
   sourceLabel: "official Notion keyboard shortcuts",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "popular-and-desktop",
@@ -37,7 +37,7 @@ export const notion: AppShortcuts = {
         {
           id: "open-page-new-window",
           action: "Open a page as a new window",
-          keys: perPlatform(platforms, { windows: ["Alt", "Shift", "Click"], macos: ["Option", "Shift", "Click"], linux: ["Alt", "Shift", "Click"] }),
+          keys: perPlatform(platforms, { macos: ["Option", "Shift", "Click"] }),
         },
         {
           id: "emoji-picker",
@@ -46,7 +46,7 @@ export const notion: AppShortcuts = {
             windows: ["Win", "."],
             macos: ["Ctrl", "Cmd", "Space"],
           }),
-          note: "Windows also supports Win+;. The Notion Help Center does not document a Linux system emoji shortcut.",
+          note: "Windows also supports Win+;.",
         },
       ],
     },
@@ -81,7 +81,7 @@ export const notion: AppShortcuts = {
     {
       id: "create-and-style",
       title: "Create and style content",
-      intro: "Insert lines and comments, change block types, and apply the built-in structure shortcuts documented by Notion.",
+      intro: "Insert lines and comments, change block types, and add structure from the keyboard.",
       shortcuts: [
         { id: "new-block", action: "Insert a line of text", keys: combo(platforms, ["Enter"]) },
         { id: "shift-enter", action: "Insert a line break within a block", keys: combo(platforms, ["Shift", "Enter"]) },
@@ -120,7 +120,7 @@ export const notion: AppShortcuts = {
         { id: "move-block-up", action: "Move selected blocks up", keys: combo(platforms, ["Ctrl", "Shift", "Up"], ["Cmd", "Shift", "Up"]), note: "Ctrl+Shift+Down or Cmd+Shift+Down moves them down." },
         { id: "toggle-all-toggles", action: "Expand or close all toggles in a list", keys: combo(platforms, ["Ctrl", "Alt", "T"], ["Cmd", "Option", "T"]) },
         { id: "last-color", action: "Apply the last text or highlight color", keys: combo(platforms, ["Ctrl", "Shift", "H"], ["Cmd", "Shift", "H"]) },
-        { id: "modify-block", action: "Open a page, toggle a to-do, or toggle an embed", keys: combo(platforms, ["Ctrl", "Enter"], ["Cmd", "Enter"]) },
+        { id: "modify-block", action: "Open a page, check or uncheck a to-do, open or close a toggle, or make an embed full-screen", keys: combo(platforms, ["Ctrl", "Enter"], ["Cmd", "Enter"]) },
         {
           id: "select-whole-block",
           action: "Select or deselect an entire block with the mouse",
@@ -134,10 +134,10 @@ export const notion: AppShortcuts = {
       title: "Database and typed commands",
       intro: "Use database peek navigation and the @, [[, +, and / command layers to add links, pages, media, and structured blocks.",
       shortcuts: [
-        { id: "database-previous", action: "Go to the previous database page in peek view", keys: perPlatform(platforms, { windows: ["Ctrl", "K"], macos: ["Ctrl", "Shift", "K"], linux: ["Ctrl", "K"] }) },
-        { id: "database-next", action: "Go to the next database page in peek view", keys: perPlatform(platforms, { windows: ["Ctrl", "J"], macos: ["Ctrl", "Shift", "J"], linux: ["Ctrl", "J"] }) },
+        { id: "database-previous", action: "Go to the previous database page in peek view", keys: perPlatform(platforms, { windows: ["Ctrl", "K"], macos: ["Ctrl", "Shift", "K"] }) },
+        { id: "database-next", action: "Go to the next database page in peek view", keys: perPlatform(platforms, { windows: ["Ctrl", "J"], macos: ["Ctrl", "Shift", "J"] }) },
         { id: "mention-command", action: "Open the mention and date command layer", keys: combo(platforms, ["@"]) , note: "Type a person, page, date, or remind command, then press Esc to dismiss it." },
-        { id: "page-link-command", action: "Open page-linking choices first", keys: combo(platforms, ["[", "]"]) },
+        { id: "page-link-command", action: "Open page-linking choices first", keys: combo(platforms, ["[", "["]) },
         { id: "page-create-command", action: "Open page-creation choices first", keys: combo(platforms, ["+"]) },
         { id: "slash-menu", action: "Open the slash-command menu", keys: combo(platforms, ["/"]), note: "Press Esc to clear the menu." },
         { id: "slash-page", action: "Slash command: create a page", keys: combo(platforms, ["/", "page", "Enter"]) },

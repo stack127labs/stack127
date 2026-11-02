@@ -47,10 +47,10 @@ export const excalidraw: AppShortcuts = {
   category: "Whiteboard and diagrams",
   platforms: [...platforms],
   versionContext:
-    "The current Excalidraw shortcut map in the official repository was checked September 1, 2026. Excalidraw can be embedded in other products, where host shortcuts or browser behavior may take precedence.",
+    "When Excalidraw is embedded in another app, that app's or the browser's shortcuts may take over.",
   sourceUrl: "https://raw.githubusercontent.com/excalidraw/excalidraw/master/packages/excalidraw/actions/shortcuts.ts",
   sourceLabel: "Excalidraw shortcut map",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "file-and-command",

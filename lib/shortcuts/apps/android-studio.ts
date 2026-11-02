@@ -19,10 +19,10 @@ export const androidStudio: AppShortcuts = {
   category: "Android IDE",
   platforms: ["windows", "macos", "linux"],
   versionContext:
-    "Default Android Studio keymaps from Google's reference updated March 6, 2026 and checked November 1, 2026. Android Studio supports preset and custom keymaps, which can replace these defaults. Mouse-only gestures and modifier-plus-pointer alternatives are omitted.",
+    "Default Android Studio keymaps. A different preset or custom keymap can replace these keys.",
   sourceUrl: "https://developer.android.com/studio/intro/keyboard-shortcuts",
   sourceLabel: "Android Studio keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "tool-windows",
@@ -208,7 +208,7 @@ export const androidStudio: AppShortcuts = {
       id: "build-run",
       title: "Build and run",
       intro:
-        "Build the project, run the selected configuration, or send code and resource changes to a running Android app with the documented apply commands.",
+        "Build the project, run the selected configuration, or send code and resource changes to a running Android app with the Apply Changes commands.",
       shortcuts: rows([
         ["build", "Build the project", ["Control", "F9"], ["Cmd", "F9"]],
         ["build-run", "Build and run", ["Shift", "F10"], ["Control", "R"]],

@@ -6,10 +6,10 @@ export const gnome: AppShortcuts = {
   category: "Desktop environment",
   platforms: ["linux"],
   versionContext:
-    "Defaults from the current GNOME Help keyboard-shortcuts page checked in August 2026. Window-manager and terminal shortcuts can vary when a distribution changes GNOME settings or when another desktop component claims the same key.",
+    "GNOME defaults. Your distribution or another app can change or take over some keys.",
   sourceUrl: "https://help.gnome.org/gnome-help/shell-keyboard-shortcuts.html",
   sourceLabel: "official GNOME Help keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "shell-navigation",
@@ -37,14 +37,12 @@ export const gnome: AppShortcuts = {
         { id: "move-workspace-right", action: "Move the current window to the workspace on the right", keys: [{ platform: "linux", keys: ["Shift", "Super", "Page Down"] }] },
         { id: "move-monitor-left", action: "Move the current window to the monitor on the left", keys: [{ platform: "linux", keys: ["Shift", "Super", "Left"] }] },
         { id: "move-monitor-right", action: "Move the current window to the monitor on the right", keys: [{ platform: "linux", keys: ["Shift", "Super", "Right"] }] },
-        { id: "move-monitor-up", action: "Move the current window to the monitor above", keys: [{ platform: "linux", keys: ["Shift", "Super", "Up"] }] },
-        { id: "move-monitor-down", action: "Move the current window to the monitor below", keys: [{ platform: "linux", keys: ["Shift", "Super", "Down"] }] },
       ],
     },
     {
       id: "screenshots-and-recording",
       title: "Screenshots and recording",
-      intro: "Capture the screen, a window, or an area, then start or stop a screencast with the shell's documented defaults.",
+      intro: "Capture the screen, a window, or an area, then start or stop a screencast.",
       shortcuts: [
         { id: "screenshot-tool", action: "Open the screenshot tool", keys: [{ platform: "linux", keys: ["Print"] }] },
         { id: "screenshot-window", action: "Take a screenshot of the current window", keys: [{ platform: "linux", keys: ["Alt", "Print"] }] },

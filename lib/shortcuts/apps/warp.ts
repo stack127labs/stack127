@@ -16,10 +16,10 @@ export const warp: AppShortcuts = {
   category: "Terminal",
   platforms: [...platforms],
   versionContext:
-    "Warp keyboard shortcut reference last updated August 27, 2026 and checked September 1, 2026. Warp lets users remap commands in Settings and warns that macOS system shortcuts may need to be unbound first; this record uses the published defaults.",
+    "You can remap shortcuts in Settings. On macOS, some system shortcuts must be unbound before Warp can use them.",
   sourceUrl: "https://docs.warp.dev/getting-started/keyboard-shortcuts",
   sourceLabel: "official Warp keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "essentials",

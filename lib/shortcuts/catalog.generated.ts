@@ -168,7 +168,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 105
+    "shortcutCount": 104
   },
   {
     "slug": "aider",
@@ -238,7 +238,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 84
+    "shortcutCount": 80
   },
   {
     "slug": "apple-notes",
@@ -365,7 +365,7 @@ export const shortcutAppCatalog = [
     "platforms": [
       "macos"
     ],
-    "shortcutCount": 80
+    "shortcutCount": 79
   },
   {
     "slug": "bitbucket",
@@ -518,7 +518,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 76
+    "shortcutCount": 74
   },
   {
     "slug": "cubase",
@@ -539,7 +539,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 46
+    "shortcutCount": 34
   },
   {
     "slug": "davinci-resolve",
@@ -592,7 +592,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 12
+    "shortcutCount": 11
   },
   {
     "slug": "discord",
@@ -655,7 +655,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 22
+    "shortcutCount": 24
   },
   {
     "slug": "figjam",
@@ -757,7 +757,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 55
+    "shortcutCount": 50
   },
   {
     "slug": "github",
@@ -810,7 +810,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 52
+    "shortcutCount": 53
   },
   {
     "slug": "gmail",
@@ -829,7 +829,7 @@ export const shortcutAppCatalog = [
     "platforms": [
       "linux"
     ],
-    "shortcutCount": 29
+    "shortcutCount": 27
   },
   {
     "slug": "emacs",
@@ -892,7 +892,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 49
+    "shortcutCount": 48
   },
   {
     "slug": "google-forms",
@@ -942,7 +942,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 38
+    "shortcutCount": 39
   },
   {
     "slug": "grammarly",
@@ -959,7 +959,8 @@ export const shortcutAppCatalog = [
     "name": "Harvest",
     "category": "Time tracking",
     "platforms": [
-      "windows"
+      "windows",
+      "macos"
     ],
     "shortcutCount": 12
   },
@@ -972,13 +973,14 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 21
+    "shortcutCount": 19
   },
   {
     "slug": "ia-writer",
     "name": "iA Writer",
     "category": "Writing app",
     "platforms": [
+      "windows",
       "macos"
     ],
     "shortcutCount": 54
@@ -992,7 +994,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 50
+    "shortcutCount": 49
   },
   {
     "slug": "insomnia",
@@ -1022,7 +1024,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 31
+    "shortcutCount": 32
   },
   {
     "slug": "iterm2",
@@ -1039,7 +1041,8 @@ export const shortcutAppCatalog = [
     "category": "Issue tracking",
     "platforms": [
       "windows",
-      "macos"
+      "macos",
+      "linux"
     ],
     "shortcutCount": 10
   },
@@ -1060,7 +1063,8 @@ export const shortcutAppCatalog = [
     "category": "Developer tools",
     "platforms": [
       "windows",
-      "macos"
+      "macos",
+      "linux"
     ],
     "shortcutCount": 6
   },
@@ -1071,7 +1075,7 @@ export const shortcutAppCatalog = [
     "platforms": [
       "linux"
     ],
-    "shortcutCount": 49
+    "shortcutCount": 47
   },
   {
     "slug": "keynote",
@@ -1260,7 +1264,7 @@ export const shortcutAppCatalog = [
     "platforms": [
       "windows"
     ],
-    "shortcutCount": 23
+    "shortcutCount": 22
   },
   {
     "slug": "microsoft-onenote",
@@ -1279,7 +1283,7 @@ export const shortcutAppCatalog = [
     "platforms": [
       "windows"
     ],
-    "shortcutCount": 60
+    "shortcutCount": 59
   },
   {
     "slug": "microsoft-powerpoint",
@@ -1289,7 +1293,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 57
+    "shortcutCount": 54
   },
   {
     "slug": "microsoft-powertoys",
@@ -1328,7 +1332,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 45
+    "shortcutCount": 44
   },
   {
     "slug": "miro",
@@ -1381,7 +1385,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 72
+    "shortcutCount": 70
   },
   {
     "slug": "netflix",
@@ -1400,7 +1404,7 @@ export const shortcutAppCatalog = [
     "platforms": [
       "macos"
     ],
-    "shortcutCount": 53
+    "shortcutCount": 51
   },
   {
     "slug": "notepad-plus-plus",
@@ -1493,7 +1497,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 7
+    "shortcutCount": 5
   },
   {
     "slug": "otter-ai",
@@ -1552,7 +1556,7 @@ export const shortcutAppCatalog = [
     "platforms": [
       "windows"
     ],
-    "shortcutCount": 32
+    "shortcutCount": 28
   },
   {
     "slug": "powershell",
@@ -1563,7 +1567,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 62
+    "shortcutCount": 60
   },
   {
     "slug": "presonus-studio-one",
@@ -1594,7 +1598,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 99
+    "shortcutCount": 96
   },
   {
     "slug": "protopie",
@@ -1615,7 +1619,7 @@ export const shortcutAppCatalog = [
       "linux",
       "macos"
     ],
-    "shortcutCount": 42
+    "shortcutCount": 40
   },
   {
     "slug": "quickbooks-online",
@@ -1666,7 +1670,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 7
+    "shortcutCount": 9
   },
   {
     "slug": "rstudio",
@@ -1846,7 +1850,8 @@ export const shortcutAppCatalog = [
     "category": "Database tools",
     "platforms": [
       "windows",
-      "macos"
+      "macos",
+      "linux"
     ],
     "shortcutCount": 36
   },
@@ -1869,7 +1874,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 23
+    "shortcutCount": 17
   },
   {
     "slug": "things-3",
@@ -1878,7 +1883,7 @@ export const shortcutAppCatalog = [
     "platforms": [
       "macos"
     ],
-    "shortcutCount": 53
+    "shortcutCount": 52
   },
   {
     "slug": "tmux",
@@ -1888,7 +1893,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 59
+    "shortcutCount": 60
   },
   {
     "slug": "todoist",
@@ -1959,7 +1964,7 @@ export const shortcutAppCatalog = [
       "windows",
       "linux"
     ],
-    "shortcutCount": 12
+    "shortcutCount": 11
   },
   {
     "slug": "warp",
@@ -1980,7 +1985,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 67
+    "shortcutCount": 66
   },
   {
     "slug": "webstorm",
@@ -1991,7 +1996,7 @@ export const shortcutAppCatalog = [
       "macos",
       "linux"
     ],
-    "shortcutCount": 74
+    "shortcutCount": 69
   },
   {
     "slug": "whimsical",
@@ -2108,7 +2113,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 24
+    "shortcutCount": 23
   },
   {
     "slug": "x-twitter",

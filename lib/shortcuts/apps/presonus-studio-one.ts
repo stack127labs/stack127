@@ -21,15 +21,15 @@ export const presonusStudioOne: AppShortcuts = {
   category: "Music production",
   platforms: [...platforms],
   versionContext:
-    "Studio One Pro 7 Key Command Sheet checked September 1, 2026. The sheet says its commands are for PC, with Ctrl becoming Cmd on Mac and Alt becoming Option or Alt on Mac. Studio One lets users change commands in Options or General or Keyboard Shortcuts.",
+    "Studio One Pro 7, with PC keys shown. On Mac, Ctrl becomes Cmd and Alt becomes Option or Alt, and you can change commands in Options > General > Keyboard Shortcuts.",
   sourceUrl: "https://pae-web.presonusmusic.com/downloads/products/pdf/Studio_One_Pro_7_Key_Command_Sheet.pdf",
   sourceLabel: "official Studio One Pro 7 key command sheet",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "audio-and-automation",
       title: "Audio and automation",
-      intro: "Edit audio and move through automation parameters with the commands listed in Studio One's current key command sheet.",
+      intro: "Edit audio events and move through the automation parameters.",
       shortcuts: [
         same("create-autofades", "Create autofades", ["Shift", "X"]),
         same("create-crossfades", "Create crossfades", ["X"]),
@@ -50,7 +50,7 @@ export const presonusStudioOne: AppShortcuts = {
     {
       id: "browser-and-console",
       title: "Browser and console",
-      intro: "Open Studio One browser sections, switch console banks and channels, and recall the documented console scenes.",
+      intro: "Open Studio One browser sections, switch console banks and channels, and recall console scenes.",
       shortcuts: [
         same("show-instruments", "Show Instruments", ["F6"]),
         same("show-effects", "Show Effects", ["F7"]),
@@ -59,15 +59,15 @@ export const presonusStudioOne: AppShortcuts = {
         same("show-pool", "Show Pool", ["F10"]),
         dual("global-mute", "Global mute", ["Ctrl", "Shift", "M"]),
         dual("global-solo", "Global solo", ["Ctrl", "Shift", "S"]),
-        same("next-bank", "Next bank", ["]"]),
-        same("previous-bank", "Previous bank", ["["]),
-        same("next-channel", "Next channel", ["}"]),
-        same("previous-channel", "Previous channel", ["{"]),
+        same("next-bank", "Next bank", ["}"]),
+        same("previous-bank", "Previous bank", ["{"]),
+        same("next-channel", "Next channel", ["]"]),
+        same("previous-channel", "Previous channel", ["["]),
         same("show-channel-editor", "Show channel editor", ["F11"]),
         same("toggle-console-size", "Toggle console size", ["Shift", "F3"]),
         ...Array.from({ length: 10 }, (_, index) => {
           const scene = index === 0 ? "0" : String(index);
-          return dual(`select-scene-${scene}`, `Select scene ${scene}`, ["Ctrl", `Numpad ${scene}`]);
+          return dual(`select-scene-${scene}`, index === 0 ? "Select scene" : `Select scene ${scene}`, ["Ctrl", `Numpad ${scene}`]);
         }),
       ],
     },
@@ -138,7 +138,7 @@ export const presonusStudioOne: AppShortcuts = {
     {
       id: "markers-and-song",
       title: "Markers and song setup",
-      intro: "Move between markers, add marker points, set ranges, and import or export song data from Studio One's current key sheet.",
+      intro: "Move between markers, add marker points, set ranges, and import or export song data.",
       shortcuts: [
         same("next-marker", "Go to next marker", ["Shift", "N"]),
         same("previous-marker", "Go to previous marker", ["Shift", "B"]),
@@ -160,7 +160,7 @@ export const presonusStudioOne: AppShortcuts = {
     {
       id: "tracks-and-toolbar",
       title: "Tracks and toolbar",
-      intro: "Add, arm, monitor, mute, solo, group, and choose track tools with the key commands in the official Studio One sheet.",
+      intro: "Add, arm, monitor, mute, solo, group, and choose track tools.",
       shortcuts: [
         same("add-tracks", "Add tracks", ["T"]),
         same("arm", "Arm", ["R"]),
@@ -170,7 +170,7 @@ export const presonusStudioOne: AppShortcuts = {
         same("mute", "Mute", ["M"]),
         same("show-envelopes", "Show envelopes", ["A"]),
         same("solo", "Solo", ["S"]),
-        ...Array.from({ length: 10 }, (_, index) => same(`tool-${index + 1}`, `Select tool ${index + 1}`, [String(index + 1)])),
+        ...Array.from({ length: 10 }, (_, index) => same(`tool-${index + 1}`, `Select tool ${index + 1}`, [index === 9 ? "0" : String(index + 1)])),
       ],
     },
     {
@@ -205,7 +205,7 @@ export const presonusStudioOne: AppShortcuts = {
     {
       id: "view-and-zoom",
       title: "View and zoom",
-      intro: "Switch Studio One perspectives and panels, then change the arrangement view with the documented zoom state commands.",
+      intro: "Switch Studio One perspectives and panels, then change the arrangement view with the zoom state commands.",
       shortcuts: [
         same("browser", "Show browser", ["F5"]),
         same("console", "Show console", ["F3"]),

@@ -39,10 +39,10 @@ export const flStudio: AppShortcuts = {
   category: "Music production",
   platforms: [...platforms],
   versionContext:
-    "Current FL Studio online manual keyboard shortcut page checked September 1, 2026. The manual says shortcuts depend on the active window or plugin and that its list is not exhaustive.",
+    "Shortcuts vary by window or plugin; the list is partial. Single-key shortcuts need Typing keyboard to piano off.",
   sourceUrl: "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/basics_shortcuts.htm",
   sourceLabel: "FL Studio keyboard and mouse shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "global",
@@ -273,7 +273,7 @@ export const flStudio: AppShortcuts = {
         pair("insert-note-space", "Insert space equal to the selection", ["Ctrl", "Insert"], ["Cmd", "Insert"]),
         pair("quick-legato", "Apply Quick legato", ["Ctrl", "L"], ["Cmd", "L"]),
         pair("import-midi", "Import a MIDI file", ["Ctrl", "M"], ["Cmd", "M"]),
-        pair("quick-quantize-notes", "Apply Quick Quantize", ["Ctrl", "Q"], ["Cmd", "Q"]),
+        pair("quick-quantize-notes", "Apply Quick Quantize", ["Ctrl", "Alt", "Q"], ["Cmd", "Option", "Q"]),
         pair("select-note-time", "Select time around the selection", ["Ctrl", "Return"], ["Cmd", "Return"]),
         pair("quick-chop", "Apply Quick Chop", ["Ctrl", "U"], ["Cmd", "U"]),
         pair("transpose-octave-up", "Transpose the selection up one octave", ["Ctrl", "Up"], ["Cmd", "Up"]),

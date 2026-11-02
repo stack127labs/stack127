@@ -9,10 +9,10 @@ export const slack: AppShortcuts = {
   category: "Team chat",
   platforms: [...platforms],
   versionContext:
-    "Current Slack Help shortcuts checked in August 2026. A single asterisk in Slack's source means the binding can vary by keyboard language; two asterisks mean it works only in the desktop app. Slack does not currently support custom shortcuts.",
-  sourceUrl: "https://slack.com/help/articles/201374536-Slack-keyboard-shortcuts",
-  sourceLabel: "official Slack keyboard shortcuts",
-  lastVerified: "2026-08-26",
+    "Some shortcuts vary by keyboard language or work only in Slack's desktop app. Slack does not support custom shortcuts.",
+  sourceUrl: "https://slack.com/help/articles/201374536-slack-keyboard-shortcuts-and-commands",
+  sourceLabel: "Slack keyboard shortcuts",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "slack-basics",

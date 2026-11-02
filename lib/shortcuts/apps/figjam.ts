@@ -33,10 +33,10 @@ export const figjam: AppShortcuts = {
   category: "Whiteboards and collaboration",
   platforms: [...platforms],
   versionContext:
-    "Current Figma Help Center FigJam pages checked September 1, 2026. The shortcuts apply to the FigJam board and may require a board, text object, table, or selection to have focus.",
-  sourceUrl: "https://help.figma.com/hc/en-us/articles/1500004292221-Select-move-and-order-objects-in-FigJam",
-  sourceLabel: "Figma Help Center FigJam shortcuts",
-  lastVerified: "2026-11-01",
+    "These work on a FigJam board. Some need a board, text object, table, or selection to have focus.",
+  sourceUrl: "https://help.figma.com/hc/en-us/articles/1500004362321-Guide-to-FigJam",
+  sourceLabel: "Figma Help Center guide to FigJam",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "selection-and-order",
@@ -60,7 +60,7 @@ export const figjam: AppShortcuts = {
     {
       id: "text",
       title: "Text",
-      intro: "Text-formatting commands apply while editing text in a sticky, shape, connector, or table cell.",
+      intro: "Text-formatting commands apply while editing text in a text object, sticky, shape, or connector.",
       shortcuts: [
         pair("bold", "Bold", ["Ctrl", "B"], ["Cmd", "B"]),
         pair("strikethrough", "Strikethrough", ["Ctrl", "Shift", "X"], ["Cmd", "Shift", "X"]),
@@ -101,7 +101,7 @@ export const figjam: AppShortcuts = {
       intro: "Create a table from the board, then use the table toolbar and cell controls for further edits.",
       shortcuts: [
         shared("table", "Create a table", ["Shift", "T"]),
-        pair("table-duplicate", "Duplicate selected table rows", ["Ctrl", "D"], ["Cmd", "D"]),
+        pair("table-duplicate", "Duplicate selected table rows or columns", ["Ctrl", "D"], ["Cmd", "D"]),
         pair("table-copy", "Copy selected table content", ["Ctrl", "C"], ["Cmd", "C"]),
       ],
     },

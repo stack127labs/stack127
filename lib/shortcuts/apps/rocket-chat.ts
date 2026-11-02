@@ -16,10 +16,10 @@ export const rocketChat: AppShortcuts = {
   category: "Team chat",
   platforms: [...platforms],
   versionContext:
-    "Rocket.Chat keyboard shortcuts checked November 1, 2026. The current account guide publishes Ctrl and Alt notation for its Web/Desktop shortcuts without platform-specific variants; server settings and browser extensions can affect the active bindings.",
+    "Rocket.Chat web and desktop. One set of keys is listed, with no separate macOS keys.",
   sourceUrl: "https://docs.rocket.chat/docs/your-rocketchat-account",
   sourceLabel: "official Rocket.Chat keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "global",
@@ -44,25 +44,11 @@ export const rocketChat: AppShortcuts = {
       title: "Message composer",
       intro: "Move through composer history, reach its boundaries, and insert a line break while writing a Rocket.Chat message.",
       shortcuts: [
-        shared("edit-previous-message", "Edit the previous message", ["Up Arrow"], "The composer must be empty; Up Arrow otherwise moves the cursor in the message."),
-        {
-          id: "composer-start",
-          action: "Move to the beginning of the composer",
-          keys: [
-            { platform: "windows", keys: ["Alt", "Left Arrow"], alternatives: [["Alt", "Up Arrow"]] },
-            { platform: "linux", keys: ["Alt", "Left Arrow"], alternatives: [["Alt", "Up Arrow"]] },
-            { platform: "macos", keys: ["Alt", "Left Arrow"], alternatives: [["Alt", "Up Arrow"]] },
-          ],
-        },
-        {
-          id: "composer-end",
-          action: "Move to the end of the composer",
-          keys: [
-            { platform: "windows", keys: ["Alt", "Right Arrow"], alternatives: [["Alt", "Down Arrow"]] },
-            { platform: "linux", keys: ["Alt", "Right Arrow"], alternatives: [["Alt", "Down Arrow"]] },
-            { platform: "macos", keys: ["Alt", "Right Arrow"], alternatives: [["Alt", "Down Arrow"]] },
-          ],
-        },
+        shared("edit-previous-message", "Edit the previous message", ["Up Arrow"], "Meant for an empty message box. With text in the box, it can still open your last message, so use Alt+Up Arrow to reach the top."),
+        shared("line-start", "Move to the beginning of the line", ["Alt", "Left Arrow"]),
+        shared("line-end", "Move to the end of the line", ["Alt", "Right Arrow"]),
+        shared("message-start", "Move to the beginning of the message", ["Alt", "Up Arrow"]),
+        shared("message-end", "Move to the end of the message", ["Alt", "Down Arrow"]),
         shared("new-line", "Insert a new line without sending", ["Shift", "Enter"]),
       ],
     },

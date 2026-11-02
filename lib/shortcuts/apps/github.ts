@@ -9,10 +9,10 @@ export const github: AppShortcuts = {
   category: "Code hosting platform",
   platforms: [...platforms],
   versionContext:
-    "Shortcuts documented on docs.github.com in August 2026. Character key shortcuts can be disabled in accessibility settings, and the GitHub Command Palette is in public preview and disabled by default.",
+    "You can turn off character key shortcuts in accessibility settings. The GitHub Command Palette is in public preview and off by default.",
   sourceUrl: "https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts",
   sourceLabel: "official keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "site-navigation",

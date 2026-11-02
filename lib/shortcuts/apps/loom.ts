@@ -22,10 +22,10 @@ export const loom: AppShortcuts = {
   category: "Screen recording",
   platforms: [...platforms],
   versionContext:
-    "Current Loom help shortcuts checked November 1, 2026. Desktop bindings can be changed in Settings, Chrome extension bindings can be changed at chrome://extensions/shortcuts, and Loom documents QWERTY support for the desktop set.",
+    "Change desktop keys in Settings and Chrome extension keys at chrome://extensions/shortcuts. Loom says the desktop keys support QWERTY keyboards.",
   sourceUrl: "https://support.atlassian.com/loom/docs/use-looms-keyboard-shortcuts",
   sourceLabel: "official Loom keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "desktop-recorder",
@@ -61,7 +61,7 @@ export const loom: AppShortcuts = {
     {
       id: "video-player",
       title: "Video playback",
-      intro: "While watching a Loom video, use the documented player keys to seek, pause, change volume, and enter full screen.",
+      intro: "While watching a Loom video, use these player keys to seek, pause, change volume, and enter full screen.",
       shortcuts: [
         video("jump-forward", "Jump forward six seconds", ["Right"], [["L"]]),
         video("jump-back", "Jump back six seconds", ["Left"], [["J"]]),

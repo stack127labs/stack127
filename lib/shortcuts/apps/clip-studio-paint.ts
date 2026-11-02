@@ -19,15 +19,15 @@ export const clipStudioPaint: AppShortcuts = {
   category: "Digital illustration",
   platforms: ["windows", "macos"],
   versionContext:
-    "Clip Studio Paint 5.0 default menu shortcuts at initial startup, checked August 31, 2026. The official guide describes Windows notation and directs macOS users to replace Control with Command and Alt with Option. Canvas switching retains the separately published Control-based Mac chords.",
+    "Clip Studio Paint 5.0 defaults. On Mac, use Command for Ctrl and Option for Alt, except canvas switching, which keeps Control.",
   sourceUrl: "https://help.clip-studio.com/en-us/manual_en/780_shortcuts/Menu_Shortcuts.htm",
   sourceLabel: "Clip Studio Paint 5.0 menu shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "files-and-settings",
       title: "Files and settings",
-      intro: "Save As has three factory alternatives. Preferences and shortcut editors use the same documented modifier substitution on Windows and Mac.",
+      intro: "Save As has three factory alternatives.",
       shortcuts: [
         mod("new", "Create a new file", ["Ctrl", "N"]),
         mod("open", "Open a file", ["Ctrl", "O"]),

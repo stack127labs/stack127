@@ -38,10 +38,10 @@ export const dbeaver: AppShortcuts = {
   category: "Database tools",
   platforms: [...platforms],
   versionContext:
-    "Current DBeaver shortcut wiki edited August 18, 2026 and checked September 1, 2026. The wiki lists Windows/Linux and macOS columns, and notes that users can change bindings or select the DBeaver Keyboard Only scheme.",
+    "DBeaver for Windows, Linux, and macOS. You can change keys or switch to the DBeaver Keyboard Only scheme.",
   sourceUrl: "https://github.com/dbeaver/dbeaver/wiki/Shortcuts",
   sourceLabel: "DBeaver shortcut reference",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "connection",

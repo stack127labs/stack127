@@ -9,10 +9,10 @@ export const spotify: AppShortcuts = {
   category: "Music streaming",
   platforms: [...platforms],
   versionContext:
-    "Spotify desktop and web player shortcuts checked September 1, 2026. Spotify says the app can show the full in-app list, so this record contains the stable actions published in the support article.",
+    "Desktop app and web player. A partial list: the app shows all shortcuts.",
   sourceUrl: "https://support.spotify.com/na-en/article/keyboard-shortcuts/",
   sourceLabel: "official Spotify keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "search-and-navigation",
@@ -44,7 +44,7 @@ export const spotify: AppShortcuts = {
     {
       id: "playback",
       title: "Playback",
-      intro: "Playback shortcuts control the current track, repeat or shuffle state, volume, and library or queue actions.",
+      intro: "Playback shortcuts control the current track, repeat or shuffle state, mute, and library or queue actions.",
       shortcuts: [
         { id: "play-pause", action: "Play or pause", keys: perPlatform(platforms, { windows: ["Space"], macos: ["Space"] }) },
         { id: "shuffle", action: "Toggle Shuffle", keys: perPlatform(platforms, { windows: ["Ctrl", "S"], macos: ["Alt", "S"] }) },

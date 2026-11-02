@@ -29,23 +29,31 @@ export const wordpressAdmin: AppShortcuts = {
   category: "Content management",
   platforms: [...platforms],
   versionContext:
-    "WordPress Block Editor, Classic Editor, and Site Editor references checked November 1, 2026. The Block Editor table and Classic Editor table publish Windows or Linux and Mac variants, while the Site Editor documents its command palette separately.",
+    "Block Editor and Classic Editor keys for Windows or Linux and Mac. The Site Editor's command palette keys are listed separately.",
   sourceUrl: "https://wordpress.org/documentation/article/keyboard-shortcuts-block-editor/",
   sourceLabel: "official WordPress editor keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "block-editor",
       title: "Block Editor",
       intro: "Use these commands to open editor views, manage blocks, and format selected text.",
       shortcuts: [
-        editor("show-shortcuts", "Show the keyboard shortcuts", ["Shift", "Alt", "H"], ["Shift", "Option", "Cmd", "H"]),
+        editor("show-shortcuts", "Show the keyboard shortcuts", ["Shift", "Alt", "H"], ["Ctrl", "Option", "H"]),
         editor("code-editor", "Open the code editor", ["Ctrl", "Shift", "Alt", "M"], ["Shift", "Option", "Cmd", "M"]),
         editor("fullscreen", "Toggle fullscreen mode", ["Ctrl", "Shift", "Alt", "F"], ["Shift", "Option", "Cmd", "F"]),
         editor("list-view", "Open List View", ["Shift", "Alt", "O"], ["Ctrl", "Option", "O"]),
         editor("sidebar", "Show or hide the settings sidebar", ["Ctrl", "Shift", ","], ["Shift", "Cmd", ","]),
-        editor("next-part", "Move to the next part of the editor", ["Ctrl", "Backtick"], ["Ctrl", "Backtick"]),
-        editor("previous-part", "Move to the previous part of the editor", ["Ctrl", "Shift", "Backtick"], ["Ctrl", "Shift", "Backtick"]),
+        { id: "next-part", action: "Move to the next part of the editor", keys: [
+          { platform: "windows", keys: ["Ctrl", "Backtick"], alternatives: [["Shift", "Alt", "N"]] },
+          { platform: "macos", keys: ["Ctrl", "Backtick"], alternatives: [["Ctrl", "Option", "N"]] },
+          { platform: "linux", keys: ["Ctrl", "Backtick"], alternatives: [["Shift", "Alt", "N"]] },
+        ] },
+        { id: "previous-part", action: "Move to the previous part of the editor", keys: [
+          { platform: "windows", keys: ["Ctrl", "Shift", "Backtick"], alternatives: [["Shift", "Alt", "P"]] },
+          { platform: "macos", keys: ["Ctrl", "Shift", "Backtick"], alternatives: [["Ctrl", "Option", "P"]] },
+          { platform: "linux", keys: ["Ctrl", "Shift", "Backtick"], alternatives: [["Shift", "Alt", "P"]] },
+        ] },
         editor("toolbar", "Move to the nearest toolbar", ["Alt", "F10"], ["Option", "F10"]),
         editor("save", "Save changes", ["Ctrl", "S"], ["Cmd", "S"]),
         editor("undo", "Undo", ["Ctrl", "Z"], ["Cmd", "Z"]),
@@ -79,7 +87,7 @@ export const wordpressAdmin: AppShortcuts = {
     {
       id: "classic-editor",
       title: "Classic Editor",
-      intro: "The Classic Editor reference includes common text actions and editor commands for Windows, Linux, and Mac.",
+      intro: "The Classic Editor has common text actions and editor commands for Windows, Linux, and Mac.",
       shortcuts: [
         editor("classic-copy", "Copy selected text", ["Ctrl", "C"], ["Cmd", "C"]),
         editor("classic-cut", "Cut selected text", ["Ctrl", "X"], ["Cmd", "X"]),
@@ -98,7 +106,7 @@ export const wordpressAdmin: AppShortcuts = {
     {
       id: "comments-and-site-editor",
       title: "Comments and Site Editor",
-      intro: "WordPress also documents keyboard navigation for comments and the command palette in the Site Editor.",
+      intro: "Enable comment keys in your profile; Ctrl+K or Cmd+K opens the Site Editor palette.",
       shortcuts: [
         shared("comment-next", "Move to the next comment", ["J"]),
         shared("comment-previous", "Move to the previous comment", ["K"]),

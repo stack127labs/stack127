@@ -15,7 +15,7 @@ export const filezilla: AppShortcuts = {
   category: "File transfer",
   platforms: [...platforms],
   versionContext:
-    "Current FileZilla Wiki keyboard shortcut page checked September 1, 2026. The wiki publishes one desktop shortcut set without platform columns, so those values are retained across Windows, macOS, and Linux.",
+    "FileZilla lists one shortcut set for all platforms, so the same keys show for Windows, macOS, and Linux.",
   sourceUrl: "https://wiki.filezilla-project.org/Keyboard_shortcuts",
   sourceLabel: "FileZilla keyboard shortcuts",
   lastVerified: "2026-11-01",

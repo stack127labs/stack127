@@ -8,10 +8,10 @@ export const things3: AppShortcuts = {
   category: "Task management",
   platforms: ["macos"],
   versionContext:
-    "Things for Mac keyboard shortcuts checked November 1, 2026 against Cultured Code's current support article. The Quick Entry hotkeys can be changed in Things settings.",
+    "Things for Mac. You can change the Quick Entry hotkeys in Things settings.",
   sourceUrl: "https://culturedcode.com/things/support/articles/2785159/",
   sourceLabel: "official Things for Mac keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "create-and-edit",
@@ -78,12 +78,11 @@ export const things3: AppShortcuts = {
       title: "Navigation, search, and windows",
       intro: "Open the main lists, search for items, and control Things windows and the sidebar.",
       shortcuts: [
-        { id: "inbox", action: "Open Inbox", keys: mac(["Cmd", "0"]) },
-        { id: "today", action: "Open Today", keys: mac(["Cmd", "1"]) },
-        { id: "next", action: "Open Next", keys: mac(["Cmd", "2"]) },
-        { id: "scheduled", action: "Open Scheduled", keys: mac(["Cmd", "3"]) },
-        { id: "someday", action: "Open Someday", keys: mac(["Cmd", "4"]) },
-        { id: "projects", action: "Open Projects", keys: mac(["Cmd", "5"]) },
+        { id: "inbox", action: "Open Inbox", keys: mac(["Cmd", "1"]) },
+        { id: "today", action: "Open Today", keys: mac(["Cmd", "2"]) },
+        { id: "upcoming", action: "Open Upcoming", keys: mac(["Cmd", "3"]) },
+        { id: "anytime", action: "Open Anytime", keys: mac(["Cmd", "4"]) },
+        { id: "someday", action: "Open Someday", keys: mac(["Cmd", "5"]) },
         { id: "logbook", action: "Open Logbook", keys: mac(["Cmd", "6"]) },
         { id: "search", action: "Search Things", keys: mac(["Cmd", "F"]) },
         { id: "find-text", action: "Find text in an item", keys: mac(["Shift", "Cmd", "F"]) },

@@ -13,10 +13,10 @@ export const appleNotes: AppShortcuts = {
   category: "Notes",
   platforms: ["macos"],
   versionContext:
-    "Current Notes defaults from Apple's macOS Tahoe user guide, checked August 31, 2026. Shortcuts can vary with language and keyboard layout. Trackpad and Magic Mouse gestures are omitted from this keyboard-only reference.",
+    "Notes for macOS. Shortcuts can vary by language and keyboard layout.",
   sourceUrl: "https://support.apple.com/guide/notes/keyboard-shortcuts-and-gestures-apd46c25187e/mac",
   sourceLabel: "Apple Notes keyboard shortcuts and gestures on Mac",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "notes-and-windows",

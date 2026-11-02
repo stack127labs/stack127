@@ -9,15 +9,15 @@ const googleGemini: AppShortcuts = {
   category: "AI assistant",
   platforms: [...platforms],
   versionContext:
-    "Gemini in Chrome is an opt-in feature that Google is rolling out gradually. Its shortcuts can be changed in Chrome settings, and this record does not present them as shortcuts for the general Gemini web app.",
+    "Gemini in Chrome, an opt-in feature that's still rolling out. They're for Chrome, not the Gemini web app, and you can change them in Chrome settings.",
   sourceUrl: "https://support.google.com/chrome/answer/16988996?hl=en",
   sourceLabel: "official Google Chrome Help for Gemini keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "gemini-in-chrome",
       title: "Gemini in Chrome",
-      intro: "Use the documented Chrome integration commands to open Gemini, switch focus, or start selection mode.",
+      intro: "Use these Chrome commands to open Gemini, switch focus, or start selection mode.",
       shortcuts: [
         { id: "toggle-gemini", action: "Open or close Gemini in Chrome", keys: perPlatform(platforms, { windows: ["Alt", "G"], macos: ["Ctrl", "G"] }) },
         { id: "switch-tab-gemini", action: "Switch between the tab and Gemini", keys: perPlatform(platforms, { windows: ["Alt", "Shift", "G"], macos: ["Ctrl", "Cmd", "G"] }) },

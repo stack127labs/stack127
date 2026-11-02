@@ -23,10 +23,10 @@ export const mastodon: AppShortcuts = {
   category: "Social networking",
   platforms: [...platforms],
   versionContext:
-    "Web hotkeys from Mastodon's current main source, checked November 1, 2026. The source ignores shortcuts while focus is in an input, textarea, or select, and user instances can run different releases or customizations. Alt is shown as Option on macOS.",
+    "Mastodon on the web. Keys don't work while you're in a form field, servers can run different versions or custom setups, and Alt is Option on macOS.",
   sourceUrl: "https://github.com/mastodon/mastodon/blob/main/app/javascript/mastodon/components/hotkeys/index.tsx",
   sourceLabel: "Mastodon web hotkeys source",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "post-actions",
@@ -59,7 +59,7 @@ export const mastodon: AppShortcuts = {
     {
       id: "columns",
       title: "Column navigation",
-      intro: "Use the documented G then letter sequences to open Mastodon's main timeline and account columns.",
+      intro: "Press G, then a letter, to open Mastodon's main timeline and account columns.",
       shortcuts: [
         shared("focus-column", "Focus a numbered column", ["1-9"]),
         shared("home", "Open Home", ["G", "then", "H"]),

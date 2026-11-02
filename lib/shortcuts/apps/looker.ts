@@ -18,10 +18,10 @@ export const looker: AppShortcuts = {
   category: "Analytics",
   platforms: [...platforms],
   versionContext:
-    "Shortcuts from the current Google Cloud Looker keyboard-shortcuts page, last updated July 22, 2025 and checked November 1, 2026. Availability depends on the current Looker location, permissions, and browser; the published table covers Windows and macOS.",
+    "Keys depend on where you are in Looker, your permissions, and your browser. They're shown for Windows and macOS.",
   sourceUrl: "https://docs.cloud.google.com/looker/docs/keyboard-shortcuts?hl=en",
   sourceLabel: "Google Cloud Looker keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "global",

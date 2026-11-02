@@ -23,8 +23,8 @@ export const salesforce: AppShortcuts = {
   category: "Customer relationship management",
   platforms: [...platforms],
   versionContext:
-    "Salesforce Help keyboard shortcut references checked September 1, 2026. Lightning shortcuts are enabled by default, are not case-sensitive, and can be disabled from the Help menu. Console shortcuts apply to Lightning console apps and may not be available in standard navigation.",
-  sourceUrl: "https://help.salesforce.com/s/articleView?id=sf.accessibility_keyboard_shortcuts_lex.htm&language=en_US&type=5",
+    "Lightning Experience shortcuts are enabled by default, ignore letter case, and can be turned off in the Help menu. Console shortcuts apply in Lightning console apps.",
+  sourceUrl: "https://help.salesforce.com/s/articleView?id=accessibility_keyboard_shortcuts_lex.htm&language=en_US&type=5",
   sourceLabel: "official Salesforce Lightning keyboard shortcuts",
   lastVerified: "2026-09-01",
   groups: [
@@ -41,7 +41,7 @@ export const salesforce: AppShortcuts = {
         dual("post-feed", "Post to the feed", ["Ctrl", "F6"], ["Cmd", "F6"], "This standard Lightning shortcut submits a post or comment."),
         shared("search", "Place the cursor in the search box", ["/"]),
         dual("shortcut-menu", "Show the shortcut menu", ["Ctrl", "/"], ["Cmd", "/"]),
-        dual("save", "Save a record", ["Ctrl", "S"], ["Cmd", "S"], "The console reference says the focus must be on a field."),
+        dual("save", "Save a record", ["Ctrl", "S"], ["Cmd", "S"], "Focus a field before saving."),
       ],
     },
     {

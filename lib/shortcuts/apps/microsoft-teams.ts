@@ -39,10 +39,10 @@ export const microsoftTeams: AppShortcuts = {
   category: "Team chat",
   platforms: [...platforms],
   versionContext:
-    "Current Microsoft Teams desktop and web shortcut tables checked November 1, 2026. Several commands have separate desktop and web forms, and Teams can reserve or customize shortcuts depending on the client and account.",
+    "Some commands differ between the desktop app and the web. Depending on your client and account, Teams may reserve some keys or let you change them.",
   sourceUrl: "https://support.microsoft.com/en-us/accessibility/teams/keyboard-shortcuts-for-microsoft-teams",
   sourceLabel: "official Microsoft Teams keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "navigation-and-search",
@@ -80,7 +80,7 @@ export const microsoftTeams: AppShortcuts = {
       title: "Messaging",
       intro: "Compose messages, send them, and keep a multiline message readable while you work.",
       shortcuts: [
-        pair("send-message", "Send the current message", ["Ctrl", "Enter"], ["Cmd", "Enter"]),
+        pair("send-message", "Send the expanded compose box", ["Ctrl", "Enter"], ["Cmd", "Return"], "Works only when the compose box is expanded."),
         pair("new-line", "Insert a new line in a message", ["Shift", "Enter"], ["Shift", "Enter"]),
         pair("expand-compose", "Expand the compose box", ["Ctrl", "Shift", "X"], ["Cmd", "Shift", "X"]),
         pair("bold", "Bold selected text", ["Ctrl", "B"], ["Cmd", "B"]),
@@ -92,7 +92,7 @@ export const microsoftTeams: AppShortcuts = {
     {
       id: "meetings",
       title: "Meetings and calls",
-      intro: "Use the documented meeting controls while a Teams call or meeting has focus.",
+      intro: "Use these meeting controls while a Teams call or meeting has focus.",
       shortcuts: [
         pair("mute", "Mute or unmute the microphone", ["Ctrl", "Shift", "M"], ["Cmd", "Shift", "M"]),
         pair("camera", "Turn the camera on or off", ["Ctrl", "Shift", "O"], ["Cmd", "Shift", "O"]),

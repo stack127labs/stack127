@@ -9,15 +9,15 @@ export const obsStudio: AppShortcuts = {
   category: "Streaming and recording",
   platforms: [...platforms],
   versionContext:
-    "The official OBS keyboard reference was last updated August 25, 2021 and was checked again November 1, 2026. OBS lets users assign or change hotkeys in Settings, so these entries describe the published defaults rather than a user's custom profile.",
+    "Default OBS hotkeys. You can assign or change hotkeys in Settings.",
   sourceUrl: "https://obsproject.com/kb/keyboard-shortcuts",
   sourceLabel: "official OBS Studio keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "general",
       title: "General",
-      intro: "General commands work across the OBS Studio interface. Windows and Linux share the documented bindings, while macOS uses the Command key in the same actions.",
+      intro: "General commands work across the OBS Studio interface. Windows and Linux share the same bindings, while macOS uses the Command key in the same actions.",
       shortcuts: [
         { id: "quit", action: "Quit OBS Studio", keys: combo(platforms, ["Ctrl", "Q"], ["Cmd", "Q"]) },
         { id: "undo", action: "Undo edit", keys: combo(platforms, ["Ctrl", "Z"], ["Cmd", "Z"]) },
@@ -46,7 +46,7 @@ export const obsStudio: AppShortcuts = {
     {
       id: "preview",
       title: "Preview window",
-      intro: "Preview commands apply when a source bounding box is selected or when the preview uses fixed scaling. Drag-based actions are shown as a key plus the documented pointer gesture.",
+      intro: "Preview commands apply when a source bounding box is selected or when the preview uses fixed scaling. Drag-based actions are shown as a key plus a pointer gesture.",
       shortcuts: [
         { id: "nudge-up", action: "Nudge source up", keys: combo(platforms, ["Up"], ["Up"]) },
         { id: "nudge-down", action: "Nudge source down", keys: combo(platforms, ["Down"], ["Down"]) },

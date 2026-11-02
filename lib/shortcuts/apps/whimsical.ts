@@ -47,10 +47,10 @@ export const whimsical: AppShortcuts = {
   category: "Visual collaboration",
   platforms: [...platforms],
   versionContext:
-    "Whimsical shortcut tables checked November 1, 2026. The source lists the Windows and Mac modifiers separately, and some shortcuts depend on the active board or editor.",
+    "Some shortcuts depend on the active board or editor.",
   sourceUrl: "https://whimsical.com/learn/shortcuts",
   sourceLabel: "official Whimsical keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "workspace",
@@ -63,8 +63,8 @@ export const whimsical: AppShortcuts = {
         dual("file-search", "Search files", ["Ctrl", "F"], ["Cmd", "F"]),
         dualWithAlternatives("workspace-search", "Search the workspace", ["Ctrl", "J"], ["Ctrl", "Shift", "F"], ["Cmd", "J"], ["Cmd", "Shift", "F"]),
         dual("toggle-sidebar", "Show or hide the sidebar", ["Ctrl", "E"], ["Cmd", "E"]),
-        dualWithAlternatives("share", "Share the current file", ["Ctrl", "Shift", "S"], ["Ctrl", "Alt", "S"], ["Cmd", "Shift", "S"], ["Cmd", "Option", "S"]),
-        dual("export", "Export the current file", ["Ctrl", "Shift", "E"], ["Cmd", "Shift", "E"]),
+        dualWithAlternatives("share", "Share the current file", ["Ctrl", "Shift", "S"], ["Ctrl", "Alt", "S"], ["Cmd", "Shift", "S"], ["Cmd", "Option", "S"], "The alternative works in Firefox."),
+        dual("export", "Open the Export tab", ["Ctrl", "Shift", "E"], ["Cmd", "Shift", "E"]),
         dual("print", "Print the current file", ["Ctrl", "P"], ["Cmd", "P"]),
         dual("new-file", "Create a new file or folder", ["Ctrl", "Alt", "N"], ["Cmd", "Option", "N"]),
         shared("list-view", "Switch to list view", ["L"]),
@@ -151,8 +151,8 @@ export const whimsical: AppShortcuts = {
       intro: "These shortcuts apply while editing a sticky note and changing its text or position.",
       shortcuts: [
         shared("new-sticky-note", "Add a sticky note", ["N"]),
-        dual("sticky-size-up", "Increase sticky-note size", ["Ctrl", "Alt", "="], ["Cmd", "Option", "="]),
-        dual("sticky-size-down", "Decrease sticky-note size", ["Ctrl", "Alt", "-"], ["Cmd", "Option", "-"]),
+        dual("sticky-size-up", "Increase text size", ["Ctrl", "Alt", "="], ["Cmd", "Option", "="]),
+        dual("sticky-size-down", "Decrease text size", ["Ctrl", "Alt", "-"], ["Cmd", "Option", "-"]),
         dual("paragraph", "Change paragraph alignment", ["Ctrl", "\\"], ["Cmd", "\\"]),
         dualWithAlternatives("bulleted-list", "Start or toggle a bulleted list", ["*", "then", "Space"], ["Ctrl", "Shift", "8"], ["*", "then", "Space"], ["Cmd", "Shift", "8"], "Typing - then Space also starts a bulleted list."),
         dualWithAlternatives("numbered-list", "Start or toggle a numbered list", ["1", "then", ".", "then", "Space"], ["Ctrl", "Shift", "7"], ["1", "then", ".", "then", "Space"], ["Cmd", "Shift", "7"]),

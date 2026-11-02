@@ -13,10 +13,10 @@ export const notepadPlusPlus: AppShortcuts = {
   category: "Text editor",
   platforms: ["windows"],
   versionContext:
-    "Notepad++ current user manual shortcuts checked September 1, 2026. Defaults can differ after editing Settings > Shortcut Mapper, and the manual notes that keyboard layout behavior changed in version 8.7.6.",
+    "These are Notepad++'s Windows defaults. You can change them in Settings > Shortcut Mapper; version 8.7.6 changed keyboard-layout handling.",
   sourceUrl: "https://npp-user-manual.org/docs/user-interface/",
   sourceLabel: "official Notepad++ user manual shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "files-and-tabs",

@@ -9,10 +9,10 @@ const freshdesk: AppShortcuts = {
   category: "Support desk",
   platforms: [...platforms],
   versionContext:
-    "The current Freshdesk support reference covers Freshdesk Omni accounts and notes that accounts created before December 2025 may see a different shortcut set. Shortcuts must be enabled from Profile > Keyboard Shortcuts.",
+    "Turn shortcuts on from Profile > Keyboard Shortcuts. Freshdesk Omni accounts created before December 2025 may have a different experience.",
   sourceUrl: "https://support.freshdesk.com/support/solutions/articles/186758-keyboard-shortcuts-in-freshdesk",
-  sourceLabel: "official Freshdesk keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  sourceLabel: "Freshdesk keyboard shortcuts",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "global-navigation",
@@ -94,7 +94,7 @@ const freshdesk: AppShortcuts = {
           id: "send-reply",
           action: "Send the reply",
           keys: combo(platforms, ["Ctrl", "Enter"], ["Cmd", "Enter"]),
-          note: "Freshdesk also documents Enter alone in the editor as a send command.",
+          note: "Enter alone in the editor also sends the reply.",
         },
         {
           id: "send-status",

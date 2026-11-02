@@ -16,10 +16,10 @@ export const ulysses: AppShortcuts = {
   category: "Writing tool",
   platforms: [...platforms],
   versionContext:
-    "Ulysses Keyboard Shortcuts page checked November 1, 2026. The source publishes the Mac map separately from iPad and iPhone shortcuts; this record uses the Mac defaults and leaves custom macOS App Shortcuts outside the map.",
+    "Ulysses for Mac. The iPad and iPhone apps have their own shortcuts, and custom macOS App Shortcuts aren't included.",
   sourceUrl: "https://help.ulysses.app/keyboard-shortcuts-mac-ipad?kb_language=en_US",
   sourceLabel: "official Ulysses Mac keyboard shortcuts",
-  lastVerified: "2026-11-01",
+  lastVerified: "2026-11-02",
   groups: [
     {
       id: "sheets-and-navigation",
@@ -92,7 +92,7 @@ export const ulysses: AppShortcuts = {
         mac("clear-markup", "Clear markup", ["Cmd", "L"]),
         mac("indent-list", "Increase list indentation", ["Tab"]),
         mac("outdent-list", "Decrease list indentation", ["Shift", "Tab"]),
-        mac("end-tag", "Insert an end-tag placeholder", ["Esc"], "Ulysses uses Escape for end-tag completion when the cursor is at a supported markup location."),
+        mac("end-tag", "Insert an end-tag placeholder", ["Esc"], "Press Esc again to dismiss the placeholder."),
       ],
     },
     {
@@ -111,7 +111,7 @@ export const ulysses: AppShortcuts = {
         mac("clear-cells", "Clear selected table cells", ["Backspace"]),
         mac("delete-table-items", "Delete selected table rows or columns", ["Cmd", "Backspace"]),
         mac("select-cells", "Select all table cells", ["Cmd", "A"]),
-        mac("export-preview", "Preview the selected sheets for export", ["Shift", "Cmd", "P"]),
+        mac("export-preview", "Preview the sidebar selection for export", ["Shift", "Cmd", "P"]),
         mac("new-version", "Create a new version of the current sheet", ["Cmd", "S"]),
         mac("close-window", "Close the current window or tab", ["Cmd", "W"]),
       ],
