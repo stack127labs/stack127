@@ -21,6 +21,7 @@
 
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
 const outFile = path.join(root, "lib/domain/data/tld-directory.json");
@@ -60,46 +61,83 @@ function stripTags(value) {
     .trim();
 }
 
+const KNOWN_TYPES = new Set([
+  "generic", "country-code", "sponsored", "infrastructure", "generic-restricted", "test",
+]);
+
 /**
- * IANA renders one row per TLD: name, type, sponsoring organisation.
- *
- * The A-label comes from the row's link href rather than from the visible text.
- * Right-to-left endings are displayed wrapped in bidi control marks, so
- * ".ישראל" arrives as U+200F + ".ישראל" + U+200E and does not convert back to its
- * A-label. The href is unambiguous, so use that and keep the cleaned display name
- * only for showing to a reader.
+ * Current columns: TLD, Status, Type, TLD Manager / Purpose, then script metadata.
+ * Only the anchor's leading text is the display name; its children contain icons,
+ * script pills and the A-label. The href is the authority for the ASCII name.
  */
-function parseRootDb(html) {
-  const rows = html.match(/<tr>([\s\S]*?)<\/tr>/g) ?? [];
+export function parseRootDb(html, requiredTlds = null) {
+  const required = requiredTlds === null ? null : new Set(requiredTlds);
+  const headers = [...html.matchAll(/<th\b[^>]*>([\s\S]*?)<\/th>/gi)]
+    .slice(0, 4).map((match) => stripTags(match[1]));
+  if (headers.join("|") !== "TLD|Status|Type|TLD Manager / Purpose") {
+    throw new Error("IANA root database columns changed. Refusing to write a partial dataset.");
+  }
+
+  const rows = html.match(/<tr\b[^>]*>[\s\S]*?<\/tr>/gi) ?? [];
   const entries = [];
   for (const row of rows) {
-    const cells = [...row.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)];
-    if (cells.length < 3) continue;
-    const [nameCell, typeCell, organisationCell] = cells.map((match) => match[1]);
-
-    const href = nameCell.match(/\/domains\/root\/db\/([^."]+)\.html/);
-    const displayed = stripTags(nameCell)
-      // Strip the bidi control characters IANA wraps RTL names in.
+    if (!row.includes("/domains/root/db/")) continue;
+    const cells = [...row.matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/gi)].map((match) => match[1]);
+    const [nameCell = "", statusCell = "", typeCell = "", organisationCell = ""] = cells;
+    const link = nameCell.match(/<a\b[^>]*href=["']\/domains\/root\/db\/([a-z0-9-]+)(?:\.html)?["'][^>]*>([\s\S]*?)<\/a>/i);
+    if (!link || cells.length < 4) {
+      throw new Error("Malformed IANA root database row. Refusing to write a partial dataset.");
+    }
+    const tld = link[1].toLowerCase();
+    const status = stripTags(statusCell).toLowerCase();
+    if (status === "retired") {
+      if (required?.has(tld)) {
+        throw new Error(`IANA marks required ending .${tld} as retired. Refresh the TLD list before retrying. Refusing to write.`);
+      }
+      continue;
+    }
+    // IANA also lists retired and eligible names, sometimes without managers.
+    // Validate every current root-zone ending, not those historical records.
+    if (required && !required.has(tld)) continue;
+    const displayed = stripTags(link[2].split("<")[0])
       .replace(/[‎‏‪-‮⁦-⁩]/g, "")
-      .replace(/^\./, "")
-      .trim();
+      .trim().replace(/^\.|\.$/g, "");
+    if (!displayed) throw new Error(`Missing IANA display name for .${tld}. Refusing to write.`);
 
-    const tld = (href?.[1] ?? displayed).toLowerCase();
-    if (!tld) continue;
-
-    const type = stripTags(typeCell);
+    const rawType = stripTags(typeCell).toLowerCase();
+    // The new table includes reserved names outside the root zone. They are not
+    // TLDs in this dataset. .arpa is the active Special Use (infrastructure) row.
+    if (rawType === "special use" && stripTags(statusCell) === "Reserved") continue;
+    const type = rawType === "country code" ? "country-code"
+      : rawType === "special use" && tld === "arpa" ? "infrastructure" : rawType;
     const organisation = stripTags(organisationCell);
-
     entries.push({
       tld,
-      displayed: displayed && displayed !== tld ? displayed : null,
+      displayed: displayed !== tld ? displayed : null,
       type,
-      // IANA writes "Not assigned" for delegated-but-unused endings.
-      organisation: organisation && organisation !== "Not assigned" ? organisation : null,
+      organisation: organisation === "Not assigned" ? null : organisation,
       assigned: organisation !== "Not assigned",
     });
   }
+  validateRootDb(entries);
   return entries;
+}
+
+/** Validate both parsed facts and coverage before the caller can write anything. */
+export function validateRootDb(entries, requiredTlds = []) {
+  const seen = new Set();
+  for (const entry of entries) {
+    if (seen.has(entry.tld)) throw new Error(`Duplicate IANA row for .${entry.tld}. Refusing to write.`);
+    seen.add(entry.tld);
+    if (!KNOWN_TYPES.has(entry.type)) {
+      throw new Error(`Invalid IANA type for .${entry.tld}: "${entry.type}". Refusing to write.`);
+    }
+    if (!entry.organisation && !(entry.organisation === null && entry.assigned === false)) {
+      throw new Error(`Missing IANA organisation for .${entry.tld}. Refusing to write.`);
+    }
+  }
+  const missing = requiredTlds.filter((tld) => !seen.has(tld));
+  if (missing.length) throw new Error(`Missing IANA rows for: ${missing.join(", ")}. Refusing to write a partial dataset.`);
 }
 
 /** Every TLD with at least one DS record in the root is signed. */
@@ -125,13 +163,15 @@ async function main() {
 
   const [rootDbHtml, rootZone] = await Promise.all([get(SOURCES.rootDb), get(SOURCES.rootZone)]);
 
-  const iana = parseRootDb(rootDbHtml);
+  const iana = parseRootDb(rootDbHtml, tldData.tlds);
   if (iana.length < MIN_EXPECTED_ROWS) {
     throw new Error(
       `Only parsed ${iana.length} rows from the IANA root database, expected at least ${MIN_EXPECTED_ROWS}. ` +
         "The page layout has probably changed. Refusing to write a partial dataset.",
     );
   }
+
+  validateRootDb(iana, tldData.tlds);
 
   const signed = parseSignedTlds(rootZone);
   if (signed.size < 500) {
@@ -202,7 +242,9 @@ async function main() {
   if (missingType) console.log(`No type from IANA: ${missingType}`);
 }
 
-main().catch((error) => {
-  console.error(error.message);
-  process.exit(1);
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+  main().catch((error) => {
+    console.error(error.message);
+    process.exit(1);
+  });
+}
