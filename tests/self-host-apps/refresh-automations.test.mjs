@@ -30,7 +30,7 @@ test("nested GitLab repositories use their own instance without the gitlab.com t
       license: { spdx_identifier: "MPL-2.0" },
     });
     if (url.endsWith("/languages")) return Response.json({ C: 100 });
-    if (url.endsWith("/releases/permalink/latest")) return Response.json({}, { status: 404 });
+    if (url.includes("/releases?")) return Response.json({}, { status: 404 });
     return Response.json([{ committed_date: "2026-10-31T00:00:00Z" }]);
   });
   const facts = await gitlabFacts({ source_code_url: "https://gitlab.torproject.org/tpo/applications/mullvad-browser.git/-/tree/main" });
@@ -46,6 +46,57 @@ test("nested GitLab repositories use their own instance without the gitlab.com t
   calls.length = 0;
   await gitlabFacts({ source_code_url: "https://gitlab.com/tpo/applications/mullvad-browser/" });
   assert.ok(calls.every(({ options }) => options.headers.Authorization === "Bearer gitlab-com-test-token"));
+});
+
+test("GitLab release list refreshes stars and the latest release without following redirects", async (t) => {
+  const calls = [];
+  t.mock.method(globalThis, "fetch", async (url, options) => {
+    calls.push({ url, options });
+    if (url.endsWith("?license=true")) return Response.json({ id: 1, star_count: 42 });
+    if (url.endsWith("/languages")) return Response.json({ Python: 100 });
+    if (url.endsWith("/releases?per_page=1&order_by=released_at&sort=desc")) {
+      return Response.json([{ tag_name: "v6.0.0", released_at: "2026-11-01T00:00:00Z" }]);
+    }
+    if (url.endsWith("/repository/commits?per_page=1")) return Response.json([]);
+    throw new Error(`Unexpected request: ${url}`);
+  });
+  const facts = await gitlabFacts({ source_code_url: "https://gitlab.com/glitchtip/glitchtip" });
+  assert.equal(facts.source_stars, 42);
+  assert.equal(facts.source_latest_release, "v6.0.0");
+  assert.equal(facts.source_latest_release_at, "2026-11-01T00:00:00Z");
+  assert.equal(facts.raw.release.tag_name, "v6.0.0");
+  assert.ok(calls.every(({ options }) => options.redirect === "error"));
+});
+
+for (const status of [200, 403, 404]) {
+  test(`GitLab stars are written when releases are unavailable or empty (${status})`, async (t) => {
+    t.mock.method(globalThis, "fetch", async (url) => {
+      if (url.endsWith("?license=true")) return Response.json({ id: 1, star_count: 123 });
+      if (url.endsWith("/languages")) return Response.json({ Ruby: 100 });
+      if (url.includes("/releases?")) return Response.json(status === 200 ? [] : {}, { status });
+      return Response.json([]);
+    });
+    const writes = [];
+    const client = { async query(sql, values) {
+      if (sql.includes("select id, slug")) return { rows: [{ id: "app-id", slug: "gitlab", source_code_url: "https://gitlab.com/gitlab-org/gitlab" }] };
+      writes.push(values);
+      return { rows: [] };
+    } };
+    const report = await refreshSourceHost(client, { host: "gitlab" });
+    assert.equal(report.refreshed, 1);
+    assert.equal(report.failed, 0);
+    assert.equal(writes.length, 1);
+    assert.equal(writes[0][3], 123);
+    assert.equal(writes[0][19], null);
+  });
+}
+
+test("GitLab project permission errors still fail the refresh", async (t) => {
+  t.mock.method(globalThis, "fetch", async (url) => {
+    if (url.endsWith("?license=true")) return Response.json({}, { status: 403 });
+    return Response.json([]);
+  });
+  await assert.rejects(gitlabFacts({ source_code_url: "https://gitlab.com/private/app" }), { status: 403 });
 });
 
 test("catalog requests send a GitHub credential only to the GitHub API", async (t) => {

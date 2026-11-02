@@ -43,11 +43,11 @@ async function fetchJson(url, token) {
   }
 }
 
-async function optionalJson(url, token) {
+async function optionalJson(url, token, unavailableStatuses = [404]) {
   try {
     return await fetchJson(url, token);
   } catch (error) {
-    if (error.status === 404) return null;
+    if (unavailableStatuses.includes(error.status)) return null;
     throw error;
   }
 }
@@ -73,12 +73,15 @@ export async function gitlabFacts(row) {
   const origin = new URL(row.source_code_url).origin;
   const token = origin === "https://gitlab.com" ? process.env.GITLAB_TOKEN ?? "" : "";
   const base = `${origin}/api/v4/projects/${id}`;
-  const [project, languages, release, commits] = await Promise.all([
+  const [project, languages, releases, commits] = await Promise.all([
     fetchJson(`${base}?license=true`, token),
     optionalJson(`${base}/languages`, token),
-    optionalJson(`${base}/releases/permalink/latest`, token),
+    // The latest permalink redirects. Releases can also be disabled (403)
+    // on a public project; neither should prevent refreshing its stars.
+    optionalJson(`${base}/releases?per_page=1&order_by=released_at&sort=desc`, token, [403, 404]),
     optionalJson(`${base}/repository/commits?per_page=1`, token),
   ]);
+  const release = releases?.[0] ?? null;
   const lastCommitAt = commits?.[0]?.committed_date ?? commits?.[0]?.created_at ?? null;
   const license = normalizedLicense(
     project.license?.key ?? project.license?.spdx_identifier ?? project.license?.name,
