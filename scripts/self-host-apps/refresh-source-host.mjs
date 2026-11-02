@@ -5,6 +5,7 @@ import { withClient } from "./lib/db.mjs";
 import { licenseTypeFromSpdx } from "./lib/schema.mjs";
 import { pathToFileURL } from "node:url";
 import { jobSummary } from "./lib/job-summary.mjs";
+import { refreshFailed } from "./lib/refresh-health.mjs";
 
 const supportedHosts = new Set(["gitlab", "codeberg"]);
 
@@ -239,33 +240,37 @@ async function writeFacts(client, row, host, facts, checkedAt) {
   );
 }
 
-async function main() {
-  const args = parseArgs();
+export async function refreshSourceHost(client, args) {
   const host = args.host;
   if (!supportedHosts.has(host)) throw new Error("--host must be gitlab or codeberg");
   const checkedAt = new Date().toISOString();
 
-  await withClient(async (client) => {
-    const rows = await rowsToRefresh(client, host, args);
-    let refreshed = 0;
-    const failures = [];
+  const rows = await rowsToRefresh(client, host, args);
+  let refreshed = 0;
+  const failures = [];
 
-    for (const row of rows) {
-      try {
-        const facts = host === "gitlab" ? await gitlabFacts(row) : await codebergFacts(row);
-        if (!args["dry-run"]) await writeFacts(client, row, host, facts, checkedAt);
-        refreshed += 1;
-        console.log(`${args["dry-run"] ? "Checked" : "Refreshed"} ${host} facts: ${row.slug}`);
-      } catch (error) {
-        failures.push({ slug: row.slug, error: error.message });
-        console.warn(`warning ${row.slug}: ${error.message}`);
-      }
+  for (const row of rows) {
+    try {
+      const facts = host === "gitlab" ? await gitlabFacts(row) : await codebergFacts(row);
+      if (!args["dry-run"]) await writeFacts(client, row, host, facts, checkedAt);
+      refreshed += 1;
+      console.log(`${args["dry-run"] ? "Checked" : "Refreshed"} ${host} facts: ${row.slug}`);
+    } catch (error) {
+      failures.push({ slug: row.slug, error: error.message });
+      console.warn(`warning ${row.slug}: ${error.message}`);
     }
+  }
 
-    console.log(JSON.stringify({ host, dry_run: Boolean(args["dry-run"]), selected: rows.length, refreshed, failed: failures.length, failures }, null, 2));
-    jobSummary(`${host} facts`, { Selected: rows.length, Refreshed: refreshed, Failed: failures.length, "Dry run": Boolean(args["dry-run"]) }, failures);
-    if (failures.length) process.exitCode = 1;
-  }, args["database-url"]);
+  const report = { host, dry_run: Boolean(args["dry-run"]), selected: rows.length, refreshed, failed: failures.length, failures };
+  console.log(JSON.stringify(report, null, 2));
+  jobSummary(`${host} facts`, { Selected: rows.length, Refreshed: refreshed, Failed: failures.length, "Allowed failure percentage": 20, "Dry run": Boolean(args["dry-run"]) }, failures);
+  return report;
+}
+
+async function main() {
+  const args = parseArgs();
+  const report = await withClient((client) => refreshSourceHost(client, args), args["database-url"]);
+  if (refreshFailed(report)) process.exitCode = 1;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((error) => {

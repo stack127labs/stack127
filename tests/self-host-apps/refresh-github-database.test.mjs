@@ -218,3 +218,21 @@ test("CLI maintenance changes trigger the public-date touch and cache queue once
     assert.equal((await client.query("select count(*)::int as count from cli_refresh_events")).rows[0].count, 2);
   });
 });
+
+
+test("identity-less and malformed unlinked apps cannot consume the queue head", databaseTest, async (t) => {
+  await fixture(t, async (client, isolated) => {
+    await seed(client);
+    const invalid = [null, "", "not-a-url", "https://example.com/owner/repo", "https://github.com/owner", "https://github.com/owner/repo with spaces", "https://github.com/owner/.git", "https://github.com/owner/..", "javascript:owner/repo"];
+    for (const [i, url] of invalid.entries()) {
+      await client.query(`insert into self_host_apps_fixture (slug,source_code_url) values ($1,$2)`, [`binhex-${i}`,url]);
+    }
+    await client.query(`insert into self_host_apps_fixture (slug,source_code_url,github_project_id)
+      select 'linked-null-url',null,id from github_projects_fixture where repo='failed'`);
+    const rows = await rowsToRefresh(isolated, {"published-only":true,all:true}, false);
+    assert.equal(rows.length, 3);
+    assert.ok(!rows.some(row => row.self_host_slugs.some(slug => slug.startsWith("binhex-"))));
+    assert.ok(rows.find(row=>row.github_repo==="failed").self_host_slugs.includes("linked-null-url"));
+    assert.equal((await rowsToRefresh(isolated, {"published-only":true,limit:1}, false))[0].slug, "unlinked");
+  });
+});
