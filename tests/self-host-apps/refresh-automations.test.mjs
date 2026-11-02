@@ -5,7 +5,8 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 import { pathToFileURL } from "node:url";
-import { gitlabFacts } from "../../scripts/self-host-apps/refresh-source-host.mjs";
+import { refreshFailed } from "../../scripts/self-host-apps/lib/refresh-health.mjs";
+import { gitlabFacts, refreshSourceHost } from "../../scripts/self-host-apps/refresh-source-host.mjs";
 import { refreshGithub, writeFailureAttempt } from "../../scripts/self-host-apps/refresh-github.mjs";
 import { fetchJson } from "../../scripts/self-host-apps/discover-app-catalogs.mjs";
 
@@ -109,13 +110,20 @@ async function cliFixture(t) {
       return nextLoad(url, context);
     }});
     globalThis.fetch = async (url) => String(url).includes('api.github.com/graphql')
-      ? Response.json({data:{repo0:null},errors:[{path:['repo0'],message:'Repository is inaccessible'}]})
+      ? (() => {
+        const rows = JSON.parse(process.env.TEST_ROWS);
+        const failures = process.env.TEST_FAILURES === 'all' ? Infinity : Number(process.env.TEST_FAILURES);
+        return Response.json({
+          data: Object.fromEntries(Array.from({length:rows.length || 1}, (_,i) => ['repo'+i,i<failures ? null : {nameWithOwner:'example/'+rows[i].slug,stargazerCount:5}])),
+          errors: Array.from({length:Math.min(failures,rows.length || 1)},(_,i)=>({path:['repo'+i],message:'Repository is inaccessible'})),
+        });
+      })()
       : String(url).includes('unreadable')
       ? new Response('', {status:404}) : new Response('Run this app on your server.');
   `);
-  return { directory, run(script, rows, args = []) {
+  return { directory, run(script, rows, args = [], failureCount) {
     return spawnSync(process.execPath, ["--import", pathToFileURL(hook).href, script, ...args], {
-      encoding: "utf8", env: { ...process.env, TEST_ROWS: JSON.stringify(rows), GITHUB_TOKEN: "github-test-token", GITHUB_STEP_SUMMARY: join(directory, "summary.md") },
+      encoding: "utf8", env: { ...process.env, TEST_ROWS: JSON.stringify(rows), TEST_FAILURES: failureCount === undefined ? "all" : String(failureCount), GITHUB_TOKEN: "github-test-token", GITHUB_STEP_SUMMARY: join(directory, "summary.md") },
     });
   } };
 }
@@ -154,4 +162,59 @@ test("GitHub dry runs name failed repositories and failure counts in the job sum
   assert.match(summary, /Failed: 1/);
   assert.match(summary, /example\/deleted/);
   assert.match(summary, /Repository is inaccessible/);
+});
+
+
+test("failed-attempt bookkeeping never aborts for missing identity or a database error", async (t) => {
+  const warnings = [];
+  t.mock.method(console, "warn", message => warnings.push(message));
+  await writeFailureAttempt({ query() { assert.fail("Missing identity must not issue SQL"); } }, { slug: "binhex-emby" }, "2026-11-02T00:00:00Z", false);
+  await writeFailureAttempt({ async query() { throw new Error("database unavailable"); } }, { slug: "deleted", github_owner: "example", github_repo: "deleted" }, "2026-11-02T00:00:00Z", false);
+  assert.ok(warnings.some(message => message.includes("binhex-emby") && message.includes("missing repository identity")));
+  assert.ok(warnings.some(message => message.includes("deleted") && message.includes("database unavailable")));
+});
+
+test("a selected identity-less row stays in the failure summary while later repositories refresh", async (t) => {
+  env(t, "GITHUB_TOKEN", "github-test-token");
+  const { directory } = await cliFixture(t);
+  env(t, "GITHUB_STEP_SUMMARY", join(directory, "missing-identity.md"));
+  const rows = [{ slug: "binhex-emby", source_code_url: null }, { slug: "valid", source_code_url: "https://github.com/example/valid" }];
+  const client = { async query(sql) {
+    if (sql.includes("from pg_attribute")) return { rows: [{ available: true }] };
+    if (sql.includes("with memberships as")) return { rows };
+    return { rows: [{ id: "00000000-0000-0000-0000-000000000001" }] };
+  } };
+  t.mock.method(globalThis, "fetch", async () => Response.json({ data: { repo0: { stargazerCount: 5 } } }));
+  const report = await refreshGithub(client, {});
+  assert.equal(report.refreshed, 1);
+  assert.equal(report.failures[0].slug, "binhex-emby");
+  assert.match(await readFile(join(directory, "missing-identity.md"), "utf8"), /binhex-emby/);
+});
+
+test("GitHub CLI tolerates up to 20% failed repositories, but fails broader outages and complete failure", async (t) => {
+  const { directory, run } = await cliFixture(t);
+  const rows = Array.from({length:10},(_,i)=>({slug:`app-${i}`,source_code_url:`https://github.com/example/app-${i}`}));
+  for (const [failed, status] of [[1,0],[2,0],[3,1],[10,1]]) {
+    const result = run("scripts/self-host-apps/refresh-github.mjs", rows, ["--published-only", "--limit", "500", "--dry-run"], failed);
+    assert.equal(result.status, status, result.stderr);
+    assert.match(await readFile(join(directory, "summary.md"), "utf8"), new RegExp(`Failed: ${failed}`));
+  }
+  assert.equal(refreshFailed({selected:0,refreshed:0,failed:0}), false);
+  assert.equal(refreshFailed({selected:1,refreshed:0,failed:0}), true);
+});
+
+test("GitLab and Codeberg tolerate isolated dead sources and still reject broad or total failures", async (t) => {
+  t.mock.method(globalThis, "fetch", async url => String(url).includes("dead")
+    ? Response.json({}, {status:404}) : Response.json(/\/(releases|commits)/.test(String(url)) ? [] : {id:1,path_with_namespace:"apps/valid",full_name:"apps/valid"}));
+  for (const host of ["gitlab", "codeberg"]) {
+    for (const failed of [1,2,5]) {
+      const rows = Array.from({length:5},(_,i)=>({slug:`app-${i}`,source_code_url:`https://${host === "gitlab" ? "gitlab.example" : "codeberg.org"}/apps/${i < failed ? "dead" : "valid"}-${i}`}));
+      const client = { async query() { return {rows}; } };
+      const report = await refreshSourceHost(client, {host,"dry-run":true});
+      assert.equal(report.failed, failed);
+      assert.equal(report.refreshed, 5-failed);
+      assert.equal(report.failures.length, failed);
+      assert.equal(refreshFailed(report), failed > 1);
+    }
+  }
 });

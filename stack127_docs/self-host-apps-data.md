@@ -83,6 +83,15 @@ so inaccessible repositories move behind older work without appearing fresh.
 A failed repository with no project row gets a linked placeholder with a null
 `checked_at`. Failed repository URLs appear in the Actions job summary.
 
+The GitHub queue excludes unlinked apps without a usable GitHub repository URL,
+including null and malformed URLs. A linked project can still supply the identity
+when the app URL is missing. Missing identity or a failed attempt-metadata write
+is logged and skipped without stopping the remaining refreshes.
+GitHub, GitLab and Codeberg list every selected failure in the job summary.
+They tolerate up to 20% failed rows, and fail above that limit or when a non-empty
+batch refreshes nothing. Empty queues succeed. Failed GitLab/Codeberg sources
+keep their successful check dates and are retried on later daily runs.
+
 Other providers keep using the existing `source_*` columns until a provider table is worth adding. That's a planned transition, not a second source of truth for self-host apps.
 
 ## Evidence and QA
