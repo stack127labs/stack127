@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import { pathToFileURL } from "node:url";
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import {
@@ -54,12 +55,35 @@ async function preserveExactAppSources(client, decisions) {
   );
 }
 
-async function applyDecisions(client, {
+export async function applyDecisions(client, {
   appDuplicates,
   candidateDuplicates,
   nameReviews,
   queuedIds,
+  expectedCandidates,
 }) {
+  // Discovery reads can become stale while a reviewer claims/publishes a row.
+  // Recheck the original state under locks before *any* write, including source
+  // preservation, and hold these locks until the caller commits or rolls back.
+  const result = await client.query(
+    `select candidate.id
+     from public.self_host_app_candidates candidate
+     join jsonb_to_recordset($1::jsonb) as expected(id uuid, status text, duplicate_reason text)
+       on candidate.id = expected.id
+     where candidate.status = expected.status
+       and candidate.duplicate_reason is not distinct from expected.duplicate_reason
+       and (candidate.status = 'new' or
+         (candidate.status = 'needs_review' and candidate.duplicate_reason = 'possible_name_match'))
+     order by candidate.id
+     for no key update of candidate`,
+    [JSON.stringify(expectedCandidates.map(({ id, status, duplicate_reason }) => ({ id, status, duplicate_reason: duplicate_reason ?? null })))],
+  );
+  const eligible = new Set(result.rows.map((row) => row.id));
+  const skipped = expectedCandidates.length - eligible.size;
+  appDuplicates = appDuplicates.filter((decision) => eligible.has(decision.target_id));
+  candidateDuplicates = candidateDuplicates.filter((decision) => eligible.has(decision.target_id));
+  nameReviews = nameReviews.filter((decision) => eligible.has(decision.target_id));
+  queuedIds = queuedIds.filter((id) => eligible.has(id));
   await preserveExactAppSources(client, appDuplicates);
 
   if (appDuplicates.length > 0) {
@@ -136,6 +160,14 @@ async function applyDecisions(client, {
       [queuedIds],
     );
   }
+  return {
+    skipped_changed: skipped,
+    queued: queuedIds.length,
+    app_duplicates: appDuplicates.length,
+    candidate_duplicates: candidateDuplicates.length,
+    name_reviews: nameReviews.length,
+    sources_preserved: appDuplicates.length,
+  };
 }
 
 async function main() {
@@ -240,7 +272,7 @@ async function main() {
       if (args["dry-run"]) {
         await client.query("rollback");
       } else {
-        await applyDecisions(client, { appDuplicates, candidateDuplicates, nameReviews, queuedIds });
+        Object.assign(counts, await applyDecisions(client, { appDuplicates, candidateDuplicates, nameReviews, queuedIds, expectedCandidates: targetsResult.rows }));
         await client.query("commit");
       }
     } catch (error) {
@@ -252,7 +284,7 @@ async function main() {
   }, args["database-url"]);
 }
 
-main().catch((error) => {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((error) => {
   console.error(error);
   process.exit(1);
 });

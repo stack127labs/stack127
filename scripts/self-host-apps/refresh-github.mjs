@@ -514,9 +514,12 @@ export async function refreshGithub(client, args) {
   return { selected: rows.length, refreshed, failed: failures.length, failures, retryMetadataAvailable };
 }
 
+import { databaseOptions } from "./lib/environment.mjs";
+
 async function main() {
   const args = parseArgs();
-  const report = await withClient((client) => refreshGithub(client, args), args["database-url"]);
+  if (args.slug !== undefined && (typeof args.slug !== "string" || !args.slug.trim())) throw new Error("--slug needs an app slug");
+  const report = await withClient((client) => refreshGithub(client, args), args.environment ? databaseOptions(args) : args["database-url"]);
   if (refreshFailed(report)) process.exitCode = 1;
 }
 

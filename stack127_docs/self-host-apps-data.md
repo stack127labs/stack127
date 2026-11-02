@@ -134,3 +134,33 @@ npm run self-host-apps:apply-artifact-cleanup -- --environment production --conf
 Review the production preview before running the apply command.
 
 The migration `20260901060529_streamline_self_host_apps_data_model.sql` folds the old rows into these tables. It removes pipeline-only tables and compatibility views and keeps the candidate review queue.
+
+## Add one app on request
+
+This adds records to `/self-host-apps`. It does not create a route or page.
+
+1. Find existing records first: `npm run self-host-apps:select-candidate-batch -- --environment development --match forgejo`. A name or repository substring lists candidate IDs, statuses, source and duplicate links, plus app IDs, slugs, publication and self-hosting status. Repeat the lookup in production before preparing that batch; app IDs must match that database.
+2. Research the official website, repository, license, install docs and resource guidance. Write reviewed decisions and RAM/storage estimates using the enrichment skill formats. Include a managed icon, official evidence links, verified self-hosting and source model, and one to three controlled categories. Review every possible duplicate. Do not copy directory claims as verified facts.
+3. Claim only the candidate IDs in the review file, preview first:
+
+   ```bash
+   npm run self-host-apps:select-candidate-batch -- --environment development --ids-from <reviewed.json> --dry-run --out /tmp/app-claim-preview.json
+   npm run self-host-apps:select-candidate-batch -- --environment development --ids-from <reviewed.json> --out /tmp/app-claim.json
+   npm run self-host-apps:apply-candidate-review -- --environment development --file <reviewed.json> --dry-run
+   npm run self-host-apps:apply-candidate-review -- --environment development --file <reviewed.json>
+   npm run self-host-apps:apply-resource-estimates -- --environment development --file <estimates.json> --dry-run
+   npm run self-host-apps:apply-resource-estimates -- --environment development --file <estimates.json> --apply-reviewed
+   ```
+
+4. Refresh only that app's repository facts: `self-host-apps:refresh-github -- --slug <slug>` for GitHub, `self-host-apps:refresh-gitlab -- --slug <slug>` for GitLab, or `self-host-apps:refresh-codeberg -- --slug <slug>` for Codeberg. Pass `--environment development`. Check the real directory at desktop and mobile width, including the app's icon, install links, estimates and filters.
+5. After the owner authorizes production changes, run the same claim preview, claim, review preview, review apply, estimate preview, estimate apply and per-app refresh on homelab. Replace `--environment development` with `--environment production --confirm stack127-production` on every command. Use homelab because uploading to production from the MacBook is very slow. Check the live directory after cache refresh completes.
+
+`new` means discovery has not run duplicate checks. `queued` means dedupe found no match; `needs_review` often means a possible name match. Exact-ID manual selection accepts all three because the reviewer checks duplicates. It also reports already `enriching` rows and leaves them alone. Missing, published, rejected or duplicate IDs stop the whole claim. `--ids <uuid,uuid>` is also supported. Claiming uses one transaction and touches no other candidates. Top-N selection still only claims `queued` and `needs_review`; it does not bypass dedupe. Re-running a claim is safe while rows are enriching. Before the review commits, claiming the same IDs again is safe. After the review commits, resume at estimates; do not reclaim or reapply that review. Estimates and repository refreshes can be re-run. Release an abandoned enriching claim with `npm run self-host-apps:release-candidate-batch -- --environment development --file <claimed.json> --to needs_review`; use `--environment production --confirm stack127-production` for production. Release leaves completed candidates alone.
+
+Claims, claim releases, candidate reviews, resource estimates and single-app upserts default to development and use the shared environment resolver. They ignore `NODE_ENV` and inherited `DATABASE_URL`, reject `--database-url`, and require the production confirmation even for previews. Review application still writes unless `--dry-run` is present; estimates still need `--apply-reviewed` to write. Those flags cannot be combined. Candidate review previews use a read-only transaction; claim and estimate previews issue no data writes. A preview validates inputs and references but cannot prove that every write-time constraint or trigger will pass.
+
+If there is no candidate, use the existing single-record path: put the same complete, officially researched app facts in `<app.json>` with `published: true`, then run `npm run self-host-apps:upsert -- --environment development --file <app.json> --dry-run` and repeat without `--dry-run`. This file is the app object, not a candidate-review wrapper. Find first: upsert merges by slug. No candidate ID or raw SQL is needed. Fill estimates with the commands above. Preview install destinations with `npm run self-host-apps:refresh-install-options -- --environment development --slug <slug>` and repeat with `--apply`. Then check the directory and repeat this single-app sequence on homelab with the production flags after authorization.
+
+Do not use `sync-local-to-prod` for this. It mirrors whole tables and would send about 5,000 unrelated development differences along with the requested apps.
+
+Caller check: the repo has npm wrappers in `package.json` and command examples in `scripts/self-host-apps/scripts.json`, `skills/self-host-apps/enrichment/SKILL.md`, this document and `content_docs/self-host-apps/data-workflow.md`. Examples now name development explicitly. No workflow, monitoring entry, checked-in OVH job or homelab job calls the gated editorial commands or supplies `NODE_ENV=production` / `--database-url` to them. Installed timers and scripts outside this repo were not checked. `upsert-batch` is a separate legacy command; its environment behavior was not changed by this work.

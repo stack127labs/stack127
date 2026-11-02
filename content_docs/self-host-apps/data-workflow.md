@@ -12,7 +12,7 @@ recurring discovery
   -> provider refresh
 ```
 
-Production is canonical. Local is a disposable mirror for development and QA.
+Production is canonical. Local is a disposable mirror for development and QA. Claim, review, release, estimate and single-app upsert examples target development explicitly. For authorized production work on homelab, replace `--environment development` with `--environment production --confirm stack127-production`. These commands ignore `NODE_ENV` and inherited `DATABASE_URL` and reject `--database-url`. Discovery and scheduled refresh commands keep their existing environment behavior.
 
 ## Discovery
 
@@ -31,11 +31,13 @@ npm run self-host-apps:discover-app-catalogs -- --catalog all --limit 5000 --wri
 ```bash
 npm run self-host-apps:dedupe-candidates -- --dry-run
 npm run self-host-apps:dedupe-candidates
-npm run self-host-apps:select-candidate-batch -- --limit 100 --out <batch.json>
+npm run self-host-apps:select-candidate-batch -- --environment development --limit 100 --out <batch.json>
 npm run self-host-apps:collect-github-evidence -- --file <batch.json>
 ```
 
 Selection uses `FOR UPDATE SKIP LOCKED` and marks claimed rows `enriching`, so two workers do not take the same work. Reviewers use `references/review-format.md`. Put supporting links in `sources` and `data_source_urls`; use `technical_fact_status` for checked-but-unpublished technical facts. There is no field-source table.
+
+Before a review commits, claiming the same IDs again is safe. Release an abandoned claim with `npm run self-host-apps:release-candidate-batch -- --environment development --file <claimed.json> --to needs_review`; production requires the production environment and confirmation above. After the review commits, resume at estimates without reclaiming or reapplying the review. Estimates and repository refreshes can be re-run.
 
 The legacy `self-host-apps:reset-categories` command is retired and exits without database access. It previously replaced all category links using imported labels and keyword matches. Existing categories need source review too. Correct them per app with `apply-qa-overrides.mjs`, `review_scope: "partial"`, expected categories, and official evidence URLs. Do not infer purpose from incidental words such as image, model, or server.
 
@@ -59,7 +61,7 @@ Estimate RAM and storage for every published app for a typical small self-hosted
 
 ```bash
 npm run self-host-apps:propose-resource-estimates -- --limit 5000 --out <resource-estimates.json>
-npm run self-host-apps:apply-resource-estimates -- --file <reviewed-estimates.json> --apply-reviewed
+npm run self-host-apps:apply-resource-estimates -- --environment development --file <reviewed-estimates.json> --apply-reviewed
 ```
 
 An estimate record needs a range, kind, confidence, a short internal basis, and a link to the official project or publisher page. Use `review.method: "app_estimate"` for a practical estimate. Keep published requirements as source evidence for the estimate, not as a separate public RAM or storage label. Do not use a package memory cap as an app requirement.

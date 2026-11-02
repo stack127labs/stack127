@@ -105,8 +105,11 @@ async function replaceCategoryLinks(client, appId, categories) {
   }
 }
 
+import { databaseOptions } from "./lib/environment.mjs";
+
 async function main() {
   const args = parseArgs();
+  const databaseUrl = databaseOptions(args);
   if (!args.file) {
     console.error("Usage: npm run self-host-apps:upsert -- --file app.json [--dry-run]");
     process.exit(1);
@@ -159,7 +162,7 @@ async function main() {
       await client.query("commit");
       console.log(`Upserted: ${record.slug}`);
     }
-  }, args["database-url"]);
+  }, databaseUrl);
 }
 
 main().catch((error) => {
