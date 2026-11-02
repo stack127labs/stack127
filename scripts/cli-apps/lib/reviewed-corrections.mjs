@@ -42,6 +42,7 @@ export function guardCorrection(record, current) {
     if (!isDeepStrictEqual(current[field], record.expected[field]) && !isDeepStrictEqual(current[field], value)) throw new Error(`${record.slug}: ${field} changed since review`);
     if (!isHttps(record.sources?.[field])) throw new Error(`${field}: reviewed source URL required`);
     if (field.endsWith("_url") && value !== null && !isHttps(value)) throw new Error(`${field}: HTTPS URL required`);
+    if (field === "repository_url") githubRepository(value);
     if (field === "summary") {
       const { errors } = validateSummary(value);
       if (errors.length) throw new Error(`${record.slug}: ${errors.join("; ")}`);
@@ -57,15 +58,30 @@ export function validateBatch(batch, chunkSize) {
   for (const record of batch.apps) guardCorrection(record, record?.expected ?? {});
 }
 
-async function repositoryProjectId(client, url) {
+function githubRepository(url) {
   if (new URL(url).hostname.toLowerCase() !== "github.com") return null;
   const parsed = parseRepo(url);
   const owner = parsed.owner.trim().toLowerCase();
   const repo = parsed.repo.trim().toLowerCase();
   if (!owner || !repo) throw new Error("GitHub owner and repository are required");
-  const find = () => client.query("select id from public.github_projects where owner = $1 and repo = $2", [owner, repo]);
+  return { owner, repo };
+}
+
+async function repositoryProjectId(client, url) {
+  const repository = githubRepository(url);
+  if (!repository) return null;
+  const { owner, repo } = repository;
+  // Older imports preserve casing, and some repos already have multiple case variants.
+  // Prefer the most recently checked row, with a stable ID tie-breaker.
+  const find = () => client.query("select id from public.github_projects where lower(owner) = $1 and lower(repo) = $2 order by checked_at desc nulls last, id limit 1", [owner, repo]);
   const existing = (await find()).rows[0];
   if (existing) return existing.id;
+  // There is only a case-sensitive unique index. Serialize missing-project inserts
+  // with every writer (including importers that do not use advisory locks), then
+  // recheck after the lock has waited for any in-flight inserts to commit.
+  await client.query("lock table public.github_projects in share row exclusive mode");
+  const afterLock = (await find()).rows[0];
+  if (afterLock) return afterLock.id;
   const inserted = await client.query(`insert into public.github_projects (owner, repo, full_name, repository_url, checked_at)
     values ($1, $2, $3, $4, null) on conflict (owner, repo) do nothing returning id`,
   [owner, repo, `${owner}/${repo}`, `https://github.com/${owner}/${repo}`]);

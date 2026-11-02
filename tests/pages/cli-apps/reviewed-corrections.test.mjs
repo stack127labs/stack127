@@ -95,8 +95,12 @@ function database(records, projects = []) {
       if (sql === "begin") saved = structuredClone({ rows, sources, repositories });
       else if (sql === "rollback") ({ rows, sources, repositories } = saved);
       else if (sql === "commit") saved = undefined;
+      else if (sql.startsWith("lock table public.github_projects")) {
+        // Simulate a writer that committed a differently cased repo while the lock waited.
+        if (this.concurrentProject) repositories.push(structuredClone(this.concurrentProject));
+      }
       else if (sql.startsWith("select *")) return { rows: rows.filter(row => row.slug === params[0]) };
-      else if (sql.startsWith("select id")) return { rows: repositories.filter(row => row.owner === params[0] && row.repo === params[1]) };
+      else if (sql.startsWith("select id")) return { rows: repositories.filter(row => (sql.includes("lower(owner)") ? row.owner.toLowerCase() === params[0] && row.repo.toLowerCase() === params[1] : row.owner === params[0] && row.repo === params[1])) };
       else if (sql.startsWith("insert into public.github_projects")) {
         const project = { id: `project-${repositories.length}`, owner: params[0], repo: params[1], full_name: params[2], repository_url: params[3], checked_at: null };
         repositories.push(project);
@@ -231,4 +235,30 @@ test("a lost commit response preserves the error, reports uncertainty, and allow
   const replay = await applyCorrections(client, batch, { apply: true, ...silent });
   assert.equal(replay.skippedApps, 1);
   assert.equal(db.sources.length, 1);
+});
+
+
+test("mixed-case existing GitHub projects are reused without creating duplicates", async () => {
+  const record = fieldCorrection("repository_url", "https://github.com/couchpotato/couchpotatoserver", "https://github.com/example/old");
+  const original = [{ id: "app", slug: record.slug, ...record.expected, github_project_id: "old" }];
+  const project = { id: "mixed-case", owner: "CouchPotato", repo: "CouchPotatoServer", checked_at: "2026-01-01" };
+  for (const concurrent of [false, true]) {
+    const db = database(original, concurrent ? [] : [project]);
+    if (concurrent) db.concurrentProject = project;
+    await applyCorrections(db, { apps: [record] }, { apply: true, ...silent });
+    assert.equal(db.rows[0].github_project_id, "mixed-case");
+    assert.deepEqual(db.projects, [project]);
+    assert.equal(db.queries.some(sql => sql.startsWith("insert into public.github_projects")), false);
+    if (concurrent) assert.equal(db.queries.filter(sql => sql.startsWith("select id")).length, 2);
+  }
+});
+
+test("invalid GitHub URLs in later chunks fail whole-batch validation before any transaction", async () => {
+  for (const url of ["https://github.com/owner", "https://github.com/owner/.git"]) {
+    const batch = batchOf(2);
+    batch.apps[1] = { ...fieldCorrection("repository_url", url, "https://github.com/example/old"), slug: "app-1" };
+    const db = database(rowsFor(batch));
+    await assert.rejects(applyCorrections(db, batch, { apply: true, chunkSize: 1, ...silent }), /GitHub/);
+    assert.deepEqual(db.queries, []);
+  }
 });

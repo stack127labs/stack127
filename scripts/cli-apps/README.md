@@ -47,8 +47,14 @@ old value or the requested value. Any third value stops the chunk.
 
 A changed `repository_url` also changes `github_project_id` in the same update.
 GitHub owner/repo parsing and normalization match the refresh script. Existing
-projects are reused without updating their facts. Missing projects get a minimal
-row with `checked_at = null`. Non-GitHub repositories clear the link. This derived
+projects are matched case-insensitively and reused without updating their facts.
+If older imports left case variants, the most recently checked row wins, with
+a stable ID tie-breaker. Before inserting a missing project, a transaction-scoped
+table lock serializes writers and the lookup runs again. This prevents duplicate
+creation without changing existing rows or the database schema. Missing projects get a minimal
+row with `checked_at = null`. GitHub owner/repo parsing also runs during whole-batch
+validation, so malformed URLs stop the run before any chunk commits.
+Non-GitHub repositories clear the link. This derived
 link cannot be supplied as a reviewed field. Evidence is recorded for the
 `repository_url` correction.
 
