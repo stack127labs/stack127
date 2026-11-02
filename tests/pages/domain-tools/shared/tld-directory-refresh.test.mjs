@@ -53,21 +53,37 @@ test("validates every current ending while ignoring historical rows outside the 
   assert.throws(() => parseRootDb(brokenHistoricalRow, ["aaa", "bl"]), /Missing IANA organisation for .bl/);
 });
 
+test("rejects a retired ending still required by the local TLD list", () => {
+  const retired = fixture.replace("Active", "Retired");
+  assert.throws(() => parseRootDb(retired, ["aaa"]), /required ending .aaa as retired/);
+});
+
+test("skips retired endings outside the local TLD list, even with a blank manager", () => {
+  const retired = fixture.replace("Active", "Retired").replace("American Automobile Association, Inc.", "");
+  const expected = parseRootDb(fixture).filter((entry) => entry.tld !== "aaa");
+  assert.deepEqual(parseRootDb(retired, expected.map((entry) => entry.tld)), expected);
+  assert.deepEqual(parseRootDb(retired), expected);
+});
+
 test("a failed refresh exits with an error and leaves the committed output untouched", async () => {
   const directory = await mkdtemp(path.join(tmpdir(), "stack127-tld-refresh-"));
   try {
     const output = path.join(directory, "lib/domain/data/tld-directory.json");
     await mkdir(path.dirname(output), { recursive: true });
     await writeFile(output, "previous valid dataset\n");
-    const invalidHtml = fixture.replace("Generic", "Active");
-    const preload = `globalThis.fetch = async () => ({ ok: true, text: async () => ${JSON.stringify(invalidHtml)} });`;
-    const result = spawnSync(process.execPath, [
-      "--experimental-strip-types", "--import", `data:text/javascript;base64,${Buffer.from(preload).toString("base64")}`,
-      fileURLToPath(new URL("../../../../scripts/domain-tools/refresh-tld-directory.mjs", import.meta.url)),
-    ], { cwd: directory, encoding: "utf8" });
-    assert.equal(result.status, 1);
-    assert.match(result.stderr, /Invalid IANA type for .aaa/);
-    assert.equal(await readFile(output, "utf8"), "previous valid dataset\n");
+    for (const [invalidHtml, error] of [
+      [fixture.replace("Generic", "Active"), /Invalid IANA type for .aaa/],
+      [fixture.replace("Active", "Retired"), /required ending .aaa as retired/],
+    ]) {
+      const preload = `globalThis.fetch = async () => ({ ok: true, text: async () => ${JSON.stringify(invalidHtml)} });`;
+      const result = spawnSync(process.execPath, [
+        "--experimental-strip-types", "--import", `data:text/javascript;base64,${Buffer.from(preload).toString("base64")}`,
+        fileURLToPath(new URL("../../../../scripts/domain-tools/refresh-tld-directory.mjs", import.meta.url)),
+      ], { cwd: directory, encoding: "utf8" });
+      assert.equal(result.status, 1);
+      assert.match(result.stderr, error);
+      assert.equal(await readFile(output, "utf8"), "previous valid dataset\n");
+    }
   } finally {
     await rm(directory, { recursive: true, force: true });
   }

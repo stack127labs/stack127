@@ -89,6 +89,13 @@ export function parseRootDb(html, requiredTlds = null) {
       throw new Error("Malformed IANA root database row. Refusing to write a partial dataset.");
     }
     const tld = link[1].toLowerCase();
+    const status = stripTags(statusCell).toLowerCase();
+    if (status === "retired") {
+      if (required?.has(tld)) {
+        throw new Error(`IANA marks required ending .${tld} as retired. Refresh the TLD list before retrying. Refusing to write.`);
+      }
+      continue;
+    }
     // IANA also lists retired and eligible names, sometimes without managers.
     // Validate every current root-zone ending, not those historical records.
     if (required && !required.has(tld)) continue;
