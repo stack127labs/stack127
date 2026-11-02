@@ -1,7 +1,7 @@
 {
   "source": "https://data.iana.org/rdap/dns.json",
-  "fetchedAt": "2026-10-14",
-  "publication": "2026-09-30T23:00:03Z",
+  "fetchedAt": "2026-11-02",
+  "publication": "2026-10-28T22:00:04Z",
   "services": {
     "kg": "http://rdap.cctld.kg/",
     "mg": "http://rdap.nic.mg/",
@@ -399,7 +399,6 @@
     "hdfc": "https://rdap.identitydigital.services/rdap/",
     "hdfcbank": "https://rdap.identitydigital.services/rdap/",
     "healthcare": "https://rdap.identitydigital.services/rdap/",
-    "helsinki": "https://rdap.identitydigital.services/rdap/",
     "hermes": "https://rdap.identitydigital.services/rdap/",
     "hkt": "https://rdap.identitydigital.services/rdap/",
     "hockey": "https://rdap.identitydigital.services/rdap/",
@@ -552,6 +551,7 @@
     "sarl": "https://rdap.identitydigital.services/rdap/",
     "saxo": "https://rdap.identitydigital.services/rdap/",
     "sbi": "https://rdap.identitydigital.services/rdap/",
+    "sc": "https://rdap.identitydigital.services/rdap/",
     "scholarships": "https://rdap.identitydigital.services/rdap/",
     "school": "https://rdap.identitydigital.services/rdap/",
     "schule": "https://rdap.identitydigital.services/rdap/",
