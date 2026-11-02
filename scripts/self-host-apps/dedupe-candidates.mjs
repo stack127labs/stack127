@@ -75,7 +75,7 @@ export async function applyDecisions(client, {
        and (candidate.status = 'new' or
          (candidate.status = 'needs_review' and candidate.duplicate_reason = 'possible_name_match'))
      order by candidate.id
-     for update of candidate`,
+     for no key update of candidate`,
     [JSON.stringify(expectedCandidates.map(({ id, status, duplicate_reason }) => ({ id, status, duplicate_reason: duplicate_reason ?? null })))],
   );
   const eligible = new Set(result.rows.map((row) => row.id));

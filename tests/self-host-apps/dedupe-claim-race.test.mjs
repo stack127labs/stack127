@@ -26,7 +26,7 @@ for (const status of ["enriching", "published"]) {
       // still match that snapshot when the guarded locking query runs.
       assert.match(sql, /candidate.status = expected.status/);
       assert.match(sql, /candidate.duplicate_reason is not distinct from expected.duplicate_reason/);
-      assert.match(sql, /for update of candidate/);
+      assert.match(sql, /for no key update of candidate/);
       const expected = JSON.parse(params[0]);
       const current = expected.map((row) => ({ ...row, status }));
       return { rows: current.filter((row) => expected.some((old) => old.id === row.id && old.status === row.status)) };
@@ -40,7 +40,7 @@ for (const status of ["enriching", "published"]) {
 test("unchanged dedupe targets still move forward while changed targets are skipped", async () => {
   const writes = [];
   const client = { async query(sql, params) {
-    if (sql.includes("for update of candidate")) return { rows: [{ id: id(4) }] };
+    if (sql.includes("for no key update of candidate")) return { rows: [{ id: id(4) }] };
     writes.push(params);
     assert.match(sql, /set status = 'queued'/);
     return { rows: [] };
@@ -79,5 +79,33 @@ test("database: a manual claim between dedupe read and write survives all stale 
   } finally {
     await client.query("rollback").catch(() => {});
     await client.end();
+  }
+});
+
+// A claim must not block dedupe's foreign-key check on the row it holds. Otherwise a
+// claim waiting on dedupe's next row and dedupe waiting on the claimed row would deadlock.
+test("database: a claimed candidate can still be referenced by a concurrent dedupe write", {
+  skip: process.env.SELF_HOST_APPS_TEST_ENVIRONMENT !== "development",
+}, async () => {
+  const connect = () => new pg.Client({ connectionString: resolveDatabaseUrl({ environment: "development" }), connectionTimeoutMillis: 15000, query_timeout: 30000 });
+  const claimer = connect();
+  const deduper = connect();
+  try {
+    await claimer.connect();
+    await deduper.connect();
+    const { rows } = await claimer.query("select id from public.self_host_app_candidates where status = 'queued' order by id limit 2");
+    assert.equal(rows.length, 2, "needs two queued development candidates");
+    const [claimed, referencing] = rows.map((row) => row.id);
+    await claimer.query("begin");
+    await claimIds(claimer, [claimed], false);
+    await deduper.query("begin");
+    await deduper.query("set local lock_timeout = '3s'");
+    // Rolled back below. A blocking lock would fail here with a lock timeout.
+    await deduper.query("update public.self_host_app_candidates set duplicate_candidate_id = $1 where id = $2", [claimed, referencing]);
+  } finally {
+    await deduper.query("rollback").catch(() => {});
+    await claimer.query("rollback").catch(() => {});
+    await deduper.end().catch(() => {});
+    await claimer.end().catch(() => {});
   }
 });

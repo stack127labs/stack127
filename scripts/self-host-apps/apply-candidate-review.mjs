@@ -286,7 +286,7 @@ export async function upsertInstallOptions(client, appId, options, catalogSource
 }
 
 async function candidateById(client, id, dryRun) {
-  const result = await client.query("select * from public.self_host_app_candidates where id = $1" + (dryRun ? "" : " for update"), [id]);
+  const result = await client.query("select * from public.self_host_app_candidates where id = $1" + (dryRun ? "" : " for no key update"), [id]);
   if (!result.rows[0]) throw new Error(`Missing candidate: ${id}`);
   return result.rows[0];
 }

@@ -98,7 +98,7 @@ test("review dry run checks all ten reviewed records using only reads", async ()
     queries.push(sql);
     if (["begin read only", "rollback"].includes(sql)) return { rows: [] };
     assert.match(sql, /^select/i);
-    assert.doesNotMatch(sql, /for update/i);
+    assert.doesNotMatch(sql, /for (no key )?update/i);
     if (sql.includes("self_host_app_candidates")) return { rows: [{ id: params[0], status: "enriching" }] };
     const review = reviews.find((row) => row.app?.slug === params[0]);
     return { rows: [{ id: review?.app_id ?? params[0] }] };

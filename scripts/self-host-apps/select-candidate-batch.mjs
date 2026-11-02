@@ -76,7 +76,7 @@ export async function requestedIds(args) {
 // any of them; a missing or terminal row must leave the whole batch unchanged.
 export async function claimIds(client, ids, dryRun = false) {
   const result = await client.query(
-    "select * from public.self_host_app_candidates where id = any($1::uuid[]) order by id" + (dryRun ? "" : " for update"), [ids],
+    "select * from public.self_host_app_candidates where id = any($1::uuid[]) order by id" + (dryRun ? "" : " for no key update"), [ids],
   );
   const byId = new Map(result.rows.map((row) => [row.id, row]));
   const missing = ids.filter((id) => !byId.has(id));
@@ -138,7 +138,7 @@ async function main() {
                 from public.self_host_app_candidates
                 where status = any($1::text[])
                 order by confidence_score desc, last_seen_at desc, name, id
-                for update skip locked
+                for no key update skip locked
                 limit $2
               )
               update public.self_host_app_candidates candidate
