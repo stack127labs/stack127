@@ -1,3 +1,4 @@
+import { spawnSync } from "node:child_process";
 import assert from "node:assert/strict";
 import test from "node:test";
 import { mkdtempSync, rmSync, writeFileSync, readFileSync } from "node:fs";
@@ -142,6 +143,10 @@ test("find is read only and matches names and repositories literally", async () 
 
 test("source-host refresh scopes a single slug with a bound parameter", async () => {
   const client = { async query(sql, params) {
+    if (sql.includes("select source_code_host")) {
+      assert.deepEqual(params, ["glitchtip"]);
+      return { rows: [{ source_code_host: "gitlab", source_code_url: "https://gitlab.com/glitchtip/glitchtip" }] };
+    }
     assert.match(sql, /slug = \$2/);
     assert.deepEqual(params, ["gitlab", "glitchtip", 500]);
     return { rows: [] };
@@ -153,4 +158,45 @@ test("source-host refresh scopes a single slug with a bound parameter", async ()
   const client = { query() { throw new Error("Must reject before querying"); } };
   await assert.rejects(findMatches(client, ""), /needs a name/);
   await assert.rejects(rowsToRefresh(client, "codeberg", { slug: "" }), /needs an app slug/);
+});
+
+for (const [label, rows, message] of [
+  ["missing app", [], /App not found: gitlab/],
+  ["wrong host", [{ source_code_host: "gitlab", source_code_url: "https://gitlab.com/gitlab-org/gitlab" }], /belongs to host gitlab, not codeberg/],
+  ["missing repository", [{ source_code_host: "codeberg", source_code_url: null }], /has no repository URL/],
+]) {
+  test(`targeted source refresh rejects ${label}`, async () => {
+    let queries = 0;
+    const client = { async query() { queries++; return { rows }; } };
+    await assert.rejects(rowsToRefresh(client, "codeberg", { slug: "gitlab" }), message);
+    assert.equal(queries, 1);
+  });
+}
+
+test("an empty scheduled source-host queue is successful", async () => {
+  const client = { async query() { return { rows: [] }; } };
+  assert.deepEqual(await rowsToRefresh(client, "codeberg", {}), []);
+});
+
+test("release CLI requires production confirmation and ignores inherited production defaults", () => {
+  const script = new URL("../../scripts/self-host-apps/release-candidate-batch.mjs", import.meta.url).pathname;
+  const dir = mkdtempSync(join(tmpdir(), "self-host-release-"));
+  try {
+    writeFileSync(join(dir, ".env.local"), "DATABASE_URL=postgres://development/db\n");
+    writeFileSync(join(dir, ".env.database"), "DATABASE_URL=postgres://production/db\n");
+    const run = (...args) => spawnSync(process.execPath, [script, ...args], {
+      cwd: dir, encoding: "utf8", env: { ...process.env, NODE_ENV: "production", DATABASE_URL: "postgres://unintended/db" },
+    });
+    const missingGate = run("--environment", "production");
+    assert.equal(missingGate.status, 1);
+    assert.match(missingGate.stderr, /Production requires --confirm stack127-production/);
+    const explicitProduction = run("--environment", "production", "--confirm", "stack127-production");
+    assert.match(explicitProduction.stderr, /Pass --file/);
+    const development = run();
+    assert.match(development.stderr, /Pass --file/);
+    assert.doesNotMatch(development.stderr, /Production requires/);
+    assert.match(run("--database-url", "postgres://override/db").stderr, /not supported/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });

@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
+import { databaseOptions } from "./lib/environment.mjs";
 import { parseArgs } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { readJson } from "./lib/schema.mjs";
 
 async function main() {
   const args = parseArgs();
+  const databaseUrl = databaseOptions(args);
   if (!args.file) throw new Error("Pass --file with a claimed candidate batch.");
   const targetStatus = args.to ?? "needs_review";
   if (!new Set(["queued", "needs_review"]).has(targetStatus)) {
@@ -28,7 +30,7 @@ async function main() {
       [ids, targetStatus],
     );
     console.log(`Released ${result.rowCount} candidate(s) to ${targetStatus}.`);
-  }, args["database-url"]);
+  }, databaseUrl);
 }
 
 main().catch((error) => {

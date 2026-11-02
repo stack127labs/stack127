@@ -5,7 +5,7 @@ description: Research and review stack127 self-host app candidates in claimed ba
 
 # Stack127 self-host enrichment
 
-Work in `/home/teja/projects/stack127`. Production is canonical; refresh development from production before a long run.
+Work in the assigned checkout. Production is canonical; refresh development from production before a long run. The commands below explicitly target development. For authorized production work on homelab, replace `--environment development` with `--environment production --confirm stack127-production`; `NODE_ENV=production` no longer chooses production for these editorial commands.
 
 Scripts move data. Codex makes editorial and factual decisions. Never generate summaries, categories, self-hosting status, surfaces, or resource facts from keywords.
 
@@ -14,16 +14,16 @@ Scripts move data. Codex makes editorial and factual decisions. Never generate s
 1. Read `content_docs/self-host-apps/data-workflow.md`, `content-rules.md`, and `schema.md`.
    Read `stack127_docs/writing-style.md` for app summaries and other public wording.
 2. Claim up to 100 candidates:
-   `npm run self-host-apps:select-candidate-batch -- --limit 100 --out <batch.json>`
+   `npm run self-host-apps:select-candidate-batch -- --environment development --limit 100 --out <batch.json>`
 3. For GitHub candidates, collect API evidence:
    `npm run self-host-apps:collect-github-evidence -- --file <batch.json>`
 4. Research every candidate from official source code, website, docs, release, package, and container pages. Treat directory copy as a lead only.
 5. Write reviewed decisions using [review-format.md](references/review-format.md).
 6. Dry-run, then apply:
-   `npm run self-host-apps:apply-candidate-review -- --file <reviewed.json> --dry-run`
-   `npm run self-host-apps:apply-candidate-review -- --file <reviewed.json>`
+   `npm run self-host-apps:apply-candidate-review -- --environment development --file <reviewed.json> --dry-run`
+   `npm run self-host-apps:apply-candidate-review -- --environment development --file <reviewed.json>`
 7. Run the relevant QA, summary, link, icon and typecheck checks. Do not build locally.
-8. Repeat until no queued or review candidates remain. Release an abandoned claim with `self-host-apps:release-candidate-batch`.
+8. Repeat until no queued or review candidates remain. Before the review commits, release an abandoned claim with `npm run self-host-apps:release-candidate-batch -- --environment development --file <claimed.json> --to needs_review`. Use the production environment and confirmation for a production claim.
 
 ## Decisions
 
@@ -73,6 +73,8 @@ Follow [Add one app on request](../../../stack127_docs/self-host-apps-data.md#ad
 5. Refresh only its repository with `--slug <slug>` on `refresh-github`, `refresh-gitlab` or `refresh-codeberg`.
 6. After production authorization, repeat previews and applies from homelab with `--environment production --confirm stack127-production`. MacBook uploads to production are very slow. Check the live directory after its cache refresh.
 
-If no candidate exists, use the existing `self-host-apps:upsert -- --file <app.json>` path, first with `--dry-run`. Supply the complete reviewed app object with `published: true`, not a review wrapper. Apply estimates, then preview/apply `self-host-apps:refresh-install-options -- --slug <slug>` (`--apply` writes). Pass the chosen environment on every command. No new candidate or ad hoc SQL is needed.
+If no candidate exists, use the existing `self-host-apps:upsert -- --environment development --file <app.json>` path, first with `--dry-run`. Supply the complete reviewed app object with `published: true`, not a review wrapper. Apply estimates, then preview/apply `self-host-apps:refresh-install-options -- --slug <slug>` (`--apply` writes). Pass the chosen environment on every command. No new candidate or ad hoc SQL is needed.
 
 Do not use `sync-local-to-prod`: it mirrors whole tables and would push about 5,000 unrelated development differences. Editorial commands default to development regardless of `NODE_ENV`; production previews also require the confirmation. Candidate-review dry runs use a read-only transaction. Estimates require `--apply-reviewed`; never combine it with `--dry-run`.
+
+Recovery: before the review commits, claiming the same IDs again is safe. After the review commits, resume at estimates; do not reclaim or reapply that review. Estimates and repository refreshes can be re-run. Release only abandoned enriching claims; release leaves completed candidates alone.
