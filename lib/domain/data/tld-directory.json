@@ -3,14 +3,14 @@
     "rootDb": "https://www.iana.org/domains/root/db",
     "rootZone": "https://www.internic.net/domain/root.zone"
   },
-  "fetchedAt": "2026-10-14",
-  "tldListVersion": "2026101300",
+  "fetchedAt": "2026-11-02",
+  "tldListVersion": "2026110200",
   "counts": {
-    "total": 1437,
-    "signed": 1351,
-    "rdapCovered": 1229,
+    "total": 1436,
+    "signed": 1350,
+    "rdapCovered": 1228,
     "whoisCovered": 77,
-    "lookupCovered": 1306,
+    "lookupCovered": 1305,
     "uncovered": 131,
     "unassigned": 0,
     "missingType": 0
@@ -292,7 +292,7 @@
     {
       "tld": "aero",
       "unicode": null,
-      "type": "sponsored",
+      "type": "generic",
       "organisation": "Societe Internationale de Telecommunications Aeronautique (SITA INC USA)",
       "assigned": true,
       "rdap": "bootstrap",
@@ -955,7 +955,7 @@
     {
       "tld": "asia",
       "unicode": null,
-      "type": "sponsored",
+      "type": "generic",
       "organisation": "DotAsia Organisation Ltd.",
       "assigned": true,
       "rdap": "bootstrap",
@@ -1761,7 +1761,7 @@
     {
       "tld": "biz",
       "unicode": null,
-      "type": "generic-restricted",
+      "type": "generic",
       "organisation": "Registry Services, LLC",
       "assigned": true,
       "rdap": "bootstrap",
@@ -2684,7 +2684,7 @@
     {
       "tld": "cat",
       "unicode": null,
-      "type": "sponsored",
+      "type": "generic",
       "organisation": "Fundacio puntCAT",
       "assigned": true,
       "rdap": "bootstrap",
@@ -3361,7 +3361,7 @@
       "tld": "cologne",
       "unicode": null,
       "type": "generic",
-      "organisation": "dotKoeln GmbH",
+      "organisation": "domainworx Service & Management GmbH",
       "assigned": true,
       "rdap": "bootstrap",
       "rdapOperator": null,
@@ -3555,7 +3555,7 @@
     {
       "tld": "coop",
       "unicode": null,
-      "type": "sponsored",
+      "type": "generic",
       "organisation": "DotCooperation LLC",
       "assigned": true,
       "rdap": "bootstrap",
@@ -4634,7 +4634,7 @@
     {
       "tld": "edu",
       "unicode": null,
-      "type": "sponsored",
+      "type": "generic",
       "organisation": "EDUCAUSE",
       "assigned": true,
       "rdap": "whois",
@@ -6415,7 +6415,7 @@
     {
       "tld": "gov",
       "unicode": null,
-      "type": "sponsored",
+      "type": "generic",
       "organisation": "Cybersecurity and Infrastructure Security Agency",
       "assigned": true,
       "rdap": "bootstrap",
@@ -6812,19 +6812,6 @@
       "rdapOperator": null,
       "lookupSource": "bootstrap",
       "lookupHost": "rdap.centralnic.com",
-      "dnssec": true,
-      "isIdn": false
-    },
-    {
-      "tld": "helsinki",
-      "unicode": null,
-      "type": "generic",
-      "organisation": "City of Helsinki",
-      "assigned": true,
-      "rdap": "bootstrap",
-      "rdapOperator": null,
-      "lookupSource": "bootstrap",
-      "lookupHost": "rdap.identitydigital.services",
       "dnssec": true,
       "isIdn": false
     },
@@ -7598,7 +7585,7 @@
     {
       "tld": "int",
       "unicode": null,
-      "type": "sponsored",
+      "type": "generic",
       "organisation": "Internet Assigned Numbers Authority",
       "assigned": true,
       "rdap": "bootstrap",
@@ -7975,7 +7962,7 @@
     {
       "tld": "jobs",
       "unicode": null,
-      "type": "sponsored",
+      "type": "generic",
       "organisation": "Employ Media LLC",
       "assigned": true,
       "rdap": "bootstrap",
@@ -8301,7 +8288,7 @@
       "tld": "koeln",
       "unicode": null,
       "type": "generic",
-      "organisation": "dotKoeln GmbH",
+      "organisation": "domainworx Service & Management GmbH",
       "assigned": true,
       "rdap": "bootstrap",
       "rdapOperator": null,
@@ -9730,7 +9717,7 @@
     {
       "tld": "mil",
       "unicode": null,
-      "type": "sponsored",
+      "type": "generic",
       "organisation": "DoD Network Information Center",
       "assigned": true,
       "rdap": "none",
@@ -10224,7 +10211,7 @@
     {
       "tld": "museum",
       "unicode": null,
-      "type": "sponsored",
+      "type": "generic",
       "organisation": "Museum Domain Management Association",
       "assigned": true,
       "rdap": "bootstrap",
@@ -10354,7 +10341,7 @@
     {
       "tld": "name",
       "unicode": null,
-      "type": "generic-restricted",
+      "type": "generic",
       "organisation": "VeriSign Information Services, Inc.",
       "assigned": true,
       "rdap": "bootstrap",
@@ -11836,7 +11823,7 @@
     {
       "tld": "post",
       "unicode": null,
-      "type": "sponsored",
+      "type": "generic",
       "organisation": "Universal Postal Union",
       "assigned": true,
       "rdap": "bootstrap",
@@ -11901,7 +11888,7 @@
     {
       "tld": "pro",
       "unicode": null,
-      "type": "generic-restricted",
+      "type": "generic",
       "organisation": "Identity Digital Limited",
       "assigned": true,
       "rdap": "bootstrap",
@@ -13035,9 +13022,9 @@
       "type": "country-code",
       "organisation": "VCS Pty Ltd",
       "assigned": true,
-      "rdap": "override",
-      "rdapOperator": "Identity Digital",
-      "lookupSource": "override",
+      "rdap": "bootstrap",
+      "rdapOperator": null,
+      "lookupSource": "bootstrap",
       "lookupHost": "rdap.identitydigital.services",
       "dnssec": true,
       "isIdn": false
@@ -14605,7 +14592,7 @@
     {
       "tld": "tel",
       "unicode": null,
-      "type": "sponsored",
+      "type": "generic",
       "organisation": "Telnames Ltd.",
       "assigned": true,
       "rdap": "bootstrap",
@@ -15138,7 +15125,7 @@
     {
       "tld": "travel",
       "unicode": null,
-      "type": "sponsored",
+      "type": "generic",
       "organisation": "Dog Beach, LLC",
       "assigned": true,
       "rdap": "bootstrap",
@@ -18401,7 +18388,7 @@
     {
       "tld": "xxx",
       "unicode": null,
-      "type": "sponsored",
+      "type": "generic",
       "organisation": "ICM Registry LLC",
       "assigned": true,
       "rdap": "bootstrap",

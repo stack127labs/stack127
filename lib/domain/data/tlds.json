@@ -1,7 +1,7 @@
 {
   "source": "https://data.iana.org/TLD/tlds-alpha-by-domain.txt",
-  "fetchedAt": "2026-10-14",
-  "version": "2026101300",
+  "fetchedAt": "2026-11-02",
+  "version": "2026110200",
   "tlds": [
     "aaa",
     "aarp",
@@ -526,7 +526,6 @@
     "health",
     "healthcare",
     "help",
-    "helsinki",
     "here",
     "hermes",
     "hiphop",
