@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
 import { writeFileSync, mkdirSync } from "node:fs";
+import { dirname } from "node:path";
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { validateSummary } from "./lib/summary-rules.mjs";
 import { isManagedMediaUrl } from "../stack127/media/storage.mjs";
 import { hasCompleteResourceEstimate } from "./lib/resource-review.mjs";
+import { jobSummary } from "./lib/job-summary.mjs";
 
 const dockerHighRiskPattern =
   /(^|\/)(\.github|\.ci|\.devcontainer|dev|vendor|test|tests|testing|ci|e2e(?:[-_][^/]*)?|fixtures?|examples?|docker-compose-examples|test-infrastructure|tests_integration)(\/|$)|devcontainer|dev-container|compose\.dev|docker-compose\.dev|docker-compose[-.]ci|compose[-.]ci|example|gitpod|\.ddev/i;
@@ -165,11 +167,12 @@ async function main() {
   };
 
   if (args.out) {
-    mkdirSync(path.dirname(args.out), { recursive: true });
+    mkdirSync(dirname(args.out), { recursive: true });
     writeFileSync(args.out, `${JSON.stringify(report, null, 2)}\n`);
   }
 
   console.log(JSON.stringify(report, null, 2));
+  jobSummary("Publication QA", { Published: report.published, Blocked: report.blocked_count, "Excluded published": report.excluded_published_count });
 }
 
 main().catch((error) => {

@@ -60,6 +60,29 @@ The `options` JSON list keeps labels, support levels, image references, source l
 
 `self_host_apps.github_project_id` and `terminal_apps.github_project_id` are nullable links. Duplicate app rows can point to the same repository, so the repository table isn't unique per app.
 
+The shared GitHub refresh combines self-host apps with published CLI apps,
+selects each linked project once, and preserves every self-host membership for
+updates. Unlinked self-host apps can join an existing matching GitHub project;
+unlinked CLI apps stay outside this job until their repository links are reviewed.
+The scheduled batch is 500 unique repositories twice a day. On 2026-11-02,
+4,429 self-host projects plus 248 CLI-only projects made 4,677 total: 10 batches,
+or about five days for one full pass. This is an attempt cycle; inaccessible
+repositories remain stale and appear in the failure summary.
+
+CLI maintenance uses the same helper as `scripts/cli-apps/build-curated-batch.mjs`:
+archived first, unknown when the push date is missing or invalid, active below
+110 days, slow below 395 days, then stale. Scheduled refreshes derive it from
+GitHub without a curated override. Only changed maintenance values are written.
+The existing terminal-app and GitHub-project triggers touch `/cli-apps` and queue
+its cache refresh; the job does not write public page dates by hand.
+
+`checked_at` is the last successful GitHub fact refresh. `last_attempt_at` records
+successful and failed attempts, and `consecutive_failures` resets after success.
+The refresh queue orders by the later of the attempt and successful check dates,
+so inaccessible repositories move behind older work without appearing fresh.
+A failed repository with no project row gets a linked placeholder with a null
+`checked_at`. Failed repository URLs appear in the Actions job summary.
+
 Other providers keep using the existing `source_*` columns until a provider table is worth adding. That's a planned transition, not a second source of truth for self-host apps.
 
 ## Evidence and QA
@@ -67,6 +90,14 @@ Other providers keep using the existing `source_*` columns until a provider tabl
 `data_source_urls`, `data_checked_at`, `data_confidence`, and `technical_fact_status` hold a short evidence summary for each app. They replace the old field-level provenance rows.
 
 They still let QA tell unchecked data apart from an official source that published no value.
+
+The Monday technical refresh collects evidence only. It lists all unreadable
+sources in the artifact and job summary, tolerates up to 5% unreadable rows,
+and fails if that limit is exceeded or every selected source is unreadable.
+Install destinations stay in dry-run mode: the builder infers registry links
+and support levels, and applying replaces existing options. Review the proposed
+links and support levels before running an explicit apply. Use
+`apply-qa-overrides.mjs` for reviewed editorial fact corrections.
 
 ## Reviewed artifact cleanup
 

@@ -31,4 +31,5 @@ jobs:
       - name: Refresh GitLab facts
         run: npm run self-host-apps:refresh-gitlab -- --published-only --limit 500 --max-age-hours 24
       - name: Refresh Codeberg facts
+        if: always()
         run: npm run self-host-apps:refresh-codeberg -- --published-only --limit 500 --max-age-hours 24

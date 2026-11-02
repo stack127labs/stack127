@@ -5,6 +5,7 @@ import { parseArgs } from "./lib/args.mjs";
 import { parseComposeFacts } from "./lib/catalog-facts.mjs";
 import { withClient } from "./lib/db.mjs";
 import { mapConcurrent } from "./lib/http.mjs";
+import { jobSummary } from "./lib/job-summary.mjs";
 import {
   dockerHubImage,
   likelyAppImageFromCompose,
@@ -157,6 +158,8 @@ async function collect(app) {
 
 async function main() {
   const args = parseArgs();
+  const maxFailurePercent = Number(args["max-failure-percent"] ?? 5);
+  if (!Number.isFinite(maxFailurePercent) || maxFailurePercent < 0 || maxFailurePercent > 100) throw new Error("--max-failure-percent must be between 0 and 100");
   if (args["apply-reviewed"] || args.apply) throw new Error("This command collects evidence only; --apply-reviewed and --apply are not supported. Apply source-reviewed field corrections with apply-qa-overrides.mjs.");
   // --refresh-all intentionally rechecks every published app, including rows with an existing audit status.
   const refreshAll = Boolean(args["refresh-all"]);
@@ -213,6 +216,7 @@ async function main() {
     mode: "evidence_only",
     selected: rows.length,
     passed: passed.length,
+    failed_count: failed.length,
     failed,
     facts: factCounts,
     requirements: passed
@@ -225,7 +229,9 @@ async function main() {
   };
   if (args.out) await writeFile(args.out, `${JSON.stringify(report, null, 2)}\n`);
   console.log(JSON.stringify(report, null, 2));
-  if (failed.length > 0) process.exitCode = 1;
+  jobSummary("Technical evidence (review required; no facts written)", { Selected: rows.length, Readable: passed.length, Unreadable: failed.length, "Allowed unreadable percentage": maxFailurePercent }, failed);
+  if (failed.length) console.warn(`Unreadable primary sources: ${failed.length}/${rows.length}; see the report and job summary.`);
+  if (failed.length && (passed.length === 0 || failed.length / rows.length * 100 > maxFailurePercent)) process.exitCode = 1;
 }
 
 main().catch((error) => {

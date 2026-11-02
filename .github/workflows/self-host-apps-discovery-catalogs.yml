@@ -37,6 +37,7 @@ jobs:
           --out scripts/self-host-apps/batches/${{ github.run_id }}-catalog-discovery.json
           --write
       - name: Classify exact duplicates and review matches
+        if: always()
         run: npm run self-host-apps:dedupe-candidates -- --limit 30000
       - name: Upload discovery report
         if: always()

@@ -38,8 +38,11 @@ jobs:
           npm run self-host-apps:refresh-primary-technical-facts --
           ${{ (github.event_name == 'schedule' || inputs.refresh_all == true) && '--refresh-all' || '' }}
           --concurrency 16
+          --max-failure-percent 5
           --out scripts/self-host-apps/batches/${{ github.run_id }}-technical-refresh.json
       - name: Inspect install destinations
+        # Keep dry-run: the builder infers registry links/support levels and replaces
+        # stored options; these changes require review before applying.
         if: always()
         run: npm run self-host-apps:refresh-install-options -- --limit 5000
       - name: Run publication quality gate
