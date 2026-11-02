@@ -159,9 +159,14 @@ async function codebergFacts(row) {
   };
 }
 
-async function rowsToRefresh(client, host, args) {
+export async function rowsToRefresh(client, host, args) {
   const params = [host];
   const conditions = ["source_code_host = $1", "source_code_url is not null"];
+  if (args.slug !== undefined) {
+    if (typeof args.slug !== "string" || !args.slug.trim()) throw new Error("--slug needs an app slug");
+    params.push(args.slug);
+    conditions.push(`slug = $${params.length}`);
+  }
   if (args["published-only"]) conditions.push("published = true");
   if (args["max-age-hours"]) {
     params.push(numberArg(args, "max-age-hours", 24));
@@ -267,9 +272,11 @@ export async function refreshSourceHost(client, args) {
   return report;
 }
 
+import { databaseOptions } from "./lib/environment.mjs";
+
 async function main() {
   const args = parseArgs();
-  const report = await withClient((client) => refreshSourceHost(client, args), args["database-url"]);
+  const report = await withClient((client) => refreshSourceHost(client, args), args.environment ? databaseOptions(args) : args["database-url"]);
   if (refreshFailed(report)) process.exitCode = 1;
 }
 

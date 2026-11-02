@@ -43,8 +43,11 @@ async function upsertRows(client, rows) {
   );
 }
 
+import { databaseOptions } from "./lib/environment.mjs";
+
 async function main() {
   const args = parseArgs();
+  if (args.slug !== undefined && (typeof args.slug !== "string" || !args.slug.trim())) throw new Error("--slug needs an app slug");
   const limit = numberArg(args, "limit", 5000);
   const apply = Boolean(args.apply);
   const checkedAt = new Date().toISOString();
@@ -72,10 +75,11 @@ async function main() {
         left join public.self_host_app_install_options install on install.app_id = app.id
         where app.published = true
           and app.self_hosting_status = 'self_hostable'
+          and ($2::text is null or app.slug = $2)
         order by app.popularity_score desc, app.name asc
         limit $1
       `,
-      [limit],
+      [limit, args.slug ?? null],
     );
 
     const prepared = result.rows.map((row) => ({
@@ -107,7 +111,7 @@ async function main() {
       docker_source_file_links_excluded: prepared.filter((row) => row.docker_url && /\/(?:blob|tree)\/[^/]+\/(?:.+\/)?(?:Dockerfile|docker-compose[^/]*\.ya?ml|compose[^/]*\.ya?ml)/i.test(row.docker_url) && !row.options.some((option) => option.method === "docker" && option.url === row.docker_url)).length,
       sample: options.slice(0, 20).map(({ slug, method, label, url, image, support_level }) => ({ slug, method, label, url, image, support_level })),
     };
-  }, args["database-url"]);
+  }, args.environment ? databaseOptions(args) : args["database-url"]);
 
   console.log(JSON.stringify(report, null, 2));
   jobSummary("Install destinations", { Mode: report.mode, Apps: report.apps, "Apps with options": report.apps_with_options, Options: report.options });

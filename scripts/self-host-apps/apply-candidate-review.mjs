@@ -16,6 +16,8 @@ import { buildInstallOptions } from "./lib/install-options.mjs";
 import { installMethods, installOptionsToRow } from "./lib/streamlined-storage.mjs";
 import { isManagedMediaUrl } from "../stack127/media/storage.mjs";
 
+import { databaseOptions } from "./lib/environment.mjs";
+
 const decisions = new Set(["publish", "duplicate", "reject", "needs_review"]);
 
 function reviewRecords(input) {
@@ -100,7 +102,7 @@ async function ensureCategories(client, categories) {
   }
 }
 
-export async function upsertApp(client, record, expectedAppId) {
+export async function upsertApp(client, record, expectedAppId, dryRun = false) {
   const existing = await client.query("select id from public.self_host_apps where slug = $1", [record.slug]);
   if (existing.rows[0] && expectedAppId && existing.rows[0].id !== expectedAppId) {
     throw new Error(`${record.slug} belongs to a different app than app_id`);
@@ -108,6 +110,8 @@ export async function upsertApp(client, record, expectedAppId) {
   if (existing.rows[0] && !expectedAppId) {
     throw new Error(`${record.slug} already exists; provide app_id after confirming the merge`);
   }
+
+  if (dryRun) return existing.rows[0]?.id ?? null;
 
   const values = appColumns.map((column) => record[column]);
   const updates = appColumns
@@ -281,23 +285,26 @@ export async function upsertInstallOptions(client, appId, options, catalogSource
   );
 }
 
-async function candidateById(client, id) {
-  const result = await client.query("select * from public.self_host_app_candidates where id = $1 for update", [id]);
+async function candidateById(client, id, dryRun) {
+  const result = await client.query("select * from public.self_host_app_candidates where id = $1" + (dryRun ? "" : " for update"), [id]);
   if (!result.rows[0]) throw new Error(`Missing candidate: ${id}`);
   return result.rows[0];
 }
 
-async function applyReview(client, review) {
+async function applyReview(client, review, dryRun = false) {
   const decision = review.decision ?? "publish";
   if (!decisions.has(decision)) throw new Error(`Unsupported decision: ${decision}`);
   if (!review.candidate_id) throw new Error("candidate_id is required");
-  const candidate = await candidateById(client, review.candidate_id);
+  const candidate = await candidateById(client, review.candidate_id, dryRun);
   if (candidate.status !== "enriching") {
     throw new Error(`Candidate ${candidate.id} is ${candidate.status}; claim it before applying a review`);
   }
 
   if (decision === "duplicate") {
     if (!review.app_id) throw new Error("duplicate decisions require app_id");
+    const target = await client.query("select id from public.self_host_apps where id = $1", [review.app_id]);
+    if (!target.rows[0]) throw new Error(`Missing duplicate app: ${review.app_id}`);
+    if (dryRun) return { candidate_id: candidate.id, decision, app_id: review.app_id };
     await preserveCandidateSources(client, candidate, review.app_id);
     await client.query(
       `
@@ -313,6 +320,7 @@ async function applyReview(client, review) {
 
   if (decision === "reject" || decision === "needs_review") {
     if (!review.reason) throw new Error(`${decision} decisions require reason`);
+    if (dryRun) return { candidate_id: candidate.id, decision };
     const candidateStatus = decision === "reject" ? "rejected" : decision;
     await client.query(
       `
@@ -331,6 +339,16 @@ async function applyReview(client, review) {
     throw new Error(`${validation.record.slug}: ${validation.errors.join("; ")}`);
   }
 
+  for (const slug of validation.record.categories) {
+    if (!getSelfHostAppCategory(slug)) throw new Error(`Unknown category: ${slug}`);
+  }
+  if (dryRun) {
+    const sourceRows = catalogSourceRows(candidate, review);
+    const options = Array.isArray(review.install_options) ? review.install_options : buildInstallOptions(validation.record, sourceRows);
+    if (options.length) installOptionsToRow(options, { catalogSources: sourceRows, checkedAt: new Date().toISOString() });
+    const appId = await upsertApp(client, validation.record, review.app_id ?? null, true);
+    return { candidate_id: candidate.id, decision, app_id: appId, slug: validation.record.slug };
+  }
   await ensureCategories(client, validation.record.categories);
   const appId = await upsertApp(client, validation.record, review.app_id ?? null);
   await replaceCategoryLinks(client, appId, validation.record.categories);
@@ -361,24 +379,27 @@ async function applyReview(client, review) {
   return { candidate_id: candidate.id, decision, app_id: appId, slug: validation.record.slug };
 }
 
+export async function applyReviews(client, reviews, dryRun = false) {
+  const results = [];
+  const ids = reviews.map((review) => review.candidate_id);
+  if (new Set(ids).size !== ids.length) throw new Error("Repeated candidate_id in review batch.");
+  await client.query(dryRun ? "begin read only" : "begin");
+  try {
+    for (const review of reviews) results.push(await applyReview(client, review, dryRun));
+    await client.query(dryRun ? "rollback" : "commit");
+    return results;
+  } catch (error) {
+    await client.query("rollback");
+    throw error;
+  }
+}
+
 async function main() {
   const args = parseArgs();
+  const databaseUrl = databaseOptions(args);
   if (!args.file) throw new Error("Pass --file with reviewed candidate decisions.");
-  const input = await readJson(args.file);
-  const reviews = reviewRecords(input);
-  const results = [];
-
-  await withClient(async (client) => {
-    await client.query("begin");
-    try {
-      for (const review of reviews) results.push(await applyReview(client, review));
-      if (args["dry-run"]) await client.query("rollback");
-      else await client.query("commit");
-    } catch (error) {
-      await client.query("rollback");
-      throw error;
-    }
-  }, args["database-url"]);
+  const reviews = reviewRecords(await readJson(args.file));
+  const results = await withClient((client) => applyReviews(client, reviews, Boolean(args["dry-run"])), databaseUrl);
 
   console.log(JSON.stringify({ dry_run: Boolean(args["dry-run"]), results }, null, 2));
 }

@@ -22,7 +22,7 @@ Scripts move data. Codex makes editorial and factual decisions. Never generate s
 6. Dry-run, then apply:
    `npm run self-host-apps:apply-candidate-review -- --file <reviewed.json> --dry-run`
    `npm run self-host-apps:apply-candidate-review -- --file <reviewed.json>`
-7. Run QA, summary, link, icon, typecheck, and build checks.
+7. Run the relevant QA, summary, link, icon and typecheck checks. Do not build locally.
 8. Repeat until no queued or review candidates remain. Release an abandoned claim with `self-host-apps:release-candidate-batch`.
 
 ## Decisions
@@ -61,3 +61,18 @@ Don't build locally. If the batch changes code, the pull request CI runs the bui
 Report claimed, published, duplicate, rejected, needs-review, and failed counts.
 
 Published record changes move the affected directory dates and queue cache refreshes. Identical imports keep dates alone. App license-count changes also move the software license directory date. Use the page touch command for meaningful code facts outside the database triggers. See `stack127_docs/directory-pages.md`.
+
+## Add one app on request
+
+Follow [Add one app on request](../../../stack127_docs/self-host-apps-data.md#add-one-app-on-request) for the full commands.
+
+1. Use `self-host-apps:select-candidate-batch -- --environment development --match <name-or-repository>` to find candidates and app records. Check production IDs too before preparing its review file.
+2. Research official sources. Write the reviewed decisions and RAM/storage estimates, with source links and a managed icon. Review possible duplicates yourself.
+3. Preview then claim exactly the review file's IDs with `--ids-from <reviewed.json>`; use `--dry-run` for the preview and `--out /tmp/app-claim.json` for the claim. Exact selection accepts `new`, `queued`, `needs_review` and already `enriching`. `new` has not passed dedupe; do not skip duplicate research. Top-N selection remains unchanged.
+4. Dry-run and apply the review in development. Dry-run and apply estimates with `--apply-reviewed`. Check the app on the real directory at desktop and mobile width.
+5. Refresh only its repository with `--slug <slug>` on `refresh-github`, `refresh-gitlab` or `refresh-codeberg`.
+6. After production authorization, repeat previews and applies from homelab with `--environment production --confirm stack127-production`. MacBook uploads to production are very slow. Check the live directory after its cache refresh.
+
+If no candidate exists, use the existing `self-host-apps:upsert -- --file <app.json>` path, first with `--dry-run`. Supply the complete reviewed app object with `published: true`, not a review wrapper. Apply estimates, then preview/apply `self-host-apps:refresh-install-options -- --slug <slug>` (`--apply` writes). Pass the chosen environment on every command. No new candidate or ad hoc SQL is needed.
+
+Do not use `sync-local-to-prod`: it mirrors whole tables and would push about 5,000 unrelated development differences. Editorial commands default to development regardless of `NODE_ENV`; production previews also require the confirmation. Candidate-review dry runs use a read-only transaction. Estimates require `--apply-reviewed`; never combine it with `--dry-run`.
