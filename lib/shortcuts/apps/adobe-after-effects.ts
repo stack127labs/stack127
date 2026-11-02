@@ -331,7 +331,7 @@ export const adobeAfterEffects: AppShortcuts = {
       shortcuts: rows([
         ["3d-view-front", "Switch to 3D view 1, Front by default", [["F10"]]],
         ["3d-view-custom", "Switch to 3D view 2, Custom View 1 by default", [["F11"]]],
-        ["3d-view-camera", "Switch to 3D view 3, Active Camera by default", [["F12"]], null, "Adobe's Mac table has no usable key for this view."],
+        ["3d-view-camera", "Switch to 3D view 3, Active Camera by default", [["F12"]], null],
         ["previous-3d-view", "Return to the previous 3D view", [["Esc"]]],
         ["new-light", "Create a light", [["Ctrl", "Alt", "Shift", "L"]], [["Cmd", "Option", "Shift", "L"]]],
         ["orbit-control", "Switch to Orbit camera control", [["1"]]],
