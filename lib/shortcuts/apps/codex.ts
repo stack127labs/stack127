@@ -12,7 +12,7 @@ export const codex: AppShortcuts = {
     "Codex CLI TUI defaults for Windows, macOS, and Linux. You can rebind supported actions with /keymap or tui.keymap in config.toml; some Mac terminals report Alt as Option.",
   sourceUrl: "https://github.com/openai/codex/blob/main/codex-rs/tui/src/keymap.rs",
   sourceLabel: "official Codex CLI TUI keymap",
-  lastVerified: "2026-08-26",
+  lastVerified: "2026-11-03",
   groups: [
     {
       id: "steering",
@@ -24,7 +24,7 @@ export const codex: AppShortcuts = {
         { id: "interrupt", action: "Interrupt the active turn", keys: combo(platforms, ["Esc"]) },
         { id: "edit-queued", action: "Edit the most recently queued message", keys: combo(platforms, ["Alt", "Up"]), note: "Shift+Left is also a built-in binding. Option may be reported for Alt on macOS." },
         { id: "side-conversation", action: "Switch between a side conversation and its parent", keys: combo(platforms, ["Ctrl", "/"]) },
-        { id: "open-agents", action: "Open the agent-session overview", keys: combo(platforms, ["Alt", "A"]) },
+        { id: "open-agents", action: "Open the agent-session overview", keys: [], note: "No default key is assigned. Set tui.keymap.global.open_agents to add one." },
       ],
     },
     {

@@ -17,6 +17,15 @@ const shared = (id: string, action: string, keys: string[], note?: string): Shor
   ...(note ? { note } : {}),
 });
 
+const either = (id: string, action: string, keys: string[], alternative: string[], note?: string): Shortcut => ({
+  id,
+  action,
+  keys: perPlatform(platforms, { windows: keys, macos: keys }).map((entry) => ({ ...entry, alternatives: [alternative] })),
+  ...(note ? { note } : {}),
+});
+
+const consoleOnly = "Lightning console apps only.";
+
 export const salesforce: AppShortcuts = {
   slug: "salesforce",
   name: "Salesforce",
@@ -26,7 +35,7 @@ export const salesforce: AppShortcuts = {
     "Lightning Experience shortcuts are enabled by default, ignore letter case, and can be turned off in the Help menu. Console shortcuts apply in Lightning console apps.",
   sourceUrl: "https://help.salesforce.com/s/articleView?id=accessibility_keyboard_shortcuts_lex.htm&language=en_US&type=5",
   sourceLabel: "official Salesforce Lightning keyboard shortcuts",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-03",
   groups: [
     {
       id: "lightning-global",
@@ -38,7 +47,7 @@ export const salesforce: AppShortcuts = {
         dual("quick-text", "Insert quick text", ["Ctrl", "."], ["Cmd", "."]),
         shared("macros", "Open or close Macros", ["M"]),
         shared("notes", "Open or close Notes", ["N"]),
-        dual("post-feed", "Post to the feed", ["Ctrl", "F6"], ["Cmd", "F6"], "This standard Lightning shortcut submits a post or comment."),
+        dual("post-feed", "Post to the feed", ["Ctrl", "Enter"], ["Cmd", "Enter"], "Submits a post or comment. It doesn't work on other publisher actions, such as emails and polls."),
         shared("search", "Place the cursor in the search box", ["/"]),
         dual("shortcut-menu", "Show the shortcut menu", ["Ctrl", "/"], ["Cmd", "/"]),
         dual("save", "Save a record", ["Ctrl", "S"], ["Cmd", "S"], "Focus a field before saving."),
@@ -52,13 +61,14 @@ export const salesforce: AppShortcuts = {
         shared("focus-notifications", "Focus notifications", ["C"]),
         shared("focus-notifications-reverse", "Focus the previous notification", ["Shift", "C"]),
         shared("go-composer", "Go to the composer window", ["G", "then", "D"]),
-        shared("go-item-menu", "Go to the item menu", ["G", "then", "I"]),
-        shared("go-navigation-item", "Go to the selected navigation item", ["G", "then", "L"]),
+        shared("go-item-menu", "Go to the item menu", ["G", "then", "I"], consoleOnly),
+        shared("go-navigation-item", "Go to the selected navigation item", ["G", "then", "L"], consoleOnly),
         shared("go-publisher", "Go to the publisher", ["G", "then", "P"]),
-        shared("go-subtab", "Go to the active subtab", ["G", "then", "S"]),
+        shared("go-subtab", "Go to the active subtab", ["G", "then", "S"], consoleOnly),
         shared("go-utility-bar", "Go to the utility bar", ["G", "then", "U"]),
-        shared("go-workspace-tab", "Go to the active workspace tab", ["G", "then", "W"]),
-        dual("go-modifier", "Start a go-to command inside a dialog, form, or input", ["Ctrl", "Alt", "G"], ["Cmd", "Option", "G"]),
+        shared("go-workspace-tab", "Go to the active workspace tab", ["G", "then", "W"], consoleOnly),
+        dual("go-modifier", "Start a go-to command inside a dialog, form, or input", ["Ctrl", "Alt", "G"], ["Cmd", "Option", "G"], consoleOnly),
+        dual("go-other-region", "Move among regions of certain pages", ["Ctrl", "F6"], ["Cmd", "F6"]),
       ],
     },
     {
@@ -67,8 +77,8 @@ export const salesforce: AppShortcuts = {
       intro: "Open the composer overflow menu and move between open composer windows from anywhere in a Lightning app.",
       shortcuts: [
         shared("composer-overflow", "Open the composer overflow menu", ["G", "then", "D"]),
-        shared("composer-list", "Move through open composer windows", ["Up Arrow"], "Down Arrow moves in the opposite direction."),
-        shared("composer-switch", "Move between open composer windows", ["Left Arrow"], "Right Arrow moves in the opposite direction."),
+        either("composer-list", "Move through open composer windows in the overflow menu", ["Up Arrow"], ["Down Arrow"]),
+        either("composer-switch", "Move between open composer windows", ["Left Arrow"], ["Right Arrow"]),
       ],
     },
     {
@@ -88,7 +98,7 @@ export const salesforce: AppShortcuts = {
       title: "Lightning console tabs",
       intro: "Refresh or close workspace tabs and move between focused tabs with the Lightning console commands.",
       shortcuts: [
-        shared("switch-tabs", "Switch between workspace tabs and subtabs", ["Left Arrow"], "Right Arrow moves in the opposite direction."),
+        either("switch-tabs", "Switch between workspace tabs and subtabs", ["Left Arrow"], ["Right Arrow"], "Focus must be on the tab itself."),
         shared("close-workspace-tab", "Close the current workspace tab", ["Shift", "X"]),
         shared("close-all-tabs", "Close all unpinned tabs", ["Shift", "W"]),
         shared("refresh-tab", "Refresh the current workspace tab", ["Shift", "R"]),

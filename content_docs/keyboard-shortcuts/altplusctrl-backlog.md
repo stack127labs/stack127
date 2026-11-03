@@ -257,7 +257,7 @@ Research must start with the current first-party shortcut reference for the name
 | Wix | `wix` | Verified | https://support.wix.com/en/article/wix-editor-keyboard-shortcuts-in-the-editor |
 | Wondershare Filmora | `wondershare-filmora` | Verified | https://filmora.wondershare.com/guide/keyboard-shortcuts-on-windows.html |
 | WordPress Admin | `wordpress-admin` | Verified | https://wordpress.org/documentation/article/keyboard-shortcuts-block-editor/ |
-| WPS Office | `wps-office` | Verified | https://www.wps.com/academy/popular/keyboard-shortcuts/ |
+| WPS Office | `wps-office` | Verified | https://web.archive.org/web/20260124110908/http://help.wps.com/articles/the-shortcuts-of-wps-office-for-mac/ |
 | Wrike | `wrike` | Verified | https://help.wrike.com/hc/en-us/articles/1500005225202-Gantt-Chart-Keyboard-Shortcuts |
 | X (Twitter) | `x-twitter` | Verified | https://help.x.com/en/using-x/how-to-post |
 | Xcode | `xcode` | Blocked | https://developer.apple.com/documentation/xcode |

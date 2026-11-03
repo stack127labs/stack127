@@ -22,7 +22,7 @@ export const adobePremiereRush: AppShortcuts = {
     "Adobe discontinued Premiere Rush on September 30, 2026. These keys are for existing desktop installations and may not work.",
   sourceUrl: "https://helpx.adobe.com/premiere-rush/premiere-rush-discontinuation.html",
   sourceLabel: "Adobe Premiere Rush discontinuation",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-03",
   groups: [
     {
       id: "projects-and-editing",

@@ -36,14 +36,14 @@ export const wpsOffice: AppShortcuts = {
   category: "Office suite",
   platforms: [...platforms],
   versionContext:
-    "Keys differ between Writer, Spreadsheets, and Presentation, and the Mac app has its own set. Linux keys aren't listed.",
-  sourceUrl: "https://help.wps.com/articles/the-shortcuts-of-wps-office-for-mac/",
-  sourceLabel: "official WPS Office for Mac shortcuts",
-  lastVerified: "2026-11-03",
+    "Keys differ between Writer, Spreadsheets, and Presentation, and the Mac app has its own set. Linux keys aren't listed. WPS has taken down its shortcut help pages, so these keys come from archived copies of them.",
+  sourceUrl: "https://web.archive.org/web/20260124110908/http://help.wps.com/articles/the-shortcuts-of-wps-office-for-mac/",
+  sourceLabel: "official WPS Office for Mac shortcuts, archived January 2026",
+  lastVerified: "2026-09-01",
   groups: [
     {
       id: "writer-windows",
-      title: "Writer on Windows",
+      title: "Writer",
       intro: "These Writer commands cover document editing, formatting, navigation, and file actions.",
       shortcuts: [
         dual("writer-select-all", "Select all", ["Ctrl", "A"], ['Cmd', 'A']),
@@ -75,7 +75,7 @@ export const wpsOffice: AppShortcuts = {
     },
     {
       id: "spreadsheet-windows",
-      title: "Spreadsheets on Windows",
+      title: "Spreadsheets",
       intro: "These Spreadsheet commands cover cell editing, selection, ranges, formulas, and worksheet tabs.",
       shortcuts: [
         dual("sheet-new-line", "Start a new line inside a cell", ["Alt", "Enter"], ['Option', 'Return']),
@@ -96,7 +96,7 @@ export const wpsOffice: AppShortcuts = {
         windowsOnly("sheet-previous-tab", "Move to the previous worksheet", ["Ctrl", "Page Up"]),
         dual("sheet-fill-right", "Fill right", ["Ctrl", "R"], ['Cmd', 'R']),
         dual("sheet-save", "Save", ["Ctrl", "S"], ['Cmd', 'S']),
-        dual("sheet-insert", "Insert cells, rows, or columns", ["Ctrl", "Shift", "+"], ['Cmd', 'Shift', '+']),
+        dual("sheet-insert", "Insert cells, rows, or columns", ["Ctrl", "Shift", "="], ['Cmd', 'Shift', '+']),
         dual("sheet-extend", "Extend the selection by one data region", ["Ctrl", "Shift", "Arrow keys"], ['Cmd', 'Shift', 'Arrow keys']),
         dual("sheet-undo", "Undo", ["Ctrl", "Z"], ['Cmd', 'Z']),
         dual("sheet-redo", "Redo", ["Ctrl", "Y"], ['Shift', 'Cmd', 'Z']),
@@ -106,7 +106,7 @@ export const wpsOffice: AppShortcuts = {
     },
     {
       id: "presentation-windows",
-      title: "Presentation on Windows",
+      title: "Presentation",
       intro: "These Presentation commands cover slides, formatting, grouping, and slide shows.",
       shortcuts: [
         windowsOnly("presentation-new", "Create a new presentation", ["Ctrl", "N"]),
@@ -116,14 +116,14 @@ export const wpsOffice: AppShortcuts = {
         dual("presentation-paste", "Paste", ["Ctrl", "V"], ['Cmd', 'V']),
         dual("presentation-bold", "Bold text", ["Ctrl", "B"], ['Cmd', 'B']),
         dual("presentation-italic", "Italicize text", ["Ctrl", "I"], ['Cmd', 'I']),
-        dual("presentation-underline", "Underline text", ["Ctrl", "U"], ['Cmd', 'U']),
+        macOnly("presentation-underline", "Underline text", ["Cmd", "U"]),
         windowsOnly("presentation-group", "Group selected objects", ["Ctrl", "G"]),
         windowsOnly("presentation-ungroup", "Ungroup selected objects", ["Ctrl", "Shift", "G"]),
         dual("presentation-show", "Start the slide show", ["F5"], ['F5']),
         dual("presentation-current", "Start the slide show from the current slide", ["Shift", "F5"], ['Shift', 'F5']),
         windowsOnly("presentation-grid", "Show or hide the grid", ["Shift", "F9"]),
         windowsOnly("presentation-thesaurus", "Open the thesaurus", ["Shift", "F7"]),
-        windowsOnly("presentation-export", "Export", ["Ctrl", "E"]),
+        dual("presentation-center", "Center text", ["Ctrl", "E"], ['Cmd', 'E']),
       ],
     },
     {
