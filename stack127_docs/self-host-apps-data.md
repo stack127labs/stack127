@@ -76,7 +76,7 @@ GitHub without a curated override. Only changed maintenance values are written.
 The existing terminal-app and GitHub-project triggers touch `/cli-apps` and queue
 its cache refresh; the job does not write public page dates by hand.
 
-`checked_at` is the last successful GitHub fact refresh. `last_attempt_at` records
+`checked_at` records a successful GitHub refresh that changed facts. `last_attempt_at` records
 successful and failed attempts, and `consecutive_failures` resets after success.
 The refresh queue orders by the later of the attempt and successful check dates,
 so inaccessible repositories move behind older work without appearing fresh.
@@ -94,6 +94,75 @@ keep their successful check dates and are retried on later daily runs.
 
 Other providers keep using the existing `source_*` columns until a provider table is worth adding. That's a planned transition, not a second source of truth for self-host apps.
 
+## Popularity and releases
+
+The default list order uses `popularity_score`. GitHub, GitLab and Codeberg
+refreshes use one rule in `scripts/self-host-apps/lib/popularity.mjs`:
+
+| Stars | Score |
+| --- | --- |
+| None or zero | 0 |
+| 1–249 | 50 |
+| 250–999 | 60 |
+| 1,000–4,999 | 70 |
+| 5,000–9,999 | 80 |
+| 10,000–19,999 | 85 |
+| 20,000–49,999 | 90 |
+| 50,000–99,999 | 95 |
+| 100,000+ | 100 |
+
+These are the original tiers from migration
+`20260829090000_make_self_host_apps_page_owned.sql`. A missing star count leaves
+the current score alone. A known zero can lower a score based only on stars to 0.
+
+A positive catalog score is a floor: low stars cannot reduce it. Catalog presence
+with score 0 does not count as a score. Star-only scores follow star gains and
+losses. When stars overtake a catalog score, `popularity_basis` keeps a
+`catalog_score:<number>` entry so later star losses preserve that floor.
+The score's basis and check time change only when the score or basis changes.
+
+Stars count only for a repository-root URL (`owner/repo`), not links to files,
+folders or other pages inside it. Repository URLs match without regard to case,
+trailing slashes or `.git`. Among published apps sharing a repository, only one
+row receives its star tier: first prefer an existing `source_stars` basis, then
+the best name match to the repository, then the shortest name, then slug. Name
+matching ignores spaces and punctuation; an exact match comes before a prefix
+match, then a name containing the repository name. Other rows keep their existing
+score and basis unchanged. Ranking uses the whole published catalogue, even for
+a single-app refresh or backfill. Release fills still apply independently to
+variants and links inside repositories.
+
+
+Refreshes fill `release_version`, `release_published_at` and `release_checked_at`
+only when the version is empty and a fetched release exists. Existing versions,
+including values such as `5.2.2 LTS`, stay untouched. There is no reliable marker
+to separate fetched versions from reviewed versions. This also means a version
+filled by this job stays unchanged on later runs. The source-host release fields
+still track the latest fetched release. Details prefer the shared release fields;
+list cards use the shared release date.
+
+Unchanged app facts do not rewrite popularity or release check times. GitHub
+keeps its attempt time current but preserves its fact check time when facts are
+unchanged. GitLab and Codeberg use `data_checked_at` to move successful attempts
+through the queue; that field is excluded from public page-date comparisons.
+Their `source_checked_at` advances when facts change. Existing triggers handle
+page dates and cache refreshes; these commands do not set page dates directly.
+
+Repair published apps from stored facts without contacting code hosts:
+
+```bash
+npm run self-host-apps:refresh-popularity -- --environment development --all
+npm run self-host-apps:refresh-popularity -- --environment development --all --apply
+```
+
+Use `--slug <slug>` instead of `--all` for one app. Preview is read-only and
+prints each changed field's old and new values, plus selected, changed and written
+counts. Apply locks the selected app rows and uses one set-based update in a
+transaction. It changes only popularity and missing release fields. Re-running
+it with the same stored facts writes nothing. Both production commands require
+`--environment production --confirm stack127-production`; review the preview
+before adding `--apply`.
+
 ## Evidence and QA
 
 `data_source_urls`, `data_checked_at`, `data_confidence`, and `technical_fact_status` hold a short evidence summary for each app. They replace the old field-level provenance rows.
@@ -107,6 +176,21 @@ Install destinations stay in dry-run mode: the builder infers registry links
 and support levels, and applying replaces existing options. Review the proposed
 links and support levels before running an explicit apply. Use
 `apply-qa-overrides.mjs` for reviewed editorial fact corrections.
+
+QA overrides use the shared database gate. They default to development and ignore
+inherited `NODE_ENV` and `DATABASE_URL`. `--database-url` is rejected. Production
+requires `--environment production --confirm stack127-production`, including
+previews. Keep the reviewed `expected` values on partial corrections: a changed
+value stops the batch. A correction cannot leave an app published with an invalid
+classification.
+Preview runs the existing write checks inside a transaction and rolls it back;
+it is not a read-only preview. Omitting `--dry-run` commits the batch.
+
+```bash
+npm run self-host-apps:apply-qa-overrides -- --environment development --file <reviewed.json> --dry-run
+npm run self-host-apps:apply-qa-overrides -- --environment development --file <reviewed.json>
+```
+
 
 ## Reviewed artifact cleanup
 
@@ -152,7 +236,9 @@ This adds records to `/self-host-apps`. It does not create a route or page.
    npm run self-host-apps:apply-resource-estimates -- --environment development --file <estimates.json> --apply-reviewed
    ```
 
-4. Refresh only that app's repository facts: `self-host-apps:refresh-github -- --slug <slug>` for GitHub, `self-host-apps:refresh-gitlab -- --slug <slug>` for GitLab, or `self-host-apps:refresh-codeberg -- --slug <slug>` for Codeberg. Pass `--environment development`. Check the real directory at desktop and mobile width, including the app's icon, install links, estimates and filters.
+4. Refresh only that app's repository facts: `self-host-apps:refresh-github -- --slug <slug>` for GitHub, `self-host-apps:refresh-gitlab -- --slug <slug>` for GitLab, or `self-host-apps:refresh-codeberg -- --slug <slug>` for Codeberg. Pass `--environment development`. For apps without a repository refresh, or to repair
+   existing stored facts, preview `npm run self-host-apps:refresh-popularity -- --environment development --slug <slug>`
+   and repeat with `--apply` after reviewing the changes. Check the real directory at desktop and mobile width, including the app's icon, install links, estimates and filters.
 5. After the owner authorizes production changes, run the same claim preview, claim, review preview, review apply, estimate preview, estimate apply and per-app refresh on homelab. Replace `--environment development` with `--environment production --confirm stack127-production` on every command. Use homelab because uploading to production from the MacBook is very slow. Check the live directory after cache refresh completes.
 
 `new` means discovery has not run duplicate checks. `queued` means dedupe found no match; `needs_review` often means a possible name match. Exact-ID manual selection accepts all three because the reviewer checks duplicates. It also reports already `enriching` rows and leaves them alone. Missing, published, rejected or duplicate IDs stop the whole claim. `--ids <uuid,uuid>` is also supported. Claiming uses one transaction and touches no other candidates. Top-N selection still only claims `queued` and `needs_review`; it does not bypass dedupe. Re-running a claim is safe while rows are enriching. Before the review commits, claiming the same IDs again is safe. After the review commits, resume at estimates; do not reclaim or reapply that review. Estimates and repository refreshes can be re-run. Release an abandoned enriching claim with `npm run self-host-apps:release-candidate-batch -- --environment development --file <claimed.json> --to needs_review`; use `--environment production --confirm stack127-production` for production. Release leaves completed candidates alone.

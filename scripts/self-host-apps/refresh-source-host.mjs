@@ -7,6 +7,9 @@ import { pathToFileURL } from "node:url";
 import { jobSummary } from "./lib/job-summary.mjs";
 import { refreshFailed } from "./lib/refresh-health.mjs";
 
+import { derivedPatch, starRecipientCtes, starRecipientColumn } from "./lib/popularity.mjs";
+import { refreshApps } from "./lib/app-refresh.mjs";
+
 const supportedHosts = new Set(["gitlab", "codeberg"]);
 
 function repositoryPath(value, host) {
@@ -179,7 +182,7 @@ export async function rowsToRefresh(client, host, args) {
   if (args["published-only"]) conditions.push("published = true");
   if (args["max-age-hours"]) {
     params.push(numberArg(args, "max-age-hours", 24));
-    conditions.push(`(source_checked_at is null or source_checked_at < now() - ($${params.length} * interval '1 hour'))`);
+    conditions.push(`(greatest(source_checked_at, data_checked_at) is null or greatest(source_checked_at, data_checked_at) < now() - ($${params.length} * interval '1 hour'))`);
   }
   const limit = numberArg(args, "limit", 500);
   params.push(limit);
@@ -188,7 +191,7 @@ export async function rowsToRefresh(client, host, args) {
       select id, slug, source_code_url
       from public.self_host_apps
       where ${conditions.join(" and ")}
-      order by source_checked_at nulls first, slug
+      order by greatest(source_checked_at, data_checked_at) nulls first, slug
       limit $${params.length}
     `,
     params,
@@ -196,62 +199,23 @@ export async function rowsToRefresh(client, host, args) {
   return result.rows;
 }
 
-async function writeFacts(client, row, host, facts, checkedAt) {
-  const values = [
-    facts.source_repo_id,
-    facts.source_full_name,
-    facts.source_stars,
-    facts.source_forks,
-    facts.source_watchers,
-    facts.source_open_issues,
-    facts.source_primary_language,
-    JSON.stringify(facts.source_languages),
-    facts.source_topics,
-    facts.source_created_at,
-    facts.source_updated_at,
-    facts.source_pushed_at,
-    facts.source_default_branch,
-    facts.source_repo_size_kb,
-    facts.source_archived,
-    facts.source_disabled,
-    facts.source_is_fork,
-    facts.source_is_template,
-    facts.source_latest_release,
-    facts.source_latest_release_at,
-    facts.source_last_commit_at,
-    checkedAt,
-  ];
+export async function writeFacts(client, row, host, facts, checkedAt) {
   const licenseType = licenseTypeFromSpdx(facts.license);
-  const maintenance = maintenanceStatus(facts.source_archived, facts.source_last_commit_at);
-  await client.query(
-    `
-      update public.self_host_apps
-      set source_repo_id = $2, source_full_name = $3, source_stars = $4,
-          source_forks = $5, source_watchers = $6, source_open_issues = $7,
-          source_primary_language = $8, source_languages = $9::jsonb,
-          source_topics = $10::text[], source_created_at = $11, source_updated_at = $12,
-          source_pushed_at = $13, source_default_branch = $14, source_repo_size_kb = $15,
-          source_archived = $16, source_disabled = $17, source_is_fork = $18,
-          source_is_template = $19, source_latest_release = $20,
-          source_latest_release_at = $21, source_last_commit_at = $22,
-          source_checked_at = $23, maintenance_status = $24,
-          license = case when license is null or lower(license) = 'unknown' then coalesce($25, license) else license end,
-          license_spdx_id = coalesce(license_spdx_id, $25),
-          license_type = case
-            when license_type = 'unknown' and $26 <> 'unknown' then $26::public.self_host_app_license_type
-            else license_type
-          end,
-          data_source_urls = coalesce((
-            select array_agg(distinct url order by url)
-            from unnest(coalesce(data_source_urls, '{}') || array[$27]::text[]) as values(url)
-          ), '{}'),
-          data_checked_at = $23,
-          data_confidence = 'high',
-          updated_at = now()
-      where id = $1
-    `,
-    [row.id, ...values, maintenance, facts.license, licenseType, row.source_code_url],
-  );
+  await refreshApps(client, `with ${starRecipientCtes} select app.*, ${starRecipientColumn} from public.self_host_apps app where app.id = $1`, [row.id], app => {
+    const sourceFacts = Object.fromEntries(Object.entries(facts).filter(([key]) => key.startsWith('source_')));
+    // Preserve the check time when the facts are unchanged: it is part of the
+    // page-date trigger's comparison, so rewriting it would invalidate pages.
+    return {
+      ...sourceFacts,
+      maintenance_status: maintenanceStatus(facts.source_archived, facts.source_last_commit_at),
+      license: !app.license || app.license.toLowerCase() === 'unknown' ? facts.license ?? app.license : app.license,
+      license_spdx_id: app.license_spdx_id ?? facts.license,
+      license_type: app.license_type === 'unknown' && licenseType !== 'unknown' ? licenseType : app.license_type,
+      data_source_urls: [...new Set([...(app.data_source_urls ?? []), row.source_code_url])].sort(),
+      data_confidence: 'high',
+      ...derivedPatch(app, { stars: facts.source_stars, version: facts.source_latest_release, publishedAt: facts.source_latest_release_at }, checkedAt),
+    };
+  }, checkedAt);
 }
 
 export async function refreshSourceHost(client, args) {

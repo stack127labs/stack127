@@ -10,6 +10,10 @@ import { jobSummary } from "./lib/job-summary.mjs";
 import { maintenanceFrom as cliMaintenanceFrom } from "../cli-apps/lib/maintenance.mjs";
 import { refreshFailed } from "./lib/refresh-health.mjs";
 
+import { derivedPatch, starRecipientCtes, starRecipientColumn } from "./lib/popularity.mjs";
+import { refreshApps } from "./lib/app-refresh.mjs";
+import { changedColumns } from "../stack127/database/sync-records.mjs";
+
 const githubGraphqlUrl = "https://api.github.com/graphql";
 let cachedGithubToken;
 
@@ -201,7 +205,8 @@ export async function rowsToRefresh(client, args, retryMetadataAvailable = true)
   let ageCondition = "true";
   if (args["max-age-hours"]) {
     params.push(`${numberArg(args, "max-age-hours", 12)} hours`);
-    ageCondition = `(project.checked_at is null or project.checked_at <= now() - $${params.length}::interval)`;
+    const clock = retryMetadataAvailable ? 'greatest(project.last_attempt_at, project.checked_at)' : 'project.checked_at';
+    ageCondition = `(${clock} is null or ${clock} <= now() - $${params.length}::interval)`;
   }
 
   const result = await client.query(
@@ -304,116 +309,127 @@ export async function writeRepositoryFacts(client, row, repository, checkedAt, d
     maintenance_status: maintenanceStatus(repository, lastCommitAt),
   };
 
+  // checked_at enters the page-date comparison; last_attempt_at does not.
+  // Keep polling progress without invalidating pages for identical host facts.
+  const repositoryChanged = retryMetadataAvailable ? changedColumns('stored', [
+    'full_name', 'repository_url', 'repo_id', 'node_id', 'owner_type', 'stars',
+    'forks', 'watchers', 'open_issues', 'primary_language', 'languages', 'topics',
+    'created_at', 'updated_at', 'pushed_at', 'default_branch', 'repo_size_kb',
+    'archived', 'disabled', 'is_fork', 'is_template', 'latest_release',
+    'latest_release_at', 'last_commit_at', 'license_spdx_id', 'source_url',
+    'consecutive_failures',
+  ]) : 'true'; // Legacy queue has no separate attempt clock.
+
   if (!dryRun) {
-    await client.query(
-      `
-        insert into public.github_projects (
-          owner, repo, full_name, repository_url, repo_id, node_id, owner_type,
-          stars, forks, watchers, open_issues, primary_language, languages, topics,
-          created_at, updated_at, pushed_at, default_branch, repo_size_kb, archived,
-          disabled, is_fork, is_template, latest_release, latest_release_at,
-          last_commit_at, license_spdx_id, checked_at, source_url${retryMetadataAvailable ? ", last_attempt_at, consecutive_failures" : ""}
-        ) values (
-          $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13::jsonb,
-          $14::text[], $15, $16, $17, $18, $19, $20, $21, $22, $23, $24,
-          $25, $26, $27, $28, $29${retryMetadataAvailable ? ", $28, 0" : ""}
-        )
-        on conflict (owner, repo) do update set
-          full_name = excluded.full_name,
-          repository_url = excluded.repository_url,
-          repo_id = excluded.repo_id,
-          node_id = excluded.node_id,
-          owner_type = excluded.owner_type,
-          stars = excluded.stars,
-          forks = excluded.forks,
-          watchers = excluded.watchers,
-          open_issues = excluded.open_issues,
-          primary_language = excluded.primary_language,
-          languages = excluded.languages,
-          topics = excluded.topics,
-          created_at = excluded.created_at,
-          updated_at = excluded.updated_at,
-          pushed_at = excluded.pushed_at,
-          default_branch = excluded.default_branch,
-          repo_size_kb = excluded.repo_size_kb,
-          archived = excluded.archived,
-          disabled = excluded.disabled,
-          is_fork = excluded.is_fork,
-          is_template = excluded.is_template,
-          latest_release = excluded.latest_release,
-          latest_release_at = excluded.latest_release_at,
-          last_commit_at = excluded.last_commit_at,
-          license_spdx_id = excluded.license_spdx_id,
-          checked_at = excluded.checked_at,
-          ${retryMetadataAvailable ? "last_attempt_at = excluded.last_attempt_at, consecutive_failures = 0," : ""}
-          source_url = excluded.source_url,
-          row_updated_at = now()
-        returning id
-      `,
-      [
-        facts.owner,
-        facts.repo,
-        facts.full_name,
-        facts.repository_url,
-        facts.repo_id,
-        facts.node_id,
-        facts.owner_type,
-        facts.stars,
-        facts.forks,
-        facts.watchers,
-        facts.open_issues,
-        facts.primary_language,
-        JSON.stringify(facts.languages),
-        facts.topics,
-        facts.created_at,
-        facts.updated_at,
-        facts.pushed_at,
-        facts.default_branch,
-        facts.repo_size_kb,
-        facts.archived,
-        facts.disabled,
-        facts.is_fork,
-        facts.is_template,
-        facts.latest_release,
-        facts.latest_release_at,
-        facts.last_commit_at,
-        facts.license,
-        facts.checked_at,
-        facts.repository_url,
-      ],
-    );
-    await client.query(
-      `
-        update public.self_host_apps app
-        set github_project_id = project.id,
-            license = case when app.license is null or lower(app.license) = 'unknown' then coalesce($2, app.license) else app.license end,
-            license_spdx_id = coalesce($2, app.license_spdx_id),
-            license_type = case when $3 = 'unknown' then app.license_type else $3::public.self_host_app_license_type end,
-            source_model = case when app.source_model = 'unknown' and $5 <> 'unknown' then $5::public.self_host_app_source_model else app.source_model end,
-            maintenance_status = $4,
-            data_source_urls = coalesce((
-              select array_agg(distinct url order by url)
-              from unnest(coalesce(app.data_source_urls, '{}') || array[$6]::text[]) as values(url)
-            ), '{}'),
-            data_checked_at = $7,
-            data_confidence = 'high',
-            updated_at = now()
+    await client.query('begin');
+    try {
+      await client.query(
+        `
+          insert into public.github_projects as stored (
+            owner, repo, full_name, repository_url, repo_id, node_id, owner_type,
+            stars, forks, watchers, open_issues, primary_language, languages, topics,
+            created_at, updated_at, pushed_at, default_branch, repo_size_kb, archived,
+            disabled, is_fork, is_template, latest_release, latest_release_at,
+            last_commit_at, license_spdx_id, checked_at, source_url${retryMetadataAvailable ? ", last_attempt_at, consecutive_failures" : ""}
+          ) values (
+            $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13::jsonb,
+            $14::text[], $15, $16, $17, $18, $19, $20, $21, $22, $23, $24,
+            $25, $26, $27, $28, $29${retryMetadataAvailable ? ", $28, 0" : ""}
+          )
+          on conflict (owner, repo) do update set
+            full_name = excluded.full_name,
+            repository_url = excluded.repository_url,
+            repo_id = excluded.repo_id,
+            node_id = excluded.node_id,
+            owner_type = excluded.owner_type,
+            stars = excluded.stars,
+            forks = excluded.forks,
+            watchers = excluded.watchers,
+            open_issues = excluded.open_issues,
+            primary_language = excluded.primary_language,
+            languages = excluded.languages,
+            topics = excluded.topics,
+            created_at = excluded.created_at,
+            updated_at = excluded.updated_at,
+            pushed_at = excluded.pushed_at,
+            default_branch = excluded.default_branch,
+            repo_size_kb = excluded.repo_size_kb,
+            archived = excluded.archived,
+            disabled = excluded.disabled,
+            is_fork = excluded.is_fork,
+            is_template = excluded.is_template,
+            latest_release = excluded.latest_release,
+            latest_release_at = excluded.latest_release_at,
+            last_commit_at = excluded.last_commit_at,
+            license_spdx_id = excluded.license_spdx_id,
+            checked_at = case when ${repositoryChanged} then excluded.checked_at else stored.checked_at end,
+            ${retryMetadataAvailable ? "last_attempt_at = excluded.last_attempt_at, consecutive_failures = 0," : ""}
+            source_url = excluded.source_url,
+            row_updated_at = now()
+          returning id
+        `,
+        [
+          facts.owner,
+          facts.repo,
+          facts.full_name,
+          facts.repository_url,
+          facts.repo_id,
+          facts.node_id,
+          facts.owner_type,
+          facts.stars,
+          facts.forks,
+          facts.watchers,
+          facts.open_issues,
+          facts.primary_language,
+          JSON.stringify(facts.languages),
+          facts.topics,
+          facts.created_at,
+          facts.updated_at,
+          facts.pushed_at,
+          facts.default_branch,
+          facts.repo_size_kb,
+          facts.archived,
+          facts.disabled,
+          facts.is_fork,
+          facts.is_template,
+          facts.latest_release,
+          facts.latest_release_at,
+          facts.last_commit_at,
+          facts.license,
+          facts.checked_at,
+          facts.repository_url,
+        ],
+      );
+      await refreshApps(client, `with ${starRecipientCtes} select app.*, ${starRecipientColumn}, project.id as project_id
+        from public.self_host_apps app join public.github_projects project
+          on project.owner = $2 and project.repo = $3
+        where app.slug = any($1::text[]) or app.github_project_id = project.id`,
+      [row.self_host_slugs ?? [row.slug], facts.owner, facts.repo], app => ({
+        github_project_id: app.project_id,
+        license: !app.license || app.license.toLowerCase() === 'unknown' ? facts.license ?? app.license : app.license,
+        license_spdx_id: facts.license ?? app.license_spdx_id,
+        license_type: facts.license_type === 'unknown' ? app.license_type : facts.license_type,
+        source_model: app.source_model === 'unknown' && facts.source_model !== 'unknown' ? facts.source_model : app.source_model,
+        maintenance_status: facts.maintenance_status,
+        data_source_urls: [...new Set([...(app.data_source_urls ?? []), facts.repository_url])].sort(),
+        data_confidence: 'high',
+        ...derivedPatch(app, { stars: facts.stars, version: facts.latest_release, publishedAt: facts.latest_release_at }, checkedAt),
+      }), undefined, false);
+      // A normal terminal_apps UPDATE lets the existing statement trigger touch
+      // /cli-apps and enqueue cli_apps revalidation; identical values do no work.
+      await client.query(`
+        update public.terminal_apps app
+        set maintenance_status = $3::public.terminal_app_maintenance_status
         from public.github_projects project
-        where project.owner = $8 and project.repo = $9
-          and app.slug = any($1::text[])
-      `,
-      [row.self_host_slugs ?? [row.slug], facts.license, facts.license_type, facts.maintenance_status, facts.source_model, facts.repository_url, checkedAt, facts.owner, facts.repo],
-    );
-    // A normal terminal_apps UPDATE lets the existing statement trigger touch
-    // /cli-apps and enqueue cli_apps revalidation; identical values do no work.
-    await client.query(`
-      update public.terminal_apps app
-      set maintenance_status = $3::public.terminal_app_maintenance_status
-      from public.github_projects project
-      where app.github_project_id = project.id and project.owner = $1 and project.repo = $2
-        and app.published = true
-        and app.maintenance_status is distinct from $3::public.terminal_app_maintenance_status
-    `, [facts.owner, facts.repo, cliMaintenanceFrom({ archived: repository.isArchived, pushed_at: repository.pushedAt }, null, new Date(checkedAt).getTime())]);
+        where app.github_project_id = project.id and project.owner = $1 and project.repo = $2
+          and app.published = true
+          and app.maintenance_status is distinct from $3::public.terminal_app_maintenance_status
+      `, [facts.owner, facts.repo, cliMaintenanceFrom({ archived: repository.isArchived, pushed_at: repository.pushedAt }, null, new Date(checkedAt).getTime())]);
+      await client.query('commit');
+    } catch (error) {
+      await client.query('rollback');
+      throw error;
+    }
   }
 }
 

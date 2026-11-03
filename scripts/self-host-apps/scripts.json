@@ -212,8 +212,8 @@
   },
   {
     "name": "self-host-apps:apply-qa-overrides",
-    "command": "node scripts/self-host-apps/apply-qa-overrides.mjs --file scripts/self-host-apps/batches/YYYY-MM-DD-qa-reviewed.json --dry-run",
-    "purpose": "Apply reviewed app corrections and append their source URLs."
+    "command": "npm run self-host-apps:apply-qa-overrides -- --environment development --file scripts/self-host-apps/batches/YYYY-MM-DD-qa-reviewed.json --dry-run",
+    "purpose": "Apply reviewed app corrections and append their source URLs. --dry-run rolls back; production requires --environment production --confirm stack127-production, including previews."
   },
   {
     "name": "self-host-apps:apply-artifact-cleanup",
@@ -229,5 +229,10 @@
     "name": "self-host-apps:sync-local-to-prod",
     "command": "npm run self-host-apps:sync-local-to-prod -- --confirm-reviewed-push --dry-run",
     "purpose": "Exceptional guarded upsert from reviewed local data; never drafts missing production rows by default."
+  },
+  {
+    "name": "self-host-apps:refresh-popularity",
+    "command": "npm run self-host-apps:refresh-popularity -- --environment development --all",
+    "purpose": "Preview published app popularity and missing releases from stored facts; --slug selects one app, --apply writes. Production requires --confirm stack127-production."
   }
 ]

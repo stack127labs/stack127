@@ -24,10 +24,12 @@ async function fixture(t, work) {
       alter table github_projects_fixture drop column if exists last_attempt_at cascade,
         drop column if exists consecutive_failures;
       create temporary table self_host_apps_fixture (
-        slug text primary key, source_code_url text, github_owner text, github_repo text, github_project_id uuid,
+        id uuid default gen_random_uuid() primary key, slug text unique, name text, source_code_url text, github_owner text, github_repo text, github_project_id uuid,
         source_code_host text default 'github', published boolean default true,
         source_model public.self_host_app_source_model default 'unknown',
         license text, license_spdx_id text, license_type public.self_host_app_license_type default 'unknown',
+        popularity_score integer default 0, popularity_basis text[] default '{}', popularity_checked_at timestamptz,
+        release_version text, release_published_at timestamptz, release_checked_at timestamptz,
         maintenance_status text, data_source_urls text[], data_checked_at timestamptz, data_confidence text, updated_at timestamptz
       ) on commit drop;
       create temporary table terminal_apps (
@@ -38,6 +40,7 @@ async function fixture(t, work) {
     `);
     let schemaChecks = 0;
     const isolated = { query(sql, params) {
+      if (/^(begin|commit|rollback)$/i.test(sql.trim())) return Promise.resolve({rows:[],rowCount:0});
       if (sql.includes("from pg_attribute")) schemaChecks++;
       return client.query(sql.replaceAll("public.github_projects", "pg_temp.github_projects_fixture")
         .replaceAll("public.self_host_apps", "pg_temp.self_host_apps_fixture")
@@ -173,6 +176,16 @@ test("the shared queue unions published CLI projects, deduplicates memberships, 
       "A CLI slug must not update an unrelated self-host app with the same slug");
     assert.deepEqual((await client.query("select maintenance_status from pg_temp.terminal_apps where published and slug in ('older','cli-alias')")).rows.map(row => row.maintenance_status), ["active", "active"]);
     const shared = rows.find(row => row.github_repo === "failed");
+    await writeRepositoryFacts(isolated, shared, { nameWithOwner: 'example/failed', stargazerCount: 5760,
+      latestRelease: {tagName:'v1',publishedAt:recoveredAt} }, recoveredAt, false);
+    assert.equal((await client.query("select count(*)::int n from self_host_apps_fixture where slug in ('also-failed','failed') and popularity_score=80 and release_version='v1'")).rows[0].n, 1);
+    assert.equal((await client.query("select count(*)::int n from self_host_apps_fixture where slug in ('also-failed','failed') and release_version='v1'")).rows[0].n, 2);
+    assert.deepEqual((await client.query("select popularity_score,popularity_basis from self_host_apps_fixture where slug='also-failed'")).rows[0],
+      {popularity_score:0,popularity_basis:[]}, 'The second app gets the release but no repository star score');
+    const appBefore = (await client.query("select *, xmin::text from self_host_apps_fixture where slug='failed'")).rows[0];
+    await writeRepositoryFacts(isolated, shared, { nameWithOwner: 'example/failed', stargazerCount: 5760,
+      latestRelease: {tagName:'v1',publishedAt:recoveredAt} }, attempt, false);
+    assert.deepEqual((await client.query("select *, xmin::text from self_host_apps_fixture where slug='failed'")).rows[0], appBefore);
     await writeFailureAttempt(isolated, shared, attempt, false);
     const retryQueue = (await rowsToRefresh(isolated, { "published-only": true, all: true })).map(row => row.github_repo);
     assert.ok(retryQueue.indexOf("failed") > retryQueue.indexOf("older"));

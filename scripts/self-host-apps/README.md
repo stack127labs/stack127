@@ -33,7 +33,7 @@ Discovery stores raw evidence. It cannot publish or assign final categories, sum
 - `refresh-github.mjs`, `refresh-source-host.mjs`: mutable source-host facts only.
 - `qa-gate.mjs`, `qa-report.mjs`, `audit-data-quality.mjs`: publication quality.
 - `audit-summaries.mjs`, `audit-links*.mjs`, `icon-integrity.mjs`: content checks.
-- `apply-qa-overrides.mjs`: researched corrections.
+- `apply-qa-overrides.mjs`: researched corrections. Defaults to development; use `--environment production --confirm stack127-production` for production, including `--dry-run`. Preview rolls back; omit `--dry-run` to commit.
 
 ## Database direction
 

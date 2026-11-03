@@ -42,6 +42,7 @@
     "self-host-apps:release-candidate-batch": "node scripts/self-host-apps/release-candidate-batch.mjs",
     "self-host-apps:collect-github-evidence": "node scripts/self-host-apps/collect-github-evidence.mjs",
     "self-host-apps:apply-candidate-review": "node scripts/self-host-apps/apply-candidate-review.mjs",
+    "self-host-apps:refresh-popularity": "node scripts/self-host-apps/refresh-popularity.mjs",
     "self-host-apps:refresh-github": "node scripts/self-host-apps/refresh-github.mjs",
     "self-host-apps:refresh-gitlab": "node scripts/self-host-apps/refresh-source-host.mjs --host gitlab",
     "self-host-apps:refresh-codeberg": "node scripts/self-host-apps/refresh-source-host.mjs --host codeberg",

@@ -1,0 +1,56 @@
+{
+  "reviewed_at": "2026-11-03",
+  "scope": "Published apps that failed the 2026-11-02 source-host refresh: corrected repository addresses, host types, and facts the official repository contradicts. Phice is proposed separately in 2026-11-03-repository-link-fixes-phice-unpublish-proposal.json.",
+  "apps": [
+    {
+      "slug": "lichenmarkdown",
+      "review_scope": "partial",
+      "source_code_url": "https://codeberg.org/ukrudt-net/lichen-markdown",
+      "release_url": "https://codeberg.org/ukrudt-net/lichen-markdown/releases",
+      "publisher_url": "https://codeberg.org/ukrudt-net",
+      "license": "MIT License",
+      "license_type": "permissive",
+      "license_spdx_id": "MIT",
+      "expected": {
+        "source_code_url": "https://codeberg.org/ukrudt.net/lichen-markdown",
+        "release_url": "https://codeberg.org/ukrudt.net/lichen-markdown/releases",
+        "publisher_url": "https://github.com/ukrudt.net",
+        "license": "GNU Affero General Public License v3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0"
+      },
+      "data_source_urls": [
+        "https://codeberg.org/ukrudt-net/lichen-markdown",
+        "https://codeberg.org/ukrudt-net/lichen-markdown/raw/branch/main/LICENSE",
+        "https://codeberg.org/ukrudt-net/lichen-markdown/raw/branch/main/README.md",
+        "https://raw.githubusercontent.com/YunoHost-Apps/lichenmarkdown_ynh/master/manifest.toml"
+      ]
+    },
+    {
+      "slug": "autobd",
+      "review_scope": "partial",
+      "source_code_url": "https://forge.apps.education.fr/educajou/autobd",
+      "expected": {
+        "source_code_url": "https://forge.aeif.fr/achampollion/autobd"
+      },
+      "data_source_urls": [
+        "https://forge.apps.education.fr/educajou/autobd",
+        "https://educajou.forge.apps.education.fr/autobd/",
+        "https://raw.githubusercontent.com/YunoHost-Apps/autobd_ynh/master/manifest.toml"
+      ]
+    },
+    {
+      "slug": "benevalibre",
+      "review_scope": "partial",
+      "source_code_host": "other",
+      "expected": {
+        "source_code_host": "gitlab"
+      },
+      "data_source_urls": [
+        "https://benevalibre.org/site/code-source-du-logiciel/",
+        "https://app.benevalibre.org/docs/administration/index.html",
+        "https://raw.githubusercontent.com/YunoHost-Apps/benevalibre_ynh/master/manifest.toml"
+      ]
+    }
+  ]
+}
