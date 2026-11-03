@@ -19,7 +19,7 @@ import path from "node:path";
 
 const BRANCH = "chore/tld-directory-refresh";
 const DATA_DIR = "lib/domain/data";
-const DATA_FILES = ["tlds.json", "rdap-bootstrap.json", "whois-servers.json", "whois-reviewed.json", "tld-directory.json"];
+const DATA_FILES = ["tlds.json", "rdap-bootstrap.json", "rdap-overrides.json", "whois-servers.json", "whois-reviewed.json", "tld-directory.json"];
 // These move on most runs without any fact changing.
 const VOLATILE_KEYS = new Set(["fetchedAt", "version", "publication", "tldListVersion"]);
 
@@ -71,17 +71,20 @@ function pullRequestBody(tree, changed) {
 }
 
 function publish(tree, changed) {
-  run("git", ["switch", "--quiet", "-c", BRANCH], tree);
+  // Read the old list for the description before the commit moves HEAD.
+  const body = pullRequestBody(tree, changed);
+  const title = `Update TLD directory data (${new Date().toISOString().slice(0, 7)})`;
   run("git", ["add", "--", ...DATA_FILES.map((file) => path.posix.join(DATA_DIR, file))], tree);
-  const month = new Date().toISOString().slice(0, 7);
-  run("git", ["commit", "--quiet", "-m", `Update TLD directory data (${month})`], tree);
+  run("git", ["commit", "--quiet", "-m", title], tree);
+  // Stay detached: a local branch would outlive this checkout and block next month's run.
   run("git", ["push", "--quiet", "--force", "origin", `HEAD:refs/heads/${BRANCH}`], tree);
   const open = run("gh", ["pr", "list", "--head", BRANCH, "--state", "open", "--json", "number", "--jq", "length"], tree).trim();
   if (open !== "0") {
+    run("gh", ["pr", "edit", BRANCH, "--title", title, "--body", body], tree);
     console.log(`Updated the open pull request on ${BRANCH}.`);
     return;
   }
-  const url = run("gh", ["pr", "create", "--base", "main", "--head", BRANCH, "--title", `Update TLD directory data (${month})`, "--body", pullRequestBody(tree, changed)], tree).trim();
+  const url = run("gh", ["pr", "create", "--base", "main", "--head", BRANCH, "--title", title, "--body", body], tree).trim();
   console.log(`Opened ${url}`);
 }
 
