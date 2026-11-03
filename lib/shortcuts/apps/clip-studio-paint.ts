@@ -27,7 +27,7 @@ export const clipStudioPaint: AppShortcuts = {
     {
       id: "files-and-settings",
       title: "Files and settings",
-      intro: "Save As has three factory alternatives.",
+      intro: "Create, open, save, and print files, and reach settings. Save As has three factory alternatives.",
       shortcuts: [
         mod("new", "Create a new file", ["Ctrl", "N"]),
         mod("open", "Open a file", ["Ctrl", "O"]),

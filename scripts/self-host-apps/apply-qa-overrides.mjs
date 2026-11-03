@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 import { isDeepStrictEqual } from 'node:util';
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
+import { databaseOptions } from "./lib/environment.mjs";
 import { appColumns, appColumnTypes, validateRecord } from "./lib/schema.mjs";
 import { guardPartialCorrection, guardInstallCorrection, mergeReviewedInstallOptions } from "./lib/reviewed-corrections.mjs";
 import { installMethods, installOptionsToRow } from "./lib/streamlined-storage.mjs";
@@ -150,8 +151,9 @@ async function applyRecord(client, record, dryRun) {
 
 async function main() {
   const args = parseArgs();
+  const databaseUrl = databaseOptions(args);
   if (!args.file) {
-    console.error("Usage: node scripts/self-host-apps/apply-qa-overrides.mjs --file overrides.json [--dry-run]");
+    console.error("Usage: node scripts/self-host-apps/apply-qa-overrides.mjs --environment development|production [--confirm stack127-production] --file overrides.json [--dry-run]");
     process.exit(1);
   }
 
@@ -177,7 +179,7 @@ async function main() {
       await client.query("rollback");
       throw error;
     }
-  }, args["database-url"]);
+  }, databaseUrl);
 }
 
 main().catch((error) => {

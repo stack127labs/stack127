@@ -12,7 +12,7 @@ export const sevenZip: AppShortcuts = {
     "7-Zip 26.02 File Manager defaults for Windows. These keys apply to the graphical File Manager, not the 7z command-line program or Explorer context menus.",
   sourceUrl: "https://github.com/ip7z/7zip/blob/26.02/CPP/7zip/UI/FileManager/PanelKey.cpp",
   sourceLabel: "7-Zip 26.02 File Manager key handler",
-  lastVerified: "2026-08-31",
+  lastVerified: "2026-11-03",
   groups: [
     {
       id: "files-and-folders",
@@ -42,18 +42,12 @@ export const sevenZip: AppShortcuts = {
     {
       id: "clipboard-and-selection",
       title: "Clipboard and selection",
-      intro: "Use Windows clipboard commands or 7-Zip's numeric keypad bindings to build and change a selection.",
+      intro: "Copy item names as text, or use 7-Zip's numeric keypad bindings to build and change a selection.",
       shortcuts: [
-        { id: "cut", action: "Cut the selected items", keys: win(["Ctrl", "X"]) },
         {
           id: "copy",
-          action: "Copy the selected items to the clipboard",
+          action: "Copy the selected item names to the clipboard as text",
           keys: [{ platform: "windows", keys: ["Ctrl", "C"], alternatives: [["Ctrl", "Insert"]] }],
-        },
-        {
-          id: "paste",
-          action: "Paste items from the clipboard",
-          keys: [{ platform: "windows", keys: ["Ctrl", "V"], alternatives: [["Shift", "Insert"]] }],
         },
         { id: "select-all", action: "Select all items", keys: [{ platform: "windows", keys: ["Ctrl", "A"], alternatives: [["Shift", "Numpad +"]] }] },
         { id: "select-mask", action: "Select items by a name mask", keys: win(["Numpad +"]) },

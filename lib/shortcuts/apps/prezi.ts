@@ -1,11 +1,11 @@
 import { perPlatform } from "../build.ts";
 import type { AppShortcuts, Shortcut } from "../types.ts";
 
-const platforms = ["windows", "macos", "linux"] as const;
-const dual = (id: string, action: string, windowsLinux: string[], mac: string[], note?: string): Shortcut => ({
+const platforms = ["windows", "macos"] as const;
+const dual = (id: string, action: string, windows: string[], mac: string[], note?: string): Shortcut => ({
   id,
   action,
-  keys: perPlatform(platforms, { windows: windowsLinux, linux: windowsLinux, macos: mac }),
+  keys: perPlatform(platforms, { windows, macos: mac }),
   ...(note ? { note } : {}),
 });
 
@@ -15,7 +15,7 @@ export const prezi: AppShortcuts = {
   category: "Presentation",
   platforms: [...platforms],
   versionContext:
-    "Mac uses Cmd and Option where Windows uses Ctrl and Alt. Some keys act differently while you present.",
+    "Prezi Present editor on Windows and Mac. Some modifier keys differ between the two, so check the row for your platform.",
   sourceUrl: "https://support.prezi.com/hc/en-us/articles/360003499013-How-to-use-keyboard-shortcuts-in-Prezi-Present",
   sourceLabel: "Prezi Present keyboard shortcuts",
   lastVerified: "2026-09-01",
@@ -23,7 +23,7 @@ export const prezi: AppShortcuts = {
     {
       id: "editing",
       title: "Editing",
-      intro: "Select, copy, paste, group, duplicate, and undo changes while editing a Prezi presentation.",
+      intro: "Select, copy, paste, group, duplicate, find, and undo changes while editing a Prezi presentation.",
       shortcuts: [
         dual("select-all", "Select all", ["Ctrl", "A"], ["Cmd", "A"]),
         dual("copy", "Copy", ["Ctrl", "C"], ["Cmd", "C"]),
@@ -31,33 +31,36 @@ export const prezi: AppShortcuts = {
         dual("paste", "Paste", ["Ctrl", "V"], ["Cmd", "V"]),
         dual("undo", "Undo", ["Ctrl", "Z"], ["Cmd", "Z"]),
         dual("group", "Group selected objects", ["Ctrl", "G"], ["Cmd", "G"]),
+        dual("ungroup", "Ungroup selected objects", ["Ctrl", "Shift", "G"], ["Cmd", "Shift", "G"]),
         dual("duplicate", "Duplicate the selection", ["Ctrl", "D"], ["Cmd", "D"]),
-        dual("delete", "Delete the selection", ["Delete"], ["Delete"]),
-        dual("escape", "Cancel the current selection or action", ["Escape"], ["Escape"]),
+        dual("find-replace", "Find and replace text", ["Ctrl", "F"], ["Cmd", "F"]),
+        dual("delete", "Delete the selection", ["Backspace"], ["Backspace"]),
       ],
     },
     {
       id: "canvas-and-tools",
       title: "Canvas and tools",
-      intro: "Move around the Prezi canvas and switch between the hand tool and selection work without repeatedly opening the toolbar.",
+      intro: "Move around the Prezi canvas and switch to the hand tool without repeatedly opening the toolbar.",
       shortcuts: [
         dual("hand-tool", "Toggle the hand tool", ["H"], ["H"]),
         dual("pan", "Pan the canvas", ["Space"], ["Space"], "Hold Space while dragging the canvas."),
         dual("zoom", "Zoom the canvas", ["Mouse wheel"], ["Mouse wheel"]),
-        dual("left-right", "Move through the presentation path", ["Left", "Right"], ["Left", "Right"]),
-        dual("center-selection", "Center the selected object", ["Shift", "1"], ["Shift", "1"]),
+        {
+          id: "left-right",
+          action: "Move through the presentation path",
+          keys: perPlatform(platforms, { windows: ["Left"], macos: ["Left"] }).map((entry) => ({ ...entry, alternatives: [["Right"]] })),
+        },
       ],
     },
     {
       id: "transform",
       title: "Object transformation",
-      intro: "Use modifier keys while dragging handles to change snapping, resize from the center, or keep an object proportional.",
+      intro: "Use modifier keys while dragging to change snapping, resize from the center, rotate, or select several objects.",
       shortcuts: [
-        dual("disable-snapping", "Disable snapping while transforming", ["Alt", "Click-drag"], ["Option", "Click-drag"]),
-        dual("resize-center", "Resize from an object's center", ["Ctrl", "Drag corner"], ["Cmd", "Drag corner"]),
-        dual("constrain", "Constrain a transformation", ["Shift", "Drag"], ["Shift", "Drag"]),
-        dual("move-object", "Move an object", ["Drag"], ["Drag"]),
-        dual("rotate-object", "Rotate an object", ["Drag rotation handle"], ["Drag rotation handle"]),
+        dual("disable-snapping", "Disable snapping while dragging transformation handles", ["Alt", "Drag"], ["Cmd", "Drag"]),
+        dual("resize-center", "Resize from an object's center", ["Ctrl", "Drag corner"], ["Option", "Drag corner"]),
+        dual("select-rectangle", "Draw a rectangle to select multiple objects", ["Shift", "Drag"], ["Shift", "Drag"]),
+        dual("rotate-object", "Rotate a selected object", ["Ctrl", "Alt", "Click"], ["Cmd", "Click corner"]),
       ],
     },
   ],

@@ -1,0 +1,19 @@
+{
+  "reviewed_at": "2026-11-03",
+  "scope": "PROPOSAL, needs owner approval. Unpublish Phice and keep its row: the official repository and Docker image are gone and no official successor was found.",
+  "apps": [
+    {
+      "slug": "phice",
+      "review_scope": "partial",
+      "published": false,
+      "expected": {
+        "published": true
+      },
+      "data_source_urls": [
+        "https://codeberg.org/api/v1/repos/c4ffe14e/phice",
+        "https://codeberg.org/api/v1/users/c4ffe14e/repos",
+        "https://hub.docker.com/r/c4ffe14e/phice"
+      ]
+    }
+  ]
+}

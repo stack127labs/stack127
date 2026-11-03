@@ -78,16 +78,18 @@ for (const status of [200, 403, 404]) {
     });
     const writes = [];
     const client = { async query(sql, values) {
-      if (sql.includes("select id, slug")) return { rows: [{ id: "app-id", slug: "gitlab", source_code_url: "https://gitlab.com/gitlab-org/gitlab" }] };
-      writes.push(values);
-      return { rows: [] };
+      if (sql.includes("select id, slug, source_code_url")) return { rows: [{ id: "app-id", slug: "gitlab", source_code_url: "https://gitlab.com/gitlab-org/gitlab" }] };
+      if (sql.includes('select app.*')) return { rows: [{ id:'app-id', slug:'gitlab', star_recipient:true, popularity_score:0, popularity_basis:[] }] };
+      if (sql.includes('jsonb_populate_recordset')) writes.push(...JSON.parse(values[0]));
+      return { rows: [], rowCount:1 };
     } };
     const report = await refreshSourceHost(client, { host: "gitlab" });
     assert.equal(report.refreshed, 1);
     assert.equal(report.failed, 0);
     assert.equal(writes.length, 1);
-    assert.equal(writes[0][3], 123);
-    assert.equal(writes[0][19], null);
+    assert.equal(writes[0].source_stars, 123);
+    assert.equal(writes[0].popularity_score, 50);
+    assert.equal(writes[0].source_latest_release, undefined);
   });
 }
 

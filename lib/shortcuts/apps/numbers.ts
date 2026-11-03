@@ -16,7 +16,7 @@ export const numbers: AppShortcuts = {
     "Numbers for Mac. System Settings can change some shortcuts, and portable Macs may need Fn for function keys.",
   sourceUrl: "https://support.apple.com/guide/numbers/keyboard-shortcuts-tana45192591/mac",
   sourceLabel: "Apple Numbers keyboard shortcuts for Mac",
-  lastVerified: "2026-09-01",
+  lastVerified: "2026-11-03",
   groups: [
     {
       id: "files-and-window",

@@ -28,7 +28,7 @@ export const shortcutAppCatalog = [
     "platforms": [
       "windows"
     ],
-    "shortcutCount": 46
+    "shortcutCount": 44
   },
   {
     "slug": "ableton-live",
@@ -426,7 +426,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 123
+    "shortcutCount": 121
   },
   {
     "slug": "cinema-4d",
@@ -1585,10 +1585,9 @@ export const shortcutAppCatalog = [
     "category": "Presentation",
     "platforms": [
       "windows",
-      "macos",
-      "linux"
+      "macos"
     ],
-    "shortcutCount": 19
+    "shortcutCount": 18
   },
   {
     "slug": "pro-tools",
@@ -1700,7 +1699,7 @@ export const shortcutAppCatalog = [
       "windows",
       "macos"
     ],
-    "shortcutCount": 31
+    "shortcutCount": 32
   },
   {
     "slug": "scrivener",
