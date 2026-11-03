@@ -60,7 +60,7 @@ export const prezi: AppShortcuts = {
         dual("disable-snapping", "Disable snapping while dragging transformation handles", ["Alt", "Drag"], ["Cmd", "Drag"]),
         dual("resize-center", "Resize from an object's center", ["Ctrl", "Drag corner"], ["Option", "Drag corner"]),
         dual("select-rectangle", "Draw a rectangle to select multiple objects", ["Shift", "Drag"], ["Shift", "Drag"]),
-        dual("rotate-object", "Rotate a selected object", ["Ctrl", "Alt", "Click"], ["Cmd", "Click"], "On Mac, click the object's corner."),
+        dual("rotate-object", "Rotate a selected object", ["Ctrl", "Alt", "Click"], ["Cmd", "Click corner"]),
       ],
     },
   ],

@@ -55,7 +55,7 @@ export const superhuman: AppShortcuts = {
         { id: "discard-draft", action: "Discard a draft", keys: combo(platforms, ["Ctrl", "Shift", ","], ["Cmd", "Shift", ","]) },
         { id: "send", action: "Send", keys: combo(platforms, ["Ctrl", "Enter"], ["Cmd", "Enter"]) },
         { id: "send-done", action: "Send and mark done", keys: combo(platforms, ["Ctrl", "Shift", "Enter"], ["Cmd", "Shift", "Enter"]) },
-        { id: "instant-send", action: "Send immediately", keys: perPlatform(platforms, { macos: ["Cmd", "Shift", "Z"] }) },
+        { id: "instant-send", action: "Send immediately", keys: perPlatform(platforms, { windows: ["Shift", "Z"], macos: ["Cmd", "Shift", "Z"] }) },
       ],
     },
     {
