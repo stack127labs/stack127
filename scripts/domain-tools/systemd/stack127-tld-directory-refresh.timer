@@ -1,0 +1,10 @@
+[Unit]
+Description=Monthly TLD directory check on homelab
+
+[Timer]
+OnCalendar=*-*-01 04:30:00 UTC
+Persistent=true
+Unit=stack127-tld-directory-refresh.service
+
+[Install]
+WantedBy=timers.target

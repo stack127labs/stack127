@@ -82,6 +82,20 @@ Record a `checked_at` per row and show it. A directory that does not say when it
 6. What DNSSEC at the TLD level does and does not mean.
 7. Sources and refresh cadence, stated plainly.
 
+## Refresh
+
+A homelab timer runs `scripts/domain-tools/tld-directory-monthly.mjs` on the 1st of each month at 04:30 UTC. It refreshes `tlds.json`, `rdap-bootstrap.json`, `whois-servers.json`, `whois-reviewed.json`, and `tld-directory.json` in a throwaway checkout of `main`. If a fact changed, it opens one pull request on `chore/tld-directory-refresh`. If only dates and version numbers moved, it does nothing. A failed run shows in the automation monitor.
+
+The job doesn't add RDAP or WHOIS servers. A new ending that needs one still gets a manual review through `rdap-overrides.json` or `whois-reviewed.json`.
+
+Install on homelab from the main checkout:
+
+```bash
+cp scripts/domain-tools/systemd/stack127-tld-directory-refresh.* ~/.config/systemd/user/
+systemctl --user daemon-reload
+systemctl --user enable --now stack127-tld-directory-refresh.timer
+```
+
 ## Placement
 
 The canonical route is `/tld-directory`. It can appear in the domain collection and any future reference collection without changing its URL or ownership folder.

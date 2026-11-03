@@ -1,0 +1,14 @@
+[Unit]
+Description=Check the TLD directory against IANA and open a pull request if facts changed
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/data/projects/stack127
+Environment=PATH=/home/teja/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=NODE_NO_WARNINGS=1
+ExecStart=/usr/bin/node scripts/domain-tools/tld-directory-monthly.mjs
+TimeoutStartSec=1h
+Nice=15
+MemoryMax=1G

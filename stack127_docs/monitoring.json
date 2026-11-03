@@ -43,6 +43,7 @@
     {"key": "bloxodes-vps/basebuddy-demo-reset", "group": "Basebuddy", "name": "Basebuddy demo reset", "about": "Every night, wipes and re-seeds the public Basebuddy demo so visitors start from clean sample data."},
     {"key": "bloxodes-vps/collector", "group": "Basebuddy", "name": "Basebuddy GitHub traffic", "about": "Every 6 hours, saves GitHub traffic numbers for the Basebuddy repository, because GitHub only keeps 14 days."},
     {"key": "bloxodes-vps/umami-selfhost-svdgnp-github-collector-1", "group": "Basebuddy", "name": "Umami GitHub collector", "about": "A container that sends GitHub traffic numbers to Umami analytics. It has been restarting in a loop."},
-    {"key": "homelab/stack127-shared-env", "group": "Developer setup", "name": "Share env files with worktrees", "about": "Every 30 seconds, keeps stack127's private env files linked into every worktree on the homelab."}
+    {"key": "homelab/stack127-shared-env", "group": "Developer setup", "name": "Share env files with worktrees", "about": "Every 30 seconds, keeps stack127's private env files linked into every worktree on the homelab."},
+    {"key": "homelab/stack127-tld-directory-refresh", "group": "Releases and checks", "name": "TLD directory check", "about": "On the 1st of each month at 04:30 UTC (10:00 IST), checks the TLD directory against IANA's data and opens a pull request only if a fact changed.", "impact": "New, removed, or changed domain endings stay out of /tld-directory until someone refreshes it by hand."}
   ]
 }
