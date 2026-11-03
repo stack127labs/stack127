@@ -90,6 +90,14 @@ test('repository roots elect one published star row and preserve variants across
       select gen_random_uuid(),value->>0,value->>1,value->>2,(value->>3)::integer,
         array(select jsonb_array_elements_text(value->4)),(value->>5)::boolean,200000,'v1','github','unknown'
       from jsonb_array_elements($1::jsonb)`,[JSON.stringify(seeds)]);
+    await client.query(`insert into apps_fixture
+      (id,slug,name,source_code_url,popularity_score,popularity_basis,published,source_stars,source_code_host,license_type)
+      select gen_random_uuid(),value->>0,value->>0,value->>1,0,'{}',true,5000,'gitlab','unknown'
+      from jsonb_array_elements($1::jsonb)`,[JSON.stringify([
+        ['duniter','https://git.duniter.org/nodes/typescript/duniter'],
+        ['gitlab-file','https://gitlab.com/group/project/-/blob/main/README.md'],
+        ['gitlab-old-tree','https://gitlab.com/group/project/tree/main'],
+      ])]);
     const isolated = {query(sql,params) {
       if (/^(begin(?: read only)?|commit|rollback)$/i.test(sql.trim())) return Promise.resolve({rows:[]});
       return client.query(sql.replaceAll('public.self_host_apps','pg_temp.apps_fixture').replaceAll('public.github_projects','pg_temp.projects_fixture'),params);
@@ -105,6 +113,7 @@ test('repository roots elect one published star row and preserve variants across
       'aquacomputer-d5next':24,'tree-link':38,'issues-link':40,
       dify:100,'dify-ai':0,comfyui:100,'comfyui-intel-xpu':18,
       syncthing:100,'binhex-syncthing':70,established:100,project:0,'long-name':0,'short-name':100,alpha:100,zeta:0,draft:0,
+      duniter:80,'gitlab-file':0,'gitlab-old-tree':0,
     })) assert.equal(state[slug].popularity_score,score,slug);
     assert.equal(state['comfyui-intel-xpu'].release_version,'v1');
     // The elected row now has source_stars; re-running is a complete no-op.

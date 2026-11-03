@@ -1,9 +1,10 @@
 // Rank the complete published catalogue before a caller filters by slug or host.
-// A repository root has exactly owner/repo after the hostname. Deeper links
-// describe a file, directory, or other page inside somebody else's repository.
+// A repository root is owner/repo after the hostname. GitLab also nests projects in
+// subgroups, such as nodes/typescript/duniter. Other deeper links describe a file,
+// directory, or other page inside somebody else's repository.
 export const starRecipientCtes = `
   star_repository_urls as (
-    select id, slug, name, popularity_basis,
+    select id, slug, name, popularity_basis, source_code_host,
       lower(regexp_replace(regexp_replace(
         split_part(split_part(btrim(source_code_url), '#', 1), '?', 1),
         '/+$', ''), '[.]git$', '', 'i')) as repository_key
@@ -13,6 +14,9 @@ export const starRecipientCtes = `
       regexp_replace(regexp_replace(repository_key, '^.*/', ''), '[^a-z0-9]', '', 'g') as repo_name
     from star_repository_urls
     where repository_key ~ '^https?://[^/]+/[^/]+/[^/]+$'
+      or (source_code_host = 'gitlab'
+        and repository_key ~ '^https?://[^/]+/[^/]+(/[^/]+)+$'
+        and repository_key !~ '/(-|blob|tree|raw|issues|merge_requests|commits?|releases|wikis?)(/|$)')
   ), star_recipients as (
     select id from (
       select id, row_number() over (partition by repository_key order by
