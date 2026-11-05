@@ -404,7 +404,7 @@ A database edit still queues an event. The `cache-worker` doesn't refresh pages.
 
 The workflow joins the `stack127-production` concurrency group, then:
 
-1. Checks out current `main` and checks that the live backend health SHA matches it.
+1. Checks out current `main` and checks that the live backend runs the same code. The health SHA must match `main`, or be behind it only by files the release ignores (the `paths-ignore` list in `stack127-release-e2e.yml`).
 2. Captures the queued event versions and their source fingerprints in one database snapshot.
 3. Builds the full static export, previews it, checks `main` and the backend again, and deploys it.
 4. Checks the public pages byte for byte against the export. Removed pages must return 404.

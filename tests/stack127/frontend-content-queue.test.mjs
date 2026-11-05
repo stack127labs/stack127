@@ -13,7 +13,7 @@ import { targetsForEvents } from "../../scripts/stack127/cache/targets.mjs";
 import { cacheBodyDigest } from "../../scripts/stack127/cache/refresh.mjs";
 import {
   acknowledgeSnapshot, checkCurrentRelease, completeRefresh, contentQueueMain, dispatchFrontendRefresh,
-  exportProofs, frontendLatencyMinutes, frontendStatus, refreshApiRecords, refreshCommittedContent,
+  exportProofs, frontendLatencyMinutes, frontendStatus, refreshApiRecords, refreshCommittedContent, releaseIgnoredPaths,
   retrySnapshot, snapshotQueue, verifyPublicAssets, verifyResourcePlannerQueries,
 } from "../../scripts/stack127/frontend/content-queue.mjs";
 
@@ -73,6 +73,49 @@ test("release checks reject stale main and a different backend revision", async 
     await assert.rejects(checkCurrentRelease({ sha, token: "read", fetchImplementation: async url =>
       url.includes("api.github.com") ? json({ object: { sha: mainSha } }) : json({ ok: true, build: { sha: backendSha } }) }), expected);
   }
+});
+
+test("a backend behind main by release-ignored files still runs current code", async () => {
+  const live = "d".repeat(40);
+  const check = (compare, health = { ok: true, build: { sha: live } }) => checkCurrentRelease({ sha, token: "read", fetchImplementation: async url => {
+    if (url.includes("/compare/")) {
+      assert.ok(url.endsWith(`/compare/${live}...${sha}`));
+      return typeof compare === "number" ? json({}, compare) : json(compare);
+    }
+    return url.includes("api.github.com") ? json({ object: { sha } }) : json(health);
+  } });
+  const ahead = (...filenames) => ({ status: "ahead", files: filenames.map(filename => ({ filename })) });
+
+  await check(ahead("AGENTS.md", "docs/deep/notes.md", "content_docs/a.csv", "skills/x/run.sh", "stack127_docs/a.txt", "stack127_records/a.json", "tests/a.mjs"));
+
+  for (const compare of [
+    ahead("AGENTS.md", "app/page.tsx"),
+    ahead("content/page.mdx"),
+    ahead("skills.json"),
+    { status: "ahead", files: [{ filename: "stack127_docs/moved.ts", previous_filename: "lib/moved.ts" }] },
+    { ...ahead("AGENTS.md"), status: "behind" },
+    { ...ahead("AGENTS.md"), status: "diverged" },
+    { status: "ahead", files: [] },
+    { status: "ahead" },
+    ahead(...Array.from({ length: 300 }, (_, index) => `docs/${index}.md`)),
+  ]) await assert.rejects(check(compare), /live backend/);
+
+  await assert.rejects(check(404), /HTTP 404/);
+  await assert.rejects(check(ahead("AGENTS.md"), { ok: false, build: { sha: live } }), /live backend/);
+  await assert.rejects(check(ahead("AGENTS.md"), { ok: true, build: { sha: "not-a-sha" } }), /live backend/);
+});
+
+test("an exact backend match needs no comparison", async () => {
+  await checkCurrentRelease({ sha, token: "read", fetchImplementation: async url => {
+    assert.equal(url.includes("/compare/"), false);
+    return url.includes("api.github.com") ? json({ object: { sha } }) : json({ ok: true, build: { sha } });
+  } });
+});
+
+test("release-ignored paths match the release workflow", async () => {
+  const workflow = await readFile(new URL("../../.github/workflows/stack127-release-e2e.yml", import.meta.url), "utf8");
+  const block = workflow.match(/paths-ignore:\n((?:\s+- .+\n)+)/)[1];
+  assert.deepEqual([...block.matchAll(/- "(.+)"/g)].map(match => match[1]), releaseIgnoredPaths);
 });
 
 function captureClient(events = [event]) {
