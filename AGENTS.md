@@ -137,6 +137,7 @@ Scheduled ad-networks collectors, syncs, snapshots, and backups run on OVH. Week
 - Give the user the current Tailscale URL, not localhost. Read `stack127_docs/homelab-development.md`.
 - Split secrets stay in `.env.local`, `.env.database`, `.env.deploy`, `.env.analytics`, `.env.homelab`, and `.env.repos`.
 - When you add, move, rename, or remove a scheduled job, workflow, or server timer, update its entry in `stack127_docs/monitoring.json` in the same change. Read `stack127_docs/automation-monitor.md`.
+- Before you add or change anything that runs without a person (a timer, cron job, worker, T3 schedule, or scheduled workflow), read `workflow/runners.md` in the Cockpit checkout (`/srv/data/projects/cockpit` on the homelab, `~/projects/cockpit` on the Macs) and follow it. It has to survive restarts, crashes, and overloads.
 
 ## Production
 
